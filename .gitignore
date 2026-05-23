@@ -1,0 +1,21 @@
+# Local logs and output
+dman_logs/
+dman_pro_backtest.csv
+dman_signals_*.json
+dman_win_rate.json
+dman_alpaca_sync.json
+dman_positions.json
+
+# Local Windows scheduled task wrappers (not needed in cloud)
+dman_run.ps1
+dman_eod.ps1
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db

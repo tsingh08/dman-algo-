@@ -1,0 +1,53 @@
+name: DMan PRO Scanner
+
+on:
+  schedule:
+    # Every 30 min, 13:30–20:00 UTC = 9:30am–4:00pm EDT (market hours)
+    # Python script has its own market-hours guard as a safety net
+    - cron: '30 13 * * 1-5'
+    - cron: '0,30 14,15,16,17,18,19 * * 1-5'
+    - cron: '0 20 * * 1-5'
+  workflow_dispatch:   # manual trigger from GitHub UI
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install yfinance pandas numpy requests anthropic
+
+      - name: Run DMan PRO Scanner
+        env:
+          TELEGRAM_TOKEN:    ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:  ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONIOENCODING:  utf-8
+        run: |
+          # Check market hours before running (ET timezone)
+          python - <<'EOF'
+          from datetime import datetime
+          import zoneinfo, sys
+          ET = zoneinfo.ZoneInfo("America/New_York")
+          now = datetime.now(ET)
+          t = now.hour * 100 + now.minute
+          if now.weekday() >= 5 or not (930 <= t <= 1600):
+              print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")
+              sys.exit(0)
+          import subprocess, sys as _sys
+          result = subprocess.run(
+              [sys.executable, "dman_algo.py", "--mode", "scan", "--universe", "all", "--ai"],
+              capture_output=False
+          )
+          sys.exit(result.returncode)
+          EOF

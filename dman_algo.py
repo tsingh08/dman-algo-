@@ -85,6 +85,12 @@ ENABLE_VOL_BREAKOUT = False
 # EMA Pullback disabled — 33.3% WR constantly trips the 3-consec-loss halt; avg +0.77% not worth it
 ENABLE_EMA_PULLBACK = False
 
+# Gap & Short disabled — 40.0% WR / avg +1.51% across 5-trade backtest sample, consistent drag
+ENABLE_GAP_SHORT = False
+
+MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
+MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
+
 ALLOW_SHORTS       = True
 MAX_POSITIONS      = 5
 DAILY_LOSS_LIMIT   = 0.03
@@ -1449,6 +1455,33 @@ def record_daily_pnl(pnl_pct: float) -> None:
         json.dump(data, f)
 
 
+def get_this_month_loss() -> float:
+    """Return this calendar month's realized P&L as a signed % of account. 0.0 if none."""
+    try:
+        with open(MONTHLY_PNL_FILE) as f:
+            data = json.load(f)
+        if data.get("month") != date.today().strftime("%Y-%m"):
+            return 0.0
+        return float(data.get("pnl_pct", 0.0))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return 0.0
+
+
+def record_monthly_pnl(pnl_pct: float) -> None:
+    """Add pnl_pct (signed %) to this month's running P&L file."""
+    month_str = date.today().strftime("%Y-%m")
+    try:
+        with open(MONTHLY_PNL_FILE) as f:
+            data = json.load(f)
+        if data.get("month") != month_str:
+            data = {"month": month_str, "pnl_pct": 0.0}
+    except (FileNotFoundError, json.JSONDecodeError):
+        data = {"month": month_str, "pnl_pct": 0.0}
+    data["pnl_pct"] = round(data["pnl_pct"] + pnl_pct, 4)
+    with open(MONTHLY_PNL_FILE, "w") as f:
+        json.dump(data, f)
+
+
 def get_effective_account() -> float:
     """ACCOUNT_SIZE reduced by today's realized losses from the circuit-breaker file."""
     pnl_pct = get_todays_loss()   # signed %; 0 or negative on loss days
@@ -1941,23 +1974,23 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
             if sig.rr >= MIN_RR:
                 candidates.append(sig)
 
-        # S5: Gap & Short — gap down ≥3.0% from prior close, gap must still be open
-        try:
-            gap_dn = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
-            # Gap is "unfilled" when high-of-day hasn't reclaimed prior close
-            gap_unfilled = float(r["High"]) < float(p["Close"]) * 0.998
-            if (gap_dn >= 3.0 and gap_unfilled and c <= float(r["Open"]) * 1.005
-                    and float(r["RVOL"]) >= 3.0 and float(r["RSI"]) < 45
-                    and float(r["MACD"]) < float(r["MACD_sig"])
-                    and float(r["EMA20"]) < float(r["EMA50"])
-                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-                gap_stop = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
-                sig = _short("Gap & Short", gap_stop, 2.5, 4.0,
-                             reason=f"Gap down -{gap_dn:.1f}% unfilled, RVOL {float(r['RVOL']):.1f}x")
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-        except Exception:
-            pass
+        # S5: Gap & Short — disabled (40% WR / avg +1.51% in backtest, consistent drag)
+        if ENABLE_GAP_SHORT:
+            try:
+                gap_dn = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
+                gap_unfilled = float(r["High"]) < float(p["Close"]) * 0.998
+                if (gap_dn >= 3.0 and gap_unfilled and c <= float(r["Open"]) * 1.005
+                        and float(r["RVOL"]) >= 3.0 and float(r["RSI"]) < 45
+                        and float(r["MACD"]) < float(r["MACD_sig"])
+                        and float(r["EMA20"]) < float(r["EMA50"])
+                        and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                    gap_stop = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
+                    sig = _short("Gap & Short", gap_stop, 2.5, 4.0,
+                                 reason=f"Gap down -{gap_dn:.1f}% unfilled, RVOL {float(r['RVOL']):.1f}x")
+                    if sig.rr >= MIN_RR:
+                        candidates.append(sig)
+            except Exception:
+                pass
 
     if not candidates:
         return None
@@ -2156,6 +2189,15 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
         print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
         print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
+        return []
+
+    # Monthly loss circuit breaker
+    month_loss = get_this_month_loss()
+    if month_loss <= -(MONTHLY_LOSS_LIMIT * 100):
+        print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
+              f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
+        print(f"     Stop trading for the month. Review setups. Reset.\n")
+        send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
         return []
 
     # Daily loss circuit breaker
@@ -2499,6 +2541,7 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                 open_sig._t1_hit      = False
                 open_sig._trail_stop  = sig.stop
                 open_sig._remain_shares = 0
+                open_sig._be1r_set    = False
                 partial_pnl = 0.0
                 eff_equity = max(equity, 5_000)
                 risk_amt   = eff_equity * RISK_PER_TRADE
@@ -2520,6 +2563,21 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                             else float(bar["Low"]) <= sig.target2) and sig._t1_hit
                 hit_time = hold >= 15
 
+                # BE@1R: move stop to entry once price reaches 1R profit (before T1 at 2.5R)
+                be1r_px = (ep + (ep - sig.stop)) if is_lo else (ep - (sig.stop - ep))
+                hit_be1r = (not getattr(sig, "_be1r_set", False)
+                            and not sig._t1_hit
+                            and (float(bar["High"]) >= be1r_px if is_lo
+                                 else float(bar["Low"]) <= be1r_px))
+                if hit_be1r:
+                    sig._trail_stop = ep
+                    sig._be1r_set   = True
+                    continue  # don't exit — just protect the position
+
+                # Stall exit: if no meaningful move after 3 bars, free the capital
+                hit_stall = (hold >= 3 and not sig._t1_hit
+                             and abs(float(bar["Close"]) - ep) / ep * 100 < 0.5)
+
                 # Phase 1: T1 → scale ⅓ off, move stop to breakeven
                 if hit_t1 and not sig._t1_hit:
                     t1px  = sig.target1 * 0.999
@@ -2537,11 +2595,15 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
 
                 if sig._t1_hit:
                     if hit_t2:     exit_px, exit_reason = sig.target2*0.999,  "T2"
-                    elif hit_stop: exit_px, exit_reason = cur_stop*1.005, "STOP(BE)"  # 0.5% slippage on stops
+                    elif hit_stop: exit_px, exit_reason = cur_stop*1.005, "STOP(BE)"
                     elif hit_time: exit_px, exit_reason = float(bar["Close"]), "TIME"
                 else:
-                    if hit_stop:   exit_px, exit_reason = cur_stop*1.005, "STOP"      # 0.5% slippage on stops
-                    elif hit_time: exit_px, exit_reason = float(bar["Close"]), "TIME"
+                    be_set = getattr(sig, "_be1r_set", False)
+                    if hit_stop:
+                        lbl = "STOP(BE)" if be_set else "STOP"
+                        exit_px, exit_reason = cur_stop*1.005, lbl
+                    elif hit_stall: exit_px, exit_reason = float(bar["Close"]), "STALL"
+                    elif hit_time:  exit_px, exit_reason = float(bar["Close"]), "TIME"
 
                 if exit_px is not None:
                     raw_pnl = ((exit_px-ep)*active if is_lo else (ep-exit_px)*active) + partial_pnl

@@ -111,7 +111,9 @@ ALPACA_API_KEY    = os.getenv("APCA_API_KEY_ID",    "")   # standard Alpaca env 
 ALPACA_SECRET_KEY = os.getenv("APCA_API_SECRET_KEY", "")
 ALPACA_PAPER      = True      # flip to False only when ready for live brokerage
 ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed entry
-ALPACA_SYNC_FILE  = "dman_alpaca_sync.json"
+ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
+LAST_ALERTS_FILE   = "dman_last_alerts.json"
+ALERT_COOLDOWN_MIN = 30          # suppress duplicate Telegram alert for same ticker within N min
 
 SECTOR_ETFS = {
     "Technology":    "XLK",
@@ -174,6 +176,7 @@ def is_market_open() -> bool:
 
 def build_scan_universe(min_price: float = 2.0,
                         min_avg_vol: int  = 200_000,
+                        min_dollar_vol: float = 1_000_000,
                         top_n: int        = 300) -> list[str]:
     """
     Fetch all NASDAQ + NYSE listed symbols, filter by price/volume,
@@ -221,7 +224,7 @@ def build_scan_universe(min_price: float = 2.0,
                     price    = float(closes.iloc[-1])
                     avg_vol  = float(vols.iloc[:-1].mean())
                     today_vol = float(vols.iloc[-1])
-                    if price < min_price or avg_vol < min_avg_vol:
+                    if price < min_price or avg_vol < min_avg_vol or price * avg_vol < min_dollar_vol:
                         continue
                     rvol = today_vol / avg_vol if avg_vol > 0 else 0
                     active.append((sym, rvol))
@@ -337,6 +340,52 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
         + (f"  AI: {s.ai_score}/10" if s.ai_score else "")
         + f"\nMarket: {regime.get('regime','?')}\n{s.reason}"
     )
+
+
+def _load_last_alerts() -> dict:
+    try:
+        with open(LAST_ALERTS_FILE) as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def _save_last_alert(ticker: str) -> None:
+    alerts = _load_last_alerts()
+    alerts[ticker] = datetime.now(ET).isoformat()
+    try:
+        with open(LAST_ALERTS_FILE, "w") as f:
+            json.dump(alerts, f)
+    except Exception:
+        pass
+
+def _is_duplicate_alert(ticker: str) -> bool:
+    alerts = _load_last_alerts()
+    if ticker not in alerts:
+        return False
+    try:
+        last = datetime.fromisoformat(alerts[ticker])
+        return (datetime.now(ET) - last).total_seconds() < ALERT_COOLDOWN_MIN * 60
+    except Exception:
+        return False
+
+
+def _sector_etf_above_ema50(ticker: str) -> bool:
+    """Return True if the ticker's sector ETF is above its 50-day EMA (bullish sector trend)."""
+    sector = TICKER_SECTOR.get(ticker, "")
+    etf    = SECTOR_ETFS.get(sector, "")
+    if not etf:
+        return True  # no sector mapping — don't block the signal
+    try:
+        etf_df = fetch_df(etf)
+        if etf_df is None or len(etf_df) < 50:
+            return True
+        etf_df = compute_indicators(etf_df.copy())
+        if "EMA50" not in etf_df.columns:
+            return True
+        last = etf_df.iloc[-1]
+        return float(last["Close"]) > float(last["EMA50"])
+    except Exception:
+        return True  # on any error, don't block
 
 
 def _supertrend_bull(h_arr, l_arr, c_arr, period: int = 10, mult: float = 3.0) -> np.ndarray:
@@ -1810,7 +1859,8 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
         gap_pct = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
         if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
                 and float(r["RVOL"]) >= 1.5 and float(r["RSI"]) > 50
-                and float(r["MACD"]) > float(r["MACD_sig"])):
+                and float(r["MACD"]) > float(r["MACD_sig"])
+                and _sector_etf_above_ema50(ticker)):
             gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
             sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
                         reason=f"Gap up +{gap_pct:.1f}% from prior close, holding, RVOL {float(r['RVOL']):.1f}x")
@@ -2131,6 +2181,13 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print(f"  Market : {regime['regime']} (score {regime['score']}/15)  "
           f"VIX: {regime['details'].get('VIX','?')}")
     print(f"  Top sectors: {', '.join(top_secs)}")
+
+    # VIX regime scaling — tighten confluence floor in elevated-volatility markets
+    vix_now = float(regime['details'].get('VIX', 20))
+    if vix_now > 25:
+        min_score = max(min_score, 90)
+        print(f"  ⚠  VIX={vix_now:.1f} > 25 — min score raised to {min_score}/100")
+
     print(f"\n  [2/2] Scanning {len(tickers)} tickers...\n")
 
     signals = []
@@ -2203,7 +2260,11 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             + (f" AI={sig.ai_score}" if sig.ai_score else "")
             + "\n"
         )
-        send_telegram(format_signal_telegram(sig, regime))
+        if _is_duplicate_alert(sig.ticker):
+            sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
+        else:
+            send_telegram(format_signal_telegram(sig, regime))
+            _save_last_alert(sig.ticker)
 
     signals.sort(key=lambda s: s.confluence_score, reverse=True)
 

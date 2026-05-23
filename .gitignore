@@ -5,6 +5,7 @@ dman_signals_*.json
 dman_win_rate.json
 dman_alpaca_sync.json
 dman_positions.json
+dman_last_alerts.json
 
 # Local Windows scheduled task wrappers (not needed in cloud)
 dman_run.ps1

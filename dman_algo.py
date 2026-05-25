@@ -1869,12 +1869,15 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
         if sig.rr >= MIN_RR:
             candidates.append(sig)
 
-    # L4: MACD Cross Bull — relaxed: price vs EMA50 check removed, RSI 35-72
+    # L4: MACD Cross Bull — fresh cross only; require trend + volume + momentum alignment
     if (float(p["MACD"]) < float(p["MACD_sig"]) and float(r["MACD"]) > float(r["MACD_sig"])
-            and float(r["EMA20"]) > float(r["EMA50"])
-            and 35 < float(r["RSI"]) < 72 and float(r["RVOL"]) >= 1.0):
+            and float(r["EMA20"]) > float(r["EMA50"])   # uptrend structure
+            and 48 < float(r["RSI"]) < 68               # trend zone, not overbought
+            and float(r["RVOL"]) >= 1.5                 # real volume on the cross day
+            and float(r["MACD_hist"]) > float(p["MACD_hist"])  # histogram accelerating
+            and c > float(r["EMA20"])):                 # price holding above short-term MA
         sig = _long("MACD Cross", float(r["EMA50"]) * 0.98, 2.0, 3.5,
-                    reason="Fresh MACD bull cross, EMA20>EMA50")
+                    reason=f"Fresh MACD bull cross, EMA20>EMA50, RVOL {float(r['RVOL']):.1f}x")
         if sig.rr >= MIN_RR:
             candidates.append(sig)
 

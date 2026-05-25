@@ -15,6 +15,8 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    permissions:
+      contents: write   # needed to push alert cache back to repo
 
     steps:
       - name: Checkout repo
@@ -51,3 +53,12 @@ jobs:
           )
           sys.exit(result.returncode)
           EOF
+
+      - name: Persist alert cache
+        if: always()
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add dman_last_alerts.json
+          git diff --staged --quiet && echo "No alert changes to commit" || \
+            git commit -m "chore: update alert cache [skip ci]" && git push origin HEAD

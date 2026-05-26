@@ -401,6 +401,26 @@ def _sector_etf_above_ema50(ticker: str) -> bool:
         return True  # on any error, don't block
 
 
+_float_cache: dict[str, tuple[float, float]] = {}  # ticker → (float_shares, short_pct)
+
+def _get_short_float_data(ticker: str) -> tuple[float, float]:
+    """
+    Return (float_shares_millions, short_pct_of_float) for a ticker.
+    Uses yf.Ticker.info; cached per session. Returns (0, 0) on failure.
+    """
+    if ticker in _float_cache:
+        return _float_cache[ticker]
+    try:
+        info = yf.Ticker(ticker).info
+        float_shares = info.get("floatShares") or info.get("sharesOutstanding") or 0
+        short_pct    = info.get("shortPercentOfFloat") or 0.0
+        result = (float_shares / 1_000_000, float(short_pct) * 100)
+    except Exception:
+        result = (0.0, 0.0)
+    _float_cache[ticker] = result
+    return result
+
+
 def _supertrend_bull(h_arr, l_arr, c_arr, period: int = 10, mult: float = 3.0) -> np.ndarray:
     """Returns bool array: True where price is above Supertrend (bullish)."""
     n = len(c_arr)
@@ -1936,8 +1956,16 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 and 50 <= float(r["RSI"]) <= 72
                 and float(r["MACD"]) > float(r["MACD_sig"])):
             mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
+            fl_m, sh_pct = _get_short_float_data(ticker)
+            float_tag = ""
+            if fl_m > 0 and fl_m < 10:
+                float_tag = f" | ULTRA-LOW FLOAT {fl_m:.1f}M"
+            elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:
+                float_tag = f" | Float {fl_m:.0f}M, Short {sh_pct:.0f}%"
+            elif fl_m > 0 and fl_m < 50:
+                float_tag = f" | Float {fl_m:.0f}M"
             sig = _long("Morning Runner", mr_stop, 2.5, 4.0,
-                        reason=f"News gap +{gap_up:.1f}% on {float(r['RVOL']):.1f}x vol, holding open")
+                        reason=f"News gap +{gap_up:.1f}% on {float(r['RVOL']):.1f}x vol, holding open{float_tag}")
             if sig.rr >= MIN_RR:
                 candidates.append(sig)
     except Exception:
@@ -2156,6 +2184,25 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     else:
         _rs_bonus = 4
     breakdown["RegimeSetup"] = _rs_bonus
+
+    # 19. Short float / squeeze potential (0-10 pts) — Morning Runner only
+    if signal.setup == "Morning Runner":
+        fl_m, sh_pct = _get_short_float_data(signal.ticker)
+        if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
+            float_score = 10
+        elif fl_m > 0 and fl_m < 50 and sh_pct >= 15:   # low float + high short → squeeze
+            float_score = 10
+        elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:   # low float + moderate short
+            float_score = 7
+        elif fl_m > 0 and fl_m < 50:                     # low float alone
+            float_score = 4
+        elif sh_pct >= 20:                               # high short interest regardless of float
+            float_score = 5
+        else:
+            float_score = 0
+        breakdown["Float/Short"] = float_score
+    else:
+        breakdown["Float/Short"] = 0
 
     # Populate context fields on the signal
     signal.atr  = float(r_last["ATR"]) if ("ATR" in r_last.index and not pd.isna(r_last["ATR"])) else 0.0

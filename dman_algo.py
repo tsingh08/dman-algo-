@@ -91,6 +91,13 @@ ENABLE_GAP_SHORT = False
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
+# Seasonal regime — backtest shows Jan(38% WR), Aug(25%), Sep(29%) are chronic losers
+SEASONAL_WEAK_MONTHS = {1, 8, 9}
+SEASONAL_MIN_SCORE   = 92          # raised bar during weak months
+
+# ADX trend-strength gate — skip directionless/choppy stocks before any pattern check
+ADX_TREND_MIN = 20                 # <20 = ranging market; patterns fail more often
+
 ALLOW_SHORTS       = True
 MAX_POSITIONS      = 5
 DAILY_LOSS_LIMIT   = 0.03
@@ -1820,7 +1827,7 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     c = float(r["Close"])
 
     # ── Hard quality gates ────────────────────────────────────────────────
-    atr_val  = float(r["ATR"])    if ("ATR"     in r.index and not pd.isna(r["ATR"]))     else 0
+    atr_val  = float(r["ATR"])      if ("ATR"      in r.index and not pd.isna(r["ATR"]))      else 0
     avg_vol  = float(r["AvgVol20"]) if ("AvgVol20" in r.index and not pd.isna(r["AvgVol20"])) else 0
     atr_pct  = atr_val / c * 100 if c > 0 else 0
     avg_dv   = c * avg_vol
@@ -2249,6 +2256,13 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         min_score = max(min_score, 90)
         print(f"  ⚠  VIX={vix_now:.1f} > 25 — min score raised to {min_score}/100")
 
+    # Seasonal regime filter — Jan/Aug/Sep are chronic losers in backtest (25-38% WR)
+    curr_month = datetime.today().month
+    if curr_month in SEASONAL_WEAK_MONTHS:
+        min_score = max(min_score, SEASONAL_MIN_SCORE)
+        month_name = datetime.today().strftime("%B")
+        print(f"  📅  {month_name} seasonal filter — min score raised to {min_score}/100")
+
     print(f"\n  [2/2] Scanning {len(tickers)} tickers...\n")
 
     signals = []
@@ -2550,6 +2564,8 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                 bt_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
                 if sig.ticker in VOLATILE_TICKERS:
                     bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
+                if raw.index[i].month in SEASONAL_WEAK_MONTHS:
+                    bt_min = max(bt_min, SEASONAL_MIN_SCORE)
                 if bt_score < bt_min * 0.85:
                     continue
 

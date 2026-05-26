@@ -995,6 +995,22 @@ _FOMC_DATES: set[date] = {
 }
 _FOMC_LAST_CONFIRMED_YEAR = 2026  # raise this after verifying new dates
 
+# CPI release dates (8:30 AM ET) — the single biggest monthly market mover after NFP.
+# Drops pre-open so the gap reaction IS the signal, but intraday whipsaws make stops
+# unreliable. Blackout day-of and ±1 day. Update each December from bls.gov/schedule.
+_CPI_DATES: set[date] = {
+    # 2026 — verified from BLS schedule (eskisignal.com/cpi-release-dates-2026)
+    date(2026,  1, 14), date(2026,  2, 11), date(2026,  3, 11),
+    date(2026,  4, 10), date(2026,  5, 13), date(2026,  6, 10),
+    date(2026,  7, 14), date(2026,  8, 12), date(2026,  9,  9),
+    date(2026, 10, 14), date(2026, 11, 12), date(2026, 12, 10),
+    # 2027 — estimated mid-month; verify from bls.gov each December
+    date(2027,  1, 13), date(2027,  2, 10), date(2027,  3, 10),
+    date(2027,  4,  9), date(2027,  5, 12), date(2027,  6,  9),
+    date(2027,  7, 14), date(2027,  8, 11), date(2027,  9,  8),
+    date(2027, 10, 13), date(2027, 11, 10), date(2027, 12,  9),
+}
+
 def _nfp_dates(years: int = 2) -> set[date]:
     """Generate NFP dates (first Friday of each month) for the next `years` years."""
     today = date.today()
@@ -1009,12 +1025,12 @@ def _nfp_dates(years: int = 2) -> set[date]:
 
 def check_macro_safe() -> tuple[bool, int]:
     """
-    Block signals within MACRO_BLACKOUT days of FOMC decisions or NFP releases.
-    These events create gap risk that can blow through stops regardless of setup quality.
-    Returns (safe, score 0-5).
+    Block signals within MACRO_BLACKOUT days of FOMC decisions, NFP, or CPI releases.
+    These events create gap risk and intraday whipsaws that blow through stops regardless
+    of setup quality. Returns (safe, score 0-5).
     """
     try:
-        events = _FOMC_DATES | _nfp_dates()
+        events = _FOMC_DATES | _nfp_dates() | _CPI_DATES
         today  = date.today()
         if today.year > _FOMC_LAST_CONFIRMED_YEAR:
             import sys as _sys

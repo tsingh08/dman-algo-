@@ -1,0 +1,52 @@
+name: DMan PRO Pre-Market Briefing
+
+on:
+  schedule:
+    # 9:10 AM ET = 13:10 UTC (EDT, Mar–Nov). Adjust to 14:10 UTC in EST (Nov–Mar).
+    - cron: '10 13 * * 1-5'
+  workflow_dispatch:   # manual trigger for testing
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  premarket:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Pre-Market Briefing
+        env:
+          TELEGRAM_TOKEN:    ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:  ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONIOENCODING:  utf-8
+        run: |
+          python - <<'EOF'
+          from datetime import datetime
+          import zoneinfo, sys, subprocess
+          ET = zoneinfo.ZoneInfo("America/New_York")
+          now = datetime.now(ET)
+          if now.weekday() >= 5:
+              print(f"Weekend ({now.strftime('%a')}) — skipping briefing.")
+              sys.exit(0)
+          result = subprocess.run(
+              [sys.executable, "dman_algo.py", "--mode", "premarket"],
+              capture_output=False
+          )
+          sys.exit(result.returncode)
+          EOF

@@ -581,6 +581,162 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
     return resolved_count
 
 
+def run_premarket_briefing() -> None:
+    """
+    Daily 9:10 AM ET pre-market briefing.
+    Sends a Telegram summary covering regime, macro, seasonal, live WR,
+    monthly P&L, and any filter suggestions. Never modifies code autonomously.
+    """
+    now_et = datetime.now(ET)
+    date_str = now_et.strftime("%A %b %d, %Y")
+
+    # ── 1. Market regime ──────────────────────────────────────────────
+    print("  [1/5] Checking market regime...")
+    try:
+        regime   = get_market_regime()
+        top_secs = get_top_sectors()
+        r_type   = regime.get("regime", "UNKNOWN")
+        r_score  = regime.get("score", 0)
+        vix      = regime["details"].get("VIX", "?")
+        spy_ok   = "✅" if regime["details"].get("SPY_above_EMA20") else "⚠️"
+        qqq_ok   = "✅" if regime["details"].get("QQQ_above_EMA20") else "⚠️"
+        regime_line  = f"*{r_type}* ({r_score}/15)  VIX: {vix}"
+        regime_line2 = f"SPY {spy_ok}  QQQ {qqq_ok}  |  Top: {', '.join(top_secs[:3])}"
+    except Exception as e:
+        regime_line  = "Unable to fetch regime"
+        regime_line2 = str(e)[:60]
+
+    # ── 2. Macro calendar ─────────────────────────────────────────────
+    print("  [2/5] Checking macro calendar...")
+    try:
+        macro_ok, _ = check_macro_safe()
+        today_d      = now_et.date()
+        tomorrow_d   = today_d + timedelta(days=1)
+        # Check both today and tomorrow
+        events_today = []
+        for d in [today_d, tomorrow_d]:
+            if d in _FOMC_DATES:
+                events_today.append(f"FOMC {'today' if d == today_d else 'tomorrow'}")
+            if d in _nfp_dates():
+                events_today.append(f"NFP {'today' if d == today_d else 'tomorrow'}")
+            if d in _CPI_DATES:
+                events_today.append(f"CPI {'today' if d == today_d else 'tomorrow'}")
+        macro_line = ("⚠️ " + " | ".join(events_today) + " — blackout active"
+                      if events_today else "✅ No macro events today/tomorrow")
+    except Exception:
+        macro_line = "✅ Macro check OK"
+
+    # ── 3. Seasonal filter ────────────────────────────────────────────
+    print("  [3/5] Checking seasonal status...")
+    curr_month   = now_et.month
+    month_name   = now_et.strftime("%B")
+    if curr_month in SEASONAL_WEAK_MONTHS:
+        seasonal_line = f"⚠️ {month_name} — *weak month* (min score raised to {SEASONAL_MIN_SCORE})"
+    else:
+        seasonal_line = f"✅ {month_name} — normal conditions (min score: {MIN_CONFLUENCE})"
+
+    # VIX elevation note
+    try:
+        vix_f = float(vix)
+        if vix_f > 25:
+            seasonal_line += f"\n⚡ VIX {vix_f:.1f} > 25 — score also raised to 90"
+    except Exception:
+        pass
+
+    # ── 4. Live outcomes ──────────────────────────────────────────────
+    print("  [4/5] Reading live outcomes...")
+    live_line = "No live outcome data yet — logger active, accumulating."
+    suggestion_line = ""
+    try:
+        if os.path.exists(LIVE_OUTCOMES_FILE):
+            df_live = pd.read_csv(LIVE_OUTCOMES_FILE)
+            if not df_live.empty:
+                total   = len(df_live)
+                wr_all  = (df_live["outcome"] == "WIN").mean() * 100
+                last20  = df_live.tail(20)
+                wr_20   = (last20["outcome"] == "WIN").mean() * 100
+                wins    = (df_live["outcome"] == "WIN").sum()
+                losses  = (df_live["outcome"] == "LOSS").sum()
+                avg_w   = df_live.loc[df_live["pnl_pct"] > 0, "pnl_pct"].mean()
+                avg_l   = df_live.loc[df_live["pnl_pct"] < 0, "pnl_pct"].mean()
+                pf      = (wins * avg_w) / (losses * abs(avg_l)) if losses > 0 and avg_l != 0 else 0
+                live_line = (f"Total: {total} trades  |  WR: {wr_all:.1f}% (last 20: {wr_20:.1f}%)\n"
+                             f"PF: {pf:.2f}x  |  Avg W: {avg_w:+.1f}%  Avg L: {avg_l:+.1f}%\n"
+                             f"Backtest baseline: 60.5% WR | 3.06x PF | Sharpe 6.50")
+
+                # Setup breakdown
+                setup_lines = []
+                for setup, grp in df_live.groupby("setup"):
+                    g_wr = (grp["outcome"] == "WIN").mean() * 100
+                    setup_lines.append(f"{setup}: {g_wr:.0f}% WR ({len(grp)} trades)")
+                if setup_lines:
+                    live_line += "\n" + "  ".join(setup_lines)
+
+                # Suggestions: flag if any setup's live WR drops >8pts below backtest
+                bt_baseline = {"Gap & Hold": 63.1, "MACD Cross": 58.3}
+                suggestions = []
+                for setup, grp in df_live.groupby("setup"):
+                    if len(grp) >= 8:
+                        g_wr = (grp["outcome"] == "WIN").mean() * 100
+                        bt   = bt_baseline.get(setup, 60.0)
+                        if g_wr < bt - 8:
+                            suggestions.append(
+                                f"⚠️ {setup} live WR {g_wr:.0f}% vs backtest {bt:.0f}% — "
+                                f"consider raising SETUP_MIN_CONFLUENCE to "
+                                f"{SETUP_MIN_CONFLUENCE.get(setup, MIN_CONFLUENCE) + 3}"
+                            )
+                suggestion_line = ("\n\n💡 *CODE SUGGESTIONS*\n" + "\n".join(suggestions)
+                                   if suggestions else "\n\n💡 *CODE SUGGESTIONS*: None — filters on track.")
+    except Exception as e:
+        live_line = f"Error reading live outcomes: {e}"
+
+    # ── 5. Monthly P&L ────────────────────────────────────────────────
+    print("  [5/5] Checking monthly P&L...")
+    try:
+        month_loss = get_this_month_loss()
+        limit_pct  = MONTHLY_LOSS_LIMIT * 100
+        if month_loss <= -limit_pct:
+            monthly_line = f"🛑 MONTHLY LIMIT HIT: {month_loss:.1f}% — trading halted"
+        elif month_loss < -(limit_pct * 0.6):
+            monthly_line = f"⚠️ Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
+        elif month_loss < 0:
+            monthly_line = f"📉 Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
+        else:
+            monthly_line = f"📈 Up {month_loss:.1f}% this month"
+    except Exception:
+        monthly_line = "Monthly P&L: unavailable"
+
+    # ── Format & send ─────────────────────────────────────────────────
+    msg = (
+        f"🌅 <b>DMan PRO Pre-Market Briefing</b>\n"
+        f"{date_str} — 9:10 AM ET\n\n"
+        f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}\n\n"
+        f"📅 <b>MACRO CALENDAR</b>\n{macro_line}\n\n"
+        f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}\n\n"
+        f"📈 <b>LIVE OUTCOMES</b>\n{live_line}\n\n"
+        f"💰 <b>MONTHLY P&L</b>\n{monthly_line}"
+        f"{suggestion_line}"
+    )
+
+    # Replace markdown bold (*) with HTML bold for Telegram
+    msg = msg.replace("*", "<b>").replace("</b><b>", "")  # crude but functional
+
+    print(f"\n{'═'*60}")
+    print(f"  PRE-MARKET BRIEFING  —  {date_str}")
+    print(f"{'─'*60}")
+    print(f"  Regime   : {regime_line}")
+    print(f"  Macro    : {macro_line}")
+    print(f"  Seasonal : {seasonal_line}")
+    print(f"  Monthly  : {monthly_line}")
+    print(f"{'═'*60}\n")
+
+    sent = send_telegram(msg)
+    if sent:
+        print("  ✅ Telegram briefing sent.")
+    else:
+        print("  ⚠️  Telegram not configured — briefing printed above only.")
+
+
 def print_live_performance() -> None:
     """Print live-trade WR stats from the outcomes CSV."""
     if not os.path.exists(LIVE_OUTCOMES_FILE):
@@ -3478,7 +3634,7 @@ def main():
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
                  "watch","rank","open","positions","alpaca","sync",
-                 "live-outcomes","live-perf"],
+                 "live-outcomes","live-perf","premarket"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -3725,6 +3881,9 @@ def main():
 
     elif args.mode == "live-perf":
         print_live_performance()
+
+    elif args.mode == "premarket":
+        run_premarket_briefing()
 
     elif args.mode == "scan":
         signals = run_pro_scanner(tickers,

@@ -2192,6 +2192,7 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
         if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
                 and float(r["RVOL"]) >= 1.5 and float(r["RSI"]) > 50
                 and float(r["MACD"]) > float(r["MACD_sig"])
+                and float(p["Close"]) > float(p["Open"])   # prior day green — continuation not reversal
                 and _sector_etf_above_ema50(ticker)):
             gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
             sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,

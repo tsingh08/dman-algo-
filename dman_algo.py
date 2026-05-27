@@ -91,8 +91,8 @@ ENABLE_GAP_SHORT = False
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
-# Seasonal regime — backtest shows Jan(38% WR), Aug(25%), Sep(29%) are chronic losers
-SEASONAL_WEAK_MONTHS = {1, 8, 9}
+# Seasonal regime — backtest shows Jan(38% WR), Jul(38%), Aug(25%), Sep(29%) are chronic losers
+SEASONAL_WEAK_MONTHS = {1, 7, 8, 9}
 SEASONAL_MIN_SCORE   = 92          # raised bar during weak months
 
 # ADX trend-strength gate — skip directionless/choppy stocks before any pattern check

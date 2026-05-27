@@ -127,6 +127,8 @@ ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
 LAST_ALERTS_FILE   = "dman_last_alerts.json"
 ALERT_COOLDOWN_MIN = 30          # suppress duplicate Telegram alert for same ticker within N min
+LIVE_SIGNALS_FILE  = "dman_live_signals.json"   # pending live signals awaiting outcome
+LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # ground-truth live trade log
 
 SECTOR_ETFS = {
     "Technology":    "XLK",
@@ -380,6 +382,257 @@ def _is_duplicate_alert(ticker: str) -> bool:
         return (datetime.now(ET) - last).total_seconds() < ALERT_COOLDOWN_MIN * 60
     except Exception:
         return False
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+#  LIVE OUTCOME LOGGER — ground-truth WR tracker (fills the daily-bar gap)
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _log_live_signal(sig: "ProSignal") -> None:
+    """Write a fired alert to the pending live signals file."""
+    try:
+        data = json.load(open(LIVE_SIGNALS_FILE)) if os.path.exists(LIVE_SIGNALS_FILE) else {}
+    except Exception:
+        data = {}
+    pending = data.get("pending", [])
+    today = datetime.now(ET).strftime("%Y-%m-%d")
+    # Skip if same ticker+date already logged
+    if any(p["ticker"] == sig.ticker and p["date"] == today for p in pending):
+        return
+    pending.append({
+        "ticker":   sig.ticker,
+        "setup":    sig.setup,
+        "bias":     sig.bias,
+        "entry":    sig.entry,
+        "stop":     sig.stop,
+        "target1":  sig.target1,
+        "target2":  sig.target2,
+        "score":    sig.confluence_score,
+        "date":     today,
+        "timestamp": datetime.now(ET).isoformat(),
+    })
+    data["pending"] = pending
+    try:
+        with open(LIVE_SIGNALS_FILE, "w") as f:
+            json.dump(data, f, indent=2)
+    except Exception:
+        pass
+
+
+def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
+                             target1: float, target2: float, bias: str,
+                             start_date: str) -> dict:
+    """
+    Simulate trade outcome using daily bars from start_date onward.
+    Returns dict with exit_date, exit_px, exit_reason, outcome, pnl_pct, hold_bars.
+    Returns None if trade is still open (not enough bars yet).
+    """
+    try:
+        start = date.fromisoformat(start_date)
+        # Fetch enough bars (add buffer for weekends/holidays)
+        end = datetime.now(ET).date() + timedelta(days=1)
+        df = yf.download(ticker, start=start, end=end, progress=False, auto_adjust=True)
+        if df is None or len(df) < 2:
+            return None
+        # Skip the entry day — we enter at the alert price; simulation starts next bar
+        df = df.iloc[1:]
+        if len(df) == 0:
+            return None
+    except Exception:
+        return None
+
+    is_long   = bias == "LONG"
+    trail_stop = stop
+    be1r_px   = (entry + (entry - stop)) if is_long else (entry - (stop - entry))
+    be1r_set  = False
+    t1_hit    = False
+    hold      = 0
+
+    for i in range(len(df)):
+        bar  = df.iloc[i]
+        H    = float(bar["High"])
+        L    = float(bar["Low"])
+        C    = float(bar["Close"])
+        hold += 1
+        exit_bar_date = str(df.index[i].date())
+
+        # BE@1R: move stop to entry once 1R profit is reached (before T1)
+        if not be1r_set and not t1_hit:
+            if (is_long and H >= be1r_px) or (not is_long and L <= be1r_px):
+                trail_stop = entry
+                be1r_set   = True
+
+        # Stop check
+        stopped = (is_long and L <= trail_stop) or (not is_long and H >= trail_stop)
+        if stopped:
+            exit_px     = trail_stop
+            exit_reason = "STOP(BE)" if be1r_set else "STOP"
+            pnl_pct     = ((exit_px - entry) / entry * 100) if is_long else ((entry - exit_px) / entry * 100)
+            return {"exit_date": exit_bar_date, "exit_px": round(exit_px, 2),
+                    "exit_reason": exit_reason,
+                    "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
+                    "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
+
+        # T1 hit — scale out, move stop to breakeven
+        if not t1_hit:
+            if (is_long and H >= target1) or (not is_long and L <= target1):
+                t1_hit     = True
+                trail_stop = entry
+                continue
+
+        # T2 hit (only after T1)
+        if t1_hit:
+            if (is_long and H >= target2) or (not is_long and L <= target2):
+                exit_px  = target2 * (0.999 if is_long else 1.001)
+                pnl_pct  = ((exit_px - entry) / entry * 100) if is_long else ((entry - exit_px) / entry * 100)
+                return {"exit_date": exit_bar_date, "exit_px": round(exit_px, 2),
+                        "exit_reason": "T2", "outcome": "WIN",
+                        "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
+
+        # Stall exit: <0.5% move after 3 bars and T1 not yet hit
+        if hold >= 3 and not t1_hit and abs(C - entry) / entry * 100 < 0.5:
+            pnl_pct = ((C - entry) / entry * 100) if is_long else ((entry - C) / entry * 100)
+            return {"exit_date": exit_bar_date, "exit_px": round(C, 2),
+                    "exit_reason": "STALL",
+                    "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
+                    "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
+
+        # Time exit: 15 bars
+        if hold >= 15:
+            pnl_pct = ((C - entry) / entry * 100) if is_long else ((entry - C) / entry * 100)
+            return {"exit_date": exit_bar_date, "exit_px": round(C, 2),
+                    "exit_reason": "TIME",
+                    "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
+                    "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
+
+    return None  # still open
+
+
+def resolve_live_outcomes(verbose: bool = True) -> int:
+    """
+    Check all pending live signals and resolve completed ones to the CSV log.
+    Returns the number of trades resolved this run.
+    """
+    if not os.path.exists(LIVE_SIGNALS_FILE):
+        if verbose:
+            print("  No live signals file found — nothing to resolve.")
+        return 0
+
+    try:
+        with open(LIVE_SIGNALS_FILE) as f:
+            data = json.load(f)
+    except Exception:
+        return 0
+
+    pending   = data.get("pending", [])
+    today_str = datetime.now(ET).strftime("%Y-%m-%d")
+    still_open: list[dict] = []
+    resolved_count = 0
+
+    # Write CSV header if file doesn't exist
+    write_header = not os.path.exists(LIVE_OUTCOMES_FILE)
+    csv_rows: list[str] = []
+    if write_header:
+        csv_rows.append("ticker,setup,bias,entry_date,exit_date,entry,stop,"
+                        "target1,target2,exit_px,exit_reason,pnl_pct,outcome,score,hold_bars")
+
+    for p in pending:
+        if p["date"] >= today_str:
+            # Entered today — needs at least one full day's bar to evaluate
+            still_open.append(p)
+            continue
+
+        result = _simulate_trade_outcome(
+            ticker=p["ticker"], entry=p["entry"], stop=p["stop"],
+            target1=p["target1"], target2=p["target2"],
+            bias=p["bias"], start_date=p["date"]
+        )
+        if result is None:
+            # Still open / not enough data
+            still_open.append(p)
+            continue
+
+        # Resolved — append to CSV
+        row = (f"{p['ticker']},{p['setup']},{p['bias']},"
+               f"{p['date']},{result['exit_date']},"
+               f"{p['entry']},{p['stop']},{p['target1']},{p['target2']},"
+               f"{result['exit_px']},{result['exit_reason']},"
+               f"{result['pnl_pct']},{result['outcome']},"
+               f"{p.get('score', 0)},{result['hold_bars']}")
+        csv_rows.append(row)
+        resolved_count += 1
+
+        if verbose:
+            icon = "✅" if result["outcome"] == "WIN" else ("⚪" if result["pnl_pct"] == 0 else "❌")
+            print(f"  {icon} {p['ticker']:6} {p['setup']:<14}  "
+                  f"{result['exit_reason']:<8}  {result['pnl_pct']:+.1f}%  "
+                  f"({p['date']} → {result['exit_date']}, {result['hold_bars']}d)")
+
+    if csv_rows:
+        with open(LIVE_OUTCOMES_FILE, "a") as f:
+            f.write("\n".join(csv_rows) + "\n")
+
+    data["pending"] = still_open
+    with open(LIVE_SIGNALS_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+    if verbose and resolved_count:
+        print(f"\n  {resolved_count} trade(s) resolved → {LIVE_OUTCOMES_FILE}")
+    return resolved_count
+
+
+def print_live_performance() -> None:
+    """Print live-trade WR stats from the outcomes CSV."""
+    if not os.path.exists(LIVE_OUTCOMES_FILE):
+        print("\n  No live outcome data yet. Signals log to dman_live_signals.json")
+        print("  and resolve automatically at the next scan after market close.\n")
+        return
+
+    try:
+        df = pd.read_csv(LIVE_OUTCOMES_FILE)
+    except Exception as e:
+        print(f"  Error reading {LIVE_OUTCOMES_FILE}: {e}")
+        return
+
+    if df.empty:
+        print("  Live outcomes file is empty.")
+        return
+
+    total  = len(df)
+    wins   = (df["outcome"] == "WIN").sum()
+    losses = (df["outcome"] == "LOSS").sum()
+    wr     = wins / total * 100 if total else 0
+    avg_w  = df.loc[df["pnl_pct"] > 0, "pnl_pct"].mean() if wins else 0
+    avg_l  = df.loc[df["pnl_pct"] < 0, "pnl_pct"].mean() if losses else 0
+    pf     = (wins * avg_w) / (losses * abs(avg_l)) if losses > 0 and avg_l != 0 else float("inf")
+
+    print(f"\n{'═'*60}")
+    print(f"  LIVE TRADE OUTCOMES — Ground-Truth WR")
+    print(f"{'─'*60}")
+    print(f"  Total Trades   : {total}")
+    print(f"  Win Rate       : {wr:.1f}%  ({wins}W / {losses}L)")
+    print(f"  Profit Factor  : {pf:.2f}x")
+    print(f"  Avg Win %      : {avg_w:+.2f}%")
+    print(f"  Avg Loss %     : {avg_l:+.2f}%")
+    print(f"{'─'*60}")
+
+    if "setup" in df.columns:
+        print(f"  BY SETUP:")
+        for setup, grp in df.groupby("setup"):
+            g_wr = (grp["outcome"] == "WIN").mean() * 100
+            g_avg = grp["pnl_pct"].mean()
+            print(f"  {setup:<20} {len(grp):3d} trades | {g_wr:5.1f}% WR | avg {g_avg:+.2f}%")
+
+    if "exit_reason" in df.columns:
+        print(f"\n  EXIT BREAKDOWN:")
+        for reason, grp in df.groupby("exit_reason"):
+            g_wr = (grp["outcome"] == "WIN").mean() * 100
+            print(f"  {reason:<10} {len(grp):3d} ({len(grp)/total*100:.0f}%)  {g_wr:.0f}% WR")
+
+    # Backtest comparison line
+    print(f"\n  Backtest baseline : 60.0% WR | 2.43x PF (115 trades, 2yr walk-forward)")
+    print(f"  Live delta        : WR {wr - 60.0:+.1f}%  |  PF {pf - 2.43:+.2f}x")
+    print(f"{'═'*60}\n")
 
 
 def _sector_etf_above_ema50(ticker: str) -> bool:
@@ -2258,6 +2511,11 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     stats      = tracker.rolling_stats()
     min_score  = min_score or tracker.adaptive_min_score()
 
+    # Resolve any pending live signals whose bars are now available
+    resolved = resolve_live_outcomes(verbose=False)
+    if resolved:
+        print(f"  📊 {resolved} live trade(s) resolved — run --mode live-perf to see stats")
+
     # Consecutive loss guard
     if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
         print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
@@ -2387,6 +2645,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         else:
             send_telegram(format_signal_telegram(sig, regime))
             _save_last_alert(sig.ticker)
+            _log_live_signal(sig)   # record for live outcome tracking
 
     signals.sort(key=lambda s: s.confluence_score, reverse=True)
 
@@ -3217,18 +3476,21 @@ def main():
     )
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
-                 "watch","rank","open","positions","alpaca","sync"],
-        help=("scan        : run pro scanner with all filters\n"
-              "backtest    : walk-forward backtest\n"
-              "performance : win rate tracker report\n"
-              "regime      : today's market regime only\n"
-              "record      : log a completed trade outcome\n"
-              "watch       : re-scan on a timer during market hours\n"
-              "rank        : near-signal leaderboard for the watchlist\n"
-              "open        : log a new open position\n"
-              "positions   : view open positions with live P&L\n"
-              "alpaca      : Alpaca account dashboard + scan + submit\n"
-              "sync        : sync Alpaca fills → auto-record closed trades"))
+                 "watch","rank","open","positions","alpaca","sync",
+                 "live-outcomes","live-perf"],
+        help=("scan         : run pro scanner with all filters\n"
+              "backtest     : walk-forward backtest\n"
+              "performance  : win rate tracker report\n"
+              "regime       : today's market regime only\n"
+              "record       : log a completed trade outcome\n"
+              "watch        : re-scan on a timer during market hours\n"
+              "rank         : near-signal leaderboard for the watchlist\n"
+              "open         : log a new open position\n"
+              "positions    : view open positions with live P&L\n"
+              "alpaca       : Alpaca account dashboard + scan + submit\n"
+              "sync         : sync Alpaca fills → auto-record closed trades\n"
+              "live-outcomes: resolve pending live signals → CSV log\n"
+              "live-perf    : print live-trade ground-truth WR stats"))
     parser.add_argument("--score",   type=int, default=None,
                         help="Min confluence score override (default: adaptive)")
     parser.add_argument("--ai",      action="store_true",
@@ -3450,6 +3712,18 @@ def main():
                 with open(fname, "w") as f:
                     json.dump([asdict(s) for s in signals], f, indent=2)
                 print(f"  💾 Signals exported to {fname}\n")
+
+    elif args.mode == "live-outcomes":
+        print(f"\n{'═'*60}")
+        print(f"  Resolving pending live signals...")
+        print(f"{'─'*60}")
+        n = resolve_live_outcomes(verbose=True)
+        if not n:
+            print("  Nothing new to resolve — all signals are still open or already resolved.")
+        print(f"{'═'*60}\n")
+
+    elif args.mode == "live-perf":
+        print_live_performance()
 
     elif args.mode == "scan":
         signals = run_pro_scanner(tickers,

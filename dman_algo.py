@@ -88,6 +88,12 @@ ENABLE_EMA_PULLBACK = False
 # Gap & Short disabled — 40.0% WR / avg +1.51% across 5-trade backtest sample, consistent drag
 ENABLE_GAP_SHORT = False
 
+# MACD Cross disabled — 47.1% WR / 17 trades, below breakeven; mean-reversion setup underperforms in BULL regime
+ENABLE_MACD_CROSS = False
+
+# OS Bounce disabled — 0% WR / 1 trade (avg -0.47%); reversal setups structurally weak in BULL regime
+ENABLE_OS_BOUNCE = False
+
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
@@ -2307,31 +2313,33 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
             if sig.rr >= MIN_RR:
                 candidates.append(sig)
 
-    # L3: Oversold Bounce — true oversold only, uptrend context, volume-confirmed turn
-    if (float(p2["RSI"]) < 33 and float(r["RSI"]) > float(p["RSI"]) > float(p2["RSI"])
-            and float(r["RSI"]) > 35
-            and c > float(r["EMA9"]) and c > float(r["Open"])
-            and float(r["RVOL"]) >= 1.8
-            and float(r["EMA20"]) > float(r["EMA50"])
-            and float(r["MACD_hist"]) > float(p["MACD_hist"])
-            and float(r["STOCH_K"]) > float(r["STOCH_D"])):
-        sig = _long("OS Bounce",
-                    min(float(p["Low"]), float(p2["Low"])) * 0.99,
-                    reason=f"RSI bounced from {float(p2['RSI']):.0f}, EMA9 reclaimed")
-        if sig.rr >= MIN_RR:
-            candidates.append(sig)
+    # L3: Oversold Bounce — disabled (0% WR / 1 trade, avg -0.47%; reversal setups underperform in BULL regime)
+    if ENABLE_OS_BOUNCE:
+        if (float(p2["RSI"]) < 33 and float(r["RSI"]) > float(p["RSI"]) > float(p2["RSI"])
+                and float(r["RSI"]) > 35
+                and c > float(r["EMA9"]) and c > float(r["Open"])
+                and float(r["RVOL"]) >= 1.8
+                and float(r["EMA20"]) > float(r["EMA50"])
+                and float(r["MACD_hist"]) > float(p["MACD_hist"])
+                and float(r["STOCH_K"]) > float(r["STOCH_D"])):
+            sig = _long("OS Bounce",
+                        min(float(p["Low"]), float(p2["Low"])) * 0.99,
+                        reason=f"RSI bounced from {float(p2['RSI']):.0f}, EMA9 reclaimed")
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
 
-    # L4: MACD Cross Bull — fresh cross only; require trend + volume + momentum alignment
-    if (float(p["MACD"]) < float(p["MACD_sig"]) and float(r["MACD"]) > float(r["MACD_sig"])
-            and float(r["EMA20"]) > float(r["EMA50"])   # uptrend structure
-            and 48 < float(r["RSI"]) < 68               # trend zone, not overbought
-            and float(r["RVOL"]) >= 1.5                 # real volume on the cross day
-            and float(r["MACD_hist"]) > float(p["MACD_hist"])  # histogram accelerating
-            and c > float(r["EMA20"])):                 # price holding above short-term MA
-        sig = _long("MACD Cross", float(r["EMA50"]) * 0.98, 2.0, 3.5,
-                    reason=f"Fresh MACD bull cross, EMA20>EMA50, RVOL {float(r['RVOL']):.1f}x")
-        if sig.rr >= MIN_RR:
-            candidates.append(sig)
+    # L4: MACD Cross Bull — disabled (47.1% WR / 17 trades, below breakeven in BULL regime)
+    if ENABLE_MACD_CROSS:
+        if (float(p["MACD"]) < float(p["MACD_sig"]) and float(r["MACD"]) > float(r["MACD_sig"])
+                and float(r["EMA20"]) > float(r["EMA50"])   # uptrend structure
+                and 48 < float(r["RSI"]) < 68               # trend zone, not overbought
+                and float(r["RVOL"]) >= 1.5                 # real volume on the cross day
+                and float(r["MACD_hist"]) > float(p["MACD_hist"])  # histogram accelerating
+                and c > float(r["EMA20"])):                 # price holding above short-term MA
+            sig = _long("MACD Cross", float(r["EMA50"]) * 0.98, 2.0, 3.5,
+                        reason=f"Fresh MACD bull cross, EMA20>EMA50, RVOL {float(r['RVOL']):.1f}x")
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
 
     # L5: VCP — disabled (backtest: avg -0.94%, no edge)
     if ENABLE_VCP:
@@ -2348,6 +2356,7 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
         if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
                 and float(r["RVOL"]) >= 1.5 and float(r["RSI"]) > 50
                 and float(r["MACD"]) > float(r["MACD_sig"])
+                and float(r["MACD"]) > 0                   # confirmed uptrend, not just recovering
                 and float(p["Close"]) > float(p["Open"])   # prior day green — continuation not reversal
                 and _sector_etf_above_ema50(ticker)):
             gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)

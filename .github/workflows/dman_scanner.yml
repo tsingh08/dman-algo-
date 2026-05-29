@@ -62,3 +62,14 @@ jobs:
           git add dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv || true
           git diff --staged --quiet && echo "No changes to commit" || \
             git commit -m "chore: update alert/signal cache [skip ci]" && git push origin HEAD
+
+      - name: Notify on workflow failure
+        if: failure()
+        env:
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            -d "text=⚠️ <b>DMan scan FAILED</b> — check GitHub Actions" \
+            -d "parse_mode=HTML" || true

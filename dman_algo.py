@@ -3913,6 +3913,13 @@ def main():
                     json.dump([asdict(s) for s in signals], f, indent=2)
                 print(f"  💾 Signals exported to {fname}\n")
 
+        # Scan heartbeat — always send so user knows system is alive (even on quiet days)
+        t_str = datetime.now(ET).strftime("%I:%M %p")
+        if signals:
+            send_telegram(f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired ↑")
+        else:
+            send_telegram(f"🔍 <b>DMan</b> {t_str} — quiet ✅")
+
 
 if __name__ == "__main__":
     main()

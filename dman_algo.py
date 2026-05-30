@@ -104,14 +104,15 @@ ENABLE_OS_BOUNCE = False
 ENABLE_SMALLCAP        = True
 SMALLCAP_MAX_FLOAT_M   = 5.0      # max float in millions of shares
 SMALLCAP_MAX_PRICE     = 20.0     # max stock price
-SMALLCAP_MIN_PRICE     = 0.50     # min stock price (avoid sub-penny)
+SMALLCAP_MIN_PRICE     = 0.10     # min stock price — Dman buys $0.07-$0.50 regularly
 SMALLCAP_MIN_RVOL      = 2.0      # minimum RVOL — real volume needed (catalyst proxy)
 SMALLCAP_RISK_PCT      = 0.005    # 0.5% account risk per trade (vs 2% for large-caps)
 SMALLCAP_MAX_COST      = 2_500    # hard cap on position cost — micro-caps are high risk
 SMALLCAP_MIN_SCORE     = 65       # lower bar than large-cap (different scoring system)
 SMALLCAP_T1_MULT       = 0.30     # T1 at +30% (Dman targets 50-200% — partial at 30%)
 SMALLCAP_T2_MULT       = 0.75     # T2 at +75%
-SMALLCAP_STOP_PCT      = 0.15     # 15% stop (wider than large-cap; penny stocks volatile)
+SMALLCAP_STOP_PCT      = 0.18     # 18% stop — penny stocks are volatile; wider needed
+SMALLCAP_52WK_LOW_PCT  = 0.30     # "bottom chart" = within 30% of 52-week low
 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
@@ -2754,21 +2755,32 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         macd_sig  = float(r["MACD_sig"])
         macd_hist = float(r["MACD_hist"])
         p_hist    = float(p["MACD_hist"])
-        ema20     = float(r["EMA20"])
-        ema50     = float(r["EMA50"]) if "EMA50" in r.index else ema20
         rsi       = float(r["RSI"])
 
-        # Dman's "20D/50D MA/MACD bullish buy signal — curling upside"
-        # KEY INSIGHT: He buys AT or NEAR the MA support (oversold), not necessarily above it
-        macd_bull      = macd > macd_sig                             # MACD above signal line
-        macd_curling   = macd_hist > p_hist                          # histogram accelerating upward
-        at_ma_support  = c >= ema50 * 0.90                          # at or within 10% below 50D MA
-        rsi_ok         = 20 <= rsi <= 80                             # wide range: allows oversold entries
+        # Dman's exact entry: MACD "curling upside" at or near the bottom chart
+        # He buys BELOW the 50D MA — at 52-week lows — when MACD is turning bullish
+        # RSI 15-45 is his typical entry zone (deeply oversold or just recovering)
+        macd_bull    = macd > macd_sig      # MACD crossed above signal — "curling upside"
+        macd_curling = macd_hist > p_hist   # histogram accelerating (momentum turning)
+        rsi_ok       = 15 <= rsi <= 65      # oversold to early recovery — his buy zone
 
-        if not (macd_bull and macd_curling and at_ma_support and rsi_ok):
+        if not (macd_bull and macd_curling and rsi_ok):
             return None
 
-        # Entry / stop / targets — wider than large-cap (penny stocks are volatile)
+        # 52-week low proximity — "bottom chart" is his #1 phrase
+        # He buys within 30% of the 52-week low (SMALLCAP_52WK_LOW_PCT)
+        try:
+            lookback = min(len(df), 252)
+            low_52wk = float(df["Low"].iloc[-lookback:].min())
+            near_bottom = c <= low_52wk * (1 + SMALLCAP_52WK_LOW_PCT)
+        except Exception:
+            near_bottom = True  # data unavailable — don't block
+
+        # Must be either near 52wk low OR have very high RVOL (catalyst-driven spike)
+        if not (near_bottom or rvol >= 5.0):
+            return None
+
+        # Entry / stop / targets — wider stops than large-cap (penny stocks whipsaw)
         entry = round(c * 1.002, 4)
         stop  = round(entry * (1 - SMALLCAP_STOP_PCT), 4)
         t1    = round(entry * (1 + SMALLCAP_T1_MULT), 2)
@@ -2781,18 +2793,22 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         # Build reason string with all Dman-relevant context
         squeeze_note = ""
         if sh_pct >= 30:
-            squeeze_note = f" | 🔥 SHORT SQUEEZE {sh_pct:.0f}% SI"
+            squeeze_note = f" | 🔥 SQUEEZE {sh_pct:.0f}% SI"
         elif sh_pct >= 15:
             squeeze_note = f" | SI {sh_pct:.0f}%"
         insider_note = f" | Insiders {insider_pct:.0f}%" if insider_pct >= 30 else ""
-        post_rs = _is_recent_reverse_split(ticker)
-        rs_note  = " | ✅ POST-RS (float collapsed)" if post_rs else ""
-        pattern_note = "MACD curling bullish at 20D/50D MA support"
+        post_rs  = _is_recent_reverse_split(ticker)
+        rs_note  = " | ✅ POST-RS" if post_rs else ""
+        bot_note = f" | Bottom chart ({((c/low_52wk-1)*100):.0f}% off 52wk low)" if near_bottom else ""
         if rsi < 35:
-            pattern_note = f"MACD curling bullish from oversold (RSI {rsi:.0f})"
+            pattern_note = f"MACD curling from oversold RSI {rsi:.0f}"
+        elif near_bottom:
+            pattern_note = "MACD bullish at 52wk low support"
+        else:
+            pattern_note = "MACD curling bullish, RVOL spike"
 
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
-                  f"{squeeze_note}{insider_note}{rs_note} | {pattern_note}")
+                  f"{squeeze_note}{insider_note}{rs_note}{bot_note} | {pattern_note}")
 
         sig = ProSignal(
             ticker=ticker, setup="Low Float Catalyst", bias="LONG",
@@ -2866,6 +2882,12 @@ def score_smallcap_signal(sig: ProSignal) -> int:
 
     # Oversold bonus (5 pts) — he buys when RSI is deeply oversold (< 35)
     if sig.rsi < 35:
+        score += 5
+
+    # 52-week low proximity bonus (5 pts) — "bottom chart" is his primary entry phrase
+    # Requires the df stored in the signal — approximated via score only if detectable
+    # (The detection already gates on near_bottom OR rvol>=5; this rewards the bottom case)
+    if sig.rsi < 40:   # oversold RSI is correlated with near-52wk-low condition
         score += 5
 
     return min(100, score)

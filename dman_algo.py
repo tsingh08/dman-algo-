@@ -95,6 +95,24 @@ ENABLE_MACD_CROSS = False
 # OS Bounce disabled — 0% WR / 1 trade (avg -0.47%); reversal setups structurally weak in BULL regime
 ENABLE_OS_BOUNCE = False
 
+# ── Small-cap / Low Float Catalyst module (Dman style) ──────────────────────
+# Professor Dman primarily trades nano/micro-cap stocks with:
+#   - Float < 5M shares, price $0.50-$20
+#   - Catalyst-driven RVOL spike (RS plays, FDA news, mergers, short squeezes)
+#   - MACD bullish "curling upside" + above 20D MA as technical confirmation
+# NOTE: No reliable backtest (survivorship bias, RS price adjustments). Forward-test only.
+ENABLE_SMALLCAP        = True
+SMALLCAP_MAX_FLOAT_M   = 5.0      # max float in millions of shares
+SMALLCAP_MAX_PRICE     = 20.0     # max stock price
+SMALLCAP_MIN_PRICE     = 0.50     # min stock price (avoid sub-penny)
+SMALLCAP_MIN_RVOL      = 2.0      # minimum RVOL — real volume needed (catalyst proxy)
+SMALLCAP_RISK_PCT      = 0.005    # 0.5% account risk per trade (vs 2% for large-caps)
+SMALLCAP_MAX_COST      = 2_500    # hard cap on position cost — micro-caps are high risk
+SMALLCAP_MIN_SCORE     = 65       # lower bar than large-cap (different scoring system)
+SMALLCAP_T1_MULT       = 0.30     # T1 at +30% (Dman targets 50-200% — partial at 30%)
+SMALLCAP_T2_MULT       = 0.75     # T2 at +75%
+SMALLCAP_STOP_PCT      = 0.15     # 15% stop (wider than large-cap; penny stocks volatile)
+
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
@@ -2681,6 +2699,155 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  SECTION 19.5 — SMALL-CAP / LOW FLOAT CATALYST MODULE (Dman style)
+# ═══════════════════════════════════════════════════════════════════════════
+
+def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
+    """
+    Detects Professor Dman's core small-cap setup:
+    nano/micro-cap stock with catalyst-driven RVOL spike, bullish MACD, above 20D MA.
+    Bypasses AVG_DOLLAR_VOL_MIN — these names are by definition illiquid on normal days.
+    Returns None if setup not present or float data unavailable.
+    """
+    if not ENABLE_SMALLCAP:
+        return None
+    try:
+        r  = df.iloc[-1]
+        p  = df.iloc[-2]
+        c  = float(r["Close"])
+
+        # Price range gate — not sub-penny, not large-cap
+        if not (SMALLCAP_MIN_PRICE <= c <= SMALLCAP_MAX_PRICE):
+            return None
+
+        # Float gate — core of Dman's filter
+        fl_m, sh_pct = _get_short_float_data(ticker)
+        if fl_m <= 0 or fl_m > SMALLCAP_MAX_FLOAT_M:
+            return None
+
+        # Volume / momentum gates
+        rvol = float(r["RVOL"]) if not pd.isna(r.get("RVOL", float("nan"))) else 0
+        if rvol < SMALLCAP_MIN_RVOL:
+            return None
+
+        macd      = float(r["MACD"])
+        macd_sig  = float(r["MACD_sig"])
+        macd_hist = float(r["MACD_hist"])
+        p_hist    = float(p["MACD_hist"])
+        ema20     = float(r["EMA20"])
+        rsi       = float(r["RSI"])
+
+        # Dman's "20D/50D MA/MACD bullish buy signal — curling upside"
+        macd_bull    = macd > macd_sig                   # MACD above signal
+        macd_curling = macd_hist > p_hist                # histogram accelerating
+        above_ema20  = c > ema20                         # price above 20D MA
+        rsi_ok       = 25 <= rsi <= 75                   # not extreme either direction
+
+        if not (macd_bull and macd_curling and above_ema20 and rsi_ok):
+            return None
+
+        # Entry / stop / targets — wider than large-cap (penny stocks are volatile)
+        entry = round(c * 1.002, 4)
+        stop  = round(entry * (1 - SMALLCAP_STOP_PCT), 4)
+        t1    = round(entry * (1 + SMALLCAP_T1_MULT), 2)
+        t2    = round(entry * (1 + SMALLCAP_T2_MULT), 2)
+        rr    = round((t1 - entry) / (entry - stop), 2) if entry > stop else 0
+
+        if rr < 1.5:
+            return None
+
+        # Build squeeze note for reason string
+        squeeze_note = ""
+        if sh_pct >= 30:
+            squeeze_note = f" | SHORT SQUEEZE {sh_pct:.0f}% SI"
+        elif sh_pct >= 15:
+            squeeze_note = f" | SI {sh_pct:.0f}% (squeeze potential)"
+
+        reason = (f"Float {fl_m:.1f}M shares | RVOL {rvol:.1f}x (catalyst proxy) | "
+                  f"MACD curling bullish above 20D MA{squeeze_note}")
+
+        sig = ProSignal(
+            ticker=ticker, setup="Low Float Catalyst", bias="LONG",
+            entry=entry, stop=stop, target1=t1, target2=t2,
+            rr=rr, rsi=round(rsi, 1), rvol=round(rvol, 2),
+            reason=reason,
+        )
+
+        # Position sizing — cap at SMALLCAP_MAX_COST and use lower risk %
+        acct = get_effective_account()
+        risk_amt = acct * SMALLCAP_RISK_PCT
+        rps = entry - stop
+        shares = max(1, int(risk_amt / rps)) if rps > 0 else 1
+        cost = shares * entry
+        if cost > SMALLCAP_MAX_COST:
+            shares = max(1, int(SMALLCAP_MAX_COST / entry))
+            cost   = shares * entry
+        sig.shares   = shares
+        sig.cost     = round(cost, 2)
+        sig.risk_usd = round(shares * rps, 2)
+
+        return sig
+    except Exception:
+        return None
+
+
+def score_smallcap_signal(sig: ProSignal) -> int:
+    """
+    Simplified 100-pt scorer calibrated for micro-cap/penny stocks.
+    MTF, Sector rotation, and RS vs SPY are meaningless for these names.
+    Focuses on what actually matters: float tightness, short interest,
+    RVOL conviction, MACD alignment, and price vs 20D MA.
+    """
+    fl_m, sh_pct = _get_short_float_data(sig.ticker)
+    score = 0
+
+    # Float size (40 pts) — the tighter the float, the more explosive the move
+    if   fl_m > 0 and fl_m < 0.5:   score += 40   # ultra-nano (<500K)
+    elif fl_m > 0 and fl_m < 1.0:   score += 35   # nano (500K-1M)
+    elif fl_m > 0 and fl_m < 2.0:   score += 28   # micro (1-2M)
+    elif fl_m > 0 and fl_m < 3.5:   score += 20   # small-micro (2-3.5M)
+    elif fl_m > 0 and fl_m <= 5.0:  score += 12   # small (3.5-5M)
+
+    # Short interest / squeeze potential (20 pts)
+    if   sh_pct >= 40: score += 20
+    elif sh_pct >= 30: score += 15
+    elif sh_pct >= 20: score += 10
+    elif sh_pct >= 15: score +=  5
+
+    # RVOL conviction (20 pts) — proxy for catalyst strength
+    if   sig.rvol >= 10: score += 20
+    elif sig.rvol >=  5: score += 15
+    elif sig.rvol >=  3: score += 10
+    elif sig.rvol >=  2: score +=  5
+
+    # MACD + 20D MA alignment (15 pts)
+    score += 15   # already required in detect_low_float_catalyst as hard gate
+
+    # Price range bonus — Dman's sweet spot is $1-$5 (5 pts)
+    if 1.0 <= sig.entry <= 5.0:
+        score += 5
+
+    return min(100, score)
+
+
+def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float) -> str:
+    """Telegram alert format for Low Float Catalyst signals — distinct from large-cap alerts."""
+    squeeze = f"  🔥 SHORT SQUEEZE ({sh_pct:.0f}% SI)" if sh_pct >= 20 else (
+              f"  SI: {sh_pct:.0f}%" if sh_pct > 0 else "")
+    return (
+        f"🔥 <b>Dman Small-Cap Alert</b>\n"
+        f"🟢 LONG <b>{sig.ticker}</b> — {sig.setup}\n"
+        f"Entry: <b>${sig.entry}</b>  Stop: ${sig.stop} (-{SMALLCAP_STOP_PCT*100:.0f}%)\n"
+        f"T1 (+30%): ${sig.target1}   T2 (+75%): ${sig.target2}\n"
+        f"Float: <b>{fl_m:.1f}M</b> shares{squeeze}\n"
+        f"RVOL: {sig.rvol}x  RSI: {sig.rsi}  Score: {sig.confluence_score}/100\n"
+        f"Size: {sig.shares} shares  Cost: ${sig.cost:,.0f}  Risk: ${sig.risk_usd:.0f}\n"
+        f"⚠️ Micro-cap: smaller position, wider stop, news-driven\n"
+        f"{sig.reason}"
+    )
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 20 — PRO SCANNER
 # ═══════════════════════════════════════════════════════════════════════════
 
@@ -2835,6 +3002,53 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             send_telegram(format_signal_telegram(sig, regime))
             _save_last_alert(sig.ticker)
             _log_live_signal(sig)   # record for live outcome tracking
+
+    # ── Small-cap / Low Float Catalyst pass ────────────────────────────────
+    # Second pass over the same universe using Dman's micro-cap criteria.
+    # Separate risk rules: 0.5% per trade, max $2,500 cost, lower score bar.
+    if ENABLE_SMALLCAP:
+        sc_rejected = 0
+        sc_found    = 0
+        for ticker in tickers:
+            df = fetch_df(ticker)   # already cached from the large-cap pass
+            if df is None or len(df) < 30:
+                continue
+            df = compute_indicators(df.copy()) if "MACD" not in df.columns else df
+            sc_sig = detect_low_float_catalyst(df, ticker)
+            if sc_sig is None:
+                sc_rejected += 1
+                continue
+            # Simple hard gates for small-cap (skip MTF/RS/Sector — meaningless)
+            macro_ok, _ = check_macro_safe()
+            if not macro_ok:
+                sc_rejected += 1
+                continue
+            earn_ok, _ = check_earnings_safe(ticker)
+            if not earn_ok:
+                sc_rejected += 1
+                continue
+            # Score with small-cap specific scorer
+            sc_sig.confluence_score = score_smallcap_signal(sc_sig)
+            if sc_sig.confluence_score < SMALLCAP_MIN_SCORE:
+                sc_rejected += 1
+                continue
+            # Skip if same ticker already fired as large-cap signal
+            if any(s.ticker == ticker for s in signals):
+                continue
+            fl_m, sh_pct = _get_short_float_data(ticker)
+            sc_found += 1
+            signals.append(sc_sig)
+            sys.stdout.write(f"\r  🔥 SMALLCAP {ticker:<8} "
+                             f"float={fl_m:.1f}M SI={sh_pct:.0f}% "
+                             f"score={sc_sig.confluence_score}\n")
+            if _is_duplicate_alert(ticker):
+                sys.stdout.write(f"       (dup suppressed)\n")
+            else:
+                send_telegram(format_smallcap_telegram(sc_sig, fl_m, sh_pct))
+                _save_last_alert(ticker)
+                _log_live_signal(sc_sig)
+        if sc_found or sc_rejected:
+            print(f"  🔥  Small-cap pass: {sc_found} signal(s), {sc_rejected} rejected")
 
     signals.sort(key=lambda s: s.confluence_score, reverse=True)
 

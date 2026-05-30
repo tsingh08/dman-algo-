@@ -839,13 +839,17 @@ def _sector_etf_above_ema50(ticker: str) -> bool:
         return True  # on any error, don't block
 
 
-_float_cache: dict[str, tuple[float, float, float]] = {}  # ticker → (float_M, short_pct, insider_pct)
+_float_cache: dict[str, tuple[float, float, float, float]] = {}  # → (float_M, short_pct, insider_pct, cash_to_mc)
 
-def _get_short_float_data(ticker: str) -> tuple[float, float, float]:
+def _get_short_float_data(ticker: str) -> tuple[float, float, float, float]:
     """
-    Return (float_shares_millions, short_pct_of_float, insider_pct_held) for a ticker.
-    Uses yf.Ticker.info; cached per session. Returns (0, 0, 0) on failure.
-    Dman checks all three: float size, short interest, and insider ownership.
+    Return (float_M, short_pct, insider_pct, cash_to_mc_ratio) for a ticker.
+    All four pulled from one yf.Ticker.info call (cached per session).
+
+    cash_to_mc_ratio: totalCash / marketCap.
+        >= 1.0 = trading below cash value (Dman: "undervalue, trading under cash")
+        >= 0.5 = substantial cash cushion vs market cap
+    Returns (0, 0, 0, 0) on failure.
     """
     if ticker in _float_cache:
         return _float_cache[ticker]
@@ -854,9 +858,13 @@ def _get_short_float_data(ticker: str) -> tuple[float, float, float]:
         float_shares = info.get("floatShares") or info.get("sharesOutstanding") or 0
         short_pct    = info.get("shortPercentOfFloat") or 0.0
         insider_pct  = info.get("heldPercentInsiders") or 0.0
-        result = (float_shares / 1_000_000, float(short_pct) * 100, float(insider_pct) * 100)
+        total_cash   = info.get("totalCash") or 0
+        market_cap   = info.get("marketCap") or 0
+        cash_to_mc   = float(total_cash) / float(market_cap) if market_cap > 0 else 0.0
+        result = (float_shares / 1_000_000, float(short_pct) * 100,
+                  float(insider_pct) * 100, cash_to_mc)
     except Exception:
-        result = (0.0, 0.0, 0.0)
+        result = (0.0, 0.0, 0.0, 0.0)
     _float_cache[ticker] = result
     return result
 
@@ -2400,7 +2408,7 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 and 50 <= float(r["RSI"]) <= 72
                 and float(r["MACD"]) > float(r["MACD_sig"])):
             mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
-            fl_m, sh_pct, _ = _get_short_float_data(ticker)
+            fl_m, sh_pct, _, _cash = _get_short_float_data(ticker)
             float_tag = ""
             if fl_m > 0 and fl_m < 10:
                 float_tag = f" | ULTRA-LOW FLOAT {fl_m:.1f}M"
@@ -2631,7 +2639,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
 
     # 19. Short float / squeeze potential (0-10 pts) — Gap & Hold and Morning Runner
     if signal.setup in {"Morning Runner", "Gap & Hold"}:
-        fl_m, sh_pct, _ = _get_short_float_data(signal.ticker)
+        fl_m, sh_pct, _, _cash = _get_short_float_data(signal.ticker)
         if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
             float_score = 10
         elif fl_m > 0 and fl_m < 50 and sh_pct >= 15:   # low float + high short → squeeze
@@ -2742,7 +2750,7 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
             return None
 
         # Float gate — core of Dman's filter
-        fl_m, sh_pct, insider_pct = _get_short_float_data(ticker)
+        fl_m, sh_pct, insider_pct, cash_to_mc = _get_short_float_data(ticker)
         if fl_m <= 0 or fl_m > SMALLCAP_MAX_FLOAT_M:
             return None
 
@@ -2799,7 +2807,9 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         insider_note = f" | Insiders {insider_pct:.0f}%" if insider_pct >= 30 else ""
         post_rs  = _is_recent_reverse_split(ticker)
         rs_note  = " | ✅ POST-RS" if post_rs else ""
-        bot_note = f" | Bottom chart ({((c/low_52wk-1)*100):.0f}% off 52wk low)" if near_bottom else ""
+        bot_note  = f" | Bottom chart ({((c/low_52wk-1)*100):.0f}% off 52wk low)" if near_bottom else ""
+        cash_note = f" | 💰 Below cash value ({cash_to_mc:.1f}x)" if cash_to_mc >= 1.0 else (
+                    f" | Cash {cash_to_mc:.1f}x MC" if cash_to_mc >= 0.5 else "")
         if rsi < 35:
             pattern_note = f"MACD curling from oversold RSI {rsi:.0f}"
         elif near_bottom:
@@ -2808,7 +2818,7 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
             pattern_note = "MACD curling bullish, RVOL spike"
 
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
-                  f"{squeeze_note}{insider_note}{rs_note}{bot_note} | {pattern_note}")
+                  f"{squeeze_note}{insider_note}{rs_note}{bot_note}{cash_note} | {pattern_note}")
 
         sig = ProSignal(
             ticker=ticker, setup="Low Float Catalyst", bias="LONG",
@@ -2842,7 +2852,7 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     Focuses on what actually matters: float tightness, short interest,
     RVOL conviction, MACD alignment, and price vs 20D MA.
     """
-    fl_m, sh_pct, insider_pct = _get_short_float_data(sig.ticker)
+    fl_m, sh_pct, insider_pct, cash_to_mc = _get_short_float_data(sig.ticker)
     score = 0
 
     # Float size (40 pts) — ultra-nano is Dman's core setup; sub-1M is the sweet spot
@@ -2884,11 +2894,14 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     if sig.rsi < 35:
         score += 5
 
-    # 52-week low proximity bonus (5 pts) — "bottom chart" is his primary entry phrase
-    # Requires the df stored in the signal — approximated via score only if detectable
-    # (The detection already gates on near_bottom OR rvol>=5; this rewards the bottom case)
-    if sig.rsi < 40:   # oversold RSI is correlated with near-52wk-low condition
+    # 52-week low proximity proxy (5 pts) — oversold RSI correlates with near-52wk-low
+    if sig.rsi < 40:
         score += 5
+
+    # Cash vs market cap (10 pts) — "trading below cash value" = Dman's specific phrase
+    # Means company has more cash on hand than its entire market cap = extreme undervalue
+    if   cash_to_mc >= 1.0: score += 10   # trading below cash value (his direct signal)
+    elif cash_to_mc >= 0.5: score +=  5   # substantial cash cushion
 
     return min(100, score)
 
@@ -3101,7 +3114,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             # Skip if same ticker already fired as large-cap signal
             if any(s.ticker == ticker for s in signals):
                 continue
-            fl_m, sh_pct, insider_pct = _get_short_float_data(ticker)
+            fl_m, sh_pct, insider_pct, _cash_mc = _get_short_float_data(ticker)
             post_rs = _is_recent_reverse_split(ticker)
             sc_found += 1
             signals.append(sc_sig)

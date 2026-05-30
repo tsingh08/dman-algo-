@@ -2604,8 +2604,8 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
         _rs_bonus = 4
     breakdown["RegimeSetup"] = _rs_bonus
 
-    # 19. Short float / squeeze potential (0-10 pts) — Morning Runner only
-    if signal.setup == "Morning Runner":
+    # 19. Short float / squeeze potential (0-10 pts) — Gap & Hold and Morning Runner
+    if signal.setup in {"Morning Runner", "Gap & Hold"}:
         fl_m, sh_pct = _get_short_float_data(signal.ticker)
         if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
             float_score = 10
@@ -2622,6 +2622,21 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
         breakdown["Float/Short"] = float_score
     else:
         breakdown["Float/Short"] = 0
+
+    # 20. RVOL tier bonus (0-6 pts) — live scorer was missing this; backtest already has it
+    rvol_bonus = 6 if signal.rvol >= 3.0 else (3 if signal.rvol >= 2.0 else 0)
+    breakdown["RVOL Tier"] = rvol_bonus
+
+    # 21. Gap size bonus (0-5 pts) — Gap & Hold only; larger gaps = stronger institutional conviction
+    if signal.setup == "Gap & Hold" and len(df) >= 2:
+        try:
+            _gap_pct = (float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2])) / float(df["Close"].iloc[-2]) * 100
+            gap_bonus = 5 if _gap_pct >= 5.0 else (3 if _gap_pct >= 3.0 else 0)
+        except Exception:
+            gap_bonus = 0
+        breakdown["Gap Size"] = gap_bonus
+    else:
+        breakdown["Gap Size"] = 0
 
     # Populate context fields on the signal
     signal.atr  = float(r_last["ATR"]) if ("ATR" in r_last.index and not pd.isna(r_last["ATR"])) else 0.0

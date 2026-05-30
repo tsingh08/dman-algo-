@@ -73,6 +73,7 @@ ENABLE_EMA_BREAKDOWN = False
 VOLATILE_TICKERS = {
     "RIOT","GME","SOUN","RXRX","RKLB",
     "NIO","AFRM","HOOD","CELH","RIVN",
+    "BABA","BIDU","PDD","JD","KWEB",   # Chinese ADRs — geopolitical + currency risk, tighter confluence needed
 }
 VOLATILE_MIN_CONFLUENCE = 88   # vs 85 default for standard tickers
 
@@ -177,6 +178,9 @@ TICKER_SECTOR = {
     "XOM":"Energy",
     # AI / high-vol growth
     "SOUN":"Technology","RKLB":"Industrials",
+    # Chinese AI / tech ADRs (Dman watches FXI + DeepSeek rally names)
+    "BABA":"Comm Services","BIDU":"Comm Services","PDD":"Consumer Disc",
+    "JD":"Consumer Disc","KWEB":"Technology",
     # Market regime ETFs
     "SPY":"","QQQ":"","IWM":"",
 }

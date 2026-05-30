@@ -838,22 +838,24 @@ def _sector_etf_above_ema50(ticker: str) -> bool:
         return True  # on any error, don't block
 
 
-_float_cache: dict[str, tuple[float, float]] = {}  # ticker → (float_shares, short_pct)
+_float_cache: dict[str, tuple[float, float, float]] = {}  # ticker → (float_M, short_pct, insider_pct)
 
-def _get_short_float_data(ticker: str) -> tuple[float, float]:
+def _get_short_float_data(ticker: str) -> tuple[float, float, float]:
     """
-    Return (float_shares_millions, short_pct_of_float) for a ticker.
-    Uses yf.Ticker.info; cached per session. Returns (0, 0) on failure.
+    Return (float_shares_millions, short_pct_of_float, insider_pct_held) for a ticker.
+    Uses yf.Ticker.info; cached per session. Returns (0, 0, 0) on failure.
+    Dman checks all three: float size, short interest, and insider ownership.
     """
     if ticker in _float_cache:
         return _float_cache[ticker]
     try:
-        info = yf.Ticker(ticker).info
+        info         = yf.Ticker(ticker).info
         float_shares = info.get("floatShares") or info.get("sharesOutstanding") or 0
         short_pct    = info.get("shortPercentOfFloat") or 0.0
-        result = (float_shares / 1_000_000, float(short_pct) * 100)
+        insider_pct  = info.get("heldPercentInsiders") or 0.0
+        result = (float_shares / 1_000_000, float(short_pct) * 100, float(insider_pct) * 100)
     except Exception:
-        result = (0.0, 0.0)
+        result = (0.0, 0.0, 0.0)
     _float_cache[ticker] = result
     return result
 
@@ -2397,7 +2399,7 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 and 50 <= float(r["RSI"]) <= 72
                 and float(r["MACD"]) > float(r["MACD_sig"])):
             mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
-            fl_m, sh_pct = _get_short_float_data(ticker)
+            fl_m, sh_pct, _ = _get_short_float_data(ticker)
             float_tag = ""
             if fl_m > 0 and fl_m < 10:
                 float_tag = f" | ULTRA-LOW FLOAT {fl_m:.1f}M"
@@ -2628,7 +2630,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
 
     # 19. Short float / squeeze potential (0-10 pts) — Gap & Hold and Morning Runner
     if signal.setup in {"Morning Runner", "Gap & Hold"}:
-        fl_m, sh_pct = _get_short_float_data(signal.ticker)
+        fl_m, sh_pct, _ = _get_short_float_data(signal.ticker)
         if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
             float_score = 10
         elif fl_m > 0 and fl_m < 50 and sh_pct >= 15:   # low float + high short → squeeze
@@ -2702,12 +2704,30 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
 #  SECTION 19.5 — SMALL-CAP / LOW FLOAT CATALYST MODULE (Dman style)
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _is_recent_reverse_split(ticker: str, days: int = 45) -> bool:
+    """
+    Return True if ticker had a reverse split within `days` days.
+    Post-RS plays are Professor Dman's #1 category: float collapses, shorts get trapped.
+    """
+    try:
+        splits = yf.Ticker(ticker).splits
+        if splits is None or splits.empty:
+            return False
+        cutoff = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=days)
+        recent = splits[splits.index >= cutoff]
+        return bool((recent < 1.0).any())   # ratio < 1.0 = reverse split
+    except Exception:
+        return False
+
+
 def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     """
-    Detects Professor Dman's core small-cap setup:
-    nano/micro-cap stock with catalyst-driven RVOL spike, bullish MACD, above 20D MA.
-    Bypasses AVG_DOLLAR_VOL_MIN — these names are by definition illiquid on normal days.
-    Returns None if setup not present or float data unavailable.
+    Detects Professor Dman's core small-cap setup (from 2yr Discord data):
+    - Float < 5M (ultra-nano < 1M is the sweet spot)
+    - MACD "curling upside" at 20D/50D MA support — buys OVERSOLD, not above EMA
+    - RVOL spike as catalyst proxy
+    - Bonus: post-RS, high short interest, high insider ownership
+    Bypasses AVG_DOLLAR_VOL_MIN — micro-caps are illiquid on normal days by definition.
     """
     if not ENABLE_SMALLCAP:
         return None
@@ -2721,11 +2741,11 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
             return None
 
         # Float gate — core of Dman's filter
-        fl_m, sh_pct = _get_short_float_data(ticker)
+        fl_m, sh_pct, insider_pct = _get_short_float_data(ticker)
         if fl_m <= 0 or fl_m > SMALLCAP_MAX_FLOAT_M:
             return None
 
-        # Volume / momentum gates
+        # Volume gate — RVOL spike = catalyst proxy
         rvol = float(r["RVOL"]) if not pd.isna(r.get("RVOL", float("nan"))) else 0
         if rvol < SMALLCAP_MIN_RVOL:
             return None
@@ -2735,15 +2755,17 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         macd_hist = float(r["MACD_hist"])
         p_hist    = float(p["MACD_hist"])
         ema20     = float(r["EMA20"])
+        ema50     = float(r["EMA50"]) if "EMA50" in r.index else ema20
         rsi       = float(r["RSI"])
 
         # Dman's "20D/50D MA/MACD bullish buy signal — curling upside"
-        macd_bull    = macd > macd_sig                   # MACD above signal
-        macd_curling = macd_hist > p_hist                # histogram accelerating
-        above_ema20  = c > ema20                         # price above 20D MA
-        rsi_ok       = 25 <= rsi <= 75                   # not extreme either direction
+        # KEY INSIGHT: He buys AT or NEAR the MA support (oversold), not necessarily above it
+        macd_bull      = macd > macd_sig                             # MACD above signal line
+        macd_curling   = macd_hist > p_hist                          # histogram accelerating upward
+        at_ma_support  = c >= ema50 * 0.90                          # at or within 10% below 50D MA
+        rsi_ok         = 20 <= rsi <= 80                             # wide range: allows oversold entries
 
-        if not (macd_bull and macd_curling and above_ema20 and rsi_ok):
+        if not (macd_bull and macd_curling and at_ma_support and rsi_ok):
             return None
 
         # Entry / stop / targets — wider than large-cap (penny stocks are volatile)
@@ -2756,15 +2778,21 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         if rr < 1.5:
             return None
 
-        # Build squeeze note for reason string
+        # Build reason string with all Dman-relevant context
         squeeze_note = ""
         if sh_pct >= 30:
-            squeeze_note = f" | SHORT SQUEEZE {sh_pct:.0f}% SI"
+            squeeze_note = f" | 🔥 SHORT SQUEEZE {sh_pct:.0f}% SI"
         elif sh_pct >= 15:
-            squeeze_note = f" | SI {sh_pct:.0f}% (squeeze potential)"
+            squeeze_note = f" | SI {sh_pct:.0f}%"
+        insider_note = f" | Insiders {insider_pct:.0f}%" if insider_pct >= 30 else ""
+        post_rs = _is_recent_reverse_split(ticker)
+        rs_note  = " | ✅ POST-RS (float collapsed)" if post_rs else ""
+        pattern_note = "MACD curling bullish at 20D/50D MA support"
+        if rsi < 35:
+            pattern_note = f"MACD curling bullish from oversold (RSI {rsi:.0f})"
 
-        reason = (f"Float {fl_m:.1f}M shares | RVOL {rvol:.1f}x (catalyst proxy) | "
-                  f"MACD curling bullish above 20D MA{squeeze_note}")
+        reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
+                  f"{squeeze_note}{insider_note}{rs_note} | {pattern_note}")
 
         sig = ProSignal(
             ticker=ticker, setup="Low Float Catalyst", bias="LONG",
@@ -2798,15 +2826,15 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     Focuses on what actually matters: float tightness, short interest,
     RVOL conviction, MACD alignment, and price vs 20D MA.
     """
-    fl_m, sh_pct = _get_short_float_data(sig.ticker)
+    fl_m, sh_pct, insider_pct = _get_short_float_data(sig.ticker)
     score = 0
 
-    # Float size (40 pts) — the tighter the float, the more explosive the move
-    if   fl_m > 0 and fl_m < 0.5:   score += 40   # ultra-nano (<500K)
-    elif fl_m > 0 and fl_m < 1.0:   score += 35   # nano (500K-1M)
-    elif fl_m > 0 and fl_m < 2.0:   score += 28   # micro (1-2M)
+    # Float size (40 pts) — ultra-nano is Dman's core setup; sub-1M is the sweet spot
+    if   fl_m > 0 and fl_m < 0.5:   score += 40   # ultra-nano (<500K) — maximum explosive
+    elif fl_m > 0 and fl_m < 1.0:   score += 35   # nano (500K-1M) — Dman's sweet spot
+    elif fl_m > 0 and fl_m < 2.0:   score += 28   # micro (1-2M) — solid
     elif fl_m > 0 and fl_m < 3.5:   score += 20   # small-micro (2-3.5M)
-    elif fl_m > 0 and fl_m <= 5.0:  score += 12   # small (3.5-5M)
+    elif fl_m > 0 and fl_m <= 5.0:  score += 12   # small (3.5-5M) — marginal
 
     # Short interest / squeeze potential (20 pts)
     if   sh_pct >= 40: score += 20
@@ -2814,32 +2842,48 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     elif sh_pct >= 20: score += 10
     elif sh_pct >= 15: score +=  5
 
-    # RVOL conviction (20 pts) — proxy for catalyst strength
+    # RVOL conviction (20 pts) — catalyst proxy; Dman looks for massive RVOL spikes
     if   sig.rvol >= 10: score += 20
     elif sig.rvol >=  5: score += 15
     elif sig.rvol >=  3: score += 10
     elif sig.rvol >=  2: score +=  5
 
-    # MACD + 20D MA alignment (15 pts)
-    score += 15   # already required in detect_low_float_catalyst as hard gate
+    # MACD curling at support (10 pts) — hard gate already, guaranteed
+    score += 10
 
-    # Price range bonus — Dman's sweet spot is $1-$5 (5 pts)
-    if 1.0 <= sig.entry <= 5.0:
+    # Post-RS bonus (10 pts) — Dman's #1 category: fresh reverse split collapses float
+    if _is_recent_reverse_split(sig.ticker):
+        score += 10
+
+    # Insider ownership (10 pts) — Dman explicitly checks 13G/13D filings
+    if   insider_pct >= 60: score += 10
+    elif insider_pct >= 40: score +=  7
+    elif insider_pct >= 25: score +=  4
+
+    # Price range bonus — Dman's sweet spot is $0.50-$5 (5 pts)
+    if 0.50 <= sig.entry <= 5.0:
+        score += 5
+
+    # Oversold bonus (5 pts) — he buys when RSI is deeply oversold (< 35)
+    if sig.rsi < 35:
         score += 5
 
     return min(100, score)
 
 
-def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float) -> str:
+def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
+                              insider_pct: float = 0.0, post_rs: bool = False) -> str:
     """Telegram alert format for Low Float Catalyst signals — distinct from large-cap alerts."""
-    squeeze = f"  🔥 SHORT SQUEEZE ({sh_pct:.0f}% SI)" if sh_pct >= 20 else (
+    squeeze = f"  🔥 SQUEEZE ({sh_pct:.0f}% SI)" if sh_pct >= 20 else (
               f"  SI: {sh_pct:.0f}%" if sh_pct > 0 else "")
+    insider = f"  Insiders: {insider_pct:.0f}%" if insider_pct >= 25 else ""
+    rs_tag  = "  ✅ POST-RS" if post_rs else ""
     return (
         f"🔥 <b>Dman Small-Cap Alert</b>\n"
         f"🟢 LONG <b>{sig.ticker}</b> — {sig.setup}\n"
         f"Entry: <b>${sig.entry}</b>  Stop: ${sig.stop} (-{SMALLCAP_STOP_PCT*100:.0f}%)\n"
         f"T1 (+30%): ${sig.target1}   T2 (+75%): ${sig.target2}\n"
-        f"Float: <b>{fl_m:.1f}M</b> shares{squeeze}\n"
+        f"Float: <b>{fl_m:.1f}M</b>{squeeze}{insider}{rs_tag}\n"
         f"RVOL: {sig.rvol}x  RSI: {sig.rsi}  Score: {sig.confluence_score}/100\n"
         f"Size: {sig.shares} shares  Cost: ${sig.cost:,.0f}  Risk: ${sig.risk_usd:.0f}\n"
         f"⚠️ Micro-cap: smaller position, wider stop, news-driven\n"
@@ -3035,16 +3079,19 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             # Skip if same ticker already fired as large-cap signal
             if any(s.ticker == ticker for s in signals):
                 continue
-            fl_m, sh_pct = _get_short_float_data(ticker)
+            fl_m, sh_pct, insider_pct = _get_short_float_data(ticker)
+            post_rs = _is_recent_reverse_split(ticker)
             sc_found += 1
             signals.append(sc_sig)
             sys.stdout.write(f"\r  🔥 SMALLCAP {ticker:<8} "
-                             f"float={fl_m:.1f}M SI={sh_pct:.0f}% "
+                             f"float={fl_m:.1f}M SI={sh_pct:.0f}%"
+                             f"{' POST-RS' if post_rs else ''} "
                              f"score={sc_sig.confluence_score}\n")
             if _is_duplicate_alert(ticker):
                 sys.stdout.write(f"       (dup suppressed)\n")
             else:
-                send_telegram(format_smallcap_telegram(sc_sig, fl_m, sh_pct))
+                send_telegram(format_smallcap_telegram(sc_sig, fl_m, sh_pct,
+                                                       insider_pct, post_rs))
                 _save_last_alert(ticker)
                 _log_live_signal(sc_sig)
         if sc_found or sc_rejected:

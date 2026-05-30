@@ -2763,10 +2763,14 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         # Apply all 15 pro filters
         sig = score_signal(sig, df, regime, tracker)
 
-        # Hard gates: regime + earnings + divergence (absolute stops)
+        # Hard gates: regime + MTF + earnings + divergence (absolute stops)
         if not sig.regime_ok:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"REGIME BLOCKED ({sig.bias} in {regime['regime']})\n")
+            continue
+        if not sig.mtf_ok:
+            rejected_counts["hard_gate"] += 1
+            sys.stdout.write(f"MTF BLOCKED (weekly chart disagrees)\n")
             continue
         if not sig.earnings_ok:
             rejected_counts["hard_gate"] += 1

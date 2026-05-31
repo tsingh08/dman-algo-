@@ -114,6 +114,25 @@ SMALLCAP_T2_MULT       = 0.75     # T2 at +75%
 SMALLCAP_STOP_PCT      = 0.18     # 18% stop — penny stocks are volatile; wider needed
 SMALLCAP_52WK_LOW_PCT  = 0.30     # "bottom chart" = within 30% of 52-week low
 
+# ── Options layer (Dman style: ITM calls on large-cap signals) ───────────────
+# Dman buys ITM calls at support bottoms on large-caps (SPY, QQQ, TSLA, NVDA, PLTR).
+# Advisory mode by default — alerts show exact contract, premium, Greeks, stop/target.
+# Set OPTIONS_AUTO_EXECUTE = True to route orders through Alpaca paper/live.
+ENABLE_OPTIONS          = True
+OPTIONS_SETUPS          = {"Gap & Hold", "Morning Runner"}  # setups that also get options
+OPTIONS_MIN_SCORE       = 88            # only high-conviction large-cap signals
+OPTIONS_MAX_PRICE       = 500.0         # skip very expensive stocks (options too costly)
+OPTIONS_RISK_PCT        = 0.01          # 1% of account per options trade (half of stock risk)
+OPTIONS_MAX_PREMIUM_USD = 1_500         # hard cap on total premium spend per trade
+OPTIONS_TARGET_DTE      = 21            # target DTE — Dman: "1-4 weeks" (21 is sweet spot)
+OPTIONS_MIN_DTE         = 10            # below this: theta accelerates, too risky
+OPTIONS_MAX_DTE         = 42            # beyond this: premium too expensive for swing trade
+OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — "ITM calls"
+OPTIONS_STOP_LOSS_PCT   = 0.50          # exit if premium drops 50% (Dman's mental stop)
+OPTIONS_PROFIT1_PCT     = 0.50          # take 50% profit at +50% gain
+OPTIONS_CLOSE_DTE       = 7             # close or roll when DTE ≤ 7 (theta risk)
+OPTIONS_AUTO_EXECUTE    = False         # True = place orders via Alpaca; False = advisory only
+
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
@@ -175,12 +194,12 @@ TICKER_SECTOR = {
     "AAPL":"Technology","MSFT":"Technology","NVDA":"Technology","AMD":"Technology",
     "META":"Technology","GOOGL":"Comm Services","AMZN":"Consumer Disc","TSLA":"Consumer Disc",
     "NFLX":"Comm Services","CRM":"Technology","SNOW":"Technology","PLTR":"Technology",
-    "SHOP":"Technology","SMCI":"Technology","AVGO":"Technology",
+    "SMCI":"Technology","AVGO":"Technology",
     "AMAT":"Technology","MU":"Technology",
     # Semis
     "QCOM":"Technology","MRVL":"Technology","KLAC":"Technology","ON":"Technology",
-    # High-beta fintech (ARM, COIN, MARA, PYPL, UPST removed — 0% WR in backtest)
-    "RIOT":"Technology","HOOD":"Financials","SOFI":"Financials",
+    # High-beta fintech (ARM, COIN, MARA, PYPL, UPST, SOFI, SHOP removed — 0% WR or <30% WR in backtest)
+    "RIOT":"Technology","HOOD":"Financials",
     "AFRM":"Financials","XYZ":"Financials",
     # EV / mobility (UBER removed — 0% WR)
     "RIVN":"Consumer Disc","NIO":"Consumer Disc",
@@ -2927,6 +2946,237 @@ def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  SECTION 19.8 — OPTIONS LAYER (Dman style: ITM calls on large-cap signals)
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _build_occ_symbol(ticker: str, strike: float, expiration: str,
+                      call_put: str = "C") -> str:
+    """Build OCC option symbol: TICKER + YYMMDD + C/P + STRIKE*1000 (8 digits zero-padded)."""
+    try:
+        exp = date.fromisoformat(expiration)
+        strike_int = int(round(strike * 1000))
+        return f"{ticker}{exp.strftime('%y%m%d')}{call_put}{strike_int:08d}"
+    except Exception:
+        return ""
+
+
+def fetch_option_chain(ticker: str) -> Optional[tuple[pd.DataFrame, str, int]]:
+    """
+    Fetch the calls chain for the expiration closest to OPTIONS_TARGET_DTE.
+    Returns (calls_df, expiration_str, dte) or None on failure.
+    """
+    if not ENABLE_OPTIONS:
+        return None
+    try:
+        tk          = yf.Ticker(ticker)
+        expirations = tk.options          # list[str] of YYYY-MM-DD
+        if not expirations:
+            return None
+
+        today = date.today()
+        def _dte(exp: str) -> int:
+            return (date.fromisoformat(exp) - today).days
+
+        # Find expiration closest to target DTE, within [min, max] window
+        candidates = [(e, _dte(e)) for e in expirations
+                      if OPTIONS_MIN_DTE <= _dte(e) <= OPTIONS_MAX_DTE]
+        if not candidates:
+            return None
+
+        best_exp, best_dte = min(candidates,
+                                 key=lambda x: abs(x[1] - OPTIONS_TARGET_DTE))
+        chain = tk.option_chain(best_exp)
+        calls = chain.calls.copy()
+        calls["_expiration"] = best_exp
+        calls["_dte"]        = best_dte
+        return calls, best_exp, best_dte
+    except Exception:
+        return None
+
+
+def select_itm_call(calls: pd.DataFrame, current_price: float,
+                    expiration: str, dte: int, ticker: str = "") -> Optional[dict]:
+    """
+    Select the best ITM call using Dman's criteria:
+    - Target 4% ITM (OPTIONS_ITM_TARGET_PCT) ≈ delta 0.70
+    - Minimum liquidity (volume or open interest > 0)
+    - Use bid/ask midpoint as premium
+    Returns a contract dict or None.
+    """
+    try:
+        target_strike = current_price * (1 - OPTIONS_ITM_TARGET_PCT)
+        # Search ±5% around target strike (still ITM)
+        itm = calls[
+            (calls["strike"] <= current_price) &
+            (calls["strike"] >= current_price * 0.90)
+        ].copy()
+
+        if itm.empty:
+            return None
+
+        # Require some liquidity
+        itm = itm[(itm["volume"].fillna(0) > 0) | (itm["openInterest"].fillna(0) > 10)]
+        if itm.empty:
+            return None
+
+        # Rank: closest to target strike, then best volume
+        itm["_dist"]  = (itm["strike"] - target_strike).abs()
+        itm["_vol"]   = itm["volume"].fillna(0).astype(float)
+        itm["_oi"]    = itm["openInterest"].fillna(0).astype(float)
+        itm = itm.sort_values(["_dist", "_vol"], ascending=[True, False])
+
+        best    = itm.iloc[0]
+        bid     = float(best.get("bid", 0) or 0)
+        ask     = float(best.get("ask", 0) or 0)
+        if bid <= 0 or ask <= 0:
+            return None
+
+        premium      = round((bid + ask) / 2, 2)
+        iv           = float(best.get("impliedVolatility", 0) or 0)
+        moneyness    = round((current_price - float(best["strike"])) / current_price * 100, 1)
+        # Approximate delta from moneyness (rough heuristic for display)
+        est_delta    = round(min(0.95, max(0.50, 0.85 - moneyness * 0.025)), 2)
+        occ_symbol   = _build_occ_symbol(ticker=ticker,
+                                         strike=float(best["strike"]),
+                                         expiration=expiration)
+
+        return {
+            "strike":       float(best["strike"]),
+            "expiration":   expiration,
+            "dte":          dte,
+            "premium":      premium,
+            "bid":          round(bid, 2),
+            "ask":          round(ask, 2),
+            "iv_pct":       round(iv * 100, 1),
+            "est_delta":    est_delta,
+            "moneyness_pct": moneyness,
+            "volume":       int(best.get("volume",       0) or 0),
+            "open_interest":int(best.get("openInterest", 0) or 0),
+            "occ_symbol":   occ_symbol,
+        }
+    except Exception:
+        return None
+
+
+def size_options_trade(premium: float) -> int:
+    """
+    Number of contracts to buy based on OPTIONS_RISK_PCT and OPTIONS_MAX_PREMIUM_USD.
+    Each contract = 100 shares. Cost = premium * 100 * contracts.
+    """
+    acct        = get_effective_account()
+    budget      = min(acct * OPTIONS_RISK_PCT, OPTIONS_MAX_PREMIUM_USD)
+    cost_per    = premium * 100            # 1 contract = 100 shares
+    contracts   = max(1, int(budget / cost_per))
+    return contracts
+
+
+def format_options_telegram(sig: "ProSignal", contract: dict, contracts: int) -> str:
+    """Telegram alert for an ITM call suggestion alongside a large-cap stock signal."""
+    exp_fmt  = date.fromisoformat(contract["expiration"]).strftime("%b %d, %Y")
+    total    = round(contract["premium"] * 100 * contracts, 2)
+    stop_px  = round(contract["premium"] * (1 - OPTIONS_STOP_LOSS_PCT), 2)
+    target1  = round(contract["premium"] * (1 + OPTIONS_PROFIT1_PCT),  2)
+    exec_tag = "✅ AUTO-SUBMITTED to Alpaca" if OPTIONS_AUTO_EXECUTE else "📋 Advisory — enter manually"
+    return (
+        f"📊 <b>DMan OPTIONS Alert</b> — {sig.ticker}\n"
+        f"🟢 CALL  <b>{sig.ticker}</b>  "
+        f"Strike ${contract['strike']:.0f}  Exp {exp_fmt}  ({contract['dte']}d)\n"
+        f"Premium: <b>${contract['premium']}</b>  "
+        f"(bid ${contract['bid']} / ask ${contract['ask']})\n"
+        f"Moneyness: {contract['moneyness_pct']:.1f}% ITM  "
+        f"|  IV: {contract['iv_pct']:.0f}%  "
+        f"|  δ ≈ {contract['est_delta']}\n"
+        f"Contracts: <b>{contracts}</b>  |  Total cost: ${total:,.0f}  "
+        f"|  Vol: {contract['volume']:,}  OI: {contract['open_interest']:,}\n"
+        f"Stop: exit if premium ≤ ${stop_px} (-50%)\n"
+        f"Target 1: exit half at ${target1} (+50%)  |  let rest run\n"
+        f"Close/roll when DTE ≤ {OPTIONS_CLOSE_DTE} days\n"
+        f"Symbol: <code>{contract['occ_symbol']}</code>\n"
+        f"{exec_tag}\n"
+        f"Based on: {sig.setup} score {sig.confluence_score}/100"
+    )
+
+
+def generate_options_signal(sig: "ProSignal") -> None:
+    """
+    If ENABLE_OPTIONS and this signal qualifies, fetch the option chain,
+    select the best ITM call, size the trade, and send a Telegram advisory.
+    Optionally auto-submits to Alpaca if OPTIONS_AUTO_EXECUTE = True.
+    """
+    if not ENABLE_OPTIONS:
+        return
+    if sig.setup not in OPTIONS_SETUPS:
+        return
+    if sig.confluence_score < OPTIONS_MIN_SCORE:
+        return
+    if sig.entry > OPTIONS_MAX_PRICE:
+        return
+    if sig.bias != "LONG":
+        return
+
+    result = fetch_option_chain(sig.ticker)
+    if result is None:
+        return
+    calls, expiration, dte = result
+
+    contract = select_itm_call(calls, sig.entry, expiration, dte, sig.ticker)
+    if contract is None:
+        return
+
+    contracts = size_options_trade(contract["premium"])
+    total_cost = contract["premium"] * 100 * contracts
+
+    print(f"  📊 OPTIONS: {sig.ticker} ${contract['strike']:.0f}C "
+          f"exp {expiration} ({dte}d)  "
+          f"premium ${contract['premium']}  "
+          f"{contracts} contract(s)  "
+          f"cost ${total_cost:,.0f}")
+
+    send_telegram(format_options_telegram(sig, contract, contracts))
+
+    if OPTIONS_AUTO_EXECUTE and ALPACA_API_KEY and ALPACA_SECRET_KEY:
+        _submit_options_alpaca(sig.ticker, contract["strike"], expiration,
+                               contracts, contract["ask"])
+
+
+def _submit_options_alpaca(ticker: str, strike: float, expiration: str,
+                            contracts: int, limit_price: float) -> None:
+    """
+    Place a limit buy order for an ITM call via Alpaca Options API.
+    Uses the ask price as limit (slightly aggressive fill, avoids missing the trade).
+    Only called when OPTIONS_AUTO_EXECUTE = True.
+    """
+    try:
+        occ = _build_occ_symbol(ticker, strike, expiration)
+        if not occ:
+            print(f"  ⚠️  OPTIONS: could not build OCC symbol for {ticker}")
+            return
+        base = ("https://paper-api.alpaca.markets" if ALPACA_PAPER
+                else "https://api.alpaca.markets")
+        headers = {
+            "APCA-API-KEY-ID":     ALPACA_API_KEY,
+            "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY,
+            "Content-Type":        "application/json",
+        }
+        payload = {
+            "symbol":        occ,
+            "qty":           str(contracts),
+            "side":          "buy",
+            "type":          "limit",
+            "time_in_force": "day",
+            "limit_price":   str(round(limit_price, 2)),
+        }
+        resp = requests.post(f"{base}/v2/orders", json=payload,
+                             headers=headers, timeout=10)
+        if resp.status_code in (200, 201):
+            print(f"  ✅ OPTIONS order submitted: {occ} x{contracts} @ ${limit_price}")
+        else:
+            print(f"  ❌ OPTIONS order failed: {resp.status_code} {resp.text[:200]}")
+    except Exception as e:
+        print(f"  ❌ OPTIONS Alpaca error: {e}")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 20 — PRO SCANNER
 # ═══════════════════════════════════════════════════════════════════════════
 
@@ -3081,6 +3331,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             send_telegram(format_signal_telegram(sig, regime))
             _save_last_alert(sig.ticker)
             _log_live_signal(sig)   # record for live outcome tracking
+            generate_options_signal(sig)   # ITM call advisory if eligible
 
     # ── Small-cap / Low Float Catalyst pass ────────────────────────────────
     # Second pass over the same universe using Dman's micro-cap criteria.

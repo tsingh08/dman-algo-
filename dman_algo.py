@@ -122,7 +122,7 @@ ENABLE_OPTIONS          = True
 OPTIONS_SETUPS          = {"Gap & Hold", "Morning Runner"}  # setups that also get options
 OPTIONS_MIN_SCORE       = 88            # only high-conviction large-cap signals
 OPTIONS_MAX_PRICE       = 500.0         # skip very expensive stocks (options too costly)
-OPTIONS_RISK_PCT        = 0.01          # 1% of account per options trade (half of stock risk)
+OPTIONS_RISK_PCT        = 0.05          # 5% of account per options trade — 1 ITM call on $100-500 stock costs $500-1500
 OPTIONS_MAX_PREMIUM_USD = 1_500         # hard cap on total premium spend per trade
 OPTIONS_TARGET_DTE      = 21            # target DTE — Dman: "1-4 weeks" (21 is sweet spot)
 OPTIONS_MIN_DTE         = 10            # below this: theta accelerates, too risky
@@ -3066,8 +3066,8 @@ def size_options_trade(premium: float) -> int:
     acct        = get_effective_account()
     budget      = min(acct * OPTIONS_RISK_PCT, OPTIONS_MAX_PREMIUM_USD)
     cost_per    = premium * 100            # 1 contract = 100 shares
-    contracts   = max(1, int(budget / cost_per))
-    return contracts
+    contracts   = int(budget / cost_per)
+    return contracts  # 0 = premium too expensive for budget; caller skips
 
 
 def format_options_telegram(sig: "ProSignal", contract: dict, contracts: int) -> str:
@@ -3124,6 +3124,8 @@ def generate_options_signal(sig: "ProSignal") -> None:
         return
 
     contracts = size_options_trade(contract["premium"])
+    if contracts == 0:
+        return   # premium too expensive for current budget; skip silently
     total_cost = contract["premium"] * 100 * contracts
 
     print(f"  📊 OPTIONS: {sig.ticker} ${contract['strike']:.0f}C "

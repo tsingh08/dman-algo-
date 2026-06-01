@@ -4207,6 +4207,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
 # ═══════════════════════════════════════════════════════════════════════════
 
 def main():
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
         description="D🔥man Algorithm v3 PRO — targeting 80%+ win rate"
     )

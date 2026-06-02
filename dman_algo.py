@@ -117,6 +117,25 @@ SMALLCAP_T2_MULT       = 0.75     # T2 at +75%
 SMALLCAP_STOP_PCT      = 0.18     # 18% stop — penny stocks are volatile; wider needed
 SMALLCAP_52WK_LOW_PCT  = 0.30     # "bottom chart" = within 30% of 52-week low
 
+# Ultra-low float tier — Dman's "thin walls" plays (float < 2M): 100-200%+ potential
+ULTRA_LOW_FLOAT_M      = 2.0      # threshold for ultra-low float tier
+ULTRA_LOW_T1_MULT      = 0.50     # T1 at +50% (higher first target for thinner floats)
+ULTRA_LOW_T2_MULT      = 1.50     # T2 at +150% — matches Dman's "$10+ from $4" targets
+ULTRA_LOW_STOP_PCT     = 0.20     # 20% stop — extra room for extreme volatility
+
+# Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
+# These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
+# Keep updated as his active names rotate.
+DMAN_SMALLCAP_WATCHLIST = [
+    "APVO",   # 1.25M float — conference catalyst Mar 2026, $10+ target
+    "MASK",   # 1.13M float — low-float momentum play
+    "UGRO",   # 1.26M float — ultra-thin, consistent Dman mention
+    "ONCO",   # 1.15M float — bounce candidate
+    "FCHL",   # 1.32M float — overnight swing play
+    "ARTL",   # 3.49M float — mentioned in 100-600% runner week
+    "ELAB",   # 4.54M float — confirmed multi-day runner
+]
+
 # ── Options layer (Dman style: ITM calls on large-cap signals) ───────────────
 # Dman buys ITM calls at support bottoms on large-caps (SPY, QQQ, TSLA, NVDA, PLTR).
 # Advisory mode by default — alerts show exact contract, premium, Greeks, stop/target.
@@ -2810,11 +2829,17 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         if not (near_bottom or rvol >= 5.0):
             return None
 
+        # Ultra-low float tier: < 2M float = "thin walls" — use wider targets
+        ultra_low = 0 < fl_m < ULTRA_LOW_FLOAT_M
+        t1_mult   = ULTRA_LOW_T1_MULT  if ultra_low else SMALLCAP_T1_MULT
+        t2_mult   = ULTRA_LOW_T2_MULT  if ultra_low else SMALLCAP_T2_MULT
+        stop_pct  = ULTRA_LOW_STOP_PCT if ultra_low else SMALLCAP_STOP_PCT
+
         # Entry / stop / targets — wider stops than large-cap (penny stocks whipsaw)
         entry = round(c * 1.002, 4)
-        stop  = round(entry * (1 - SMALLCAP_STOP_PCT), 4)
-        t1    = round(entry * (1 + SMALLCAP_T1_MULT), 2)
-        t2    = round(entry * (1 + SMALLCAP_T2_MULT), 2)
+        stop  = round(entry * (1 - stop_pct), 4)
+        t1    = round(entry * (1 + t1_mult), 2)
+        t2    = round(entry * (1 + t2_mult), 2)
         rr    = round((t1 - entry) / (entry - stop), 2) if entry > stop else 0
 
         if rr < 1.5:
@@ -2839,8 +2864,9 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         else:
             pattern_note = "MACD curling bullish, RVOL spike"
 
+        ultra_note = " | ⚡ ULTRA-LOW FLOAT" if ultra_low else ""
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
-                  f"{squeeze_note}{insider_note}{rs_note}{bot_note}{cash_note} | {pattern_note}")
+                  f"{ultra_note}{squeeze_note}{insider_note}{rs_note}{bot_note}{cash_note} | {pattern_note}")
 
         sig = ProSignal(
             ticker=ticker, setup="Low Float Catalyst", bias="LONG",
@@ -3356,7 +3382,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     if ENABLE_SMALLCAP:
         sc_rejected = 0
         sc_found    = 0
-        for ticker in tickers:
+        # Always include Dman's curated names — they bypass the $1M/day vol threshold
+        sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST))
+        for ticker in sc_universe:
             df = fetch_df(ticker)   # already cached from the large-cap pass
             if df is None or len(df) < 30:
                 continue

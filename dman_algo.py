@@ -89,6 +89,9 @@ ENABLE_EMA_PULLBACK = False
 # Gap & Short disabled — 40.0% WR / avg +1.51% across 5-trade backtest sample, consistent drag
 ENABLE_GAP_SHORT = False
 
+# MACD Bear disabled — 0% WR / 1-trade backtest sample, insufficient edge; short setup in BULL-dominant algo
+ENABLE_MACD_BEAR = False
+
 # MACD Cross disabled — 47.1% WR / 17 trades, below breakeven; mean-reversion setup underperforms in BULL regime
 ENABLE_MACD_CROSS = False
 
@@ -2486,8 +2489,8 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 if sig.rr >= MIN_RR:
                     candidates.append(sig)
 
-        # S4: MACD Bear Cross — cross below zero, RSI in neutral zone, volume confirmed
-        if (float(p["MACD"]) > float(p["MACD_sig"]) and float(r["MACD"]) < float(r["MACD_sig"])
+        # S4: MACD Bear Cross — disabled (0% WR / 1 trade; short in BULL-dominant algo)
+        if ENABLE_MACD_BEAR and (float(p["MACD"]) > float(p["MACD_sig"]) and float(r["MACD"]) < float(r["MACD_sig"])
                 and float(r["MACD"]) < 0
                 and float(r["EMA20"]) < float(r["EMA50"])
                 and float(r["EMA50"]) < float(p["EMA50"])
@@ -3030,8 +3033,12 @@ def select_itm_call(calls: pd.DataFrame, current_price: float,
         ask     = float(best.get("ask", 0) or 0)
         if bid <= 0 or ask <= 0:
             return None
+        # Skip contracts where bid-ask spread > 15% of mid (illiquid — bad fill)
+        mid = (bid + ask) / 2
+        if (ask - bid) / mid > 0.15:
+            return None
 
-        premium      = round((bid + ask) / 2, 2)
+        premium      = round(mid, 2)
         iv           = float(best.get("impliedVolatility", 0) or 0)
         moneyness    = round((current_price - float(best["strike"])) / current_price * 100, 1)
         # Approximate delta from moneyness (rough heuristic for display)
@@ -3319,6 +3326,14 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 rejected_counts["low_score"] += 1
                 sys.stdout.write(f"AI score {sig.ai_score}/10 too low\n")
                 continue
+
+        # Gap & Hold: suppress alerts in first 15 min of session (9:30–9:44 AM ET).
+        # Gaps that haven't survived initial selling pressure aren't proven holds yet.
+        _now_et = datetime.now(ET)
+        if (sig.setup == "Gap & Hold"
+                and _now_et.hour == 9 and _now_et.minute < 45):
+            sys.stdout.write("       (early-session gate — Gap & Hold held until 9:45 AM ET)\n")
+            continue
 
         signals.append(sig)
         arrow = "🟢" if sig.bias == "LONG" else "🔴"

@@ -158,8 +158,8 @@ OPTIONS_AUTO_EXECUTE    = False         # True = place orders via Alpaca; False 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
-# Seasonal regime — backtest shows Jan(38% WR), Jul(38%), Aug(25%), Sep(29%) are chronic losers
-SEASONAL_WEAK_MONTHS = {1, 7, 8, 9}
+# Seasonal regime — backtest shows Jan(38% WR), Jul(38%), Aug(25%), Sep(29%), Dec(33%) are chronic losers
+SEASONAL_WEAK_MONTHS = {1, 7, 8, 9, 12}
 SEASONAL_MIN_SCORE   = 92          # raised bar during weak months
 
 # ADX trend-strength gate — skip directionless/choppy stocks before any pattern check
@@ -3653,7 +3653,7 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                     bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
                 if raw.index[i].month in SEASONAL_WEAK_MONTHS:
                     bt_min = max(bt_min, SEASONAL_MIN_SCORE)
-                if bt_score < bt_min * 0.85:
+                if bt_score < bt_min * 0.92:
                     continue
 
                 entry_px = sig.entry * 1.001   # 0.1% slippage

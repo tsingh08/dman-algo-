@@ -142,10 +142,11 @@ DMAN_SMALLCAP_WATCHLIST = [
 # Set OPTIONS_AUTO_EXECUTE = True to route orders through Alpaca paper/live.
 ENABLE_OPTIONS          = True
 OPTIONS_SETUPS          = {"Gap & Hold", "Morning Runner"}  # setups that also get options
-OPTIONS_MIN_SCORE       = 88            # only high-conviction large-cap signals
+OPTIONS_MIN_SCORE       = 80            # match adaptive min score threshold
+OPTIONS_MIN_PRICE       = 10.0          # no options on sub-$10 stocks (illiquid/nonexistent)
 OPTIONS_MAX_PRICE       = 500.0         # skip very expensive stocks (options too costly)
-OPTIONS_RISK_PCT        = 0.05          # 5% of account per options trade — 1 ITM call on $100-500 stock costs $500-1500
-OPTIONS_MAX_PREMIUM_USD = 1_500         # hard cap on total premium spend per trade
+OPTIONS_RISK_PCT        = 0.25          # 25% of account — minimum to afford 1 contract ($20-50 stocks)
+OPTIONS_MAX_PREMIUM_USD = 250           # cap at $250/trade — 1 contract for $1K account
 OPTIONS_TARGET_DTE      = 21            # target DTE — Dman: "1-4 weeks" (21 is sweet spot)
 OPTIONS_MIN_DTE         = 10            # below this: theta accelerates, too risky
 OPTIONS_MAX_DTE         = 42            # beyond this: premium too expensive for swing trade
@@ -415,6 +416,15 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     """Format a ProSignal as a Telegram-ready HTML message."""
     arrow = "🟢 LONG" if s.bias == "LONG" else "🔴 SHORT"
     opex  = " ⚠️ OpEx week" if is_opex_week() else ""
+
+    # For stocks >$10 with options enabled: flag it so user knows options alert follows
+    if ENABLE_OPTIONS and s.entry > OPTIONS_MIN_PRICE and s.setup in OPTIONS_SETUPS:
+        trade_note = "\n🎯 <b>OPTIONS play</b> — trade the ITM call below, not the stock directly."
+    elif s.entry <= OPTIONS_MIN_PRICE:
+        trade_note = "\n📈 <b>STOCK play</b> — price under $10, buy shares directly."
+    else:
+        trade_note = ""
+
     return (
         f"<b>D🔥man Signal{opex}</b>\n"
         f"{arrow} <b>{s.ticker}</b> — {s.setup}\n"
@@ -424,6 +434,7 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
         f"Score: {s.confluence_score}/100"
         + (f"  AI: {s.ai_score}/10" if s.ai_score else "")
         + f"\nMarket: {regime.get('regime','?')}\n{s.reason}"
+        + trade_note
     )
 
 
@@ -3141,6 +3152,8 @@ def generate_options_signal(sig: "ProSignal") -> None:
     if sig.setup not in OPTIONS_SETUPS:
         return
     if sig.confluence_score < OPTIONS_MIN_SCORE:
+        return
+    if sig.entry <= OPTIONS_MIN_PRICE:   # sub-$10 stocks have no liquid options — trade stock directly
         return
     if sig.entry > OPTIONS_MAX_PRICE:
         return

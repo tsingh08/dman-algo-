@@ -51,7 +51,8 @@ ET = zoneinfo.ZoneInfo("America/New_York")
 #  SECTION 1 — CONFIGURATION
 # ═══════════════════════════════════════════════════════════════════════════
 
-ACCOUNT_SIZE       = float(os.getenv("ACCOUNT_SIZE", "25000"))  # set via env/secret
+_acct_raw    = os.getenv("ACCOUNT_SIZE", "").strip()
+ACCOUNT_SIZE = float(_acct_raw) if _acct_raw else 25_000.0   # set via ACCOUNT_SIZE env/secret
 RISK_PER_TRADE     = 0.02        # base risk — Kelly may reduce this
 MIN_RR             = 2.0
 MIN_CONFLUENCE     = 75          # 0-100 score; raise to 80 for extra caution

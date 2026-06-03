@@ -272,7 +272,7 @@ def build_scan_universe(min_price: float = 2.0,
     print("  [universe] Fetching NASDAQ + NYSE symbol list...", flush=True)
     try:
         def _fetch_syms(url: str, sym_col: str) -> list[str]:
-            r = requests.get(url, timeout=20)
+            r = requests.get(url, timeout=5)   # fail fast — fallback list is ready
             df = pd.read_csv(io.StringIO(r.text), sep="|")
             if "Test Issue" in df.columns:
                 df = df[df["Test Issue"] != "Y"]
@@ -3972,41 +3972,67 @@ def get_pending_health() -> list[dict]:
 
 def get_radar_picks(pending_tickers: set, n: int = 3) -> list[ProSignal]:
     """
-    Quick soft-scan of the curated watchlist for near-miss setups
-    (Gap & Hold conditions met but score below current adaptive threshold).
-    Returns top-n by score, excluding tickers already in active plays.
+    Lightweight watchlist scan for near-miss Gap & Hold setups.
+    Uses direct condition checks only — NO score_signal() calls (too slow for 51 tickers).
+    Ranks by a simple heuristic: RVOL + gap size + momentum.
+    Returns top-n, excluding tickers already in active plays.
     """
-    tracker   = WinRateTracker()
-    min_score = tracker.adaptive_min_score()
-    regime    = get_market_regime()
-    radar: list[ProSignal] = []
+    radar: list[tuple[float, ProSignal]] = []   # (heuristic_score, sig)
 
     for ticker in WATCHLIST:
         if ticker in pending_tickers:
             continue
-        df = fetch_df(ticker)
-        if df is None or len(df) < 30:
-            continue
-        df = compute_indicators(df.copy()) if "MACD" not in df.columns else df
-
-        # Quick RVOL pre-filter — no volume = no setup
         try:
-            rvol = float(df.iloc[-1].get("RVOL", 0) or 0)
-            if rvol < 1.3:
+            df = fetch_df(ticker)
+            if df is None or len(df) < 30:
                 continue
+            df = compute_indicators(df.copy()) if "MACD" not in df.columns else df
+
+            r, p = df.iloc[-1], df.iloc[-2]
+            c    = float(r["Close"])
+            o    = float(r["Open"])
+            pc   = float(p["Close"])
+
+            # Gap & Hold conditions (lightweight — no API calls)
+            gap_pct = (o - pc) / pc * 100
+            if gap_pct < 1.0:                          # at least 1% gap
+                continue
+            if c < o * 0.993:                          # must be holding above open
+                continue
+            rvol = float(r.get("RVOL", 0) or 0)
+            if rvol < 1.3:                             # need real volume
+                continue
+            rsi  = float(r.get("RSI",  50) or 50)
+            macd = float(r.get("MACD",  0) or 0)
+            if rsi < 45 or macd <= 0:                  # momentum check
+                continue
+
+            # Simple heuristic score: RVOL + gap size + RSI position
+            h_score = rvol * 12 + gap_pct * 4 + (8 if 50 <= rsi <= 68 else 0)
+
+            # Build a minimal ProSignal for display
+            stop = round(min(float(r["Low"]) * 0.99, o * 0.985), 2)
+            t1   = round(c + 2.5 * (c - stop), 2)
+            t2   = round(c + 4.0 * (c - stop), 2)
+            rr   = round((t1 - c) / (c - stop), 2) if c > stop else 0
+            if rr < MIN_RR:
+                continue
+
+            reason = (f"Gap +{gap_pct:.1f}% holding | RVOL {rvol:.1f}x | "
+                      f"RSI {rsi:.0f} | MACD {'▲' if macd > 0 else '▼'}")
+            sig = ProSignal(
+                ticker=ticker, setup="Gap & Hold", bias="LONG",
+                entry=round(c, 2), stop=stop, target1=t1, target2=t2,
+                rr=rr, rsi=round(rsi, 1), rvol=round(rvol, 2),
+                reason=reason,
+            )
+            sig.confluence_score = min(84, int(h_score))   # cap below A+ threshold
+            radar.append((h_score, sig))
         except Exception:
             continue
 
-        sig = _raw_signals(df, ticker)
-        if sig is None or sig.setup != "Gap & Hold":
-            continue
-        sig = score_signal(sig, df, regime, tracker)
-        # Collect signals that are good-but-not-quite (score 65 → threshold)
-        if 65 <= sig.confluence_score < min_score:
-            radar.append(sig)
-
-    radar.sort(key=lambda s: s.confluence_score, reverse=True)
-    return radar[:n]
+    radar.sort(key=lambda x: x[0], reverse=True)
+    return [sig for _, sig in radar[:n]]
 
 
 def format_watchlist_telegram(health: list[dict],
@@ -4064,20 +4090,23 @@ def format_watchlist_telegram(health: list[dict],
 
 
 def send_daily_watchlist() -> None:
-    """Fetch health + radar, format, print, and send to Telegram."""
-    print("\n  [1/3] Reading active signals...")
-    health = get_pending_health()
+    """Fetch health + radar, format, print, and send to Telegram. Never raises."""
+    try:
+        print("\n  [1/3] Reading active signals...")
+        health = get_pending_health()
 
-    pending_tickers = {h["ticker"] for h in health}
-    print(f"  [2/3] Running radar scan ({len(WATCHLIST)} tickers)...")
-    regime = get_market_regime()
-    radar  = get_radar_picks(pending_tickers)
+        pending_tickers = {h["ticker"] for h in health}
+        print(f"  [2/3] Running radar scan ({len(WATCHLIST)} tickers, lightweight)...")
+        regime = get_market_regime()
+        radar  = get_radar_picks(pending_tickers)
 
-    print(f"  [3/3] Sending watchlist to Telegram...")
-    msg = format_watchlist_telegram(health, radar, regime)
-    print(msg)
-    send_telegram(msg)
-    print("\n  ✅  Daily watchlist sent.\n")
+        print(f"  [3/3] Sending watchlist to Telegram...")
+        msg = format_watchlist_telegram(health, radar, regime)
+        print(msg)
+        send_telegram(msg)
+        print("\n  ✅  Daily watchlist sent.\n")
+    except Exception as _e:
+        print(f"  ⚠️  Watchlist skipped — {_e}")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -4692,14 +4721,6 @@ def main():
         send_daily_watchlist()
 
     elif args.mode == "scan":
-        # At market open (9:30–9:44 AM ET), send the daily watchlist first
-        _now_et = datetime.now(ET)
-        if _now_et.hour == 9 and 29 <= _now_et.minute <= 50:
-            try:
-                send_daily_watchlist()
-            except Exception as _e:
-                print(f"  ⚠️  Watchlist send failed: {_e}")
-
         signals = run_pro_scanner(tickers,
                                    min_score=args.score,
                                    use_ai=args.ai)

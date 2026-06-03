@@ -252,6 +252,10 @@ TICKER_SECTOR = {
     "UBER":"Consumer Disc","ELF":"Consumer Disc","DECK":"Consumer Disc",
     # AI infrastructure / power
     "VST":"Utilities",
+    # Additional cybersecurity / cloud earnings gappers
+    "FTNT":"Technology","ZS":"Technology","MDB":"Technology",
+    # Consumer momentum gappers (affordable options)
+    "ONON":"Consumer Disc","ABNB":"Consumer Disc","DKNG":"Consumer Disc",
     # Chinese AI / tech ADRs (Dman watches FXI + DeepSeek rally names)
     "BABA":"Comm Services","BIDU":"Comm Services","PDD":"Consumer Disc",
     "JD":"Consumer Disc","KWEB":"Technology",

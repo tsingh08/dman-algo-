@@ -236,8 +236,8 @@ TICKER_SECTOR = {
     "DUOL":"Technology","CELH":"Consumer Disc","GME":"Consumer Disc",
     # Energy (OXY removed — 0% WR)
     "XOM":"Energy",
-    # AI / high-vol growth
-    "SOUN":"Technology","RKLB":"Industrials",
+    # AI / high-vol growth (SOUN removed — 0% WR in backtest; caught by dynamic universe on catalyst days)
+    "RKLB":"Industrials",
     # Chinese AI / tech ADRs (Dman watches FXI + DeepSeek rally names)
     "BABA":"Comm Services","BIDU":"Comm Services","PDD":"Consumer Disc",
     "JD":"Consumer Disc","KWEB":"Technology",
@@ -3653,7 +3653,7 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                     bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
                 if raw.index[i].month in SEASONAL_WEAK_MONTHS:
                     bt_min = max(bt_min, SEASONAL_MIN_SCORE)
-                if bt_score < bt_min * 0.92:
+                if bt_score < bt_min * 0.95:
                     continue
 
                 entry_px = sig.entry * 1.001   # 0.1% slippage

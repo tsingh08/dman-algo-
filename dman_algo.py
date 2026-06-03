@@ -3904,6 +3904,183 @@ def run_ranking(tickers: list[str] = WATCHLIST,
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  SECTION 21.9 — DAILY WATCHLIST + CLAUDE'S RADAR (Telegram)
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _signal_health_label(entry: float, stop: float,
+                          t1: float, t2: float, px: float) -> tuple[str, str]:
+    """Return (emoji, one-line status) for a live signal given the current price."""
+    if px <= stop:
+        return "🛑", f"Below stop ${stop:.2f} — consider exiting"
+    pct = (px - entry) / entry * 100
+    if px >= t2:
+        return "🚀🚀", f"T2 HIT! +{pct:.1f}% — take remaining profits"
+    if px >= t1:
+        return "🚀",   f"T1 hit! +{pct:.1f}% — trail stop to breakeven"
+    if pct >= 3.0:
+        return "⚡",   f"+{pct:.1f}% — move stop to breakeven"
+    if pct >= 0:
+        return "✅",   f"+{pct:.1f}% — holding above entry"
+    if px > stop * 1.03:
+        return "⚠️",  f"{pct:.1f}% — approaching stop"
+    return "🟡", f"{pct:.1f}% below entry"
+
+
+def get_pending_health() -> list[dict]:
+    """
+    Read dman_live_signals.json, fetch current price for each,
+    and return health info for signals ≤ 7 calendar days old.
+    """
+    try:
+        data = json.load(open(LIVE_SIGNALS_FILE))
+    except Exception:
+        return []
+    today = date.today()
+    results = []
+    for p in data.get("pending", []):
+        try:
+            ticker   = p["ticker"]
+            entry    = float(p["entry"])
+            stop     = float(p["stop"])
+            t1       = float(p.get("target1", entry * 1.25))
+            t2       = float(p.get("target2", entry * 1.50))
+            sig_date = date.fromisoformat(p["date"])
+            days_old = (today - sig_date).days
+            if days_old > 7:
+                continue
+            px = get_current_price(ticker)
+            if not px:
+                continue
+            emoji, status = _signal_health_label(entry, stop, t1, t2, px)
+            results.append({
+                "ticker":   ticker,
+                "setup":    p.get("setup", "Gap & Hold"),
+                "entry":    entry,
+                "stop":     stop,
+                "t1":       t1,
+                "t2":       t2,
+                "current":  round(px, 2),
+                "score":    p.get("score", 0),
+                "days_old": days_old,
+                "emoji":    emoji,
+                "status":   status,
+            })
+        except Exception:
+            continue
+    return results
+
+
+def get_radar_picks(pending_tickers: set, n: int = 3) -> list[ProSignal]:
+    """
+    Quick soft-scan of the curated watchlist for near-miss setups
+    (Gap & Hold conditions met but score below current adaptive threshold).
+    Returns top-n by score, excluding tickers already in active plays.
+    """
+    tracker   = WinRateTracker()
+    min_score = tracker.adaptive_min_score()
+    regime    = get_market_regime()
+    radar: list[ProSignal] = []
+
+    for ticker in WATCHLIST:
+        if ticker in pending_tickers:
+            continue
+        df = fetch_df(ticker)
+        if df is None or len(df) < 30:
+            continue
+        df = compute_indicators(df.copy()) if "MACD" not in df.columns else df
+
+        # Quick RVOL pre-filter — no volume = no setup
+        try:
+            rvol = float(df.iloc[-1].get("RVOL", 0) or 0)
+            if rvol < 1.3:
+                continue
+        except Exception:
+            continue
+
+        sig = _raw_signals(df, ticker)
+        if sig is None or sig.setup != "Gap & Hold":
+            continue
+        sig = score_signal(sig, df, regime, tracker)
+        # Collect signals that are good-but-not-quite (score 65 → threshold)
+        if 65 <= sig.confluence_score < min_score:
+            radar.append(sig)
+
+    radar.sort(key=lambda s: s.confluence_score, reverse=True)
+    return radar[:n]
+
+
+def format_watchlist_telegram(health: list[dict],
+                               radar: list[ProSignal],
+                               regime: dict) -> str:
+    """Format the daily watchlist + Claude's Radar as a Telegram HTML message."""
+    now_str  = datetime.now(ET).strftime("%a %b %d, %Y")
+    vix      = regime["details"].get("VIX", "?")
+    reg      = regime["regime"]
+
+    lines = [
+        f"🗒 <b>DMan Daily Watchlist</b> — {now_str}",
+        f"📊 {reg}  |  VIX {vix}  |  "
+        f"Min score: {WinRateTracker().adaptive_min_score()}/100",
+        "",
+    ]
+
+    # ── Active plays ────────────────────────────────────────────────────────
+    lines.append("━━━ <b>📌 ACTIVE PLAYS</b> ━━━")
+    if health:
+        for h in health:
+            age_tag = f"  <i>({h['days_old']}d old)</i>" if h['days_old'] > 1 else ""
+            pct     = (h['current'] - h['entry']) / h['entry'] * 100
+            lines.append(
+                f"\n{h['emoji']} <b>{h['ticker']}</b> — {h['setup']}"
+                f"  score {h['score']}{age_tag}\n"
+                f"   Entry <b>${h['entry']}</b>  →  Now <b>${h['current']}</b>"
+                f"  ({pct:+.1f}%)\n"
+                f"   T1 ${h['t1']}  |  T2 ${h['t2']}  |  Stop ${h['stop']}\n"
+                f"   {h['status']}"
+            )
+    else:
+        lines.append("📭 No active plays at the moment.")
+
+    # ── Claude's Radar ───────────────────────────────────────────────────────
+    if radar:
+        lines += [
+            "",
+            "━━━ <b>👁 CLAUDE'S RADAR</b> — watch only, not signals ━━━",
+            "<i>These setups are building but haven't hit the A+ bar yet.</i>",
+        ]
+        for i, sig in enumerate(radar, 1):
+            reason_short = sig.reason.split("|")[0].strip() if "|" in sig.reason else sig.reason[:70]
+            lines.append(
+                f"\n{i}. <b>{sig.ticker}</b>  score {sig.confluence_score}/100"
+                f"  |  RVOL {sig.rvol:.1f}x\n"
+                f"   Entry ~${sig.entry:.2f}  Stop ${sig.stop:.2f}\n"
+                f"   <i>{reason_short}</i>"
+            )
+    else:
+        lines += ["", "👁 No radar picks right now — market is quiet."]
+
+    lines.append("\n📡 <i>DMan PRO Algorithm v3 — auto-generated</i>")
+    return "\n".join(lines)
+
+
+def send_daily_watchlist() -> None:
+    """Fetch health + radar, format, print, and send to Telegram."""
+    print("\n  [1/3] Reading active signals...")
+    health = get_pending_health()
+
+    pending_tickers = {h["ticker"] for h in health}
+    print(f"  [2/3] Running radar scan ({len(WATCHLIST)} tickers)...")
+    regime = get_market_regime()
+    radar  = get_radar_picks(pending_tickers)
+
+    print(f"  [3/3] Sending watchlist to Telegram...")
+    msg = format_watchlist_telegram(health, radar, regime)
+    print(msg)
+    send_telegram(msg)
+    print("\n  ✅  Daily watchlist sent.\n")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 22.5 — ALPACA PAPER TRADING INTEGRATION
 # ═══════════════════════════════════════════════════════════════════════════
 #  pip install alpaca-py
@@ -4260,7 +4437,7 @@ def main():
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
                  "watch","rank","open","positions","alpaca","sync",
-                 "live-outcomes","live-perf","premarket"],
+                 "live-outcomes","live-perf","premarket","watchlist"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -4511,7 +4688,18 @@ def main():
     elif args.mode == "premarket":
         run_premarket_briefing()
 
+    elif args.mode == "watchlist":
+        send_daily_watchlist()
+
     elif args.mode == "scan":
+        # At market open (9:30–9:44 AM ET), send the daily watchlist first
+        _now_et = datetime.now(ET)
+        if _now_et.hour == 9 and 29 <= _now_et.minute <= 50:
+            try:
+                send_daily_watchlist()
+            except Exception as _e:
+                print(f"  ⚠️  Watchlist send failed: {_e}")
+
         signals = run_pro_scanner(tickers,
                                    min_score=args.score,
                                    use_ai=args.ai)

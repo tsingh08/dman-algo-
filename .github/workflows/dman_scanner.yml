@@ -53,6 +53,13 @@ jobs:
           if now.weekday() >= 5 or not (930 <= t <= 1600):
               print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")
               sys.exit(0)
+          # Daily watchlist at market open (9:30–9:50 AM ET) — sent before the main scan
+          # The scan itself also triggers it, but this ensures it runs even on slow scan days
+          if 930 <= t <= 950:
+              subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "watchlist"],
+                  capture_output=False
+              )
           result = subprocess.run(
               [sys.executable, "dman_algo.py", "--mode", "scan", "--universe", "all", "--ai"],
               capture_output=False

@@ -2,9 +2,9 @@ name: DMan PRO Scanner
 
 on:
   schedule:
-    # Every 30 min, 13:30–20:00 UTC = 9:30am–4:00pm EDT (market hours)
-    - cron: '30 13 * * 1-5'
-    - cron: '0,30 14,15,16,17,18,19 * * 1-5'
+    # Every 60 min, 13:30–20:00 UTC = 9:30am–4:00pm EDT (market hours)
+    # Gap & Hold that holds 60+ min is higher quality than 30 min
+    - cron: '30 13,14,15,16,17,18,19 * * 1-5'
     - cron: '0 20 * * 1-5'
   workflow_dispatch:   # manual trigger from GitHub UI
 

@@ -75,6 +75,7 @@ VOLATILE_TICKERS = {
     "RIOT","GME","SOUN","RXRX","RKLB",
     "NIO","AFRM","HOOD","CELH","RIVN",
     "BABA","BIDU","PDD","JD","KWEB",   # Chinese ADRs — geopolitical + currency risk, tighter confluence needed
+    "COIN","MSTR",                     # crypto-proxy — extreme vol, needs high conviction
 }
 VOLATILE_MIN_CONFLUENCE = 88   # vs 85 default for standard tickers
 
@@ -238,8 +239,19 @@ TICKER_SECTOR = {
     "DUOL":"Technology","CELH":"Consumer Disc","GME":"Consumer Disc",
     # Energy (OXY removed — 0% WR)
     "XOM":"Energy",
-    # AI / high-vol growth (SOUN removed — 0% WR in backtest; caught by dynamic universe on catalyst days)
+    # AI / high-vol growth
     "RKLB":"Industrials",
+    "ARM":"Technology","APP":"Technology","ANET":"Technology",  # AI momentum
+    # Cybersecurity (high-conviction gap plays, missing from original list)
+    "CRWD":"Technology","PANW":"Technology","NET":"Technology",
+    # Cloud/SaaS earnings gappers
+    "DDOG":"Technology",
+    # Crypto-proxy (volatile — min score 88 via VOLATILE_TICKERS)
+    "COIN":"Financials",
+    # Consumer momentum (gap & hold compatible)
+    "UBER":"Consumer Disc","ELF":"Consumer Disc","DECK":"Consumer Disc",
+    # AI infrastructure / power
+    "VST":"Utilities",
     # Chinese AI / tech ADRs (Dman watches FXI + DeepSeek rally names)
     "BABA":"Comm Services","BIDU":"Comm Services","PDD":"Consumer Disc",
     "JD":"Consumer Disc","KWEB":"Technology",
@@ -248,6 +260,26 @@ TICKER_SECTOR = {
 }
 
 WATCHLIST = list(TICKER_SECTOR.keys())
+
+# Extended universe — scanned with --universe all when FTP/API fails.
+# These are strong gap-and-hold candidates not in the curated list.
+# RVOL filter still applies — only high-volume days make it through.
+EXTENDED_UNIVERSE = [
+    # Cybersecurity
+    "ZS","FTNT","OKTA","CYBR","S",
+    # Cloud / SaaS
+    "MDB","GTLB","BILL","SMAR","CELH",
+    # Biotech gappers
+    "ALNY","BMRN","SRPT","IONS","RCKT",
+    # Consumer / lifestyle growth
+    "ONON","LULU","CAVA","EXAS","RH",
+    # Fintech / payments
+    "SQ","NU","MELI","ADYEY",
+    # Power / AI infrastructure
+    "CEG","NRG","AES","TLN",
+    # Other high-momentum
+    "AXON","TMDX","CELH","DKNG","ABNB",
+]
 
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 1.5 — DYNAMIC UNIVERSE BUILDER
@@ -273,8 +305,9 @@ def build_scan_universe(min_price: float = 2.0,
     import io
     print("  [universe] Fetching NASDAQ + NYSE symbol list...", flush=True)
     try:
+        # NASDAQ provides the symbol directory via their web interface (more reliable than FTP)
         def _fetch_syms(url: str, sym_col: str) -> list[str]:
-            r = requests.get(url, timeout=5)   # fail fast — fallback list is ready
+            r = requests.get(url, timeout=8, headers={"User-Agent": "Mozilla/5.0"})
             df = pd.read_csv(io.StringIO(r.text), sep="|")
             if "Test Issue" in df.columns:
                 df = df[df["Test Issue"] != "Y"]
@@ -282,13 +315,14 @@ def build_scan_universe(min_price: float = 2.0,
             return [s.strip() for s in raw if s.strip().isalpha() and 1 <= len(s.strip()) <= 5]
 
         nasdaq_syms = _fetch_syms(
-            "https://ftp.nasdaqtrader.com/SymbolDirectory/nasdaqlisted.txt", "Symbol")
+            "https://www.nasdaqtrader.com/dynamic/symdir/nasdaqlisted.txt", "Symbol")
         other_syms  = _fetch_syms(
-            "https://ftp.nasdaqtrader.com/SymbolDirectory/otherlisted.txt", "ACT Symbol")
+            "https://www.nasdaqtrader.com/dynamic/symdir/otherlisted.txt", "ACT Symbol")
         all_syms = list(set(nasdaq_syms + other_syms) - set(WATCHLIST))
     except Exception as e:
-        print(f"  [universe] Symbol fetch failed ({e}), using curated list.", flush=True)
-        return WATCHLIST
+        print(f"  [universe] Symbol fetch failed ({e}), using curated + extended list.", flush=True)
+        # Fallback: curated watchlist + extended universe (RVOL filter still applied below)
+        all_syms = list(set(EXTENDED_UNIVERSE) - set(WATCHLIST))
 
     print(f"  [universe] {len(all_syms):,} symbols → filtering by price/volume...", flush=True)
 

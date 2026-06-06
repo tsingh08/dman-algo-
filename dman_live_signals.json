@@ -13,28 +13,16 @@
       "timestamp": "2026-05-28T13:08:19.741555-04:00"
     },
     {
-      "ticker": "PLTR",
+      "ticker": "MRVL",
       "setup": "Gap & Hold",
       "bias": "LONG",
-      "entry": 156.54,
-      "stop": 147.54,
-      "target1": 174.54,
-      "target2": 183.54,
+      "entry": 290.79,
+      "stop": 260.99,
+      "target1": 350.39,
+      "target2": 380.19,
       "score": 100,
-      "date": "2026-05-30",
-      "timestamp": "2026-05-30T02:29:47.369390-04:00"
-    },
-    {
-      "ticker": "SMCI",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 46.09,
-      "stop": 43.62,
-      "target1": 51.03,
-      "target2": 53.5,
-      "score": 100,
-      "date": "2026-05-29",
-      "timestamp": "2026-05-29T21:59:48.627535-04:00"
+      "date": "2026-06-03",
+      "timestamp": "2026-06-03T00:11:45.042515-04:00"
     }
   ]
 }

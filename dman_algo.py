@@ -704,58 +704,85 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
 def run_premarket_briefing() -> None:
     """
     Daily 9:10 AM ET pre-market briefing.
-    Sends a Telegram summary covering regime, macro, seasonal, live WR,
-    monthly P&L, and any filter suggestions. Never modifies code autonomously.
+    Sends a Telegram summary covering regime, macro env, seasonal, live WR,
+    monthly P&L, and filter suggestions. Never modifies code autonomously.
     """
     now_et = datetime.now(ET)
     date_str = now_et.strftime("%A %b %d, %Y")
 
-    # ── 1. Market regime ──────────────────────────────────────────────
-    print("  [1/5] Checking market regime...")
+    # ── 1. Market regime + macro context ─────────────────────────────
+    print("  [1/6] Checking market regime + macro context...")
+    regime_line  = "Unable to fetch regime"
+    regime_line2 = ""
+    macro_env_section = ""
+    vix = "?"
     try:
         regime   = get_market_regime()
         top_secs = get_top_sectors()
         r_type   = regime.get("regime", "UNKNOWN")
         r_score  = regime.get("score", 0)
-        vix      = regime["details"].get("VIX", "?")
-        spy_ok   = "✅" if regime["details"].get("SPY_above_EMA20") else "⚠️"
-        qqq_ok   = "✅" if regime["details"].get("QQQ_above_EMA20") else "⚠️"
-        regime_line  = f"*{r_type}* ({r_score}/15)  VIX: {vix}"
+        det      = regime["details"]
+        vix      = det.get("VIX", "?")
+
+        # Fixed key names — keys are "SPY vs EMA20" / "QQQ vs EMA20"
+        spy_ok   = "✅" if det.get("SPY vs EMA20") else "⚠️"
+        qqq_ok   = "✅" if det.get("QQQ vs EMA20") else "⚠️"
+        regime_line  = f"<b>{r_type}</b> ({r_score}/15)  VIX: {vix}"
         regime_line2 = f"SPY {spy_ok}  QQQ {qqq_ok}  |  Top: {', '.join(top_secs[:3])}"
+
+        # Extended macro environment (rates, dollar, breadth)
+        tlt_note = det.get("TLT Note", "N/A")
+        dxy_note = det.get("DXY Note", "N/A")
+        qqq_note = det.get("QQQ Note", "N/A")
+        tlt_trend = det.get("TLT Trend", "flat")
+        dxy_trend = det.get("DXY Trend", "flat")
+        tlt_emoji = "📈" if tlt_trend == "rising" else ("📉" if tlt_trend == "falling" else "➡️")
+        dxy_emoji = "💪" if dxy_trend == "strong" else ("🔻" if dxy_trend == "weak" else "➡️")
+        breadth   = det.get("IWM Breadth", "N/A")
+        macro_env_section = (
+            f"\n\n🌐 <b>MACRO ENVIRONMENT</b>\n"
+            f"QQQ: {qqq_note}\n"
+            f"TLT {tlt_emoji}: {tlt_note}  (rates {'falling ✅' if tlt_trend == 'rising' else ('rising ⚠️' if tlt_trend == 'falling' else 'flat')})\n"
+            f"DXY {dxy_emoji}: {dxy_note}  ({'headwind ⚠️' if dxy_trend == 'strong' else ('tailwind ✅' if dxy_trend == 'weak' else 'neutral')})\n"
+            f"Breadth: {breadth}"
+        )
     except Exception as e:
-        regime_line  = "Unable to fetch regime"
         regime_line2 = str(e)[:60]
 
     # ── 2. Macro calendar ─────────────────────────────────────────────
-    print("  [2/5] Checking macro calendar...")
+    print("  [2/6] Checking macro calendar...")
     try:
-        macro_ok, _ = check_macro_safe()
-        today_d      = now_et.date()
-        tomorrow_d   = today_d + timedelta(days=1)
-        # Check both today and tomorrow
-        events_today = []
+        today_d    = now_et.date()
+        tomorrow_d = today_d + timedelta(days=1)
+        nfp_set    = _nfp_dates()
+        events_lines = []
         for d in [today_d, tomorrow_d]:
+            label = "today" if d == today_d else "tomorrow"
             if d in _FOMC_DATES:
-                events_today.append(f"FOMC {'today' if d == today_d else 'tomorrow'}")
-            if d in _nfp_dates():
-                events_today.append(f"NFP {'today' if d == today_d else 'tomorrow'}")
+                events_lines.append(f"⛔ FOMC {label} — full-day blackout")
+            if d in nfp_set:
+                if d == today_d:
+                    events_lines.append(f"📊 NFP today (8:30 AM) — blackout until 10:00 AM ET, then open")
+                else:
+                    events_lines.append(f"📊 NFP tomorrow — prepare for gap at open")
             if d in _CPI_DATES:
-                events_today.append(f"CPI {'today' if d == today_d else 'tomorrow'}")
-        macro_line = ("⚠️ " + " | ".join(events_today) + " — blackout active"
-                      if events_today else "✅ No macro events today/tomorrow")
+                if d == today_d:
+                    events_lines.append(f"📊 CPI today (8:30 AM) — blackout until 10:00 AM ET, then open")
+                else:
+                    events_lines.append(f"📊 CPI tomorrow — prepare for gap at open")
+        macro_line = ("\n".join(events_lines) if events_lines
+                      else "✅ No macro events today/tomorrow — clean tape")
     except Exception:
         macro_line = "✅ Macro check OK"
 
     # ── 3. Seasonal filter ────────────────────────────────────────────
-    print("  [3/5] Checking seasonal status...")
-    curr_month   = now_et.month
-    month_name   = now_et.strftime("%B")
+    print("  [3/6] Checking seasonal status...")
+    curr_month  = now_et.month
+    month_name  = now_et.strftime("%B")
     if curr_month in SEASONAL_WEAK_MONTHS:
-        seasonal_line = f"⚠️ {month_name} — *weak month* (min score raised to {SEASONAL_MIN_SCORE})"
+        seasonal_line = f"⚠️ {month_name} — weak month (min score raised to {SEASONAL_MIN_SCORE})"
     else:
         seasonal_line = f"✅ {month_name} — normal conditions (min score: {MIN_CONFLUENCE})"
-
-    # VIX elevation note
     try:
         vix_f = float(vix)
         if vix_f > 25:
@@ -764,27 +791,26 @@ def run_premarket_briefing() -> None:
         pass
 
     # ── 4. Live outcomes ──────────────────────────────────────────────
-    print("  [4/5] Reading live outcomes...")
+    print("  [4/6] Reading live outcomes...")
     live_line = "No live outcome data yet — logger active, accumulating."
     suggestion_line = ""
     try:
         if os.path.exists(LIVE_OUTCOMES_FILE):
             df_live = pd.read_csv(LIVE_OUTCOMES_FILE)
             if not df_live.empty:
-                total   = len(df_live)
-                wr_all  = (df_live["outcome"] == "WIN").mean() * 100
-                last20  = df_live.tail(20)
-                wr_20   = (last20["outcome"] == "WIN").mean() * 100
-                wins    = (df_live["outcome"] == "WIN").sum()
-                losses  = (df_live["outcome"] == "LOSS").sum()
-                avg_w   = df_live.loc[df_live["pnl_pct"] > 0, "pnl_pct"].mean()
-                avg_l   = df_live.loc[df_live["pnl_pct"] < 0, "pnl_pct"].mean()
-                pf      = (wins * avg_w) / (losses * abs(avg_l)) if losses > 0 and avg_l != 0 else 0
+                total  = len(df_live)
+                wr_all = (df_live["outcome"] == "WIN").mean() * 100
+                last20 = df_live.tail(20)
+                wr_20  = (last20["outcome"] == "WIN").mean() * 100
+                wins   = (df_live["outcome"] == "WIN").sum()
+                losses = (df_live["outcome"] == "LOSS").sum()
+                avg_w  = df_live.loc[df_live["pnl_pct"] > 0,  "pnl_pct"].mean()
+                avg_l  = df_live.loc[df_live["pnl_pct"] < 0,  "pnl_pct"].mean()
+                pf     = (wins * avg_w) / (losses * abs(avg_l)) if losses > 0 and avg_l != 0 else 0
                 live_line = (f"Total: {total} trades  |  WR: {wr_all:.1f}% (last 20: {wr_20:.1f}%)\n"
                              f"PF: {pf:.2f}x  |  Avg W: {avg_w:+.1f}%  Avg L: {avg_l:+.1f}%\n"
-                             f"Backtest baseline: 60.5% WR | 3.06x PF | Sharpe 6.50")
+                             f"Backtest baseline: 76.0% WR | 6.10x PF | Sharpe 12.51")
 
-                # Setup breakdown
                 setup_lines = []
                 for setup, grp in df_live.groupby("setup"):
                     g_wr = (grp["outcome"] == "WIN").mean() * 100
@@ -792,26 +818,30 @@ def run_premarket_briefing() -> None:
                 if setup_lines:
                     live_line += "\n" + "  ".join(setup_lines)
 
-                # Suggestions: flag if any setup's live WR drops >8pts below backtest
-                bt_baseline = {"Gap & Hold": 63.1, "MACD Cross": 58.3}
+                # Alert if any setup's live WR drops >8 pts below current backtest baseline
+                bt_baseline = {
+                    "Gap & Hold":    76.0,
+                    "Morning Runner": 75.0,
+                    "Vol Breakdown":  50.0,
+                }
                 suggestions = []
                 for setup, grp in df_live.groupby("setup"):
                     if len(grp) >= 8:
                         g_wr = (grp["outcome"] == "WIN").mean() * 100
-                        bt   = bt_baseline.get(setup, 60.0)
+                        bt   = bt_baseline.get(setup, 65.0)
                         if g_wr < bt - 8:
                             suggestions.append(
                                 f"⚠️ {setup} live WR {g_wr:.0f}% vs backtest {bt:.0f}% — "
                                 f"consider raising SETUP_MIN_CONFLUENCE to "
                                 f"{SETUP_MIN_CONFLUENCE.get(setup, MIN_CONFLUENCE) + 3}"
                             )
-                suggestion_line = ("\n\n💡 *CODE SUGGESTIONS*\n" + "\n".join(suggestions)
-                                   if suggestions else "\n\n💡 *CODE SUGGESTIONS*: None — filters on track.")
+                suggestion_line = ("\n\n💡 <b>CODE SUGGESTIONS</b>\n" + "\n".join(suggestions)
+                                   if suggestions else "\n\n💡 <b>CODE SUGGESTIONS</b>: None — filters on track.")
     except Exception as e:
         live_line = f"Error reading live outcomes: {e}"
 
     # ── 5. Monthly P&L ────────────────────────────────────────────────
-    print("  [5/5] Checking monthly P&L...")
+    print("  [5/6] Checking monthly P&L...")
     try:
         month_loss = get_this_month_loss()
         limit_pct  = MONTHLY_LOSS_LIMIT * 100
@@ -826,20 +856,52 @@ def run_premarket_briefing() -> None:
     except Exception:
         monthly_line = "Monthly P&L: unavailable"
 
+    # ── 6. Pre-market gap scanner ─────────────────────────────────────
+    print("  [6/6] Scanning pre-market gaps...")
+    gap_lines = []
+    try:
+        for ticker in WATCHLIST:
+            try:
+                info       = yf.Ticker(ticker).fast_info
+                pre_px     = float(info.last_price or 0)
+                prev_close = float(info.previous_close or 0)
+                if pre_px <= 0 or prev_close <= 0:
+                    continue
+                gap_pct = (pre_px - prev_close) / prev_close * 100
+                if gap_pct >= 1.5:
+                    est_stop = round(pre_px * 0.985, 2)
+                    vol_tag  = " ⚡ VOLATILE" if ticker in VOLATILE_TICKERS else ""
+                    gap_lines.append(
+                        (gap_pct, f"🔥 <b>{ticker}</b>{vol_tag}  +{gap_pct:.1f}%  "
+                         f"pre-mkt ${pre_px:.2f}  (prior close ${prev_close:.2f})\n"
+                         f"   → Watch entry near open  |  Est. stop ~${est_stop}  |  "
+                         f"Have order ready at the 🔔")
+                    )
+            except Exception:
+                continue
+        gap_lines.sort(key=lambda x: x[0], reverse=True)
+    except Exception:
+        pass
+
+    if gap_lines:
+        gap_section = (f"\n\n🚨 <b>PRE-MARKET GAPS ≥1.5%</b> — entry setups forming\n"
+                       + "\n".join(line for _, line in gap_lines[:5])
+                       + "\n<i>These may fire as Gap &amp; Hold at 9:45+ AM if price holds above open</i>")
+    else:
+        gap_section = "\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now."
+
     # ── Format & send ─────────────────────────────────────────────────
     msg = (
         f"🌅 <b>DMan PRO Pre-Market Briefing</b>\n"
         f"{date_str} — 9:10 AM ET\n\n"
-        f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}\n\n"
+        f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}"
+        f"{macro_env_section}\n\n"
         f"📅 <b>MACRO CALENDAR</b>\n{macro_line}\n\n"
         f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}\n\n"
-        f"📈 <b>LIVE OUTCOMES</b>\n{live_line}\n\n"
-        f"💰 <b>MONTHLY P&L</b>\n{monthly_line}"
+        f"💰 <b>MONTHLY P&amp;L</b>\n{monthly_line}"
+        f"{gap_section}"
         f"{suggestion_line}"
     )
-
-    # Replace markdown bold (*) with HTML bold for Telegram
-    msg = msg.replace("*", "<b>").replace("</b><b>", "")  # crude but functional
 
     print(f"\n{'═'*60}")
     print(f"  PRE-MARKET BRIEFING  —  {date_str}")
@@ -1299,6 +1361,57 @@ def get_market_regime() -> dict:
                 score += 1
             breadth_note = f"IWM {iwm_ret:+.1f}% vs SPY {spy_ret:+.1f}%"
 
+        # QQQ (tech leadership) — tech must confirm the move
+        qqq_above_ema20 = False
+        qqq_above_ema50 = False
+        qqq_note = "N/A"
+        try:
+            qqq_df = fetch_df("QQQ")
+            if qqq_df is not None and len(qqq_df) >= 55:
+                qqq_ind = compute_indicators(qqq_df.copy())
+                qr = qqq_ind.iloc[-1]
+                qqq_above_ema20 = float(qr["Close"]) > float(qr["EMA20"])
+                qqq_above_ema50 = float(qr["Close"]) > float(qr["EMA50"])
+                qqq_chg5 = (float(qqq_df["Close"].iloc[-1]) / float(qqq_df["Close"].iloc[-6]) - 1) * 100
+                if qqq_above_ema20:
+                    score += 1   # tech leading = bull confirmation
+                qqq_note = f"{'✓' if qqq_above_ema20 else '✗'} EMA20  {'✓' if qqq_above_ema50 else '✗'} EMA50  5d {qqq_chg5:+.1f}%"
+        except Exception:
+            pass
+
+        # TLT (20Y bond ETF) — proxy for rate environment
+        # Rising TLT = falling yields = tailwind for growth stocks
+        tlt_trend = "flat"
+        tlt_note = "N/A"
+        try:
+            tlt_df = fetch_df("TLT")
+            if tlt_df is not None and len(tlt_df) >= 22:
+                tlt_now  = float(tlt_df["Close"].iloc[-1])
+                tlt_20d  = float(tlt_df["Close"].iloc[-21])
+                tlt_chg  = (tlt_now - tlt_20d) / tlt_20d * 100
+                tlt_trend = "rising" if tlt_chg > 1.5 else ("falling" if tlt_chg < -1.5 else "flat")
+                if tlt_trend == "rising":
+                    score += 1   # falling rates = growth tailwind
+                tlt_note = f"${tlt_now:.1f}  20d {tlt_chg:+.1f}%  ({tlt_trend})"
+        except Exception:
+            pass
+
+        # DXY proxy via UUP (DB USD Bull ETF) — strong dollar = headwind for risk assets
+        dxy_trend = "flat"
+        dxy_note = "N/A"
+        try:
+            uup_df = fetch_df("UUP")
+            if uup_df is not None and len(uup_df) >= 22:
+                uup_now = float(uup_df["Close"].iloc[-1])
+                uup_20d = float(uup_df["Close"].iloc[-21])
+                uup_chg = (uup_now - uup_20d) / uup_20d * 100
+                dxy_trend = "strong" if uup_chg > 1 else ("weak" if uup_chg < -1 else "flat")
+                if dxy_trend == "weak":
+                    score += 1   # weak dollar = risk-on tailwind
+                dxy_note = f"${uup_now:.2f}  20d {uup_chg:+.1f}%  ({dxy_trend})"
+        except Exception:
+            pass
+
         # Regime classification
         if score >= 10 and bull_di:
             regime = "BULL"
@@ -1314,13 +1427,20 @@ def get_market_regime() -> dict:
             "adx_strong": adx_strong,
             "vix_ok":     vix_mid,
             "details": {
-                "SPY vs EMA20": spy_above_20,
-                "SPY vs EMA50": spy_above_50,
+                "SPY vs EMA20":  spy_above_20,
+                "SPY vs EMA50":  spy_above_50,
                 "SPY vs SMA200": spy_above_200,
-                "ADX": round(adx_val, 1),
-                "VIX": round(vix_val, 1),
-                "+DI > -DI": bull_di,
-                "IWM Breadth": breadth_note,
+                "ADX":           round(adx_val, 1),
+                "VIX":           round(vix_val, 1),
+                "+DI > -DI":     bull_di,
+                "IWM Breadth":   breadth_note,
+                "QQQ vs EMA20":  qqq_above_ema20,
+                "QQQ vs EMA50":  qqq_above_ema50,
+                "QQQ Note":      qqq_note,
+                "TLT Trend":     tlt_trend,
+                "TLT Note":      tlt_note,
+                "DXY Trend":     dxy_trend,
+                "DXY Note":      dxy_note,
             }
         })
     except Exception as e:
@@ -1591,21 +1711,38 @@ def _nfp_dates(years: int = 2) -> set[date]:
 
 def check_macro_safe() -> tuple[bool, int]:
     """
-    Block signals within MACRO_BLACKOUT days of FOMC decisions, NFP, or CPI releases.
-    These events create gap risk and intraday whipsaws that blow through stops regardless
-    of setup quality. Returns (safe, score 0-5).
+    Block signals near macro catalysts that create stop-blowing whipsaws.
+
+    Blackout rules (by event type):
+    • FOMC decision (2 PM ET): full-day blackout ±1 day — afternoon announcement plus
+      prior-day positioning makes the whole session unreliable.
+    • NFP / CPI (8:30 AM ET pre-market): block only until 10:00 AM ET on release day.
+      By 10 AM the market has had 90 min to price in the number; Gap & Hold setups at
+      9:45+ AM are valid reads on the post-number trend.  Day-before / day-after: open.
+
+    Returns (safe, score 0-5).
     """
     try:
-        events = _FOMC_DATES | _nfp_dates() | _CPI_DATES
         today  = date.today()
+        now_et = datetime.now(ET)
+
         if today.year > _FOMC_LAST_CONFIRMED_YEAR:
             import sys as _sys
             print(f"  ⚠️  FOMC dates beyond {_FOMC_LAST_CONFIRMED_YEAR} are estimated — "
                   f"update _FOMC_DATES from federalreserve.gov", file=_sys.stderr)
-        for ev in events:
+
+        # FOMC: full-day blackout on release day ±1 calendar day
+        for ev in _FOMC_DATES:
             days_away = (ev - today).days
             if -1 <= days_away <= MACRO_BLACKOUT:
                 return False, 0
+
+        # NFP / CPI: pre-market 8:30 AM release — block only before 10:00 AM ET
+        for ev in (_nfp_dates() | _CPI_DATES):
+            days_away = (ev - today).days
+            if days_away == 0 and now_et.hour < 10:
+                return False, 0
+
         return True, 5
     except Exception:
         return True, 5
@@ -1952,33 +2089,49 @@ def ai_score_signal(signal: ProSignal, regime: dict) -> int:
     Send signal details to Claude and get a 1-10 confidence score.
     Returns integer score (0 if API unavailable or key not set).
 
-    Prompt is kept concise so it uses minimal tokens.
+    Prompt is concise to minimise tokens; macro env added for context-aware scoring.
     """
     if not ANTHROPIC_API_KEY or ANTHROPIC_API_KEY == "":
         return 0   # AI scoring skipped — no key
 
-    prompt = f"""You are an expert technical analyst evaluating a swing trade setup.
+    det = regime.get("details", {})
+    tlt_trend = det.get("TLT Trend", "flat")
+    dxy_trend = det.get("DXY Trend", "flat")
+    qqq_ok    = "above" if det.get("QQQ vs EMA20") else "below"
+    rate_env  = ("falling (tailwind)" if tlt_trend == "rising"
+                 else "rising (headwind)" if tlt_trend == "falling" else "flat")
+    dollar    = ("strong (headwind)" if dxy_trend == "strong"
+                 else "weak (tailwind)" if dxy_trend == "weak" else "neutral")
+    vix_val   = det.get("VIX", "?")
+
+    prompt = f"""You are an expert technical analyst evaluating a US equity swing trade.
 Score this setup from 1-10 based on quality and probability of success.
 Return ONLY a single integer (1-10), nothing else.
 
 Setup Details:
-- Ticker     : {signal.ticker}
-- Bias       : {signal.bias}
-- Pattern    : {signal.setup}
-- Entry      : ${signal.entry}
-- Stop Loss  : ${signal.stop}  (risk: ${signal.risk_per_share:.2f}/share)
-- Target 1   : ${signal.target1}  (2R)
-- Target 2   : ${signal.target2}  (3R)
-- R/R Ratio  : {signal.rr}:1
-- RSI (14)   : {signal.rsi}
-- Rel Volume : {signal.rvol}x
-- Market     : {regime.get('regime','?')} (SPY regime score {regime.get('score',0)}/15)
+- Ticker      : {signal.ticker}
+- Bias        : {signal.bias}
+- Pattern     : {signal.setup}
+- Entry       : ${signal.entry}
+- Stop Loss   : ${signal.stop}  (risk: ${signal.risk_per_share:.2f}/share)
+- Target 1    : ${signal.target1}  (2R)
+- Target 2    : ${signal.target2}  (3R)
+- R/R Ratio   : {signal.rr}:1
+- RSI (14)    : {signal.rsi}
+- Rel Volume  : {signal.rvol}x
+- Confluence  : {signal.confluence_score}/100
 - Setup Reason: {signal.reason}
-- Confluence : {signal.confluence_score}/100
 
-Score 8-10 only if: setup is textbook, in a trending market, strong volume, clear R/R.
+Macro Environment:
+- Market Regime: {regime.get('regime','?')} (SPY score {regime.get('score',0)}/15)
+- VIX           : {vix_val}
+- QQQ vs EMA20  : {qqq_ok} (tech {'leading ✅' if qqq_ok == 'above' else 'lagging ⚠️'})
+- Rates (TLT)   : {rate_env}
+- Dollar (DXY)  : {dollar}
+
+Score 8-10 only if: textbook setup, trending market, strong volume, clean R/R, macro tailwinds.
 Score 5-7 for borderline or mixed signals.
-Score 1-4 for weak setups with red flags."""
+Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
 
     try:
         resp = requests.post(

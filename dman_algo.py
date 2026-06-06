@@ -440,15 +440,24 @@ def send_telegram(message: str) -> bool:
     """Send a message via Telegram Bot API. Returns True on success."""
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         return False
-    try:
-        resp = requests.post(
-            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
-            json={"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "HTML"},
-            timeout=10,
-        )
-        return resp.status_code == 200
-    except Exception:
-        return False
+    for attempt in range(2):
+        try:
+            resp = requests.post(
+                f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+                json={"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "HTML"},
+                timeout=10,
+            )
+            if resp.status_code == 200:
+                return True
+            # Non-200 — log so GitHub Actions captures it
+            print(f"  [Telegram] HTTP {resp.status_code}: {resp.text[:120]}", file=sys.stderr)
+            if attempt == 0:
+                time.sleep(3)   # brief pause before retry
+        except Exception as exc:
+            print(f"  [Telegram] send failed (attempt {attempt+1}): {exc}", file=sys.stderr)
+            if attempt == 0:
+                time.sleep(3)
+    return False
 
 
 def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
@@ -772,7 +781,8 @@ def run_premarket_briefing() -> None:
             f"Breadth: {breadth}"
         )
     except Exception as e:
-        regime_line2 = str(e)[:60]
+        regime_line2 = f"⚠️ regime fetch error: {str(e)[:60]}"
+        send_telegram(f"⚠️ <b>DMan pre-market</b>: regime fetch failed\n<code>{str(e)[:120]}</code>")
 
     # ── 2. Macro calendar ─────────────────────────────────────────────
     print("  [2/6] Checking macro calendar...")
@@ -3528,7 +3538,7 @@ def _check_open_position_risk(regime: dict) -> None:
         stop   = pos.get("stop", 0.0)
         t1     = pos.get("target1", 0.0)
         score  = pos.get("score", 0)
-        px     = get_current_price(ticker)
+        px     = get_live_price(ticker)
         if px is None or stop <= 0:
             print(f"    {ticker}: price unavailable — skipping")
             continue
@@ -4809,10 +4819,18 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     pt        = PositionTracker()
     submitted = 0
 
+    # Guard: skip tickers PositionTracker already knows about — prevents duplicate
+    # bracket orders if the same signal fires across two consecutive scans.
+    already_tracked = {p.ticker for p in pt.positions}
+
     print(f"\n  {'─'*68}")
     print(f"  Validating {len(signals)} signal(s) for Alpaca submission…")
 
     for sig in signals:
+        if sig.ticker in already_tracked:
+            print(f"  ⏭️  {sig.ticker:<8} already in open positions — skipping duplicate")
+            continue
+
         valid, cur = validate_entry_price(sig)
         drift_pct  = (cur - sig.entry) / sig.entry * 100
         if not valid:
@@ -5107,6 +5125,13 @@ def main():
         send_daily_watchlist()
 
     elif args.mode == "scan":
+        # Sync Alpaca fills first so PositionTracker is current before we submit
+        if args.submit and ALPACA_API_KEY:
+            _sync_tracker = WinRateTracker()
+            n_fills = sync_alpaca_fills(_sync_tracker)
+            if n_fills:
+                print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
+
         signals = run_pro_scanner(tickers,
                                    min_score=args.score,
                                    use_ai=args.ai)

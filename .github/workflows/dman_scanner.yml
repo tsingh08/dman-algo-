@@ -39,11 +39,13 @@ jobs:
 
       - name: Run DMan PRO Scanner
         env:
-          TELEGRAM_TOKEN:    ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID:  ${{ secrets.TELEGRAM_CHAT_ID }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ACCOUNT_SIZE:      ${{ secrets.ACCOUNT_SIZE }}
-          PYTHONIOENCODING:  utf-8
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
+          ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          PYTHONIOENCODING:    utf-8
         run: |
           python - <<'EOF'
           from datetime import datetime
@@ -62,7 +64,7 @@ jobs:
                   capture_output=False
               )
           result = subprocess.run(
-              [sys.executable, "dman_algo.py", "--mode", "scan", "--universe", "all", "--ai"],
+              [sys.executable, "dman_algo.py", "--mode", "scan", "--universe", "all", "--ai", "--submit"],
               capture_output=False
           )
           sys.exit(result.returncode)
@@ -73,7 +75,7 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv || true
+          git add dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv dman_positions.json dman_alpaca_sync.json || true
           git diff --staged --quiet && echo "No changes to commit" || (
             git commit -m "chore: update alert/signal cache [skip ci]" &&
             git fetch origin &&

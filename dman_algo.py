@@ -715,6 +715,7 @@ def run_premarket_briefing() -> None:
     regime_line  = "Unable to fetch regime"
     regime_line2 = ""
     macro_env_section = ""
+    warnings_section  = ""
     vix = "?"
     try:
         regime   = get_market_regime()
@@ -725,15 +726,40 @@ def run_premarket_briefing() -> None:
         vix      = det.get("VIX", "?")
 
         # Fixed key names — keys are "SPY vs EMA20" / "QQQ vs EMA20"
-        spy_ok   = "✅" if det.get("SPY vs EMA20") else "⚠️"
-        qqq_ok   = "✅" if det.get("QQQ vs EMA20") else "⚠️"
+        spy_above_ema20 = det.get("SPY vs EMA20", False)
+        spy_above_ema50 = det.get("SPY vs EMA50", False)
+        qqq_above_ema20 = det.get("QQQ vs EMA20", False)
+        qqq_above_ema50 = det.get("QQQ vs EMA50", False)
+        spy_ema20_dist  = det.get("SPY EMA20 dist", 0.0)
+        spy_ema50_dist  = det.get("SPY EMA50 dist", 0.0)
+        spy_ok   = "✅" if spy_above_ema20 else "⚠️"
+        qqq_ok   = "✅" if qqq_above_ema20 else "⚠️"
+
+        # Build key-level context lines
+        spy_ema20_str = f"{spy_ema20_dist:+.1f}% {'above' if spy_above_ema20 else 'below'} EMA20"
+        spy_ema50_str = f"{abs(spy_ema50_dist):.1f}% {'above' if spy_above_ema50 else 'below'} EMA50"
+        qqq_note      = det.get("QQQ Note", "N/A")
+
         regime_line  = f"<b>{r_type}</b> ({r_score}/15)  VIX: {vix}"
-        regime_line2 = f"SPY {spy_ok}  QQQ {qqq_ok}  |  Top: {', '.join(top_secs[:3])}"
+        regime_line2 = (
+            f"SPY {spy_ok} {spy_ema20_str}  |  {spy_ema50_str}\n"
+            f"QQQ {qqq_ok} {qqq_note}\n"
+            f"Top sectors: {', '.join(top_secs[:3])}"
+        )
+
+        # VIX shock + defensive rotation warnings at the top
+        regime_warnings = []
+        vix_shock_str = det.get("VIX Shock", "none")
+        def_rot_str   = det.get("Def Rotation", "none")
+        if vix_shock_str and vix_shock_str != "none":
+            regime_warnings.append(f"⚡ <b>VIX SHOCK</b>: {vix_shock_str} — min score +5 today")
+        if def_rot_str and def_rot_str != "none":
+            regime_warnings.append(f"🔄 <b>DEFENSIVE ROTATION</b>: {def_rot_str} — tech longs -5pts")
+        warnings_section = ("\n" + "\n".join(regime_warnings)) if regime_warnings else ""
 
         # Extended macro environment (rates, dollar, breadth)
-        tlt_note = det.get("TLT Note", "N/A")
-        dxy_note = det.get("DXY Note", "N/A")
-        qqq_note = det.get("QQQ Note", "N/A")
+        tlt_note  = det.get("TLT Note", "N/A")
+        dxy_note  = det.get("DXY Note", "N/A")
         tlt_trend = det.get("TLT Trend", "flat")
         dxy_trend = det.get("DXY Trend", "flat")
         tlt_emoji = "📈" if tlt_trend == "rising" else ("📉" if tlt_trend == "falling" else "➡️")
@@ -741,7 +767,6 @@ def run_premarket_briefing() -> None:
         breadth   = det.get("IWM Breadth", "N/A")
         macro_env_section = (
             f"\n\n🌐 <b>MACRO ENVIRONMENT</b>\n"
-            f"QQQ: {qqq_note}\n"
             f"TLT {tlt_emoji}: {tlt_note}  (rates {'falling ✅' if tlt_trend == 'rising' else ('rising ⚠️' if tlt_trend == 'falling' else 'flat')})\n"
             f"DXY {dxy_emoji}: {dxy_note}  ({'headwind ⚠️' if dxy_trend == 'strong' else ('tailwind ✅' if dxy_trend == 'weak' else 'neutral')})\n"
             f"Breadth: {breadth}"
@@ -895,6 +920,7 @@ def run_premarket_briefing() -> None:
         f"🌅 <b>DMan PRO Pre-Market Briefing</b>\n"
         f"{date_str} — 9:10 AM ET\n\n"
         f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}"
+        f"{warnings_section}"
         f"{macro_env_section}\n\n"
         f"📅 <b>MACRO CALENDAR</b>\n{macro_line}\n\n"
         f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}\n\n"
@@ -1412,6 +1438,55 @@ def get_market_regime() -> dict:
         except Exception:
             pass
 
+        # VIX shock detector — single-session VIX spike >20% signals a fear event.
+        # The session AFTER the spike (e.g. Monday after a +39.7% VIX Friday) is
+        # historically a "digestion" period: volatility stays elevated, momentum
+        # longs that worked before the spike are now swimming against the current.
+        # We set vix_shock = True so the scanner can raise the min score floor.
+        vix_shock = False
+        vix_shock_note = ""
+        try:
+            if vix_df is not None and len(vix_df) >= 6:
+                vix_prev   = float(vix_df["Close"].iloc[-2])
+                vix_5d_avg = float(vix_df["Close"].iloc[-6:-1].mean())
+                vix_1d_chg = (vix_val - vix_prev) / vix_prev * 100
+                vix_vs_avg = vix_val / vix_5d_avg if vix_5d_avg > 0 else 1.0
+                if vix_1d_chg >= 20 or vix_vs_avg >= 1.30:
+                    vix_shock = True
+                    vix_shock_note = (
+                        f"SHOCK — 1d +{vix_1d_chg:.0f}%  "
+                        f"(vs 5d avg {vix_5d_avg:.1f}, ratio {vix_vs_avg:.2f}x)"
+                    )
+        except Exception:
+            pass
+
+        # Defensive rotation detector — when XLP/XLU/XLV outperform XLK by >5%
+        # on a single day, institutional money is rotating out of growth into safety.
+        # A "defensive rotation" day invalidates most Gap & Hold tech long setups.
+        defensive_rotation = False
+        def_rotation_note  = ""
+        try:
+            def_tickers = ["XLK","XLP","XLU","XLV"]
+            def_data    = yf.download(def_tickers, period="3d", progress=False,
+                                      auto_adjust=True)["Close"]
+            if isinstance(def_data.columns, pd.MultiIndex):
+                def_data.columns = def_data.columns.droplevel(1)
+            if len(def_data) >= 2:
+                xlk_chg  = (float(def_data["XLK"].iloc[-1])  / float(def_data["XLK"].iloc[-2])  - 1) * 100
+                xlp_chg  = (float(def_data["XLP"].iloc[-1])  / float(def_data["XLP"].iloc[-2])  - 1) * 100
+                xlu_chg  = (float(def_data["XLU"].iloc[-1])  / float(def_data["XLU"].iloc[-2])  - 1) * 100
+                xlv_chg  = (float(def_data["XLV"].iloc[-1])  / float(def_data["XLV"].iloc[-2])  - 1) * 100
+                def_avg  = (xlp_chg + xlu_chg + xlv_chg) / 3
+                spread   = def_avg - xlk_chg  # positive = defensives winning
+                if spread > 5.0:
+                    defensive_rotation = True
+                    def_rotation_note = (
+                        f"ACTIVE — XLK {xlk_chg:+.1f}%  "
+                        f"DEF avg {def_avg:+.1f}%  spread {spread:+.1f}%"
+                    )
+        except Exception:
+            pass
+
         # Regime classification
         if score >= 10 and bull_di:
             regime = "BULL"
@@ -1420,27 +1495,40 @@ def get_market_regime() -> dict:
         else:
             regime = "CHOP"
 
+        # SPY key level distances (for briefing context)
+        try:
+            spy_ema20_dist = (float(sr["Close"]) - float(sr["EMA20"])) / float(sr["EMA20"]) * 100
+            spy_ema50_dist = (float(sr["Close"]) - float(sr["EMA50"])) / float(sr["EMA50"]) * 100
+        except Exception:
+            spy_ema20_dist = spy_ema50_dist = 0.0
+
         result.update({
             "regime":     regime,
             "score":      score,
             "spy_trend":  spy_above_50,
             "adx_strong": adx_strong,
             "vix_ok":     vix_mid,
+            "vix_shock":  vix_shock,
+            "defensive_rotation": defensive_rotation,
             "details": {
-                "SPY vs EMA20":  spy_above_20,
-                "SPY vs EMA50":  spy_above_50,
-                "SPY vs SMA200": spy_above_200,
-                "ADX":           round(adx_val, 1),
-                "VIX":           round(vix_val, 1),
-                "+DI > -DI":     bull_di,
-                "IWM Breadth":   breadth_note,
-                "QQQ vs EMA20":  qqq_above_ema20,
-                "QQQ vs EMA50":  qqq_above_ema50,
-                "QQQ Note":      qqq_note,
-                "TLT Trend":     tlt_trend,
-                "TLT Note":      tlt_note,
-                "DXY Trend":     dxy_trend,
-                "DXY Note":      dxy_note,
+                "SPY vs EMA20":      spy_above_20,
+                "SPY vs EMA50":      spy_above_50,
+                "SPY vs SMA200":     spy_above_200,
+                "SPY EMA20 dist":    round(spy_ema20_dist, 2),
+                "SPY EMA50 dist":    round(spy_ema50_dist, 2),
+                "ADX":               round(adx_val, 1),
+                "VIX":               round(vix_val, 1),
+                "+DI > -DI":         bull_di,
+                "IWM Breadth":       breadth_note,
+                "QQQ vs EMA20":      qqq_above_ema20,
+                "QQQ vs EMA50":      qqq_above_ema50,
+                "QQQ Note":          qqq_note,
+                "TLT Trend":         tlt_trend,
+                "TLT Note":          tlt_note,
+                "DXY Trend":         dxy_trend,
+                "DXY Note":          dxy_note,
+                "VIX Shock":         vix_shock_note or ("none" if not vix_shock else "detected"),
+                "Def Rotation":      def_rotation_note or ("none" if not defensive_rotation else "detected"),
             }
         })
     except Exception as e:
@@ -3416,6 +3504,69 @@ def _submit_options_alpaca(ticker: str, strike: float, expiration: str,
         print(f"  ❌ OPTIONS Alpaca error: {e}")
 
 
+def _check_open_position_risk(regime: dict) -> None:
+    """Read pending live signals, fetch current prices, alert if within 2% of stop."""
+    try:
+        with open(LIVE_SIGNALS_FILE, "r") as f:
+            data = json.load(f)
+        pending = data.get("pending", [])
+    except Exception:
+        return
+
+    if not pending:
+        return
+
+    vix_shock    = regime.get("vix_shock", False)
+    def_rotation = regime.get("defensive_rotation", False)
+    alerts       = []
+
+    print("\n  📋 Open position risk check:")
+    for pos in pending:
+        ticker = pos.get("ticker", "?")
+        bias   = pos.get("bias", "LONG")
+        entry  = pos.get("entry", 0.0)
+        stop   = pos.get("stop", 0.0)
+        t1     = pos.get("target1", 0.0)
+        score  = pos.get("score", 0)
+        px     = get_current_price(ticker)
+        if px is None or stop <= 0:
+            print(f"    {ticker}: price unavailable — skipping")
+            continue
+
+        if bias == "LONG":
+            dist_pct = (px - stop) / abs(stop) * 100
+            t1_dist  = (t1 - px) / abs(px) * 100 if t1 > 0 else 0
+            direction_ok = px > stop
+        else:
+            dist_pct = (stop - px) / abs(stop) * 100
+            t1_dist  = (px - t1) / abs(px) * 100 if t1 > 0 else 0
+            direction_ok = px < stop
+
+        status_icon = "✅" if direction_ok and dist_pct > 5 else ("⚠️" if direction_ok else "🛑")
+        print(f"    {status_icon} {ticker} ({bias}): px=${px:.2f}  stop=${stop:.2f}  "
+              f"dist={dist_pct:+.1f}%  T1 dist={t1_dist:+.1f}%  score={score}")
+
+        if not direction_ok or dist_pct < 2.0:
+            extra = ""
+            if vix_shock:
+                extra += "  ⚡ VIX shock active — elevated gap risk"
+            if def_rotation and bias == "LONG" and TICKER_SECTOR.get(ticker) == "Technology":
+                extra += "  🔄 Defensive rotation — tech headwind"
+            alerts.append(
+                f"{'🛑' if not direction_ok else '⚠️'} <b>{ticker}</b> open {bias} "
+                f"at risk\n"
+                f"  Entry ${entry:.2f} | Stop ${stop:.2f} | Now ${px:.2f}\n"
+                f"  Distance to stop: <b>{dist_pct:+.1f}%</b>{extra}"
+            )
+
+    if alerts:
+        header = "⚠️ <b>OPEN POSITION RISK ALERT</b>\n\n"
+        send_telegram(header + "\n\n".join(alerts))
+        print(f"  ⚠  Risk alert sent for {len(alerts)} position(s).")
+    else:
+        print(f"  ✅ All {len(pending)} open position(s) outside stop zone.")
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 20 — PRO SCANNER
 # ═══════════════════════════════════════════════════════════════════════════
@@ -3472,15 +3623,33 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print("  [1/2] Checking market regime & sectors...")
     regime   = get_market_regime()
     top_secs = get_top_sectors()
-    print(f"  Market : {regime['regime']} (score {regime['score']}/15)  "
-          f"VIX: {regime['details'].get('VIX','?')}")
+    vix_now  = float(regime['details'].get('VIX', 20))
+    print(f"  Market : {regime['regime']} (score {regime['score']}/15)  VIX: {vix_now:.1f}")
     print(f"  Top sectors: {', '.join(top_secs)}")
 
     # VIX regime scaling — tighten confluence floor in elevated-volatility markets
-    vix_now = float(regime['details'].get('VIX', 20))
     if vix_now > 25:
         min_score = max(min_score, 90)
         print(f"  ⚠  VIX={vix_now:.1f} > 25 — min score raised to {min_score}/100")
+
+    # VIX shock gate — single-session spike >20% means post-shock digestion period.
+    # Even if VIX hasn't crossed 25 yet (e.g. 15→21), the spike itself signals
+    # elevated intraday risk. Raise floor +5 pts to filter borderline setups.
+    if regime.get("vix_shock"):
+        min_score = max(min_score, min_score + 5)
+        shock_note = regime["details"].get("VIX Shock", "")
+        print(f"  ⚡ VIX SHOCK detected ({shock_note}) — min score raised to {min_score}/100")
+        send_telegram(
+            f"⚡ <b>VIX Shock active</b> — {shock_note}\n"
+            f"Min score raised to {min_score}/100 for this session. Filters tighter."
+        )
+
+    # Defensive rotation flag — when XLP/XLU/XLV dominate XLK, warn about tech longs
+    def_rotation = regime.get("defensive_rotation", False)
+    if def_rotation:
+        rot_note = regime["details"].get("Def Rotation", "")
+        print(f"  🔄 DEFENSIVE ROTATION: {rot_note}")
+        print(f"     Tech long signals will carry a -5 score penalty this session.")
 
     # Seasonal regime filter — Jan/Aug/Sep are chronic losers in backtest (25-38% WR)
     curr_month = datetime.today().month
@@ -3488,6 +3657,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         min_score = max(min_score, SEASONAL_MIN_SCORE)
         month_name = datetime.today().strftime("%B")
         print(f"  📅  {month_name} seasonal filter — min score raised to {min_score}/100")
+
+    # Check open position risk — alert if any pending signal is within 2% of its stop
+    _check_open_position_risk(regime)
 
     print(f"\n  [2/2] Scanning {len(tickers)} tickers...\n")
 
@@ -3539,6 +3711,15 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"DIVERGENCE DETECTED\n")
             continue
+
+        # Defensive rotation penalty — during active tech→defensive rotation sessions,
+        # deduct 5 pts from tech long scores to reflect sector headwind.
+        # TICKER_SECTOR maps tech names to "Technology"; penalty only on LONG signals.
+        if def_rotation and sig.bias == "LONG":
+            sig_sector = TICKER_SECTOR.get(sig.ticker, "")
+            if sig_sector == "Technology":
+                sig.confluence_score = max(0, sig.confluence_score - 5)
+                sys.stdout.write(f"  [-5 def-rotation penalty → {sig.confluence_score}]  ")
 
         # Soft score gate (per-setup overrides + volatile ticker floor)
         effective_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)

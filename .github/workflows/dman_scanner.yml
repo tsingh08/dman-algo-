@@ -63,8 +63,12 @@ jobs:
                   [sys.executable, "dman_algo.py", "--mode", "watchlist"],
                   capture_output=False
               )
+          # First 30 min: use curated universe (fast, no NASDAQ fetch, catches gap-and-holds).
+          # After 10 AM: expand to full universe for momentum continuation plays.
+          universe = "curated" if t < 1000 else "all"
           result = subprocess.run(
-              [sys.executable, "dman_algo.py", "--mode", "scan", "--universe", "all", "--ai", "--submit"],
+              [sys.executable, "dman_algo.py", "--mode", "scan",
+               "--universe", universe, "--ai", "--submit"],
               capture_output=False
           )
           sys.exit(result.returncode)

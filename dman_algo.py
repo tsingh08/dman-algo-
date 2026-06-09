@@ -336,7 +336,13 @@ def build_scan_universe(min_price: float = 2.0,
     active: list[tuple[str, float]] = []
     batch_size = 400
     batches = [all_syms[i:i+batch_size] for i in range(0, len(all_syms), batch_size)]
+    _univ_start = time.monotonic()
+    _univ_budget = 7 * 60  # 7-min cap so universe build never blows the 25-min job timeout
     for idx, batch in enumerate(batches, 1):
+        if time.monotonic() - _univ_start > _univ_budget:
+            print(f"  [universe] Time budget reached after batch {idx-1} — "
+                  f"continuing with {len(active)} candidates", flush=True)
+            break
         try:
             snap = yf.download(
                 batch, period="5d", progress=False,
@@ -380,19 +386,24 @@ def fetch_df(ticker: str, period_days: int = 430,
     key = f"{ticker}_{interval}"
     if key in _cache:
         return _cache[key]
-    try:
-        end   = datetime.today()
-        start = end - timedelta(days=period_days)
-        raw   = yf.download(ticker, start=start, end=end,
-                            interval=interval, progress=False, auto_adjust=True)
-        if raw is None or len(raw) < 20:
-            return None
-        if isinstance(raw.columns, pd.MultiIndex):
-            raw.columns = raw.columns.droplevel(1)
-        _cache[key] = raw
-        return raw
-    except Exception:
-        return None
+    for attempt in range(3):
+        try:
+            end   = datetime.today()
+            start = end - timedelta(days=period_days)
+            raw   = yf.download(ticker, start=start, end=end,
+                                interval=interval, progress=False, auto_adjust=True)
+            if raw is None or len(raw) < 20:
+                return None
+            if isinstance(raw.columns, pd.MultiIndex):
+                raw.columns = raw.columns.droplevel(1)
+            _cache[key] = raw
+            return raw
+        except Exception as exc:
+            if attempt < 2:
+                time.sleep(1 << attempt)  # 1s then 2s backoff
+            else:
+                print(f"  [fetch_df] {ticker} failed after 3 attempts: {exc}", file=sys.stderr)
+    return None
 
 
 def fetch_weekly(ticker: str) -> Optional[pd.DataFrame]:
@@ -3685,8 +3696,19 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     signals = []
     rejected_counts = {"no_signal":0, "hard_gate":0, "low_score":0}
+    _ticker_scan_start = time.monotonic()
+    _ticker_scan_budget = 15 * 60  # 15-min cap on ticker loop (leaves room for universe build + persist)
 
     for i, ticker in enumerate(tickers, 1):
+        if time.monotonic() - _ticker_scan_start > _ticker_scan_budget:
+            remaining = len(tickers) - i + 1
+            print(f"\n  ⏱  Scan time budget reached — {remaining} tickers skipped "
+                  f"({i-1} scanned, {len(signals)} signal(s) found so far)")
+            send_telegram(
+                f"⏱ <b>DMan</b> scan time budget reached — {i-1}/{len(tickers)} tickers scanned, "
+                f"{len(signals)} signal(s) found. Consider reducing universe size."
+            )
+            break
         sys.stdout.write(f"\r  {i:>3}/{len(tickers)}: {ticker:<8} ", )
         sys.stdout.flush()
 
@@ -5160,13 +5182,36 @@ def main():
                     json.dump([asdict(s) for s in signals], f, indent=2)
                 print(f"  💾 Signals exported to {fname}\n")
 
-        # Scan heartbeat — always send so user knows system is alive (even on quiet days)
+        # Scan heartbeat — include regime context so user knows why it's quiet
+        # get_market_regime() is cheap here because fetch_df() hits the in-memory cache
         t_str = datetime.now(ET).strftime("%I:%M %p")
+        _hb_regime = get_market_regime()
+        _hb_r  = _hb_regime.get("regime", "?")
+        _hb_rs = _hb_regime.get("score", "?")
         if signals:
-            send_telegram(f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired ↑")
+            send_telegram(
+                f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
+                f"Regime: {_hb_r} ({_hb_rs}/15)"
+            )
         else:
-            send_telegram(f"🔍 <b>DMan</b> {t_str} — quiet ✅")
+            send_telegram(
+                f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
+                f"Regime: {_hb_r} ({_hb_rs}/15) | {args.universe} universe | filters working"
+            )
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as _top_exc:
+        import traceback as _tb
+        print(_tb.format_exc(), file=sys.stderr)
+        try:
+            send_telegram(
+                f"🚨 <b>DMan CRASHED</b>\n"
+                f"<code>{str(_top_exc)[:200]}</code>\n"
+                f"Check GitHub Actions logs for full traceback."
+            )
+        except Exception:
+            pass
+        sys.exit(0)  # exit 0 — Telegram already notified; prevents double GH Actions generic alert

@@ -256,6 +256,8 @@ TICKER_SECTOR = {
     "FTNT":"Technology","ZS":"Technology","MDB":"Technology",
     # Consumer momentum gappers (affordable options)
     "ONON":"Consumer Disc","ABNB":"Consumer Disc","DKNG":"Consumer Disc",
+    # EdTech / SaaS momentum — DUOL $182M avg dv, consistent gap-and-hold candidate
+    "DUOL":"Technology",
     # Chinese AI / tech ADRs (Dman watches FXI + DeepSeek rally names)
     "BABA":"Comm Services","BIDU":"Comm Services","PDD":"Consumer Disc",
     "JD":"Consumer Disc","KWEB":"Technology",
@@ -1498,8 +1500,15 @@ def get_market_regime() -> dict:
             pass
 
         # Regime classification
+        # BULL_TECH: SPY in CHOP but QQQ clearly above EMA20 + XLK leading + VIX calm.
+        # Captures post-selloff tech recoveries where broad market lags but semis/tech
+        # are already bouncing (e.g., June 8 2026 — QQQ +1.56%, XLK +2.15%, SPY flat).
+        # Treated as BULL for LONG scoring (min score cap lifted for tech signals).
+        qqq_leading = qqq_above_ema20 and (not spy_above_20) and vix_low
         if score >= 10 and bull_di:
             regime = "BULL"
+        elif qqq_leading and score >= 7 and bull_di:
+            regime = "BULL_TECH"   # QQQ leads while SPY lags — tech BULL sub-regime
         elif score <= 4 or (not bull_di and vix_val > 30):
             regime = "BEAR"
         else:
@@ -1557,14 +1566,15 @@ def regime_allows_signal(regime: dict, bias: str) -> tuple[bool, int]:
     v = regime.get("vix_ok", False)
 
     if bias == "LONG":
-        if r == "BULL":   return True,  min(15, s)
-        if r == "CHOP":   return True,  min(8,  s)    # allowed but reduced score
+        if r == "BULL":      return True,  min(15, s)
+        if r == "BULL_TECH": return True,  min(12, s)  # tech leading — near-BULL credit
+        if r == "CHOP":      return True,  min(8,  s)  # allowed but reduced score
         return False, 0    # BEAR — no longs
 
     else:  # SHORT
-        if r == "BEAR":   return True,  min(15, 15 - s)
-        if r == "CHOP":   return True,  min(8,  8  - s//2)
-        return False, 0    # BULL — no shorts
+        if r == "BEAR":      return True,  min(15, 15 - s)
+        if r == "CHOP":      return True,  min(8,  8  - s//2)
+        return False, 0    # BULL / BULL_TECH — no shorts
 
 
 # ═══════════════════════════════════════════════════════════════════════════

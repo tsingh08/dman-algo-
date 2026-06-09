@@ -80,9 +80,7 @@ jobs:
                   dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json || true
           git diff --staged --quiet && echo "No changes to commit" || (
             git commit -m "chore: update alert/signal cache [skip ci]" &&
-            git fetch origin &&
-            git rebase origin/main &&
-            git push origin HEAD:main
+            git push origin HEAD:main --force-with-lease
           ) || echo "Warning: cache push skipped — will sync next scan"
 
       - name: Notify on workflow failure

@@ -225,7 +225,7 @@ TICKER_SECTOR = {
     "QCOM":"Technology","MRVL":"Technology","KLAC":"Technology","ON":"Technology",
     # High-beta fintech (ARM, COIN, MARA, PYPL, UPST, SOFI, SHOP removed — 0% WR or <30% WR in backtest)
     "RIOT":"Technology","HOOD":"Financials",
-    "AFRM":"Financials","XYZ":"Financials",
+    "AFRM":"Financials",
     # EV / mobility (UBER removed — 0% WR)
     "RIVN":"Consumer Disc","NIO":"Consumer Disc",
     # Clean energy
@@ -256,8 +256,6 @@ TICKER_SECTOR = {
     "FTNT":"Technology","ZS":"Technology","MDB":"Technology",
     # Consumer momentum gappers (affordable options)
     "ONON":"Consumer Disc","ABNB":"Consumer Disc","DKNG":"Consumer Disc",
-    # EdTech / SaaS momentum — DUOL $182M avg dv, consistent gap-and-hold candidate
-    "DUOL":"Technology",
     # Chinese AI / tech ADRs (Dman watches FXI + DeepSeek rally names)
     "BABA":"Comm Services","BIDU":"Comm Services","PDD":"Consumer Disc",
     "JD":"Consumer Disc","KWEB":"Technology",

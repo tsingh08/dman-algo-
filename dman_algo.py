@@ -157,6 +157,14 @@ OPTIONS_STOP_LOSS_PCT   = 0.50          # exit if premium drops 50% (Dman's ment
 OPTIONS_PROFIT1_PCT     = 0.50          # take 50% profit at +50% gain
 OPTIONS_CLOSE_DTE       = 7             # close or roll when DTE ≤ 7 (theta risk)
 OPTIONS_AUTO_EXECUTE    = False         # True = place orders via Alpaca; False = advisory only
+OPTIONS_SHORT_SETUPS    = {"Vol Breakdown", "EMA Breakdown", "Gap & Short"}  # → ITM puts
+
+# Pre-event strangles (direction-neutral, buys both call + put before big catalysts)
+STRANGLE_TICKERS    = ["SPY", "QQQ"]   # always liquid enough for two-legged plays
+STRANGLE_OTM_PCT    = 0.04             # 4% OTM per leg (keeps premium reasonable)
+STRANGLE_TARGET_DTE = 7                # weekly options — captures the move, limits theta
+STRANGLE_MIN_DTE    = 2
+STRANGLE_MAX_DTE    = 14
 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
@@ -965,6 +973,30 @@ def run_premarket_briefing() -> None:
         print("  ✅ Telegram briefing sent.")
     else:
         print("  ⚠️  Telegram not configured — briefing printed above only.")
+
+    # ── Pre-event strangle advisory ───────────────────────────────────
+    # CPI/NFP: fire strangle the DAY BEFORE (buy before IV crush, catch the move).
+    # FOMC: fire same-day because announcement is at 2 PM — premarket is still pre-event.
+    print("  [7/7] Checking for pre-event strangle opportunities...")
+    try:
+        _today    = now_et.date()
+        _tomorrow = _today + timedelta(days=1)
+        _nfp      = _nfp_dates()
+        strangle_events = []
+        if _today in _FOMC_DATES:
+            strangle_events.append("FOMC today 2 PM ET")
+        if _tomorrow in _CPI_DATES:
+            strangle_events.append("CPI tomorrow 8:30 AM ET")
+        if _tomorrow in _FOMC_DATES:
+            strangle_events.append("FOMC tomorrow 2 PM ET")
+        if _tomorrow in _nfp:
+            strangle_events.append("NFP tomorrow 8:30 AM ET")
+        if strangle_events:
+            generate_strangle_advisory(" | ".join(strangle_events))
+        else:
+            print("  No catalyst tomorrow — skipping strangle advisory.")
+    except Exception as _e:
+        print(f"  [strangle] advisory error: {_e}", file=sys.stderr)
 
 
 def print_live_performance() -> None:
@@ -3310,16 +3342,23 @@ def _build_occ_symbol(ticker: str, strike: float, expiration: str,
         return ""
 
 
-def fetch_option_chain(ticker: str) -> Optional[tuple[pd.DataFrame, str, int]]:
+def fetch_option_chain(ticker: str, side: str = "calls",
+                       min_dte: int = None,
+                       max_dte: int = None,
+                       target_dte: int = None) -> Optional[tuple[pd.DataFrame, str, int]]:
     """
-    Fetch the calls chain for the expiration closest to OPTIONS_TARGET_DTE.
-    Returns (calls_df, expiration_str, dte) or None on failure.
+    Fetch the calls or puts chain for the expiration closest to target DTE.
+    Returns (chain_df, expiration_str, dte) or None on failure.
+    side: "calls" | "puts"
     """
     if not ENABLE_OPTIONS:
         return None
+    _min_dte    = min_dte    or OPTIONS_MIN_DTE
+    _max_dte    = max_dte    or OPTIONS_MAX_DTE
+    _target_dte = target_dte or OPTIONS_TARGET_DTE
     try:
         tk          = yf.Ticker(ticker)
-        expirations = tk.options          # list[str] of YYYY-MM-DD
+        expirations = tk.options
         if not expirations:
             return None
 
@@ -3327,19 +3366,18 @@ def fetch_option_chain(ticker: str) -> Optional[tuple[pd.DataFrame, str, int]]:
         def _dte(exp: str) -> int:
             return (date.fromisoformat(exp) - today).days
 
-        # Find expiration closest to target DTE, within [min, max] window
         candidates = [(e, _dte(e)) for e in expirations
-                      if OPTIONS_MIN_DTE <= _dte(e) <= OPTIONS_MAX_DTE]
+                      if _min_dte <= _dte(e) <= _max_dte]
         if not candidates:
             return None
 
         best_exp, best_dte = min(candidates,
-                                 key=lambda x: abs(x[1] - OPTIONS_TARGET_DTE))
+                                 key=lambda x: abs(x[1] - _target_dte))
         chain = tk.option_chain(best_exp)
-        calls = chain.calls.copy()
-        calls["_expiration"] = best_exp
-        calls["_dte"]        = best_dte
-        return calls, best_exp, best_dte
+        df = chain.calls.copy() if side == "calls" else chain.puts.copy()
+        df["_expiration"] = best_exp
+        df["_dte"]        = best_dte
+        return df, best_exp, best_dte
     except Exception:
         return None
 
@@ -3453,59 +3491,78 @@ def format_options_telegram(sig: "ProSignal", contract: dict, contracts: int) ->
 
 def generate_options_signal(sig: "ProSignal") -> None:
     """
-    If ENABLE_OPTIONS and this signal qualifies, fetch the option chain,
-    select the best ITM call, size the trade, and send a Telegram advisory.
+    If ENABLE_OPTIONS and this signal qualifies:
+    - LONG signals  → ITM call (Gap & Hold, Morning Runner)
+    - SHORT signals → ITM put  (Vol Breakdown, EMA Breakdown, Gap & Short)
     Optionally auto-submits to Alpaca if OPTIONS_AUTO_EXECUTE = True.
     """
     if not ENABLE_OPTIONS:
         return
-    if sig.setup not in OPTIONS_SETUPS:
-        return
     if sig.confluence_score < OPTIONS_MIN_SCORE:
         return
-    if sig.entry <= OPTIONS_MIN_PRICE:   # sub-$10 stocks have no liquid options — trade stock directly
+    if sig.entry <= OPTIONS_MIN_PRICE:
         return
     if sig.entry > OPTIONS_MAX_PRICE:
         return
-    if sig.bias != "LONG":
+
+    is_long  = sig.bias == "LONG"  and sig.setup in OPTIONS_SETUPS
+    is_short = sig.bias == "SHORT" and sig.setup in OPTIONS_SHORT_SETUPS
+    if not is_long and not is_short:
         return
 
-    result = fetch_option_chain(sig.ticker)
-    if result is None:
-        return
-    calls, expiration, dte = result
+    if is_long:
+        result = fetch_option_chain(sig.ticker, side="calls")
+        if result is None:
+            return
+        chain_df, expiration, dte = result
+        contract = select_itm_call(chain_df, sig.entry, expiration, dte, sig.ticker)
+        if contract is None:
+            return
+        contracts = size_options_trade(contract["premium"])
+        if contracts == 0:
+            return
+        total_cost = contract["premium"] * 100 * contracts
+        print(f"  📊 OPTIONS: {sig.ticker} ${contract['strike']:.0f}C "
+              f"exp {expiration} ({dte}d)  "
+              f"premium ${contract['premium']}  "
+              f"{contracts} contract(s)  cost ${total_cost:,.0f}")
+        send_telegram(format_options_telegram(sig, contract, contracts))
+        if OPTIONS_AUTO_EXECUTE and ALPACA_API_KEY and ALPACA_SECRET_KEY:
+            _submit_options_alpaca(sig.ticker, contract["strike"], expiration,
+                                   contracts, contract["ask"])
 
-    contract = select_itm_call(calls, sig.entry, expiration, dte, sig.ticker)
-    if contract is None:
-        return
-
-    contracts = size_options_trade(contract["premium"])
-    if contracts == 0:
-        return   # premium too expensive for current budget; skip silently
-    total_cost = contract["premium"] * 100 * contracts
-
-    print(f"  📊 OPTIONS: {sig.ticker} ${contract['strike']:.0f}C "
-          f"exp {expiration} ({dte}d)  "
-          f"premium ${contract['premium']}  "
-          f"{contracts} contract(s)  "
-          f"cost ${total_cost:,.0f}")
-
-    send_telegram(format_options_telegram(sig, contract, contracts))
-
-    if OPTIONS_AUTO_EXECUTE and ALPACA_API_KEY and ALPACA_SECRET_KEY:
-        _submit_options_alpaca(sig.ticker, contract["strike"], expiration,
-                               contracts, contract["ask"])
+    else:  # SHORT → ITM put
+        result = fetch_option_chain(sig.ticker, side="puts")
+        if result is None:
+            return
+        chain_df, expiration, dte = result
+        contract = select_itm_put(chain_df, sig.entry, expiration, dte, sig.ticker)
+        if contract is None:
+            return
+        contracts = size_options_trade(contract["premium"])
+        if contracts == 0:
+            return
+        total_cost = contract["premium"] * 100 * contracts
+        print(f"  📊 OPTIONS: {sig.ticker} ${contract['strike']:.0f}P "
+              f"exp {expiration} ({dte}d)  "
+              f"premium ${contract['premium']}  "
+              f"{contracts} contract(s)  cost ${total_cost:,.0f}")
+        send_telegram(format_put_telegram(sig, contract, contracts))
+        if OPTIONS_AUTO_EXECUTE and ALPACA_API_KEY and ALPACA_SECRET_KEY:
+            _submit_options_alpaca(sig.ticker, contract["strike"], expiration,
+                                   contracts, contract["ask"], call_put="P")
 
 
 def _submit_options_alpaca(ticker: str, strike: float, expiration: str,
-                            contracts: int, limit_price: float) -> None:
+                            contracts: int, limit_price: float,
+                            call_put: str = "C") -> None:
     """
-    Place a limit buy order for an ITM call via Alpaca Options API.
+    Place a limit buy order for an ITM call or put via Alpaca Options API.
     Uses the ask price as limit (slightly aggressive fill, avoids missing the trade).
     Only called when OPTIONS_AUTO_EXECUTE = True.
     """
     try:
-        occ = _build_occ_symbol(ticker, strike, expiration)
+        occ = _build_occ_symbol(ticker, strike, expiration, call_put)
         if not occ:
             print(f"  ⚠️  OPTIONS: could not build OCC symbol for {ticker}")
             return
@@ -3532,6 +3589,229 @@ def _submit_options_alpaca(ticker: str, strike: float, expiration: str,
             print(f"  ❌ OPTIONS order failed: {resp.status_code} {resp.text[:200]}")
     except Exception as e:
         print(f"  ❌ OPTIONS Alpaca error: {e}")
+
+
+# ── ITM Puts (SHORT signals) ──────────────────────────────────────────────
+
+def select_itm_put(puts: pd.DataFrame, current_price: float,
+                   expiration: str, dte: int, ticker: str = "") -> Optional[dict]:
+    """
+    Select best ITM put: target strike 4% above current price (puts with strike > price are ITM).
+    Mirrors select_itm_call() logic exactly, just for the other side.
+    """
+    try:
+        target_strike = current_price * (1 + OPTIONS_ITM_TARGET_PCT)
+        itm = puts[
+            (puts["strike"] >= current_price) &
+            (puts["strike"] <= current_price * 1.10)
+        ].copy()
+        if itm.empty:
+            return None
+        itm = itm[(itm["volume"].fillna(0) > 0) | (itm["openInterest"].fillna(0) > 10)]
+        if itm.empty:
+            return None
+        itm["_dist"] = (itm["strike"] - target_strike).abs()
+        itm["_vol"]  = itm["volume"].fillna(0).astype(float)
+        itm = itm.sort_values(["_dist", "_vol"], ascending=[True, False])
+        best = itm.iloc[0]
+        bid  = float(best.get("bid", 0) or 0)
+        ask  = float(best.get("ask", 0) or 0)
+        if bid <= 0 or ask <= 0:
+            return None
+        mid = (bid + ask) / 2
+        if (ask - bid) / mid > 0.15:
+            return None
+        premium   = round(mid, 2)
+        iv        = float(best.get("impliedVolatility", 0) or 0)
+        moneyness = round((float(best["strike"]) - current_price) / current_price * 100, 1)
+        est_delta = round(max(-0.95, min(-0.50, -0.85 + moneyness * 0.025)), 2)
+        occ_sym   = _build_occ_symbol(ticker, float(best["strike"]), expiration, "P")
+        return {
+            "strike":        float(best["strike"]),
+            "expiration":    expiration,
+            "dte":           dte,
+            "premium":       premium,
+            "bid":           round(bid, 2),
+            "ask":           round(ask, 2),
+            "iv_pct":        round(iv * 100, 1),
+            "est_delta":     est_delta,
+            "moneyness_pct": moneyness,
+            "volume":        int(best.get("volume",       0) or 0),
+            "open_interest": int(best.get("openInterest", 0) or 0),
+            "occ_symbol":    occ_sym,
+        }
+    except Exception:
+        return None
+
+
+def format_put_telegram(sig: "ProSignal", contract: dict, contracts: int) -> str:
+    """Telegram alert for an ITM put alongside a short signal."""
+    exp_fmt  = date.fromisoformat(contract["expiration"]).strftime("%b %d, %Y")
+    total    = round(contract["premium"] * 100 * contracts, 2)
+    stop_px  = round(contract["premium"] * (1 - OPTIONS_STOP_LOSS_PCT), 2)
+    target1  = round(contract["premium"] * (1 + OPTIONS_PROFIT1_PCT),  2)
+    exec_tag = "✅ AUTO-SUBMITTED to Alpaca" if OPTIONS_AUTO_EXECUTE else "📋 Advisory — enter manually"
+    return (
+        f"📊 <b>DMan OPTIONS Alert</b> — {sig.ticker}\n"
+        f"🔴 PUT  <b>{sig.ticker}</b>  "
+        f"Strike ${contract['strike']:.0f}  Exp {exp_fmt}  ({contract['dte']}d)\n"
+        f"Premium: <b>${contract['premium']}</b>  "
+        f"(bid ${contract['bid']} / ask ${contract['ask']})\n"
+        f"Moneyness: {contract['moneyness_pct']:.1f}% ITM  "
+        f"|  IV: {contract['iv_pct']:.0f}%  "
+        f"|  δ ≈ {contract['est_delta']}\n"
+        f"Contracts: <b>{contracts}</b>  |  Total cost: ${total:,.0f}  "
+        f"|  Vol: {contract['volume']:,}  OI: {contract['open_interest']:,}\n"
+        f"Stop: exit if premium ≤ ${stop_px} (-50%)\n"
+        f"Target 1: exit half at ${target1} (+50%)  |  let rest run\n"
+        f"Close/roll when DTE ≤ {OPTIONS_CLOSE_DTE} days\n"
+        f"Symbol: <code>{contract['occ_symbol']}</code>\n"
+        f"{exec_tag}\n"
+        f"Based on: {sig.setup} score {sig.confluence_score}/100"
+    )
+
+
+# ── Strangles (pre-event, direction-neutral) ──────────────────────────────
+
+def select_strangle_legs(ticker: str, current_price: float) -> Optional[dict]:
+    """
+    Select OTM call + OTM put for a pre-event strangle on weekly expiration.
+    Both legs target STRANGLE_OTM_PCT away from current price.
+    Returns a combined result dict or None.
+    """
+    try:
+        tk = yf.Ticker(ticker)
+        expirations = tk.options
+        if not expirations:
+            return None
+        today = date.today()
+        def _dte(e): return (date.fromisoformat(e) - today).days
+        candidates = [(e, _dte(e)) for e in expirations
+                      if STRANGLE_MIN_DTE <= _dte(e) <= STRANGLE_MAX_DTE]
+        if not candidates:
+            return None
+        best_exp, best_dte = min(candidates, key=lambda x: abs(x[1] - STRANGLE_TARGET_DTE))
+        chain = tk.option_chain(best_exp)
+
+        call_target = current_price * (1 + STRANGLE_OTM_PCT)
+        put_target  = current_price * (1 - STRANGLE_OTM_PCT)
+
+        otm_calls = chain.calls[
+            (chain.calls["strike"] >= current_price) &
+            (chain.calls["strike"] <= current_price * 1.12)
+        ].copy()
+        otm_puts = chain.puts[
+            (chain.puts["strike"] <= current_price) &
+            (chain.puts["strike"] >= current_price * 0.88)
+        ].copy()
+
+        if otm_calls.empty or otm_puts.empty:
+            return None
+
+        def _pick_leg(df, target, option_type):
+            df = df.copy()
+            df["_dist"] = (df["strike"] - target).abs()
+            df = df.sort_values("_dist")
+            liq = df[(df["volume"].fillna(0) > 0) | (df["openInterest"].fillna(0) > 10)]
+            row = liq.iloc[0] if not liq.empty else df.iloc[0]
+            bid = float(row.get("bid", 0) or 0)
+            ask = float(row.get("ask", 0) or 0)
+            if bid <= 0 or ask <= 0:
+                return None
+            mid = (bid + ask) / 2
+            if (ask - bid) / mid > 0.20:  # allow wider spread for strangles
+                return None
+            iv  = float(row.get("impliedVolatility", 0) or 0)
+            occ = _build_occ_symbol(ticker, float(row["strike"]), best_exp,
+                                    "C" if option_type == "call" else "P")
+            return {
+                "strike":  float(row["strike"]),
+                "premium": round(mid, 2),
+                "bid":     round(bid, 2),
+                "ask":     round(ask, 2),
+                "iv_pct":  round(iv * 100, 1),
+                "volume":  int(row.get("volume", 0) or 0),
+                "oi":      int(row.get("openInterest", 0) or 0),
+                "occ":     occ,
+            }
+
+        call_leg = _pick_leg(otm_calls, call_target, "call")
+        put_leg  = _pick_leg(otm_puts,  put_target,  "put")
+        if not call_leg or not put_leg:
+            return None
+
+        total_prem     = round(call_leg["premium"] + put_leg["premium"], 2)
+        call_breakeven = round(call_leg["strike"] + total_prem, 2)
+        put_breakeven  = round(put_leg["strike"]  - total_prem, 2)
+        move_needed    = round(total_prem / current_price * 100, 1)
+
+        return {
+            "ticker":         ticker,
+            "price":          current_price,
+            "expiration":     best_exp,
+            "dte":            best_dte,
+            "call":           call_leg,
+            "put":            put_leg,
+            "total_premium":  total_prem,
+            "call_breakeven": call_breakeven,
+            "put_breakeven":  put_breakeven,
+            "move_needed_pct": move_needed,
+        }
+    except Exception:
+        return None
+
+
+def format_strangle_telegram(result: dict, event: str) -> str:
+    """Telegram message for a pre-event strangle advisory."""
+    exp_fmt  = date.fromisoformat(result["expiration"]).strftime("%b %d")
+    ticker   = result["ticker"]
+    c        = result["call"]
+    p        = result["put"]
+    total    = result["total_premium"]
+    cost     = round(total * 100, 2)
+    return (
+        f"⚡ <b>DMan STRANGLE Advisory</b> — {ticker}  [{event}]\n\n"
+        f"<b>📈 CALL leg</b>  ${c['strike']:.0f}C  exp {exp_fmt}  ({result['dte']}d)\n"
+        f"  Premium: <b>${c['premium']}</b>  (bid ${c['bid']} / ask ${c['ask']})\n"
+        f"  IV: {c['iv_pct']:.0f}%  |  Vol: {c['volume']:,}  OI: {c['oi']:,}\n"
+        f"  <code>{c['occ']}</code>\n\n"
+        f"<b>📉 PUT leg</b>   ${p['strike']:.0f}P  exp {exp_fmt}  ({result['dte']}d)\n"
+        f"  Premium: <b>${p['premium']}</b>  (bid ${p['bid']} / ask ${p['ask']})\n"
+        f"  IV: {p['iv_pct']:.0f}%  |  Vol: {p['volume']:,}  OI: {p['oi']:,}\n"
+        f"  <code>{p['occ']}</code>\n\n"
+        f"Total cost: <b>${cost:.0f}</b>/strangle  |  "
+        f"Need <b>{result['move_needed_pct']}%+</b> move to profit\n"
+        f"Break-even ↑ ${result['call_breakeven']}  |  "
+        f"Break-even ↓ ${result['put_breakeven']}\n\n"
+        f"📋 Advisory — buy both legs simultaneously\n"
+        f"🛑 Stop: exit either leg if premium drops 50%\n"
+        f"🎯 Target: exit at +80-100% on the winning leg"
+    )
+
+
+def generate_strangle_advisory(event: str) -> None:
+    """
+    Fire pre-event strangle advisories on STRANGLE_TICKERS (SPY + QQQ by default).
+    Called from premarket briefing on catalyst days (CPI tomorrow, FOMC today/tomorrow).
+    """
+    if not ENABLE_OPTIONS:
+        return
+    print(f"  [options] Generating strangle advisories ({event})...")
+    for ticker in STRANGLE_TICKERS:
+        price = get_current_price(ticker)
+        if not price:
+            continue
+        result = select_strangle_legs(ticker, price)
+        if not result:
+            print(f"  [options] {ticker}: no liquid strangle found", file=sys.stderr)
+            continue
+        msg = format_strangle_telegram(result, event)
+        send_telegram(msg)
+        print(f"  ⚡ Strangle: {ticker}  "
+              f"${result['call']['strike']:.0f}C / ${result['put']['strike']:.0f}P  "
+              f"exp {result['expiration']} ({result['dte']}d)  "
+              f"total ${result['total_premium']*100:.0f}/strangle  "
+              f"need {result['move_needed_pct']}%+ move")
 
 
 def _check_open_position_risk(regime: dict) -> None:

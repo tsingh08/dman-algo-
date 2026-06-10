@@ -199,6 +199,7 @@ LAST_ALERTS_FILE   = "dman_last_alerts.json"
 ALERT_COOLDOWN_MIN = 30          # suppress duplicate Telegram alert for same ticker within N min
 LIVE_SIGNALS_FILE  = "dman_live_signals.json"   # pending live signals awaiting outcome
 LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # ground-truth live trade log
+SCAN_LOG_FILE      = "dman_scan_log.json"        # rolling log of each scan run (last 20)
 
 SECTOR_ETFS = {
     "Technology":    "XLK",
@@ -3597,12 +3598,82 @@ def _check_open_position_risk(regime: dict) -> None:
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  SECTION 19.5 — SCAN RESULT LOG
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _append_scan_log(entry: dict, max_entries: int = 20) -> None:
+    """Append one scan result to the rolling scan log (keeps last max_entries)."""
+    log: list[dict] = []
+    if os.path.exists(SCAN_LOG_FILE):
+        try:
+            with open(SCAN_LOG_FILE) as f:
+                log = json.load(f)
+        except Exception:
+            log = []
+    log.append(entry)
+    log = log[-max_entries:]  # keep rolling window
+    with open(SCAN_LOG_FILE, "w") as f:
+        json.dump(log, f, indent=2)
+
+
+def print_scan_log() -> None:
+    """Print a human-readable summary of the scan history log."""
+    if not os.path.exists(SCAN_LOG_FILE):
+        print("  No scan log found. Run at least one scan first.")
+        return
+    try:
+        with open(SCAN_LOG_FILE) as f:
+            log: list[dict] = json.load(f)
+    except Exception as e:
+        print(f"  Could not read scan log: {e}")
+        return
+
+    W = 68
+    print(f"\n{'═'*W}")
+    print(f"  DMan Scan Log — last {len(log)} run(s)")
+    print(f"{'─'*W}")
+    for entry in reversed(log):
+        ts_raw = entry.get("ts", "?")
+        try:
+            from datetime import datetime as _dt
+            ts = _dt.fromisoformat(ts_raw).strftime("%b %d %I:%M %p")
+        except Exception:
+            ts = ts_raw[:16]
+
+        regime     = entry.get("regime", "?")
+        rscore     = entry.get("regime_score", "?")
+        vix        = entry.get("vix", 0)
+        min_sc     = entry.get("min_score", "?")
+        n_tickers  = entry.get("tickers_total", "?")
+        n_signals  = entry.get("signals", 0)
+        sig_ticks  = entry.get("signal_tickers", [])
+        rej_none   = entry.get("rejected_no_signal", 0)
+        rej_gate   = entry.get("rejected_hard_gate", 0)
+        rej_score  = entry.get("rejected_low_score", 0)
+        budget_hit = entry.get("budget_hit", False)
+        universe   = entry.get("universe", "?")
+
+        sig_icon = "🟢" if n_signals > 0 else "❌"
+        sig_str  = (f"{n_signals} signal(s): {', '.join(sig_ticks)}"
+                    if sig_ticks else f"{n_signals} signals")
+        budget_str = "  ⏱ TIME BUDGET HIT" if budget_hit else ""
+
+        print(f"  {ts}  |  {regime}({rscore}/15)  VIX {vix:.1f}  "
+              f"min={min_sc}  [{universe}]")
+        print(f"    {sig_icon} {n_tickers} tickers → {sig_str}{budget_str}")
+        print(f"    Rejected: {rej_none} no-gap  {rej_gate} gate  {rej_score} low-score")
+        print(f"{'─'*W}")
+    print()
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 20 — PRO SCANNER
 # ═══════════════════════════════════════════════════════════════════════════
 
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
                     min_score: int = None,
-                    use_ai: bool = False) -> list[ProSignal]:
+                    use_ai: bool = False,
+                    universe_label: str = "curated") -> list[ProSignal]:
     """
     Full pro-grade scanner with all 18 filters applied.
     Only returns signals that pass ALL hard gates AND score >= min_score.
@@ -3696,9 +3767,11 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     rejected_counts = {"no_signal":0, "hard_gate":0, "low_score":0}
     _ticker_scan_start = time.monotonic()
     _ticker_scan_budget = 15 * 60  # 15-min cap on ticker loop (leaves room for universe build + persist)
+    _budget_hit = False
 
     for i, ticker in enumerate(tickers, 1):
         if time.monotonic() - _ticker_scan_start > _ticker_scan_budget:
+            _budget_hit = True
             remaining = len(tickers) - i + 1
             print(f"\n  ⏱  Scan time budget reached — {remaining} tickers skipped "
                   f"({i-1} scanned, {len(signals)} signal(s) found so far)")
@@ -3895,6 +3968,27 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
           f"{rejected_counts['low_score']} low score")
     print(f"  🌡  Portfolio heat used: {total_risk_pct*100:.1f}% / {PORTFOLIO_HEAT_LIMIT*100:.0f}%")
     print(f"{'─'*68}\n")
+
+    # Persist scan result to rolling log
+    try:
+        _append_scan_log({
+            "ts":                  datetime.now(ET).isoformat(),
+            "regime":              regime.get("regime", "?"),
+            "regime_score":        regime.get("score", 0),
+            "vix":                 round(float(regime["details"].get("VIX", 0)), 1),
+            "min_score":           min_score,
+            "universe":            universe_label,
+            "tickers_total":       len(tickers),
+            "signals":             len(signals),
+            "signal_tickers":      [s.ticker for s in signals],
+            "rejected_no_signal":  rejected_counts["no_signal"],
+            "rejected_hard_gate":  rejected_counts["hard_gate"],
+            "rejected_low_score":  rejected_counts["low_score"],
+            "budget_hit":          _budget_hit,
+        })
+    except Exception:
+        pass  # never let logging block the scan return
+
     return signals
 
 
@@ -4900,7 +4994,7 @@ def main():
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
                  "watch","rank","open","positions","alpaca","sync",
-                 "live-outcomes","live-perf","premarket","watchlist"],
+                 "live-outcomes","live-perf","premarket","watchlist","scan-log"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -5154,6 +5248,9 @@ def main():
     elif args.mode == "watchlist":
         send_daily_watchlist()
 
+    elif args.mode == "scan-log":
+        print_scan_log()
+
     elif args.mode == "scan":
         # Sync Alpaca fills first so PositionTracker is current before we submit
         if args.submit and ALPACA_API_KEY:
@@ -5164,7 +5261,8 @@ def main():
 
         signals = run_pro_scanner(tickers,
                                    min_score=args.score,
-                                   use_ai=args.ai)
+                                   use_ai=args.ai,
+                                   universe_label=args.universe)
         if not signals:
             print("  No A+ setups today. The filters are working —")
             print("  D🔥man waits for the PERFECT setup, not just any setup.\n")

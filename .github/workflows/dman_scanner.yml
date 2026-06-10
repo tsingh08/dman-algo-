@@ -94,7 +94,9 @@ jobs:
           TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
+          # Only fires for pre-Python failures (checkout/install) — Python crashes
+          # send their own detailed 🚨 message and exit 1, so this is a safety net only.
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
-            -d "text=⚠️ <b>DMan scan FAILED</b> — check GitHub Actions" \
+            -d "text=⚠️ <b>DMan scan FAILED</b> — pre-run step failed (checkout/install). Check GitHub Actions." \
             -d "parse_mode=HTML" || true

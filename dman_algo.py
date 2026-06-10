@@ -5310,4 +5310,4 @@ if __name__ == "__main__":
             )
         except Exception:
             pass
-        sys.exit(0)  # exit 0 — Telegram already notified; prevents double GH Actions generic alert
+        sys.exit(1)  # exit 1 — show workflow red AND send detailed Telegram (no generic duplicate)

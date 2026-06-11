@@ -165,6 +165,7 @@ STRANGLE_OTM_PCT    = 0.04             # 4% OTM per leg (keeps premium reasonabl
 STRANGLE_TARGET_DTE = 7                # weekly options — captures the move, limits theta
 STRANGLE_MIN_DTE    = 2
 STRANGLE_MAX_DTE    = 14
+STRANGLE_RISK_PCT   = 0.01             # 1% of account per strangle event
 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
@@ -945,6 +946,34 @@ def run_premarket_briefing() -> None:
     else:
         gap_section = "\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now."
 
+    # ── 6.5. Upcoming earnings on watchlist ───────────────────────────
+    print("  [6.5/7] Scanning earnings calendar...")
+    earnings_section = ""
+    try:
+        upcoming = get_upcoming_earnings(WATCHLIST, days_ahead=5)
+        if upcoming:
+            lines = []
+            for item in upcoming:
+                d = item["days_away"]
+                da = item["days_away"]
+                if da == 0:
+                    tag = "today"
+                elif da == 1:
+                    tag = "tomorrow"
+                else:
+                    tag = f"in {da}d"
+                in_bl = "" if da > EARNINGS_BLACKOUT else " 🚫 BLACKOUT"
+                lines.append(f"  {item['ticker']:<6} — {item['earn_date'].strftime('%a %b %d')} ({tag}){in_bl}")
+            earnings_section = (
+                "\n\n📆 <b>EARNINGS THIS WEEK (watchlist)</b>\n"
+                + "\n".join(lines)
+                + "\n<i>Tickers marked BLACKOUT are skipped until 5d after report</i>"
+            )
+        else:
+            earnings_section = "\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days."
+    except Exception as _e:
+        earnings_section = f"\n\n📆 <b>EARNINGS</b>: scan error ({str(_e)[:60]})"
+
     # ── Format & send ─────────────────────────────────────────────────
     msg = (
         f"🌅 <b>DMan PRO Pre-Market Briefing</b>\n"
@@ -956,6 +985,7 @@ def run_premarket_briefing() -> None:
         f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}\n\n"
         f"💰 <b>MONTHLY P&amp;L</b>\n{monthly_line}"
         f"{gap_section}"
+        f"{earnings_section}"
         f"{suggestion_line}"
     )
 
@@ -1805,6 +1835,40 @@ def check_earnings_safe(ticker: str) -> tuple[bool, int]:
         return True, 5
     except Exception:
         return True, 5
+
+
+def get_upcoming_earnings(tickers: list, days_ahead: int = 5) -> list[dict]:
+    """
+    Return list of {ticker, earn_date, days_away} for tickers with earnings
+    in the next `days_ahead` calendar days. Used by premarket briefing.
+    Skips silently on API failure so it never blocks the briefing.
+    """
+    results = []
+    today = pd.Timestamp.today().normalize()
+    for ticker in tickers:
+        try:
+            cal = yf.Ticker(ticker).calendar
+            if cal is None or cal.empty:
+                continue
+            if "Earnings Date" in cal.columns:
+                earn_dates = pd.to_datetime(cal["Earnings Date"]).dropna()
+            elif isinstance(cal.index, pd.DatetimeIndex):
+                earn_dates = cal.index
+            else:
+                continue
+            for ed in earn_dates:
+                days_away = (ed.normalize() - today).days
+                if 0 <= days_away <= days_ahead:
+                    results.append({
+                        "ticker":     ticker,
+                        "earn_date":  ed.date(),
+                        "days_away":  days_away,
+                    })
+                    break  # one entry per ticker
+        except Exception:
+            continue
+    results.sort(key=lambda x: x["days_away"])
+    return results
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -3462,6 +3526,17 @@ def size_options_trade(premium: float) -> int:
     return contracts  # 0 = premium too expensive for budget; caller skips
 
 
+def size_strangle_trade(total_premium: float) -> int:
+    """
+    Number of strangles (each = 1 call + 1 put contract) to buy.
+    Allocates STRANGLE_RISK_PCT of account. Returns 0 if too expensive.
+    """
+    acct     = get_effective_account()
+    budget   = acct * STRANGLE_RISK_PCT
+    cost_per = total_premium * 100   # 1 strangle = 100 shares per leg
+    return max(0, int(budget / cost_per))
+
+
 def format_options_telegram(sig: "ProSignal", contract: dict, contracts: int) -> str:
     """Telegram alert for an ITM call suggestion alongside a large-cap stock signal."""
     exp_fmt  = date.fromisoformat(contract["expiration"]).strftime("%b %d, %Y")
@@ -3469,6 +3544,10 @@ def format_options_telegram(sig: "ProSignal", contract: dict, contracts: int) ->
     stop_px  = round(contract["premium"] * (1 - OPTIONS_STOP_LOSS_PCT), 2)
     target1  = round(contract["premium"] * (1 + OPTIONS_PROFIT1_PCT),  2)
     exec_tag = "✅ AUTO-SUBMITTED to Alpaca" if OPTIONS_AUTO_EXECUTE else "📋 Advisory — enter manually"
+    stock_plan = (
+        f"\n📌 <b>Stock plan</b>: Entry ${sig.entry:.2f}  "
+        f"Stop ${sig.stop:.2f}  T1 ${sig.target1:.2f}  T2 ${sig.target2:.2f}"
+    )
     return (
         f"📊 <b>DMan OPTIONS Alert</b> — {sig.ticker}\n"
         f"🟢 CALL  <b>{sig.ticker}</b>  "
@@ -3484,7 +3563,8 @@ def format_options_telegram(sig: "ProSignal", contract: dict, contracts: int) ->
         f"Target 1: exit half at ${target1} (+50%)  |  let rest run\n"
         f"Close/roll when DTE ≤ {OPTIONS_CLOSE_DTE} days\n"
         f"Symbol: <code>{contract['occ_symbol']}</code>\n"
-        f"{exec_tag}\n"
+        f"{exec_tag}"
+        f"{stock_plan}\n"
         f"Based on: {sig.setup} score {sig.confluence_score}/100"
     )
 
@@ -3651,6 +3731,10 @@ def format_put_telegram(sig: "ProSignal", contract: dict, contracts: int) -> str
     stop_px  = round(contract["premium"] * (1 - OPTIONS_STOP_LOSS_PCT), 2)
     target1  = round(contract["premium"] * (1 + OPTIONS_PROFIT1_PCT),  2)
     exec_tag = "✅ AUTO-SUBMITTED to Alpaca" if OPTIONS_AUTO_EXECUTE else "📋 Advisory — enter manually"
+    stock_plan = (
+        f"\n📌 <b>Stock plan</b>: Entry ${sig.entry:.2f}  "
+        f"Stop ${sig.stop:.2f}  T1 ${sig.target1:.2f}  T2 ${sig.target2:.2f}"
+    )
     return (
         f"📊 <b>DMan OPTIONS Alert</b> — {sig.ticker}\n"
         f"🔴 PUT  <b>{sig.ticker}</b>  "
@@ -3666,7 +3750,8 @@ def format_put_telegram(sig: "ProSignal", contract: dict, contracts: int) -> str
         f"Target 1: exit half at ${target1} (+50%)  |  let rest run\n"
         f"Close/roll when DTE ≤ {OPTIONS_CLOSE_DTE} days\n"
         f"Symbol: <code>{contract['occ_symbol']}</code>\n"
-        f"{exec_tag}\n"
+        f"{exec_tag}"
+        f"{stock_plan}\n"
         f"Based on: {sig.setup} score {sig.confluence_score}/100"
     )
 
@@ -3763,12 +3848,17 @@ def select_strangle_legs(ticker: str, current_price: float) -> Optional[dict]:
 
 def format_strangle_telegram(result: dict, event: str) -> str:
     """Telegram message for a pre-event strangle advisory."""
-    exp_fmt  = date.fromisoformat(result["expiration"]).strftime("%b %d")
-    ticker   = result["ticker"]
-    c        = result["call"]
-    p        = result["put"]
-    total    = result["total_premium"]
-    cost     = round(total * 100, 2)
+    exp_fmt    = date.fromisoformat(result["expiration"]).strftime("%b %d")
+    ticker     = result["ticker"]
+    c          = result["call"]
+    p          = result["put"]
+    total      = result["total_premium"]
+    cost_each  = round(total * 100, 2)
+    strangles  = size_strangle_trade(total)
+    total_cost = round(cost_each * strangles, 0) if strangles > 0 else cost_each
+    size_line  = (f"Suggested: <b>{strangles} strangle(s)</b> = ${total_cost:,.0f} total "
+                  f"(1% acct risk)\n" if strangles > 0
+                  else f"Cost: ${cost_each:.0f}/strangle (budget check: may need larger acct)\n")
     return (
         f"⚡ <b>DMan STRANGLE Advisory</b> — {ticker}  [{event}]\n\n"
         f"<b>📈 CALL leg</b>  ${c['strike']:.0f}C  exp {exp_fmt}  ({result['dte']}d)\n"
@@ -3779,10 +3869,11 @@ def format_strangle_telegram(result: dict, event: str) -> str:
         f"  Premium: <b>${p['premium']}</b>  (bid ${p['bid']} / ask ${p['ask']})\n"
         f"  IV: {p['iv_pct']:.0f}%  |  Vol: {p['volume']:,}  OI: {p['oi']:,}\n"
         f"  <code>{p['occ']}</code>\n\n"
-        f"Total cost: <b>${cost:.0f}</b>/strangle  |  "
+        f"Cost: <b>${cost_each:.0f}</b>/strangle  |  "
         f"Need <b>{result['move_needed_pct']}%+</b> move to profit\n"
         f"Break-even ↑ ${result['call_breakeven']}  |  "
-        f"Break-even ↓ ${result['put_breakeven']}\n\n"
+        f"Break-even ↓ ${result['put_breakeven']}\n"
+        f"{size_line}"
         f"📋 Advisory — buy both legs simultaneously\n"
         f"🛑 Stop: exit either leg if premium drops 50%\n"
         f"🎯 Target: exit at +80-100% on the winning leg"

@@ -513,6 +513,23 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     else:
         trade_note = ""
 
+    # FOMC proximity warning — if FOMC is within 5 calendar days, flag it in the alert
+    _today_sig = date.today()
+    _fomc_note = ""
+    for _ev in sorted(_FOMC_DATES):
+        _d = (_ev - _today_sig).days
+        if 1 <= _d <= 5:
+            _fomc_note = (f"\n⚠️ <b>FOMC {_ev.strftime('%a %b %d')} in {_d}d</b> "
+                          f"— size at 75%, target T1 only")
+            break
+        if _d > 5:
+            break
+
+    # Friday warning — positions opened today carry weekend risk
+    _friday_note = ""
+    if _today_sig.weekday() == 4:
+        _friday_note = "\n📅 <b>Friday signal</b> — plan your exit before close (weekend risk)"
+
     return (
         f"<b>D🔥man Signal{opex}</b>\n"
         f"{arrow} <b>{s.ticker}</b> — {s.setup}\n"
@@ -523,6 +540,8 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
         + (f"  AI: {s.ai_score}/10" if s.ai_score else "")
         + f"\nMarket: {regime.get('regime','?')}\n{s.reason}"
         + trade_note
+        + _fomc_note
+        + _friday_note
     )
 
 
@@ -954,6 +973,40 @@ def run_premarket_briefing() -> None:
     except Exception:
         monthly_line = "Monthly P&L: unavailable"
 
+    # ── 5.5. Weekend open-position risk (Fridays only) ───────────────
+    weekend_section = ""
+    if now_et.weekday() == 4:  # Friday
+        try:
+            _pending_wk = []
+            if os.path.exists(LIVE_SIGNALS_FILE):
+                with open(LIVE_SIGNALS_FILE) as _fw:
+                    _pending_wk = json.load(_fw).get("pending", [])
+            # Find nearest upcoming FOMC for context
+            _td_wk = now_et.date()
+            _fomc_wk_str = ""
+            for _ev_wk in sorted(_FOMC_DATES):
+                _days_wk = (_ev_wk - _td_wk).days
+                if 1 <= _days_wk <= 7:
+                    _fomc_wk_str = f" FOMC {_ev_wk.strftime('%a %b %d')} in {_days_wk}d."
+                    break
+                if _days_wk > 7:
+                    break
+            if _pending_wk:
+                _open_tickers_wk = ", ".join(p.get("ticker", "?") for p in _pending_wk)
+                weekend_section = (
+                    f"\n\n🏖 <b>WEEKEND RISK — {len(_pending_wk)} open position(s)</b>\n"
+                    f"Pending: <b>{_open_tickers_wk}</b>\n"
+                    f"These carry over the weekend.{_fomc_wk_str} "
+                    f"Plan your exit before close — hit T1 or tighten stop."
+                )
+            else:
+                weekend_section = (
+                    f"\n\n🏖 <b>Friday</b> — no open positions.{_fomc_wk_str} "
+                    f"Clean slate heading into the weekend."
+                )
+        except Exception:
+            pass
+
     # ── 6. Pre-market gap scanner ─────────────────────────────────────
     print("  [6/6] Scanning pre-market gaps...")
     gap_lines = []
@@ -1026,6 +1079,7 @@ def run_premarket_briefing() -> None:
         f"📅 <b>MACRO CALENDAR</b>\n{macro_line}\n\n"
         f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}\n\n"
         f"💰 <b>MONTHLY P&amp;L</b>\n{monthly_line}"
+        f"{weekend_section}"
         f"{gap_section}"
         f"{earnings_section}"
         f"{suggestion_line}"
@@ -4442,6 +4496,39 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         })
     except Exception:
         pass  # never let logging block the scan return
+
+    # Friday close-out advisory — fires on the 3:30 PM scan (30 min before bell)
+    try:
+        _now_co = datetime.now(ET)
+        if _now_co.weekday() == 4:  # Friday
+            _hhmm_co = _now_co.hour * 100 + _now_co.minute
+            if 1530 <= _hhmm_co <= 1559:
+                _pending_co = []
+                if os.path.exists(LIVE_SIGNALS_FILE):
+                    with open(LIVE_SIGNALS_FILE) as _fco:
+                        _pending_co = json.load(_fco).get("pending", [])
+                _mins_left = (16 * 60) - (_now_co.hour * 60 + _now_co.minute)
+                # Find upcoming FOMC within 7 days
+                _td_co = _now_co.date()
+                _fomc_co = ""
+                for _ev_co in sorted(_FOMC_DATES):
+                    _d_co = (_ev_co - _td_co).days
+                    if 1 <= _d_co <= 7:
+                        _fomc_co = f" FOMC {_ev_co.strftime('%a %b %d')} in {_d_co}d."
+                        break
+                    if _d_co > 7:
+                        break
+                _pos_co = ""
+                if _pending_co:
+                    _pos_co = "\nOpen: " + ", ".join(p.get("ticker","?") for p in _pending_co)
+                send_telegram(
+                    f"⚠️ <b>FRIDAY — {_mins_left} min to close</b>\n"
+                    f"Exit positions not at T1 to avoid weekend risk.{_fomc_co}"
+                    f"{_pos_co}"
+                )
+                print(f"\n  ⚠️  Friday close-out advisory sent ({_mins_left} min to bell)")
+    except Exception:
+        pass
 
     return signals
 

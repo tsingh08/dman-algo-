@@ -2,8 +2,12 @@ name: DMan PRO Pre-Market Briefing
 
 on:
   schedule:
-    # 9:10 AM ET = 13:10 UTC (EDT, Mar–Nov). Adjust to 14:10 UTC in EST (Nov–Mar).
-    - cron: '10 13 * * 1-5'
+    # Target 8:10 AM ET pre-market briefing.
+    # Fire at 12:10 UTC (1h before market-hours GitHub rush at 13:30 UTC) so
+    # the job runs quickly instead of sitting in queue for 2-4 hours.
+    # EDT (Mar–Nov): 12:10 UTC = 8:10 AM ET / 6:10 AM MDT
+    # EST (Nov–Mar): 12:10 UTC = 7:10 AM ET / 5:10 AM MST  ← acceptable early
+    - cron: '10 12 * * 1-5'
   workflow_dispatch:   # manual trigger for testing
 
 env:
@@ -41,13 +45,26 @@ jobs:
           PYTHONIOENCODING:  utf-8
         run: |
           python - <<'EOF'
-          from datetime import datetime
-          import zoneinfo, sys, subprocess
+          from datetime import datetime, timedelta
+          import zoneinfo, sys, subprocess, time
           ET = zoneinfo.ZoneInfo("America/New_York")
           now = datetime.now(ET)
           if now.weekday() >= 5:
               print(f"Weekend ({now.strftime('%a')}) — skipping briefing.")
               sys.exit(0)
+          # If GitHub ran this early (before 8:00 AM ET), wait up to 12 min.
+          # If it's still before 7:30 AM ET after waiting, skip — GitHub is
+          # running the job far too early (rare) and we'll catch it next time.
+          target_hhmm = 800   # 8:00 AM ET
+          cur_hhmm    = now.hour * 100 + now.minute
+          if cur_hhmm < 730:
+              print(f"Too early ({now.strftime('%H:%M ET')}) — GitHub ran job ahead of schedule. Skipping.")
+              sys.exit(0)
+          if cur_hhmm < target_hhmm:
+              wait_s = (target_hhmm // 100 * 60 + target_hhmm % 100 - now.hour * 60 - now.minute) * 60
+              wait_s = min(wait_s, 12 * 60)  # cap at 12 min (stay under step timeout)
+              print(f"Waiting {wait_s}s for 8:00 AM ET...")
+              time.sleep(wait_s)
           result = subprocess.run(
               [sys.executable, "dman_algo.py", "--mode", "premarket"],
               capture_output=False

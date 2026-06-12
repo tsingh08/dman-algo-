@@ -441,6 +441,25 @@ def is_opex_week() -> bool:
     return week_start <= today <= week_start + timedelta(days=4)
 
 
+def _get_third_friday(yr: int, mo: int) -> date:
+    """Return the third Friday of the given year/month."""
+    first = date(yr, mo, 1)
+    first_friday = first + timedelta(days=(4 - first.weekday()) % 7)
+    return first_friday + timedelta(weeks=2)
+
+
+def is_opex_day() -> bool:
+    """True only on the actual OPEX Friday (3rd Friday of the month)."""
+    today = date.today()
+    return today.weekday() == 4 and today == _get_third_friday(today.year, today.month)
+
+
+def is_opex_eve() -> bool:
+    """True on the Thursday immediately before OPEX Friday."""
+    tomorrow = date.today() + timedelta(days=1)
+    return tomorrow.weekday() == 4 and tomorrow == _get_third_friday(tomorrow.year, tomorrow.month)
+
+
 _beta_cache: dict[str, float] = {}
 
 def get_beta(ticker: str) -> float:
@@ -808,26 +827,49 @@ def run_premarket_briefing() -> None:
     # ── 2. Macro calendar ─────────────────────────────────────────────
     print("  [2/6] Checking macro calendar...")
     try:
-        today_d    = now_et.date()
-        tomorrow_d = today_d + timedelta(days=1)
-        nfp_set    = _nfp_dates()
+        today_d = now_et.date()
+        nfp_set = _nfp_dates()
         events_lines = []
-        for d in [today_d, tomorrow_d]:
-            label = "today" if d == today_d else "tomorrow"
+        for offset in range(8):  # today through 7 calendar days ahead
+            d = today_d + timedelta(days=offset)
+            if offset == 0:
+                day_lbl = "today"
+            elif offset == 1:
+                day_lbl = f"tomorrow ({d.strftime('%a %b %d')})"
+            else:
+                day_lbl = f"in {offset}d ({d.strftime('%a %b %d')})"
             if d in _FOMC_DATES:
-                events_lines.append(f"⛔ FOMC {label} — full-day blackout")
+                if offset == 0:
+                    events_lines.append(f"⛔ FOMC today — full-day blackout")
+                elif offset == 1:
+                    events_lines.append(f"⛔ FOMC tomorrow — full-day blackout; avoid new entries today")
+                else:
+                    events_lines.append(f"⛔ FOMC {day_lbl} — approaching; consider strangle / reduce size")
             if d in nfp_set:
-                if d == today_d:
+                if offset == 0:
                     events_lines.append(f"📊 NFP today (8:30 AM) — blackout until 10:00 AM ET, then open")
                 else:
-                    events_lines.append(f"📊 NFP tomorrow — prepare for gap at open")
+                    events_lines.append(f"📊 NFP {day_lbl} — prepare for gap at open")
             if d in _CPI_DATES:
-                if d == today_d:
+                if offset == 0:
                     events_lines.append(f"📊 CPI today (8:30 AM) — blackout until 10:00 AM ET, then open")
                 else:
-                    events_lines.append(f"📊 CPI tomorrow — prepare for gap at open")
+                    events_lines.append(f"📊 CPI {day_lbl} — prepare for gap at open")
+            if d in _PPI_DATES:
+                if offset == 0:
+                    events_lines.append(f"📊 PPI today (8:30 AM) — blackout until 10:00 AM ET, then open")
+                else:
+                    events_lines.append(f"📊 PPI {day_lbl} — inflation data; gap risk at open")
+            # OPEX markers
+            if d.weekday() == 4 and d == _get_third_friday(d.year, d.month):
+                if offset == 0:
+                    events_lines.append(f"⚡ OPEX today — gamma pinning; size down, expect wider spreads")
+                elif offset == 1:
+                    events_lines.append(f"⚡ OPEX tomorrow — consider SPY/QQQ strangle before close")
+                else:
+                    events_lines.append(f"⚡ OPEX {day_lbl} — monthly options expiration approaching")
         macro_line = ("\n".join(events_lines) if events_lines
-                      else "✅ No macro events today/tomorrow — clean tape")
+                      else "✅ No macro events in next 7 days — clean tape")
     except Exception:
         macro_line = "✅ Macro check OK"
 
@@ -1005,22 +1047,43 @@ def run_premarket_briefing() -> None:
         print("  ⚠️  Telegram not configured — briefing printed above only.")
 
     # ── Pre-event strangle advisory ───────────────────────────────────
-    # CPI/NFP: fire strangle the DAY BEFORE (buy before IV crush, catch the move).
-    # FOMC: fire same-day because announcement is at 2 PM — premarket is still pre-event.
+    # Triggers (buy before IV crush, catch the move):
+    #   FOMC same-day (2 PM announcement — premarket still pre-event)
+    #   FOMC tomorrow or within 3 days — strangle while premium is still building
+    #   CPI / NFP / PPI tomorrow (8:30 AM releases)
+    #   OPEX tomorrow (3rd Friday) — gamma explosion event
     print("  [7/7] Checking for pre-event strangle opportunities...")
     try:
         _today    = now_et.date()
         _tomorrow = _today + timedelta(days=1)
         _nfp      = _nfp_dates()
         strangle_events = []
+
+        # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
         if _today in _FOMC_DATES:
             strangle_events.append("FOMC today 2 PM ET")
-        if _tomorrow in _CPI_DATES:
-            strangle_events.append("CPI tomorrow 8:30 AM ET")
         if _tomorrow in _FOMC_DATES:
             strangle_events.append("FOMC tomorrow 2 PM ET")
+        else:
+            for _off in range(2, 4):  # 2 or 3 days out
+                _fd = _today + timedelta(days=_off)
+                if _fd in _FOMC_DATES:
+                    strangle_events.append(
+                        f"FOMC in {_off}d ({_fd.strftime('%a %b %d')}) — enter strangle early")
+                    break
+
+        # Data releases the next morning
+        if _tomorrow in _CPI_DATES:
+            strangle_events.append("CPI tomorrow 8:30 AM ET")
+        if _tomorrow in _PPI_DATES:
+            strangle_events.append("PPI tomorrow 8:30 AM ET")
         if _tomorrow in _nfp:
             strangle_events.append("NFP tomorrow 8:30 AM ET")
+
+        # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
+        if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):
+            strangle_events.append("OPEX tomorrow (3rd Friday) — gamma event; SPY/QQQ strangle")
+
         if strangle_events:
             generate_strangle_advisory(" | ".join(strangle_events))
         else:
@@ -1911,6 +1974,21 @@ _CPI_DATES: set[date] = {
     date(2027, 10, 13), date(2027, 11, 10), date(2027, 12,  9),
 }
 
+# PPI release dates (8:30 AM ET) — released ~1 business day after CPI; similar gap/whipsaw risk.
+# Blackout: same as CPI — pre-10 AM on release day only. Update each December from bls.gov.
+_PPI_DATES: set[date] = {
+    # 2026 — estimated as CPI+1 business day (verify from bls.gov/schedule)
+    date(2026,  1, 15), date(2026,  2, 12), date(2026,  3, 12),
+    date(2026,  4, 11), date(2026,  5, 14), date(2026,  6, 11),
+    date(2026,  7, 15), date(2026,  8, 13), date(2026,  9, 10),
+    date(2026, 10, 15), date(2026, 11, 13), date(2026, 12, 11),
+    # 2027 — estimated; verify from bls.gov each December
+    date(2027,  1, 14), date(2027,  2, 11), date(2027,  3, 11),
+    date(2027,  4, 10), date(2027,  5, 13), date(2027,  6, 10),
+    date(2027,  7, 15), date(2027,  8, 12), date(2027,  9,  9),
+    date(2027, 10, 14), date(2027, 11, 11), date(2027, 12, 10),
+}
+
 def _nfp_dates(years: int = 2) -> set[date]:
     """Generate NFP dates (first Friday of each month) for the next `years` years."""
     today = date.today()
@@ -1951,8 +2029,8 @@ def check_macro_safe() -> tuple[bool, int]:
             if -1 <= days_away <= MACRO_BLACKOUT:
                 return False, 0
 
-        # NFP / CPI: pre-market 8:30 AM release — block only before 10:00 AM ET
-        for ev in (_nfp_dates() | _CPI_DATES):
+        # NFP / CPI / PPI: pre-market 8:30 AM release — block only before 10:00 AM ET
+        for ev in (_nfp_dates() | _CPI_DATES | _PPI_DATES):
             days_away = (ev - today).days
             if days_away == 0 and now_et.hour < 10:
                 return False, 0

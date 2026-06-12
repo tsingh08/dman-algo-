@@ -163,7 +163,7 @@ OPTIONS_SHORT_SETUPS    = {"Vol Breakdown", "EMA Breakdown", "Gap & Short"}  # �
 STRANGLE_TICKERS    = ["SPY", "QQQ"]   # always liquid enough for two-legged plays
 STRANGLE_OTM_PCT    = 0.04             # 4% OTM per leg (keeps premium reasonable)
 STRANGLE_TARGET_DTE = 7                # weekly options — captures the move, limits theta
-STRANGLE_MIN_DTE    = 2
+STRANGLE_MIN_DTE    = 5                # ≥5 DTE avoids same-week expiry (gamma/theta bleed)
 STRANGLE_MAX_DTE    = 14
 STRANGLE_RISK_PCT   = 0.01             # 1% of account per strangle event
 
@@ -1585,11 +1585,11 @@ def get_market_regime() -> dict:
         except Exception:
             pass
 
-        # VIX shock detector — single-session VIX spike >20% signals a fear event.
-        # The session AFTER the spike (e.g. Monday after a +39.7% VIX Friday) is
-        # historically a "digestion" period: volatility stays elevated, momentum
-        # longs that worked before the spike are now swimming against the current.
-        # We set vix_shock = True so the scanner can raise the min score floor.
+        # VIX shock detector — fires when EITHER:
+        #   • 1-day VIX change ≥ 20% (sudden fear spike, e.g. +39.7% on a single session)
+        #   • OR VIX ≥ 1.30× its 5-day average (sustained elevated fear, ~30% above norm)
+        # The session AFTER a shock is historically a "digestion" period: vol stays elevated,
+        # momentum longs swim against the current. Raises the min-score floor in the scanner.
         vix_shock = False
         vix_shock_note = ""
         try:
@@ -3568,8 +3568,8 @@ def select_itm_call(calls: pd.DataFrame, current_price: float,
         premium      = round(mid, 2)
         iv           = float(best.get("impliedVolatility", 0) or 0)
         moneyness    = round((current_price - float(best["strike"])) / current_price * 100, 1)
-        # Approximate delta from moneyness (rough heuristic for display)
-        est_delta    = round(min(0.95, max(0.50, 0.85 - moneyness * 0.025)), 2)
+        # Approximate delta: 0.50 ATM → 0.70 at 4% ITM → 0.95 at 9%+ ITM
+        est_delta    = round(min(0.95, max(0.50, 0.50 + moneyness * 0.05)), 2)
         occ_symbol   = _build_occ_symbol(ticker=ticker,
                                          strike=float(best["strike"]),
                                          expiration=expiration)
@@ -3600,6 +3600,8 @@ def size_options_trade(premium: float) -> int:
     acct        = get_effective_account()
     budget      = min(acct * OPTIONS_RISK_PCT, OPTIONS_MAX_PREMIUM_USD)
     cost_per    = premium * 100            # 1 contract = 100 shares
+    if cost_per <= 0:
+        return 0
     contracts   = int(budget / cost_per)
     return contracts  # 0 = premium too expensive for budget; caller skips
 
@@ -3612,6 +3614,8 @@ def size_strangle_trade(total_premium: float) -> int:
     acct     = get_effective_account()
     budget   = acct * STRANGLE_RISK_PCT
     cost_per = total_premium * 100   # 1 strangle = 100 shares per leg
+    if cost_per <= 0:
+        return 0
     return max(0, int(budget / cost_per))
 
 
@@ -3782,7 +3786,8 @@ def select_itm_put(puts: pd.DataFrame, current_price: float,
         premium   = round(mid, 2)
         iv        = float(best.get("impliedVolatility", 0) or 0)
         moneyness = round((float(best["strike"]) - current_price) / current_price * 100, 1)
-        est_delta = round(max(-0.95, min(-0.50, -0.85 + moneyness * 0.025)), 2)
+        # Approximate delta: -0.50 ATM → -0.70 at 4% ITM → -0.95 at 9%+ ITM (more negative = deeper ITM)
+        est_delta = round(max(-0.95, min(-0.50, -(0.50 + moneyness * 0.05))), 2)
         occ_sym   = _build_occ_symbol(ticker, float(best["strike"]), expiration, "P")
         return {
             "strike":        float(best["strike"]),

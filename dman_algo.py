@@ -210,6 +210,9 @@ LIVE_SIGNALS_FILE  = "dman_live_signals.json"   # pending live signals awaiting 
 LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # ground-truth live trade log
 SCAN_LOG_FILE      = "dman_scan_log.json"        # rolling log of each scan run (last 20)
 
+# Shared scan metadata written by run_pro_scanner(), read by the heartbeat in main()
+_last_scan_meta: dict = {}
+
 SECTOR_ETFS = {
     "Technology":    "XLK",
     "Financials":    "XLF",
@@ -917,8 +920,46 @@ def run_premarket_briefing() -> None:
     except Exception:
         pass
 
+    # ── 3.5. Sector ETF health ────────────────────────────────────────
+    print("  [3.5/7] Checking sector ETF health...")
+    sector_health_section = ""
+    try:
+        _etf_rows = []
+        _blocked_sectors = []
+        for _sec_name, _etf_sym in SECTOR_ETFS.items():
+            try:
+                _etf_df = fetch_df(_etf_sym)
+                if _etf_df is None or len(_etf_df) < 50:
+                    continue
+                _etf_df = compute_indicators(_etf_df.copy())
+                if "EMA50" not in _etf_df.columns:
+                    continue
+                _etf_last = _etf_df.iloc[-1]
+                _above = float(_etf_last["Close"]) > float(_etf_last["EMA50"])
+                _pct   = (float(_etf_last["Close"]) - float(_etf_last["EMA50"])) / float(_etf_last["EMA50"]) * 100
+                _icon  = "✅" if _above else "⚠️"
+                _etf_rows.append(f"{_icon} {_etf_sym} ({_sec_name[:4]})")
+                if not _above:
+                    _blocked_sectors.append(_etf_sym)
+            except Exception:
+                continue
+        if _etf_rows:
+            # 3 ETFs per line for compact layout
+            _lines = [" | ".join(_etf_rows[i:i+3]) for i in range(0, len(_etf_rows), 3)]
+            if _blocked_sectors:
+                _block_note = f"\n⚠️ {', '.join(_blocked_sectors)} below EMA50 — sector gate will block these plays"
+            else:
+                _block_note = "\n✅ All sectors above EMA50 — sector gate open for all plays"
+            sector_health_section = (
+                f"\n\n📡 <b>SECTOR ETF HEALTH</b> (above EMA50 = gate open)\n"
+                + "\n".join(_lines)
+                + _block_note
+            )
+    except Exception:
+        pass
+
     # ── 4. Live outcomes ──────────────────────────────────────────────
-    print("  [4/6] Reading live outcomes...")
+    print("  [4/7] Reading live outcomes...")
     live_line = "No live outcome data yet — logger active, accumulating."
     suggestion_line = ""
     try:
@@ -968,7 +1009,7 @@ def run_premarket_briefing() -> None:
         live_line = f"Error reading live outcomes: {e}"
 
     # ── 5. Monthly P&L ────────────────────────────────────────────────
-    print("  [5/6] Checking monthly P&L...")
+    print("  [5/7] Checking monthly P&L...")
     try:
         month_loss = get_this_month_loss()
         limit_pct  = MONTHLY_LOSS_LIMIT * 100
@@ -1018,7 +1059,7 @@ def run_premarket_briefing() -> None:
             pass
 
     # ── 6. Pre-market gap scanner ─────────────────────────────────────
-    print("  [6/6] Scanning pre-market gaps...")
+    print("  [6/7] Scanning pre-market gaps...")
     gap_lines = []
     try:
         for ticker in WATCHLIST:
@@ -1079,7 +1120,7 @@ def run_premarket_briefing() -> None:
         gap_section = "\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now."
 
     # ── 6.5. Upcoming earnings on watchlist ───────────────────────────
-    print("  [6.5/7] Scanning earnings calendar...")
+    print("  [6.5/7] Scanning earnings calendar...")  # noqa: label kept for operator readability
     earnings_section = ""
     try:
         upcoming = get_upcoming_earnings(WATCHLIST, days_ahead=5)
@@ -1114,7 +1155,8 @@ def run_premarket_briefing() -> None:
         f"{warnings_section}"
         f"{macro_env_section}\n\n"
         f"📅 <b>MACRO CALENDAR</b>\n{macro_line}\n\n"
-        f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}\n\n"
+        f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}"
+        f"{sector_health_section}\n\n"
         f"💰 <b>MONTHLY P&amp;L</b>\n{monthly_line}"
         f"{weekend_section}"
         f"{gap_section}"
@@ -4534,6 +4576,44 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     except Exception:
         pass  # never let logging block the scan return
 
+    # Near-miss collection — only when no signals fired; uses cached fetch_df() data (fast)
+    _near_misses: list[tuple[str, float, str]] = []
+    if not signals:
+        for _nm_t in WATCHLIST:
+            try:
+                _nm_raw = fetch_df(_nm_t)
+                if _nm_raw is None or len(_nm_raw) < 30:
+                    continue
+                _nm_df  = compute_indicators(_nm_raw.copy())
+                _nm_r   = _nm_df.iloc[-1]
+                _nm_p   = _nm_df.iloc[-2]
+                _nm_gap = (float(_nm_r["Open"]) - float(_nm_p["Close"])) / float(_nm_p["Close"]) * 100
+                if _nm_gap < 1.0:
+                    continue
+                _nm_macd     = float(_nm_r.get("MACD", 0) or 0)
+                _nm_prn_grn  = float(_nm_p["Close"]) > float(_nm_p["Open"])
+                _nm_sec_ok   = _sector_etf_above_ema50(_nm_t)
+                if not _nm_sec_ok:
+                    _nm_blocker = "sector⚠️"
+                elif _nm_macd <= 0:
+                    _nm_blocker = "MACD-"
+                elif not _nm_prn_grn:
+                    _nm_blocker = "prior red"
+                else:
+                    _nm_blocker = "score short"
+                _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
+            except Exception:
+                continue
+        _near_misses.sort(key=lambda x: x[1], reverse=True)
+        _near_misses = _near_misses[:3]
+
+    # Expose scan metadata for the heartbeat in main()
+    _last_scan_meta.update({
+        "rejected":     rejected_counts,
+        "near_misses":  _near_misses,
+        "tickers_total": len(tickers),
+    })
+
     # Friday close-out advisory — fires on the 3:30 PM scan (30 min before bell)
     try:
         _now_co = datetime.now(ET)
@@ -5862,6 +5942,20 @@ def main():
         _hb_regime = get_market_regime()
         _hb_r  = _hb_regime.get("regime", "?")
         _hb_rs = _hb_regime.get("score", "?")
+        _hb_meta  = _last_scan_meta
+        _hb_rej   = _hb_meta.get("rejected", {})
+        _hb_total = _hb_meta.get("tickers_total", 0)
+        _hb_gate  = _hb_rej.get("hard_gate", 0)
+        _hb_score = _hb_rej.get("low_score", 0)
+        _hb_nm_list = _hb_meta.get("near_misses", [])
+        _hb_counts = (f"{_hb_total} scanned"
+                      + (f" | {_hb_gate} gate-blocked" if _hb_gate else "")
+                      + (f" | {_hb_score} score-short" if _hb_score else ""))
+        _hb_nm_str = ""
+        if _hb_nm_list:
+            _hb_nm_str = "\nNear-miss: " + " | ".join(
+                f"<b>{_t}</b> +{_g:.1f}% → {_b}" for _t, _g, _b in _hb_nm_list
+            )
         if signals:
             send_telegram(
                 f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
@@ -5870,7 +5964,8 @@ def main():
         else:
             send_telegram(
                 f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
-                f"Regime: {_hb_r} ({_hb_rs}/15) | {args.universe} universe | filters working"
+                f"Regime: {_hb_r} ({_hb_rs}/15) | {_hb_counts}"
+                f"{_hb_nm_str}"
             )
 
 

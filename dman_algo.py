@@ -5297,7 +5297,7 @@ def send_daily_watchlist() -> None:
 try:
     from alpaca.trading.client import TradingClient
     from alpaca.trading.requests import (
-        MarketOrderRequest, GetOrdersRequest,
+        MarketOrderRequest, LimitOrderRequest, GetOrdersRequest,
         TakeProfitRequest, StopLossRequest,
     )
     from alpaca.trading.enums import (
@@ -5380,15 +5380,16 @@ def _save_sync_state(state: dict) -> None:
         json.dump(state, f, indent=2)
 
 
-def submit_paper_trade(signal: ProSignal) -> Optional[str]:
+def submit_alpaca_trade(signal: ProSignal) -> Optional[str]:
     """
-    Place a bracket order on Alpaca paper:
-      Entry  — market order (fills at open / current price)
-      Stop   — stop order at signal.stop
-      Target — limit order at signal.target1 (2R exit)
+    Place a bracket order on Alpaca (paper or live):
+      Entry  — DAY limit order at signal.entry (re-anchored to live price before call)
+      Stop   — stop order at signal.stop       (offset preserved from live entry)
+      Target — limit order at signal.target1   (2.5R from live entry)
 
-    The broker handles stop/target execution automatically; dman just syncs
-    the fill back via sync_alpaca_fills().
+    Using a limit instead of market means the fill price matches the bracket legs
+    exactly — no bracket drift from slippage on fast-moving gap stocks.
+    The broker handles stop/target execution; dman syncs fills via sync_alpaca_fills().
 
     Returns Alpaca order ID on success, None on failure.
     """
@@ -5401,14 +5402,16 @@ def submit_paper_trade(signal: ProSignal) -> Optional[str]:
         return None
 
     side      = OrderSide.BUY  if signal.bias == "LONG" else OrderSide.SELL
+    limit_px  = round(signal.entry,   2)
     stop_px   = round(signal.stop,    2)
     target_px = round(signal.target1, 2)
 
     try:
-        order = client.submit_order(MarketOrderRequest(
+        order = client.submit_order(LimitOrderRequest(
             symbol        = signal.ticker,
             qty           = signal.shares,
             side          = side,
+            limit_price   = limit_px,
             time_in_force = TimeInForce.DAY,
             order_class   = OrderClass.BRACKET,
             take_profit   = TakeProfitRequest(limit_price=target_px),
@@ -5417,7 +5420,7 @@ def submit_paper_trade(signal: ProSignal) -> Optional[str]:
         oid = str(order.id)
         label = "PAPER" if ALPACA_PAPER else "LIVE"
         print(f"  📤 [{label}] {signal.ticker} {signal.bias} {signal.shares}sh  "
-              f"stop=${stop_px}  T1=${target_px}  id={oid[:8]}…")
+              f"limit=${limit_px}  stop=${stop_px}  T1=${target_px}  id={oid[:8]}…")
         return oid
     except Exception as exc:
         print(f"  ❌ Alpaca order failed ({signal.ticker}): {exc}")
@@ -5588,7 +5591,9 @@ def show_alpaca_account() -> None:
 
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     """
-    Validate entry prices and submit passing signals to Alpaca paper.
+    Validate entry prices and submit passing signals to Alpaca (paper or live).
+    Re-anchors each signal's stop and target to the live price so bracket legs
+    are always correct relative to the actual fill price.
     Automatically adds each submitted trade to PositionTracker.
     Called after a scan when --submit flag is set.
     """
@@ -5598,6 +5603,33 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         print("  ⚠️  --submit requires ALPACA_API_KEY to be set.")
         return
 
+    mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
+
+    # ── Live-mode safety warnings ──────────────────────────────────────────
+    if not ALPACA_PAPER:
+        # Warn if ACCOUNT_SIZE was not explicitly configured
+        if not os.getenv("ACCOUNT_SIZE"):
+            msg = ("⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — "
+                   f"sizing uses ${ACCOUNT_SIZE:,.0f} default. "
+                   "Set the real value in GitHub secrets → ACCOUNT_SIZE.")
+            send_telegram(msg)
+            print(f"  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to ${ACCOUNT_SIZE:,.0f}")
+
+        # Warn (but do not block) if FOMC is within 7 days
+        _today_live = date.today()
+        for _ev_live in sorted(_FOMC_DATES):
+            _d_live = (_ev_live - _today_live).days
+            if 0 <= _d_live <= 7:
+                msg = (f"⚠️ <b>DMan LIVE mode</b>: FOMC {_ev_live.strftime('%a %b %d')} "
+                       f"in {_d_live}d — elevated risk. "
+                       "Recommend paper mode until after FOMC + OPEX clear. "
+                       "Proceeding anyway — monitor positions closely.")
+                send_telegram(msg)
+                print(f"  ⚠️  LIVE: FOMC in {_d_live}d — high-risk week warning sent")
+                break
+            if _d_live > 7:
+                break
+
     pt        = PositionTracker()
     submitted = 0
 
@@ -5606,7 +5638,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     already_tracked = {p.ticker for p in pt.positions}
 
     print(f"\n  {'─'*68}")
-    print(f"  Validating {len(signals)} signal(s) for Alpaca submission…")
+    print(f"  [{mode_label}] Validating {len(signals)} signal(s) for Alpaca submission…")
 
     for sig in signals:
         if sig.ticker in already_tracked:
@@ -5620,7 +5652,24 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                   f"signal=${sig.entry}  now=${cur}  drift={drift_pct:+.1f}%  — skipped")
             continue
 
-        oid = submit_paper_trade(sig)
+        # Re-anchor bracket to live price — preserves original R multiple but
+        # uses the actual price we'll fill at, so stop and target are correct.
+        _orig_risk = round(sig.entry - sig.stop, 4)  # risk-per-share from signal detection
+        if _orig_risk > 0:
+            if sig.bias == "LONG":
+                _live_entry = round(cur * 1.001, 2)    # 0.1% buffer → improves fill odds
+                sig.entry   = _live_entry
+                sig.stop    = round(_live_entry - _orig_risk, 2)
+                sig.target1 = round(_live_entry + 2.5 * _orig_risk, 2)
+                sig.target2 = round(_live_entry + 4.0 * _orig_risk, 2)
+            else:  # SHORT
+                _live_entry = round(cur * 0.999, 2)
+                sig.entry   = _live_entry
+                sig.stop    = round(_live_entry + _orig_risk, 2)
+                sig.target1 = round(_live_entry - 2.5 * _orig_risk, 2)
+                sig.target2 = round(_live_entry - 4.0 * _orig_risk, 2)
+
+        oid = submit_alpaca_trade(sig)
         if oid:
             pt.open(OpenPosition(
                 ticker     = sig.ticker,
@@ -5636,7 +5685,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             ))
             submitted += 1
 
-    print(f"  📤 {submitted}/{len(signals)} signal(s) submitted to Alpaca paper\n")
+    print(f"  📤 {submitted}/{len(signals)} signal(s) submitted [{mode_label}]\n")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

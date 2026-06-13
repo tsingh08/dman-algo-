@@ -519,8 +519,12 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     for _ev in sorted(_FOMC_DATES):
         _d = (_ev - _today_sig).days
         if 1 <= _d <= 5:
-            _fomc_note = (f"\n⚠️ <b>FOMC {_ev.strftime('%a %b %d')} in {_d}d</b> "
-                          f"— size at 75%, target T1 only")
+            if _d == 2 and _today_sig.weekday() == 0:  # Monday, FOMC exactly Wednesday
+                _fomc_note = (f"\n⚠️ <b>FOMC {_ev.strftime('%a %b %d')} in {_d}d — LAST CLEAR DAY</b> "
+                              f"— size at 75%, target T1, exits by Friday preferred")
+            else:
+                _fomc_note = (f"\n⚠️ <b>FOMC {_ev.strftime('%a %b %d')} in {_d}d</b> "
+                              f"— size at 75%, target T1 only")
             break
         if _d > 5:
             break
@@ -862,6 +866,12 @@ def run_premarket_briefing() -> None:
                     events_lines.append(f"⛔ FOMC today — full-day blackout")
                 elif offset == 1:
                     events_lines.append(f"⛔ FOMC tomorrow — full-day blackout; avoid new entries today")
+                elif offset == 2:
+                    # Today is the last clear session before the ±1 day blackout begins tomorrow
+                    events_lines.append(
+                        f"⛔ FOMC {day_lbl} — <b>TODAY is the LAST CLEAR SESSION</b> "
+                        f"(blackout begins tomorrow through Thu). Maximize quality setups today."
+                    )
                 else:
                     events_lines.append(f"⛔ FOMC {day_lbl} — approaching; consider strangle / reduce size")
             if d in nfp_set:
@@ -1019,15 +1029,42 @@ def run_premarket_briefing() -> None:
                 if pre_px <= 0 or prev_close <= 0:
                     continue
                 gap_pct = (pre_px - prev_close) / prev_close * 100
-                if gap_pct >= 1.5:
-                    est_stop = round(pre_px * 0.985, 2)
-                    vol_tag  = " ⚡ VOLATILE" if ticker in VOLATILE_TICKERS else ""
-                    gap_lines.append(
-                        (gap_pct, f"🔥 <b>{ticker}</b>{vol_tag}  +{gap_pct:.1f}%  "
-                         f"pre-mkt ${pre_px:.2f}  (prior close ${prev_close:.2f})\n"
-                         f"   → Watch entry near open  |  Est. stop ~${est_stop}  |  "
-                         f"Have order ready at the 🔔")
-                    )
+                if gap_pct < 1.5:
+                    continue
+                est_stop = round(pre_px * 0.985, 2)
+                vol_tag  = " ⚡" if ticker in VOLATILE_TICKERS else ""
+
+                # Technical readiness: check the two primary Gap & Hold filters
+                # (MACD > 0 and prior-day green) so the user knows at 8 AM which
+                # gaps are real candidates vs. likely to fade at the open.
+                tech_label = ""
+                entry_note = f"→ Watch entry near open  |  Est. stop ~${est_stop}"
+                try:
+                    _gdf = fetch_df(ticker, period_days=50)
+                    if _gdf is not None and len(_gdf) >= 30:
+                        _gdf       = compute_indicators(_gdf)
+                        _macd_ok   = bool(_gdf["MACD"].iloc[-1] > 0)
+                        _prior_grn = bool(_gdf["Close"].iloc[-2] > _gdf["Open"].iloc[-2])
+                        if _macd_ok and _prior_grn:
+                            tech_label = " ✅ <b>READY</b> (MACD+ ✓ prior green ✓)"
+                            entry_note = f"→ <b>Gap &amp; Hold candidate</b> — confirm hold at 9:45 AM  |  Stop ~${est_stop}"
+                        elif _macd_ok:
+                            tech_label = " ⚠️ <b>PARTIAL</b> (MACD+ ✓ prior RED ✗)"
+                            entry_note = f"→ Prior-green filter may block — monitor  |  Stop ~${est_stop}"
+                        elif _prior_grn:
+                            tech_label = " ⚠️ <b>PARTIAL</b> (MACD- ✗ prior green ✓)"
+                            entry_note = f"→ MACD filter may block — monitor  |  Stop ~${est_stop}"
+                        else:
+                            tech_label = " ❌ <b>NOT READY</b> (MACD- ✗ prior RED ✗)"
+                            entry_note = f"→ Likely to fade — do not chase  |  Stop ~${est_stop}"
+                except Exception:
+                    pass
+
+                gap_lines.append(
+                    (gap_pct, f"🔥 <b>{ticker}</b>{vol_tag}  +{gap_pct:.1f}%  "
+                     f"pre-mkt ${pre_px:.2f}{tech_label}\n"
+                     f"   {entry_note}")
+                )
             except Exception:
                 continue
         gap_lines.sort(key=lambda x: x[0], reverse=True)
@@ -1037,7 +1074,7 @@ def run_premarket_briefing() -> None:
     if gap_lines:
         gap_section = (f"\n\n🚨 <b>PRE-MARKET GAPS ≥1.5%</b> — entry setups forming\n"
                        + "\n".join(line for _, line in gap_lines[:5])
-                       + "\n<i>These may fire as Gap &amp; Hold at 9:45+ AM if price holds above open</i>")
+                       + "\n<i>✅ = passes MACD + prior-green filters. Confirm hold at 9:45 AM.</i>")
     else:
         gap_section = "\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now."
 

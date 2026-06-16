@@ -2,9 +2,13 @@ name: DMan PRO Scanner
 
 on:
   schedule:
-    # Every 60 min, 13:30–20:00 UTC = 9:30am–4:00pm EDT (market hours)
-    # Gap & Hold that holds 60+ min is higher quality than 30 min
-    - cron: '30 13,14,15,16,17,18,19 * * 1-5'
+    # 9:45 AM ET — dedicated Gap & Hold scan, fires exactly when the early-session
+    # gate opens. 13:30 UTC (9:30 AM) is peak GitHub runner contention (all trading
+    # bots hit at once); 13:45 UTC is 15 min quieter and the Gate is already open.
+    - cron: '45 13 * * 1-5'
+    # Hourly 10:30 AM – 3:30 PM ET for momentum continuation + new setups
+    - cron: '30 14,15,16,17,18,19 * * 1-5'
+    # 4:00 PM ET final check / Friday close-out advisory
     - cron: '0 20 * * 1-5'
   workflow_dispatch:   # manual trigger from GitHub UI
 
@@ -56,15 +60,14 @@ jobs:
           if now.weekday() >= 5 or not (930 <= t <= 1600):
               print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")
               sys.exit(0)
-          # Daily watchlist at market open (9:30–9:50 AM ET) — sent before the main scan
-          # The scan itself also triggers it, but this ensures it runs even on slow scan days
-          if 930 <= t <= 950:
+          # Daily watchlist fires on the 9:45 AM scan (first scan of the day)
+          if 945 <= t <= 1005:
               subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", "watchlist"],
                   capture_output=False
               )
-          # First 30 min: use curated universe (fast, no NASDAQ fetch, catches gap-and-holds).
-          # After 10 AM: expand to full universe for momentum continuation plays.
+          # Before 10 AM: curated universe only — fast, catches gap-and-holds at gate open.
+          # After 10 AM: full universe for momentum continuation plays.
           universe = "curated" if t < 1000 else "all"
           result = subprocess.run(
               [sys.executable, "dman_algo.py", "--mode", "scan",

@@ -776,6 +776,81 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
     return resolved_count
 
 
+def run_readiness_scan() -> None:
+    """
+    Sunday evening readiness check — scans the watchlist for tickers primed
+    for Monday gap setups: MACD > 0, last session green, sector ETF above EMA50.
+    Sends a compact Telegram summary so Monday's opportunities are known before open.
+    """
+    now_et   = datetime.now(ET)
+    date_str = now_et.strftime("%A %b %d, %Y")
+    print(f"  Running Sunday readiness scan ({date_str})...")
+
+    ready:   list[str] = []   # all 3 filters pass
+    partial: list[tuple[str, str]] = []  # 2/3 pass — show what's missing
+
+    for ticker in WATCHLIST:
+        try:
+            df = fetch_df(ticker)
+            if df is None or len(df) < 30:
+                continue
+            df = compute_indicators(df.copy())
+            r  = df.iloc[-1]
+            p  = df.iloc[-2]
+
+            macd_ok   = float(r.get("MACD", 0) or 0) > 0
+            bar_green = float(r["Close"]) > float(r["Open"])   # last session green
+            sec_ok    = _sector_etf_above_ema50(ticker)
+
+            passes = sum([macd_ok, bar_green, sec_ok])
+            if passes == 3:
+                ready.append(ticker)
+            elif passes == 2:
+                miss = ("MACD-" if not macd_ok else
+                        "red close" if not bar_green else "sector⚠️")
+                partial.append((ticker, miss))
+        except Exception:
+            continue
+
+    # Build Telegram message
+    if ready:
+        ready_str = "  ".join(f"✅ <b>{t}</b>" for t in ready[:12])
+    else:
+        ready_str = "  None fully primed this week"
+
+    partial_str = ""
+    if partial:
+        partial_lines = [f"⚠️ {t} ({m})" for t, m in partial[:6]]
+        partial_str = "\n<b>PARTIAL (2/3):</b> " + "  ".join(partial_lines)
+
+    # FOMC / macro note for the coming week
+    _td  = now_et.date()
+    _macro_notes = []
+    for offset in range(1, 6):   # Mon–Fri
+        d = _td + timedelta(days=offset)
+        if d in _FOMC_DATES:
+            _macro_notes.append(f"⛔ FOMC {d.strftime('%a %b %d')} — blackout ±1 day")
+        if d in _CPI_DATES:
+            _macro_notes.append(f"📊 CPI {d.strftime('%a %b %d')}")
+        if d in _PPI_DATES:
+            _macro_notes.append(f"📊 PPI {d.strftime('%a %b %d')}")
+        if d.weekday() == 4 and d == _get_third_friday(d.year, d.month):
+            _macro_notes.append(f"⚡ OPEX {d.strftime('%a %b %d')} — gamma event")
+    macro_note = ("\n" + "\n".join(_macro_notes)) if _macro_notes else ""
+
+    msg = (
+        f"📋 <b>DMan Sunday Readiness — Week of {(_td + timedelta(days=1)).strftime('%b %d')}</b>\n\n"
+        f"<b>READY FOR MONDAY GAPS ({len(ready)} tickers — MACD+ ✓ green ✓ sector ✓):</b>\n"
+        f"{ready_str}"
+        f"{partial_str}"
+        f"{macro_note}\n\n"
+        f"<i>These pass all pre-gap filters. Watch for ≥1.5% gaps at open Monday.</i>"
+    )
+    sent = send_telegram(msg)
+    print(f"  {'✅ Sent' if sent else '⚠️  Telegram not configured'} — "
+          f"{len(ready)} ready, {len(partial)} partial")
+
+
 def run_premarket_briefing() -> None:
     """
     Daily 9:10 AM ET pre-market briefing.
@@ -784,6 +859,33 @@ def run_premarket_briefing() -> None:
     """
     now_et = datetime.now(ET)
     date_str = now_et.strftime("%A %b %d, %Y")
+
+    # ── 0. Scanner health watchdog ────────────────────────────────────
+    scanner_health_line = ""
+    try:
+        if os.path.exists(SCAN_LOG_FILE):
+            with open(SCAN_LOG_FILE) as _swf:
+                _sw_log = json.load(_swf)
+            if _sw_log:
+                _sw_ts  = _sw_log[-1].get("ts", "")
+                _sw_dt  = datetime.fromisoformat(_sw_ts).astimezone(ET)
+                _sw_hrs = (now_et - _sw_dt).total_seconds() / 3600
+                if _sw_hrs < 2:
+                    scanner_health_line = f"✅ Scanner healthy — last run {int(_sw_hrs * 60)}min ago"
+                elif _sw_hrs < 27:   # within a trading day + overnight gap
+                    scanner_health_line = f"✅ Scanner ran {int(_sw_hrs)}h ago"
+                else:
+                    _sw_days = int(_sw_hrs / 24)
+                    scanner_health_line = (
+                        f"⚠️ <b>SCANNER DOWN</b> — last run {_sw_days}d ago "
+                        f"({_sw_dt.strftime('%b %d')}). Check GitHub Actions → Actions tab."
+                    )
+            else:
+                scanner_health_line = "⚠️ Scan log empty — scanner may not have run yet"
+        else:
+            scanner_health_line = "⚠️ No scan log found — scanner may not be running"
+    except Exception:
+        pass
 
     # ── 1. Market regime + macro context ─────────────────────────────
     print("  [1/6] Checking market regime + macro context...")
@@ -1150,8 +1252,9 @@ def run_premarket_briefing() -> None:
     # ── Format & send ─────────────────────────────────────────────────
     msg = (
         f"🌅 <b>DMan PRO Pre-Market Briefing</b>\n"
-        f"{date_str} — 9:10 AM ET\n\n"
-        f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}"
+        f"{date_str} — 9:10 AM ET\n"
+        + (f"{scanner_health_line}\n\n" if scanner_health_line else "\n")
+        + f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}"
         f"{warnings_section}"
         f"{macro_env_section}\n\n"
         f"📅 <b>MACRO CALENDAR</b>\n{macro_line}\n\n"
@@ -4596,11 +4699,33 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 if not _nm_sec_ok:
                     _nm_blocker = "sector⚠️"
                 elif _nm_macd <= 0:
-                    _nm_blocker = "MACD-"
+                    _nm_blocker = f"MACD {_nm_macd:+.1f}"
                 elif not _nm_prn_grn:
                     _nm_blocker = "prior red"
                 else:
-                    _nm_blocker = "score short"
+                    # Primary filters all pass — run full pipeline to get exact blocker
+                    try:
+                        _nm_raw_sig = _raw_signals(_nm_df, _nm_t)
+                        if _nm_raw_sig is None:
+                            # Identify the specific _raw_signals sub-check that failed
+                            _nm_rvol = float(_nm_r.get("RVOL", 0) or 0)
+                            _nm_rsi  = float(_nm_r.get("RSI", 0) or 0)
+                            _nm_c    = float(_nm_r["Close"])
+                            _nm_o    = float(_nm_r["Open"])
+                            if _nm_rvol < 1.5:
+                                _nm_blocker = f"RVOL {_nm_rvol:.1f}x"
+                            elif _nm_rsi <= 50:
+                                _nm_blocker = f"RSI {_nm_rsi:.0f}"
+                            elif _nm_c < _nm_o * 0.995:
+                                _nm_blocker = f"not holding ({(_nm_c/_nm_o-1)*100:.1f}%)"
+                            else:
+                                _nm_blocker = "no setup pattern"
+                        else:
+                            _nm_scored = score_signal(_nm_raw_sig, _nm_df, regime, tracker)
+                            _nm_sc     = _nm_scored.confluence_score
+                            _nm_blocker = f"score {_nm_sc}/{min_score}"
+                    except Exception:
+                        _nm_blocker = "score short"
                 _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
             except Exception:
                 continue
@@ -5701,7 +5826,7 @@ def main():
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
                  "watch","rank","open","positions","alpaca","sync",
-                 "live-outcomes","live-perf","premarket","watchlist","scan-log"],
+                 "live-outcomes","live-perf","premarket","watchlist","scan-log","readiness"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -5957,6 +6082,9 @@ def main():
 
     elif args.mode == "scan-log":
         print_scan_log()
+
+    elif args.mode == "readiness":
+        run_readiness_scan()
 
     elif args.mode == "scan":
         # Sync Alpaca fills first so PositionTracker is current before we submit

@@ -2,6 +2,9 @@ name: DMan PRO Scanner
 
 on:
   schedule:
+    # Sunday 5 PM ET — weekly readiness check, shows which watchlist tickers
+    # pass all pre-gap filters heading into Monday
+    - cron: '0 21 * * 0'
     # 9:45 AM ET — dedicated Gap & Hold scan, fires exactly when the early-session
     # gate opens. 13:30 UTC (9:30 AM) is peak GitHub runner contention (all trading
     # bots hit at once); 13:45 UTC is 15 min quieter and the Gate is already open.
@@ -57,6 +60,15 @@ jobs:
           ET = zoneinfo.ZoneInfo("America/New_York")
           now = datetime.now(ET)
           t = now.hour * 100 + now.minute
+
+          # Sunday 5 PM ET — weekly readiness check for Monday gaps
+          if now.weekday() == 6:
+              result = subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "readiness"],
+                  capture_output=False
+              )
+              sys.exit(result.returncode)
+
           if now.weekday() >= 5 or not (930 <= t <= 1600):
               print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")
               sys.exit(0)

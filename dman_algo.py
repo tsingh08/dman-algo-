@@ -6139,11 +6139,64 @@ def main():
                 f"Regime: {_hb_r} ({_hb_rs}/15)"
             )
         else:
-            send_telegram(
-                f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
-                f"Regime: {_hb_r} ({_hb_rs}/15) | {_hb_counts}"
-                f"{_hb_nm_str}"
-            )
+            _fomc_bkout = any(abs((ev - date.today()).days) <= MACRO_BLACKOUT
+                              for ev in _FOMC_DATES)
+            _hb_hhmm = datetime.now(ET).hour * 100 + datetime.now(ET).minute
+            if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
+                # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
+                # after the 2 PM ET announcement when initial reaction has settled
+                _lift_day2 = "soon"
+                for _doff2 in range(1, 6):
+                    _ck2 = date.today() + timedelta(days=_doff2)
+                    if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
+                        _lift_day2 = _ck2.strftime("%a %b %d")
+                        break
+                _rs_summary = ""
+                try:
+                    _spy_df2 = fetch_df("SPY")
+                    if _spy_df2 is not None and len(_spy_df2) >= 1:
+                        _spy_row2 = _spy_df2.iloc[-1]
+                        _spy_day_chg = (float(_spy_row2["Close"]) - float(_spy_row2["Open"])) / float(_spy_row2["Open"]) * 100
+                    else:
+                        _spy_day_chg = 0.0
+                    _rs_all2: list[tuple[str, float, float]] = []
+                    for _rs_t2 in WATCHLIST[:35]:
+                        try:
+                            _rs_df2 = fetch_df(_rs_t2)
+                            if _rs_df2 is None or len(_rs_df2) < 1:
+                                continue
+                            _rs_row3 = _rs_df2.iloc[-1]
+                            _rs_chg2 = (float(_rs_row3["Close"]) - float(_rs_row3["Open"])) / float(_rs_row3["Open"]) * 100
+                            _rs_all2.append((_rs_t2, _rs_chg2, _rs_chg2 - _spy_day_chg))
+                        except Exception:
+                            continue
+                    _rs_all2.sort(key=lambda x: x[2], reverse=True)
+                    _ldr = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[:3]) or "—"
+                    _lag = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[-3:][::-1]) if len(_rs_all2) >= 3 else "—"
+                    _rs_summary = (
+                        f"\nSPY: {_spy_day_chg:+.1f}% today"
+                        f"\nRS leaders → watch {_lift_day2}: {_ldr}"
+                        f"\nRS laggards: {_lag}"
+                    )
+                except Exception:
+                    pass
+                send_telegram(
+                    f"📊 <b>DMan</b> {t_str} — FOMC reaction wrap 🔒\n"
+                    f"Blackout lifts: <b>{_lift_day2}</b>"
+                    f"{_rs_summary}"
+                )
+            elif _fomc_bkout:
+                send_telegram(
+                    f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
+                    f"Regime: {_hb_r} ({_hb_rs}/15) | {_hb_counts}"
+                    f"{_hb_nm_str}"
+                )
+            else:
+                send_telegram(
+                    f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
+                    f"Regime: {_hb_r} ({_hb_rs}/15) | {_hb_counts}"
+                    f"{_hb_nm_str}"
+                )
 
 
 if __name__ == "__main__":

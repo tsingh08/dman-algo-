@@ -55,10 +55,11 @@ jobs:
           PYTHONIOENCODING:    utf-8
         run: |
           python - <<'EOF'
-          from datetime import datetime
+          from datetime import datetime, date
           import zoneinfo, sys, subprocess
           ET = zoneinfo.ZoneInfo("America/New_York")
           now = datetime.now(ET)
+          today = now.date()
           t = now.hour * 100 + now.minute
 
           # Sunday 5 PM ET — weekly readiness check for Monday gaps
@@ -68,6 +69,25 @@ jobs:
                   capture_output=False
               )
               sys.exit(result.returncode)
+
+          # NYSE market holidays — market closed, nothing to scan
+          MARKET_HOLIDAYS = {
+              date(2025,  1,  1), date(2025,  1, 20), date(2025,  2, 17),
+              date(2025,  4, 18), date(2025,  5, 26), date(2025,  6, 19),
+              date(2025,  7,  4), date(2025,  9,  1), date(2025, 11, 27),
+              date(2025, 12, 25),
+              date(2026,  1,  1), date(2026,  1, 19), date(2026,  2, 16),
+              date(2026,  4,  3), date(2026,  5, 25), date(2026,  6, 19),
+              date(2026,  7,  3), date(2026,  9,  7), date(2026, 11, 26),
+              date(2026, 12, 25),
+              date(2027,  1,  1), date(2027,  1, 18), date(2027,  2, 15),
+              date(2027,  3, 26), date(2027,  5, 31), date(2027,  6, 18),
+              date(2027,  7,  5), date(2027,  9,  6), date(2027, 11, 25),
+              date(2027, 12, 24),
+          }
+          if today in MARKET_HOLIDAYS:
+              print(f"NYSE holiday ({now.strftime('%a %b %d')}) — market closed, skipping scan.")
+              sys.exit(0)
 
           if now.weekday() >= 5 or not (930 <= t <= 1600):
               print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")

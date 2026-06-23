@@ -2194,6 +2194,44 @@ _FOMC_DATES: set[date] = {
 }
 _FOMC_LAST_CONFIRMED_YEAR = 2026  # raise this after verifying new dates
 
+# NYSE market holidays — algo skips scans and omits these days when computing
+# "blackout lifts" dates. Update each December from nyse.com/markets/hours-calendars.
+_MARKET_HOLIDAYS: set[date] = {
+    # 2025
+    date(2025,  1,  1),  # New Year's Day
+    date(2025,  1, 20),  # MLK Day
+    date(2025,  2, 17),  # Presidents Day
+    date(2025,  4, 18),  # Good Friday
+    date(2025,  5, 26),  # Memorial Day
+    date(2025,  6, 19),  # Juneteenth
+    date(2025,  7,  4),  # Independence Day
+    date(2025,  9,  1),  # Labor Day
+    date(2025, 11, 27),  # Thanksgiving
+    date(2025, 12, 25),  # Christmas
+    # 2026
+    date(2026,  1,  1),  # New Year's Day
+    date(2026,  1, 19),  # MLK Day
+    date(2026,  2, 16),  # Presidents Day
+    date(2026,  4,  3),  # Good Friday
+    date(2026,  5, 25),  # Memorial Day
+    date(2026,  6, 19),  # Juneteenth  ← caught by this week's scan
+    date(2026,  7,  3),  # Independence Day observed (Jul 4 = Sat)
+    date(2026,  9,  7),  # Labor Day
+    date(2026, 11, 26),  # Thanksgiving
+    date(2026, 12, 25),  # Christmas
+    # 2027 — verify Good Friday from nyse.com each December
+    date(2027,  1,  1),  # New Year's Day
+    date(2027,  1, 18),  # MLK Day
+    date(2027,  2, 15),  # Presidents Day
+    date(2027,  3, 26),  # Good Friday (Easter Mar 28)
+    date(2027,  5, 31),  # Memorial Day
+    date(2027,  6, 18),  # Juneteenth observed (Jun 19 = Sat)
+    date(2027,  7,  5),  # Independence Day observed (Jul 4 = Sun)
+    date(2027,  9,  6),  # Labor Day
+    date(2027, 11, 25),  # Thanksgiving
+    date(2027, 12, 24),  # Christmas observed (Dec 25 = Sat)
+}
+
 # CPI release dates (8:30 AM ET) — the single biggest monthly market mover after NFP.
 # Drops pre-open so the gap reaction IS the signal, but intraday whipsaws make stops
 # unreliable. Blackout day-of and ±1 day. Update each December from bls.gov/schedule.
@@ -6146,8 +6184,10 @@ def main():
                 # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
                 # after the 2 PM ET announcement when initial reaction has settled
                 _lift_day2 = "soon"
-                for _doff2 in range(1, 6):
+                for _doff2 in range(1, 8):
                     _ck2 = date.today() + timedelta(days=_doff2)
+                    if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
+                        continue
                     if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
                         _lift_day2 = _ck2.strftime("%a %b %d")
                         break

@@ -6232,10 +6232,65 @@ def main():
                     f"{_hb_nm_str}"
                 )
             else:
+                # Down-day context — warn when market is selling off so user
+                # knows silence is intentional, not a scanner issue
+                _spy_ctx = ""
+                try:
+                    _spy_hb = fetch_df("SPY")
+                    if _spy_hb is not None and len(_spy_hb) >= 2:
+                        _spy_c2  = float(_spy_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-1]["Close"], "iloc") else float(_spy_hb.iloc[-1]["Close"])
+                        _spy_pc2 = float(_spy_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-2]["Close"], "iloc") else float(_spy_hb.iloc[-2]["Close"])
+                        _spy_net2 = (_spy_c2 - _spy_pc2) / _spy_pc2 * 100
+                        if _spy_net2 <= -1.0:
+                            _xlk_net2 = 0.0
+                            try:
+                                _xlk_hb = fetch_df("XLK")
+                                if _xlk_hb is not None and len(_xlk_hb) >= 2:
+                                    _xlk_c2  = float(_xlk_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-1]["Close"], "iloc") else float(_xlk_hb.iloc[-1]["Close"])
+                                    _xlk_pc2 = float(_xlk_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-2]["Close"], "iloc") else float(_xlk_hb.iloc[-2]["Close"])
+                                    _xlk_net2 = (_xlk_c2 - _xlk_pc2) / _xlk_pc2 * 100
+                            except Exception:
+                                pass
+                            _spy_ctx = f"\n📉 SPY {_spy_net2:+.1f}%"
+                            if _xlk_net2 <= -1.5:
+                                _spy_ctx += f" | XLK {_xlk_net2:+.1f}% — sector selloff, standing down on longs"
+                            else:
+                                _spy_ctx += " — market weak, no long setups"
+                except Exception:
+                    pass
+
+                # End-of-day recovery watch — 4 PM close scan only
+                # Flags watchlist names down >5% today as potential bounce candidates tomorrow
+                _eod_watch = ""
+                if 1550 <= _hb_hhmm <= 1615:
+                    try:
+                        _eod_losers: list[tuple[str, float]] = []
+                        for _eod_t in WATCHLIST[:35]:
+                            try:
+                                _eod_df = fetch_df(_eod_t)
+                                if _eod_df is None or len(_eod_df) < 2:
+                                    continue
+                                _eod_c  = float(_eod_df.iloc[-1]["Close"].iloc[0]) if hasattr(_eod_df.iloc[-1]["Close"], "iloc") else float(_eod_df.iloc[-1]["Close"])
+                                _eod_pc = float(_eod_df.iloc[-2]["Close"].iloc[0]) if hasattr(_eod_df.iloc[-2]["Close"], "iloc") else float(_eod_df.iloc[-2]["Close"])
+                                _eod_net = (_eod_c - _eod_pc) / _eod_pc * 100
+                                if _eod_net <= -5.0:
+                                    _eod_losers.append((_eod_t, _eod_net))
+                            except Exception:
+                                continue
+                        _eod_losers.sort(key=lambda x: x[1])
+                        if _eod_losers:
+                            _eod_watch = "\n👀 Recovery watch tomorrow: " + " | ".join(
+                                f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
+                            )
+                    except Exception:
+                        pass
+
                 send_telegram(
                     f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
                     f"Regime: {_hb_r} ({_hb_rs}/15) | {_hb_counts}"
                     f"{_hb_nm_str}"
+                    f"{_spy_ctx}"
+                    f"{_eod_watch}"
                 )
 
 

@@ -1002,6 +1002,35 @@ def run_premarket_briefing() -> None:
                     events_lines.append(f"⚡ OPEX tomorrow — consider SPY/QQQ strangle before close")
                 else:
                     events_lines.append(f"⚡ OPEX {day_lbl} — monthly options expiration approaching")
+        # Quarter-end proximity: within 3 calendar days of Mar 31, Jun 30, Sep 30, Dec 31.
+        # Hardcoded day thresholds (no calendar import needed): Mar/Dec=31-day months,
+        # Jun/Sep=30-day months.
+        _qe_thresholds = {3: 29, 6: 28, 9: 28, 12: 29}
+        _qe_reported = False
+        for _qoff in range(8):
+            _qd = today_d + timedelta(days=_qoff)
+            if _qe_reported:
+                break
+            if _qd.month not in _qe_thresholds or _qd.day < _qe_thresholds[_qd.month]:
+                continue
+            if _qd.weekday() >= 5 or _qd in _MARKET_HOLIDAYS:
+                continue
+            _qnum = _qd.month // 3
+            if _qoff == 0:
+                events_lines.append(
+                    f"📅 Q{_qnum} quarter-end today — window dressing &amp; rebalancing flows; expect elevated vol"
+                )
+            elif _qoff == 1:
+                events_lines.append(
+                    f"📅 Q{_qnum} quarter-end tomorrow ({_qd.strftime('%a %b %d')})"
+                    f" — position for window dressing / rebalancing"
+                )
+            else:
+                events_lines.append(
+                    f"📅 Q{_qnum} quarter-end in {_qoff}d ({_qd.strftime('%a %b %d')})"
+                    f" — watch for rebalancing flows"
+                )
+            _qe_reported = True
         macro_line = ("\n".join(events_lines) if events_lines
                       else "✅ No macro events in next 7 days — clean tape")
     except Exception:
@@ -1200,6 +1229,22 @@ def run_premarket_briefing() -> None:
                         else:
                             tech_label = " ❌ <b>NOT READY</b> (MACD- ✗ prior RED ✗)"
                             entry_note = f"→ Likely to fade — do not chase  |  Stop ~${est_stop}"
+                        # Fade-risk override: large pre-mkt gap after a heavy prior session.
+                        # Stocks down >4% the prior day often bounce pre-market and then
+                        # reverse hard at the 9:30 regular-session open (ghost-gap pattern).
+                        if len(_gdf) >= 3 and gap_pct >= 3.0:
+                            _prior_net = (
+                                (float(_gdf["Close"].iloc[-2]) - float(_gdf["Close"].iloc[-3]))
+                                / float(_gdf["Close"].iloc[-3]) * 100
+                            )
+                            if _prior_net <= -4.0:
+                                tech_label += " 🔴 <b>FADE RISK</b>"
+                                entry_note = (
+                                    f"→ ⚠️ Prior session {_prior_net:.1f}% — pre-mkt bounce"
+                                    f" may reverse at 9:30 open"
+                                    f"  |  Wait for 9:45 confirm before acting"
+                                    f"  |  Stop ~${est_stop}"
+                                )
                 except Exception:
                     pass
 

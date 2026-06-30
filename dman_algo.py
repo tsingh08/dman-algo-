@@ -4779,12 +4779,20 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 _nm_macd     = float(_nm_r.get("MACD", 0) or 0)
                 _nm_prn_grn  = float(_nm_p["Close"]) > float(_nm_p["Open"])
                 _nm_sec_ok   = _sector_etf_above_ema50(_nm_t)
+                # Hold% vs open: appended to MACD/prior-red blockers so the user
+                # can see whether the price was above or below the gap open at scan time.
+                try:
+                    _nm_c_now = float(_nm_r["Close"].iloc[0]) if hasattr(_nm_r["Close"], "iloc") else float(_nm_r["Close"])
+                    _nm_o_day = float(_nm_r["Open"].iloc[0])  if hasattr(_nm_r["Open"],  "iloc") else float(_nm_r["Open"])
+                    _nm_hold_tag = f" ({(_nm_c_now - _nm_o_day) / _nm_o_day * 100:+.1f}%)"
+                except Exception:
+                    _nm_hold_tag = ""
                 if not _nm_sec_ok:
                     _nm_blocker = "sector⚠️"
                 elif _nm_macd <= 0:
-                    _nm_blocker = f"MACD {_nm_macd:+.1f}"
+                    _nm_blocker = f"MACD {_nm_macd:+.1f}{_nm_hold_tag}"
                 elif not _nm_prn_grn:
-                    _nm_blocker = "prior red"
+                    _nm_blocker = f"prior red{_nm_hold_tag}"
                 else:
                     # Primary filters all pass — run full pipeline to get exact blocker
                     try:
@@ -6304,28 +6312,42 @@ def main():
                 except Exception:
                     pass
 
-                # End-of-day recovery watch — 4 PM close scan only
-                # Flags watchlist names down >5% today as potential bounce candidates tomorrow
+                # End-of-day scan — 4 PM close only
+                # • Recovery watch: names down >5% today → potential bounce candidates tomorrow
+                # • Intraday momentum: names up >5% intraday AND held into close → watch for
+                #   follow-through gap next morning (captures TSLA-style no-gap run days)
                 _eod_watch = ""
                 if 1550 <= _hb_hhmm <= 1615:
                     try:
-                        _eod_losers: list[tuple[str, float]] = []
+                        _eod_losers:  list[tuple[str, float]] = []
+                        _eod_runners: list[tuple[str, float]] = []
                         for _eod_t in WATCHLIST[:35]:
                             try:
                                 _eod_df = fetch_df(_eod_t)
                                 if _eod_df is None or len(_eod_df) < 2:
                                     continue
-                                _eod_c  = float(_eod_df.iloc[-1]["Close"].iloc[0]) if hasattr(_eod_df.iloc[-1]["Close"], "iloc") else float(_eod_df.iloc[-1]["Close"])
-                                _eod_pc = float(_eod_df.iloc[-2]["Close"].iloc[0]) if hasattr(_eod_df.iloc[-2]["Close"], "iloc") else float(_eod_df.iloc[-2]["Close"])
-                                _eod_net = (_eod_c - _eod_pc) / _eod_pc * 100
+                                _eod_row = _eod_df.iloc[-1]
+                                _eod_prv = _eod_df.iloc[-2]
+                                _eod_c   = float(_eod_row["Close"].iloc[0]) if hasattr(_eod_row["Close"], "iloc") else float(_eod_row["Close"])
+                                _eod_o   = float(_eod_row["Open"].iloc[0])  if hasattr(_eod_row["Open"],  "iloc") else float(_eod_row["Open"])
+                                _eod_pc  = float(_eod_prv["Close"].iloc[0]) if hasattr(_eod_prv["Close"], "iloc") else float(_eod_prv["Close"])
+                                _eod_net   = (_eod_c - _eod_pc) / _eod_pc * 100
+                                _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
                                 if _eod_net <= -5.0:
                                     _eod_losers.append((_eod_t, _eod_net))
+                                if _eod_intra >= 5.0 and _eod_net >= 3.0:
+                                    _eod_runners.append((_eod_t, _eod_intra))
                             except Exception:
                                 continue
                         _eod_losers.sort(key=lambda x: x[1])
+                        _eod_runners.sort(key=lambda x: x[1], reverse=True)
                         if _eod_losers:
-                            _eod_watch = "\n👀 Recovery watch tomorrow: " + " | ".join(
+                            _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
                                 f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
+                            )
+                        if _eod_runners:
+                            _eod_watch += "\n🔥 Intraday momentum — watch for gap tomorrow: " + " | ".join(
+                                f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_runners[:3]
                             )
                     except Exception:
                         pass

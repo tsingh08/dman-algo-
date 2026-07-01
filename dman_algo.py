@@ -1191,7 +1191,8 @@ def run_premarket_briefing() -> None:
 
     # ── 6. Pre-market gap scanner ─────────────────────────────────────
     print("  [6/7] Scanning pre-market gaps...")
-    gap_lines = []
+    gap_lines      = []
+    near_gap_lines: list[tuple[float, str]] = []  # 1.0–1.5% READY — near-threshold watch
     try:
         for ticker in WATCHLIST:
             try:
@@ -1201,7 +1202,7 @@ def run_premarket_briefing() -> None:
                 if pre_px <= 0 or prev_close <= 0:
                     continue
                 gap_pct = (pre_px - prev_close) / prev_close * 100
-                if gap_pct < 1.5:
+                if gap_pct < 1.0:   # capture near-threshold (1.0-1.5%) too
                     continue
                 est_stop = round(pre_px * 0.985, 2)
                 vol_tag  = " ⚡" if ticker in VOLATILE_TICKERS else ""
@@ -1211,6 +1212,8 @@ def run_premarket_briefing() -> None:
                 # gaps are real candidates vs. likely to fade at the open.
                 tech_label = ""
                 entry_note = f"→ Watch entry near open  |  Est. stop ~${est_stop}"
+                _macd_ok   = False  # initialise so near-threshold routing can see them
+                _prior_grn = False
                 try:
                     _gdf = fetch_df(ticker, period_days=50)
                     if _gdf is not None and len(_gdf) >= 30:
@@ -1248,14 +1251,21 @@ def run_premarket_briefing() -> None:
                 except Exception:
                     pass
 
-                gap_lines.append(
-                    (gap_pct, f"🔥 <b>{ticker}</b>{vol_tag}  +{gap_pct:.1f}%  "
-                     f"pre-mkt ${pre_px:.2f}{tech_label}\n"
-                     f"   {entry_note}")
-                )
+                if gap_pct >= 1.5:
+                    gap_lines.append(
+                        (gap_pct, f"🔥 <b>{ticker}</b>{vol_tag}  +{gap_pct:.1f}%  "
+                         f"pre-mkt ${pre_px:.2f}{tech_label}\n"
+                         f"   {entry_note}")
+                    )
+                elif _macd_ok and _prior_grn:
+                    # READY but below 1.5% gate — show as near-threshold watch only
+                    near_gap_lines.append(
+                        (gap_pct, f"<b>{ticker}</b>{vol_tag} +{gap_pct:.1f}% ${pre_px:.2f}")
+                    )
             except Exception:
                 continue
         gap_lines.sort(key=lambda x: x[0], reverse=True)
+        near_gap_lines.sort(key=lambda x: x[0], reverse=True)
     except Exception:
         pass
 
@@ -1265,6 +1275,12 @@ def run_premarket_briefing() -> None:
                        + "\n<i>✅ = passes MACD + prior-green filters. Confirm hold at 9:45 AM.</i>")
     else:
         gap_section = "\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now."
+    if near_gap_lines:
+        gap_section += (
+            "\n\n👀 <b>Near-threshold READY</b> (1.0–1.5% gap, MACD+ &amp; prior green): "
+            + " | ".join(line for _, line in near_gap_lines[:4])
+            + "\n<i>Below 1.5% scanner gate — watch if gap expands to the open.</i>"
+        )
 
     # ── 6.5. Upcoming earnings on watchlist ───────────────────────────
     print("  [6.5/7] Scanning earnings calendar...")  # noqa: label kept for operator readability

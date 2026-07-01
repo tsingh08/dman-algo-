@@ -483,6 +483,9 @@ def send_telegram(message: str) -> bool:
     """Send a message via Telegram Bot API. Returns True on success."""
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         return False
+    # Telegram hard limit is 4096 chars per message. Truncate rather than drop silently.
+    if len(message) > 4000:
+        message = message[:3970] + "\n… <i>[truncated]</i>"
     for attempt in range(2):
         try:
             resp = requests.post(
@@ -3056,6 +3059,7 @@ class OpenPosition:
     shares:     int
     entry_date: str
     atr:        float = 0.0
+    score:      int   = 0
 
 
 class PositionTracker:
@@ -4477,28 +4481,38 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     if resolved:
         print(f"  📊 {resolved} live trade(s) resolved — run --mode live-perf to see stats")
 
-    # Consecutive loss guard
+    # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
     if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
         print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
         print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
+        if not _is_duplicate_alert("__CONSEC_LOSS__"):
+            send_telegram(
+                f"🛑 <b>DMan halted</b> — {stats['consec_losses']} consecutive losses.\n"
+                f"Scanner paused for the day. Review your last trades."
+            )
+            _save_last_alert("__CONSEC_LOSS__")
         return []
 
-    # Monthly loss circuit breaker
+    # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
     month_loss = get_this_month_loss()
     if month_loss <= -(MONTHLY_LOSS_LIMIT * 100):
         print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
               f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
         print(f"     Stop trading for the month. Review setups. Reset.\n")
-        send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
+        if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
+            send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
+            _save_last_alert("__MONTHLY_LIMIT__")
         return []
 
-    # Daily loss circuit breaker
+    # Daily loss circuit breaker — dedup
     todays_loss = get_todays_loss()
     if todays_loss <= -(DAILY_LOSS_LIMIT * 100):
         print(f"\n  🛑 DAILY LOSS LIMIT HIT: Down {todays_loss:.1f}% today "
               f"(limit: {DAILY_LOSS_LIMIT*100:.0f}%).")
         print(f"     Stop trading. Protect your capital. Come back tomorrow.\n")
-        send_telegram(f"🛑 <b>Daily loss limit hit</b> — down {todays_loss:.1f}% today. Halted.")
+        if not _is_duplicate_alert("__DAILY_LIMIT__"):
+            send_telegram(f"🛑 <b>Daily loss limit hit</b> — down {todays_loss:.1f}% today. Halted.")
+            _save_last_alert("__DAILY_LIMIT__")
         return []
 
     print(f"\n{'═'*68}")
@@ -4528,10 +4542,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         min_score = max(min_score, min_score + 5)
         shock_note = regime["details"].get("VIX Shock", "")
         print(f"  ⚡ VIX SHOCK detected ({shock_note}) — min score raised to {min_score}/100")
-        send_telegram(
-            f"⚡ <b>VIX Shock active</b> — {shock_note}\n"
-            f"Min score raised to {min_score}/100 for this session. Filters tighter."
-        )
+        if not _is_duplicate_alert("__VIX_SHOCK__"):
+            send_telegram(
+                f"⚡ <b>VIX Shock active</b> — {shock_note}\n"
+                f"Min score raised to {min_score}/100 for this session. Filters tighter."
+            )
+            _save_last_alert("__VIX_SHOCK__")
 
     # Defensive rotation flag — when XLP/XLU/XLV dominate XLK, warn about tech longs
     def_rotation = regime.get("defensive_rotation", False)
@@ -5742,7 +5758,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 exit    = round(fill_px, 2),
                 outcome = outcome,
                 pnl_pct = round(pnl_pct, 2),
-                score   = 0,
+                score   = getattr(pos, "score", 0),
             ))
             record_daily_pnl(acct_pct)
             pt.close(ticker)
@@ -5882,6 +5898,11 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         if not valid:
             print(f"  ⚡ {sig.ticker:<8} entry stale  "
                   f"signal=${sig.entry}  now=${cur}  drift={drift_pct:+.1f}%  — skipped")
+            send_telegram(
+                f"⚡ <b>Signal skipped — stale entry</b>: {sig.ticker} {sig.bias}\n"
+                f"Detected ${sig.entry} → now ${cur:.2f} ({drift_pct:+.1f}% drift)\n"
+                f"Entry re-validation failed — no order placed."
+            )
             continue
 
         # Re-anchor bracket to live price — preserves original R multiple but
@@ -5914,8 +5935,19 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 shares     = sig.shares,
                 entry_date = datetime.today().strftime("%Y-%m-%d"),
                 atr        = sig.atr,
+                score      = sig.confluence_score,
             ))
             submitted += 1
+            send_telegram(
+                f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
+                f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+            )
+        else:
+            send_telegram(
+                f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                f"Alpaca rejected the order — check GitHub Actions logs immediately."
+            )
 
     print(f"  📤 {submitted}/{len(signals)} signal(s) submitted [{mode_label}]\n")
 

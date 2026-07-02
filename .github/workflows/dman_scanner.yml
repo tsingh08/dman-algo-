@@ -5,6 +5,10 @@ on:
     # Sunday 5 PM ET — weekly readiness check, shows which watchlist tickers
     # pass all pre-gap filters heading into Monday
     - cron: '0 21 * * 0'
+    # 9:00 AM ET — pre-market briefing: regime, macro calendar, live gaps, fade-risk,
+    # sector health, scanner watchdog. Runs before market open so fast_info returns
+    # actual pre-market prices, not intraday prices.
+    - cron: '0 13 * * 1-5'
     # 9:45 AM ET — dedicated Gap & Hold scan, fires exactly when the early-session
     # gate opens. 13:30 UTC (9:30 AM) is peak GitHub runner contention (all trading
     # bots hit at once); 13:45 UTC is 15 min quieter and the Gate is already open.
@@ -88,6 +92,15 @@ jobs:
           if today in MARKET_HOLIDAYS:
               print(f"NYSE holiday ({now.strftime('%a %b %d')}) — market closed, skipping scan.")
               sys.exit(0)
+
+          # 9:00 AM ET — pre-market briefing (before regular session opens).
+          # Must be checked before the 930-1600 market-hours guard below.
+          if now.weekday() < 5 and 855 <= t <= 929:
+              result = subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "premarket"],
+                  capture_output=False
+              )
+              sys.exit(result.returncode)
 
           if now.weekday() >= 5 or not (930 <= t <= 1600):
               print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")

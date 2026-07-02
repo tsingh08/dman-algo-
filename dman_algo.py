@@ -912,6 +912,7 @@ def run_premarket_briefing() -> None:
         qqq_above_ema50 = det.get("QQQ vs EMA50", False)
         spy_ema20_dist  = det.get("SPY EMA20 dist", 0.0)
         spy_ema50_dist  = det.get("SPY EMA50 dist", 0.0)
+        qqq_ema20_dist  = det.get("QQQ EMA20 dist", None)
         spy_ok   = "✅" if spy_above_ema20 else "⚠️"
         qqq_ok   = "✅" if qqq_above_ema20 else "⚠️"
 
@@ -935,6 +936,11 @@ def run_premarket_briefing() -> None:
             regime_warnings.append(f"⚡ <b>VIX SHOCK</b>: {vix_shock_str} — min score +5 today")
         if def_rot_str and def_rot_str != "none":
             regime_warnings.append(f"🔄 <b>DEFENSIVE ROTATION</b>: {def_rot_str} — tech longs -5pts")
+        if qqq_ema20_dist is not None and abs(qqq_ema20_dist) < 0.5:
+            regime_warnings.append(
+                f"⚠️ <b>QQQ at EMA20</b> ({qqq_ema20_dist:+.2f}%) — tech at decision level; "
+                f"gap failure here weakens regime score"
+            )
         warnings_section = ("\n" + "\n".join(regime_warnings)) if regime_warnings else ""
 
         # Extended macro environment (rates, dollar, breadth)
@@ -1837,6 +1843,7 @@ def get_market_regime() -> dict:
         # QQQ (tech leadership) — tech must confirm the move
         qqq_above_ema20 = False
         qqq_above_ema50 = False
+        qqq_ema20_dist  = 0.0
         qqq_note = "N/A"
         try:
             qqq_df = fetch_df("QQQ")
@@ -1845,6 +1852,7 @@ def get_market_regime() -> dict:
                 qr = qqq_ind.iloc[-1]
                 qqq_above_ema20 = float(qr["Close"]) > float(qr["EMA20"])
                 qqq_above_ema50 = float(qr["Close"]) > float(qr["EMA50"])
+                qqq_ema20_dist  = (float(qr["Close"]) - float(qr["EMA20"])) / float(qr["EMA20"]) * 100
                 qqq_chg5 = (float(qqq_df["Close"].iloc[-1]) / float(qqq_df["Close"].iloc[-6]) - 1) * 100
                 if qqq_above_ema20:
                     score += 1   # tech leading = bull confirmation
@@ -1976,6 +1984,7 @@ def get_market_regime() -> dict:
                 "IWM Breadth":       breadth_note,
                 "QQQ vs EMA20":      qqq_above_ema20,
                 "QQQ vs EMA50":      qqq_above_ema50,
+                "QQQ EMA20 dist":    round(qqq_ema20_dist, 2),
                 "QQQ Note":          qqq_note,
                 "TLT Trend":         tlt_trend,
                 "TLT Note":          tlt_note,
@@ -6383,7 +6392,7 @@ def main():
                                 _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
                                 if _eod_net <= -5.0:
                                     _eod_losers.append((_eod_t, _eod_net))
-                                if _eod_intra >= 5.0 and _eod_net >= 3.0:
+                                if _eod_intra >= 4.0 and _eod_net >= 3.0:
                                     _eod_runners.append((_eod_t, _eod_intra))
                             except Exception:
                                 continue

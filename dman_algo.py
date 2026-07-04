@@ -1011,6 +1011,24 @@ def run_premarket_briefing() -> None:
                     events_lines.append(f"⚡ OPEX tomorrow — consider SPY/QQQ strangle before close")
                 else:
                     events_lines.append(f"⚡ OPEX {day_lbl} — monthly options expiration approaching")
+        # NFP printed on a market holiday: the first trading session after that closed
+        # NFP day IS the reaction session — note it so the user watches for gap at open.
+        for _nfp_past in sorted(nfp_set, reverse=True):
+            if _nfp_past >= today_d:
+                continue
+            if (today_d - _nfp_past).days > 5:
+                break
+            if _nfp_past in _MARKET_HOLIDAYS:
+                _nfp_react = _nfp_past + timedelta(days=1)
+                while _nfp_react.weekday() >= 5 or _nfp_react in _MARKET_HOLIDAYS:
+                    _nfp_react += timedelta(days=1)
+                if today_d == _nfp_react:
+                    events_lines.insert(0,
+                        f"📊 NFP printed {_nfp_past.strftime('%a %b %d')} (market closed) — "
+                        f"first reaction session today; watch for gap at open"
+                    )
+            break
+
         # Quarter-end proximity: within 3 calendar days of Mar 31, Jun 30, Sep 30, Dec 31.
         # Hardcoded day thresholds (no calendar import needed): Mar/Dec=31-day months,
         # Jun/Sep=30-day months.
@@ -1238,6 +1256,16 @@ def run_premarket_briefing() -> None:
                         elif _prior_grn:
                             tech_label = " ⚠️ <b>PARTIAL</b> (MACD- ✗ prior green ✓)"
                             entry_note = f"→ MACD filter may block — monitor  |  Stop ~${est_stop}"
+                            # MACD within 0.5% of price = essentially at zero, crossover imminent
+                            _macd_raw = float(_gdf["MACD"].iloc[-1])
+                            _cls_px   = float(_gdf["Close"].iloc[-1])
+                            if _cls_px > 0 and (_macd_raw / _cls_px * 100) > -0.5:
+                                _macd_pct = _macd_raw / _cls_px * 100
+                                tech_label += f" 🔄 <b>MACD near-zero</b> ({_macd_pct:.2f}%)"
+                                entry_note = (
+                                    f"→ MACD {_macd_raw:.1f} ({_macd_pct:.2f}%) — crossover imminent; "
+                                    f"may turn READY by open  |  Stop ~${est_stop}"
+                                )
                         else:
                             tech_label = " ❌ <b>NOT READY</b> (MACD- ✗ prior RED ✗)"
                             entry_note = f"→ Likely to fade — do not chase  |  Stop ~${est_stop}"
@@ -6398,6 +6426,11 @@ def main():
                                 continue
                         _eod_losers.sort(key=lambda x: x[1])
                         _eod_runners.sort(key=lambda x: x[1], reverse=True)
+                        if len(_eod_losers) >= 3:
+                            _eod_watch += (
+                                f"\n⚠️ <b>Sector flush</b> — {len(_eod_losers)} names down 5%+: "
+                                f"watch for gap-down continuation or reversal bounce tomorrow"
+                            )
                         if _eod_losers:
                             _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
                                 f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]

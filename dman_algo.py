@@ -1250,6 +1250,17 @@ def run_premarket_briefing() -> None:
                         if _macd_ok and _prior_grn:
                             tech_label = " ✅ <b>READY</b> (MACD+ ✓ prior green ✓)"
                             entry_note = f"→ <b>Gap &amp; Hold candidate</b> — confirm hold at 9:45 AM  |  Stop ~${est_stop}"
+                            # MACD just crossed positive but still near zero — recently crossed,
+                            # still fragile; one bad session flips it back negative.
+                            _macd_raw = float(_gdf["MACD"].iloc[-1])
+                            _cls_px   = float(_gdf["Close"].iloc[-1])
+                            if _cls_px > 0 and (_macd_raw / _cls_px * 100) < 0.5:
+                                _macd_pct = _macd_raw / _cls_px * 100
+                                tech_label += f" ⚡ <b>MACD near-zero</b> ({_macd_pct:+.2f}%)"
+                                entry_note = (
+                                    f"→ <b>Gap &amp; Hold candidate</b> — MACD just crossed, still fragile; "
+                                    f"9:45 confirm is critical  |  Stop ~${est_stop}"
+                                )
                         elif _macd_ok:
                             tech_label = " ⚠️ <b>PARTIAL</b> (MACD+ ✓ prior RED ✗)"
                             entry_note = f"→ Prior-green filter may block — monitor  |  Stop ~${est_stop}"

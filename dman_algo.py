@@ -5911,6 +5911,33 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             send_telegram(msg)
             print(f"  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to ${ACCOUNT_SIZE:,.0f}")
 
+        # PDT (Pattern Day Trader) check — must run before orders are submitted.
+        # Accounts < $25k equity are limited to 3 day trades per rolling 5-day window.
+        # Alpaca rejects the 4th silently; we'd track a ghost position that doesn't exist.
+        try:
+            _live_acct = get_alpaca_client().get_account()
+            _equity    = float(getattr(_live_acct, "equity", 0) or 0)
+            _dt_count  = int(getattr(_live_acct, "daytrade_count", 0) or 0)
+            _dt_bp     = float(getattr(_live_acct, "daytrading_buying_power", 0) or 0)
+            if _equity < 25_000:
+                _remaining = max(0, 3 - _dt_count)
+                if _remaining == 0:
+                    msg = ("🚫 <b>DMan LIVE — PDT HALT</b>: account equity "
+                           f"${_equity:,.0f} &lt; $25k — day-trade limit reached "
+                           f"({_dt_count}/3 used). No new orders will be placed. "
+                           "Deposit funds to $25k+ or wait for the rolling window to reset.")
+                    send_telegram(msg)
+                    print(f"  🚫 PDT HALT: {_dt_count}/3 day trades used, equity ${_equity:,.0f} — skipping all submissions")
+                    return
+                else:
+                    msg = (f"⚠️ <b>DMan LIVE — PDT warning</b>: equity ${_equity:,.0f} &lt; $25k — "
+                           f"{_remaining} day trade(s) remaining this window. "
+                           "Orders proceeding — monitor count closely.")
+                    send_telegram(msg)
+                    print(f"  ⚠️  PDT: {_remaining} day trade(s) remaining (equity ${_equity:,.0f})")
+        except Exception as _pdt_exc:
+            print(f"  ⚠️  Could not verify PDT status — proceeding: {_pdt_exc}")
+
         # Warn (but do not block) if FOMC is within 7 days
         _today_live = date.today()
         for _ev_live in sorted(_FOMC_DATES):

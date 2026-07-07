@@ -177,7 +177,7 @@ SEASONAL_MIN_SCORE   = 92          # raised bar during weak months
 # ADX trend-strength gate — skip directionless/choppy stocks before any pattern check
 ADX_TREND_MIN = 20                 # <20 = ranging market; patterns fail more often
 
-ALLOW_SHORTS       = True
+ALLOW_SHORTS       = False   # all short setups disabled — prevents accidental live short orders
 MAX_POSITIONS      = 5
 DAILY_LOSS_LIMIT   = 0.03
 MAX_CONSEC_LOSSES  = 3           # halt after this many consecutive losses
@@ -3362,23 +3362,26 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 if sig.rr >= MIN_RR:
                     candidates.append(sig)
 
-        # S2: Volume Breakdown — tightened: RVOL 3.5x, RSI <32, range >1.5x ATR
-        try:
-            _range = float(r["High"]) - float(r["Low"])
-            _atr   = float(r["ATR"]) if not pd.isna(r["ATR"]) else _range
-            _news_candle = _range >= _atr * 1.5
-        except Exception:
-            _news_candle = True
-        if (c < sup2 * 0.988 and float(r["RVOL"]) >= 3.5 and float(r["RSI"]) < 32
-                and _news_candle
-                and float(r["MACD"]) < float(r["MACD_sig"])
-                and float(r["EMA20"]) < float(r["EMA50"])
-                and float(r["EMA50"]) < float(p["EMA50"])
-                and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-            sig = _short("Vol Breakdown", sup2 * 1.015, 2.5, 4.0,
-                         reason=f"Broke ${sup2:.2f} on {float(r['RVOL']):.1f}x vol, range {_range/(_atr or 1):.1f}x ATR")
-            if sig.rr >= MIN_RR:
-                candidates.append(sig)
+        # S2: Volume Breakdown — disabled alongside all other short setups.
+        # Backtest: insufficient sample size in current bull-dominant setup mix.
+        # Also: ALLOW_SHORTS = False prevents live short order submission.
+        if ALLOW_SHORTS and False:   # explicit double-guard until shorts are re-evaluated
+            try:
+                _range = float(r["High"]) - float(r["Low"])
+                _atr   = float(r["ATR"]) if not pd.isna(r["ATR"]) else _range
+                _news_candle = _range >= _atr * 1.5
+            except Exception:
+                _news_candle = True
+            if (c < sup2 * 0.988 and float(r["RVOL"]) >= 3.5 and float(r["RSI"]) < 32
+                    and _news_candle
+                    and float(r["MACD"]) < float(r["MACD_sig"])
+                    and float(r["EMA20"]) < float(r["EMA50"])
+                    and float(r["EMA50"]) < float(p["EMA50"])
+                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                sig = _short("Vol Breakdown", sup2 * 1.015, 2.5, 4.0,
+                             reason=f"Broke ${sup2:.2f} on {float(r['RVOL']):.1f}x vol, range {_range/(_atr or 1):.1f}x ATR")
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
 
         # S3: Overbought Reversal — disabled (backtest: 41% WR, avg -4.77%, consistent loser)
         if ENABLE_OB_REVERSAL:
@@ -4604,12 +4607,19 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         print(f"  🔄 DEFENSIVE ROTATION: {rot_note}")
         print(f"     Tech long signals will carry a -5 score penalty this session.")
 
-    # Seasonal regime filter — Jan/Aug/Sep are chronic losers in backtest (25-38% WR)
-    curr_month = datetime.today().month
-    if curr_month in SEASONAL_WEAK_MONTHS:
-        min_score = max(min_score, SEASONAL_MIN_SCORE)
+    # Seasonal regime filter — weak months per backtest (25-38% WR combined).
+    # Gap & Hold and Morning Runner are EXEMPT: the 38% Jul WR was driven by reversal/
+    # mean-reversion setups that are now all disabled. These two setups have their own
+    # technical gates (gap%, MACD, prior green, RVOL, regime score) that serve the same
+    # purpose as the seasonal bar raise. Raising them to 92 would suppress most signals
+    # while producing no protective benefit specific to those setups.
+    # All other setups (if re-enabled) still get the full seasonal filter.
+    _SEASONAL_EXEMPT  = {"Gap & Hold", "Morning Runner"}
+    curr_month        = datetime.today().month
+    _seasonal_active  = curr_month in SEASONAL_WEAK_MONTHS
+    if _seasonal_active:
         month_name = datetime.today().strftime("%B")
-        print(f"  📅  {month_name} seasonal filter — min score raised to {min_score}/100")
+        print(f"  📅  {month_name} seasonal filter — non-exempt setups raised to {SEASONAL_MIN_SCORE}/100 (Gap & Hold / Morning Runner exempt)")
 
     # Check open position risk — alert if any pending signal is within 2% of its stop
     _check_open_position_risk(regime)
@@ -4687,10 +4697,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 sig.confluence_score = max(0, sig.confluence_score - 5)
                 sys.stdout.write(f"  [-5 def-rotation penalty → {sig.confluence_score}]  ")
 
-        # Soft score gate (per-setup overrides + volatile ticker floor)
+        # Soft score gate (per-setup overrides + volatile ticker floor + seasonal)
         effective_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
         if sig.ticker in VOLATILE_TICKERS:
             effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
+        if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
+            effective_min = max(effective_min, SEASONAL_MIN_SCORE)
         if sig.confluence_score < effective_min:
             rejected_counts["low_score"] += 1
             sys.stdout.write(f"score {sig.confluence_score}/100 < {effective_min}\n")
@@ -5823,6 +5835,21 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             recorded_ids.add(oid)
             new_count += 1
             break   # one exit record per position
+        else:
+            # Inner loop found no valid closing fill. Entry order may have been
+            # cancelled or expired (limit never filled at open) — remove the ghost
+            # so the duplicate guard doesn't permanently block this ticker.
+            _entry_side = OrderSide.BUY if is_lo else OrderSide.SELL
+            for _eo in orders:
+                if (_eo.side == _entry_side and
+                        str(_eo.status).lower() in ("cancelled", "expired", "replaced")):
+                    pt.close(ticker)
+                    print(f"  🗑️  Ghost cleared: {ticker} — entry limit {_eo.status}, never filled")
+                    send_telegram(
+                        f"🗑️ <b>Ghost cleared</b>: {ticker} — entry limit order "
+                        f"{str(_eo.status)} (never filled). Removed from position tracker."
+                    )
+                    break
 
     state["last_sync"]    = datetime.utcnow().isoformat()
     state["recorded_ids"] = list(recorded_ids)[-500:]

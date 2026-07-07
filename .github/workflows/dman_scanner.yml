@@ -95,7 +95,9 @@ jobs:
 
           # 9:00 AM ET — pre-market briefing (before regular session opens).
           # Must be checked before the 930-1600 market-hours guard below.
-          if now.weekday() < 5 and 855 <= t <= 929:
+          # Window extends to 9:59 AM to absorb runner queue delays (peak-hour
+          # GitHub Actions can queue 10-25 min past the cron fire time).
+          if now.weekday() < 5 and 855 <= t <= 959:
               result = subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", "premarket"],
                   capture_output=False

@@ -201,7 +201,7 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 # Get keys at app.alpaca.markets → Paper Trading → API Keys
 ALPACA_API_KEY    = os.getenv("APCA_API_KEY_ID",    "")   # standard Alpaca env var name
 ALPACA_SECRET_KEY = os.getenv("APCA_API_SECRET_KEY", "")
-ALPACA_PAPER      = True      # flip to False only when ready for live brokerage
+ALPACA_PAPER      = False     # LIVE — real brokerage, real money
 ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed entry
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
 LAST_ALERTS_FILE   = "dman_last_alerts.json"

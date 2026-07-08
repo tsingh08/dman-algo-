@@ -936,7 +936,12 @@ def run_premarket_briefing() -> None:
             regime_warnings.append(f"⚡ <b>VIX SHOCK</b>: {vix_shock_str} — min score +5 today")
         if def_rot_str and def_rot_str != "none":
             regime_warnings.append(f"🔄 <b>DEFENSIVE ROTATION</b>: {def_rot_str} — tech longs -5pts")
-        if qqq_ema20_dist is not None and abs(qqq_ema20_dist) < 0.5:
+        if qqq_ema20_dist is not None and qqq_ema20_dist < -0.5:
+            regime_warnings.append(
+                f"🔴 <b>QQQ below EMA20</b> ({qqq_ema20_dist:+.2f}%) — tech index in declining trend; "
+                f"Gap & Hold setups have lower follow-through probability; tighten score threshold or stand aside"
+            )
+        elif qqq_ema20_dist is not None and abs(qqq_ema20_dist) < 0.5:
             regime_warnings.append(
                 f"⚠️ <b>QQQ at EMA20</b> ({qqq_ema20_dist:+.2f}%) — tech at decision level; "
                 f"gap failure here weakens regime score"

@@ -106,7 +106,8 @@ ENABLE_OS_BOUNCE = False
 #   - Catalyst-driven RVOL spike (RS plays, FDA news, mergers, short squeezes)
 #   - MACD bullish "curling upside" + above 20D MA as technical confirmation
 # NOTE: No reliable backtest (survivorship bias, RS price adjustments). Forward-test only.
-ENABLE_SMALLCAP        = True
+ENABLE_SMALLCAP         = True
+ENABLE_DYNAMIC_SMALLCAP = True   # Finviz screener discovery of new Dman-style plays
 SMALLCAP_MAX_FLOAT_M   = 5.0      # max float in millions of shares
 SMALLCAP_MAX_PRICE     = 20.0     # max stock price
 SMALLCAP_MIN_PRICE     = 0.10     # min stock price — Dman buys $0.07-$0.50 regularly
@@ -127,8 +128,9 @@ ULTRA_LOW_STOP_PCT     = 0.20     # 20% stop — extra room for extreme volatili
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
-# Keep updated as his active names rotate.
+# Finviz dynamic discovery supplements this list every scan via ENABLE_DYNAMIC_SMALLCAP.
 DMAN_SMALLCAP_WATCHLIST = [
+    # Core — original Dman calls (ultra-low float, sub-$20)
     "APVO",   # 1.25M float — conference catalyst Mar 2026, $10+ target
     "MASK",   # 1.13M float — low-float momentum play
     "UGRO",   # 1.26M float — ultra-thin, consistent Dman mention
@@ -136,6 +138,25 @@ DMAN_SMALLCAP_WATCHLIST = [
     "FCHL",   # 1.32M float — overnight swing play
     "ARTL",   # 3.49M float — mentioned in 100-600% runner week
     "ELAB",   # 4.54M float — confirmed multi-day runner
+    # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
+    "GDC",    # $0.02 penny — Dman "will be a $1" call, ultra-low float
+    "ADTX",   # 350% overnight from $0.004 bottom — Dman reverse-split play
+    "CDT",    # 200% swing runner — Dman low-float call
+    "LNKS",   # 200% runner — mentioned same tweet thread as CDT
+    "CAST",   # micro-cap catalyst — Dman watch
+    "SILO",   # +10% from sub-$6 — Dman bottom-buy
+    # Broader low-float universe — Dman-style patterns
+    "ATOS",   # perpetual short-squeeze candidate, micro-float
+    "MRIN",   # ultra-low float, OTC runner history
+    "IMPP",   # shipping penny — repeated Dman-style RVOL spikes
+    "CJET",   # low-float airline — strong gap history
+    "ACST",   # biotech micro-cap — clinical catalyst plays
+    "HPNN",   # ultra-low float OTC — gap-and-hold patterns
+    "GFAI",   # AI penny stock — high retail interest
+    "BFRI",   # biotech with low float — squeeze setup
+    "AITX",   # nano-cap AI theme — Dman-style slow accumulate
+    "ATNF",   # biotech bottom-buy with catalyst potential
+    "TRVI",   # low-float biotech — MACD curling plays
 ]
 
 # ── Options layer (Dman style: ITM calls on large-cap signals) ───────────────
@@ -313,7 +334,7 @@ def is_market_open() -> bool:
 def build_scan_universe(min_price: float = 2.0,
                         min_avg_vol: int  = 200_000,
                         min_dollar_vol: float = 1_000_000,
-                        top_n: int        = 300) -> list[str]:
+                        top_n: int        = 500) -> list[str]:
     """
     Fetch all NASDAQ + NYSE listed symbols, filter by price/volume,
     sort by today's RVOL, return top N movers combined with curated WATCHLIST.
@@ -384,6 +405,51 @@ def build_scan_universe(min_price: float = 2.0,
     combined = list(dict.fromkeys(WATCHLIST + dynamic))  # curated first, then movers, deduped
     print(f"  [universe] Final universe: {len(combined)} tickers ({len(WATCHLIST)} curated + {len(dynamic)} dynamic)", flush=True)
     return combined
+
+
+def fetch_dman_dynamic_tickers(max_tickers: int = 60) -> list[str]:
+    """
+    Scrape Finviz screener for Dman-style plays: float <5M, price <$20, avg vol >500k.
+    Returns up to max_tickers tickers sorted by volume (highest RVOL activity first).
+    Falls back to [] silently on any network/parsing failure.
+    """
+    if not ENABLE_DYNAMIC_SMALLCAP:
+        return []
+    import re as _re
+    found: list[str] = []
+    base_url = (
+        "https://finviz.com/screener.ashx?v=111"
+        "&f=sh_float_u5,sh_price_u20,sh_avgvol_o500"
+        "&o=-volume"
+    )
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    pages_needed = (max_tickers + 19) // 20  # Finviz shows 20 results per page
+    for page in range(pages_needed):
+        offset = page * 20 + 1
+        url = base_url if page == 0 else f"{base_url}&r={offset}"
+        try:
+            resp = requests.get(url, headers=headers, timeout=12)
+            if resp.status_code != 200:
+                break
+            tickers = _re.findall(
+                r'screener-link-primary[^>]*>([A-Z]{1,5})</a>', resp.text
+            )
+            found.extend(tickers)
+            if len(tickers) < 20:
+                break  # last page reached
+        except Exception:
+            break
+    unique = list(dict.fromkeys(found))[:max_tickers]
+    return unique
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 2 — DATA LAYER
@@ -4751,8 +4817,19 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     if ENABLE_SMALLCAP:
         sc_rejected = 0
         sc_found    = 0
-        # Always include Dman's curated names — they bypass the $1M/day vol threshold
-        sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST))
+        # Dynamic Finviz discovery: low-float (<5M), price <$20, vol >500k
+        _finviz_tickers: list[str] = []
+        if ENABLE_DYNAMIC_SMALLCAP:
+            print("  🔍  Fetching Finviz dynamic small-cap universe...", flush=True)
+            _finviz_tickers = fetch_dman_dynamic_tickers()
+            if _finviz_tickers:
+                print(f"  🔍  Finviz found {len(_finviz_tickers)} low-float candidates: "
+                      f"{', '.join(_finviz_tickers[:10])}{'...' if len(_finviz_tickers) > 10 else ''}",
+                      flush=True)
+            else:
+                print("  🔍  Finviz discovery returned 0 results (blocked or no market hours data)", flush=True)
+        # Merge: large-cap tickers (already cached) + curated watchlist + Finviz dynamic
+        sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST + _finviz_tickers))
         for ticker in sc_universe:
             df = fetch_df(ticker)   # already cached from the large-cap pass
             if df is None or len(df) < 30:

@@ -1507,6 +1507,25 @@ def run_premarket_briefing() -> None:
     except Exception as _e:
         print(f"  [strangle] advisory error: {_e}", file=sys.stderr)
 
+    # ── Pre-build dynamic universe for 9:45 AM Gap & Hold scan ────────────
+    # The 9:45 scan runs --universe curated (fast), which normally limits it
+    # to the ~15-name WATCHLIST and misses any gapper outside that list.
+    # Building and caching the full 500-ticker RVOL universe here (at 9 AM)
+    # lets the 9:45 scan load it for free — no rebuild time at the gate.
+    print("\n  [8/8] Pre-building dynamic scan universe for 9:45 AM gate...")
+    try:
+        _prebuilt = build_scan_universe()
+        _cache_payload = {
+            "date": datetime.today().strftime("%Y-%m-%d"),
+            "tickers": _prebuilt,
+        }
+        with open("dman_universe_cache.json", "w") as _ucf:
+            json.dump(_cache_payload, _ucf)
+        print(f"  ✅ Universe cached: {len(_prebuilt)} tickers → dman_universe_cache.json "
+              f"(9:45 AM scan will use this instead of {len(WATCHLIST)}-name list)")
+    except Exception as _ue:
+        print(f"  ⚠️  Universe pre-build failed ({_ue}) — 9:45 scan will fall back to curated list")
+
 
 def print_live_performance() -> None:
     """Print live-trade WR stats from the outcomes CSV."""
@@ -6206,7 +6225,28 @@ def main():
     elif args.universe == "all":
         tickers = build_scan_universe()
     else:
-        tickers = WATCHLIST
+        # "curated" mode: load today's pre-built universe cache if available.
+        # The 9 AM premarket briefing writes dman_universe_cache.json so the
+        # 9:45 AM Gap & Hold scan gets full 500-ticker coverage without
+        # spending 7 minutes rebuilding the universe at the gate.
+        _cache_loaded = False
+        try:
+            if os.path.exists("dman_universe_cache.json"):
+                with open("dman_universe_cache.json") as _ucf:
+                    _cached = json.load(_ucf)
+                _cache_date = _cached.get("date", "")
+                _today_str  = datetime.today().strftime("%Y-%m-%d")
+                if _cache_date == _today_str and _cached.get("tickers"):
+                    tickers = _cached["tickers"]
+                    print(f"  📦 Loaded pre-built universe: {len(tickers)} tickers "
+                          f"(cached at 9 AM — full Gap & Hold coverage active)")
+                    _cache_loaded = True
+        except Exception as _ce:
+            print(f"  ⚠️  Universe cache read failed ({_ce}) — using curated list")
+        if not _cache_loaded:
+            tickers = WATCHLIST
+            print(f"  📋 Using curated watchlist: {len(tickers)} tickers "
+                  f"(run premarket briefing first to enable full universe)")
 
     print("""
   ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗

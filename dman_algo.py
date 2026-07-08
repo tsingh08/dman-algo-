@@ -334,10 +334,13 @@ def is_market_open() -> bool:
 def build_scan_universe(min_price: float = 2.0,
                         min_avg_vol: int  = 200_000,
                         min_dollar_vol: float = 1_000_000,
-                        top_n: int        = 500) -> list[str]:
+                        min_rvol: float   = 1.5,
+                        hard_cap: int     = 1_200) -> list[str]:
     """
     Fetch all NASDAQ + NYSE listed symbols, filter by price/volume,
-    sort by today's RVOL, return top N movers combined with curated WATCHLIST.
+    return every ticker with RVOL >= min_rvol (vs a fixed top-N cut).
+    Quiet days yield ~200-300 names; active days (NFP, earnings wave) may
+    yield 800+. hard_cap guards the scan budget on extreme days.
     Falls back to WATCHLIST if any step fails.
     """
     import io
@@ -399,11 +402,18 @@ def build_scan_universe(min_price: float = 2.0,
             continue
         print(f"  [universe] batch {idx}/{len(batches)} done ({len(active)} candidates so far)", flush=True)
 
-    # Sort by RVOL descending, take top N, prepend curated list
+    # Every stock showing unusual volume passes — no hard top-N cut.
+    # Sort descending so the highest movers are analyzed first (budget hits
+    # the tail, not the best candidates).
     active.sort(key=lambda x: x[1], reverse=True)
-    dynamic = [sym for sym, _ in active[:top_n]]
+    dynamic = [sym for sym, rvol in active if rvol >= min_rvol]
+    if len(dynamic) > hard_cap:
+        print(f"  [universe] {len(dynamic)} candidates exceed hard cap {hard_cap} "
+              f"— trimming to top {hard_cap} by RVOL", flush=True)
+        dynamic = dynamic[:hard_cap]
     combined = list(dict.fromkeys(WATCHLIST + dynamic))  # curated first, then movers, deduped
-    print(f"  [universe] Final universe: {len(combined)} tickers ({len(WATCHLIST)} curated + {len(dynamic)} dynamic)", flush=True)
+    print(f"  [universe] Final universe: {len(combined)} tickers "
+          f"({len(WATCHLIST)} curated + {len(dynamic)} RVOL≥{min_rvol}x active)", flush=True)
     return combined
 
 

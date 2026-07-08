@@ -191,6 +191,28 @@ STRANGLE_RISK_PCT   = 0.01             # 1% of account per strangle event
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
+# ── VIX-adjusted position sizing ─────────────────────────────────────────────
+# Scales share count down proportionally when VIX exceeds baseline.
+# VIX 20 (baseline) → 1.0x  |  VIX 30 → 0.67x  |  VIX 40 → 0.50x
+# Never sizes UP when VIX is below baseline (floor at 1.0 — risk control only).
+VIX_SIZE_BASE = 20.0   # baseline VIX; size is 1.0x at or below this level
+
+# ── Sector ETF map — used for momentum confirmation in score_signal() ─────────
+# When a stock's sector ETF is green on the day, Gap & Hold conviction is higher.
+SECTOR_ETF: dict[str, str] = {
+    "Technology":            "XLK",
+    "Communication Services":"XLC",
+    "Consumer Discretionary":"XLY",
+    "Consumer Staples":      "XLP",
+    "Energy":                "XLE",
+    "Financials":            "XLF",
+    "Health Care":           "XLV",
+    "Industrials":           "XLI",
+    "Materials":             "XLB",
+    "Real Estate":           "XLRE",
+    "Utilities":             "XLU",
+}
+
 # Seasonal regime — backtest shows Jan(38% WR), Jul(38%), Aug(25%), Sep(29%), Dec(33%) are chronic losers
 SEASONAL_WEAK_MONTHS = {1, 7, 8, 9, 12}
 SEASONAL_MIN_SCORE   = 92          # raised bar during weak months
@@ -1004,12 +1026,16 @@ def run_premarket_briefing() -> None:
             f"Top sectors: {', '.join(top_secs[:3])}"
         )
 
-        # VIX shock + defensive rotation warnings at the top
+        # VIX shock + term structure + defensive rotation warnings at the top
         regime_warnings = []
         vix_shock_str = det.get("VIX Shock", "none")
+        vix_term_str  = det.get("VIX Term Structure", "N/A")
         def_rot_str   = det.get("Def Rotation", "none")
         if vix_shock_str and vix_shock_str != "none":
             regime_warnings.append(f"⚡ <b>VIX SHOCK</b>: {vix_shock_str} — min score +5 today")
+        if vix_term_str and "INVERTED" in vix_term_str:
+            regime_warnings.append(f"📉 <b>VIX term inverted</b>: {vix_term_str} — "
+                                   f"acute fear; size reduction active")
         if def_rot_str and def_rot_str != "none":
             regime_warnings.append(f"🔄 <b>DEFENSIVE ROTATION</b>: {def_rot_str} — tech longs -5pts")
         if qqq_ema20_dist is not None and qqq_ema20_dist < -0.5:
@@ -1863,10 +1889,12 @@ class ProSignal:
     date:       str = field(default_factory=lambda: datetime.today().strftime("%Y-%m-%d"))
 
     # Position sizing
-    shares:     int   = 0
-    cost:       float = 0.0
-    risk_usd:   float = 0.0
-    kelly_frac: float = 0.0
+    shares:         int   = 0
+    cost:           float = 0.0
+    risk_usd:       float = 0.0
+    kelly_frac:     float = 0.0
+    vix_adj:        float = 1.0    # VIX size multiplier applied (1.0 = no reduction)
+    float_rotation: float = 0.0   # small-cap only: today_vol / float_shares
 
     # Scoring
     confluence_score:  int  = 0   # 0-100
@@ -2054,6 +2082,30 @@ def get_market_regime() -> dict:
         except Exception:
             pass
 
+        # VIX term structure — VIX/VIX3M ratio reveals whether fear is acute or structural.
+        # Normal (contango): VIX < VIX3M — near-term calm relative to future uncertainty.
+        # Inverted (backwardation): VIX > VIX3M — acute fear dominating short-term, often
+        # marks a volatility spike event. VIX sizing already handles this via raw VIX level;
+        # term structure shows HOW the market is pricing that fear (spike vs regime shift).
+        vix_term_note = "N/A"
+        try:
+            vix3m_df = fetch_df("^VIX3M")
+            if vix3m_df is not None and len(vix3m_df) >= 1:
+                vix3m_val = float(vix3m_df["Close"].iloc[-1])
+                ts_ratio  = vix_val / vix3m_val if vix3m_val > 0 else 1.0
+                if ts_ratio >= 1.10:
+                    vix_term_note = (f"⚠️ INVERTED {ts_ratio:.2f}x "
+                                     f"(VIX {vix_val:.1f} > VIX3M {vix3m_val:.1f}) "
+                                     f"— acute fear spike, reduce size further")
+                elif ts_ratio >= 1.0:
+                    vix_term_note = (f"flat {ts_ratio:.2f}x "
+                                     f"(VIX {vix_val:.1f} ≈ VIX3M {vix3m_val:.1f})")
+                else:
+                    vix_term_note = (f"normal {ts_ratio:.2f}x "
+                                     f"(VIX {vix_val:.1f} < VIX3M {vix3m_val:.1f})")
+        except Exception:
+            pass
+
         # Defensive rotation detector — when XLP/XLU/XLV outperform XLK by >5%
         # on a single day, institutional money is rotating out of growth into safety.
         # A "defensive rotation" day invalidates most Gap & Hold tech long setups.
@@ -2130,6 +2182,7 @@ def get_market_regime() -> dict:
                 "DXY Trend":         dxy_trend,
                 "DXY Note":          dxy_note,
                 "VIX Shock":         vix_shock_note or ("none" if not vix_shock else "detected"),
+                "VIX Term Structure":vix_term_note,
                 "Def Rotation":      def_rotation_note or ("none" if not defensive_rotation else "detected"),
             }
         })
@@ -3023,8 +3076,9 @@ def kelly_fraction(win_rate: float, avg_win_r: float,
 
 
 def size_position_kelly(signal: ProSignal, account: float,
-                         win_rate: float, avg_win_r: float) -> ProSignal:
-    """Apply Kelly-optimal, beta-adjusted position sizing to a signal."""
+                         win_rate: float, avg_win_r: float,
+                         vix: float = VIX_SIZE_BASE) -> ProSignal:
+    """Apply Kelly-optimal, beta-adjusted, VIX-scaled position sizing to a signal."""
     kf  = kelly_fraction(win_rate, avg_win_r)
 
     # Beta adjustment: scale down proportionally for high-volatility stocks.
@@ -3038,11 +3092,24 @@ def size_position_kelly(signal: ProSignal, account: float,
     if rps <= 0:
         return signal
 
+    # VIX-adjusted sizing: reduce shares proportionally when fear is elevated.
+    # At VIX=20 (baseline): 1.0x.  VIX=30: 0.67x.  VIX=40: 0.50x.
+    # Never sizes UP below baseline — this is a risk-reduction tool only.
+    vix_mult = min(1.0, VIX_SIZE_BASE / max(vix, 10.0))
+
     risk_budget = account * kf
-    signal.shares     = max(1, int(risk_budget / rps))
-    signal.cost       = round(signal.shares * signal.entry, 2)
-    signal.risk_usd   = round(signal.shares * rps, 2)
+    raw_shares  = int(risk_budget / rps)
+    adj_shares  = max(1, int(raw_shares * vix_mult))
+
+    if vix_mult < 0.98 and raw_shares != adj_shares:
+        print(f"     📉 VIX {vix:.1f} size adj: {raw_shares}→{adj_shares} shares "
+              f"({vix_mult:.0%} of Kelly)")
+
+    signal.shares     = adj_shares
+    signal.cost       = round(adj_shares * signal.entry, 2)
+    signal.risk_usd   = round(adj_shares * rps, 2)
     signal.kelly_frac = kf
+    signal.vix_adj    = round(vix_mult, 2)
     return signal
 
 
@@ -3561,6 +3628,26 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     signal.sector_ok  = sec_ok
     breakdown["Sector"] = sec_score
 
+    # 4.5 Sector ETF momentum confirmation (8 pts)
+    # If the stock's sector ETF is green on the day, money flows are aligned —
+    # adds conviction that this isn't an idiosyncratic pop against a falling sector.
+    _sector_name = TICKER_SECTOR.get(signal.ticker, "")
+    _sector_etf  = SECTOR_ETF.get(_sector_name, "")
+    _etf_score   = 0
+    if _sector_etf:
+        try:
+            _etf_df = fetch_df(_sector_etf)
+            if _etf_df is not None and len(_etf_df) >= 2:
+                _etf_chg = (float(_etf_df["Close"].iloc[-1]) /
+                            float(_etf_df["Close"].iloc[-2]) - 1) * 100
+                if signal.bias == "LONG":
+                    _etf_score = 8 if _etf_chg >= 1.0 else (4 if _etf_chg > 0 else 0)
+                else:
+                    _etf_score = 8 if _etf_chg <= -1.0 else (4 if _etf_chg < 0 else 0)
+        except Exception:
+            pass
+    breakdown["Sector ETF"] = _etf_score
+
     # 5. Earnings safety (5 pts)
     earn_ok, earn_score = check_earnings_safe(signal.ticker)
     signal.earnings_ok  = earn_ok
@@ -3720,12 +3807,14 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
         signal.rr = round(abs(signal.target1 - signal.entry) / rps, 2)
 
     # Kelly sizing — prefer setup-specific win rate when enough data exists
-    setup_s = tracker.setup_stats(signal.setup)
+    setup_s  = tracker.setup_stats(signal.setup)
+    _vix_now = float(regime.get("details", {}).get("VIX", VIX_SIZE_BASE))
     signal = size_position_kelly(
         signal,
         account   = get_effective_account(),
         win_rate  = max(0.5, setup_s["win_rate"]),
         avg_win_r = max(1.5, setup_s["avg_win_r"]),
+        vix       = _vix_now,
     )
 
     # Final weighted score: confluence (70%) + AI score (30%)
@@ -3849,15 +3938,35 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         else:
             pattern_note = "MACD curling bullish, RVOL spike"
 
+        # Float rotation — how many times the entire float has traded hands today.
+        # 1x = every share changed hands once; 3x+ = violent conviction/squeeze in progress.
+        # Dman watches this explicitly: "this thing has rotated 3x already" = big signal.
+        try:
+            _today_vol    = float(df["Volume"].iloc[-1])
+            _float_shares = fl_m * 1_000_000
+            float_rotation = _today_vol / _float_shares if _float_shares > 0 else 0.0
+        except Exception:
+            float_rotation = 0.0
+
+        rotation_note = ""
+        if float_rotation >= 3.0:
+            rotation_note = f" | 🔥 Float {float_rotation:.1f}x rotated"
+        elif float_rotation >= 1.5:
+            rotation_note = f" | Float {float_rotation:.1f}x rotated"
+        elif float_rotation >= 0.5:
+            rotation_note = f" | Float {float_rotation:.1f}x"
+
         ultra_note = " | ⚡ ULTRA-LOW FLOAT" if ultra_low else ""
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
-                  f"{ultra_note}{squeeze_note}{insider_note}{rs_note}{bot_note}{cash_note} | {pattern_note}")
+                  f"{ultra_note}{rotation_note}{squeeze_note}{insider_note}"
+                  f"{rs_note}{bot_note}{cash_note} | {pattern_note}")
 
         sig = ProSignal(
             ticker=ticker, setup="Low Float Catalyst", bias="LONG",
             entry=entry, stop=stop, target1=t1, target2=t2,
             rr=rr, rsi=round(rsi, 1), rvol=round(rvol, 2),
             reason=reason,
+            float_rotation=round(float_rotation, 2),
         )
 
         # Position sizing — cap at SMALLCAP_MAX_COST and use lower risk %
@@ -3907,6 +4016,14 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     elif sig.rvol >=  3: score += 10
     elif sig.rvol >=  2: score +=  5
 
+    # Float rotation bonus (15 pts) — how many times the entire float has traded today.
+    # Dman: "this thing has rotated 3x" = conviction that shorts are trapped and longs
+    # are stepping in. A high float rotation on a small float = extreme scarcity of shares.
+    if   sig.float_rotation >= 5.0: score += 15   # 5x+ = short squeeze ignition
+    elif sig.float_rotation >= 3.0: score += 12   # 3x+ = Dman's verbal cue for urgency
+    elif sig.float_rotation >= 1.5: score +=  8   # 1.5x = strong conviction
+    elif sig.float_rotation >= 0.5: score +=  4   # 0.5x = meaningful activity
+
     # MACD curling at support (10 pts) — hard gate already, guaranteed
     score += 10
 
@@ -3946,6 +4063,11 @@ def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
               f"  SI: {sh_pct:.0f}%" if sh_pct > 0 else "")
     insider = f"  Insiders: {insider_pct:.0f}%" if insider_pct >= 25 else ""
     rs_tag  = "  ✅ POST-RS" if post_rs else ""
+    rotation_line = ""
+    if sig.float_rotation >= 1.5:
+        rotation_line = f"  🔄 Float rotated <b>{sig.float_rotation:.1f}x</b> today\n"
+    elif sig.float_rotation >= 0.5:
+        rotation_line = f"  Float rotated {sig.float_rotation:.1f}x today\n"
     return (
         f"🔥 <b>Dman Small-Cap Alert</b>\n"
         f"🟢 LONG <b>{sig.ticker}</b> — {sig.setup}\n"
@@ -3953,6 +4075,7 @@ def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
         f"T1 (+30%): ${sig.target1}   T2 (+75%): ${sig.target2}\n"
         f"Float: <b>{fl_m:.1f}M</b>{squeeze}{insider}{rs_tag}\n"
         f"RVOL: {sig.rvol}x  RSI: {sig.rsi}  Score: {sig.confluence_score}/100\n"
+        f"{rotation_line}"
         f"Size: {sig.shares} shares  Cost: ${sig.cost:,.0f}  Risk: ${sig.risk_usd:.0f}\n"
         f"⚠️ Micro-cap: smaller position, wider stop, news-driven\n"
         f"{sig.reason}"

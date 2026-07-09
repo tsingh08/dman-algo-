@@ -147,13 +147,13 @@ DMAN_SMALLCAP_WATCHLIST = [
     "ARTL",   # 3.49M float — mentioned in 100-600% runner week
     "ELAB",   # 4.54M float — confirmed multi-day runner
     # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
-    "IOTR",   # 0.64M float — +40.87% gap Jul 8 2026 on 17x RVOL, Dman Moon Shot profile
+    "IOTR",   # 0.64M float — +40.7% gap Jul 8 2026 on 21.6x RVOL (24.5M vol); Moon Shot profile; day-3 watch
     "GDC",    # $0.02 penny — Dman "will be a $1" call, ultra-low float
-    "ADTX",   # 350% overnight from $0.004 bottom — Dman reverse-split play
+    # ADTX removed Jul 9 2026 — stock at $0.004, -25% on Jul 8, effectively dead
     "CDT",    # 200% swing runner — Dman low-float call
     "LNKS",   # 200% runner — mentioned same tweet thread as CDT
     "CAST",   # micro-cap catalyst — Dman watch
-    "SILO",   # +10% from sub-$6 — Dman bottom-buy
+    "SILO",   # +19.8% intraday Jul 8 2026 ($5.78→$6.78) — Dman momentum, watch for day-2
     # Broader low-float universe — Dman-style patterns
     "ATOS",   # perpetual short-squeeze candidate, micro-float
     "MRIN",   # ultra-low float, OTC runner history

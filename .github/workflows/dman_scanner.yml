@@ -18,6 +18,11 @@ on:
     # 4:00 PM ET final check / Friday close-out advisory
     - cron: '0 20 * * 1-5'
   workflow_dispatch:   # manual trigger from GitHub UI
+    inputs:
+      mode:
+        description: 'Run mode (leave blank for normal scan, or: pnl)'
+        required: false
+        default: ''
 
 # Only one scan runs at a time — queues instead of running concurrently.
 # Prevents git push conflicts when a scan takes longer than 30 min.
@@ -57,14 +62,24 @@ jobs:
           APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
           PYTHONIOENCODING:    utf-8
+          DISPATCH_MODE:       ${{ github.event.inputs.mode }}
         run: |
           python - <<'EOF'
           from datetime import datetime, date
-          import zoneinfo, sys, subprocess
+          import zoneinfo, sys, subprocess, os
           ET = zoneinfo.ZoneInfo("America/New_York")
           now = datetime.now(ET)
           today = now.date()
           t = now.hour * 100 + now.minute
+
+          # Manual dispatch with mode override (e.g. "pnl" for on-demand P&L check)
+          _dispatch_mode = os.environ.get("DISPATCH_MODE", "").strip()
+          if _dispatch_mode:
+              result = subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", _dispatch_mode],
+                  capture_output=False
+              )
+              sys.exit(result.returncode)
 
           # Sunday 5 PM ET — weekly readiness check for Monday gaps
           if now.weekday() == 6:

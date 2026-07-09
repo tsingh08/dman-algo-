@@ -126,6 +126,14 @@ ULTRA_LOW_T1_MULT      = 0.50     # T1 at +50% (higher first target for thinner 
 ULTRA_LOW_T2_MULT      = 1.50     # T2 at +150% — matches Dman's "$10+ from $4" targets
 ULTRA_LOW_STOP_PCT     = 0.20     # 20% stop — extra room for extreme volatility
 
+# Moon Shot tier — ultra-low float + massive gap + extreme RVOL = 2x+ potential
+# Example: IOTR gapped +40.87% on 0.64M float at 17x RVOL (Jul 8 2026)
+# When all three conditions are met, allocation steps up and T3 is set at 2x entry.
+MOONSHOT_MIN_GAP_PCT   = 15.0    # gap ≥ 15% from prior close
+MOONSHOT_MIN_RVOL      = 8.0     # RVOL ≥ 8x
+MOONSHOT_RISK_MULT     = 3.0     # 3× normal small-cap risk (0.5% → 1.5% of account)
+MOONSHOT_T3_MULT       = 1.0     # T3 at +100% — the "double"
+
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
 # Finviz dynamic discovery supplements this list every scan via ENABLE_DYNAMIC_SMALLCAP.
@@ -139,6 +147,7 @@ DMAN_SMALLCAP_WATCHLIST = [
     "ARTL",   # 3.49M float — mentioned in 100-600% runner week
     "ELAB",   # 4.54M float — confirmed multi-day runner
     # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
+    "IOTR",   # 0.64M float — +40.87% gap Jul 8 2026 on 17x RVOL, Dman Moon Shot profile
     "GDC",    # $0.02 penny — Dman "will be a $1" call, ultra-low float
     "ADTX",   # 350% overnight from $0.004 bottom — Dman reverse-split play
     "CDT",    # 200% swing runner — Dman low-float call
@@ -1895,6 +1904,8 @@ class ProSignal:
     kelly_frac:     float = 0.0
     vix_adj:        float = 1.0    # VIX size multiplier applied (1.0 = no reduction)
     float_rotation: float = 0.0   # small-cap only: today_vol / float_shares
+    target3:        float = 0.0   # Moon Shot T3 at +100% (2x entry) — ultra-low float only
+    is_moonshot:    bool  = False  # True when Moon Shot tier conditions are met
 
     # Scoring
     confluence_score:  int  = 0   # 0-100
@@ -3909,11 +3920,23 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         t2_mult   = ULTRA_LOW_T2_MULT  if ultra_low else SMALLCAP_T2_MULT
         stop_pct  = ULTRA_LOW_STOP_PCT if ultra_low else SMALLCAP_STOP_PCT
 
+        # Moon Shot tier — ultra-low float + massive gap + extreme RVOL
+        # Example: IOTR Jul 8 2026 — 0.64M float, +40.87% gap, 17x RVOL
+        try:
+            today_gap_pct = (float(df.iloc[-1]["Open"]) - float(df.iloc[-2]["Close"])) / \
+                             float(df.iloc[-2]["Close"]) * 100
+        except Exception:
+            today_gap_pct = 0.0
+        moonshot = (ultra_low
+                    and today_gap_pct >= MOONSHOT_MIN_GAP_PCT
+                    and rvol >= MOONSHOT_MIN_RVOL)
+
         # Entry / stop / targets — wider stops than large-cap (penny stocks whipsaw)
         entry = round(c * 1.002, 4)
         stop  = round(entry * (1 - stop_pct), 4)
         t1    = round(entry * (1 + t1_mult), 2)
         t2    = round(entry * (1 + t2_mult), 2)
+        t3    = round(entry * (1 + MOONSHOT_T3_MULT), 2) if moonshot else 0.0
         rr    = round((t1 - entry) / (entry - stop), 2) if entry > stop else 0
 
         if rr < 1.5:
@@ -3956,9 +3979,10 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         elif float_rotation >= 0.5:
             rotation_note = f" | Float {float_rotation:.1f}x"
 
-        ultra_note = " | ⚡ ULTRA-LOW FLOAT" if ultra_low else ""
+        ultra_note  = " | ⚡ ULTRA-LOW FLOAT" if ultra_low else ""
+        moon_note   = f" | 🚀 MOON SHOT (gap {today_gap_pct:+.0f}% / {rvol:.0f}x RVOL / T3 +100%)" if moonshot else ""
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
-                  f"{ultra_note}{rotation_note}{squeeze_note}{insider_note}"
+                  f"{ultra_note}{moon_note}{rotation_note}{squeeze_note}{insider_note}"
                   f"{rs_note}{bot_note}{cash_note} | {pattern_note}")
 
         sig = ProSignal(
@@ -3967,11 +3991,14 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
             rr=rr, rsi=round(rsi, 1), rvol=round(rvol, 2),
             reason=reason,
             float_rotation=round(float_rotation, 2),
+            target3=t3,
+            is_moonshot=moonshot,
         )
 
-        # Position sizing — cap at SMALLCAP_MAX_COST and use lower risk %
-        acct = get_effective_account()
-        risk_amt = acct * SMALLCAP_RISK_PCT
+        # Position sizing — Moon Shot tier gets 3x allocation; normal uses 0.5% risk
+        acct      = get_effective_account()
+        risk_pct  = SMALLCAP_RISK_PCT * (MOONSHOT_RISK_MULT if moonshot else 1.0)
+        risk_amt  = acct * risk_pct
         rps = entry - stop
         shares = max(1, int(risk_amt / rps)) if rps > 0 else 1
         cost = shares * entry
@@ -4068,11 +4095,18 @@ def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
         rotation_line = f"  🔄 Float rotated <b>{sig.float_rotation:.1f}x</b> today\n"
     elif sig.float_rotation >= 0.5:
         rotation_line = f"  Float rotated {sig.float_rotation:.1f}x today\n"
+    t3_line = (f"🚀 <b>T3 (+100% / 2x): ${sig.target3}</b>  ← Moon Shot target\n"
+               if sig.is_moonshot and sig.target3 > 0 else "")
+    moon_header = "🚀 <b>Dman MOON SHOT Alert</b>" if sig.is_moonshot else "🔥 <b>Dman Small-Cap Alert</b>"
+    stop_pct_used = ULTRA_LOW_STOP_PCT if fl_m < ULTRA_LOW_FLOAT_M else SMALLCAP_STOP_PCT
     return (
-        f"🔥 <b>Dman Small-Cap Alert</b>\n"
+        f"{moon_header}\n"
         f"🟢 LONG <b>{sig.ticker}</b> — {sig.setup}\n"
-        f"Entry: <b>${sig.entry}</b>  Stop: ${sig.stop} (-{SMALLCAP_STOP_PCT*100:.0f}%)\n"
-        f"T1 (+30%): ${sig.target1}   T2 (+75%): ${sig.target2}\n"
+        f"Entry: <b>${sig.entry}</b>  Stop: ${sig.stop} (-{stop_pct_used*100:.0f}%)\n"
+        f"T1 (+{int(ULTRA_LOW_T1_MULT*100 if fl_m < ULTRA_LOW_FLOAT_M else SMALLCAP_T1_MULT*100)}%): "
+        f"${sig.target1}   T2 (+{int(ULTRA_LOW_T2_MULT*100 if fl_m < ULTRA_LOW_FLOAT_M else SMALLCAP_T2_MULT*100)}%): "
+        f"${sig.target2}\n"
+        f"{t3_line}"
         f"Float: <b>{fl_m:.1f}M</b>{squeeze}{insider}{rs_tag}\n"
         f"RVOL: {sig.rvol}x  RSI: {sig.rsi}  Score: {sig.confluence_score}/100\n"
         f"{rotation_line}"
@@ -6146,6 +6180,54 @@ def show_alpaca_account() -> None:
         print(f"  ❌ Alpaca account fetch failed: {exc}")
 
 
+def send_account_pnl_telegram(label: str = "EOD") -> None:
+    """
+    Fetch live Alpaca account snapshot and send a P&L summary to Telegram.
+    Called automatically at 4 PM EOD and available via --mode pnl for on-demand use.
+    """
+    if not ALPACA_API_KEY or not ALPACA_API_SECRET:
+        print("  Alpaca credentials not configured — skipping P&L summary")
+        return
+    try:
+        from alpaca.trading.client import TradingClient
+        tc    = TradingClient(ALPACA_API_KEY, ALPACA_API_SECRET, paper=ALPACA_PAPER)
+        acct  = tc.get_account()
+        equity     = float(acct.equity)
+        last_eq    = float(acct.last_equity)
+        cash       = float(acct.cash)
+        day_pl     = equity - last_eq
+        day_pl_pct = day_pl / last_eq * 100 if last_eq > 0 else 0.0
+        bp         = float(getattr(acct, "buying_power", cash))
+
+        arrow = "🟢" if day_pl >= 0 else "🔴"
+        lines = [
+            f"{arrow} <b>DMan {label} Account Summary</b>",
+            f"Equity  : <b>${equity:,.2f}</b>",
+            f"Day P&L : <b>${day_pl:+.2f}  ({day_pl_pct:+.2f}%)</b>",
+            f"Cash    : ${cash:,.2f}   BP: ${bp:,.2f}",
+        ]
+
+        positions = tc.get_all_positions()
+        if positions:
+            lines.append(f"\n<b>Open Positions ({len(positions)})</b>")
+            for p in positions:
+                sym    = p.symbol
+                qty    = p.qty
+                avg_px = float(p.avg_entry_price)
+                pl     = float(p.unrealized_pl)
+                pl_pct = float(p.unrealized_plpc) * 100
+                p_arrow = "🟢" if pl >= 0 else "🔴"
+                lines.append(f"  {p_arrow} <b>{sym}</b>  {qty}sh @ ${avg_px:.2f}  "
+                              f"P&L ${pl:+.2f} ({pl_pct:+.1f}%)")
+        else:
+            lines.append("\nNo open positions.")
+
+        send_telegram("\n".join(lines))
+        print(f"  📊 P&L summary sent — equity ${equity:,.2f}  day {day_pl_pct:+.2f}%")
+    except Exception as e:
+        print(f"  ⚠️  P&L summary failed: {e}")
+
+
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     """
     Validate entry prices and submit passing signals to Alpaca (paper or live).
@@ -6301,7 +6383,7 @@ def main():
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
                  "watch","rank","open","positions","alpaca","sync",
-                 "live-outcomes","live-perf","premarket","watchlist","scan-log","readiness"],
+                 "live-outcomes","live-perf","premarket","watchlist","scan-log","readiness","pnl"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -6570,6 +6652,9 @@ def main():
     elif args.mode == "live-perf":
         print_live_performance()
 
+    elif args.mode == "pnl":
+        send_account_pnl_telegram(label="On-Demand")
+
     elif args.mode == "premarket":
         run_premarket_briefing()
 
@@ -6769,6 +6854,10 @@ def main():
                     f"{_spy_ctx}"
                     f"{_eod_watch}"
                 )
+
+                # 4 PM only: send live account P&L summary to Telegram
+                if 1550 <= _hb_hhmm <= 1615 and not ALPACA_PAPER:
+                    send_account_pnl_telegram(label="EOD")
 
 
 if __name__ == "__main__":

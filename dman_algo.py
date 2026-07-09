@@ -961,6 +961,168 @@ def run_readiness_scan() -> None:
           f"{len(ready)} ready, {len(partial)} partial")
 
 
+def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, list[str]]:
+    """
+    Fetch recent news headlines for a list of tickers via Alpaca News API.
+    Returns {ticker: [headline, ...]}. Falls back to yfinance news on failure.
+    """
+    from datetime import timezone
+    result: dict[str, list[str]] = {t: [] for t in tickers}
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
+
+    # Try Alpaca News API first (included with trading account)
+    try:
+        from alpaca.data.historical.news import NewsClient as _NC
+        from alpaca.data.requests import NewsRequest as _NR
+        _nc = _NC(api_key=ALPACA_API_KEY, secret_key=ALPACA_API_SECRET)
+        for ticker in tickers:
+            try:
+                req  = _NR(symbols=[ticker], start=cutoff, limit=5)
+                news = _nc.get_news(req)
+                items = news.data.get(ticker, []) if hasattr(news, "data") else []
+                if not items and hasattr(news, "news"):
+                    items = news.news
+                result[ticker] = [getattr(n, "headline", str(n)) for n in items][:5]
+            except Exception:
+                pass
+        return result
+    except Exception:
+        pass
+
+    # Fallback: yfinance news (no API key needed)
+    for ticker in tickers:
+        try:
+            arts = yf.Ticker(ticker).news or []
+            result[ticker] = [a.get("title", "") for a in arts[:5] if a.get("title")]
+        except Exception:
+            pass
+    return result
+
+
+_CATALYST_KEYWORDS = {
+    "bullish": ["fda", "approv", "clearance", "granted", "positive", "phase", "trial",
+                "merger", "acqui", "contract", "awarded", "partnership", "license",
+                "reverse split", "share consolidation", "squeeze", "short", "uplisting",
+                "nasdaq", "nyse", "breakthrough", "milestone", "deal", "win"],
+    "bearish": ["dilut", "offering", "placement", "warrant", "downgrad", "fda reject",
+                "complete response", "clinical hold", "investigation", "fraud", "delisting"],
+}
+
+
+def _score_news_headline(headline: str) -> tuple[str, str]:
+    """
+    Return (sentiment, matched_keyword) for a headline.
+    sentiment: 'bullish' | 'bearish' | 'neutral'
+    """
+    h = headline.lower()
+    for kw in _CATALYST_KEYWORDS["bearish"]:
+        if kw in h:
+            return "bearish", kw
+    for kw in _CATALYST_KEYWORDS["bullish"]:
+        if kw in h:
+            return "bullish", kw
+    return "neutral", ""
+
+
+def run_premarket_early_scan() -> None:
+    """
+    7 AM ET early scanner — sweeps small-cap universe for pre-market movers
+    and news catalysts BEFORE the open. Fires immediate Telegram alerts so
+    you can plan entries rather than reacting to the gap after it's already set.
+
+    Catches IOTR-style plays: ultra-low float gapping on overnight news/catalysts.
+    """
+    now_et = datetime.now(ET)
+    print(f"\n  ⚡ EARLY PRE-MARKET SCAN — {now_et.strftime('%I:%M %p ET')}")
+    print(f"  Scanning {len(DMAN_SMALLCAP_WATCHLIST)} small-cap names for movers + news...\n")
+
+    # Fetch news for all watchlist names in one pass
+    news_map = _fetch_alpaca_news(DMAN_SMALLCAP_WATCHLIST, hours_back=20)
+
+    movers:  list[tuple[float, str, str]] = []   # (gap_pct, ticker, detail)
+    news_alerts: list[str] = []
+
+    for ticker in DMAN_SMALLCAP_WATCHLIST:
+        try:
+            info       = yf.Ticker(ticker).fast_info
+            pre_px     = float(info.last_price or 0)
+            prev_close = float(info.previous_close or 0)
+            if pre_px <= 0 or prev_close <= 0:
+                continue
+            gap_pct = (pre_px - prev_close) / prev_close * 100
+
+            # Float info
+            fl_m, si_pct, _, _ = _get_short_float_data(ticker)
+            float_str = f"Float {fl_m:.2f}M  " if fl_m > 0 else ""
+            si_str    = f"SI {si_pct:.0f}%  " if si_pct >= 10 else ""
+
+            # News scoring
+            headlines   = news_map.get(ticker, [])
+            bull_news   = []
+            bear_news   = []
+            for h in headlines:
+                sent, kw = _score_news_headline(h)
+                if sent == "bullish":
+                    bull_news.append((h, kw))
+                elif sent == "bearish":
+                    bear_news.append((h, kw))
+
+            # Fire pre-market mover alert if gap ≥ 5%
+            if abs(gap_pct) >= 5.0:
+                moon_tag = ""
+                if gap_pct >= 15.0 and fl_m > 0 and fl_m < 2.0:
+                    moon_tag = "  🚀 MOON SHOT SETUP"
+                detail = (f"{float_str}{si_str}pre-mkt ${pre_px:.4f} "
+                          f"({gap_pct:+.1f}% vs close ${prev_close:.4f}){moon_tag}")
+                movers.append((gap_pct, ticker, detail))
+
+            # Fire news alert if significant catalyst found (even if no gap yet)
+            if bull_news:
+                _kw_str = ", ".join(set(kw for _, kw in bull_news[:2]))
+                _hl_str = bull_news[0][0][:120]
+                if abs(gap_pct) < 5.0:   # not already in movers — pure news alert
+                    news_alerts.append(
+                        f"📰 <b>{ticker}</b> ({float_str.strip()}) — bullish catalyst [{_kw_str}]\n"
+                        f"   \"{_hl_str}\"\n"
+                        f"   Pre-mkt: ${pre_px:.4f}  ({gap_pct:+.1f}% so far)"
+                    )
+            if bear_news and abs(gap_pct) >= 5.0:
+                _hl_str = bear_news[0][0][:120]
+                # Override the mover detail to flag dilution/risk
+                for i, (g, t, d) in enumerate(movers):
+                    if t == ticker:
+                        movers[i] = (g, t, d + f"\n   ⚠️ DILUTION/RISK: \"{_hl_str}\"")
+                        break
+        except Exception:
+            continue
+
+    movers.sort(key=lambda x: abs(x[0]), reverse=True)
+
+    # ── Build Telegram message ─────────────────────────────────────────
+    lines = [f"⚡ <b>DMan 7 AM Pre-Market Alert</b>  {now_et.strftime('%a %b %d')}"]
+
+    if movers:
+        lines.append(f"\n🚨 <b>PRE-MARKET MOVERS</b> ({len(movers)} name(s) ≥5%)")
+        for gap_pct, ticker, detail in movers[:6]:
+            arrow = "🟢" if gap_pct > 0 else "🔴"
+            lines.append(f"  {arrow} <b>{ticker}</b>  {detail}")
+        lines.append("\n<i>Confirm RVOL spike at 9:30 open. Moon Shot plays: watch for 9:45 hold or pre-market entry above VWAP.</i>")
+    else:
+        lines.append("\n📡 No small-cap movers ≥5% pre-market right now.")
+
+    if news_alerts:
+        lines.append(f"\n📰 <b>CATALYST NEWS</b> ({len(news_alerts)} name(s))")
+        for alert in news_alerts[:4]:
+            lines.append(alert)
+
+    if not movers and not news_alerts:
+        lines.append("\n✅ Clean — no movers or news alerts. Normal session expected.")
+
+    msg = "\n".join(lines)
+    print(msg.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", ""))
+    send_telegram(msg)
+
+
 def run_premarket_briefing() -> None:
     """
     Daily 9:10 AM ET pre-market briefing.
@@ -1433,6 +1595,37 @@ def run_premarket_briefing() -> None:
     except Exception:
         pass
 
+    # ── 6b. Small-cap pre-market movers ──────────────────────────────────
+    # Scan DMAN_SMALLCAP_WATCHLIST for pre-market moves ≥5%.
+    # Lower threshold than large-caps — penny stocks move 20-100% before open.
+    sc_gap_lines: list[tuple[float, str]] = []
+    try:
+        _sc_scan_list = list(dict.fromkeys(DMAN_SMALLCAP_WATCHLIST))
+        for _sc_t in _sc_scan_list:
+            try:
+                _sc_info   = yf.Ticker(_sc_t).fast_info
+                _sc_pm     = float(_sc_info.last_price or 0)
+                _sc_prev   = float(_sc_info.previous_close or 0)
+                if _sc_pm <= 0 or _sc_prev <= 0:
+                    continue
+                _sc_gap = (_sc_pm - _sc_prev) / _sc_prev * 100
+                if abs(_sc_gap) < 5.0:   # only surface meaningful moves
+                    continue
+                _sc_fl_m, _sc_si, _, _ = _get_short_float_data(_sc_t)
+                _float_str = f"  Float {_sc_fl_m:.2f}M" if _sc_fl_m > 0 else ""
+                _si_str    = f" | SI {_sc_si:.0f}%" if _sc_si >= 15 else ""
+                _dir = "🚀" if _sc_gap > 0 else "📉"
+                _moon = " 🌙 MOON SHOT WATCH" if (_sc_gap >= 15 and _sc_fl_m > 0 and _sc_fl_m < 2.0) else ""
+                sc_gap_lines.append(
+                    (_sc_gap, f"{_dir} <b>{_sc_t}</b>  {_sc_gap:+.1f}%  "
+                     f"pre-mkt ${_sc_pm:.4f}{_float_str}{_si_str}{_moon}")
+                )
+            except Exception:
+                continue
+        sc_gap_lines.sort(key=lambda x: abs(x[0]), reverse=True)
+    except Exception:
+        pass
+
     if gap_lines:
         gap_section = (f"\n\n🚨 <b>PRE-MARKET GAPS ≥1.5%</b> — entry setups forming\n"
                        + "\n".join(line for _, line in gap_lines[:5])
@@ -1444,6 +1637,12 @@ def run_premarket_briefing() -> None:
             "\n\n👀 <b>Near-threshold READY</b> (1.0–1.5% gap, MACD+ &amp; prior green): "
             + " | ".join(line for _, line in near_gap_lines[:4])
             + "\n<i>Below 1.5% scanner gate — watch if gap expands to the open.</i>"
+        )
+    if sc_gap_lines:
+        gap_section += (
+            "\n\n⚡ <b>SMALL-CAP PRE-MARKET MOVERS</b> (≥5% pre-mkt):\n"
+            + "\n".join(line for _, line in sc_gap_lines[:6])
+            + "\n<i>Low-float catalyst plays — confirm RVOL at open before entry.</i>"
         )
 
     # ── 6.5. Upcoming earnings on watchlist ───────────────────────────
@@ -6383,7 +6582,8 @@ def main():
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
                  "watch","rank","open","positions","alpaca","sync",
-                 "live-outcomes","live-perf","premarket","watchlist","scan-log","readiness","pnl"],
+                 "live-outcomes","live-perf","premarket","premarket-early",
+                 "watchlist","scan-log","readiness","pnl"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -6657,6 +6857,9 @@ def main():
 
     elif args.mode == "premarket":
         run_premarket_briefing()
+
+    elif args.mode == "premarket-early":
+        run_premarket_early_scan()
 
     elif args.mode == "watchlist":
         send_daily_watchlist()

@@ -5,6 +5,10 @@ on:
     # Sunday 5 PM ET — weekly readiness check, shows which watchlist tickers
     # pass all pre-gap filters heading into Monday
     - cron: '0 21 * * 0'
+    # 7:00 AM ET — early pre-market scanner: sweeps small-cap universe for
+    # overnight gaps ≥5% and news catalysts (FDA, merger, squeeze, etc.) so
+    # IOTR-style plays are flagged BEFORE the open, not after.
+    - cron: '0 11 * * 1-5'
     # 9:00 AM ET — pre-market briefing: regime, macro calendar, live gaps, fade-risk,
     # sector health, scanner watchdog. Runs before market open so fast_info returns
     # actual pre-market prices, not intraday prices.
@@ -20,7 +24,7 @@ on:
   workflow_dispatch:   # manual trigger from GitHub UI
     inputs:
       mode:
-        description: 'Run mode (leave blank for normal scan, or: pnl)'
+        description: 'Run mode (leave blank for normal scan, or: pnl, premarket-early)'
         required: false
         default: ''
 
@@ -107,6 +111,15 @@ jobs:
           if today in MARKET_HOLIDAYS:
               print(f"NYSE holiday ({now.strftime('%a %b %d')}) — market closed, skipping scan.")
               sys.exit(0)
+
+          # 7:00 AM ET — early pre-market scan for overnight gaps and news catalysts.
+          # Window: 6:50 AM – 8:30 AM (absorbs runner queue; stops before 9 AM briefing).
+          if now.weekday() < 5 and 650 <= t <= 830:
+              result = subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "premarket-early"],
+                  capture_output=False
+              )
+              sys.exit(result.returncode)
 
           # 9:00 AM ET — pre-market briefing (before regular session opens).
           # Must be checked before the 930-1600 market-hours guard below.

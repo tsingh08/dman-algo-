@@ -1024,23 +1024,205 @@ def _score_news_headline(headline: str) -> tuple[str, str]:
     return "neutral", ""
 
 
+def _check_edgar_8k(ticker: str, hours_back: int = 30) -> tuple[bool, str]:
+    """
+    Check SEC EDGAR full-text search for recent 8-K filings.
+    Returns (found, summary_string).
+    Tier A validation: real catalyst = real filing.
+    """
+    from urllib.parse import quote
+    from datetime import timezone
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
+    d_from = cutoff.strftime("%Y-%m-%d")
+    d_to   = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    url = (f"https://efts.sec.gov/LATEST/search-index?"
+           f"q=%22{quote(ticker)}%22&forms=8-K"
+           f"&dateRange=custom&startdt={d_from}&enddt={d_to}")
+    try:
+        resp = requests.get(url, timeout=10,
+                            headers={"User-Agent": "DManAlgo research@dman.algo"})
+        if resp.status_code != 200:
+            return False, ""
+        hits = resp.json().get("hits", {}).get("hits", [])
+        if not hits:
+            return False, ""
+        src    = hits[0].get("_source", {})
+        names  = src.get("display_names", [])
+        filed  = src.get("file_date", "")
+        form   = src.get("form_type", "8-K")
+        entity = names[0] if names else ticker
+        return True, f"{form} filed {filed} — {entity}"
+    except Exception:
+        return False, ""
+
+
+def _get_stocktwits_sentiment(ticker: str) -> tuple[float, int]:
+    """
+    Returns (bull_pct, message_count) from StockTwits public API (no auth).
+    bull_pct: % of sentiment-tagged messages that are bullish (0–100).
+    High message count + high bull_pct = retail FOMO building.
+    """
+    url = f"https://api.stocktwits.com/api/2/streams/symbol/{ticker}.json"
+    try:
+        resp = requests.get(url, timeout=8,
+                            headers={"User-Agent": "Mozilla/5.0"})
+        if resp.status_code != 200:
+            return 0.0, 0
+        messages = resp.json().get("messages", [])
+        bull = sum(1 for m in messages
+                   if m.get("entities", {}).get("sentiment", {}).get("basic") == "Bullish")
+        bear = sum(1 for m in messages
+                   if m.get("entities", {}).get("sentiment", {}).get("basic") == "Bearish")
+        tagged = bull + bear
+        return (bull / tagged * 100 if tagged > 0 else 0.0), len(messages)
+    except Exception:
+        return 0.0, 0
+
+
+_PM_LEVEL_DEFAULTS: dict = {
+    "pm_vwap": 0.0, "pm_vol": 0, "float_rotation_pct": 0.0,
+    "pm_high": 0.0, "pm_low": 0.0, "price_vs_vwap_pct": 0.0,
+    "entry_zone": "unknown", "pm_trend": "flat",
+}
+
+
+def _calc_premarket_levels(ticker: str, float_shares_m: float) -> dict:
+    """
+    Fetch 1-min pre+post bars (yfinance) and compute pre-market VWAP,
+    float rotation %, PM high/low, price vs VWAP, trend, and entry zone.
+    Only called for confirmed movers (≥5% gap) to keep scan fast.
+    """
+    result = dict(_PM_LEVEL_DEFAULTS)
+    try:
+        df = yf.download(ticker, period="1d", interval="1m",
+                         prepost=True, progress=False, auto_adjust=True)
+        if df is None or len(df) == 0:
+            return result
+
+        today_et = datetime.now(ET).date()
+        rows = []
+        for idx in df.index:
+            ts = idx
+            if hasattr(ts, "tz_convert"):
+                ts_et = ts.tz_convert(ET)
+            elif hasattr(ts, "tz_localize") and ts.tzinfo is None:
+                ts_et = ts.tz_localize("UTC").tz_convert(ET)
+            else:
+                ts_et = ts
+            if ts_et.date() != today_et:
+                continue
+            # Pre-market: before 9:30 AM ET
+            if ts_et.hour > 9 or (ts_et.hour == 9 and ts_et.minute >= 30):
+                continue
+            rows.append((ts_et, df.loc[idx]))
+
+        if not rows:
+            return result
+
+        def _fv(row, col):
+            v = row[col]
+            return float(v.item() if hasattr(v, "item") else v)
+
+        total_vol = 0; total_pv = 0.0
+        highs: list[float] = []; lows: list[float] = []
+        for _, row in rows:
+            try:
+                h = _fv(row, "High"); l = _fv(row, "Low"); c = _fv(row, "Close")
+                v = int(_fv(row, "Volume"))
+                total_pv += (h + l + c) / 3 * v
+                total_vol += v
+                highs.append(h); lows.append(l)
+            except Exception:
+                continue
+
+        if total_vol == 0:
+            return result
+
+        vwap         = total_pv / total_vol
+        fl_shares    = float_shares_m * 1_000_000 if float_shares_m > 0 else 0
+        rotation_pct = (total_vol / fl_shares * 100) if fl_shares > 0 else 0.0
+        last_close   = _fv(rows[-1][1], "Close")
+        price_vs_vwap = (last_close - vwap) / vwap * 100 if vwap > 0 else 0.0
+
+        mid = len(rows) // 2
+        if mid > 1:
+            avg_first = sum(_fv(r, "Close") for _, r in rows[:mid]) / mid
+            avg_last  = sum(_fv(r, "Close") for _, r in rows[mid:]) / (len(rows) - mid)
+            pm_trend = "up" if avg_last > avg_first * 1.02 else ("down" if avg_last < avg_first * 0.98 else "flat")
+        else:
+            pm_trend = "flat"
+
+        if price_vs_vwap > 15:
+            entry_zone = "WAIT — overextended above VWAP; watch for dip to reclaim"
+        elif price_vs_vwap >= -5:
+            entry_zone = "VWAP ZONE — prime entry; VWAP is your stop"
+        else:
+            entry_zone = "BELOW VWAP — needs reclaim before entry"
+
+        result.update({
+            "pm_vwap":           round(vwap, 4),
+            "pm_vol":            total_vol,
+            "float_rotation_pct": round(rotation_pct, 1),
+            "pm_high":           round(max(highs), 4),
+            "pm_low":            round(min(lows), 4),
+            "price_vs_vwap_pct": round(price_vs_vwap, 1),
+            "entry_zone":        entry_zone,
+            "pm_trend":          pm_trend,
+        })
+    except Exception:
+        pass
+    return result
+
+
+_TIER_A_KW = {"fda", "approv", "clearance", "merger", "acqui", "contract",
+               "awarded", "license", "phase 3", "phase iii", "breakthrough",
+               "nda", "bla", "510k", "510(k)"}
+_TIER_B_KW = {"phase 2", "phase ii", "trial", "partnership", "milestone", "deal",
+               "uplisting", "nasdaq listing", "nyse listing", "squeeze"}
+_TIER_D_KW = {"dilut", "offering", "placement", "warrant", "clinical hold",
+               "fda reject", "complete response", "investigation", "fraud", "delisting"}
+
+
+def _score_catalyst_tier(bull_news: list[tuple[str, str]],
+                          bear_news: list[tuple[str, str]],
+                          edgar_found: bool) -> str:
+    """
+    A: 8-K filed + strong keyword (FDA/merger/contract) — highest conviction
+    B: 8-K without strong keyword, OR strong keyword without 8-K
+    C: Weak catalyst / PR-only
+    D: Dilution / bearish risk — avoid the long
+    """
+    if bear_news:
+        return "D"
+    combined = " ".join(h.lower() for h, _ in bull_news)
+    has_a = any(kw in combined for kw in _TIER_A_KW)
+    has_b = any(kw in combined for kw in _TIER_B_KW)
+    if edgar_found and has_a:
+        return "A"
+    if edgar_found or has_a:
+        return "B"
+    if has_b or bull_news:
+        return "C"
+    return "C"
+
+
 def run_premarket_early_scan() -> None:
     """
-    7 AM ET early scanner — sweeps small-cap universe for pre-market movers
-    and news catalysts BEFORE the open. Fires immediate Telegram alerts so
-    you can plan entries rather than reacting to the gap after it's already set.
+    7 AM ET early scanner — sweeps DMAN_SMALLCAP_WATCHLIST for pre-market movers,
+    runs SEC 8-K validation, pre-market VWAP/float rotation, StockTwits sentiment,
+    and outputs a structured entry plan for each play on Telegram.
 
-    Catches IOTR-style plays: ultra-low float gapping on overnight news/catalysts.
+    Catches IOTR-style plays at 7 AM — 2.5 hours before the 9:45 gate fires.
     """
+    import re as _re
     now_et = datetime.now(ET)
     print(f"\n  ⚡ EARLY PRE-MARKET SCAN — {now_et.strftime('%I:%M %p ET')}")
-    print(f"  Scanning {len(DMAN_SMALLCAP_WATCHLIST)} small-cap names for movers + news...\n")
+    print(f"  Scanning {len(DMAN_SMALLCAP_WATCHLIST)} small-cap names...\n")
 
-    # Fetch news for all watchlist names in one pass
     news_map = _fetch_alpaca_news(DMAN_SMALLCAP_WATCHLIST, hours_back=20)
 
-    movers:  list[tuple[float, str, str]] = []   # (gap_pct, ticker, detail)
-    news_alerts: list[str] = []
+    mover_blocks: list[tuple[float, str]] = []   # (abs_gap, telegram_block)
+    news_alerts:  list[str] = []
 
     for ticker in DMAN_SMALLCAP_WATCHLIST:
         try:
@@ -1051,15 +1233,9 @@ def run_premarket_early_scan() -> None:
                 continue
             gap_pct = (pre_px - prev_close) / prev_close * 100
 
-            # Float info
             fl_m, si_pct, _, _ = _get_short_float_data(ticker)
-            float_str = f"Float {fl_m:.2f}M  " if fl_m > 0 else ""
-            si_str    = f"SI {si_pct:.0f}%  " if si_pct >= 10 else ""
-
-            # News scoring
-            headlines   = news_map.get(ticker, [])
-            bull_news   = []
-            bear_news   = []
+            headlines = news_map.get(ticker, [])
+            bull_news, bear_news = [], []
             for h in headlines:
                 sent, kw = _score_news_headline(h)
                 if sent == "bullish":
@@ -1067,59 +1243,134 @@ def run_premarket_early_scan() -> None:
                 elif sent == "bearish":
                     bear_news.append((h, kw))
 
-            # Fire pre-market mover alert if gap ≥ 5%
-            if abs(gap_pct) >= 5.0:
-                moon_tag = ""
-                if gap_pct >= 15.0 and fl_m > 0 and fl_m < 2.0:
-                    moon_tag = "  🚀 MOON SHOT SETUP"
-                detail = (f"{float_str}{si_str}pre-mkt ${pre_px:.4f} "
-                          f"({gap_pct:+.1f}% vs close ${prev_close:.4f}){moon_tag}")
-                movers.append((gap_pct, ticker, detail))
+            is_mover = abs(gap_pct) >= 5.0
+            is_moon  = gap_pct >= 15.0 and 0 < fl_m < 2.0
 
-            # Fire news alert if significant catalyst found (even if no gap yet)
-            if bull_news:
-                _kw_str = ", ".join(set(kw for _, kw in bull_news[:2]))
-                _hl_str = bull_news[0][0][:120]
-                if abs(gap_pct) < 5.0:   # not already in movers — pure news alert
-                    news_alerts.append(
-                        f"📰 <b>{ticker}</b> ({float_str.strip()}) — bullish catalyst [{_kw_str}]\n"
-                        f"   \"{_hl_str}\"\n"
-                        f"   Pre-mkt: ${pre_px:.4f}  ({gap_pct:+.1f}% so far)"
+            if is_mover:
+                edgar_found, edgar_summary = _check_edgar_8k(ticker, hours_back=30)
+                tier      = _score_catalyst_tier(bull_news, bear_news, edgar_found)
+                bull_pct, st_msgs = _get_stocktwits_sentiment(ticker)
+                pm        = _calc_premarket_levels(ticker, fl_m)
+
+                arrow     = "🟢" if gap_pct > 0 else "🔴"
+                moon_tag  = "  🚀 MOON SHOT" if is_moon else ""
+                avoid_tag = "  ⛔ AVOID" if tier == "D" else ""
+
+                tier_labels = {"A": "TIER A — 8-K CONFIRMED", "B": "TIER B — STRONG CATALYST",
+                               "C": "TIER C — PR / WEAK",     "D": "TIER D — DILUTION RISK"}
+
+                # Header
+                header = (f"{arrow} <b>{ticker}</b>  ${pre_px:.4f}  ({gap_pct:+.1f}% vs prev ${prev_close:.4f})"
+                          f"  Float: {fl_m:.2f}M  SI: {si_pct:.0f}%{moon_tag}{avoid_tag}")
+
+                # Catalyst block
+                cat_parts = [f"  📋 <b>CATALYST [{tier_labels.get(tier, tier)}]</b>"]
+                if edgar_found:
+                    cat_parts.append(f"     {edgar_summary}")
+                if bull_news:
+                    cat_parts.append(f"     \"{bull_news[0][0][:110]}\"")
+                if bear_news:
+                    cat_parts.append(f"     ⚠️ RISK: \"{bear_news[0][0][:110]}\"")
+                cat_line = "\n".join(cat_parts)
+
+                # Pre-market levels block
+                pm_line = ""
+                if pm["pm_vwap"] > 0:
+                    t_arrow = {"up": "↑", "down": "↓", "flat": "→"}.get(pm["pm_trend"], "→")
+                    rot_str = f"  Float rotated: {pm['float_rotation_pct']:.1f}%" if fl_m > 0 else ""
+                    pm_line = (
+                        f"  📊 <b>PRE-MARKET LEVELS</b>\n"
+                        f"     VWAP: ${pm['pm_vwap']:.4f}  "
+                        f"PM High: ${pm['pm_high']:.4f}  PM Low: ${pm['pm_low']:.4f}\n"
+                        f"     Price vs VWAP: {pm['price_vs_vwap_pct']:+.1f}%  "
+                        f"Trend: {t_arrow}{rot_str}\n"
+                        f"     ➡️ {pm['entry_zone']}"
                     )
-            if bear_news and abs(gap_pct) >= 5.0:
-                _hl_str = bear_news[0][0][:120]
-                # Override the mover detail to flag dilution/risk
-                for i, (g, t, d) in enumerate(movers):
-                    if t == ticker:
-                        movers[i] = (g, t, d + f"\n   ⚠️ DILUTION/RISK: \"{_hl_str}\"")
-                        break
+
+                # StockTwits block
+                st_line = ""
+                if st_msgs > 0:
+                    se = "🟢" if bull_pct >= 65 else ("🔴" if bull_pct <= 35 else "🟡")
+                    st_line = (f"  💬 <b>StockTwits:</b> {st_msgs} msgs  |  "
+                               f"Sentiment: {bull_pct:.0f}% bullish {se}")
+
+                # Entry plan block
+                vwap = pm["pm_vwap"]
+                entry_parts = ["  🎯 <b>ENTRY PLAN</b>"]
+                if tier != "D":
+                    if vwap > 0 and tier in ("A", "B"):
+                        entry_parts.append(
+                            f"     Aggressive (pre-mkt): ${vwap:.4f} VWAP hold  "
+                            f"← Tier {tier} catalyst, float {fl_m:.2f}M"
+                        )
+                    entry_parts.append(
+                        "     Moderate (9:30): first 5-min candle high breakout → trail VWAP"
+                    )
+                    entry_parts.append(
+                        f"     Conservative (9:45): Gap & Hold gate — hold above open ${pre_px:.4f}"
+                    )
+                    stop_px = round(vwap * 0.97, 4) if vwap > 0 else round(prev_close * 1.05, 4)
+                    t1 = round(pre_px * 1.30, 4)
+                    t2 = round(pre_px * 1.50, 4)
+                    moon_str = f"  T3 (2x): ${round(pre_px * 2.0, 4):.4f}" if is_moon else ""
+                    entry_parts.append(
+                        f"     Stop: ${stop_px:.4f}  |  T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){moon_str}"
+                    )
+                else:
+                    entry_parts.append("     ⛔ Skip — dilution/offering risk outweighs gap.")
+                entry_block = "\n".join(entry_parts)
+
+                parts = [header, cat_line]
+                if pm_line:
+                    parts.append(pm_line)
+                if st_line:
+                    parts.append(st_line)
+                parts.append(entry_block)
+                mover_blocks.append((abs(gap_pct), "\n".join(parts)))
+
+            elif bull_news:
+                # News only — gap hasn't triggered yet, but put on watch
+                edgar_found, edgar_summary = _check_edgar_8k(ticker, hours_back=30)
+                tier = _score_catalyst_tier(bull_news, [], edgar_found)
+                kw_str = ", ".join(set(kw for _, kw in bull_news[:2]))
+                hl_str = bull_news[0][0][:120]
+                edgar_note = f"\n   SEC: {edgar_summary}" if edgar_found else ""
+                news_alerts.append(
+                    f"📰 <b>{ticker}</b>  [Catalyst Tier {tier}]  "
+                    f"Float: {fl_m:.2f}M  SI: {si_pct:.0f}%\n"
+                    f"   [{kw_str}] \"{hl_str}\"{edgar_note}\n"
+                    f"   Pre-mkt: ${pre_px:.4f}  ({gap_pct:+.1f}% — gap not triggered yet)"
+                )
+
         except Exception:
             continue
 
-    movers.sort(key=lambda x: abs(x[0]), reverse=True)
+    mover_blocks.sort(key=lambda x: x[0], reverse=True)
 
-    # ── Build Telegram message ─────────────────────────────────────────
-    lines = [f"⚡ <b>DMan 7 AM Pre-Market Alert</b>  {now_et.strftime('%a %b %d')}"]
+    lines = [f"⚡ <b>DMan 7 AM Pre-Market Scan</b>  {now_et.strftime('%a %b %d, %I:%M %p ET')}"]
 
-    if movers:
-        lines.append(f"\n🚨 <b>PRE-MARKET MOVERS</b> ({len(movers)} name(s) ≥5%)")
-        for gap_pct, ticker, detail in movers[:6]:
-            arrow = "🟢" if gap_pct > 0 else "🔴"
-            lines.append(f"  {arrow} <b>{ticker}</b>  {detail}")
-        lines.append("\n<i>Confirm RVOL spike at 9:30 open. Moon Shot plays: watch for 9:45 hold or pre-market entry above VWAP.</i>")
+    if mover_blocks:
+        lines.append(f"\n🚨 <b>PRE-MARKET MOVERS</b> ({len(mover_blocks)} play(s) ≥5%)\n")
+        for _, block in mover_blocks[:5]:
+            lines.append(block)
+            lines.append("")
     else:
         lines.append("\n📡 No small-cap movers ≥5% pre-market right now.")
 
     if news_alerts:
-        lines.append(f"\n📰 <b>CATALYST NEWS</b> ({len(news_alerts)} name(s))")
+        lines.append(f"👀 <b>CATALYST WATCH</b> ({len(news_alerts)} — no gap yet)\n")
         for alert in news_alerts[:4]:
             lines.append(alert)
+            lines.append("")
 
-    if not movers and not news_alerts:
-        lines.append("\n✅ Clean — no movers or news alerts. Normal session expected.")
+    if not mover_blocks and not news_alerts:
+        lines.append("\n✅ Clean — no movers or catalysts. Normal open expected.")
+
+    lines.append("<i>Tier A=8-K filed | B=strong catalyst | C=PR | D=avoid</i>")
+    lines.append("<i>Entry: Aggressive=pre-mkt VWAP | Moderate=9:30 first candle | Conservative=9:45 hold</i>")
 
     msg = "\n".join(lines)
-    print(msg.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", ""))
+    print(_re.sub(r"<[^>]+>", "", msg))
     send_telegram(msg)
 
 

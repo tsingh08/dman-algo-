@@ -24,7 +24,7 @@ on:
   workflow_dispatch:   # manual trigger from GitHub UI
     inputs:
       mode:
-        description: 'Run mode (leave blank for normal scan, or: pnl, premarket-early)'
+        description: 'Run mode (leave blank for normal scan, or: pnl, premarket-early, momentum-watch)'
         required: false
         default: ''
 
@@ -149,6 +149,14 @@ jobs:
                "--universe", universe, "--ai", "--submit"],
               capture_output=False
           )
+          # 10 AM–12 PM: run momentum watch alongside the main scan.
+          # Detects breakout setups forming + exit/trail signals on open positions.
+          # Gap plays peak in the first 90 min — this is the critical window.
+          if 1000 <= t <= 1200:
+              subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "momentum-watch"],
+                  capture_output=False
+              )
           sys.exit(result.returncode)
           EOF
 

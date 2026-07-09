@@ -1374,6 +1374,379 @@ def run_premarket_early_scan() -> None:
     send_telegram(msg)
 
 
+# ──────────────────────────────────────────────────────────────────────────────
+# Intraday momentum watch — entry timing + exit management
+# ──────────────────────────────────────────────────────────────────────────────
+
+def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
+    """Fetch intraday bars, flattening multi-level columns if yfinance returns them."""
+    try:
+        df = yf.download(ticker, period=period, interval=interval,
+                         prepost=False, progress=False, auto_adjust=True)
+        if df is None or len(df) < 3:
+            return None
+        # yfinance sometimes returns multi-level columns with single-ticker downloads
+        if hasattr(df.columns, "levels"):
+            df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
+        return df
+    except Exception:
+        return None
+
+
+def _compute_session_levels(df_5m) -> dict:
+    """
+    From a session's 5-min bar DataFrame, extract:
+    - session VWAP (volume-weighted average price)
+    - first candle high (9:30-9:35 bar — key breakout reference)
+    - session high (all-time-of-day high so far)
+    - current price (last bar close)
+    - structured bars list for further analysis
+
+    Returns a dict with these keys (zeros if data is insufficient).
+    """
+    result = {
+        "vwap": 0.0, "first_candle_high": 0.0, "session_high": 0.0,
+        "cur_price": 0.0, "bars": [],
+    }
+    if df_5m is None or len(df_5m) < 2:
+        return result
+
+    def _fv(row, col):
+        v = row[col]
+        return float(v.item() if hasattr(v, "item") else v)
+
+    total_pv = 0.0; total_vol = 0
+    bars = []
+    for i in range(len(df_5m)):
+        row = df_5m.iloc[i]
+        try:
+            h = _fv(row, "High"); l = _fv(row, "Low")
+            c = _fv(row, "Close"); v = int(_fv(row, "Volume"))
+            total_pv += (h + l + c) / 3 * v
+            total_vol += v
+            bars.append({"h": h, "l": l, "o": _fv(row, "Open"), "c": c, "v": v})
+        except Exception:
+            continue
+
+    if not bars or total_vol == 0:
+        return result
+
+    result["vwap"]             = round(total_pv / total_vol, 4)
+    result["first_candle_high"] = bars[0]["h"]
+    result["session_high"]     = max(b["h"] for b in bars)
+    result["cur_price"]        = bars[-1]["c"]
+    result["bars"]             = bars
+    return result
+
+
+def _detect_pre_breakout(levels: dict) -> dict:
+    """
+    Scan recent 5-min bars for pre-breakout consolidation patterns.
+    Returns: {setup: bool, signals: list[str], entry_px: float, stop_px: float}
+
+    Fires when 2+ of these are true:
+      1. VWAP reclaim bounce  — price near VWAP and current candle is green
+      2. Tight coil           — last 3 highs within 2.5%, lows stepping up
+      3. Volume dry-up        — recent bars trading at <45% of prior volume
+      4. Near breakout level  — within 2% of first candle high (the trigger)
+      5. Higher lows          — last 3 bar lows are each higher than the one before
+    """
+    result = {"setup": False, "signals": [], "entry_px": 0.0, "stop_px": 0.0}
+    bars = levels.get("bars", [])
+    if len(bars) < 4:
+        return result
+
+    vwap      = levels["vwap"]
+    fch       = levels["first_candle_high"]
+    cur_price = levels["cur_price"]
+    recent    = bars[-4:]
+    last      = bars[-1]
+
+    signals: list[str] = []
+
+    # 1. VWAP reclaim bounce
+    if vwap > 0:
+        dist = (cur_price - vwap) / vwap * 100
+        if 0.0 <= dist <= 6.0 and last["c"] > last["o"]:
+            signals.append(f"VWAP reclaim bounce (${vwap:.4f})")
+
+    # 2. Tight coil: last 3 highs within 2.5%, lows not making lower lows
+    last3 = bars[-3:]
+    if len(last3) == 3:
+        high_spread = (max(b["h"] for b in last3) - min(b["h"] for b in last3)) / max(b["h"] for b in last3) * 100
+        if high_spread < 2.5 and last3[-1]["l"] >= last3[0]["l"]:
+            signals.append(f"tight coil ({high_spread:.1f}% high range)")
+
+    # 3. Volume dry-up: last 2 bars avg < 45% of prior 3 bars avg
+    if len(bars) >= 5:
+        avg_recent = (bars[-1]["v"] + bars[-2]["v"]) / 2
+        avg_prior  = sum(b["v"] for b in bars[-5:-2]) / 3
+        if avg_prior > 0 and avg_recent / avg_prior < 0.45:
+            signals.append(f"volume dry-up ({avg_recent/avg_prior*100:.0f}% of prior avg)")
+
+    # 4. Near first candle high breakout level
+    if fch > 0:
+        dist_fch = (fch - cur_price) / cur_price * 100
+        if 0.0 < dist_fch < 2.5:
+            signals.append(f"within 2.5% of first candle high ${fch:.4f}")
+
+    # 5. Higher lows: 3 consecutive bars with each low > previous
+    if (len(bars) >= 3
+            and bars[-1]["l"] > bars[-2]["l"]
+            and bars[-2]["l"] > bars[-3]["l"]):
+        signals.append("higher lows (demand stepping up)")
+
+    if len(signals) >= 2:
+        consol_low = min(b["l"] for b in bars[-3:])
+        # Entry: breakout above the tightest recent high
+        entry_px = round(max(b["h"] for b in bars[-3:]), 4)
+        stop_px  = round(consol_low * 0.985, 4)   # 1.5% below consolidation low
+        result.update({
+            "setup":    True,
+            "signals":  signals,
+            "entry_px": entry_px,
+            "stop_px":  stop_px,
+        })
+    return result
+
+
+def _detect_momentum_fade(levels: dict, entry_px: float, float_shares_m: float) -> dict:
+    """
+    Scan recent 5-min bars for momentum exhaustion.
+    Returns: {action: 'hold'|'trail'|'exit', reason: str, trail_stop: float}
+
+    Exit signals (any one → EXIT):
+      - Two consecutive red candles + declining volume after a session high
+      - Bearish engulfing candle at or near session high
+
+    Trail signals (any one → TRAIL STOP at 2-bar low):
+      - Volume drops to <20% of session peak bar volume
+      - Float rotated >2.5x intraday (distribution risk)
+      - No new session high in last 5 bars (momentum stalling)
+    """
+    result = {"action": "hold", "reason": "", "trail_stop": 0.0}
+    bars = levels.get("bars", [])
+    if len(bars) < 4:
+        return result
+
+    session_high = levels["session_high"]
+    cur_price    = levels["cur_price"]
+    last  = bars[-1]; prev = bars[-2]
+
+    exit_signals:  list[str] = []
+    trail_signals: list[str] = []
+
+    # EXIT 1: two consecutive red candles + declining volume, below recent high
+    if len(bars) >= 3:
+        red_now  = last["c"] < last["o"]
+        red_prev = prev["c"] < prev["o"]
+        vol_fall = last["v"] < prev["v"]
+        # Only meaningful if price was elevated (above entry by >10%)
+        if entry_px > 0 and cur_price > entry_px * 1.10:
+            if red_now and red_prev and vol_fall and cur_price < session_high * 0.96:
+                exit_signals.append("2 red candles + declining vol after high → sellers in control")
+
+    # EXIT 2: bearish engulfing after a high (prev green, current engulfs it)
+    if (prev["c"] > prev["o"]                  # prior bar was green
+            and last["o"] >= prev["c"] * 0.99  # gapped up or flat into this bar
+            and last["c"] < prev["o"]           # closed below prior bar open
+            and cur_price < session_high * 0.97):
+        exit_signals.append("bearish engulfing candle after session high")
+
+    # TRAIL 1: volume exhaustion vs session peak bar
+    all_vols = [b["v"] for b in bars]
+    peak_vol = max(all_vols) if all_vols else 1
+    if peak_vol > 0 and last["v"] / peak_vol < 0.20 and entry_px > 0 and cur_price > entry_px:
+        trail_signals.append(f"volume at {last['v']/peak_vol*100:.0f}% of session peak (buyers thinning)")
+
+    # TRAIL 2: float rotation >2.5x
+    if float_shares_m > 0:
+        session_vol = sum(b["v"] for b in bars)
+        rotation    = session_vol / (float_shares_m * 1_000_000)
+        if rotation > 2.5:
+            trail_signals.append(f"float rotated {rotation:.1f}x — distribution risk")
+
+    # TRAIL 3: no new session high in last 5 bars, momentum stalling
+    if len(bars) >= 5:
+        recent_high = max(b["h"] for b in bars[-5:])
+        if recent_high < session_high and cur_price < session_high * 0.95:
+            trail_signals.append("no new high in last 5 bars — momentum stalling")
+
+    # Trailing stop = lowest low of last 2 bars - 1%
+    trail_stop = round(min(last["l"], prev["l"]) * 0.99, 4)
+
+    if exit_signals:
+        result.update({"action": "exit",  "reason": " | ".join(exit_signals),  "trail_stop": trail_stop})
+    elif trail_signals:
+        result.update({"action": "trail", "reason": " | ".join(trail_signals), "trail_stop": trail_stop})
+
+    return result
+
+
+def run_momentum_watch() -> None:
+    """
+    Intraday momentum watch — runs at 10:30 AM and 11:30 AM alongside the main scan.
+
+    For each active small-cap play (open positions + watchlist movers ≥8%):
+      → Fires "BREAKOUT SETUP" Telegram alert when consolidation signals align
+        so you get in at the right moment before the second leg, not after it.
+      → Fires "EXIT" or "TRAIL STOP" alert with exact price when momentum fades
+        so you stay in for the full move but don't give back the gains.
+
+    Entry tiers for breakout setup:
+      Limit order: place at entry_px (tight above consolidation high)
+      Stop:        stop_px (below consolidation low)
+      Targets:     +30% / +50% / 2x from entry (Moon Shot if applicable)
+
+    Exit / trail model:
+      At T1 (+30% from entry): raise stop to break-even
+      At T2 (+50%):            trail at 2-bar low
+      EXIT signal:             exit market order immediately
+    """
+    import re as _re
+    now_et = datetime.now(ET)
+    print(f"\n  📡 MOMENTUM WATCH — {now_et.strftime('%I:%M %p ET')}")
+
+    # Collect active plays
+    active_plays: list[dict] = []
+
+    # 1. Open positions from position log
+    try:
+        if os.path.exists("dman_positions.json"):
+            with open("dman_positions.json") as _pf:
+                for pos in json.load(_pf):
+                    t = pos.get("ticker", "")
+                    e = float(pos.get("entry", 0))
+                    fl = float(pos.get("float_m", 0))
+                    if t and e > 0:
+                        active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
+    except Exception:
+        pass
+
+    # 2. DMAN_SMALLCAP_WATCHLIST: anything that gapped ≥8% this morning
+    already = {p["ticker"] for p in active_plays}
+    for ticker in DMAN_SMALLCAP_WATCHLIST:
+        if ticker in already:
+            continue
+        try:
+            fi   = yf.Ticker(ticker).fast_info
+            ppx  = float(fi.last_price or 0)
+            ppc  = float(fi.previous_close or 0)
+            if ppx <= 0 or ppc <= 0:
+                continue
+            gap = (ppx - ppc) / ppc * 100
+            if gap >= 8.0:
+                fl_m, _, _, _ = _get_short_float_data(ticker)
+                active_plays.append({"ticker": ticker, "entry": 0.0,
+                                     "float_m": fl_m, "source": f"gap {gap:+.1f}%"})
+        except Exception:
+            continue
+
+    if not active_plays:
+        print("  No active small-cap plays — nothing to watch.")
+        return
+
+    setup_alerts: list[str] = []
+    fade_alerts:  list[str] = []
+
+    for play in active_plays:
+        ticker  = play["ticker"]
+        entry   = play["entry"]
+        fl_m    = play["float_m"]
+        source  = play["source"]
+
+        try:
+            df_5m  = _fetch_intraday_bars(ticker, interval="5m", period="1d")
+            levels = _compute_session_levels(df_5m)
+            if levels["cur_price"] == 0.0:
+                continue
+
+            cur = levels["cur_price"]
+            vwap = levels["vwap"]
+
+            if entry == 0.0:
+                # Not in position — look for breakout setup
+                bp = _detect_pre_breakout(levels)
+                if bp["setup"]:
+                    risk_px = round(bp["entry_px"] - bp["stop_px"], 4)
+                    t1 = round(bp["entry_px"] * 1.30, 4)
+                    t2 = round(bp["entry_px"] * 1.50, 4)
+                    t3_str = f"  T3 2x: ${round(bp['entry_px'] * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
+                    setup_alerts.append(
+                        f"🟡 <b>{ticker}</b>  BREAKOUT SETUP  [{source}]\n"
+                        f"   {' + '.join(bp['signals'][:3])}\n"
+                        f"   Entry: <b>${bp['entry_px']:.4f}</b>  Stop: ${bp['stop_px']:.4f}  "
+                        f"(risk ${risk_px:.4f}/sh)\n"
+                        f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
+                        f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
+                    )
+            else:
+                # In position — check fade + trailing stop levels
+                gain_pct = (cur - entry) / entry * 100 if entry > 0 else 0.0
+                fd = _detect_momentum_fade(levels, entry, fl_m)
+
+                # Always compute dynamic trailing levels regardless of fade signal
+                # T1 hit (+30%): stop moves to break-even
+                # T2 hit (+50%): stop trails to 2-bar low
+                be_stop   = round(entry * 1.002, 4)   # break-even + 0.2% buffer
+                trail_now = fd["trail_stop"]
+                if gain_pct >= 50.0:
+                    stop_rec = f"${trail_now:.4f} (2-bar low trail — T2 reached)"
+                elif gain_pct >= 30.0:
+                    stop_rec = f"${be_stop:.4f} (move to break-even — T1 reached)"
+                else:
+                    stop_rec = f"${be_stop:.4f} (original stop — below entry)"
+
+                if fd["action"] in ("exit", "trail"):
+                    emoji = "🔴" if fd["action"] == "exit" else "🟡"
+                    action_label = "EXIT NOW" if fd["action"] == "exit" else "TRAIL STOP"
+                    fade_alerts.append(
+                        f"{emoji} <b>{ticker}</b>  {action_label}  [{source}]\n"
+                        f"   {fd['reason']}\n"
+                        f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
+                        f"P&L: <b>{gain_pct:+.1f}%</b>\n"
+                        f"   Recommended stop → {stop_rec}\n"
+                        f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
+                    )
+                else:
+                    # Momentum intact — still report trailing levels so you know where your stop is
+                    if gain_pct >= 10.0:   # Only report if we have meaningful gains
+                        fade_alerts.append(
+                            f"✅ <b>{ticker}</b>  MOMENTUM INTACT  [{source}]\n"
+                            f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
+                            f"P&L: <b>{gain_pct:+.1f}%</b>\n"
+                            f"   Active stop → {stop_rec}\n"
+                            f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
+                        )
+
+        except Exception:
+            continue
+
+    if not setup_alerts and not fade_alerts:
+        print(f"  All clear at {now_et.strftime('%H:%M')} — no setups or fade signals.")
+        return
+
+    lines = [f"📡 <b>DMan Momentum Watch</b>  {now_et.strftime('%I:%M %p ET')}"]
+
+    if setup_alerts:
+        lines.append(f"\n🔔 <b>BREAKOUT SETUP ({len(setup_alerts)})</b> — entry NOW before next leg\n")
+        for a in setup_alerts:
+            lines.append(a)
+            lines.append("")
+
+    if fade_alerts:
+        lines.append(f"\n📊 <b>POSITION STATUS ({len(fade_alerts)})</b>\n")
+        for a in fade_alerts:
+            lines.append(a)
+            lines.append("")
+
+    lines.append("<i>Trailing model: T1(+30%)→move stop to break-even | T2(+50%)→trail 2-bar low | EXIT signal→market out</i>")
+
+    msg = "\n".join(lines)
+    print(_re.sub(r"<[^>]+>", "", msg))
+    send_telegram(msg)
+
+
 def run_premarket_briefing() -> None:
     """
     Daily 9:10 AM ET pre-market briefing.
@@ -6834,7 +7207,7 @@ def main():
         choices=["scan","backtest","performance","regime","record",
                  "watch","rank","open","positions","alpaca","sync",
                  "live-outcomes","live-perf","premarket","premarket-early",
-                 "watchlist","scan-log","readiness","pnl"],
+                 "momentum-watch","watchlist","scan-log","readiness","pnl"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -7111,6 +7484,9 @@ def main():
 
     elif args.mode == "premarket-early":
         run_premarket_early_scan()
+
+    elif args.mode == "momentum-watch":
+        run_momentum_watch()
 
     elif args.mode == "watchlist":
         send_daily_watchlist()

@@ -156,16 +156,13 @@ DMAN_SMALLCAP_WATCHLIST = [
     "SILO",   # +19.8% intraday Jul 8 2026 ($5.78→$6.78) — Dman momentum, watch for day-2
     # Broader low-float universe — Dman-style patterns
     "ATOS",   # perpetual short-squeeze candidate, micro-float
-    "MRIN",   # ultra-low float, OTC runner history
     "IMPP",   # shipping penny — repeated Dman-style RVOL spikes
-    "CJET",   # low-float airline — strong gap history
-    "ACST",   # biotech micro-cap — clinical catalyst plays
     "HPNN",   # ultra-low float OTC — gap-and-hold patterns
     "GFAI",   # AI penny stock — high retail interest
     "BFRI",   # biotech with low float — squeeze setup
     "AITX",   # nano-cap AI theme — Dman-style slow accumulate
-    "ATNF",   # biotech bottom-buy with catalyst potential
     "TRVI",   # low-float biotech — MACD curling plays
+    # MRIN, CJET, ACST, ATNF removed Jul 10 2026 — delisted/no data
 ]
 
 # ── Options layer (Dman style: ITM calls on large-cap signals) ───────────────
@@ -1206,6 +1203,65 @@ def _score_catalyst_tier(bull_news: list[tuple[str, str]],
     return "C"
 
 
+def _detect_day_n_fade(ticker: str, gap_pct: float) -> str:
+    """
+    Detects the Day-N trap: a stock gaps for the Nth consecutive day but
+    prior-day volume is drying up fast, signalling the move is exhausted.
+
+    Classic pattern: Day 1 big RVOL spike → Day 2 gap-and-hold (the trade) →
+    Day 3 gap looks exciting but volume collapses → sellers into latecomers.
+    IOTR Jul 9 2026: +19.2% gap Day 3, but volume dropped 95% vs Day 2.
+
+    Returns a warning string to embed in the Telegram alert, or "" if clean.
+    """
+    if abs(gap_pct) < 5.0:
+        return ""
+    try:
+        df = yf.download(ticker, period="10d", interval="1d",
+                         progress=False, auto_adjust=True)
+        if df is None or len(df) < 4:
+            return ""
+
+        def _gv(row, col):
+            v = row[col]
+            return float(v.item() if hasattr(v, "item") else v)
+
+        vols = [_gv(df.iloc[i], "Volume") for i in range(len(df))]
+
+        # Baseline: average of days 3-8 ago (before the recent momentum run)
+        base_vols = vols[:-2]
+        base_avg  = sum(base_vols) / len(base_vols) if base_vols else 1.0
+
+        prev_vol  = vols[-1]              # most recent full trading day
+        prev_rvol = prev_vol / base_avg if base_avg > 0 else 0.0
+
+        if prev_rvol < 3.0:
+            return ""   # prior day was not unusually hot — not a fade trap
+
+        # Count consecutive elevated-volume days going back
+        hot_days = 1
+        for i in range(len(vols) - 2, max(0, len(vols) - 6), -1):
+            day_base = sum(vols[:i]) / i if i > 0 else 1.0
+            if vols[i] / day_base >= 2.0:
+                hot_days += 1
+            else:
+                break
+
+        day_label = f"Day {hot_days + 1}"
+        pct_of_peak = ""
+        if hot_days >= 2 and len(vols) >= 3:
+            peak_vol = max(vols[-hot_days - 1 : -1])
+            pct_of_peak = f" ({prev_vol / peak_vol * 100:.0f}% of peak-day volume)"
+
+        return (
+            f"\n   ⚠️  {day_label} FADE RISK — prior day {prev_rvol:.0f}x RVOL"
+            f"{pct_of_peak}. Volume likely exhausted."
+            f"\n      Verify live RVOL at open — gap without volume = distribution trap."
+        )
+    except Exception:
+        return ""
+
+
 def run_premarket_early_scan() -> None:
     """
     7 AM ET early scanner — sweeps DMAN_SMALLCAP_WATCHLIST for pre-market movers,
@@ -1251,9 +1307,10 @@ def run_premarket_early_scan() -> None:
                 tier      = _score_catalyst_tier(bull_news, bear_news, edgar_found)
                 bull_pct, st_msgs = _get_stocktwits_sentiment(ticker)
                 pm        = _calc_premarket_levels(ticker, fl_m)
+                fade_warn = _detect_day_n_fade(ticker, gap_pct)
 
                 arrow     = "🟢" if gap_pct > 0 else "🔴"
-                moon_tag  = "  🚀 MOON SHOT" if is_moon else ""
+                moon_tag  = "  🚀 MOON SHOT" if (is_moon and not fade_warn) else ""
                 avoid_tag = "  ⛔ AVOID" if tier == "D" else ""
 
                 tier_labels = {"A": "TIER A — 8-K CONFIRMED", "B": "TIER B — STRONG CATALYST",
@@ -1261,7 +1318,8 @@ def run_premarket_early_scan() -> None:
 
                 # Header
                 header = (f"{arrow} <b>{ticker}</b>  ${pre_px:.4f}  ({gap_pct:+.1f}% vs prev ${prev_close:.4f})"
-                          f"  Float: {fl_m:.2f}M  SI: {si_pct:.0f}%{moon_tag}{avoid_tag}")
+                          f"  Float: {fl_m:.2f}M  SI: {si_pct:.0f}%{moon_tag}{avoid_tag}"
+                          f"{fade_warn}")
 
                 # Catalyst block
                 cat_parts = [f"  📋 <b>CATALYST [{tier_labels.get(tier, tier)}]</b>"]
@@ -4737,6 +4795,20 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         if not (near_bottom or rvol >= 5.0):
             return None
 
+        # Day N fade pre-check: compute _day_n_fade here so it's available for
+        # Moon Shot suppression below (re-computed after gap calc; defined early
+        # so the gate below can skip signals that are pure distribution traps)
+        try:
+            _vols_early = [float(df["Volume"].iloc[i]) for i in range(len(df))]
+            _base_early = sum(_vols_early[:-2]) / len(_vols_early[:-2]) if len(_vols_early) > 2 else 1.0
+            _prev_rvol_early = _vols_early[-2] / _base_early if _base_early > 0 else 0.0
+            # If prior day was very hot (≥10x) and today's RVOL is collapsing (<20%),
+            # skip the signal entirely — high probability distribution trap
+            if _prev_rvol_early >= 10.0 and rvol < _prev_rvol_early * 0.20:
+                return None
+        except Exception:
+            pass
+
         # Ultra-low float tier: < 2M float = "thin walls" — use wider targets
         ultra_low = 0 < fl_m < ULTRA_LOW_FLOAT_M
         t1_mult   = ULTRA_LOW_T1_MULT  if ultra_low else SMALLCAP_T1_MULT
@@ -4750,9 +4822,23 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
                              float(df.iloc[-2]["Close"]) * 100
         except Exception:
             today_gap_pct = 0.0
+
+        # Day N fade guard: if the prior trading day had very high RVOL and
+        # today is still gapping, this is likely a distribution trap (e.g. IOTR Day 3).
+        # Suppress Moon Shot tier and reduce RVOL gate to prevent entry.
+        try:
+            vols = [float(df["Volume"].iloc[i]) for i in range(len(df))]
+            base_avg  = sum(vols[:-2]) / len(vols[:-2]) if len(vols) > 2 else 1.0
+            prev_rvol = vols[-2] / base_avg if base_avg > 0 else 0.0
+            _day_n_fade = (prev_rvol >= 5.0 and rvol < prev_rvol * 0.30
+                           and today_gap_pct >= 5.0)
+        except Exception:
+            _day_n_fade = False
+
         moonshot = (ultra_low
                     and today_gap_pct >= MOONSHOT_MIN_GAP_PCT
-                    and rvol >= MOONSHOT_MIN_RVOL)
+                    and rvol >= MOONSHOT_MIN_RVOL
+                    and not _day_n_fade)   # never Moon Shot a Day-N fade trap
 
         # Entry / stop / targets — wider stops than large-cap (penny stocks whipsaw)
         entry = round(c * 1.002, 4)

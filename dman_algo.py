@@ -163,6 +163,10 @@ DMAN_SMALLCAP_WATCHLIST = [
     "AITX",   # nano-cap AI theme — Dman-style slow accumulate
     "TRVI",   # low-float biotech — MACD curling plays
     # MRIN, CJET, ACST, ATNF removed Jul 10 2026 — delisted/no data
+    # Dman Jul 2 2026 tweets — fake-offering bounce + penny OTC runners
+    "LABT",   # biotech, Dman loaded <$3 on fake-offering scare, target $10-20
+    "YHC",    # penny OTC, Dman added .04s for 100%+ run → .08-.12 target
+    "LIMN",   # +125% from 52-week low .09s (Jul 2 call) — watch for continuation
 ]
 
 # ── Options layer (Dman style: ITM calls on large-cap signals) ───────────────
@@ -971,7 +975,7 @@ def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, li
     try:
         from alpaca.data.historical.news import NewsClient as _NC
         from alpaca.data.requests import NewsRequest as _NR
-        _nc = _NC(api_key=ALPACA_API_KEY, secret_key=ALPACA_API_SECRET)
+        _nc = _NC(api_key=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY)
         for ticker in tickers:
             try:
                 req  = _NR(symbols=[ticker], start=cutoff, limit=5)
@@ -1074,6 +1078,40 @@ def _get_stocktwits_sentiment(ticker: str) -> tuple[float, int]:
         return (bull / tagged * 100 if tagged > 0 else 0.0), len(messages)
     except Exception:
         return 0.0, 0
+
+
+def _fetch_dman_stocktwits_calls(hours_back: int = 48) -> list[tuple[str, str, str]]:
+    """Fetch @professorDman1's recent StockTwits posts and extract ticker mentions.
+    Returns list of (ticker, message_excerpt, timestamp_str).
+    StockTwits public API — no auth key required.
+    """
+    results: list[tuple[str, str, str]] = []
+    try:
+        resp = requests.get(
+            "https://api.stocktwits.com/api/2/streams/user/professorDman1.json",
+            timeout=8,
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        if resp.status_code != 200:
+            return results
+        messages = resp.json().get("messages", [])
+        cutoff = datetime.now(ET) - timedelta(hours=hours_back)
+        for msg in messages:
+            try:
+                ts = datetime.fromisoformat(
+                    msg.get("created_at", "").replace("Z", "+00:00")
+                ).astimezone(ET)
+                if ts < cutoff:
+                    continue
+                symbols = [s["symbol"] for s in msg.get("entities", {}).get("symbols", [])]
+                body = msg.get("body", "")[:200]
+                for sym in symbols:
+                    results.append((sym.upper(), body, ts.strftime("%m/%d %I:%M %p")))
+            except Exception:
+                continue
+    except Exception:
+        pass
+    return results
 
 
 _PM_LEVEL_DEFAULTS: dict = {
@@ -1431,7 +1469,8 @@ def run_premarket_early_scan() -> None:
                     f"   Pre-mkt: ${pre_px:.4f}  ({gap_pct:+.1f}% — gap not triggered yet)"
                 )
 
-        except Exception:
+        except Exception as _e:
+            print(f"  ⚠️  [{ticker}] early scan error: {_e}")
             continue
 
     mover_blocks.sort(key=lambda x: x[0], reverse=True)
@@ -1454,6 +1493,20 @@ def run_premarket_early_scan() -> None:
 
     if not mover_blocks and not news_alerts:
         lines.append("\n✅ Clean — no movers or catalysts. Normal open expected.")
+
+    # Dman Radar — @professorDman1 StockTwits posts last 48h
+    _dman_calls = _fetch_dman_stocktwits_calls(hours_back=48)
+    if _dman_calls:
+        _radar: dict[str, tuple[str, str]] = {}
+        for _sym, _body, _ts in _dman_calls:
+            if _sym not in _radar:
+                _radar[_sym] = (_body, _ts)
+        _mover_set = {blk.split("<b>")[1].split("</b>")[0] for _, blk in mover_blocks if "<b>" in blk}
+        _radar_lines = []
+        for _sym, (_body, _ts) in list(_radar.items())[:8]:
+            _tag = "  🔥 <b>GAPPING NOW</b>" if _sym in _mover_set else ""
+            _radar_lines.append(f"  • <b>${_sym}</b>{_tag}  [{_ts}]  \"{_body[:100]}\"")
+        lines.append("\n👁 <b>DMAN RADAR</b> (@professorDman1 last 48h)\n" + "\n".join(_radar_lines))
 
     lines.append("<i>Tier A=8-K filed | B=strong catalyst | C=PR | D=avoid</i>")
     lines.append("<i>Entry: Aggressive=pre-mkt VWAP | Moderate=9:30 first candle | Conservative=9:45 hold</i>")
@@ -6956,7 +7009,8 @@ def submit_alpaca_trade(signal: ProSignal) -> Optional[str]:
             time_in_force = TimeInForce.DAY,
             order_class   = OrderClass.BRACKET,
             take_profit   = TakeProfitRequest(limit_price=target_px),
-            stop_loss     = StopLossRequest(stop_price=stop_px),
+            stop_loss     = StopLossRequest(stop_price=stop_px,
+                                            limit_price=round(max(stop_px * 0.85, 0.01), 2)),
         ))
         oid = str(order.id)
         label = "PAPER" if ALPACA_PAPER else "LIVE"
@@ -7150,12 +7204,12 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
     Fetch live Alpaca account snapshot and send a P&L summary to Telegram.
     Called automatically at 4 PM EOD and available via --mode pnl for on-demand use.
     """
-    if not ALPACA_API_KEY or not ALPACA_API_SECRET:
+    if not ALPACA_API_KEY or not ALPACA_SECRET_KEY:
         print("  Alpaca credentials not configured — skipping P&L summary")
         return
     try:
         from alpaca.trading.client import TradingClient
-        tc    = TradingClient(ALPACA_API_KEY, ALPACA_API_SECRET, paper=ALPACA_PAPER)
+        tc    = TradingClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=ALPACA_PAPER)
         acct  = tc.get_account()
         equity     = float(acct.equity)
         last_eq    = float(acct.last_equity)
@@ -7244,7 +7298,11 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     send_telegram(msg)
                     print(f"  ⚠️  PDT: {_remaining} day trade(s) remaining (equity ${_equity:,.0f})")
         except Exception as _pdt_exc:
-            print(f"  ⚠️  Could not verify PDT status — proceeding: {_pdt_exc}")
+            _pdt_msg = (f"🚫 <b>DMan LIVE — PDT CHECK FAILED</b>: Cannot verify day-trade "
+                        f"count ({_pdt_exc}). No orders submitted to prevent ghost positions.")
+            send_telegram(_pdt_msg)
+            print(f"  🚫 PDT check failed — halting to prevent ghost positions: {_pdt_exc}")
+            return
 
         # Warn (but do not block) if FOMC is within 7 days
         _today_live = date.today()
@@ -7599,7 +7657,10 @@ def main():
             print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
             for s in signals:
                 print_pro_signal(s)
-            _submit_signals_to_alpaca(signals)
+            if args.submit:
+                _submit_signals_to_alpaca(signals)
+            else:
+                print("  [dry-run] Pass --submit to place live orders.\n")
             if args.export:
                 fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
                 with open(fname, "w") as f:

@@ -132,6 +132,19 @@ jobs:
               )
               sys.exit(result.returncode)
 
+          # 4:00 PM ET EOD P&L summary.
+          # Must be checked BEFORE the market-hours gate below because GitHub
+          # Actions runners often queue 3-10 min past cron fire time — by the
+          # time Python runs it's 4:03-4:08 PM (t=1603-1608) and the strict
+          # t<=1600 guard would silently exit, which is why P&L never arrived.
+          # Window: 3:55 PM – 4:20 PM ET to absorb all realistic queue delays.
+          if now.weekday() < 5 and 1555 <= t <= 1620:
+              result = subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "pnl"],
+                  capture_output=False
+              )
+              sys.exit(result.returncode)
+
           if now.weekday() >= 5 or not (930 <= t <= 1600):
               print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")
               sys.exit(0)

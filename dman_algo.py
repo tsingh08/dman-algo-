@@ -147,13 +147,13 @@ DMAN_SMALLCAP_WATCHLIST = [
     "ARTL",   # 3.49M float — mentioned in 100-600% runner week
     "ELAB",   # 4.54M float — confirmed multi-day runner
     # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
-    "IOTR",   # 0.64M float — +40.7% gap Jul 8 2026 on 21.6x RVOL (24.5M vol); Moon Shot profile; day-3 watch
+    "IOTR",   # 0.64M float — +40.7% gap Jul 8; Day 3 faded (H=O); Day 4 dead (0.0x RVOL); watch for reset
     "GDC",    # $0.02 penny — Dman "will be a $1" call, ultra-low float
     # ADTX removed Jul 9 2026 — stock at $0.004, -25% on Jul 8, effectively dead
     "CDT",    # 200% swing runner — Dman low-float call
     "LNKS",   # 200% runner — mentioned same tweet thread as CDT
     "CAST",   # micro-cap catalyst — Dman watch
-    "SILO",   # +19.8% intraday Jul 8 2026 ($5.78→$6.78) — Dman momentum, watch for day-2
+    "SILO",   # Jul 8+9 ran +19.8%/+14% on low RVOL; Day 4 -26% air-pocket (deferred fade pattern)
     # Broader low-float universe — Dman-style patterns
     "ATOS",   # perpetual short-squeeze candidate, micro-float
     "IMPP",   # shipping penny — repeated Dman-style RVOL spikes
@@ -1205,19 +1205,23 @@ def _score_catalyst_tier(bull_news: list[tuple[str, str]],
 
 def _detect_day_n_fade(ticker: str, gap_pct: float) -> str:
     """
-    Detects the Day-N trap: a stock gaps for the Nth consecutive day but
-    prior-day volume is drying up fast, signalling the move is exhausted.
+    Detects two momentum exhaustion patterns:
 
-    Classic pattern: Day 1 big RVOL spike → Day 2 gap-and-hold (the trade) →
-    Day 3 gap looks exciting but volume collapses → sellers into latecomers.
-    IOTR Jul 9 2026: +19.2% gap Day 3, but volume dropped 95% vs Day 2.
+    Pattern A — Immediate collapse (IOTR Day 3):
+      Day 1: huge RVOL spike → Day 2: gap+hold trade → Day 3: gaps again but
+      volume drops 80%+ → sellers distributing into latecomers.
 
-    Returns a warning string to embed in the Telegram alert, or "" if clean.
+    Pattern B — Deferred collapse (SILO Day 4):
+      Day 1: huge RVOL spike → Day 2-3: price drifts UP on very low RVOL
+      (trapped longs holding, no new buyers) → Day 4: air pocket collapse.
+      SILO Jul 10 2026: 51x RVOL Tue → 0.2x Wed/Thu → -26% Friday.
+
+    Returns a warning string, or "" if clean.
     """
     if abs(gap_pct) < 5.0:
         return ""
     try:
-        df = yf.download(ticker, period="10d", interval="1d",
+        df = yf.download(ticker, period="15d", interval="1d",
                          progress=False, auto_adjust=True)
         if df is None or len(df) < 4:
             return ""
@@ -1226,38 +1230,65 @@ def _detect_day_n_fade(ticker: str, gap_pct: float) -> str:
             v = row[col]
             return float(v.item() if hasattr(v, "item") else v)
 
-        vols = [_gv(df.iloc[i], "Volume") for i in range(len(df))]
+        vols   = [_gv(df.iloc[i], "Volume") for i in range(len(df))]
+        closes = [_gv(df.iloc[i], "Close")  for i in range(len(df))]
 
-        # Baseline: average of days 3-8 ago (before the recent momentum run)
-        base_vols = vols[:-2]
+        # Baseline: 5-day avg excluding the most recent 3 days
+        base_vols = vols[:-3] if len(vols) > 4 else vols[:-2]
         base_avg  = sum(base_vols) / len(base_vols) if base_vols else 1.0
 
-        prev_vol  = vols[-1]              # most recent full trading day
+        # Find the peak-volume day in the last 6 sessions
+        recent_vols = vols[-6:]
+        peak_vol    = max(recent_vols)
+        peak_rvol   = peak_vol / base_avg if base_avg > 0 else 0.0
+
+        if peak_rvol < 3.0:
+            return ""   # no hot day in recent history — not a fade setup
+
+        peak_idx_in_recent = len(vols) - 6 + recent_vols.index(peak_vol)
+
+        # Days since the peak-volume day
+        days_since_peak = len(vols) - 1 - peak_idx_in_recent
+
+        # Volume trend since the peak (last 2 full trading days before today)
+        post_peak_vols = vols[peak_idx_in_recent + 1:]  # days after the spike
+        if not post_peak_vols:
+            return ""
+
+        avg_post_peak = sum(post_peak_vols) / len(post_peak_vols)
+        vol_decay_pct = avg_post_peak / peak_vol * 100  # % of peak still trading
+
+        # Pattern A: prior day alone was hot → immediate Day N trap
+        prev_vol  = vols[-1]
         prev_rvol = prev_vol / base_avg if base_avg > 0 else 0.0
+        is_pattern_a = (prev_rvol >= 3.0 and days_since_peak <= 1)
 
-        if prev_rvol < 3.0:
-            return ""   # prior day was not unusually hot — not a fade trap
+        # Pattern B: peak was 2-4 days ago, price drifted up on thin volume
+        # (the "deferred collapse" — price floats on no sellers, then air-pockets)
+        price_above_peak_close = (closes[-1] > closes[peak_idx_in_recent]
+                                   if peak_idx_in_recent < len(closes) - 1 else False)
+        is_pattern_b = (days_since_peak >= 2
+                        and vol_decay_pct < 30.0       # volume collapsed >70%
+                        and peak_rvol >= 5.0            # original spike was real
+                        and price_above_peak_close)     # price still elevated = air pocket
 
-        # Count consecutive elevated-volume days going back
-        hot_days = 1
-        for i in range(len(vols) - 2, max(0, len(vols) - 6), -1):
-            day_base = sum(vols[:i]) / i if i > 0 else 1.0
-            if vols[i] / day_base >= 2.0:
-                hot_days += 1
-            else:
-                break
+        if not (is_pattern_a or is_pattern_b):
+            return ""
 
-        day_label = f"Day {hot_days + 1}"
-        pct_of_peak = ""
-        if hot_days >= 2 and len(vols) >= 3:
-            peak_vol = max(vols[-hot_days - 1 : -1])
-            pct_of_peak = f" ({prev_vol / peak_vol * 100:.0f}% of peak-day volume)"
-
-        return (
-            f"\n   ⚠️  {day_label} FADE RISK — prior day {prev_rvol:.0f}x RVOL"
-            f"{pct_of_peak}. Volume likely exhausted."
-            f"\n      Verify live RVOL at open — gap without volume = distribution trap."
-        )
+        day_label = f"Day {days_since_peak + 1}"
+        if is_pattern_b:
+            return (
+                f"\n   ⚠️  {day_label} DEFERRED FADE RISK — {days_since_peak}d after {peak_rvol:.0f}x RVOL spike,"
+                f" volume decayed to {vol_decay_pct:.0f}% of peak."
+                f"\n      Price elevated on no buyers = air-pocket risk. DO NOT chase gap."
+            )
+        else:
+            pct_str = f" ({prev_vol / peak_vol * 100:.0f}% of peak)" if peak_vol > 0 else ""
+            return (
+                f"\n   ⚠️  {day_label} FADE RISK — prior day {prev_rvol:.0f}x RVOL{pct_str}."
+                f" Volume likely exhausted."
+                f"\n      Verify live RVOL at open — gap without volume = distribution trap."
+            )
     except Exception:
         return ""
 
@@ -1891,6 +1922,9 @@ def run_premarket_briefing() -> None:
                                    f"acute fear; size reduction active")
         if def_rot_str and def_rot_str != "none":
             regime_warnings.append(f"🔄 <b>DEFENSIVE ROTATION</b>: {def_rot_str} — tech longs -5pts")
+        vix_comp_str = det.get("VIX Complacency", "none")
+        if vix_comp_str and vix_comp_str != "none":
+            regime_warnings.append(f"😴 {vix_comp_str}")
         if qqq_ema20_dist is not None and qqq_ema20_dist < -0.5:
             regime_warnings.append(
                 f"🔴 <b>QQQ below EMA20</b> ({qqq_ema20_dist:+.2f}%) — tech index in declining trend; "
@@ -2980,6 +3014,7 @@ def get_market_regime() -> dict:
         # marks a volatility spike event. VIX sizing already handles this via raw VIX level;
         # term structure shows HOW the market is pricing that fear (spike vs regime shift).
         vix_term_note = "N/A"
+        vix_complacency_warn = ""
         try:
             vix3m_df = fetch_df("^VIX3M")
             if vix3m_df is not None and len(vix3m_df) >= 1:
@@ -2995,6 +3030,26 @@ def get_market_regime() -> dict:
                 else:
                     vix_term_note = (f"normal {ts_ratio:.2f}x "
                                      f"(VIX {vix_val:.1f} < VIX3M {vix3m_val:.1f})")
+        except Exception:
+            pass
+
+        # VIX complacency warning — when VIX is 10%+ below its own 20-day EMA,
+        # the market is pricing in near-zero risk. This often precedes sharp
+        # reversals because any surprise triggers outsized moves.
+        # VIX Fri Jul 10 2026: 15.0 vs EMA20=17.1 = -12% → complacency alert.
+        try:
+            _vix_df_ema = fetch_df("^VIX")
+            if _vix_df_ema is not None and len(_vix_df_ema) >= 20:
+                _vix_closes = [float(_vix_df_ema["Close"].iloc[i])
+                               for i in range(len(_vix_df_ema))]
+                _vix_ema20  = sum(_vix_closes[-20:]) / 20   # simple avg as proxy
+                _vix_vs_ema = (vix_val - _vix_ema20) / _vix_ema20 * 100
+                if _vix_vs_ema <= -10.0:
+                    vix_complacency_warn = (
+                        f"⚠️ VIX COMPLACENCY: {vix_val:.1f} is {abs(_vix_vs_ema):.0f}% "
+                        f"below its 20d avg ({_vix_ema20:.1f}) — market pricing near-zero risk. "
+                        f"Surprises hit harder in this environment; size conservatively."
+                    )
         except Exception:
             pass
 
@@ -3074,7 +3129,8 @@ def get_market_regime() -> dict:
                 "DXY Trend":         dxy_trend,
                 "DXY Note":          dxy_note,
                 "VIX Shock":         vix_shock_note or ("none" if not vix_shock else "detected"),
-                "VIX Term Structure":vix_term_note,
+                "VIX Term Structure": vix_term_note,
+                "VIX Complacency":   vix_complacency_warn or "none",
                 "Def Rotation":      def_rotation_note or ("none" if not defensive_rotation else "detected"),
             }
         })
@@ -7609,6 +7665,13 @@ def main():
                 with open(fname, "w") as f:
                     json.dump([asdict(s) for s in signals], f, indent=2)
                 print(f"  💾 Signals exported to {fname}\n")
+
+        # Safety EOD P&L — fires on the 3:30 PM scan as a belt-and-suspenders backup
+        # in case the dedicated 4 PM cron is delayed past the market-hours gate.
+        _eod_t = datetime.now(ET).hour * 100 + datetime.now(ET).minute
+        if 1525 <= _eod_t <= 1600:
+            print("\n  [EOD] Final scan window — sending P&L summary...")
+            send_account_pnl_telegram("EOD")
 
         # Scan heartbeat — include regime context so user knows why it's quiet
         # get_market_regime() is cheap here because fetch_df() hits the in-memory cache

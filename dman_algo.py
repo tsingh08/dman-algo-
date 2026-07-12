@@ -1114,6 +1114,59 @@ def _fetch_dman_stocktwits_calls(hours_back: int = 48) -> list[tuple[str, str, s
     return results
 
 
+def _fetch_dman_twitter_calls(hours_back: int = 48) -> list[tuple[str, str, str]]:
+    """Fetch @professorDman1 tweets via Nitter RSS (no API key, no login).
+    Tries multiple public Nitter instances in order; silently returns [] on full failure.
+    Returns list of (ticker, tweet_excerpt, timestamp_str).
+    """
+    import re as _re
+    import xml.etree.ElementTree as _etree
+    from email.utils import parsedate_to_datetime as _parse_date
+
+    _NITTER_INSTANCES = [
+        "https://nitter.privacydev.net",
+        "https://nitter.poast.org",
+        "https://nitter.net",
+        "https://nitter.lucabased.xyz",
+    ]
+    cutoff  = datetime.now(ET) - timedelta(hours=hours_back)
+    results: list[tuple[str, str, str]] = []
+
+    for _base in _NITTER_INSTANCES:
+        try:
+            _resp = requests.get(
+                f"{_base}/professorDman1/rss",
+                timeout=8,
+                headers={"User-Agent": "Mozilla/5.0"},
+            )
+            if _resp.status_code != 200:
+                continue
+            _root  = _etree.fromstring(_resp.content)
+            _items = _root.findall(".//item")
+            if not _items:
+                continue
+            for _item in _items:
+                try:
+                    _pub = _item.findtext("pubDate", "")
+                    _ts  = _parse_date(_pub).astimezone(ET) if _pub else None
+                    if _ts and _ts < cutoff:
+                        continue
+                    _raw  = (_item.findtext("title", "") + " " + _item.findtext("description", ""))
+                    _text = _re.sub(r"<[^>]+>", " ", _raw).strip()
+                    _syms = list(dict.fromkeys(_re.findall(r"\$([A-Za-z]{1,5})\b", _text)))
+                    _ts_s = _ts.strftime("%m/%d %I:%M %p") if _ts else "?"
+                    for _sym in _syms:
+                        results.append((_sym.upper(), _text[:200], _ts_s))
+                except Exception:
+                    continue
+            if results:
+                return results   # got data from this instance — stop trying
+        except Exception:
+            continue
+
+    return results
+
+
 _PM_LEVEL_DEFAULTS: dict = {
     "pm_vwap": 0.0, "pm_vol": 0, "float_rotation_pct": 0.0,
     "pm_high": 0.0, "pm_low": 0.0, "price_vs_vwap_pct": 0.0,
@@ -1494,19 +1547,24 @@ def run_premarket_early_scan() -> None:
     if not mover_blocks and not news_alerts:
         lines.append("\n✅ Clean — no movers or catalysts. Normal open expected.")
 
-    # Dman Radar — @professorDman1 StockTwits posts last 48h
-    _dman_calls = _fetch_dman_stocktwits_calls(hours_back=48)
-    if _dman_calls:
-        _radar: dict[str, tuple[str, str]] = {}
-        for _sym, _body, _ts in _dman_calls:
-            if _sym not in _radar:
-                _radar[_sym] = (_body, _ts)
+    # Dman Radar — merge X/Twitter (primary) + StockTwits (fallback)
+    _dman_tw = _fetch_dman_twitter_calls(hours_back=48)
+    _dman_st = _fetch_dman_stocktwits_calls(hours_back=48)
+    # ticker → (body, ts_str, source_label); Twitter overwrites StockTwits on duplicates
+    _radar: dict[str, tuple[str, str, str]] = {}
+    for _sym, _body, _ts in _dman_st:
+        if _sym not in _radar:
+            _radar[_sym] = (_body, _ts, "ST")
+    for _sym, _body, _ts in _dman_tw:
+        _radar[_sym] = (_body, _ts, "𝕏")
+    if _radar:
         _mover_set = {blk.split("<b>")[1].split("</b>")[0] for _, blk in mover_blocks if "<b>" in blk}
         _radar_lines = []
-        for _sym, (_body, _ts) in list(_radar.items())[:8]:
-            _tag = "  🔥 <b>GAPPING NOW</b>" if _sym in _mover_set else ""
-            _radar_lines.append(f"  • <b>${_sym}</b>{_tag}  [{_ts}]  \"{_body[:100]}\"")
-        lines.append("\n👁 <b>DMAN RADAR</b> (@professorDman1 last 48h)\n" + "\n".join(_radar_lines))
+        for _sym, (_body, _ts, _src) in list(_radar.items())[:8]:
+            _gap_tag = "  🔥 <b>GAPPING NOW</b>" if _sym in _mover_set else ""
+            _radar_lines.append(f"  • <b>${_sym}</b>  [{_src}]{_gap_tag}  [{_ts}]  \"{_body[:100]}\"")
+        _offline_note = "  <i>(𝕏 offline — StockTwits only)</i>" if not _dman_tw else ""
+        lines.append(f"\n👁 <b>DMAN RADAR</b> (@professorDman1 last 48h){_offline_note}\n" + "\n".join(_radar_lines))
 
     lines.append("<i>Tier A=8-K filed | B=strong catalyst | C=PR | D=avoid</i>")
     lines.append("<i>Entry: Aggressive=pre-mkt VWAP | Moderate=9:30 first candle | Conservative=9:45 hold</i>")

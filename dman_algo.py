@@ -112,9 +112,9 @@ SMALLCAP_MAX_FLOAT_M   = 5.0      # max float in millions of shares
 SMALLCAP_MAX_PRICE     = 20.0     # max stock price
 SMALLCAP_MIN_PRICE     = 0.10     # min stock price — Dman buys $0.07-$0.50 regularly
 SMALLCAP_MIN_RVOL      = 2.0      # minimum RVOL — real volume needed (catalyst proxy)
-SMALLCAP_RISK_PCT      = 0.005    # 0.5% account risk per trade (vs 2% for large-caps)
+SMALLCAP_RISK_PCT      = 0.02     # 2% account risk per trade — aggressive sizing for small account
 SMALLCAP_MAX_COST      = 2_500    # hard cap on position cost — micro-caps are high risk
-SMALLCAP_MIN_SCORE     = 65       # lower bar than large-cap (different scoring system)
+SMALLCAP_MIN_SCORE     = 55       # was 65 — lower bar to catch more Dman-style setups early
 SMALLCAP_T1_MULT       = 0.30     # T1 at +30% (Dman targets 50-200% — partial at 30%)
 SMALLCAP_T2_MULT       = 0.75     # T2 at +75%
 SMALLCAP_STOP_PCT      = 0.18     # 18% stop — penny stocks are volatile; wider needed
@@ -131,8 +131,14 @@ ULTRA_LOW_STOP_PCT     = 0.20     # 20% stop — extra room for extreme volatili
 # When all three conditions are met, allocation steps up and T3 is set at 2x entry.
 MOONSHOT_MIN_GAP_PCT   = 15.0    # gap ≥ 15% from prior close
 MOONSHOT_MIN_RVOL      = 8.0     # RVOL ≥ 8x
-MOONSHOT_RISK_MULT     = 3.0     # 3× normal small-cap risk (0.5% → 1.5% of account)
+MOONSHOT_RISK_MULT     = 5.0     # 5× base risk (2% → 10% of account on moon shots)
 MOONSHOT_T3_MULT       = 1.0     # T3 at +100% — the "double"
+
+# Pre-market auto-submit: when True, the 7 AM scan will place extended-hours limit
+# orders on Tier A/B moon shots (gap ≥15%, float <2M) at the pre-market VWAP price.
+# Captures IOTR-style moves that complete entirely before 9:45 AM.
+# Extended-hours orders are single-leg only (no bracket); momentum-watch handles exits.
+ENABLE_PREMARKET_SUBMIT = True
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
@@ -1399,8 +1405,9 @@ def run_premarket_early_scan() -> None:
 
     news_map = _fetch_alpaca_news(DMAN_SMALLCAP_WATCHLIST, hours_back=20)
 
-    mover_blocks: list[tuple[float, str]] = []   # (abs_gap, telegram_block)
-    news_alerts:  list[str] = []
+    mover_blocks:    list[tuple[float, str]] = []   # (abs_gap, telegram_block)
+    news_alerts:     list[str] = []
+    pm_auto_entries: list[dict] = []               # moon-shot auto-submit candidates
 
     for ticker in DMAN_SMALLCAP_WATCHLIST:
         try:
@@ -1508,6 +1515,19 @@ def run_premarket_early_scan() -> None:
                 parts.append(entry_block)
                 mover_blocks.append((abs(gap_pct), "\n".join(parts)))
 
+                # Queue for pre-market auto-submit if criteria met
+                if (ENABLE_PREMARKET_SUBMIT
+                        and tier in ("A", "B")
+                        and gap_pct >= 15.0
+                        and 0 < fl_m < 2.0
+                        and pm.get("pm_vwap", 0) > 0
+                        and not fade_warn):
+                    pm_auto_entries.append({
+                        "ticker": ticker, "entry_px": pm["pm_vwap"],
+                        "gap_pct": gap_pct, "fl_m": fl_m,
+                        "tier": tier, "prev_close": prev_close,
+                    })
+
             elif bull_news:
                 # News only — gap hasn't triggered yet, but put on watch
                 edgar_found, edgar_summary = _check_edgar_8k(ticker, hours_back=30)
@@ -1572,6 +1592,50 @@ def run_premarket_early_scan() -> None:
     msg = "\n".join(lines)
     print(_re.sub(r"<[^>]+>", "", msg))
     send_telegram(msg)
+
+    # Pre-market auto-submit: place extended-hours limit orders for Tier A/B moon shots
+    if ENABLE_PREMARKET_SUBMIT and pm_auto_entries:
+        _client = get_alpaca_client()
+        if _client is None:
+            print("  ⚠️  Pre-market submit: Alpaca unavailable — skipping orders")
+        else:
+            from alpaca.trading.requests import LimitOrderRequest as _LimReq
+            from alpaca.trading.enums   import OrderSide as _Side, TimeInForce as _TIF
+            _acct    = get_effective_account()
+            _risk    = _acct * SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT
+            for _e in pm_auto_entries[:3]:   # max 3 concurrent pre-market entries
+                try:
+                    _ep      = round(_e["entry_px"], 2)
+                    _stop_px = round(_ep * (1 - ULTRA_LOW_STOP_PCT), 2)
+                    _rps     = _ep - _stop_px
+                    _shares  = max(1, int(_risk / _rps)) if _rps > 0 else 1
+                    _cost    = _shares * _ep
+                    if _cost > SMALLCAP_MAX_COST:
+                        _shares = max(1, int(SMALLCAP_MAX_COST / _ep))
+                        _cost   = _shares * _ep
+                    _order = _client.submit_order(_LimReq(
+                        symbol        = _e["ticker"],
+                        qty           = _shares,
+                        side          = _Side.BUY,
+                        limit_price   = _ep,
+                        time_in_force = _TIF.DAY,
+                        extended_hours= True,
+                    ))
+                    _t1 = round(_ep * (1 + ULTRA_LOW_T1_MULT), 2)
+                    _t2 = round(_ep * (1 + ULTRA_LOW_T2_MULT), 2)
+                    _t3 = round(_ep * (1 + MOONSHOT_T3_MULT),  2)
+                    _pm_msg = (
+                        f"📤 <b>PRE-MARKET ORDER PLACED</b>\n"
+                        f"<b>{_e['ticker']}</b>  Tier {_e['tier']}  "
+                        f"Float {_e['fl_m']:.2f}M  Gap {_e['gap_pct']:+.0f}%\n"
+                        f"Entry: ${_ep}  ({_shares} shares  ${_cost:.0f})\n"
+                        f"Stop: ${_stop_px}  T1: ${_t1} (+50%)  T2: ${_t2} (+150%)  T3: ${_t3} (+100%)\n"
+                        f"<i>Extended-hours limit — no bracket. Momentum-watch manages exit after open.</i>"
+                    )
+                    send_telegram(_pm_msg)
+                    print(f"  📤 Pre-market order: {_e['ticker']} {_shares}sh @ ${_ep}")
+                except Exception as _ex:
+                    print(f"  ❌ Pre-market order failed ({_e['ticker']}): {_ex}")
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -5155,6 +5219,10 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     # Means company has more cash on hand than its entire market cap = extreme undervalue
     if   cash_to_mc >= 1.0: score += 10   # trading below cash value (his direct signal)
     elif cash_to_mc >= 0.5: score +=  5   # substantial cash cushion
+
+    # Dman watchlist bonus (10 pts) — personally curated picks have informational edge
+    if sig.ticker in DMAN_SMALLCAP_WATCHLIST:
+        score += 10
 
     return min(100, score)
 

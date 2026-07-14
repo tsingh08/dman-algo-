@@ -1175,6 +1175,206 @@ def _fetch_dman_twitter_calls(hours_back: int = 48) -> list[tuple[str, str, str]
     return results
 
 
+# ──────────────────────────────────────────────────────────────────────────────
+# Global Market Context — adaptive risk multiplier + breaking news
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Bearish/bullish keywords for macro news headlines (lower-case matching)
+_MACRO_BEARISH = [
+    ("rate hike", -2), ("hawkish", -1), ("tariff", -1), ("trade war", -2),
+    ("sanctions", -1), ("invasion", -2), ("bank failure", -2), ("recession", -1),
+    ("inflation surge", -1), ("credit crisis", -2), ("federal reserve tight", -1),
+    ("yield spike", -1), ("geopolit", -1), ("default", -1),
+]
+_MACRO_BULLISH = [
+    ("rate cut", +2), ("dovish", +1), ("soft landing", +1), ("stimulus", +1),
+    ("beat expectations", +1), ("strong jobs", +1), ("ai boom", +1),
+    ("m&a", +1), ("acquisition", +1), ("deal", +1), ("fed pause", +2),
+]
+
+
+def _fetch_global_context() -> dict:
+    """
+    Pull overnight futures, global indices, VIX, DXY, BTC, and IWM/SPY ratio
+    to compute a composite risk-tone score that adapts position sizing each session.
+
+    Score:  -4 (extreme risk-off) → +4 (extreme risk-on)
+    risk_mult: maps score → position size multiplier (0.30 → 1.30)
+
+    Components:
+      ES futures  — S&P direction
+      NQ futures  — Nasdaq / tech barometer
+      RTY futures — Russell 2000 (DIRECT small-cap signal)
+      VIX         — fear gauge (weighted -2 if >25)
+      DXY         — dollar strength (inverse for speculative names)
+      BTC         — risk-on proxy (leads small-cap speculatives 12-24h)
+      Asia avg    — Nikkei + Hang Seng overnight
+      IWM vs SPY  — small-cap relative leadership (most direct signal)
+      Gold        — safe-haven bid (risk-off flag)
+    """
+    components: dict[str, str] = {}
+    score = 0
+
+    try:
+        _SYMS = ["ES=F", "NQ=F", "RTY=F", "^VIX", "DX-Y.NYB",
+                 "BTC-USD", "^N225", "^HSI", "SPY", "IWM", "GC=F"]
+        data: dict[str, dict] = {}
+        for _s in _SYMS:
+            try:
+                _fi = yf.Ticker(_s).fast_info
+                _px = float(_fi.last_price or 0)
+                _pc = float(_fi.previous_close or 0)
+                if _px > 0 and _pc > 0:
+                    data[_s] = {"price": _px, "prev": _pc, "chg": (_px - _pc) / _pc * 100}
+            except Exception:
+                pass
+
+        # ES futures
+        if "ES=F" in data:
+            _c = data["ES=F"]["chg"]
+            _s = +1 if _c > 0.5 else (-1 if _c < -0.5 else 0)
+            score += _s
+            components["ES"] = f"{_c:+.1f}%"
+
+        # NQ futures
+        if "NQ=F" in data:
+            _c = data["NQ=F"]["chg"]
+            _s = +1 if _c > 0.7 else (-1 if _c < -0.7 else 0)
+            score += _s
+            components["NQ"] = f"{_c:+.1f}%"
+
+        # RTY futures — Russell 2000 (direct small-cap predictor)
+        if "RTY=F" in data:
+            _c = data["RTY=F"]["chg"]
+            _s = +1 if _c > 0.5 else (-1 if _c < -0.5 else 0)
+            score += _s
+            _tag = " ↑SC" if _s > 0 else (" ↓SC" if _s < 0 else "")
+            components["RTY"] = f"{_c:+.1f}%{_tag}"
+
+        # VIX
+        if "^VIX" in data:
+            _vix = data["^VIX"]["price"]
+            _vc  = data["^VIX"]["chg"]
+            _s = -2 if _vix > 25 else (-1 if _vix > 20 else (+1 if _vix < 15 else 0))
+            score += _s
+            _tag = " ⚠️HIGH" if _vix > 20 else (" ✅LOW" if _vix < 15 else "")
+            components["VIX"] = f"{_vix:.1f} ({_vc:+.1f}%){_tag}"
+
+        # DXY — dollar strength is inverse for speculative small-caps
+        if "DX-Y.NYB" in data:
+            _c = data["DX-Y.NYB"]["chg"]
+            _s = -1 if _c > 0.5 else (+1 if _c < -0.3 else 0)
+            score += _s
+            components["DXY"] = f"{data['DX-Y.NYB']['price']:.1f} ({_c:+.2f}%)"
+
+        # BTC — risk-on proxy; leads small-cap speculative 12-24h
+        if "BTC-USD" in data:
+            _c = data["BTC-USD"]["chg"]
+            _s = +1 if _c > 3.0 else (-1 if _c < -5.0 else 0)
+            score += _s
+            _em = "🟢" if _s > 0 else ("🔴" if _s < 0 else "")
+            components["BTC"] = f"${data['BTC-USD']['price']:,.0f} ({_c:+.1f}%) {_em}"
+
+        # Asia overnight avg (Nikkei + Hang Seng)
+        _asia = [data[k]["chg"] for k in ("^N225", "^HSI") if k in data]
+        if _asia:
+            _avg = sum(_asia) / len(_asia)
+            _s = +1 if _avg > 0.5 else (-1 if _avg < -1.0 else 0)
+            score += _s
+            _parts = []
+            if "^N225" in data: _parts.append(f"N225 {data['^N225']['chg']:+.1f}%")
+            if "^HSI"  in data: _parts.append(f"HSI {data['^HSI']['chg']:+.1f}%")
+            components["Asia"] = "  ".join(_parts)
+
+        # IWM vs SPY relative — most direct small-cap environment signal
+        if "IWM" in data and "SPY" in data:
+            _rel = data["IWM"]["chg"] - data["SPY"]["chg"]
+            _s = +1 if _rel > 0.3 else (-1 if _rel < -0.3 else 0)
+            score += _s
+            _tag = " ↑SC leading" if _s > 0 else (" ↓SC lagging" if _s < 0 else "")
+            components["IWM-SPY"] = f"rel {_rel:+.1f}%{_tag}"
+
+        # Gold — safe-haven bid = risk-off flag
+        if "GC=F" in data:
+            _c = data["GC=F"]["chg"]
+            if _c > 1.5:
+                score -= 1
+                components["GOLD"] = f"${data['GC=F']['price']:,.0f} ({_c:+.1f}%) ⚠️ safe-haven"
+
+    except Exception:
+        pass
+
+    score = max(-4, min(4, score))
+
+    if   score >=  3: risk_mult, tone = 1.30, "🟢 RISK-ON"
+    elif score >=  1: risk_mult, tone = 1.00, "🟡 NEUTRAL-BULLISH"
+    elif score ==  0: risk_mult, tone = 0.85, "🟡 NEUTRAL"
+    elif score >= -2: risk_mult, tone = 0.60, "🟠 CAUTIOUS"
+    else:             risk_mult, tone = 0.35, "🔴 RISK-OFF"
+
+    _comp_str = "  |  ".join(f"{k}: {v}" for k, v in list(components.items())[:7])
+    summary = (
+        f"🌍 <b>GLOBAL CONTEXT</b>  [{tone}]  Score: {score:+d}\n"
+        f"   {_comp_str}"
+    )
+    return {"score": score, "risk_mult": risk_mult, "tone": tone,
+            "summary": summary, "components": components}
+
+
+def _fetch_breaking_news_rss(hours_back: int = 8) -> list[tuple[str, str, str, int]]:
+    """
+    Parse free financial news RSS feeds for market-moving headlines.
+    Returns list of (headline, source, time_str, impact) sorted by abs(impact).
+    impact: -2 (very bearish) to +2 (very bullish).
+    """
+    import xml.etree.ElementTree as _etree
+    from email.utils import parsedate_to_datetime as _parse_date
+    import re as _re
+
+    _RSS_FEEDS = [
+        ("https://feeds.reuters.com/reuters/businessNews", "Reuters"),
+        ("https://feeds.marketwatch.com/marketwatch/marketpulse/", "MarketWatch"),
+        ("https://finance.yahoo.com/rss/topstories", "Yahoo Finance"),
+    ]
+    cutoff  = datetime.now(ET) - timedelta(hours=hours_back)
+    results: list[tuple[str, str, str, int]] = []
+
+    for _url, _src in _RSS_FEEDS:
+        try:
+            _resp = requests.get(_url, timeout=6, headers={"User-Agent": "Mozilla/5.0"})
+            if _resp.status_code != 200:
+                continue
+            _root  = _etree.fromstring(_resp.content)
+            _items = _root.findall(".//item")[:12]
+            for _item in _items:
+                try:
+                    _title = _item.findtext("title", "")
+                    _pub   = _item.findtext("pubDate", "")
+                    if not _title:
+                        continue
+                    _ts = _parse_date(_pub).astimezone(ET) if _pub else None
+                    if _ts and _ts < cutoff:
+                        continue
+                    _text  = _title.lower()
+                    _score = 0
+                    for _kw, _pts in _MACRO_BEARISH:
+                        if _kw in _text:
+                            _score += _pts
+                    for _kw, _pts in _MACRO_BULLISH:
+                        if _kw in _text:
+                            _score += _pts
+                    _score = max(-2, min(2, _score))
+                    _ts_s  = _ts.strftime("%I:%M %p") if _ts else ""
+                    results.append((_title, _src, _ts_s, _score))
+                except Exception:
+                    continue
+        except Exception:
+            continue
+
+    results.sort(key=lambda x: abs(x[3]), reverse=True)
+    return results[:6]
+
+
 _PM_LEVEL_DEFAULTS: dict = {
     "pm_vwap": 0.0, "pm_vol": 0, "float_rotation_pct": 0.0,
     "pm_high": 0.0, "pm_low": 0.0, "price_vs_vwap_pct": 0.0,
@@ -1405,6 +1605,11 @@ def run_premarket_early_scan() -> None:
     print(f"\n  ⚡ EARLY PRE-MARKET SCAN — {now_et.strftime('%I:%M %p ET')}")
     print(f"  Scanning {len(DMAN_SMALLCAP_WATCHLIST)} small-cap names...\n")
 
+    # Pull global context first — drives pre-market sizing and aggression
+    print("  🌍 Global context...", flush=True)
+    _early_ctx  = _fetch_global_context()
+    _early_news = _fetch_breaking_news_rss(hours_back=8)
+
     news_map = _fetch_alpaca_news(DMAN_SMALLCAP_WATCHLIST, hours_back=20)
 
     mover_blocks:    list[tuple[float, str]] = []   # (abs_gap, telegram_block)
@@ -1569,6 +1774,15 @@ def run_premarket_early_scan() -> None:
     if not mover_blocks and not news_alerts:
         lines.append("\n✅ Clean — no movers or catalysts. Normal open expected.")
 
+    # Global context block
+    lines.append(f"\n{_early_ctx['summary']}")
+    if _early_news:
+        _news_lines = []
+        for _hl, _src, _ts, _imp in _early_news[:4]:
+            _em = ("🔴 " if _imp <= -1 else ("🟢 " if _imp >= 1 else ""))
+            _news_lines.append(f"   {_em}{_hl[:100]}  <i>[{_src} {_ts}]</i>")
+        lines.append("📰 <b>BREAKING</b>\n" + "\n".join(_news_lines))
+
     # Dman Radar — merge X/Twitter (primary) + StockTwits (fallback)
     _dman_tw = _fetch_dman_twitter_calls(hours_back=48)
     _dman_st = _fetch_dman_stocktwits_calls(hours_back=48)
@@ -1616,7 +1830,7 @@ def run_premarket_early_scan() -> None:
             from alpaca.trading.requests import LimitOrderRequest as _LimReq
             from alpaca.trading.enums   import OrderSide as _Side, TimeInForce as _TIF
             _acct    = get_effective_account()
-            _risk    = _acct * SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT
+            _risk    = _acct * SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT * _early_ctx["risk_mult"]
             _pm_pt   = PositionTracker()
             for _e in pm_auto_entries[:3]:   # max 3 concurrent pre-market entries
                 try:
@@ -2073,8 +2287,37 @@ def run_premarket_briefing() -> None:
     except Exception:
         pass
 
+    # ── 0.5. Global market context + breaking news ───────────────────
+    print("  [0.5/7] Fetching global market context + breaking news...")
+    _global_ctx_section = ""
+    try:
+        _briefing_ctx  = _fetch_global_context()
+        _briefing_news = _fetch_breaking_news_rss(hours_back=12)
+        _tone_icons = {
+            "strong bull": "🟢🟢", "bull": "🟢", "neutral": "🟡",
+            "caution": "🟠", "risk-off": "🔴",
+        }
+        _g_icon = _tone_icons.get(_briefing_ctx.get("tone", "neutral"), "⚪")
+        _ctx_msg_lines = [f"{_g_icon} {_briefing_ctx.get('summary', '')}"]
+        _ctx_comps = _briefing_ctx.get("components", {})
+        if _ctx_comps:
+            _comp_parts = []
+            for _ck, _cv in list(_ctx_comps.items())[:6]:
+                _comp_parts.append(f"{_ck}: {_cv:+d}" if isinstance(_cv, int) else f"{_ck}: {_cv}")
+            _ctx_msg_lines.append("  " + " | ".join(_comp_parts))
+        if _briefing_news:
+            _ctx_msg_lines.append("📰 <b>Breaking</b>")
+            for _hl, _src, _ts, _imp in _briefing_news[:4]:
+                _em = "🔴 " if _imp <= -1 else ("🟢 " if _imp >= 1 else "")
+                _ctx_msg_lines.append(f"   {_em}{_hl[:100]}  <i>[{_src} {_ts}]</i>")
+        _global_ctx_section = "\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: {:.2f}x)\n".format(
+            _briefing_ctx.get("risk_mult", 1.0)
+        ) + "\n".join(_ctx_msg_lines)
+    except Exception as _gce:
+        print(f"  ⚠️  Global context fetch failed: {_gce}")
+
     # ── 1. Market regime + macro context ─────────────────────────────
-    print("  [1/6] Checking market regime + macro context...")
+    print("  [1/7] Checking market regime + macro context...")
     regime_line  = "Unable to fetch regime"
     regime_line2 = ""
     macro_env_section = ""
@@ -2597,7 +2840,8 @@ def run_premarket_briefing() -> None:
         + (f"{scanner_health_line}\n\n" if scanner_health_line else "\n")
         + f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}"
         f"{warnings_section}"
-        f"{macro_env_section}\n\n"
+        f"{macro_env_section}"
+        f"{_global_ctx_section}\n\n"
         f"📅 <b>MACRO CALENDAR</b>\n{macro_line}\n\n"
         f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}"
         f"{sector_health_section}\n\n"
@@ -7476,23 +7720,21 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             if _d_live > 7:
                 break
 
-    # Risk-off check: if SPY is down >1% from prior close, reduce sizing 40%.
-    # Mon Jul 13: SPY -0.77%, QQQ -1.90% — risk-off Monday, reduce exposure.
-    _risk_off_mult = 1.0
-    try:
-        _spy = yf.Ticker("SPY").fast_info
-        _spy_px = float(_spy.last_price or 0)
-        _spy_pc = float(_spy.previous_close or 0)
-        if _spy_px > 0 and _spy_pc > 0:
-            _spy_chg = (_spy_px - _spy_pc) / _spy_pc * 100
-            if _spy_chg <= -1.0:
-                _risk_off_mult = 0.6
-                msg = (f"⚠️ <b>Risk-off mode</b>: SPY {_spy_chg:+.1f}% — "
-                       f"position sizes reduced 40% today.")
-                send_telegram(msg)
-                print(f"  ⚠️  Risk-off: SPY {_spy_chg:+.1f}% → sizing at 60%")
-    except Exception:
-        pass
+    # Adaptive risk multiplier — full global context (replaces SPY-only check).
+    # Reads futures, VIX, DXY, BTC, Asia overnight, IWM/SPY ratio.
+    # Score -4 → 0.35x sizing  |  Score +4 → 1.30x sizing.
+    print("  🌍 Fetching global context for adaptive sizing...", flush=True)
+    _ctx = _fetch_global_context()
+    _risk_off_mult = _ctx["risk_mult"]
+    _ctx_tone = _ctx["tone"]
+    if _risk_off_mult != 1.0:
+        _dir = "reduced" if _risk_off_mult < 1.0 else "boosted"
+        _pct = abs(1 - _risk_off_mult) * 100
+        send_telegram(
+            f"{_ctx['summary']}\n"
+            f"Position sizes <b>{_dir} {_pct:.0f}%</b> (mult {_risk_off_mult:.2f}x)"
+        )
+        print(f"  🌍 {_ctx_tone}  score={_ctx['score']:+d}  → sizing {_risk_off_mult:.2f}x")
 
     pt        = PositionTracker()
     submitted = 0

@@ -149,7 +149,7 @@ DMAN_SMALLCAP_WATCHLIST = [
     # Core — original Dman calls (ultra-low float, sub-$20)
     "APVO",   # 1.25M float — conference catalyst Mar 2026, $10+ target
     "MASK",   # 1.13M float — low-float momentum play
-    "UGRO",   # 1.26M float — ultra-thin, consistent Dman mention
+    # UGRO removed Jul 13 2026 — no price data returned, likely suspended/halted
     "ONCO",   # 1.15M float — bounce candidate
     "FCHL",   # 1.32M float — overnight swing play
     "ARTL",   # 3.49M float — mentioned in 100-600% runner week
@@ -165,10 +165,10 @@ DMAN_SMALLCAP_WATCHLIST = [
     # Broader low-float universe — Dman-style patterns
     "ATOS",   # perpetual short-squeeze candidate, micro-float
     "IMPP",   # shipping penny — repeated Dman-style RVOL spikes
-    "HPNN",   # ultra-low float OTC — gap-and-hold patterns
+    # HPNN removed — price $0.0008, permanently below SMALLCAP_MIN_PRICE ($0.10)
     "GFAI",   # AI penny stock — high retail interest
     "BFRI",   # biotech with low float — squeeze setup
-    "AITX",   # nano-cap AI theme — Dman-style slow accumulate
+    # AITX removed — price $0.009, permanently below SMALLCAP_MIN_PRICE ($0.10)
     "TRVI",   # low-float biotech — MACD curling plays
     # MRIN, CJET, ACST, ATNF removed Jul 10 2026 — delisted/no data
     # Dman Jul 2 2026 tweets — fake-offering bounce + penny OTC runners

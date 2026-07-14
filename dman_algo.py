@@ -111,7 +111,8 @@ ENABLE_DYNAMIC_SMALLCAP = True   # Finviz screener discovery of new Dman-style p
 SMALLCAP_MAX_FLOAT_M   = 5.0      # max float in millions of shares
 SMALLCAP_MAX_PRICE     = 20.0     # max stock price
 SMALLCAP_MIN_PRICE     = 0.10     # min stock price — Dman buys $0.07-$0.50 regularly
-SMALLCAP_MIN_RVOL      = 2.0      # minimum RVOL — real volume needed (catalyst proxy)
+SMALLCAP_MIN_RVOL      = 2.0      # minimum RVOL for dynamically discovered tickers
+DMAN_WATCHLIST_MIN_RVOL = 0.5    # watchlist tickers: Dman's call IS the catalyst — 0.5x enough
 SMALLCAP_RISK_PCT      = 0.02     # 2% account risk per trade — aggressive sizing for small account
 SMALLCAP_MAX_COST      = 2_500    # hard cap on position cost — micro-caps are high risk
 SMALLCAP_MIN_SCORE     = 55       # was 65 — lower bar to catch more Dman-style setups early
@@ -153,7 +154,7 @@ DMAN_SMALLCAP_WATCHLIST = [
     "ARTL",   # 3.49M float — mentioned in 100-600% runner week
     "ELAB",   # 4.54M float — confirmed multi-day runner
     # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
-    "IOTR",   # 0.64M float — +40.7% gap Jul 8; Day 3 faded (H=O); Day 4 dead (0.0x RVOL); watch for reset
+    # IOTR removed Jul 13 2026 — Day 6 post-spike, 0.0x RVOL, -8.8% Mon; effectively dead momentum
     "GDC",    # $0.02 penny — Dman "will be a $1" call, ultra-low float
     # ADTX removed Jul 9 2026 — stock at $0.004, -25% on Jul 8, effectively dead
     "CDT",    # 200% swing runner — Dman low-float call
@@ -1887,7 +1888,9 @@ def run_momentum_watch() -> None:
     except Exception:
         pass
 
-    # 2. DMAN_SMALLCAP_WATCHLIST: anything that gapped ≥8% this morning
+    # 2. DMAN_SMALLCAP_WATCHLIST: gaps ≥3% AND gap-down recovery plays (CAST/LABT/YHC pattern).
+    # 8% was too restrictive — Mon Jul 13: CAST +15.9% intraday on -1% gap, missed entirely.
+    # Gap-down recovery: Dman pick opens below prior close but recovers intraday = buy the dip.
     already = {p["ticker"] for p in active_plays}
     for ticker in DMAN_SMALLCAP_WATCHLIST:
         if ticker in already:
@@ -1899,10 +1902,13 @@ def run_momentum_watch() -> None:
             if ppx <= 0 or ppc <= 0:
                 continue
             gap = (ppx - ppc) / ppc * 100
-            if gap >= 8.0:
+            is_gap_up       = gap >= 3.0
+            is_recovery_dip = -10.0 <= gap < 0    # opened lower, potential recovery
+            if is_gap_up or is_recovery_dip:
                 fl_m, _, _, _ = _get_short_float_data(ticker)
+                _src = f"gap {gap:+.1f}%" if is_gap_up else f"recovery (gap {gap:+.1f}% → watching VWAP reclaim)"
                 active_plays.append({"ticker": ticker, "entry": 0.0,
-                                     "float_m": fl_m, "source": f"gap {gap:+.1f}%"})
+                                     "float_m": fl_m, "source": _src})
         except Exception:
             continue
 
@@ -4992,9 +4998,12 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         if fl_m <= 0 or fl_m > SMALLCAP_MAX_FLOAT_M:
             return None
 
-        # Volume gate — RVOL spike = catalyst proxy
+        # Volume gate — RVOL spike = catalyst proxy for dynamic discovery.
+        # For Dman's personally curated watchlist, his public call IS the catalyst;
+        # lower bar applies so quiet accumulation days (CAST/LABT/YHC Monday pattern) pass.
         rvol = float(r["RVOL"]) if not pd.isna(r.get("RVOL", float("nan"))) else 0
-        if rvol < SMALLCAP_MIN_RVOL:
+        _rvol_gate = DMAN_WATCHLIST_MIN_RVOL if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_RVOL
+        if rvol < _rvol_gate:
             return None
 
         macd      = float(r["MACD"])
@@ -7445,6 +7454,24 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             if _d_live > 7:
                 break
 
+    # Risk-off check: if SPY is down >1% from prior close, reduce sizing 40%.
+    # Mon Jul 13: SPY -0.77%, QQQ -1.90% — risk-off Monday, reduce exposure.
+    _risk_off_mult = 1.0
+    try:
+        _spy = yf.Ticker("SPY").fast_info
+        _spy_px = float(_spy.last_price or 0)
+        _spy_pc = float(_spy.previous_close or 0)
+        if _spy_px > 0 and _spy_pc > 0:
+            _spy_chg = (_spy_px - _spy_pc) / _spy_pc * 100
+            if _spy_chg <= -1.0:
+                _risk_off_mult = 0.6
+                msg = (f"⚠️ <b>Risk-off mode</b>: SPY {_spy_chg:+.1f}% — "
+                       f"position sizes reduced 40% today.")
+                send_telegram(msg)
+                print(f"  ⚠️  Risk-off: SPY {_spy_chg:+.1f}% → sizing at 60%")
+    except Exception:
+        pass
+
     pt        = PositionTracker()
     submitted = 0
 
@@ -7471,6 +7498,11 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 f"Entry re-validation failed — no order placed."
             )
             continue
+
+        # Apply risk-off multiplier before re-anchoring (SPY down >1% = reduce 40%)
+        if _risk_off_mult < 1.0:
+            sig.shares = max(1, int(sig.shares * _risk_off_mult))
+            sig.cost   = round(sig.shares * sig.entry, 2)
 
         # Re-anchor bracket to live price — preserves original R multiple but
         # uses the actual price we'll fill at, so stop and target are correct.

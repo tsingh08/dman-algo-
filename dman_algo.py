@@ -115,7 +115,8 @@ SMALLCAP_MIN_RVOL      = 2.0      # minimum RVOL for dynamically discovered tick
 DMAN_WATCHLIST_MIN_RVOL = 0.5    # watchlist tickers: Dman's call IS the catalyst — 0.5x enough
 SMALLCAP_RISK_PCT      = 0.02     # 2% account risk per trade — aggressive sizing for small account
 SMALLCAP_MAX_COST      = 2_500    # hard cap on position cost — micro-caps are high risk
-SMALLCAP_MIN_SCORE     = 55       # was 65 — lower bar to catch more Dman-style setups early
+SMALLCAP_MIN_SCORE          = 55   # minimum score for dynamically discovered tickers
+DMAN_WATCHLIST_MIN_SCORE    = 45   # lower bar for personally curated watchlist tickers
 SMALLCAP_T1_MULT       = 0.30     # T1 at +30% (Dman targets 50-200% — partial at 30%)
 SMALLCAP_T2_MULT       = 0.75     # T2 at +75%
 SMALLCAP_STOP_PCT      = 0.18     # 18% stop — penny stocks are volatile; wider needed
@@ -155,7 +156,7 @@ DMAN_SMALLCAP_WATCHLIST = [
     "ELAB",   # 4.54M float — confirmed multi-day runner
     # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
     # IOTR removed Jul 13 2026 — Day 6 post-spike, 0.0x RVOL, -8.8% Mon; effectively dead momentum
-    "GDC",    # $0.02 penny — Dman "will be a $1" call, ultra-low float
+    # GDC removed — price $0.02, below SMALLCAP_MIN_PRICE ($0.10); cannot generate signal
     # ADTX removed Jul 9 2026 — stock at $0.004, -25% on Jul 8, effectively dead
     "CDT",    # 200% swing runner — Dman low-float call
     "LNKS",   # 200% runner — mentioned same tweet thread as CDT
@@ -1600,10 +1601,23 @@ def run_premarket_early_scan() -> None:
         if _client is None:
             print("  ⚠️  Pre-market submit: Alpaca unavailable — skipping orders")
         else:
+            # PDT check before any pre-market orders — same guard as _submit_signals_to_alpaca
+            try:
+                _pm_acct  = _client.get_account()
+                _pm_eq    = float(getattr(_pm_acct, "equity", 0) or 0)
+                _pm_dt    = int(getattr(_pm_acct, "daytrade_count", 0) or 0)
+                if _pm_eq < 25_000 and _pm_dt >= 3:
+                    send_telegram(f"🚫 <b>PDT HALT (pre-market)</b>: {_pm_dt}/3 day trades used — no pre-market orders placed.")
+                    pm_auto_entries.clear()
+            except Exception as _pdt_pm:
+                send_telegram(f"🚫 <b>PDT check failed (pre-market)</b>: {_pdt_pm} — skipping pre-market orders.")
+                pm_auto_entries.clear()
+
             from alpaca.trading.requests import LimitOrderRequest as _LimReq
             from alpaca.trading.enums   import OrderSide as _Side, TimeInForce as _TIF
             _acct    = get_effective_account()
             _risk    = _acct * SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT
+            _pm_pt   = PositionTracker()
             for _e in pm_auto_entries[:3]:   # max 3 concurrent pre-market entries
                 try:
                     _ep      = round(_e["entry_px"], 2)
@@ -1625,6 +1639,12 @@ def run_premarket_early_scan() -> None:
                     _t1 = round(_ep * (1 + ULTRA_LOW_T1_MULT), 2)
                     _t2 = round(_ep * (1 + ULTRA_LOW_T2_MULT), 2)
                     _t3 = round(_ep * (1 + MOONSHOT_T3_MULT),  2)
+                    # Write to PositionTracker so 9:45 AM scan skips duplicate entry
+                    _pm_pt.open(OpenPosition(
+                        ticker=_e["ticker"], bias="LONG", setup="Pre-Market Moon Shot",
+                        entry=_ep, stop=_stop_px, target1=_t1, target2=_t2,
+                        shares=_shares, entry_date=datetime.today().strftime("%Y-%m-%d"),
+                    ))
                     _pm_msg = (
                         f"📤 <b>PRE-MARKET ORDER PLACED</b>\n"
                         f"<b>{_e['ticker']}</b>  Tier {_e['tier']}  "
@@ -6188,8 +6208,10 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 sc_rejected += 1
                 continue
             # Score with small-cap specific scorer
+            # Watchlist tickers use lower threshold — Dman's curation is the edge signal
             sc_sig.confluence_score = score_smallcap_signal(sc_sig)
-            if sc_sig.confluence_score < SMALLCAP_MIN_SCORE:
+            _sc_threshold = DMAN_WATCHLIST_MIN_SCORE if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_SCORE
+            if sc_sig.confluence_score < _sc_threshold:
                 sc_rejected += 1
                 continue
             # Skip if same ticker already fired as large-cap signal

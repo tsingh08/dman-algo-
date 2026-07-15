@@ -6168,7 +6168,46 @@ def generate_strangle_advisory(event: str) -> None:
 
 
 def _check_open_position_risk(regime: dict) -> None:
-    """Read pending live signals, fetch current prices, alert if within 2% of stop."""
+    """Read pending live signals, fetch current prices, alert if within 2% of stop.
+    Also alerts on orphan Alpaca positions that have no stop coverage in our tracker."""
+    # ── Orphan position check ──────────────────────────────────────────────
+    # Any Alpaca open position not in dman_live_signals.json has no automated
+    # stop management — flag immediately so manual action can be taken.
+    try:
+        _client = get_alpaca_client()
+        if _client is not None:
+            _alp_positions = {p.symbol: p for p in _client.get_all_positions()}
+            _pending_file  = {}
+            try:
+                with open(LIVE_SIGNALS_FILE) as _f:
+                    _pending_file = json.load(_f)
+            except Exception:
+                pass
+            _tracked_tickers = {p.get("ticker") for p in _pending_file.get("pending", [])}
+            _orphans = [sym for sym in _alp_positions if sym not in _tracked_tickers]
+            if _orphans:
+                _orphan_msgs = []
+                for _sym in _orphans:
+                    _pos = _alp_positions[_sym]
+                    _qty  = float(_pos.qty)
+                    _ep   = float(_pos.avg_entry_price)
+                    _upnl = float(_pos.unrealized_pl)
+                    _upct = float(_pos.unrealized_plpc) * 100
+                    _orphan_msgs.append(
+                        f"  {_sym}: {_qty:.0f}sh @ ${_ep:.2f}  "
+                        f"unreal {'+' if _upnl >= 0 else ''}{_upnl:.2f} ({_upct:+.1f}%)"
+                    )
+                _msg = (
+                    "⚠️ <b>ORPHAN POSITIONS — NO STOP COVERAGE</b>\n"
+                    "These are open in Alpaca but NOT in signal tracker:\n\n"
+                    + "\n".join(_orphan_msgs)
+                    + "\n\n<i>Close manually or add to watchlist to restore monitoring.</i>"
+                )
+                send_telegram(_msg)
+                print(f"  ⚠  {len(_orphans)} orphan position(s) — sent alert: {_orphans}")
+    except Exception as _oe:
+        print(f"  ⚠  Orphan check failed: {_oe}")
+
     try:
         with open(LIVE_SIGNALS_FILE, "r") as f:
             data = json.load(f)

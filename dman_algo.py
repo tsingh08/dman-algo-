@@ -196,7 +196,7 @@ OPTIONS_SETUPS          = {"Gap & Hold", "Morning Runner"}  # setups that also g
 OPTIONS_MIN_SCORE       = 80            # match adaptive min score threshold
 OPTIONS_MIN_PRICE       = 10.0          # no options on sub-$10 stocks (illiquid/nonexistent)
 OPTIONS_MAX_PRICE       = 500.0         # skip very expensive stocks (options too costly)
-OPTIONS_RISK_PCT        = 0.25          # 25% of account — minimum to afford 1 contract ($20-50 stocks)
+ADVISORY_OPTIONS_RISK_PCT = 0.25        # 25% of account — used by old advisory size_options_trade()
 OPTIONS_MAX_PREMIUM_USD = 250           # cap at $250/trade — 1 contract for $1K account
 OPTIONS_TARGET_DTE      = 21            # target DTE — Dman: "1-4 weeks" (21 is sweet spot)
 OPTIONS_MIN_DTE         = 10            # below this: theta accelerates, too risky
@@ -2269,7 +2269,8 @@ def run_momentum_watch() -> None:
                     else:
                         # Pure VWAP reclaim: entry at current price, stop at session low
                         entry_px = round(cur * 1.002, 4)   # slight limit above current
-                        stop_px  = round(levels.get("session_low", cur * 0.92) * 0.99, 4)
+                        _sl_base = levels.get("session_low") or 0
+                        stop_px  = round((_sl_base if _sl_base > 0 else cur * 0.92) * 0.99, 4)
                         sig_str  = f"VWAP reclaim ({source})"
                     risk_px = round(max(entry_px - stop_px, 0.001), 4)
                     t1 = round(entry_px * 1.30, 4)
@@ -3332,6 +3333,16 @@ def get_regime_from_window(spy_window: pd.DataFrame) -> dict:
         bull_di  = float(sr["PLUS_DI"]) > float(sr["MINUS_DI"])
         score = ((4 if above20 else 0) + (4 if above50 else 0)
                  + (3 if above200 else 0) + (2 if adx_val >= 20 else 0) + 1)
+        # Mirror the 4 bonus points from live get_market_regime() so backtest/live scores align
+        try:
+            _iwm_col = "IWM" if "IWM" in spy_window.columns else None
+            if _iwm_col and len(spy_window) >= 22:
+                _iwm_ret = (float(spy_window[_iwm_col].iloc[-1]) / float(spy_window[_iwm_col].iloc[-21]) - 1) * 100
+                _spy_ret = (float(spy_window["Close"].iloc[-1])  / float(spy_window["Close"].iloc[-21])  - 1) * 100
+                if _iwm_ret > _spy_ret - 5:
+                    score += 1  # IWM breadth
+        except Exception:
+            pass
         if score >= 10 and bull_di:
             regime = "BULL"
         elif score <= 4 or not bull_di:
@@ -4714,11 +4725,20 @@ class WinRateTracker:
         wr     = len(wins) / len(recent)
         avg_win_r  = sum(r.pnl_pct for r in wins)   / len(wins)   if wins   else 2.2
         avg_loss_r = abs(sum(r.pnl_pct for r in losses)) / len(losses) if losses else 1.0
+        consec = 0
+        for r in reversed(recent):
+            if r.outcome == "LOSS":
+                consec += 1
+            else:
+                break
         return {
-            "win_rate":   round(wr, 3),
-            "avg_win_r":  round(avg_win_r, 2),
-            "avg_loss_r": round(avg_loss_r, 2),
-            "total":      len(recent),
+            "win_rate":     round(wr, 3),
+            "avg_win_r":    round(avg_win_r, 2),
+            "avg_loss_r":   round(avg_loss_r, 2),
+            "total":        len(recent),
+            "wins":         len(wins),
+            "losses":       len(losses),
+            "consec_losses": consec,
         }
 
     def adaptive_min_score(self, target_wr: float = 0.80) -> int:
@@ -5777,7 +5797,7 @@ def size_options_trade(premium: float) -> int:
     Each contract = 100 shares. Cost = premium * 100 * contracts.
     """
     acct        = get_effective_account()
-    budget      = min(acct * OPTIONS_RISK_PCT, OPTIONS_MAX_PREMIUM_USD)
+    budget      = min(acct * ADVISORY_OPTIONS_RISK_PCT, OPTIONS_MAX_PREMIUM_USD)
     cost_per    = premium * 100            # 1 contract = 100 shares
     if cost_per <= 0:
         return 0
@@ -6177,13 +6197,21 @@ def _check_open_position_risk(regime: dict) -> None:
         _client = get_alpaca_client()
         if _client is not None:
             _alp_positions = {p.symbol: p for p in _client.get_all_positions()}
-            _pending_file  = {}
+            # Build tracked set from BOTH sources:
+            # 1. dman_live_signals.json — signals logged by run_pro_scanner()
+            # 2. dman_positions.json   — positions logged by PositionTracker (covers pre-market fills)
+            _tracked_tickers: set[str] = set()
             try:
                 with open(LIVE_SIGNALS_FILE) as _f:
-                    _pending_file = json.load(_f)
+                    _pf = json.load(_f)
+                _tracked_tickers |= {p.get("ticker") for p in _pf.get("pending", [])}
             except Exception:
                 pass
-            _tracked_tickers = {p.get("ticker") for p in _pending_file.get("pending", [])}
+            try:
+                _pt_pos = PositionTracker().positions
+                _tracked_tickers |= {p.ticker for p in _pt_pos}
+            except Exception:
+                pass
             _orphans = [sym for sym in _alp_positions if sym not in _tracked_tickers]
             if _orphans:
                 _orphan_msgs = []
@@ -6635,10 +6663,21 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     signals.sort(key=lambda s: s.confluence_score, reverse=True)
 
-    # Portfolio heat cap: admit signals until total open risk hits the limit
+    # Portfolio heat cap: admit signals until total open risk hits the limit.
+    # Seed with EXISTING open positions so prior-scan risk is counted.
     heat_capped: list[ProSignal] = []
-    total_risk_pct = 0.0
     eff_account = get_effective_account()
+    total_risk_pct = 0.0
+    try:
+        _heat_client = get_alpaca_client()
+        if _heat_client is not None and eff_account > 0:
+            for _hp in _heat_client.get_all_positions():
+                _hp_val = abs(float(_hp.market_value or 0))
+                total_risk_pct += _hp_val / eff_account
+    except Exception:
+        pass   # if Alpaca unavailable, proceed without existing-position offset
+    if total_risk_pct > 0:
+        print(f"  🌡  Existing position heat: {total_risk_pct*100:.1f}% of account")
     for sig in signals:
         trade_risk_pct = sig.risk_usd / eff_account if eff_account > 0 else 0
         if total_risk_pct + trade_risk_pct <= PORTFOLIO_HEAT_LIMIT:
@@ -8141,7 +8180,8 @@ def _submit_options_call(
     contracts     = max(1, min(raw_contracts, 5))
     total_cost    = round(contracts * premium_per_contract, 2)
 
-    if total_cost > risk_dollars * 3:
+    # Guard: reject if minimum 1-contract cost exceeds 1.5× budget (floor for 1-contract minimum)
+    if premium_per_contract > risk_dollars * 1.5:
         print(f"  ⚠️  Too expensive: 1 contract=${premium_per_contract:.0f}  budget=${risk_dollars:.0f} — skip")
         return None, None
 
@@ -8313,9 +8353,13 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             if _opt_client:
                 _opt_risk = round(get_effective_account() * OPTIONS_RISK_PCT * _risk_off_mult, 2)
                 print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
-                oid, _opt_contract = _submit_options_call(
-                    _opt_client, sig.ticker, cur, _opt_risk, sig
-                )
+                try:
+                    oid, _opt_contract = _submit_options_call(
+                        _opt_client, sig.ticker, cur, _opt_risk, sig
+                    )
+                except Exception as _opt_exc:
+                    print(f"  ⚠️  Options error ({sig.ticker}): {_opt_exc} — falling back to shares")
+                    oid = None
                 if oid is None:
                     print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
                     _use_options = False

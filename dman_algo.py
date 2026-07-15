@@ -1905,7 +1905,7 @@ def _compute_session_levels(df_5m) -> dict:
     """
     result = {
         "vwap": 0.0, "first_candle_high": 0.0, "session_high": 0.0,
-        "cur_price": 0.0, "bars": [],
+        "session_low": 0.0, "cur_price": 0.0, "bars": [],
     }
     if df_5m is None or len(df_5m) < 2:
         return result
@@ -1933,6 +1933,7 @@ def _compute_session_levels(df_5m) -> dict:
     result["vwap"]             = round(total_pv / total_vol, 4)
     result["first_candle_high"] = bars[0]["h"]
     result["session_high"]     = max(b["h"] for b in bars)
+    result["session_low"]      = min(b["l"] for b in bars)
     result["cur_price"]        = bars[-1]["c"]
     result["bars"]             = bars
     return result
@@ -2122,27 +2123,38 @@ def run_momentum_watch() -> None:
     except Exception:
         pass
 
-    # 2. DMAN_SMALLCAP_WATCHLIST: gaps ≥3% AND gap-down recovery plays (CAST/LABT/YHC pattern).
-    # 8% was too restrictive — Mon Jul 13: CAST +15.9% intraday on -1% gap, missed entirely.
-    # Gap-down recovery: Dman pick opens below prior close but recovers intraday = buy the dip.
+    # 2. DMAN_SMALLCAP_WATCHLIST — monitor ALL tickers during market hours.
+    # Use today's actual open vs prev close for gap, NOT real-time price, because by
+    # 10:30 AM a gap-down recovery play (APVO -3.6% open) may already be above prev
+    # close and the real-time gap would show +1%, missing the recovery signal entirely.
+    # TRVI-type plays: flat/tiny gap but still run +8% intraday — always include watchlist.
     already = {p["ticker"] for p in active_plays}
     for ticker in DMAN_SMALLCAP_WATCHLIST:
         if ticker in already:
             continue
         try:
-            fi   = yf.Ticker(ticker).fast_info
-            ppx  = float(fi.last_price or 0)
-            ppc  = float(fi.previous_close or 0)
-            if ppx <= 0 or ppc <= 0:
+            # Use 2-day daily history to get TRUE opening gap (open vs prev close)
+            _hist2 = yf.Ticker(ticker).history(period="2d", interval="1d")
+            if len(_hist2) < 2:
                 continue
-            gap = (ppx - ppc) / ppc * 100
-            is_gap_up       = gap >= 3.0
-            is_recovery_dip = -10.0 <= gap < 0    # opened lower, potential recovery
-            if is_gap_up or is_recovery_dip:
-                fl_m, _, _, _ = _get_short_float_data(ticker)
-                _src = f"gap {gap:+.1f}%" if is_gap_up else f"recovery (gap {gap:+.1f}% → watching VWAP reclaim)"
-                active_plays.append({"ticker": ticker, "entry": 0.0,
-                                     "float_m": fl_m, "source": _src})
+            _today_open = float(_hist2["Open"].iloc[-1])
+            _prev_close = float(_hist2["Close"].iloc[-2])
+            if _today_open <= 0 or _prev_close <= 0:
+                continue
+            opening_gap = (_today_open - _prev_close) / _prev_close * 100
+            is_gap_up       = opening_gap >= 3.0
+            is_recovery_dip = -15.0 <= opening_gap < 0
+            # Always include watchlist tickers during market hours regardless of gap.
+            # A flat-gap ticker like TRVI (+0.2%) can still run +8% intraday.
+            fl_m, _, _, _ = _get_short_float_data(ticker)
+            if is_gap_up:
+                _src = f"gap {opening_gap:+.1f}% at open"
+            elif is_recovery_dip:
+                _src = f"recovery dip (opened {opening_gap:+.1f}% → VWAP reclaim watch)"
+            else:
+                _src = f"watchlist (flat gap {opening_gap:+.1f}%)"
+            active_plays.append({"ticker": ticker, "entry": 0.0,
+                                 "float_m": fl_m, "source": _src})
         except Exception:
             continue
 
@@ -2169,17 +2181,38 @@ def run_momentum_watch() -> None:
             vwap = levels["vwap"]
 
             if entry == 0.0:
-                # Not in position — look for breakout setup
+                # Not in position — check VWAP reclaim first, then breakout setup
+                _above_vwap = vwap > 0 and cur > vwap
+                _vwap_tag   = ""
+                if _above_vwap and "recovery" in source:
+                    _vwap_dist = (cur - vwap) / vwap * 100
+                    _vwap_tag  = f"  🔥 VWAP RECLAIMED (+{_vwap_dist:.1f}% above)"
+                elif not _above_vwap and vwap > 0 and "recovery" in source:
+                    _vwap_dist = (vwap - cur) / vwap * 100
+                    _vwap_tag  = f"  ⏳ below VWAP ({_vwap_dist:.1f}% away — watching)"
+
                 bp = _detect_pre_breakout(levels)
-                if bp["setup"]:
-                    risk_px = round(bp["entry_px"] - bp["stop_px"], 4)
-                    t1 = round(bp["entry_px"] * 1.30, 4)
-                    t2 = round(bp["entry_px"] * 1.50, 4)
-                    t3_str = f"  T3 2x: ${round(bp['entry_px'] * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
+                # Fire alert on breakout setup OR on VWAP reclaim from recovery dip
+                _fire = bp["setup"] or (_above_vwap and "recovery" in source)
+                if _fire:
+                    if bp["setup"]:
+                        entry_px = bp["entry_px"]
+                        stop_px  = bp["stop_px"]
+                        sig_str  = " + ".join(bp["signals"][:3])
+                    else:
+                        # Pure VWAP reclaim: entry at current price, stop at session low
+                        entry_px = round(cur * 1.002, 4)   # slight limit above current
+                        stop_px  = round(levels.get("session_low", cur * 0.92) * 0.99, 4)
+                        sig_str  = f"VWAP reclaim ({source})"
+                    risk_px = round(max(entry_px - stop_px, 0.001), 4)
+                    t1 = round(entry_px * 1.30, 4)
+                    t2 = round(entry_px * 1.50, 4)
+                    t3_str = f"  T3 2x: ${round(entry_px * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
+                    _label = "🔥 VWAP RECLAIM" if (not bp["setup"] and _above_vwap) else "BREAKOUT SETUP"
                     setup_alerts.append(
-                        f"🟡 <b>{ticker}</b>  BREAKOUT SETUP  [{source}]\n"
-                        f"   {' + '.join(bp['signals'][:3])}\n"
-                        f"   Entry: <b>${bp['entry_px']:.4f}</b>  Stop: ${bp['stop_px']:.4f}  "
+                        f"🟡 <b>{ticker}</b>  {_label}  [{source}]{_vwap_tag}\n"
+                        f"   {sig_str}\n"
+                        f"   Entry: <b>${entry_px:.4f}</b>  Stop: ${stop_px:.4f}  "
                         f"(risk ${risk_px:.4f}/sh)\n"
                         f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
                         f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
@@ -4557,7 +4590,7 @@ class WinRateTracker:
         if not recent:
             return {"win_rate": 0.60, "avg_win_r": 2.2,
                     "avg_loss_r": 1.0, "consec_losses": 0,
-                    "total": 0}
+                    "total": 0, "wins": 0, "losses": 0}
 
         wins   = [r for r in recent if r.outcome == "WIN"]
         losses = [r for r in recent if r.outcome == "LOSS"]

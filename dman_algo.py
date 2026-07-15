@@ -160,17 +160,18 @@ DMAN_SMALLCAP_WATCHLIST = [
     "MASK",   # 1.13M float — low-float momentum play
     # UGRO removed Jul 13 2026 — no price data returned, likely suspended/halted
     "ONCO",   # 1.15M float — bounce candidate
-    "FCHL",   # 1.32M float — overnight swing play
+    # FCHL removed Jul 15 2026 — avg vol 37K (too thin, spreads untradeable)
     "ARTL",   # 3.49M float — mentioned in 100-600% runner week
     "ELAB",   # 4.54M float — confirmed multi-day runner
     # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
     # IOTR removed Jul 13 2026 — Day 6 post-spike, 0.0x RVOL, -8.8% Mon; effectively dead momentum
     # GDC removed — price $0.02, below SMALLCAP_MIN_PRICE ($0.10); cannot generate signal
     # ADTX removed Jul 9 2026 — stock at $0.004, -25% on Jul 8, effectively dead
+    # LNKS removed Jul 15 2026 — avg vol 45K (too thin, spreads untradeable)
+    # SILO removed Jul 15 2026 — Day 4 fade played out, -24.3% 5d; momentum exhausted
+    # FCHL removed Jul 15 2026 — avg vol 37K (too thin, spreads untradeable)
     "CDT",    # 200% swing runner — Dman low-float call
-    "LNKS",   # 200% runner — mentioned same tweet thread as CDT
     "CAST",   # micro-cap catalyst — Dman watch
-    "SILO",   # Jul 8+9 ran +19.8%/+14% on low RVOL; Day 4 -26% air-pocket (deferred fade pattern)
     # Broader low-float universe — Dman-style patterns
     "ATOS",   # perpetual short-squeeze candidate, micro-float
     "IMPP",   # shipping penny — repeated Dman-style RVOL spikes
@@ -182,8 +183,8 @@ DMAN_SMALLCAP_WATCHLIST = [
     # MRIN, CJET, ACST, ATNF removed Jul 10 2026 — delisted/no data
     # Dman Jul 2 2026 tweets — fake-offering bounce + penny OTC runners
     "LABT",   # biotech, Dman loaded <$3 on fake-offering scare, target $10-20
-    "YHC",    # penny OTC, Dman added .04s for 100%+ run → .08-.12 target
-    "LIMN",   # +125% from 52-week low .09s (Jul 2 call) — watch for continuation
+    "YHC",    # penny OTC, Dman loaded .04s → now $2.22 (+5500%), +5900% 5d; watch for VWAP reclaim on pullback
+    "LIMN",   # +125% from 52-week low .09s (Jul 2 call) — now $0.10, at SMALLCAP_MIN_PRICE floor; watch only
 ]
 
 # ── Options layer (Dman style: ITM calls on large-cap signals) ───────────────

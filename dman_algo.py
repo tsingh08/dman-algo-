@@ -142,6 +142,15 @@ MOONSHOT_T3_MULT       = 1.0     # T3 at +100% — the "double"
 # Extended-hours orders are single-leg only (no bracket); momentum-watch handles exits.
 ENABLE_PREMARKET_SUBMIT = True
 
+# ── Options trading (large-cap Gap & Hold only) ───────────────────────────────
+# When True, the algo buys calls on WATCHLIST tickers instead of shares.
+# Falls back to equity order if no liquid contract is found.
+ENABLE_OPTIONS_TRADING  = False   # flip to True to activate
+OPTIONS_RISK_PCT        = 0.05    # 5% of account per trade (max loss = premium paid)
+OPTIONS_DTE_MIN         = 7       # minimum days to expiry
+OPTIONS_DTE_MAX         = 14      # maximum — nearest weekly Friday in this range
+OPTIONS_MAX_SPREAD_PCT  = 0.30    # skip contract if bid-ask spread > 30% of ask (illiquid)
+
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
 # Finviz dynamic discovery supplements this list every scan via ENABLE_DYNAMIC_SMALLCAP.
@@ -7681,6 +7690,161 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
         print(f"  ⚠️  P&L summary failed: {e}")
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+#  Options helpers — contract lookup + order submission
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _get_option_quote(occ_symbol: str) -> dict | None:
+    """
+    Fetch bid/ask/mid for an OCC-format option symbol via Alpaca Data API.
+    Returns {"bid": float, "ask": float, "mid": float} or None.
+    """
+    if not ALPACA_API_KEY or not ALPACA_SECRET_KEY:
+        return None
+    _base = "https://data.alpaca.markets"
+    _headers = {
+        "APCA-API-KEY-ID":     ALPACA_API_KEY,
+        "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY,
+    }
+    try:
+        r = requests.get(
+            f"{_base}/v1beta1/options/snapshots",
+            headers=_headers,
+            params={"symbols": occ_symbol, "feed": "indicative"},
+            timeout=8,
+        )
+        if r.status_code != 200:
+            return None
+        data = r.json()
+        snap = data.get("snapshots", {}).get(occ_symbol, {})
+        q = snap.get("latestQuote", {})
+        bid = float(q.get("bp", 0) or 0)
+        ask = float(q.get("ap", 0) or 0)
+        if ask <= 0:
+            return None
+        spread_pct = (ask - bid) / ask if ask > 0 else 1.0
+        if spread_pct > OPTIONS_MAX_SPREAD_PCT:
+            return None   # illiquid — skip
+        return {"bid": round(bid, 2), "ask": round(ask, 2), "mid": round((bid + ask) / 2, 2)}
+    except Exception:
+        return None
+
+
+def _find_best_call_contract(client, ticker: str, current_price: float) -> dict | None:
+    """
+    Find the best weekly call contract for a ticker:
+      - Expiry: nearest Friday with DTE in [OPTIONS_DTE_MIN, OPTIONS_DTE_MAX]
+      - Strike: ATM first, then 1-strike OTM
+      - Liquidity: bid-ask spread <= OPTIONS_MAX_SPREAD_PCT
+
+    Returns contract dict {"occ_symbol", "strike", "expiry", "bid", "ask", "mid"}
+    or None if nothing suitable found.
+    """
+    from alpaca.trading.requests import GetOptionContractsRequest
+    from alpaca.trading.enums import ContractType
+
+    today = date.today()
+    target_expiry = None
+    for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == 4:   # Friday
+            target_expiry = candidate
+            break
+    if not target_expiry:
+        return None
+
+    # Standard options strike increments
+    if current_price < 25:
+        incr = 1.0
+    elif current_price < 200:
+        incr = 2.5
+    else:
+        incr = 5.0
+
+    atm_strike = round(round(current_price / incr) * incr, 2)
+    strikes_to_try = [atm_strike, atm_strike + incr]   # ATM, then 1 OTM
+
+    for strike in strikes_to_try:
+        try:
+            contracts = client.get_option_contracts(GetOptionContractsRequest(
+                underlying_symbols=[ticker],
+                expiration_date=target_expiry,
+                type=ContractType.CALL,
+                strike_price_gte=strike - 0.01,
+                strike_price_lte=strike + 0.01,
+                limit=1,
+            ))
+            items = getattr(contracts, "option_contracts", None) or (
+                contracts if isinstance(contracts, list) else []
+            )
+            if not items:
+                continue
+            contract = items[0]
+            occ = contract.symbol
+            quote = _get_option_quote(occ)
+            if not quote:
+                continue
+            return {
+                "occ_symbol":  occ,
+                "strike":      float(getattr(contract, "strike_price", strike)),
+                "expiry":      target_expiry.isoformat(),
+                "dte":         (target_expiry - today).days,
+                "bid":         quote["bid"],
+                "ask":         quote["ask"],
+                "mid":         quote["mid"],
+            }
+        except Exception as _ce:
+            print(f"  ⚠️  Options contract lookup error ({ticker} ${strike}): {_ce}")
+            continue
+    return None
+
+
+def _submit_options_call(
+    client, ticker: str, current_price: float, risk_dollars: float, signal: "ProSignal"
+) -> tuple[str | None, dict | None]:
+    """
+    Find best call contract, size by premium budget, and place a limit order.
+    Returns (order_id, contract_dict) or (None, None) on failure.
+    Premium budget = risk_dollars (max loss if options expire worthless = premium paid).
+    """
+    contract = _find_best_call_contract(client, ticker, current_price)
+    if not contract:
+        return None, None
+
+    premium_per_contract = contract["ask"] * 100   # one contract = 100 shares
+    if premium_per_contract <= 0:
+        return None, None
+
+    # Size: how many contracts fit in the budget?
+    contracts = max(1, int(risk_dollars / premium_per_contract))
+    total_cost = round(contracts * premium_per_contract, 2)
+
+    # Safety cap: never spend more than 3× the budget (in case 1 contract is expensive)
+    if total_cost > risk_dollars * 3:
+        print(f"  ⚠️  Options too expensive for {ticker}: "
+              f"1 contract=${premium_per_contract:.0f}, budget=${risk_dollars:.0f} — skipping")
+        return None, None
+
+    try:
+        order = client.submit_order(LimitOrderRequest(
+            symbol        = contract["occ_symbol"],
+            qty           = contracts,
+            side          = OrderSide.BUY,
+            limit_price   = round(contract["ask"], 2),
+            time_in_force = TimeInForce.DAY,
+        ))
+        label = "PAPER" if ALPACA_PAPER else "LIVE"
+        print(f"  📤 [{label}] OPTIONS {ticker} CALL  "
+              f"strike=${contract['strike']}  exp={contract['expiry']}  "
+              f"{contracts}x @ ${contract['ask']}  total=${total_cost:.0f}  id={str(order.id)[:8]}…")
+        contract["contracts"] = contracts
+        contract["total_cost"] = total_cost
+        return str(order.id), contract
+    except Exception as exc:
+        print(f"  ❌ Options order failed ({ticker}): {exc}")
+        return None, None
+
+
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     """
     Validate entry prices and submit passing signals to Alpaca (paper or live).
@@ -7818,27 +7982,77 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 sig.target1 = round(_live_entry - 2.5 * _orig_risk, 2)
                 sig.target2 = round(_live_entry - 4.0 * _orig_risk, 2)
 
-        oid = submit_alpaca_trade(sig)
+        # ── Options branch: buy calls on large-cap WATCHLIST tickers ────────
+        _use_options = ENABLE_OPTIONS_TRADING and sig.ticker in WATCHLIST and sig.bias == "LONG"
+        _opt_contract: dict | None = None
+        oid: str | None = None
+
+        if _use_options:
+            _opt_client = get_alpaca_client()
+            if _opt_client:
+                _opt_risk = round(get_effective_account() * OPTIONS_RISK_PCT * _risk_off_mult, 2)
+                print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
+                oid, _opt_contract = _submit_options_call(
+                    _opt_client, sig.ticker, cur, _opt_risk, sig
+                )
+                if oid is None:
+                    print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
+                    _use_options = False
+
+        if not _use_options:
+            oid = submit_alpaca_trade(sig)
+
         if oid:
-            pt.open(OpenPosition(
-                ticker     = sig.ticker,
-                bias       = sig.bias,
-                setup      = sig.setup,
-                entry      = sig.entry,
-                stop       = sig.stop,
-                target1    = sig.target1,
-                target2    = sig.target2,
-                shares     = sig.shares,
-                entry_date = datetime.today().strftime("%Y-%m-%d"),
-                atr        = sig.atr,
-                score      = sig.confluence_score,
-            ))
-            submitted += 1
-            send_telegram(
-                f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
-                f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
-            )
+            if _use_options and _opt_contract:
+                # Track options position: ticker = OCC symbol, shares = contracts×100
+                _exp_str = _opt_contract.get("expiry", "?")
+                _strike  = _opt_contract.get("strike", 0)
+                _ask     = _opt_contract.get("ask", 0)
+                _ctrs    = _opt_contract.get("contracts", 1)
+                _t1_prem = round(_ask * 2, 2)   # 100% gain on premium = T1
+                _sl_prem = round(_ask * 0.5, 2) # 50% loss = stop
+                pt.open(OpenPosition(
+                    ticker     = sig.ticker,
+                    bias       = "LONG",
+                    setup      = f"Options Call (exp {_exp_str} ${_strike}C)",
+                    entry      = _ask,            # premium per share
+                    stop       = _sl_prem,        # 50% of premium = max tolerable loss
+                    target1    = _t1_prem,        # 100% gain on premium
+                    target2    = round(_ask * 3, 2),
+                    shares     = _ctrs * 100,     # notional — contracts × 100
+                    entry_date = datetime.today().strftime("%Y-%m-%d"),
+                    atr        = 0.0,
+                    score      = sig.confluence_score,
+                ))
+                submitted += 1
+                send_telegram(
+                    f"🎯 <b>Options order placed</b> [{mode_label}] — {sig.ticker} CALL\n"
+                    f"Contract: <b>{_opt_contract['occ_symbol']}</b>\n"
+                    f"Strike ${_strike}  Exp {_exp_str} ({_opt_contract.get('dte','?')}d)\n"
+                    f"Premium: ${_ask}/sh × {_ctrs} contract(s) = <b>${_opt_contract['total_cost']:.0f}</b>\n"
+                    f"T1 (2×): ${_t1_prem}  Stop (50%): ${_sl_prem}\n"
+                    f"Underlying: ${cur:.2f}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+                )
+            else:
+                pt.open(OpenPosition(
+                    ticker     = sig.ticker,
+                    bias       = sig.bias,
+                    setup      = sig.setup,
+                    entry      = sig.entry,
+                    stop       = sig.stop,
+                    target1    = sig.target1,
+                    target2    = sig.target2,
+                    shares     = sig.shares,
+                    entry_date = datetime.today().strftime("%Y-%m-%d"),
+                    atr        = sig.atr,
+                    score      = sig.confluence_score,
+                ))
+                submitted += 1
+                send_telegram(
+                    f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                    f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
+                    f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+                )
         else:
             send_telegram(
                 f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"

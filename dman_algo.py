@@ -145,7 +145,7 @@ ENABLE_PREMARKET_SUBMIT = True
 # ── Options trading (large-cap Gap & Hold only) ───────────────────────────────
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
-ENABLE_OPTIONS_TRADING  = False   # flip to True to activate
+ENABLE_OPTIONS_TRADING  = True   # flip to True to activate
 OPTIONS_RISK_PCT        = 0.05    # 5% of account per trade (max loss = premium paid)
 OPTIONS_DTE_MIN         = 7       # minimum days to expiry
 OPTIONS_DTE_MAX         = 14      # maximum — nearest weekly Friday in this range
@@ -2452,7 +2452,7 @@ def run_premarket_briefing() -> None:
         spy_ema50_str = f"{abs(spy_ema50_dist):.1f}% {'above' if spy_above_ema50 else 'below'} EMA50"
         qqq_note      = det.get("QQQ Note", "N/A")
 
-        regime_line  = f"<b>{r_type}</b> ({r_score}/15)  VIX: {vix}"
+        regime_line  = f"<b>{r_type}</b> ({r_score}/19)  VIX: {vix}"
         regime_line2 = (
             f"SPY {spy_ok} {spy_ema20_str}  |  {spy_ema50_str}\n"
             f"QQQ {qqq_ok} {qqq_note}\n"
@@ -3432,7 +3432,7 @@ def get_market_regime() -> dict:
       • ADX (trend strength) — CHOP if ADX < 20
       • VIX level (fear gauge)
 
-    Returns dict with regime, score (0-15), and details.
+    Returns dict with regime, score (0-19), and details.
     """
     result = {
         "regime":    "UNKNOWN",
@@ -3449,6 +3449,9 @@ def get_market_regime() -> dict:
         if spy_df is None:
             return result
         spy = compute_indicators(spy_df.copy())
+        spy = spy.dropna(subset=["Close"])   # drop incomplete after-hours row
+        if len(spy) == 0:
+            return result
         sr  = spy.iloc[-1]
 
         spy_above_20  = float(sr["Close"]) > float(sr["EMA20"])
@@ -3477,8 +3480,10 @@ def get_market_regime() -> dict:
         iwm_df = fetch_df("IWM")
         breadth_note = "N/A"
         if iwm_df is not None and len(iwm_df) >= 22:
-            iwm_ret = (float(iwm_df["Close"].iloc[-1]) / float(iwm_df["Close"].iloc[-21]) - 1) * 100
-            spy_ret = (float(spy_df["Close"].iloc[-1]) / float(spy_df["Close"].iloc[-21]) - 1) * 100
+            _iwm_clean = iwm_df.dropna(subset=["Close"])
+            _spy_clean = spy_df.dropna(subset=["Close"])
+            iwm_ret = (float(_iwm_clean["Close"].iloc[-1]) / float(_iwm_clean["Close"].iloc[-21]) - 1) * 100
+            spy_ret = (float(_spy_clean["Close"].iloc[-1]) / float(_spy_clean["Close"].iloc[-21]) - 1) * 100
             if iwm_ret > spy_ret - 5:   # IWM not lagging SPY by more than 5 pts
                 score += 1
             breadth_note = f"IWM {iwm_ret:+.1f}% vs SPY {spy_ret:+.1f}%"
@@ -3492,11 +3497,13 @@ def get_market_regime() -> dict:
             qqq_df = fetch_df("QQQ")
             if qqq_df is not None and len(qqq_df) >= 55:
                 qqq_ind = compute_indicators(qqq_df.copy())
+                qqq_ind = qqq_ind.dropna(subset=["Close"])
                 qr = qqq_ind.iloc[-1]
                 qqq_above_ema20 = float(qr["Close"]) > float(qr["EMA20"])
                 qqq_above_ema50 = float(qr["Close"]) > float(qr["EMA50"])
                 qqq_ema20_dist  = (float(qr["Close"]) - float(qr["EMA20"])) / float(qr["EMA20"]) * 100
-                qqq_chg5 = (float(qqq_df["Close"].iloc[-1]) / float(qqq_df["Close"].iloc[-6]) - 1) * 100
+                _qqq_clean = qqq_df.dropna(subset=["Close"])
+                qqq_chg5 = (float(_qqq_clean["Close"].iloc[-1]) / float(_qqq_clean["Close"].iloc[-6]) - 1) * 100
                 if qqq_above_ema20:
                     score += 1   # tech leading = bull confirmation
                 qqq_note = f"{'✓' if qqq_above_ema20 else '✗'} EMA20  {'✓' if qqq_above_ema50 else '✗'} EMA50  5d {qqq_chg5:+.1f}%"
@@ -3510,8 +3517,9 @@ def get_market_regime() -> dict:
         try:
             tlt_df = fetch_df("TLT")
             if tlt_df is not None and len(tlt_df) >= 22:
-                tlt_now  = float(tlt_df["Close"].iloc[-1])
-                tlt_20d  = float(tlt_df["Close"].iloc[-21])
+                _tlt_clean = tlt_df.dropna(subset=["Close"])
+                tlt_now  = float(_tlt_clean["Close"].iloc[-1])
+                tlt_20d  = float(_tlt_clean["Close"].iloc[-21]) if len(_tlt_clean) >= 22 else tlt_now
                 tlt_chg  = (tlt_now - tlt_20d) / tlt_20d * 100
                 tlt_trend = "rising" if tlt_chg > 1.5 else ("falling" if tlt_chg < -1.5 else "flat")
                 if tlt_trend == "rising":
@@ -3526,8 +3534,9 @@ def get_market_regime() -> dict:
         try:
             uup_df = fetch_df("UUP")
             if uup_df is not None and len(uup_df) >= 22:
-                uup_now = float(uup_df["Close"].iloc[-1])
-                uup_20d = float(uup_df["Close"].iloc[-21])
+                _uup_clean = uup_df.dropna(subset=["Close"])
+                uup_now = float(_uup_clean["Close"].iloc[-1])
+                uup_20d = float(_uup_clean["Close"].iloc[-21]) if len(_uup_clean) >= 22 else uup_now
                 uup_chg = (uup_now - uup_20d) / uup_20d * 100
                 dxy_trend = "strong" if uup_chg > 1 else ("weak" if uup_chg < -1 else "flat")
                 if dxy_trend == "weak":
@@ -4452,7 +4461,7 @@ Setup Details:
 - Setup Reason: {signal.reason}
 
 Macro Environment:
-- Market Regime: {regime.get('regime','?')} (SPY score {regime.get('score',0)}/15)
+- Market Regime: {regime.get('regime','?')} (SPY score {regime.get('score',0)}/19)
 - VIX           : {vix_val}
 - QQQ vs EMA20  : {qqq_ok} (tech {'leading ✅' if qqq_ok == 'above' else 'lagging ⚠️'})
 - Rates (TLT)   : {rate_env}
@@ -6281,7 +6290,7 @@ def print_scan_log() -> None:
                     if sig_ticks else f"{n_signals} signals")
         budget_str = "  ⏱ TIME BUDGET HIT" if budget_hit else ""
 
-        print(f"  {ts}  |  {regime}({rscore}/15)  VIX {vix:.1f}  "
+        print(f"  {ts}  |  {regime}({rscore}/19)  VIX {vix:.1f}  "
               f"min={min_sc}  [{universe}]")
         print(f"    {sig_icon} {n_tickers} tickers → {sig_str}{budget_str}")
         print(f"    Rejected: {rej_none} no-gap  {rej_gate} gate  {rej_score} low-score")
@@ -6357,7 +6366,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     regime   = get_market_regime()
     top_secs = get_top_sectors()
     vix_now  = float(regime['details'].get('VIX', 20))
-    print(f"  Market : {regime['regime']} (score {regime['score']}/15)  VIX: {vix_now:.1f}")
+    print(f"  Market : {regime['regime']} (score {regime['score']}/19)  VIX: {vix_now:.1f}")
     print(f"  Top sectors: {', '.join(top_secs)}")
 
     # VIX regime scaling — tighten confluence floor in elevated-volatility markets
@@ -8510,7 +8519,7 @@ def main():
         regime = get_market_regime()
         r = regime["regime"]; s = regime["score"]
         d = regime["details"]
-        print(f"  Market Regime : {r}  (score {s}/15)")
+        print(f"  Market Regime : {r}  (score {s}/19)")
         for k, v in d.items():
             print(f"  {k:<18}: {v}")
         print(f"\n  Top sectors   : {', '.join(get_top_sectors())}")
@@ -8728,7 +8737,7 @@ def main():
         if signals:
             send_telegram(
                 f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
-                f"Regime: {_hb_r} ({_hb_rs}/15)"
+                f"Regime: {_hb_r} ({_hb_rs}/19)"
             )
         else:
             _fomc_bkout = any(abs((ev - date.today()).days) <= MACRO_BLACKOUT
@@ -8782,7 +8791,7 @@ def main():
             elif _fomc_bkout:
                 send_telegram(
                     f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
-                    f"Regime: {_hb_r} ({_hb_rs}/15) | {_hb_counts}"
+                    f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
                     f"{_hb_nm_str}"
                 )
             else:
@@ -8860,7 +8869,7 @@ def main():
 
                 send_telegram(
                     f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
-                    f"Regime: {_hb_r} ({_hb_rs}/15) | {_hb_counts}"
+                    f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
                     f"{_hb_nm_str}"
                     f"{_spy_ctx}"
                     f"{_eod_watch}"

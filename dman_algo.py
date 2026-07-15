@@ -7700,6 +7700,45 @@ def show_alpaca_account() -> None:
                 stp = f"stp=${o.stop_price}"  if o.stop_price  else ""
                 print(f"    {o.symbol:<8} {str(o.side):<5} qty={o.qty:<5} "
                       f"{str(o.type):<12} {lmt} {stp}")
+        # ── Options access check ──────────────────────────────────────────
+        print(f"{'─'*W}")
+        try:
+            _acct_raw = acct.__dict__ if hasattr(acct, "__dict__") else {}
+            # Alpaca returns options_approved_level / options_trading_level on the account object
+            _opt_approved = getattr(acct, "options_approved_level", None)
+            _opt_trading  = getattr(acct, "options_trading_level",  None)
+            # Also try raw dict keys in case SDK doesn't expose them as attributes
+            if _opt_approved is None:
+                _opt_approved = _acct_raw.get("options_approved_level")
+            if _opt_trading is None:
+                _opt_trading  = _acct_raw.get("options_trading_level")
+
+            _level_desc = {
+                0: "None — not approved for options trading",
+                1: "Level 1 — covered calls only",
+                2: "Level 2 — long calls + puts (algo uses this)",
+                3: "Level 3 — spreads approved",
+            }
+            _approved_int = int(_opt_approved) if _opt_approved is not None else -1
+            _trading_int  = int(_opt_trading)  if _opt_trading  is not None else -1
+
+            if _approved_int < 0:
+                print("  Options Level  : ⚠️  unable to read — check app.alpaca.markets")
+                print("                   Account → Trading → Options → Options Level")
+            elif _approved_int == 0:
+                print("  Options Level  : ❌ NOT APPROVED")
+                print("                   Apply at: app.alpaca.markets → Account → Trading → Options")
+                print("                   Algo needs Level 2 (long calls/puts) to buy calls")
+            elif _approved_int == 1:
+                print(f"  Options Level  : ⚠️  Level 1 (covered calls only)")
+                print("                   Upgrade to Level 2 to buy long calls with the algo")
+            else:
+                _enabled = "✅ ENABLED" if ENABLE_OPTIONS_TRADING else "⏸  set ENABLE_OPTIONS_TRADING=True to activate"
+                print(f"  Options Level  : ✅ Level {_approved_int} — {_level_desc.get(_approved_int, 'approved')}")
+                print(f"  Algo Options   : {_enabled}")
+        except Exception as _oe:
+            print(f"  Options Level  : ⚠️  check failed ({_oe})")
+            print("                   Verify at app.alpaca.markets → Account → Trading")
         print(f"{'═'*W}\n")
     except Exception as exc:
         print(f"  ❌ Alpaca account fetch failed: {exc}")

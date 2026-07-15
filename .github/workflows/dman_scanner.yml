@@ -24,7 +24,7 @@ on:
   workflow_dispatch:   # manual trigger from GitHub UI
     inputs:
       mode:
-        description: 'Run mode (leave blank for normal scan, or: pnl, premarket-early, momentum-watch)'
+        description: 'Type ONE word only — the mode name. Options: alpaca | pnl | regime | positions | performance | premarket | premarket-early | momentum-watch | readiness | scan-log | watchlist'
         required: false
         default: ''
 

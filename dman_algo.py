@@ -1743,6 +1743,22 @@ def run_premarket_early_scan() -> None:
                         "ticker": ticker, "entry_px": pm["pm_vwap"],
                         "gap_pct": gap_pct, "fl_m": fl_m,
                         "tier": tier, "prev_close": prev_close,
+                        "size_mult": 1.0,
+                    })
+                # Secondary tier — Tier A SEC catalyst, smaller gap, wider float.
+                # Enters at PM VWAP to be part of the gap move from the hold level,
+                # not chasing after it gaps fully at 9:45 AM.
+                elif (ENABLE_PREMARKET_SUBMIT
+                        and tier == "A"
+                        and 5.0 <= gap_pct < 15.0
+                        and 0 < fl_m < 5.0
+                        and pm.get("pm_vwap", 0) > 0
+                        and not fade_warn):
+                    pm_auto_entries.append({
+                        "ticker": ticker, "entry_px": pm["pm_vwap"],
+                        "gap_pct": gap_pct, "fl_m": fl_m,
+                        "tier": tier, "prev_close": prev_close,
+                        "size_mult": 0.5,   # half size — less confirmed gap
                     })
 
             elif bull_news:
@@ -1840,15 +1856,20 @@ def run_premarket_early_scan() -> None:
             from alpaca.trading.requests import LimitOrderRequest as _LimReq
             from alpaca.trading.enums   import OrderSide as _Side, TimeInForce as _TIF
             _acct    = get_effective_account()
-            _risk    = _acct * SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT * _early_ctx["risk_mult"]
+            _base_risk = _acct * SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT * _early_ctx["risk_mult"]
             _pm_pt   = PositionTracker()
             for _e in pm_auto_entries[:3]:   # max 3 concurrent pre-market entries
                 try:
-                    _ep      = round(_e["entry_px"], 2)
-                    _stop_px = round(_ep * (1 - ULTRA_LOW_STOP_PCT), 2)
-                    _rps     = _ep - _stop_px
-                    _shares  = max(1, int(_risk / _rps)) if _rps > 0 else 1
-                    _cost    = _shares * _ep
+                    _ep        = round(_e["entry_px"], 2)
+                    _fl_m      = _e["fl_m"]
+                    _gap_pct   = _e["gap_pct"]
+                    _sm        = _e.get("size_mult", 1.0)
+                    _ultra_low = _fl_m < ULTRA_LOW_FLOAT_M
+                    _stop_px   = round(_ep * (1 - ULTRA_LOW_STOP_PCT), 2)
+                    _rps       = _ep - _stop_px
+                    _risk      = _base_risk * _sm
+                    _shares    = max(1, int(_risk / _rps)) if _rps > 0 else 1
+                    _cost      = _shares * _ep
                     if _cost > SMALLCAP_MAX_COST:
                         _shares = max(1, int(SMALLCAP_MAX_COST / _ep))
                         _cost   = _shares * _ep
@@ -1860,25 +1881,38 @@ def run_premarket_early_scan() -> None:
                         time_in_force = _TIF.DAY,
                         extended_hours= True,
                     ))
-                    _t1 = round(_ep * (1 + ULTRA_LOW_T1_MULT), 2)
-                    _t2 = round(_ep * (1 + ULTRA_LOW_T2_MULT), 2)
-                    _t3 = round(_ep * (1 + MOONSHOT_T3_MULT),  2)
+                    # Targets: ultra-low float uses +50%/+150%; wider float uses gap-echo
+                    # (T1 = full measured gap from entry, T2 = 1.5× echo) so targets match
+                    # the actual gap move, not a fixed percentage.
+                    if _ultra_low:
+                        _t1 = round(_ep * (1 + ULTRA_LOW_T1_MULT), 2)
+                        _t2 = round(_ep * (1 + ULTRA_LOW_T2_MULT), 2)
+                        _t1_lbl, _t2_lbl = f"+{int(ULTRA_LOW_T1_MULT*100)}%", f"+{int(ULTRA_LOW_T2_MULT*100)}%"
+                    else:
+                        _t1 = round(_ep * (1 + _gap_pct / 100), 2)        # echo the gap
+                        _t2 = round(_ep * (1 + _gap_pct / 100 * 1.5), 2)  # 1.5× echo
+                        _t1_lbl = f"+{_gap_pct:.0f}% (echo gap)"
+                        _t2_lbl = f"+{_gap_pct*1.5:.0f}% (1.5× echo)"
+                    _t3 = round(_ep * (1 + MOONSHOT_T3_MULT), 2)
+                    _setup_label = "Pre-Market Moon Shot" if _ultra_low else "Pre-Market Gap Entry"
                     # Write to PositionTracker so 9:45 AM scan skips duplicate entry
                     _pm_pt.open(OpenPosition(
-                        ticker=_e["ticker"], bias="LONG", setup="Pre-Market Moon Shot",
+                        ticker=_e["ticker"], bias="LONG", setup=_setup_label,
                         entry=_ep, stop=_stop_px, target1=_t1, target2=_t2,
                         shares=_shares, entry_date=datetime.today().strftime("%Y-%m-%d"),
                     ))
+                    _size_note = "" if _sm == 1.0 else f"  <i>(half-size — {_gap_pct:.0f}% gap, Tier {_e['tier']})</i>"
                     _pm_msg = (
-                        f"📤 <b>PRE-MARKET ORDER PLACED</b>\n"
+                        f"📤 <b>PRE-MARKET ORDER PLACED</b>{_size_note}\n"
                         f"<b>{_e['ticker']}</b>  Tier {_e['tier']}  "
-                        f"Float {_e['fl_m']:.2f}M  Gap {_e['gap_pct']:+.0f}%\n"
+                        f"Float {_fl_m:.2f}M  Gap {_gap_pct:+.0f}%\n"
                         f"Entry: ${_ep}  ({_shares} shares  ${_cost:.0f})\n"
-                        f"Stop: ${_stop_px}  T1: ${_t1} (+50%)  T2: ${_t2} (+150%)  T3: ${_t3} (+100%)\n"
+                        f"Stop: ${_stop_px}  T1: ${_t1} ({_t1_lbl})  T2: ${_t2} ({_t2_lbl})\n"
+                        f"Plan: sell 50% at T1 → move stop to ${_ep} → let rest run to T2\n"
                         f"<i>Extended-hours limit — no bracket. Momentum-watch manages exit after open.</i>"
                     )
                     send_telegram(_pm_msg)
-                    print(f"  📤 Pre-market order: {_e['ticker']} {_shares}sh @ ${_ep}")
+                    print(f"  📤 Pre-market order: {_e['ticker']} {_shares}sh @ ${_ep}  [{_setup_label}]")
                 except Exception as _ex:
                     print(f"  ❌ Pre-market order failed ({_e['ticker']}): {_ex}")
 
@@ -4866,8 +4900,21 @@ class PositionTracker:
             t2_hit  = cur >= p.target2 if is_lo else cur <= p.target2
             stopped = cur <= p.stop    if is_lo else cur >= p.stop
 
-            if   t2_hit:  status = "🎯 T2 HIT — consider full exit"
-            elif t1_hit:  status = "✅ T1 HIT — trail stop to breakeven"
+            if t2_hit:
+                status = "🎯 T2 HIT — take remaining profits"
+                send_telegram(
+                    f"🎯 <b>T2 HIT</b> — {p.ticker} {p.bias}\n"
+                    f"Entry ${p.entry} → Now ${cur:.2f} (+{pnl_pct:.1f}%)  T2 ${p.target2}\n"
+                    f"<b>Sell remaining shares.</b> This is the best comfortable exit."
+                )
+            elif t1_hit:
+                status = f"✅ T1 HIT — sell 50% now, move stop to ${p.entry}"
+                send_telegram(
+                    f"✅ <b>T1 HIT</b> — {p.ticker} {p.bias}\n"
+                    f"Entry ${p.entry} → Now ${cur:.2f} (+{pnl_pct:.1f}%)  T1 ${p.target1}\n"
+                    f"<b>Sell 50% HERE.</b>  Move stop to ${p.entry} (breakeven).  "
+                    f"Let rest ride to T2 ${p.target2}."
+                )
             elif stopped:
                 status = "🛑 AT STOP — exit immediately"
                 send_telegram(
@@ -4875,7 +4922,8 @@ class PositionTracker:
                     f"Entry ${p.entry} → Now ${cur:.2f} | Stop ${p.stop}\n"
                     f"P&L: {'+' if pnl_pct>=0 else ''}{pnl_pct:.1f}%  Exit NOW."
                 )
-            else:         status = "⏳ Active"
+            else:
+                status = "⏳ Active"
 
             days_in = (date.today() - date.fromisoformat(p.entry_date)).days
             arrow   = "▲" if is_lo else "▼"
@@ -5013,6 +5061,11 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
             gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
             sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
                         reason=f"Gap up +{gap_pct:.1f}% from prior close, holding, RVOL {float(r['RVOL']):.1f}x")
+            # Override R-multiple targets with gap-echo targets: the natural "best yet
+            # comfortable" exit for a gap play is a repeat of the gap (T1) and 1.5× it (T2).
+            # R-multiples produce ~4-6% targets when the gap stop is tight — far too small.
+            sig.target1 = round(c * (1 + gap_pct / 100), 2)
+            sig.target2 = round(c * (1 + gap_pct / 100 * 1.5), 2)
             if sig.rr >= MIN_RR:
                 candidates.append(sig)
     except Exception:

@@ -2193,15 +2193,23 @@ def run_momentum_watch() -> None:
                         _iv_now    = _snap.get("iv", 0)
                         _theta_pct = abs(_theta_now / _cur_prem * 100) if _cur_prem > 0 else 0
 
-                        # Determine alert type
+                        # Determine alert type — T1/stop fire once per day (dedup)
+                        _opt_t1k   = f"{t}_OPT_T1_{date.today().isoformat()}"
+                        _opt_stopk = f"{t}_OPT_STOP_{date.today().isoformat()}"
                         if _cur_prem <= _stop_prem:
                             _action = "🔴 EXIT — STOP HIT"
                             _msg = (f"Premium at ${_cur_prem:.2f} ≤ stop ${_stop_prem:.2f} "
                                     f"({_pnl_pct:+.0f}%) — sell to limit loss")
+                            if not _is_alerted_today(_opt_stopk):
+                                send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} CALL {_occ}\n{_msg}")
+                                _mark_alerted(_opt_stopk)
                         elif _cur_prem >= _t1_prem:
                             _action = "🟢 T1 HIT — TAKE PROFIT"
                             _msg = (f"Premium at ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
                                     f"({_pnl_pct:+.0f}%) — sell ½, raise stop to breakeven")
+                            if not _is_alerted_today(_opt_t1k):
+                                send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} CALL {_occ}\n{_msg}")
+                                _mark_alerted(_opt_t1k)
                         elif _theta_pct > 5.0 and _pnl_pct < 10:
                             _action = "⏰ THETA ALERT — consider exit"
                             _msg = (f"Decaying {_theta_pct:.1f}%/day with only "
@@ -2220,6 +2228,30 @@ def run_momentum_watch() -> None:
                         )
                         continue   # options positions don't go into equity active_plays
                     if e > 0:
+                        # Automatic T1/T2 exit alerts for equity positions — fires once
+                        # per target per day (dedup prevents repeat on every 30-min cycle)
+                        _cur_eq = get_current_price(t)
+                        if _cur_eq is not None:
+                            _t1e = float(pos.get("target1", 0))
+                            _t2e = float(pos.get("target2", 0))
+                            _pnle = round((_cur_eq - e) / e * 100, 1) if e > 0 else 0
+                            _t2k = f"{t}_T2_{date.today().isoformat()}"
+                            _t1k = f"{t}_T1_{date.today().isoformat()}"
+                            if _t2e > 0 and _cur_eq >= _t2e and not _is_alerted_today(_t2k):
+                                send_telegram(
+                                    f"🎯 <b>T2 HIT</b> — {t} LONG\n"
+                                    f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  T2 ${_t2e}\n"
+                                    f"<b>Sell remaining shares.</b> Best comfortable exit."
+                                )
+                                _mark_alerted(_t2k)
+                            elif _t1e > 0 and _cur_eq >= _t1e and not _is_alerted_today(_t1k):
+                                send_telegram(
+                                    f"✅ <b>T1 HIT</b> — {t} LONG\n"
+                                    f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  T1 ${_t1e}\n"
+                                    f"<b>Sell 50% HERE.</b>  Move stop to ${e} (breakeven).  "
+                                    f"Let rest ride to T2 ${_t2e}."
+                                )
+                                _mark_alerted(_t1k)
                         active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
     except Exception:
         pass
@@ -4824,6 +4856,31 @@ class WinRateTracker:
 #  SECTION 17.5 — OPEN POSITION TRACKER
 # ═══════════════════════════════════════════════════════════════════════════
 
+_ALERT_DEDUP_FILE = "dman_alerts_dedup.json"
+
+def _is_alerted_today(key: str) -> bool:
+    """Return True if this alert key was already sent today."""
+    try:
+        with open(_ALERT_DEDUP_FILE) as _f:
+            _d = json.load(_f)
+        return _d.get(key, "")[:10] == date.today().isoformat()
+    except Exception:
+        return False
+
+def _mark_alerted(key: str) -> None:
+    """Record that this alert key was sent today."""
+    try:
+        try:
+            with open(_ALERT_DEDUP_FILE) as _f:
+                _d = json.load(_f)
+        except Exception:
+            _d = {}
+        _d[key] = datetime.now().isoformat()
+        with open(_ALERT_DEDUP_FILE, "w") as _f:
+            json.dump(_d, _f)
+    except Exception:
+        pass
+
 @dataclass
 class OpenPosition:
     ticker:     str
@@ -4902,19 +4959,25 @@ class PositionTracker:
 
             if t2_hit:
                 status = "🎯 T2 HIT — take remaining profits"
-                send_telegram(
-                    f"🎯 <b>T2 HIT</b> — {p.ticker} {p.bias}\n"
-                    f"Entry ${p.entry} → Now ${cur:.2f} (+{pnl_pct:.1f}%)  T2 ${p.target2}\n"
-                    f"<b>Sell remaining shares.</b> This is the best comfortable exit."
-                )
+                _k = f"{p.ticker}_T2_{date.today().isoformat()}"
+                if not _is_alerted_today(_k):
+                    send_telegram(
+                        f"🎯 <b>T2 HIT</b> — {p.ticker} {p.bias}\n"
+                        f"Entry ${p.entry} → Now ${cur:.2f} (+{pnl_pct:.1f}%)  T2 ${p.target2}\n"
+                        f"<b>Sell remaining shares.</b> This is the best comfortable exit."
+                    )
+                    _mark_alerted(_k)
             elif t1_hit:
                 status = f"✅ T1 HIT — sell 50% now, move stop to ${p.entry}"
-                send_telegram(
-                    f"✅ <b>T1 HIT</b> — {p.ticker} {p.bias}\n"
-                    f"Entry ${p.entry} → Now ${cur:.2f} (+{pnl_pct:.1f}%)  T1 ${p.target1}\n"
-                    f"<b>Sell 50% HERE.</b>  Move stop to ${p.entry} (breakeven).  "
-                    f"Let rest ride to T2 ${p.target2}."
-                )
+                _k = f"{p.ticker}_T1_{date.today().isoformat()}"
+                if not _is_alerted_today(_k):
+                    send_telegram(
+                        f"✅ <b>T1 HIT</b> — {p.ticker} {p.bias}\n"
+                        f"Entry ${p.entry} → Now ${cur:.2f} (+{pnl_pct:.1f}%)  T1 ${p.target1}\n"
+                        f"<b>Sell 50% HERE.</b>  Move stop to ${p.entry} (breakeven).  "
+                        f"Let rest ride to T2 ${p.target2}."
+                    )
+                    _mark_alerted(_k)
             elif stopped:
                 status = "🛑 AT STOP — exit immediately"
                 send_telegram(
@@ -5061,11 +5124,14 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
             gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
             sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
                         reason=f"Gap up +{gap_pct:.1f}% from prior close, holding, RVOL {float(r['RVOL']):.1f}x")
-            # Override R-multiple targets with gap-echo targets: the natural "best yet
-            # comfortable" exit for a gap play is a repeat of the gap (T1) and 1.5× it (T2).
-            # R-multiples produce ~4-6% targets when the gap stop is tight — far too small.
-            sig.target1 = round(c * (1 + gap_pct / 100), 2)
-            sig.target2 = round(c * (1 + gap_pct / 100 * 1.5), 2)
+            # Targets: take the larger of R-multiple or gap-echo. For small gaps
+            # (1.5-4%) the R-multiple is bigger; for large gaps (8%+) the echo wins.
+            _echo_t1 = round(c * (1 + gap_pct / 100), 2)
+            _echo_t2 = round(c * (1 + gap_pct / 100 * 1.5), 2)
+            sig.target1 = max(sig.target1, _echo_t1)
+            sig.target2 = max(sig.target2, _echo_t2)
+            _gap_risk   = c - gap_stop
+            sig.rr = round((sig.target1 - c) / _gap_risk, 2) if _gap_risk > 0 else 0
             if sig.rr >= MIN_RR:
                 candidates.append(sig)
     except Exception:

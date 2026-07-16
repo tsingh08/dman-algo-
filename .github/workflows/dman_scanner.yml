@@ -179,12 +179,13 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv \
-                  dman_positions.json dman_alpaca_sync.json \
+                  dman_alpaca_sync.json \
                   dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
                   dman_scan_log.json dman_universe_cache.json || true
           git diff --staged --quiet && echo "No changes to commit" || (
             git commit -m "chore: update alert/signal cache [skip ci]" &&
-            git push origin HEAD:main --force-with-lease
+            git pull --rebase origin main &&
+            git push origin HEAD:main
           ) || echo "Warning: cache push skipped — will sync next scan"
 
       - name: Notify on workflow failure

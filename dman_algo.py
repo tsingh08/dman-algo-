@@ -3140,6 +3140,51 @@ def run_premarket_briefing() -> None:
     except Exception as _e:
         earnings_section = f"\n\n📆 <b>EARNINGS</b>: scan error ({str(_e)[:60]})"
 
+    # ── PDT budget + account milestone tracker ────────────────────────
+    _pdt_section     = ""
+    _milestone_section = ""
+    try:
+        _pdt_live = _get_pdt_status()
+        _live_eq  = _pdt_live["equity"]
+        _dt_used  = _pdt_live["used"]
+        _dt_rem   = _pdt_live["remaining"]
+        _sw_on    = _pdt_live["swing_mode"]
+
+        if _live_eq > 0:
+            # PDT budget line
+            if _live_eq >= 25_000:
+                _pdt_section = "\n\n🔓 <b>PDT</b>: Unlimited day trades (equity ≥ $25k)"
+            elif _dt_rem == 0:
+                _pdt_section = (f"\n\n🚫 <b>PDT HALT</b>: {_dt_used}/3 day trades used — "
+                                "window resets Monday. No new day trades until reset.")
+            elif _sw_on:
+                _pdt_section = (f"\n\n🔄 <b>PDT — SWING MODE</b>: {_dt_used}/3 used · "
+                                f"1 remaining · New entries will be GTC swings (overnight)")
+            else:
+                _pdt_section = (f"\n\n🎯 <b>PDT</b>: {_dt_used}/3 day trades used · "
+                                f"{_dt_rem} remaining this window")
+
+            # Growth milestone tracker
+            _MILESTONES = [2_000, 5_000, 10_000, 25_000]
+            _next_ms = next((m for m in _MILESTONES if m > _live_eq), None)
+            if _next_ms:
+                _ms_pct   = _live_eq / _next_ms * 100
+                _ms_gap   = _next_ms - _live_eq
+                _bar_fill = int(_ms_pct / 10)   # 0-10 blocks
+                _bar      = "█" * _bar_fill + "░" * (10 - _bar_fill)
+                _pdt_flag = "  ← PDT UNLOCK 🔓" if _next_ms == 25_000 else ""
+                _milestone_section = (
+                    f"\n\n📈 <b>ACCOUNT GROWTH</b>\n"
+                    f"${_live_eq:,.2f}  →  ${_next_ms:,.0f}{_pdt_flag}\n"
+                    f"[{_bar}] {_ms_pct:.1f}%  (${_ms_gap:,.0f} to go)"
+                )
+            else:
+                _milestone_section = (
+                    f"\n\n📈 <b>ACCOUNT</b>: ${_live_eq:,.2f} — all milestones cleared 🏆"
+                )
+    except Exception:
+        pass
+
     # ── Format & send ─────────────────────────────────────────────────
     msg = (
         f"🌅 <b>DMan PRO Pre-Market Briefing</b>\n"
@@ -3153,6 +3198,8 @@ def run_premarket_briefing() -> None:
         f"🌡 <b>SEASONAL FILTER</b>\n{seasonal_line}"
         f"{sector_health_section}\n\n"
         f"💰 <b>MONTHLY P&amp;L</b>\n{monthly_line}"
+        f"{_pdt_section}"
+        f"{_milestone_section}"
         f"{weekend_section}"
         f"{gap_section}"
         f"{earnings_section}"
@@ -3583,6 +3630,7 @@ class ProSignal:
     float_rotation: float = 0.0   # small-cap only: today_vol / float_shares
     target3:        float = 0.0   # Moon Shot T3 at +100% (2x entry) — ultra-low float only
     is_moonshot:    bool  = False  # True when Moon Shot tier conditions are met
+    swing_mode:     bool  = False  # True when PDT budget ≤ 1 → GTC entry + stop only, no T1 TP
 
     # Scoring
     confluence_score:  int  = 0   # 0-100
@@ -7893,16 +7941,37 @@ def _save_sync_state(state: dict) -> None:
         json.dump(state, f, indent=2)
 
 
+def _get_pdt_status() -> dict:
+    """
+    Query Alpaca for current PDT day-trade count.
+    Returns dict with keys: used, remaining, swing_mode, equity.
+    swing_mode=True when equity < $25k AND remaining <= 1 (save last trade for emergencies).
+    Falls back to safe defaults (swing_mode=False, remaining=3) if Alpaca is unavailable.
+    """
+    try:
+        _client = get_alpaca_client()
+        if _client is None:
+            return {"used": 0, "remaining": 3, "swing_mode": False, "equity": 0.0}
+        _acct     = _client.get_account()
+        _equity   = float(getattr(_acct, "equity", 0) or 0)
+        _dt_count = int(getattr(_acct, "daytrade_count", 0) or 0)
+        if _equity >= 25_000:
+            return {"used": _dt_count, "remaining": 99, "swing_mode": False, "equity": _equity}
+        _remaining = max(0, 3 - _dt_count)
+        _swing     = _remaining <= 1   # at 1 or 0 remaining: go swing to protect the budget
+        return {"used": _dt_count, "remaining": _remaining, "swing_mode": _swing, "equity": _equity}
+    except Exception:
+        return {"used": 0, "remaining": 3, "swing_mode": False, "equity": 0.0}
+
+
 def submit_alpaca_trade(signal: ProSignal) -> Optional[str]:
     """
-    Place a bracket order on Alpaca (paper or live):
-      Entry  — DAY limit order at signal.entry (re-anchored to live price before call)
-      Stop   — stop order at signal.stop       (offset preserved from live entry)
-      Target — limit order at signal.target1   (2.5R from live entry)
-
-    Using a limit instead of market means the fill price matches the bracket legs
-    exactly — no bracket drift from slippage on fast-moving gap stocks.
-    The broker handles stop/target execution; dman syncs fills via sync_alpaca_fills().
+    Place a bracket order on Alpaca (paper or live).
+    Day trade mode  (signal.swing_mode=False):
+      Entry  — DAY limit order, full bracket (entry + stop + T1 take-profit OCO)
+    Swing trade mode (signal.swing_mode=True, PDT budget ≤ 1):
+      Entry  — GTC limit order, OTO with stop only (no T1 TP — momentum-watch manages exit)
+      This ensures the position is held overnight and does NOT consume a day-trade count.
 
     Returns Alpaca order ID on success, None on failure.
     """
@@ -7918,23 +7987,41 @@ def submit_alpaca_trade(signal: ProSignal) -> Optional[str]:
     limit_px  = round(signal.entry,   2)
     stop_px   = round(signal.stop,    2)
     target_px = round(signal.target1, 2)
+    label     = "PAPER" if ALPACA_PAPER else "LIVE"
 
     try:
-        order = client.submit_order(LimitOrderRequest(
-            symbol        = signal.ticker,
-            qty           = signal.shares,
-            side          = side,
-            limit_price   = limit_px,
-            time_in_force = TimeInForce.DAY,
-            order_class   = OrderClass.BRACKET,
-            take_profit   = TakeProfitRequest(limit_price=target_px),
-            stop_loss     = StopLossRequest(stop_price=stop_px,
-                                            limit_price=round(max(stop_px * 0.85, 0.01), 2)),
-        ))
-        oid = str(order.id)
-        label = "PAPER" if ALPACA_PAPER else "LIVE"
-        print(f"  📤 [{label}] {signal.ticker} {signal.bias} {signal.shares}sh  "
-              f"limit=${limit_px}  stop=${stop_px}  T1=${target_px}  id={oid[:8]}…")
+        if signal.swing_mode:
+            # PDT budget ≤ 1 — GTC entry + stop only (no T1 TP).
+            # Position held overnight = not a day trade. Momentum-watch manages the exit.
+            order = client.submit_order(LimitOrderRequest(
+                symbol        = signal.ticker,
+                qty           = signal.shares,
+                side          = side,
+                limit_price   = limit_px,
+                time_in_force = TimeInForce.GTC,
+                order_class   = OrderClass.OTO,
+                stop_loss     = StopLossRequest(stop_price=stop_px,
+                                                limit_price=round(max(stop_px * 0.85, 0.01), 2)),
+            ))
+            oid = str(order.id)
+            print(f"  📤 [{label}] 🔄 SWING {signal.ticker} {signal.bias} {signal.shares}sh  "
+                  f"GTC limit=${limit_px}  stop=${stop_px}  (no T1 — held overnight)  id={oid[:8]}…")
+        else:
+            # Normal day trade — full bracket with T1 take-profit
+            order = client.submit_order(LimitOrderRequest(
+                symbol        = signal.ticker,
+                qty           = signal.shares,
+                side          = side,
+                limit_price   = limit_px,
+                time_in_force = TimeInForce.DAY,
+                order_class   = OrderClass.BRACKET,
+                take_profit   = TakeProfitRequest(limit_price=target_px),
+                stop_loss     = StopLossRequest(stop_price=stop_px,
+                                                limit_price=round(max(stop_px * 0.85, 0.01), 2)),
+            ))
+            oid = str(order.id)
+            print(f"  📤 [{label}] {signal.ticker} {signal.bias} {signal.shares}sh  "
+                  f"limit=${limit_px}  stop=${stop_px}  T1=${target_px}  id={oid[:8]}…")
         return oid
     except Exception as exc:
         print(f"  ❌ Alpaca order failed ({signal.ticker}): {exc}")
@@ -8557,16 +8644,19 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             send_telegram(msg)
             print(f"  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to ${ACCOUNT_SIZE:,.0f}")
 
-        # PDT (Pattern Day Trader) check — must run before orders are submitted.
-        # Accounts < $25k equity are limited to 3 day trades per rolling 5-day window.
-        # Alpaca rejects the 4th silently; we'd track a ghost position that doesn't exist.
+        # PDT (Pattern Day Trader) check — runs before any order is submitted.
+        # Accounts < $25k: max 3 day trades per rolling 5-day window.
+        # At 0 remaining  → HALT: no new orders at all.
+        # At 1 remaining  → SWING MODE: submit GTC entry + stop only (no T1 TP).
+        #                   Position held overnight = NOT a day trade.
+        # At 2+ remaining → normal day trade bracket.
+        _pdt = {"used": 0, "remaining": 3, "swing_mode": False, "equity": 0.0}
         try:
-            _live_acct = get_alpaca_client().get_account()
-            _equity    = float(getattr(_live_acct, "equity", 0) or 0)
-            _dt_count  = int(getattr(_live_acct, "daytrade_count", 0) or 0)
-            _dt_bp     = float(getattr(_live_acct, "daytrading_buying_power", 0) or 0)
+            _pdt = _get_pdt_status()
+            _equity    = _pdt["equity"]
+            _dt_count  = _pdt["used"]
+            _remaining = _pdt["remaining"]
             if _equity < 25_000:
-                _remaining = max(0, 3 - _dt_count)
                 if _remaining == 0:
                     msg = ("🚫 <b>DMan LIVE — PDT HALT</b>: account equity "
                            f"${_equity:,.0f} &lt; $25k — day-trade limit reached "
@@ -8575,10 +8665,18 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     send_telegram(msg)
                     print(f"  🚫 PDT HALT: {_dt_count}/3 day trades used, equity ${_equity:,.0f} — skipping all submissions")
                     return
+                elif _pdt["swing_mode"]:
+                    # 1 day trade remaining — switch all new entries to swing mode
+                    for _s in signals:
+                        _s.swing_mode = True
+                    msg = (f"🔄 <b>DMan LIVE — SWING MODE</b>: {_dt_count}/3 day trades used — "
+                           f"1 remaining. Submitting as GTC swing trades (held overnight) "
+                           "to preserve the last day-trade budget.")
+                    send_telegram(msg)
+                    print(f"  🔄 SWING MODE: {_dt_count}/3 day trades used — all new entries go GTC")
                 else:
-                    msg = (f"⚠️ <b>DMan LIVE — PDT warning</b>: equity ${_equity:,.0f} &lt; $25k — "
-                           f"{_remaining} day trade(s) remaining this window. "
-                           "Orders proceeding — monitor count closely.")
+                    msg = (f"⚠️ <b>DMan LIVE — PDT</b>: {_dt_count}/3 used — "
+                           f"{_remaining} day trade(s) remaining. Orders proceeding normally.")
                     send_telegram(msg)
                     print(f"  ⚠️  PDT: {_remaining} day trade(s) remaining (equity ${_equity:,.0f})")
         except Exception as _pdt_exc:
@@ -8754,10 +8852,11 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     f"Underlying: ${cur:.2f}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
                 )
             else:
+                _setup_tag = ("SWING — " + sig.setup) if sig.swing_mode else sig.setup
                 pt.open(OpenPosition(
                     ticker     = sig.ticker,
                     bias       = sig.bias,
-                    setup      = sig.setup,
+                    setup      = _setup_tag,
                     entry      = sig.entry,
                     stop       = sig.stop,
                     target1    = sig.target1,
@@ -8768,11 +8867,19 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     score      = sig.confluence_score,
                 ))
                 submitted += 1
-                send_telegram(
-                    f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                    f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
-                    f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
-                )
+                if sig.swing_mode:
+                    send_telegram(
+                        f"🔄 <b>SWING Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                        f"GTC Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1} (monitor tomorrow)\n"
+                        f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…\n"
+                        f"<i>PDT budget preserved — position held overnight, managed by momentum-watch</i>"
+                    )
+                else:
+                    send_telegram(
+                        f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                        f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
+                        f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+                    )
         else:
             send_telegram(
                 f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"

@@ -46,6 +46,7 @@ import yfinance as yf
 warnings.filterwarnings("ignore")
 
 ET = zoneinfo.ZoneInfo("America/New_York")
+MT = zoneinfo.ZoneInfo("America/Denver")   # display timezone — Denver, CO (MST/MDT)
 
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 1 — CONFIGURATION
@@ -1067,8 +1068,8 @@ def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, s
             ts_str = ""
             try:
                 if created:
-                    _dt = _parse_date(created).astimezone(ET)
-                    ts_str = _dt.strftime("%I:%M %p")
+                    _dt = _parse_date(created).astimezone(MT)
+                    ts_str = _dt.strftime("%I:%M %p MT")
             except Exception:
                 pass
             text = title.lower()
@@ -1250,7 +1251,7 @@ def _fetch_dman_stocktwits_calls(hours_back: int = 48) -> list[tuple[str, str, s
                 symbols = [s["symbol"] for s in msg.get("entities", {}).get("symbols", [])]
                 body = msg.get("body", "")[:200]
                 for sym in symbols:
-                    results.append((sym.upper(), body, ts.strftime("%m/%d %I:%M %p")))
+                    results.append((sym.upper(), body, ts.astimezone(MT).strftime("%m/%d %I:%M %p MT")))
             except Exception:
                 continue
     except Exception:
@@ -1298,7 +1299,7 @@ def _fetch_dman_twitter_calls(hours_back: int = 48) -> list[tuple[str, str, str]
                     _raw  = (_item.findtext("title", "") + " " + _item.findtext("description", ""))
                     _text = _re.sub(r"<[^>]+>", " ", _raw).strip()
                     _syms = list(dict.fromkeys(_re.findall(r"\$([A-Za-z]{1,5})\b", _text)))
-                    _ts_s = _ts.strftime("%m/%d %I:%M %p") if _ts else "?"
+                    _ts_s = _ts.astimezone(MT).strftime("%m/%d %I:%M %p MT") if _ts else "?"
                     for _sym in _syms:
                         results.append((_sym.upper(), _text[:200], _ts_s))
                 except Exception:
@@ -1508,7 +1509,8 @@ def _fetch_breaking_news_rss(hours_back: int = 8) -> list[tuple[str, str, str, i
                         if _kw in _text:
                             _score += _pts
                     _score = max(-2, min(2, _score))
-                    _ts_s  = _ts.strftime("%I:%M %p") if _ts else ""
+                    _ts_mt = _ts.astimezone(MT) if _ts else None
+                    _ts_s  = _ts_mt.strftime("%I:%M %p MT") if _ts_mt else ""
                     results.append((_title, _src, _ts_s, _score))
                 except Exception:
                     continue
@@ -1746,7 +1748,7 @@ def run_premarket_early_scan() -> None:
     """
     import re as _re
     now_et = datetime.now(ET)
-    print(f"\n  ⚡ EARLY PRE-MARKET SCAN — {now_et.strftime('%I:%M %p ET')}")
+    print(f"\n  ⚡ EARLY PRE-MARKET SCAN — {now_et.astimezone(MT).strftime('%I:%M %p MT')}")
     print(f"  Scanning {len(DMAN_SMALLCAP_WATCHLIST)} small-cap names...\n")
 
     # Pull global context first — drives pre-market sizing and aggression
@@ -1915,7 +1917,7 @@ def run_premarket_early_scan() -> None:
 
     mover_blocks.sort(key=lambda x: x[0], reverse=True)
 
-    lines = [f"⚡ <b>DMan 7 AM Pre-Market Scan</b>  {now_et.strftime('%a %b %d, %I:%M %p ET')}"]
+    lines = [f"⚡ <b>DMan 7 AM Pre-Market Scan</b>  {now_et.astimezone(MT).strftime('%a %b %d, %I:%M %p MT')}"]
 
     if mover_blocks:
         lines.append(f"\n🚨 <b>PRE-MARKET MOVERS</b> ({len(mover_blocks)} play(s) ≥5%)\n")
@@ -2283,7 +2285,7 @@ def run_momentum_watch() -> None:
     """
     import re as _re
     now_et = datetime.now(ET)
-    print(f"\n  📡 MOMENTUM WATCH — {now_et.strftime('%I:%M %p ET')}")
+    print(f"\n  📡 MOMENTUM WATCH — {now_et.astimezone(MT).strftime('%I:%M %p MT')}")
 
     # Collect active plays
     active_plays: list[dict] = []
@@ -2531,7 +2533,7 @@ def run_momentum_watch() -> None:
         print(f"  All clear at {now_et.strftime('%H:%M')} — no setups or fade signals.")
         return
 
-    lines = [f"📡 <b>DMan Momentum Watch</b>  {now_et.strftime('%I:%M %p ET')}"]
+    lines = [f"📡 <b>DMan Momentum Watch</b>  {now_et.astimezone(MT).strftime('%I:%M %p MT')}"]
 
     if options_alerts:
         lines.append(f"\n🎯 <b>OPTIONS POSITIONS ({len(options_alerts)})</b>\n")
@@ -2735,17 +2737,17 @@ def run_premarket_briefing() -> None:
                     events_lines.append(f"⛔ FOMC {day_lbl} — approaching; consider strangle / reduce size")
             if d in nfp_set:
                 if offset == 0:
-                    events_lines.append(f"📊 NFP today (8:30 AM) — blackout until 10:00 AM ET, then open")
+                    events_lines.append(f"📊 NFP today (6:30 AM MT) — blackout until 8:00 AM MT, then open")
                 else:
                     events_lines.append(f"📊 NFP {day_lbl} — prepare for gap at open")
             if d in _CPI_DATES:
                 if offset == 0:
-                    events_lines.append(f"📊 CPI today (8:30 AM) — blackout until 10:00 AM ET, then open")
+                    events_lines.append(f"📊 CPI today (6:30 AM MT) — blackout until 8:00 AM MT, then open")
                 else:
                     events_lines.append(f"📊 CPI {day_lbl} — prepare for gap at open")
             if d in _PPI_DATES:
                 if offset == 0:
-                    events_lines.append(f"📊 PPI today (8:30 AM) — blackout until 10:00 AM ET, then open")
+                    events_lines.append(f"📊 PPI today (6:30 AM MT) — blackout until 8:00 AM MT, then open")
                 else:
                     events_lines.append(f"📊 PPI {day_lbl} — inflation data; gap risk at open")
             # OPEX markers
@@ -3188,7 +3190,7 @@ def run_premarket_briefing() -> None:
     # ── Format & send ─────────────────────────────────────────────────
     msg = (
         f"🌅 <b>DMan PRO Pre-Market Briefing</b>\n"
-        f"{date_str} — 9:10 AM ET\n"
+        f"{date_str} — 7:10 AM MT\n"
         + (f"{scanner_health_line}\n\n" if scanner_health_line else "\n")
         + f"📊 <b>MARKET REGIME</b>\n{regime_line}\n{regime_line2}"
         f"{warnings_section}"
@@ -3236,9 +3238,9 @@ def run_premarket_briefing() -> None:
 
         # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
         if _today in _FOMC_DATES:
-            strangle_events.append("FOMC today 2 PM ET")
+            strangle_events.append("FOMC today 12 PM MT")
         if _tomorrow in _FOMC_DATES:
-            strangle_events.append("FOMC tomorrow 2 PM ET")
+            strangle_events.append("FOMC tomorrow 12 PM MT")
         else:
             for _off in range(2, 4):  # 2 or 3 days out
                 _fd = _today + timedelta(days=_off)
@@ -3249,11 +3251,11 @@ def run_premarket_briefing() -> None:
 
         # Data releases the next morning
         if _tomorrow in _CPI_DATES:
-            strangle_events.append("CPI tomorrow 8:30 AM ET")
+            strangle_events.append("CPI tomorrow 6:30 AM MT")
         if _tomorrow in _PPI_DATES:
-            strangle_events.append("PPI tomorrow 8:30 AM ET")
+            strangle_events.append("PPI tomorrow 6:30 AM MT")
         if _tomorrow in _nfp:
-            strangle_events.append("NFP tomorrow 8:30 AM ET")
+            strangle_events.append("NFP tomorrow 6:30 AM MT")
 
         # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
         if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):

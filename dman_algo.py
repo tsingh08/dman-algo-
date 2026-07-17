@@ -272,6 +272,7 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 # Get keys at app.alpaca.markets → Paper Trading → API Keys
 ALPACA_API_KEY    = os.getenv("APCA_API_KEY_ID",    "")   # standard Alpaca env var name
 ALPACA_SECRET_KEY = os.getenv("APCA_API_SECRET_KEY", "")
+BENZINGA_API_KEY  = os.getenv("BENZINGA_API_KEY", "")     # Benzinga Basic — real-time news
 ALPACA_PAPER      = False     # LIVE — real brokerage, real money
 ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed entry
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
@@ -987,21 +988,136 @@ def run_readiness_scan() -> None:
           f"{len(ready)} ready, {len(partial)} partial")
 
 
+def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
+    """
+    Fetch real-time ticker-specific headlines from Benzinga Basic API.
+    Returns {ticker: [headline, ...]}. Returns {} if key not set or on error.
+    """
+    if not BENZINGA_API_KEY:
+        return {}
+    from datetime import timezone as _tz
+    cutoff = datetime.now(_tz.utc) - timedelta(hours=hours_back)
+    result: dict[str, list[str]] = {t: [] for t in tickers}
+    # Benzinga accepts comma-separated tickers but batches of ≤50 are reliable
+    batch_size = 50
+    for i in range(0, len(tickers), batch_size):
+        batch = tickers[i : i + batch_size]
+        try:
+            resp = requests.get(
+                "https://api.benzinga.com/api/v2/news",
+                params={
+                    "token":          BENZINGA_API_KEY,
+                    "tickers":        ",".join(batch),
+                    "pageSize":       100,
+                    "displayOutput":  "headline",
+                    "publishedAfter": cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                },
+                timeout=10,
+            )
+            if resp.status_code != 200:
+                continue
+            articles = resp.json() if isinstance(resp.json(), list) else resp.json().get("result", [])
+            for art in articles:
+                title = art.get("title", "")
+                if not title:
+                    continue
+                for tk_obj in art.get("tickers", []):
+                    sym = (tk_obj.get("name") or "").upper()
+                    if sym in result:
+                        if len(result[sym]) < 5:
+                            result[sym].append(title)
+        except Exception:
+            continue
+    return result
+
+
+def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, str, int]]:
+    """
+    Fetch real-time general market news from Benzinga Basic API.
+    Returns (headline, source, time_str, impact) sorted by abs(impact) — same
+    format as _fetch_breaking_news_rss so callers are drop-in compatible.
+    Returns [] if key not set or on error.
+    """
+    if not BENZINGA_API_KEY:
+        return []
+    from datetime import timezone as _tz
+    from email.utils import parsedate_to_datetime as _parse_date
+    cutoff = datetime.now(_tz.utc) - timedelta(hours=hours_back)
+    try:
+        resp = requests.get(
+            "https://api.benzinga.com/api/v2/news",
+            params={
+                "token":          BENZINGA_API_KEY,
+                "pageSize":       30,
+                "displayOutput":  "headline",
+                "publishedAfter": cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            },
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            return []
+        articles = resp.json() if isinstance(resp.json(), list) else resp.json().get("result", [])
+        results: list[tuple[str, str, str, int]] = []
+        for art in articles:
+            title = art.get("title", "")
+            if not title:
+                continue
+            # Parse created timestamp ("Thu, 17 Jul 2026 09:30:00 -0400" or ISO)
+            created = art.get("created", "")
+            ts_str = ""
+            try:
+                if created:
+                    _dt = _parse_date(created).astimezone(ET)
+                    ts_str = _dt.strftime("%I:%M %p")
+            except Exception:
+                pass
+            text = title.lower()
+            score = 0
+            for kw, pts in _MACRO_BEARISH:
+                if kw in text:
+                    score += pts
+            for kw, pts in _MACRO_BULLISH:
+                if kw in text:
+                    score += pts
+            score = max(-2, min(2, score))
+            results.append((title, "Benzinga", ts_str, score))
+        results.sort(key=lambda x: abs(x[3]), reverse=True)
+        return results[:6]
+    except Exception:
+        return []
+
+
 def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, list[str]]:
     """
-    Fetch recent news headlines for a list of tickers via Alpaca News API.
-    Returns {ticker: [headline, ...]}. Falls back to yfinance news on failure.
+    Fetch recent news headlines for a list of tickers.
+    Priority: Benzinga real-time API → Alpaca News API → yfinance.
+    Returns {ticker: [headline, ...]}.
     """
     from datetime import timezone
     result: dict[str, list[str]] = {t: [] for t in tickers}
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
 
-    # Try Alpaca News API first (included with trading account)
+    # Primary: Benzinga real-time news (requires BENZINGA_API_KEY)
+    if BENZINGA_API_KEY:
+        bz = _fetch_benzinga_ticker_news(tickers, hours_back=hours_back)
+        filled = sum(1 for v in bz.values() if v)
+        print(f"  [news] Benzinga returned headlines for {filled}/{len(tickers)} tickers")
+        # Merge — keep yfinance fallback only for tickers with no Benzinga results
+        for t, headlines in bz.items():
+            if headlines:
+                result[t] = headlines
+        # If Benzinga covered everything, return early
+        if all(result[t] for t in tickers):
+            return result
+
+    # Secondary: Alpaca News API (free tier, delayed)
     try:
         from alpaca.data.historical.news import NewsClient as _NC
         from alpaca.data.requests import NewsRequest as _NR
         _nc = _NC(api_key=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY)
         for ticker in tickers:
+            if result[ticker]:   # already have Benzinga headlines
+                continue
             try:
                 req  = _NR(symbols=[ticker], start=cutoff, limit=5)
                 news = _nc.get_news(req)
@@ -1011,12 +1127,15 @@ def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, li
                 result[ticker] = [getattr(n, "headline", str(n)) for n in items][:5]
             except Exception:
                 pass
-        return result
+        if any(result[t] for t in tickers):
+            return result
     except Exception:
         pass
 
-    # Fallback: yfinance news (no API key needed)
+    # Fallback: yfinance (no API key, last resort)
     for ticker in tickers:
+        if result[ticker]:
+            continue
         try:
             arts = yf.Ticker(ticker).news or []
             result[ticker] = [a.get("title", "") for a in arts[:5] if a.get("title")]
@@ -1340,10 +1459,18 @@ def _fetch_global_context() -> dict:
 
 def _fetch_breaking_news_rss(hours_back: int = 8) -> list[tuple[str, str, str, int]]:
     """
-    Parse free financial news RSS feeds for market-moving headlines.
+    Fetch market-moving headlines.
+    Primary: Benzinga real-time API (when key is set).
+    Fallback: free RSS feeds (Reuters, MarketWatch, Yahoo Finance).
     Returns list of (headline, source, time_str, impact) sorted by abs(impact).
     impact: -2 (very bearish) to +2 (very bullish).
     """
+    # Benzinga real-time path — skip RSS entirely when key is available
+    if BENZINGA_API_KEY:
+        bz_results = _fetch_benzinga_breaking_news(hours_back=hours_back)
+        if bz_results:
+            return bz_results
+
     import xml.etree.ElementTree as _etree
     from email.utils import parsedate_to_datetime as _parse_date
     import re as _re

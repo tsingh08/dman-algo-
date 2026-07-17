@@ -469,45 +469,52 @@ def build_scan_universe(min_price: float = 2.0,
 
 def fetch_dman_dynamic_tickers(max_tickers: int = 60) -> list[str]:
     """
-    Scrape Finviz screener for Dman-style plays: float <5M, price <$20, avg vol >500k.
-    Returns up to max_tickers tickers sorted by volume (highest RVOL activity first).
-    Falls back to [] silently on any network/parsing failure.
+    Fetch today's actual movers from Yahoo Finance (day gainers + most actives).
+    Replaces Finviz, which is consistently blocked in GitHub Actions.
+    Returns tickers that are genuinely moving with volume RIGHT NOW — not a
+    static screener but a live snapshot of what has institutional interest today.
     """
     if not ENABLE_DYNAMIC_SMALLCAP:
         return []
-    import re as _re
-    found: list[str] = []
-    base_url = (
-        "https://finviz.com/screener.ashx?v=111"
-        "&f=sh_float_u5,sh_price_u20,sh_avgvol_o500"
-        "&o=-volume"
-    )
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120.0.0.0 Safari/537.36"
-        ),
-        "Accept": "text/html,application/xhtml+xml",
-        "Accept-Language": "en-US,en;q=0.9",
+    found: list[tuple[str, float]] = []   # (ticker, rvol)
+    _headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "application/json",
     }
-    pages_needed = (max_tickers + 19) // 20  # Finviz shows 20 results per page
-    for page in range(pages_needed):
-        offset = page * 20 + 1
-        url = base_url if page == 0 else f"{base_url}&r={offset}"
+    for scr_id in ("day_gainers", "most_actives"):
+        url = (
+            "https://query1.finance.yahoo.com/v1/finance/screener/predefined/saved"
+            f"?formatted=false&lang=en-US&region=US&scrIds={scr_id}&count=25"
+            "&fields=symbol,regularMarketPrice,regularMarketVolume,"
+            "averageDailyVolume10Day,regularMarketChangePercent"
+        )
         try:
-            resp = requests.get(url, headers=headers, timeout=12)
+            resp = requests.get(url, headers=_headers, timeout=10)
             if resp.status_code != 200:
-                break
-            tickers = _re.findall(
-                r'screener-link-primary[^>]*>([A-Z]{1,5})</a>', resp.text
-            )
-            found.extend(tickers)
-            if len(tickers) < 20:
-                break  # last page reached
+                continue
+            quotes = (resp.json()
+                      .get("finance", {})
+                      .get("result", [{}])[0]
+                      .get("quotes", []))
+            for q in quotes:
+                sym     = q.get("symbol", "")
+                price   = float(q.get("regularMarketPrice", 0) or 0)
+                chg_pct = float(q.get("regularMarketChangePercent", 0) or 0)
+                vol     = float(q.get("regularMarketVolume", 0) or 0)
+                avg_vol = float(q.get("averageDailyVolume10Day", 1) or 1)
+                rvol    = vol / avg_vol if avg_vol > 0 else 0
+                # Price $2–$100, gap ≥ 2%, RVOL ≥ 1.5x, avg vol ≥ 100K
+                if (sym and sym.isalpha() and 1 <= len(sym) <= 5
+                        and 2.0 <= price <= 100.0
+                        and chg_pct >= 2.0
+                        and rvol >= 1.5
+                        and avg_vol >= 100_000):
+                    found.append((sym, rvol))
         except Exception:
-            break
-    unique = list(dict.fromkeys(found))[:max_tickers]
+            continue
+    # Sort by RVOL descending — highest conviction movers first
+    found.sort(key=lambda x: x[1], reverse=True)
+    unique = list(dict.fromkeys(s for s, _ in found))[:max_tickers]
     return unique
 
 
@@ -5115,11 +5122,14 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     # L6: Gap & Hold — gap up ≥1.5% from prior close, holding above the open
     try:
         gap_pct = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
+        _gh_dollar_vol = c * float(r.get("AvgVol20", 0))
         if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
-                and float(r["RVOL"]) >= 1.5 and float(r["RSI"]) > 50
+                and float(r["RVOL"]) >= 2.0               # raised from 1.5 — real institutional volume
+                and float(r["RSI"]) > 50
                 and float(r["MACD"]) > float(r["MACD_sig"])
                 and float(r["MACD"]) > 0                   # confirmed uptrend, not just recovering
                 and float(p["Close"]) > float(p["Open"])   # prior day green — continuation not reversal
+                and _gh_dollar_vol >= 500_000              # min $500K avg daily dollar volume
                 and _sector_etf_above_ema50(ticker)):
             gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
             sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
@@ -5137,11 +5147,13 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     except Exception:
         pass
 
-    # L7: Morning Runner — Dman news-catalyst style: gap ≥5%, RVOL ≥5x, holding above open
+    # L7: Morning Runner — news-catalyst gap ≥5%, holding above open.
+    # RVOL lowered from 5x to 3x: mega-cap names (NVDA, META) legitimately move
+    # with 3-4x RVOL on catalyst days; the 5x bar excluded them with no edge benefit.
     try:
         gap_up = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
         if (gap_up >= 5.0 and c >= float(r["Open"]) * 0.97
-                and float(r["RVOL"]) >= 5.0
+                and float(r["RVOL"]) >= 3.0
                 and 50 <= float(r["RSI"]) <= 72
                 and float(r["MACD"]) > float(r["MACD_sig"])):
             mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
@@ -6724,15 +6736,15 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         # Dynamic Finviz discovery: low-float (<5M), price <$20, vol >500k
         _finviz_tickers: list[str] = []
         if ENABLE_DYNAMIC_SMALLCAP:
-            print("  🔍  Fetching Finviz dynamic small-cap universe...", flush=True)
+            print("  🔍  Fetching today's movers (Yahoo Finance day gainers + most actives)...", flush=True)
             _finviz_tickers = fetch_dman_dynamic_tickers()
             if _finviz_tickers:
-                print(f"  🔍  Finviz found {len(_finviz_tickers)} low-float candidates: "
+                print(f"  🔍  Live movers: {len(_finviz_tickers)} candidates with RVOL ≥1.5x: "
                       f"{', '.join(_finviz_tickers[:10])}{'...' if len(_finviz_tickers) > 10 else ''}",
                       flush=True)
             else:
-                print("  🔍  Finviz discovery returned 0 results (blocked or no market hours data)", flush=True)
-        # Merge: large-cap tickers (already cached) + curated watchlist + Finviz dynamic
+                print("  🔍  No live movers found (market closed or pre-market)", flush=True)
+        # Merge: large-cap tickers (already cached) + curated watchlist + live movers
         sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST + _finviz_tickers))
         for ticker in sc_universe:
             df = fetch_df(ticker)   # already cached from the large-cap pass
@@ -8669,6 +8681,20 @@ def main():
             tickers = WATCHLIST
             print(f"  📋 Using curated watchlist: {len(tickers)} tickers "
                   f"(run premarket briefing first to enable full universe)")
+        # Always inject today's live movers so the 9:45 AM scan sees real volume
+        # even when the pre-market briefing cache is stale or missing.
+        if ENABLE_DYNAMIC_SMALLCAP:
+            try:
+                _live_movers = fetch_dman_dynamic_tickers(max_tickers=30)
+                if _live_movers:
+                    _before = len(tickers)
+                    tickers = list(dict.fromkeys(list(tickers) + _live_movers))
+                    _added  = len(tickers) - _before
+                    if _added:
+                        print(f"  📈  +{_added} live movers added (Yahoo gainers/actives): "
+                              f"{', '.join(_live_movers[:8])}{'...' if _added > 8 else ''}")
+            except Exception:
+                pass
 
     print("""
   ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗

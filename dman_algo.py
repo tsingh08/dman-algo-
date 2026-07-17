@@ -5172,6 +5172,37 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     except Exception:
         pass
 
+    # L8: Day 2 Continuation — yesterday's gap-and-hold follows through today.
+    # Pattern: Day 1 gapped ≥4% and closed strong (held ≥ 80% of gap range).
+    #          Day 2 opens near or above Day 1 close, RVOL still elevated ≥ 1.5x.
+    # Institutional flow is continuous — they don't finish buying in one day.
+    try:
+        if len(df) >= 3:
+            p3 = df.iloc[-3]   # two days ago (the day BEFORE the original gap)
+            d1_gap     = (float(p["Open"]) - float(p3["Close"])) / float(p3["Close"]) * 100
+            d1_range   = float(p["High"]) - float(p["Open"])
+            d1_held    = (float(p["Close"]) - float(p["Open"])) / d1_range if d1_range > 0 else 0
+            d2_above   = c >= float(p["Close"]) * 0.98   # today still above Day 1 close
+            d2_rvol    = float(r["RVOL"]) >= 1.5
+            d2_rsi     = 45 < float(r["RSI"]) < 75
+            _d2_dollar = c * float(r.get("AvgVol20", 0))
+            if (d1_gap >= 4.0 and d1_held >= 0.6 and d2_above
+                    and d2_rvol and d2_rsi
+                    and float(r["MACD"]) > float(r["MACD_sig"])
+                    and _d2_dollar >= 500_000):
+                d2_stop = round(float(p["Close"]) * 0.97, 2)   # stop below Day 1 close
+                sig = _long("Day 2 Continuation", d2_stop, 2.0, 3.5,
+                            reason=f"Day 1 gapped +{d1_gap:.1f}%, held {d1_held*100:.0f}% of range; Day 2 holding")
+                # T1 = Day 1 gap echoed from entry
+                sig.target1 = max(sig.target1, round(c * (1 + d1_gap / 100), 2))
+                sig.target2 = max(sig.target2, round(c * (1 + d1_gap / 100 * 1.5), 2))
+                _d2_risk = c - d2_stop
+                sig.rr = round((sig.target1 - c) / _d2_risk, 2) if _d2_risk > 0 else 0
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+    except Exception:
+        pass
+
     # ── SHORT patterns ────────────────────────────────────────────────────
     if ALLOW_SHORTS:
         sup2 = float(rec["Low"].quantile(0.10))
@@ -6866,9 +6897,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         pass  # never let logging block the scan return
 
     # Near-miss collection — only when no signals fired; uses cached fetch_df() data (fast)
+    # Covers the full scan universe (not just WATCHLIST) so Yahoo gainers are included.
     _near_misses: list[tuple[str, float, str]] = []
+    _b_tier: list[dict] = []   # below-threshold setups for manual consideration
     if not signals:
-        for _nm_t in WATCHLIST:
+        _nm_universe = list(dict.fromkeys(list(tickers)[:120] + list(WATCHLIST)))
+        for _nm_t in _nm_universe:
             try:
                 _nm_raw = fetch_df(_nm_t)
                 if _nm_raw is None or len(_nm_raw) < 30:
@@ -6920,16 +6954,49 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                             _nm_blocker = f"score {_nm_sc}/{min_score}"
                     except Exception:
                         _nm_blocker = "score short"
-                _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
+                # Collect actionable entry levels for near-miss Telegram
+                try:
+                    _nm_c_px  = float(_nm_r.get("Close", 0) or 0)
+                    _nm_o_px  = float(_nm_r.get("Open",  0) or 0)
+                    _nm_lo_px = float(_nm_r.get("Low",   0) or 0)
+                    _nm_stop  = round(min(_nm_lo_px * 0.99, _nm_o_px * 0.985), 2) if _nm_lo_px > 0 else 0
+                    _nm_risk  = (_nm_c_px - _nm_stop) if _nm_stop > 0 and _nm_c_px > _nm_stop else 0
+                    _nm_t1    = round(_nm_c_px + 2.5 * _nm_risk, 2) if _nm_risk > 0 else 0
+                    _nm_rvol  = float(_nm_r.get("RVOL", 0) or 0)
+                    _nm_score_val = 0
+                    if "score" in _nm_blocker:
+                        try:
+                            _nm_score_val = int(_nm_blocker.split()[1].split("/")[0])
+                        except Exception:
+                            pass
+                    _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
+                    # B-tier: setup almost qualified (score within 15 of threshold, or
+                    # only blocked by RVOL/RSI which could change intraday)
+                    _b_tier_reason = ""
+                    if _nm_score_val >= min_score - 15 and _nm_score_val > 0:
+                        _b_tier_reason = f"score {_nm_score_val}/{min_score}"
+                    elif "RVOL" in _nm_blocker and _nm_rvol >= 1.0:
+                        _b_tier_reason = f"RVOL {_nm_rvol:.1f}x (needs ≥2.0x)"
+                    if _b_tier_reason and _nm_c_px > 0 and _nm_stop > 0 and _nm_t1 > 0:
+                        _b_tier.append({
+                            "ticker": _nm_t, "gap": _nm_gap, "entry": _nm_c_px,
+                            "stop": _nm_stop, "t1": _nm_t1, "rvol": _nm_rvol,
+                            "reason": _b_tier_reason,
+                        })
+                except Exception:
+                    _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
             except Exception:
                 continue
         _near_misses.sort(key=lambda x: x[1], reverse=True)
         _near_misses = _near_misses[:3]
+        _b_tier.sort(key=lambda x: x["gap"], reverse=True)
+        _b_tier = _b_tier[:2]
 
     # Expose scan metadata for the heartbeat in main()
     _last_scan_meta.update({
         "rejected":     rejected_counts,
         "near_misses":  _near_misses,
+        "b_tier":       _b_tier,
         "tickers_total": len(tickers),
     })
 
@@ -8955,6 +9022,7 @@ def main():
         _hb_gate  = _hb_rej.get("hard_gate", 0)
         _hb_score = _hb_rej.get("low_score", 0)
         _hb_nm_list = _hb_meta.get("near_misses", [])
+        _hb_bt_list = _hb_meta.get("b_tier", [])
         _hb_counts = (f"{_hb_total} scanned"
                       + (f" | {_hb_gate} gate-blocked" if _hb_gate else "")
                       + (f" | {_hb_score} score-short" if _hb_score else ""))
@@ -8963,6 +9031,16 @@ def main():
             _hb_nm_str = "\nNear-miss: " + " | ".join(
                 f"<b>{_t}</b> +{_g:.1f}% → {_b}" for _t, _g, _b in _hb_nm_list
             )
+        _hb_bt_str = ""
+        if _hb_bt_list:
+            _bt_lines = []
+            for _bt in _hb_bt_list:
+                _bt_lines.append(
+                    f"📋 <b>{_bt['ticker']}</b> +{_bt['gap']:.1f}%  RVOL {_bt['rvol']:.1f}x  "
+                    f"({_bt['reason']})\n"
+                    f"   Manual: entry ~${_bt['entry']}  stop ${_bt['stop']}  T1 ${_bt['t1']}"
+                )
+            _hb_bt_str = "\n\n<b>WATCH — manual entries available:</b>\n" + "\n".join(_bt_lines)
         if signals:
             send_telegram(
                 f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
@@ -9100,6 +9178,7 @@ def main():
                     f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
                     f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
                     f"{_hb_nm_str}"
+                    f"{_hb_bt_str}"
                     f"{_spy_ctx}"
                     f"{_eod_watch}"
                 )

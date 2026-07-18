@@ -3635,6 +3635,7 @@ class ProSignal:
     target3:        float = 0.0   # Moon Shot T3 at +100% (2x entry) — ultra-low float only
     is_moonshot:    bool  = False  # True when Moon Shot tier conditions are met
     swing_mode:     bool  = False  # True when PDT budget ≤ 1 → GTC entry + stop only, no T1 TP
+    news_boost:     bool  = False  # True when ticker has a news headline in the last 4 hours
 
     # Scoring
     confluence_score:  int  = 0   # 0-100
@@ -4954,11 +4955,20 @@ class WinRateTracker:
             else:
                 break
 
+        # Consecutive wins (from end)
+        consec_wins = 0
+        for r in reversed(recent):
+            if r.outcome == "WIN":
+                consec_wins += 1
+            else:
+                break
+
         return {
             "win_rate":     round(win_rate, 3),
             "avg_win_r":    round(avg_win_r, 2),
             "avg_loss_r":   round(avg_loss_r, 2),
             "consec_losses":consec,
+            "consec_wins":  consec_wins,
             "total":        len(recent),
             "wins":         len(wins),
             "losses":       len(losses),
@@ -5683,6 +5693,9 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
         breakdown["Gap Size"] = gap_bonus
     else:
         breakdown["Gap Size"] = 0
+
+    # 22. News catalyst recency (0-5 pts) — confirmed headline in last 4 hours
+    breakdown["News Catalyst"] = 5 if getattr(signal, "news_boost", False) else 0
 
     # Populate context fields on the signal
     signal.atr  = float(r_last["ATR"]) if ("ATR" in r_last.index and not pd.isna(r_last["ATR"])) else 0.0
@@ -6796,9 +6809,13 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     print(f"\n{'═'*68}")
     print(f"  D🔥man PRO Scanner v3  —  {datetime.today().strftime('%A %b %d, %Y')}")
+    _cw = stats.get("consec_wins", 0)
+    _cl = stats.get("consec_losses", 0)
+    _streak_label = (f"🔥 {_cw}W streak" if _cw >= 2
+                     else f"❄️ {_cl}L streak" if _cl >= 1 else "—")
     print(f"  Min score : {min_score}/100  |  AI scoring: {'ON' if use_ai else 'OFF'}")
     print(f"  Shorts    : {'ON' if ALLOW_SHORTS else 'OFF'}  |  "
-          f"Rolling WR: {stats['win_rate']*100:.1f}%  ({stats['total']} trades)")
+          f"Rolling WR: {stats['win_rate']*100:.1f}%  ({stats['total']} trades)  |  Streak: {_streak_label}")
     print(f"{'═'*68}")
 
     # Get regime once (expensive call)
@@ -6852,6 +6869,16 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # Check open position risk — alert if any pending signal is within 2% of its stop
     _check_open_position_risk(regime)
 
+    # Pre-fetch news for all tickers in one batch (much faster than per-ticker)
+    print(f"  [1.5/2] Pre-fetching news catalysts (last 4h)...", end=" ", flush=True)
+    _scan_news_map: dict[str, list] = {}
+    try:
+        _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=4)
+        _news_count = sum(1 for v in _scan_news_map.values() if v)
+        print(f"{_news_count}/{len(tickers)} tickers have recent news")
+    except Exception as _ne:
+        print(f"error ({str(_ne)[:60]})")
+
     print(f"\n  [2/2] Scanning {len(tickers)} tickers...\n")
 
     signals = []
@@ -6891,7 +6918,10 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             rejected_counts["no_signal"] += 1
             continue
 
-        # Apply all 15 pro filters
+        # Tag news catalyst before scoring (adds +5 pts in score_signal)
+        sig.news_boost = bool(_scan_news_map.get(ticker))
+
+        # Apply all pro filters
         sig = score_signal(sig, df, regime, tracker)
 
         # Hard gates: regime + MTF + earnings + divergence (absolute stops)
@@ -8916,6 +8946,24 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         )
         print(f"  🌍 {_ctx_tone}  score={_ctx['score']:+d}  → sizing {_risk_off_mult:.2f}x")
 
+    # Hot streak press — 3+ consecutive wins → 1.25x sizing (compounding the edge)
+    # 1 consecutive loss → 0.85x (early caution before the 3-loss halt kicks in)
+    _streak_stats_live = WinRateTracker().rolling_stats()
+    _consec_wins_live  = _streak_stats_live.get("consec_wins", 0)
+    _consec_loss_live  = _streak_stats_live.get("consec_losses", 0)
+    if _consec_wins_live >= 3:
+        _risk_off_mult = min(1.50, _risk_off_mult * 1.25)
+        print(f"  🔥 HOT STREAK: {_consec_wins_live} wins in a row — sizing ×{_risk_off_mult:.2f}")
+        if not _is_duplicate_alert("__HOT_STREAK__"):
+            send_telegram(
+                f"🔥 <b>DMan HOT STREAK</b> — {_consec_wins_live} consecutive wins\n"
+                f"Sizing boosted to {_risk_off_mult:.2f}× to press the edge."
+            )
+            _save_last_alert("__HOT_STREAK__")
+    elif _consec_loss_live == 1:
+        _risk_off_mult = min(_risk_off_mult, 0.85)
+        print(f"  ⚠️  1 consecutive loss — early caution, sizing →0.85×")
+
     pt        = PositionTracker()
     submitted = 0
 
@@ -8943,8 +8991,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             )
             continue
 
-        # Apply risk-off multiplier before re-anchoring (SPY down >1% = reduce 40%)
-        if _risk_off_mult < 1.0:
+        # Apply sizing multiplier — down for risk-off/cold streak, up for hot streak/risk-on
+        if _risk_off_mult != 1.0:
             sig.shares = max(1, int(sig.shares * _risk_off_mult))
             sig.cost   = round(sig.shares * sig.entry, 2)
 

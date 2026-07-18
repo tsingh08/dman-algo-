@@ -146,11 +146,13 @@ ENABLE_PREMARKET_SUBMIT = True
 # ── Options trading (large-cap Gap & Hold only) ───────────────────────────────
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
-ENABLE_OPTIONS_TRADING  = True   # flip to True to activate
-OPTIONS_RISK_PCT        = 0.05    # 5% of account per trade (max loss = premium paid)
-OPTIONS_DTE_MIN         = 7       # minimum days to expiry
-OPTIONS_DTE_MAX         = 14      # maximum — nearest weekly Friday in this range
-OPTIONS_MAX_SPREAD_PCT  = 0.30    # skip contract if bid-ask spread > 30% of ask (illiquid)
+ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
+OPTIONS_RISK_PCT            = 0.08   # 8% of account per trade (~$240 at $3k)
+OPTIONS_DTE_MIN             = 7      # minimum days to expiry
+OPTIONS_DTE_MAX             = 21     # max — wider window = more contract choices
+OPTIONS_MAX_SPREAD_PCT      = 0.20   # skip contract if bid-ask spread > 20% of ask
+OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
+OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
@@ -198,7 +200,7 @@ OPTIONS_MIN_SCORE       = 80            # match adaptive min score threshold
 OPTIONS_MIN_PRICE       = 10.0          # no options on sub-$10 stocks (illiquid/nonexistent)
 OPTIONS_MAX_PRICE       = 500.0         # skip very expensive stocks (options too costly)
 ADVISORY_OPTIONS_RISK_PCT = 0.25        # 25% of account — used by old advisory size_options_trade()
-OPTIONS_MAX_PREMIUM_USD = 250           # cap at $250/trade — 1 contract for $1K account
+OPTIONS_MAX_PREMIUM_USD = 500           # cap at $500/trade — 1-2 contracts at $3k account
 OPTIONS_TARGET_DTE      = 21            # target DTE — Dman: "1-4 weeks" (21 is sweet spot)
 OPTIONS_MIN_DTE         = 10            # below this: theta accelerates, too risky
 OPTIONS_MAX_DTE         = 42            # beyond this: premium too expensive for swing trade
@@ -5458,6 +5460,37 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
             except Exception:
                 pass
 
+    # L9: Bear Gap Hold — bearish mirror of L6.
+    # Gap DOWN ≥1.5%, holding BELOW open (failed recovery), RVOL ≥2x,
+    # prior day red, MACD bearish, sector ETF weak.
+    # Signal bias = SHORT but ALLOW_SHORTS is False for shares —
+    # execution layer routes to _submit_options_put() instead.
+    if OPTIONS_ENABLE_PUTS:
+        try:
+            _bg_gap_pct  = (float(p["Close"]) - c) / float(p["Close"]) * 100   # gap down %
+            _bg_dv       = c * float(r.get("AvgVol20", 0))
+            if (_bg_gap_pct >= 1.5
+                    and c <= float(r["Open"]) * 1.005          # holding at/below open
+                    and float(r["RVOL"]) >= 2.0
+                    and float(r["RSI"]) < 50
+                    and float(r["MACD"]) < float(r["MACD_sig"])
+                    and float(r["MACD"]) < 0
+                    and float(p["Close"]) < float(p["Open"])    # prior day red
+                    and _bg_dv >= 500_000):
+                _bg_stop   = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
+                sig = _short("Bear Gap Hold", _bg_stop, 2.5, 4.0,
+                             reason=f"Gap down -{_bg_gap_pct:.1f}%  holding below open  "
+                                    f"RVOL {float(r['RVOL']):.1f}x  bearish MACD")
+                # Echo targets: T1 = entry × (1 - gap_pct/100), T2 = 1.5× echo
+                _bg_echo_t1 = round(c * (1 - _bg_gap_pct / 100), 2)
+                _bg_echo_t2 = round(c * (1 - _bg_gap_pct / 100 * 1.5), 2)
+                sig.target1 = min(sig.target1, _bg_echo_t1)   # more aggressive of the two
+                sig.target2 = min(sig.target2, _bg_echo_t2)
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+        except Exception:
+            pass
+
     if not candidates:
         return None
     return max(candidates, key=lambda s: s.rr)
@@ -8480,6 +8513,16 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
     from alpaca.trading.requests import GetOptionContractsRequest
     from alpaca.trading.enums import ContractType
 
+    # Gate: underlying must have ≥5M avg daily volume — ensures liquid options chain
+    try:
+        _fi = yf.Ticker(ticker).fast_info
+        _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
+            print(f"  ⚠️  {ticker} options skipped — ADV {_adv/1e6:.1f}M < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M floor")
+            return None
+    except Exception:
+        pass   # if volume check fails, proceed — don't block on data glitch
+
     today = date.today()
     target_expiry = None
     for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
@@ -8544,6 +8587,160 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
     if best_contract and best_score >= 30:
         return best_contract
     return None
+
+
+def _find_best_put_contract(client, ticker: str, current_price: float) -> dict | None:
+    """
+    Select the best ITM put contract for a bearish play.
+    Mirrors _find_best_call_contract but uses PUT type and scans strikes ABOVE
+    current price (ITM for puts = strike > current price, targeting delta -0.65 to -0.75).
+    Same 5M underlying volume gate, same scoring.
+    """
+    from alpaca.trading.requests import GetOptionContractsRequest
+    from alpaca.trading.enums import ContractType
+
+    # Same 5M ADV gate — puts on illiquid underlyings are equally worthless
+    try:
+        _fi  = yf.Ticker(ticker).fast_info
+        _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
+            print(f"  ⚠️  {ticker} puts skipped — ADV {_adv/1e6:.1f}M < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M floor")
+            return None
+    except Exception:
+        pass
+
+    today = date.today()
+    target_expiry = None
+    for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == 4:
+            target_expiry = candidate
+            break
+    if not target_expiry:
+        return None
+
+    incr = 1.0 if current_price < 25 else (2.5 if current_price < 200 else 5.0)
+    atm  = round(round(current_price / incr) * incr, 2)
+    # ITM puts: scan ATM to ATM+4 increments (above current price)
+    strikes_to_scan = [atm + i * incr for i in range(0, 5)]
+
+    best_score    = -1
+    best_contract: dict | None = None
+
+    for strike in strikes_to_scan:
+        strike = round(strike, 2)
+        if strike <= 0:
+            continue
+        try:
+            raw = client.get_option_contracts(GetOptionContractsRequest(
+                underlying_symbols=[ticker],
+                expiration_date=target_expiry,
+                type=ContractType.PUT,
+                strike_price_gte=strike - 0.01,
+                strike_price_lte=strike + 0.01,
+                limit=1,
+            ))
+            items = getattr(raw, "option_contracts", None) or (
+                raw if isinstance(raw, list) else []
+            )
+            if not items:
+                continue
+            occ  = items[0].symbol
+            snap = _get_option_snapshot(occ)
+            if not snap:
+                continue
+            delta_abs = abs(snap.get("delta", 0))
+            if delta_abs < 0.10 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
+                continue
+            score, reason = _score_option_contract(snap, current_price)
+            print(f"    PUT {occ}  |Δ|{delta_abs:.2f}  θ{snap['theta']:.3f}/d  "
+                  f"IV{snap['iv']*100:.0f}%  OI{snap['oi']}  score={score}  [{reason[:60]}]")
+            if score > best_score:
+                best_score = score
+                best_contract = {
+                    "occ_symbol": occ,
+                    "strike":     float(getattr(items[0], "strike_price", strike)),
+                    "expiry":     target_expiry.isoformat(),
+                    "dte":        (target_expiry - today).days,
+                    "option_type": "PUT",
+                    **snap,
+                    "score":      score,
+                    "score_reason": reason,
+                }
+        except Exception as _e:
+            print(f"    ⚠️  PUT strike ${strike} lookup error: {_e}")
+            continue
+
+    if best_contract and best_score >= 30:
+        return best_contract
+    return None
+
+
+def _submit_options_put(
+    client, ticker: str, current_price: float, risk_dollars: float, signal: "ProSignal"
+) -> tuple[str | None, dict | None]:
+    """
+    Greeks-aware ITM put submission for bearish plays (Bear Gap Hold, etc.).
+    Confirms bullish P/C flow is absent before buying puts — if market is
+    call-heavy (P/C < 0.3) the move may already be priced in, skip it.
+    Otherwise mirrors _submit_options_call logic exactly.
+    """
+    print(f"  🎯 PUT Options: scanning contracts for {ticker} (price=${current_price:.2f}  budget=${risk_dollars:.0f})")
+    contract = _find_best_put_contract(client, ticker, current_price)
+    if not contract:
+        print(f"  ⚠️  No suitable put contract found for {ticker}")
+        return None, None
+
+    expiry_str = contract["expiry"]
+    l2 = _get_options_market_context(ticker, expiry_str)
+    contract["pc_ratio"]            = l2["pc_ratio"]
+    contract["flow_label"]          = l2["flow_label"]
+    contract["dominant_call_strike"]= l2["dominant_call_strike"]
+    contract["stock_spread_pct"]    = l2["stock_spread_pct"]
+
+    # Skip if call flow dominates — market is positioned bullish, puts won't pay
+    if l2["pc_ratio"] < 0.3:
+        msg = (f"🚫 <b>Put skipped — bullish flow</b>: {ticker}\n"
+               f"P/C ratio {l2['pc_ratio']:.2f} (<0.3 = call-heavy). "
+               "Market positioned bullish — put entry poor risk/reward.")
+        send_telegram(msg)
+        print(f"  🚫 P/C={l2['pc_ratio']:.2f} < 0.3 — bullish flow, aborting puts")
+        return None, None
+
+    premium_per_contract = contract["ask"] * 100
+    if premium_per_contract <= 0:
+        return None, None
+
+    delta_abs = max(abs(contract.get("delta", 0.45)), 0.10)
+    _delta_adj = min(0.50 / delta_abs, 2.0)
+    raw_contracts = int(risk_dollars * _delta_adj / premium_per_contract)
+    contracts     = max(1, min(raw_contracts, 5))
+    total_cost    = round(contracts * premium_per_contract, 2)
+
+    if premium_per_contract > risk_dollars * 1.5:
+        print(f"  ⚠️  Too expensive: 1 put contract=${premium_per_contract:.0f}  budget=${risk_dollars:.0f} — skip")
+        return None, None
+
+    try:
+        order = client.submit_order(LimitOrderRequest(
+            symbol        = contract["occ_symbol"],
+            qty           = contracts,
+            side          = OrderSide.BUY,
+            limit_price   = round(contract["ask"], 2),
+            time_in_force = TimeInForce.DAY,
+        ))
+        label = "PAPER" if ALPACA_PAPER else "LIVE"
+        print(f"  📤 [{label}] OPTIONS {ticker} PUT  "
+              f"strike=${contract['strike']}  exp={expiry_str}  "
+              f"{contracts}x @ ${contract['ask']}  total=${total_cost:.0f}  "
+              f"|Δ|{delta_abs:.2f}  id={str(order.id)[:8]}…")
+        contract["contracts"]  = contracts
+        contract["total_cost"] = total_cost
+        contract["option_type"] = "PUT"
+        return str(order.id), contract
+    except Exception as exc:
+        print(f"  ❌ Put options order failed ({ticker}): {exc}")
+        return None, None
 
 
 def _submit_options_call(
@@ -8768,8 +8965,9 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 sig.target1 = round(_live_entry - 2.5 * _orig_risk, 2)
                 sig.target2 = round(_live_entry - 4.0 * _orig_risk, 2)
 
-        # ── Options branch: buy calls on large-cap WATCHLIST tickers ────────
+        # ── Options branch: calls (LONG) or puts (SHORT) on WATCHLIST tickers ─
         _use_options = ENABLE_OPTIONS_TRADING and sig.ticker in WATCHLIST and sig.bias == "LONG"
+        _use_puts    = OPTIONS_ENABLE_PUTS     and sig.ticker in WATCHLIST and sig.bias == "SHORT"
         _opt_contract: dict | None = None
         oid: str | None = None
 
@@ -8789,11 +8987,30 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
                     _use_options = False
 
-        if not _use_options:
+        elif _use_puts:
+            _opt_client = get_alpaca_client()
+            if _opt_client:
+                _opt_risk = round(get_effective_account() * OPTIONS_RISK_PCT * _risk_off_mult, 2)
+                print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
+                try:
+                    oid, _opt_contract = _submit_options_put(
+                        _opt_client, sig.ticker, cur, _opt_risk, sig
+                    )
+                except Exception as _opt_exc:
+                    print(f"  ⚠️  Put options error ({sig.ticker}): {_opt_exc} — skipping")
+                    oid = None
+                if oid is None:
+                    print(f"  ↩️  Put options unavailable for {sig.ticker} — SHORT signal skipped (ALLOW_SHORTS=False)")
+                    _use_puts = False
+
+        if not _use_options and not _use_puts:
+            if sig.bias == "SHORT" and not ALLOW_SHORTS:
+                print(f"  ⏭️  {sig.ticker} SHORT skipped — ALLOW_SHORTS=False and not in options universe")
+                continue
             oid = submit_alpaca_trade(sig)
 
         if oid:
-            if _use_options and _opt_contract:
+            if (_use_options or _use_puts) and _opt_contract:
                 _occ     = _opt_contract.get("occ_symbol", "")
                 _exp_str = _opt_contract.get("expiry", "?")
                 _strike  = _opt_contract.get("strike", 0)
@@ -8810,28 +9027,27 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 _pc      = _opt_contract.get("pc_ratio", 1.0)
                 _flow    = _opt_contract.get("flow_label", "")
                 _dom_k   = _opt_contract.get("dominant_call_strike", 0)
-                _t1_prem = round(_ask * 2.0, 2)   # T1 = 100% gain on premium
-                _t2_prem = round(_ask * 3.0, 2)   # T2 = 200% gain
-                _sl_prem = round(_ask * 0.50, 2)  # Stop = 50% loss
-                # Theta cost per day as % of premium — key exit timing signal
+                _opt_type = _opt_contract.get("option_type", "CALL")   # CALL or PUT
+                _t1_prem = round(_ask * 2.0, 2)
+                _t2_prem = round(_ask * 3.0, 2)
+                _sl_prem = round(_ask * 0.50, 2)
                 _theta_pct_day = abs(_theta / _ask * 100) if _ask > 0 else 0
+                _strike_dir = "P" if _opt_type == "PUT" else "C"
 
-                # OCC symbol in setup enables monitoring in momentum_watch
                 pt.open(OpenPosition(
                     ticker     = sig.ticker,
-                    bias       = "LONG",
-                    setup      = f"Options Call {_occ} (${_strike}C exp {_exp_str})",
-                    entry      = _ask,         # premium per share at entry
-                    stop       = _sl_prem,     # 50% loss on premium
-                    target1    = _t1_prem,     # 2× premium = T1
-                    target2    = _t2_prem,     # 3× premium = T2
-                    shares     = _ctrs * 100,  # notional (contracts × 100)
+                    bias       = "LONG" if _use_options else "SHORT",
+                    setup      = f"Options {_opt_type.title()} {_occ} (${_strike}{_strike_dir} exp {_exp_str})",
+                    entry      = _ask,
+                    stop       = _sl_prem,
+                    target1    = _t1_prem,
+                    target2    = _t2_prem,
+                    shares     = _ctrs * 100,
                     entry_date = datetime.today().strftime("%Y-%m-%d"),
-                    atr        = _delta,       # repurposed: stores delta for monitoring
+                    atr        = _delta,
                     score      = sig.confluence_score,
                 ))
                 submitted += 1
-                # Greek interpretation lines
                 _greek_str = (
                     f"Δ {_delta:.2f}  Γ {_gamma:.4f}  θ {_theta:.3f}/d  "
                     f"ν {_vega:.3f}  IV {_iv*100:.0f}%  OI {_oi:,}"
@@ -8842,8 +9058,9 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     f"P/C {_pc:.2f} ({_flow})"
                     + (f"  Dominant strike ${_dom_k}" if _dom_k else "")
                 )
+                _icon = "🐻" if _opt_type == "PUT" else "🎯"
                 send_telegram(
-                    f"🎯 <b>Options order placed</b> [{mode_label}] — {sig.ticker} CALL\n"
+                    f"{_icon} <b>Options order placed</b> [{mode_label}] — {sig.ticker} {_opt_type}\n"
                     f"Contract: <b>{_occ}</b>\n"
                     f"Strike ${_strike}  Exp {_exp_str}  ({_opt_contract.get('dte','?')}d)\n"
                     f"Premium: ${_ask}/sh × {_ctrs}ct = <b>${_opt_contract['total_cost']:.0f}</b>  "

@@ -153,6 +153,7 @@ OPTIONS_DTE_MAX             = 21     # max — wider window = more contract choi
 OPTIONS_MAX_SPREAD_PCT      = 0.20   # skip contract if bid-ask spread > 20% of ask
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
+OPTIONS_DATA_FEED           = "indicative"  # free tier; change to "opra" with Alpaca Pro
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
@@ -544,6 +545,12 @@ def fetch_df(ticker: str, period_days: int = 430,
                 return None
             if isinstance(raw.columns, pd.MultiIndex):
                 raw.columns = raw.columns.droplevel(1)
+            # Staleness check — last bar must be within 3 calendar days (handles weekends/holidays)
+            # Protects against yfinance returning cached prior-session data as "today"
+            _last_bar_date = raw.index[-1].date() if hasattr(raw.index[-1], "date") else raw.index[-1]
+            if (date.today() - _last_bar_date).days > 3:
+                print(f"  [fetch_df] {ticker} data stale (last bar {_last_bar_date}) — skipping", file=sys.stderr)
+                return None
             _cache[key] = raw
             return raw
         except Exception as exc:
@@ -2365,6 +2372,66 @@ def run_momentum_watch() -> None:
                             f"T1 ${_t1_prem:.2f}  Stop ${_stop_prem:.2f}"
                         )
                         continue   # options positions don't go into equity active_plays
+
+                    elif setup.startswith("Options Put "):
+                        # Parse OCC symbol from setup: "Options Put SMCI260724P00027500 ($27.5P exp ...)"
+                        parts = setup.split()
+                        _occ  = parts[2] if len(parts) >= 3 else ""
+                        _entry_prem = e
+                        _stop_prem  = float(pos.get("stop",    _entry_prem * 0.5))
+                        _t1_prem    = float(pos.get("target1", _entry_prem * 2.0))
+                        _delta_entry= float(pos.get("atr",     0.45))
+                        _ctrs       = max(1, int(pos.get("shares", 100)) // 100)
+                        if not _occ:
+                            continue
+                        _snap = _get_option_snapshot(_occ)
+                        if not _snap:
+                            options_alerts.append(
+                                f"⚠️ <b>{t}</b> PUT {_occ}\n"
+                                f"   Cannot fetch live quote — check position manually"
+                            )
+                            continue
+                        _cur_prem  = _snap["mid"]
+                        _pnl_pct   = (_cur_prem - _entry_prem) / _entry_prem * 100 if _entry_prem > 0 else 0
+                        _theta_now = _snap.get("theta", 0)
+                        _delta_now = _snap.get("delta", _delta_entry)
+                        _iv_now    = _snap.get("iv", 0)
+                        _theta_pct = abs(_theta_now / _cur_prem * 100) if _cur_prem > 0 else 0
+
+                        _opt_t1k   = f"{t}_PUT_T1_{date.today().isoformat()}"
+                        _opt_stopk = f"{t}_PUT_STOP_{date.today().isoformat()}"
+                        if _cur_prem <= _stop_prem:
+                            _action = "🔴 EXIT — STOP HIT"
+                            _msg = (f"Premium at ${_cur_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                                    f"({_pnl_pct:+.0f}%) — sell to limit loss")
+                            if not _is_alerted_today(_opt_stopk):
+                                send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} PUT {_occ}\n{_msg}")
+                                _mark_alerted(_opt_stopk)
+                        elif _cur_prem >= _t1_prem:
+                            _action = "🟢 T1 HIT — TAKE PROFIT"
+                            _msg = (f"Premium at ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
+                                    f"({_pnl_pct:+.0f}%) — sell ½, raise stop to breakeven")
+                            if not _is_alerted_today(_opt_t1k):
+                                send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} PUT {_occ}\n{_msg}")
+                                _mark_alerted(_opt_t1k)
+                        elif _theta_pct > 5.0 and _pnl_pct < 10:
+                            _action = "⏰ THETA ALERT — consider exit"
+                            _msg = (f"Decaying {_theta_pct:.1f}%/day with only "
+                                    f"{_pnl_pct:+.0f}% gain — time working against you")
+                        else:
+                            _action = "🐻 HOLDING"
+                            _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day"
+
+                        options_alerts.append(
+                            f"{_action}  <b>{t}</b> PUT {_occ}\n"
+                            f"   Prem: entry ${_entry_prem:.2f} → now ${_cur_prem:.2f}  "
+                            f"({_pnl_pct:+.0f}%)  {_ctrs}ct × 100 = ${_cur_prem*_ctrs*100:.0f} mkt val\n"
+                            f"   {_msg}\n"
+                            f"   Δ {_delta_now:.2f}  θ {_theta_now:.3f}/d  IV {_iv_now*100:.0f}%  "
+                            f"T1 ${_t1_prem:.2f}  Stop ${_stop_prem:.2f}"
+                        )
+                        continue
+
                     if e > 0:
                         # Automatic T1/T2 exit alerts for equity positions — fires once
                         # per target per day (dedup prevents repeat on every 30-min cycle)
@@ -2435,6 +2502,29 @@ def run_momentum_watch() -> None:
 
     setup_alerts: list[str] = []
     fade_alerts:  list[str] = []
+    age_alerts:   list[str] = []
+
+    # Swing position age check — alert on any position open ≥ 3 days (PDT-protected swings
+    # are short-term holds; stale positions tie up PDT budget and capital)
+    _SWING_AGE_LIMIT = 3
+    try:
+        _pt_age = PositionTracker()
+        for _pos in _pt_age.positions:
+            try:
+                _days_in = (date.today() - date.fromisoformat(_pos.entry_date)).days
+                if _days_in >= _SWING_AGE_LIMIT:
+                    _age_key = f"{_pos.ticker}_SWING_AGE_{date.today().isoformat()}"
+                    if not _is_alerted_today(_age_key):
+                        age_alerts.append(
+                            f"⏳ <b>{_pos.ticker}</b>  SWING STALE — {_days_in}d held\n"
+                            f"   Entry ${_pos.entry}  Setup: {_pos.setup}\n"
+                            f"   Consider closing — position is tying up capital and PDT budget"
+                        )
+                        _mark_alerted(_age_key)
+            except Exception:
+                pass
+    except Exception:
+        pass
 
     for play in active_plays:
         ticker  = play["ticker"]
@@ -2531,11 +2621,17 @@ def run_momentum_watch() -> None:
         except Exception:
             continue
 
-    if not setup_alerts and not fade_alerts and not options_alerts:
+    if not setup_alerts and not fade_alerts and not options_alerts and not age_alerts:
         print(f"  All clear at {now_et.strftime('%H:%M')} — no setups or fade signals.")
         return
 
     lines = [f"📡 <b>DMan Momentum Watch</b>  {now_et.astimezone(MT).strftime('%I:%M %p MT')}"]
+
+    if age_alerts:
+        lines.append(f"\n⏳ <b>STALE POSITIONS ({len(age_alerts)})</b>\n")
+        for a in age_alerts:
+            lines.append(a)
+            lines.append("")
 
     if options_alerts:
         lines.append(f"\n🎯 <b>OPTIONS POSITIONS ({len(options_alerts)})</b>\n")
@@ -2570,6 +2666,33 @@ def run_premarket_briefing() -> None:
     """
     now_et = datetime.now(ET)
     date_str = now_et.strftime("%A %b %d, %Y")
+
+    # ── 0a. GTC swing fill reconciliation ─────────────────────────────
+    # If a GTC entry filled overnight, update PositionTracker entry price to the
+    # actual avg fill so stop/target math is anchored to the real fill, not the limit.
+    try:
+        _rc = get_alpaca_client()
+        _pt_r = PositionTracker()
+        if _rc and _pt_r.positions:
+            _alp_positions = {p.symbol: p for p in _rc.get_all_positions()}
+            _updated = []
+            for _rp in _pt_r.positions:
+                if _rp.setup.startswith("SWING") and _rp.ticker in _alp_positions:
+                    _ap = _alp_positions[_rp.ticker]
+                    _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
+                    if _actual_entry > 0 and abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) > 0.005:
+                        # Fill price differs from limit by > 0.5% — re-anchor stop and target
+                        _risk = abs(_rp.entry - _rp.stop)
+                        _rp.entry   = _actual_entry
+                        _rp.stop    = round(_actual_entry - _risk, 2)
+                        _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
+                        _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
+                        _updated.append(_rp.ticker)
+            if _updated:
+                _pt_r._save()
+                print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} to actual fill prices")
+    except Exception as _rc_exc:
+        print(f"  [swing reconcile] {_rc_exc}")
 
     # ── 0. Scanner health watchdog ────────────────────────────────────
     scanner_health_line = ""
@@ -6826,6 +6949,18 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print(f"  Market : {regime['regime']} (score {regime['score']}/19)  VIX: {vix_now:.1f}")
     print(f"  Top sectors: {', '.join(top_secs)}")
 
+    # VIX ≥ 40 hard halt — extreme tail-risk (COVID crash, flash crash, circuit breaker day)
+    if vix_now >= 40:
+        print(f"\n  🛑 VIX EXTREME: {vix_now:.1f} ≥ 40 — full halt. No orders in a crisis session.")
+        if not _is_duplicate_alert("__VIX_EXTREME__"):
+            send_telegram(
+                f"🛑 <b>DMan HALTED — VIX Extreme</b>\n"
+                f"VIX at {vix_now:.1f} (≥40). This is a crisis session.\n"
+                f"All trading suspended. Protect capital. Come back when VIX < 35."
+            )
+            _save_last_alert("__VIX_EXTREME__")
+        return []
+
     # VIX regime scaling — tighten confluence floor in elevated-volatility markets
     if vix_now > 25:
         min_score = max(min_score, 90)
@@ -7074,8 +7209,10 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         _heat_client = get_alpaca_client()
         if _heat_client is not None and eff_account > 0:
             for _hp in _heat_client.get_all_positions():
-                _hp_val = abs(float(_hp.market_value or 0))
-                total_risk_pct += _hp_val / eff_account
+                # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
+                # Alpaca doesn't expose stop_price on positions, so we approximate risk as
+                # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
+                total_risk_pct += SMALLCAP_RISK_PCT
     except Exception:
         pass   # if Alpaca unavailable, proceed without existing-position offset
     if total_risk_pct > 0:
@@ -8383,7 +8520,7 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
         r = requests.get(
             "https://data.alpaca.markets/v1beta1/options/snapshots",
             headers=_headers,
-            params={"symbols": occ_symbol, "feed": "indicative"},
+            params={"symbols": occ_symbol, "feed": OPTIONS_DATA_FEED},
             timeout=8,
         )
         if r.status_code != 200:
@@ -8543,7 +8680,8 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
     from alpaca.trading.requests import GetOptionContractsRequest
     from alpaca.trading.enums import ContractType
 
-    # Gate: underlying must have ≥5M avg daily volume — ensures liquid options chain
+    # Gate: underlying must have ≥5M avg daily volume — ensures liquid options chain.
+    # Fail closed: if volume data unavailable, skip rather than enter illiquid contract.
     try:
         _fi = yf.Ticker(ticker).fast_info
         _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
@@ -8551,7 +8689,8 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
             print(f"  ⚠️  {ticker} options skipped — ADV {_adv/1e6:.1f}M < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M floor")
             return None
     except Exception:
-        pass   # if volume check fails, proceed — don't block on data glitch
+        print(f"  ⚠️  {ticker} options skipped — ADV check failed (fail-closed)")
+        return None
 
     today = date.today()
     target_expiry = None
@@ -8629,7 +8768,8 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
     from alpaca.trading.requests import GetOptionContractsRequest
     from alpaca.trading.enums import ContractType
 
-    # Same 5M ADV gate — puts on illiquid underlyings are equally worthless
+    # Same 5M ADV gate — puts on illiquid underlyings are equally worthless.
+    # Fail closed: data failure → skip rather than enter illiquid contract.
     try:
         _fi  = yf.Ticker(ticker).fast_info
         _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
@@ -8637,7 +8777,8 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
             print(f"  ⚠️  {ticker} puts skipped — ADV {_adv/1e6:.1f}M < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M floor")
             return None
     except Exception:
-        pass
+        print(f"  ⚠️  {ticker} puts skipped — ADV check failed (fail-closed)")
+        return None
 
     today = date.today()
     target_expiry = None
@@ -8861,6 +9002,23 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         print("  ⚠️  --submit requires ALPACA_API_KEY to be set.")
         return
 
+    # Belt-and-suspenders: re-check circuit breakers here in case this function
+    # is called directly (e.g. --mode alpaca, manual workflow_dispatch after close).
+    if not is_market_open():
+        print("  ⏸️  Market is closed — no orders submitted.")
+        return
+    _tracker_cb = WinRateTracker()
+    _stats_cb   = _tracker_cb.rolling_stats()
+    if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
+        print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
+        return
+    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+        print(f"  🛑 Daily loss limit active — no orders.")
+        return
+    if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
+        print(f"  🛑 Monthly loss limit active — no orders.")
+        return
+
     mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
 
     # ── Live-mode safety warnings ──────────────────────────────────────────
@@ -9082,7 +9240,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 _theta_pct_day = abs(_theta / _ask * 100) if _ask > 0 else 0
                 _strike_dir = "P" if _opt_type == "PUT" else "C"
 
-                pt.open(OpenPosition(
+                _tracked = pt.open(OpenPosition(
                     ticker     = sig.ticker,
                     bias       = "LONG" if _use_options else "SHORT",
                     setup      = f"Options {_opt_type.title()} {_occ} (${_strike}{_strike_dir} exp {_exp_str})",
@@ -9095,6 +9253,16 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     atr        = _delta,
                     score      = sig.confluence_score,
                 ))
+                if not _tracked:
+                    print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} options order {oid[:8]}")
+                    send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} options order {oid[:8]} cancelled (portfolio full, no tracking slot available)")
+                    try:
+                        _cc = get_alpaca_client()
+                        if _cc:
+                            _cc.cancel_order_by_id(oid)
+                    except Exception as _ce:
+                        send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
+                    continue
                 submitted += 1
                 _greek_str = (
                     f"Δ {_delta:.2f}  Γ {_gamma:.4f}  θ {_theta:.3f}/d  "
@@ -9120,7 +9288,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 )
             else:
                 _setup_tag = ("SWING — " + sig.setup) if sig.swing_mode else sig.setup
-                pt.open(OpenPosition(
+                _tracked = pt.open(OpenPosition(
                     ticker     = sig.ticker,
                     bias       = sig.bias,
                     setup      = _setup_tag,
@@ -9133,6 +9301,16 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     atr        = sig.atr,
                     score      = sig.confluence_score,
                 ))
+                if not _tracked:
+                    print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} order {oid[:8]}")
+                    send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} order {oid[:8]} cancelled (portfolio full)")
+                    try:
+                        _cc = get_alpaca_client()
+                        if _cc:
+                            _cc.cancel_order_by_id(oid)
+                    except Exception as _ce:
+                        send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
+                    continue
                 submitted += 1
                 if sig.swing_mode:
                     send_telegram(

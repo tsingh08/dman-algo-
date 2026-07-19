@@ -154,6 +154,7 @@ OPTIONS_MAX_SPREAD_PCT      = 0.20   # skip contract if bid-ask spread > 20% of 
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
 OPTIONS_DATA_FEED           = "opra"        # Alpaca Algo Trader Plus — real-time OPRA feed
+STOCK_DATA_FEED             = "sip"         # Alpaca Algo Trader Plus — consolidated real-time SIP feed
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
@@ -558,6 +559,33 @@ def fetch_df(ticker: str, period_days: int = 430,
                 time.sleep(1 << attempt)  # 1s then 2s backoff
             else:
                 print(f"  [fetch_df] {ticker} failed after 3 attempts: {exc}", file=sys.stderr)
+    # ── Alpaca daily bars fallback (SIP feed — Algo Trader Plus) ─────────────
+    try:
+        if ALPACA_AVAILABLE:
+            dc = get_alpaca_data_client()
+            if dc is not None:
+                from datetime import timezone as _tz
+                _alp_req = StockBarsRequest(
+                    symbol_or_symbols=ticker,
+                    timeframe=TimeFrame.Day,
+                    start=(datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc),
+                    feed=STOCK_DATA_FEED,
+                )
+                _alp_resp = dc.get_stock_bars(_alp_req)
+                _alp_bars = _alp_resp[ticker] if ticker in _alp_resp else []
+                if len(_alp_bars) >= 20:
+                    _records = [
+                        {"Open": b.open, "High": b.high, "Low": b.low,
+                         "Close": b.close, "Volume": b.volume, "Date": b.timestamp}
+                        for b in _alp_bars
+                    ]
+                    _df_alp = pd.DataFrame(_records).set_index("Date")
+                    _df_alp.index = pd.to_datetime(_df_alp.index, utc=True).tz_convert(None)
+                    _cache[key] = _df_alp
+                    print(f"  [fetch_df] {ticker} — Alpaca SIP fallback ({len(_df_alp)} bars)", file=sys.stderr)
+                    return _df_alp
+    except Exception:
+        pass
     return None
 
 
@@ -2067,13 +2095,42 @@ def run_premarket_early_scan() -> None:
 # ──────────────────────────────────────────────────────────────────────────────
 
 def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
-    """Fetch intraday bars, flattening multi-level columns if yfinance returns them."""
+    """Fetch intraday bars — Alpaca 1-min SIP primary (Algo Trader Plus), yfinance 5-min fallback."""
+    # ── Alpaca 1-min bars (SIP real-time feed) ────────────────────────────────
+    try:
+        if ALPACA_AVAILABLE:
+            dc = get_alpaca_data_client()
+            if dc is not None:
+                import zoneinfo as _zi
+                from datetime import timezone as _tz
+                _ET = _zi.ZoneInfo("America/New_York")
+                _now_et = datetime.now(_ET)
+                _sess_start = _now_et.replace(hour=9, minute=30, second=0, microsecond=0)
+                _alp_req = StockBarsRequest(
+                    symbol_or_symbols=ticker,
+                    timeframe=TimeFrame.Minute,
+                    start=_sess_start.astimezone(_tz.utc),
+                    feed=STOCK_DATA_FEED,
+                )
+                _alp_resp = dc.get_stock_bars(_alp_req)
+                _alp_bars = _alp_resp[ticker] if ticker in _alp_resp else []
+                if len(_alp_bars) >= 3:
+                    _records = [
+                        {"Open": b.open, "High": b.high, "Low": b.low,
+                         "Close": b.close, "Volume": b.volume, "Timestamp": b.timestamp}
+                        for b in _alp_bars
+                    ]
+                    _df = pd.DataFrame(_records).set_index("Timestamp")
+                    _df.index = pd.to_datetime(_df.index, utc=True)
+                    return _df
+    except Exception:
+        pass
+    # ── yfinance 5-min fallback ───────────────────────────────────────────────
     try:
         df = yf.download(ticker, period=period, interval=interval,
                          prepost=False, progress=False, auto_adjust=True)
         if df is None or len(df) < 3:
             return None
-        # yfinance sometimes returns multi-level columns with single-ticker downloads
         if hasattr(df.columns, "levels"):
             df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
         return df
@@ -2435,7 +2492,7 @@ def run_momentum_watch() -> None:
                     if e > 0:
                         # Automatic T1/T2 exit alerts for equity positions — fires once
                         # per target per day (dedup prevents repeat on every 30-min cycle)
-                        _cur_eq = get_current_price(t)
+                        _cur_eq = get_live_price(t)
                         if _cur_eq is not None:
                             _t1e = float(pos.get("target1", 0))
                             _t2e = float(pos.get("target2", 0))
@@ -5262,7 +5319,7 @@ class PositionTracker:
 
         total_unreal = 0.0
         for p in self.positions:
-            cur = get_current_price(p.ticker)
+            cur = get_live_price(p.ticker)
             if cur is None:
                 print(f"\n  {p.ticker}: unable to fetch price")
                 continue
@@ -6679,7 +6736,7 @@ def generate_strangle_advisory(event: str) -> None:
         return
     print(f"  [options] Generating strangle advisories ({event})...")
     for ticker in STRANGLE_TICKERS:
-        price = get_current_price(ticker)
+        price = get_live_price(ticker)
         if not price:
             continue
         result = select_strangle_legs(ticker, price)
@@ -7889,7 +7946,7 @@ def get_pending_health() -> list[dict]:
             days_old = (today - sig_date).days
             if days_old > 7:
                 continue
-            px = get_current_price(ticker)
+            px = get_live_price(ticker)
             if not px:
                 continue
             emoji, status = _signal_health_label(entry, stop, t1, t2, px)
@@ -8067,7 +8124,8 @@ try:
         OrderSide, TimeInForce, OrderClass, QueryOrderStatus,
     )
     from alpaca.data.historical import StockHistoricalDataClient
-    from alpaca.data.requests import StockLatestQuoteRequest
+    from alpaca.data.requests import StockLatestQuoteRequest, StockBarsRequest
+    from alpaca.data.timeframe import TimeFrame
     ALPACA_AVAILABLE = True
 except ImportError:
     ALPACA_AVAILABLE = False

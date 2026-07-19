@@ -153,7 +153,7 @@ OPTIONS_DTE_MAX             = 21     # max — wider window = more contract choi
 OPTIONS_MAX_SPREAD_PCT      = 0.20   # skip contract if bid-ask spread > 20% of ask
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
-OPTIONS_DATA_FEED           = "indicative"  # free tier; change to "opra" with Alpaca Pro
+OPTIONS_DATA_FEED           = "opra"        # Alpaca Algo Trader Plus — real-time OPRA feed
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).

@@ -1036,33 +1036,88 @@ def run_readiness_scan() -> None:
           f"{len(ready)} ready, {len(partial)} partial")
 
 
+def _stocktwits_inject_tickers(tickers_to_add: list[str]) -> list[str]:
+    """
+    Insert new tickers into DMAN_SMALLCAP_WATCHLIST in dman_algo.py by
+    finding the closing ] of the list and inserting before it.
+    Returns the list of tickers actually written (skips already-present ones).
+    """
+    _algo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dman_algo.py")
+    try:
+        with open(_algo_path, encoding="utf-8") as _f:
+            _src = _f.read()
+    except Exception as _e:
+        print(f"  ⚠️  Could not read dman_algo.py: {_e}")
+        return []
+
+    _today = date.today().isoformat()
+    _added: list[str] = []
+    _insertions = ""
+    for _t in tickers_to_add:
+        if f'"{_t}"' in _src:
+            print(f"  📡 {_t} already in algo — skipping")
+            continue
+        _insertions += f'    "{_t}",   # StockTwits DMan call {_today}\n'
+        _added.append(_t)
+
+    if not _insertions:
+        return []
+
+    # Bracket-count to find the closing ] of DMAN_SMALLCAP_WATCHLIST
+    _marker = "DMAN_SMALLCAP_WATCHLIST = ["
+    _start = _src.find(_marker)
+    if _start == -1:
+        print("  ⚠️  DMAN_SMALLCAP_WATCHLIST not found in dman_algo.py")
+        return []
+
+    _depth = 0
+    _i = _start + len(_marker) - 1  # position of the opening [
+    while _i < len(_src):
+        if _src[_i] == "[":
+            _depth += 1
+        elif _src[_i] == "]":
+            _depth -= 1
+            if _depth == 0:
+                _new_src = _src[:_i] + _insertions + _src[_i:]
+                try:
+                    with open(_algo_path, "w", encoding="utf-8") as _f:
+                        _f.write(_new_src)
+                    return _added
+                except Exception as _e:
+                    print(f"  ⚠️  Could not write dman_algo.py: {_e}")
+                    return []
+        _i += 1
+
+    print("  ⚠️  Could not locate end of DMAN_SMALLCAP_WATCHLIST")
+    return []
+
+
 def run_stocktwits_monitor() -> None:
     """
     Fetch ProfessorDman1's recent StockTwits messages.
-    Alert via Telegram on any new ticker calls in the last 6 hours
-    that aren't already in the scanner watchlists.
-    Uses a seen-ticker cache (dman_stocktwits_seen.json) to prevent
-    repeat alerts within 24 hours for the same ticker.
+    Auto-adds new ticker calls to DMAN_SMALLCAP_WATCHLIST in dman_algo.py.
+    The workflow commits and pushes the file so the next scan picks them up.
+    Uses a seen-ticker cache (dman_stocktwits_seen.json) — 24h dedup per ticker.
     """
     from datetime import timezone as _tz
     _SEEN_FILE = "dman_stocktwits_seen.json"
     _HOURS_BACK = 6
 
-    # Load seen cache — ticker → ISO timestamp of when we last alerted it
+    # Load seen cache
     try:
         with open(_SEEN_FILE) as _f:
             _seen: dict = json.load(_f)
     except (FileNotFoundError, json.JSONDecodeError):
         _seen = {}
 
-    # Purge entries older than 24h so tickers can resurface if called again
+    # Purge entries older than 24h
     _now_utc = datetime.now(_tz.utc)
     _seen = {
         t: ts for t, ts in _seen.items()
         if (_now_utc - datetime.fromisoformat(ts)).total_seconds() < 86_400
     }
 
-    # Fetch DMan's StockTwits stream (no API key required for public profiles)
+    # Fetch DMan's StockTwits stream (free public API, no key required)
     print("  📡 Fetching @ProfessorDman1 StockTwits stream...", flush=True)
     try:
         _resp = requests.get(
@@ -1072,7 +1127,7 @@ def run_stocktwits_monitor() -> None:
             headers={"User-Agent": "Mozilla/5.0"},
         )
         if _resp.status_code == 429:
-            print("  📡 StockTwits rate-limited — try again later")
+            print("  📡 StockTwits rate-limited — skipping this run")
             return
         if _resp.status_code != 200:
             print(f"  📡 StockTwits API returned HTTP {_resp.status_code} — skipping")
@@ -1085,11 +1140,9 @@ def run_stocktwits_monitor() -> None:
     _messages = _data.get("messages", [])
     print(f"  📡 {len(_messages)} recent messages fetched")
 
-    # All tickers already in the scanner — only alert on genuinely new calls
-    _known_large = set(WATCHLIST)
-
-    _cutoff = _now_utc - timedelta(hours=_HOURS_BACK)
-    _new_calls: list[dict] = []
+    _known_large  = set(WATCHLIST)
+    _cutoff       = _now_utc - timedelta(hours=_HOURS_BACK)
+    _new_calls:   list[dict] = []
     _seen_this_run: set[str] = set()
 
     for _msg in _messages:
@@ -1101,23 +1154,19 @@ def run_stocktwits_monitor() -> None:
             continue
         if _msg_time < _cutoff:
             continue
-
         for _sym in _msg.get("symbols", []):
             _ticker = _sym.get("symbol", "").upper().strip()
             if (not _ticker or _ticker in _known_large
                     or _ticker in _seen or _ticker in _seen_this_run):
                 continue
-            _body = _msg.get("body", "")[:120].replace("\n", " ")
             _new_calls.append({
-                "ticker":  _ticker,
-                "body":    _body,
-                "time":    _msg.get("created_at", ""),
-                "in_sc":   _ticker in DMAN_SMALLCAP_WATCHLIST,
+                "ticker": _ticker,
+                "body":   _msg.get("body", "")[:120].replace("\n", " "),
             })
-            _seen[_ticker]         = _now_utc.isoformat()
+            _seen[_ticker] = _now_utc.isoformat()
             _seen_this_run.add(_ticker)
 
-    # Persist updated seen cache
+    # Persist seen cache
     try:
         with open(_SEEN_FILE, "w") as _f:
             json.dump(_seen, _f)
@@ -1128,19 +1177,22 @@ def run_stocktwits_monitor() -> None:
         print(f"  📡 No new DMan calls in the last {_HOURS_BACK}h")
         return
 
-    # Send Telegram alert
+    # Auto-add to DMAN_SMALLCAP_WATCHLIST
+    _to_add  = [_c["ticker"] for _c in _new_calls]
+    _added   = _stocktwits_inject_tickers(_to_add)
+
+    # Telegram — confirm what was added
     _lines = []
     for _c in _new_calls:
-        _status = "✅ tracked" if _c["in_sc"] else "🆕 NEW"
-        _lines.append(f"  <b>{_c['ticker']}</b> [{_status}]\n  \"{_c['body']}\"")
+        _tag = "✅ added to scanner" if _c["ticker"] in _added else "already tracked"
+        _lines.append(f"  <b>{_c['ticker']}</b> [{_tag}]\n  \"{_c['body']}\"")
 
-    _msg_text = (
-        f"📡 <b>DMan StockTwits — {len(_new_calls)} new call(s)</b>\n\n"
+    send_telegram(
+        f"📡 <b>DMan StockTwits — {len(_new_calls)} call(s) detected</b>\n\n"
         + "\n\n".join(_lines)
-        + "\n\n💬 Reply with ticker to add it to the scanner."
+        + (f"\n\n✅ {len(_added)} ticker(s) added to DMAN_SMALLCAP_WATCHLIST." if _added else "")
     )
-    send_telegram(_msg_text)
-    print(f"  📡 Alert sent: {[_c['ticker'] for _c in _new_calls]}")
+    print(f"  📡 Added: {_added}  |  Already known: {[c['ticker'] for c in _new_calls if c['ticker'] not in _added]}")
 
 
 def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:

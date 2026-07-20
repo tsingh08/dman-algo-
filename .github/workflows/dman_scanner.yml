@@ -163,10 +163,11 @@ jobs:
                "--universe", universe, "--ai", "--submit"],
               capture_output=False
           )
-          # 10 AM–12 PM: run momentum watch alongside the main scan.
+          # 10 AM–3:30 PM: run momentum watch alongside the main scan.
           # Detects breakout setups forming + exit/trail signals on open positions.
-          # Gap plays peak in the first 90 min — this is the critical window.
-          if 1000 <= t <= 1200:
+          # Options positions have no broker-side exit — they rely entirely on this
+          # loop for T1/T2 alerts. Must run through the full session, not just open.
+          if 1000 <= t <= 1600:
               subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", "momentum-watch"],
                   capture_output=False

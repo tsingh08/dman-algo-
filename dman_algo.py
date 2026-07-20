@@ -5103,6 +5103,10 @@ class WinRateTracker:
             self.records = []
 
     def _save(self):
+        # Cap at 500 records — rolling_stats() only needs the last 50.
+        # Prevents dman_win_rate.json growing unboundedly and slowing GitHub Actions.
+        if len(self.records) > 500:
+            self.records = self.records[-500:]
         with open(self.filepath, "w") as f:
             json.dump([asdict(r) for r in self.records], f, indent=2)
 
@@ -9131,17 +9135,20 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             print(f"  🚫 PDT check failed — halting to prevent ghost positions: {_pdt_exc}")
             return
 
-        # Warn (but do not block) if FOMC is within 7 days
+        # Warn (but do not block) if FOMC is within 7 days — 12h dedup so it fires
+        # at most twice per day, not on every signal submission.
         _today_live = date.today()
         for _ev_live in sorted(_FOMC_DATES):
             _d_live = (_ev_live - _today_live).days
             if 0 <= _d_live <= 7:
-                msg = (f"⚠️ <b>DMan LIVE mode</b>: FOMC {_ev_live.strftime('%a %b %d')} "
-                       f"in {_d_live}d — elevated risk. "
-                       "Recommend paper mode until after FOMC + OPEX clear. "
-                       "Proceeding anyway — monitor positions closely.")
-                send_telegram(msg)
-                print(f"  ⚠️  LIVE: FOMC in {_d_live}d — high-risk week warning sent")
+                if not _is_duplicate_alert("__FOMC_WARN__"):
+                    msg = (f"⚠️ <b>DMan LIVE mode</b>: FOMC {_ev_live.strftime('%a %b %d')} "
+                           f"in {_d_live}d — elevated risk. "
+                           "Recommend paper mode until after FOMC + OPEX clear. "
+                           "Proceeding anyway — monitor positions closely.")
+                    send_telegram(msg)
+                    _save_last_alert("__FOMC_WARN__")
+                    print(f"  ⚠️  LIVE: FOMC in {_d_live}d — high-risk week warning sent")
                 break
             if _d_live > 7:
                 break

@@ -1036,6 +1036,113 @@ def run_readiness_scan() -> None:
           f"{len(ready)} ready, {len(partial)} partial")
 
 
+def run_stocktwits_monitor() -> None:
+    """
+    Fetch ProfessorDman1's recent StockTwits messages.
+    Alert via Telegram on any new ticker calls in the last 6 hours
+    that aren't already in the scanner watchlists.
+    Uses a seen-ticker cache (dman_stocktwits_seen.json) to prevent
+    repeat alerts within 24 hours for the same ticker.
+    """
+    from datetime import timezone as _tz
+    _SEEN_FILE = "dman_stocktwits_seen.json"
+    _HOURS_BACK = 6
+
+    # Load seen cache — ticker → ISO timestamp of when we last alerted it
+    try:
+        with open(_SEEN_FILE) as _f:
+            _seen: dict = json.load(_f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        _seen = {}
+
+    # Purge entries older than 24h so tickers can resurface if called again
+    _now_utc = datetime.now(_tz.utc)
+    _seen = {
+        t: ts for t, ts in _seen.items()
+        if (_now_utc - datetime.fromisoformat(ts)).total_seconds() < 86_400
+    }
+
+    # Fetch DMan's StockTwits stream (no API key required for public profiles)
+    print("  📡 Fetching @ProfessorDman1 StockTwits stream...", flush=True)
+    try:
+        _resp = requests.get(
+            "https://api.stocktwits.com/api/2/streams/user/ProfessorDman1.json",
+            params={"limit": 30},
+            timeout=10,
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        if _resp.status_code == 429:
+            print("  📡 StockTwits rate-limited — try again later")
+            return
+        if _resp.status_code != 200:
+            print(f"  📡 StockTwits API returned HTTP {_resp.status_code} — skipping")
+            return
+        _data = _resp.json()
+    except Exception as _e:
+        print(f"  📡 StockTwits fetch error: {_e}")
+        return
+
+    _messages = _data.get("messages", [])
+    print(f"  📡 {len(_messages)} recent messages fetched")
+
+    # All tickers already in the scanner — only alert on genuinely new calls
+    _known_large = set(WATCHLIST)
+
+    _cutoff = _now_utc - timedelta(hours=_HOURS_BACK)
+    _new_calls: list[dict] = []
+    _seen_this_run: set[str] = set()
+
+    for _msg in _messages:
+        try:
+            _msg_time = datetime.fromisoformat(
+                _msg.get("created_at", "").replace("Z", "+00:00")
+            )
+        except Exception:
+            continue
+        if _msg_time < _cutoff:
+            continue
+
+        for _sym in _msg.get("symbols", []):
+            _ticker = _sym.get("symbol", "").upper().strip()
+            if (not _ticker or _ticker in _known_large
+                    or _ticker in _seen or _ticker in _seen_this_run):
+                continue
+            _body = _msg.get("body", "")[:120].replace("\n", " ")
+            _new_calls.append({
+                "ticker":  _ticker,
+                "body":    _body,
+                "time":    _msg.get("created_at", ""),
+                "in_sc":   _ticker in DMAN_SMALLCAP_WATCHLIST,
+            })
+            _seen[_ticker]         = _now_utc.isoformat()
+            _seen_this_run.add(_ticker)
+
+    # Persist updated seen cache
+    try:
+        with open(_SEEN_FILE, "w") as _f:
+            json.dump(_seen, _f)
+    except Exception:
+        pass
+
+    if not _new_calls:
+        print(f"  📡 No new DMan calls in the last {_HOURS_BACK}h")
+        return
+
+    # Send Telegram alert
+    _lines = []
+    for _c in _new_calls:
+        _status = "✅ tracked" if _c["in_sc"] else "🆕 NEW"
+        _lines.append(f"  <b>{_c['ticker']}</b> [{_status}]\n  \"{_c['body']}\"")
+
+    _msg_text = (
+        f"📡 <b>DMan StockTwits — {len(_new_calls)} new call(s)</b>\n\n"
+        + "\n\n".join(_lines)
+        + "\n\n💬 Reply with ticker to add it to the scanner."
+    )
+    send_telegram(_msg_text)
+    print(f"  📡 Alert sent: {[_c['ticker'] for _c in _new_calls]}")
+
+
 def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
     """
     Fetch real-time ticker-specific headlines from Benzinga Basic API.
@@ -9563,6 +9670,9 @@ def main():
         print(f"\n  ✅ Recorded: {args.ticker.upper()} {bias} "
               f"${args.entry} → ${args.exit_price} | {outcome} ({pnl_pct:+.2f}%)\n")
         tracker.print_report()
+
+    elif args.mode == "stocktwits":
+        run_stocktwits_monitor()
 
     elif args.mode == "regime":
         print("  Checking market regime...\n")

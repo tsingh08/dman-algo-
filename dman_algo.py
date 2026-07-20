@@ -338,6 +338,8 @@ TICKER_SECTOR = {
     "DDOG":"Technology",
     # Crypto-proxy (volatile — min score 88 via VOLATILE_TICKERS)
     "COIN":"Financials",
+    # BTC miners / crypto-proxy (massive gap days on BTC moves + earnings)
+    "MSTR":"Technology","MARA":"Technology","CLSK":"Technology",
     # Consumer momentum (gap & hold compatible)
     "UBER":"Consumer Disc","ELF":"Consumer Disc","DECK":"Consumer Disc",
     # AI infrastructure / power
@@ -349,6 +351,14 @@ TICKER_SECTOR = {
     # Chinese AI / tech ADRs (Dman watches FXI + DeepSeek rally names)
     "BABA":"Comm Services","BIDU":"Comm Services","PDD":"Consumer Disc",
     "JD":"Consumer Disc","KWEB":"Technology",
+    # Quantum computing / AI small-mid cap (20-50% catalyst gaps)
+    "IONQ":"Technology","SOUN":"Technology","BBAI":"Technology",
+    # Power semis — EV/AI chip plays with large earnings gaps
+    "WOLF":"Technology",
+    # Space / eVTOL — high-catalyst sectors (contract wins, FAA approvals)
+    "LUNR":"Industrials","ACHR":"Industrials","JOBY":"Industrials",
+    # Defense / drone tech
+    "RCAT":"Industrials",
     # Market regime ETFs
     "SPY":"","QQQ":"","IWM":"",
 }

@@ -71,3 +71,17 @@ jobs:
           DAEMON_RUN_UNTIL:    ${{ steps.session.outputs.until }}
           PYTHONIOENCODING:    utf-8
         run: python dman_daemon.py
+
+      - name: Notify on daemon failure
+        if: failure()
+        env:
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          # Cancellation by the afternoon session is normal handover (not failure).
+          # This fires only on genuine crashes/setup failures — the hourly cron
+          # scans still enforce exits as backup, but tell the user immediately.
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            -d "text=🚨 <b>Cloud daemon session FAILED</b> — real-time guard is down. Hourly cron scans still enforce options exits as backup. Check GitHub Actions when you can." \
+            -d "parse_mode=HTML" || true

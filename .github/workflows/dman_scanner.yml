@@ -184,7 +184,8 @@ jobs:
                   dman_alpaca_sync.json dman_positions.json \
                   dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
                   dman_scan_log.json dman_universe_cache.json \
-                  dman_stocktwits_seen.json dman_smallcap_watchlist.json || true
+                  dman_stocktwits_seen.json dman_smallcap_watchlist.json \
+                  dman_telegram_state.json dman_halt.json || true
           if git diff --staged --quiet; then
             echo "No data changes to commit"
             exit 0
@@ -197,7 +198,9 @@ jobs:
             git checkout --ours -- dman_last_alerts.json dman_live_signals.json \
               dman_live_outcomes.csv dman_alpaca_sync.json dman_win_rate.json \
               dman_monthly_pnl.json dman_daily_pnl.json dman_scan_log.json \
-              dman_universe_cache.json dman_stocktwits_seen.json 2>/dev/null || true
+              dman_universe_cache.json dman_stocktwits_seen.json \
+              dman_positions.json dman_telegram_state.json dman_halt.json \
+              dman_smallcap_watchlist.json 2>/dev/null || true
             git add -u
             git rebase --continue || git rebase --abort
           fi

@@ -147,10 +147,10 @@ ENABLE_PREMARKET_SUBMIT = True
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
 ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
-OPTIONS_RISK_PCT            = 0.08   # 8% of account per trade (~$240 at $3k)
-OPTIONS_DTE_MIN             = 7      # minimum days to expiry
-OPTIONS_DTE_MAX             = 21     # max — wider window = more contract choices
-OPTIONS_MAX_SPREAD_PCT      = 0.20   # skip contract if bid-ask spread > 20% of ask
+OPTIONS_RISK_PCT            = 0.12   # 12% of account per trade (~$360 at $3k) — aggressive ITM sizing
+OPTIONS_DTE_MIN             = 5      # minimum 5 DTE — allows weekly for fast gap plays
+OPTIONS_DTE_MAX             = 28     # max 4 weeks
+OPTIONS_MAX_SPREAD_PCT      = 0.15   # skip contract if bid-ask spread > 15% of mid (was 20% of ask)
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
 OPTIONS_DATA_FEED           = "opra"        # Alpaca Algo Trader Plus — real-time OPRA feed
@@ -203,9 +203,9 @@ OPTIONS_MIN_PRICE       = 10.0          # no options on sub-$10 stocks (illiquid
 OPTIONS_MAX_PRICE       = 500.0         # skip very expensive stocks (options too costly)
 ADVISORY_OPTIONS_RISK_PCT = 0.25        # 25% of account — used by old advisory size_options_trade()
 OPTIONS_MAX_PREMIUM_USD = 500           # cap at $500/trade — 1-2 contracts at $3k account
-OPTIONS_TARGET_DTE      = 21            # target DTE — Dman: "1-4 weeks" (21 is sweet spot)
-OPTIONS_MIN_DTE         = 10            # below this: theta accelerates, too risky
-OPTIONS_MAX_DTE         = 42            # beyond this: premium too expensive for swing trade
+OPTIONS_TARGET_DTE      = 14            # target 2-week DTE — DMan gap plays resolve in 1-5 days
+OPTIONS_MIN_DTE         = 5             # below this: theta burns too fast
+OPTIONS_MAX_DTE         = 28            # beyond this: premium too expensive for gap plays
 OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — "ITM calls"
 OPTIONS_STOP_LOSS_PCT   = 0.50          # exit if premium drops 50% (Dman's mental stop)
 OPTIONS_PROFIT1_PCT     = 0.50          # take 50% profit at +50% gain
@@ -2557,45 +2557,71 @@ def run_momentum_watch() -> None:
                                 f"   Cannot fetch live quote — check position manually"
                             )
                             continue
-                        _cur_prem  = _snap["mid"]
+                        _cur_prem  = _snap["mid"]   # display P&L at mid
+                        _exit_prem = _snap.get("bid", _cur_prem)  # exit at bid (conservative)
                         _pnl_pct   = (_cur_prem - _entry_prem) / _entry_prem * 100 if _entry_prem > 0 else 0
                         _theta_now = _snap.get("theta", 0)
                         _delta_now = _snap.get("delta", _delta_entry)
                         _iv_now    = _snap.get("iv", 0)
                         _theta_pct = abs(_theta_now / _cur_prem * 100) if _cur_prem > 0 else 0
+                        _t2_prem   = float(pos.get("target2", _entry_prem * 2.5))
+                        # DTE estimate from OCC symbol (YY MM DD in positions 6-11 for 21-char OCC)
+                        try:
+                            _occ_exp = _occ[-15:-9] if len(_occ) >= 15 else ""
+                            _exp_dt  = datetime.strptime(_occ_exp, "%y%m%d").date() if _occ_exp else None
+                            _dte_now = (_exp_dt - date.today()).days if _exp_dt else 99
+                        except Exception:
+                            _dte_now = 99
 
-                        # Determine alert type — T1/stop fire once per day (dedup)
+                        # Determine alert type — deduped per day
                         _opt_t1k   = f"{t}_OPT_T1_{date.today().isoformat()}"
+                        _opt_t2k   = f"{t}_OPT_T2_{date.today().isoformat()}"
                         _opt_stopk = f"{t}_OPT_STOP_{date.today().isoformat()}"
-                        if _cur_prem <= _stop_prem:
+                        _opt_dtek  = f"{t}_OPT_DTE_{date.today().isoformat()}"
+                        # Use bid for stop check — that's what we'd actually receive on exit
+                        if _exit_prem <= _stop_prem:
                             _action = "🔴 EXIT — STOP HIT"
-                            _msg = (f"Premium at ${_cur_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
                                     f"({_pnl_pct:+.0f}%) — sell to limit loss")
                             if not _is_alerted_today(_opt_stopk):
                                 send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} CALL {_occ}\n{_msg}")
                                 _mark_alerted(_opt_stopk)
+                        elif _cur_prem >= _t2_prem:
+                            _action = "🚀 T2 HIT — FULL EXIT"
+                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T2 ${_t2_prem:.2f} "
+                                    f"({_pnl_pct:+.0f}%) — sell all, full runner achieved")
+                            if not _is_alerted_today(_opt_t2k):
+                                send_telegram(f"🚀 <b>OPTIONS T2 HIT</b> — {t} CALL {_occ}\n{_msg}")
+                                _mark_alerted(_opt_t2k)
                         elif _cur_prem >= _t1_prem:
-                            _action = "🟢 T1 HIT — TAKE PROFIT"
-                            _msg = (f"Premium at ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
+                            _action = "🟢 T1 HIT — TAKE ½ PROFIT"
+                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
                                     f"({_pnl_pct:+.0f}%) — sell ½, raise stop to breakeven")
                             if not _is_alerted_today(_opt_t1k):
                                 send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} CALL {_occ}\n{_msg}")
                                 _mark_alerted(_opt_t1k)
+                        elif _dte_now <= OPTIONS_CLOSE_DTE:
+                            _action = f"⏳ DTE ALERT — {_dte_now}d left, consider close"
+                            _msg = (f"Only {_dte_now}d to expiry — theta burning fast. "
+                                    f"P&L: {_pnl_pct:+.0f}%. Close or roll now.")
+                            if not _is_alerted_today(_opt_dtek):
+                                send_telegram(f"⏳ <b>DTE WARNING</b> — {t} CALL {_occ}\n{_msg}")
+                                _mark_alerted(_opt_dtek)
                         elif _theta_pct > 5.0 and _pnl_pct < 10:
                             _action = "⏰ THETA ALERT — consider exit"
                             _msg = (f"Decaying {_theta_pct:.1f}%/day with only "
                                     f"{_pnl_pct:+.0f}% gain — time is working against you")
                         else:
                             _action = "✅ HOLDING"
-                            _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day"
+                            _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day  DTE {_dte_now}d"
 
                         options_alerts.append(
                             f"{_action}  <b>{t}</b> CALL {_occ}\n"
-                            f"   Prem: entry ${_entry_prem:.2f} → now ${_cur_prem:.2f}  "
+                            f"   Prem: entry ${_entry_prem:.2f} → now ${_cur_prem:.2f} (bid ${_exit_prem:.2f})  "
                             f"({_pnl_pct:+.0f}%)  {_ctrs}ct × 100 = ${_cur_prem*_ctrs*100:.0f} mkt val\n"
                             f"   {_msg}\n"
                             f"   Δ {_delta_now:.2f}  θ {_theta_now:.3f}/d  IV {_iv_now*100:.0f}%  "
-                            f"T1 ${_t1_prem:.2f}  Stop ${_stop_prem:.2f}"
+                            f"T1 ${_t1_prem:.2f}  T2 ${_t2_prem:.2f}  Stop ${_stop_prem:.2f}  DTE {_dte_now}d"
                         )
                         continue   # options positions don't go into equity active_plays
 
@@ -2618,43 +2644,66 @@ def run_momentum_watch() -> None:
                             )
                             continue
                         _cur_prem  = _snap["mid"]
+                        _exit_prem = _snap.get("bid", _cur_prem)
                         _pnl_pct   = (_cur_prem - _entry_prem) / _entry_prem * 100 if _entry_prem > 0 else 0
                         _theta_now = _snap.get("theta", 0)
                         _delta_now = _snap.get("delta", _delta_entry)
                         _iv_now    = _snap.get("iv", 0)
                         _theta_pct = abs(_theta_now / _cur_prem * 100) if _cur_prem > 0 else 0
+                        _t2_prem   = float(pos.get("target2", _entry_prem * 2.5))
+                        try:
+                            _occ_exp = _occ[-15:-9] if len(_occ) >= 15 else ""
+                            _exp_dt  = datetime.strptime(_occ_exp, "%y%m%d").date() if _occ_exp else None
+                            _dte_now = (_exp_dt - date.today()).days if _exp_dt else 99
+                        except Exception:
+                            _dte_now = 99
 
                         _opt_t1k   = f"{t}_PUT_T1_{date.today().isoformat()}"
+                        _opt_t2k   = f"{t}_PUT_T2_{date.today().isoformat()}"
                         _opt_stopk = f"{t}_PUT_STOP_{date.today().isoformat()}"
-                        if _cur_prem <= _stop_prem:
+                        _opt_dtek  = f"{t}_PUT_DTE_{date.today().isoformat()}"
+                        if _exit_prem <= _stop_prem:
                             _action = "🔴 EXIT — STOP HIT"
-                            _msg = (f"Premium at ${_cur_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
                                     f"({_pnl_pct:+.0f}%) — sell to limit loss")
                             if not _is_alerted_today(_opt_stopk):
                                 send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} PUT {_occ}\n{_msg}")
                                 _mark_alerted(_opt_stopk)
+                        elif _cur_prem >= _t2_prem:
+                            _action = "🚀 T2 HIT — FULL EXIT"
+                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T2 ${_t2_prem:.2f} "
+                                    f"({_pnl_pct:+.0f}%) — sell all, full runner achieved")
+                            if not _is_alerted_today(_opt_t2k):
+                                send_telegram(f"🚀 <b>OPTIONS T2 HIT</b> — {t} PUT {_occ}\n{_msg}")
+                                _mark_alerted(_opt_t2k)
                         elif _cur_prem >= _t1_prem:
-                            _action = "🟢 T1 HIT — TAKE PROFIT"
-                            _msg = (f"Premium at ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
+                            _action = "🟢 T1 HIT — TAKE ½ PROFIT"
+                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
                                     f"({_pnl_pct:+.0f}%) — sell ½, raise stop to breakeven")
                             if not _is_alerted_today(_opt_t1k):
                                 send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} PUT {_occ}\n{_msg}")
                                 _mark_alerted(_opt_t1k)
+                        elif _dte_now <= OPTIONS_CLOSE_DTE:
+                            _action = f"⏳ DTE ALERT — {_dte_now}d left, consider close"
+                            _msg = (f"Only {_dte_now}d to expiry. P&L: {_pnl_pct:+.0f}%. Close or roll now.")
+                            if not _is_alerted_today(_opt_dtek):
+                                send_telegram(f"⏳ <b>DTE WARNING</b> — {t} PUT {_occ}\n{_msg}")
+                                _mark_alerted(_opt_dtek)
                         elif _theta_pct > 5.0 and _pnl_pct < 10:
                             _action = "⏰ THETA ALERT — consider exit"
                             _msg = (f"Decaying {_theta_pct:.1f}%/day with only "
                                     f"{_pnl_pct:+.0f}% gain — time working against you")
                         else:
                             _action = "🐻 HOLDING"
-                            _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day"
+                            _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day  DTE {_dte_now}d"
 
                         options_alerts.append(
                             f"{_action}  <b>{t}</b> PUT {_occ}\n"
-                            f"   Prem: entry ${_entry_prem:.2f} → now ${_cur_prem:.2f}  "
+                            f"   Prem: entry ${_entry_prem:.2f} → now ${_cur_prem:.2f} (bid ${_exit_prem:.2f})  "
                             f"({_pnl_pct:+.0f}%)  {_ctrs}ct × 100 = ${_cur_prem*_ctrs*100:.0f} mkt val\n"
                             f"   {_msg}\n"
                             f"   Δ {_delta_now:.2f}  θ {_theta_now:.3f}/d  IV {_iv_now*100:.0f}%  "
-                            f"T1 ${_t1_prem:.2f}  Stop ${_stop_prem:.2f}"
+                            f"T1 ${_t1_prem:.2f}  T2 ${_t2_prem:.2f}  Stop ${_stop_prem:.2f}  DTE {_dte_now}d"
                         )
                         continue
 
@@ -8491,21 +8540,30 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
 
     for pos in list(pt.positions):
         ticker = pos.ticker
-        if ticker in alp_open:
+        # Options positions: Alpaca reports the OCC symbol (e.g. "SMCI260724C00027500"),
+        # not the underlying. Extract OCC from setup string for correct lookup.
+        _occ_sym = None
+        if pos.setup.startswith("Options Call ") or pos.setup.startswith("Options Put "):
+            _sp = pos.setup.split()
+            _occ_sym = _sp[2] if len(_sp) >= 3 else None
+
+        _alp_sym = _occ_sym if _occ_sym else ticker
+        if _alp_sym in alp_open:
             continue    # still open — nothing to record yet
 
         # Position is gone from Alpaca — find the exit fill
         try:
             orders = client.get_orders(filter=GetOrdersRequest(
-                symbols=[ticker],
+                symbols=[_alp_sym],
                 status=QueryOrderStatus.CLOSED,
                 limit=20,
             ))
         except Exception:
             continue
 
-        is_lo       = pos.bias == "LONG"
-        closing_side = OrderSide.SELL if is_lo else OrderSide.BUY
+        is_lo = pos.bias == "LONG"
+        # Options always buy-to-open / sell-to-close regardless of put/call
+        closing_side = OrderSide.SELL if (is_lo or _occ_sym) else OrderSide.BUY
 
         for order in orders:
             oid = str(order.id)
@@ -8524,12 +8582,18 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
 
             qty = int(float(getattr(order, "filled_qty", None) or order.qty or pos.shares))
 
-            pnl_pct     = ((fill_px - pos.entry) / pos.entry * 100 if is_lo
-                           else (pos.entry - fill_px) / pos.entry * 100)
-            outcome     = ("WIN" if pnl_pct > 0.1 else
-                           "LOSS" if pnl_pct < -0.1 else "BE")
-            dollar_pnl  = (fill_px - pos.entry) * qty * (1 if is_lo else -1)
-            acct_pct    = dollar_pnl / ACCOUNT_SIZE * 100
+            # Options: premium P&L = always (exit - entry) * qty regardless of put/call.
+            # Both calls and puts are bought-to-open; exit price > entry = WIN.
+            if _occ_sym:
+                pnl_pct    = (fill_px - pos.entry) / pos.entry * 100 if pos.entry > 0 else 0
+                dollar_pnl = (fill_px - pos.entry) * qty
+            else:
+                pnl_pct    = ((fill_px - pos.entry) / pos.entry * 100 if is_lo
+                               else (pos.entry - fill_px) / pos.entry * 100)
+                dollar_pnl = (fill_px - pos.entry) * qty * (1 if is_lo else -1)
+            outcome    = ("WIN" if pnl_pct > 0.1 else
+                          "LOSS" if pnl_pct < -0.1 else "BE")
+            acct_pct   = dollar_pnl / ACCOUNT_SIZE * 100
 
             fill_date = (order.filled_at.strftime("%Y-%m-%d")
                          if getattr(order, "filled_at", None) else
@@ -8563,16 +8627,17 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             break   # one exit record per position
         else:
             # Inner loop found no valid closing fill. Entry order may have been
-            # cancelled or expired (limit never filled at open) — remove the ghost
-            # so the duplicate guard doesn't permanently block this ticker.
-            _entry_side = OrderSide.BUY if is_lo else OrderSide.SELL
+            # cancelled or expired (limit never filled at open) — remove the ghost.
+            # Options always buy-to-open; equity: BUY for LONG, SELL for SHORT.
+            _entry_side = OrderSide.BUY if (is_lo or _occ_sym) else OrderSide.SELL
             for _eo in orders:
                 if (_eo.side == _entry_side and
                         str(_eo.status).lower() in ("cancelled", "expired", "replaced")):
                     pt.close(ticker)
-                    print(f"  🗑️  Ghost cleared: {ticker} — entry limit {_eo.status}, never filled")
+                    _ghost_lbl = _occ_sym if _occ_sym else ticker
+                    print(f"  🗑️  Ghost cleared: {_ghost_lbl} — entry limit {_eo.status}, never filled")
                     send_telegram(
-                        f"🗑️ <b>Ghost cleared</b>: {ticker} — entry limit order "
+                        f"🗑️ <b>Ghost cleared</b>: {_ghost_lbl} — entry limit order "
                         f"{str(_eo.status)} (never filled). Removed from position tracker."
                     )
                     break
@@ -8769,7 +8834,7 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
             return None
 
         mid        = round((bid + ask) / 2, 2)
-        spread_pct = (ask - bid) / ask if ask > 0 else 1.0
+        spread_pct = (ask - bid) / mid if mid > 0 else 1.0
 
         g     = raw.get("greeks", {}) or {}
         delta = float(g.get("delta", 0) or 0)
@@ -8797,43 +8862,39 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
 
 def _score_option_contract(snap: dict, current_price: float) -> tuple[int, str]:
     """
-    Score a contract 0-100 based on Greeks, liquidity, and L2 depth.
-    Higher = better. Returns (score, reason_str).
-
-    Scoring rubric (optimized for intraday gap-and-hold calls):
-      Delta  (40 pts): 0.40-0.60 ideal — enough sensitivity + good probability
-      Spread (35 pts): tight spread = cheap entry/exit, best for day trades
-      OI     (25 pts): open interest confirms liquidity beyond current session
-
-    Greek interpretation displayed on each alert:
-      - Theta shows daily cost-of-hold (key for overnight decisions)
-      - Gamma shows acceleration risk (good for momentum, bad if it reverses)
-      - Vega shows IV sensitivity (high vega = buy before vol spike, not after)
+    Score a contract 0-100 optimized for DMan ITM strategy (delta 0.60-0.80).
+      Delta  (40 pts): 0.60-0.80 ideal — ITM calls move with the stock
+      Spread (35 pts): tight spread = cheap entry/exit
+      OI     (25 pts): open interest confirms chain liquidity
     """
     score  = 0
     parts: list[str] = []
 
-    # Delta: sweet spot 0.40-0.60 (ATM to slightly OTM)
-    delta = snap.get("delta", 0)
-    if 0.40 <= delta <= 0.60:
-        score += 40; parts.append(f"delta {delta:.2f} ✅")
-    elif 0.30 <= delta <= 0.70:
-        score += 22; parts.append(f"delta {delta:.2f} ok")
-    elif delta > 0:
-        score += 8;  parts.append(f"delta {delta:.2f} weak")
+    # Delta: ITM sweet spot 0.60-0.80 (target ≈ delta 0.70 per OPTIONS_ITM_TARGET_PCT)
+    delta = abs(snap.get("delta", 0))
+    if 0.60 <= delta <= 0.80:
+        score += 40; parts.append(f"delta {delta:.2f} ✅ ITM")
+    elif 0.80 < delta <= 0.95:
+        score += 30; parts.append(f"delta {delta:.2f} deep ITM")
+    elif 0.45 <= delta < 0.60:
+        score += 20; parts.append(f"delta {delta:.2f} ATM")
+    elif delta >= 0.40:
+        score += 10; parts.append(f"delta {delta:.2f} OTM")
+    else:
+        parts.append(f"delta {delta:.2f} ❌ too OTM")
 
-    # Spread: key for intraday fills — tight spread = breakeven sooner
+    # Spread (as % of mid — more accurate than % of ask)
     sp = snap.get("spread_pct", 1.0)
-    if sp <= 0.10:
+    if sp <= 0.08:
         score += 35; parts.append(f"spread {sp*100:.0f}% tight ✅")
-    elif sp <= 0.20:
+    elif sp <= 0.15:
         score += 22; parts.append(f"spread {sp*100:.0f}% ok")
-    elif sp <= 0.30:
+    elif sp <= 0.25:
         score += 10; parts.append(f"spread {sp*100:.0f}% wide")
     else:
         parts.append(f"spread {sp*100:.0f}% ❌ skip")
 
-    # Open interest: liquidity signal across all participants
+    # Open interest
     oi = snap.get("oi", 0)
     if oi >= 500:
         score += 25; parts.append(f"OI {oi:,} ✅")
@@ -8924,19 +8985,24 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
         return None
 
     today = date.today()
+    # Pick the Friday nearest to OPTIONS_TARGET_DTE — not just the first available Friday.
     target_expiry = None
+    _best_diff = float("inf")
     for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
         candidate = today + timedelta(days=offset)
-        if candidate.weekday() == 4:
-            target_expiry = candidate
-            break
+        if candidate.weekday() == 4:   # Friday
+            _diff = abs(offset - OPTIONS_TARGET_DTE)
+            if _diff < _best_diff:
+                _best_diff = _diff
+                target_expiry = candidate
     if not target_expiry:
         return None
 
     incr = 1.0 if current_price < 25 else (2.5 if current_price < 200 else 5.0)
     atm  = round(round(current_price / incr) * incr, 2)
-    # Scan ATM-1 through ATM+3 increments to find the best-scoring contract
-    strikes_to_scan = [atm + i * incr for i in range(-1, 4)]
+    # Call ITM strike scan: start 4 increments below ATM (deep ITM), scan toward ATM.
+    # Targeting delta ~0.70 per OPTIONS_ITM_TARGET_PCT=0.04 (4% ITM).
+    strikes_to_scan = [atm + i * incr for i in range(-4, 2)]
 
     best_score    = -1
     best_contract: dict | None = None
@@ -8963,8 +9029,8 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
             snap = _get_option_snapshot(occ)
             if not snap:
                 continue
-            # Hard filter: reject no-delta contracts and illiquid spreads
-            if snap["delta"] < 0.10 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
+            # Hard filter: reject OTM (delta < 0.40) and wide-spread contracts
+            if snap["delta"] < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
                 continue
             score, reason = _score_option_contract(snap, current_price)
             print(f"    {occ}  Δ{snap['delta']:.2f}  θ{snap['theta']:.3f}/d  "
@@ -9013,18 +9079,21 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
 
     today = date.today()
     target_expiry = None
+    _best_diff = float("inf")
     for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
         candidate = today + timedelta(days=offset)
         if candidate.weekday() == 4:
-            target_expiry = candidate
-            break
+            _diff = abs(offset - OPTIONS_TARGET_DTE)
+            if _diff < _best_diff:
+                _best_diff = _diff
+                target_expiry = candidate
     if not target_expiry:
         return None
 
     incr = 1.0 if current_price < 25 else (2.5 if current_price < 200 else 5.0)
     atm  = round(round(current_price / incr) * incr, 2)
-    # ITM puts: scan ATM to ATM+4 increments (above current price)
-    strikes_to_scan = [atm + i * incr for i in range(0, 5)]
+    # Put ITM strike scan: start 2 increments above ATM (targeting delta ~0.70 for puts)
+    strikes_to_scan = [atm + i * incr for i in range(2, 7)]
 
     best_score    = -1
     best_contract: dict | None = None
@@ -9052,7 +9121,7 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
             if not snap:
                 continue
             delta_abs = abs(snap.get("delta", 0))
-            if delta_abs < 0.10 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
+            if delta_abs < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
                 continue
             score, reason = _score_option_contract(snap, current_price)
             print(f"    PUT {occ}  |Δ|{delta_abs:.2f}  θ{snap['theta']:.3f}/d  "
@@ -9109,18 +9178,20 @@ def _submit_options_put(
         print(f"  🚫 P/C={l2['pc_ratio']:.2f} < 0.3 — bullish flow, aborting puts")
         return None, None
 
-    premium_per_contract = contract["ask"] * 100
+    _put_mid = (contract.get("bid", contract["ask"]) + contract["ask"]) / 2
+    premium_per_contract = _put_mid * 100
     if premium_per_contract <= 0:
         return None, None
 
-    delta_abs = max(abs(contract.get("delta", 0.45)), 0.10)
-    _delta_adj = min(0.50 / delta_abs, 2.0)
-    raw_contracts = int(risk_dollars * _delta_adj / premium_per_contract)
-    contracts     = max(1, min(raw_contracts, 5))
-    total_cost    = round(contracts * premium_per_contract, 2)
+    # ITM puts (delta ≥ 0.60): full budget — high delta = efficient capital use.
+    # Near-ATM puts (delta < 0.60): no delta adjustment (flat sizing).
+    raw_contracts = int(risk_dollars / premium_per_contract)
+    contracts     = max(1, min(raw_contracts, 10))
+    _limit_px     = round(_put_mid * 1.03, 2)   # mid + 3% buffer for fill
+    total_cost    = round(contracts * _put_mid * 100, 2)
 
-    if premium_per_contract > risk_dollars * 1.5:
-        print(f"  ⚠️  Too expensive: 1 put contract=${premium_per_contract:.0f}  budget=${risk_dollars:.0f} — skip")
+    if _put_mid * 100 > risk_dollars * 1.5:
+        print(f"  ⚠️  Too expensive: 1 put contract=${_put_mid*100:.0f}  budget=${risk_dollars:.0f} — skip")
         return None, None
 
     try:
@@ -9128,14 +9199,16 @@ def _submit_options_put(
             symbol        = contract["occ_symbol"],
             qty           = contracts,
             side          = OrderSide.BUY,
-            limit_price   = round(contract["ask"], 2),
+            limit_price   = _limit_px,
             time_in_force = TimeInForce.DAY,
         ))
         label = "PAPER" if ALPACA_PAPER else "LIVE"
+        _put_dabs = abs(contract.get("delta", 0))
         print(f"  📤 [{label}] OPTIONS {ticker} PUT  "
               f"strike=${contract['strike']}  exp={expiry_str}  "
-              f"{contracts}x @ ${contract['ask']}  total=${total_cost:.0f}  "
-              f"|Δ|{delta_abs:.2f}  id={str(order.id)[:8]}…")
+              f"{contracts}x @ ${_limit_px} (mid+3%)  total=${total_cost:.0f}  "
+              f"|Δ|{_put_dabs:.2f}  id={str(order.id)[:8]}…")
+        contract["ask"]        = _limit_px   # record actual limit used
         contract["contracts"]  = contracts
         contract["total_cost"] = total_cost
         contract["option_type"] = "PUT"
@@ -9181,21 +9254,20 @@ def _submit_options_call(
         print(f"  🚫 P/C={l2['pc_ratio']:.2f} > 1.5 — bearish flow, aborting options")
         return None, None
 
-    premium_per_contract = contract["ask"] * 100
+    _call_mid = (contract.get("bid", contract["ask"]) + contract["ask"]) / 2
+    premium_per_contract = _call_mid * 100
     if premium_per_contract <= 0:
         return None, None
 
-    # Delta-adjusted sizing: if delta < 0.40, we may need more contracts to get
-    # equivalent dollar exposure to a 0.50-delta position. Cap at 5 contracts.
-    delta = max(contract.get("delta", 0.45), 0.10)
-    _delta_adj = min(0.50 / delta, 2.0)   # up to 2× more contracts for low-delta
-    raw_contracts = int(risk_dollars * _delta_adj / premium_per_contract)
-    contracts     = max(1, min(raw_contracts, 5))
-    total_cost    = round(contracts * premium_per_contract, 2)
+    # ITM calls (delta ≥ 0.60): full budget — high delta means efficient capital use.
+    # Flat sizing — no penalty for being ITM (we WANT high-delta contracts).
+    raw_contracts = int(risk_dollars / premium_per_contract)
+    contracts     = max(1, min(raw_contracts, 10))
+    _limit_px     = round(_call_mid * 1.03, 2)   # mid + 3% buffer for fill
+    total_cost    = round(contracts * _call_mid * 100, 2)
 
-    # Guard: reject if minimum 1-contract cost exceeds 1.5× budget (floor for 1-contract minimum)
-    if premium_per_contract > risk_dollars * 1.5:
-        print(f"  ⚠️  Too expensive: 1 contract=${premium_per_contract:.0f}  budget=${risk_dollars:.0f} — skip")
+    if _call_mid * 100 > risk_dollars * 1.5:
+        print(f"  ⚠️  Too expensive: 1 contract=${_call_mid*100:.0f}  budget=${risk_dollars:.0f} — skip")
         return None, None
 
     try:
@@ -9203,14 +9275,16 @@ def _submit_options_call(
             symbol        = contract["occ_symbol"],
             qty           = contracts,
             side          = OrderSide.BUY,
-            limit_price   = round(contract["ask"], 2),
+            limit_price   = _limit_px,
             time_in_force = TimeInForce.DAY,
         ))
         label = "PAPER" if ALPACA_PAPER else "LIVE"
+        _call_delta = contract.get("delta", 0)
         print(f"  📤 [{label}] OPTIONS {ticker} CALL  "
               f"strike=${contract['strike']}  exp={expiry_str}  "
-              f"{contracts}x @ ${contract['ask']}  total=${total_cost:.0f}  "
-              f"Δ{delta:.2f}  id={str(order.id)[:8]}…")
+              f"{contracts}x @ ${_limit_px} (mid+3%)  total=${total_cost:.0f}  "
+              f"Δ{_call_delta:.2f}  id={str(order.id)[:8]}…")
+        contract["ask"]        = _limit_px   # record actual limit used
         contract["contracts"]  = contracts
         contract["total_cost"] = total_cost
         return str(order.id), contract
@@ -9468,9 +9542,9 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 _flow    = _opt_contract.get("flow_label", "")
                 _dom_k   = _opt_contract.get("dominant_call_strike", 0)
                 _opt_type = _opt_contract.get("option_type", "CALL")   # CALL or PUT
-                _t1_prem = round(_ask * 2.0, 2)
-                _t2_prem = round(_ask * 3.0, 2)
-                _sl_prem = round(_ask * 0.50, 2)
+                _t1_prem = round(_ask * 1.5, 2)   # +50% premium = T1 (realistic for ITM delta 0.70)
+                _t2_prem = round(_ask * 2.5, 2)   # +150% premium = T2 (full runner)
+                _sl_prem = round(_ask * 0.50, 2)  # -50% stop
                 _theta_pct_day = abs(_theta / _ask * 100) if _ask > 0 else 0
                 _strike_dir = "P" if _opt_type == "PUT" else "C"
 
@@ -9515,7 +9589,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     f"Strike ${_strike}  Exp {_exp_str}  ({_opt_contract.get('dte','?')}d)\n"
                     f"Premium: ${_ask}/sh × {_ctrs}ct = <b>${_opt_contract['total_cost']:.0f}</b>  "
                     f"(θ decay {_theta_pct_day:.1f}%/day)\n"
-                    f"T1 (2×): ${_t1_prem}  T2 (3×): ${_t2_prem}  Stop (50%): ${_sl_prem}\n"
+                    f"T1 (+50%): ${_t1_prem}  T2 (+150%): ${_t2_prem}  Stop (-50%): ${_sl_prem}\n"
                     f"{_greek_str}\n"
                     f"{_l2_str}\n"
                     f"Underlying: ${cur:.2f}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"

@@ -1,0 +1,65 @@
+name: CI — syntax and data checks
+
+# Catches a broken dman_algo.py BEFORE it takes down all scheduled trading jobs.
+# Data-cache commits use [skip ci] so this only runs on real code changes.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Syntax check
+        run: python -m py_compile dman_algo.py
+
+      - name: Install dependencies
+        run: pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Import check (catches module-level NameErrors, bad constants)
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python -c "import dman_algo; print('dman_algo imports cleanly')"
+
+      - name: Validate JSON data files
+        run: |
+          python - <<'EOF'
+          import json, glob, sys
+          bad = []
+          for p in glob.glob("dman_*.json"):
+              try:
+                  with open(p, encoding="utf-8") as f:
+                      json.load(f)
+              except Exception as e:
+                  bad.append(f"{p}: {e}")
+          if bad:
+              print("INVALID JSON:\n" + "\n".join(bad))
+              sys.exit(1)
+          print(f"All {len(glob.glob('dman_*.json'))} JSON data files valid")
+          EOF
+
+      - name: Notify on failure
+        if: failure()
+        env:
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            -d "text=🚨 <b>CI FAILED</b> — dman_algo.py is broken on main. All trading jobs will fail until fixed. Check GitHub Actions now." \
+            -d "parse_mode=HTML" || true

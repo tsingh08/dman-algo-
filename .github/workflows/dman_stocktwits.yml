@@ -44,18 +44,17 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add dman_stocktwits_seen.json dman_algo.py || true
+          git add dman_stocktwits_seen.json dman_smallcap_watchlist.json || true
           if git diff --staged --quiet; then
             echo "No StockTwits changes to commit"
             exit 0
           fi
-          git commit -m "feat: auto-add DMan StockTwits calls to DMAN_SMALLCAP_WATCHLIST [skip ci]"
+          git commit -m "feat: auto-add DMan StockTwits calls to watchlist data file [skip ci]"
           git fetch origin main
           if ! git rebase origin/main; then
-            echo "Rebase conflict — taking remote dman_algo.py, keeping our seen cache"
-            git checkout --theirs -- dman_algo.py 2>/dev/null || true
-            git checkout --ours -- dman_stocktwits_seen.json 2>/dev/null || true
-            git add dman_algo.py dman_stocktwits_seen.json
+            echo "Rebase conflict — keeping our watchlist additions and seen cache"
+            git checkout --ours -- dman_smallcap_watchlist.json dman_stocktwits_seen.json 2>/dev/null || true
+            git add dman_smallcap_watchlist.json dman_stocktwits_seen.json
             git rebase --continue || git rebase --abort
           fi
           if ! git push origin HEAD:main; then

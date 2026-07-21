@@ -157,40 +157,31 @@ OPTIONS_DATA_FEED           = "opra"        # Alpaca Algo Trader Plus — real-t
 STOCK_DATA_FEED             = "sip"         # Alpaca Algo Trader Plus — consolidated real-time SIP feed
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
-# These are tickers Dman actively calls on Twitter (ultra-low float, catalyst-driven).
-# Finviz dynamic discovery supplements this list every scan via ENABLE_DYNAMIC_SMALLCAP.
-DMAN_SMALLCAP_WATCHLIST = [
-    # Core — original Dman calls (ultra-low float, sub-$20)
-    "APVO",   # 1.25M float — conference catalyst Mar 2026, $10+ target
-    "MASK",   # 1.13M float — low-float momentum play
-    # UGRO removed Jul 13 2026 — no price data returned, likely suspended/halted
-    "ONCO",   # 1.15M float — bounce candidate
-    # FCHL removed Jul 15 2026 — avg vol 37K (too thin, spreads untradeable)
-    "ARTL",   # 3.49M float — mentioned in 100-600% runner week
-    "ELAB",   # 4.54M float — confirmed multi-day runner
-    # Dman July 2026 tweet thread — GDC, ADTX, CDT, LNKS, CAST, SILO
-    # IOTR removed Jul 13 2026 — Day 6 post-spike, 0.0x RVOL, -8.8% Mon; effectively dead momentum
-    # GDC removed — price $0.02, below SMALLCAP_MIN_PRICE ($0.10); cannot generate signal
-    # ADTX removed Jul 9 2026 — stock at $0.004, -25% on Jul 8, effectively dead
-    # LNKS removed Jul 15 2026 — avg vol 45K (too thin, spreads untradeable)
-    # SILO removed Jul 15 2026 — Day 4 fade played out, -24.3% 5d; momentum exhausted
-    # FCHL removed Jul 15 2026 — avg vol 37K (too thin, spreads untradeable)
-    "CDT",    # 200% swing runner — Dman low-float call
-    "CAST",   # micro-cap catalyst — Dman watch
-    # Broader low-float universe — Dman-style patterns
-    "ATOS",   # perpetual short-squeeze candidate, micro-float
-    "IMPP",   # shipping penny — repeated Dman-style RVOL spikes
-    # HPNN removed — price $0.0008, permanently below SMALLCAP_MIN_PRICE ($0.10)
-    "GFAI",   # AI penny stock — high retail interest
-    "BFRI",   # biotech with low float — squeeze setup
-    # AITX removed — price $0.009, permanently below SMALLCAP_MIN_PRICE ($0.10)
-    "TRVI",   # low-float biotech — MACD curling plays
-    # MRIN, CJET, ACST, ATNF removed Jul 10 2026 — delisted/no data
-    # Dman Jul 2 2026 tweets — fake-offering bounce + penny OTC runners
-    "LABT",   # biotech, Dman loaded <$3 on fake-offering scare, target $10-20
-    "YHC",    # penny OTC, Dman loaded .04s → now $2.22 (+5500%), +5900% 5d; watch for VWAP reclaim on pullback
-    "LIMN",   # +125% from 52-week low .09s (Jul 2 call) — now $0.10, at SMALLCAP_MIN_PRICE floor; watch only
+# Lives in a data file (not source) so the StockTwits monitor can add tickers
+# without modifying code. ONLY DMan's actual StockTwits/Twitter calls belong here.
+SMALLCAP_WATCHLIST_FILE = "dman_smallcap_watchlist.json"
+_SMALLCAP_FALLBACK = [
+    "APVO", "MASK", "ONCO", "ARTL", "ELAB", "CDT", "CAST",
+    "ATOS", "IMPP", "GFAI", "BFRI", "TRVI", "LABT", "YHC", "LIMN",
 ]
+
+
+def _load_smallcap_watchlist() -> list[str]:
+    """Load the curated small-cap list from its data file; fallback if missing."""
+    try:
+        with open(SMALLCAP_WATCHLIST_FILE) as _f:
+            _data = _f.read()
+        _parsed = json.loads(_data)
+        _tickers = _parsed.get("tickers", []) if isinstance(_parsed, dict) else _parsed
+        _clean = [str(t).upper().strip() for t in _tickers if str(t).strip()]
+        if _clean:
+            return _clean
+    except Exception:
+        pass
+    return list(_SMALLCAP_FALLBACK)
+
+
+DMAN_SMALLCAP_WATCHLIST = _load_smallcap_watchlist()
 
 # ── Options layer (Dman style: ITM calls on large-cap signals) ───────────────
 # Dman buys ITM calls at support bottoms on large-caps (SPY, QQQ, TSLA, NVDA, PLTR).
@@ -1038,64 +1029,46 @@ def run_readiness_scan() -> None:
 
 def _stocktwits_inject_tickers(tickers_to_add: list[str]) -> list[str]:
     """
-    Insert new tickers into DMAN_SMALLCAP_WATCHLIST in dman_algo.py by
-    finding the closing ] of the list and inserting before it.
-    Returns the list of tickers actually written (skips already-present ones).
+    Add new tickers to the small-cap watchlist data file
+    (dman_smallcap_watchlist.json). Returns the tickers actually added
+    (skips ones already present). The workflow commits the JSON so the
+    next scan picks them up — no source-code modification involved.
     """
-    _algo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dman_algo.py")
     try:
-        with open(_algo_path, encoding="utf-8") as _f:
-            _src = _f.read()
-    except Exception as _e:
-        print(f"  ⚠️  Could not read dman_algo.py: {_e}")
-        return []
+        with open(SMALLCAP_WATCHLIST_FILE) as _f:
+            _data = json.load(_f)
+        if not isinstance(_data, dict):
+            _data = {"tickers": list(_data)}
+    except (FileNotFoundError, json.JSONDecodeError):
+        _data = {"tickers": list(DMAN_SMALLCAP_WATCHLIST)}
 
-    _today = date.today().isoformat()
+    _current = {str(t).upper() for t in _data.get("tickers", [])}
     _added: list[str] = []
-    _insertions = ""
     for _t in tickers_to_add:
-        if f'"{_t}"' in _src:
-            print(f"  📡 {_t} already in algo — skipping")
+        _t = _t.upper().strip()
+        if not _t or _t in _current:
+            print(f"  📡 {_t} already in watchlist — skipping")
             continue
-        _insertions += f'    "{_t}",   # StockTwits DMan call {_today}\n'
+        _data.setdefault("tickers", []).append(_t)
+        _current.add(_t)
         _added.append(_t)
 
-    if not _insertions:
-        return []
-
-    # Bracket-count to find the closing ] of DMAN_SMALLCAP_WATCHLIST
-    _marker = "DMAN_SMALLCAP_WATCHLIST = ["
-    _start = _src.find(_marker)
-    if _start == -1:
-        print("  ⚠️  DMAN_SMALLCAP_WATCHLIST not found in dman_algo.py")
-        return []
-
-    _depth = 0
-    _i = _start + len(_marker) - 1  # position of the opening [
-    while _i < len(_src):
-        if _src[_i] == "[":
-            _depth += 1
-        elif _src[_i] == "]":
-            _depth -= 1
-            if _depth == 0:
-                _new_src = _src[:_i] + _insertions + _src[_i:]
-                try:
-                    with open(_algo_path, "w", encoding="utf-8") as _f:
-                        _f.write(_new_src)
-                    return _added
-                except Exception as _e:
-                    print(f"  ⚠️  Could not write dman_algo.py: {_e}")
-                    return []
-        _i += 1
-
-    print("  ⚠️  Could not locate end of DMAN_SMALLCAP_WATCHLIST")
-    return []
+    if _added:
+        try:
+            with open(SMALLCAP_WATCHLIST_FILE, "w") as _f:
+                json.dump(_data, _f, indent=2)
+            # Update the in-memory list so this run's scans see them too
+            DMAN_SMALLCAP_WATCHLIST.extend(_added)
+        except Exception as _e:
+            print(f"  ⚠️  Could not write {SMALLCAP_WATCHLIST_FILE}: {_e}")
+            return []
+    return _added
 
 
 def run_stocktwits_monitor() -> None:
     """
     Fetch ProfessorDman1's recent StockTwits messages.
-    Auto-adds new ticker calls to DMAN_SMALLCAP_WATCHLIST in dman_algo.py.
+    Auto-adds new ticker calls to dman_smallcap_watchlist.json (data file).
     The workflow commits and pushes the file so the next scan picks them up.
     Uses a seen-ticker cache (dman_stocktwits_seen.json) — 24h dedup per ticker.
     """
@@ -2498,6 +2471,97 @@ def _detect_momentum_fade(levels: dict, entry_px: float, float_shares_m: float) 
     return result
 
 
+def _update_position_field(ticker: str, **fields) -> None:
+    """Update fields on a tracked position in dman_positions.json (e.g. raise stop)."""
+    try:
+        with open(POSITIONS_FILE) as f:
+            data = json.load(f)
+        changed = False
+        for p in data:
+            if p.get("ticker") == ticker:
+                p.update(fields)
+                changed = True
+        if changed:
+            with open(POSITIONS_FILE, "w") as f:
+                json.dump(data, f, indent=2)
+    except Exception as _e:
+        print(f"  ⚠️  Could not update position {ticker}: {_e}")
+
+
+def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, Optional[str]]:
+    """
+    Submit a closing SELL for an options position — the enforcement arm of the
+    momentum-watch monitor (stops/targets execute instead of just alerting).
+
+    Returns (status, order_id) where status is one of:
+      "submitted"      — closing order placed
+      "pending"        — a SELL is already working for this contract (no double-submit)
+      "already_closed" — Alpaca no longer holds the position (sync will record P&L)
+      "failed"         — submission failed; manual action needed
+
+    Uses a marketable limit at bid−2% (fills immediately against the bid but
+    caps damage on a crossed/glitched quote); falls back to a market order if
+    no usable quote is available.
+    """
+    client = get_alpaca_client()
+    if client is None:
+        return "failed", None
+
+    # Don't double-submit: if a SELL is already open for this contract, report it
+    try:
+        _open_orders = client.get_orders(filter=GetOrdersRequest(
+            symbols=[occ_symbol], status=QueryOrderStatus.OPEN, limit=10))
+        for _o in _open_orders:
+            if _o.side == OrderSide.SELL:
+                return "pending", str(_o.id)
+    except Exception:
+        pass
+
+    # Clamp qty to what Alpaca actually holds (may differ after manual sells)
+    try:
+        _apos = client.get_open_position(occ_symbol)
+        _held = abs(int(float(_apos.qty)))
+        if _held <= 0:
+            return "already_closed", None
+        qty = min(qty, _held)
+    except Exception as _pe:
+        _pe_s = str(_pe).lower()
+        if "not found" in _pe_s or "does not exist" in _pe_s or "404" in _pe_s:
+            return "already_closed", None
+        # Network/API error — still attempt the exit with tracker qty (fail-open
+        # on protective exits; an oversized qty is rejected harmlessly by Alpaca)
+
+    if qty <= 0:
+        return "already_closed", None
+
+    snap = _get_option_snapshot(occ_symbol)
+    try:
+        if snap and snap.get("bid", 0) > 0.02:
+            order = client.submit_order(LimitOrderRequest(
+                symbol        = occ_symbol,
+                qty           = qty,
+                side          = OrderSide.SELL,
+                limit_price   = max(0.01, round(snap["bid"] * 0.98, 2)),
+                time_in_force = TimeInForce.DAY,
+            ))
+        else:
+            order = client.submit_order(MarketOrderRequest(
+                symbol        = occ_symbol,
+                qty           = qty,
+                side          = OrderSide.SELL,
+                time_in_force = TimeInForce.DAY,
+            ))
+        print(f"  📤 AUTO-CLOSE {occ_symbol} ×{qty} ({reason})  id={str(order.id)[:8]}…")
+        return "submitted", str(order.id)
+    except Exception as exc:
+        print(f"  ❌ Auto-close failed ({occ_symbol}): {exc}")
+        send_telegram(
+            f"🚨 <b>AUTO-CLOSE FAILED</b> — {occ_symbol} ×{qty} ({reason})\n"
+            f"{exc}\nClose manually in Alpaca NOW."
+        )
+        return "failed", None
+
+
 def run_momentum_watch() -> None:
     """
     Intraday momentum watch — runs at 10:30 AM and 11:30 AM alongside the main scan.
@@ -2580,23 +2644,70 @@ def run_momentum_watch() -> None:
                         _opt_dtek  = f"{t}_OPT_DTE_{date.today().isoformat()}"
                         # Use bid for stop check — that's what we'd actually receive on exit
                         if _exit_prem <= _stop_prem:
-                            _action = "🔴 EXIT — STOP HIT"
-                            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                                    f"({_pnl_pct:+.0f}%) — sell to limit loss")
+                            _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} CALL stop")
+                            if _st == "submitted":
+                                _action = "🔴 STOP HIT — AUTO-CLOSED"
+                                _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                                        f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
+                                        f"(id {_coid[:8]}…). Sync will record P&L.")
+                            elif _st == "pending":
+                                _action = "🔴 STOP HIT — close order working"
+                                _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+                            elif _st == "already_closed":
+                                _action = "🔴 STOP — position already closed at Alpaca"
+                                _msg = "Nothing held — next sync records the P&L"
+                            else:
+                                _action = "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED"
+                                _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                                        f"({_pnl_pct:+.0f}%) — SELL MANUALLY NOW")
                             if not _is_alerted_today(_opt_stopk):
                                 send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} CALL {_occ}\n{_msg}")
                                 _mark_alerted(_opt_stopk)
                         elif _cur_prem >= _t2_prem:
-                            _action = "🚀 T2 HIT — FULL EXIT"
-                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T2 ${_t2_prem:.2f} "
-                                    f"({_pnl_pct:+.0f}%) — sell all, full runner achieved")
+                            _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} CALL T2")
+                            if _st == "submitted":
+                                _action = "🚀 T2 HIT — AUTO-CLOSED (full exit)"
+                                _msg = (f"Premium ${_cur_prem:.2f} ≥ T2 ${_t2_prem:.2f} "
+                                        f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
+                                        f"(id {_coid[:8]}…). Full runner banked.")
+                            elif _st == "pending":
+                                _action = "🚀 T2 HIT — close order working"
+                                _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+                            elif _st == "already_closed":
+                                _action = "🚀 T2 — position already closed at Alpaca"
+                                _msg = "Nothing held — next sync records the P&L"
+                            else:
+                                _action = "🚀 T2 HIT — ⚠️ AUTO-CLOSE FAILED"
+                                _msg = f"Premium ${_cur_prem:.2f} ≥ T2 ({_pnl_pct:+.0f}%) — SELL MANUALLY"
                             if not _is_alerted_today(_opt_t2k):
                                 send_telegram(f"🚀 <b>OPTIONS T2 HIT</b> — {t} CALL {_occ}\n{_msg}")
                                 _mark_alerted(_opt_t2k)
-                        elif _cur_prem >= _t1_prem:
-                            _action = "🟢 T1 HIT — TAKE ½ PROFIT"
-                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
-                                    f"({_pnl_pct:+.0f}%) — sell ½, raise stop to breakeven")
+                        elif _cur_prem >= _t1_prem and _stop_prem < _entry_prem:
+                            # T1: sell half if ≥2 contracts, raise stop to breakeven either way.
+                            # (_stop_prem < entry guard = T1 not yet taken)
+                            if _ctrs >= 2:
+                                _half = _ctrs // 2
+                                _st, _coid = _submit_options_close(_occ, _half, f"{t} CALL T1 half")
+                                if _st == "submitted":
+                                    _update_position_field(t, shares=(_ctrs - _half) * 100,
+                                                           stop=round(_entry_prem, 2))
+                                    _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
+                                    _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
+                                            f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
+                                            f"(id {_coid[:8]}…), stop raised to ${_entry_prem:.2f}")
+                                elif _st in ("pending", "already_closed"):
+                                    _action = "🟢 T1 — partial close in progress"
+                                    _msg = "Half-sell order working or already done"
+                                else:
+                                    _action = "🟢 T1 HIT — ⚠️ auto-sell failed"
+                                    _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
+                                            "— sell ½ manually, raise stop to breakeven")
+                            else:
+                                _update_position_field(t, stop=round(_entry_prem, 2))
+                                _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
+                                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
+                                        f"single contract: holding for T2, stop raised to "
+                                        f"breakeven ${_entry_prem:.2f} (risk-free runner)")
                             if not _is_alerted_today(_opt_t1k):
                                 send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} CALL {_occ}\n{_msg}")
                                 _mark_alerted(_opt_t1k)
@@ -2663,23 +2774,68 @@ def run_momentum_watch() -> None:
                         _opt_stopk = f"{t}_PUT_STOP_{date.today().isoformat()}"
                         _opt_dtek  = f"{t}_PUT_DTE_{date.today().isoformat()}"
                         if _exit_prem <= _stop_prem:
-                            _action = "🔴 EXIT — STOP HIT"
-                            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                                    f"({_pnl_pct:+.0f}%) — sell to limit loss")
+                            _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} PUT stop")
+                            if _st == "submitted":
+                                _action = "🔴 STOP HIT — AUTO-CLOSED"
+                                _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                                        f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
+                                        f"(id {_coid[:8]}…). Sync will record P&L.")
+                            elif _st == "pending":
+                                _action = "🔴 STOP HIT — close order working"
+                                _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+                            elif _st == "already_closed":
+                                _action = "🔴 STOP — position already closed at Alpaca"
+                                _msg = "Nothing held — next sync records the P&L"
+                            else:
+                                _action = "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED"
+                                _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                                        f"({_pnl_pct:+.0f}%) — SELL MANUALLY NOW")
                             if not _is_alerted_today(_opt_stopk):
                                 send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} PUT {_occ}\n{_msg}")
                                 _mark_alerted(_opt_stopk)
                         elif _cur_prem >= _t2_prem:
-                            _action = "🚀 T2 HIT — FULL EXIT"
-                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T2 ${_t2_prem:.2f} "
-                                    f"({_pnl_pct:+.0f}%) — sell all, full runner achieved")
+                            _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} PUT T2")
+                            if _st == "submitted":
+                                _action = "🚀 T2 HIT — AUTO-CLOSED (full exit)"
+                                _msg = (f"Premium ${_cur_prem:.2f} ≥ T2 ${_t2_prem:.2f} "
+                                        f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
+                                        f"(id {_coid[:8]}…). Full runner banked.")
+                            elif _st == "pending":
+                                _action = "🚀 T2 HIT — close order working"
+                                _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+                            elif _st == "already_closed":
+                                _action = "🚀 T2 — position already closed at Alpaca"
+                                _msg = "Nothing held — next sync records the P&L"
+                            else:
+                                _action = "🚀 T2 HIT — ⚠️ AUTO-CLOSE FAILED"
+                                _msg = f"Premium ${_cur_prem:.2f} ≥ T2 ({_pnl_pct:+.0f}%) — SELL MANUALLY"
                             if not _is_alerted_today(_opt_t2k):
                                 send_telegram(f"🚀 <b>OPTIONS T2 HIT</b> — {t} PUT {_occ}\n{_msg}")
                                 _mark_alerted(_opt_t2k)
-                        elif _cur_prem >= _t1_prem:
-                            _action = "🟢 T1 HIT — TAKE ½ PROFIT"
-                            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
-                                    f"({_pnl_pct:+.0f}%) — sell ½, raise stop to breakeven")
+                        elif _cur_prem >= _t1_prem and _stop_prem < _entry_prem:
+                            if _ctrs >= 2:
+                                _half = _ctrs // 2
+                                _st, _coid = _submit_options_close(_occ, _half, f"{t} PUT T1 half")
+                                if _st == "submitted":
+                                    _update_position_field(t, shares=(_ctrs - _half) * 100,
+                                                           stop=round(_entry_prem, 2))
+                                    _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
+                                    _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
+                                            f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
+                                            f"(id {_coid[:8]}…), stop raised to ${_entry_prem:.2f}")
+                                elif _st in ("pending", "already_closed"):
+                                    _action = "🟢 T1 — partial close in progress"
+                                    _msg = "Half-sell order working or already done"
+                                else:
+                                    _action = "🟢 T1 HIT — ⚠️ auto-sell failed"
+                                    _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
+                                            "— sell ½ manually, raise stop to breakeven")
+                            else:
+                                _update_position_field(t, stop=round(_entry_prem, 2))
+                                _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
+                                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
+                                        f"single contract: holding for T2, stop raised to "
+                                        f"breakeven ${_entry_prem:.2f} (risk-free runner)")
                             if not _is_alerted_today(_opt_t1k):
                                 send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} PUT {_occ}\n{_msg}")
                                 _mark_alerted(_opt_t1k)
@@ -5218,8 +5374,29 @@ def record_monthly_pnl(pnl_pct: float) -> None:
         json.dump(data, f)
 
 
+_live_equity_cache: dict = {"equity": 0.0, "ts": 0.0}
+
+
 def get_effective_account() -> float:
-    """ACCOUNT_SIZE reduced by today's realized losses from the circuit-breaker file."""
+    """
+    Live Alpaca equity (5-min cache) — sizing compounds automatically as the
+    account grows/shrinks, no manual ACCOUNT_SIZE secret updates needed.
+    Falls back to ACCOUNT_SIZE (adjusted by today's realized losses) when
+    Alpaca is unreachable. Live equity already reflects realized P&L, so no
+    double-adjustment is applied on that path.
+    """
+    try:
+        if time.time() - _live_equity_cache["ts"] > 300:
+            _client = get_alpaca_client()
+            if _client is not None:
+                _eq = float(getattr(_client.get_account(), "equity", 0) or 0)
+                if _eq > 0:
+                    _live_equity_cache["equity"] = _eq
+                    _live_equity_cache["ts"]     = time.time()
+        if _live_equity_cache["equity"] > 0:
+            return _live_equity_cache["equity"]
+    except Exception:
+        pass
     pnl_pct = get_todays_loss()   # signed %; 0 or negative on loss days
     adjusted = ACCOUNT_SIZE * (1 + pnl_pct / 100)
     return max(adjusted, ACCOUNT_SIZE * 0.5)   # floor at 50% of configured size

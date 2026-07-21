@@ -184,7 +184,7 @@ jobs:
                   dman_alpaca_sync.json dman_positions.json \
                   dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
                   dman_scan_log.json dman_universe_cache.json \
-                  dman_stocktwits_seen.json || true
+                  dman_stocktwits_seen.json dman_smallcap_watchlist.json || true
           if git diff --staged --quiet; then
             echo "No data changes to commit"
             exit 0

@@ -1,0 +1,73 @@
+name: DMan Cloud Daemon
+
+# Runs the always-on daemon on GitHub's runners using the secrets already
+# stored in this repo — zero local setup, nothing to click.
+#
+# GitHub caps a job at 6 hours, so the trading day is covered by two
+# back-to-back sessions sharing a concurrency group:
+#   Session A: 9:20 AM ET  → exits itself at 12:55 PM ET
+#   Session B: 12:50 PM ET → cancels A (seamless handover) → exits 4:12 PM ET
+#
+# The daemon gives: options stop/T1/T2 enforcement every 60s, instant fill
+# alerts via websocket, real-time Telegram commands, 5-min fill sync, and
+# git state sync with the hourly scanner runs.
+
+on:
+  schedule:
+    - cron: '20 13 * * 1-5'   # 9:20 AM ET — morning session
+    - cron: '50 16 * * 1-5'   # 12:50 PM ET — afternoon session (takes over)
+  workflow_dispatch:
+
+# Afternoon session cancels the (nearly finished) morning session so exactly
+# one daemon is ever running — no double alerts, no double orders.
+concurrency:
+  group: dman-daemon
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  daemon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    permissions:
+      contents: write   # git state sync (positions, halt flag, telegram offset)
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Pick session end time
+        id: session
+        run: |
+          python - <<'EOF'
+          import zoneinfo, datetime, os
+          ET = zoneinfo.ZoneInfo("America/New_York")
+          now = datetime.datetime.now(ET)
+          # Morning start → hand over at 12:55 ET; afternoon → run to 16:12 ET
+          until = "1255" if now.hour < 12 else "1612"
+          print(f"Session start {now:%H:%M} ET — running until {until} ET")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"until={until}\n")
+          EOF
+
+      - name: Run daemon session
+        env:
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
+          DAEMON_RUN_UNTIL:    ${{ steps.session.outputs.until }}
+          PYTHONIOENCODING:    utf-8
+        run: python dman_daemon.py

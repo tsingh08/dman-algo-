@@ -83,7 +83,9 @@ def git_sync() -> None:
         _git("add", "--", *STATE_FILES)
         staged = _git("diff", "--staged", "--quiet")
         if staged.returncode != 0:          # something staged
-            _git("commit", "-m", "chore: daemon state sync [skip ci]")
+            _git("-c", "user.email=github-actions[bot]@users.noreply.github.com",
+                 "-c", "user.name=github-actions[bot]",
+                 "commit", "-m", "chore: daemon state sync [skip ci]")
             push = _git("push", "origin", "HEAD:main")
             if push.returncode != 0:
                 pull2 = _git("pull", "--rebase", "origin", "main")
@@ -190,10 +192,27 @@ def main() -> None:
         print("\n  ⚠️  TELEGRAM_TOKEN / TELEGRAM_CHAT_ID not set — commands and")
         print("     alerts disabled. Set them with setx (same values as GitHub secrets).\n")
 
-    log(f"DMan daemon starting — repo {REPO_DIR}")
+    # Cloud mode (GitHub Actions): DAEMON_RUN_UNTIL=HHMM ET makes the session
+    # exit cleanly so the next scheduled session takes over seamlessly.
+    run_until = os.getenv("DAEMON_RUN_UNTIL", "").strip()
+    cloud     = bool(run_until)
+
+    if cloud:
+        from datetime import date as _date
+        if _date.today() in algo._MARKET_HOLIDAYS:
+            log("NYSE holiday — cloud daemon session skipped")
+            return
+        if datetime.now(algo.ET).weekday() >= 5:
+            log("Weekend — cloud daemon session skipped")
+            return
+
+    log(f"DMan daemon starting — repo {REPO_DIR}"
+        + (f"  (cloud session until {run_until} ET)" if cloud else ""))
     git_sync()
-    algo.send_telegram("🤖 <b>DMan daemon ONLINE</b> — real-time exits, fill "
-                       "stream, and phone commands active. Send /help for commands.")
+    algo.send_telegram("🤖 <b>DMan daemon ONLINE</b>"
+                       + (f" [cloud session → {run_until[:2]}:{run_until[2:]} ET]" if cloud else "")
+                       + " — real-time exits, fill stream, and phone commands "
+                         "active. Send /help for commands.")
 
     threads = [
         threading.Thread(target=telegram_loop, daemon=True, name="telegram"),
@@ -203,11 +222,21 @@ def main() -> None:
     for t in threads:
         t.start()
 
+    hb = 0
     try:
         while True:
-            time.sleep(3600)
-            log("heartbeat — daemon alive"
-                + ("" if all(t.is_alive() for t in threads) else " ⚠️ A THREAD DIED"))
+            time.sleep(60)
+            if cloud:
+                now = datetime.now(algo.ET)
+                if now.hour * 100 + now.minute >= int(run_until):
+                    log(f"Reached {run_until} ET — clean session end "
+                        "(next scheduled session takes over)")
+                    git_sync()
+                    return
+            hb += 1
+            if hb % 60 == 0:
+                log("heartbeat — daemon alive"
+                    + ("" if all(t.is_alive() for t in threads) else " ⚠️ A THREAD DIED"))
     except KeyboardInterrupt:
         log("daemon stopped by user")
         algo.send_telegram("🔌 <b>DMan daemon OFFLINE</b> — real-time guard stopped. "

@@ -1,0 +1,32 @@
+[
+  {
+    "ts": "2026-07-15T00:48:15.749668-04:00",
+    "regime": "BEAR",
+    "regime_score": 2,
+    "vix": 16.5,
+    "min_score": 75,
+    "universe": "curated",
+    "tickers_total": 68,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 68,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false
+  },
+  {
+    "ts": "2026-07-16T01:23:18.889653-04:00",
+    "regime": "BULL",
+    "regime_score": 16,
+    "vix": 15.7,
+    "min_score": 75,
+    "universe": "curated",
+    "tickers_total": 68,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 68,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false
+  }
+]

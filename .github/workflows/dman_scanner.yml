@@ -181,7 +181,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv \
-                  dman_alpaca_sync.json \
+                  dman_alpaca_sync.json dman_positions.json \
                   dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
                   dman_scan_log.json dman_universe_cache.json \
                   dman_stocktwits_seen.json || true

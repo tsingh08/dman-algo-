@@ -5838,6 +5838,86 @@ class PositionTracker:
         print(f"{'═'*W}\n")
 
 
+def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict]) -> list[dict]:
+    """
+    Semantic per-ticker merge for dman_positions.json — replaces git's blind
+    "whoever wins the conflict" resolution with a rule that can't regress
+    protective state.
+
+    The always-on daemon (60s cadence) and the hourly cron scanner both
+    independently monitor and protectively update the SAME open positions
+    (raise stop to breakeven after T1, reduce shares after a partial sell),
+    on separate concurrency groups that can be active at the same time. A
+    naive file-level merge can silently discard whichever side did MORE
+    protective work if both push within the same short window.
+
+    Rule per ticker present in both copies: keep whichever record has
+    progressed further — fewer shares (a partial sale already executed)
+    wins first; a higher stop breaks ties. Every live position here is
+    long-equivalent (long equity, long calls, long puts valued by rising
+    premium), so "higher stop" is strictly more protective in all cases —
+    this assumption breaks only if short equity setups are ever re-enabled
+    (ALLOW_SHORTS is False today).
+
+    Tickers present in only one copy are kept (union), not dropped: if a
+    position was genuinely closed elsewhere, the next sync_alpaca_fills()
+    call detects it's flat at Alpaca and removes/records it correctly
+    within one cycle regardless — resurrecting a closed ticket for a few
+    minutes is self-healing, silently losing a stop-raise is not.
+    """
+    by_ticker: dict[str, dict] = {}
+    for rec in remote_list + local_list:
+        t = rec.get("ticker")
+        if not t:
+            continue
+        prev = by_ticker.get(t)
+        if prev is None:
+            by_ticker[t] = rec
+            continue
+        rec_shares, prev_shares = float(rec.get("shares", 0)), float(prev.get("shares", 0))
+        rec_stop,   prev_stop   = float(rec.get("stop", 0)),   float(prev.get("stop", 0))
+        if rec_shares < prev_shares or (rec_shares == prev_shares and rec_stop > prev_stop):
+            by_ticker[t] = rec
+    return list(by_ticker.values())
+
+
+def sync_positions_with_remote() -> None:
+    """
+    Pre-merge dman_positions.json against origin/main's copy BEFORE staging
+    a commit, using merge_positions_snapshots() instead of relying on git's
+    line-based conflict resolution. Call this right after `git fetch` and
+    before `git add` in the persist step — safe no-op if the file is absent
+    on either side, if git/network is unavailable, or if there's nothing to
+    merge (single-writer case).
+    """
+    import subprocess
+    try:
+        remote_raw = subprocess.run(
+            ["git", "show", "origin/main:" + POSITIONS_FILE],
+            capture_output=True, text=True, timeout=15,
+        )
+        if remote_raw.returncode != 0 or not remote_raw.stdout.strip():
+            return   # file absent upstream (or git unavailable) — nothing to merge
+        remote_list = json.loads(remote_raw.stdout)
+    except Exception:
+        return
+
+    try:
+        with open(POSITIONS_FILE) as f:
+            local_list = json.load(f)
+    except Exception:
+        local_list = []
+
+    if not remote_list and not local_list:
+        return
+    merged = merge_positions_snapshots(local_list, remote_list)
+    if merged != local_list:
+        with open(POSITIONS_FILE, "w") as f:
+            json.dump(merged, f, indent=2)
+        print(f"  🔀 Merged dman_positions.json with origin/main "
+              f"({len(local_list)} local + {len(remote_list)} remote → {len(merged)} merged)")
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 18 — CORE SIGNAL DETECTORS (from v2, inline)
 # ═══════════════════════════════════════════════════════════════════════════
@@ -9551,7 +9631,7 @@ def main():
                  "watch","rank","open","positions","alpaca","sync",
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
-                 "stocktwits","guard"],
+                 "stocktwits","guard","merge-positions"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -9611,6 +9691,14 @@ def main():
             print(f"  📱 Processed {_tg_n} Telegram command(s)")
     except Exception:
         pass
+
+    # Lightweight, no-ticker modes exit before the universe/watchlist loading
+    # below — merge-positions runs once per persist step (every scan) and has
+    # no use for a ticker list; loading one would cost an unnecessary Yahoo
+    # Finance round-trip on every single commit.
+    if args.mode == "merge-positions":
+        sync_positions_with_remote()
+        return
 
     if args.tickers:
         tickers = args.tickers

@@ -94,8 +94,21 @@ def git_sync() -> None:
             _git("rebase", "--abort")
         if _present:
             _git("stash", "pop")
+
+        # Semantic merge for dman_positions.json: this daemon (60s cadence)
+        # and the hourly cron scanner both independently raise stops to
+        # breakeven / reduce shares on the same open positions from separate
+        # concurrency groups — git's line-based stash-pop/rebase merge can
+        # silently keep the LESS-protective side. algo.sync_positions_with_remote()
+        # re-reconciles against origin/main using a rule that can't regress
+        # protection, regardless of whether the stash pop above was clean.
+        try:
+            algo.sync_positions_with_remote()
+        except Exception as exc:
+            log(f"positions merge error (non-fatal): {exc}")
+
         # Stage and push any local state changes (re-check existence — the
-        # stash pop or pull may have created/removed files)
+        # stash pop, pull, or merge above may have created/removed files)
         _present = _existing(STATE_FILES)
         if _present:
             _git("add", "--", *_present)

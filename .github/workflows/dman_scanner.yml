@@ -181,6 +181,17 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
 
+          # Fetch BEFORE staging/merging so dman_positions.json can be
+          # semantically merged against origin/main's current copy. The
+          # always-on daemon and this hourly scanner both independently
+          # raise stops to breakeven / reduce shares after a partial sell on
+          # the SAME positions from separate concurrency groups — a plain
+          # git conflict resolution can silently drop whichever side did
+          # more protective work. merge-positions replaces that with a rule
+          # that can't regress protection (see merge_positions_snapshots()).
+          git fetch origin main
+          python dman_algo.py --mode merge-positions || true
+
           # STATE_FILES includes files that are created lazily (dman_halt.json,
           # dman_telegram_state.json only exist after the first /halt or bot
           # command). `git add a.json missing.json` fails ATOMICALLY on the
@@ -202,7 +213,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore: update alert/signal cache [skip ci]"
-          # Fetch and rebase on latest remote before pushing (handles concurrent commits)
+          # Re-fetch/rebase in case something else pushed during the scan+merge above
           git fetch origin main
           if ! git rebase origin/main; then
             echo "Rebase conflict on data files — taking ours and continuing"

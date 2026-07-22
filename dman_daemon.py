@@ -45,6 +45,8 @@ STATE_FILES = [
     "dman_live_outcomes.csv", "dman_alpaca_sync.json", "dman_win_rate.json",
     "dman_daily_pnl.json", "dman_monthly_pnl.json", "dman_halt.json",
     "dman_telegram_state.json", "dman_smallcap_watchlist.json",
+    "dman_alerts_dedup.json",   # T1/T2/stop/DTE options-alert dedup — was missing,
+                                 # meant every alert re-fired across separate runs
 ]
 
 

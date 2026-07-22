@@ -180,12 +180,23 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv \
-                  dman_alpaca_sync.json dman_positions.json \
-                  dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
-                  dman_scan_log.json dman_universe_cache.json \
-                  dman_stocktwits_seen.json dman_smallcap_watchlist.json \
-                  dman_telegram_state.json dman_halt.json || true
+
+          # STATE_FILES includes files that are created lazily (dman_halt.json,
+          # dman_telegram_state.json only exist after the first /halt or bot
+          # command). `git add a.json missing.json` fails ATOMICALLY on the
+          # missing pathspec and silently stages NOTHING — not even a.json —
+          # so every file must be existence-checked individually, never
+          # passed to one bare `git add f1 f2 f3` call.
+          STATE_FILES="dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv \
+                       dman_alpaca_sync.json dman_positions.json \
+                       dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
+                       dman_scan_log.json dman_universe_cache.json \
+                       dman_stocktwits_seen.json dman_smallcap_watchlist.json \
+                       dman_telegram_state.json dman_halt.json"
+          for f in $STATE_FILES; do
+            [ -f "$f" ] && git add "$f"
+          done
+
           if git diff --staged --quiet; then
             echo "No data changes to commit"
             exit 0
@@ -195,12 +206,9 @@ jobs:
           git fetch origin main
           if ! git rebase origin/main; then
             echo "Rebase conflict on data files — taking ours and continuing"
-            git checkout --ours -- dman_last_alerts.json dman_live_signals.json \
-              dman_live_outcomes.csv dman_alpaca_sync.json dman_win_rate.json \
-              dman_monthly_pnl.json dman_daily_pnl.json dman_scan_log.json \
-              dman_universe_cache.json dman_stocktwits_seen.json \
-              dman_positions.json dman_telegram_state.json dman_halt.json \
-              dman_smallcap_watchlist.json 2>/dev/null || true
+            for f in $STATE_FILES; do
+              [ -f "$f" ] && git checkout --ours -- "$f" 2>/dev/null
+            done
             git add -u
             git rebase --continue || git rebase --abort
           fi

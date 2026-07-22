@@ -65,6 +65,10 @@ def _git(*args: str) -> subprocess.CompletedProcess:
                           capture_output=True, text=True, timeout=90)
 
 
+def _existing(paths: list[str]) -> list[str]:
+    return [p for p in paths if os.path.exists(p)]
+
+
 def git_sync() -> None:
     """
     Best-effort two-way state sync with the repo so cron scans and this
@@ -72,15 +76,27 @@ def git_sync() -> None:
     then push local changes (halts, raised stops, telegram offset).
     Alpaca remains the source of truth for actual holdings, so an
     occasional failed sync degrades gracefully.
+
+    Every git invocation below filters STATE_FILES through _existing()
+    first: `git add a.json missing.json` fails ATOMICALLY on the missing
+    pathspec and silently stages NOTHING (not even a.json) — dman_halt.json
+    and dman_telegram_state.json only exist after the first /halt or bot
+    command, so passing the raw list here would silently no-op every sync.
     """
     try:
-        _git("stash", "--include-untracked", "--", *STATE_FILES)
+        _present = _existing(STATE_FILES)
+        if _present:
+            _git("stash", "push", "--include-untracked", "--", *_present)
         pull = _git("pull", "--rebase", "origin", "main")
         if pull.returncode != 0:
             _git("rebase", "--abort")
-        _git("stash", "pop")
-        # Stage and push any local state changes
-        _git("add", "--", *STATE_FILES)
+        if _present:
+            _git("stash", "pop")
+        # Stage and push any local state changes (re-check existence — the
+        # stash pop or pull may have created/removed files)
+        _present = _existing(STATE_FILES)
+        if _present:
+            _git("add", "--", *_present)
         staged = _git("diff", "--staged", "--quiet")
         if staged.returncode != 0:          # something staged
             _git("-c", "user.email=github-actions[bot]@users.noreply.github.com",

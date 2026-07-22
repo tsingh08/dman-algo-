@@ -1,5 +1,5 @@
 {
-  "_readme": "DMan's curated small-cap watchlist — ONLY tickers DMan actually calls on StockTwits/Twitter. Auto-updated by `python dman_algo.py --mode stocktwits`. Removals are manual (dead/delisted/too-thin tickers).",
+  "_readme": "DMan's curated small-cap watchlist \u2014 ONLY tickers DMan actually calls on StockTwits/Twitter. Auto-updated by `python dman_algo.py --mode stocktwits`. Removals are manual (dead/delisted/too-thin tickers).",
   "tickers": [
     "APVO",
     "MASK",
@@ -15,6 +15,13 @@
     "TRVI",
     "LABT",
     "YHC",
-    "LIMN"
+    "LIMN",
+    "ZCMD",
+    "CPHI",
+    "LCID",
+    "INLF",
+    "INM",
+    "KUST",
+    "SPCX"
   ]
 }

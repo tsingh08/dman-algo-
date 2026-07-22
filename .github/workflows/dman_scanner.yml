@@ -9,10 +9,10 @@ on:
     # overnight gaps ≥5% and news catalysts (FDA, merger, squeeze, etc.) so
     # IOTR-style plays are flagged BEFORE the open, not after.
     - cron: '0 11 * * 1-5'
-    # 9:00 AM ET — pre-market briefing: regime, macro calendar, live gaps, fade-risk,
-    # sector health, scanner watchdog. Runs before market open so fast_info returns
-    # actual pre-market prices, not intraday prices.
-    - cron: '0 13 * * 1-5'
+    # NOTE: the 8:00 AM ET full pre-market briefing (regime, macro calendar,
+    # fade-risk, sector health) is owned by dman_premarket.yml — do not add
+    # a second "0 13 * * 1-5" cron here, it duplicated every briefing message
+    # and doubled Benzinga/Claude API cost until removed.
     # 9:45 AM ET — dedicated Gap & Hold scan, fires exactly when the early-session
     # gate opens. 13:30 UTC (9:30 AM) is peak GitHub runner contention (all trading
     # bots hit at once); 13:45 UTC is 15 min quieter and the Gate is already open.
@@ -122,10 +122,10 @@ jobs:
               )
               sys.exit(result.returncode)
 
-          # 9:00 AM ET — pre-market briefing (before regular session opens).
-          # Must be checked before the 930-1600 market-hours guard below.
-          # Window extends to 9:59 AM to absorb runner queue delays (peak-hour
-          # GitHub Actions can queue 10-25 min past the cron fire time).
+          # Fallback only — dman_premarket.yml owns the 8 AM briefing on its own
+          # dedicated cron. This window only fires if some OTHER scanner cron
+          # (e.g. the 7 AM slot) gets delayed into 8:55-9:59 AM, giving a rare
+          # incidental backup without a second guaranteed daily trigger.
           if now.weekday() < 5 and 855 <= t <= 959:
               result = subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", "premarket"],

@@ -5355,7 +5355,7 @@ Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
                 "content-type":      "application/json",
             },
             json={
-                "model":      "claude-sonnet-4-6",
+                "model":      "claude-sonnet-5",
                 "max_tokens": 10,
                 "messages":   [{"role": "user", "content": prompt}],
             },
@@ -6866,6 +6866,7 @@ def _check_open_position_risk(regime: dict) -> None:
             # 1. dman_live_signals.json — signals logged by run_pro_scanner()
             # 2. dman_positions.json   — positions logged by PositionTracker (covers pre-market fills)
             _tracked_tickers: set[str] = set()
+            _tracked_occ:     set[str] = set()   # options: Alpaca reports OCC symbols, not ticker
             try:
                 with open(LIVE_SIGNALS_FILE) as _f:
                     _pf = json.load(_f)
@@ -6874,10 +6875,17 @@ def _check_open_position_risk(regime: dict) -> None:
                 pass
             try:
                 _pt_pos = PositionTracker().positions
-                _tracked_tickers |= {p.ticker for p in _pt_pos}
+                for _p in _pt_pos:
+                    if _p.setup.startswith("Options Call ") or _p.setup.startswith("Options Put "):
+                        _sp = _p.setup.split()
+                        if len(_sp) >= 3:
+                            _tracked_occ.add(_sp[2])
+                    else:
+                        _tracked_tickers.add(_p.ticker)
             except Exception:
                 pass
-            _orphans = [sym for sym in _alp_positions if sym not in _tracked_tickers]
+            _orphans = [sym for sym in _alp_positions
+                        if sym not in _tracked_tickers and sym not in _tracked_occ]
             if _orphans:
                 _orphan_msgs = []
                 for _sym in _orphans:

@@ -71,6 +71,36 @@ def _existing(paths: list[str]) -> list[str]:
     return [p for p in paths if os.path.exists(p)]
 
 
+def _restore_corrupted_json(paths: list[str]) -> list[str]:
+    """
+    Guarantee nothing invalid ever gets staged. Any .json file that fails to
+    parse — most commonly literal `<<<<<<<` conflict markers left behind by
+    a `git stash pop` that couldn't auto-merge — is restored from the last
+    good commit (`git checkout -- file`) and excluded from this cycle's add
+    list. This actually happened in production: a stash-pop conflict on
+    dman_alpaca_sync.json (a one-line timestamp change on both sides) landed
+    raw conflict markers in the file, which the old code then committed and
+    pushed as-is. Losing one cycle's update to a single file is bounded and
+    self-healing (the next tick recomputes it fresh); publishing broken JSON
+    to the shared repo is not — every future read of that file falls back to
+    an empty default until someone notices, silently discarding sync history.
+    """
+    ok: list[str] = []
+    for p in paths:
+        if not p.endswith(".json"):
+            ok.append(p)
+            continue
+        try:
+            with open(p) as f:
+                json.load(f)
+            ok.append(p)
+        except Exception as exc:
+            log(f"  ⚠️  {p} failed JSON validation ({exc}) — restoring last "
+                f"good commit, skipping this cycle's update to that file")
+            _git("checkout", "--", p)
+    return ok
+
+
 def git_sync() -> None:
     """
     Best-effort two-way state sync with the repo so cron scans and this
@@ -93,7 +123,16 @@ def git_sync() -> None:
         if pull.returncode != 0:
             _git("rebase", "--abort")
         if _present:
-            _git("stash", "pop")
+            pop = _git("stash", "pop")
+            if pop.returncode != 0:
+                # Conflict: git left <<<<<<< markers in whichever file(s)
+                # couldn't auto-merge. Resolve just those files from the last
+                # good commit, then the stash entry is fully spent (some
+                # files applied cleanly by pop itself, the rest reset by us)
+                # — drop it so conflicted stashes don't pile up run over run.
+                log("stash pop conflict — restoring corrupted file(s) from last commit")
+                _restore_corrupted_json(_existing(STATE_FILES))
+                _git("stash", "drop")
 
         # Semantic merge for dman_positions.json: this daemon (60s cadence)
         # and the hourly cron scanner both independently raise stops to
@@ -108,8 +147,12 @@ def git_sync() -> None:
             log(f"positions merge error (non-fatal): {exc}")
 
         # Stage and push any local state changes (re-check existence — the
-        # stash pop, pull, or merge above may have created/removed files)
+        # stash pop, pull, or merge above may have created/removed files).
+        # _restore_corrupted_json is a second, unconditional safety net here
+        # — catches corruption from any source, not just a flagged stash
+        # conflict (e.g. a process killed mid-write leaving a truncated file).
         _present = _existing(STATE_FILES)
+        _present = _restore_corrupted_json(_present)
         if _present:
             _git("add", "--", *_present)
         staged = _git("diff", "--staged", "--quiet")

@@ -204,8 +204,25 @@ jobs:
                        dman_scan_log.json dman_universe_cache.json \
                        dman_stocktwits_seen.json dman_smallcap_watchlist.json \
                        dman_telegram_state.json dman_halt.json dman_alerts_dedup.json"
+
+          # Defense-in-depth: never stage a corrupted .json file. This caught
+          # a real production incident — the daemon's git-stash-pop conflict
+          # handling (separately fixed) once left literal <<<<<<< conflict
+          # markers in dman_alpaca_sync.json, which the old code would have
+          # committed and pushed as-is. Any file that fails to parse here is
+          # restored from the last good commit and skipped this cycle only.
           for f in $STATE_FILES; do
-            [ -f "$f" ] && git add "$f"
+            if [ -f "$f" ]; then
+              case "$f" in
+                *.json)
+                  if ! python -c "import json,sys; json.load(open(sys.argv[1]))" "$f" 2>/dev/null; then
+                    echo "  ⚠️  $f failed JSON validation — restoring last good commit"
+                    git checkout -- "$f" 2>/dev/null || true
+                  fi
+                  ;;
+              esac
+              git add "$f"
+            fi
           done
 
           if git diff --staged --quiet; then

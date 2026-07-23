@@ -233,9 +233,15 @@ jobs:
           # Re-fetch/rebase in case something else pushed during the scan+merge above
           git fetch origin main
           if ! git rebase origin/main; then
-            echo "Rebase conflict on data files — taking ours and continuing"
+            # NOTE: during `git rebase` (unlike `git merge`), --ours/--theirs
+            # are REVERSED — "ours" resolves to the upstream commit we're
+            # rebasing ONTO, "theirs" resolves to the commit being replayed
+            # (our new scan data). Verified by direct reproduction — this was
+            # `--ours` for weeks and silently discarded real scan results
+            # (and any signal found in them) on every rebase conflict.
+            echo "Rebase conflict on data files — keeping our new scan data (theirs, during rebase)"
             for f in $STATE_FILES; do
-              [ -f "$f" ] && git checkout --ours -- "$f" 2>/dev/null
+              [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
             done
             git add -u
             git rebase --continue || git rebase --abort

@@ -52,8 +52,12 @@ jobs:
           git commit -m "feat: auto-add DMan StockTwits calls to watchlist data file [skip ci]"
           git fetch origin main
           if ! git rebase origin/main; then
-            echo "Rebase conflict — keeping our watchlist additions and seen cache"
-            git checkout --ours -- dman_smallcap_watchlist.json dman_stocktwits_seen.json 2>/dev/null || true
+            # `git rebase` reverses --ours/--theirs vs `git merge`: "ours" is
+            # the upstream commit being rebased ONTO, "theirs" is our own new
+            # commit. This was `--ours` and silently discarded newly-added
+            # tickers on conflict — verified by direct reproduction.
+            echo "Rebase conflict — keeping our watchlist additions and seen cache (theirs, during rebase)"
+            git checkout --theirs -- dman_smallcap_watchlist.json dman_stocktwits_seen.json 2>/dev/null || true
             git add dman_smallcap_watchlist.json dman_stocktwits_seen.json
             git rebase --continue || git rebase --abort
           fi

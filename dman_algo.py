@@ -523,12 +523,118 @@ def fetch_dman_dynamic_tickers(max_tickers: int = 60) -> list[str]:
 
 _cache: dict[str, pd.DataFrame] = {}
 
+def _bars_to_df(bars: list, min_bars: int = 20) -> Optional[pd.DataFrame]:
+    """Convert a list of alpaca-py Bar objects to the OHLCV DataFrame shape
+    used everywhere else in this file. Applies the same staleness check
+    (last bar within 3 calendar days) as the yfinance path."""
+    if len(bars) < min_bars:
+        return None
+    _records = [
+        {"Open": b.open, "High": b.high, "Low": b.low,
+         "Close": b.close, "Volume": b.volume, "Date": b.timestamp}
+        for b in bars
+    ]
+    df = pd.DataFrame(_records).set_index("Date")
+    df.index = pd.to_datetime(df.index, utc=True).tz_convert(None)
+    _last_bar_date = df.index[-1].date()
+    if (date.today() - _last_bar_date).days > 3:
+        return None
+    return df
+
+
+def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]:
+    """Single-ticker Alpaca SIP daily bars (Algo Trader Plus real-time feed)."""
+    if not ALPACA_AVAILABLE:
+        return None
+    try:
+        dc = get_alpaca_data_client()
+        if dc is None:
+            return None
+        from datetime import timezone as _tz
+        _alp_req = StockBarsRequest(
+            symbol_or_symbols=ticker,
+            timeframe=TimeFrame.Day,
+            start=(datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc),
+            feed=STOCK_DATA_FEED,
+        )
+        _resp = dc.get_stock_bars(_alp_req)
+        _bars = _resp[ticker] if ticker in _resp else []
+        return _bars_to_df(_bars)
+    except Exception:
+        return None
+
+
+def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
+                        chunk_size: int = 100) -> int:
+    """
+    Batch-fetch daily bars for many tickers in a handful of Alpaca SIP calls
+    (Algo Trader Plus — paid for exactly this: fast, reliable, real-time
+    consolidated-tape data) instead of one yfinance call per ticker. Warms
+    the shared `_cache` so every subsequent fetch_df(ticker) call in the
+    scan hits the cache immediately — this is what actually uses the
+    subscription for the thing that matters most (scan speed/reliability),
+    rather than only as an emergency fallback when yfinance fails.
+
+    Fail-safe by design: any error just means fewer tickers got pre-warmed
+    this run — fetch_df() always has its own per-ticker Alpaca-then-
+    yfinance path as a complete backstop. Returns count of tickers warmed.
+    """
+    if not ALPACA_AVAILABLE:
+        return 0
+    dc = get_alpaca_data_client()
+    if dc is None:
+        return 0
+    from datetime import timezone as _tz
+    warmed = 0
+    _start = (datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc)
+    for i in range(0, len(tickers), chunk_size):
+        chunk = tickers[i:i + chunk_size]
+        try:
+            _req = StockBarsRequest(
+                symbol_or_symbols=chunk,
+                timeframe=TimeFrame.Day,
+                start=_start,
+                feed=STOCK_DATA_FEED,
+            )
+            _resp = dc.get_stock_bars(_req)
+            for ticker in chunk:
+                key = f"{ticker}_1d"
+                if key in _cache:
+                    continue
+                _bars = _resp[ticker] if ticker in _resp else []
+                df = _bars_to_df(_bars)
+                if df is not None:
+                    _cache[key] = df
+                    warmed += 1
+        except Exception as exc:
+            print(f"  [prewarm_alpaca_bars] chunk {i}-{i+len(chunk)} failed "
+                  f"(non-fatal, falls back to per-ticker fetch): {exc}", file=sys.stderr)
+            continue
+    return warmed
+
+
 def fetch_df(ticker: str, period_days: int = 430,
              interval: str = "1d") -> Optional[pd.DataFrame]:
-    """Download OHLCV data with in-memory caching to avoid redundant API calls."""
+    """
+    OHLCV data with in-memory caching. Alpaca SIP (Algo Trader Plus —
+    real-time consolidated tape, paid subscription) is tried first for
+    daily bars since it's faster and more reliable than yfinance's
+    unofficial, rate-limited endpoint; yfinance remains the fallback for
+    tickers Alpaca doesn't cover (thin OTC/penny names) or if Alpaca is
+    unavailable. Usually a no-op here anyway — prewarm_alpaca_bars()
+    already populates the cache in one batch call before the scan loop
+    starts, so this mostly just returns the cached result.
+    """
     key = f"{ticker}_{interval}"
     if key in _cache:
         return _cache[key]
+
+    if interval == "1d":
+        df = _fetch_alpaca_daily(ticker, period_days)
+        if df is not None:
+            _cache[key] = df
+            return df
+
     for attempt in range(3):
         try:
             end   = datetime.today()
@@ -552,33 +658,6 @@ def fetch_df(ticker: str, period_days: int = 430,
                 time.sleep(1 << attempt)  # 1s then 2s backoff
             else:
                 print(f"  [fetch_df] {ticker} failed after 3 attempts: {exc}", file=sys.stderr)
-    # ── Alpaca daily bars fallback (SIP feed — Algo Trader Plus) ─────────────
-    try:
-        if ALPACA_AVAILABLE:
-            dc = get_alpaca_data_client()
-            if dc is not None:
-                from datetime import timezone as _tz
-                _alp_req = StockBarsRequest(
-                    symbol_or_symbols=ticker,
-                    timeframe=TimeFrame.Day,
-                    start=(datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc),
-                    feed=STOCK_DATA_FEED,
-                )
-                _alp_resp = dc.get_stock_bars(_alp_req)
-                _alp_bars = _alp_resp[ticker] if ticker in _alp_resp else []
-                if len(_alp_bars) >= 20:
-                    _records = [
-                        {"Open": b.open, "High": b.high, "Low": b.low,
-                         "Close": b.close, "Volume": b.volume, "Date": b.timestamp}
-                        for b in _alp_bars
-                    ]
-                    _df_alp = pd.DataFrame(_records).set_index("Date")
-                    _df_alp.index = pd.to_datetime(_df_alp.index, utc=True).tz_convert(None)
-                    _cache[key] = _df_alp
-                    print(f"  [fetch_df] {ticker} — Alpaca SIP fallback ({len(_df_alp)} bars)", file=sys.stderr)
-                    return _df_alp
-    except Exception:
-        pass
     return None
 
 
@@ -7277,6 +7356,19 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         print(f"{_news_count}/{len(tickers)} tickers have recent news")
     except Exception as _ne:
         print(f"error ({str(_ne)[:60]})")
+
+    # Batch-fetch daily bars via Alpaca SIP (Algo Trader Plus real-time feed)
+    # before the ticker loop — a handful of chunked calls instead of one
+    # yfinance request per ticker. This is what actually uses the paid
+    # subscription for scan speed/reliability, not just as an emergency
+    # fallback. Fail-safe: any ticker not warmed just falls through to
+    # fetch_df()'s own per-ticker Alpaca-then-yfinance path unchanged.
+    print(f"  [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)...", end=" ", flush=True)
+    try:
+        _warmed = prewarm_alpaca_bars(list(tickers))
+        print(f"{_warmed}/{len(tickers)} tickers warmed")
+    except Exception as _pe:
+        print(f"error ({str(_pe)[:60]}) — falling back to per-ticker fetch")
 
     print(f"\n  [2/2] Scanning {len(tickers)} tickers...\n")
 

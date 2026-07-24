@@ -3,8 +3,11 @@
 ║  DMan ALWAYS-ON DAEMON — the real-time layer cron can't provide          ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  Division of labor:                                                      ║
-║    GitHub Actions (cron) → ENTRIES: scheduled scans, premarket, EOD P&L  ║
-║    This daemon (24/5)    → EXITS + CONTROL:                              ║
+║    GitHub Actions (cron) → wide-net entries: full-universe scans,        ║
+║        premarket, EOD P&L, roughly hourly                                ║
+║    This daemon (24/5)    → fast layer, both entries and exits:           ║
+║        • curated-universe signal scan every SCAN_INTERVAL_S (closes      ║
+║          the up-to-55-min gap between hourly cron scans)                 ║
 ║        • options stop/T1/T2 enforcement every 60s (vs hourly on cron)    ║
 ║        • instant fill alerts via Alpaca TradingStream websocket          ║
 ║        • Telegram two-way commands answered in real time                 ║
@@ -23,6 +26,7 @@
 """
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
@@ -38,8 +42,12 @@ os.chdir(REPO_DIR)          # all state files are repo-relative
 
 import dman_algo as algo    # noqa: E402  (needs cwd set first)
 
-GUARD_EVERY_S = 60          # options stop/target enforcement cadence
-SYNC_EVERY_S  = 300         # fill sync + git state sync cadence
+GUARD_EVERY_S   = 60        # options stop/target enforcement cadence
+SYNC_EVERY_S    = 300       # fill sync + git state sync cadence
+SCAN_INTERVAL_S = 600       # curated-universe signal scan cadence (10 min) —
+                            # a full-scan takes a few minutes itself (large-cap
+                            # pass + smallcap/Finviz discovery), so this leaves
+                            # comfortable headroom rather than back-to-back runs
 STATE_FILES = [
     "dman_positions.json", "dman_last_alerts.json", "dman_live_signals.json",
     "dman_live_outcomes.csv", "dman_alpaca_sync.json", "dman_win_rate.json",
@@ -101,6 +109,9 @@ def _restore_corrupted_json(paths: list[str]) -> list[str]:
     return ok
 
 
+_git_lock = threading.Lock()
+
+
 def git_sync() -> None:
     """
     Best-effort two-way state sync with the repo so cron scans and this
@@ -114,7 +125,15 @@ def git_sync() -> None:
     pathspec and silently stages NOTHING (not even a.json) — dman_halt.json
     and dman_telegram_state.json only exist after the first /halt or bot
     command, so passing the raw list here would silently no-op every sync.
+
+    Called from two threads now (guard_loop's periodic sync and scan_loop's
+    immediate post-submission sync) — _git_lock serializes them so two
+    concurrent git processes on the same local repo can't collide on
+    .git/index.lock.
     """
+    if not _git_lock.acquire(timeout=60):
+        log("git sync skipped — another sync already in progress past timeout")
+        return
     try:
         _present = _existing(STATE_FILES)
         if _present:
@@ -168,6 +187,8 @@ def git_sync() -> None:
                 _git("push", "origin", "HEAD:main")
     except Exception as exc:
         log(f"git sync error (non-fatal): {exc}")
+    finally:
+        _git_lock.release()
 
 
 def telegram_loop() -> None:
@@ -217,6 +238,55 @@ def guard_loop() -> None:
         except Exception as exc:
             log(f"guard loop error: {exc}")
             time.sleep(GUARD_EVERY_S)
+
+
+def scan_loop() -> None:
+    """
+    Periodic curated-universe signal scan — closes the coverage gap between
+    hourly cron scans. The cron scanner only checks for new setups roughly
+    once an hour (plus the 9:45 AM Gap & Hold gate); a fast-forming,
+    catalyst-driven move (an earnings gap, a sudden news-driven breakout)
+    can go undetected for up to 55 minutes even though this daemon is
+    already running continuously with fast, reliable Alpaca SIP access.
+    This uses that idle time to re-scan the curated (fast, large-cap +
+    small-cap watchlist) universe every SCAN_INTERVAL_S seconds during
+    market hours — same run_pro_scanner()/quality gates as the cron
+    scanner, just checked more often. This changes frequency, not
+    standards: no score threshold, setup gate, or risk rule is touched.
+
+    Submission-race safety: PositionTracker's already_tracked check in
+    _submit_signals_to_alpaca() prevents re-submitting a ticker that's
+    already an open position, but that check only sees whatever
+    dman_positions.json looked like at the start of THIS process's git
+    pull — the daemon and the hourly cron are separate processes with
+    separate checkouts. To keep that race window as small as possible
+    (rather than the full 5-minute periodic sync interval), this loop
+    calls git_sync() immediately after any submission attempt instead of
+    waiting for guard_loop()'s next scheduled sync.
+    """
+    log(f"Signal scan loop started (curated universe, every {SCAN_INTERVAL_S}s during market hours)")
+    last_scan = 0.0
+    while True:
+        try:
+            if market_hours() and time.time() - last_scan > SCAN_INTERVAL_S:
+                log("Running periodic curated-universe scan...")
+                try:
+                    signals = algo.run_pro_scanner(
+                        algo.WATCHLIST, use_ai=False, universe_label="daemon-curated"
+                    )
+                    if signals:
+                        log(f"{len(signals)} signal(s) found — submitting")
+                        algo._submit_signals_to_alpaca(signals)
+                        git_sync()   # push updated positions immediately, don't wait for the periodic sync
+                    else:
+                        log("no qualifying signals this pass")
+                except Exception as exc:
+                    log(f"scan error (non-fatal): {exc}")
+                last_scan = time.time()
+            time.sleep(30)
+        except Exception as exc:
+            log(f"scan loop error: {exc}")
+            time.sleep(30)
 
 
 def stream_loop() -> None:
@@ -285,13 +355,14 @@ def main() -> None:
     git_sync()
     algo.send_telegram("🤖 <b>DMan daemon ONLINE</b>"
                        + (f" [cloud session → {run_until[:2]}:{run_until[2:]} ET]" if cloud else "")
-                       + " — real-time exits, fill stream, and phone commands "
-                         "active. Send /help for commands.")
+                       + " — real-time entries, exits, fill stream, and phone "
+                         "commands active. Send /help for commands.")
 
     threads = [
         threading.Thread(target=telegram_loop, daemon=True, name="telegram"),
         threading.Thread(target=guard_loop,    daemon=True, name="guard"),
         threading.Thread(target=stream_loop,   daemon=True, name="stream"),
+        threading.Thread(target=scan_loop,     daemon=True, name="scan"),
     ]
     for t in threads:
         t.start()

@@ -4989,6 +4989,25 @@ _PPI_DATES: set[date] = {
     date(2027, 10, 14), date(2027, 11, 11), date(2027, 12, 10),
 }
 
+# Manually-maintained: major macro catalysts that aren't on a fixed schedule
+# (tariff deadlines, major geopolitical shocks) — unlike FOMC/NFP/CPI there's
+# no calendar formula for these, so add entries by hand as they're announced.
+# Each needs its own comment: what it is, why it's here, and the source date
+# the assessment was made (so a stale/resolved entry is easy to spot and prune).
+_MAJOR_MACRO_EVENT_DATES: set[date] = {
+    date(2026, 7, 24),  # New global tariffs (10-12.5% on ~60 trading partners,
+                        # 99.4% of imports) take effect 12:01 AM ET — replaces
+                        # an expiring temporary 10% stopgap. Reporting as of
+                        # 2026-07-23 described genuine uncertainty over exact
+                        # implementation details hours before effect, and
+                        # markets already moved hard on the announcement
+                        # (S&P -1.2%, Nasdaq -2.2% same day). Full-day
+                        # blackout, same reasoning as FOMC: single-session
+                        # whipsaw risk from a high-uncertainty event makes
+                        # stops unreliable regardless of setup quality.
+}
+
+
 def _nfp_dates(years: int = 2) -> set[date]:
     """Generate NFP dates (first Friday of each month) for the next `years` years."""
     today = date.today()
@@ -5011,6 +5030,10 @@ def check_macro_safe() -> tuple[bool, int]:
     • NFP / CPI (8:30 AM ET pre-market): block only until 10:00 AM ET on release day.
       By 10 AM the market has had 90 min to price in the number; Gap & Hold setups at
       9:45+ AM are valid reads on the post-number trend.  Day-before / day-after: open.
+    • Major unscheduled macro events (tariff deadlines, etc., see
+      _MAJOR_MACRO_EVENT_DATES): full-day blackout ±1 day, same reasoning as
+      FOMC — applies uniformly to every setup since the concern is stop
+      reliability during a high-uncertainty session, not pattern validity.
 
     Returns (safe, score 0-5).
     """
@@ -5025,6 +5048,12 @@ def check_macro_safe() -> tuple[bool, int]:
 
         # FOMC: full-day blackout on release day ±1 calendar day
         for ev in _FOMC_DATES:
+            days_away = (ev - today).days
+            if -1 <= days_away <= MACRO_BLACKOUT:
+                return False, 0
+
+        # Major unscheduled macro events: same full-day ±1 blackout as FOMC
+        for ev in _MAJOR_MACRO_EVENT_DATES:
             days_away = (ev - today).days
             if -1 <= days_away <= MACRO_BLACKOUT:
                 return False, 0
@@ -9479,6 +9508,22 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     print(f"  ⚠️  LIVE: FOMC in {_d_live}d — high-risk week warning sent")
                 break
             if _d_live > 7:
+                break
+
+        # Major unscheduled macro events (tariff deadlines, etc.) — check_macro_safe()
+        # already HARD-blocks new entries on these days; this alert exists so the
+        # reason is visible on the phone instead of only in scan logs nobody checks.
+        for _ev_mm in sorted(_MAJOR_MACRO_EVENT_DATES):
+            _d_mm = (_ev_mm - _today_live).days
+            if -1 <= _d_mm <= MACRO_BLACKOUT:
+                if not _is_duplicate_alert("__MACRO_EVENT_WARN__"):
+                    send_telegram(
+                        f"🚫 <b>DMan LIVE mode</b>: major macro event "
+                        f"{_ev_mm.strftime('%a %b %d')} — new entries BLOCKED today "
+                        f"(hard gate, not advisory). Existing positions still monitored/exited normally."
+                    )
+                    _save_last_alert("__MACRO_EVENT_WARN__")
+                    print(f"  🚫 LIVE: major macro event {_ev_mm} — entries blocked, alert sent")
                 break
 
     # Adaptive risk multiplier — full global context (replaces SPY-only check).

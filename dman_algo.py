@@ -526,20 +526,25 @@ _cache: dict[str, pd.DataFrame] = {}
 def _bars_to_df(bars: list, min_bars: int = 20) -> Optional[pd.DataFrame]:
     """Convert a list of alpaca-py Bar objects to the OHLCV DataFrame shape
     used everywhere else in this file. Applies the same staleness check
-    (last bar within 3 calendar days) as the yfinance path."""
-    if len(bars) < min_bars:
+    (last bar within 3 calendar days) as the yfinance path. Never raises —
+    any malformed/unexpected bar data returns None (caller falls back to
+    yfinance) rather than propagating an exception into the scan loop."""
+    try:
+        if len(bars) < min_bars:
+            return None
+        _records = [
+            {"Open": b.open, "High": b.high, "Low": b.low,
+             "Close": b.close, "Volume": b.volume, "Date": b.timestamp}
+            for b in bars
+        ]
+        df = pd.DataFrame(_records).set_index("Date")
+        df.index = pd.to_datetime(df.index, utc=True).tz_convert(None)
+        _last_bar_date = df.index[-1].date()
+        if (date.today() - _last_bar_date).days > 3:
+            return None
+        return df
+    except Exception:
         return None
-    _records = [
-        {"Open": b.open, "High": b.high, "Low": b.low,
-         "Close": b.close, "Volume": b.volume, "Date": b.timestamp}
-        for b in bars
-    ]
-    df = pd.DataFrame(_records).set_index("Date")
-    df.index = pd.to_datetime(df.index, utc=True).tz_convert(None)
-    _last_bar_date = df.index[-1].date()
-    if (date.today() - _last_bar_date).days > 3:
-        return None
-    return df
 
 
 def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]:
@@ -565,7 +570,7 @@ def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]
 
 
 def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
-                        chunk_size: int = 100) -> int:
+                        chunk_size: int = 50) -> int:
     """
     Batch-fetch daily bars for many tickers in a handful of Alpaca SIP calls
     (Algo Trader Plus — paid for exactly this: fast, reliable, real-time
@@ -578,39 +583,56 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
     Fail-safe by design: any error just means fewer tickers got pre-warmed
     this run — fetch_df() always has its own per-ticker Alpaca-then-
     yfinance path as a complete backstop. Returns count of tickers warmed.
+    The entire function body is one outer try/except (belt-and-suspenders
+    on top of the per-chunk try/except below) — this function must NEVER
+    be able to take down the scan that calls it, whatever goes wrong.
+    chunk_size defaults to 50 (not 100) and pauses briefly between chunks
+    as a conservative margin against undocumented multi-symbol batch limits
+    or rate-limiting on a real account under live market-hours load — this
+    was never exercised with real credentials before going live.
     """
-    if not ALPACA_AVAILABLE:
+    try:
+        if not ALPACA_AVAILABLE:
+            return 0
+        dc = get_alpaca_data_client()
+        if dc is None:
+            return 0
+        from datetime import timezone as _tz
+        warmed = 0
+        _start = (datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc)
+        for i in range(0, len(tickers), chunk_size):
+            chunk = tickers[i:i + chunk_size]
+            try:
+                _req = StockBarsRequest(
+                    symbol_or_symbols=chunk,
+                    timeframe=TimeFrame.Day,
+                    start=_start,
+                    feed=STOCK_DATA_FEED,
+                )
+                _resp = dc.get_stock_bars(_req)
+                for ticker in chunk:
+                    key = f"{ticker}_1d"
+                    if key in _cache:
+                        continue
+                    try:
+                        _bars = _resp[ticker] if ticker in _resp else []
+                        df = _bars_to_df(_bars)
+                    except Exception:
+                        continue   # one malformed ticker's bars must not skip the rest of the chunk
+                    if df is not None:
+                        _cache[key] = df
+                        warmed += 1
+                if i + chunk_size < len(tickers):
+                    time.sleep(0.2)   # brief pause between chunks — avoid rate-limit bursts
+            except Exception as exc:
+                print(f"  [prewarm_alpaca_bars] chunk {i}-{i+len(chunk)} failed "
+                      f"(non-fatal, falls back to per-ticker fetch): {exc}", file=sys.stderr)
+                continue
+        return warmed
+    except Exception as exc:
+        print(f"  [prewarm_alpaca_bars] aborted (non-fatal, falls back to "
+              f"per-ticker fetch): {exc}", file=sys.stderr)
         return 0
-    dc = get_alpaca_data_client()
-    if dc is None:
-        return 0
-    from datetime import timezone as _tz
-    warmed = 0
-    _start = (datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc)
-    for i in range(0, len(tickers), chunk_size):
-        chunk = tickers[i:i + chunk_size]
-        try:
-            _req = StockBarsRequest(
-                symbol_or_symbols=chunk,
-                timeframe=TimeFrame.Day,
-                start=_start,
-                feed=STOCK_DATA_FEED,
-            )
-            _resp = dc.get_stock_bars(_req)
-            for ticker in chunk:
-                key = f"{ticker}_1d"
-                if key in _cache:
-                    continue
-                _bars = _resp[ticker] if ticker in _resp else []
-                df = _bars_to_df(_bars)
-                if df is not None:
-                    _cache[key] = df
-                    warmed += 1
-        except Exception as exc:
-            print(f"  [prewarm_alpaca_bars] chunk {i}-{i+len(chunk)} failed "
-                  f"(non-fatal, falls back to per-ticker fetch): {exc}", file=sys.stderr)
-            continue
-    return warmed
 
 
 def fetch_df(ticker: str, period_days: int = 430,

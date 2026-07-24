@@ -9472,9 +9472,21 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 sig.target1 = round(_live_entry - 2.5 * _orig_risk, 2)
                 sig.target2 = round(_live_entry - 4.0 * _orig_risk, 2)
 
-        # ── Options branch: calls (LONG) or puts (SHORT) on WATCHLIST tickers ─
+        # ── Options branch: calls (LONG) or puts (SHORT) ──────────────────────
         _use_options = ENABLE_OPTIONS_TRADING and sig.ticker in WATCHLIST and sig.bias == "LONG"
-        _use_puts    = OPTIONS_ENABLE_PUTS     and sig.ticker in WATCHLIST and sig.bias == "SHORT"
+        # Puts: WATCHLIST membership OR a Bear Gap Hold signal — that setup is
+        # one of the two most strictly-gated patterns in the system (gap%,
+        # RVOL, RSI, MACD-confirmed, held-below-open, MTF+news-catalyst
+        # checked) and shouldn't dead-end just because the ticker isn't in
+        # the ~83-name curated large-cap list. The options pipeline's own
+        # liquidity gate (5M ADV floor in _find_best_put_contract) is the
+        # real safety check here, not list membership. Confirmed dead-end in
+        # production: MBLY scored 100/100 Bear Gap Hold on 2026-07-23, was
+        # correctly alerted, but had NO execution path — SHORT bias blocks
+        # equity (ALLOW_SHORTS=False) and it wasn't in WATCHLIST (blocked
+        # puts too) — a valid signal that could never become a trade.
+        _use_puts = (OPTIONS_ENABLE_PUTS and sig.bias == "SHORT"
+                     and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
         _opt_contract: dict | None = None
         oid: str | None = None
 
@@ -9512,7 +9524,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
 
         if not _use_options and not _use_puts:
             if sig.bias == "SHORT" and not ALLOW_SHORTS:
-                print(f"  ⏭️  {sig.ticker} SHORT skipped — ALLOW_SHORTS=False and not in options universe")
+                print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
+                      f"not in WATCHLIST, and not a Bear Gap Hold signal")
                 continue
             oid = submit_alpaca_trade(sig)
 

@@ -6240,6 +6240,20 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
 
     # 2. Multi-Timeframe (20 pts)
     mtf_ok, mtf_score = check_mtf(signal.ticker, signal.bias)
+    # Catalyst override for Gap & Hold / Bear Gap Hold: these are SUDDEN
+    # reversal plays (earnings beat/miss, guidance change) — by definition
+    # the weekly trend hasn't caught up yet on day one, and waiting for it
+    # to confirm defeats the entire purpose of the setup (the move is mostly
+    # over by the time a multi-week EMA structure flips). A REAL same-day
+    # news catalyst is independent, more current evidence than a lagging
+    # weekly indicator, so it overrides MTF for these two setups only.
+    # Confirmed against GOOGL/TSLA's July 23 earnings gaps: both scored
+    # 96-100/100 and passed every other gate, but mtf_ok=False blocked them
+    # solely because their weekly EMA20 was still above EMA50 from the prior
+    # uptrend — exactly the scenario this override exists for.
+    if (signal.setup in ("Gap & Hold", "Bear Gap Hold")
+            and getattr(signal, "news_boost", False) and not mtf_ok):
+        mtf_ok, mtf_score = True, max(mtf_score, 10)
     signal.mtf_ok     = mtf_ok
     breakdown["MTF"] = mtf_score
 
@@ -7249,11 +7263,16 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # Check open position risk — alert if any pending signal is within 2% of its stop
     _check_open_position_risk(regime)
 
-    # Pre-fetch news for all tickers in one batch (much faster than per-ticker)
-    print(f"  [1.5/2] Pre-fetching news catalysts (last 4h)...", end=" ", flush=True)
+    # Pre-fetch news for all tickers in one batch (much faster than per-ticker).
+    # 20h (not 4h) to actually catch the catalyst that matters most: earnings
+    # released after yesterday's close. A 4h window misses every after-hours
+    # earnings reaction by the time the next morning's scan runs — confirmed
+    # against GOOGL/TSLA's July 23 earnings gaps, whose news_boost would have
+    # been False under the old window despite the catalyst being obvious.
+    print(f"  [1.5/2] Pre-fetching news catalysts (last 20h)...", end=" ", flush=True)
     _scan_news_map: dict[str, list] = {}
     try:
-        _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=4)
+        _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=20)
         _news_count = sum(1 for v in _scan_news_map.values() if v)
         print(f"{_news_count}/{len(tickers)} tickers have recent news")
     except Exception as _ne:

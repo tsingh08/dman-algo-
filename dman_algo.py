@@ -898,6 +898,18 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
         df = yf.download(ticker, start=start, end=end, progress=False, auto_adjust=True)
         if df is None or len(df) < 2:
             return None
+        # Newer yfinance versions return MultiIndex columns even for a single
+        # ticker (e.g. ('High', 'AAPL') instead of 'High') — without this,
+        # bar["High"] on a row returns a Series instead of a scalar, and
+        # float(bar["High"]) throws. fetch_df() already does this same
+        # normalization for its own yf.download() call; this function has
+        # its own separate call that was missing it. This was the actual
+        # cause of both DMan PRO Scanner failures on 2026-07-24: MBLY's
+        # pending signal became eligible for resolution that day (its
+        # start_date's next calendar day) and every run_pro_scanner() call
+        # crashed here before reaching the scan itself.
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.droplevel(1)
         # Skip the entry day — we enter at the alert price; simulation starts next bar
         df = df.iloc[1:]
         if len(df) == 0:

@@ -40,7 +40,9 @@ env:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35   # was 25 — raised to give the retry wrapper below
+                          # room to attempt a second pass without risking a
+                          # timeout-kill mid-retry on a normal-length scan
     permissions:
       contents: write   # needed to push alert cache back to repo
 
@@ -71,11 +73,38 @@ jobs:
         run: |
           python - <<'EOF'
           from datetime import datetime, date
-          import zoneinfo, sys, subprocess, os
+          import zoneinfo, sys, subprocess, os, time
           ET = zoneinfo.ZoneInfo("America/New_York")
           now = datetime.now(ET)
           today = now.date()
           t = now.hour * 100 + now.minute
+
+          def run_with_retry(cmd, max_attempts=2, backoff_s=15):
+              """
+              Every second of downed scan coverage is a real missed setup —
+              a crash mid-session used to mean waiting up to an hour for the
+              next scheduled cron slot. Retries the SAME command once more on
+              a non-zero exit before giving up. Safe to retry blindly: any
+              signal that was already submitted to Alpaca in a partial first
+              attempt is recorded in dman_positions.json before the process
+              would exit, and _submit_signals_to_alpaca()'s own
+              already_tracked check skips re-submitting a ticker that's
+              already an open position — so a retry can only pick up where
+              a crash left off, never double-submit.
+              """
+              result = None
+              for attempt in range(1, max_attempts + 1):
+                  print(f"  [retry] attempt {attempt}/{max_attempts}: {' '.join(cmd)}")
+                  result = subprocess.run(cmd, capture_output=False)
+                  if result.returncode == 0:
+                      return result
+                  print(f"  [retry] attempt {attempt} failed (exit {result.returncode})")
+                  if attempt < max_attempts:
+                      print(f"  [retry] retrying in {backoff_s}s...")
+                      time.sleep(backoff_s)
+              print(f"  [retry] all {max_attempts} attempts failed — giving up "
+                    f"(top-level crash handler already sent a Telegram alert)")
+              return result
 
           # Manual dispatch with mode override (e.g. "pnl" for on-demand P&L check)
           _dispatch_mode = os.environ.get("DISPATCH_MODE", "").strip()
@@ -158,19 +187,17 @@ jobs:
           # Before 10 AM: curated universe only — fast, catches gap-and-holds at gate open.
           # After 10 AM: full universe for momentum continuation plays.
           universe = "curated" if t < 1000 else "all"
-          result = subprocess.run(
+          result = run_with_retry(
               [sys.executable, "dman_algo.py", "--mode", "scan",
-               "--universe", universe, "--ai", "--submit"],
-              capture_output=False
+               "--universe", universe, "--ai", "--submit"]
           )
           # 10 AM–3:30 PM: run momentum watch alongside the main scan.
           # Detects breakout setups forming + exit/trail signals on open positions.
           # Options positions have no broker-side exit — they rely entirely on this
           # loop for T1/T2 alerts. Must run through the full session, not just open.
           if 1000 <= t <= 1600:
-              subprocess.run(
-                  [sys.executable, "dman_algo.py", "--mode", "momentum-watch"],
-                  capture_output=False
+              run_with_retry(
+                  [sys.executable, "dman_algo.py", "--mode", "momentum-watch"]
               )
           sys.exit(result.returncode)
           EOF

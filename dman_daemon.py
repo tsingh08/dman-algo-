@@ -48,6 +48,9 @@ SCAN_INTERVAL_S = 600       # curated-universe signal scan cadence (10 min) —
                             # a full-scan takes a few minutes itself (large-cap
                             # pass + smallcap/Finviz discovery), so this leaves
                             # comfortable headroom rather than back-to-back runs
+SCAN_RETRY_S    = 60        # after a FAILED scan, retry this soon instead of
+                            # waiting the full SCAN_INTERVAL_S — every minute
+                            # of downed coverage is a real missed setup
 STATE_FILES = [
     "dman_positions.json", "dman_last_alerts.json", "dman_live_signals.json",
     "dman_live_outcomes.csv", "dman_alpaca_sync.json", "dman_win_rate.json",
@@ -264,12 +267,14 @@ def scan_loop() -> None:
     calls git_sync() immediately after any submission attempt instead of
     waiting for guard_loop()'s next scheduled sync.
     """
-    log(f"Signal scan loop started (curated universe, every {SCAN_INTERVAL_S}s during market hours)")
-    last_scan = 0.0
+    log(f"Signal scan loop started (curated universe, every {SCAN_INTERVAL_S}s "
+        f"during market hours, {SCAN_RETRY_S}s retry after a failed scan)")
+    next_scan_due = 0.0
     while True:
         try:
-            if market_hours() and time.time() - last_scan > SCAN_INTERVAL_S:
+            if market_hours() and time.time() >= next_scan_due:
                 log("Running periodic curated-universe scan...")
+                scan_ok = False
                 try:
                     # CRITICAL: this daemon is a long-running process, unlike
                     # the cron scanner's one-shot execution. algo._cache has
@@ -291,9 +296,18 @@ def scan_loop() -> None:
                         git_sync()   # push updated positions immediately, don't wait for the periodic sync
                     else:
                         log("no qualifying signals this pass")
+                    scan_ok = True
                 except Exception as exc:
-                    log(f"scan error (non-fatal): {exc}")
-                last_scan = time.time()
+                    log(f"scan error: {exc}")
+                # Self-healing: on a failed scan, come back soon instead of
+                # waiting the full interval — every minute of downed
+                # coverage is a real missed setup. On success, the normal
+                # cadence avoids hammering the API for no reason.
+                if scan_ok:
+                    next_scan_due = time.time() + SCAN_INTERVAL_S
+                else:
+                    log(f"retrying scan in {SCAN_RETRY_S}s (not waiting the full {SCAN_INTERVAL_S}s interval)")
+                    next_scan_due = time.time() + SCAN_RETRY_S
             time.sleep(30)
         except Exception as exc:
             log(f"scan loop error: {exc}")

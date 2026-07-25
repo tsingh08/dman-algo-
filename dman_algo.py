@@ -1318,6 +1318,89 @@ def _stocktwits_inject_tickers(tickers_to_add: list[str]) -> list[str]:
     return _added
 
 
+def run_watchdog() -> None:
+    """
+    Independent health check for the whole system — deliberately decoupled
+    from both the scanner and the daemon so a failure in either doesn't also
+    take down the thing watching them. Runs on its own GitHub Actions
+    schedule and checks two different failure classes:
+
+    1. Hard failures — the most recent Scanner/Daemon workflow run reported
+       "failure". Straightforward, and the existing per-workflow Telegram
+       notifications already cover this somewhat, but this is a second,
+       independent confirmation.
+    2. SILENT failures — a run reports "success" but produced no real work.
+       This is the class that actually cost hours today: the daemon's
+       missing `import json` made every state sync fail internally while
+       the workflow itself kept reporting green for two full sessions.
+       A conclusion check alone would have missed it entirely. Caught here
+       by checking DATA FRESHNESS directly — has the daemon's own sync
+       timestamp moved recently, has at least one scan logged today by a
+       reasonable point in the session — regardless of what the workflow
+       run status claims.
+    """
+    now_et = datetime.now(ET)
+    if now_et.weekday() >= 5:
+        print("  🐕 Watchdog: weekend, skipping.")
+        return
+    t = now_et.hour * 100 + now_et.minute
+    issues: list[str] = []
+
+    # 1. Hard failures — most recent run of each critical workflow.
+    for _wf_name, _wf_file in [("DMan PRO Scanner", "dman_scanner.yml"),
+                                ("DMan Cloud Daemon", "dman_daemon.yml")]:
+        try:
+            resp = requests.get(
+                f"https://api.github.com/repos/tsingh08/dman-algo-/actions/workflows/{_wf_file}/runs",
+                params={"per_page": 1}, timeout=10,
+            )
+            runs = resp.json().get("workflow_runs", [])
+            if runs and runs[0].get("conclusion") == "failure":
+                issues.append(f"❌ {_wf_name}: most recent run FAILED "
+                              f"({runs[0]['created_at'][:16]})")
+        except Exception as exc:
+            print(f"  [watchdog] GitHub check failed for {_wf_name}: {exc}")
+
+    # 2. Silent failures — only meaningful once the session has been running
+    # a while, so a check that fires right at the open doesn't false-alarm
+    # on things that legitimately haven't happened yet.
+    if 930 <= t <= 1600:
+        try:
+            with open(ALPACA_SYNC_FILE) as f:
+                _last_sync = datetime.fromisoformat(json.load(f).get("last_sync", ""))
+            _stale_min = (datetime.now() - _last_sync).total_seconds() / 60
+            if _stale_min > 30:
+                issues.append(f"⚠️ Daemon sync stale — last synced {_stale_min:.0f} min ago")
+        except Exception:
+            issues.append("⚠️ dman_alpaca_sync.json unreadable/missing — daemon may never have synced today")
+
+        if t >= 1030:
+            try:
+                with open(SCAN_LOG_FILE) as f:
+                    _log = json.load(f)
+                _today_str = now_et.strftime("%Y-%m-%d")
+                if not any(e.get("ts", "").startswith(_today_str) for e in _log):
+                    issues.append("⚠️ No scan_log entry yet today (past 10:30 AM ET)")
+            except Exception:
+                issues.append("⚠️ dman_scan_log.json unreadable/missing")
+
+    if not issues:
+        print("  🐕 Watchdog: all checks passed")
+        return
+
+    print(f"  🐕 Watchdog: {len(issues)} issue(s) found")
+    for i in issues:
+        print(f"     {i}")
+    _key = "__WATCHDOG__"
+    if not _is_duplicate_alert(_key):
+        send_telegram("🐕 <b>DMan Watchdog</b> — possible issue(s) detected:\n\n"
+                      + "\n".join(issues))
+        _save_last_alert(_key)
+    else:
+        print("  🐕 (alert suppressed — sent within the last "
+              f"{ALERT_COOLDOWN_MIN} min already)")
+
+
 def run_stocktwits_monitor() -> None:
     """
     Fetch ProfessorDman1's recent StockTwits messages.
@@ -9852,7 +9935,7 @@ def main():
                  "watch","rank","open","positions","alpaca","sync",
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
-                 "stocktwits","guard","merge-positions"],
+                 "stocktwits","guard","merge-positions","watchdog"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -9916,9 +9999,13 @@ def main():
     # Lightweight, no-ticker modes exit before the universe/watchlist loading
     # below — merge-positions runs once per persist step (every scan) and has
     # no use for a ticker list; loading one would cost an unnecessary Yahoo
-    # Finance round-trip on every single commit.
+    # Finance round-trip on every single commit. watchdog is the same shape:
+    # runs on its own frequent schedule and never touches a ticker universe.
     if args.mode == "merge-positions":
         sync_positions_with_remote()
+        return
+    if args.mode == "watchdog":
+        run_watchdog()
         return
 
     if args.tickers:
@@ -10012,6 +10099,9 @@ def main():
 
     elif args.mode == "stocktwits":
         run_stocktwits_monitor()
+
+    elif args.mode == "watchdog":
+        run_watchdog()
 
     elif args.mode == "guard":
         # One-shot options guard — the daemon loops this every 60s

@@ -1,0 +1,70 @@
+name: DMan Watchdog
+
+# Independent health check, deliberately decoupled from both the scanner and
+# daemon workflows so a failure in either doesn't also take down the thing
+# watching them. Catches two failure classes:
+#   1. Hard failures — the most recent Scanner/Daemon run reported "failure"
+#   2. SILENT failures — a run reports "success" but produced no real work
+#      (e.g. the daemon's missing `import json` bug: the workflow kept
+#      reporting green for a full day while every state sync failed
+#      internally — a conclusion check alone would have missed it)
+# See run_watchdog() in dman_algo.py for the actual check logic.
+
+on:
+  schedule:
+    # Every 30 min, 9:00 AM - 4:00 PM ET (13:00-20:00 UTC), weekdays.
+    # The function itself no-ops outside 9:30-4:00 for the freshness checks
+    # (only the hard-failure check runs outside that window) and skips
+    # entirely on weekends — the wider cron window just absorbs runner
+    # queue delays the same way the other workflows already do.
+    - cron: '0,30 13-20 * * 1-5'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write   # persists the alert-dedup file so the 30-min cooldown works across runs
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Run watchdog
+        env:
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONIOENCODING:    utf-8
+        run: python dman_algo.py --mode watchdog
+
+      - name: Persist alert-dedup cache
+        if: always()
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          [ -f dman_last_alerts.json ] && git add dman_last_alerts.json || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: watchdog alert cache [skip ci]"
+          git fetch origin main
+          if ! git rebase origin/main; then
+            [ -f dman_last_alerts.json ] && git checkout --theirs -- dman_last_alerts.json 2>/dev/null
+            git add -u
+            git rebase --continue || git rebase --abort
+          fi
+          git push origin HEAD:main || echo "Warning: push skipped — will sync next run"

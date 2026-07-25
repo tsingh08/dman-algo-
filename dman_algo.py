@@ -1448,6 +1448,12 @@ def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dic
                 timeout=10,
             )
             if resp.status_code != 200:
+                # Print WHY, not just that it failed — a 401/403 (key not yet
+                # approved, or invalid) looks identical to "0 headlines" in
+                # the caller's summary line otherwise, making a rejected key
+                # indistinguishable from a genuinely quiet news day.
+                print(f"  [benzinga] batch {i}-{i+len(batch)}: HTTP {resp.status_code} "
+                      f"— {resp.text[:150]}", file=sys.stderr)
                 continue
             articles = resp.json() if isinstance(resp.json(), list) else resp.json().get("result", [])
             for art in articles:
@@ -1488,6 +1494,8 @@ def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, s
             timeout=10,
         )
         if resp.status_code != 200:
+            print(f"  [benzinga] breaking news: HTTP {resp.status_code} "
+                  f"— {resp.text[:150]}", file=sys.stderr)
             return []
         articles = resp.json() if isinstance(resp.json(), list) else resp.json().get("result", [])
         results: list[tuple[str, str, str, int]] = []

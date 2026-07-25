@@ -1,6 +1,13 @@
-yfinance>=0.2.61
-pandas>=2.0
-numpy>=1.24
-requests>=2.28
-tzdata
-alpaca-py>=0.8.0
+# Pinned to the exact versions confirmed working in production as of 2026-07-25.
+# DO NOT loosen back to >= — an unpinned yfinance>=0.2.61 silently pulled in
+# 1.5.2 (a major version jump) with no warning, changing yf.download()'s
+# default column format (single-ticker downloads gained MultiIndex columns).
+# That broke _simulate_trade_outcome() for hours before being traced back to
+# this. To upgrade any package here: bump it locally, run the full test
+# suite / a manual scan, confirm no behavior changed, THEN commit the bump.
+yfinance==1.5.2
+pandas==3.0.5
+numpy==2.4.6
+requests==2.34.2
+tzdata==2026.3
+alpaca-py==0.43.5

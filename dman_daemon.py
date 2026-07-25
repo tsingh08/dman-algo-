@@ -271,8 +271,19 @@ def scan_loop() -> None:
             if market_hours() and time.time() - last_scan > SCAN_INTERVAL_S:
                 log("Running periodic curated-universe scan...")
                 try:
+                    # CRITICAL: this daemon is a long-running process, unlike
+                    # the cron scanner's one-shot execution. algo._cache has
+                    # no TTL — without clearing it, every scan after the
+                    # first would silently reuse hours-old price snapshots,
+                    # making repeated scanning pointless. The codebase's own
+                    # pre-existing --mode watch loop already solved this
+                    # exact problem the same way (see its own _cache.clear()
+                    # call, commented "force fresh data") — this loop needs
+                    # the identical fix for the identical reason.
+                    algo._cache.clear()
                     signals = algo.run_pro_scanner(
-                        algo.WATCHLIST, use_ai=False, universe_label="daemon-curated"
+                        algo.WATCHLIST, use_ai=False, universe_label="daemon-curated",
+                        include_dynamic_smallcap=False,   # broad Finviz net already covered hourly by cron
                     )
                     if signals:
                         log(f"{len(signals)} signal(s) found — submitting")

@@ -7290,10 +7290,20 @@ def print_scan_log() -> None:
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
                     min_score: int = None,
                     use_ai: bool = False,
-                    universe_label: str = "curated") -> list[ProSignal]:
+                    universe_label: str = "curated",
+                    include_dynamic_smallcap: bool = True) -> list[ProSignal]:
     """
     Full pro-grade scanner with all 18 filters applied.
     Only returns signals that pass ALL hard gates AND score >= min_score.
+
+    include_dynamic_smallcap=False skips ONLY the Finviz live-mover
+    discovery step (a real yfinance-heavy call to fetch_dman_dynamic_tickers())
+    — for callers that scan on a tight cadence (the daemon's 10-min loop)
+    where the hourly cron's full "all"-universe scan already covers that
+    broad net. DMan's own curated small-cap watchlist (DMAN_SMALLCAP_WATCHLIST)
+    is NOT affected by this flag and is always scanned — that's the
+    high-signal part worth checking frequently; Finviz's generic "any
+    mover" discovery is the expensive, low-precision part worth throttling.
     """
     global MIN_CONFLUENCE
     tracker    = WinRateTracker()
@@ -7567,7 +7577,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         sc_found    = 0
         # Dynamic Finviz discovery: low-float (<5M), price <$20, vol >500k
         _finviz_tickers: list[str] = []
-        if ENABLE_DYNAMIC_SMALLCAP:
+        if ENABLE_DYNAMIC_SMALLCAP and include_dynamic_smallcap:
             print("  🔍  Fetching today's movers (Yahoo Finance day gainers + most actives)...", flush=True)
             _finviz_tickers = fetch_dman_dynamic_tickers()
             if _finviz_tickers:

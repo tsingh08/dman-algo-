@@ -3566,6 +3566,19 @@ def run_premarket_briefing() -> None:
                     events_lines.append(f"📊 PPI today (6:30 AM MT) — blackout until 8:00 AM MT, then open")
                 else:
                     events_lines.append(f"📊 PPI {day_lbl} — inflation data; gap risk at open")
+            # Major unscheduled macro events (tariff deadlines, etc.) — same
+            # ±1 day full blackout as FOMC, and the same multi-day advance
+            # warning treatment here. This is a manually-maintained set
+            # (see _MAJOR_MACRO_EVENT_DATES) so it stays empty most of the
+            # time; when populated, the briefing should flag it exactly
+            # like a scheduled event, not leave it as a same-day surprise.
+            if d in _MAJOR_MACRO_EVENT_DATES:
+                if offset == 0:
+                    events_lines.append(f"⛔ Major macro event today — full-day blackout")
+                elif offset == 1:
+                    events_lines.append(f"⛔ Major macro event tomorrow — full-day blackout; avoid new entries today")
+                else:
+                    events_lines.append(f"⛔ Major macro event {day_lbl} — approaching; see code comment for details")
             # OPEX markers
             if d.weekday() == 4 and d == _get_third_friday(d.year, d.month):
                 if offset == 0:
@@ -3930,31 +3943,40 @@ def run_premarket_briefing() -> None:
             + "\n<i>Low-float catalyst plays — confirm RVOL at open before entry.</i>"
         )
 
-    # ── 6.5. Upcoming earnings on watchlist ───────────────────────────
+    # ── 6.5. Upcoming earnings — large-cap watchlist AND DMan's small-cap
+    # watchlist. Small-caps were previously excluded from this check
+    # entirely, despite being where DMan's actual edge lives (ultra-low-
+    # float, catalyst-driven names move far more violently on an earnings
+    # surprise than a mega-cap does) — labeled separately below since the
+    # two carry very different risk/opportunity character, not merged
+    # indiscriminately into one undifferentiated list.
     print("  [6.5/7] Scanning earnings calendar...")  # noqa: label kept for operator readability
     earnings_section = ""
     try:
-        upcoming = get_upcoming_earnings(WATCHLIST, days_ahead=5)
+        upcoming    = get_upcoming_earnings(WATCHLIST, days_ahead=5)
+        upcoming_sc = get_upcoming_earnings(DMAN_SMALLCAP_WATCHLIST, days_ahead=5)
+
+        def _fmt_earnings_line(item: dict) -> str:
+            da = item["days_away"]
+            tag = "today" if da == 0 else ("tomorrow" if da == 1 else f"in {da}d")
+            in_bl = "" if da > EARNINGS_BLACKOUT else " 🚫 BLACKOUT"
+            return f"  {item['ticker']:<6} — {item['earn_date'].strftime('%a %b %d')} ({tag}){in_bl}"
+
         if upcoming:
-            lines = []
-            for item in upcoming:
-                d = item["days_away"]
-                da = item["days_away"]
-                if da == 0:
-                    tag = "today"
-                elif da == 1:
-                    tag = "tomorrow"
-                else:
-                    tag = f"in {da}d"
-                in_bl = "" if da > EARNINGS_BLACKOUT else " 🚫 BLACKOUT"
-                lines.append(f"  {item['ticker']:<6} — {item['earn_date'].strftime('%a %b %d')} ({tag}){in_bl}")
-            earnings_section = (
+            earnings_section += (
                 "\n\n📆 <b>EARNINGS THIS WEEK (watchlist)</b>\n"
-                + "\n".join(lines)
+                + "\n".join(_fmt_earnings_line(i) for i in upcoming)
                 + "\n<i>Tickers marked BLACKOUT are skipped until 5d after report</i>"
             )
         else:
-            earnings_section = "\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days."
+            earnings_section += "\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days."
+
+        if upcoming_sc:
+            earnings_section += (
+                "\n\n⚡ <b>EARNINGS THIS WEEK (DMan small-cap watch)</b>\n"
+                + "\n".join(_fmt_earnings_line(i) for i in upcoming_sc)
+                + "\n<i>Low-float names move far harder on a surprise — size accordingly</i>"
+            )
     except Exception as _e:
         earnings_section = f"\n\n📆 <b>EARNINGS</b>: scan error ({str(_e)[:60]})"
 

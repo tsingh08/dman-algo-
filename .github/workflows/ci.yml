@@ -36,6 +36,11 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: python -c "import dman_algo; print('dman_algo imports cleanly')"
 
+      - name: Regression suite (test_dman_algo.py)
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python -m unittest test_dman_algo -v
+
       - name: Validate JSON data files
         run: |
           python - <<'EOF'

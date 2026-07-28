@@ -1528,6 +1528,7 @@ def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dic
                     "displayOutput":  "headline",
                     "publishedAfter": cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
                 },
+                headers={"Accept": "application/json"},
                 timeout=10,
             )
             if resp.status_code != 200:
@@ -1543,7 +1544,7 @@ def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dic
                 title = art.get("title", "")
                 if not title:
                     continue
-                for tk_obj in art.get("tickers", []):
+                for tk_obj in art.get("stocks", []):
                     sym = (tk_obj.get("name") or "").upper()
                     if sym in result:
                         if len(result[sym]) < 5:
@@ -1574,6 +1575,7 @@ def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, s
                 "displayOutput":  "headline",
                 "publishedAfter": cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
             },
+            headers={"Accept": "application/json"},
             timeout=10,
         )
         if resp.status_code != 200:

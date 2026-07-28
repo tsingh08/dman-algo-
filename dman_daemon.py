@@ -163,10 +163,20 @@ def git_sync() -> None:
         # silently keep the LESS-protective side. algo.sync_positions_with_remote()
         # re-reconciles against origin/main using a rule that can't regress
         # protection, regardless of whether the stash pop above was clean.
-        try:
-            algo.sync_positions_with_remote()
-        except Exception as exc:
-            log(f"positions merge error (non-fatal): {exc}")
+        #
+        # The other four are the SAME class of bug, confirmed in production
+        # on 2026-07-27: dman_scan_log.json went a full trading day with
+        # zero new entries despite 8+ genuinely successful scans, because
+        # it's rewritten by both the daemon (every 10 min) and the cron
+        # scanner (hourly) so often that a whole-file conflict resolution
+        # was silently discarding whichever side's entry lost the race.
+        for _sync_fn in (algo.sync_positions_with_remote, algo.sync_scan_log_with_remote,
+                        algo.sync_win_rate_with_remote, algo.sync_live_signals_with_remote,
+                        algo.sync_alpaca_sync_state_with_remote):
+            try:
+                _sync_fn()
+            except Exception as exc:
+                log(f"{_sync_fn.__name__} error (non-fatal): {exc}")
 
         # Stage and push any local state changes (re-check existence — the
         # stash pop, pull, or merge above may have created/removed files).

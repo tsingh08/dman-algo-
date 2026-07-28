@@ -16,6 +16,21 @@ a real incident:
                               the same tracked position from separate
                               processes; a naive merge could regress a
                               stop-raise back to a less-protective value.
+  - test_two_processes_*,
+    test_identical_local_*,
+    test_max_entries_*,
+    test_new_remote_*,
+    test_plain_string_*    : merge_json_lists() covers the high-frequency
+                              append-only files (scan_log, win_rate,
+                              live_signals, alpaca_sync) where a whole-file
+                              `git checkout --theirs` conflict resolution
+                              silently dropped a full trading day of scan
+                              entries. Locks in the fix after two earlier
+                              designs each had a real, only-caught-by-
+                              testing flaw (a full-history dedup that
+                              collapsed unrelated pre-existing duplicates,
+                              and a concat-before-diff bug that doubled the
+                              file whenever local == remote).
   - test_check_macro_safe_*: blackout windows (FOMC, tariff-deadline-style
                               one-off events) gate real capital — an
                               off-by-one here means trading through an
@@ -33,6 +48,7 @@ mocked so this suite is fast and deterministic regardless of market hours.
 """
 from __future__ import annotations
 
+import json
 import os
 import re
 import sys
@@ -198,6 +214,88 @@ class TestMergePositionsSnapshots(unittest.TestCase):
         merged = a.merge_positions_snapshots(snap, snap)
         self.assertEqual(len(merged), 1)
         self.assertEqual(merged[0]["stop"], 200)
+
+
+class TestMergeJsonLists(unittest.TestCase):
+    """merge_json_lists() covers the high-frequency append-only files
+    (scan_log, win_rate, live_signals pending, alpaca_sync recorded_ids)
+    that merge_positions_snapshots() doesn't handle — a whole-file
+    `git checkout --theirs` conflict resolution silently drops whichever
+    side's new entry loses, even though both were genuinely new. Two
+    earlier designs of this function were wrong in ways only caught by
+    testing against the real, 6000+ entry dman_win_rate.json before
+    shipping: a full-history content dedup that collapsed pre-existing
+    (unrelated) duplicates as an undiscussed side effect, and a
+    concat-before-diff bug that doubled the file's size whenever local
+    and remote were already identical. These tests lock in the fix."""
+
+    def test_two_processes_each_add_a_different_new_entry(self):
+        base = ["BASE"]
+        local = base + ["JOB_A"]
+        remote = base + ["JOB_B"]
+        merged = a.merge_json_lists(local, remote, key_fn=lambda x: x)
+        self.assertEqual(set(merged), {"BASE", "JOB_A", "JOB_B"},
+                         "both sides' genuinely new entries must survive — "
+                         "this is the exact race that caused a full trading "
+                         "day of dman_scan_log.json entries to vanish")
+
+    def test_identical_local_and_remote_do_not_double(self):
+        snap = [{"ticker": "AAPL", "date": "2024-01-01", "result": "win"}] * 3
+        merged = a.merge_json_lists(
+            snap, snap, key_fn=lambda x: json.dumps(x, sort_keys=True))
+        self.assertEqual(len(merged), 3,
+                         "when local == remote, remote must contribute "
+                         "nothing — an earlier design doubled the file's "
+                         "size on every sync because it concatenated before "
+                         "checking for already-shared history")
+
+    def test_max_entries_caps_positionally_not_by_date_sort(self):
+        # Real dman_win_rate.json data is NOT chronologically ordered by
+        # its own "date" field (backtest runs over arbitrary historical
+        # windows get appended in whatever order they were processed).
+        # Sorting by "date" before capping to max_entries would silently
+        # keep whichever entries have the highest date value instead of
+        # the N most recently appended ones — corrupting what
+        # rolling_stats()'s "last N trades" means for Kelly sizing.
+        records = (
+            [{"ticker": "OLD", "date": "2025-12-31"}] +
+            [{"ticker": f"KEEP{i}", "date": "2020-01-01"} for i in range(5)]
+        )
+        merged = a.merge_json_lists(
+            records, records,
+            key_fn=lambda x: json.dumps(x, sort_keys=True),
+            max_entries=5,
+        )
+        self.assertEqual(merged, records[-5:],
+                         "truncation must be positional (last N as appended), "
+                         "matching WinRateTracker._save()'s own records[-500:] "
+                         "— not re-sorted by an unreliable date field")
+
+    def test_new_remote_entry_survives_the_cap(self):
+        local = [{"ticker": f"T{i}", "date": "2020-01-01"} for i in range(5)]
+        new_entry = {"ticker": "NEWEST", "date": "2026-07-27"}
+        remote = local + [new_entry]
+        merged = a.merge_json_lists(
+            local, remote,
+            key_fn=lambda x: json.dumps(x, sort_keys=True),
+            max_entries=5,
+        )
+        self.assertIn(new_entry, merged,
+                     "the actual race being fixed: remote's genuinely new "
+                     "entry must not be discarded just because the combined "
+                     "list now exceeds max_entries")
+        self.assertEqual(len(merged), 5)
+
+    def test_plain_string_entries_and_no_key_fn(self):
+        # dman_alpaca_sync.json's recorded_ids is a flat list of plain
+        # strings, not dicts — must not assume dict shape.
+        merged = a.merge_json_lists(["id1", "id2"], ["id2", "id3"],
+                                    key_fn=lambda x: x)
+        self.assertEqual(merged, ["id1", "id2", "id3"])
+        # No key_fn at all: no identity to dedup on, fall back to
+        # whichever list is at least as complete rather than blindly
+        # concatenating (which double-counts the common already-synced case).
+        self.assertEqual(a.merge_json_lists(["x"], ["y"], key_fn=None), ["x"])
 
 
 class TestMacroBlackoutWindows(unittest.TestCase):

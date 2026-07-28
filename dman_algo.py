@@ -6173,6 +6173,186 @@ def sync_positions_with_remote() -> None:
               f"({len(local_list)} local + {len(remote_list)} remote → {len(merged)} merged)")
 
 
+def merge_json_lists(local_list: list, remote_list: list, key_fn=None,
+                     max_entries: int = None) -> list:
+    """
+    Generic union-merge for append-only JSON list files that can be
+    concurrently written by separate processes (the cron scanner and the
+    daemon both append to dman_scan_log.json and dman_win_rate.json on
+    independent schedules). Reproduced directly: a rebase conflict on one
+    of these files, resolved via `git checkout --theirs -- file` (correct
+    for keeping THIS run's own new entry — see the rebase ours/theirs fix
+    from 2026-07-23), still replaces the file WHOLESALE — silently
+    discarding whichever entries were unique to the losing side, even
+    though that side had already been successfully pushed to origin.
+    Confirmed as the actual cause of dman_scan_log.json going a full
+    trading day (2026-07-27) with zero new entries despite 8+ genuinely
+    successful scans: the file is rewritten so frequently (every cron
+    scan AND every 10-min daemon scan) that it's the single most
+    contested file in the repo.
+
+    Two earlier designs of this function were both wrong in ways only
+    caught by testing against the REAL dman_win_rate.json before shipping:
+    - v1 deduplicated across the entire combined list. The real file
+      already contained 4,852 pre-existing exact-duplicate records
+      (unrelated to this fix — almost certainly from re-running backtests
+      over overlapping periods without ever deduplicating). A full-history
+      dedup silently collapsed 6,282 real records to 1,430 on first run —
+      a completely different, undiscussed, much bigger change than "stop
+      losing new entries to a race," bundled in as an unreviewed side
+      effect that had to be caught and reverted before it reached git.
+    - v2 tried a "only dedupe the most recent N" window, but still
+      unconditionally concatenated local + remote first. When local and
+      remote are IDENTICAL (the common, everything-already-synced case),
+      that doubles the file's size on every single invocation, since nothing
+      recognizes the two lists share the same already-synced history.
+
+    Correct approach: local is the base, taken exactly as-is — including
+    any pre-existing duplicates or quirks it may already contain, none of
+    which this function's job is to judge or clean up. Only entries from
+    remote whose key_fn identity ISN'T already present anywhere in local
+    get appended. If local and remote are identical, remote contributes
+    nothing and the result is byte-for-byte local, unchanged. If remote
+    has a genuinely new entry local is missing (the actual race being
+    fixed), it gets added once.
+
+    max_entries truncation is purely positional (keep the last N, no
+    re-sorting) to match WinRateTracker._save()'s own `records[-500:]`.
+    A "ts"/"date" field looks like an obvious sort key, but real
+    dman_win_rate.json data proved it isn't reliable for this: entries
+    come from backtests run over arbitrary historical windows, so the
+    date field is NOT chronological-by-insertion (e.g. three consecutive
+    real records dated 2024-10-03, 2025-07-29, 2024-11-12). Sorting by
+    it before capping would silently keep whichever entries happen to
+    have the highest date value instead of the 500 most recently
+    appended ones — corrupting exactly what rolling_stats()'s "last N
+    trades" is supposed to mean for Kelly sizing / adaptive scoring.
+    """
+    if key_fn is None:
+        # No identity available to tell what's actually new in remote —
+        # assume whichever list is longer is at least as complete, rather
+        # than blindly concatenating (which could double-count in the
+        # common case where both sides already agree).
+        return local_list if len(local_list) >= len(remote_list) else remote_list
+
+    local_keys = {key_fn(item) for item in local_list}
+    new_from_remote = [item for item in remote_list if key_fn(item) not in local_keys]
+    combined = list(local_list) + new_from_remote
+
+    if max_entries is not None and len(combined) > max_entries:
+        combined = combined[-max_entries:]
+    return combined
+
+
+def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str) -> None:
+    """
+    Shared plumbing for sync_scan_log_with_remote() / sync_win_rate_with_remote()
+    / etc: fetch origin's copy, merge with the local copy via the caller-
+    supplied extract/rebuild functions (which know each file's specific
+    shape — flat list, or a list nested under a dict key), write back only
+    if something actually changed. Same fail-safe pattern as
+    sync_positions_with_remote(): any git/parse error is a silent no-op,
+    never a crash.
+    """
+    import subprocess
+    try:
+        remote_raw = subprocess.run(
+            ["git", "show", f"origin/main:{filepath}"],
+            capture_output=True, text=True, timeout=15,
+        )
+        if remote_raw.returncode != 0 or not remote_raw.stdout.strip():
+            return
+        remote_data = json.loads(remote_raw.stdout)
+    except Exception:
+        return
+
+    try:
+        with open(filepath) as f:
+            local_data = json.load(f)
+    except Exception:
+        return
+
+    try:
+        local_list, local_extra   = extract(local_data)
+        remote_list, remote_extra = extract(remote_data)
+    except Exception:
+        return
+
+    merged_list = merge_json_lists(local_list, remote_list,
+                                   key_fn=lambda x: json.dumps(x, sort_keys=True)
+                                   if isinstance(x, (dict, list)) else x)
+    if len(merged_list) == len(local_list) and local_extra == remote_extra:
+        return   # nothing new from remote and no extra-field change — avoid a needless rewrite
+    rebuilt = rebuild(merged_list, local_extra, remote_extra)
+    with open(filepath, "w") as f:
+        json.dump(rebuilt, f, indent=2)
+    print(f"  🔀 Merged {label} with origin/main "
+          f"({len(local_list)} local + {len(remote_list)} remote → {len(merged_list)} merged)")
+
+
+def sync_scan_log_with_remote() -> None:
+    """dman_scan_log.json — flat list, capped at 20 most recent."""
+    _sync_json_file_via_merge(
+        SCAN_LOG_FILE,
+        extract=lambda d: (d, None),
+        rebuild=lambda merged, _le, _re: merged[-20:],
+        label="dman_scan_log.json",
+    )
+
+
+def sync_win_rate_with_remote() -> None:
+    """dman_win_rate.json — flat list, capped at 500 most recent (see
+    WinRateTracker._save())."""
+    _sync_json_file_via_merge(
+        WIN_RATE_FILE,
+        extract=lambda d: (d, None),
+        rebuild=lambda merged, _le, _re: merged[-500:],
+        label="dman_win_rate.json",
+    )
+
+
+def sync_live_signals_with_remote() -> None:
+    """
+    dman_live_signals.json — "pending" list nested in a dict. Unlike
+    scan_log/win_rate this list also has entries REMOVED (once resolved),
+    not just appended, so a blind union could resurrect an already-
+    resolved signal. Accepted deliberately, same reasoning as
+    merge_positions_snapshots(): resolve_live_outcomes() re-evaluates
+    every pending entry against real price data on the next run regardless
+    of how it got there, so a resurrected-then-immediately-re-resolved
+    entry self-heals within one cycle — silently losing a signal that
+    should still be tracked is the worse failure mode to guard against.
+    """
+    _sync_json_file_via_merge(
+        LIVE_SIGNALS_FILE,
+        extract=lambda d: (d.get("pending", []), None),
+        rebuild=lambda merged, _le, _re: {"pending": merged},
+        label="dman_live_signals.json",
+    )
+
+
+def sync_alpaca_sync_state_with_remote() -> None:
+    """
+    dman_alpaca_sync.json — recorded_ids list nested in a dict, plus a
+    last_sync scalar. Losing an entry from recorded_ids risks
+    RE-processing an already-recorded Alpaca fill on the next sync,
+    double-counting it in the win-rate tracker — this file's whole purpose
+    is preventing exactly that, so it's worth protecting the same way.
+    last_sync takes whichever of the two ISO timestamps is chronologically
+    later — a plain string comparison works here since both are always
+    produced by the same isoformat() call site.
+    """
+    _sync_json_file_via_merge(
+        ALPACA_SYNC_FILE,
+        extract=lambda d: (d.get("recorded_ids", []), d.get("last_sync", "")),
+        rebuild=lambda merged, local_ts, remote_ts: {
+            "last_sync": max(local_ts or "", remote_ts or ""),
+            "recorded_ids": merged[-500:],
+        },
+        label="dman_alpaca_sync.json",
+    )
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 18 — CORE SIGNAL DETECTORS (from v2, inline)
 # ═══════════════════════════════════════════════════════════════════════════
@@ -10024,7 +10204,20 @@ def main():
     # Finance round-trip on every single commit. watchdog is the same shape:
     # runs on its own frequent schedule and never touches a ticker universe.
     if args.mode == "merge-positions":
+        # Name kept for backward compat with the existing workflow call —
+        # now pre-merges every append-heavy state file that can be written
+        # by more than one process (cron scanner + daemon), not just
+        # positions. See merge_json_lists() for why: dman_scan_log.json
+        # went a full trading day (2026-07-27) with zero new entries
+        # despite 8+ real successful scans, because it's rewritten so
+        # often (every cron scan AND every 10-min daemon scan) that a
+        # whole-file conflict-resolution silently discarded whichever
+        # side's entry lost the race, every single time.
         sync_positions_with_remote()
+        sync_scan_log_with_remote()
+        sync_win_rate_with_remote()
+        sync_live_signals_with_remote()
+        sync_alpaca_sync_state_with_remote()
         return
     if args.mode == "watchdog":
         run_watchdog()

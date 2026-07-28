@@ -68,6 +68,7 @@ jobs:
           TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
           ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
+          BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
           DAEMON_RUN_UNTIL:    ${{ steps.session.outputs.until }}
           PYTHONIOENCODING:    utf-8
         run: python dman_daemon.py

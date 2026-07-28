@@ -7849,14 +7849,14 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             + (f" AI={sig.ai_score}" if sig.ai_score else "")
             + "\n"
         )
-        if _is_duplicate_alert(sig.ticker):
-            sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
-        else:
-            send_telegram(format_signal_telegram(sig, regime))
-            _save_last_alert(sig.ticker)
-            _log_live_signal(sig)   # record for live outcome tracking
+        # NOTE: alerting is deferred until after the heat-cap and sector-cap
+        # filters below finalize the signal list — see that block for why.
 
     # ── Small-cap / Low Float Catalyst pass ────────────────────────────────
+    # _smallcap_extra holds per-ticker display data (float/short-interest/etc.)
+    # needed by format_smallcap_telegram() at alert time below, since alerting
+    # now happens after this pass has already returned/gone out of scope.
+    _smallcap_extra: dict[str, tuple] = {}
     # Second pass over the same universe using Dman's micro-cap criteria.
     # Separate risk rules: 0.5% per trade, max $2,500 cost, lower score bar.
     if ENABLE_SMALLCAP:
@@ -7911,13 +7911,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                              f"float={fl_m:.1f}M SI={sh_pct:.0f}%"
                              f"{' POST-RS' if post_rs else ''} "
                              f"score={sc_sig.confluence_score}\n")
-            if _is_duplicate_alert(ticker):
-                sys.stdout.write(f"       (dup suppressed)\n")
-            else:
-                send_telegram(format_smallcap_telegram(sc_sig, fl_m, sh_pct,
-                                                       insider_pct, post_rs))
-                _save_last_alert(ticker)
-                _log_live_signal(sc_sig)
+            _smallcap_extra[ticker] = (fl_m, sh_pct, insider_pct, post_rs)
+            # NOTE: alerting deferred to after heat-cap/sector-cap — see below.
         if sc_found or sc_rejected:
             print(f"  🔥  Small-cap pass: {sc_found} signal(s), {sc_rejected} rejected")
 
@@ -7967,6 +7962,25 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 f"({sec} already has {count} signal(s))\n"
             )
     signals = concentrated
+
+    # Alert only AFTER heat-cap + sector-cap have finalized the list. Both
+    # passes above used to send the Telegram alert the moment a signal was
+    # detected, before these two caps ran — so a signal excluded by either
+    # cap still fired a "LONG XYZ" notification with no order ever submitted
+    # for it (the caller only submits this function's *returned* list). This
+    # also kept phantom entries out of live-signal outcome tracking, which
+    # previously recorded a "signal" for tickers that were never traded.
+    for sig in signals:
+        if _is_duplicate_alert(sig.ticker):
+            sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
+            continue
+        if sig.ticker in _smallcap_extra:
+            fl_m, sh_pct, insider_pct, post_rs = _smallcap_extra[sig.ticker]
+            send_telegram(format_smallcap_telegram(sig, fl_m, sh_pct, insider_pct, post_rs))
+        else:
+            send_telegram(format_signal_telegram(sig, regime))
+        _save_last_alert(sig.ticker)
+        _log_live_signal(sig)   # record for live outcome tracking
 
     print(f"\n{'─'*68}")
     print(f"  ✅  {len(signals)} A+ setup(s) passed all filters")

@@ -8888,7 +8888,7 @@ def _get_pdt_status() -> dict:
         return {"used": 0, "remaining": 3, "swing_mode": False, "equity": 0.0}
 
 
-def submit_alpaca_trade(signal: ProSignal) -> Optional[str]:
+def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]]:
     """
     Place a bracket order on Alpaca (paper or live).
     Day trade mode  (signal.swing_mode=False):
@@ -8897,15 +8897,22 @@ def submit_alpaca_trade(signal: ProSignal) -> Optional[str]:
       Entry  — GTC limit order, OTO with stop only (no T1 TP — momentum-watch manages exit)
       This ensures the position is held overnight and does NOT consume a day-trade count.
 
-    Returns Alpaca order ID on success, None on failure.
+    Returns (order_id, None) on success, (None, error_message) on failure. The
+    error message is surfaced to Telegram by the caller — a prior version only
+    printed it to the GitHub Actions log, which is not somewhere the user
+    actually looks; a stretch of silent 401s from a stale Alpaca key went
+    undiagnosed because "Order FAILED — check GitHub Actions logs" told the
+    user nothing actionable.
     """
     client = get_alpaca_client()
     if client is None:
-        print("  ⚠️  Alpaca unavailable — check ALPACA_API_KEY / ALPACA_SECRET_KEY.")
-        return None
+        _err = "Alpaca unavailable — ALPACA_API_KEY / ALPACA_SECRET_KEY not set"
+        print(f"  ⚠️  {_err}")
+        return None, _err
     if signal.shares < 1:
-        print(f"  ⚠️  {signal.ticker}: 0 shares computed — skipping submission.")
-        return None
+        _err = f"{signal.ticker}: 0 shares computed — skipping submission"
+        print(f"  ⚠️  {_err}")
+        return None, _err
 
     side      = OrderSide.BUY  if signal.bias == "LONG" else OrderSide.SELL
     limit_px  = round(signal.entry,   2)
@@ -8946,10 +8953,10 @@ def submit_alpaca_trade(signal: ProSignal) -> Optional[str]:
             oid = str(order.id)
             print(f"  📤 [{label}] {signal.ticker} {signal.bias} {signal.shares}sh  "
                   f"limit=${limit_px}  stop=${stop_px}  T1=${target_px}  id={oid[:8]}…")
-        return oid
+        return oid, None
     except Exception as exc:
         print(f"  ❌ Alpaca order failed ({signal.ticker}): {exc}")
-        return None
+        return None, str(exc)
 
 
 def sync_alpaca_fills(tracker: WinRateTracker) -> int:
@@ -9963,6 +9970,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                      and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
         _opt_contract: dict | None = None
         oid: str | None = None
+        _submit_err: str | None = None
 
         if _use_options:
             _opt_client = get_alpaca_client()
@@ -10001,7 +10009,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
                       f"not in WATCHLIST, and not a Bear Gap Hold signal")
                 continue
-            oid = submit_alpaca_trade(sig)
+            oid, _submit_err = submit_alpaca_trade(sig)
 
         if oid:
             if (_use_options or _use_puts) and _opt_contract:
@@ -10116,7 +10124,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         else:
             send_telegram(
                 f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                f"Alpaca rejected the order — check GitHub Actions logs immediately."
+                f"{_submit_err or 'Alpaca rejected the order — check GitHub Actions logs immediately.'}"
             )
 
     print(f"  📤 {submitted}/{len(signals)} signal(s) submitted [{mode_label}]\n")

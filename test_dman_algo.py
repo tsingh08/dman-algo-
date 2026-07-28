@@ -298,6 +298,49 @@ class TestMergeJsonLists(unittest.TestCase):
         self.assertEqual(a.merge_json_lists(["x"], ["y"], key_fn=None), ["x"])
 
 
+class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
+    """A stretch of live orders silently failed (stale Alpaca key → 401) with
+    zero visibility: submit_alpaca_trade() only printed the exception to the
+    GitHub Actions log, and the Telegram alert just said "check GitHub Actions
+    logs immediately" with no actual reason. The user had to manually check
+    the Alpaca dashboard to even notice nothing was executing. Locks in that
+    the real exception text now comes back to the caller instead of being
+    swallowed after a print()."""
+
+    def _signal(self):
+        return a.ProSignal(
+            ticker="TESTX", setup="Gap & Hold", bias="LONG",
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+            rr=2.0, rsi=60, rvol=2.0, reason="test", shares=10,
+        )
+
+    def test_auth_failure_surfaces_the_real_exception_text(self):
+        mock_client = MagicMock()
+        mock_client.submit_order.side_effect = Exception("401 Client Error: Unauthorized")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            oid, err = a.submit_alpaca_trade(self._signal())
+        self.assertIsNone(oid)
+        self.assertIn("Unauthorized", err,
+                       "the caller must get the actual API error back, not a "
+                       "generic message pointing at logs nobody checks")
+
+    def test_success_returns_order_id_and_no_error(self):
+        mock_order = MagicMock()
+        mock_order.id = "abc123"
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = mock_order
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            oid, err = a.submit_alpaca_trade(self._signal())
+        self.assertEqual(oid, "abc123")
+        self.assertIsNone(err)
+
+    def test_missing_client_returns_a_descriptive_error(self):
+        with patch.object(a, "get_alpaca_client", return_value=None):
+            oid, err = a.submit_alpaca_trade(self._signal())
+        self.assertIsNone(oid)
+        self.assertIsNotNone(err)
+
+
 class TestMacroBlackoutWindows(unittest.TestCase):
     """Blackout logic gates real capital. An off-by-one here means either
     trading through an event that should have been sat out, or needlessly

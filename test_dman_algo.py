@@ -52,6 +52,7 @@ import json
 import os
 import re
 import sys
+import tempfile
 import unittest
 from datetime import date, datetime, timedelta
 from unittest.mock import patch, MagicMock
@@ -486,6 +487,276 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
             mock_tk.return_value.calendar = fake_cal
             result = a.get_upcoming_earnings(["TESTX"], days_ahead=5)
         self.assertEqual(result, [])
+
+
+class TestBarSetContainsBugFix(unittest.TestCase):
+    """Regression test for a confirmed production bug: alpaca-py's BarSet does
+    not support `in` the way a dict does — `ticker in resp` was always False
+    even when resp.data[ticker] had real bars, confirmed live 2026-07-29 by
+    directly calling the SDK. _fetch_alpaca_daily(), prewarm_alpaca_bars(),
+    and _fetch_intraday_bars() all used this pattern and always silently
+    returned [] / fell back to a slower path, in production, until fixed to
+    use resp.data.get(ticker, []) instead."""
+
+    def test_fetch_alpaca_daily_uses_data_get_not_in(self):
+        class FakeBarSet:
+            def __init__(self, data):
+                self.data = data
+            def __contains__(self, key):
+                return False   # reproduces the real BarSet's actual behavior
+
+        fake_bar = MagicMock(open=10.0, high=11.0, low=9.5, close=10.5, volume=1000,
+                             timestamp=datetime.now() - timedelta(days=1))
+        fake_resp = FakeBarSet({"TESTX": [fake_bar] * 25})
+        mock_dc = MagicMock()
+        mock_dc.get_stock_bars.return_value = fake_resp
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            df = a._fetch_alpaca_daily("TESTX", 30)
+        self.assertIsNotNone(df, "must recover real bars via resp.data.get(), "
+                                 "not silently return None via `ticker in resp`")
+        self.assertEqual(len(df), 25)
+
+
+class TestOptionContractStrikeStringConversion(unittest.TestCase):
+    """Regression test for a confirmed production bug: GetOptionContractsRequest's
+    strike_price_gte/lte fields require STRING values (pydantic Optional[str]),
+    but the code passed floats — every real call raised a ValidationError,
+    silently caught, meaning _find_best_call_contract/_find_best_put_contract
+    ALWAYS returned None and every options signal always fell back to an
+    equity order. Confirmed live 2026-07-29 against the real installed library."""
+
+    def test_find_best_call_contract_passes_string_strikes(self):
+        from alpaca.trading.requests import GetOptionContractsRequest
+        captured_requests = []
+
+        class FakeContract:
+            symbol = "TESTX260814C00100000"
+            strike_price = 100.0
+
+        def fake_get_option_contracts(req):
+            captured_requests.append(req)
+            return MagicMock(option_contracts=[FakeContract()])
+
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.side_effect = fake_get_option_contracts
+
+        fake_snap = {"bid": 5.0, "ask": 5.2, "mid": 5.1, "spread_pct": 0.04,
+                    "delta": 0.65, "gamma": 0.01, "theta": -0.05, "vega": 0.1,
+                    "iv": 0.3, "oi": 100}
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=fake_snap):
+                a._find_best_call_contract(mock_client, "TESTX", 100.0)
+
+        self.assertTrue(captured_requests, "expected at least one get_option_contracts call")
+        for req in captured_requests:
+            self.assertIsInstance(req.strike_price_gte, str,
+                                  "strike_price_gte must be a string — GetOptionContractsRequest "
+                                  "rejects floats with a pydantic ValidationError")
+            self.assertIsInstance(req.strike_price_lte, str)
+
+
+class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
+    """Locks in the first-ever use of OrderClass.MLEG in this codebase — every
+    prior options function submits single-leg orders only. A malformed legs
+    list here means partial fills / naked short legs in a LIVE brokerage
+    account, which is exactly the risk this feature exists to eliminate."""
+
+    def _plan(self, both_sides=True):
+        p = {"ticker": "META", "sets": 1, "net_debit": 8.34,
+             "put": {"long_occ": "META260807P00540000", "short_occ": "META260807P00510000"}}
+        if both_sides:
+            p["call"] = {"long_occ": "META260807C00650000", "short_occ": "META260807C00680000"}
+        return p
+
+    def test_double_spread_submits_exactly_four_legs_correct_sides(self):
+        mock_order = MagicMock(); mock_order.id = "xyz"
+        mock_client = MagicMock(); mock_client.submit_order.return_value = mock_order
+        oid, err = a._submit_earnings_spread(mock_client, self._plan())
+        self.assertIsNone(err)
+        self.assertEqual(oid, "xyz")
+        req = mock_client.submit_order.call_args[0][0]
+        self.assertEqual(req.order_class, a.OrderClass.MLEG)
+        self.assertEqual(len(req.legs), 4)
+        sides = [(l.symbol, l.side) for l in req.legs]
+        self.assertIn(("META260807C00650000", a.OrderSide.BUY),  sides)
+        self.assertIn(("META260807C00680000", a.OrderSide.SELL), sides)
+        self.assertIn(("META260807P00540000", a.OrderSide.BUY),  sides)
+        self.assertIn(("META260807P00510000", a.OrderSide.SELL), sides)
+
+    def test_single_side_spread_submits_exactly_two_legs(self):
+        mock_client = MagicMock(); mock_client.submit_order.return_value = MagicMock(id="abc")
+        _, err = a._submit_earnings_spread(mock_client, self._plan(both_sides=False))
+        self.assertIsNone(err)
+        req = mock_client.submit_order.call_args[0][0]
+        self.assertEqual(len(req.legs), 2)
+
+    def test_limit_price_is_positive_for_a_debit(self):
+        mock_client = MagicMock(); mock_client.submit_order.return_value = MagicMock(id="1")
+        a._submit_earnings_spread(mock_client, self._plan())
+        req = mock_client.submit_order.call_args[0][0]
+        self.assertGreater(req.limit_price, 0)
+
+    def test_submit_failure_returns_error_text_not_swallowed(self):
+        mock_client = MagicMock()
+        mock_client.submit_order.side_effect = Exception("insufficient buying power")
+        oid, err = a._submit_earnings_spread(mock_client, self._plan())
+        self.assertIsNone(oid)
+        self.assertIn("insufficient buying power", err)
+
+    def test_no_legs_is_rejected_before_hitting_the_api(self):
+        mock_client = MagicMock()
+        oid, err = a._submit_earnings_spread(mock_client, {"ticker": "X", "sets": 1, "net_debit": 1})
+        self.assertIsNone(oid)
+        self.assertIsNotNone(err)
+        mock_client.submit_order.assert_not_called()
+
+
+class TestCloseEarningsSpread(unittest.TestCase):
+    """_close_earnings_spread() must invert each leg's side/intent from how it
+    was opened (bought-to-open -> sell-to-close, sold-to-open -> buy-to-close).
+    Getting this backwards would submit the WRONG side on a live account —
+    e.g. buying MORE of a short leg instead of closing it."""
+
+    def _pos(self):
+        return {"ticker": "META", "spread_qty": 1,
+               "legs": ["META260807C00650000", "META260807C00680000",
+                        "META260807P00540000", "META260807P00510000"]}
+
+    def test_sides_and_intents_are_inverted_from_opening(self):
+        mock_held = MagicMock(qty="1")
+        mock_client = MagicMock()
+        mock_client.get_open_position.return_value = mock_held
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="close1")
+        fake_snap = {"bid": 5.0, "ask": 5.5}
+        with patch.object(a, "_get_option_snapshot", return_value=fake_snap):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                st, oid = a._close_earnings_spread(self._pos(), "test")
+        self.assertEqual(st, "submitted")
+        req = mock_client.submit_order.call_args[0][0]
+        by_symbol = {l.symbol: l.side for l in req.legs}
+        self.assertEqual(by_symbol["META260807C00650000"], a.OrderSide.SELL)   # was long -> sell to close
+        self.assertEqual(by_symbol["META260807C00680000"], a.OrderSide.BUY)    # was short -> buy to close
+        self.assertEqual(by_symbol["META260807P00540000"], a.OrderSide.SELL)
+        self.assertEqual(by_symbol["META260807P00510000"], a.OrderSide.BUY)
+
+    def test_already_closed_when_no_leg_is_held(self):
+        mock_client = MagicMock()
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            st, oid = a._close_earnings_spread(self._pos(), "test")
+        self.assertEqual(st, "already_closed")
+        mock_client.submit_order.assert_not_called()
+
+
+class TestEarningsSpreadSizing(unittest.TestCase):
+    """5% of a $2,997.77 account is ~$150 — far below a realistic large-cap
+    debit spread's cost. Locks in that a too-expensive-even-at-minimum-width
+    spread is skipped explicitly (with a reason), never silently forced into
+    a degenerate 0-contract/0-cost plan."""
+
+    def test_skips_when_even_min_width_exceeds_budget_slack(self):
+        with patch.object(a, "get_effective_account", return_value=1000.0):
+            with patch.object(a, "_last_n_earnings_moves", return_value=[]):
+                with patch.object(a, "_find_spread_legs", return_value={
+                        "long_occ": "X1", "short_occ": "X2", "long_strike": 100,
+                        "short_strike": 110, "net_debit": 50.0,  # $5000/contract — absurdly expensive
+                        "expiry": "2026-08-07", "dte": 9, "long_oi": 0, "short_oi": 0}):
+                    plan = a.build_earnings_spread_plan(
+                        MagicMock(), "TESTX", 500.0, a.date.today(), "AMC")
+        self.assertIsNone(plan)
+
+
+class TestEarningsApprovalTelegramFlow(unittest.TestCase):
+    """The approve-gate is the entire safety rationale for this feature —
+    every earnings spread requires an explicit human YES (permanent gate, no
+    auto-promotion). A reply-parsing bug here either submits an unapproved
+    live order or permanently ignores a legitimate approval. Uses an isolated
+    temp file for pending state — never the real dman_earnings_pending.json."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
+        self._patch.start()
+        a._save_earnings_pending([])
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _plan(self):
+        return {"ticker": "HOOD", "earn_date": "2026-07-29", "sets": 1,
+               "net_debit": 1.91, "total_cost": 191.0, "max_loss": 191.0,
+               "directional": None,
+               "call": {"long_occ": "HOOD260807C00096000", "short_occ": "HOOD260807C00099000",
+                        "max_gain": 193.0}}
+
+    def _add_pending(self, ticker, minutes_until_expiry=30):
+        entry = {"ticker": ticker, "earn_date": "2026-07-29",
+                 "created_at": datetime.now(a.ET).isoformat(),
+                 "expires_at": (datetime.now(a.ET) + timedelta(minutes=minutes_until_expiry)).isoformat(),
+                 "status": "awaiting_approval", "plan": self._plan()}
+        pending = a._load_earnings_pending()
+        pending.append(entry)
+        a._save_earnings_pending(pending)
+
+    def test_bare_yes_applies_to_the_only_pending_offer(self):
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = MagicMock(id="ord1")
+        with patch.object(a, "send_telegram", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                with patch.object(a, "PositionTracker") as MockPT:
+                    consumed = a._handle_earnings_approval_reply("yes")
+        self.assertTrue(consumed)
+        mock_client.submit_order.assert_called_once()
+        self.assertEqual(a._load_earnings_pending(), [])
+
+    def test_yes_with_wrong_ticker_does_not_match(self):
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        with patch.object(a, "send_telegram", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                consumed = a._handle_earnings_approval_reply("yes META")
+        mock_client.submit_order.assert_not_called()
+        # the HOOD offer must still be there — a mismatched ticker isn't a rejection
+        self.assertEqual(len(a._load_earnings_pending()), 1)
+
+    def test_ambiguous_bare_yes_with_two_pending_is_not_silently_guessed(self):
+        self._add_pending("HOOD")
+        self._add_pending("RIVN")
+        mock_client = MagicMock()
+        with patch.object(a, "send_telegram", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_not_called()
+        self.assertEqual(len(a._load_earnings_pending()), 2, "both offers must remain pending")
+
+    def test_no_rejects_and_does_not_submit_an_order(self):
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        with patch.object(a, "send_telegram", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                consumed = a._handle_earnings_approval_reply("no HOOD")
+        self.assertTrue(consumed)
+        mock_client.submit_order.assert_not_called()
+        self.assertEqual(a._load_earnings_pending(), [])
+
+    def test_expired_offer_is_not_approvable(self):
+        self._add_pending("HOOD", minutes_until_expiry=-5)   # already expired
+        mock_client = MagicMock()
+        with patch.object(a, "send_telegram", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_not_called()
+
+    def test_non_yes_no_text_is_not_consumed(self):
+        self._add_pending("HOOD")
+        consumed = a._handle_earnings_approval_reply("what's the weather")
+        self.assertFalse(consumed)
+        self.assertEqual(len(a._load_earnings_pending()), 1)
 
 
 def _fake_df():

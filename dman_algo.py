@@ -153,7 +153,12 @@ OPTIONS_DTE_MAX             = 28     # max 4 weeks
 OPTIONS_MAX_SPREAD_PCT      = 0.15   # skip contract if bid-ask spread > 15% of mid (was 20% of ask)
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
-OPTIONS_DATA_FEED           = "opra"        # Alpaca Algo Trader Plus — real-time OPRA feed
+OPTIONS_DATA_FEED           = "indicative"  # this account's subscription returns 403 on "opra"
+                                            # (confirmed live 2026-07-29 — every _get_option_snapshot()
+                                            # call was silently failing, so every options signal was
+                                            # silently falling back to an equity order). "indicative"
+                                            # returns 200 with quotes/greeks/IV; only openInterest is
+                                            # sometimes absent (defaults to 0, degrades gracefully).
 STOCK_DATA_FEED             = "sip"         # Alpaca Algo Trader Plus — consolidated real-time SIP feed
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
@@ -201,6 +206,34 @@ STRANGLE_TARGET_DTE = 7                # weekly options — captures the move, l
 STRANGLE_MIN_DTE    = 5                # ≥5 DTE avoids same-week expiry (gamma/theta bleed)
 STRANGLE_MAX_DTE    = 14
 STRANGLE_RISK_PCT   = 0.01             # 1% of account per strangle event
+
+# ── Earnings vertical/double debit spreads (rule-based, single-stock, WATCHLIST) ──
+# Turns tonight's manually-built META spread (2026-07-29) into a permanent, tested
+# feature: buy an OTM call debit spread and/or an OTM put debit spread ahead of a
+# WATCHLIST ticker's own earnings, submitted as ONE atomic multi-leg (MLEG) order —
+# never as separate single-leg orders, which would carry leg-imbalance risk.
+ENABLE_EARNINGS_SPREADS        = True
+EARNINGS_SPREAD_RISK_PCT       = 0.05    # 5% of equity per event (~$150 at $2,997.77)
+EARNINGS_SPREAD_MIN_DTE        = 3
+EARNINGS_SPREAD_MAX_DTE        = 14
+EARNINGS_SPREAD_TARGET_DTE     = 7
+EARNINGS_SPREAD_LONG_OTM_PCT   = 0.07    # starting point — narrows to fit budget, see build_earnings_spread_plan()
+EARNINGS_SPREAD_SHORT_OTM_PCT  = 0.12
+EARNINGS_SPREAD_MAX_WIDTH_PCT  = 0.12    # widest the short strike may sit from the long strike
+EARNINGS_SPREAD_MIN_WIDTH_PCT  = 0.03    # hard floor — below this, skip rather than distort further
+EARNINGS_SPREAD_MAX_SPREAD_PCT = 0.15    # per-leg bid/ask liquidity cap, mirrors OPTIONS_MAX_SPREAD_PCT
+EARNINGS_SPREAD_MIN_OI         = 25      # per-leg minimum open interest
+EARNINGS_SPREAD_BUDGET_SLACK   = 1.3     # skip only if min-width spread still costs > budget * this
+EARNINGS_SPREAD_CLOSE_DTE      = 1       # close this many days before expiry — avoid short-leg pin/assignment risk
+EARNINGS_SPREAD_TAKE_PROFIT_PCT= 0.70    # optional early close at this fraction of max gain
+EARNINGS_DIRECTIONAL_MIN_MOVES = 3       # of EARNINGS_DIRECTIONAL_LOOKBACK, need this many same-sign to go single-sided
+EARNINGS_DIRECTIONAL_LOOKBACK  = 4       # how many past earnings moves to look at
+EARNINGS_DIRECTIONAL_MIN_AVG_PCT = 8.0   # ...and the average magnitude must be at least this
+EARNINGS_IV_BACKWARDATION_MIN  = 0.05    # front-vs-back ATM IV gap required to treat "earnings today" as still pending
+EARNINGS_APPROVAL_TIMEOUT_MIN  = 30      # minutes to wait for a Telegram YES before the offer expires
+                                          # (permanent, always-on gate — no auto-promotion to autonomous
+                                          # submission; every earnings spread requires a human YES)
+EARNINGS_SPREAD_PENDING_FILE   = "dman_earnings_pending.json"
 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
@@ -674,7 +707,11 @@ def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]
             feed=STOCK_DATA_FEED,
         )
         _resp = dc.get_stock_bars(_alp_req)
-        _bars = _resp[ticker] if ticker in _resp else []
+        # BarSet doesn't support `in` the way a dict does — `ticker in _resp` is
+        # always False even when _resp.data[ticker] has real bars (confirmed
+        # live 2026-07-29), so this always silently returned [] before. .data
+        # is a real dict; use it directly.
+        _bars = _resp.data.get(ticker, [])
         return _bars_to_df(_bars)
     except Exception:
         return None
@@ -726,7 +763,9 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
                     if key in _cache:
                         continue
                     try:
-                        _bars = _resp[ticker] if ticker in _resp else []
+                        # see _fetch_alpaca_daily — BarSet's `in` always returns
+                        # False, so this always silently returned [] before.
+                        _bars = _resp.data.get(ticker, [])
                         df = _bars_to_df(_bars)
                     except Exception:
                         continue   # one malformed ticker's bars must not skip the rest of the chunk
@@ -1304,6 +1343,11 @@ def _handle_telegram_command(text: str) -> None:
         else:
             _lines = []
             for _p in _pt.positions:
+                if _p.setup.startswith("Earnings "):
+                    _lines.append(f"<b>{_p.ticker}</b> [SPREAD] {_p.setup}  "
+                                  f"cost ${_p.entry:.0f}  max loss ${_p.max_loss:.0f}  "
+                                  f"max gain ${_p.max_gain:.0f}")
+                    continue
                 _tag = "OPT" if _p.setup.startswith("Options ") else _p.bias
                 _lines.append(f"<b>{_p.ticker}</b> [{_tag}] entry ${_p.entry}  "
                               f"stop ${_p.stop}  T1 ${_p.target1}")
@@ -1318,6 +1362,10 @@ def _handle_telegram_command(text: str) -> None:
         _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
         if _pos is None:
             send_telegram(f"❓ /close: no tracked position for {_arg}")
+        elif _pos.setup.startswith("Earnings "):
+            _st, _oid = _close_earnings_spread(asdict(_pos), f"manual /close {_arg}")
+            send_telegram(f"📤 /close {_arg}: {_st}"
+                          + (f" (id {_oid[:8]}…)" if _oid else ""))
         elif _pos.setup.startswith("Options "):
             _occ_c  = _pos.setup.split()[2]
             _ctrs_c = max(1, int(_pos.shares) // 100)
@@ -1341,6 +1389,177 @@ def _handle_telegram_command(text: str) -> None:
             "/resume — re-enable entries\n"
             "/close TICKER — close a position now"
         )
+
+
+def _load_earnings_pending() -> list[dict]:
+    try:
+        with open(EARNINGS_SPREAD_PENDING_FILE) as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
+def _save_earnings_pending(entries: list[dict]) -> None:
+    with open(EARNINGS_SPREAD_PENDING_FILE, "w") as f:
+        json.dump(entries, f, indent=2, default=str)
+
+
+def format_earnings_spread_telegram(plan: dict) -> str:
+    """Telegram approval-request message for a pending earnings spread."""
+    lines = [f"⚡ <b>DMan EARNINGS SPREAD</b> — {plan['ticker']}  [{plan.get('timing', '?')}]"]
+
+    moves = plan.get("last_moves_pct", [])
+    kind_label = f"Single-sided {plan['directional']} spread" if plan.get("directional") \
+        else "Non-directional double spread"
+    if moves:
+        moves_str = "/".join(f"{m:+.1f}" for m in moves)
+        lines.append(f"{kind_label} (history: {moves_str}% last {len(moves)} qtrs)")
+    else:
+        lines.append(f"{kind_label} (no reliable history found — defaulting safe)")
+
+    if plan.get("call"):
+        c = plan["call"]
+        lines.append(f"📈 CALL debit spread   buy {c['long_strike']:.0f}C / sell {c['short_strike']:.0f}C   "
+                     f"exp {date.fromisoformat(c['expiry']).strftime('%b %d')} ({c['dte']}d)")
+    if plan.get("put"):
+        p = plan["put"]
+        lines.append(f"📉 PUT debit spread    buy {p['long_strike']:.0f}P / sell {p['short_strike']:.0f}P   "
+                     f"exp {date.fromisoformat(p['expiry']).strftime('%b %d')} ({p['dte']}d)")
+
+    eff_acct = get_effective_account()
+    pct = (plan["total_cost"] / eff_acct * 100) if eff_acct > 0 else 0
+    lines.append(f"Net debit: ${plan['total_cost']:.0f}  ({plan['sets']} set"
+                 f"{'s' if plan['sets'] != 1 else ''})  =  {pct:.1f}% of ${eff_acct:,.2f} equity")
+
+    gains = [f"${plan[side]['max_gain']:.0f}" for side in ("call", "put") if plan.get(side)]
+    lines.append(f"Max loss: ${plan['max_loss']:.0f}   Max gain: {' / '.join(gains)}")
+
+    bes = []
+    if plan.get("call"):
+        bes.append(f"${plan['call']['breakeven']:.2f} ↑")
+    if plan.get("put"):
+        bes.append(f"${plan['put']['breakeven']:.2f} ↓")
+    lines.append(f"Breakevens: {'  '.join(bes)}")
+
+    _n_sides = int(bool(plan.get("call"))) + int(bool(plan.get("put")))
+    lines.append(f"Reply <b>YES {plan['ticker']}</b> to approve (1 atomic order, {_n_sides} side(s)) "
+                 f"· <b>NO {plan['ticker']}</b> to reject · expires in {EARNINGS_APPROVAL_TIMEOUT_MIN} min")
+    return "\n".join(lines)
+
+
+def _open_earnings_spread_position(plan: dict) -> OpenPosition:
+    """
+    Builds the OpenPosition record for a filled earnings spread and persists
+    it via PositionTracker — shared by the human-approval path
+    (_handle_earnings_approval_reply) and the fully-autonomous path (the
+    daemon's earnings_loop, once the approve-gate trial is complete), so the
+    two paths can't silently drift into recording positions differently.
+    legs are stored in submission order (long, short[, long, short]) —
+    _close_earnings_spread()/_monitor_earnings_spread_position() rely on
+    even/odd index meaning long/short.
+    """
+    legs = []
+    if plan.get("call"):
+        legs += [plan["call"]["long_occ"], plan["call"]["short_occ"]]
+    if plan.get("put"):
+        legs += [plan["put"]["long_occ"], plan["put"]["short_occ"]]
+    setup_tag = ("Earnings Double Spread" if (plan.get("call") and plan.get("put"))
+                 else ("Earnings Call Spread" if plan.get("call") else "Earnings Put Spread"))
+    max_gain = max(plan.get("call", {}).get("max_gain", 0), plan.get("put", {}).get("max_gain", 0))
+
+    pos = OpenPosition(
+        ticker=plan["ticker"],
+        bias=(plan["directional"] if plan.get("directional") else "NEUTRAL"),
+        setup=setup_tag, entry=plan["total_cost"], stop=0.0, target1=0.0, target2=0.0,
+        shares=0, entry_date=date.today().isoformat(),
+        legs=legs, spread_qty=plan["sets"], max_loss=plan["max_loss"],
+        max_gain=max_gain, earn_date=plan["earn_date"],
+    )
+    PositionTracker().open(pos)
+    return pos
+
+
+def _handle_earnings_approval_reply(text: str) -> bool:
+    """
+    Matches a bare (non-"/"-prefixed) YES/NO reply against pending earnings-
+    spread approval offers. Ticker is optional if exactly one offer is
+    pending; with 2+ pending and no ticker given, the reply is logged and
+    ignored rather than silently guessed which offer it's for — an
+    ambiguous approval submitting the WRONG trade would be worse than one
+    that expires unused. Returns True if the message was earnings-approval-
+    shaped (whether or not it matched a live offer), so the caller doesn't
+    also try to process it as some other kind of message.
+    """
+    import re
+    m = re.match(r"^(yes|y|no|n)\b\s*([A-Za-z]*)\s*$", text.strip(), re.IGNORECASE)
+    if not m:
+        return False
+    is_yes = m.group(1).lower() in ("yes", "y")
+    ticker_hint = m.group(2).upper().strip()
+
+    pending = _load_earnings_pending()
+    if not pending:
+        return False
+
+    now = datetime.now(ET)
+    still_pending = []
+    for entry in pending:
+        if entry.get("status") == "awaiting_approval":
+            try:
+                if now >= datetime.fromisoformat(entry["expires_at"]):
+                    send_telegram(f"⏰ {entry['ticker']} earnings spread offer expired — "
+                                 f"no reply within {EARNINGS_APPROVAL_TIMEOUT_MIN} min, no order placed.")
+                    continue
+            except Exception:
+                pass
+        still_pending.append(entry)
+    pending = still_pending
+
+    awaiting = [e for e in pending if e.get("status") == "awaiting_approval"]
+    if not awaiting:
+        _save_earnings_pending(pending)
+        return False   # nothing pending — not our message to consume
+
+    if ticker_hint:
+        matches = [e for e in awaiting if e["ticker"] == ticker_hint]
+    elif len(awaiting) == 1:
+        matches = awaiting
+    else:
+        print(f"  ⚠️  Ambiguous YES/NO reply with {len(awaiting)} pending earnings-spread "
+              f"offers and no ticker given — ignoring (reply 'YES TICKER' explicitly)")
+        _save_earnings_pending(pending)
+        return True
+
+    if not matches:
+        _save_earnings_pending(pending)
+        return False   # ticker given but doesn't match any pending offer
+
+    entry = matches[0]
+    pending = [e for e in pending if e is not entry]
+
+    if not is_yes:
+        send_telegram(f"👍 {entry['ticker']} earnings spread rejected — no order placed.")
+        _save_earnings_pending(pending)
+        return True
+
+    client = get_alpaca_client()
+    if client is None:
+        send_telegram(f"❌ {entry['ticker']} earnings spread approved but Alpaca is unavailable — not submitted.")
+        _save_earnings_pending(pending)
+        return True
+
+    plan = entry["plan"]
+    order_id, err = _submit_earnings_spread(client, plan)
+    if err:
+        send_telegram(f"❌ <b>{entry['ticker']} earnings spread FAILED</b>\n{err}")
+        _save_earnings_pending(pending)
+        return True
+
+    _open_earnings_spread_position(plan)
+    send_telegram(f"📤 <b>{entry['ticker']} EARNINGS SPREAD SUBMITTED</b>  id {order_id[:8]}…\n"
+                 f"Cost ${plan['total_cost']:.0f}  Max loss ${plan['max_loss']:.0f}")
+    _save_earnings_pending(pending)
+    return True
 
 
 def _process_telegram_commands(timeout: int = 0) -> int:
@@ -1376,6 +1595,14 @@ def _process_telegram_commands(timeout: int = 0) -> int:
             continue   # ignore anyone who isn't the account owner
         _text = (_m.get("text") or "").strip()
         if not _text.startswith("/"):
+            # Plain (non-"/") replies used to be silently dropped here —
+            # that's the only way a human can answer an earnings-spread
+            # approval request (see format_earnings_spread_telegram()).
+            try:
+                if _handle_earnings_approval_reply(_text):
+                    _handled += 1
+            except Exception as _e:
+                print(f"  ⚠️  Earnings approval reply error ({_text}): {_e}")
             continue
         try:
             _handle_telegram_command(_text)
@@ -2734,7 +2961,10 @@ def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
                     feed=STOCK_DATA_FEED,
                 )
                 _alp_resp = dc.get_stock_bars(_alp_req)
-                _alp_bars = _alp_resp[ticker] if ticker in _alp_resp else []
+                # see _fetch_alpaca_daily — BarSet's `in` always returns False,
+                # so this always silently returned [] before, meaning momentum
+                # watch always fell back to the slower/coarser yfinance path.
+                _alp_bars = _alp_resp.data.get(ticker, [])
                 if len(_alp_bars) >= 3:
                     _records = [
                         {"Open": b.open, "High": b.high, "Low": b.low,
@@ -3178,6 +3408,161 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
     )
 
 
+def _close_earnings_spread(pos: dict, reason: str) -> tuple[str, Optional[str]]:
+    """
+    Mirrors _submit_options_close but MLEG-aware: closes every leg of an
+    earnings spread atomically in ONE order, with each leg's side/intent
+    inverted from how it was opened (bought-to-open -> sell-to-close,
+    sold-to-open -> buy-to-close). pos['legs'] must be in the same order
+    _submit_earnings_spread() submitted them: long, short[, long, short] —
+    i.e. even index = was long, odd index = was short.
+
+    Returns (status, order_id) — same vocabulary as _submit_options_close():
+    "submitted"/"pending"/"already_closed"/"failed".
+    """
+    client = get_alpaca_client()
+    if client is None:
+        return "failed", None
+
+    legs_syms = pos.get("legs", [])
+    if not legs_syms or len(legs_syms) % 2 != 0:
+        return "failed", None
+
+    from alpaca.trading.requests import OptionLegRequest
+    from alpaca.trading.enums import PositionIntent
+
+    # If Alpaca shows nothing held for ANY leg, treat the whole spread as
+    # already closed rather than attempting to re-close legs that don't exist.
+    still_held = False
+    for _sym in legs_syms:
+        try:
+            _apos = client.get_open_position(_sym)
+            if abs(int(float(_apos.qty))) > 0:
+                still_held = True
+                break
+        except Exception:
+            continue
+    if not still_held:
+        return "already_closed", None
+
+    # Don't double-submit: if a closing order for these exact legs is already
+    # open, report it instead of submitting a second one.
+    try:
+        _open_orders = client.get_orders(filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=50))
+        for _o in _open_orders:
+            _o_syms = {getattr(_l, "symbol", None) for _l in (getattr(_o, "legs", None) or [])}
+            if _o_syms and _o_syms == set(legs_syms):
+                return "pending", str(_o.id)
+    except Exception:
+        pass
+
+    close_legs = []
+    net_credit = 0.0
+    got_all_quotes = True
+    for i, sym in enumerate(legs_syms):
+        was_long = (i % 2 == 0)
+        side   = OrderSide.SELL if was_long else OrderSide.BUY
+        intent = PositionIntent.SELL_TO_CLOSE if was_long else PositionIntent.BUY_TO_CLOSE
+        close_legs.append(OptionLegRequest(symbol=sym, ratio_qty=1, side=side, position_intent=intent))
+        snap = _get_option_snapshot(sym)
+        if not snap:
+            got_all_quotes = False
+            continue
+        net_credit += snap.get("bid", 0) if was_long else -snap.get("ask", 0)
+
+    # net_credit > 0 means we net RECEIVE money closing (sell longs for more
+    # than we pay to buy back shorts) -> a credit -> negative limit_price
+    # per the library's own debit/credit sign convention (see _submit_earnings_spread).
+    limit_price = round(-net_credit, 2) if got_all_quotes else 0.01
+
+    try:
+        qty = max(1, int(pos.get("spread_qty", 1)))
+        order = client.submit_order(LimitOrderRequest(
+            qty=qty, order_class=OrderClass.MLEG, time_in_force=TimeInForce.DAY,
+            limit_price=limit_price, legs=close_legs,
+        ))
+        print(f"  📤 AUTO-CLOSE spread {pos.get('ticker', '?')} legs={legs_syms} "
+              f"({reason})  id={str(order.id)[:8]}…")
+        return "submitted", str(order.id)
+    except Exception as exc:
+        print(f"  ❌ Earnings spread auto-close failed: {exc}")
+        send_telegram(f"🚨 <b>SPREAD AUTO-CLOSE FAILED</b> — {pos.get('ticker', '?')} ({reason})\n"
+                     f"{exc}\nClose manually in Alpaca NOW.")
+        return "failed", None
+
+
+def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
+    """
+    Earnings debit spreads are defined-risk by construction (max loss == the
+    debit already paid) — no stop-loss enforcement needed, unlike a naked
+    long option. Only two actions: close at EARNINGS_SPREAD_CLOSE_DTE before
+    expiry (avoid short-leg pin/assignment risk), or optionally earlier once
+    current value reaches EARNINGS_SPREAD_TAKE_PROFIT_PCT of max gain. Shared
+    by run_momentum_watch (hourly cron) and the always-on daemon (60s).
+    """
+    t = pos.get("ticker", "")
+    legs_syms = pos.get("legs", [])
+    max_gain  = float(pos.get("max_gain", 0))
+    if not t or not legs_syms:
+        return None
+
+    try:
+        _occ_exp = legs_syms[0][-15:-9] if len(legs_syms[0]) >= 15 else ""
+        _exp_dt  = datetime.strptime(_occ_exp, "%y%m%d").date() if _occ_exp else None
+        dte_now  = (_exp_dt - date.today()).days if _exp_dt else 99
+    except Exception:
+        dte_now = 99
+
+    cur_value = 0.0
+    got_quotes = True
+    for i, sym in enumerate(legs_syms):
+        snap = _get_option_snapshot(sym)
+        if not snap:
+            got_quotes = False
+            break
+        was_long = (i % 2 == 0)
+        cur_value += snap.get("bid", 0) if was_long else -snap.get("ask", 0)
+    cur_value *= 100 * max(1, int(pos.get("spread_qty", 1)))
+
+    _tod  = date.today().isoformat()
+    _dtek = f"{t}_EARNSPREAD_DTE_{_tod}"
+    _tpk  = f"{t}_EARNSPREAD_TP_{_tod}"
+
+    if dte_now <= EARNINGS_SPREAD_CLOSE_DTE:
+        st, oid = _close_earnings_spread(pos, f"{t} earnings spread DTE close")
+        if st == "submitted":
+            action, msg = "🔴 DTE CLOSE — AUTO-CLOSED", \
+                f"{dte_now}d to expiry — closing to avoid pin/assignment risk. id {oid[:8]}…"
+        elif st == "pending":
+            action, msg = "🔴 DTE CLOSE — close order working", "Close order already open — awaiting fill"
+        elif st == "already_closed":
+            action, msg = "🔴 DTE — already closed at Alpaca", "Nothing held — next sync records the outcome"
+        else:
+            action, msg = "🔴 DTE CLOSE — ⚠️ AUTO-CLOSE FAILED", f"{dte_now}d to expiry — CLOSE MANUALLY NOW"
+        if not _is_alerted_today(_dtek):
+            send_telegram(f"🔴 <b>EARNINGS SPREAD DTE</b> — {t}\n{msg}")
+            _mark_alerted(_dtek)
+        return f"{t}: {action}"
+
+    if got_quotes and max_gain > 0 and cur_value >= max_gain * EARNINGS_SPREAD_TAKE_PROFIT_PCT:
+        st, oid = _close_earnings_spread(pos, f"{t} earnings spread take-profit")
+        if st == "submitted":
+            action, msg = "🚀 TAKE-PROFIT — AUTO-CLOSED", \
+                f"Value ${cur_value:.0f} >= {EARNINGS_SPREAD_TAKE_PROFIT_PCT*100:.0f}% of max gain ${max_gain:.0f}. id {oid[:8]}…"
+        elif st == "pending":
+            action, msg = "🚀 TAKE-PROFIT — close order working", "Close order already open — awaiting fill"
+        elif st == "already_closed":
+            action, msg = "🚀 TAKE-PROFIT — already closed at Alpaca", "Nothing held — next sync records the outcome"
+        else:
+            action, msg = "🚀 TAKE-PROFIT — ⚠️ AUTO-CLOSE FAILED", f"Value ${cur_value:.0f} — CLOSE MANUALLY to lock in gain"
+        if not _is_alerted_today(_tpk):
+            send_telegram(f"🚀 <b>EARNINGS SPREAD TAKE-PROFIT</b> — {t}\n{msg}")
+            _mark_alerted(_tpk)
+        return f"{t}: {action}"
+
+    return None
+
+
 def run_options_guard(verbose: bool = True) -> list[str]:
     """
     Enforce stops/targets on every tracked options position right now.
@@ -3197,6 +3582,8 @@ def run_options_guard(verbose: bool = True) -> list[str]:
             _a = _monitor_option_position(_pos, "CALL")
         elif _setup.startswith("Options Put "):
             _a = _monitor_option_position(_pos, "PUT")
+        elif _setup.startswith("Earnings "):
+            _a = _monitor_earnings_spread_position(_pos)
         else:
             continue
         if _a:
@@ -3254,6 +3641,11 @@ def run_momentum_watch() -> None:
                         continue
                     elif setup.startswith("Options Put "):
                         _oa = _monitor_option_position(pos, "PUT")
+                        if _oa:
+                            options_alerts.append(_oa)
+                        continue
+                    elif setup.startswith("Earnings "):
+                        _oa = _monitor_earnings_spread_position(pos)
                         if _oa:
                             options_alerts.append(_oa)
                         continue
@@ -5191,6 +5583,153 @@ def get_upcoming_earnings(tickers: list, days_ahead: int = 5) -> list[dict]:
     return results
 
 
+def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]:
+    """
+    Best-effort BMO/AMC lookup via Benzinga's calendar endpoint. Returns "BMO",
+    "AMC", or None (unknown/unavailable).
+
+    NOTE — empirically tested 2026-07-29 against the live BENZINGA_API_KEY on
+    this account: the endpoint's `tickers` filter is NOT applied server-side
+    (a `tickers=META` request still returns an unrelated generic page of
+    future estimated dates), and the bracketed `parameters[tickers]=META`
+    form returns zero results. This function therefore fetches whatever page
+    Benzinga returns and filters for `ticker`+`earn_date` client-side, which
+    only helps if the requested name happens to already be on that page. In
+    practice this currently returns None almost always on this account/plan
+    tier — get_earnings_spread_candidates() is written to treat that as the
+    normal case and fall through to the IV-backwardation heuristic below, not
+    as an error. Revisit if the Benzinga plan/endpoint behavior changes.
+    """
+    if not BENZINGA_API_KEY:
+        return None
+    try:
+        resp = requests.get(
+            "https://api.benzinga.com/api/v2.1/calendar/earnings",
+            params={"token": BENZINGA_API_KEY, "tickers": ticker},
+            headers={"Accept": "application/json"},
+            timeout=8,
+        )
+        if resp.status_code != 200:
+            return None
+        data = resp.json()
+        items = data if isinstance(data, list) else data.get("earnings", [])
+        for item in items:
+            if str(item.get("ticker", "")).upper() != ticker.upper():
+                continue
+            try:
+                if date.fromisoformat(str(item.get("date", ""))[:10]) != earn_date:
+                    continue
+            except Exception:
+                continue
+            time_str = str(item.get("time", "")).strip()
+            if not time_str:
+                continue
+            try:
+                hh = int(time_str.split(":")[0])
+            except Exception:
+                continue
+            return "BMO" if hh < 12 else "AMC"
+    except Exception:
+        return None
+    return None
+
+
+def _get_atm_iv(client, ticker: str, current_price: float, target_dte: int) -> Optional[float]:
+    """
+    ATM implied vol for the expiry nearest target_dte, via the same
+    GetOptionContractsRequest + _get_option_snapshot pattern _find_best_call_contract
+    uses. Returns None on any lookup/data failure (fail-closed for the caller).
+    """
+    from alpaca.trading.requests import GetOptionContractsRequest
+    from alpaca.trading.enums import ContractType
+
+    today = date.today()
+    target_expiry = None
+    best_diff = float("inf")
+    for offset in range(1, target_dte + 21):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == 4:   # Friday
+            diff = abs(offset - target_dte)
+            if diff < best_diff:
+                best_diff = diff
+                target_expiry = candidate
+    if not target_expiry:
+        return None
+
+    incr = 1.0 if current_price < 25 else (2.5 if current_price < 200 else 5.0)
+    atm = round(round(current_price / incr) * incr, 2)
+    try:
+        raw = client.get_option_contracts(GetOptionContractsRequest(
+            underlying_symbols=[ticker],
+            expiration_date=target_expiry,
+            type=ContractType.CALL,
+            strike_price_gte=str(round(atm - 0.01, 2)),
+            strike_price_lte=str(round(atm + 0.01, 2)),
+            limit=1,
+        ))
+        items = getattr(raw, "option_contracts", None) or (raw if isinstance(raw, list) else [])
+        if not items:
+            return None
+        snap = _get_option_snapshot(items[0].symbol)
+        if not snap or snap.get("iv", 0) <= 0:
+            return None
+        return float(snap["iv"])
+    except Exception:
+        return None
+
+
+def _resolve_earnings_timing(client, ticker: str, earn_date: date, current_price: float,
+                             days_away: int) -> str:
+    """
+    Returns "BMO", "AMC", "PENDING-TOMORROW", or "UNKNOWN-TODAY".
+    days_away == 1 doesn't need real BMO/AMC resolution — entering today before
+    close is safe either way (a day early for a true BMO print costs a little
+    extra theta, nothing more). days_away == 0 is the only case that actually
+    needs disambiguating, since a same-day BMO print may have already happened.
+    """
+    if days_away >= 1:
+        return "PENDING-TOMORROW"
+    bz = _fetch_benzinga_earnings_time(ticker, earn_date)
+    if bz:
+        return bz
+    front_iv = _get_atm_iv(client, ticker, current_price, EARNINGS_SPREAD_TARGET_DTE)
+    back_iv  = _get_atm_iv(client, ticker, current_price, EARNINGS_SPREAD_TARGET_DTE + 21)
+    if front_iv is not None and back_iv is not None and front_iv - back_iv >= EARNINGS_IV_BACKWARDATION_MIN:
+        return "AMC"   # front IV still elevated relative to back-month = event still pending
+    return "UNKNOWN-TODAY"   # can't confirm still-pending — caller should skip, not guess
+
+
+def get_earnings_spread_candidates(client) -> list[dict]:
+    """
+    WATCHLIST tickers (excluding index ETFs — TICKER_SECTOR is empty for
+    SPY/QQQ/IWM) with earnings today or tomorrow. Each item:
+    {ticker, earn_date, days_away, timing, current_price}.
+    Skips tickers whose current price can't be fetched (fail-closed).
+    """
+    out = []
+    today = date.today()
+    for ticker in WATCHLIST:
+        if not TICKER_SECTOR.get(ticker):
+            continue
+        for ed in _extract_earnings_dates(ticker):
+            days_away = (ed - today).days
+            if days_away not in (0, 1):
+                continue
+            try:
+                price = float(yf.Ticker(ticker).fast_info.last_price or 0)
+            except Exception:
+                price = 0.0
+            if price <= 0:
+                continue
+            timing = _resolve_earnings_timing(client, ticker, ed, price, days_away)
+            out.append({
+                "ticker": ticker, "earn_date": ed, "days_away": days_away,
+                "timing": timing, "current_price": price,
+            })
+            break
+    return out
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 9.5 — FILTER: MACRO CALENDAR BLACKOUT (FOMC / NFP)
 # ═══════════════════════════════════════════════════════════════════════════
@@ -5861,6 +6400,129 @@ def get_effective_account() -> float:
     return max(adjusted, ACCOUNT_SIZE * 0.5)   # floor at 50% of configured size
 
 
+def _last_n_earnings_moves(ticker: str, n: int = EARNINGS_DIRECTIONAL_LOOKBACK) -> list[float]:
+    """
+    Signed overnight-gap % for the n most recent ~quarterly gap days (proxy
+    for "past earnings moves"). yf.Ticker().earnings_dates requires the
+    'lxml' dependency (HTML-scraping based, not installed, not in
+    requirements.txt) — rather than add a fragile new dependency, this
+    reuses the same overnight-gap approach used to manually analyze META's
+    real earnings history earlier tonight.
+
+    Buckets the trailing ~2 years into ~91-day (quarterly) windows and takes
+    the single BIGGEST-magnitude gap within each window, most recent first —
+    NOT simply the global top-N gaps by size. Confirmed live on META: the
+    global-top-N approach skipped the actual most recent quarter's real move
+    (2026-04-30, -7.4%) in favor of an older, bigger one (2024-08-01, +9.7%)
+    from over a year prior, which would have given a materially wrong read
+    on "recent" directional bias. Quarterly bucketing usually recovers the
+    real sequence instead, but has a known remaining failure mode (also
+    confirmed live): if some OTHER large, unrelated gap (macro news, sector
+    move) falls in the same ~91-day window as a real but smaller earnings
+    reaction, the unrelated gap can win that window and mask the real one —
+    on META, 2026-07-01 (+7.9%, unrelated) briefly outranked the real
+    2026-04-30 (-7.4%) earnings reaction within one window. Accepted as-is
+    rather than over-engineered further: this only feeds an OPTIONAL
+    directional-bias decision, the safe fallback on ambiguous data is
+    always the non-directional double spread (defined risk either way),
+    and every trade this influences still goes through the Telegram
+    human-approval gate before an order is submitted — that gate is the
+    real safety net here, not this function's precision.
+    """
+    df = _fetch_alpaca_daily(ticker, period_days=730)
+    if df is None or len(df) < 10:
+        return []
+    gaps = []
+    for i in range(1, len(df)):
+        prev_close = float(df["Close"].iloc[i - 1])
+        o = float(df["Open"].iloc[i])
+        if prev_close <= 0:
+            continue
+        gaps.append((df.index[i], (o - prev_close) / prev_close * 100))
+
+    window_days = 91
+    today_ts = pd.Timestamp(date.today())
+    buckets: dict[int, tuple] = {}   # window index (0 = most recent) -> (abs_gap, signed_gap)
+    for ts, g in gaps:
+        age_days = (today_ts - ts).days
+        if age_days < 0:
+            continue
+        window = age_days // window_days
+        if window not in buckets or abs(g) > buckets[window][0]:
+            buckets[window] = (abs(g), g)
+
+    ordered_windows = sorted(buckets.keys())[:n]
+    return [buckets[w][1] for w in ordered_windows]
+
+
+def build_earnings_spread_plan(client, ticker: str, current_price: float,
+                               earn_date: date, timing: str) -> Optional[dict]:
+    """
+    Orchestrates the whole earnings-spread decision for one candidate: risk
+    budget -> directional check -> _find_spread_legs() (one or both sides) ->
+    full pricing (net debit, max loss/gain, breakevens). Returns a plan dict
+    ready for the Telegram approval message/order submission, or None if
+    nothing viable fits (never a degenerate 0-contract/0-cost plan — a skip
+    is explicit, with a reason, not silent).
+    """
+    budget = get_effective_account() * EARNINGS_SPREAD_RISK_PCT
+
+    moves = _last_n_earnings_moves(ticker)
+    go_single_sided = None   # None = double spread; "CALL" or "PUT" = single-sided
+    if len(moves) >= EARNINGS_DIRECTIONAL_MIN_MOVES:
+        same_sign_up   = sum(1 for m in moves if m > 0)
+        same_sign_down = sum(1 for m in moves if m < 0)
+        avg_mag = sum(abs(m) for m in moves) / len(moves)
+        if avg_mag >= EARNINGS_DIRECTIONAL_MIN_AVG_PCT:
+            if same_sign_up >= EARNINGS_DIRECTIONAL_MIN_MOVES:
+                go_single_sided = "CALL"
+            elif same_sign_down >= EARNINGS_DIRECTIONAL_MIN_MOVES:
+                go_single_sided = "PUT"
+
+    sides = [go_single_sided] if go_single_sided else ["CALL", "PUT"]
+    legs: dict[str, dict] = {}
+    for side in sides:
+        per_side_budget = budget if len(sides) == 1 else budget / 2
+        found = _find_spread_legs(client, ticker, current_price, side, per_side_budget)
+        if found:
+            legs[side.lower()] = found
+
+    if not legs:
+        print(f"  ⚠️  {ticker} earnings spread: no liquid leg pair found on either side — skipping")
+        return None
+
+    total_debit_per_share = sum(l["net_debit"] for l in legs.values())
+    total_cost = total_debit_per_share * 100   # 1 set
+    if total_cost > budget * EARNINGS_SPREAD_BUDGET_SLACK:
+        print(f"  ⚠️  {ticker} earnings spread: even minimum-width cost ${total_cost:.0f} "
+              f"exceeds budget ${budget:.0f} x {EARNINGS_SPREAD_BUDGET_SLACK} — skipping "
+              f"rather than force a degenerate structure")
+        return None
+
+    sets = 1   # budget already targets ~1 set at minimum viable width; see open risk in plan doc
+
+    plan = {
+        "ticker": ticker, "earn_date": earn_date.isoformat(), "timing": timing,
+        "current_price": current_price, "sets": sets,
+        "net_debit": round(total_debit_per_share, 2),
+        "total_cost": round(total_cost * sets, 2),
+        "directional": go_single_sided,
+        "last_moves_pct": [round(m, 1) for m in moves],
+    }
+    for side_key, leg in legs.items():
+        max_gain_per_set = (leg["short_strike"] - leg["long_strike"] - leg["net_debit"]) * 100 \
+            if side_key == "call" else (leg["long_strike"] - leg["short_strike"] - leg["net_debit"]) * 100
+        breakeven = (leg["long_strike"] + leg["net_debit"]) if side_key == "call" \
+            else (leg["long_strike"] - leg["net_debit"])
+        plan[side_key] = {
+            **leg,
+            "max_gain": round(max_gain_per_set * sets, 2),
+            "breakeven": round(breakeven, 2),
+        }
+    plan["max_loss"] = plan["total_cost"]
+    return plan
+
+
 def kelly_fraction(win_rate: float, avg_win_r: float,
                    avg_loss_r: float = 1.0) -> float:
     """
@@ -6128,6 +6790,16 @@ class OpenPosition:
     entry_date: str
     atr:        float = 0.0
     score:      int   = 0
+    # ── Earnings vertical/double debit-spread fields — 0/empty for every
+    # other position type. legs holds the OCC symbols in submission order
+    # (long, short[, long, short] for a double spread) since a spread is one
+    # OpenPosition but 2-4 real option legs, unlike every other position type
+    # here which maps 1:1 to a single tradable symbol.
+    legs:       list[str] = field(default_factory=list)
+    spread_qty: int   = 0
+    max_loss:   float = 0.0
+    max_gain:   float = 0.0
+    earn_date:  str   = ""
 
 
 class PositionTracker:
@@ -6177,6 +6849,19 @@ class PositionTracker:
 
         total_unreal = 0.0
         for p in self.positions:
+            if p.setup.startswith("Earnings "):
+                # Comparing STOCK price against entry/stop/target below is
+                # meaningless for a spread (already imprecise for existing
+                # single-leg options positions too, but a spread's P&L isn't
+                # even directionally related to the stock price the same way).
+                # Cost/max-loss/max-gain are the real, defined-risk numbers.
+                days_in = (date.today() - date.fromisoformat(p.entry_date)).days
+                print(f"\n  ◆ {p.ticker}  {p.setup}")
+                print(f"    Cost ${p.entry:.0f}  |  Max loss ${p.max_loss:.0f}  |  "
+                      f"Max gain ${p.max_gain:.0f}  |  {days_in}d held  |  "
+                      f"legs: {', '.join(p.legs)}")
+                continue
+
             cur = get_live_price(p.ticker)
             if cur is None:
                 print(f"\n  {p.ticker}: unable to fetch price")
@@ -7557,6 +8242,11 @@ def _check_open_position_risk(regime: dict) -> None:
                         _sp = _p.setup.split()
                         if len(_sp) >= 3:
                             _tracked_occ.add(_sp[2])
+                    elif _p.setup.startswith("Earnings "):
+                        # A spread position has 2-4 real option legs, not a single
+                        # symbol embedded in `setup` — without this, every leg
+                        # would falsely alarm as an orphan (untracked) position.
+                        _tracked_occ |= set(_p.legs)
                     else:
                         _tracked_tickers.add(_p.ticker)
             except Exception:
@@ -9151,6 +9841,16 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
 
     for pos in list(pt.positions):
         ticker = pos.ticker
+        # Earnings spreads have 2-4 real option legs, not one symbol — the rest
+        # of this loop (single-symbol "still open?" check, single-order exit
+        # lookup) is built around exactly one Alpaca symbol per position and
+        # isn't a safe fit for a multi-leg position. Their full lifecycle
+        # (fill confirmation, DTE-based close, outcome recording) is already
+        # handled explicitly by _monitor_earnings_spread_position() /
+        # _close_earnings_spread() — skip them here rather than force a
+        # partial, likely-wrong adaptation of this single-symbol logic.
+        if pos.setup.startswith("Earnings "):
+            continue
         # Options positions: Alpaca reports the OCC symbol (e.g. "SMCI260724C00027500"),
         # not the underlying. Extract OCC from setup string for correct lookup.
         _occ_sym = None
@@ -9627,8 +10327,13 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
                 underlying_symbols=[ticker],
                 expiration_date=target_expiry,
                 type=ContractType.CALL,
-                strike_price_gte=strike - 0.01,
-                strike_price_lte=strike + 0.01,
+                # strike_price_gte/lte require STRING values (GetOptionContractsRequest
+                # field type is Optional[str]) — passing floats raises a pydantic
+                # ValidationError on every call, silently caught below, meaning this
+                # function always returned None and every options signal silently
+                # fell back to an equity order. Confirmed live 2026-07-29.
+                strike_price_gte=str(round(strike - 0.01, 2)),
+                strike_price_lte=str(round(strike + 0.01, 2)),
                 limit=1,
             ))
             items = getattr(raw, "option_contracts", None) or (
@@ -9718,8 +10423,9 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
                 underlying_symbols=[ticker],
                 expiration_date=target_expiry,
                 type=ContractType.PUT,
-                strike_price_gte=strike - 0.01,
-                strike_price_lte=strike + 0.01,
+                # see _find_best_call_contract — strike_price_gte/lte require strings.
+                strike_price_gte=str(round(strike - 0.01, 2)),
+                strike_price_lte=str(round(strike + 0.01, 2)),
                 limit=1,
             ))
             items = getattr(raw, "option_contracts", None) or (
@@ -9755,6 +10461,122 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
 
     if best_contract and best_score >= 30:
         return best_contract
+    return None
+
+
+def _find_spread_legs(client, ticker: str, current_price: float, side: str,
+                      target_debit: float) -> Optional[dict]:
+    """
+    Select a long OTM leg + short OTM leg for an earnings vertical debit spread,
+    on the Friday nearest EARNINGS_SPREAD_TARGET_DTE. Starts at
+    EARNINGS_SPREAD_LONG_OTM_PCT/EARNINGS_SPREAD_SHORT_OTM_PCT and narrows the
+    width toward EARNINGS_SPREAD_MIN_WIDTH_PCT if the net debit exceeds
+    target_debit — a real account this size can't always afford the "textbook"
+    width (tonight's manual META spread cost $834; 5% of this account is ~$150).
+
+    Liquidity-only leg filter (bid>0, ask>0, spread_pct <= MAX_SPREAD_PCT) —
+    NOT _score_option_contract()'s delta-0.60-0.80 scoring, which is tuned for
+    directional ITM calls and is the wrong shape for OTM spread legs. Open
+    interest is recorded but NOT hard-gated: this account's OPTIONS_DATA_FEED
+    ("indicative") doesn't return real OI — confirmed live 2026-07-29, always 0.
+
+    side: "CALL" or "PUT". Returns a dict with long/short OCC symbols, strikes,
+    net debit, expiry/DTE — or None if no liquid pair is found at any width.
+    """
+    from alpaca.trading.requests import GetOptionContractsRequest
+    from alpaca.trading.enums import ContractType
+
+    try:
+        _fi = yf.Ticker(ticker).fast_info
+        _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
+            return None
+    except Exception:
+        return None
+
+    today = date.today()
+    target_expiry = None
+    best_diff = float("inf")
+    for offset in range(EARNINGS_SPREAD_MIN_DTE, EARNINGS_SPREAD_MAX_DTE + 8):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == 4:   # Friday
+            diff = abs(offset - EARNINGS_SPREAD_TARGET_DTE)
+            if diff < best_diff:
+                best_diff = diff
+                target_expiry = candidate
+    if not target_expiry:
+        return None
+
+    is_call = side == "CALL"
+    contract_type = ContractType.CALL if is_call else ContractType.PUT
+
+    # Band wide enough to cover the long target through the widest possible
+    # short target, plus a small buffer since listed strikes won't land
+    # exactly on the computed targets.
+    if is_call:
+        lo = current_price * (1 + EARNINGS_SPREAD_LONG_OTM_PCT - 0.02)
+        hi = current_price * (1 + EARNINGS_SPREAD_LONG_OTM_PCT + EARNINGS_SPREAD_MAX_WIDTH_PCT + 0.02)
+    else:
+        lo = current_price * (1 - EARNINGS_SPREAD_LONG_OTM_PCT - EARNINGS_SPREAD_MAX_WIDTH_PCT - 0.02)
+        hi = current_price * (1 - EARNINGS_SPREAD_LONG_OTM_PCT + 0.02)
+
+    try:
+        raw = client.get_option_contracts(GetOptionContractsRequest(
+            underlying_symbols=[ticker], expiration_date=target_expiry,
+            type=contract_type,
+            strike_price_gte=str(round(max(lo, 0.01), 2)),
+            strike_price_lte=str(round(max(hi, lo + 0.01), 2)),
+            limit=50,
+        ))
+        items = getattr(raw, "option_contracts", None) or (raw if isinstance(raw, list) else [])
+        items = sorted(items, key=lambda c: float(c.strike_price))
+    except Exception as exc:
+        print(f"  ⚠️  {ticker} {side} spread band lookup failed: {exc}", file=sys.stderr)
+        return None
+    if len(items) < 2:
+        return None
+
+    long_target = (current_price * (1 + EARNINGS_SPREAD_LONG_OTM_PCT) if is_call
+                   else current_price * (1 - EARNINGS_SPREAD_LONG_OTM_PCT))
+    long_c = min(items, key=lambda c: abs(float(c.strike_price) - long_target))
+
+    width_pct = EARNINGS_SPREAD_SHORT_OTM_PCT - EARNINGS_SPREAD_LONG_OTM_PCT
+    while width_pct >= EARNINGS_SPREAD_MIN_WIDTH_PCT - 1e-9:
+        long_strike = float(long_c.strike_price)
+        short_target = long_strike * (1 + width_pct) if is_call else long_strike * (1 - width_pct)
+        others = [c for c in items if float(c.strike_price) != long_strike]
+        if not others:
+            width_pct -= 0.01
+            continue
+        short_c = min(others, key=lambda c: abs(float(c.strike_price) - short_target))
+
+        long_snap  = _get_option_snapshot(long_c.symbol)
+        short_snap = _get_option_snapshot(short_c.symbol)
+        width_pct -= 0.01
+        if not long_snap or not short_snap:
+            continue
+        if long_snap["ask"] <= 0 or short_snap["bid"] <= 0:
+            continue
+        if (long_snap["spread_pct"] > EARNINGS_SPREAD_MAX_SPREAD_PCT
+                or short_snap["spread_pct"] > EARNINGS_SPREAD_MAX_SPREAD_PCT):
+            continue
+
+        net_debit = round(long_snap["ask"] - short_snap["bid"], 2)
+        if net_debit <= 0:
+            continue
+
+        result = {
+            "long_occ": long_c.symbol, "short_occ": short_c.symbol,
+            "long_strike": float(long_c.strike_price), "short_strike": float(short_c.strike_price),
+            "long_oi": long_snap.get("oi", 0), "short_oi": short_snap.get("oi", 0),
+            "net_debit": net_debit, "expiry": target_expiry.isoformat(),
+            "dte": (target_expiry - today).days,
+        }
+        # Good enough to fit budget, or we're already at the narrowest allowed
+        # width — return either way; build_earnings_spread_plan() decides
+        # whether the final cost is still acceptable.
+        if net_debit * 100 <= target_debit or width_pct < EARNINGS_SPREAD_MIN_WIDTH_PCT - 1e-9:
+            return result
     return None
 
 
@@ -9827,6 +10649,65 @@ def _submit_options_put(
     except Exception as exc:
         print(f"  ❌ Put options order failed ({ticker}): {exc}")
         return None, None
+
+
+def _submit_earnings_spread(client, plan: dict) -> tuple[str | None, str | None]:
+    """
+    Submits the whole earnings play (2 or 4 legs) as ONE atomic multi-leg
+    (MLEG) order — the first use of OrderClass.MLEG in this codebase. Every
+    prior options function here (_submit_options_call/_put/_close) submits
+    one leg at a time; a debit spread done as two separate single-leg orders
+    would carry real leg-imbalance risk (fill one side, not the other ->
+    naked, undefined risk instead of the defined-risk spread intended).
+    Confirmed against the installed alpaca-py: LimitOrderRequest.legs accepts
+    up to 4 OptionLegRequest entries for options, and limit_price is positive
+    for a debit / negative for a credit (both from the library's own
+    docstring, not assumed).
+
+    plan must have "sets" and "net_debit", plus a "call" and/or "put" key,
+    each with "long_occ"/"short_occ" (as built by build_earnings_spread_plan()).
+    Returns (order_id, None) on success or (None, error_text) on failure —
+    error text is always surfaced, never swallowed, matching
+    _submit_alpaca_trade's existing error-surfacing convention.
+    """
+    from alpaca.trading.requests import OptionLegRequest
+    from alpaca.trading.enums import PositionIntent
+
+    legs = []
+    if plan.get("call"):
+        legs += [
+            OptionLegRequest(symbol=plan["call"]["long_occ"],  ratio_qty=1,
+                              side=OrderSide.BUY,  position_intent=PositionIntent.BUY_TO_OPEN),
+            OptionLegRequest(symbol=plan["call"]["short_occ"], ratio_qty=1,
+                              side=OrderSide.SELL, position_intent=PositionIntent.SELL_TO_OPEN),
+        ]
+    if plan.get("put"):
+        legs += [
+            OptionLegRequest(symbol=plan["put"]["long_occ"],  ratio_qty=1,
+                              side=OrderSide.BUY,  position_intent=PositionIntent.BUY_TO_OPEN),
+            OptionLegRequest(symbol=plan["put"]["short_occ"], ratio_qty=1,
+                              side=OrderSide.SELL, position_intent=PositionIntent.SELL_TO_OPEN),
+        ]
+    if not legs:
+        return None, "plan has no call or put legs"
+    if len(legs) > 4:
+        return None, f"plan has {len(legs)} legs — Alpaca allows at most 4 for options"
+
+    try:
+        order = client.submit_order(LimitOrderRequest(
+            qty           = plan["sets"],
+            order_class   = OrderClass.MLEG,
+            time_in_force = TimeInForce.DAY,
+            limit_price   = round(plan["net_debit"], 2),   # positive = debit
+            legs          = legs,
+        ))
+        label = "PAPER" if ALPACA_PAPER else "LIVE"
+        print(f"  📤 [{label}] EARNINGS SPREAD {plan['ticker']}  {len(legs)} legs  "
+              f"{plan['sets']}x @ ${plan['net_debit']} debit  id={str(order.id)[:8]}…")
+        return str(order.id), None
+    except Exception as exc:
+        print(f"  ❌ Earnings spread order failed ({plan.get('ticker')}): {exc}")
+        return None, str(exc)
 
 
 def _submit_options_call(

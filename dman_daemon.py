@@ -58,7 +58,10 @@ STATE_FILES = [
     "dman_telegram_state.json", "dman_smallcap_watchlist.json",
     "dman_alerts_dedup.json",   # T1/T2/stop/DTE options-alert dedup — was missing,
                                  # meant every alert re-fired across separate runs
+    "dman_earnings_pending.json",   # awaiting-approval earnings spreads (permanent gate, no auto-promotion)
 ]
+
+EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close
 
 
 def log(msg: str) -> None:
@@ -359,6 +362,106 @@ def stream_loop() -> None:
         time.sleep(15)
 
 
+def earnings_loop() -> None:
+    """
+    Once daily, ~75 min before the 4 PM close, scans WATCHLIST for tickers
+    reporting earnings today/tomorrow and sends a Telegram approval request
+    for each new one — this gate is PERMANENT, not a trial: every earnings
+    spread requires an explicit human YES before it submits, no auto-
+    promotion to autonomous. A fixed trigger time rather than "as soon as
+    market opens" because the entry timing rule is "before today's close"
+    either way (AMC-today or BMO-tomorrow), so there's no need to rush it at
+    9:30, and running this once daily (not on guard_loop's 60s cadence)
+    keeps it cheap.
+    """
+    log(f"Earnings spread loop started (fires once daily at "
+        f"{EARNINGS_LOOP_TRIGGER_HHMM // 100:02d}:{EARNINGS_LOOP_TRIGGER_HHMM % 100:02d} ET, "
+        f"approval always required — no autonomous submission)")
+    last_run_date = ""
+    while True:
+        try:
+            now = datetime.now(algo.ET)
+            hhmm = now.hour * 100 + now.minute
+            today_str = now.date().isoformat()
+            if (getattr(algo, "ENABLE_EARNINGS_SPREADS", False) and market_hours()
+                    and hhmm >= EARNINGS_LOOP_TRIGGER_HHMM
+                    and last_run_date != today_str):
+                last_run_date = today_str
+                _run_earnings_scan()
+            _expire_earnings_offers()
+        except Exception as exc:
+            log(f"earnings loop error: {exc}")
+        time.sleep(60)
+
+
+def _run_earnings_scan() -> None:
+    log("Running daily earnings-spread scan...")
+    try:
+        client = algo.get_alpaca_client()
+        if client is None:
+            log("earnings scan skipped — Alpaca unavailable")
+            return
+        candidates = algo.get_earnings_spread_candidates(client)
+        pending = algo._load_earnings_pending()
+        already_offered = {(e["ticker"], e.get("earn_date")) for e in pending}
+        from datetime import timedelta as _td
+
+        for c in candidates:
+            key = (c["ticker"], c["earn_date"].isoformat())
+            dedup_key = f"{c['ticker']}_EARNSPREAD_OFFER_{c['earn_date'].isoformat()}"
+            if key in already_offered or algo._is_alerted_today(dedup_key):
+                continue
+            plan = algo.build_earnings_spread_plan(
+                client, c["ticker"], c["current_price"], c["earn_date"], c["timing"])
+            if not plan:
+                continue
+            algo._mark_alerted(dedup_key)
+            pending.append({
+                "ticker": c["ticker"], "earn_date": c["earn_date"].isoformat(),
+                "created_at": datetime.now(algo.ET).isoformat(),
+                "expires_at": (datetime.now(algo.ET)
+                              + _td(minutes=algo.EARNINGS_APPROVAL_TIMEOUT_MIN)).isoformat(),
+                "status": "awaiting_approval", "plan": plan,
+            })
+            algo.send_telegram(algo.format_earnings_spread_telegram(plan))
+        algo._save_earnings_pending(pending)
+    except Exception as exc:
+        log(f"earnings scan error: {exc}")
+
+
+def _expire_earnings_offers() -> None:
+    """
+    Sweeps pending offers for expiry independent of any reply arriving —
+    _handle_earnings_approval_reply() only checks expiry when a NEW reply
+    comes in, so an offer nobody ever replies to needs this separate sweep
+    to actually notify "expired, no order placed" instead of just going
+    quiet forever.
+    """
+    try:
+        pending = algo._load_earnings_pending()
+        if not pending:
+            return
+        now = datetime.now(algo.ET)
+        changed = False
+        still_pending = []
+        for entry in pending:
+            if entry.get("status") == "awaiting_approval":
+                try:
+                    if now >= datetime.fromisoformat(entry["expires_at"]):
+                        algo.send_telegram(
+                            f"⏰ {entry['ticker']} earnings spread offer expired — no reply "
+                            f"within {algo.EARNINGS_APPROVAL_TIMEOUT_MIN} min, no order placed.")
+                        changed = True
+                        continue
+                except Exception:
+                    pass
+            still_pending.append(entry)
+        if changed:
+            algo._save_earnings_pending(still_pending)
+    except Exception as exc:
+        log(f"earnings expiry sweep error: {exc}")
+
+
 def main() -> None:
     if not algo.ALPACA_API_KEY or not algo.ALPACA_SECRET_KEY:
         print("\n  ❌ APCA_API_KEY_ID / APCA_API_SECRET_KEY not set.")
@@ -398,6 +501,7 @@ def main() -> None:
         threading.Thread(target=guard_loop,    daemon=True, name="guard"),
         threading.Thread(target=stream_loop,   daemon=True, name="stream"),
         threading.Thread(target=scan_loop,     daemon=True, name="scan"),
+        threading.Thread(target=earnings_loop, daemon=True, name="earnings"),
     ]
     for t in threads:
         t.start()

@@ -53,7 +53,7 @@ import os
 import re
 import sys
 import unittest
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from unittest.mock import patch, MagicMock
 
 # Credentials must be blank BEFORE import — several module-level constants
@@ -427,6 +427,65 @@ class TestMtfCatalystOverride(unittest.TestCase):
         self.assertFalse(scored.mtf_ok,
                          "the override is scoped to Gap & Hold / Bear Gap "
                          "Hold only — it must not loosen anything else")
+
+
+class TestEarningsCalendarDictParsing(unittest.TestCase):
+    """Regression test for a confirmed production bug: yfinance's .calendar
+    returns a plain dict — {'Earnings Date': [date(...), ...], ...} — not a
+    DataFrame. The old code checked cal.empty/cal.columns, which raised
+    AttributeError on every real call (dict has neither attribute), silently
+    caught by a bare except — meaning check_earnings_safe() always returned
+    "safe" and get_upcoming_earnings() always returned [], so
+    EARNINGS_BLACKOUT never actually blocked a signal in production."""
+
+    def test_dict_shaped_calendar_blocks_earnings_today(self):
+        fake_cal = {"Earnings Date": [date.today()], "Earnings High": 5.0}
+        with patch.object(a.yf, "Ticker") as mock_tk:
+            mock_tk.return_value.calendar = fake_cal
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertFalse(safe, "earnings today must be blocked, not silently passed")
+        self.assertEqual(score, 0)
+
+    def test_dict_shaped_calendar_allows_earnings_far_out(self):
+        far_date = date.today() + timedelta(days=a.EARNINGS_BLACKOUT + 10)
+        fake_cal = {"Earnings Date": [far_date]}
+        with patch.object(a.yf, "Ticker") as mock_tk:
+            mock_tk.return_value.calendar = fake_cal
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertTrue(safe, "earnings well outside the blackout window must pass")
+        self.assertEqual(score, 5)
+
+    def test_none_calendar_is_treated_as_safe(self):
+        with patch.object(a.yf, "Ticker") as mock_tk:
+            mock_tk.return_value.calendar = None
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertTrue(safe)
+        self.assertEqual(score, 5)
+
+    def test_empty_dict_calendar_is_treated_as_safe(self):
+        with patch.object(a.yf, "Ticker") as mock_tk:
+            mock_tk.return_value.calendar = {}
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertTrue(safe)
+
+    def test_get_upcoming_earnings_returns_dict_shaped_dates(self):
+        near_date = date.today() + timedelta(days=2)
+        fake_cal = {"Earnings Date": [near_date]}
+        with patch.object(a.yf, "Ticker") as mock_tk:
+            mock_tk.return_value.calendar = fake_cal
+            result = a.get_upcoming_earnings(["TESTX"], days_ahead=5)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["ticker"], "TESTX")
+        self.assertEqual(result[0]["earn_date"], near_date)
+        self.assertEqual(result[0]["days_away"], 2)
+
+    def test_get_upcoming_earnings_excludes_dates_beyond_window(self):
+        far_date = date.today() + timedelta(days=30)
+        fake_cal = {"Earnings Date": [far_date]}
+        with patch.object(a.yf, "Ticker") as mock_tk:
+            mock_tk.return_value.calendar = fake_cal
+            result = a.get_upcoming_earnings(["TESTX"], days_ahead=5)
+        self.assertEqual(result, [])
 
 
 def _fake_df():

@@ -5115,6 +5115,40 @@ def check_sector(ticker: str, bias: str) -> tuple[bool, int]:
 #  SECTION 9 — FILTER 05: EARNINGS BLACKOUT
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _extract_earnings_dates(ticker: str) -> list[date]:
+    """
+    Shared calendar parser for check_earnings_safe()/get_upcoming_earnings().
+    yfinance's .calendar is a plain dict — {'Earnings Date': [date(...), ...], ...} —
+    not a DataFrame. The old code here checked cal.empty/cal.columns, which raised
+    AttributeError on every real call (dict has neither), silently caught by the
+    bare except below each call site — meaning check_earnings_safe() always
+    returned "safe" and get_upcoming_earnings() always returned [], in production,
+    confirmed empirically. EARNINGS_BLACKOUT never actually blocked anything.
+    """
+    try:
+        cal = yf.Ticker(ticker).calendar
+    except Exception:
+        return []
+    if not cal:
+        return []
+    if isinstance(cal, dict):
+        raw = cal.get("Earnings Date", [])
+        out = []
+        for d in raw if isinstance(raw, (list, tuple)) else [raw]:
+            try:
+                out.append(d if isinstance(d, date) else pd.Timestamp(d).date())
+            except Exception:
+                continue
+        return out
+    # Legacy DataFrame shape — kept in case yfinance reverts this upstream.
+    try:
+        if hasattr(cal, "empty") and not cal.empty and "Earnings Date" in cal.columns:
+            return [d.date() for d in pd.to_datetime(cal["Earnings Date"]).dropna()]
+    except Exception:
+        pass
+    return []
+
+
 def check_earnings_safe(ticker: str) -> tuple[bool, int]:
     """
     Blocks signals if earnings are within EARNINGS_BLACKOUT days.
@@ -5122,21 +5156,9 @@ def check_earnings_safe(ticker: str) -> tuple[bool, int]:
     Returns (safe, score 0-5).
     """
     try:
-        cal = yf.Ticker(ticker).calendar
-        if cal is None or cal.empty:
-            return True, 5   # no data = assume safe
-
-        # calendar has 'Earnings Date' column
-        if "Earnings Date" in cal.columns:
-            earn_dates = pd.to_datetime(cal["Earnings Date"]).dropna()
-        elif isinstance(cal.index, pd.DatetimeIndex):
-            earn_dates = cal.index
-        else:
-            return True, 5
-
-        today = pd.Timestamp.today().normalize()
-        for ed in earn_dates:
-            days_away = (ed.normalize() - today).days
+        today = date.today()
+        for ed in _extract_earnings_dates(ticker):
+            days_away = (ed - today).days
             if -1 <= days_away <= EARNINGS_BLACKOUT:
                 return False, 0   # too close to earnings
         return True, 5
@@ -5151,24 +5173,15 @@ def get_upcoming_earnings(tickers: list, days_ahead: int = 5) -> list[dict]:
     Skips silently on API failure so it never blocks the briefing.
     """
     results = []
-    today = pd.Timestamp.today().normalize()
+    today = date.today()
     for ticker in tickers:
         try:
-            cal = yf.Ticker(ticker).calendar
-            if cal is None or cal.empty:
-                continue
-            if "Earnings Date" in cal.columns:
-                earn_dates = pd.to_datetime(cal["Earnings Date"]).dropna()
-            elif isinstance(cal.index, pd.DatetimeIndex):
-                earn_dates = cal.index
-            else:
-                continue
-            for ed in earn_dates:
-                days_away = (ed.normalize() - today).days
+            for ed in _extract_earnings_dates(ticker):
+                days_away = (ed - today).days
                 if 0 <= days_away <= days_ahead:
                     results.append({
                         "ticker":     ticker,
-                        "earn_date":  ed.date(),
+                        "earn_date":  ed,
                         "days_away":  days_away,
                     })
                     break  # one entry per ticker

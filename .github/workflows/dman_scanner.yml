@@ -106,8 +106,11 @@ jobs:
                     f"(top-level crash handler already sent a Telegram alert)")
               return result
 
-          # Manual dispatch with mode override (e.g. "pnl" for on-demand P&L check)
-          _dispatch_mode = os.environ.get("DISPATCH_MODE", "").strip()
+          # Manual dispatch with mode override (e.g. "pnl" for on-demand P&L check).
+          # .lower() because argparse's `choices` is case-sensitive and the
+          # dispatch input is free-text — 3 manual runs on 2026-07-28 ("Alpaca",
+          # "Alpaca", "Scan") crashed instantly on this alone.
+          _dispatch_mode = os.environ.get("DISPATCH_MODE", "").strip().lower()
           if _dispatch_mode:
               result = subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", _dispatch_mode],

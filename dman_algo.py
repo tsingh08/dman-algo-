@@ -466,6 +466,117 @@ def build_scan_universe(min_price: float = 2.0,
     return combined
 
 
+def fetch_premarket_gap_universe(min_price: float = 0.30, max_price: float = 20.0,
+                                 min_avg_vol: int = 100_000, min_gap_pct: float = 5.0,
+                                 max_tickers: int = 60) -> list[str]:
+    """
+    Broad pre-market gap sweep for run_premarket_early_scan(), which otherwise only
+    checks the curated DMAN_SMALLCAP_WATCHLIST. Confirmed gap: BIYA gapped +39% by
+    7 AM ET on 2026-07-27 and was never scanned because it wasn't yet a "known"
+    DMan ticker — by the time the hourly cron's dynamic-mover discovery found it
+    (10:30 AM), it had already run from ~$2.90 to $4.26.
+
+    Two-stage, since RVOL isn't available pre-market (today's session hasn't
+    started yet):
+      1. Cheap liquidity/price filter using YESTERDAY's daily bar (same
+         batched-download technique as build_scan_universe()) — a floor on
+         average volume substitutes for the RVOL check that isn't possible yet.
+      2. Batch-check current pre-market price against yesterday's close for a
+         real gap; only tickers already gapping ≥min_gap_pct get returned.
+
+    Everything downstream in run_premarket_early_scan() — catalyst tiering,
+    EDGAR 8-K check, PDT guard, auto-submit thresholds — is untouched; this
+    only widens which tickers reach that existing, already-vetted logic.
+    """
+    import io
+    try:
+        def _fetch_syms(url: str, sym_col: str) -> list[str]:
+            r = requests.get(url, timeout=8, headers={"User-Agent": "Mozilla/5.0"})
+            df = pd.read_csv(io.StringIO(r.text), sep="|")
+            if "Test Issue" in df.columns:
+                df = df[df["Test Issue"] != "Y"]
+            raw = df[sym_col].dropna().astype(str).tolist()
+            return [s.strip() for s in raw if s.strip().isalpha() and 1 <= len(s.strip()) <= 5]
+
+        nasdaq_syms = _fetch_syms("https://www.nasdaqtrader.com/dynamic/symdir/nasdaqlisted.txt", "Symbol")
+        other_syms  = _fetch_syms("https://www.nasdaqtrader.com/dynamic/symdir/otherlisted.txt", "ACT Symbol")
+        all_syms = list(set(nasdaq_syms + other_syms) - set(WATCHLIST) - set(DMAN_SMALLCAP_WATCHLIST))
+    except Exception as e:
+        print(f"  [pm-universe] Symbol fetch failed ({e}) — skipping broad pre-market sweep", file=sys.stderr)
+        return []
+
+    print(f"  [pm-universe] {len(all_syms):,} symbols → filtering by yesterday's liquidity...", flush=True)
+
+    # Stage 1: liquidity/price floor from yesterday's daily bar.
+    liquid: dict[str, float] = {}   # ticker -> prev_close
+    batch_size = 400
+    batches = [all_syms[i:i+batch_size] for i in range(0, len(all_syms), batch_size)]
+    _start  = time.monotonic()
+    # 5-min cap, leaving room for the per-ticker deep dive in run_premarket_early_scan()
+    # inside the 35-min workflow timeout. Measured against the real ~12,400-symbol
+    # NASDAQ+NYSE list, this covers ~12 of 31 batches (~40%) before time runs out —
+    # a real, honest limitation, not full-market coverage. Python's per-process
+    # hash randomization means set() ordering (and so which ~40% gets checked)
+    # varies run to run, so coverage isn't the same 60% left out every single day.
+    _budget = 5 * 60
+    for idx, batch in enumerate(batches, 1):
+        if time.monotonic() - _start > _budget:
+            print(f"  [pm-universe] time budget reached after batch {idx-1} of "
+                  f"{len(batches)} — continuing with {len(liquid)} candidates", flush=True)
+            break
+        try:
+            snap = yf.download(batch, period="5d", progress=False,
+                               group_by="ticker", auto_adjust=True, threads=True)
+            for sym in batch:
+                try:
+                    closes = snap[sym]["Close"].dropna()
+                    vols   = snap[sym]["Volume"].dropna()
+                    if len(closes) < 2 or len(vols) < 2:
+                        continue
+                    price   = float(closes.iloc[-1])
+                    avg_vol = float(vols.mean())
+                    if min_price <= price <= max_price and avg_vol >= min_avg_vol:
+                        liquid[sym] = price
+                except Exception:
+                    continue
+        except Exception:
+            continue
+    print(f"  [pm-universe] {len(liquid)} liquid candidate(s) → checking pre-market gap...", flush=True)
+    if not liquid:
+        return []
+
+    # Stage 2: current pre/post-market price vs yesterday's close.
+    gappers: list[tuple[str, float]] = []   # (ticker, abs gap %)
+    cand_syms    = list(liquid.keys())
+    cand_batches = [cand_syms[i:i+batch_size] for i in range(0, len(cand_syms), batch_size)]
+    for batch in cand_batches:
+        try:
+            snap = yf.download(batch, period="1d", interval="1m", prepost=True,
+                               progress=False, group_by="ticker", threads=True)
+            for sym in batch:
+                try:
+                    closes = snap[sym]["Close"].dropna()
+                    if closes.empty:
+                        continue
+                    cur        = float(closes.iloc[-1])
+                    prev_close = liquid[sym]
+                    if prev_close <= 0:
+                        continue
+                    gap_pct = abs((cur - prev_close) / prev_close * 100)
+                    if gap_pct >= min_gap_pct:
+                        gappers.append((sym, gap_pct))
+                except Exception:
+                    continue
+        except Exception:
+            continue
+
+    gappers.sort(key=lambda x: x[1], reverse=True)
+    result = [sym for sym, _ in gappers[:max_tickers]]
+    print(f"  [pm-universe] {len(result)} pre-market gapper(s) ≥{min_gap_pct}% found beyond "
+          f"curated watchlist: {', '.join(result[:15])}{'...' if len(result) > 15 else ''}", flush=True)
+    return result
+
+
 def fetch_dman_dynamic_tickers(max_tickers: int = 60) -> list[str]:
     """
     Fetch today's actual movers from Yahoo Finance (day gainers + most actives).
@@ -2274,20 +2385,42 @@ def run_premarket_early_scan() -> None:
     import re as _re
     now_et = datetime.now(ET)
     print(f"\n  ⚡ EARLY PRE-MARKET SCAN — {now_et.astimezone(MT).strftime('%I:%M %p MT')}")
-    print(f"  Scanning {len(DMAN_SMALLCAP_WATCHLIST)} small-cap names...\n")
+
+    # Broad pre-market gap sweep — catches movers outside the curated watchlist
+    # (confirmed gap: BIYA +39% by 7 AM on 2026-07-27, never scanned because it
+    # wasn't yet a "known" DMan ticker). Everything below this point — catalyst
+    # tiering, EDGAR check, PDT guard, auto-submit thresholds — is unchanged and
+    # applies identically to curated and dynamically-discovered tickers alike.
+    _dynamic_movers = fetch_premarket_gap_universe()
+    scan_universe   = list(dict.fromkeys(DMAN_SMALLCAP_WATCHLIST + _dynamic_movers))
+    print(f"  Scanning {len(scan_universe)} small-cap names "
+          f"({len(DMAN_SMALLCAP_WATCHLIST)} curated + {len(_dynamic_movers)} dynamic)...\n")
 
     # Pull global context first — drives pre-market sizing and aggression
     print("  🌍 Global context...", flush=True)
     _early_ctx  = _fetch_global_context()
     _early_news = _fetch_breaking_news_rss(hours_back=8)
 
-    news_map = _fetch_alpaca_news(DMAN_SMALLCAP_WATCHLIST, hours_back=20)
+    news_map = _fetch_alpaca_news(scan_universe, hours_back=20)
 
     mover_blocks:    list[tuple[float, str]] = []   # (abs_gap, telegram_block)
     news_alerts:     list[str] = []
     pm_auto_entries: list[dict] = []               # moon-shot auto-submit candidates
 
-    for ticker in DMAN_SMALLCAP_WATCHLIST:
+    # Time budget for the per-ticker deep dive (EDGAR/StockTwits/catalyst tier
+    # are all per-ticker network calls). The Telegram alert and pre-market
+    # auto-submit both happen only AFTER this loop finishes, so a timeout kill
+    # mid-loop would silently drop everything found so far — worth guarding
+    # now that the dynamic sweep above can add up to 60 tickers on top of the
+    # curated watchlist. Budget leaves the rest of the 35-min workflow timeout
+    # for setup, the universe sweep, and message composition/sending.
+    _loop_start  = time.monotonic()
+    _loop_budget = 22 * 60
+    for _tkr_idx, ticker in enumerate(scan_universe):
+        if time.monotonic() - _loop_start > _loop_budget:
+            print(f"  ⏱  Time budget reached after {_tkr_idx}/{len(scan_universe)} tickers "
+                  f"— sending what's found so far.", file=sys.stderr)
+            break
         try:
             info       = yf.Ticker(ticker).fast_info
             pre_px     = float(info.last_price or 0)

@@ -668,6 +668,75 @@ class TestEarningsSpreadSizing(unittest.TestCase):
         self.assertIsNone(plan)
 
 
+class TestEarningsAlreadyReportedCheck(unittest.TestCase):
+    """_check_earnings_already_reported() must match real earnings-release
+    headline phrasing and fail closed (False, not a crash) when Benzinga
+    returns nothing — confirmed live that Benzinga's single-ticker filter is
+    unreliable (META/TSLA returned zero articles even unfiltered by time),
+    so "no headlines" must mean "can't confirm," not "definitely not reported.\""""
+
+    def test_matching_headline_returns_true(self):
+        with patch.object(a, "_fetch_benzinga_ticker_news",
+                          return_value={"TESTX": ["TESTX Reports Q2 Earnings, Beats Estimates"]}):
+            self.assertTrue(a._check_earnings_already_reported("TESTX"))
+
+    def test_unrelated_headline_returns_false(self):
+        with patch.object(a, "_fetch_benzinga_ticker_news",
+                          return_value={"TESTX": ["TESTX Announces New Product Line"]}):
+            self.assertFalse(a._check_earnings_already_reported("TESTX"))
+
+    def test_no_headlines_returns_false_not_a_crash(self):
+        with patch.object(a, "_fetch_benzinga_ticker_news", return_value={}):
+            self.assertFalse(a._check_earnings_already_reported("TESTX"))
+
+    def test_fetch_exception_fails_closed(self):
+        with patch.object(a, "_fetch_benzinga_ticker_news", side_effect=Exception("network error")):
+            self.assertFalse(a._check_earnings_already_reported("TESTX"))
+
+
+class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):
+    """_resolve_earnings_timing()'s own docstring says UNKNOWN-TODAY means
+    "caller should skip, not guess" — but run_earnings_spread_scan() never
+    actually implemented that skip until now; it just displayed the timing
+    string and built a plan regardless. Same requirement for the new
+    ALREADY-REPORTED state. A regression here means offering a spread for a
+    ticker that already reported or whose timing couldn't be confirmed."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
+        self._patch.start()
+        a._save_earnings_pending([])
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _run_with_candidate(self, timing):
+        candidate = {"ticker": "TESTX", "earn_date": date.today(), "days_away": 0,
+                    "timing": timing, "current_price": 100.0}
+        with patch.object(a, "is_market_open", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=MagicMock()):
+                with patch.object(a, "get_earnings_spread_candidates", return_value=[candidate]):
+                    with patch.object(a, "build_earnings_spread_plan") as mock_build:
+                        with patch.object(a, "send_telegram", return_value=True):
+                            a.run_earnings_spread_scan()
+        return mock_build
+
+    def test_unknown_today_never_builds_a_plan(self):
+        mock_build = self._run_with_candidate("UNKNOWN-TODAY")
+        mock_build.assert_not_called()
+
+    def test_already_reported_never_builds_a_plan(self):
+        mock_build = self._run_with_candidate("ALREADY-REPORTED")
+        mock_build.assert_not_called()
+
+    def test_amc_still_builds_a_plan(self):
+        mock_build = self._run_with_candidate("AMC")
+        mock_build.assert_called_once()
+
+
 class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     """The approve-gate is the entire safety rationale for this feature —
     every earnings spread requires an explicit human YES (permanent gate, no

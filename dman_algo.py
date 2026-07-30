@@ -5678,17 +5678,61 @@ def _get_atm_iv(client, ticker: str, current_price: float, target_dte: int) -> O
         return None
 
 
+_EARNINGS_REPORTED_KEYWORDS = (
+    "reports q", "reports fiscal", "reports third quarter", "reports fourth quarter",
+    "reports first quarter", "reports second quarter", "earnings per share",
+    "quarterly results", "beats estimates", "misses estimates", "eps of",
+    "revenue of $", "earnings call transcript",
+)
+
+
+def _check_earnings_already_reported(ticker: str, hours_back: int = 8) -> bool:
+    """
+    Direct confirmation via Benzinga headlines that a ticker's earnings have
+    already been released, rather than inferring it indirectly from options
+    IV term structure. Checks for a recent headline matching common
+    earnings-release phrasing. Fails closed on any error/no-match (returns
+    False = "can't confirm reported" — caller still has the IV fallback as a
+    second check, not a bare guess).
+
+    KNOWN LIMITATION, confirmed live 2026-07-29: Benzinga's single-ticker
+    `tickers=X` filter is unreliable on this account's plan tier — querying
+    META or TSLA alone returned ZERO articles even with no time filter at
+    all, while AAPL returned 5 in the same call. This isn't a bug in this
+    function; it inherits the same per-ticker unreliability already
+    documented in _fetch_benzinga_earnings_time(). This check has real value
+    when Benzinga's filter happens to work for a given ticker, but will
+    silently return False (not "confirmed clear," just "couldn't confirm")
+    for others — it's an additive signal, not a replacement for the IV
+    fallback that already existed.
+    """
+    try:
+        news = _fetch_benzinga_ticker_news([ticker], hours_back=hours_back)
+        headlines = news.get(ticker, [])
+        return any(kw in h.lower() for h in headlines for kw in _EARNINGS_REPORTED_KEYWORDS)
+    except Exception:
+        return False
+
+
 def _resolve_earnings_timing(client, ticker: str, earn_date: date, current_price: float,
                              days_away: int) -> str:
     """
-    Returns "BMO", "AMC", "PENDING-TOMORROW", or "UNKNOWN-TODAY".
-    days_away == 1 doesn't need real BMO/AMC resolution — entering today before
-    close is safe either way (a day early for a true BMO print costs a little
-    extra theta, nothing more). days_away == 0 is the only case that actually
-    needs disambiguating, since a same-day BMO print may have already happened.
+    Returns "BMO", "AMC", "ALREADY-REPORTED", "PENDING-TOMORROW", or
+    "UNKNOWN-TODAY". days_away == 1 doesn't need real BMO/AMC resolution —
+    entering today before close is safe either way (a day early for a true
+    BMO print costs a little extra theta, nothing more). days_away == 0 is
+    the only case that actually needs disambiguating, since a same-day BMO
+    print (or, confirmed live 2026-07-29, an AMC print that's already
+    happened when this runs late in the evening) may have already occurred.
+
+    Checks a direct Benzinga news confirmation FIRST — more reliable than
+    inferring "already reported" indirectly from options IV term structure,
+    which only tells you IV has collapsed, not why.
     """
     if days_away >= 1:
         return "PENDING-TOMORROW"
+    if _check_earnings_already_reported(ticker):
+        return "ALREADY-REPORTED"
     bz = _fetch_benzinga_earnings_time(ticker, earn_date)
     if bz:
         return bz
@@ -5777,6 +5821,16 @@ def run_earnings_spread_scan() -> None:
             key = (c["ticker"], c["earn_date"].isoformat())
             dedup_key = f"{c['ticker']}_EARNSPREAD_OFFER_{c['earn_date'].isoformat()}"
             if key in already_offered or _is_alerted_today(dedup_key):
+                continue
+            # _resolve_earnings_timing()'s own docstring says "caller should
+            # skip, not guess" on UNKNOWN-TODAY — this loop never actually did
+            # that until now; it just passed timing through to the message as
+            # a display string, still building and offering a plan regardless.
+            # ALREADY-REPORTED (new Benzinga-confirmed state) must skip for
+            # the same reason META correctly got filtered out by liquidity
+            # alone tonight, but that's a coincidence, not a real check.
+            if c["timing"] in ("UNKNOWN-TODAY", "ALREADY-REPORTED"):
+                print(f"  ⚠️  {c['ticker']} earnings spread: timing={c['timing']} — skipping, not guessing")
                 continue
             plan = build_earnings_spread_plan(
                 client, c["ticker"], c["current_price"], c["earn_date"], c["timing"])

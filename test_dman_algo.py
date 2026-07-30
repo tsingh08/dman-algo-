@@ -62,7 +62,8 @@ from unittest.mock import patch, MagicMock
 # (already bit us once this week during manual testing) must never let a
 # test suite make a live network call or, worse, a live order attempt.
 for _k in ("TELEGRAM_TOKEN", "TELEGRAM_CHAT_ID", "APCA_API_KEY_ID",
-           "APCA_API_SECRET_KEY", "ANTHROPIC_API_KEY", "BENZINGA_API_KEY"):
+           "APCA_API_SECRET_KEY", "ANTHROPIC_API_KEY", "BENZINGA_API_KEY",
+           "BENZINGA_EARNING_API_KEY", "MASSIVE_API_KEY"):
     os.environ[_k] = ""
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

@@ -153,12 +153,15 @@ OPTIONS_DTE_MAX             = 28     # max 4 weeks
 OPTIONS_MAX_SPREAD_PCT      = 0.15   # skip contract if bid-ask spread > 15% of mid (was 20% of ask)
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
-OPTIONS_DATA_FEED           = "indicative"  # this account's subscription returns 403 on "opra"
-                                            # (confirmed live 2026-07-29 — every _get_option_snapshot()
-                                            # call was silently failing, so every options signal was
-                                            # silently falling back to an equity order). "indicative"
-                                            # returns 200 with quotes/greeks/IV; only openInterest is
-                                            # sometimes absent (defaults to 0, degrades gracefully).
+OPTIONS_DATA_FEED           = "opra"        # real OPRA tape. Was "indicative" because this account's
+                                            # subscription 403'd on "opra" (confirmed live 2026-07-29,
+                                            # every _get_option_snapshot() call silently failing, every
+                                            # options signal silently falling back to an equity order) —
+                                            # retested live 2026-07-30 under the Algo Trader Plus data
+                                            # plan and "opra" now returns 200 with real greeks/IV/quotes.
+                                            # openInterest is separately always absent from this snapshot
+                                            # endpoint regardless of feed — see _find_best_call_contract,
+                                            # which now merges real OI in from the contracts response.
 STOCK_DATA_FEED             = "sip"         # Alpaca Algo Trader Plus — consolidated real-time SIP feed
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
@@ -292,6 +295,13 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 ALPACA_API_KEY    = os.getenv("APCA_API_KEY_ID",    "")   # standard Alpaca env var name
 ALPACA_SECRET_KEY = os.getenv("APCA_API_SECRET_KEY", "")
 BENZINGA_API_KEY  = os.getenv("BENZINGA_API_KEY", "")     # Benzinga Basic — real-time news
+# Massive.com's Benzinga-earnings proxy (api.massive.com/benzinga/v1/earnings) —
+# unlike BENZINGA_API_KEY's direct calendar endpoint, its ticker filter is
+# confirmed server-side accurate (tested live 2026-07-30: ticker=AAPL returns
+# only AAPL, with a real date/time/date_status). Reads MASSIVE_API_KEY first
+# (Massive's own documented env var name) and falls back to
+# BENZINGA_EARNING_API_KEY (this account's existing var) so either works.
+MASSIVE_API_KEY   = os.getenv("MASSIVE_API_KEY", "") or os.getenv("BENZINGA_EARNING_API_KEY", "")
 ALPACA_PAPER      = False     # LIVE — real brokerage, real money
 ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed entry
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
@@ -1450,10 +1460,10 @@ def format_earnings_spread_telegram(plan: dict) -> str:
 def _open_earnings_spread_position(plan: dict) -> OpenPosition:
     """
     Builds the OpenPosition record for a filled earnings spread and persists
-    it via PositionTracker — shared by the human-approval path
-    (_handle_earnings_approval_reply) and the fully-autonomous path (the
-    daemon's earnings_loop, once the approve-gate trial is complete), so the
-    two paths can't silently drift into recording positions differently.
+    it via PositionTracker. Only one caller exists today —
+    _handle_earnings_approval_reply(), after an explicit human YES. The
+    Telegram approval gate is PERMANENT (see dman_daemon.py:earnings_loop
+    docstring): no autonomous submission path is planned.
     legs are stored in submission order (long, short[, long, short]) —
     _close_earnings_spread()/_monitor_earnings_spread_position() rely on
     even/odd index meaning long/short.
@@ -5507,9 +5517,46 @@ def check_sector(ticker: str, bias: str) -> tuple[bool, int]:
 #  SECTION 9 — FILTER 05: EARNINGS BLACKOUT
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list[dict]:
+    """
+    Query Massive's Benzinga-earnings proxy for a single ticker within a date
+    window. Confirmed live 2026-07-30: the `ticker` filter is applied
+    server-side correctly (unlike BENZINGA_API_KEY's direct calendar
+    endpoint, see _fetch_benzinga_earnings_time docstring) — a ticker=AAPL
+    request returns only AAPL records. Returns raw result dicts (date, time,
+    date_status, actual_eps, ...); [] on any failure or if MASSIVE_API_KEY
+    isn't set (fail-open to callers' existing fallbacks).
+    """
+    if not MASSIVE_API_KEY:
+        return []
+    try:
+        resp = requests.get(
+            "https://api.massive.com/benzinga/v1/earnings",
+            params={
+                "ticker":      ticker,
+                "date.gte":    date_from.isoformat(),
+                "date.lte":    date_to.isoformat(),
+                "limit":       10,
+                "apiKey":      MASSIVE_API_KEY,
+            },
+            timeout=8,
+        )
+        if resp.status_code != 200:
+            return []
+        return resp.json().get("results", []) or []
+    except Exception:
+        return []
+
+
 def _extract_earnings_dates(ticker: str) -> list[date]:
     """
     Shared calendar parser for check_earnings_safe()/get_upcoming_earnings().
+
+    Primary source: Massive's Benzinga earnings proxy (_fetch_massive_earnings,
+    -3d to +30d window) — ticker-filtered correctly server-side, confirmed
+    live 2026-07-30. Falls back to yfinance's .calendar if MASSIVE_API_KEY is
+    unset or the call returns nothing.
+
     yfinance's .calendar is a plain dict — {'Earnings Date': [date(...), ...], ...} —
     not a DataFrame. The old code here checked cal.empty/cal.columns, which raised
     AttributeError on every real call (dict has neither), silently caught by the
@@ -5517,6 +5564,17 @@ def _extract_earnings_dates(ticker: str) -> list[date]:
     returned "safe" and get_upcoming_earnings() always returned [], in production,
     confirmed empirically. EARNINGS_BLACKOUT never actually blocked anything.
     """
+    today = date.today()
+    massive = _fetch_massive_earnings(ticker, today - timedelta(days=3), today + timedelta(days=30))
+    if massive:
+        out = []
+        for item in massive:
+            try:
+                out.append(date.fromisoformat(str(item.get("date", ""))[:10]))
+            except Exception:
+                continue
+        if out:
+            return out
     try:
         cal = yf.Ticker(ticker).calendar
     except Exception:
@@ -5725,12 +5783,34 @@ def _resolve_earnings_timing(client, ticker: str, earn_date: date, current_price
     print (or, confirmed live 2026-07-29, an AMC print that's already
     happened when this runs late in the evening) may have already occurred.
 
-    Checks a direct Benzinga news confirmation FIRST — more reliable than
-    inferring "already reported" indirectly from options IV term structure,
-    which only tells you IV has collapsed, not why.
+    Checks Massive's Benzinga-earnings proxy FIRST (_fetch_massive_earnings) —
+    its `actual_eps` field is only populated once the report has actually
+    been released (a harder confirmation than headline keyword matching) and
+    its `time` field gives an exact BMO/AMC read for this ticker+date,
+    confirmed server-side accurate live 2026-07-30. Falls back to the direct
+    Benzinga news confirmation, then the direct Benzinga calendar endpoint,
+    then IV term structure, only if Massive is unavailable or inconclusive
+    for this ticker/date (e.g. MASSIVE_API_KEY unset).
     """
     if days_away >= 1:
         return "PENDING-TOMORROW"
+    for item in _fetch_massive_earnings(ticker, earn_date, earn_date):
+        if str(item.get("ticker", "")).upper() != ticker.upper():
+            continue
+        try:
+            if date.fromisoformat(str(item.get("date", ""))[:10]) != earn_date:
+                continue
+        except Exception:
+            continue
+        if item.get("actual_eps") is not None:
+            return "ALREADY-REPORTED"
+        time_str = str(item.get("time", "")).strip()
+        if time_str:
+            try:
+                return "BMO" if int(time_str.split(":")[0]) < 12 else "AMC"
+            except Exception:
+                pass
+        break   # matched record but no usable actual_eps/time — fall through below
     if _check_earnings_already_reported(ticker):
         return "ALREADY-REPORTED"
     bz = _fetch_benzinga_earnings_time(ticker, earn_date)
@@ -10325,6 +10405,26 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
         return None
 
 
+def _merge_contract_oi(snap: dict, contract) -> dict:
+    """
+    _get_option_snapshot()'s "oi" is always 0 — the options snapshot endpoint
+    doesn't carry openInterest at all, on any feed (confirmed live 2026-07-30;
+    this was previously misattributed to OPTIONS_DATA_FEED="indicative", but
+    "opra" doesn't return it either). Real OI is already present on the
+    contract object returned by client.get_option_contracts() at every call
+    site (confirmed live: e.g. AAPL 340C showed open_interest=4344) — this
+    merges it in so _score_option_contract() and spread-leg selection see
+    real numbers instead of always-0.
+    """
+    try:
+        raw_oi = getattr(contract, "open_interest", None)
+        if raw_oi is not None:
+            snap["oi"] = int(float(raw_oi))
+    except Exception:
+        pass
+    return snap
+
+
 def _score_option_contract(snap: dict, current_price: float) -> tuple[int, str]:
     """
     Score a contract 0-100 optimized for DMan ITM strategy (delta 0.60-0.80).
@@ -10499,6 +10599,7 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
             snap = _get_option_snapshot(occ)
             if not snap:
                 continue
+            snap = _merge_contract_oi(snap, items[0])
             # Hard filter: reject OTM (delta < 0.40) and wide-spread contracts
             if snap["delta"] < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
                 continue
@@ -10591,6 +10692,7 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
             snap = _get_option_snapshot(occ)
             if not snap:
                 continue
+            snap = _merge_contract_oi(snap, items[0])
             delta_abs = abs(snap.get("delta", 0))
             if delta_abs < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
                 continue
@@ -10631,8 +10733,10 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
     Liquidity-only leg filter (bid>0, ask>0, spread_pct <= MAX_SPREAD_PCT) —
     NOT _score_option_contract()'s delta-0.60-0.80 scoring, which is tuned for
     directional ITM calls and is the wrong shape for OTM spread legs. Open
-    interest is recorded but NOT hard-gated: this account's OPTIONS_DATA_FEED
-    ("indicative") doesn't return real OI — confirmed live 2026-07-29, always 0.
+    interest is recorded (via _merge_contract_oi, real numbers as of
+    2026-07-30) but still NOT hard-gated — OTM earnings-week strikes can be
+    thin without being illiquid, and the bid/ask/spread checks already screen
+    for that directly.
 
     side: "CALL" or "PUT". Returns a dict with long/short OCC symbols, strikes,
     net debit, expiry/DTE — or None if no liquid pair is found at any width.
@@ -10709,6 +10813,8 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
         width_pct -= 0.01
         if not long_snap or not short_snap:
             continue
+        long_snap  = _merge_contract_oi(long_snap, long_c)
+        short_snap = _merge_contract_oi(short_snap, short_c)
         if long_snap["ask"] <= 0 or short_snap["bid"] <= 0:
             continue
         if (long_snap["spread_pct"] > EARNINGS_SPREAD_MAX_SPREAD_PCT

@@ -43,6 +43,7 @@ jobs:
           TELEGRAM_CHAT_ID:  ${{ secrets.TELEGRAM_CHAT_ID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BENZINGA_API_KEY:  ${{ secrets.BENZINGA_API_KEY }}
+          BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
           PYTHONIOENCODING:  utf-8
         run: |
           python - <<'EOF'

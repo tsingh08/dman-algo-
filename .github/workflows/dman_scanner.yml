@@ -68,6 +68,7 @@ jobs:
           APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
           BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
+          BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
           PYTHONIOENCODING:    utf-8
           DISPATCH_MODE:       ${{ github.event.inputs.mode }}
         run: |

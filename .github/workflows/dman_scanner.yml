@@ -202,6 +202,15 @@ jobs:
               run_with_retry(
                   [sys.executable, "dman_algo.py", "--mode", "momentum-watch"]
               )
+          # Redundant coverage for the daemon's earnings_loop: the daemon checks
+          # out code ONCE per session and doesn't hot-reload, so a same-day code
+          # deploy can miss its whole window (confirmed: shipped 2:47 PM ET on
+          # 2026-07-29, daemon's session had already checked out at 1:59 PM ET,
+          # so it never actually ran that day — META reported earnings that
+          # close with no offer ever sent). This cron re-checks-out fresh code
+          # every single run, so it closes that gap. Idempotent — safe every hour.
+          subprocess.run([sys.executable, "dman_algo.py", "--mode", "earnings-scan"],
+                        capture_output=False)
           sys.exit(result.returncode)
           EOF
 

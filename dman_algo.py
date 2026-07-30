@@ -5730,6 +5730,106 @@ def get_earnings_spread_candidates(client) -> list[dict]:
     return out
 
 
+def run_earnings_spread_scan() -> None:
+    """
+    Detect WATCHLIST tickers reporting earnings today/tomorrow, build a plan
+    for each new one, and send a Telegram approval request. Shared by the
+    always-on daemon's earnings_loop (10s dispatch, once per day at a fixed
+    trigger time) AND the hourly cron scanner's "--mode earnings-scan"
+    dispatch — the cron path exists specifically so a same-day code deploy
+    doesn't have to wait for the daemon's next scheduled restart to pick up
+    new code: the daemon does ONE git checkout per session and doesn't
+    hot-reload, but the cron scanner re-checks-out fresh code every single
+    run. Confirmed gap: this feature was pushed live at 2:47 PM ET on
+    2026-07-29 (the day it shipped) while the daemon's already-running
+    session had checked out at 1:59 PM ET — 48 minutes earlier — so despite
+    being "live" in the repo, it never actually executed that day; META
+    reported earnings after that close with no offer ever sent. Both
+    dispatch paths call this exact function so they can't drift apart, and
+    it's idempotent (dedup via _is_alerted_today) — running it more than
+    once in a day is safe, it just does nothing after the first offer.
+
+    Gated on is_market_open(): confirmed live 2026-07-29 that calling this
+    after-hours (an ad-hoc manual/CLI invocation, not the real cron/daemon
+    schedule, which are both already time-windowed) sends real approval
+    offers whose EARNINGS_APPROVAL_TIMEOUT_MIN countdown expires overnight,
+    well before the next real trading session even opens — an offer for
+    tomorrow's earnings that's dead before tomorrow starts is worse than no
+    offer at all. The real cron/daemon triggers only ever fire during market
+    hours anyway, so this is a no-op gate for them and a real safety net for
+    anything else that calls this function.
+    """
+    print("  📅 Running earnings-spread scan...")
+    try:
+        if not is_market_open():
+            print("  ⏸️  Market closed — earnings scan skipped (avoids sending an "
+                  "approval offer whose timer would expire before the next session opens)")
+            return
+        client = get_alpaca_client()
+        if client is None:
+            print("  ⚠️  earnings scan skipped — Alpaca unavailable")
+            return
+        candidates = get_earnings_spread_candidates(client)
+        pending = _load_earnings_pending()
+        already_offered = {(e["ticker"], e.get("earn_date")) for e in pending}
+
+        for c in candidates:
+            key = (c["ticker"], c["earn_date"].isoformat())
+            dedup_key = f"{c['ticker']}_EARNSPREAD_OFFER_{c['earn_date'].isoformat()}"
+            if key in already_offered or _is_alerted_today(dedup_key):
+                continue
+            plan = build_earnings_spread_plan(
+                client, c["ticker"], c["current_price"], c["earn_date"], c["timing"])
+            if not plan:
+                continue
+            _mark_alerted(dedup_key)
+            pending.append({
+                "ticker": c["ticker"], "earn_date": c["earn_date"].isoformat(),
+                "created_at": datetime.now(ET).isoformat(),
+                "expires_at": (datetime.now(ET)
+                              + timedelta(minutes=EARNINGS_APPROVAL_TIMEOUT_MIN)).isoformat(),
+                "status": "awaiting_approval", "plan": plan,
+            })
+            send_telegram(format_earnings_spread_telegram(plan))
+            print(f"  📤 Earnings spread offer sent for {c['ticker']}")
+        _save_earnings_pending(pending)
+    except Exception as exc:
+        print(f"  ⚠️  earnings scan error: {exc}", file=sys.stderr)
+
+
+def expire_earnings_spread_offers() -> None:
+    """
+    Sweeps pending offers for expiry independent of any reply arriving —
+    _handle_earnings_approval_reply() only checks expiry when a NEW reply
+    comes in, so an offer nobody ever replies to needs this separate sweep
+    to actually notify "expired, no order placed" instead of just going
+    quiet forever. Shared by the daemon loop and the cron scanner dispatch.
+    """
+    try:
+        pending = _load_earnings_pending()
+        if not pending:
+            return
+        now = datetime.now(ET)
+        changed = False
+        still_pending = []
+        for entry in pending:
+            if entry.get("status") == "awaiting_approval":
+                try:
+                    if now >= datetime.fromisoformat(entry["expires_at"]):
+                        send_telegram(
+                            f"⏰ {entry['ticker']} earnings spread offer expired — no reply "
+                            f"within {EARNINGS_APPROVAL_TIMEOUT_MIN} min, no order placed.")
+                        changed = True
+                        continue
+                except Exception:
+                    pass
+            still_pending.append(entry)
+        if changed:
+            _save_earnings_pending(still_pending)
+    except Exception as exc:
+        print(f"  ⚠️  earnings expiry sweep error: {exc}", file=sys.stderr)
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 9.5 — FILTER: MACRO CALENDAR BLACKOUT (FOMC / NFP)
 # ═══════════════════════════════════════════════════════════════════════════
@@ -11188,7 +11288,7 @@ def main():
                  "watch","rank","open","positions","alpaca","sync",
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
-                 "stocktwits","guard","merge-positions","watchdog"],
+                 "stocktwits","guard","merge-positions","watchdog","earnings-scan"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -11368,6 +11468,14 @@ def main():
 
     elif args.mode == "watchdog":
         run_watchdog()
+
+    elif args.mode == "earnings-scan":
+        # Cron-dispatched redundancy for the daemon's earnings_loop — the cron
+        # scanner re-checks-out fresh code every run (hourly), unlike the
+        # daemon which checks out once per session and doesn't hot-reload.
+        # Idempotent: safe to run every hour, only sends a new offer once.
+        run_earnings_spread_scan()
+        expire_earnings_spread_offers()
 
     elif args.mode == "guard":
         # One-shot options guard — the daemon loops this every 60s

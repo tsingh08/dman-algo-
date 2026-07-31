@@ -5536,6 +5536,9 @@ def check_sector(ticker: str, bias: str) -> tuple[bool, int]:
 #  SECTION 9 — FILTER 05: EARNINGS BLACKOUT
 # ═══════════════════════════════════════════════════════════════════════════
 
+_MASSIVE_EARNINGS_CACHE: dict[tuple, tuple[float, list[dict]]] = {}
+_MASSIVE_EARNINGS_CACHE_TTL_S = 1200   # 20 min
+
 def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list[dict]:
     """
     Query Massive's Benzinga-earnings proxy for a single ticker within a date
@@ -5545,9 +5548,22 @@ def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list
     request returns only AAPL records. Returns raw result dicts (date, time,
     date_status, actual_eps, ...); [] on any failure or if MASSIVE_API_KEY
     isn't set (fail-open to callers' existing fallbacks).
+
+    20-min TTL cache added 2026-07-31 — no published rate limit for this
+    endpoint, and this function sits behind check_earnings_safe(), which
+    _extract_earnings_dates() (via this function) gets called for on every
+    candidate ticker in the confluence pipeline, every scan cycle (daemon
+    every 10 min + hourly cron), with zero caching before this. An earnings
+    date doesn't change within a session; caching removes that redundant
+    volume rather than betting on an undocumented limit never getting hit
+    on the first day this integration sees real daily traffic.
     """
     if not MASSIVE_API_KEY:
         return []
+    key = (ticker, date_from.isoformat(), date_to.isoformat())
+    cached = _MASSIVE_EARNINGS_CACHE.get(key)
+    if cached and (time.time() - cached[0]) < _MASSIVE_EARNINGS_CACHE_TTL_S:
+        return cached[1]
     try:
         resp = requests.get(
             "https://api.massive.com/benzinga/v1/earnings",
@@ -5561,10 +5577,12 @@ def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list
             timeout=8,
         )
         if resp.status_code != 200:
-            return []
-        return resp.json().get("results", []) or []
+            return cached[1] if cached else []   # serve stale-but-valid data over nothing on a transient error
+        results = resp.json().get("results", []) or []
+        _MASSIVE_EARNINGS_CACHE[key] = (time.time(), results)
+        return results
     except Exception:
-        return []
+        return cached[1] if cached else []
 
 
 def _extract_earnings_dates(ticker: str) -> list[date]:

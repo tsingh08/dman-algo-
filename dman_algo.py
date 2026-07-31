@@ -1451,6 +1451,10 @@ def format_earnings_spread_telegram(plan: dict) -> str:
         bes.append(f"${plan['put']['breakeven']:.2f} ↓")
     lines.append(f"Breakevens: {'  '.join(bes)}")
 
+    if plan.get("ai_analysis"):
+        lines.append("")
+        lines.append(f"🧠 <i>{plan['ai_analysis']}</i>")
+
     _n_sides = int(bool(plan.get("call"))) + int(bool(plan.get("put")))
     lines.append(f"Reply <b>YES {plan['ticker']}</b> to approve (1 atomic order, {_n_sides} side(s)) "
                  f"· <b>NO {plan['ticker']}</b> to reject · expires in {EARNINGS_APPROVAL_TIMEOUT_MIN} min")
@@ -6728,6 +6732,101 @@ def _last_n_earnings_moves(ticker: str, n: int = EARNINGS_DIRECTIONAL_LOOKBACK) 
     return [buckets[w][1] for w in ordered_windows]
 
 
+def _earnings_spread_ai_analysis(ticker: str, plan: dict, earn_date: date) -> str:
+    """
+    Short technicals + fundamentals + historical-move analysis to sit
+    alongside the Telegram YES/NO approval message, so approving/rejecting
+    doesn't require opening a separate chart or research tab first — the
+    trader has ~30 min before the offer expires and isn't always at a
+    desk. Grounded ONLY in real computed data (this ticker's own price
+    history via compute_indicators, Massive's actual consensus estimates,
+    the plan's own historical earnings-move pattern) — the prompt
+    explicitly forbids inventing unverifiable "outside research" (analyst
+    names, specific news items, price targets) since this feeds a real
+    trading decision on a live account; Claude is asked to reason only
+    from what's supplied and say so plainly when data is thin. Returns ""
+    on any failure (no key, no price data, API error) — this is a
+    nice-to-have annotation, never a reason to withhold the offer itself.
+    """
+    if not ANTHROPIC_API_KEY:
+        return ""
+    try:
+        tech_block = "Technical data unavailable."
+        df = fetch_df(ticker, period_days=120)
+        if df is not None and len(df) >= 30:
+            df = compute_indicators(df)
+            last = df.iloc[-1]
+            price = float(last["Close"])
+            rsi   = float(last["RSI"])   if pd.notna(last.get("RSI"))   else None
+            macd  = float(last["MACD"])  if pd.notna(last.get("MACD"))  else None
+            ema20 = float(last["EMA20"]) if pd.notna(last.get("EMA20")) else None
+            ema50 = float(last["EMA50"]) if pd.notna(last.get("EMA50")) else None
+            trend5 = ((price / float(df["Close"].iloc[-6]) - 1) * 100
+                      if len(df) >= 6 else None)
+            parts = [f"price ${price:.2f}"]
+            if rsi is not None:
+                parts.append(f"RSI(14) {rsi:.1f}")
+            if macd is not None:
+                parts.append(f"MACD {'positive' if macd > 0 else 'negative'}")
+            if ema20 is not None:
+                parts.append(f"{'above' if price > ema20 else 'below'} EMA20")
+            if ema50 is not None:
+                parts.append(f"{'above' if price > ema50 else 'below'} EMA50")
+            if trend5 is not None:
+                parts.append(f"5-day trend {trend5:+.1f}%")
+            tech_block = ", ".join(parts)
+
+        fund_block = "Consensus estimates unavailable."
+        for item in _fetch_massive_earnings(ticker, earn_date, earn_date):
+            if str(item.get("ticker", "")).upper() != ticker.upper():
+                continue
+            est_eps, prev_eps = item.get("estimated_eps"), item.get("previous_eps")
+            est_rev, prev_rev = item.get("estimated_revenue"), item.get("previous_revenue")
+            if est_eps is not None:
+                fund_block = f"consensus EPS estimate ${est_eps}"
+                if prev_eps is not None:
+                    fund_block += f" (prior qtr actual ${prev_eps})"
+                if est_rev is not None:
+                    fund_block += f", revenue estimate ${est_rev/1e9:.2f}B"
+                    if prev_rev is not None:
+                        fund_block += f" (prior ${prev_rev/1e9:.2f}B)"
+            break
+
+        moves = plan.get("last_moves_pct", [])
+        moves_block = (f"last {len(moves)} post-earnings moves: "
+                       + "/".join(f"{m:+.1f}%" for m in moves)) if moves \
+            else "no reliable earnings-move history found"
+
+        prompt = f"""You are briefing a retail trader who must reply YES or NO in Telegram within {EARNINGS_APPROVAL_TIMEOUT_MIN} minutes to approve or reject a pre-built earnings options spread. You are not deciding for them, only briefing them. Use ONLY the data given below — do not invent news, analyst names, price targets, or any fact not listed here; if data is thin, say so plainly instead of guessing.
+
+Ticker: {ticker}
+Earnings date: {earn_date.isoformat()} ({plan.get('timing', '?')})
+Spread: {plan.get('directional') or 'double-sided'} debit spread, net debit ${plan.get('total_cost', 0):.0f}, max loss ${plan.get('max_loss', 0):.0f}
+Technicals: {tech_block}
+Fundamentals: {fund_block}
+History: {moves_block}
+
+Write exactly 3-4 short plain-text sentences (no markdown, no bullets — this goes straight into a Telegram message): (1) what the technicals suggest about current trend/momentum, (2) what the consensus estimates suggest relative to prior performance, (3) how the historical earnings-move pattern relates to this spread's structure, (4) one honest risk or data-gap caveat."""
+
+        resp = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key":         ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+                "content-type":      "application/json",
+            },
+            json={
+                "model":      "claude-sonnet-5",
+                "max_tokens": 300,
+                "messages":   [{"role": "user", "content": prompt}],
+            },
+            timeout=20,
+        )
+        return resp.json()["content"][0]["text"].strip()
+    except Exception:
+        return ""
+
+
 def build_earnings_spread_plan(client, ticker: str, current_price: float,
                                earn_date: date, timing: str) -> Optional[dict]:
     """
@@ -6793,6 +6892,7 @@ def build_earnings_spread_plan(client, ticker: str, current_price: float,
             "breakeven": round(breakeven, 2),
         }
     plan["max_loss"] = plan["total_cost"]
+    plan["ai_analysis"] = _earnings_spread_ai_analysis(ticker, plan, earn_date)
     return plan
 
 

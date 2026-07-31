@@ -13,6 +13,30 @@
       "timestamp": "2026-07-31T11:31:52.724433-04:00"
     },
     {
+      "ticker": "AMBA",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 87.35,
+      "stop": 77.28,
+      "target1": 107.49,
+      "target2": 117.56,
+      "score": 100,
+      "date": "2026-07-31",
+      "timestamp": "2026-07-31T14:14:05.403000-04:00"
+    },
+    {
+      "ticker": "AMZU",
+      "setup": "Morning Runner",
+      "bias": "LONG",
+      "entry": 41.78,
+      "stop": 38.35,
+      "target1": 48.64,
+      "target2": 52.07,
+      "score": 100,
+      "date": "2026-07-31",
+      "timestamp": "2026-07-31T14:14:05.844596-04:00"
+    },
+    {
       "ticker": "LGHL",
       "setup": "Low Float Catalyst",
       "bias": "LONG",

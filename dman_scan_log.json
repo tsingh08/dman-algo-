@@ -240,5 +240,23 @@
     "rejected_hard_gate": 2,
     "rejected_low_score": 0,
     "budget_hit": false
+  },
+  {
+    "ts": "2026-07-31T14:14:05.844779-04:00",
+    "regime": "CHOP",
+    "regime_score": 14,
+    "vix": 16.6,
+    "min_score": 75,
+    "universe": "all",
+    "tickers_total": 160,
+    "signals": 2,
+    "signal_tickers": [
+      "AMBA",
+      "AMZU"
+    ],
+    "rejected_no_signal": 153,
+    "rejected_hard_gate": 5,
+    "rejected_low_score": 0,
+    "budget_hit": false
   }
 ]

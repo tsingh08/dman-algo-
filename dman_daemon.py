@@ -59,6 +59,7 @@ STATE_FILES = [
     "dman_alerts_dedup.json",   # T1/T2/stop/DTE options-alert dedup — was missing,
                                  # meant every alert re-fired across separate runs
     "dman_earnings_pending.json",   # awaiting-approval earnings spreads (permanent gate, no auto-promotion)
+    "dman_rate_limit_events.json",  # today's Alpaca 429 counts — watchdog's rate-limit check reads this
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close
@@ -328,7 +329,35 @@ def scan_loop() -> None:
 
 
 def stream_loop() -> None:
-    """Alpaca TradingStream — instant Telegram alert on every fill."""
+    """
+    Alpaca TradingStream — instant Telegram alert on every fill.
+
+    CRITICAL: never call stream.run() unbounded. Confirmed live 2026-07-30:
+    alpaca-py's TradingStream._run_forever() (installed alpaca-py==0.43.x)
+    retries on ANY websockets.WebSocketException — including a sustained
+    HTTP 429 from Alpaca — with only a 10ms sleep between attempts, and
+    never raises back out of stream.run(), so this function's own
+    try/except+sleep(15) never got a chance to run. One ordinary disconnect
+    (ping timeout, brief network blip — ordinary and expected) triggered a
+    reconnect-flood fast enough that Alpaca's abuse detection locked out
+    further attempts, and the flood then kept re-triggering the lockout for
+    the rest of the session: 27,366 failed reconnects over 2h07m in one
+    daemon run, 39,438 in another the same day — ~3.5 hours of the single
+    busiest earnings day of the week. That reconnect storm burns the
+    account's shared Alpaca API budget, and is the confirmed root cause of
+    that day's earnings-spread scan finding "no liquid leg pair" on every
+    single candidate (AAPL included) — the option-snapshot REST calls were
+    being starved by the same lockout, not a real liquidity problem.
+
+    Fix: run stream.run() in a watched background thread. Wrap _start_ws so
+    we know the wall-clock time of every real connection attempt. If 20+
+    attempts land within a 30s window with no successful (re)connect in
+    between, that's the storm signature — stop the stream, throw the
+    TradingStream instance away (don't try to resume a poisoned one), and
+    back off for real (15s, doubling, capped at 5 min) before building a
+    fresh one. A stable connection never accumulates attempts, so this
+    can't false-positive on normal operation.
+    """
     try:
         from alpaca.trading.stream import TradingStream
     except ImportError:
@@ -350,16 +379,76 @@ def stream_loop() -> None:
         except Exception as exc:
             log(f"fill handler error: {exc}")
 
+    STORM_WINDOW_S      = 30
+    STORM_ATTEMPT_COUNT = 20
+    STORM_ALERT_COOLDOWN_S = 1800   # don't spam Telegram every backoff cycle
+    backoff = 15
+    last_storm_alert = 0.0
+
     while True:
+        attempt_times: list[float] = []
+        connected = threading.Event()
+        stopped   = threading.Event()
         try:
             stream = TradingStream(algo.ALPACA_API_KEY, algo.ALPACA_SECRET_KEY,
                                    paper=algo.ALPACA_PAPER)
             stream.subscribe_trade_updates(on_update)
-            log("TradingStream connected — instant fill alerts on")
-            stream.run()          # blocks until disconnect
+
+            _orig_start_ws = stream._start_ws
+            async def _watched_start_ws(_orig=_orig_start_ws):
+                attempt_times.append(time.monotonic())
+                await _orig()
+                connected.set()
+            stream._start_ws = _watched_start_ws
+
+            def _run_stream():
+                try:
+                    stream.run()
+                finally:
+                    stopped.set()
+
+            t = threading.Thread(target=_run_stream, daemon=True)
+            t.start()
+
+            storm = False
+            while t.is_alive() and not stopped.is_set():
+                time.sleep(3)
+                now = time.monotonic()
+                attempt_times[:] = [a for a in attempt_times if now - a < STORM_WINDOW_S]
+                if len(attempt_times) >= STORM_ATTEMPT_COUNT:
+                    storm = True
+                    break
+                if connected.is_set():
+                    connected.clear()
+                    backoff = 15
+                    log("TradingStream connected — instant fill alerts on")
+
+            if storm:
+                log(f"stream reconnect storm detected ({len(attempt_times)} attempts in "
+                    f"{STORM_WINDOW_S}s, likely rate-limited) — stopping and backing "
+                    f"off {backoff}s")
+                if time.monotonic() - last_storm_alert > STORM_ALERT_COOLDOWN_S:
+                    algo.send_telegram(
+                        "⚠️ Fill-alert stream hit a reconnect storm (rate-limited) — "
+                        "backing off. Fills still get recorded via the normal scan/guard "
+                        "sync, just not instantly.")
+                    last_storm_alert = time.monotonic()
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                time.sleep(backoff)
+                backoff = min(backoff * 2, 300)
+                continue
+
+            # Thread exited cleanly (stop() called elsewhere, or a non-WebSocketException
+            # escaped _run_forever) without ever storming — treat as a normal disconnect.
+            time.sleep(backoff)
         except Exception as exc:
-            log(f"stream error: {exc} — reconnecting in 15s")
-        time.sleep(15)
+            log(f"stream error: {exc} — reconnecting in {backoff}s")
+            time.sleep(backoff)
+            backoff = min(backoff * 2, 300)
 
 
 def earnings_loop() -> None:

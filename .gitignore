@@ -5,10 +5,12 @@ dman_signals_*.json
 
 # State files below are committed by GitHub Actions to persist between runs.
 # DO NOT re-add them here — they must be tracked for cloud state continuity:
-#   dman_win_rate.json     (WinRateTracker, adaptive score, consecutive loss guard)
-#   dman_positions.json    (PositionTracker, MAX_POSITIONS, duplicate order guard)
-#   dman_monthly_pnl.json  (monthly loss circuit breaker)
-#   dman_alpaca_sync.json  (Alpaca fill sync — which fills already recorded)
+#   dman_win_rate.json          (WinRateTracker, adaptive score, consecutive loss guard)
+#   dman_positions.json         (PositionTracker, MAX_POSITIONS, duplicate order guard)
+#   dman_monthly_pnl.json       (monthly loss circuit breaker)
+#   dman_alpaca_sync.json       (Alpaca fill sync — which fills already recorded)
+#   dman_earnings_pending.json  (awaiting-approval earnings spreads)
+#   dman_rate_limit_events.json (today's Alpaca 429 counts — watchdog reads this)
 
 # Local Windows scheduled task wrappers (not needed in cloud)
 dman_run.ps1

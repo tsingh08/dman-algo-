@@ -710,9 +710,22 @@ class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):
         self._patch.start()
         a._save_earnings_pending([])
 
+        # _is_alerted_today/_mark_alerted read/write the REAL dman_alerts_dedup.json
+        # (repo-relative, not test-isolated like EARNINGS_SPREAD_PENDING_FILE above).
+        # Confirmed live 2026-07-30: test_amc_still_builds_a_plan writes a real
+        # "TESTX_EARNSPREAD_OFFER_<today>" dedup entry to disk on a pass, so a
+        # second same-day run of this suite short-circuits before ever calling
+        # build_earnings_spread_plan() — a false failure with no code regression.
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
     def tearDown(self):
         self._patch.stop()
         os.unlink(self._tmp.name)
+        self._dedup_patch.stop()
+        os.unlink(self._dedup_tmp.name)
 
     def _run_with_candidate(self, timing):
         candidate = {"ticker": "TESTX", "earn_date": date.today(), "days_away": 0,

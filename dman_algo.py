@@ -1732,6 +1732,21 @@ def run_watchdog() -> None:
             except Exception:
                 issues.append("⚠️ dman_scan_log.json unreadable/missing")
 
+        # 3. Alpaca 429s today — a signal the sync/scan freshness checks above
+        # can't provide, since the daemon can keep running/syncing normally
+        # while options data specifically is rate-limited underneath it
+        # (confirmed live 2026-07-30 — see _record_alpaca_429 docstring).
+        try:
+            with open(_RATE_LIMIT_EVENTS_FILE) as f:
+                _rl = json.load(f).get(now_et.strftime("%Y-%m-%d"), {})
+            _rl_total = sum(_rl.values())
+            if _rl_total >= 10:
+                _detail = ", ".join(f"{k}={v}" for k, v in _rl.items())
+                issues.append(f"⚠️ {_rl_total} Alpaca 429s today ({_detail}) — "
+                              f"options data may be degraded/rate-limited")
+        except Exception:
+            pass   # no file yet = no 429s recorded today, not an issue
+
     if not issues:
         print("  🐕 Watchdog: all checks passed")
         return
@@ -5897,9 +5912,22 @@ def run_earnings_spread_scan() -> None:
         pending = _load_earnings_pending()
         already_offered = {(e["ticker"], e.get("earn_date")) for e in pending}
 
+        # Confirmed live 2026-07-30: when build_earnings_spread_plan() returns
+        # None (no liquid leg pair), this loop used to just `continue` —
+        # total silence, no Telegram message at all. That day it happened for
+        # every single candidate (AAPL included) because a runaway websocket
+        # reconnect storm elsewhere in the daemon had rate-limited the
+        # account's options data (see dman_daemon.py:stream_loop), so "no
+        # liquid leg pair" was actually "couldn't get real data" wearing a
+        # liquidity-sounding message — and the user had zero visibility that
+        # the scan even ran, let alone why nothing came through. Now tracked
+        # and reported once per ticker/day via the same dedup mechanism as
+        # successful offers, so a real rerun (hourly cron) doesn't re-spam it.
+        skipped_no_legs = []
         for c in candidates:
             key = (c["ticker"], c["earn_date"].isoformat())
             dedup_key = f"{c['ticker']}_EARNSPREAD_OFFER_{c['earn_date'].isoformat()}"
+            skip_dedup_key = f"{c['ticker']}_EARNSPREAD_SKIP_{c['earn_date'].isoformat()}"
             if key in already_offered or _is_alerted_today(dedup_key):
                 continue
             # _resolve_earnings_timing()'s own docstring says "caller should
@@ -5915,6 +5943,9 @@ def run_earnings_spread_scan() -> None:
             plan = build_earnings_spread_plan(
                 client, c["ticker"], c["current_price"], c["earn_date"], c["timing"])
             if not plan:
+                if not _is_alerted_today(skip_dedup_key):
+                    _mark_alerted(skip_dedup_key)
+                    skipped_no_legs.append(c["ticker"])
                 continue
             _mark_alerted(dedup_key)
             pending.append({
@@ -5926,6 +5957,14 @@ def run_earnings_spread_scan() -> None:
             })
             send_telegram(format_earnings_spread_telegram(plan))
             print(f"  📤 Earnings spread offer sent for {c['ticker']}")
+        if skipped_no_legs:
+            send_telegram(
+                "📅 Earnings spread scan ran, no order sent for: <b>"
+                + ", ".join(skipped_no_legs)
+                + "</b> — no tradeable long/short leg pair found at any width. Could be "
+                  "genuinely illiquid strikes, or Alpaca options data was degraded/"
+                  "rate-limited. Worth a manual look if this repeats.")
+            print(f"  📤 Skip summary sent for: {', '.join(skipped_no_legs)}")
         _save_earnings_pending(pending)
     except Exception as exc:
         print(f"  ⚠️  earnings scan error: {exc}", file=sys.stderr)
@@ -10339,6 +10378,37 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
 #  Options engine — Greeks-aware contract selection + L2 context + submission
 # ═══════════════════════════════════════════════════════════════════════════
 
+_RATE_LIMIT_EVENTS_FILE = "dman_rate_limit_events.json"
+
+
+def _record_alpaca_429(source: str) -> None:
+    """
+    Confirmed live 2026-07-30: a runaway websocket reconnect storm elsewhere
+    (dman_daemon.py:stream_loop) rate-limited Alpaca's options data for
+    hours, and every downstream caller (_get_option_snapshot -> earnings
+    spreads, ITM calls) silently treated the resulting 429s as "no data" —
+    indistinguishable from a genuinely quiet options chain. run_watchdog()'s
+    existing checks (sync/scan freshness) had no way to catch this, since
+    the daemon otherwise kept running and syncing normally. This gives
+    watchdog a direct signal instead: today's 429 count, so a repeat is
+    visible within 30 min instead of discovered after the fact.
+    """
+    try:
+        try:
+            with open(_RATE_LIMIT_EVENTS_FILE) as _f:
+                _d = json.load(_f)
+        except Exception:
+            _d = {}
+        _today = date.today().isoformat()
+        _day = _d.get(_today, {})
+        _day[source] = _day.get(source, 0) + 1
+        _d = {_today: _day}   # only keep today — this is a same-day signal, not history
+        with open(_RATE_LIMIT_EVENTS_FILE, "w") as _f:
+            json.dump(_d, _f)
+    except Exception:
+        pass
+
+
 def _get_option_snapshot(occ_symbol: str) -> dict | None:
     """
     Full options snapshot from Alpaca Data API including Greeks, IV, bid-ask depth.
@@ -10364,6 +10434,9 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
             params={"symbols": occ_symbol, "feed": OPTIONS_DATA_FEED},
             timeout=8,
         )
+        if r.status_code == 429:
+            _record_alpaca_429("options_snapshot")
+            return None
         if r.status_code != 200:
             return None
         raw = r.json().get("snapshots", {}).get(occ_symbol, {})

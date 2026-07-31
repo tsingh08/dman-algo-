@@ -11330,7 +11330,22 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 sig.target2 = round(_live_entry - 4.0 * _orig_risk, 2)
 
         # ── Options branch: calls (LONG) or puts (SHORT) ──────────────────────
-        _use_options = ENABLE_OPTIONS_TRADING and sig.ticker in WATCHLIST and sig.bias == "LONG"
+        # Calls: WATCHLIST membership OR a setup already trusted for options
+        # (OPTIONS_SETUPS = Gap & Hold / Morning Runner) — mirrors the puts
+        # relaxation directly below, and for the same reason: the curated
+        # ~90-name WATCHLIST was never the real quality gate for whether a
+        # SETUP deserves options, it's the ADV/delta/spread checks inside
+        # _find_best_call_contract (5M ADV floor) that actually screen
+        # liquidity. Confirmed live 2026-07-31: the "all tickers" scan
+        # (--universe all, ~1,200 names/day) generates real Gap & Hold/
+        # Morning Runner signals outside WATCHLIST that had no options path
+        # before this — same dead-end class as the MBLY puts incident below,
+        # just on the call side. Setups NOT in OPTIONS_SETUPS (e.g. Vol
+        # Breakdown) still fall through to equity regardless of ticker,
+        # same as before — this only widens eligibility for setups already
+        # proven in backtest, not a blanket "any LONG signal" gate.
+        _use_options = (ENABLE_OPTIONS_TRADING and sig.bias == "LONG"
+                        and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
         # Puts: WATCHLIST membership OR a Bear Gap Hold signal — that setup is
         # one of the two most strictly-gated patterns in the system (gap%,
         # RVOL, RSI, MACD-confirmed, held-below-open, MTF+news-catalyst

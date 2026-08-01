@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import json
 import os
+import signal
 import subprocess
 import sys
 import threading
@@ -63,6 +64,54 @@ STATE_FILES = [
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close
+
+# Confirmed live 2026-07-31: BOTH of that day's daemon sessions saw the
+# TradingStream fail to connect on every single attempt (0 successful
+# connects across two full sessions) — the storm-detection fix caught and
+# contained each burst (370/676 attempts vs the prior day's 27,366/39,438,
+# so the acute damage was avoided), but something kept the connection from
+# ever succeeding at all. Root cause: main()'s clean exit at DAEMON_RUN_UNTIL
+# just returns — Python kills daemon threads (stream_loop's thread included)
+# with zero cleanup when the main thread exits, so the websocket never gets
+# a real close handshake. GitHub Actions' own job-timeout and the next
+# scheduled session's cancel-in-progress both do the same via SIGTERM. If
+# Alpaca treats an un-closed connection as still active, every subsequent
+# session's connection attempts get rejected until that stale session times
+# out server-side — a plausible explanation for a lockout persisting across
+# multiple sessions, independent of and in addition to the reconnect-storm
+# bug fixed the day before. _active_stream/_shutdown_event let both the
+# normal exit path and a SIGTERM handler close the live connection properly
+# before the process actually dies.
+_shutdown_event    = threading.Event()
+_active_stream_lock = threading.Lock()
+_active_stream = None   # the live TradingStream instance, if any
+
+
+def _close_active_stream() -> None:
+    """Best-effort clean close of whatever stream connection is currently
+    live, so Alpaca doesn't carry it over as still-open into the next
+    session. Safe to call even if nothing is connected."""
+    with _active_stream_lock:
+        s = _active_stream
+    if s is not None:
+        try:
+            s.stop()
+        except Exception:
+            pass
+
+
+def _handle_sigterm(signum, frame) -> None:
+    """
+    SIGTERM has no default cleanup behavior in Python (unlike SIGINT, which
+    raises KeyboardInterrupt) — without this handler, a job-timeout or the
+    next session's cancel-in-progress kills the process with literally zero
+    chance for the websocket to close cleanly. This buys that close
+    handshake the ~seconds GitHub Actions grants before escalating to
+    SIGKILL.
+    """
+    log(f"received signal {signum} — closing stream connection before exit")
+    _shutdown_event.set()
+    _close_active_stream()
 
 
 def log(msg: str) -> None:
@@ -385,14 +434,21 @@ def stream_loop() -> None:
     backoff = 15
     last_storm_alert = 0.0
 
+    global _active_stream
     while True:
+        if _shutdown_event.is_set():
+            log("stream loop stopping — shutdown requested")
+            return
         attempt_times: list[float] = []
         connected = threading.Event()
         stopped   = threading.Event()
+        stream    = None
         try:
             stream = TradingStream(algo.ALPACA_API_KEY, algo.ALPACA_SECRET_KEY,
                                    paper=algo.ALPACA_PAPER)
             stream.subscribe_trade_updates(on_update)
+            with _active_stream_lock:
+                _active_stream = stream
 
             _orig_start_ws = stream._start_ws
             async def _watched_start_ws(_orig=_orig_start_ws):
@@ -412,6 +468,8 @@ def stream_loop() -> None:
 
             storm = False
             while t.is_alive() and not stopped.is_set():
+                if _shutdown_event.is_set():
+                    break
                 time.sleep(3)
                 now = time.monotonic()
                 attempt_times[:] = [a for a in attempt_times if now - a < STORM_WINDOW_S]
@@ -422,6 +480,15 @@ def stream_loop() -> None:
                     connected.clear()
                     backoff = 15
                     log("TradingStream connected — instant fill alerts on")
+
+            if _shutdown_event.is_set():
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                log("stream loop stopped cleanly (shutdown)")
+                return
 
             if storm:
                 log(f"stream reconnect storm detected ({len(attempt_times)} attempts in "
@@ -449,6 +516,10 @@ def stream_loop() -> None:
             log(f"stream error: {exc} — reconnecting in {backoff}s")
             time.sleep(backoff)
             backoff = min(backoff * 2, 300)
+        finally:
+            with _active_stream_lock:
+                if _active_stream is stream:
+                    _active_stream = None
 
 
 def earnings_loop() -> None:
@@ -484,6 +555,7 @@ def earnings_loop() -> None:
 
 
 def main() -> None:
+    signal.signal(signal.SIGTERM, _handle_sigterm)
     if not algo.ALPACA_API_KEY or not algo.ALPACA_SECRET_KEY:
         print("\n  ❌ APCA_API_KEY_ID / APCA_API_SECRET_KEY not set.")
         print("     Set them once (values from app.alpaca.markets → API Keys):")
@@ -536,6 +608,9 @@ def main() -> None:
                 if now.hour * 100 + now.minute >= int(run_until):
                     log(f"Reached {run_until} ET — clean session end "
                         "(next scheduled session takes over)")
+                    _shutdown_event.set()
+                    _close_active_stream()
+                    time.sleep(2)   # let the websocket close handshake actually go out
                     git_sync()
                     return
             hb += 1
@@ -544,6 +619,9 @@ def main() -> None:
                     + ("" if all(t.is_alive() for t in threads) else " ⚠️ A THREAD DIED"))
     except KeyboardInterrupt:
         log("daemon stopped by user")
+        _shutdown_event.set()
+        _close_active_stream()
+        time.sleep(2)
         algo.send_telegram("🔌 <b>DMan daemon OFFLINE</b> — real-time guard stopped. "
                            "Cron scans still run hourly as backup.")
 

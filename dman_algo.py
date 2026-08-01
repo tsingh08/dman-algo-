@@ -33,7 +33,7 @@
 
 from __future__ import annotations
 
-import os, sys, json, time, math, re, argparse, warnings, traceback, requests
+import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv
 from datetime import datetime, timedelta, date
 from dataclasses import dataclass, field, asdict
 from typing import Optional
@@ -1148,6 +1148,23 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
     """
     Check all pending live signals and resolve completed ones to the CSV log.
     Returns the number of trades resolved this run.
+
+    Dedup against the CSV by (ticker, entry_date) added 2026-08-01 — this
+    function is not the only thing that can cause a re-resolve:
+    sync_live_signals_with_remote()'s "pending" list uses a deliberate
+    union-merge across git syncs specifically so a real signal can never be
+    silently dropped (see its docstring), which means an already-resolved
+    entry CAN legitimately reappear in "pending" after a merge. That was
+    accepted on the assumption a resurrected-then-re-resolved entry
+    "self-heals" — true for the pending list itself, but resolve_live_outcomes
+    had no memory of what it had already written, so every resurrection
+    across every process/cycle (daemon scan_loop, hourly cron, guard_loop
+    sync) appended ANOTHER row for the same trade. Confirmed live: one real
+    LGHL trade (entered 2026-07-27) ended up logged 33 times in
+    dman_live_outcomes.csv. The union-merge behavior on the pending list
+    stays as-is (still the right call — never lose a real signal); this
+    just makes the CSV write itself idempotent so a resurrection is a no-op
+    instead of a duplicate.
     """
     if not os.path.exists(LIVE_SIGNALS_FILE):
         if verbose:
@@ -1165,6 +1182,15 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
     still_open: list[dict] = []
     resolved_count = 0
 
+    already_logged: set[tuple[str, str]] = set()
+    if os.path.exists(LIVE_OUTCOMES_FILE):
+        try:
+            with open(LIVE_OUTCOMES_FILE) as f:
+                for row in csv.DictReader(f):
+                    already_logged.add((row.get("ticker", ""), row.get("entry_date", "")))
+        except Exception:
+            pass   # fail-open on a malformed CSV — worst case, a duplicate slips through once
+
     # Write CSV header if file doesn't exist
     write_header = not os.path.exists(LIVE_OUTCOMES_FILE)
     csv_rows: list[str] = []
@@ -1173,6 +1199,12 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
                         "target1,target2,exit_px,exit_reason,pnl_pct,outcome,score,hold_bars")
 
     for p in pending:
+        if (p["ticker"], p["date"]) in already_logged:
+            # Already resolved and logged in a prior cycle — the pending
+            # list resurrected it via the union-merge, but there's nothing
+            # left to do. Drop it from pending (don't re-add to still_open)
+            # rather than looping on it forever.
+            continue
         if p["date"] >= today_str:
             # Entered today — needs at least one full day's bar to evaluate
             still_open.append(p)

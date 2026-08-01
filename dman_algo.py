@@ -1903,6 +1903,58 @@ def run_stocktwits_monitor() -> None:
     print(f"  📡 Added: {_added}  |  Already known: {[c['ticker'] for c in _new_calls if c['ticker'] not in _added]}")
 
 
+def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
+    """
+    Real-time per-ticker headlines via Massive's Benzinga news proxy
+    (api.massive.com/benzinga/v2/news) — same reliably server-side
+    ticker-filtered pipeline that fixed earnings-date lookups
+    (_fetch_massive_earnings, confirmed live 2026-07-30). Requires a
+    Massive plan that includes Benzinga News — a SEPARATE entitlement
+    from Benzinga Earnings (confirmed live 2026-08-01: this account's
+    MASSIVE_API_KEY gets 403 NOT_AUTHORIZED on /benzinga/v2/news despite
+    working fine on /benzinga/v1/earnings). Returns {} on 403/no key/any
+    error so callers fall through to the existing Benzinga-direct/Alpaca/
+    yfinance chain unchanged — this is additive, wired in ahead of time so
+    it starts working the moment the News entitlement is purchased, no
+    further code changes needed.
+    """
+    if not MASSIVE_API_KEY:
+        return {}
+    from datetime import timezone as _tz
+    cutoff = datetime.now(_tz.utc) - timedelta(hours=hours_back)
+    result: dict[str, list[str]] = {t: [] for t in tickers}
+    batch_size = 50   # matches the direct-Benzinga batching below
+    for i in range(0, len(tickers), batch_size):
+        batch = tickers[i : i + batch_size]
+        try:
+            resp = requests.get(
+                "https://api.massive.com/benzinga/v2/news",
+                params={
+                    "tickers.any_of": ",".join(batch),
+                    "published.gte":  cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "limit":          100,
+                    "apiKey":         MASSIVE_API_KEY,
+                },
+                timeout=10,
+            )
+            if resp.status_code != 200:
+                if resp.status_code != 403:   # 403 = not entitled yet — expected until purchased, not worth logging every run
+                    print(f"  [massive-news] batch {i}-{i+len(batch)}: HTTP {resp.status_code} "
+                          f"— {resp.text[:150]}", file=sys.stderr)
+                continue
+            for art in resp.json().get("results", []) or []:
+                title = art.get("title", "")
+                if not title:
+                    continue
+                for sym in art.get("tickers", []) or []:
+                    sym = str(sym).upper()
+                    if sym in result and len(result[sym]) < 5:
+                        result[sym].append(title)
+        except Exception:
+            continue
+    return result
+
+
 def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
     """
     Fetch real-time ticker-specific headlines from Benzinga Basic API.
@@ -2015,27 +2067,42 @@ def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, s
 def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, list[str]]:
     """
     Fetch recent news headlines for a list of tickers.
-    Priority: Benzinga real-time API → Alpaca News API → yfinance.
+    Priority: Massive Benzinga News → direct Benzinga API → Alpaca News API → yfinance.
     Returns {ticker: [headline, ...]}.
     """
     from datetime import timezone
     result: dict[str, list[str]] = {t: [] for t in tickers}
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
 
-    # Primary: Benzinga real-time news (requires BENZINGA_API_KEY)
+    # Primary: Massive's Benzinga news proxy — confirmed correctly ticker-filtered
+    # server-side (same pipeline that fixed earnings lookups), unlike the direct
+    # API below. No-ops to {} until the Benzinga News entitlement is purchased.
+    mv = _fetch_massive_benzinga_news(tickers, hours_back=hours_back)
+    filled_mv = sum(1 for v in mv.values() if v)
+    if filled_mv:
+        print(f"  [news] Massive Benzinga returned headlines for {filled_mv}/{len(tickers)} tickers")
+        for t, headlines in mv.items():
+            if headlines:
+                result[t] = headlines
+        if all(result[t] for t in tickers):
+            return result
+
+    # Secondary: direct Benzinga API (requires BENZINGA_API_KEY) — known
+    # unreliable per-ticker filter (see _fetch_benzinga_ticker_news docstring),
+    # kept as a fallback layer rather than the primary source now.
     if BENZINGA_API_KEY:
         bz = _fetch_benzinga_ticker_news(tickers, hours_back=hours_back)
         filled = sum(1 for v in bz.values() if v)
         print(f"  [news] Benzinga returned headlines for {filled}/{len(tickers)} tickers")
-        # Merge — keep yfinance fallback only for tickers with no Benzinga results
+        # Merge — keep yfinance fallback only for tickers with no results yet
         for t, headlines in bz.items():
-            if headlines:
+            if headlines and not result[t]:
                 result[t] = headlines
-        # If Benzinga covered everything, return early
+        # If everything's covered by Massive+Benzinga combined, return early
         if all(result[t] for t in tickers):
             return result
 
-    # Secondary: Alpaca News API (free tier, delayed)
+    # Tertiary: Alpaca News API (free tier, delayed)
     try:
         from alpaca.data.historical.news import NewsClient as _NC
         from alpaca.data.requests import NewsRequest as _NR
@@ -5822,20 +5889,28 @@ def _check_earnings_already_reported(ticker: str, hours_back: int = 8) -> bool:
     False = "can't confirm reported" — caller still has the IV fallback as a
     second check, not a bare guess).
 
-    KNOWN LIMITATION, confirmed live 2026-07-29: Benzinga's single-ticker
-    `tickers=X` filter is unreliable on this account's plan tier — querying
-    META or TSLA alone returned ZERO articles even with no time filter at
-    all, while AAPL returned 5 in the same call. This isn't a bug in this
-    function; it inherits the same per-ticker unreliability already
-    documented in _fetch_benzinga_earnings_time(). This check has real value
-    when Benzinga's filter happens to work for a given ticker, but will
-    silently return False (not "confirmed clear," just "couldn't confirm")
-    for others — it's an additive signal, not a replacement for the IV
-    fallback that already existed.
+    Tries Massive's Benzinga news proxy first (_fetch_massive_benzinga_news,
+    correctly ticker-filtered server-side once the News entitlement is
+    purchased — no-ops to {} until then). Falls back to the direct Benzinga
+    API below, which has a KNOWN LIMITATION, confirmed live 2026-07-29:
+    Benzinga's single-ticker `tickers=X` filter is unreliable on this
+    account's plan tier — querying META or TSLA alone returned ZERO
+    articles even with no time filter at all, while AAPL returned 5 in the
+    same call. This isn't a bug in this function; it inherits the same
+    per-ticker unreliability already documented in
+    _fetch_benzinga_earnings_time(). This check has real value when either
+    source's filter happens to work for a given ticker, but will silently
+    return False (not "confirmed clear," just "couldn't confirm") if both
+    miss — it's an additive signal, not a replacement for the IV fallback
+    that already existed (or the Massive-earnings actual_eps check that now
+    runs before this in _resolve_earnings_timing).
     """
     try:
-        news = _fetch_benzinga_ticker_news([ticker], hours_back=hours_back)
+        news = _fetch_massive_benzinga_news([ticker], hours_back=hours_back)
         headlines = news.get(ticker, [])
+        if not headlines:
+            news = _fetch_benzinga_ticker_news([ticker], hours_back=hours_back)
+            headlines = news.get(ticker, [])
         return any(kw in h.lower() for h in headlines for kw in _EARNINGS_REPORTED_KEYWORDS)
     except Exception:
         return False

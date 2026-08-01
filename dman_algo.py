@@ -5777,6 +5777,45 @@ def get_upcoming_earnings(tickers: list, days_ahead: int = 5) -> list[dict]:
     return results
 
 
+def _classify_bmo_amc(time_str: str, earn_date: date) -> Optional[str]:
+    """
+    Precise BMO/AMC classification from a Benzinga "HH:MM:SS" time string.
+    Massive's docs are explicit this field is fixed EST (UTC-5), NOT
+    DST-aware ET — during EDT (roughly March-November, which covers most
+    of the trading year, including right now), a naive hour<12 check reads
+    the wrong wall-clock hour by up to 1 hour. This converts the
+    fixed-UTC-5 timestamp to real America/New_York local time (DST-aware,
+    via the module's existing ET zoneinfo) before comparing against actual
+    market boundaries (9:30 open, 16:00 close) instead of a coarse noon
+    split.
+
+    Returns "BMO" (strictly before 9:30 ET), "AMC" (16:00 ET or later), or
+    None for a report that timestamps to during market hours — genuinely
+    ambiguous for this feature's purposes, not a parse failure, so the
+    caller falls through to its other checks rather than guessing. In
+    practice this coarse-vs-precise distinction almost never changes the
+    BMO/AMC call (real earnings releases cluster well before 9:30 or well
+    after 16:00, not near the old noon threshold), but "almost never"
+    isn't "never," and the precise version costs nothing extra to get right.
+    """
+    try:
+        hh, mm, ss = (int(x) for x in time_str.split(":")[:3])
+    except Exception:
+        return None
+    try:
+        from datetime import timezone as _tz, time as _dt_time
+        est = _tz(timedelta(hours=-5))   # fixed UTC-5, no DST — matches Benzinga's documented "EST"
+        naive = datetime(earn_date.year, earn_date.month, earn_date.day, hh, mm, ss, tzinfo=est)
+        local_t = naive.astimezone(ET).time()
+    except Exception:
+        return None
+    if local_t < _dt_time(9, 30):
+        return "BMO"
+    if local_t >= _dt_time(16, 0):
+        return "AMC"
+    return None   # reported during market hours — ambiguous, let caller fall through
+
+
 def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]:
     """
     Best-effort BMO/AMC lookup via Benzinga's calendar endpoint. Returns "BMO",
@@ -5818,11 +5857,7 @@ def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]
             time_str = str(item.get("time", "")).strip()
             if not time_str:
                 continue
-            try:
-                hh = int(time_str.split(":")[0])
-            except Exception:
-                continue
-            return "BMO" if hh < 12 else "AMC"
+            return _classify_bmo_amc(time_str, earn_date)
     except Exception:
         return None
     return None
@@ -5950,11 +5985,10 @@ def _resolve_earnings_timing(client, ticker: str, earn_date: date, current_price
             return "ALREADY-REPORTED"
         time_str = str(item.get("time", "")).strip()
         if time_str:
-            try:
-                return "BMO" if int(time_str.split(":")[0]) < 12 else "AMC"
-            except Exception:
-                pass
-        break   # matched record but no usable actual_eps/time — fall through below
+            classified = _classify_bmo_amc(time_str, earn_date)
+            if classified:
+                return classified
+        break   # matched record but no usable actual_eps/time classification — fall through below
     if _check_earnings_already_reported(ticker):
         return "ALREADY-REPORTED"
     bz = _fetch_benzinga_earnings_time(ticker, earn_date)

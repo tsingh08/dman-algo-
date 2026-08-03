@@ -45,6 +45,7 @@ jobs:
                           # timeout-kill mid-retry on a normal-length scan
     permissions:
       contents: write   # needed to push alert cache back to repo
+      actions: write    # lets /restart (picked up via the Telegram poll every run) dispatch a fresh daemon session
 
     steps:
       - name: Checkout repo
@@ -69,6 +70,7 @@ jobs:
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
           BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
           BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
+          GITHUB_TOKEN:        ${{ secrets.GITHUB_TOKEN }}
           PYTHONIOENCODING:    utf-8
           DISPATCH_MODE:       ${{ github.event.inputs.mode }}
         run: |

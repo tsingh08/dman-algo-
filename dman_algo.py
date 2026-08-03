@@ -286,6 +286,12 @@ MACRO_BLACKOUT       = 1         # days before/after FOMC/NFP to avoid
 # Claude API for AI scoring (optional — leave blank to skip)
 ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 
+# GitHub Actions' own auto-provided token — no new secret needed, just
+# `permissions: actions: write` on whichever workflow reads it. Powers
+# /restart (phone-triggered) and the watchdog's automatic self-heal restart.
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+GITHUB_REPO  = os.getenv("GITHUB_REPOSITORY", "tsingh08/dman-algo-")
+
 # Telegram alerts (optional — set via env vars or hardcode)
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_TOKEN",   "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
@@ -1326,7 +1332,48 @@ def run_readiness_scan() -> None:
 
 # ── Telegram two-way commands ────────────────────────────────────────────────
 # The bot is no longer one-way: /halt /resume /close /status /positions /pnl
-# work from your phone. Cron runs poll once per run; the daemon polls live.
+# /restart work from your phone. Cron runs poll once per run; the daemon
+# polls live.
+
+def _trigger_workflow_restart(workflow_file: str, ref: str = "main") -> tuple[bool, str]:
+    """
+    Dispatch a fresh run of a GitHub Actions workflow via the REST API —
+    the mechanism behind both /restart (phone-triggered, last resort) and
+    the watchdog's automatic self-heal. GITHUB_TOKEN is the token GitHub
+    auto-provides to every Actions run; no new secret to create, just
+    `permissions: actions: write` on whichever workflow calls this.
+
+    Critically, this doesn't need the daemon itself to be alive to work:
+    _process_telegram_commands() runs at the top of every single mode
+    dispatch (scan, watchdog, everything — see main()), and the watchdog
+    runs on its OWN 30-min schedule completely independent of daemon
+    health, so a stuck/crashed/hung daemon still gets picked up and
+    restarted without anyone needing to touch a computer.
+
+    dman_daemon.yml's concurrency group (group: dman-daemon,
+    cancel-in-progress: true) applies to every trigger type including
+    workflow_dispatch, so dispatching a fresh run automatically supersedes
+    a stuck one — no separate cancel-then-restart dance needed.
+    """
+    if not GITHUB_TOKEN:
+        return False, "GITHUB_TOKEN not available in this run"
+    try:
+        resp = requests.post(
+            f"https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/{workflow_file}/dispatches",
+            headers={
+                "Authorization":        f"Bearer {GITHUB_TOKEN}",
+                "Accept":               "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+            json={"ref": ref},
+            timeout=15,
+        )
+        if resp.status_code == 204:
+            return True, "dispatched"
+        return False, f"HTTP {resp.status_code}: {resp.text[:200]}"
+    except Exception as exc:
+        return False, str(exc)
+
 
 def is_halted() -> bool:
     """True when a manual /halt is active — blocks NEW entries only."""
@@ -1399,6 +1446,20 @@ def _handle_telegram_command(text: str) -> None:
         send_telegram(f"💰 <b>P&L</b>\nToday: {get_todays_loss():+.2f}%\n"
                       f"Month: {get_this_month_loss():+.2f}%")
 
+    elif _cmd in ("restart", "reboot"):
+        send_telegram("🔄 <b>Restart requested</b> — dispatching a fresh daemon session "
+                      "(automatically cancels any stuck/hung session first, same "
+                      "concurrency group). This works even if the current daemon is "
+                      "completely frozen.")
+        _ok, _msg = _trigger_workflow_restart("dman_daemon.yml")
+        if _ok:
+            send_telegram("✅ Fresh daemon session dispatched — should be live within a "
+                          "few minutes. You'll get the usual \"daemon ONLINE\" message "
+                          "once it starts.")
+        else:
+            send_telegram(f"❌ Restart dispatch failed: {_msg}\n"
+                          f"Fallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.")
+
     elif _cmd == "close" and _arg:
         _pt  = PositionTracker()
         _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
@@ -1429,7 +1490,8 @@ def _handle_telegram_command(text: str) -> None:
             "/pnl — today + month P&L\n"
             "/halt [reason] — block new entries (exits still run)\n"
             "/resume — re-enable entries\n"
-            "/close TICKER — close a position now"
+            "/close TICKER — close a position now\n"
+            "/restart — force a fresh daemon session (last resort, works even if it's frozen)"
         )
 
 
@@ -1748,6 +1810,7 @@ def run_watchdog() -> None:
     # 2. Silent failures — only meaningful once the session has been running
     # a while, so a check that fires right at the open doesn't false-alarm
     # on things that legitimately haven't happened yet.
+    daemon_likely_down = False
     if 930 <= t <= 1600:
         try:
             with open(ALPACA_SYNC_FILE) as f:
@@ -1755,8 +1818,20 @@ def run_watchdog() -> None:
             _stale_min = (datetime.now() - _last_sync).total_seconds() / 60
             if _stale_min > 30:
                 issues.append(f"⚠️ Daemon sync stale — last synced {_stale_min:.0f} min ago")
+            # The daemon's own sync cadence is every 5 min (SYNC_EVERY_S) —
+            # 30 min stale is already 6x that, so it's flagged above as an
+            # issue regardless. 45 min is a second, more severe threshold:
+            # a blip that self-resolves within 30-45 min doesn't need
+            # intervention, but this is well past "having a bad minute" and
+            # into "the daemon isn't coming back on its own" territory —
+            # worth auto-restarting rather than waiting for a human to
+            # notice a Telegram message during a busy day.
+            if _stale_min > 45:
+                daemon_likely_down = True
         except Exception:
             issues.append("⚠️ dman_alpaca_sync.json unreadable/missing — daemon may never have synced today")
+            if t >= 1000:   # give it 30 min after open before assuming it never started
+                daemon_likely_down = True
 
         if t >= 1030:
             try:
@@ -1782,6 +1857,32 @@ def run_watchdog() -> None:
                               f"options data may be degraded/rate-limited")
         except Exception:
             pass   # no file yet = no 429s recorded today, not an issue
+
+        # Auto-heal: the whole point of this daemon-independent watchdog is
+        # that it keeps running even when the daemon doesn't, so it's the
+        # one thing that CAN restart it without a human noticing a Telegram
+        # message and doing it manually. Own cooldown key (not the shared
+        # issue-alert one below) — a restart that doesn't fix things within
+        # one cooldown window shouldn't be re-dispatched every single 30-min
+        # cycle forever; ALERT_COOLDOWN_MIN gives it room to actually come
+        # up before trying again.
+        if daemon_likely_down:
+            _restart_key = "__WATCHDOG_AUTO_RESTART__"
+            if not _is_duplicate_alert(_restart_key):
+                print("  🐕 Daemon appears down — auto-restarting")
+                _r_ok, _r_msg = _trigger_workflow_restart("dman_daemon.yml")
+                if _r_ok:
+                    issues.append("🔄 Daemon appeared down — auto-restarted "
+                                  "(fresh session dispatched, no action needed)")
+                else:
+                    issues.append(f"❌ Daemon appeared down — auto-restart FAILED "
+                                  f"({_r_msg}). Manual action needed: reply "
+                                  f"<b>/restart</b> or GitHub app → Actions → "
+                                  f"DMan Cloud Daemon → Run workflow.")
+                _save_last_alert(_restart_key)
+            else:
+                issues.append("🔄 Daemon still appears down — already auto-restarted "
+                              "recently, waiting to see if it recovers before trying again")
 
     if not issues:
         print("  🐕 Watchdog: all checks passed")

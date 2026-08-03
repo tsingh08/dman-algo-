@@ -33,6 +33,7 @@ jobs:
     timeout-minutes: 240
     permissions:
       contents: write   # git state sync (positions, halt flag, telegram offset)
+      actions: write    # lets a live daemon session self-restart on /restart via its own Telegram poll
 
     steps:
       - name: Checkout repo
@@ -70,6 +71,7 @@ jobs:
           ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
           BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
           BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
+          GITHUB_TOKEN:        ${{ secrets.GITHUB_TOKEN }}
           DAEMON_RUN_UNTIL:    ${{ steps.session.outputs.until }}
           PYTHONIOENCODING:    utf-8
         run: python dman_daemon.py

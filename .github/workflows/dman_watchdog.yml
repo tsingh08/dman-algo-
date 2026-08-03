@@ -29,6 +29,7 @@ jobs:
     timeout-minutes: 5
     permissions:
       contents: write   # persists the alert-dedup file so the 30-min cooldown works across runs
+      actions: write    # lets the watchdog auto-restart a stuck daemon (see _trigger_workflow_restart)
 
     steps:
       - name: Checkout repo
@@ -47,6 +48,7 @@ jobs:
         env:
           TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_TOKEN:        ${{ secrets.GITHUB_TOKEN }}
           PYTHONIOENCODING:    utf-8
         run: python dman_algo.py --mode watchdog
 

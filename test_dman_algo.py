@@ -842,6 +842,144 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         self.assertEqual(len(a._load_earnings_pending()), 1)
 
 
+class TestWorkflowRestartFeature(unittest.TestCase):
+    """The whole point of /restart and the watchdog auto-heal is that they
+    work even when the daemon is frozen — a bug here means the "last resort"
+    has no resort. Never let these tests make a real network call: GitHub's
+    dispatch API would actually restart the live daemon."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "LAST_ALERTS_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def test_trigger_restart_no_token_fails_closed(self):
+        with patch.object(a, "GITHUB_TOKEN", ""):
+            ok, msg = a._trigger_workflow_restart("dman_daemon.yml")
+        self.assertFalse(ok)
+        self.assertIn("GITHUB_TOKEN", msg)
+
+    def test_trigger_restart_success_on_204(self):
+        mock_resp = MagicMock(status_code=204)
+        with patch.object(a, "GITHUB_TOKEN", "fake-token"):
+            with patch.object(a.requests, "post", return_value=mock_resp) as mock_post:
+                ok, msg = a._trigger_workflow_restart("dman_daemon.yml")
+        self.assertTrue(ok)
+        # Confirm it hit the real dispatch endpoint shape, not just "some URL"
+        call_url = mock_post.call_args[0][0]
+        self.assertIn("actions/workflows/dman_daemon.yml/dispatches", call_url)
+        self.assertEqual(mock_post.call_args[1]["json"], {"ref": "main"})
+
+    def test_trigger_restart_surfaces_non_204_as_failure(self):
+        mock_resp = MagicMock(status_code=403, text="Resource not accessible")
+        with patch.object(a, "GITHUB_TOKEN", "fake-token"):
+            with patch.object(a.requests, "post", return_value=mock_resp):
+                ok, msg = a._trigger_workflow_restart("dman_daemon.yml")
+        self.assertFalse(ok)
+        self.assertIn("403", msg)
+
+    def test_restart_command_dispatches_and_confirms(self):
+        with patch.object(a, "_trigger_workflow_restart", return_value=(True, "dispatched")) as mock_trigger:
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._handle_telegram_command("/restart")
+        mock_trigger.assert_called_once_with("dman_daemon.yml")
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("Restart requested" in t for t in sent_texts))
+        self.assertTrue(any("dispatched" in t.lower() for t in sent_texts))
+
+    def test_restart_command_reports_failure_with_fallback_instructions(self):
+        with patch.object(a, "_trigger_workflow_restart", return_value=(False, "HTTP 403: nope")):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._handle_telegram_command("/reboot")
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("failed" in t.lower() and "Run workflow" in t for t in sent_texts))
+
+    def test_watchdog_auto_restarts_when_daemon_stale_past_45_min(self):
+        stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        stale_sync.close()
+        stale_time = (datetime.now() - timedelta(minutes=60)).isoformat()
+        with open(stale_sync.name, "w") as _f:
+            json.dump({"last_sync": stale_time}, _f)
+        with patch.object(a, "ALPACA_SYNC_FILE", stale_sync.name):
+            with patch.object(a, "SCAN_LOG_FILE", "/nonexistent/path.json"):
+                with patch.object(a, "_RATE_LIMIT_EVENTS_FILE", "/nonexistent/path2.json"):
+                    with patch.object(a, "datetime") as mock_dt:
+                        # Fix "now" mid-session so the 930-1600 ET window check passes
+                        fixed_now = datetime(2026, 8, 3, 11, 0, tzinfo=a.ET)
+                        mock_dt.now.side_effect = lambda tz=None: (fixed_now if tz else datetime.now())
+                        mock_dt.fromisoformat = datetime.fromisoformat
+                        with patch.object(a, "_trigger_workflow_restart",
+                                          return_value=(True, "dispatched")) as mock_trigger:
+                            with patch.object(a, "send_telegram", return_value=True):
+                                with patch.object(a, "requests") as mock_requests:
+                                    mock_requests.get.return_value = MagicMock(
+                                        json=lambda: {"workflow_runs": []})
+                                    a.run_watchdog()
+        os.unlink(stale_sync.name)
+        mock_trigger.assert_called_once_with("dman_daemon.yml")
+
+    def test_watchdog_does_not_restart_for_mild_staleness(self):
+        # 35 min stale — past the 30-min "flag it" threshold but well under
+        # the 45-min "auto-restart" threshold. Should notify, not restart.
+        stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        stale_sync.close()
+        stale_time = (datetime.now() - timedelta(minutes=35)).isoformat()
+        with open(stale_sync.name, "w") as _f:
+            json.dump({"last_sync": stale_time}, _f)
+        with patch.object(a, "ALPACA_SYNC_FILE", stale_sync.name):
+            with patch.object(a, "SCAN_LOG_FILE", "/nonexistent/path.json"):
+                with patch.object(a, "_RATE_LIMIT_EVENTS_FILE", "/nonexistent/path2.json"):
+                    with patch.object(a, "datetime") as mock_dt:
+                        fixed_now = datetime(2026, 8, 3, 11, 0, tzinfo=a.ET)
+                        mock_dt.now.side_effect = lambda tz=None: (fixed_now if tz else datetime.now())
+                        mock_dt.fromisoformat = datetime.fromisoformat
+                        with patch.object(a, "_trigger_workflow_restart") as mock_trigger:
+                            with patch.object(a, "send_telegram", return_value=True):
+                                with patch.object(a, "requests") as mock_requests:
+                                    mock_requests.get.return_value = MagicMock(
+                                        json=lambda: {"workflow_runs": []})
+                                    a.run_watchdog()
+        os.unlink(stale_sync.name)
+        mock_trigger.assert_not_called()
+
+    def test_watchdog_restart_respects_cooldown_no_double_dispatch(self):
+        # A restart already recorded within the cooldown window must not
+        # trigger a second dispatch on the very next watchdog tick — that
+        # would restart-storm a daemon that's simply still coming back up.
+        stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        stale_sync.close()
+        stale_time = (datetime.now() - timedelta(minutes=60)).isoformat()
+        with open(stale_sync.name, "w") as _f:
+            json.dump({"last_sync": stale_time}, _f)
+        with patch.object(a, "ALPACA_SYNC_FILE", stale_sync.name):
+            with patch.object(a, "SCAN_LOG_FILE", "/nonexistent/path.json"):
+                with patch.object(a, "_RATE_LIMIT_EVENTS_FILE", "/nonexistent/path2.json"):
+                    with patch.object(a, "datetime") as mock_dt:
+                        fixed_now = datetime(2026, 8, 3, 11, 0, tzinfo=a.ET)
+                        mock_dt.now.side_effect = lambda tz=None: (fixed_now if tz else datetime.now())
+                        mock_dt.fromisoformat = datetime.fromisoformat
+                        # Record the "already restarted" marker using the SAME
+                        # mocked clock the cooldown check will compare against —
+                        # using the real wall-clock here would make the elapsed-
+                        # time math meaningless (could be a stale-looking gap of
+                        # hours purely from test/real-time drift, not the
+                        # 2-minutes-ago scenario this test actually means).
+                        a._save_last_alert("__WATCHDOG_AUTO_RESTART__")
+                        with patch.object(a, "_trigger_workflow_restart") as mock_trigger:
+                            with patch.object(a, "send_telegram", return_value=True):
+                                with patch.object(a, "requests") as mock_requests:
+                                    mock_requests.get.return_value = MagicMock(
+                                        json=lambda: {"workflow_runs": []})
+                                    a.run_watchdog()
+        os.unlink(stale_sync.name)
+        mock_trigger.assert_not_called()
+
+
 def _fake_df():
     import pandas as pd
     import numpy as np

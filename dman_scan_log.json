@@ -298,5 +298,20 @@
     "rejected_hard_gate": 1,
     "rejected_low_score": 0,
     "budget_hit": false
+  },
+  {
+    "ts": "2026-08-03T12:02:26.530353-04:00",
+    "regime": "CHOP",
+    "regime_score": 15,
+    "vix": 15.6,
+    "min_score": 75,
+    "universe": "curated",
+    "tickers_total": 86,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 84,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 1,
+    "budget_hit": false
   }
 ]

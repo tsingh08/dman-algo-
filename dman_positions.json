@@ -16,5 +16,23 @@
     "max_loss": 0.0,
     "max_gain": 0.0,
     "earn_date": ""
+  },
+  {
+    "ticker": "AMZN",
+    "bias": "LONG",
+    "setup": "Day 2 Continuation",
+    "entry": 284.97,
+    "stop": 269.92,
+    "target1": 322.6,
+    "target2": 345.17,
+    "shares": 5,
+    "entry_date": "2026-08-03",
+    "atr": 10.032464285714285,
+    "score": 100,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": ""
   }
 ]

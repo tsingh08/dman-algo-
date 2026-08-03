@@ -61,6 +61,18 @@
       "timestamp": "2026-08-03T12:16:11.786104-04:00"
     },
     {
+      "ticker": "AMZN",
+      "setup": "Day 2 Continuation",
+      "bias": "LONG",
+      "entry": 284.43,
+      "stop": 269.38,
+      "target1": 314.53,
+      "target2": 329.58,
+      "score": 100,
+      "date": "2026-08-03",
+      "timestamp": "2026-08-03T15:33:22.766294-04:00"
+    },
+    {
       "ticker": "LGHL",
       "setup": "Low Float Catalyst",
       "bias": "LONG",

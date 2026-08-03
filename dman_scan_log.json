@@ -278,5 +278,25 @@
     "rejected_hard_gate": 1,
     "rejected_low_score": 0,
     "budget_hit": false
+  },
+  {
+    "ts": "2026-08-03T03:00:36.867353-04:00",
+    "regime": "CHOP",
+    "regime_score": 14,
+    "vix": 16.0,
+    "min_score": 75,
+    "universe": "curated",
+    "tickers_total": 90,
+    "signals": 4,
+    "signal_tickers": [
+      "RBLX",
+      "AMBA",
+      "CDNA",
+      "AXTI"
+    ],
+    "rejected_no_signal": 85,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false
   }
 ]

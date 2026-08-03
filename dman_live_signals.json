@@ -49,6 +49,18 @@
       "timestamp": "2026-08-03T11:41:25.829225-04:00"
     },
     {
+      "ticker": "FERG",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 252.97,
+      "stop": 245.03,
+      "target1": 268.85,
+      "target2": 276.79,
+      "score": 100,
+      "date": "2026-08-03",
+      "timestamp": "2026-08-03T12:16:11.786104-04:00"
+    },
+    {
       "ticker": "LGHL",
       "setup": "Low Float Catalyst",
       "bias": "LONG",

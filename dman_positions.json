@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "ticker": "FERG",
+    "bias": "LONG",
+    "setup": "Gap & Hold",
+    "entry": 253.21,
+    "stop": 245.27,
+    "target1": 273.06,
+    "target2": 284.97,
+    "shares": 13,
+    "entry_date": "2026-08-03",
+    "atr": 7.917857142857143,
+    "score": 100,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": ""
+  }
+]

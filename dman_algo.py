@@ -3005,7 +3005,17 @@ def run_premarket_early_scan() -> None:
             from alpaca.trading.requests import LimitOrderRequest as _LimReq
             from alpaca.trading.enums   import OrderSide as _Side, TimeInForce as _TIF
             _acct    = get_effective_account()
-            _base_risk = _acct * SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT * _early_ctx["risk_mult"]
+            # SMALLCAP_RISK_PCT(0.02) * MOONSHOT_RISK_MULT(5.0) * risk_mult (up to
+            # 1.30 in RISK-ON regimes) can reach 13% on a SINGLE trade, with up to
+            # 3 concurrent pre-market entries below and no portfolio-heat check
+            # anywhere in this path — unlike the equivalent moonshot path in
+            # find_smallcap_signal(), which hit the exact same conflict against
+            # PORTFOLIO_HEAT_LIMIT (6%) and is fixed there for the same reason.
+            # Capping per-trade risk here is a pure risk reduction, consistent
+            # with that fix — it does not touch entry criteria or targets.
+            _risk_pct  = min(SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT * _early_ctx["risk_mult"],
+                             PORTFOLIO_HEAT_LIMIT)
+            _base_risk = _acct * _risk_pct
             _pm_pt   = PositionTracker()
             for _e in pm_auto_entries[:3]:   # max 3 concurrent pre-market entries
                 try:
@@ -8457,9 +8467,22 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
             is_moonshot=moonshot,
         )
 
-        # Position sizing — Moon Shot tier gets 3x allocation; normal uses 0.5% risk
+        # Position sizing — Moon Shot tier gets MOONSHOT_RISK_MULT allocation; normal uses SMALLCAP_RISK_PCT.
         acct      = get_effective_account()
         risk_pct  = SMALLCAP_RISK_PCT * (MOONSHOT_RISK_MULT if moonshot else 1.0)
+        # SMALLCAP_RISK_PCT(0.02) * MOONSHOT_RISK_MULT(5.0) = 10% — bigger than
+        # PORTFOLIO_HEAT_LIMIT (6% across ALL open positions combined), which
+        # means a moonshot signal was being sized to exceed the account's
+        # entire risk ceiling by itself, with zero other positions open.
+        # Confirmed live 2026-07-27: LGHL scored 100 and re-qualified as a
+        # moonshot on every single scan that day, and was excluded every
+        # time with "Heat cap 6% reached (0.0% used)" — the cap wasn't
+        # protecting against real exposure, the trade's own intended size
+        # already broke it. Capping here preserves the "moonshots get
+        # outsized risk" intent while keeping it inside what the account
+        # can actually ever approve — it degrades to the max the heat cap
+        # allows instead of silently dying every time.
+        risk_pct  = min(risk_pct, PORTFOLIO_HEAT_LIMIT)
         risk_amt  = acct * risk_pct
         rps = entry - stop
         shares = max(1, int(risk_amt / rps)) if rps > 0 else 1

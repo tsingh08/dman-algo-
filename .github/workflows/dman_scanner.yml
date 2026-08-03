@@ -114,6 +114,19 @@ jobs:
           # dispatch input is free-text — 3 manual runs on 2026-07-28 ("Alpaca",
           # "Alpaca", "Scan") crashed instantly on this alone.
           _dispatch_mode = os.environ.get("DISPATCH_MODE", "").strip().lower()
+          if _dispatch_mode == "scan":
+              # A bare `--mode scan` (no --universe/--ai/--submit) only alerts —
+              # it does NOT place real orders, unlike every scheduled scan.
+              # Someone manually dispatching "scan" to force immediate coverage
+              # (e.g. right at market open, not wanting to wait for a delayed
+              # cron) almost certainly wants the real thing, not a silent dry
+              # run — so this mirrors the scheduled pre-10am command exactly.
+              result = subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "scan",
+                   "--universe", "curated", "--ai", "--submit"],
+                  capture_output=False
+              )
+              sys.exit(result.returncode)
           if _dispatch_mode:
               result = subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", _dispatch_mode],

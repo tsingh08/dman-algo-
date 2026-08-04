@@ -2004,6 +2004,10 @@ def run_stocktwits_monitor() -> None:
     print(f"  📡 Added: {_added}  |  Already known: {[c['ticker'] for c in _new_calls if c['ticker'] not in _added]}")
 
 
+_MASSIVE_NEWS_CACHE: dict[tuple, tuple[float, dict]] = {}
+_MASSIVE_NEWS_CACHE_TTL_S = 600   # 10 min — matches the daemon's scan_loop cadence
+
+
 def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
     """
     Real-time per-ticker headlines via Massive's Benzinga news proxy
@@ -2018,6 +2022,19 @@ def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> di
     yfinance chain unchanged — this is additive, wired in ahead of time so
     it starts working the moment the News entitlement is purchased, no
     further code changes needed.
+
+    10-min TTL cache added 2026-08-04 — confirmed live: this had ZERO
+    caching (unlike _fetch_massive_earnings, which got a 20-min cache on
+    2026-07-31 for the identical reason), and gets called every scan cycle
+    for the same ~80-ticker WATCHLIST batch, daemon every 10 min plus
+    hourly cron on top. Result: real 429s on the SAME afternoon PLTR's
+    earnings (2026-08-03) needed a news-based already-reported
+    confirmation as a fallback after the primary Massive-earnings time
+    field wasn't populated yet — the fallback was rate-limited into
+    uselessness at exactly the moment it was needed, contributing to that
+    candidate landing on UNKNOWN-TODAY and never getting an offer. Cache
+    key is the exact ticker batch, stable in practice since WATCHLIST
+    order doesn't change between calls.
     """
     if not MASSIVE_API_KEY:
         return {}
@@ -2027,6 +2044,13 @@ def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> di
     batch_size = 50   # matches the direct-Benzinga batching below
     for i in range(0, len(tickers), batch_size):
         batch = tickers[i : i + batch_size]
+        cache_key = (tuple(batch), hours_back)
+        cached = _MASSIVE_NEWS_CACHE.get(cache_key)
+        if cached and (time.time() - cached[0]) < _MASSIVE_NEWS_CACHE_TTL_S:
+            for t, headlines in cached[1].items():
+                if t in result:
+                    result[t] = headlines
+            continue
         try:
             resp = requests.get(
                 "https://api.massive.com/benzinga/v2/news",
@@ -2043,14 +2067,18 @@ def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> di
                     print(f"  [massive-news] batch {i}-{i+len(batch)}: HTTP {resp.status_code} "
                           f"— {resp.text[:150]}", file=sys.stderr)
                 continue
+            batch_result: dict[str, list[str]] = {t: [] for t in batch}
             for art in resp.json().get("results", []) or []:
                 title = art.get("title", "")
                 if not title:
                     continue
                 for sym in art.get("tickers", []) or []:
                     sym = str(sym).upper()
-                    if sym in result and len(result[sym]) < 5:
-                        result[sym].append(title)
+                    if sym in batch_result and len(batch_result[sym]) < 5:
+                        batch_result[sym].append(title)
+            for t, headlines in batch_result.items():
+                result[t] = headlines
+            _MASSIVE_NEWS_CACHE[cache_key] = (time.time(), batch_result)
         except Exception:
             continue
     return result

@@ -10399,8 +10399,12 @@ def _get_pdt_status() -> dict:
 def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]]:
     """
     Place a bracket order on Alpaca (paper or live).
-    Day trade mode  (signal.swing_mode=False):
-      Entry  — DAY limit order, full bracket (entry + stop + T1 take-profit OCO)
+    Normal mode  (signal.swing_mode=False):
+      Entry  — GTC limit order, full bracket (entry + stop + T1 take-profit OCO).
+      GTC (not DAY) so the stop-loss survives past a single session — see the
+      inline comment at the order-submission call for the live incident that
+      made this necessary (a DAY bracket silently loses its stop at close if
+      the trade hasn't resolved yet, which for Gap & Hold is common, not rare).
     Swing trade mode (signal.swing_mode=True, PDT budget ≤ 1):
       Entry  — GTC limit order, OTO with stop only (no T1 TP — momentum-watch manages exit)
       This ensures the position is held overnight and does NOT consume a day-trade count.
@@ -10446,13 +10450,26 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
             print(f"  📤 [{label}] 🔄 SWING {signal.ticker} {signal.bias} {signal.shares}sh  "
                   f"GTC limit=${limit_px}  stop=${stop_px}  (no T1 — held overnight)  id={oid[:8]}…")
         else:
-            # Normal day trade — full bracket with T1 take-profit
+            # Full bracket with T1 take-profit. GTC (not DAY) — confirmed live
+            # 2026-08-03: FERG and AMZN both entered, neither hit stop nor T1
+            # same day, and at close the ENTIRE bracket (including the
+            # stop-loss) expired since it was a DAY order — both positions
+            # sat with zero broker-side protection overnight, silently, with
+            # nothing re-establishing a stop (momentum-watch only sends
+            # Telegram alerts asking the user to manually manage the exit,
+            # it doesn't place orders). "Gap & Hold" holds for multiple days
+            # as a matter of course (real trade history shows 2-4 day
+            # holds), so assuming same-day resolution here was the actual
+            # bug. If the trade resolves same-day, behavior is unchanged —
+            # a fill is a fill regardless of tif. If it doesn't, the stop
+            # and target now persist until hit instead of evaporating at
+            # 4pm. swing_mode's separate OTO path above is untouched.
             order = client.submit_order(LimitOrderRequest(
                 symbol        = signal.ticker,
                 qty           = signal.shares,
                 side          = side,
                 limit_price   = limit_px,
-                time_in_force = TimeInForce.DAY,
+                time_in_force = TimeInForce.GTC,
                 order_class   = OrderClass.BRACKET,
                 take_profit   = TakeProfitRequest(limit_price=target_px),
                 stop_loss     = StopLossRequest(stop_price=stop_px,

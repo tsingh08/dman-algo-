@@ -5795,6 +5795,18 @@ def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list
     date doesn't change within a session; caching removes that redundant
     volume rather than betting on an undocumented limit never getting hit
     on the first day this integration sees real daily traffic.
+
+    One retry on a non-200/exception added 2026-08-04 — confirmed live:
+    three identical requests for the same ticker+date in immediate
+    succession got a mix of successes and failures (no consistent pattern
+    by query shape, genuinely intermittent). _resolve_earnings_timing()
+    calls this with an exact single-day window and has NO retry of its
+    own — one transient hit here used to fall straight through to the
+    secondary fallbacks (also unreliable — see _fetch_benzinga_earnings_time
+    and _fetch_massive_benzinga_news docstrings) and land on UNKNOWN-TODAY
+    for the rest of the day, since the earnings-scan only gets a narrow
+    pre-close retry window. A single short retry costs under a second and
+    meaningfully raises the odds today's classification actually succeeds.
     """
     if not MASSIVE_API_KEY:
         return []
@@ -5802,25 +5814,30 @@ def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list
     cached = _MASSIVE_EARNINGS_CACHE.get(key)
     if cached and (time.time() - cached[0]) < _MASSIVE_EARNINGS_CACHE_TTL_S:
         return cached[1]
-    try:
-        resp = requests.get(
-            "https://api.massive.com/benzinga/v1/earnings",
-            params={
-                "ticker":      ticker,
-                "date.gte":    date_from.isoformat(),
-                "date.lte":    date_to.isoformat(),
-                "limit":       10,
-                "apiKey":      MASSIVE_API_KEY,
-            },
-            timeout=8,
-        )
-        if resp.status_code != 200:
-            return cached[1] if cached else []   # serve stale-but-valid data over nothing on a transient error
-        results = resp.json().get("results", []) or []
-        _MASSIVE_EARNINGS_CACHE[key] = (time.time(), results)
-        return results
-    except Exception:
-        return cached[1] if cached else []
+    for _attempt in range(2):
+        try:
+            resp = requests.get(
+                "https://api.massive.com/benzinga/v1/earnings",
+                params={
+                    "ticker":      ticker,
+                    "date.gte":    date_from.isoformat(),
+                    "date.lte":    date_to.isoformat(),
+                    "limit":       10,
+                    "apiKey":      MASSIVE_API_KEY,
+                },
+                timeout=8,
+            )
+            if resp.status_code == 200:
+                results = resp.json().get("results", []) or []
+                _MASSIVE_EARNINGS_CACHE[key] = (time.time(), results)
+                return results
+            if resp.status_code in (401, 403):
+                break   # auth/entitlement error — retrying won't help
+        except Exception:
+            pass
+        if _attempt == 0:
+            time.sleep(1)
+    return cached[1] if cached else []   # serve stale-but-valid data over nothing after both attempts fail
 
 
 def _extract_earnings_dates(ticker: str) -> list[date]:

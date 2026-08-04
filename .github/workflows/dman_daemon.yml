@@ -5,8 +5,8 @@ name: DMan Cloud Daemon
 #
 # GitHub caps a job at 6 hours, so the trading day is covered by two
 # back-to-back sessions sharing a concurrency group:
-#   Session A: 9:20 AM ET  → exits itself at 12:55 PM ET
-#   Session B: 12:50 PM ET → cancels A (seamless handover) → exits 4:12 PM ET
+#   Session A: ~9:23 AM ET  → exits itself at 12:55 PM ET
+#   Session B: ~12:53 PM ET → cancels A (seamless handover) → exits 4:12 PM ET
 #
 # The daemon gives: options stop/T1/T2 enforcement every 60s, instant fill
 # alerts via websocket, real-time Telegram commands, 5-min fill sync, and
@@ -14,8 +14,15 @@ name: DMan Cloud Daemon
 
 on:
   schedule:
-    - cron: '20 13 * * 1-5'   # 9:20 AM ET — morning session
-    - cron: '50 16 * * 1-5'   # 12:50 PM ET — afternoon session (takes over)
+    # Minutes offset from :20/:50 to :23/:53 — confirmed live 2026-08-03:
+    # the morning session's schedule trigger didn't actually start until
+    # ~11:55 AM ET, over 2.5 hours late. GitHub's own docs warn scheduled
+    # triggers queue behind "the start of every hour" and other round
+    # times; a non-round minute lands in a quieter part of the queue.
+    # Session-end-time logic below already computes off the real current
+    # hour, not the trigger minute, so this doesn't change anything else.
+    - cron: '23 13 * * 1-5'   # ~9:23 AM ET — morning session
+    - cron: '53 16 * * 1-5'   # ~12:53 PM ET — afternoon session (takes over)
   workflow_dispatch:
 
 # Afternoon session cancels the (nearly finished) morning session so exactly

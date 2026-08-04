@@ -15,9 +15,19 @@ on:
     # Every 30 min, 9:00 AM - 4:00 PM ET (13:00-20:00 UTC), weekdays.
     # The function itself no-ops outside 9:30-4:00 for the freshness checks
     # (only the hard-failure check runs outside that window) and skips
-    # entirely on weekends — the wider cron window just absorbs runner
-    # queue delays the same way the other workflows already do.
-    - cron: '0,30 13-20 * * 1-5'
+    # entirely on weekends.
+    #
+    # Offset to :07/:37 (was :00/:30) — confirmed live 2026-08-03: GitHub's
+    # own docs warn "the schedule event can be delayed during periods of
+    # high load... high load times include the start of every hour" and
+    # recommend a different minute. This is the ONE workflow where that
+    # mattered most: the watchdog only fired 4 times that day instead of
+    # the expected ~14 (every :00/:30 slot competing with every other
+    # GitHub-wide job that also defaults to the hour/half-hour), which is
+    # exactly the self-heal mechanism that's supposed to catch everything
+    # else being delayed. A same-hour offset (still every 30 min, same
+    # coverage) costs nothing and lands in a quieter part of the queue.
+    - cron: '7,37 13-20 * * 1-5'
   workflow_dispatch:
 
 env:

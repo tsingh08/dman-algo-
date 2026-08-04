@@ -5,10 +5,14 @@ on:
     # Sunday 5 PM ET — weekly readiness check, shows which watchlist tickers
     # pass all pre-gap filters heading into Monday
     - cron: '0 21 * * 0'
-    # 7:00 AM ET — early pre-market scanner: sweeps small-cap universe for
+    # ~7:06 AM ET — early pre-market scanner: sweeps small-cap universe for
     # overnight gaps ≥5% and news catalysts (FDA, merger, squeeze, etc.) so
-    # IOTR-style plays are flagged BEFORE the open, not after.
-    - cron: '0 11 * * 1-5'
+    # IOTR-style plays are flagged BEFORE the open, not after. Offset from
+    # :00 (was "0 11") — confirmed live 2026-08-03: GitHub's own docs warn
+    # the schedule event queues behind "the start of every hour," and this
+    # repo's own :00/:30 triggers were consistently the most delayed that
+    # day (watchdog's 30-min :00/:30 cadence only fired 4/~14 times).
+    - cron: '6 11 * * 1-5'
     # NOTE: the 8:00 AM ET full pre-market briefing (regime, macro calendar,
     # fade-risk, sector health) is owned by dman_premarket.yml — do not add
     # a second "0 13 * * 1-5" cron here, it duplicated every briefing message
@@ -16,11 +20,13 @@ on:
     # 9:45 AM ET — dedicated Gap & Hold scan, fires exactly when the early-session
     # gate opens. 13:30 UTC (9:30 AM) is peak GitHub runner contention (all trading
     # bots hit at once); 13:45 UTC is 15 min quieter and the Gate is already open.
+    # (Already off a round number — this one's fine as-is.)
     - cron: '45 13 * * 1-5'
-    # Hourly 10:30 AM – 3:30 PM ET for momentum continuation + new setups
-    - cron: '30 14,15,16,17,18,19 * * 1-5'
-    # 4:00 PM ET final check / Friday close-out advisory
-    - cron: '0 20 * * 1-5'
+    # ~10:34 AM – 3:34 PM ET hourly for momentum continuation + new setups.
+    # Offset from :30 for the same reason as the 7 AM slot above.
+    - cron: '34 14,15,16,17,18,19 * * 1-5'
+    # ~4:04 PM ET final check / Friday close-out advisory. Offset from :00.
+    - cron: '4 20 * * 1-5'
   workflow_dispatch:   # manual trigger from GitHub UI
     inputs:
       mode:

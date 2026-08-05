@@ -3120,10 +3120,12 @@ def run_premarket_early_scan() -> None:
             print("  ⚠️  Pre-market submit: Alpaca unavailable — skipping orders")
         else:
             # PDT check before any pre-market orders — same guard as _submit_signals_to_alpaca
+            _pm_remaining_cash: Optional[float] = None
             try:
                 _pm_acct  = _client.get_account()
                 _pm_eq    = float(getattr(_pm_acct, "equity", 0) or 0)
                 _pm_dt    = int(getattr(_pm_acct, "daytrade_count", 0) or 0)
+                _pm_remaining_cash = float(getattr(_pm_acct, "cash", 0) or 0)
                 if _pm_eq < 25_000 and _pm_dt >= 3:
                     send_telegram(f"🚫 <b>PDT HALT (pre-market)</b>: {_pm_dt}/3 day trades used — no pre-market orders placed.")
                     pm_auto_entries.clear()
@@ -3161,6 +3163,20 @@ def run_premarket_early_scan() -> None:
                     if _cost > SMALLCAP_MAX_COST:
                         _shares = max(1, int(SMALLCAP_MAX_COST / _ep))
                         _cost   = _shares * _ep
+                    # Tracked and decremented across all 3 possible entries in
+                    # this loop, not just checked once — up to 3 concurrent
+                    # pre-market orders submitted in immediate succession
+                    # would otherwise all pass an independent per-order check
+                    # against the same starting cash figure and collectively
+                    # overspend it, same root cause as the 2026-08-04 margin
+                    # incident (see get_available_cash docstring).
+                    if _pm_remaining_cash is not None:
+                        if _cost > _pm_remaining_cash:
+                            print(f"  ⚠️  {_e['ticker']} pre-market: would need "
+                                  f"${_cost:.0f}, only ${_pm_remaining_cash:.0f} "
+                                  f"cash remaining — skipping (no margin)")
+                            continue
+                        _pm_remaining_cash -= _cost
                     _order = _client.submit_order(_LimReq(
                         symbol        = _e["ticker"],
                         qty           = _shares,
@@ -6992,6 +7008,51 @@ def get_effective_account() -> float:
     return max(adjusted, ACCOUNT_SIZE * 0.5)   # floor at 50% of configured size
 
 
+_live_cash_cache: dict = {"cash": None, "ts": 0.0}
+
+
+def get_available_cash() -> Optional[float]:
+    """
+    Live Alpaca cash balance — 30s cache (much shorter than
+    get_effective_account()'s 5-min equity cache, since cash moves as
+    orders fill within a single scan while equity barely does). Returns
+    None if unreachable; callers must treat that as "can't verify, fail
+    safe," never as "assume unlimited cash."
+
+    Added 2026-08-04: equity-based sizing doesn't shrink as positions
+    open — only cash does — so nothing was checking whether the account
+    actually had real money for a NEW trade on top of what was already
+    deployed. Confirmed live: three ordinary signals (FERG, AMZN, W),
+    each individually well-sized against equity, collectively cost
+    $5,060 against a $3,000 account, pushing cash to -$2,062 — real
+    margin usage on an account explicitly meant to stay cash-only.
+    """
+    try:
+        if time.time() - _live_cash_cache["ts"] > 30:
+            _client = get_alpaca_client()
+            if _client is not None:
+                _cash = float(getattr(_client.get_account(), "cash", 0) or 0)
+                _live_cash_cache["cash"] = _cash
+                _live_cash_cache["ts"]   = time.time()
+        return _live_cash_cache["cash"]
+    except Exception:
+        return _live_cash_cache["cash"]   # last known value, possibly still None
+
+
+def _cash_available_for(cost: float) -> tuple[bool, str]:
+    """
+    True if `cost` can be covered by real cash on hand without touching
+    margin. Fails CLOSED if cash can't be verified — an unknown balance
+    is not a green light to spend real money. See get_available_cash().
+    """
+    cash = get_available_cash()
+    if cash is None:
+        return False, "cash balance unavailable — skipping rather than risk margin"
+    if cost > cash:
+        return False, f"would need ${cost:.0f}, only ${cash:.0f} cash available (no margin)"
+    return True, ""
+
+
 def _last_n_earnings_moves(ticker: str, n: int = EARNINGS_DIRECTIONAL_LOOKBACK) -> list[float]:
     """
     Signed overnight-gap % for the n most recent ~quarterly gap days (proxy
@@ -10470,6 +10531,12 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
         _err = f"{signal.ticker}: 0 shares computed — skipping submission"
         print(f"  ⚠️  {_err}")
         return None, _err
+    if signal.bias == "LONG":
+        _cash_ok, _cash_msg = _cash_available_for(signal.cost)
+        if not _cash_ok:
+            _err = f"{signal.ticker}: {_cash_msg}"
+            print(f"  ⚠️  {_err}")
+            return None, _err
 
     side      = OrderSide.BUY  if signal.bias == "LONG" else OrderSide.SELL
     limit_px  = round(signal.entry,   2)
@@ -11405,6 +11472,11 @@ def _submit_options_put(
         print(f"  ⚠️  Too expensive: 1 put contract=${_put_mid*100:.0f}  budget=${risk_dollars:.0f} — skip")
         return None, None
 
+    _cash_ok, _cash_msg = _cash_available_for(total_cost)
+    if not _cash_ok:
+        print(f"  ⚠️  {ticker} put: {_cash_msg}")
+        return None, None
+
     try:
         order = client.submit_order(LimitOrderRequest(
             symbol        = contract["occ_symbol"],
@@ -11470,6 +11542,11 @@ def _submit_earnings_spread(client, plan: dict) -> tuple[str | None, str | None]
         return None, "plan has no call or put legs"
     if len(legs) > 4:
         return None, f"plan has {len(legs)} legs — Alpaca allows at most 4 for options"
+
+    _spread_cost = round(plan["net_debit"] * plan["sets"] * 100, 2)
+    _cash_ok, _cash_msg = _cash_available_for(_spread_cost)
+    if not _cash_ok:
+        return None, _cash_msg
 
     try:
         order = client.submit_order(LimitOrderRequest(
@@ -11538,6 +11615,11 @@ def _submit_options_call(
 
     if _call_mid * 100 > risk_dollars * 1.5:
         print(f"  ⚠️  Too expensive: 1 contract=${_call_mid*100:.0f}  budget=${risk_dollars:.0f} — skip")
+        return None, None
+
+    _cash_ok, _cash_msg = _cash_available_for(total_cost)
+    if not _cash_ok:
+        print(f"  ⚠️  {ticker} call: {_cash_msg}")
         return None, None
 
     try:

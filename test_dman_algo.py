@@ -573,7 +573,8 @@ class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
     def test_double_spread_submits_exactly_four_legs_correct_sides(self):
         mock_order = MagicMock(); mock_order.id = "xyz"
         mock_client = MagicMock(); mock_client.submit_order.return_value = mock_order
-        oid, err = a._submit_earnings_spread(mock_client, self._plan())
+        with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+            oid, err = a._submit_earnings_spread(mock_client, self._plan())
         self.assertIsNone(err)
         self.assertEqual(oid, "xyz")
         req = mock_client.submit_order.call_args[0][0]
@@ -587,23 +588,34 @@ class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
 
     def test_single_side_spread_submits_exactly_two_legs(self):
         mock_client = MagicMock(); mock_client.submit_order.return_value = MagicMock(id="abc")
-        _, err = a._submit_earnings_spread(mock_client, self._plan(both_sides=False))
+        with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+            _, err = a._submit_earnings_spread(mock_client, self._plan(both_sides=False))
         self.assertIsNone(err)
         req = mock_client.submit_order.call_args[0][0]
         self.assertEqual(len(req.legs), 2)
 
     def test_limit_price_is_positive_for_a_debit(self):
         mock_client = MagicMock(); mock_client.submit_order.return_value = MagicMock(id="1")
-        a._submit_earnings_spread(mock_client, self._plan())
+        with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+            a._submit_earnings_spread(mock_client, self._plan())
         req = mock_client.submit_order.call_args[0][0]
         self.assertGreater(req.limit_price, 0)
 
     def test_submit_failure_returns_error_text_not_swallowed(self):
         mock_client = MagicMock()
         mock_client.submit_order.side_effect = Exception("insufficient buying power")
-        oid, err = a._submit_earnings_spread(mock_client, self._plan())
+        with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+            oid, err = a._submit_earnings_spread(mock_client, self._plan())
         self.assertIsNone(oid)
         self.assertIn("insufficient buying power", err)
+
+    def test_cash_guard_blocks_when_insufficient_cash(self):
+        mock_client = MagicMock(); mock_client.submit_order.return_value = MagicMock(id="1")
+        with patch.object(a, "get_available_cash", return_value=1.0):
+            oid, err = a._submit_earnings_spread(mock_client, self._plan())
+        self.assertIsNone(oid)
+        self.assertIn("cash", err)
+        mock_client.submit_order.assert_not_called()
 
     def test_no_legs_is_rejected_before_hitting_the_api(self):
         mock_client = MagicMock()
@@ -791,8 +803,9 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         mock_client.submit_order.return_value = MagicMock(id="ord1")
         with patch.object(a, "send_telegram", return_value=True):
             with patch.object(a, "get_alpaca_client", return_value=mock_client):
-                with patch.object(a, "PositionTracker") as MockPT:
-                    consumed = a._handle_earnings_approval_reply("yes")
+                with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+                    with patch.object(a, "PositionTracker") as MockPT:
+                        consumed = a._handle_earnings_approval_reply("yes")
         self.assertTrue(consumed)
         mock_client.submit_order.assert_called_once()
         self.assertEqual(a._load_earnings_pending(), [])

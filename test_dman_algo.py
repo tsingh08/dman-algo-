@@ -681,6 +681,116 @@ class TestEarningsSpreadSizing(unittest.TestCase):
         self.assertIsNone(plan)
 
 
+class TestBrokerSideStopCoverageCheck(unittest.TestCase):
+    """_check_open_position_risk()'s orphan check only asks "do WE know
+    about this position" — it never asked whether Alpaca actually has a
+    LIVE protective stop working. Confirmed live 2026-08-04: a position's
+    stop-limit leg was stuck HELD (its take-profit sibling had claimed all
+    shares via Alpaca's held_for_orders accounting, breaking the OCO link)
+    and nothing caught it until a manual API query. A regression here means
+    a real position can sit with zero downside protection with no alert."""
+
+    def setUp(self):
+        from alpaca.trading.enums import AssetClass, OrderType, OrderStatus, PositionIntent
+        self.AssetClass  = AssetClass
+        self.OrderType   = OrderType
+        self.OrderStatus = OrderStatus
+
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._pos_patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._pos_patch.start()
+
+        self._sig_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._sig_tmp.write(b'{"pending": []}')
+        self._sig_tmp.close()
+        self._sig_patch = patch.object(a, "LIVE_SIGNALS_FILE", self._sig_tmp.name)
+        self._sig_patch.start()
+
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
+    def tearDown(self):
+        self._pos_patch.stop();    os.unlink(self._pos_tmp.name)
+        self._sig_patch.stop();    os.unlink(self._sig_tmp.name)
+        self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+
+    def _equity_position(self, symbol="W", qty="3"):
+        p = MagicMock()
+        p.symbol = symbol
+        p.asset_class = self.AssetClass.US_EQUITY
+        p.qty = qty
+        p.avg_entry_price = "116.25"
+        p.unrealized_pl = "-2.40"
+        p.unrealized_plpc = "-0.02"
+        return p
+
+    def _order(self, symbol, order_type, status):
+        o = MagicMock()
+        o.symbol = symbol
+        o.order_type = order_type
+        o.status = status
+        return o
+
+    def _messages(self, mock_tg):
+        return [c[0][0] for c in mock_tg.call_args_list]
+
+    def test_position_with_no_stop_order_at_all_triggers_alert(self):
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [self._equity_position("W")]
+        mock_client.get_orders.return_value = []   # no orders whatsoever
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_open_position_risk({})
+        msgs = self._messages(mock_tg)
+        stop_msgs = [m for m in msgs if "NO LIVE STOP" in m]
+        self.assertEqual(len(stop_msgs), 1)
+        self.assertIn("W", stop_msgs[0])
+
+    def test_held_stop_does_not_count_as_coverage(self):
+        # This is the exact failure mode from the live incident: an order
+        # exists and is the right type, but its status means it isn't
+        # actually working on the exchange.
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [self._equity_position("W")]
+        mock_client.get_orders.return_value = [
+            self._order("W", self.OrderType.STOP_LIMIT, self.OrderStatus.HELD)
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_open_position_risk({})
+        stop_msgs = [m for m in self._messages(mock_tg) if "NO LIVE STOP" in m]
+        self.assertEqual(len(stop_msgs), 1)
+
+    def test_live_stop_order_suppresses_the_alert(self):
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [self._equity_position("W")]
+        mock_client.get_orders.return_value = [
+            self._order("W", self.OrderType.STOP_LIMIT, self.OrderStatus.NEW)
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_open_position_risk({})
+        for _call in mock_tg.call_args_list:
+            self.assertNotIn("NO LIVE STOP", _call[0][0])
+
+    def test_options_positions_are_excluded(self):
+        mock_client = MagicMock()
+        opt_pos = self._equity_position("META260807C00650000")
+        opt_pos.asset_class = self.AssetClass.US_OPTION
+        mock_client.get_all_positions.return_value = [opt_pos]
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_open_position_risk({})
+        for _call in mock_tg.call_args_list:
+            self.assertNotIn("NO LIVE STOP", _call[0][0])
+
+
 class TestEarningsAlreadyReportedCheck(unittest.TestCase):
     """_check_earnings_already_reported() must match real earnings-release
     headline phrasing and fail closed (False, not a crash) when Benzinga

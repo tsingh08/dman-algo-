@@ -9033,10 +9033,56 @@ def _check_open_position_risk(regime: dict) -> None:
                     + "\n".join(_orphan_msgs)
                     + "\n\n<i>Close manually or add to watchlist to restore monitoring.</i>"
                 )
-                send_telegram(_msg)
-                print(f"  ⚠  {len(_orphans)} orphan position(s) — sent alert: {_orphans}")
+                if not _is_duplicate_alert("__ORPHAN_POSITIONS__"):
+                    send_telegram(_msg)
+                    _save_last_alert("__ORPHAN_POSITIONS__")
+                    print(f"  ⚠  {len(_orphans)} orphan position(s) — sent alert: {_orphans}")
+                else:
+                    print(f"  ⚠  {len(_orphans)} orphan position(s) — alert suppressed (sent recently)")
+
+            # ── Broker-side live-stop check ──────────────────────────────
+            # A different question from the orphan check above: that one asks
+            # "do WE know about this position," this asks "does ALPACA
+            # actually have a LIVE protective stop working for it right now."
+            # Confirmed live 2026-08-04: W was simultaneously an orphan (not
+            # in either tracker) AND had its stop-limit leg stuck in HELD
+            # status — its take-profit sibling had claimed all shares via
+            # Alpaca's held_for_orders accounting, breaking the OCO link, so
+            # the stop could never get shares allocated. Nothing caught this
+            # until a manual Alpaca API query. Options positions are
+            # excluded — they have no broker-side bracket by design and rely
+            # entirely on the daemon's own 60s stop/T1/T2 loop instead.
+            from alpaca.trading.enums import OrderType, OrderStatus, AssetClass
+            _open_orders = _client.get_orders(
+                filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=200))
+            _live_stop_symbols = {
+                _o.symbol for _o in _open_orders
+                if _o.order_type in (OrderType.STOP, OrderType.STOP_LIMIT, OrderType.TRAILING_STOP)
+                and _o.status != OrderStatus.HELD
+            }
+            _unprotected = [
+                sym for sym, _pos in _alp_positions.items()
+                if _pos.asset_class == AssetClass.US_EQUITY and sym not in _live_stop_symbols
+            ]
+            if _unprotected:
+                _up_msgs = []
+                for _sym in _unprotected:
+                    _pos = _alp_positions[_sym]
+                    _up_msgs.append(f"  {_sym}: {float(_pos.qty):.0f}sh — no live stop order on Alpaca right now")
+                _up_key = "__NO_LIVE_STOP__"
+                if not _is_duplicate_alert(_up_key):
+                    send_telegram(
+                        "🚨 <b>NO LIVE STOP PROTECTION</b>\n"
+                        "These equity positions have zero working stop-loss order on the exchange:\n\n"
+                        + "\n".join(_up_msgs)
+                        + "\n\n<i>Check for a stuck/HELD order or a broken OCO link — manual action needed.</i>"
+                    )
+                    _save_last_alert(_up_key)
+                    print(f"  🚨 {len(_unprotected)} position(s) with NO live stop: {_unprotected}")
+                else:
+                    print(f"  🚨 {len(_unprotected)} position(s) with NO live stop — alert suppressed (sent recently): {_unprotected}")
     except Exception as _oe:
-        print(f"  ⚠  Orphan check failed: {_oe}")
+        print(f"  ⚠  Orphan/stop-coverage check failed: {_oe}")
 
     try:
         with open(LIVE_SIGNALS_FILE, "r") as f:

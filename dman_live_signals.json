@@ -25,18 +25,6 @@
       "timestamp": "2026-07-31T14:14:05.403000-04:00"
     },
     {
-      "ticker": "AMZU",
-      "setup": "Morning Runner",
-      "bias": "LONG",
-      "entry": 41.78,
-      "stop": 38.35,
-      "target1": 48.64,
-      "target2": 52.07,
-      "score": 100,
-      "date": "2026-07-31",
-      "timestamp": "2026-07-31T14:14:05.844596-04:00"
-    },
-    {
       "ticker": "GME",
       "setup": "Bear Gap Hold",
       "bias": "SHORT",
@@ -71,6 +59,18 @@
       "score": 100,
       "date": "2026-08-03",
       "timestamp": "2026-08-03T15:33:22.766294-04:00"
+    },
+    {
+      "ticker": "AMZU",
+      "setup": "Morning Runner",
+      "bias": "LONG",
+      "entry": 41.78,
+      "stop": 38.35,
+      "target1": 48.64,
+      "target2": 52.07,
+      "score": 100,
+      "date": "2026-07-31",
+      "timestamp": "2026-07-31T14:14:05.844596-04:00"
     }
   ]
 }

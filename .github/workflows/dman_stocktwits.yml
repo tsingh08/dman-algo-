@@ -15,6 +15,7 @@ jobs:
     timeout-minutes: 5
     permissions:
       contents: write
+      actions: write   # lets a new DMan call dispatch an immediate scan instead of waiting for the next hourly cron
 
     steps:
       - name: Checkout repo
@@ -40,6 +41,7 @@ jobs:
         run: python dman_algo.py --mode stocktwits
 
       - name: Commit new tickers and seen cache
+        id: commit
         if: always()
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -47,7 +49,15 @@ jobs:
           git add dman_stocktwits_seen.json dman_smallcap_watchlist.json || true
           if git diff --staged --quiet; then
             echo "No StockTwits changes to commit"
+            echo "watchlist_changed=false" >> "$GITHUB_OUTPUT"
             exit 0
+          fi
+          # A new ticker call is the signal worth acting on immediately below —
+          # the seen-cache alone (no watchlist change) doesn't need a scan.
+          if git diff --staged --name-only | grep -q dman_smallcap_watchlist.json; then
+            echo "watchlist_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "watchlist_changed=false" >> "$GITHUB_OUTPUT"
           fi
           git commit -m "feat: auto-add DMan StockTwits calls to watchlist data file [skip ci]"
           git fetch origin main
@@ -66,3 +76,44 @@ jobs:
             git rebase origin/main || git rebase --abort
             git push origin HEAD:main || echo "ERROR: StockTwits push failed after retry"
           fi
+
+      - name: Trigger immediate scan for the new call(s)
+        # Without this, a new DMan call sits in the watchlist file for up to
+        # ~1hr (next hourly scanner cron) before the algo ever evaluates it —
+        # the exact "notifications but nothing committed" gap. Explicitly
+        # picks the mode input rather than dispatching bare: an input-less
+        # dispatch at our own 9 AM ET run would land in dman_scanner.yml's
+        # 8:55-9:59 AM read-only briefing fallback window every time, never
+        # actually evaluating/submitting the new ticker. This mirrors that
+        # same file's own time-of-day routing (pre-open -> premarket-early's
+        # moonshot auto-submit, market-hours -> real --submit scan) so no new
+        # trading logic is added here — just the immediate trigger.
+        if: steps.commit.outputs.watchlist_changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'EOF'
+          import os, json, urllib.request, zoneinfo
+          from datetime import datetime
+          ET = zoneinfo.ZoneInfo("America/New_York")
+          now = datetime.now(ET)
+          t = now.hour * 100 + now.minute
+          if now.weekday() >= 5 or t < 650 or t > 1600:
+              print(f"Outside trading window ({now:%a %H:%M} ET) — next scheduled cron covers it, skipping immediate dispatch")
+              raise SystemExit(0)
+          mode = "premarket-early" if t < 930 else "scan"
+          req = urllib.request.Request(
+              "https://api.github.com/repos/tsingh08/dman-algo-/actions/workflows/dman_scanner.yml/dispatches",
+              data=json.dumps({"ref": "main", "inputs": {"mode": mode}}).encode(),
+              headers={
+                  "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+              },
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=10) as resp:
+                  print(f"Dispatched immediate scan (mode={mode}) — status {resp.status}")
+          except Exception as e:
+              print(f"Scan dispatch failed (non-fatal — hourly cron still covers it): {e}")
+          EOF

@@ -52,5 +52,23 @@
     "max_loss": 0.0,
     "max_gain": 0.0,
     "earn_date": ""
+  },
+  {
+    "ticker": "CELZ",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 1.17,
+    "stop": 0.96,
+    "target1": 1.68,
+    "target2": 1.99,
+    "shares": 284,
+    "entry_date": "2026-08-06",
+    "atr": 0.0,
+    "score": 85,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": ""
   }
 ]

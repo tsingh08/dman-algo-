@@ -61,6 +61,18 @@
       "timestamp": "2026-08-06T10:27:55.575279-04:00"
     },
     {
+      "ticker": "CELZ",
+      "setup": "Low Float Catalyst",
+      "bias": "LONG",
+      "entry": 1.1422,
+      "stop": 0.9366,
+      "target1": 1.48,
+      "target2": 2.0,
+      "score": 85,
+      "date": "2026-08-06",
+      "timestamp": "2026-08-06T10:38:44.682135-04:00"
+    },
+    {
       "ticker": "GME",
       "setup": "Bear Gap Hold",
       "bias": "SHORT",

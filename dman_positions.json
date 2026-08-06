@@ -34,5 +34,23 @@
     "max_loss": 0.0,
     "max_gain": 0.0,
     "earn_date": ""
+  },
+  {
+    "ticker": "CLRO",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 9.8,
+    "stop": 7.83,
+    "target1": 14.73,
+    "target2": 17.7,
+    "shares": 89,
+    "entry_date": "2026-08-06",
+    "atr": 0.0,
+    "score": 100,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": ""
   }
 ]

@@ -25,18 +25,6 @@
       "timestamp": "2026-07-31T14:14:05.403000-04:00"
     },
     {
-      "ticker": "GME",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 19.04,
-      "stop": 19.93,
-      "target1": 17.26,
-      "target2": 16.37,
-      "score": 100,
-      "date": "2026-08-03",
-      "timestamp": "2026-08-03T11:41:25.829225-04:00"
-    },
-    {
       "ticker": "FERG",
       "setup": "Gap & Hold",
       "bias": "LONG",
@@ -59,6 +47,30 @@
       "score": 100,
       "date": "2026-08-03",
       "timestamp": "2026-08-03T15:33:22.766294-04:00"
+    },
+    {
+      "ticker": "CLRO",
+      "setup": "Low Float Catalyst",
+      "bias": "LONG",
+      "entry": 9.8697,
+      "stop": 7.8958,
+      "target1": 14.8,
+      "target2": 24.67,
+      "score": 100,
+      "date": "2026-08-06",
+      "timestamp": "2026-08-06T10:27:55.575279-04:00"
+    },
+    {
+      "ticker": "GME",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 19.04,
+      "stop": 19.93,
+      "target1": 17.26,
+      "target2": 16.37,
+      "score": 100,
+      "date": "2026-08-03",
+      "timestamp": "2026-08-03T11:41:25.829225-04:00"
     },
     {
       "ticker": "AMZU",

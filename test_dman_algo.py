@@ -342,6 +342,35 @@ class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
         self.assertIsNone(oid)
         self.assertIsNotNone(err)
 
+    def test_stop_loss_leg_has_no_limit_price(self):
+        # Confirmed live 2026-08-06: a bracket's STOP_LIMIT child leg
+        # reliably gets stuck in OrderStatus.HELD on this account after the
+        # entry fills, while the take-profit LIMIT sibling activates fine —
+        # reproduced 3/3 times (W, CLRO, CELZ), each one left completely
+        # unprotected. The fix is a plain STOP (no limit_price) for the
+        # stop-loss leg, which activated correctly all 3/3 times it was used
+        # as a manual repair. A regression here (limit_price reappearing)
+        # means going back to a stop that may never actually activate.
+        mock_order = MagicMock(); mock_order.id = "abc123"
+        mock_client = MagicMock(); mock_client.submit_order.return_value = mock_order
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a.submit_alpaca_trade(self._signal())
+        req = mock_client.submit_order.call_args[0][0]
+        self.assertIsNone(req.stop_loss.limit_price)
+        self.assertEqual(req.stop_loss.stop_price, 9.0)
+
+    def test_swing_mode_stop_loss_leg_also_has_no_limit_price(self):
+        # Same fix applies to the OTO (swing-mode) path — identical
+        # StopLossRequest construction, same account-level HELD risk.
+        sig = self._signal()
+        sig.swing_mode = True
+        mock_order = MagicMock(); mock_order.id = "abc123"
+        mock_client = MagicMock(); mock_client.submit_order.return_value = mock_order
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a.submit_alpaca_trade(sig)
+        req = mock_client.submit_order.call_args[0][0]
+        self.assertIsNone(req.stop_loss.limit_price)
+
 
 class TestMacroBlackoutWindows(unittest.TestCase):
     """Blackout logic gates real capital. An off-by-one here means either

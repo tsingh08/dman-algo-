@@ -10671,6 +10671,18 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
       Entry  — GTC limit order, OTO with stop only (no T1 TP — momentum-watch manages exit)
       This ensures the position is held overnight and does NOT consume a day-trade count.
 
+    Stop-loss leg is a plain STOP, not STOP_LIMIT — confirmed live 2026-08-06:
+    on this account, a bracket's STOP_LIMIT child leg reliably gets stuck in
+    OrderStatus.HELD after the entry fills (the take-profit LIMIT sibling
+    activates fine and reserves the shares; the stop-limit leg never gets
+    released into a live working order) — reproduced 3/3 times (W, CLRO,
+    CELZ), each one left with real money completely unprotected until
+    manually caught and repaired. limit_price is optional on Alpaca's own
+    StopLossRequest spec; dropping it is a supported construction, not a
+    workaround. Trade-off: a plain stop fills at market once triggered (no
+    floor on a violent gap), but that's strictly safer than a stop-limit
+    that may never activate at all.
+
     Returns (order_id, None) on success, (None, error_message) on failure. The
     error message is surfaced to Telegram by the caller — a prior version only
     printed it to the GitHub Actions log, which is not somewhere the user
@@ -10711,8 +10723,7 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
                 limit_price   = limit_px,
                 time_in_force = TimeInForce.GTC,
                 order_class   = OrderClass.OTO,
-                stop_loss     = StopLossRequest(stop_price=stop_px,
-                                                limit_price=round(max(stop_px * 0.85, 0.01), 2)),
+                stop_loss     = StopLossRequest(stop_price=stop_px),
             ))
             oid = str(order.id)
             print(f"  📤 [{label}] 🔄 SWING {signal.ticker} {signal.bias} {signal.shares}sh  "
@@ -10740,8 +10751,7 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
                 time_in_force = TimeInForce.GTC,
                 order_class   = OrderClass.BRACKET,
                 take_profit   = TakeProfitRequest(limit_price=target_px),
-                stop_loss     = StopLossRequest(stop_price=stop_px,
-                                                limit_price=round(max(stop_px * 0.85, 0.01), 2)),
+                stop_loss     = StopLossRequest(stop_price=stop_px),
             ))
             oid = str(order.id)
             print(f"  📤 [{label}] {signal.ticker} {signal.bias} {signal.shares}sh  "

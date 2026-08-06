@@ -755,6 +755,44 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestDayStartEquityBaseline(unittest.TestCase):
+    """Alpaca's last_equity is the prior TRADING DAY's close -- it doesn't
+    account for a same-day deposit, so (equity - last_equity) treats new
+    capital as trading profit. Confirmed live 2026-08-06: a $2,000 deposit
+    inflated the EOD Telegram alert to "+66.26%" for what was actually a
+    real loss day. A regression here means that false-profit alert again."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "_DAY_START_EQUITY_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def test_first_call_of_the_day_seeds_current_equity_as_baseline(self):
+        baseline = a._get_day_start_equity(5000.0)
+        self.assertEqual(baseline, 5000.0)
+
+    def test_deposit_after_baseline_is_seeded_does_not_inflate_pnl(self):
+        # First read of the day (e.g. 2 AM, deposit already landed) seeds
+        # the baseline. A later read the same day, after real trading moved
+        # equity, must compare against that SAME baseline, not re-seed.
+        a._get_day_start_equity(4943.73)
+        baseline = a._get_day_start_equity(4895.85)
+        self.assertEqual(baseline, 4943.73)
+        day_pl_pct = (4895.85 - baseline) / baseline * 100
+        self.assertAlmostEqual(day_pl_pct, -0.97, places=1)
+
+    def test_new_calendar_day_reseeds_the_baseline(self):
+        with open(self._tmp.name, "w") as f:
+            json.dump({"date": "2020-01-01", "equity": 1000.0}, f)
+        baseline = a._get_day_start_equity(5000.0)
+        self.assertEqual(baseline, 5000.0)
+
+
 class TestOptionsFeedResolution(unittest.TestCase):
     """OPRA entitlement on this account has flipped on/off before with zero
     code change on our end -- confirmed working 2026-07-30, confirmed 403

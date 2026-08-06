@@ -11009,6 +11009,33 @@ def show_alpaca_account() -> None:
         print(f"  ❌ Alpaca account fetch failed: {exc}")
 
 
+_DAY_START_EQUITY_FILE = "dman_day_start_equity.json"
+
+def _get_day_start_equity(current_equity: float) -> float:
+    """
+    Alpaca's own last_equity field is the prior TRADING DAY's closing
+    equity — it does not account for a deposit/withdrawal that lands
+    overnight, so a naive (equity - last_equity) treats new capital as
+    trading profit. Confirmed live 2026-08-06: a same-day $2,000 deposit
+    inflated the EOD P&L alert to "+66.26%" for what was actually a real
+    loss day. This tracks our own baseline instead — the first equity
+    reading seen today, set once per calendar day — so capital already in
+    the account by the time this first runs is correctly excluded from
+    "today's" P&L rather than misread as a gain.
+    """
+    today_str = date.today().isoformat()
+    try:
+        with open(_DAY_START_EQUITY_FILE) as f:
+            data = json.load(f)
+        if data.get("date") == today_str:
+            return float(data["equity"])
+    except (FileNotFoundError, json.JSONDecodeError, KeyError, ValueError):
+        pass
+    with open(_DAY_START_EQUITY_FILE, "w") as f:
+        json.dump({"date": today_str, "equity": current_equity}, f)
+    return current_equity
+
+
 def send_account_pnl_telegram(label: str = "EOD") -> None:
     """
     Fetch live Alpaca account snapshot and send a P&L summary to Telegram.
@@ -11022,8 +11049,8 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
         tc    = TradingClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=ALPACA_PAPER)
         acct  = tc.get_account()
         equity     = float(acct.equity)
-        last_eq    = float(acct.last_equity)
         cash       = float(acct.cash)
+        last_eq    = _get_day_start_equity(equity)
         day_pl     = equity - last_eq
         day_pl_pct = day_pl / last_eq * 100 if last_eq > 0 else 0.0
         bp         = float(getattr(acct, "buying_power", cash))

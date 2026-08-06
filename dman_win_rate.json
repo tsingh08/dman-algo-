@@ -1,16 +1,5 @@
 [
   {
-    "ticker": "VRTX",
-    "date": "2025-12-24",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 463.59,
-    "exit": 462.99,
-    "outcome": "LOSS",
-    "pnl_pct": -0.13,
-    "score": 75
-  },
-  {
     "ticker": "HIMS",
     "date": "2024-12-16",
     "bias": "LONG",
@@ -5497,6 +5486,17 @@
     "exit": 255.0851,
     "outcome": "WIN",
     "pnl_pct": 0.74,
+    "score": 0
+  },
+  {
+    "ticker": "W",
+    "date": "2026-08-06",
+    "bias": "LONG",
+    "setup": "Untracked Legacy Position",
+    "entry": 116.25,
+    "exit": 105.75,
+    "outcome": "LOSS",
+    "pnl_pct": -9.03,
     "score": 0
   }
 ]

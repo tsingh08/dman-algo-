@@ -755,6 +755,79 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestOptionsFeedResolution(unittest.TestCase):
+    """OPRA entitlement on this account has flipped on/off before with zero
+    code change on our end -- confirmed working 2026-07-30, confirmed 403
+    again 2026-08-06, and the hardcoded OPTIONS_DATA_FEED constant meant a
+    full week where every single options signal silently failed
+    (_get_option_snapshot returning None for every contract) and fell
+    through to skip/equity, discovered only by manually testing the raw
+    endpoint. A regression here means going back to trusting a feed that
+    may not actually be entitled, with no visibility when it isn't."""
+
+    def setUp(self):
+        a._options_feed_state["feed"] = None
+        a._options_feed_state["checked_at"] = 0.0
+
+    def tearDown(self):
+        a._options_feed_state["feed"] = None
+        a._options_feed_state["checked_at"] = 0.0
+
+    def _mock_contract(self):
+        contracts = MagicMock()
+        contracts.option_contracts = [MagicMock(symbol="AAPL260821C00310000")]
+        return contracts
+
+    def test_403_falls_back_to_indicative_and_alerts(self):
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = self._mock_contract()
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", return_value=mock_resp):
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    feed = a._resolve_options_feed()
+        self.assertEqual(feed, "indicative")
+        mock_tg.assert_called_once()
+        self.assertIn("not entitled", mock_tg.call_args[0][0])
+
+    def test_200_keeps_preferred_feed_no_alert(self):
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = self._mock_contract()
+        mock_resp = MagicMock(status_code=200)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", return_value=mock_resp):
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    feed = a._resolve_options_feed()
+        self.assertEqual(feed, a.OPTIONS_DATA_FEED)
+        mock_tg.assert_not_called()
+
+    def test_repeat_resolution_within_window_does_not_reprobe(self):
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = self._mock_contract()
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", return_value=mock_resp) as mock_get:
+                with patch.object(a, "send_telegram", return_value=True):
+                    a._resolve_options_feed()
+                    a._resolve_options_feed()
+        mock_get.assert_called_once()
+
+    def test_same_state_on_recheck_does_not_realert(self):
+        # First resolution alerts (state change None -> indicative). Force a
+        # recheck without a real state change -- must not alert twice for
+        # the same known-broken entitlement.
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = self._mock_contract()
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", return_value=mock_resp):
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    a._resolve_options_feed()
+                    a._options_feed_state["checked_at"] = 0.0   # force a recheck
+                    a._resolve_options_feed()
+        self.assertEqual(mock_tg.call_count, 1)
+
+
 class TestMacroCalendarProximity(unittest.TestCase):
     """_days_to_next_macro_print() feeds a real, current-condition sizing
     adjustment in _fetch_global_context() — added 2026-08-06 because

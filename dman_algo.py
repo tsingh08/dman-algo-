@@ -153,15 +153,20 @@ OPTIONS_DTE_MAX             = 28     # max 4 weeks
 OPTIONS_MAX_SPREAD_PCT      = 0.15   # skip contract if bid-ask spread > 15% of mid (was 20% of ask)
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
-OPTIONS_DATA_FEED           = "opra"        # real OPRA tape. Was "indicative" because this account's
-                                            # subscription 403'd on "opra" (confirmed live 2026-07-29,
-                                            # every _get_option_snapshot() call silently failing, every
-                                            # options signal silently falling back to an equity order) —
-                                            # retested live 2026-07-30 under the Algo Trader Plus data
-                                            # plan and "opra" now returns 200 with real greeks/IV/quotes.
-                                            # openInterest is separately always absent from this snapshot
-                                            # endpoint regardless of feed — see _find_best_call_contract,
-                                            # which now merges real OI in from the contracts response.
+OPTIONS_DATA_FEED           = "opra"        # preferred feed — real OPRA tape. Entitlement has flipped
+                                            # on/off before without any code change: 403'd 2026-07-29,
+                                            # fixed by switching to "indicative", confirmed "opra" working
+                                            # again 2026-07-30 under Algo Trader Plus, then confirmed 403
+                                            # AGAIN 2026-08-06 — a full week of every single options
+                                            # signal silently failing (_get_option_snapshot returning None
+                                            # for every contract) and falling through to skip/equity with
+                                            # zero visibility, discovered only by manually testing the raw
+                                            # endpoint. _resolve_options_feed() below now detects this at
+                                            # runtime instead of trusting this constant blindly, and alerts
+                                            # instead of failing silently. openInterest is separately always
+                                            # absent from this snapshot endpoint regardless of feed — see
+                                            # _find_best_call_contract, which merges real OI in from the
+                                            # contracts response.
 STOCK_DATA_FEED             = "sip"         # Alpaca Algo Trader Plus — consolidated real-time SIP feed
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
@@ -11087,6 +11092,77 @@ def _record_alpaca_429(source: str) -> None:
         pass
 
 
+_options_feed_state: dict = {"feed": None, "checked_at": 0.0}
+_OPTIONS_FEED_RECHECK_S = 3600   # re-probe hourly — entitlement can also come back
+
+def _resolve_options_feed() -> str:
+    """
+    OPRA entitlement on this account has flipped on/off before with zero code
+    change on our end (403'd 2026-07-29, fixed by falling back to
+    "indicative", confirmed OPRA working again 2026-07-30, then confirmed
+    403 AGAIN 2026-08-06 — a full week where every options signal silently
+    failed and fell through to skip/equity, only caught by manually testing
+    the raw endpoint). Hardcoding OPTIONS_DATA_FEED trusts that entitlement
+    never changes, which has already been false twice. This probes once
+    (cached for _OPTIONS_FEED_RECHECK_S) and actually alerts on a fallback
+    instead of failing silently — the whole point is never losing a week to
+    this again without anyone knowing.
+    """
+    now = time.time()
+    if _options_feed_state["feed"] is not None and \
+       (now - _options_feed_state["checked_at"]) < _OPTIONS_FEED_RECHECK_S:
+        return _options_feed_state["feed"]
+
+    _options_feed_state["checked_at"] = now
+    resolved = OPTIONS_DATA_FEED
+    try:
+        # The snapshot endpoint needs a real OCC-format contract symbol —
+        # a bare ticker 400s (invalid format) rather than 403ing, which
+        # would silently defeat this whole probe (confirmed live
+        # 2026-08-06: testing with "AAPL" always returned 400, never
+        # revealing the real 403 entitlement error). AAPL always has a
+        # liquid, currently-valid chain, and the contracts endpoint itself
+        # isn't gated by the OPRA subscription — only the snapshot is.
+        from alpaca.trading.requests import GetOptionContractsRequest
+        from alpaca.trading.enums import ContractType
+        client = get_alpaca_client()
+        probe_symbol = None
+        if client is not None:
+            contracts = client.get_option_contracts(GetOptionContractsRequest(
+                underlying_symbols=["AAPL"], type=ContractType.CALL, limit=1,
+            ))
+            items = getattr(contracts, "option_contracts", None) or []
+            if items:
+                probe_symbol = items[0].symbol
+        if probe_symbol is None:
+            return resolved   # couldn't get a probe symbol this cycle — try again next time
+
+        r = requests.get(
+            "https://data.alpaca.markets/v1beta1/options/snapshots",
+            headers={"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY},
+            params={"symbols": probe_symbol, "feed": OPTIONS_DATA_FEED},
+            timeout=8,
+        )
+        if r.status_code == 403:
+            resolved = "indicative"
+            if _options_feed_state["feed"] != resolved:   # only alert on a real state change
+                print(f"  ⚠️  {OPTIONS_DATA_FEED} options feed not entitled — falling back to indicative")
+                send_telegram(
+                    f"⚠️ <b>Options data feed downgraded</b>\n"
+                    f"{OPTIONS_DATA_FEED} returned 403 (not entitled) — falling back to indicative feed. "
+                    f"Options trading still works, just on delayed/indicative quotes. "
+                    f"Check the Algo Trader Plus subscription if this is unexpected."
+                )
+        elif r.status_code == 200 and _options_feed_state["feed"] == "indicative":
+            # Was on fallback, preferred feed just came back — worth knowing.
+            send_telegram(f"✅ <b>{OPTIONS_DATA_FEED} options feed entitlement restored</b> — back to real-time quotes.")
+    except Exception:
+        pass   # network hiccup — keep whatever we resolved last, don't flap on a transient error
+
+    _options_feed_state["feed"] = resolved
+    return resolved
+
+
 def _get_option_snapshot(occ_symbol: str) -> dict | None:
     """
     Full options snapshot from Alpaca Data API including Greeks, IV, bid-ask depth.
@@ -11109,7 +11185,7 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
         r = requests.get(
             "https://data.alpaca.markets/v1beta1/options/snapshots",
             headers=_headers,
-            params={"symbols": occ_symbol, "feed": OPTIONS_DATA_FEED},
+            params={"symbols": occ_symbol, "feed": _resolve_options_feed()},
             timeout=8,
         )
         if r.status_code == 429:

@@ -972,6 +972,17 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     if _today_sig.weekday() == 4:
         _friday_note = "\n📅 <b>Friday signal</b> — plan your exit before close (weekend risk)"
 
+    # Earnings beat/miss context — real numbers, not narrative. Explains
+    # WHY a Gap & Hold/Morning Runner fired if the gap is earnings-driven,
+    # instead of leaving the trader to guess. See _recent_earnings_surprise.
+    _earn_note = ""
+    try:
+        _surprise = _recent_earnings_surprise(s.ticker)
+        if _surprise:
+            _earn_note = _format_earnings_surprise_note(_surprise)
+    except Exception:
+        pass
+
     return (
         f"<b>D🔥man Signal{opex}</b>\n"
         f"{arrow} <b>{s.ticker}</b> — {s.setup}\n"
@@ -982,6 +993,7 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
         + (f"  AI: {s.ai_score}/10" if s.ai_score else "")
         + f"\nMarket: {regime.get('regime','?')}\n{s.reason}"
         + trade_note
+        + _earn_note
         + _fomc_note
         + _friday_note
     )
@@ -5856,6 +5868,49 @@ def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list
     return cached[1] if cached else []   # serve stale-but-valid data over nothing after both attempts fail
 
 
+def _recent_earnings_surprise(ticker: str, days_back: int = 2) -> Optional[dict]:
+    """
+    Real beat/miss data for a ticker that reported within the last
+    `days_back` days — grounds a Gap & Hold/Morning Runner alert's "why"
+    in an actual verified number instead of just "gap detected." Confirmed
+    live 2026-08-05: Massive's /benzinga/v1/earnings response already
+    carries actual_eps/eps_surprise_percent/actual_revenue/
+    revenue_surprise_percent for reported quarters — this data was being
+    fetched (via _fetch_massive_earnings, used elsewhere for the
+    estimate-only fields) but never surfaced anywhere. Analyst ratings/
+    price-target/bull-bear endpoints exist on Massive but return 403 (not
+    entitled on the current plan) — this sticks to data actually
+    available rather than silently no-op'ing on a paywalled endpoint.
+    Returns None if nothing reported in the window, or actual_eps is
+    still null (estimate-only / not yet confirmed).
+    """
+    today = date.today()
+    items = _fetch_massive_earnings(ticker, today - timedelta(days=days_back), today)
+    best = None
+    for item in items:
+        if str(item.get("ticker", "")).upper() != ticker.upper():
+            continue
+        if item.get("actual_eps") is None:
+            continue   # estimate only — hasn't actually reported yet
+        if best is None or item.get("date", "") > best.get("date", ""):
+            best = item
+    return best
+
+
+def _format_earnings_surprise_note(surprise: dict) -> str:
+    """Plain-text one-liner for a Telegram alert — real numbers only."""
+    eps_pct = surprise.get("eps_surprise_percent")
+    rev_pct = surprise.get("revenue_surprise_percent")
+    parts = []
+    if eps_pct is not None:
+        parts.append(f"EPS {'beat' if eps_pct >= 0 else 'missed'} by {abs(eps_pct)*100:.1f}%")
+    if rev_pct is not None:
+        parts.append(f"Revenue {'beat' if rev_pct >= 0 else 'missed'} by {abs(rev_pct)*100:.1f}%")
+    if not parts:
+        return ""
+    return f"\n📊 <b>Earnings {surprise.get('date','')}</b>: " + ", ".join(parts)
+
+
 def _extract_earnings_dates(ticker: str) -> list[date]:
     """
     Shared calendar parser for check_earnings_safe()/get_upcoming_earnings().
@@ -7110,19 +7165,24 @@ def _last_n_earnings_moves(ticker: str, n: int = EARNINGS_DIRECTIONAL_LOOKBACK) 
 
 def _earnings_spread_ai_analysis(ticker: str, plan: dict, earn_date: date) -> str:
     """
-    Short technicals + fundamentals + historical-move analysis to sit
-    alongside the Telegram YES/NO approval message, so approving/rejecting
-    doesn't require opening a separate chart or research tab first — the
-    trader has ~30 min before the offer expires and isn't always at a
-    desk. Grounded ONLY in real computed data (this ticker's own price
+    Short technicals + fundamentals + historical-move + real recent
+    headlines to sit alongside the Telegram YES/NO approval message, so
+    approving/rejecting doesn't require opening a separate chart or
+    research tab first — the trader has ~30 min before the offer expires
+    and isn't always at a desk. Grounded ONLY in real fetched data (price
     history via compute_indicators, Massive's actual consensus estimates,
-    the plan's own historical earnings-move pattern) — the prompt
-    explicitly forbids inventing unverifiable "outside research" (analyst
-    names, specific news items, price targets) since this feeds a real
-    trading decision on a live account; Claude is asked to reason only
-    from what's supplied and say so plainly when data is thin. Returns ""
-    on any failure (no key, no price data, API error) — this is a
-    nice-to-have annotation, never a reason to withhold the offer itself.
+    the plan's own historical earnings-move pattern, real headlines via
+    _fetch_massive_benzinga_news) — the prompt explicitly forbids
+    inventing unverifiable "outside research" (analyst names, price
+    targets) since this feeds a real trading decision on a live account;
+    Claude is asked to reason only from what's supplied and say so
+    plainly when data is thin. Massive's analyst-ratings/bulls-bears-say
+    endpoints would be the more direct fit for "market sentiment" but
+    return 403 on this account's current plan (confirmed live
+    2026-08-05) — this sticks to entitled data rather than silently
+    no-op'ing. Returns "" on any failure (no key, no price data, API
+    error) — this is a nice-to-have annotation, never a reason to
+    withhold the offer itself.
     """
     if not ANTHROPIC_API_KEY:
         return ""
@@ -7173,7 +7233,20 @@ def _earnings_spread_ai_analysis(ticker: str, plan: dict, earn_date: date) -> st
                        + "/".join(f"{m:+.1f}%" for m in moves)) if moves \
             else "no reliable earnings-move history found"
 
-        prompt = f"""You are briefing a retail trader who must reply YES or NO in Telegram within {EARNINGS_APPROVAL_TIMEOUT_MIN} minutes to approve or reject a pre-built earnings options spread. You are not deciding for them, only briefing them. Use ONLY the data given below — do not invent news, analyst names, price targets, or any fact not listed here; if data is thin, say so plainly instead of guessing.
+        # Real headlines, not analyst opinions — Massive's analyst-ratings/
+        # bull-bear-case endpoints exist but return 403 on this account's
+        # plan (confirmed live 2026-08-05, not entitled). News IS entitled
+        # and already integrated elsewhere; surfacing actual headlines here
+        # gives real "other research" context without inventing anything.
+        news_block = "No recent headlines found."
+        try:
+            _news = _fetch_massive_benzinga_news([ticker], hours_back=48).get(ticker, [])
+            if _news:
+                news_block = "; ".join(_news[:5])
+        except Exception:
+            pass
+
+        prompt = f"""You are briefing a retail trader who must reply YES or NO in Telegram within {EARNINGS_APPROVAL_TIMEOUT_MIN} minutes to approve or reject a pre-built earnings options spread. You are not deciding for them, only briefing them. Use ONLY the data given below — do not invent analyst names, price targets, or any fact not listed here; if data is thin, say so plainly instead of guessing.
 
 Ticker: {ticker}
 Earnings date: {earn_date.isoformat()} ({plan.get('timing', '?')})
@@ -7181,8 +7254,9 @@ Spread: {plan.get('directional') or 'double-sided'} debit spread, net debit ${pl
 Technicals: {tech_block}
 Fundamentals: {fund_block}
 History: {moves_block}
+Recent headlines (last 48h): {news_block}
 
-Write exactly 3-4 short plain-text sentences (no markdown, no bullets — this goes straight into a Telegram message): (1) what the technicals suggest about current trend/momentum, (2) what the consensus estimates suggest relative to prior performance, (3) how the historical earnings-move pattern relates to this spread's structure, (4) one honest risk or data-gap caveat."""
+Write exactly 4-5 short plain-text sentences (no markdown, no bullets — this goes straight into a Telegram message): (1) what the technicals suggest about current trend/momentum, (2) what the consensus estimates suggest relative to prior performance, (3) how the historical earnings-move pattern relates to this spread's structure, (4) whether the recent headlines support, contradict, or say nothing useful about the setup, (5) one honest risk or data-gap caveat."""
 
         resp = requests.post(
             "https://api.anthropic.com/v1/messages",
@@ -11691,6 +11765,18 @@ def _submit_options_call(
         return None, None
 
 
+def _shares_fallback_allowed(ticker: str) -> bool:
+    """
+    True only for DMan's own curated small-cap watchlist. Policy set
+    2026-08-05: grow the account on options, not on buying expensive
+    large-cap shares outright when an options fill isn't available —
+    DMan's calls are the deliberate exception, since those are cheap,
+    thin-float gap-ups where "buy a lot of shares" is the actual play,
+    and where listed options usually don't exist or aren't liquid anyway.
+    """
+    return ticker in DMAN_SMALLCAP_WATCHLIST
+
+
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     """
     Validate entry prices and submit passing signals to Alpaca (paper or live).
@@ -11972,6 +12058,16 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             if sig.bias == "SHORT" and not ALLOW_SHORTS:
                 print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
                       f"not in WATCHLIST, and not a Bear Gap Hold signal")
+                continue
+            # Shares-fallback policy (2026-08-05): grow the account on options,
+            # not on buying expensive large-cap shares outright. DMan's own
+            # curated small-cap watchlist is the one deliberate exception —
+            # those are exactly the cheap, thin-float gap-ups where "buy a lot
+            # of shares" IS the play (and where options usually aren't liquid
+            # enough to exist anyway).
+            if not _shares_fallback_allowed(sig.ticker):
+                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible "
+                      f"and not a DMan watchlist ticker (shares reserved for DMan picks only)")
                 continue
             oid, _submit_err = submit_alpaca_trade(sig)
 

@@ -663,6 +663,69 @@ class TestCloseEarningsSpread(unittest.TestCase):
         mock_client.submit_order.assert_not_called()
 
 
+class TestRecentEarningsSurprise(unittest.TestCase):
+    """Real actual-vs-estimate beat/miss data (Massive's /benzinga/v1/earnings
+    response) was already being fetched for consensus-estimate fields but
+    the actual_eps/eps_surprise_percent fields were never surfaced anywhere
+    — this is the one piece of "market sentiment" data actually entitled on
+    the current Massive plan (analyst-ratings/bulls-bears-say return 403).
+    A regression here means a Gap & Hold alert on a just-reported ticker
+    goes out with no explanation of why it gapped."""
+
+    def _item(self, ticker="UBER", actual_eps=0.81, eps_pct=-0.0241,
+              actual_rev=14.191e9, rev_pct=-0.0031, when="2026-08-05"):
+        return {"ticker": ticker, "date": when, "actual_eps": actual_eps,
+                "eps_surprise_percent": eps_pct, "actual_revenue": actual_rev,
+                "revenue_surprise_percent": rev_pct}
+
+    def test_reported_ticker_returns_the_surprise_data(self):
+        with patch.object(a, "_fetch_massive_earnings", return_value=[self._item()]):
+            result = a._recent_earnings_surprise("UBER")
+        self.assertIsNotNone(result)
+        self.assertEqual(result["actual_eps"], 0.81)
+
+    def test_estimate_only_entry_is_not_treated_as_reported(self):
+        # actual_eps is None until the company has actually reported —
+        # an estimate-only row must not be mistaken for a beat/miss.
+        estimate_only = self._item()
+        estimate_only["actual_eps"] = None
+        with patch.object(a, "_fetch_massive_earnings", return_value=[estimate_only]):
+            result = a._recent_earnings_surprise("UBER")
+        self.assertIsNone(result)
+
+    def test_no_earnings_in_window_returns_none(self):
+        with patch.object(a, "_fetch_massive_earnings", return_value=[]):
+            result = a._recent_earnings_surprise("UBER")
+        self.assertIsNone(result)
+
+    def test_format_note_reports_beat_and_miss_correctly(self):
+        beat = self._item(eps_pct=0.05, rev_pct=0.02)
+        note = a._format_earnings_surprise_note(beat)
+        self.assertIn("beat", note)
+        self.assertNotIn("missed", note)
+
+        miss = self._item(eps_pct=-0.05, rev_pct=-0.02)
+        note = a._format_earnings_surprise_note(miss)
+        self.assertIn("missed", note)
+        self.assertNotIn("beat", note)
+
+
+class TestSharesFallbackPolicy(unittest.TestCase):
+    """Policy set 2026-08-05: grow the account on options, shares only for
+    DMan's own curated small-cap watchlist — not as a silent fallback for
+    expensive large-cap signals when an options fill isn't available. A
+    regression here means the algo goes back to buying full-price shares
+    of high-value stocks instead of skipping the trade."""
+
+    def test_dman_watchlist_ticker_allowed(self):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+            self.assertTrue(a._shares_fallback_allowed("APVO"))
+
+    def test_large_cap_ticker_not_allowed(self):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+            self.assertFalse(a._shares_fallback_allowed("AMZN"))
+
+
 class TestEarningsSpreadSizing(unittest.TestCase):
     """5% of a $2,997.77 account is ~$150 — far below a realistic large-cap
     debit spread's cost. Locks in that a too-expensive-even-at-minimum-width

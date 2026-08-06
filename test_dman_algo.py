@@ -755,6 +755,67 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestIntradayHighPullbackGuard(unittest.TestCase):
+    """Confirmed live 2026-08-06: CLRO scored a qualifying Low Float Catalyst
+    setup on RVOL/float/MACD/RSI while actually 14.4% off its own intraday
+    high of 22 minutes earlier and still falling -- every other gate is
+    computed from data that's blind to the shape of TODAY specifically, so
+    nothing caught buying into an active knife-catch. A regression here
+    means going back to chasing spikes on the way down."""
+
+    def _df(self, close, high, n=6):
+        import pandas as pd
+        # n rows: enough for the volume-averaging / 52wk-low lookback logic
+        # to run without special-casing a too-short frame.
+        rows = []
+        for i in range(n - 1):
+            rows.append({"Close": 8.0, "High": 8.2, "Low": 7.8, "Open": 7.9,
+                         "RVOL": 1.0, "MACD": 0.1, "MACD_sig": 0.2,
+                         "MACD_hist": -0.05, "RSI": 45.0, "Volume": 500_000})
+        rows.append({"Close": close, "High": high, "Low": min(close, high) * 0.95,
+                     "Open": high * 0.98, "RVOL": 6.0, "MACD": 1.0, "MACD_sig": 0.5,
+                     "MACD_hist": 0.3, "RSI": 40.0, "Volume": 3_000_000})
+        return pd.DataFrame(rows)
+
+    def setUp(self):
+        self._patches = [
+            patch.object(a, "ENABLE_SMALLCAP", True),
+            patch.object(a, "_get_short_float_data", return_value=(1.0, 5.0, 5.0, 0.1)),
+            patch.object(a, "_is_recent_reverse_split", return_value=False),
+            patch.object(a, "get_effective_account", return_value=5000.0),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+
+    def test_clro_style_knife_catch_is_blocked(self):
+        # High set 22 minutes before entry at 11.45, current price 9.80 —
+        # the exact real numbers from the live incident: 14.4% off high.
+        df = self._df(close=9.80, high=11.45)
+        sig = a.detect_low_float_catalyst(df, "CLRO")
+        self.assertIsNone(sig)
+
+    def test_celz_style_small_pullback_still_passes(self):
+        # Real numbers from the same day's CELZ entry: 2.6% off high,
+        # comfortably under the threshold — must not be blocked.
+        df = self._df(close=1.1398, high=1.17)
+        sig = a.detect_low_float_catalyst(df, "CELZ")
+        self.assertIsNotNone(sig)
+
+    def test_pullback_exactly_at_threshold_is_not_blocked(self):
+        # 12.0% pullback exactly — the guard uses a strict ">" so the
+        # boundary itself is allowed, only pullbacks WORSE than the
+        # threshold are skipped.
+        high = 10.0
+        close = high * (1 - a.SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT / 100)
+        df = self._df(close=close, high=high)
+        sig = a.detect_low_float_catalyst(df, "TESTX")
+        self.assertIsNotNone(sig)
+
+
 class TestDayStartEquityBaseline(unittest.TestCase):
     """Alpaca's last_equity is the prior TRADING DAY's close -- it doesn't
     account for a same-day deposit, so (equity - last_equity) treats new

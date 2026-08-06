@@ -122,6 +122,10 @@ SMALLCAP_T1_MULT       = 0.30     # T1 at +30% (Dman targets 50-200% — partial
 SMALLCAP_T2_MULT       = 0.75     # T2 at +75%
 SMALLCAP_STOP_PCT      = 0.18     # 18% stop — penny stocks are volatile; wider needed
 SMALLCAP_52WK_LOW_PCT  = 0.30     # "bottom chart" = within 30% of 52-week low
+SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT = 12.0   # skip entry if price already faded this
+                                            # far off TODAY's own high — confirmed live
+                                            # 2026-08-06: CLRO entered 14.4% off a
+                                            # 22-min-old intraday high, mid-drop
 
 # Ultra-low float tier — Dman's "thin walls" plays (float < 2M): 100-200%+ potential
 ULTRA_LOW_FLOAT_M      = 2.0      # threshold for ultra-low float tier
@@ -8678,6 +8682,25 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
 
         # Must be either near 52wk low OR have very high RVOL (catalyst-driven spike)
         if not (near_bottom or rvol >= 5.0):
+            return None
+
+        # Intraday-high pullback guard — confirmed live 2026-08-06: CLRO scored
+        # a qualifying setup on RVOL/float/MACD/RSI (all computed from the DAILY
+        # bar, which says nothing about the shape of TODAY specifically) while
+        # actually 14.4% off its own intraday high of 22 minutes earlier and
+        # still falling — bought a knife-catch mid-drop, not a breakout. Every
+        # other gate above is blind to this because none of them compare price
+        # to today's own high; r["High"] on an in-progress daily bar already IS
+        # the running intraday high, so this needs no new data. A stock that
+        # legitimately bases and breaks out again later in the same session
+        # will have a fresh, lower "high so far" by then and pass normally —
+        # this only blocks buying while a spike is actively unwinding.
+        try:
+            today_high = float(r["High"])
+            pullback_from_high_pct = (today_high - c) / today_high * 100 if today_high > 0 else 0.0
+        except Exception:
+            pullback_from_high_pct = 0.0
+        if pullback_from_high_pct > SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT:
             return None
 
         # Day N fade pre-check: compute _day_n_fade here so it's available for

@@ -2462,6 +2462,23 @@ _MACRO_BULLISH = [
 ]
 
 
+def _days_to_next_macro_print(today: Optional[date] = None) -> Optional[int]:
+    """
+    0 if NFP/CPI/PPI releases today, 1 if tomorrow, None otherwise. FOMC is
+    deliberately excluded — its existing ±1 day blackout in check_macro_safe()
+    already blocks entries outright, so a sizing nudge on top would be moot.
+    Pulled out of _fetch_global_context() as its own function so the
+    real-condition-adaptive sizing logic is testable without mocking yfinance.
+    """
+    today = today or date.today()
+    days_away = [
+        (ev - today).days
+        for ev in (_nfp_dates() | _CPI_DATES | _PPI_DATES)
+        if 0 <= (ev - today).days <= 1
+    ]
+    return min(days_away) if days_away else None
+
+
 def _fetch_global_context() -> dict:
     """
     Pull overnight futures, global indices, VIX, DXY, BTC, and IWM/SPY ratio
@@ -2480,6 +2497,9 @@ def _fetch_global_context() -> dict:
       Asia avg    — Nikkei + Hang Seng overnight
       IWM vs SPY  — small-cap relative leadership (most direct signal)
       Gold        — safe-haven bid (risk-off flag)
+      Macro cal.  — NFP/CPI/PPI today or tomorrow (risk-off flag; day-of and
+                    day-before, the two windows check_macro_safe()'s hard
+                    gate doesn't already cover)
     """
     components: dict[str, str] = {}
     score = 0
@@ -2569,6 +2589,22 @@ def _fetch_global_context() -> dict:
             if _c > 1.5:
                 score -= 1
                 components["GOLD"] = f"${data['GC=F']['price']:,.0f} ({_c:+.1f}%) ⚠️ safe-haven"
+
+        # Macro calendar proximity — real, current condition, not a prediction.
+        # check_macro_safe() already hard-blocks entries before 10 AM ET on an
+        # NFP/CPI/PPI release day, but that leaves two real gaps this same
+        # scoring function should cover: the afternoon of release day (still
+        # elevated-vol once the number has moved the market, no extra caution
+        # today) and the day BEFORE (pre-print positioning risk, currently
+        # zero adjustment at all). Added 2026-08-06 heading into NFP (Fri) +
+        # CPI (next Wed). See _days_to_next_macro_print().
+        _macro_days_away = _days_to_next_macro_print()
+        if _macro_days_away == 0:
+            score -= 2
+            components["MACRO"] = "NFP/CPI/PPI today ⚠️ elevated vol"
+        elif _macro_days_away == 1:
+            score -= 1
+            components["MACRO"] = "NFP/CPI/PPI tomorrow ⚠️ pre-print caution"
 
     except Exception:
         pass

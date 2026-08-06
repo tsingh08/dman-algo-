@@ -726,6 +726,41 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestMacroCalendarProximity(unittest.TestCase):
+    """_days_to_next_macro_print() feeds a real, current-condition sizing
+    adjustment in _fetch_global_context() — added 2026-08-06 because
+    check_macro_safe()'s hard gate only blocks entries before 10 AM ET on
+    the actual NFP/CPI/PPI release day, leaving the day-before (real
+    pre-print positioning risk) and the release-day afternoon with zero
+    extra caution. A regression here means the account sizes up normally
+    heading into a known high-volatility print instead of derating."""
+
+    def setUp(self):
+        self._nfp_patch = patch.object(a, "_nfp_dates", return_value={date(2026, 8, 7)})
+        self._nfp_patch.start()
+        self._cpi_patch = patch.object(a, "_CPI_DATES", {date(2026, 8, 12)})
+        self._cpi_patch.start()
+        self._ppi_patch = patch.object(a, "_PPI_DATES", set())
+        self._ppi_patch.start()
+
+    def tearDown(self):
+        self._nfp_patch.stop()
+        self._cpi_patch.stop()
+        self._ppi_patch.stop()
+
+    def test_day_before_nfp_returns_one(self):
+        self.assertEqual(a._days_to_next_macro_print(date(2026, 8, 6)), 1)
+
+    def test_nfp_day_itself_returns_zero(self):
+        self.assertEqual(a._days_to_next_macro_print(date(2026, 8, 7)), 0)
+
+    def test_two_days_out_returns_none(self):
+        self.assertIsNone(a._days_to_next_macro_print(date(2026, 8, 5)))
+
+    def test_unrelated_date_returns_none(self):
+        self.assertIsNone(a._days_to_next_macro_print(date(2026, 8, 10)))
+
+
 class TestEarningsSpreadSizing(unittest.TestCase):
     """5% of a $2,997.77 account is ~$150 — far below a realistic large-cap
     debit spread's cost. Locks in that a too-expensive-even-at-minimum-width

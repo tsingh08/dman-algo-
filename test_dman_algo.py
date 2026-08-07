@@ -755,6 +755,179 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestDynamicTickerPriceFloor(unittest.TestCase):
+    """Widened 2026-08-07: the $2.00 price floor excluded every sub-$2 penny
+    stock from organic smallcap discovery entirely, even though DMan's own
+    real style explicitly includes sub-$1 plays. A regression here means
+    going back to silently dropping exactly the kind of ticker this net is
+    supposed to catch."""
+
+    def _quote(self, symbol, price, chg_pct=5.0, vol=1_000_000, avg_vol=200_000):
+        return {"symbol": symbol, "regularMarketPrice": price,
+                "regularMarketChangePercent": chg_pct,
+                "regularMarketVolume": vol, "averageDailyVolume10Day": avg_vol}
+
+    def _mock_response(self, quotes):
+        resp = MagicMock()
+        resp.status_code = 200
+        resp.json.return_value = {"finance": {"result": [{"quotes": quotes}]}}
+        return resp
+
+    def test_sub_two_dollar_ticker_now_passes(self):
+        quotes = [self._quote("CISS", 0.85)]
+        with patch.object(a, "requests") as mock_requests:
+            mock_requests.get.return_value = self._mock_response(quotes)
+            result = a.fetch_dman_dynamic_tickers()
+        self.assertIn("CISS", result)
+
+    def test_below_new_floor_still_excluded(self):
+        # 0.20 is the new floor -- true sub-penny/halted-risk names below
+        # that are still deliberately excluded, this isn't "no floor at all".
+        quotes = [self._quote("SUBPENNY", 0.05)]
+        with patch.object(a, "requests") as mock_requests:
+            mock_requests.get.return_value = self._mock_response(quotes)
+            result = a.fetch_dman_dynamic_tickers()
+        self.assertNotIn("SUBPENNY", result)
+
+    def test_requests_50_per_screener_not_25(self):
+        with patch.object(a, "requests") as mock_requests:
+            mock_requests.get.return_value = self._mock_response([])
+            a.fetch_dman_dynamic_tickers()
+        for call in mock_requests.get.call_args_list:
+            self.assertIn("count=50", call[0][0])
+
+
+class TestGithubHealthDiagnosis(unittest.TestCase):
+    """_diagnose_github_health() drives run_fallback_guard() -- the whole
+    point is running the scan locally the moment GitHub Actions can't, so
+    it needs to reliably tell a genuine GitHub platform outage apart from
+    a normal healthy state (must not trigger constantly) and from a real
+    code bug (which fails fast, not at GitHub's ~15-min runner-queue
+    timeout). Confirmed live 2026-08-06: 3 different workflows with 3
+    different configured timeout-minutes all failed at the same ~15 min
+    mark during the actual outage -- that's the platform-level signal
+    this locks in."""
+
+    def _run(self, minutes_ago, status="completed", conclusion="success",
+              duration_min=None):
+        now = datetime.now(a.ET)
+        created = now - timedelta(minutes=minutes_ago)
+        updated = created + timedelta(minutes=duration_min if duration_min is not None else 1)
+        return {
+            "created_at": created.isoformat().replace("+00:00", "Z") if created.tzinfo else created.isoformat() + "Z",
+            "updated_at": updated.isoformat().replace("+00:00", "Z") if updated.tzinfo else updated.isoformat() + "Z",
+            "status": status,
+            "conclusion": conclusion,
+        }
+
+    def test_no_runs_at_all_is_unhealthy(self):
+        unhealthy, reason = a._diagnose_github_health([], datetime.now(a.ET))
+        self.assertTrue(unhealthy)
+
+    def test_recent_successful_run_is_healthy(self):
+        run = self._run(minutes_ago=10, status="completed", conclusion="success")
+        unhealthy, _ = a._diagnose_github_health([run], datetime.now(a.ET))
+        self.assertFalse(unhealthy)
+
+    def test_15min_failure_matches_runner_queue_timeout_signature(self):
+        run = self._run(minutes_ago=15, status="completed", conclusion="failure", duration_min=15)
+        unhealthy, reason = a._diagnose_github_health([run], datetime.now(a.ET))
+        self.assertTrue(unhealthy)
+        self.assertIn("runner-queue timeout", reason)
+
+    def test_fast_failure_is_not_treated_as_platform_outage(self):
+        # A genuine code bug fails in well under a minute -- must not be
+        # mistaken for GitHub's runner-queue timeout, or the fallback
+        # would just re-run the same broken code locally forever.
+        run = self._run(minutes_ago=2, status="completed", conclusion="failure", duration_min=0.5)
+        unhealthy, _ = a._diagnose_github_health([run], datetime.now(a.ET))
+        self.assertFalse(unhealthy)
+
+    def test_stuck_queued_past_20min_is_unhealthy(self):
+        run = self._run(minutes_ago=25, status="queued", conclusion=None)
+        unhealthy, reason = a._diagnose_github_health([run], datetime.now(a.ET))
+        self.assertTrue(unhealthy)
+        self.assertIn("queued", reason)
+
+    def test_recently_queued_is_not_yet_unhealthy(self):
+        run = self._run(minutes_ago=5, status="queued", conclusion=None)
+        unhealthy, _ = a._diagnose_github_health([run], datetime.now(a.ET))
+        self.assertFalse(unhealthy)
+
+    def test_no_run_in_90_min_window_is_unhealthy(self):
+        run = self._run(minutes_ago=120, status="completed", conclusion="success")
+        unhealthy, reason = a._diagnose_github_health([run], datetime.now(a.ET))
+        self.assertTrue(unhealthy)
+        self.assertIn("no scan run started", reason)
+
+
+class TestFallbackGuardWiring(unittest.TestCase):
+    """run_fallback_guard() is the actual entry point Windows Task Scheduler
+    calls -- these lock in the outer plumbing (market-hours gate, and that
+    an unhealthy diagnosis actually triggers a local scan + alert) since
+    _diagnose_github_health() being correct is worthless if nothing calls it
+    at the right time or acts on its answer."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"{}")
+        self._tmp.close()
+        self._patch = patch.object(a, "LAST_ALERTS_FILE", self._tmp.name)
+        self._patch.start()
+        self._token_patch = patch.object(a, "GITHUB_TOKEN", "fake-token")
+        self._token_patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        self._token_patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _weekday_market_hours(self):
+        # A fixed Tuesday at 11:00 AM ET -- inside market hours, a weekday.
+        return datetime(2026, 8, 4, 11, 0, tzinfo=a.ET)
+
+    def test_skips_outside_market_hours(self):
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(2026, 8, 4, 20, 0, tzinfo=a.ET)  # 8 PM ET
+            with patch.object(a, "requests") as mock_requests:
+                a.run_fallback_guard()
+        mock_requests.get.assert_not_called()
+
+    def test_unhealthy_github_triggers_local_scan_and_alert(self):
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {"workflow_runs": []}   # no runs = unhealthy
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = self._weekday_market_hours()
+            mock_dt.fromisoformat = datetime.fromisoformat
+            with patch.object(a, "requests") as mock_requests:
+                mock_requests.get.return_value = mock_resp
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    with patch("subprocess.run") as mock_run:
+                        mock_run.return_value = MagicMock(returncode=0)
+                        a.run_fallback_guard()
+        mock_run.assert_called_once()
+        called_args = mock_run.call_args[0][0]
+        self.assertIn("--submit", called_args)
+        mock_tg.assert_called_once()
+        self.assertIn("Local fallback activated", mock_tg.call_args[0][0])
+
+    def test_healthy_github_does_not_trigger_local_scan(self):
+        mock_resp = MagicMock()
+        recent = self._weekday_market_hours() - timedelta(minutes=5)
+        mock_resp.json.return_value = {"workflow_runs": [{
+            "created_at": recent.isoformat(), "updated_at": recent.isoformat(),
+            "status": "completed", "conclusion": "success",
+        }]}
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = self._weekday_market_hours()
+            mock_dt.fromisoformat = datetime.fromisoformat
+            with patch.object(a, "requests") as mock_requests:
+                mock_requests.get.return_value = mock_resp
+                with patch("subprocess.run") as mock_run:
+                    a.run_fallback_guard()
+        mock_run.assert_not_called()
+
+
 class TestIntradayHighPullbackGuard(unittest.TestCase):
     """Confirmed live 2026-08-06: CLRO scored a qualifying Low Float Catalyst
     setup on RVOL/float/MACD/RSI while actually 14.4% off its own intraday

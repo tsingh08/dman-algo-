@@ -2,8 +2,17 @@ name: DMan StockTwits Monitor
 
 on:
   schedule:
-    # Every 2 hours 7 AM – 4 PM ET (11:00–20:00 UTC), weekdays
-    - cron: '0 11,13,15,17,19 * * 1-5'
+    # Every 10 min, 7 AM - 4 PM ET (11:00-20:00 UTC), weekdays. Tightened
+    # from every 2 hours (2026-08-07, direct instruction to hunt faster) —
+    # confirmed live 2026-08-06 that the 2hr cadence was a real cost: by
+    # the time a DMan call got picked up and traded, the initial spike had
+    # already partially unwound (CLRO entered 14.4% off a high set well
+    # before the next 2hr poll would even have run). A 10-min cadence is
+    # the tightest useful step under GitHub's 5-min scheduling floor
+    # without spamming — the immediate-dispatch fix (see the commit step
+    # below) still does the real latency-closing work per-detection; this
+    # just means detection itself no longer waits up to 2 hours to fire.
+    - cron: '*/10 11-20 * * 1-5'
   workflow_dispatch:
 
 env:

@@ -151,7 +151,14 @@ ENABLE_PREMARKET_SUBMIT = True
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
 ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
-OPTIONS_RISK_PCT            = 0.12   # 12% of account per trade (~$360 at $3k) — aggressive ITM sizing
+OPTIONS_MAX_POSITION_COST   = 1250.0  # flat target budget per options trade (2026-08-07 —
+                                       # direct instruction to size up). Buys ~1 contract of a
+                                       # $12.50/share-premium ITM call ($1,250 = 1 contract x
+                                       # 100 shares/contract x $12.50). Replaces the old
+                                       # 12%-of-account calc (~$593 at $4,942) — still scaled by
+                                       # _risk_off_mult so this stays adaptive to real regime/
+                                       # macro conditions (e.g. derated heading into NFP/CPI),
+                                       # not a flat number regardless of risk.
 OPTIONS_DTE_MIN             = 5      # minimum 5 DTE — allows weekly for fast gap plays
 OPTIONS_DTE_MAX             = 28     # max 4 weeks
 OPTIONS_MAX_SPREAD_PCT      = 0.15   # skip contract if bid-ask spread > 15% of mid (was 20% of ask)
@@ -635,12 +642,22 @@ def fetch_premarket_gap_universe(min_price: float = 0.30, max_price: float = 20.
     return result
 
 
-def fetch_dman_dynamic_tickers(max_tickers: int = 60) -> list[str]:
+def fetch_dman_dynamic_tickers(max_tickers: int = 80) -> list[str]:
     """
     Fetch today's actual movers from Yahoo Finance (day gainers + most actives).
     Replaces Finviz, which is consistently blocked in GitHub Actions.
     Returns tickers that are genuinely moving with volume RIGHT NOW — not a
     static screener but a live snapshot of what has institutional interest today.
+
+    Widened 2026-08-07 (direct instruction to cast a wider smallcap net):
+    price floor was $2.00, which excluded every sub-$2 penny name from
+    organic discovery entirely — DMan's own actual style explicitly
+    includes sub-$1 plays (e.g. "$CISS .08s/.09s", confirmed from his real
+    posts). Dropped to $0.20 (still above true sub-penny/halted-risk
+    territory) so those are actually reachable here instead of only ever
+    surfacing via his own curated watchlist. Also doubled the raw
+    candidate pool per screener (25 -> 50) so more than just the very top
+    movers get a chance to pass the RVOL/volume filters below.
     """
     if not ENABLE_DYNAMIC_SMALLCAP:
         return []
@@ -652,7 +669,7 @@ def fetch_dman_dynamic_tickers(max_tickers: int = 60) -> list[str]:
     for scr_id in ("day_gainers", "most_actives"):
         url = (
             "https://query1.finance.yahoo.com/v1/finance/screener/predefined/saved"
-            f"?formatted=false&lang=en-US&region=US&scrIds={scr_id}&count=25"
+            f"?formatted=false&lang=en-US&region=US&scrIds={scr_id}&count=50"
             "&fields=symbol,regularMarketPrice,regularMarketVolume,"
             "averageDailyVolume10Day,regularMarketChangePercent"
         )
@@ -671,9 +688,9 @@ def fetch_dman_dynamic_tickers(max_tickers: int = 60) -> list[str]:
                 vol     = float(q.get("regularMarketVolume", 0) or 0)
                 avg_vol = float(q.get("averageDailyVolume10Day", 1) or 1)
                 rvol    = vol / avg_vol if avg_vol > 0 else 0
-                # Price $2–$100, gap ≥ 2%, RVOL ≥ 1.5x, avg vol ≥ 100K
+                # Price $0.20–$100, gap ≥ 2%, RVOL ≥ 1.5x, avg vol ≥ 100K
                 if (sym and sym.isalpha() and 1 <= len(sym) <= 5
-                        and 2.0 <= price <= 100.0
+                        and 0.20 <= price <= 100.0
                         and chg_pct >= 2.0
                         and rvol >= 1.5
                         and avg_vol >= 100_000):
@@ -1920,6 +1937,112 @@ def run_watchdog() -> None:
     else:
         print("  🐕 (alert suppressed — sent within the last "
               f"{ALERT_COOLDOWN_MIN} min already)")
+
+
+def run_fallback_guard() -> None:
+    """
+    Local, GitHub-Actions-INDEPENDENT contingency. Confirmed necessary live
+    2026-08-06: a multi-hour GitHub platform outage left every scheduled
+    scan/daemon/watchdog run failing identically at ~15 minutes — GitHub's
+    own runner-queue timeout (platform-level, distinct from and shorter
+    than every one of our workflows' own configured timeout-minutes, which
+    never even started counting since the job never began running). Real
+    market hours, zero scan coverage, no recovery short of a human noticing
+    and running the scan by hand — which is exactly what happened. GitHub's
+    own status page confirmed BOTH hosted and self-hosted runners were
+    affected, so a self-hosted runner would not have helped here — the
+    fallback has to not touch GitHub's runner system at all.
+
+    Designed to run OUTSIDE GitHub Actions entirely (e.g. Windows Task
+    Scheduler on the account owner's own machine, see
+    scripts/register_fallback_task.ps1) so a GitHub-side outage can't also
+    take down the thing meant to work around it. Checks the scanner
+    workflow's most recent run via the GitHub API; if it shows the ~15-min
+    "never acquired a runner" duration signature, is still queued/running
+    long past normal, or simply never started in the current window, runs
+    the scan locally instead and alerts either way so there's no silent
+    gap in visibility.
+    """
+    now_et = datetime.now(ET)
+    if now_et.weekday() >= 5:
+        print("  🆘 Fallback guard: weekend, skipping.")
+        return
+    t = now_et.hour * 100 + now_et.minute
+    if not (930 <= t <= 1600):
+        print("  🆘 Fallback guard: outside market hours, skipping.")
+        return
+    if not GITHUB_TOKEN:
+        print("  🆘 Fallback guard: no GITHUB_TOKEN configured — cannot check workflow health, skipping.")
+        return
+
+    try:
+        resp = requests.get(
+            f"https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/dman_scanner.yml/runs",
+            headers={"Authorization": f"Bearer {GITHUB_TOKEN}", "Accept": "application/vnd.github+json"},
+            params={"per_page": 1}, timeout=10,
+        )
+        runs = resp.json().get("workflow_runs", [])
+    except Exception as exc:
+        print(f"  🆘 Fallback guard: GitHub health check itself failed ({exc}) — can't verify, skipping to be safe.")
+        return
+
+    unhealthy, reason = _diagnose_github_health(runs, now_et)
+    if not unhealthy:
+        print("  🆘 Fallback guard: GitHub Actions looks healthy, nothing to do.")
+        return
+
+    _key = "__FALLBACK_GUARD_ACTIVATED__"
+    print(f"  🆘 Fallback guard: {reason} — running today's scan locally.")
+    if not _is_duplicate_alert(_key):
+        send_telegram(
+            f"🆘 <b>Local fallback activated</b>\n{reason}.\n"
+            f"Running today's scan on your machine instead — coverage continues."
+        )
+        _save_last_alert(_key)
+
+    import subprocess
+    universe = "curated" if t < 1000 else "all"
+    result = subprocess.run(
+        [sys.executable, __file__, "--mode", "scan", "--universe", universe, "--ai", "--submit"],
+        capture_output=False,
+    )
+    if result.returncode != 0:
+        send_telegram("🆘 Local fallback scan itself failed — check your machine directly, this isn't a GitHub problem anymore.")
+
+
+def _diagnose_github_health(runs: list[dict], now_et: datetime) -> tuple[bool, str]:
+    """
+    Pulled out of run_fallback_guard() for direct testability. runs is the
+    workflow_runs list from GitHub's API (newest first); returns
+    (is_unhealthy, human_reason).
+    """
+    if not runs:
+        return True, "no scanner workflow runs found at all"
+
+    latest = runs[0]
+    created = datetime.fromisoformat(latest["created_at"].replace("Z", "+00:00"))
+    age_min = (datetime.now(created.tzinfo) - created).total_seconds() / 60
+    status = latest.get("status")
+    conclusion = latest.get("conclusion")
+
+    if status == "completed" and conclusion == "failure":
+        updated = datetime.fromisoformat(latest["updated_at"].replace("Z", "+00:00"))
+        duration_min = (updated - created).total_seconds() / 60
+        # Confirmed live 2026-08-06 across 3 different workflows with 3
+        # different configured timeout-minutes, all failing at the same
+        # ~15 min mark — that's GitHub's own runner-queue timeout, not
+        # ours. A genuine code bug fails in seconds to low minutes.
+        if 13 <= duration_min <= 17:
+            return True, f"most recent scan failed after {duration_min:.0f} min — matches GitHub's runner-queue timeout signature, not a code failure"
+        return False, ""
+
+    if status in ("queued", "in_progress") and age_min > 20:
+        return True, f"most recent scan still {status} after {age_min:.0f} min — runner likely never assigned"
+
+    if age_min > 90:
+        return True, f"no scan run started in {age_min:.0f} min during market hours"
+
+    return False, ""
 
 
 def run_stocktwits_monitor() -> None:
@@ -12197,7 +12320,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         if _use_options:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(get_effective_account() * OPTIONS_RISK_PCT * _risk_off_mult, 2)
+                _opt_risk = round(OPTIONS_MAX_POSITION_COST * _risk_off_mult, 2)
                 print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_call(
@@ -12213,7 +12336,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         elif _use_puts:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(get_effective_account() * OPTIONS_RISK_PCT * _risk_off_mult, 2)
+                _opt_risk = round(OPTIONS_MAX_POSITION_COST * _risk_off_mult, 2)
                 print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_put(
@@ -12377,7 +12500,8 @@ def main():
                  "watch","rank","open","positions","alpaca","sync",
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
-                 "stocktwits","guard","merge-positions","watchdog","earnings-scan"],
+                 "stocktwits","guard","merge-positions","watchdog","earnings-scan",
+                 "fallback-guard"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -12557,6 +12681,9 @@ def main():
 
     elif args.mode == "watchdog":
         run_watchdog()
+
+    elif args.mode == "fallback-guard":
+        run_fallback_guard()
 
     elif args.mode == "earnings-scan":
         # Cron-dispatched redundancy for the daemon's earnings_loop — the cron

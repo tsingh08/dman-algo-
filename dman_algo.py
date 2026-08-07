@@ -263,21 +263,16 @@ MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 # Never sizes UP when VIX is below baseline (floor at 1.0 — risk control only).
 VIX_SIZE_BASE = 20.0   # baseline VIX; size is 1.0x at or below this level
 
-# ── Sector ETF map — used for momentum confirmation in score_signal() ─────────
-# When a stock's sector ETF is green on the day, Gap & Hold conviction is higher.
-SECTOR_ETF: dict[str, str] = {
-    "Technology":            "XLK",
-    "Communication Services":"XLC",
-    "Consumer Discretionary":"XLY",
-    "Consumer Staples":      "XLP",
-    "Energy":                "XLE",
-    "Financials":            "XLF",
-    "Health Care":           "XLV",
-    "Industrials":           "XLI",
-    "Materials":             "XLB",
-    "Real Estate":           "XLRE",
-    "Utilities":             "XLU",
-}
+# Sector ETF momentum confirmation (score_signal()) uses SECTOR_ETFS below —
+# a near-duplicate SECTOR_ETF (singular) dict used to live here with GICS
+# full names ("Health Care", "Communication Services", "Consumer
+# Discretionary") that didn't match the abbreviated labels TICKER_SECTOR
+# actually assigns ("Healthcare", "Comm Services", "Consumer Disc").
+# Confirmed live 2026-08-07: that mismatch silently zeroed the 8-pt sector-
+# ETF-momentum score for 28 of ~84 curated watchlist tickers (GOOGL, NFLX,
+# AMZN, TSLA, every Healthcare name, ...) regardless of whether their
+# sector was actually hot. Removed the duplicate — SECTOR_ETFS is the one
+# canonical sector-name -> ETF map now.
 
 # Seasonal regime — backtest shows Jan(38% WR), Jul(38%), Aug(25%), Sep(29%), Dec(33%) are chronic losers
 SEASONAL_WEAK_MONTHS = {1, 7, 8, 9, 12}
@@ -350,6 +345,20 @@ SECTOR_ETFS = {
     "Real Estate":   "XLRE",
     "Comm Services": "XLC",
     "Consumer Stap": "XLP",
+}
+
+# AI theme bonus (2026-08-07, direct instruction) — AI isn't a GICS/SPDR
+# sector, so these names only ever got generic "Technology"/XLK momentum
+# scoring even when AI-specific moves were meaningfully sharper than
+# broad tech. AIQ (Global X AI & Technology ETF) tracks the AI theme
+# specifically — confirmed live data available. This is an ADDITIVE bonus
+# on top of the existing sector score, not a replacement — see
+# score_signal()'s "4.6 AI Theme Momentum" block.
+AI_THEME_ETF = "AIQ"
+AI_THEME_TICKERS = {
+    "NVDA", "AMD", "AVGO", "SMCI", "MRVL", "ARM", "MU",   # AI infrastructure/chips
+    "PLTR", "META", "MSFT", "CRWD", "SNOW", "APP",         # AI software/platforms
+    "SOUN", "IONQ",                                        # pure-play AI/quantum
 }
 
 TICKER_SECTOR = {
@@ -8530,7 +8539,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # If the stock's sector ETF is green on the day, money flows are aligned —
     # adds conviction that this isn't an idiosyncratic pop against a falling sector.
     _sector_name = TICKER_SECTOR.get(signal.ticker, "")
-    _sector_etf  = SECTOR_ETF.get(_sector_name, "")
+    _sector_etf  = SECTOR_ETFS.get(_sector_name, "")
     _etf_score   = 0
     if _sector_etf:
         try:
@@ -8545,6 +8554,26 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
         except Exception:
             pass
     breakdown["Sector ETF"] = _etf_score
+
+    # 4.6 AI theme momentum bonus (+3 pts) — additive on top of the sector
+    # score above, not a replacement. AI isn't a GICS/SPDR sector, so an
+    # AI-specific move (e.g. NVDA rallying on a chip headline) only ever
+    # showed up as generic Technology/XLK momentum otherwise, which can
+    # mute a real AI-specific signal against a flat broader tech tape.
+    _ai_score = 0
+    if signal.ticker in AI_THEME_TICKERS:
+        try:
+            _ai_df = fetch_df(AI_THEME_ETF)
+            if _ai_df is not None and len(_ai_df) >= 2:
+                _ai_chg = (float(_ai_df["Close"].iloc[-1]) /
+                           float(_ai_df["Close"].iloc[-2]) - 1) * 100
+                if signal.bias == "LONG":
+                    _ai_score = 3 if _ai_chg >= 1.0 else 0
+                else:
+                    _ai_score = 3 if _ai_chg <= -1.0 else 0
+        except Exception:
+            pass
+    breakdown["AI Theme"] = _ai_score
 
     # 5. Earnings safety (5 pts)
     earn_ok, earn_score = check_earnings_safe(signal.ticker)

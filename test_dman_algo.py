@@ -755,6 +755,88 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestAiThemeMomentumBonus(unittest.TestCase):
+    """Added 2026-08-07, direct instruction: AI isn't a GICS/SPDR sector, so
+    AI-heavy names (NVDA, PLTR, SMCI, ...) only ever got generic Technology/
+    XLK momentum scoring even when the AI theme specifically was moving much
+    sharper than broad tech. This is an ADDITIVE bonus on top of the
+    existing sector score, not a replacement -- a regression here means
+    either the bonus stops firing for real AI names, or it starts leaking
+    onto non-AI tickers / non-AI-driven sector moves."""
+
+    def _etf_df(self, chg_pct):
+        import pandas as pd
+        base = 100.0
+        return pd.DataFrame({"Close": [base, base * (1 + chg_pct / 100)]})
+
+    def _signal(self, ticker, bias="LONG"):
+        return a.ProSignal(
+            ticker=ticker, bias=bias, setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+            shares=100, rr=2.0, rsi=50.0, rvol=2.0,
+            reason="test", confluence_score=0,
+        )
+
+    def _score(self, sig, ai_etf_chg_pct):
+        def _fetch_df_side_effect(symbol, *args, **kwargs):
+            if symbol == a.AI_THEME_ETF:
+                return self._etf_df(ai_etf_chg_pct)
+            return None   # sector ETF / everything else — no-op cleanly
+        # Mocked components kept deliberately low, leaving headroom below
+        # the confluence_score's min(100, total) cap -- otherwise both the
+        # flat and boosted runs saturate at 100 and the +3 bonus becomes
+        # invisible to a score-difference assertion.
+        with patch.object(a, "check_mtf", return_value=(True, 2)), \
+             patch.object(a, "check_relative_strength", return_value=(True, 2)), \
+             patch.object(a, "check_sector", return_value=(True, 2)), \
+             patch.object(a, "check_earnings_safe", return_value=(True, 1)), \
+             patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
+             patch.object(a, "fetch_df", side_effect=_fetch_df_side_effect):
+            return a.score_signal(sig, _fake_df(), _fake_regime(), a.WinRateTracker())
+
+    def test_ai_ticker_with_strong_ai_momentum_gets_the_bonus(self):
+        self.assertIn("NVDA", a.AI_THEME_TICKERS)
+        scored = self._score(self._signal("NVDA"), ai_etf_chg_pct=2.0)
+        self.assertGreaterEqual(scored.confluence_score, 3)
+
+    def test_ai_ticker_with_flat_ai_momentum_gets_no_bonus(self):
+        base = self._score(self._signal("NVDA"), ai_etf_chg_pct=0.0)
+        boosted = self._score(self._signal("NVDA"), ai_etf_chg_pct=2.0)
+        self.assertLess(base.confluence_score, boosted.confluence_score)
+
+    def test_non_ai_ticker_never_gets_the_bonus_even_on_a_hot_ai_tape(self):
+        self.assertNotIn("KO", a.AI_THEME_TICKERS)
+        with_hot_ai = self._score(self._signal("KO"), ai_etf_chg_pct=5.0)
+        flat_ai = self._score(self._signal("KO"), ai_etf_chg_pct=0.0)
+        self.assertEqual(with_hot_ai.confluence_score, flat_ai.confluence_score)
+
+
+class TestSectorEtfLookupConsistency(unittest.TestCase):
+    """Confirmed live 2026-08-07: a duplicate SECTOR_ETF (singular) dict used
+    GICS full names ("Health Care", "Communication Services", "Consumer
+    Discretionary") that didn't match the abbreviated labels TICKER_SECTOR
+    actually assigns ("Healthcare", "Comm Services", "Consumer Disc") --
+    silently zeroing the 8-pt sector-ETF-momentum confluence score for 28 of
+    ~84 curated tickers. A regression here (e.g. a new ticker tagged with a
+    sector name that doesn't exist in SECTOR_ETFS) means the same silent
+    scoring gap for whatever's newly mismatched."""
+
+    def test_every_sector_used_in_ticker_map_resolves_to_a_real_etf(self):
+        used_sectors = set(a.TICKER_SECTOR.values()) - {""}
+        for sector in used_sectors:
+            etf = a.SECTOR_ETFS.get(sector, "")
+            self.assertTrue(etf, f"sector {sector!r} (used in TICKER_SECTOR) has no ETF in SECTOR_ETFS")
+
+    def test_known_previously_broken_tickers_now_resolve(self):
+        # These are real tickers from the live incident -- GOOGL/NFLX
+        # (Comm Services), AMZN/TSLA (Consumer Disc), LLY (Healthcare).
+        cases = {"GOOGL": "XLC", "AMZN": "XLY", "LLY": "XLV"}
+        for ticker, expected_etf in cases.items():
+            sector = a.TICKER_SECTOR.get(ticker, "")
+            etf = a.SECTOR_ETFS.get(sector, "")
+            self.assertEqual(etf, expected_etf)
+
+
 class TestDynamicTickerPriceFloor(unittest.TestCase):
     """Widened 2026-08-07: the $2.00 price floor excluded every sub-$2 penny
     stock from organic smallcap discovery entirely, even though DMan's own

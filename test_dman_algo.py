@@ -1199,6 +1199,31 @@ class TestFallbackGuardWiring(unittest.TestCase):
         mock_run.assert_not_called()
 
 
+class TestSmallcapPullbackToleranceScaling(unittest.TestCase):
+    """Confirmed live 2026-08-06: CLRO gapped +217% intraday, CELZ +70%, both
+    far beyond the ~15-50% range the flat 12% pullback tolerance was
+    originally calibrated against. A regression here means going back to
+    the same cushion for a 20% gap and a 200%+ gap, when the latter gives
+    back ground far faster and harder."""
+
+    def test_normal_gap_uses_baseline_tolerance(self):
+        self.assertEqual(a._smallcap_pullback_tolerance_pct(25.0),
+                          a.SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT)
+
+    def test_extreme_gap_gets_tightest_tolerance(self):
+        self.assertEqual(a._smallcap_pullback_tolerance_pct(217.0), 6.0)
+
+    def test_moderate_extreme_gap_gets_middle_tolerance(self):
+        self.assertEqual(a._smallcap_pullback_tolerance_pct(100.0), 9.0)
+
+    def test_celz_style_70pct_gap_still_uses_baseline(self):
+        # CELZ's real gap (70%) is below the 75% moderate-extreme cutoff --
+        # its actual 2.6% pullback stayed well clear either way, but this
+        # locks in that a 70% gap doesn't get needlessly tightened.
+        self.assertEqual(a._smallcap_pullback_tolerance_pct(70.0),
+                          a.SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT)
+
+
 class TestIntradayHighPullbackGuard(unittest.TestCase):
     """Confirmed live 2026-08-06: CLRO scored a qualifying Low Float Catalyst
     setup on RVOL/float/MACD/RSI while actually 14.4% off its own intraday

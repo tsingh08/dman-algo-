@@ -8831,6 +8831,23 @@ def _is_recent_reverse_split(ticker: str, days: int = 45) -> bool:
         return False
 
 
+def _smallcap_pullback_tolerance_pct(gap_pct: float) -> float:
+    """
+    How far off today's high a low-float candidate may sit before the
+    intraday-high pullback guard blocks it — scaled down for extreme gaps.
+    Confirmed live 2026-08-06: CLRO gapped +217% intraday, CELZ +70%, both
+    far beyond the ~15-50% range SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT was
+    originally calibrated against. A stock that's already run 200%+ gives
+    back ground faster and harder than one that's gapped a more modest
+    amount, so the same flat cushion isn't equally safe at every gap size.
+    """
+    if gap_pct >= 150.0:
+        return 6.0
+    if gap_pct >= 75.0:
+        return 9.0
+    return SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT   # 12.0, the original baseline
+
+
 def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     """
     Detects Professor Dman's core small-cap setup (from 2yr Discord data):
@@ -8893,6 +8910,14 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         if not (near_bottom or rvol >= 5.0):
             return None
 
+        # Gap size computed here (moved up from the Moon Shot section below)
+        # so the pullback guard right below can scale its tolerance by it.
+        try:
+            today_gap_pct = (float(df.iloc[-1]["Open"]) - float(df.iloc[-2]["Close"])) / \
+                             float(df.iloc[-2]["Close"]) * 100
+        except Exception:
+            today_gap_pct = 0.0
+
         # Intraday-high pullback guard — confirmed live 2026-08-06: CLRO scored
         # a qualifying setup on RVOL/float/MACD/RSI (all computed from the DAILY
         # bar, which says nothing about the shape of TODAY specifically) while
@@ -8904,12 +8929,20 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         # legitimately bases and breaks out again later in the same session
         # will have a fresh, lower "high so far" by then and pass normally —
         # this only blocks buying while a spike is actively unwinding.
+        #
+        # Tolerance scales down for extreme gaps — confirmed live 2026-08-06:
+        # CLRO gapped +217% intraday, CELZ +70%, both far beyond the ~15-50%
+        # range this tolerance was originally calibrated against. A stock
+        # that's already run 200%+ gives back ground faster and harder than
+        # one that's gapped a more modest amount — the same flat 12% cushion
+        # isn't equally safe at every gap size.
         try:
             today_high = float(r["High"])
             pullback_from_high_pct = (today_high - c) / today_high * 100 if today_high > 0 else 0.0
         except Exception:
             pullback_from_high_pct = 0.0
-        if pullback_from_high_pct > SMALLCAP_MAX_PULLBACK_FROM_HIGH_PCT:
+        _pullback_tolerance = _smallcap_pullback_tolerance_pct(today_gap_pct)
+        if pullback_from_high_pct > _pullback_tolerance:
             return None
 
         # Day N fade pre-check: compute _day_n_fade here so it's available for
@@ -8934,11 +8967,7 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
 
         # Moon Shot tier — ultra-low float + massive gap + extreme RVOL
         # Example: IOTR Jul 8 2026 — 0.64M float, +40.87% gap, 17x RVOL
-        try:
-            today_gap_pct = (float(df.iloc[-1]["Open"]) - float(df.iloc[-2]["Close"])) / \
-                             float(df.iloc[-2]["Close"]) * 100
-        except Exception:
-            today_gap_pct = 0.0
+        # (today_gap_pct now computed earlier, before the pullback guard above)
 
         # Day N fade guard: if the prior trading day had very high RVOL and
         # today is still gapping, this is likely a distribution trap (e.g. IOTR Day 3).

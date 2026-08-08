@@ -2014,6 +2014,188 @@ class TestWorkflowRestartFeature(unittest.TestCase):
         mock_trigger.assert_not_called()
 
 
+class TestInsiderBuyingSignal(unittest.TestCase):
+    """Added 2026-08-08 ("free upgrades... completely" -- explicitly in
+    place of any further paid Massive/Benzinga tiers). SEC EDGAR Form 4 is
+    free and public but slow (live-tested: ~70s for a single ticker across
+    a few filings), so the network budget/caching here is load-bearing,
+    not incidental. A regression could either burn the per-process network
+    budget on nothing (unknown-ticker / old-filing / non-Form-4 paths not
+    short-circuiting before a fetch) or count routine option-exercise/
+    tax-withholding transactions (codes M/F) as if they were genuine
+    open-market insider conviction (codes P/S only)."""
+
+    def setUp(self):
+        a._INSIDER_TXN_CACHE.clear()
+        a._insider_network_calls_used = 0
+        self._sec_cik_map_backup = a._sec_cik_map
+        a._sec_cik_map = {"TEST": "0000320193"}
+
+    def tearDown(self):
+        a._INSIDER_TXN_CACHE.clear()
+        a._insider_network_calls_used = 0
+        a._sec_cik_map = self._sec_cik_map_backup
+
+    def _submissions_response(self, forms, dates, accessions=None):
+        accessions = accessions or [f"0001-26-{i:06d}" for i in range(len(forms))]
+        resp = MagicMock(status_code=200)
+        resp.json.return_value = {
+            "filings": {"recent": {
+                "form": forms, "filingDate": dates, "accessionNumber": accessions,
+            }}
+        }
+        return resp
+
+    def _form4_xml(self, codes):
+        txns = "".join(
+            f"""<nonDerivativeTransaction>
+                    <transactionCoding><transactionCode>{c}</transactionCode></transactionCoding>
+                    <transactionAmounts>
+                        <transactionShares><value>1000</value></transactionShares>
+                        <transactionPricePerShare><value>10.0</value></transactionPricePerShare>
+                    </transactionAmounts>
+                    <transactionDate><value>2026-08-01</value></transactionDate>
+                </nonDerivativeTransaction>"""
+            for c in codes
+        )
+        xml = (f'<?xml version="1.0"?><ownershipDocument>'
+               f'<reportingOwner><reportingOwnerId><rptOwnerName>Test Insider'
+               f'</rptOwnerName></reportingOwnerId></reportingOwner>{txns}</ownershipDocument>')
+        resp = MagicMock(status_code=200)
+        resp.content = xml.encode()
+        return resp
+
+    def test_filters_to_p_and_s_codes_only(self):
+        today = a.date.today().isoformat()
+        sub_resp = self._submissions_response(["4"], [today])
+        xml_resp = self._form4_xml(["M", "F", "P"])
+        with patch.object(a.requests, "get", side_effect=[sub_resp, xml_resp]):
+            txns = a._fetch_recent_insider_transactions("TEST")
+        self.assertEqual([t["code"] for t in txns], ["P"])
+
+    def test_filing_older_than_days_back_is_excluded_without_a_fetch(self):
+        old_date = (a.date.today() - a.timedelta(days=30)).isoformat()
+        sub_resp = self._submissions_response(["4"], [old_date])
+        with patch.object(a.requests, "get", return_value=sub_resp) as mock_get:
+            txns = a._fetch_recent_insider_transactions("TEST", days_back=14)
+        self.assertEqual(txns, [])
+        mock_get.assert_called_once()   # only the submissions call -- no wasted XML fetch
+
+    def test_non_form4_filings_are_skipped_without_a_fetch(self):
+        today = a.date.today().isoformat()
+        sub_resp = self._submissions_response(["10-K", "8-K"], [today, today])
+        with patch.object(a.requests, "get", return_value=sub_resp) as mock_get:
+            txns = a._fetch_recent_insider_transactions("TEST")
+        self.assertEqual(txns, [])
+        mock_get.assert_called_once()
+
+    def test_unknown_ticker_returns_empty_without_any_network_call(self):
+        with patch.object(a.requests, "get") as mock_get:
+            txns = a._fetch_recent_insider_transactions("NOTATICKER")
+        self.assertEqual(txns, [])
+        mock_get.assert_not_called()
+
+    def test_result_is_cached_second_call_makes_no_extra_network_request(self):
+        today = a.date.today().isoformat()
+        sub_resp = self._submissions_response(["4"], [today])
+        xml_resp = self._form4_xml(["P"])
+        with patch.object(a.requests, "get", side_effect=[sub_resp, xml_resp]) as mock_get:
+            first = a._fetch_recent_insider_transactions("TEST")
+            second = a._fetch_recent_insider_transactions("TEST")
+        self.assertEqual(first, second)
+        self.assertEqual(mock_get.call_count, 2)   # not 4 -- second call hit the cache
+
+    def test_network_budget_exhaustion_returns_empty_without_a_call(self):
+        a._insider_network_calls_used = a._INSIDER_NETWORK_BUDGET
+        with patch.object(a.requests, "get") as mock_get:
+            txns = a._fetch_recent_insider_transactions("TEST")
+        self.assertEqual(txns, [])
+        mock_get.assert_not_called()
+
+    def test_check_insider_activity_scores_open_market_purchase_for_long(self):
+        with patch.object(a, "_fetch_recent_insider_transactions",
+                           return_value=[{"code": "P", "value": 50000.0}]):
+            ok, score = a.check_insider_activity("TEST", "LONG")
+        self.assertTrue(ok)
+        self.assertEqual(score, 4)
+
+    def test_check_insider_activity_scores_open_market_sale_for_short(self):
+        with patch.object(a, "_fetch_recent_insider_transactions",
+                           return_value=[{"code": "S", "value": 50000.0}]):
+            ok, score = a.check_insider_activity("TEST", "SHORT")
+        self.assertTrue(ok)
+        self.assertEqual(score, 4)
+
+    def test_purchase_does_not_count_toward_a_short_signal(self):
+        with patch.object(a, "_fetch_recent_insider_transactions",
+                           return_value=[{"code": "P", "value": 50000.0}]):
+            ok, score = a.check_insider_activity("TEST", "SHORT")
+        self.assertTrue(ok)
+        self.assertEqual(score, 0)
+
+    def test_small_dollar_transaction_gets_the_lower_bonus(self):
+        with patch.object(a, "_fetch_recent_insider_transactions",
+                           return_value=[{"code": "P", "value": 5000.0}]):
+            ok, score = a.check_insider_activity("TEST", "LONG")
+        self.assertEqual(score, 2)
+
+    def test_no_matching_transactions_never_blocks_the_signal(self):
+        with patch.object(a, "_fetch_recent_insider_transactions", return_value=[]):
+            ok, score = a.check_insider_activity("TEST", "LONG")
+        self.assertTrue(ok)
+        self.assertEqual(score, 0)
+
+    def test_fetch_failure_fails_open_never_blocks(self):
+        with patch.object(a, "_fetch_recent_insider_transactions", side_effect=Exception("boom")):
+            ok, score = a.check_insider_activity("TEST", "LONG")
+        self.assertTrue(ok)
+        self.assertEqual(score, 0)
+
+
+class TestInsiderScoreSignalGating(unittest.TestCase):
+    """The insider check only runs inside score_signal() for candidates
+    whose partial score-so-far (MTF+RS+Sector+SectorETF+AI) already
+    clears a bar -- this is what protects the slow SEC lookup from firing
+    on every single scanned ticker every cycle. A regression here either
+    burns the network budget on weak candidates or silently stops the
+    bonus from ever reaching genuinely strong ones."""
+
+    def _signal(self, ticker="TEST", bias="LONG"):
+        return a.ProSignal(
+            ticker=ticker, bias=bias, setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+            shares=100, rr=2.0, rsi=50.0, rvol=2.0,
+            reason="test", confluence_score=0,
+        )
+
+    def _score(self, sig, mtf, rs, sec, check_insider_return=(True, 0)):
+        with patch.object(a, "check_mtf", return_value=(True, mtf)), \
+             patch.object(a, "check_relative_strength", return_value=(True, rs)), \
+             patch.object(a, "check_sector", return_value=(True, sec)), \
+             patch.object(a, "check_earnings_safe", return_value=(True, 1)), \
+             patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
+             patch.object(a, "fetch_df", return_value=None), \
+             patch.object(a, "check_insider_activity", return_value=check_insider_return) as mock_insider:
+            scored = a.score_signal(sig, _fake_df(), _fake_regime(), a.WinRateTracker())
+        return scored, mock_insider
+
+    def test_weak_candidate_never_triggers_the_insider_check(self):
+        # mtf+rs+sec = 2+2+2 = 6, well below the 25 gate (sector-ETF/AI both
+        # 0 since fetch_df is mocked to None).
+        _, mock_insider = self._score(self._signal(), mtf=2, rs=2, sec=2)
+        mock_insider.assert_not_called()
+
+    def test_strong_candidate_triggers_the_insider_check(self):
+        # mtf+rs+sec = 15+10+8 = 33 clears the 25 gate on its own.
+        _, mock_insider = self._score(self._signal(), mtf=15, rs=10, sec=8)
+        mock_insider.assert_called_once_with("TEST", "LONG")
+
+    def test_insider_bonus_is_added_to_the_total_score(self):
+        base, _ = self._score(self._signal(), mtf=15, rs=10, sec=8, check_insider_return=(True, 0))
+        boosted, _ = self._score(self._signal(), mtf=15, rs=10, sec=8, check_insider_return=(True, 4))
+        self.assertEqual(boosted.confluence_score, base.confluence_score + 4)
+
+
 def _fake_df():
     import pandas as pd
     import numpy as np

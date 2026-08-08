@@ -366,6 +366,16 @@ AI_THEME_TICKERS = {
     "SOUN", "IONQ",                                        # pure-play AI/quantum
 }
 
+# SEC EDGAR Form 4 insider-buying bonus (2026-08-08, "let's do the free
+# upgrades that's possible out there completely" — explicitly in place of
+# any further paid Massive/Benzinga tiers). Fully public, free, no API key —
+# SEC just requires a compliant User-Agent identifying the requester (a
+# generic/missing UA gets 403). See check_insider_activity() in the
+# "FILTER 05b: INSIDER BUYING" section for the actual signal logic.
+SEC_EDGAR_USER_AGENT = "DManAlgo research singh.tanveer2081@gmail.com"
+_SEC_CIK_MAP_FILE    = "dman_sec_cik_map.json"
+_SEC_CIK_MAP_TTL_S   = 7 * 24 * 3600   # 1 week — the ticker/CIK map barely changes day to day
+
 TICKER_SECTOR = {
     # Mega-cap tech
     "AAPL":"Technology","MSFT":"Technology","NVDA":"Technology","AMD":"Technology",
@@ -6864,6 +6874,208 @@ def check_macro_safe() -> tuple[bool, int]:
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  SECTION 9B — FILTER 05b: INSIDER BUYING (SEC FORM 4, FREE)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Free alternative surfaced 2026-08-08 to fill the "more edge" gap left by
+# Massive's paid analyst-ratings / bulls-bears-say / corporate-guidance
+# tiers (all confirmed 403 not-entitled, and explicitly off-limits per
+# direct instruction — no further paid API tiers for now). SEC EDGAR's
+# Form 4 insider-transaction data is fully public and free.
+#
+# Signal: an insider (officer/director/10% owner) trading on the OPEN
+# MARKET with their own money is a genuine conviction signal.
+# transactionCode == "P" (open-market purchase) is the bullish read;
+# "S" (open-market sale) is the bearish mirror, used for SHORT-side
+# confirmation. Codes "M" (option exercise) and "F" (tax-withholding share
+# disposal) are routine comp mechanics, NOT predictive — confirmed by
+# pulling a real AAPL Form 4 containing both and neither meaning anything
+# directionally. Only P/S are ever counted.
+
+_sec_cik_map: Optional[dict] = None
+
+def _load_sec_cik_map() -> dict:
+    """
+    Ticker -> zero-padded 10-digit CIK, for the SEC submissions API.
+    SEC publishes one ~800KB JSON for the whole market (no per-ticker
+    lookup endpoint) — cached to disk with a 1-week TTL since listings
+    change rarely, plus an in-memory cache so one process only reads the
+    file once. Falls back to a stale on-disk copy if SEC is unreachable
+    (fail-open — this is a bonus signal, never a hard gate).
+    """
+    global _sec_cik_map
+    if _sec_cik_map is not None:
+        return _sec_cik_map
+    try:
+        if os.path.exists(_SEC_CIK_MAP_FILE):
+            age = time.time() - os.path.getmtime(_SEC_CIK_MAP_FILE)
+            if age < _SEC_CIK_MAP_TTL_S:
+                with open(_SEC_CIK_MAP_FILE, "r") as f:
+                    _sec_cik_map = json.load(f)
+                    return _sec_cik_map
+    except Exception:
+        pass
+    try:
+        resp = requests.get(
+            "https://www.sec.gov/files/company_tickers.json",
+            headers={"User-Agent": SEC_EDGAR_USER_AGENT},
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            cik_map = {
+                str(v["ticker"]).upper(): str(v["cik_str"]).zfill(10)
+                for v in resp.json().values()
+            }
+            try:
+                with open(_SEC_CIK_MAP_FILE, "w") as f:
+                    json.dump(cik_map, f)
+            except Exception:
+                pass
+            _sec_cik_map = cik_map
+            return _sec_cik_map
+    except Exception:
+        pass
+    try:
+        if os.path.exists(_SEC_CIK_MAP_FILE):
+            with open(_SEC_CIK_MAP_FILE, "r") as f:
+                _sec_cik_map = json.load(f)
+                return _sec_cik_map
+    except Exception:
+        pass
+    _sec_cik_map = {}
+    return _sec_cik_map
+
+
+_INSIDER_TXN_CACHE: dict[str, tuple[float, list]] = {}
+_INSIDER_TXN_CACHE_TTL_S = 6 * 3600   # 6 hr — only hit for already-scored candidates, filings don't move intraday
+
+# SEC EDGAR is slow — live-tested 2026-08-08, a single ticker with a few
+# Form 4s to check took 72s (submissions call + per-filing XML fetches,
+# each close to the 10s timeout below). score_signal() runs for every
+# scanned candidate every cycle, so calling this unconditionally would
+# blow scan latency and risk the GitHub Actions workflow timeout. A hard
+# per-process budget bounds the worst case regardless of how many
+# candidates qualify for a check in a given run; combined with the 6-hr
+# cache TTL, coverage rotates across cycles over the course of a day
+# rather than stalling any single scan.
+_INSIDER_NETWORK_BUDGET = 6
+_insider_network_calls_used = 0
+
+def _fetch_recent_insider_transactions(ticker: str, days_back: int = 14, max_filings: int = 2) -> list:
+    """
+    Recent Form 4 open-market transactions for `ticker`, filtered to
+    transactionCode in {P, S} — the only two codes reflecting genuine
+    insider conviction. Returns [] on any failure (no CIK match, SEC
+    unreachable, no recent Form 4s, or per-process network budget
+    exhausted — see _INSIDER_NETWORK_BUDGET) — fail-open.
+
+    Checks only the most recent `max_filings` Form 4s within `days_back`,
+    not the full filing history, to keep per-ticker latency bounded —
+    this runs for already-scored candidates late in the pipeline, not
+    the whole scan universe.
+    """
+    global _insider_network_calls_used
+    cached = _INSIDER_TXN_CACHE.get(ticker)
+    if cached and (time.time() - cached[0]) < _INSIDER_TXN_CACHE_TTL_S:
+        return cached[1]
+
+    if _insider_network_calls_used >= _INSIDER_NETWORK_BUDGET:
+        return []
+    _insider_network_calls_used += 1
+
+    import xml.etree.ElementTree as _etree
+    result: list = []
+    try:
+        cik = _load_sec_cik_map().get(ticker.upper())
+        if not cik:
+            _INSIDER_TXN_CACHE[ticker] = (time.time(), result)
+            return result
+
+        headers = {"User-Agent": SEC_EDGAR_USER_AGENT}
+        resp = requests.get(
+            f"https://data.sec.gov/submissions/CIK{cik}.json",
+            headers=headers, timeout=10,
+        )
+        if resp.status_code != 200:
+            _INSIDER_TXN_CACHE[ticker] = (time.time(), result)
+            return result
+
+        recent       = resp.json().get("filings", {}).get("recent", {})
+        forms        = recent.get("form", [])
+        accessions   = recent.get("accessionNumber", [])
+        filing_dates = recent.get("filingDate", [])
+        cutoff       = date.today() - timedelta(days=days_back)
+        cik_int      = int(cik)
+
+        checked = 0
+        for i, form in enumerate(forms):
+            if form != "4" or checked >= max_filings:
+                continue
+            try:
+                f_date = date.fromisoformat(filing_dates[i])
+            except Exception:
+                continue
+            if f_date < cutoff:
+                continue
+            checked += 1
+            acc = accessions[i].replace("-", "")
+            xml_url = f"https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc}/form4.xml"
+            try:
+                rx = requests.get(xml_url, headers=headers, timeout=10)
+                if rx.status_code != 200:
+                    continue
+                root = _etree.fromstring(rx.content)
+                owner_el   = root.find(".//reportingOwner/reportingOwnerId/rptOwnerName")
+                owner_name = owner_el.text.strip() if owner_el is not None and owner_el.text else ""
+                for txn in root.findall(".//nonDerivativeTransaction"):
+                    code_el = txn.find("./transactionCoding/transactionCode")
+                    code    = code_el.text.strip() if code_el is not None and code_el.text else ""
+                    if code not in ("P", "S"):
+                        continue
+                    shares_el = txn.find("./transactionAmounts/transactionShares/value")
+                    price_el  = txn.find("./transactionAmounts/transactionPricePerShare/value")
+                    date_el   = txn.find("./transactionDate/value")
+                    shares = float(shares_el.text) if shares_el is not None and shares_el.text else 0.0
+                    price  = float(price_el.text)  if price_el  is not None and price_el.text  else 0.0
+                    result.append({
+                        "code":   code,
+                        "owner":  owner_name,
+                        "shares": shares,
+                        "price":  price,
+                        "value":  round(shares * price, 2),
+                        "date":   date_el.text.strip() if date_el is not None and date_el.text else filing_dates[i],
+                    })
+            except Exception:
+                continue
+    except Exception:
+        pass
+
+    _INSIDER_TXN_CACHE[ticker] = (time.time(), result)
+    return result
+
+
+def check_insider_activity(ticker: str, bias: str) -> tuple:
+    """
+    +4 pts (or +2 for a small/token-sized transaction) if a genuine
+    open-market insider transaction in the signal's direction landed in
+    the last 14 days — code "P" (buy) confirms LONG, code "S" (sale)
+    confirms SHORT. Never blocks a signal (always returns ok=True): most
+    tickers simply have no recent Form 4 at all, and absence of a filing
+    isn't itself bearish or bullish, just silence.
+    """
+    try:
+        txns    = _fetch_recent_insider_transactions(ticker)
+        want    = "P" if bias == "LONG" else "S"
+        matches = [t for t in txns if t["code"] == want]
+        if not matches:
+            return True, 0
+        total_value = sum(t["value"] for t in matches)
+        return True, (4 if total_value >= 25_000 else 2)
+    except Exception:
+        return True, 0
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 10 — FILTER 06: FIBONACCI RETRACEMENT
 # ═══════════════════════════════════════════════════════════════════════════
 
@@ -8755,6 +8967,19 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
         except Exception:
             pass
     breakdown["AI Theme"] = _ai_score
+
+    # 4.7 Insider buying confirmation (+4 pts, free SEC Form 4 data) —
+    # additive, never a gate. Only fires for tickers with a genuine
+    # open-market insider transaction (P=buy for LONG, S=sale for SHORT)
+    # in the last 14 days. Gated on partial score-so-far (MTF+RS+Sector+
+    # SectorETF+AI, max 56) so the slow SEC lookup (see
+    # _INSIDER_NETWORK_BUDGET docstring) only runs for candidates already
+    # showing real strength, not the whole scan universe.
+    _partial_score = mtf_score + rs_score + sec_score + _etf_score + _ai_score
+    insider_score = 0
+    if _partial_score >= 25:
+        _, insider_score = check_insider_activity(signal.ticker, signal.bias)
+    breakdown["Insider"] = insider_score
 
     # 5. Earnings safety (5 pts)
     earn_ok, earn_score = check_earnings_safe(signal.ticker)

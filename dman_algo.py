@@ -4070,6 +4070,109 @@ def run_options_guard(verbose: bool = True) -> list[str]:
     return alerts
 
 
+def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float) -> Optional[str]:
+    """
+    Automates what the T1 alert has only ever told a HUMAN to do manually
+    for equity positions — options already self-manage this via the
+    daemon's own momentum-watch loop. Confirmed live 2026-08-08: CELZ sat
+    at +24.58% with its original entry-time stop completely untouched —
+    the T1 alert said "move stop to breakeven" but nothing ever executed
+    it, leaving the entire gain exposed.
+
+    Two-step transition, run once per position (tracked via stop_stage):
+      1. Replace the existing stop order's stop_price to breakeven (entry)
+         in place via PATCH — not a cancel+resubmit, so it can't hit the
+         share-reservation race that caused this week's stuck-HELD-order
+         incidents (there's only ever one order here, never two competing
+         for the same shares).
+      2. Cancel that (now breakeven) plain stop and submit a genuine
+         Alpaca-native trailing stop, so further gains lock in
+         automatically without anyone needing to keep checking in. This
+         step DOES need cancel+resubmit (trail_percent isn't a replaceable
+         field), which is exactly the operation that stranded W without
+         protection overnight — so if the trailing submission fails for
+         any reason, this immediately falls back to a plain stop at
+         breakeven rather than ever leaving the position unprotected.
+
+    Trail percent is capped so the trailing stop's INITIAL level can never
+    sit below breakeven, however far past T1 price has already run:
+    min(the position's own original entry-to-stop distance%, the actual
+    current-price-to-entry distance%). Preserves each setup's designed
+    risk cushion (a smallcap's wider stop stays wider) while guaranteeing
+    this step never introduces new risk below what's already locked in.
+
+    Returns a human-readable description of what happened, or None if
+    nothing changed (already trailing, T1 not yet reached, bad data, or a
+    real failure — always printed, never silently swallowed).
+    """
+    if pos.stop_stage == "trailing":
+        return None
+    if pos.target1 <= 0 or cur_price < pos.target1 or pos.entry <= 0:
+        return None
+
+    client = get_alpaca_client()
+    if client is None:
+        return None
+
+    from alpaca.trading.requests import (
+        GetOrdersRequest, ReplaceOrderRequest, TrailingStopOrderRequest, StopOrderRequest,
+    )
+    from alpaca.trading.enums import QueryOrderStatus, OrderSide, TimeInForce, OrderType, PositionIntent
+
+    try:
+        open_orders = client.get_orders(filter=GetOrdersRequest(
+            symbols=[pos.ticker], status=QueryOrderStatus.OPEN, limit=10))
+        stop_orders = [o for o in open_orders if o.order_type in (OrderType.STOP, OrderType.STOP_LIMIT)]
+        if not stop_orders:
+            print(f"  ⚠️  {pos.ticker}: T1 hit but no live stop order found — can't progress it")
+            return None
+        stop_order = stop_orders[0]
+
+        client.replace_order_by_id(stop_order.id, ReplaceOrderRequest(stop_price=round(pos.entry, 2)))
+    except Exception as exc:
+        print(f"  ⚠️  {pos.ticker}: failed to raise stop to breakeven — {exc}")
+        return None
+
+    original_stop_pct = (pos.entry - pos.stop) / pos.entry * 100 if pos.stop > 0 else 0
+    current_gain_pct  = (cur_price - pos.entry) / cur_price * 100
+    trail_pct = round(max(0.5, min(original_stop_pct, current_gain_pct)), 2)
+
+    try:
+        client.cancel_order_by_id(stop_order.id)
+        trail_order = client.submit_order(TrailingStopOrderRequest(
+            symbol=pos.ticker, qty=pos.shares, side=OrderSide.SELL,
+            time_in_force=TimeInForce.GTC, trail_percent=trail_pct,
+            position_intent=PositionIntent.SELL_TO_CLOSE,
+        ))
+        _update_position_field(pos.ticker, stop_stage="trailing", stop=round(pos.entry, 2))
+        return (f"stop raised to breakeven ${pos.entry:.2f}, now trailing "
+                f"{trail_pct:.1f}% (id {str(trail_order.id)[:8]}…)")
+    except Exception as exc:
+        # The breakeven replace already succeeded above, but the trailing
+        # submission failed after cancelling that order — never leave the
+        # position with nothing live. Fall back to a plain stop at
+        # breakeven, the same reliable order type that recovered every
+        # stuck-HELD incident this week.
+        print(f"  ⚠️  {pos.ticker}: trailing stop submission failed ({exc}) — falling back to a plain breakeven stop")
+        try:
+            fallback = client.submit_order(StopOrderRequest(
+                symbol=pos.ticker, qty=pos.shares, side=OrderSide.SELL,
+                time_in_force=TimeInForce.GTC, stop_price=round(pos.entry, 2),
+                position_intent=PositionIntent.SELL_TO_CLOSE,
+            ))
+            _update_position_field(pos.ticker, stop_stage="initial", stop=round(pos.entry, 2))
+            return f"stop raised to breakeven ${pos.entry:.2f} (trailing failed, plain stop fallback id {str(fallback.id)[:8]}…)"
+        except Exception as exc2:
+            print(f"  🚨 {pos.ticker}: fallback stop ALSO failed ({exc2}) — POSITION MAY BE UNPROTECTED, check manually")
+            send_telegram(
+                f"🚨 <b>{pos.ticker}: stop management failed</b>\n"
+                f"Breakeven raise succeeded but both the trailing stop and the "
+                f"fallback plain stop failed to submit ({exc2}). "
+                f"Check Alpaca directly — this position may have no live stop."
+            )
+            return None
+
+
 def run_momentum_watch() -> None:
     """
     Intraday momentum watch — runs at 10:30 AM and 11:30 AM alongside the main scan.
@@ -4145,11 +4248,23 @@ def run_momentum_watch() -> None:
                                 )
                                 _mark_alerted(_t2k)
                             elif _t1e > 0 and _cur_eq >= _t1e and not _is_alerted_today(_t1k):
+                                # Confirmed live 2026-08-08: this alert used to just
+                                # TELL a human to move the stop to breakeven — CELZ
+                                # sat at +24.58% with its original stop untouched
+                                # because nothing ever executed it. Now actually
+                                # does it (see _progress_equity_stop_to_trailing).
+                                _stop_msg = ""
+                                try:
+                                    _prog = _progress_equity_stop_to_trailing(OpenPosition(**pos), _cur_eq)
+                                    if _prog:
+                                        _stop_msg = f"\n🔒 {_prog}"
+                                except Exception as _pe:
+                                    print(f"  ⚠️  {t}: stop progression failed — {_pe}")
                                 send_telegram(
                                     f"✅ <b>T1 HIT</b> — {t} LONG\n"
                                     f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  T1 ${_t1e}\n"
-                                    f"<b>Sell 50% HERE.</b>  Move stop to ${e} (breakeven).  "
-                                    f"Let rest ride to T2 ${_t2e}."
+                                    f"Consider selling 50% here manually — the rest is "
+                                    f"riding to T2 ${_t2e} with a locked-in floor.{_stop_msg}"
                                 )
                                 _mark_alerted(_t1k)
                         active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
@@ -7837,6 +7952,15 @@ class OpenPosition:
     max_loss:   float = 0.0
     max_gain:   float = 0.0
     earn_date:  str   = ""
+    stop_stage: str   = "initial"   # "initial" -> "trailing" (equity only —
+                                     # options already self-manage via the
+                                     # daemon's own momentum-watch loop, see
+                                     # _progress_equity_stop_to_trailing()).
+                                     # Confirmed live 2026-08-08: CELZ sat at
+                                     # +24.58% with its original entry-time
+                                     # stop untouched — the T1 alert told the
+                                     # human to "move stop to breakeven" but
+                                     # nothing ever executed it.
 
 
 class PositionTracker:

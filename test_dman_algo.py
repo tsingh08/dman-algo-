@@ -809,6 +809,149 @@ class TestWinRateLiveOnlyFiltering(unittest.TestCase):
         self.assertEqual(tracker.rolling_stats(live_only=True)["total"], 0)
 
 
+class TestProgressEquityStopToTrailing(unittest.TestCase):
+    """Confirmed live 2026-08-08: CELZ sat at +24.58% with its original
+    entry-time stop completely untouched -- the T1 alert only ever told a
+    human to "move stop to breakeven," nothing executed it. This is the
+    highest-stakes new logic shipped tonight (directly cancels/replaces/
+    creates real orders on live positions) and the market is closed, so it
+    cannot be live-tested before Monday -- these tests carry the full
+    weight of verifying correctness. Every path must leave the position
+    with SOME live protective order; the market is closed, so it cannot be
+    live-tested before Monday -- these tests carry the full weight of
+    verifying correctness."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(json.dumps([{
+            "ticker": "CELZ", "bias": "LONG", "setup": "Low Float Catalyst",
+            "entry": 1.1398, "stop": 0.96, "target1": 1.68, "target2": 1.99,
+            "shares": 284, "entry_date": "2026-08-06", "stop_stage": "initial",
+        }]).encode())
+        self._pos_tmp.close()
+        self._patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._pos_tmp.name)
+
+    def _pos(self, **overrides):
+        base = dict(ticker="CELZ", bias="LONG", setup="Low Float Catalyst",
+                    entry=1.1398, stop=0.96, target1=1.68, target2=1.99,
+                    shares=284, entry_date="2026-08-06", stop_stage="initial")
+        base.update(overrides)
+        return a.OpenPosition(**base)
+
+    def _stop_order(self, order_id="stop-1"):
+        from alpaca.trading.enums import OrderType
+        o = MagicMock()
+        o.id = order_id
+        o.order_type = OrderType.STOP
+        return o
+
+    def test_below_t1_does_nothing(self):
+        mock_client = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.20)
+        self.assertIsNone(result)
+        mock_client.get_orders.assert_not_called()
+
+    def test_already_trailing_does_nothing(self):
+        mock_client = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(
+                self._pos(stop_stage="trailing"), cur_price=2.00)
+        self.assertIsNone(result)
+        mock_client.get_orders.assert_not_called()
+
+    def test_successful_transition_updates_stage_and_uses_capped_trail(self):
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._stop_order()]
+        mock_client.submit_order.return_value = MagicMock(id="trail-order-1")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
+        self.assertIsNotNone(result)
+        self.assertIn("breakeven", result)
+        self.assertIn("trailing", result)
+        # replace called with breakeven stop_price
+        replace_call = mock_client.replace_order_by_id.call_args
+        self.assertEqual(replace_call[0][0], "stop-1")
+        self.assertEqual(replace_call[0][1].stop_price, round(1.1398, 2))
+        # cancel called on the same order before the new trailing submission
+        mock_client.cancel_order_by_id.assert_called_once_with("stop-1")
+        # trail% must be capped so initial level can't sit below breakeven:
+        # original_stop_pct = (1.1398-0.96)/1.1398*100 = 15.8%
+        # current_gain_pct  = (1.70-1.1398)/1.70*100    = 32.9%
+        # capped trail = min(15.8, 32.9) = 15.8
+        submit_call = mock_client.submit_order.call_args[0][0]
+        self.assertAlmostEqual(submit_call.trail_percent, 15.79, places=1)
+        # tracker updated to reflect the new stage
+        tracker = a.PositionTracker(filepath=self._pos_tmp.name)
+        self.assertEqual(tracker.positions[0].stop_stage, "trailing")
+
+    def test_trail_percent_never_exceeds_current_gain(self):
+        # A position with a very wide original stop but only just past T1 --
+        # the gain-from-entry distance must win the cap, not the original
+        # stop%, or the initial trailing level could land below breakeven.
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._stop_order()]
+        mock_client.submit_order.return_value = MagicMock(id="trail-order-2")
+        wide_stop_pos = self._pos(entry=10.0, stop=8.2, target1=10.5)  # 18% original stop
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._progress_equity_stop_to_trailing(wide_stop_pos, cur_price=10.6)
+        # current_gain_pct = (10.6-10.0)/10.6*100 = 5.66%, well under 18%
+        submit_call = mock_client.submit_order.call_args[0][0]
+        self.assertLess(submit_call.trail_percent, 18.0)
+        self.assertAlmostEqual(submit_call.trail_percent, 5.66, places=1)
+
+    def test_trailing_submission_failure_falls_back_to_plain_breakeven_stop(self):
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._stop_order()]
+        mock_client.submit_order.side_effect = [
+            Exception("trailing stop rejected"),   # first call: trailing stop fails
+            MagicMock(id="fallback-stop-1"),        # second call: plain stop succeeds
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
+        self.assertIsNotNone(result)
+        self.assertIn("fallback", result)
+        self.assertEqual(mock_client.submit_order.call_count, 2)
+        # must NOT claim "trailing" if it actually fell back to a plain stop
+        tracker = a.PositionTracker(filepath=self._pos_tmp.name)
+        self.assertEqual(tracker.positions[0].stop_stage, "initial")
+
+    def test_both_trailing_and_fallback_fail_sends_emergency_alert(self):
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._stop_order()]
+        mock_client.submit_order.side_effect = Exception("Alpaca is down")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
+        self.assertIsNone(result)
+        mock_tg.assert_called_once()
+        self.assertIn("stop management failed", mock_tg.call_args[0][0])
+
+    def test_no_live_stop_order_found_does_not_crash(self):
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
+        self.assertIsNone(result)
+        mock_client.replace_order_by_id.assert_not_called()
+
+    def test_breakeven_replace_failure_stops_before_any_cancel(self):
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._stop_order()]
+        mock_client.replace_order_by_id.side_effect = Exception("replace rejected")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
+        self.assertIsNone(result)
+        # must not cancel the only live protective order if the replace
+        # (which would have made it safe) never actually succeeded
+        mock_client.cancel_order_by_id.assert_not_called()
+
+
 class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
     """Confirmed live 2026-08-07: sync_alpaca_fills() compared
     str(order.status) against the bare string "filled", but a real Alpaca

@@ -965,6 +965,41 @@ class TestAiThemeMomentumBonus(unittest.TestCase):
         self.assertEqual(with_hot_ai.confluence_score, flat_ai.confluence_score)
 
 
+class TestDay2ContinuationExtensionCap(unittest.TestCase):
+    """Confirmed live 2026-08-06: AMZN passed every one of Day 2
+    Continuation's existing gates by a wide margin (12.5% d1_gap vs 4% min,
+    80% d1_held vs 60% min) and still bought the exact top of its whole
+    holding period, already +20.8% from the pre-gap baseline by entry. None
+    of the existing gates check total cumulative extension, only the shape
+    of day 1's gap. A regression here means going back to chasing an
+    already-exhausted multi-day move as if it were a fresh continuation."""
+
+    def test_amzn_style_overextension_is_blocked(self):
+        # Real numbers from the live incident: pre-gap close $235.50,
+        # entry $284.43 -- +20.8% cumulative, above the 15% cap.
+        self.assertFalse(a._day2_continuation_not_overextended(284.43, 235.50))
+
+    def test_modest_continuation_is_allowed(self):
+        # A healthier, more typical Day 2 Continuation shape -- gapped and
+        # continued, but nowhere near AMZN's already-exhausted move.
+        self.assertTrue(a._day2_continuation_not_overextended(255.0, 235.50))
+
+    def test_exactly_at_cap_is_allowed(self):
+        pre_gap = 100.0
+        entry = pre_gap * (1 + a.DAY2_MAX_CUMULATIVE_MOVE_PCT / 100)
+        self.assertTrue(a._day2_continuation_not_overextended(entry, pre_gap))
+
+    def test_just_above_cap_is_blocked(self):
+        pre_gap = 100.0
+        entry = pre_gap * (1 + (a.DAY2_MAX_CUMULATIVE_MOVE_PCT + 0.1) / 100)
+        self.assertFalse(a._day2_continuation_not_overextended(entry, pre_gap))
+
+    def test_bad_baseline_data_fails_open(self):
+        # Can't compute a ratio against a zero/negative baseline -- must not
+        # block a legitimate signal just because of a bad data point.
+        self.assertTrue(a._day2_continuation_not_overextended(284.43, 0.0))
+
+
 class TestSectorEtfLookupConsistency(unittest.TestCase):
     """Confirmed live 2026-08-07: a duplicate SECTOR_ETF (singular) dict used
     GICS full names ("Health Care", "Communication Services", "Consumer

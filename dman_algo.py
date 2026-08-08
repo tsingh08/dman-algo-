@@ -56,6 +56,11 @@ _acct_raw    = os.getenv("ACCOUNT_SIZE", "").strip()
 ACCOUNT_SIZE = float(_acct_raw) if _acct_raw else 25_000.0   # set via ACCOUNT_SIZE env/secret
 RISK_PER_TRADE     = 0.02        # base risk — Kelly may reduce this
 MIN_RR             = 2.0
+DAY2_MAX_CUMULATIVE_MOVE_PCT = 15.0   # Day 2 Continuation: skip if price has
+                                       # already run this far from the pre-gap
+                                       # baseline by entry — confirmed live
+                                       # 2026-08-06 (AMZN +20.8% cumulative,
+                                       # bought the exact top). See detect_gap_and_hold().
 MIN_CONFLUENCE     = 75          # 0-100 score; raise to 80 for extra caution
 SETUP_MIN_CONFLUENCE = {         # per-setup overrides for historically weak setups
     "Gap & Short":    82,
@@ -8225,6 +8230,25 @@ def sync_alpaca_sync_state_with_remote() -> None:
 RVOL_MIN       = 1.3
 RVOL_MIN_SHORT = 1.2
 
+def _day2_continuation_not_overextended(entry_price: float, pre_gap_close: float) -> bool:
+    """
+    Day 2 Continuation's other gates (d1_gap, d1_held, RVOL, RSI) all check
+    the SHAPE of day 1's gap — none of them check how far price has already
+    run in total by the time day 2's entry fires. Confirmed live 2026-08-06:
+    AMZN passed every one of those gates by a wide margin (12.5% d1_gap vs
+    4% min, 80% d1_held vs 60% min — not a marginal pass) and still bought
+    the exact top of its whole holding period, already +20.8% from the
+    pre-gap baseline. A single day's gap can be any size (d1_gap only has a
+    floor, no ceiling), so this caps the TOTAL cumulative move instead of
+    guessing at a tighter single-day gap limit that would also reject
+    perfectly healthy, more modest setups.
+    """
+    if pre_gap_close <= 0:
+        return True   # can't compute — don't block on bad data
+    total_move_pct = (entry_price - pre_gap_close) / pre_gap_close * 100
+    return total_move_pct <= DAY2_MAX_CUMULATIVE_MOVE_PCT
+
+
 def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     """
     Evaluate all long and short patterns; return the highest-RR qualifying signal.
@@ -8390,8 +8414,9 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
             d2_rvol    = float(r["RVOL"]) >= 1.5
             d2_rsi     = 45 < float(r["RSI"]) < 75
             _d2_dollar = c * float(r.get("AvgVol20", 0))
+            d2_not_overextended = _day2_continuation_not_overextended(c, float(p3["Close"]))
             if (d1_gap >= 4.0 and d1_held >= 0.6 and d2_above
-                    and d2_rvol and d2_rsi
+                    and d2_rvol and d2_rsi and d2_not_overextended
                     and float(r["MACD"]) > float(r["MACD_sig"])
                     and _d2_dollar >= 500_000):
                 d2_stop = round(float(p["Close"]) * 0.97, 2)   # stop below Day 1 close

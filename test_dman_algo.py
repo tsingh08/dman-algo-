@@ -1669,12 +1669,18 @@ class TestOptionsFeedResolution(unittest.TestCase):
     may not actually be entitled, with no visibility when it isn't."""
 
     def setUp(self):
-        a._options_feed_state["feed"] = None
-        a._options_feed_state["checked_at"] = 0.0
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        os.unlink(self._tmp.name)   # start absent -- matches a fresh checkout with no prior state
+        self._patch = patch.object(a, "_OPTIONS_FEED_STATE_FILE", self._tmp.name)
+        self._patch.start()
+        a._options_feed_state = {"feed": None, "checked_at": 0.0}
 
     def tearDown(self):
-        a._options_feed_state["feed"] = None
-        a._options_feed_state["checked_at"] = 0.0
+        self._patch.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+        a._options_feed_state = {"feed": None, "checked_at": 0.0}
 
     def _mock_contract(self):
         contracts = MagicMock()
@@ -1716,9 +1722,11 @@ class TestOptionsFeedResolution(unittest.TestCase):
         mock_get.assert_called_once()
 
     def test_same_state_on_recheck_does_not_realert(self):
-        # First resolution alerts (state change None -> indicative). Force a
-        # recheck without a real state change -- must not alert twice for
-        # the same known-broken entitlement.
+        # First resolution alerts (state change None -> indicative). Age the
+        # PERSISTED checked_at past the recheck window (simulating real
+        # elapsed time, not just an in-memory reset) and force a reload --
+        # the resulting real re-probe must not alert twice for the same
+        # known-broken entitlement.
         mock_client = MagicMock()
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_resp = MagicMock(status_code=403)
@@ -1726,9 +1734,48 @@ class TestOptionsFeedResolution(unittest.TestCase):
             with patch.object(a.requests, "get", return_value=mock_resp):
                 with patch.object(a, "send_telegram", return_value=True) as mock_tg:
                     a._resolve_options_feed()
-                    a._options_feed_state["checked_at"] = 0.0   # force a recheck
+                    with open(self._tmp.name) as f:
+                        state = json.load(f)
+                    state["checked_at"] -= (a._OPTIONS_FEED_RECHECK_S + 1)
+                    with open(self._tmp.name, "w") as f:
+                        json.dump(state, f)
+                    a._options_feed_state["checked_at"] = 0.0   # allow a reload from disk
                     a._resolve_options_feed()
         self.assertEqual(mock_tg.call_count, 1)
+
+    def test_fresh_process_after_alert_does_not_realert(self):
+        # The actual bug reported live 2026-08-08: GitHub Actions starts a
+        # brand-new process for every scan/daemon-session run, so the
+        # in-memory _options_feed_state used to reset to defaults every
+        # time -- making every single run's first probe look like a fresh
+        # None -> indicative transition and re-send the same Telegram
+        # alert, repeating every ~10 min across scan/momentum-watch runs.
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = self._mock_contract()
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", return_value=mock_resp):
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    a._resolve_options_feed()
+                    # Simulate a brand-new process: reset in-memory state
+                    # exactly like a fresh module import would, WITHOUT
+                    # touching the persisted file on disk.
+                    a._options_feed_state = {"feed": None, "checked_at": 0.0}
+                    a._resolve_options_feed()
+        self.assertEqual(mock_tg.call_count, 1, "a fresh process must not re-alert "
+                          "for an already-known, unchanged entitlement state")
+
+    def test_fresh_process_within_recheck_window_does_not_reprobe(self):
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = self._mock_contract()
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", return_value=mock_resp) as mock_get:
+                with patch.object(a, "send_telegram", return_value=True):
+                    a._resolve_options_feed()
+                    a._options_feed_state = {"feed": None, "checked_at": 0.0}   # simulate fresh process
+                    a._resolve_options_feed()
+        mock_get.assert_called_once()
 
 
 class TestMacroCalendarProximity(unittest.TestCase):

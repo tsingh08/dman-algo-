@@ -265,6 +265,13 @@ jobs:
           # back to the repo, the 1-week on-disk TTL cache is pointless and
           # every run re-downloads the full ~800KB map before it can check
           # a single ticker's Form 4s.
+          # dman_options_feed_state.json: same ephemeral-runner problem hit
+          # the OPRA-entitlement probe's in-memory cache — confirmed live
+          # 2026-08-08, the "options data feed downgraded" Telegram alert
+          # was repeating on every single run because a fresh process
+          # always saw the cache as unset, not because entitlement kept
+          # flapping. Persisting makes both the hourly recheck throttle and
+          # the alert-on-change dedup actually work across runs.
           STATE_FILES="dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv \
                        dman_alpaca_sync.json dman_positions.json \
                        dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
@@ -272,7 +279,7 @@ jobs:
                        dman_stocktwits_seen.json dman_smallcap_watchlist.json \
                        dman_telegram_state.json dman_halt.json dman_alerts_dedup.json \
                        dman_earnings_pending.json dman_rate_limit_events.json \
-                       dman_sec_cik_map.json"
+                       dman_sec_cik_map.json dman_options_feed_state.json"
 
           # Defense-in-depth: never stage a corrupted .json file. This caught
           # a real production incident — the daemon's git-stash-pop conflict

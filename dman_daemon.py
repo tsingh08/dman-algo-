@@ -61,6 +61,12 @@ STATE_FILES = [
                                  # meant every alert re-fired across separate runs
     "dman_earnings_pending.json",   # awaiting-approval earnings spreads (permanent gate, no auto-promotion)
     "dman_rate_limit_events.json",  # today's Alpaca 429 counts — watchdog's rate-limit check reads this
+    "dman_options_feed_state.json",  # same class of bug as dman_alerts_dedup.json above (confirmed
+                                       # live 2026-08-08) — without this, each of the two daily daemon
+                                       # sessions starts with no memory of the last OPRA-entitlement
+                                       # probe and re-alerts "options data feed downgraded" on its first check
+    "dman_sec_cik_map.json",   # SEC EDGAR ticker->CIK map backing the free insider-buying signal —
+                                # 1-week TTL cache, pointless if it doesn't survive between sessions
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

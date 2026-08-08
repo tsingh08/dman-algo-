@@ -11745,6 +11745,45 @@ def _record_alpaca_429(source: str) -> None:
 
 _options_feed_state: dict = {"feed": None, "checked_at": 0.0}
 _OPTIONS_FEED_RECHECK_S = 3600   # re-probe hourly — entitlement can also come back
+_OPTIONS_FEED_STATE_FILE = "dman_options_feed_state.json"
+
+def _load_options_feed_state() -> None:
+    """
+    Confirmed live 2026-08-08: _options_feed_state is an in-memory dict
+    that resets to {"feed": None, "checked_at": 0.0} on every fresh
+    process. GitHub Actions spins up a brand-new process for every scan/
+    momentum-watch/daemon-session run, so from each process's perspective
+    "feed" always starts at None -- the "only alert on a real state
+    change" check below then reads every single re-probe as a fresh
+    None -> indicative transition and re-sends the Telegram alert, and
+    the hourly recheck throttle never actually throttles across
+    processes either (checked_at resets to 0.0 every time too, so every
+    process re-probes immediately). User reported the same "options data
+    feed downgraded" message repeating every ~10 min -- this is why.
+    Persisting to disk (same pattern as _DAY_START_EQUITY_FILE / the SEC
+    CIK map cache) makes both the recheck throttle and the alert-on-
+    change check work across process boundaries, not just within one.
+    """
+    global _options_feed_state
+    if _options_feed_state["checked_at"] != 0.0:
+        return   # already loaded (or updated) this process — don't clobber
+    try:
+        if os.path.exists(_OPTIONS_FEED_STATE_FILE):
+            with open(_OPTIONS_FEED_STATE_FILE) as f:
+                loaded = json.load(f)
+            if isinstance(loaded, dict) and "feed" in loaded and "checked_at" in loaded:
+                _options_feed_state = loaded
+    except Exception:
+        pass
+
+
+def _save_options_feed_state() -> None:
+    try:
+        with open(_OPTIONS_FEED_STATE_FILE, "w") as f:
+            json.dump(_options_feed_state, f)
+    except Exception:
+        pass
+
 
 def _resolve_options_feed() -> str:
     """
@@ -11755,10 +11794,12 @@ def _resolve_options_feed() -> str:
     failed and fell through to skip/equity, only caught by manually testing
     the raw endpoint). Hardcoding OPTIONS_DATA_FEED trusts that entitlement
     never changes, which has already been false twice. This probes once
-    (cached for _OPTIONS_FEED_RECHECK_S) and actually alerts on a fallback
-    instead of failing silently — the whole point is never losing a week to
-    this again without anyone knowing.
+    (cached for _OPTIONS_FEED_RECHECK_S, persisted across processes — see
+    _load_options_feed_state) and actually alerts on a fallback instead of
+    failing silently — the whole point is never losing a week to this again
+    without anyone knowing, and not spamming a repeat alert every run either.
     """
+    _load_options_feed_state()
     now = time.time()
     if _options_feed_state["feed"] is not None and \
        (now - _options_feed_state["checked_at"]) < _OPTIONS_FEED_RECHECK_S:
@@ -11786,6 +11827,7 @@ def _resolve_options_feed() -> str:
             if items:
                 probe_symbol = items[0].symbol
         if probe_symbol is None:
+            _save_options_feed_state()   # persist the checked_at bump even on an incomplete probe
             return resolved   # couldn't get a probe symbol this cycle — try again next time
 
         r = requests.get(
@@ -11811,6 +11853,7 @@ def _resolve_options_feed() -> str:
         pass   # network hiccup — keep whatever we resolved last, don't flap on a transient error
 
     _options_feed_state["feed"] = resolved
+    _save_options_feed_state()
     return resolved
 
 

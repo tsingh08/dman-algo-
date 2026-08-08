@@ -913,6 +913,40 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestSharesFallbackBudgetShares(unittest.TestCase):
+    """User decision 2026-08-08: an options-eligible signal (WATCHLIST/
+    OPTIONS_SETUPS) that genuinely can't get an options fill and isn't on
+    the small-cap watchlist now falls back to a BUDGET-CAPPED shares
+    position instead of skipping entirely -- capped to the same
+    options-equivalent budget, not the signal's normal full-size equity
+    sizing. Confirmed live: AMBA/AMZN/RBLX-style signals were previously
+    alerted and then silently produced zero trade. A regression here
+    either buys far more shares than the risk budget intends (the
+    max(1, ...) floor this replaced would buy 1 share of even a $5,000
+    stock against a $1,250 budget) or refuses to buy anything affordable."""
+
+    def test_computes_whole_shares_within_budget(self):
+        self.assertEqual(a._shares_fallback_budget_shares(current_price=10.0, budget=1250.0), 125)
+
+    def test_rounds_down_not_up(self):
+        # $87 AMBA-style price against the $1,250 budget -> 14 shares
+        # ($1,218), not 15 ($1,305, over budget).
+        self.assertEqual(a._shares_fallback_budget_shares(current_price=87.35, budget=1250.0), 14)
+
+    def test_price_exceeding_budget_returns_zero_not_one(self):
+        # Must NOT force a floor of 1 share when even a single share blows
+        # past the budget (e.g. a $2,000+ stock against a $1,250 budget) --
+        # that would silently exceed the intended risk cap.
+        self.assertEqual(a._shares_fallback_budget_shares(current_price=2093.0, budget=1250.0), 0)
+
+    def test_zero_or_negative_price_fails_closed(self):
+        self.assertEqual(a._shares_fallback_budget_shares(current_price=0.0, budget=1250.0), 0)
+        self.assertEqual(a._shares_fallback_budget_shares(current_price=-5.0, budget=1250.0), 0)
+
+    def test_zero_budget_fails_closed(self):
+        self.assertEqual(a._shares_fallback_budget_shares(current_price=10.0, budget=0.0), 0)
+
+
 class TestWinRateLiveOnlyFiltering(unittest.TestCase):
     """Added 2026-08-07: dman_win_rate.json's 500 records span back to
     2024 -- almost entirely backtest simulation, with real trades so

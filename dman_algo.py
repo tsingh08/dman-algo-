@@ -12624,6 +12624,23 @@ def _shares_fallback_allowed(ticker: str) -> bool:
     return ticker in DMAN_SMALLCAP_WATCHLIST
 
 
+def _shares_fallback_budget_shares(current_price: float, budget: float) -> int:
+    """
+    How many whole shares fit inside `budget` at `current_price`. User
+    decision 2026-08-08: when an options-eligible signal has no execution
+    path (illiquid/too wide/too expensive) and isn't on the small-cap
+    watchlist, buy this many shares instead of skipping entirely — capped
+    to the SAME options-equivalent budget, not the signal's normal
+    full-size equity sizing, so this still honors "grow on options, not
+    expensive full-size shares." Returns 0 if the price is non-positive
+    or exceeds the whole budget (can't afford even 1 share) — the caller
+    treats 0 as "skip, budget too small for this name."
+    """
+    if current_price <= 0 or budget <= 0:
+        return 0
+    return int(budget / current_price)
+
+
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     """
     Validate entry prices and submit passing signals to Alpaca (paper or live).
@@ -12914,25 +12931,50 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             # of shares" IS the play (and where options usually aren't liquid
             # enough to exist anyway).
             if not _shares_fallback_allowed(sig.ticker):
-                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible "
-                      f"and not a DMan watchlist ticker (shares reserved for DMan picks only)")
+                if not _options_was_attempted:
+                    # Never options-eligible in the first place (e.g. a Vol
+                    # Breakdown signal, or a setup outside OPTIONS_SETUPS) —
+                    # the original 2026-08-05 policy stands unchanged: skip
+                    # quietly, no shares purchase, no alert.
+                    print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible "
+                          f"and not a DMan watchlist ticker (shares reserved for DMan picks only)")
+                    continue
                 # Confirmed live 2026-08-08: a signal that WAS options-eligible
                 # (WATCHLIST/OPTIONS_SETUPS) and got a real attempt -- not just
-                # never-eligible -- silently produced zero trade and zero
-                # visibility beyond this console line, the same "valid signal,
-                # no execution path" dead-end already fixed once for puts (see
-                # the MBLY/Bear-Gap-Hold comment above). Alerting here closes
-                # that gap: a Telegram "signal found" message with nothing
-                # after it used to be the only trace this ever happened.
-                if _options_was_attempted:
+                # never-eligible -- silently produced zero trade, the same
+                # "valid signal, no execution path" dead-end already fixed once
+                # for puts (MBLY, see the OPTIONS_ENABLE_PUTS comment above).
+                # User decision 2026-08-08: fall back to a BUDGET-CAPPED shares
+                # position (same $ risk as the options attempt would have used,
+                # not the signal's normal full-size equity sizing) rather than
+                # skip entirely -- this still honors "grow on options, not
+                # expensive full-size shares," it just guarantees SOMETHING
+                # trades instead of a signal quietly vanishing after being
+                # alerted.
+                _fallback_budget = round(OPTIONS_MAX_POSITION_COST * _risk_off_mult, 2)
+                _fallback_shares = _shares_fallback_budget_shares(cur, _fallback_budget)
+                if _fallback_shares < 1:
+                    print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable and "
+                          f"price ${cur} too high for the ${_fallback_budget:.0f} shares-fallback budget")
                     send_telegram(
                         f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
-                        f"Options attempted and unavailable (illiquid underlying, contract too "
-                        f"wide/expensive, or no listed chain) — not on the DMan small-cap "
-                        f"watchlist, so no shares fallback either. No trade placed."
+                        f"Options attempted and unavailable. Price ${cur:.2f} exceeds the "
+                        f"${_fallback_budget:.0f} shares-fallback budget for even 1 share. No trade placed."
                     )
-                continue
-            oid, _submit_err = submit_alpaca_trade(sig)
+                    continue
+                sig.shares = _fallback_shares
+                sig.cost   = round(_fallback_shares * cur, 2)
+                print(f"  ↩️  {sig.ticker} {sig.setup}: options unavailable — falling back to "
+                      f"{_fallback_shares} budget-capped share(s) (${sig.cost:.0f} of ${_fallback_budget:.0f})")
+                oid, _submit_err = submit_alpaca_trade(sig)
+                if oid:
+                    send_telegram(
+                        f"↩️ <b>Options unavailable — capped shares fallback</b>: {sig.ticker} {sig.setup}\n"
+                        f"{_fallback_shares} sh @ ~${cur:.2f} = ${sig.cost:.0f} "
+                        f"(capped to the ${_fallback_budget:.0f} options-equivalent budget)"
+                    )
+            else:
+                oid, _submit_err = submit_alpaca_trade(sig)
 
         if oid:
             if (_use_options or _use_puts) and _opt_contract:

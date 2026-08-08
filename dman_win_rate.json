@@ -1,28 +1,6 @@
 [
   {
     "ticker": "HIMS",
-    "date": "2024-12-16",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 31.38,
-    "exit": 31.25,
-    "outcome": "LOSS",
-    "pnl_pct": -0.42,
-    "score": 67
-  },
-  {
-    "ticker": "HIMS",
-    "date": "2025-05-13",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 40.86,
-    "exit": 59.02,
-    "outcome": "WIN",
-    "pnl_pct": 38.89,
-    "score": 73
-  },
-  {
-    "ticker": "HIMS",
     "date": "2026-04-29",
     "bias": "LONG",
     "setup": "Gap & Hold",
@@ -30,7 +8,8 @@
     "exit": 27.15,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -41,7 +20,8 @@
     "exit": 10.59,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -52,7 +32,8 @@
     "exit": 6.44,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -63,7 +44,8 @@
     "exit": 5.55,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -74,7 +56,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -85,7 +68,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -96,7 +80,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.95,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "GME",
@@ -107,7 +92,8 @@
     "exit": 27.37,
     "outcome": "WIN",
     "pnl_pct": 0.3,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -118,7 +104,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -129,7 +116,8 @@
     "exit": 12.81,
     "outcome": "WIN",
     "pnl_pct": 48.16,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -140,7 +128,8 @@
     "exit": 11.45,
     "outcome": "LOSS",
     "pnl_pct": -2.76,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -151,7 +140,8 @@
     "exit": 11.84,
     "outcome": "LOSS",
     "pnl_pct": -6.95,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -162,7 +152,8 @@
     "exit": 13.95,
     "outcome": "LOSS",
     "pnl_pct": -8.86,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -173,7 +164,8 @@
     "exit": 6.44,
     "outcome": "LOSS",
     "pnl_pct": -10.49,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -184,7 +176,8 @@
     "exit": 18.4,
     "outcome": "WIN",
     "pnl_pct": 21.32,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "BABA",
@@ -195,7 +188,8 @@
     "exit": 135.58,
     "outcome": "WIN",
     "pnl_pct": 0.33,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -206,7 +200,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -217,7 +212,8 @@
     "exit": 39.97,
     "outcome": "WIN",
     "pnl_pct": 22.35,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -228,7 +224,8 @@
     "exit": 31.37,
     "outcome": "WIN",
     "pnl_pct": 0.28,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -239,7 +236,8 @@
     "exit": 32.08,
     "outcome": "LOSS",
     "pnl_pct": -5.1,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -250,7 +248,8 @@
     "exit": 32.55,
     "outcome": "WIN",
     "pnl_pct": 16.38,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -261,7 +260,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -272,7 +272,8 @@
     "exit": 32.85,
     "outcome": "WIN",
     "pnl_pct": 6.49,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -283,7 +284,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -294,7 +296,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -305,7 +308,8 @@
     "exit": 118.04,
     "outcome": "WIN",
     "pnl_pct": 15.31,
-    "score": 69
+    "score": 69,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -316,7 +320,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -327,7 +332,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.23,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -338,7 +344,8 @@
     "exit": 232.65,
     "outcome": "WIN",
     "pnl_pct": 5.61,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -349,7 +356,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.77,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -360,7 +368,8 @@
     "exit": 455.19,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "NFLX",
@@ -371,7 +380,8 @@
     "exit": 111.89,
     "outcome": "LOSS",
     "pnl_pct": -0.12,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -382,7 +392,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.62,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -393,7 +404,8 @@
     "exit": 345.57,
     "outcome": "LOSS",
     "pnl_pct": -3.22,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -404,7 +416,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.12,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -415,7 +428,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -426,7 +440,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -437,7 +452,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.23,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -448,7 +464,8 @@
     "exit": 55.02,
     "outcome": "LOSS",
     "pnl_pct": -8.46,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "AVGO",
@@ -459,7 +476,8 @@
     "exit": 226.32,
     "outcome": "LOSS",
     "pnl_pct": -8.31,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -470,7 +488,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.14,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -481,7 +500,8 @@
     "exit": 158.85,
     "outcome": "WIN",
     "pnl_pct": 18.33,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -492,7 +512,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.37,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -503,7 +524,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.59,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -514,7 +536,8 @@
     "exit": 102.04,
     "outcome": "WIN",
     "pnl_pct": 8.61,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -525,7 +548,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -536,7 +560,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -547,7 +572,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -558,7 +584,8 @@
     "exit": 59.91,
     "outcome": "LOSS",
     "pnl_pct": -3.1,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -569,7 +596,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.07,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -580,7 +608,8 @@
     "exit": 10.31,
     "outcome": "WIN",
     "pnl_pct": 15.6,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -591,7 +620,8 @@
     "exit": 19.03,
     "outcome": "WIN",
     "pnl_pct": 25.82,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -602,7 +632,8 @@
     "exit": 23.84,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "HOOD",
@@ -613,7 +644,8 @@
     "exit": 35.21,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "AFRM",
@@ -624,7 +656,8 @@
     "exit": 53.03,
     "outcome": "LOSS",
     "pnl_pct": -2.36,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -635,7 +668,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -646,7 +680,8 @@
     "exit": 57.22,
     "outcome": "WIN",
     "pnl_pct": 16.37,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "NIO",
@@ -657,7 +692,8 @@
     "exit": 4.0,
     "outcome": "LOSS",
     "pnl_pct": -4.17,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "ENPH",
@@ -668,7 +704,8 @@
     "exit": 60.85,
     "outcome": "WIN",
     "pnl_pct": 39.14,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -679,7 +716,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.12,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "GILD",
@@ -690,7 +728,8 @@
     "exit": 89.24,
     "outcome": "LOSS",
     "pnl_pct": -5.06,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -701,7 +740,8 @@
     "exit": 411.66,
     "outcome": "LOSS",
     "pnl_pct": -3.68,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -712,7 +752,8 @@
     "exit": 462.99,
     "outcome": "LOSS",
     "pnl_pct": -0.13,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -723,7 +764,8 @@
     "exit": 31.25,
     "outcome": "LOSS",
     "pnl_pct": -0.42,
-    "score": 67
+    "score": 67,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -734,7 +776,8 @@
     "exit": 59.02,
     "outcome": "WIN",
     "pnl_pct": 38.89,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -745,7 +788,8 @@
     "exit": 27.15,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -756,7 +800,8 @@
     "exit": 10.59,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -767,7 +812,8 @@
     "exit": 6.44,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -778,7 +824,8 @@
     "exit": 5.55,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -789,7 +836,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -800,7 +848,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -811,7 +860,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.95,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -822,7 +872,8 @@
     "exit": 118.04,
     "outcome": "WIN",
     "pnl_pct": 15.31,
-    "score": 69
+    "score": 69,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -833,7 +884,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -844,7 +896,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.23,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -855,7 +908,8 @@
     "exit": 232.65,
     "outcome": "WIN",
     "pnl_pct": 5.61,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -866,7 +920,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.77,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -877,7 +932,8 @@
     "exit": 455.19,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "NFLX",
@@ -888,7 +944,8 @@
     "exit": 111.89,
     "outcome": "LOSS",
     "pnl_pct": -0.12,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -899,7 +956,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.62,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -910,7 +968,8 @@
     "exit": 345.57,
     "outcome": "LOSS",
     "pnl_pct": -3.22,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -921,7 +980,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.12,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -932,7 +992,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -943,7 +1004,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -954,7 +1016,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.23,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -965,7 +1028,8 @@
     "exit": 55.02,
     "outcome": "LOSS",
     "pnl_pct": -8.46,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "AVGO",
@@ -976,7 +1040,8 @@
     "exit": 226.32,
     "outcome": "LOSS",
     "pnl_pct": -8.31,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -987,7 +1052,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.14,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -998,7 +1064,8 @@
     "exit": 158.85,
     "outcome": "WIN",
     "pnl_pct": 18.33,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -1009,7 +1076,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.37,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -1020,7 +1088,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.59,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -1031,7 +1100,8 @@
     "exit": 102.04,
     "outcome": "WIN",
     "pnl_pct": 8.61,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -1042,7 +1112,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1053,7 +1124,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1064,7 +1136,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1075,7 +1148,8 @@
     "exit": 59.91,
     "outcome": "LOSS",
     "pnl_pct": -3.1,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1086,7 +1160,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.07,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -1097,7 +1172,8 @@
     "exit": 10.31,
     "outcome": "WIN",
     "pnl_pct": 15.6,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -1108,7 +1184,8 @@
     "exit": 19.03,
     "outcome": "WIN",
     "pnl_pct": 25.82,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -1119,7 +1196,8 @@
     "exit": 23.84,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "HOOD",
@@ -1130,7 +1208,8 @@
     "exit": 35.21,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "AFRM",
@@ -1141,7 +1220,8 @@
     "exit": 53.03,
     "outcome": "LOSS",
     "pnl_pct": -2.36,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -1152,7 +1232,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -1163,7 +1244,8 @@
     "exit": 57.22,
     "outcome": "WIN",
     "pnl_pct": 16.37,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "NIO",
@@ -1174,7 +1256,8 @@
     "exit": 4.0,
     "outcome": "LOSS",
     "pnl_pct": -4.17,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "ENPH",
@@ -1185,7 +1268,8 @@
     "exit": 60.85,
     "outcome": "WIN",
     "pnl_pct": 39.14,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -1196,7 +1280,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.12,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "GILD",
@@ -1207,7 +1292,8 @@
     "exit": 89.24,
     "outcome": "LOSS",
     "pnl_pct": -5.06,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -1218,7 +1304,8 @@
     "exit": 411.66,
     "outcome": "LOSS",
     "pnl_pct": -3.68,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -1229,7 +1316,8 @@
     "exit": 462.99,
     "outcome": "LOSS",
     "pnl_pct": -0.13,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -1240,7 +1328,8 @@
     "exit": 31.25,
     "outcome": "LOSS",
     "pnl_pct": -0.42,
-    "score": 67
+    "score": 67,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -1251,7 +1340,8 @@
     "exit": 59.02,
     "outcome": "WIN",
     "pnl_pct": 38.89,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -1262,7 +1352,8 @@
     "exit": 27.15,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -1273,7 +1364,8 @@
     "exit": 10.59,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -1284,7 +1376,8 @@
     "exit": 6.44,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -1295,7 +1388,8 @@
     "exit": 5.55,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -1306,7 +1400,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -1317,7 +1412,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -1328,7 +1424,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.95,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "GME",
@@ -1339,7 +1436,8 @@
     "exit": 27.37,
     "outcome": "WIN",
     "pnl_pct": 0.3,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -1350,7 +1448,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -1361,7 +1460,8 @@
     "exit": 12.81,
     "outcome": "WIN",
     "pnl_pct": 48.16,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -1372,7 +1472,8 @@
     "exit": 11.45,
     "outcome": "LOSS",
     "pnl_pct": -2.76,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -1383,7 +1484,8 @@
     "exit": 11.84,
     "outcome": "LOSS",
     "pnl_pct": -6.95,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -1394,7 +1496,8 @@
     "exit": 13.95,
     "outcome": "LOSS",
     "pnl_pct": -8.86,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -1405,7 +1508,8 @@
     "exit": 6.44,
     "outcome": "LOSS",
     "pnl_pct": -10.49,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -1416,7 +1520,8 @@
     "exit": 18.4,
     "outcome": "WIN",
     "pnl_pct": 21.32,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "BABA",
@@ -1427,7 +1532,8 @@
     "exit": 135.58,
     "outcome": "WIN",
     "pnl_pct": 0.33,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -1438,7 +1544,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -1449,7 +1556,8 @@
     "exit": 39.97,
     "outcome": "WIN",
     "pnl_pct": 22.35,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -1460,7 +1568,8 @@
     "exit": 31.37,
     "outcome": "WIN",
     "pnl_pct": 0.28,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -1471,7 +1580,8 @@
     "exit": 32.08,
     "outcome": "LOSS",
     "pnl_pct": -5.1,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -1482,7 +1592,8 @@
     "exit": 32.55,
     "outcome": "WIN",
     "pnl_pct": 16.38,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -1493,7 +1604,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -1504,7 +1616,8 @@
     "exit": 32.85,
     "outcome": "WIN",
     "pnl_pct": 6.49,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -1515,7 +1628,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -1526,7 +1640,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -1537,7 +1652,8 @@
     "exit": 118.04,
     "outcome": "WIN",
     "pnl_pct": 15.31,
-    "score": 69
+    "score": 69,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -1548,7 +1664,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -1559,7 +1676,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.23,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -1570,7 +1688,8 @@
     "exit": 232.65,
     "outcome": "WIN",
     "pnl_pct": 5.61,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -1581,7 +1700,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.77,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -1592,7 +1712,8 @@
     "exit": 455.19,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -1603,7 +1724,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.62,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -1614,7 +1736,8 @@
     "exit": 345.57,
     "outcome": "LOSS",
     "pnl_pct": -3.22,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -1625,7 +1748,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.13,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -1636,7 +1760,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -1647,7 +1772,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -1658,7 +1784,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.31,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -1669,7 +1796,8 @@
     "exit": 55.02,
     "outcome": "LOSS",
     "pnl_pct": -8.46,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "AVGO",
@@ -1680,7 +1808,8 @@
     "exit": 226.32,
     "outcome": "LOSS",
     "pnl_pct": -8.31,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -1691,7 +1820,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.12,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -1702,7 +1832,8 @@
     "exit": 158.85,
     "outcome": "WIN",
     "pnl_pct": 18.37,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -1713,7 +1844,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.05,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -1724,7 +1856,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.55,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -1735,7 +1868,8 @@
     "exit": 102.04,
     "outcome": "WIN",
     "pnl_pct": 8.61,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -1746,7 +1880,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1757,7 +1892,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1768,7 +1904,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1779,7 +1916,8 @@
     "exit": 59.91,
     "outcome": "LOSS",
     "pnl_pct": -3.1,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -1790,7 +1928,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.07,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -1801,7 +1940,8 @@
     "exit": 10.31,
     "outcome": "WIN",
     "pnl_pct": 15.6,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -1812,7 +1952,8 @@
     "exit": 19.03,
     "outcome": "WIN",
     "pnl_pct": 25.82,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -1823,7 +1964,8 @@
     "exit": 23.84,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "HOOD",
@@ -1834,7 +1976,8 @@
     "exit": 35.21,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "AFRM",
@@ -1845,7 +1988,8 @@
     "exit": 53.03,
     "outcome": "LOSS",
     "pnl_pct": -2.36,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -1856,7 +2000,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -1867,7 +2012,8 @@
     "exit": 57.22,
     "outcome": "WIN",
     "pnl_pct": 16.37,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "NIO",
@@ -1878,7 +2024,8 @@
     "exit": 4.0,
     "outcome": "LOSS",
     "pnl_pct": -4.17,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "ENPH",
@@ -1889,7 +2036,8 @@
     "exit": 60.85,
     "outcome": "WIN",
     "pnl_pct": 39.14,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -1900,7 +2048,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.2,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "GILD",
@@ -1911,7 +2060,8 @@
     "exit": 89.24,
     "outcome": "LOSS",
     "pnl_pct": -5.06,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -1922,7 +2072,8 @@
     "exit": 411.66,
     "outcome": "LOSS",
     "pnl_pct": -3.68,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -1933,7 +2084,8 @@
     "exit": 462.99,
     "outcome": "LOSS",
     "pnl_pct": -0.13,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -1944,7 +2096,8 @@
     "exit": 31.25,
     "outcome": "LOSS",
     "pnl_pct": -0.42,
-    "score": 67
+    "score": 67,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -1955,7 +2108,8 @@
     "exit": 59.02,
     "outcome": "WIN",
     "pnl_pct": 38.9,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -1966,7 +2120,8 @@
     "exit": 27.15,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -1977,7 +2132,8 @@
     "exit": 10.59,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -1988,7 +2144,8 @@
     "exit": 6.44,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -1999,7 +2156,8 @@
     "exit": 5.55,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -2010,7 +2168,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -2021,7 +2180,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -2032,7 +2192,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.94,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "GME",
@@ -2043,7 +2204,8 @@
     "exit": 27.37,
     "outcome": "WIN",
     "pnl_pct": 0.3,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2054,7 +2216,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2065,7 +2228,8 @@
     "exit": 12.81,
     "outcome": "WIN",
     "pnl_pct": 48.16,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2076,7 +2240,8 @@
     "exit": 11.45,
     "outcome": "LOSS",
     "pnl_pct": -2.76,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2087,7 +2252,8 @@
     "exit": 11.84,
     "outcome": "LOSS",
     "pnl_pct": -6.95,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2098,7 +2264,8 @@
     "exit": 13.95,
     "outcome": "LOSS",
     "pnl_pct": -8.86,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -2109,7 +2276,8 @@
     "exit": 6.44,
     "outcome": "LOSS",
     "pnl_pct": -10.49,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -2120,7 +2288,8 @@
     "exit": 18.4,
     "outcome": "WIN",
     "pnl_pct": 21.32,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "BABA",
@@ -2131,7 +2300,8 @@
     "exit": 135.58,
     "outcome": "WIN",
     "pnl_pct": 0.33,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -2142,7 +2312,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -2153,7 +2324,8 @@
     "exit": 39.97,
     "outcome": "WIN",
     "pnl_pct": 22.35,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -2164,7 +2336,8 @@
     "exit": 31.37,
     "outcome": "WIN",
     "pnl_pct": 0.28,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -2175,7 +2348,8 @@
     "exit": 32.08,
     "outcome": "LOSS",
     "pnl_pct": -5.1,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2186,7 +2360,8 @@
     "exit": 32.55,
     "outcome": "WIN",
     "pnl_pct": 16.39,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2197,7 +2372,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2208,7 +2384,8 @@
     "exit": 32.85,
     "outcome": "WIN",
     "pnl_pct": 6.49,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2219,7 +2396,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -2230,7 +2408,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -2241,7 +2420,8 @@
     "exit": 118.04,
     "outcome": "WIN",
     "pnl_pct": 15.31,
-    "score": 69
+    "score": 69,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -2252,7 +2432,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -2263,7 +2444,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.23,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -2274,7 +2456,8 @@
     "exit": 232.65,
     "outcome": "WIN",
     "pnl_pct": 5.61,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -2285,7 +2468,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.77,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -2296,7 +2480,8 @@
     "exit": 455.19,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -2307,7 +2492,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.62,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -2318,7 +2504,8 @@
     "exit": 345.57,
     "outcome": "LOSS",
     "pnl_pct": -3.22,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -2329,7 +2516,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.13,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -2340,7 +2528,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -2351,7 +2540,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -2362,7 +2552,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.31,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -2373,7 +2564,8 @@
     "exit": 55.02,
     "outcome": "LOSS",
     "pnl_pct": -8.46,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "AVGO",
@@ -2384,7 +2576,8 @@
     "exit": 226.32,
     "outcome": "LOSS",
     "pnl_pct": -8.31,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -2395,7 +2588,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.12,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -2406,7 +2600,8 @@
     "exit": 158.85,
     "outcome": "WIN",
     "pnl_pct": 18.37,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -2417,7 +2612,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.05,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -2428,7 +2624,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.55,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -2439,7 +2636,8 @@
     "exit": 102.04,
     "outcome": "WIN",
     "pnl_pct": 8.61,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -2450,7 +2648,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -2461,7 +2660,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -2472,7 +2672,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -2483,7 +2684,8 @@
     "exit": 59.91,
     "outcome": "LOSS",
     "pnl_pct": -3.1,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -2494,7 +2696,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.07,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -2505,7 +2708,8 @@
     "exit": 10.31,
     "outcome": "WIN",
     "pnl_pct": 15.6,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -2516,7 +2720,8 @@
     "exit": 19.03,
     "outcome": "WIN",
     "pnl_pct": 25.82,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -2527,7 +2732,8 @@
     "exit": 23.84,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "HOOD",
@@ -2538,7 +2744,8 @@
     "exit": 35.21,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "AFRM",
@@ -2549,7 +2756,8 @@
     "exit": 53.03,
     "outcome": "LOSS",
     "pnl_pct": -2.36,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -2560,7 +2768,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -2571,7 +2780,8 @@
     "exit": 57.22,
     "outcome": "WIN",
     "pnl_pct": 16.37,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "NIO",
@@ -2582,7 +2792,8 @@
     "exit": 4.0,
     "outcome": "LOSS",
     "pnl_pct": -4.17,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "ENPH",
@@ -2593,7 +2804,8 @@
     "exit": 60.85,
     "outcome": "WIN",
     "pnl_pct": 39.14,
-    "score": 68
+    "score": 68,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -2604,7 +2816,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.2,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "GILD",
@@ -2615,7 +2828,8 @@
     "exit": 89.24,
     "outcome": "LOSS",
     "pnl_pct": -5.06,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -2626,7 +2840,8 @@
     "exit": 411.66,
     "outcome": "LOSS",
     "pnl_pct": -3.68,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "VRTX",
@@ -2637,7 +2852,8 @@
     "exit": 462.99,
     "outcome": "LOSS",
     "pnl_pct": -0.13,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -2648,7 +2864,8 @@
     "exit": 31.25,
     "outcome": "LOSS",
     "pnl_pct": -0.42,
-    "score": 67
+    "score": 67,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -2659,7 +2876,8 @@
     "exit": 59.02,
     "outcome": "WIN",
     "pnl_pct": 38.9,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -2670,7 +2888,8 @@
     "exit": 27.15,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -2681,7 +2900,8 @@
     "exit": 10.59,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -2692,7 +2912,8 @@
     "exit": 6.44,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -2703,7 +2924,8 @@
     "exit": 5.55,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -2714,7 +2936,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -2725,7 +2948,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -2736,7 +2960,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.94,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "GME",
@@ -2747,7 +2972,8 @@
     "exit": 27.37,
     "outcome": "WIN",
     "pnl_pct": 0.3,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2758,7 +2984,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2769,7 +2996,8 @@
     "exit": 12.81,
     "outcome": "WIN",
     "pnl_pct": 48.16,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2780,7 +3008,8 @@
     "exit": 11.45,
     "outcome": "LOSS",
     "pnl_pct": -2.76,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2791,7 +3020,8 @@
     "exit": 11.84,
     "outcome": "LOSS",
     "pnl_pct": -6.95,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -2802,7 +3032,8 @@
     "exit": 13.95,
     "outcome": "LOSS",
     "pnl_pct": -8.86,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -2813,7 +3044,8 @@
     "exit": 6.44,
     "outcome": "LOSS",
     "pnl_pct": -10.49,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -2824,7 +3056,8 @@
     "exit": 18.4,
     "outcome": "WIN",
     "pnl_pct": 21.32,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "BABA",
@@ -2835,7 +3068,8 @@
     "exit": 135.58,
     "outcome": "WIN",
     "pnl_pct": 0.33,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -2846,7 +3080,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -2857,7 +3092,8 @@
     "exit": 39.97,
     "outcome": "WIN",
     "pnl_pct": 22.35,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -2868,7 +3104,8 @@
     "exit": 31.37,
     "outcome": "WIN",
     "pnl_pct": 0.28,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -2879,7 +3116,8 @@
     "exit": 32.08,
     "outcome": "LOSS",
     "pnl_pct": -5.1,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2890,7 +3128,8 @@
     "exit": 32.55,
     "outcome": "WIN",
     "pnl_pct": 16.39,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2901,7 +3140,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2912,7 +3152,8 @@
     "exit": 32.85,
     "outcome": "WIN",
     "pnl_pct": 6.49,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -2923,7 +3164,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -2934,7 +3176,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -2945,7 +3188,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -2956,7 +3200,8 @@
     "exit": 332.85,
     "outcome": "LOSS",
     "pnl_pct": -4.4,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -2967,7 +3212,8 @@
     "exit": 232.65,
     "outcome": "WIN",
     "pnl_pct": 5.56,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -2978,7 +3224,8 @@
     "exit": 334.3,
     "outcome": "LOSS",
     "pnl_pct": -4.58,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -2989,7 +3236,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.13,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -3000,7 +3248,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -3011,7 +3260,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.2,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "AVGO",
@@ -3022,7 +3272,8 @@
     "exit": 226.32,
     "outcome": "LOSS",
     "pnl_pct": -8.31,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -3033,7 +3284,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.1,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -3044,7 +3296,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.59,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3055,7 +3308,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3066,7 +3320,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.07,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -3077,7 +3332,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "NIO",
@@ -3088,7 +3344,8 @@
     "exit": 4.0,
     "outcome": "LOSS",
     "pnl_pct": -4.17,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -3099,7 +3356,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 7.93,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "GILD",
@@ -3110,7 +3368,8 @@
     "exit": 89.24,
     "outcome": "LOSS",
     "pnl_pct": -5.06,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -3121,7 +3380,8 @@
     "exit": 27.15,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -3132,7 +3392,8 @@
     "exit": 10.59,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -3143,7 +3404,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.91,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -3154,7 +3416,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -3165,7 +3428,8 @@
     "exit": 520.21,
     "outcome": "WIN",
     "pnl_pct": 6.84,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -3176,7 +3440,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -3187,7 +3452,8 @@
     "exit": 13.12,
     "outcome": "LOSS",
     "pnl_pct": -12.71,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -3198,7 +3464,8 @@
     "exit": 6.44,
     "outcome": "LOSS",
     "pnl_pct": -10.49,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -3209,7 +3476,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -3220,7 +3488,8 @@
     "exit": 39.97,
     "outcome": "WIN",
     "pnl_pct": 22.34,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -3231,7 +3500,8 @@
     "exit": 32.55,
     "outcome": "WIN",
     "pnl_pct": 16.39,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -3242,7 +3512,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -3253,7 +3524,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -3264,7 +3536,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -3275,7 +3548,8 @@
     "exit": 118.04,
     "outcome": "WIN",
     "pnl_pct": 15.31,
-    "score": 69
+    "score": 69,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -3286,7 +3560,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -3297,7 +3572,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.23,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -3308,7 +3584,8 @@
     "exit": 232.65,
     "outcome": "WIN",
     "pnl_pct": 5.61,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -3319,7 +3596,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.77,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -3330,7 +3608,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.61,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -3341,7 +3620,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.12,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -3352,7 +3632,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -3363,7 +3644,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -3374,7 +3656,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.31,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "AVGO",
@@ -3385,7 +3668,8 @@
     "exit": 226.32,
     "outcome": "LOSS",
     "pnl_pct": -8.31,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -3396,7 +3680,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.14,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -3407,7 +3692,8 @@
     "exit": 158.85,
     "outcome": "WIN",
     "pnl_pct": 18.35,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -3418,7 +3704,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.05,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -3429,7 +3716,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.59,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -3440,7 +3728,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3451,7 +3740,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3462,7 +3752,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3473,7 +3764,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.06,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -3484,7 +3776,8 @@
     "exit": 10.31,
     "outcome": "WIN",
     "pnl_pct": 15.6,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -3495,7 +3788,8 @@
     "exit": 23.84,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -3506,7 +3800,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "NIO",
@@ -3517,7 +3812,8 @@
     "exit": 4.0,
     "outcome": "LOSS",
     "pnl_pct": -4.17,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -3528,7 +3824,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.19,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "GILD",
@@ -3539,7 +3836,8 @@
     "exit": 89.24,
     "outcome": "LOSS",
     "pnl_pct": -5.06,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -3550,7 +3848,8 @@
     "exit": 59.02,
     "outcome": "WIN",
     "pnl_pct": 38.87,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "HIMS",
@@ -3561,7 +3860,8 @@
     "exit": 27.15,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -3572,7 +3872,8 @@
     "exit": 10.59,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "RXRX",
@@ -3583,7 +3884,8 @@
     "exit": 5.55,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -3594,7 +3896,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -3605,7 +3908,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -3616,7 +3920,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.94,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -3627,7 +3932,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -3638,7 +3944,8 @@
     "exit": 13.12,
     "outcome": "LOSS",
     "pnl_pct": -12.71,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -3649,7 +3956,8 @@
     "exit": 13.95,
     "outcome": "LOSS",
     "pnl_pct": -8.86,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -3660,7 +3968,8 @@
     "exit": 6.44,
     "outcome": "LOSS",
     "pnl_pct": -10.49,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -3671,7 +3980,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -3682,7 +3992,8 @@
     "exit": 39.97,
     "outcome": "WIN",
     "pnl_pct": 22.34,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -3693,7 +4004,8 @@
     "exit": 32.55,
     "outcome": "WIN",
     "pnl_pct": 16.39,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -3704,7 +4016,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -3715,7 +4028,8 @@
     "exit": 32.85,
     "outcome": "WIN",
     "pnl_pct": 6.49,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -3726,7 +4040,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -3737,7 +4052,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -3748,7 +4064,8 @@
     "exit": 118.04,
     "outcome": "WIN",
     "pnl_pct": 15.31,
-    "score": 69
+    "score": 69,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -3759,7 +4076,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -3770,7 +4088,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.23,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -3781,7 +4100,8 @@
     "exit": 232.65,
     "outcome": "WIN",
     "pnl_pct": 5.61,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -3792,7 +4112,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.77,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -3803,7 +4124,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.61,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -3814,7 +4136,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.12,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -3825,7 +4148,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -3836,7 +4160,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -3847,7 +4172,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.15,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "AVGO",
@@ -3858,7 +4184,8 @@
     "exit": 226.32,
     "outcome": "LOSS",
     "pnl_pct": -8.31,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -3869,7 +4196,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.1,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -3880,7 +4208,8 @@
     "exit": 158.85,
     "outcome": "WIN",
     "pnl_pct": 18.33,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -3891,7 +4220,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.2,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -3902,7 +4232,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.56,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -3913,7 +4244,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3924,7 +4256,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3935,7 +4268,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -3946,7 +4280,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.06,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -3957,7 +4292,8 @@
     "exit": 10.31,
     "outcome": "WIN",
     "pnl_pct": 15.6,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "RIOT",
@@ -3968,7 +4304,8 @@
     "exit": 23.84,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -3979,7 +4316,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "NIO",
@@ -3990,7 +4328,8 @@
     "exit": 4.0,
     "outcome": "LOSS",
     "pnl_pct": -4.17,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -4001,7 +4340,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.29,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4012,7 +4352,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4023,7 +4364,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4034,7 +4376,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.97,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "XOM",
@@ -4045,7 +4388,8 @@
     "exit": 109.31,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -4056,7 +4400,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -4067,7 +4412,8 @@
     "exit": 13.12,
     "outcome": "LOSS",
     "pnl_pct": -12.71,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -4078,7 +4424,8 @@
     "exit": 13.95,
     "outcome": "LOSS",
     "pnl_pct": -8.86,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "RKLB",
@@ -4089,7 +4436,8 @@
     "exit": 6.44,
     "outcome": "LOSS",
     "pnl_pct": -10.49,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -4100,7 +4448,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "JD",
@@ -4111,7 +4460,8 @@
     "exit": 39.97,
     "outcome": "WIN",
     "pnl_pct": 22.35,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4122,7 +4472,8 @@
     "exit": 32.55,
     "outcome": "WIN",
     "pnl_pct": 16.39,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4133,7 +4484,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4144,7 +4496,8 @@
     "exit": 32.85,
     "outcome": "WIN",
     "pnl_pct": 6.49,
-    "score": 82
+    "score": 82,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4155,7 +4508,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -4166,7 +4520,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -4177,7 +4532,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -4188,7 +4544,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.38,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -4199,7 +4556,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.92,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -4210,7 +4568,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.62,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4221,7 +4580,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.12,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4232,7 +4592,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4243,7 +4604,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -4254,7 +4616,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.31,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -4265,7 +4628,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.1,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -4276,7 +4640,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.05,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -4287,7 +4652,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.55,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -4298,7 +4664,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4309,7 +4676,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4320,7 +4688,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4331,7 +4700,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.07,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -4342,7 +4712,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -4353,7 +4724,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.29,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4364,7 +4736,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4375,7 +4748,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4386,7 +4760,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.99,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "XOM",
@@ -4397,7 +4772,8 @@
     "exit": 109.31,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "SOUN",
@@ -4408,7 +4784,8 @@
     "exit": 6.75,
     "outcome": "LOSS",
     "pnl_pct": -13.17,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -4419,7 +4796,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4430,7 +4808,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4441,7 +4820,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -4452,7 +4832,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -4463,7 +4844,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -4474,7 +4856,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 24.38,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "TSLA",
@@ -4485,7 +4868,8 @@
     "exit": 350.84,
     "outcome": "WIN",
     "pnl_pct": 18.92,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -4496,7 +4880,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.62,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4507,7 +4892,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.12,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4518,7 +4904,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4529,7 +4916,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -4540,7 +4928,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 11.31,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -4551,7 +4940,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.1,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -4562,7 +4952,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 22.05,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -4573,7 +4964,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 20.55,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -4584,7 +4976,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4595,7 +4988,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4606,7 +5000,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4617,7 +5012,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.07,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "XYZ",
@@ -4628,7 +5024,8 @@
     "exit": 83.42,
     "outcome": "LOSS",
     "pnl_pct": -0.08,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -4639,7 +5036,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.29,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4650,7 +5048,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4661,7 +5060,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4672,7 +5072,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 11.99,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "XOM",
@@ -4683,7 +5084,8 @@
     "exit": 109.31,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "PDD",
@@ -4694,7 +5096,8 @@
     "exit": 130.93,
     "outcome": "LOSS",
     "pnl_pct": -3.01,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4705,7 +5108,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -4716,7 +5120,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -4727,7 +5132,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -4738,7 +5144,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -4749,7 +5156,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 25.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -4760,7 +5168,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.77,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4771,7 +5180,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.11,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4782,7 +5192,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -4793,7 +5204,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -4804,7 +5216,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 10.04,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -4815,7 +5228,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.1,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -4826,7 +5240,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 20.46,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -4837,7 +5252,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 19.84,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -4848,7 +5264,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4859,7 +5276,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4870,7 +5288,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -4881,7 +5300,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.3,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -4892,7 +5312,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.29,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4903,7 +5324,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4914,7 +5336,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -4925,7 +5348,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 12.19,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "XOM",
@@ -4936,7 +5360,8 @@
     "exit": 109.31,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "ARM",
@@ -4947,7 +5372,8 @@
     "exit": 158.75,
     "outcome": "LOSS",
     "pnl_pct": -11.86,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "ARM",
@@ -4958,7 +5384,8 @@
     "exit": 197.75,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ARM",
@@ -4969,7 +5396,8 @@
     "exit": 390.69,
     "outcome": "WIN",
     "pnl_pct": 42.23,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ANET",
@@ -4980,7 +5408,8 @@
     "exit": 144.1,
     "outcome": "LOSS",
     "pnl_pct": -4.49,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "CRWD",
@@ -4991,7 +5420,8 @@
     "exit": 509.13,
     "outcome": "WIN",
     "pnl_pct": 1.19,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "PANW",
@@ -5002,7 +5432,8 @@
     "exit": 230.79,
     "outcome": "WIN",
     "pnl_pct": 15.52,
-    "score": 72
+    "score": 72,
+    "is_live": false
   },
   {
     "ticker": "NET",
@@ -5013,7 +5444,8 @@
     "exit": 140.14,
     "outcome": "WIN",
     "pnl_pct": 0.01,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "NET",
@@ -5024,7 +5456,8 @@
     "exit": 227.93,
     "outcome": "LOSS",
     "pnl_pct": -6.84,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DDOG",
@@ -5035,7 +5468,8 @@
     "exit": 123.43,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 92
+    "score": 92,
+    "is_live": false
   },
   {
     "ticker": "DDOG",
@@ -5046,7 +5480,8 @@
     "exit": 155.01,
     "outcome": "WIN",
     "pnl_pct": 0.02,
-    "score": 72
+    "score": 72,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -5057,7 +5492,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -5068,7 +5504,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -5079,7 +5516,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -5090,7 +5528,8 @@
     "exit": 138.41,
     "outcome": "WIN",
     "pnl_pct": 9.4,
-    "score": 76
+    "score": 76,
+    "is_live": false
   },
   {
     "ticker": "AMD",
@@ -5101,7 +5540,8 @@
     "exit": 355.36,
     "outcome": "WIN",
     "pnl_pct": 25.5,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "CRM",
@@ -5112,7 +5552,8 @@
     "exit": 330.64,
     "outcome": "WIN",
     "pnl_pct": 7.77,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -5123,7 +5564,8 @@
     "exit": 66.05,
     "outcome": "WIN",
     "pnl_pct": 19.11,
-    "score": 85
+    "score": 85,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -5134,7 +5576,8 @@
     "exit": 100.0,
     "outcome": "LOSS",
     "pnl_pct": -3.79,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "PLTR",
@@ -5145,7 +5588,8 @@
     "exit": 200.8,
     "outcome": "LOSS",
     "pnl_pct": -3.18,
-    "score": 73
+    "score": 73,
+    "is_live": false
   },
   {
     "ticker": "SMCI",
@@ -5156,7 +5600,8 @@
     "exit": 42.91,
     "outcome": "WIN",
     "pnl_pct": 10.04,
-    "score": 81
+    "score": 81,
+    "is_live": false
   },
   {
     "ticker": "AMAT",
@@ -5167,7 +5612,8 @@
     "exit": 219.63,
     "outcome": "WIN",
     "pnl_pct": 14.1,
-    "score": 90
+    "score": 90,
+    "is_live": false
   },
   {
     "ticker": "MU",
@@ -5178,7 +5624,8 @@
     "exit": 802.54,
     "outcome": "WIN",
     "pnl_pct": 20.46,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "QCOM",
@@ -5189,7 +5636,8 @@
     "exit": 213.41,
     "outcome": "WIN",
     "pnl_pct": 19.84,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "MRVL",
@@ -5200,7 +5648,8 @@
     "exit": 129.26,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -5211,7 +5660,8 @@
     "exit": 44.89,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -5222,7 +5672,8 @@
     "exit": 53.65,
     "outcome": "WIN",
     "pnl_pct": 6.6,
-    "score": 86
+    "score": 86,
+    "is_live": false
   },
   {
     "ticker": "ON",
@@ -5233,7 +5684,8 @@
     "exit": 100.61,
     "outcome": "WIN",
     "pnl_pct": 24.3,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "FSLR",
@@ -5244,7 +5696,8 @@
     "exit": 157.15,
     "outcome": "WIN",
     "pnl_pct": 8.29,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -5255,7 +5708,8 @@
     "exit": 290.28,
     "outcome": "WIN",
     "pnl_pct": 9.92,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -5266,7 +5720,8 @@
     "exit": 302.46,
     "outcome": "LOSS",
     "pnl_pct": -5.23,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DUOL",
@@ -5277,7 +5732,8 @@
     "exit": 455.14,
     "outcome": "WIN",
     "pnl_pct": 12.19,
-    "score": 79
+    "score": 79,
+    "is_live": false
   },
   {
     "ticker": "XOM",
@@ -5288,7 +5744,8 @@
     "exit": 109.31,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "ARM",
@@ -5299,7 +5756,8 @@
     "exit": 158.75,
     "outcome": "LOSS",
     "pnl_pct": -11.86,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "ARM",
@@ -5310,7 +5768,8 @@
     "exit": 197.75,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ARM",
@@ -5321,7 +5780,8 @@
     "exit": 390.69,
     "outcome": "WIN",
     "pnl_pct": 42.23,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ANET",
@@ -5332,7 +5792,8 @@
     "exit": 144.1,
     "outcome": "LOSS",
     "pnl_pct": -4.49,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "CRWD",
@@ -5343,7 +5804,8 @@
     "exit": 509.13,
     "outcome": "WIN",
     "pnl_pct": 1.19,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "PANW",
@@ -5354,7 +5816,8 @@
     "exit": 230.79,
     "outcome": "WIN",
     "pnl_pct": 15.52,
-    "score": 72
+    "score": 72,
+    "is_live": false
   },
   {
     "ticker": "NET",
@@ -5365,7 +5828,8 @@
     "exit": 140.14,
     "outcome": "WIN",
     "pnl_pct": 0.01,
-    "score": 88
+    "score": 88,
+    "is_live": false
   },
   {
     "ticker": "NET",
@@ -5376,7 +5840,8 @@
     "exit": 227.93,
     "outcome": "LOSS",
     "pnl_pct": -6.84,
-    "score": 80
+    "score": 80,
+    "is_live": false
   },
   {
     "ticker": "DDOG",
@@ -5387,7 +5852,8 @@
     "exit": 123.43,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 92
+    "score": 92,
+    "is_live": false
   },
   {
     "ticker": "DDOG",
@@ -5398,7 +5864,8 @@
     "exit": 155.01,
     "outcome": "WIN",
     "pnl_pct": 0.02,
-    "score": 72
+    "score": 72,
+    "is_live": false
   },
   {
     "ticker": "FTNT",
@@ -5409,7 +5876,8 @@
     "exit": 125.86,
     "outcome": "WIN",
     "pnl_pct": 14.47,
-    "score": 83
+    "score": 83,
+    "is_live": false
   },
   {
     "ticker": "ZS",
@@ -5420,7 +5888,8 @@
     "exit": 162.02,
     "outcome": "WIN",
     "pnl_pct": 5.15,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "MDB",
@@ -5431,7 +5900,8 @@
     "exit": 361.98,
     "outcome": "WIN",
     "pnl_pct": 0.5,
-    "score": 78
+    "score": 78,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -5442,7 +5912,8 @@
     "exit": 33.65,
     "outcome": "LOSS",
     "pnl_pct": -3.91,
-    "score": 84
+    "score": 84,
+    "is_live": false
   },
   {
     "ticker": "KWEB",
@@ -5453,7 +5924,8 @@
     "exit": 33.71,
     "outcome": "WIN",
     "pnl_pct": 0.25,
-    "score": 93
+    "score": 93,
+    "is_live": false
   },
   {
     "ticker": "IWM",
@@ -5464,7 +5936,8 @@
     "exit": 233.71,
     "outcome": "WIN",
     "pnl_pct": 0.0,
-    "score": 75
+    "score": 75,
+    "is_live": false
   },
   {
     "ticker": "AMZN",
@@ -5475,7 +5948,8 @@
     "exit": 272.3901,
     "outcome": "LOSS",
     "pnl_pct": -4.41,
-    "score": 0
+    "score": 0,
+    "is_live": true
   },
   {
     "ticker": "FERG",
@@ -5486,7 +5960,8 @@
     "exit": 255.0851,
     "outcome": "WIN",
     "pnl_pct": 0.74,
-    "score": 0
+    "score": 0,
+    "is_live": true
   },
   {
     "ticker": "W",
@@ -5497,6 +5972,31 @@
     "exit": 105.75,
     "outcome": "LOSS",
     "pnl_pct": -9.03,
-    "score": 0
+    "score": 0,
+    "is_live": true
+  },
+  {
+    "ticker": "IOTR",
+    "date": "2026-07-15",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 3.5168,
+    "exit": 3.21,
+    "outcome": "LOSS",
+    "pnl_pct": -8.72,
+    "score": 0,
+    "is_live": true
+  },
+  {
+    "ticker": "ARTL",
+    "date": "2026-07-20",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 1.16,
+    "exit": 1.16,
+    "outcome": "BE",
+    "pnl_pct": 0.0,
+    "score": 0,
+    "is_live": true
   }
 ]

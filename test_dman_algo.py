@@ -755,6 +755,160 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
+class TestWinRateLiveOnlyFiltering(unittest.TestCase):
+    """Added 2026-08-07: dman_win_rate.json's 500 records span back to
+    2024 -- almost entirely backtest simulation, with real trades so
+    sparse they barely register in the rolling-50 window. rolling_stats
+    (live_only=True) is what lets the win rate actually mean "what this
+    account has really done" instead of quietly blending in two years of
+    backtest data. A regression here means that blend becomes invisible
+    again."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"[]")
+        self._tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._tmp.name)
+
+    def _record(self, tracker, outcome, is_live, pnl_pct=1.0):
+        tracker.record(a.TradeRecord(
+            ticker="TESTX", date="2026-08-07", bias="LONG", setup="Gap & Hold",
+            entry=10.0, exit=11.0, outcome=outcome, pnl_pct=pnl_pct,
+            score=100, is_live=is_live,
+        ))
+
+    def test_live_only_excludes_backtest_records(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(10):
+            self._record(tracker, "WIN", is_live=False)
+        self._record(tracker, "LOSS", is_live=True)
+        stats = tracker.rolling_stats(live_only=True)
+        self.assertEqual(stats["total"], 1)
+        self.assertEqual(stats["losses"], 1)
+
+    def test_default_rolling_stats_still_blends_everything(self):
+        # Confirms this is additive, not a behavior change to the existing
+        # default call sites (e.g. adaptive_min_score()) that intentionally
+        # still read the full pool.
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(3):
+            self._record(tracker, "WIN", is_live=False)
+        self._record(tracker, "LOSS", is_live=True)
+        stats = tracker.rolling_stats()
+        self.assertEqual(stats["total"], 4)
+
+    def test_old_records_without_is_live_field_default_to_backtest(self):
+        with open(self._tmp.name, "w") as f:
+            json.dump([{"ticker": "OLD", "date": "2024-01-01", "bias": "LONG",
+                        "setup": "Gap & Hold", "entry": 1.0, "exit": 1.1,
+                        "outcome": "WIN", "pnl_pct": 10.0, "score": 90}], f)
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self.assertFalse(tracker.records[0].is_live)
+        self.assertEqual(tracker.rolling_stats(live_only=True)["total"], 0)
+
+
+class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
+    """Confirmed live 2026-08-07: sync_alpaca_fills() compared
+    str(order.status) against the bare string "filled", but a real Alpaca
+    order's str() is "OrderStatus.FILLED" -- meaning this check was true
+    for EVERY order regardless of actual status, and the function has
+    never once auto-recorded a real trade close since it was written.
+    IOTR, ARTL, AMZN, FERG, and W all needed manual --mode record
+    intervention because of this single line. A regression here means
+    going back to a supposedly-automatic sync that silently does nothing."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._sync_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._sync_tmp.write(b"{}")
+        self._sync_tmp.close()
+        self._wr_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._wr_tmp.write(b"[]")
+        self._wr_tmp.close()
+        self._pnl_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pnl_tmp.write(b"{}")
+        self._pnl_tmp.close()
+        # PositionTracker's filepath is an early-bound default parameter
+        # (filepath: str = POSITIONS_FILE, evaluated once at class-definition
+        # time) -- patch.object(a, "POSITIONS_FILE", ...) does NOT affect
+        # calls that don't pass filepath explicitly. Confirmed the hard way:
+        # an earlier version of this test that relied on the patch alone
+        # silently operated on the REAL production dman_positions.json,
+        # adding a fake IOTR entry and deleting the real CLRO position via
+        # pt.close() inside sync_alpaca_fills(). Every PositionTracker(...)
+        # call in this test passes filepath explicitly for that reason.
+        # sync_alpaca_fills() itself instantiates PositionTracker() with no
+        # explicit filepath too, so patching POSITIONS_FILE alone can't
+        # reach it either -- patch the class reference itself so ANY
+        # PositionTracker() call anywhere in this test's call graph is
+        # forced onto the isolated temp file, regardless of how it's
+        # constructed.
+        import functools
+        _isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patches = [
+            patch.object(a, "PositionTracker", _isolated_pt),
+            patch.object(a, "ALPACA_SYNC_FILE", self._sync_tmp.name),
+            patch.object(a, "DAILY_PNL_FILE", self._pnl_tmp.name),
+            patch.object(a, "send_telegram", return_value=True),
+        ]
+        for p in self._patches:
+            p.start()
+        _isolated_pt().open(a.OpenPosition(
+            ticker="IOTR", bias="LONG", setup="Low Float Catalyst",
+            entry=3.5168, stop=3.0, target1=4.0, target2=4.5,
+            shares=7, entry_date="2026-07-08",
+        ))
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._pos_tmp, self._sync_tmp, self._wr_tmp, self._pnl_tmp):
+            os.unlink(f.name)
+
+    def _order(self, side, status, filled_avg_price=None, filled_qty="7"):
+        o = MagicMock()
+        o.id = "order-1"
+        o.side = side
+        o.status = status
+        o.filled_avg_price = filled_avg_price
+        o.filled_qty = filled_qty
+        o.qty = filled_qty
+        o.filled_at = None
+        return o
+
+    def test_real_filled_sell_order_is_recorded(self):
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []   # IOTR no longer held
+        mock_client.get_orders.return_value = [
+            self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 1)
+        self.assertEqual(len(tracker.records), 1)
+        self.assertEqual(tracker.records[0].ticker, "IOTR")
+        self.assertEqual(tracker.records[0].exit, 3.21)
+        self.assertTrue(tracker.records[0].is_live)
+
+    def test_non_filled_order_is_not_recorded(self):
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [
+            self._order(OrderSide.SELL, OrderStatus.PENDING_NEW),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 0)
+
+
 class TestAiThemeMomentumBonus(unittest.TestCase):
     """Added 2026-08-07, direct instruction: AI isn't a GICS/SPDR sector, so
     AI-heavy names (NVDA, PLTR, SMCI, ...) only ever got generic Technology/

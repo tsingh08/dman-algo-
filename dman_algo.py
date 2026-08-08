@@ -7596,6 +7596,17 @@ class TradeRecord:
     outcome:   str   # "WIN" | "LOSS" | "BE"
     pnl_pct:   float
     score:     int
+    is_live:   bool = False   # True = real Alpaca fill, False = backtest simulation.
+                               # Added 2026-08-07: dman_win_rate.json's 500 records span
+                               # back to 2024 — almost entirely backtest data, with real
+                               # trades so sparse they barely register in the rolling-50
+                               # window sync_alpaca_fills()/adaptive_min_score() read from.
+                               # Confirmed live: a str(status)!="filled" bug meant
+                               # sync_alpaca_fills() had NEVER once auto-recorded a real
+                               # close (fixed separately) — every real trade before today
+                               # only exists here because of manual --mode record calls.
+                               # Defaults False so old records without this field (all
+                               # backtest-era) classify correctly on load.
 
 
 class WinRateTracker:
@@ -7630,9 +7641,15 @@ class WinRateTracker:
         self.records.append(trade)
         self._save()
 
-    def rolling_stats(self, n: int = 50) -> dict:
-        """Stats over the last n closed trades."""
-        recent = self.records[-n:] if len(self.records) >= n else self.records
+    def rolling_stats(self, n: int = 50, live_only: bool = False) -> dict:
+        """
+        Stats over the last n closed trades. live_only=True restricts to
+        real Alpaca fills (TradeRecord.is_live) — use this whenever the
+        number needs to honestly represent live performance rather than
+        the backtest-dominated full pool (see TradeRecord.is_live).
+        """
+        pool   = [r for r in self.records if r.is_live] if live_only else self.records
+        recent = pool[-n:] if len(pool) >= n else pool
         if not recent:
             return {"win_rate": 0.60, "avg_win_r": 2.2,
                     "avg_loss_r": 1.0, "consec_losses": 0,
@@ -7736,6 +7753,21 @@ class WinRateTracker:
         print(f"  Consec Losses: {stats['consec_losses']}")
         print(f"  Adaptive Min Score: {self.adaptive_min_score()}/100")
         print(f"{'─'*W}")
+
+        # Real-money-only figures — the block above is dominated by backtest
+        # data (see TradeRecord.is_live); this is what the account has
+        # actually done. Shown separately, never blended into the number
+        # above, so a small live sample can't quietly masquerade as the
+        # backtest-scale win rate.
+        live_stats = self.rolling_stats(live_only=True)
+        if live_stats["total"] > 0:
+            print(f"  📈 REAL TRADES ONLY ({live_stats['total']} live fill(s)):")
+            print(f"     Win Rate: {live_stats['win_rate']*100:.1f}%  "
+                  f"({live_stats['wins']}W / {live_stats['losses']}L)")
+            if live_stats["total"] < 20:
+                print(f"     ⚠️  Sample too small to mean much yet — "
+                      f"not used for adaptive scoring.")
+            print(f"{'─'*W}")
 
         by_setup: dict[str,list] = {}
         for r in self.records[-100:]:
@@ -10350,6 +10382,7 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                         bias=sig.bias, setup=sig.setup,
                         entry=round(ep,2), exit=round(exit_px,2),
                         outcome=outcome, pnl_pct=round(pnl_pct,2), score=bt_score,
+                        is_live=False,   # backtest simulation, not a real fill
                     ))
                     all_trades.append({
                         "ticker":ticker,"setup":sig.setup,"bias":sig.bias,
@@ -11007,11 +11040,19 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
         # Options always buy-to-open / sell-to-close regardless of put/call
         closing_side = OrderSide.SELL if (is_lo or _occ_sym) else OrderSide.BUY
 
+        from alpaca.trading.enums import OrderStatus as _OrderStatus
         for order in orders:
             oid = str(order.id)
             if oid in recorded_ids:
                 continue
-            if str(order.status) != "filled":
+            # Confirmed live 2026-08-07: str(order.status) on a real filled
+            # order is "OrderStatus.FILLED", never the bare "filled" this
+            # used to compare against — meaning this check was true for
+            # EVERY order regardless of actual status, and this whole
+            # function has never once auto-recorded a real trade close.
+            # IOTR, ARTL, AMZN, FERG, W all needed manual --mode record
+            # intervention because of this single line.
+            if order.status != _OrderStatus.FILLED:
                 continue
             if order.side != closing_side:
                 # Entry fill or unrelated order — mark seen and skip
@@ -11051,6 +11092,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 outcome = outcome,
                 pnl_pct = round(pnl_pct, 2),
                 score   = getattr(pos, "score", 0),
+                is_live = True,   # a real Alpaca fill, not a simulation
             ))
             record_daily_pnl(acct_pct)
             pt.close(ticker)
@@ -11072,9 +11114,13 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             # cancelled or expired (limit never filled at open) — remove the ghost.
             # Options always buy-to-open; equity: BUY for LONG, SELL for SHORT.
             _entry_side = OrderSide.BUY if (is_lo or _occ_sym) else OrderSide.SELL
+            # Same class of bug as the FILLED check above, plus a spelling
+            # mismatch on top: Alpaca's real enum value is "canceled" (one
+            # L), this compared against "cancelled" (two L) — doubly never
+            # matched regardless of the str()-vs-enum issue.
+            _GHOST_STATUSES = (_OrderStatus.CANCELED, _OrderStatus.EXPIRED, _OrderStatus.REPLACED)
             for _eo in orders:
-                if (_eo.side == _entry_side and
-                        str(_eo.status).lower() in ("cancelled", "expired", "replaced")):
+                if (_eo.side == _entry_side and _eo.status in _GHOST_STATUSES):
                     pt.close(ticker)
                     _ghost_lbl = _occ_sym if _occ_sym else ticker
                     print(f"  🗑️  Ghost cleared: {_ghost_lbl} — entry limit {_eo.status}, never filled")
@@ -12693,6 +12739,7 @@ def main():
             outcome=outcome,
             pnl_pct=round(pnl_pct, 2),
             score=0,
+            is_live=True,   # --mode record is for logging real executed trades
         ))
         # Close position first so we can read the share count for account-level P&L
         closed = PositionTracker().close(args.ticker)

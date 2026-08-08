@@ -586,6 +586,164 @@ class TestOptionContractStrikeStringConversion(unittest.TestCase):
             self.assertIsInstance(req.strike_price_lte, str)
 
 
+class TestBlackScholesDeltaEstimate(unittest.TestCase):
+    """Added 2026-08-08: confirmed live that this account has options
+    TRADING approved (level 3, real buying power) but NOT the OPRA
+    market-DATA subscription -- a separate Alpaca product. The
+    "indicative" fallback feed sometimes returns a snapshot with NO
+    greeks at all (bare bid/ask only), which _get_option_snapshot()
+    defaults to delta=0.0, and the ITM hard filter in
+    _find_best_call/put_contract (`delta < 0.40 -> reject`) then rejected
+    every such contract unconditionally -- live-verified as one real
+    contributing cause of zero options fills despite full trading
+    approval. This is a pure-math regression check on the BS estimate
+    itself; the wiring is covered by TestMissingGreeksDeltaEstimateFallback
+    below."""
+
+    def test_deep_itm_call_has_high_delta(self):
+        # $100 stock, $70 strike call, 14 DTE -- deeply in the money.
+        delta = a._estimate_bs_delta(100.0, 70.0, 14, True, sigma=0.40)
+        self.assertGreater(delta, 0.90)
+
+    def test_deep_otm_call_has_low_delta(self):
+        delta = a._estimate_bs_delta(100.0, 160.0, 14, True, sigma=0.40)
+        self.assertLess(delta, 0.10)
+
+    def test_atm_call_delta_is_roughly_half(self):
+        delta = a._estimate_bs_delta(100.0, 100.0, 14, True, sigma=0.40)
+        self.assertTrue(0.40 <= delta <= 0.65)
+
+    def test_deep_itm_put_delta_is_strongly_negative(self):
+        # $100 stock, $130 strike put -- deeply in the money for a put.
+        delta = a._estimate_bs_delta(100.0, 130.0, 14, False, sigma=0.40)
+        self.assertLess(delta, -0.90)
+
+    def test_deep_otm_put_delta_is_near_zero(self):
+        delta = a._estimate_bs_delta(100.0, 60.0, 14, False, sigma=0.40)
+        self.assertGreater(delta, -0.10)
+
+    def test_bad_input_fails_open_to_zero_not_a_crash(self):
+        self.assertEqual(a._estimate_bs_delta(100.0, 0.0, 14, True, sigma=0.40), 0.0)
+        self.assertEqual(a._estimate_bs_delta(100.0, 100.0, 14, True, sigma=0.0), 0.0)
+
+
+class TestRealizedVolEstimate(unittest.TestCase):
+    """The sigma input feeding _estimate_bs_delta() -- a bad estimate here
+    (e.g. a real crash instead of the documented 0.40 fallback) would
+    propagate into every contract selection made while OPRA is
+    unentitled."""
+
+    def setUp(self):
+        a._REALIZED_VOL_CACHE.clear()
+
+    def tearDown(self):
+        a._REALIZED_VOL_CACHE.clear()
+
+    def _hist_df(self, closes):
+        import pandas as pd
+        return pd.DataFrame({"Close": closes})
+
+    def test_computes_a_positive_annualized_vol_from_real_closes(self):
+        import numpy as np
+        rng = np.random.default_rng(42)
+        closes = 100 * np.cumprod(1 + rng.normal(0, 0.02, 40))
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.history.return_value = self._hist_df(closes)
+            vol = a._realized_vol_estimate("TESTX")
+        self.assertTrue(0.15 <= vol <= 2.0)
+
+    def test_data_failure_falls_back_to_default(self):
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.side_effect = Exception("network down")
+            vol = a._realized_vol_estimate("TESTX")
+        self.assertEqual(vol, 0.40)
+
+    def test_result_is_cached(self):
+        import numpy as np
+        rng = np.random.default_rng(1)
+        closes = 100 * np.cumprod(1 + rng.normal(0, 0.02, 40))
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.history.return_value = self._hist_df(closes)
+            first = a._realized_vol_estimate("TESTX")
+            mock_yf.Ticker.side_effect = Exception("should not be called again")
+            second = a._realized_vol_estimate("TESTX")
+        self.assertEqual(first, second)
+
+
+class TestMissingGreeksDeltaEstimateFallback(unittest.TestCase):
+    """Wiring test: when the broker snapshot has delta==0.0 (no real
+    Greeks -- the indicative-feed placeholder), _find_best_call_contract
+    and _find_best_put_contract must estimate one via Black-Scholes
+    instead of letting the hard ITM filter reject the contract outright.
+    A regression here silently reverts to the confirmed-live zero-fills
+    bug: every missing-Greeks contract rejected, no exceptions."""
+
+    class _FakeContract:
+        def __init__(self, symbol, strike):
+            self.symbol = symbol
+            self.strike_price = strike
+
+    def _client_returning(self, symbol, strike):
+        client = MagicMock()
+        client.get_option_contracts.return_value = MagicMock(
+            option_contracts=[self._FakeContract(symbol, strike)]
+        )
+        return client
+
+    def test_call_with_zero_delta_snapshot_gets_estimated_and_selected(self):
+        # Deep ITM by construction (current price way above strike) --
+        # the estimate should land comfortably above the 0.40 floor.
+        zero_greeks_snap = {"bid": 30.0, "ask": 30.5, "mid": 30.25,
+                             "spread_pct": 0.02, "delta": 0.0, "gamma": 0.0,
+                             "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0}
+        client = self._client_returning("TESTX260821C00070000", 70.0)
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=zero_greeks_snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s), \
+                 patch.object(a, "_realized_vol_estimate", return_value=0.40):
+                contract = a._find_best_call_contract(client, "TESTX", 100.0)
+        self.assertIsNotNone(contract, "a deep-ITM contract with only missing Greeks must "
+                                        "not be rejected outright")
+        self.assertTrue(contract["delta_estimated"])
+        self.assertGreaterEqual(contract["delta"], 0.40)
+
+    def test_call_with_real_nonzero_delta_is_not_overridden(self):
+        # Broker-supplied delta already present (e.g. real OPRA data) --
+        # the estimate must never override a genuine value.
+        real_snap = {"bid": 5.0, "ask": 5.2, "mid": 5.1, "spread_pct": 0.04,
+                     "delta": 0.62, "gamma": 0.01, "theta": -0.05, "vega": 0.1,
+                     "iv": 0.3, "oi": 100}
+        client = self._client_returning("TESTX260821C00095000", 95.0)
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=real_snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s), \
+                 patch.object(a, "_realized_vol_estimate") as mock_vol:
+                contract = a._find_best_call_contract(client, "TESTX", 100.0)
+        mock_vol.assert_not_called()
+        self.assertIsNotNone(contract)
+        self.assertNotIn("delta_estimated", contract)
+        self.assertEqual(contract["delta"], 0.62)
+
+    def test_put_with_zero_delta_snapshot_gets_estimated_and_selected(self):
+        # Deep ITM put by construction (strike way above current price).
+        zero_greeks_snap = {"bid": 30.0, "ask": 30.5, "mid": 30.25,
+                             "spread_pct": 0.02, "delta": 0.0, "gamma": 0.0,
+                             "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0}
+        client = self._client_returning("TESTX260821P00130000", 130.0)
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=zero_greeks_snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s), \
+                 patch.object(a, "_realized_vol_estimate", return_value=0.40):
+                contract = a._find_best_put_contract(client, "TESTX", 100.0)
+        self.assertIsNotNone(contract)
+        self.assertTrue(contract["delta_estimated"])
+        self.assertLess(contract["delta"], 0, "put delta must be negative")
+        self.assertGreaterEqual(abs(contract["delta"]), 0.40)
+
+
 class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
     """Locks in the first-ever use of OrderClass.MLEG in this codebase — every
     prior options function submits single-leg orders only. A malformed legs

@@ -12002,6 +12002,63 @@ def _get_options_market_context(ticker: str, expiry_str: str) -> dict:
     return result
 
 
+_REALIZED_VOL_CACHE: dict[str, tuple[float, float]] = {}
+_REALIZED_VOL_CACHE_TTL_S = 3600   # 1 hr — realized vol doesn't meaningfully shift within a session
+
+def _realized_vol_estimate(ticker: str, lookback: int = 20) -> float:
+    """
+    Annualized realized volatility from recent daily closes — the sigma
+    input for _estimate_bs_delta() below. Returns 0.40 (a reasonable
+    generic momentum-stock default) on any data failure, since this only
+    feeds an approximate delta for ITM strike selection, never priced
+    risk directly.
+    """
+    cached = _REALIZED_VOL_CACHE.get(ticker)
+    if cached and (time.time() - cached[0]) < _REALIZED_VOL_CACHE_TTL_S:
+        return cached[1]
+    vol = 0.40
+    try:
+        hist = yf.Ticker(ticker).history(period=f"{lookback + 10}d")
+        closes = hist["Close"].dropna().values
+        if len(closes) >= lookback // 2 + 2:
+            rets = np.diff(np.log(closes[-(lookback + 1):]))
+            if len(rets) >= 3:
+                daily_std = float(np.std(rets, ddof=1))
+                vol = max(0.15, min(2.0, daily_std * math.sqrt(252)))
+    except Exception:
+        pass
+    _REALIZED_VOL_CACHE[ticker] = (time.time(), vol)
+    return vol
+
+
+def _estimate_bs_delta(current_price: float, strike: float, dte: int, is_call: bool, sigma: float) -> float:
+    """
+    Black-Scholes delta estimate — used only when the broker-supplied
+    delta is unavailable (exactly 0.0, the placeholder value on a snapshot
+    with no real Greeks). Confirmed live 2026-08-08: this account has
+    options TRADING approved (level 3, real buying power) but NOT the
+    OPRA options market-DATA subscription — a separate Alpaca product.
+    Alpaca's "indicative" fallback feed (data.alpaca.markets/v1beta1/
+    options/snapshots?feed=indicative) returns a bare latestQuote with NO
+    greeks/impliedVolatility/openInterest fields at all — not degraded,
+    literally absent from the JSON. _get_option_snapshot() defaults every
+    missing Greek to 0.0, and the ITM hard filter downstream
+    (`delta < 0.40 -> reject`) then rejected every single contract on
+    every single scan, unconditionally — the actual root cause of zero
+    options fills despite full trading approval. This estimate lets
+    contract SELECTION proceed on realized-vol-implied Greeks instead of
+    real ones; order PLACEMENT itself never needed OPRA to begin with.
+    """
+    try:
+        T = max(dte, 1) / 365.0
+        r = 0.045
+        d1 = (math.log(current_price / strike) + (r + sigma ** 2 / 2) * T) / (sigma * math.sqrt(T))
+        n_d1 = 0.5 * (1 + math.erf(d1 / math.sqrt(2)))
+        return round(n_d1 if is_call else n_d1 - 1, 3)
+    except Exception:
+        return 0.0
+
+
 def _find_best_call_contract(client, ticker: str, current_price: float) -> dict | None:
     """
     Greeks-aware contract selection:
@@ -12078,11 +12135,21 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
             if not snap:
                 continue
             snap = _merge_contract_oi(snap, items[0])
+            # No real delta from the broker (indicative feed / no OPRA
+            # subscription) -- estimate one via Black-Scholes rather than
+            # letting the hard filter below reject every contract on a
+            # placeholder 0.0. See _estimate_bs_delta() docstring.
+            if snap["delta"] == 0.0:
+                snap["delta"] = _estimate_bs_delta(
+                    current_price, strike, (target_expiry - today).days,
+                    True, _realized_vol_estimate(ticker))
+                snap["delta_estimated"] = True
             # Hard filter: reject OTM (delta < 0.40) and wide-spread contracts
             if snap["delta"] < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
                 continue
             score, reason = _score_option_contract(snap, current_price)
-            print(f"    {occ}  Δ{snap['delta']:.2f}  θ{snap['theta']:.3f}/d  "
+            _delta_tag = "~" if snap.get("delta_estimated") else ""
+            print(f"    {occ}  Δ{_delta_tag}{snap['delta']:.2f}  θ{snap['theta']:.3f}/d  "
                   f"IV{snap['iv']*100:.0f}%  OI{snap['oi']}  score={score}  [{reason[:60]}]")
             if score > best_score:
                 best_score = score
@@ -12171,11 +12238,18 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
             if not snap:
                 continue
             snap = _merge_contract_oi(snap, items[0])
+            # See _find_best_call_contract — same missing-Greeks fallback.
+            if snap["delta"] == 0.0:
+                snap["delta"] = _estimate_bs_delta(
+                    current_price, strike, (target_expiry - today).days,
+                    False, _realized_vol_estimate(ticker))
+                snap["delta_estimated"] = True
             delta_abs = abs(snap.get("delta", 0))
             if delta_abs < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
                 continue
             score, reason = _score_option_contract(snap, current_price)
-            print(f"    PUT {occ}  |Δ|{delta_abs:.2f}  θ{snap['theta']:.3f}/d  "
+            _delta_tag = "~" if snap.get("delta_estimated") else ""
+            print(f"    PUT {occ}  |Δ|{_delta_tag}{delta_abs:.2f}  θ{snap['theta']:.3f}/d  "
                   f"IV{snap['iv']*100:.0f}%  OI{snap['oi']}  score={score}  [{reason[:60]}]")
             if score > best_score:
                 best_score = score
@@ -12794,6 +12868,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         _opt_contract: dict | None = None
         oid: str | None = None
         _submit_err: str | None = None
+        _options_was_attempted = _use_options or _use_puts
 
         if _use_options:
             _opt_client = get_alpaca_client()
@@ -12841,6 +12916,21 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             if not _shares_fallback_allowed(sig.ticker):
                 print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible "
                       f"and not a DMan watchlist ticker (shares reserved for DMan picks only)")
+                # Confirmed live 2026-08-08: a signal that WAS options-eligible
+                # (WATCHLIST/OPTIONS_SETUPS) and got a real attempt -- not just
+                # never-eligible -- silently produced zero trade and zero
+                # visibility beyond this console line, the same "valid signal,
+                # no execution path" dead-end already fixed once for puts (see
+                # the MBLY/Bear-Gap-Hold comment above). Alerting here closes
+                # that gap: a Telegram "signal found" message with nothing
+                # after it used to be the only trace this ever happened.
+                if _options_was_attempted:
+                    send_telegram(
+                        f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
+                        f"Options attempted and unavailable (illiquid underlying, contract too "
+                        f"wide/expensive, or no listed chain) — not on the DMan small-cap "
+                        f"watchlist, so no shares fallback either. No trade placed."
+                    )
                 continue
             oid, _submit_err = submit_alpaca_trade(sig)
 
@@ -12893,9 +12983,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                         send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
                     continue
                 submitted += 1
+                # OPRA data subscription not entitled on this account (confirmed
+                # live 2026-08-08) -- when the broker can't supply real Greeks,
+                # _find_best_call/put_contract fills delta from a Black-Scholes
+                # estimate instead of blocking the trade. Flagged here so this
+                # never reads as a real broker-quoted delta.
+                _delta_note = " (Δ est. — OPRA not entitled)" if _opt_contract.get("delta_estimated") else ""
                 _greek_str = (
                     f"Δ {_delta:.2f}  Γ {_gamma:.4f}  θ {_theta:.3f}/d  "
-                    f"ν {_vega:.3f}  IV {_iv*100:.0f}%  OI {_oi:,}"
+                    f"ν {_vega:.3f}  IV {_iv*100:.0f}%  OI {_oi:,}{_delta_note}"
                 )
                 _l2_str = (
                     f"L2: bid {_bsz}×{_opt_contract.get('bid',0):.2f}  "

@@ -70,6 +70,17 @@ jobs:
           fi
           git commit -m "feat: auto-add DMan StockTwits calls to watchlist data file [skip ci]"
           git fetch origin main
+          # Confirmed live 2026-08-07 (dman_scanner.yml): a stray uncommitted
+          # change can appear between a commit and the rebase right after it,
+          # causing "cannot rebase: You have unstaged changes" -- a
+          # precondition failure the conflict-recovery path below has
+          # nothing to recover from ("no rebase in progress"), killing the
+          # step outright. Absorbing any stray change first keeps the
+          # working tree clean going into the rebase.
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git add -A
+            git commit -m "chore: absorb stray state change [skip ci]" || true
+          fi
           if ! git rebase origin/main; then
             # `git rebase` reverses --ours/--theirs vs `git merge`: "ours" is
             # the upstream commit being rebased ONTO, "theirs" is our own new
@@ -82,6 +93,10 @@ jobs:
           fi
           if ! git push origin HEAD:main; then
             git fetch origin main
+            if ! git diff --quiet || ! git diff --staged --quiet; then
+              git add -A
+              git commit -m "chore: absorb stray state change [skip ci]" || true
+            fi
             git rebase origin/main || git rebase --abort
             git push origin HEAD:main || echo "ERROR: StockTwits push failed after retry"
           fi

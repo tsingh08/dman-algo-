@@ -294,6 +294,23 @@ jobs:
           git commit -m "chore: update alert/signal cache [skip ci]"
           # Re-fetch/rebase in case something else pushed during the scan+merge above
           git fetch origin main
+          # Confirmed live 2026-08-07: a stray uncommitted change (source
+          # unclear -- possibly a side effect of merge-positions writing
+          # after this point, possibly a lingering write from the scan step
+          # above) appeared between the commit above and this rebase,
+          # causing "cannot rebase: You have unstaged changes" -- a
+          # precondition failure, NOT a merge conflict. The conflict-recovery
+          # path below (git rebase --continue/--abort) has nothing to
+          # recover from in that case and fails with "no rebase in
+          # progress", killing the whole step with exit 128 -- the actual
+          # scan had already succeeded, only this state-persist step died.
+          # Absorbing any stray change into its own commit first means the
+          # working tree is always clean before rebase is ever attempted.
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            echo "Stray uncommitted change detected before rebase — absorbing into its own commit"
+            git add -A
+            git commit -m "chore: absorb stray state change [skip ci]" || true
+          fi
           if ! git rebase origin/main; then
             # NOTE: during `git rebase` (unlike `git merge`), --ours/--theirs
             # are REVERSED — "ours" resolves to the upstream commit we're
@@ -312,6 +329,10 @@ jobs:
           if ! git push origin HEAD:main; then
             echo "First push rejected — refetching and retrying"
             git fetch origin main
+            if ! git diff --quiet || ! git diff --staged --quiet; then
+              git add -A
+              git commit -m "chore: absorb stray state change [skip ci]" || true
+            fi
             git rebase origin/main || git rebase --abort
             git push origin HEAD:main || echo "ERROR: data push failed after retry — check branch protection rules"
           fi

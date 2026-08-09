@@ -1778,6 +1778,126 @@ class TestOptionsFeedResolution(unittest.TestCase):
         mock_get.assert_called_once()
 
 
+class TestStockFeedResolution(unittest.TestCase):
+    """Mirrors TestOptionsFeedResolution for the stock-side SIP entitlement.
+    Algo Trader Plus billing voided twice before finally activating
+    2026-08-09 -- if it ever lapses again, _fetch_alpaca_daily /
+    prewarm_alpaca_bars / _fetch_intraday_bars would otherwise silently
+    swallow the resulting 403 and fall through to yfinance with zero
+    visibility, the same gap that let OPRA's entitlement flip go unnoticed
+    for up to a week before _resolve_options_feed() existed. A regression
+    here means going back to trusting SIP is entitled with no way to know
+    if it stops being true."""
+
+    def setUp(self):
+        self._key_patch    = patch.object(a, "ALPACA_API_KEY", "test-key")
+        self._secret_patch = patch.object(a, "ALPACA_SECRET_KEY", "test-secret")
+        self._key_patch.start()
+        self._secret_patch.start()
+
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        os.unlink(self._tmp.name)   # start absent -- matches a fresh checkout with no prior state
+        self._patch = patch.object(a, "_STOCK_FEED_STATE_FILE", self._tmp.name)
+        self._patch.start()
+        a._stock_feed_state = {"feed": None, "checked_at": 0.0}
+
+    def tearDown(self):
+        self._patch.stop()
+        self._key_patch.stop()
+        self._secret_patch.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+        a._stock_feed_state = {"feed": None, "checked_at": 0.0}
+
+    def test_403_falls_back_to_iex_and_alerts(self):
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a.requests, "get", return_value=mock_resp):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                feed = a._resolve_stock_feed()
+        self.assertEqual(feed, "iex")
+        mock_tg.assert_called_once()
+        self.assertIn("not entitled", mock_tg.call_args[0][0])
+
+    def test_200_keeps_preferred_feed_no_alert(self):
+        mock_resp = MagicMock(status_code=200)
+        with patch.object(a.requests, "get", return_value=mock_resp):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                feed = a._resolve_stock_feed()
+        self.assertEqual(feed, a.STOCK_DATA_FEED)
+        mock_tg.assert_not_called()
+
+    def test_repeat_resolution_within_window_does_not_reprobe(self):
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a.requests, "get", return_value=mock_resp) as mock_get:
+            with patch.object(a, "send_telegram", return_value=True):
+                a._resolve_stock_feed()
+                a._resolve_stock_feed()
+        mock_get.assert_called_once()
+
+    def test_same_state_on_recheck_does_not_realert(self):
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a.requests, "get", return_value=mock_resp):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._resolve_stock_feed()
+                with open(self._tmp.name) as f:
+                    state = json.load(f)
+                state["checked_at"] -= (a._STOCK_FEED_RECHECK_S + 1)
+                with open(self._tmp.name, "w") as f:
+                    json.dump(state, f)
+                a._stock_feed_state["checked_at"] = 0.0   # allow a reload from disk
+                a._resolve_stock_feed()
+        self.assertEqual(mock_tg.call_count, 1)
+
+    def test_fresh_process_after_alert_does_not_realert(self):
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a.requests, "get", return_value=mock_resp):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._resolve_stock_feed()
+                # Simulate a brand-new process: reset in-memory state exactly
+                # like a fresh module import would, WITHOUT touching the
+                # persisted file on disk.
+                a._stock_feed_state = {"feed": None, "checked_at": 0.0}
+                a._resolve_stock_feed()
+        self.assertEqual(mock_tg.call_count, 1, "a fresh process must not re-alert "
+                          "for an already-known, unchanged entitlement state")
+
+    def test_fresh_process_within_recheck_window_does_not_reprobe(self):
+        mock_resp = MagicMock(status_code=403)
+        with patch.object(a.requests, "get", return_value=mock_resp) as mock_get:
+            with patch.object(a, "send_telegram", return_value=True):
+                a._resolve_stock_feed()
+                a._stock_feed_state = {"feed": None, "checked_at": 0.0}
+                a._resolve_stock_feed()
+        mock_get.assert_called_once()
+
+    def test_restoration_after_fallback_alerts_success(self):
+        mock_403 = MagicMock(status_code=403)
+        mock_200 = MagicMock(status_code=200)
+        with patch.object(a.requests, "get", return_value=mock_403):
+            with patch.object(a, "send_telegram", return_value=True):
+                a._resolve_stock_feed()
+        with open(self._tmp.name) as f:
+            state = json.load(f)
+        state["checked_at"] -= (a._STOCK_FEED_RECHECK_S + 1)
+        with open(self._tmp.name, "w") as f:
+            json.dump(state, f)
+        a._stock_feed_state["checked_at"] = 0.0
+        with patch.object(a.requests, "get", return_value=mock_200):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                feed = a._resolve_stock_feed()
+        self.assertEqual(feed, a.STOCK_DATA_FEED)
+        mock_tg.assert_called_once()
+        self.assertIn("restored", mock_tg.call_args[0][0])
+
+    def test_missing_credentials_returns_preferred_feed_without_a_call(self):
+        with patch.object(a, "ALPACA_API_KEY", ""):
+            with patch.object(a.requests, "get") as mock_get:
+                feed = a._resolve_stock_feed()
+        self.assertEqual(feed, a.STOCK_DATA_FEED)
+        mock_get.assert_not_called()
+
+
 class TestMacroCalendarProximity(unittest.TestCase):
     """_days_to_next_macro_print() feeds a real, current-condition sizing
     adjustment in _fetch_global_context() — added 2026-08-06 because

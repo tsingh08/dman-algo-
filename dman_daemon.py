@@ -67,6 +67,8 @@ STATE_FILES = [
                                        # probe and re-alerts "options data feed downgraded" on its first check
     "dman_sec_cik_map.json",   # SEC EDGAR ticker->CIK map backing the free insider-buying signal —
                                 # 1-week TTL cache, pointless if it doesn't survive between sessions
+    "dman_stock_feed_state.json",  # same class of bug as dman_options_feed_state.json above, for
+                                     # Algo Trader Plus's stock-side SIP entitlement (added 2026-08-09)
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

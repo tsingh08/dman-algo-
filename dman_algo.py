@@ -184,6 +184,14 @@ OPTIONS_DATA_FEED           = "opra"        # preferred feed — real OPRA tape.
                                             # _find_best_call_contract, which merges real OI in from the
                                             # contracts response.
 STOCK_DATA_FEED             = "sip"         # Alpaca Algo Trader Plus — consolidated real-time SIP feed
+                                             # (preferred value only — actual calls use
+                                             # _resolve_stock_feed(), see SECTION 2, which
+                                             # detects entitlement at runtime and alerts on a
+                                             # downgrade, same as _resolve_options_feed() does
+                                             # for OPRA. ATP billing voided twice before finally
+                                             # activating 2026-08-08 — a future lapse would
+                                             # otherwise fail silently into the yfinance fallback
+                                             # with zero visibility.)
 
 # Dman's curated small-cap watch — always scanned regardless of dollar-volume threshold.
 # Lives in a data file (not source) so the StockTwits monitor can add tickers
@@ -757,6 +765,89 @@ def _bars_to_df(bars: list, min_bars: int = 20) -> Optional[pd.DataFrame]:
         return None
 
 
+_stock_feed_state: dict = {"feed": None, "checked_at": 0.0}
+_STOCK_FEED_RECHECK_S = 3600   # re-probe hourly — mirrors _resolve_options_feed()
+_STOCK_FEED_STATE_FILE = "dman_stock_feed_state.json"
+
+def _load_stock_feed_state() -> None:
+    """See _load_options_feed_state() — identical reasoning: an in-memory-only
+    cache resets on every fresh GitHub Actions process, defeating both the
+    recheck throttle and the alert-on-change dedup across runs. Persisted so
+    a stock-feed entitlement flip behaves the same way an options one now
+    does — alert once, not once per run."""
+    global _stock_feed_state
+    if _stock_feed_state["checked_at"] != 0.0:
+        return
+    try:
+        if os.path.exists(_STOCK_FEED_STATE_FILE):
+            with open(_STOCK_FEED_STATE_FILE) as f:
+                loaded = json.load(f)
+            if isinstance(loaded, dict) and "feed" in loaded and "checked_at" in loaded:
+                _stock_feed_state = loaded
+    except Exception:
+        pass
+
+
+def _save_stock_feed_state() -> None:
+    try:
+        with open(_STOCK_FEED_STATE_FILE, "w") as f:
+            json.dump(_stock_feed_state, f)
+    except Exception:
+        pass
+
+
+def _resolve_stock_feed() -> str:
+    """
+    Mirrors _resolve_options_feed() for the stock-side SIP entitlement.
+    Algo Trader Plus billing voided twice (invoices 2RAEKK6H-0001,
+    2RAEKK6H-0002) before finally activating 2026-08-08 -- if the
+    subscription ever lapses again (payment failure, etc.), the existing
+    per-call try/except in _fetch_alpaca_daily / prewarm_alpaca_bars /
+    _fetch_intraday_bars would silently swallow the resulting 403 and fall
+    through to the yfinance fallback with ZERO visibility that anything
+    changed — exactly the gap that let OPRA's entitlement flip go unnoticed
+    for up to a week before _resolve_options_feed() existed. This probes
+    once (cached for _STOCK_FEED_RECHECK_S, persisted across processes) and
+    actually alerts on a downgrade or a restoration.
+    """
+    if not ALPACA_API_KEY or not ALPACA_SECRET_KEY:
+        return STOCK_DATA_FEED
+    _load_stock_feed_state()
+    now = time.time()
+    if _stock_feed_state["feed"] is not None and \
+       (now - _stock_feed_state["checked_at"]) < _STOCK_FEED_RECHECK_S:
+        return _stock_feed_state["feed"]
+
+    _stock_feed_state["checked_at"] = now
+    resolved = STOCK_DATA_FEED
+    try:
+        r = requests.get(
+            "https://data.alpaca.markets/v2/stocks/AAPL/quotes/latest",
+            headers={"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY},
+            params={"feed": STOCK_DATA_FEED},
+            timeout=8,
+        )
+        if r.status_code == 403:
+            resolved = "iex"
+            if _stock_feed_state["feed"] != resolved:   # only alert on a real state change
+                print(f"  ⚠️  {STOCK_DATA_FEED} stock feed not entitled — falling back to iex")
+                send_telegram(
+                    f"⚠️ <b>Stock data feed downgraded</b>\n"
+                    f"{STOCK_DATA_FEED} returned 403 (not entitled) — falling back to iex "
+                    f"(free tier, single-exchange quotes, no consolidated tape). "
+                    f"Check the Algo Trader Plus subscription/billing if this is unexpected."
+                )
+        elif r.status_code == 200 and _stock_feed_state["feed"] == "iex":
+            # Was on fallback, preferred feed just came back — worth knowing.
+            send_telegram(f"✅ <b>{STOCK_DATA_FEED} stock feed entitlement restored</b> — back to real-time SIP quotes.")
+    except Exception:
+        pass   # network hiccup — keep whatever we resolved last, don't flap on a transient error
+
+    _stock_feed_state["feed"] = resolved
+    _save_stock_feed_state()
+    return resolved
+
+
 def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]:
     """Single-ticker Alpaca SIP daily bars (Algo Trader Plus real-time feed)."""
     if not ALPACA_AVAILABLE:
@@ -770,7 +861,7 @@ def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]
             symbol_or_symbols=ticker,
             timeframe=TimeFrame.Day,
             start=(datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc),
-            feed=STOCK_DATA_FEED,
+            feed=_resolve_stock_feed(),
         )
         _resp = dc.get_stock_bars(_alp_req)
         # BarSet doesn't support `in` the way a dict does — `ticker in _resp` is
@@ -821,7 +912,7 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
                     symbol_or_symbols=chunk,
                     timeframe=TimeFrame.Day,
                     start=_start,
-                    feed=STOCK_DATA_FEED,
+                    feed=_resolve_stock_feed(),
                 )
                 _resp = dc.get_stock_bars(_req)
                 for ticker in chunk:
@@ -3445,7 +3536,7 @@ def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
                     symbol_or_symbols=ticker,
                     timeframe=TimeFrame.Minute,
                     start=_sess_start.astimezone(_tz.utc),
-                    feed=STOCK_DATA_FEED,
+                    feed=_resolve_stock_feed(),
                 )
                 _alp_resp = dc.get_stock_bars(_alp_req)
                 # see _fetch_alpaca_daily — BarSet's `in` always returns False,

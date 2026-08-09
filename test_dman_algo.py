@@ -1941,6 +1941,131 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
             self.assertNotIn("NO LIVE STOP", _call[0][0])
 
 
+class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):
+    """Confirmed live 2026-08-08: dman_live_signals.json's "pending" list
+    tracks every signal that was ever ALERTED (_log_live_signal fires at
+    alert time, independent of --submit or whether the order actually
+    filled) -- not signals that became real positions. The risk check used
+    to treat every pending entry as if it were an open position: FGL and
+    AMZN both showed up with live stop-distance numbers despite neither
+    ever having filled a real order, reading as real exposure that didn't
+    exist. A regression here means a stale alerted-but-never-filled signal
+    can trigger a false "OPEN POSITION RISK ALERT" for something you don't
+    actually hold, or (the fail-open direction) go silent about a position
+    you genuinely do hold because Alpaca was briefly unreachable."""
+
+    def setUp(self):
+        from alpaca.trading.enums import AssetClass
+        self.AssetClass = AssetClass
+
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._pos_patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._pos_patch.start()
+
+        self._sig_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._sig_tmp.close()
+        self._sig_patch = patch.object(a, "LIVE_SIGNALS_FILE", self._sig_tmp.name)
+        self._sig_patch.start()
+
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
+    def tearDown(self):
+        self._pos_patch.stop();    os.unlink(self._pos_tmp.name)
+        self._sig_patch.stop();    os.unlink(self._sig_tmp.name)
+        self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+
+    def _write_pending(self, tickers):
+        with open(self._sig_tmp.name, "w") as f:
+            json.dump({"pending": [
+                {"ticker": t, "bias": "LONG", "entry": 10.0, "stop": 9.9,
+                 "target1": 12.0, "score": 100}
+                for t in tickers
+            ]}, f)
+
+    def _equity_position(self, symbol):
+        p = MagicMock()
+        p.symbol = symbol
+        p.asset_class = self.AssetClass.US_EQUITY
+        p.qty = "10"
+        p.avg_entry_price = "10.0"
+        p.unrealized_pl = "0.0"
+        p.unrealized_plpc = "0.0"
+        return p
+
+    def test_alerted_but_never_filled_ticker_does_not_trigger_a_risk_alert(self):
+        # FGL/AMZN-style case: alerted once, never a real position. Price is
+        # set BELOW stop (would definitely alert if not filtered out).
+        self._write_pending(["FGL"])
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []   # no real positions at all
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "get_live_price", return_value=9.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_open_position_risk({})
+        for _call in mock_tg.call_args_list:
+            self.assertNotIn("FGL", _call[0][0])
+
+    def test_real_held_position_still_gets_checked_and_alerted(self):
+        self._write_pending(["CLRO"])
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [self._equity_position("CLRO")]
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "get_live_price", return_value=9.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_open_position_risk({})
+        risk_msgs = [c[0][0] for c in mock_tg.call_args_list if "OPEN POSITION RISK" in c[0][0]]
+        self.assertEqual(len(risk_msgs), 1)
+        self.assertIn("CLRO", risk_msgs[0])
+
+    def test_mixed_real_and_phantom_only_real_one_alerts(self):
+        self._write_pending(["CLRO", "FGL"])
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [self._equity_position("CLRO")]
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "get_live_price", return_value=9.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_open_position_risk({})
+        risk_msgs = [c[0][0] for c in mock_tg.call_args_list if "OPEN POSITION RISK" in c[0][0]]
+        self.assertEqual(len(risk_msgs), 1)
+        self.assertIn("CLRO", risk_msgs[0])
+        self.assertNotIn("FGL", risk_msgs[0])
+
+    def test_alpaca_unreachable_fails_open_still_shows_pending(self):
+        # Can't verify real positions this cycle -- must NOT silently hide a
+        # genuine at-risk position just because Alpaca was unreachable.
+        self._write_pending(["CLRO"])
+        with patch.object(a, "get_alpaca_client", return_value=None), \
+             patch.object(a, "get_live_price", return_value=9.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_open_position_risk({})
+        risk_msgs = [c[0][0] for c in mock_tg.call_args_list if "OPEN POSITION RISK" in c[0][0]]
+        self.assertEqual(len(risk_msgs), 1)
+        self.assertIn("CLRO", risk_msgs[0])
+
+    def test_zero_real_positions_filters_pending_to_nothing_not_fail_open(self):
+        # Distinguishes "couldn't verify" (fail open, above) from "verified
+        # you hold nothing" (must filter to empty, not show stale signals).
+        self._write_pending(["FGL"])
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "get_live_price", return_value=9.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_open_position_risk({})
+        for _call in mock_tg.call_args_list:
+            self.assertNotIn("OPEN POSITION RISK", _call[0][0])
+
+
 class TestEarningsAlreadyReportedCheck(unittest.TestCase):
     """_check_earnings_already_reported() must match real earnings-release
     headline phrasing and fail closed (False, not a crash) when Benzinga

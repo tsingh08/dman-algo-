@@ -9704,6 +9704,14 @@ def generate_strangle_advisory(event: str) -> None:
 def _check_open_position_risk(regime: dict) -> None:
     """Read pending live signals, fetch current prices, alert if within 2% of stop.
     Also alerts on orphan Alpaca positions that have no stop coverage in our tracker."""
+    # Populated inside the try block below (real Alpaca positions). None
+    # (not {}) is the "couldn't verify" sentinel — an empty dict is a
+    # legitimate "zero real positions" result, and the two must be
+    # distinguishable by the pending-signal filter further down (an empty
+    # dict must filter pending down to nothing; a failed fetch must NOT
+    # silently hide potentially-stale risk info by treating "unknown" the
+    # same as "you hold nothing").
+    _alp_positions: Optional[dict] = None
     # ── Orphan position check ──────────────────────────────────────────────
     # Any Alpaca open position not in dman_live_signals.json has no automated
     # stop management — flag immediately so manual action can be taken.
@@ -9815,6 +9823,18 @@ def _check_open_position_risk(regime: dict) -> None:
         pending = data.get("pending", [])
     except Exception:
         return
+
+    # Confirmed live 2026-08-08: "pending" tracks every signal that was ever
+    # ALERTED (_log_live_signal fires at alert time, independent of whether
+    # --submit was used or the order actually filled), not signals that
+    # became real positions. This risk check used to print/alert on every
+    # pending entry as if it were an open position — FGL and AMZN both
+    # showed up here with live stop-distance numbers despite neither ever
+    # having filled a real order, which read as real open exposure that
+    # didn't exist. Cross-referencing against real Alpaca positions (already
+    # fetched above) keeps this check honest: only tickers you actually hold.
+    if _alp_positions is not None:
+        pending = [p for p in pending if p.get("ticker") in _alp_positions]
 
     if not pending:
         return

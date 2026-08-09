@@ -1144,6 +1144,135 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         mock_client.cancel_order_by_id.assert_not_called()
 
 
+class TestCheckEquityPositionTarget(unittest.TestCase):
+    """Added 2026-08-09: extracted from run_momentum_watch() so the
+    daemon's new continuous equity guard loop (run_equity_guard) can reuse
+    the exact same T1/T2/stop-progression logic instead of a parallel copy
+    that could drift out of sync. A regression here means either a missed
+    T1/T2 alert on a real position, or a double-alert from the two call
+    sites (hourly cron + daemon) racing each other."""
+
+    def setUp(self):
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.write(b"{}")
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+    def tearDown(self):
+        self._dedup_patch.stop()
+        os.unlink(self._dedup_tmp.name)
+
+    def _pos(self, **overrides):
+        base = dict(ticker="CELZ", entry=1.1398, target1=1.68, target2=1.99,
+                    stop=0.96, shares=284, bias="LONG", setup="Low Float Catalyst",
+                    entry_date="2026-08-06", stop_stage="initial")
+        base.update(overrides)
+        return base
+
+    def test_price_below_both_targets_does_nothing(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(self._pos(), cur_price=1.30)
+        mock_tg.assert_not_called()
+
+    def test_t1_hit_alerts_and_progresses_stop(self):
+        with patch.object(a, "_progress_equity_stop_to_trailing", return_value="stop raised") as mock_prog:
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(self._pos(), cur_price=1.70)
+        mock_tg.assert_called_once()
+        self.assertIn("T1 HIT", mock_tg.call_args[0][0])
+        mock_prog.assert_called_once()
+
+    def test_t2_hit_takes_precedence_over_t1(self):
+        with patch.object(a, "_progress_equity_stop_to_trailing", return_value=None):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(self._pos(), cur_price=2.50)
+        mock_tg.assert_called_once()
+        self.assertIn("T2 HIT", mock_tg.call_args[0][0])
+
+    def test_already_alerted_today_does_not_refire(self):
+        with patch.object(a, "_progress_equity_stop_to_trailing", return_value=None):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(self._pos(), cur_price=1.70)
+                a._check_equity_position_target(self._pos(), cur_price=1.71)
+        self.assertEqual(mock_tg.call_count, 1, "the dedup file must prevent a "
+                          "second alert for the same target on the same day, "
+                          "regardless of how many times this is called")
+
+    def test_explicit_cur_price_skips_the_rest_call(self):
+        with patch.object(a, "get_live_price") as mock_price:
+            with patch.object(a, "send_telegram", return_value=True):
+                a._check_equity_position_target(self._pos(), cur_price=1.30)
+        mock_price.assert_not_called()
+
+    def test_no_cur_price_falls_back_to_get_live_price(self):
+        with patch.object(a, "get_live_price", return_value=1.30) as mock_price:
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(self._pos())
+        mock_price.assert_called_once_with("CELZ")
+        mock_tg.assert_not_called()
+
+    def test_unavailable_price_does_not_crash_or_alert(self):
+        with patch.object(a, "get_live_price", return_value=None):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(self._pos())
+        mock_tg.assert_not_called()
+
+    def test_zero_entry_returns_immediately(self):
+        with patch.object(a, "get_live_price") as mock_price:
+            a._check_equity_position_target(self._pos(entry=0), cur_price=100.0)
+        mock_price.assert_not_called()
+
+
+class TestRunEquityGuard(unittest.TestCase):
+    """Added 2026-08-09: the always-on daemon's continuous counterpart to
+    run_options_guard(), which only ever covered options/earnings-spread
+    positions -- plain equity positions (everything actually held,
+    confirmed live: CELZ, CLRO) had NO continuous daemon-side monitoring
+    at all before this, only the hourly cron. A regression here means
+    either options positions get double-checked here too (harmless but
+    wrong) or equity positions get silently skipped."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.close()
+        self._patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._pos_tmp.name):
+            os.unlink(self._pos_tmp.name)
+
+    def _write_positions(self, positions):
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump(positions, f)
+
+    def test_only_plain_equity_positions_are_checked(self):
+        self._write_positions([
+            {"ticker": "CELZ", "entry": 1.14, "setup": "Low Float Catalyst"},
+            {"ticker": "AAPL260821C00310000", "entry": 5.0, "setup": "Options Call AAPL260821C00310000 ($310C exp 2026-08-21)"},
+            {"ticker": "META", "entry": 500.0, "setup": "Earnings META spread"},
+        ])
+        with patch.object(a, "_check_equity_position_target") as mock_check:
+            a.run_equity_guard()
+        checked_tickers = [c.args[0]["ticker"] for c in mock_check.call_args_list]
+        self.assertEqual(checked_tickers, ["CELZ"])
+
+    def test_get_price_fn_is_used_per_ticker(self):
+        self._write_positions([{"ticker": "CELZ", "entry": 1.14, "setup": "Low Float Catalyst"}])
+        prices = {"CELZ": 1.75}
+        with patch.object(a, "_check_equity_position_target") as mock_check:
+            a.run_equity_guard(get_price_fn=lambda t: prices.get(t))
+        self.assertEqual(mock_check.call_args.kwargs.get("cur_price"), 1.75)
+
+    def test_missing_positions_file_does_not_crash(self):
+        os.unlink(self._pos_tmp.name)
+        with patch.object(a, "_check_equity_position_target") as mock_check:
+            a.run_equity_guard()
+        mock_check.assert_not_called()
+
+
 class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
     """Confirmed live 2026-08-07: sync_alpaca_fills() compared
     str(order.status) against the bare string "filled", but a real Alpaca

@@ -43,6 +43,16 @@ os.chdir(REPO_DIR)          # all state files are repo-relative
 
 import dman_algo as algo    # noqa: E402  (needs cwd set first)
 
+# Real-time equity price streaming — OFF by default (2026-08-09). Confirmed
+# live: equity positions (CELZ, CLRO — everything actually held) had NO
+# continuous daemon-side monitoring at all, only the hourly cron. This adds
+# both a WebSocket quote stream AND the guard_loop check that consumes it,
+# gated behind one flag so the default daemon behavior is completely
+# unchanged until it's been watched working for a session or two. Enable
+# with the env var once confirmed: setx ENABLE_REALTIME_EQUITY_STREAM true
+ENABLE_REALTIME_EQUITY_STREAM = os.getenv(
+    "ENABLE_REALTIME_EQUITY_STREAM", "false").strip().lower() == "true"
+
 GUARD_EVERY_S   = 60        # options stop/target enforcement cadence
 SYNC_EVERY_S    = 300       # fill sync + git state sync cadence
 SCAN_INTERVAL_S = 600       # curated-universe signal scan cadence (10 min) —
@@ -94,6 +104,21 @@ _shutdown_event    = threading.Event()
 _active_stream_lock = threading.Lock()
 _active_stream = None   # the live TradingStream instance, if any
 
+# Second, independent stream (real-time equity quotes, see
+# market_data_stream_loop) — same close-before-exit reasoning as
+# _active_stream above applies equally to this one; tracked separately
+# since the two streams connect/disconnect on completely different
+# schedules (order-fill events vs. open-position changes).
+_active_market_stream_lock = threading.Lock()
+_active_market_stream = None   # the live StockDataStream instance, if any
+
+# Real-time equity quote cache fed by market_data_stream_loop, consumed by
+# guard_loop's run_equity_guard() call. (price, monotonic_timestamp) per
+# ticker so a stale/disconnected stream is detectable and never trusted.
+_realtime_prices: dict[str, tuple[float, float]] = {}
+_realtime_prices_lock = threading.Lock()
+_REALTIME_PRICE_MAX_AGE_S = 30
+
 
 def _close_active_stream() -> None:
     """Best-effort clean close of whatever stream connection is currently
@@ -106,6 +131,48 @@ def _close_active_stream() -> None:
             s.stop()
         except Exception:
             pass
+    with _active_market_stream_lock:
+        ms = _active_market_stream
+    if ms is not None:
+        try:
+            ms.stop()
+        except Exception:
+            pass
+
+
+def _get_realtime_price(ticker: str) -> float | None:
+    """Real-time streamed mid-quote for `ticker`, or None if the stream
+    isn't running / hasn't reported one / it's gone stale. Passed as
+    run_equity_guard()'s get_price_fn — that function already falls back
+    to a REST lookup on None, so a dead or cold stream never blocks a
+    check, it just makes that one check as slow as it always was."""
+    with _realtime_prices_lock:
+        entry = _realtime_prices.get(ticker)
+    if entry is None:
+        return None
+    price, ts = entry
+    if time.monotonic() - ts > _REALTIME_PRICE_MAX_AGE_S:
+        return None
+    return price
+
+
+def _current_equity_tickers() -> list[str]:
+    """Tickers currently held as plain equity positions (not options/
+    earnings spreads) — the real-time stream's subscription list. Same
+    setup-prefix filtering run_equity_guard() uses to skip positions
+    already covered by run_options_guard()."""
+    try:
+        with open(algo.POSITIONS_FILE) as f:
+            positions = json.load(f)
+    except Exception:
+        return []
+    tickers = set()
+    for pos in positions:
+        setup = pos.get("setup", "")
+        t = pos.get("ticker", "")
+        if t and not setup.startswith(("Options Call ", "Options Put ", "Earnings ")):
+            tickers.add(t)
+    return sorted(tickers)
 
 
 def _handle_sigterm(signum, frame) -> None:
@@ -279,8 +346,12 @@ def telegram_loop() -> None:
 
 
 def guard_loop() -> None:
-    """Options exit enforcement + periodic fill sync during market hours."""
-    log("Options guard loop started (60s cadence during market hours)")
+    """Options exit enforcement + periodic fill sync during market hours.
+    When ENABLE_REALTIME_EQUITY_STREAM is on, also runs the equity
+    counterpart (run_equity_guard) on the same 60s cadence — see that
+    function's docstring for why equity positions needed this at all."""
+    log("Options guard loop started (60s cadence during market hours)"
+        + (", equity guard also active" if ENABLE_REALTIME_EQUITY_STREAM else ""))
     last_sync = 0.0
     was_open  = False
     while True:
@@ -294,6 +365,11 @@ def guard_loop() -> None:
                 alerts = algo.run_options_guard(verbose=False)
                 for a in alerts:
                     log(a.split("\n")[0].replace("<b>", "").replace("</b>", ""))
+                if ENABLE_REALTIME_EQUITY_STREAM:
+                    try:
+                        algo.run_equity_guard(get_price_fn=_get_realtime_price)
+                    except Exception as exc:
+                        log(f"equity guard error: {exc}")
                 if time.time() - last_sync > SYNC_EVERY_S:
                     git_sync()
                     try:
@@ -530,6 +606,166 @@ def stream_loop() -> None:
                     _active_stream = None
 
 
+def market_data_stream_loop() -> None:
+    """
+    Real-time equity quote stream for open positions — feeds
+    _realtime_prices so guard_loop's run_equity_guard() call can check
+    T1/stop progression against a fresh streamed price instead of a fresh
+    REST call every single 60s check. Off by default
+    (ENABLE_REALTIME_EQUITY_STREAM) — added 2026-08-09 alongside
+    run_equity_guard() itself; see that function's docstring for why
+    equity positions needed continuous daemon-side monitoring at all
+    (they previously had none — only the hourly cron checked them).
+
+    Mirrors stream_loop()'s reconnect-storm guard exactly — same failure
+    mode (an ordinary disconnect triggering a reconnect flood that gets
+    the account's Alpaca API budget abuse-locked) is possible on any
+    Alpaca websocket, not just TradingStream. See that function's
+    docstring for the full incident writeup (27,366 / 39,438 failed
+    reconnects across two sessions on 2026-07-30) this guards against.
+
+    Subscription model: rather than mutating a live stream's subscription
+    list (cross-thread call safety into alpaca-py's asyncio internals
+    isn't something to bet a live position's monitoring on without much
+    more testing time than tonight has), this reconnects with a fresh
+    symbol list whenever the open equity position set changes. Positions
+    change rarely enough that this is simple, safe, and not a reconnect-
+    storm risk on its own — polled at most once per POSITION_POLL_S.
+    """
+    try:
+        from alpaca.data.live import StockDataStream
+        from alpaca.data.enums import DataFeed
+    except ImportError:
+        log("alpaca-py market data stream unavailable — real-time equity prices disabled")
+        return
+
+    async def on_quote(q) -> None:
+        try:
+            sym = getattr(q, "symbol", None)
+            bid = float(getattr(q, "bid_price", 0) or 0)
+            ask = float(getattr(q, "ask_price", 0) or 0)
+            if sym and bid > 0 and ask > 0:
+                with _realtime_prices_lock:
+                    _realtime_prices[sym] = (round((bid + ask) / 2, 4), time.monotonic())
+        except Exception as exc:
+            log(f"quote handler error: {exc}")
+
+    STORM_WINDOW_S         = 30
+    STORM_ATTEMPT_COUNT    = 20
+    STORM_ALERT_COOLDOWN_S = 1800   # don't spam Telegram every backoff cycle
+    POSITION_POLL_S        = 60     # how often to check for a changed position set
+    backoff = 15
+    last_storm_alert = 0.0
+
+    global _active_market_stream
+    while True:
+        if _shutdown_event.is_set():
+            log("market data stream loop stopping — shutdown requested")
+            return
+
+        tickers = _current_equity_tickers()
+        if not tickers:
+            # Nothing to stream — check back soon without opening a
+            # connection for zero symbols.
+            time.sleep(POSITION_POLL_S)
+            continue
+
+        attempt_times: list[float] = []
+        connected = threading.Event()
+        stopped   = threading.Event()
+        stream    = None
+        try:
+            stream = StockDataStream(algo.ALPACA_API_KEY, algo.ALPACA_SECRET_KEY,
+                                     feed=DataFeed.SIP)
+            stream.subscribe_quotes(on_quote, *tickers)
+            with _active_market_stream_lock:
+                _active_market_stream = stream
+
+            _orig_start_ws = stream._start_ws
+            async def _watched_start_ws(_orig=_orig_start_ws):
+                attempt_times.append(time.monotonic())
+                await _orig()
+                connected.set()
+            stream._start_ws = _watched_start_ws
+
+            def _run_stream():
+                try:
+                    stream.run()
+                finally:
+                    stopped.set()
+
+            t = threading.Thread(target=_run_stream, daemon=True)
+            t.start()
+
+            storm = False
+            last_poll = time.monotonic()
+            while t.is_alive() and not stopped.is_set():
+                if _shutdown_event.is_set():
+                    break
+                time.sleep(3)
+                now = time.monotonic()
+                attempt_times[:] = [a for a in attempt_times if now - a < STORM_WINDOW_S]
+                if len(attempt_times) >= STORM_ATTEMPT_COUNT:
+                    storm = True
+                    break
+                if connected.is_set():
+                    connected.clear()
+                    backoff = 15
+                    log(f"market data stream connected — real-time equity quotes on "
+                        f"({len(tickers)} symbol(s): {tickers})")
+                if now - last_poll > POSITION_POLL_S:
+                    last_poll = now
+                    if _current_equity_tickers() != tickers:
+                        log("open equity positions changed — reconnecting stream with updated symbols")
+                        break
+
+            if _shutdown_event.is_set():
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                log("market data stream stopped cleanly (shutdown)")
+                return
+
+            if storm:
+                log(f"market data stream reconnect storm detected ({len(attempt_times)} "
+                    f"attempts in {STORM_WINDOW_S}s, likely rate-limited) — stopping and "
+                    f"backing off {backoff}s")
+                if time.monotonic() - last_storm_alert > STORM_ALERT_COOLDOWN_S:
+                    algo.send_telegram(
+                        "⚠️ Real-time equity price stream hit a reconnect storm — backing "
+                        "off. Equity T1/stop checks fall back to REST + the hourly cron "
+                        "in the meantime, nothing stops working.")
+                    last_storm_alert = time.monotonic()
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                time.sleep(backoff)
+                backoff = min(backoff * 2, 300)
+                continue
+
+            # Thread exited cleanly — either the position set changed (see the
+            # poll check above) or an ordinary disconnect. Either way, loop
+            # back around and reconnect with a freshly-derived symbol list.
+            try:
+                stream.stop()
+            except Exception:
+                pass
+            stopped.wait(timeout=10)
+            time.sleep(1)
+        except Exception as exc:
+            log(f"market data stream error: {exc} — reconnecting in {backoff}s")
+            time.sleep(backoff)
+            backoff = min(backoff * 2, 300)
+        finally:
+            with _active_market_stream_lock:
+                if _active_market_stream is stream:
+                    _active_market_stream = None
+
+
 def earnings_loop() -> None:
     """
     Once daily, ~75 min before the 4 PM close, scans WATCHLIST for tickers
@@ -604,6 +840,9 @@ def main() -> None:
         threading.Thread(target=scan_loop,     daemon=True, name="scan"),
         threading.Thread(target=earnings_loop, daemon=True, name="earnings"),
     ]
+    if ENABLE_REALTIME_EQUITY_STREAM:
+        threads.append(threading.Thread(target=market_data_stream_loop,
+                                        daemon=True, name="market-data-stream"))
     for t in threads:
         t.start()
 

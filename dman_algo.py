@@ -156,12 +156,20 @@ ENABLE_PREMARKET_SUBMIT = True
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
 ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
-OPTIONS_MAX_POSITION_COST   = 1250.0  # flat target budget per options trade (2026-08-07 —
-                                       # direct instruction to size up). Buys ~1 contract of a
-                                       # $12.50/share-premium ITM call ($1,250 = 1 contract x
-                                       # 100 shares/contract x $12.50). Replaces the old
-                                       # 12%-of-account calc (~$593 at $4,942) — still scaled by
-                                       # _risk_off_mult so this stays adaptive to real regime/
+OPTIONS_MAX_POSITION_COST   = 2000.0  # flat target budget per options trade (2026-08-09 —
+                                       # direct instruction to size up further, was $1,250 set
+                                       # 2026-08-07). Raises the "too expensive" ceiling
+                                       # (1.5x this) from $1,875 to $3,000 — confirmed live
+                                       # 2026-08-08 that AMZN's cheapest qualifying ITM
+                                       # contract cost $2,093, just over the old ceiling; this
+                                       # unlocks that class of higher-priced-underlying signal.
+                                       # ~39.6% of account equity ($5,044.65 as of 2026-08-08)
+                                       # in a SINGLE options trade — real concentration risk,
+                                       # not something the portfolio heat cap compensates for
+                                       # (PORTFOLIO_HEAT_LIMIT/SMALLCAP_RISK_PCT count POSITIONS
+                                       # flatly, not actual dollar size — see
+                                       # _submit_signals_to_alpaca's heat-cap loop). Still scaled
+                                       # by _risk_off_mult so this stays adaptive to real regime/
                                        # macro conditions (e.g. derated heading into NFP/CPI),
                                        # not a flat number regardless of risk.
 OPTIONS_DTE_MIN             = 5      # minimum 5 DTE — allows weekly for fast gap plays
@@ -4274,6 +4282,97 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float) -> 
             return None
 
 
+def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) -> None:
+    """
+    T1/T2 exit alerts + automated stop progression for one equity
+    position. Extracted from run_momentum_watch() (2026-08-09) so the
+    daemon's continuous equity guard loop (run_equity_guard) can reuse the
+    exact same logic instead of a parallel copy that could silently drift
+    out of sync with a future fix made to only one of the two call sites.
+    `cur_price` lets a caller pass an already-known price (e.g. the
+    daemon's real-time stream cache) instead of forcing a fresh REST
+    lookup here — omit it to fetch one via get_live_price() as before.
+
+    Fires once per target per day (_is_alerted_today dedup) no matter how
+    often or from how many call sites this runs — safe to call from both
+    the hourly cron's momentum-watch AND the daemon's more frequent loop
+    without double-alerting, the same git-synced-dedup pattern options
+    positions already rely on being checked from two separate places.
+    """
+    t = pos.get("ticker", "")
+    e = float(pos.get("entry", 0))
+    if not t or e <= 0:
+        return
+    _cur_eq = cur_price if cur_price is not None else get_live_price(t)
+    if _cur_eq is None:
+        return
+    _t1e = float(pos.get("target1", 0))
+    _t2e = float(pos.get("target2", 0))
+    _pnle = round((_cur_eq - e) / e * 100, 1) if e > 0 else 0
+    _t2k = f"{t}_T2_{date.today().isoformat()}"
+    _t1k = f"{t}_T1_{date.today().isoformat()}"
+    if _t2e > 0 and _cur_eq >= _t2e and not _is_alerted_today(_t2k):
+        send_telegram(
+            f"🎯 <b>T2 HIT</b> — {t} LONG\n"
+            f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  T2 ${_t2e}\n"
+            f"<b>Sell remaining shares.</b> Best comfortable exit."
+        )
+        _mark_alerted(_t2k)
+    elif _t1e > 0 and _cur_eq >= _t1e and not _is_alerted_today(_t1k):
+        # Confirmed live 2026-08-08: this alert used to just TELL a human to
+        # move the stop to breakeven — CELZ sat at +24.58% with its original
+        # stop untouched because nothing ever executed it. Now actually does
+        # it (see _progress_equity_stop_to_trailing).
+        _stop_msg = ""
+        try:
+            _prog = _progress_equity_stop_to_trailing(OpenPosition(**pos), _cur_eq)
+            if _prog:
+                _stop_msg = f"\n🔒 {_prog}"
+        except Exception as _pe:
+            print(f"  ⚠️  {t}: stop progression failed — {_pe}")
+        send_telegram(
+            f"✅ <b>T1 HIT</b> — {t} LONG\n"
+            f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  T1 ${_t1e}\n"
+            f"Consider selling 50% here manually — the rest is "
+            f"riding to T2 ${_t2e} with a locked-in floor.{_stop_msg}"
+        )
+        _mark_alerted(_t1k)
+
+
+def run_equity_guard(get_price_fn=None) -> None:
+    """
+    Continuous equity-position T1/T2/stop-progression check — the
+    always-on daemon's counterpart to run_options_guard() (which only
+    ever covered options/earnings-spread positions). Confirmed live
+    2026-08-09: plain equity positions (e.g. CELZ, CLRO — everything
+    actually held at the time) were not covered by ANY continuous daemon
+    loop; only the hourly-ish cron momentum-watch checked them, meaning
+    up to ~55 minutes of exposure with a stale, un-raised stop after T1.
+    Reuses _check_equity_position_target(), the exact logic
+    run_momentum_watch() already used, just invoked far more often from
+    the daemon's guard_loop.
+
+    `get_price_fn(ticker) -> float | None`, if given, is tried first for
+    each position (e.g. the daemon's real-time WebSocket price cache).
+    _check_equity_position_target() falls back to its own REST lookup
+    whenever this returns None (stream not running, or the cached price
+    is stale) — this never fails closed just because the stream is down,
+    it just gets slower, matching the same guarantee options positions
+    already have via run_options_guard()'s plain REST-based checks.
+    """
+    try:
+        with open(POSITIONS_FILE) as f:
+            positions = json.load(f)
+    except Exception:
+        return
+    for pos in positions:
+        setup = pos.get("setup", "")
+        if setup.startswith(("Options Call ", "Options Put ", "Earnings ")):
+            continue   # already covered by run_options_guard()
+        cur_price = get_price_fn(pos.get("ticker", "")) if get_price_fn else None
+        _check_equity_position_target(pos, cur_price=cur_price)
+
+
 def run_momentum_watch() -> None:
     """
     Intraday momentum watch — runs at 10:30 AM and 11:30 AM alongside the main scan.
@@ -4332,42 +4431,10 @@ def run_momentum_watch() -> None:
                         continue
 
                     if e > 0:
-                        # Automatic T1/T2 exit alerts for equity positions — fires once
-                        # per target per day (dedup prevents repeat on every 30-min cycle)
-                        _cur_eq = get_live_price(t)
-                        if _cur_eq is not None:
-                            _t1e = float(pos.get("target1", 0))
-                            _t2e = float(pos.get("target2", 0))
-                            _pnle = round((_cur_eq - e) / e * 100, 1) if e > 0 else 0
-                            _t2k = f"{t}_T2_{date.today().isoformat()}"
-                            _t1k = f"{t}_T1_{date.today().isoformat()}"
-                            if _t2e > 0 and _cur_eq >= _t2e and not _is_alerted_today(_t2k):
-                                send_telegram(
-                                    f"🎯 <b>T2 HIT</b> — {t} LONG\n"
-                                    f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  T2 ${_t2e}\n"
-                                    f"<b>Sell remaining shares.</b> Best comfortable exit."
-                                )
-                                _mark_alerted(_t2k)
-                            elif _t1e > 0 and _cur_eq >= _t1e and not _is_alerted_today(_t1k):
-                                # Confirmed live 2026-08-08: this alert used to just
-                                # TELL a human to move the stop to breakeven — CELZ
-                                # sat at +24.58% with its original stop untouched
-                                # because nothing ever executed it. Now actually
-                                # does it (see _progress_equity_stop_to_trailing).
-                                _stop_msg = ""
-                                try:
-                                    _prog = _progress_equity_stop_to_trailing(OpenPosition(**pos), _cur_eq)
-                                    if _prog:
-                                        _stop_msg = f"\n🔒 {_prog}"
-                                except Exception as _pe:
-                                    print(f"  ⚠️  {t}: stop progression failed — {_pe}")
-                                send_telegram(
-                                    f"✅ <b>T1 HIT</b> — {t} LONG\n"
-                                    f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  T1 ${_t1e}\n"
-                                    f"Consider selling 50% here manually — the rest is "
-                                    f"riding to T2 ${_t2e} with a locked-in floor.{_stop_msg}"
-                                )
-                                _mark_alerted(_t1k)
+                        # T1/T2 exit alerts + stop progression — see
+                        # _check_equity_position_target() (also reused by the
+                        # daemon's run_equity_guard() for continuous checking).
+                        _check_equity_position_target(pos)
                         active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
     except Exception:
         pass

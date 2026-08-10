@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-07-23T14:04:37.138272-04:00",
-    "regime": "CHOP",
-    "regime_score": 6,
-    "vix": 19.4,
-    "min_score": 75,
-    "universe": "all",
-    "tickers_total": 158,
-    "signals": 1,
-    "signal_tickers": [
-      "MBLY"
-    ],
-    "rejected_no_signal": 155,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 1,
-    "budget_hit": false
-  },
-  {
-    "ts": "2026-08-05T14:13:34.674280-04:00",
-    "regime": "BULL",
-    "regime_score": 17,
-    "vix": 15.8,
-    "min_score": 75,
-    "universe": "all",
-    "tickers_total": 178,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 174,
-    "rejected_hard_gate": 4,
-    "rejected_low_score": 0,
-    "budget_hit": false
-  },
-  {
     "ts": "2026-07-28T14:06:08.697280-04:00",
     "regime": "CHOP",
     "regime_score": 10,
@@ -304,6 +272,38 @@
     "rejected_no_signal": 95,
     "rejected_hard_gate": 0,
     "rejected_low_score": 0,
+    "budget_hit": false
+  },
+  {
+    "ts": "2026-08-10T13:33:40.595430-04:00",
+    "regime": "BULL",
+    "regime_score": 18,
+    "vix": 15.3,
+    "min_score": 80,
+    "universe": "all",
+    "tickers_total": 114,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 114,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false
+  },
+  {
+    "ts": "2026-07-23T14:04:37.138272-04:00",
+    "regime": "CHOP",
+    "regime_score": 6,
+    "vix": 19.4,
+    "min_score": 75,
+    "universe": "all",
+    "tickers_total": 158,
+    "signals": 1,
+    "signal_tickers": [
+      "MBLY"
+    ],
+    "rejected_no_signal": 155,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 1,
     "budget_hit": false
   }
 ]

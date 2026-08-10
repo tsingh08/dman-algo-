@@ -13,18 +13,6 @@
       "timestamp": "2026-08-03T15:33:22.766294-04:00"
     },
     {
-      "ticker": "CLRO",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 9.8697,
-      "stop": 7.8958,
-      "target1": 14.8,
-      "target2": 24.67,
-      "score": 100,
-      "date": "2026-08-06",
-      "timestamp": "2026-08-06T10:27:55.575279-04:00"
-    },
-    {
       "ticker": "CELZ",
       "setup": "Low Float Catalyst",
       "bias": "LONG",
@@ -35,6 +23,18 @@
       "score": 85,
       "date": "2026-08-06",
       "timestamp": "2026-08-06T10:38:44.682135-04:00"
+    },
+    {
+      "ticker": "CLRO",
+      "setup": "Low Float Catalyst",
+      "bias": "LONG",
+      "entry": 9.8697,
+      "stop": 7.8958,
+      "target1": 14.8,
+      "target2": 24.67,
+      "score": 100,
+      "date": "2026-08-06",
+      "timestamp": "2026-08-06T10:27:55.575279-04:00"
     },
     {
       "ticker": "FGL",

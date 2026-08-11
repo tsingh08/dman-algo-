@@ -10775,7 +10775,15 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
                 # Alpaca doesn't expose stop_price on positions, so we approximate risk as
                 # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
-                total_risk_pct += SMALLCAP_RISK_PCT
+                # Options legs are excluded here — confirmed live 2026-08-11: with 2
+                # equity swings (CELZ, CLRO) + 2 SMCI option legs open, this loop hit
+                # 8% against the 6% cap and would have silently heat-capped out ANY
+                # new equity signal, however good, regardless of the options' actual
+                # (much smaller, already-defined) premium risk. Options are already
+                # risk-managed separately — trailing stop, milestone alerts — so they
+                # shouldn't also consume the equity heat budget.
+                if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
+                    total_risk_pct += SMALLCAP_RISK_PCT
     except Exception:
         pass   # if Alpaca unavailable, proceed without existing-position offset
     if total_risk_pct > 0:

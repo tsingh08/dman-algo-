@@ -217,6 +217,73 @@ class TestMergePositionsSnapshots(unittest.TestCase):
         self.assertEqual(len(merged), 1)
         self.assertEqual(merged[0]["stop"], 200)
 
+    def test_two_options_legs_on_same_ticker_both_survive(self):
+        # Confirmed live 2026-08-11: a real SMCI call+put earnings strangle
+        # shares ticker "SMCI" for both legs. The old ticker-keyed merge
+        # collapsed "4 local + 4 remote -> 3 merged", silently dropping the
+        # call leg from tracking entirely (no stop, no milestone alerts) for
+        # hours before it was caught by manual account inspection.
+        call = {"ticker": "SMCI", "setup": "Options Call SMCI260814C00034000 ($34C exp 2026-08-14)",
+                "stop": 0.66, "shares": 300}
+        put  = {"ticker": "SMCI", "setup": "Options Put SMCI260814P00029500 ($29.5P exp 2026-08-14)",
+                "stop": 0.565, "shares": 200}
+        merged = a.merge_positions_snapshots([call, put], [call, put])
+        setups = {m["setup"] for m in merged}
+        self.assertEqual(len(merged), 2,
+                          "both options legs must survive a merge even though they share a ticker")
+        self.assertIn(call["setup"], setups)
+        self.assertIn(put["setup"], setups)
+
+
+class TestPositionTrackerMultiLegOptions(unittest.TestCase):
+    """PositionTracker.open()/close() dedup/remove by ticker alone, which
+    collides two options legs (call + put) sharing the same underlying
+    ticker. _position_identity() (OCC symbol for options, ticker otherwise)
+    fixes this — these tests lock in that a second leg's open/close can't
+    silently wipe out the first."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.write("[]")
+        self._tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._tmp.name)
+
+    def _call_pos(self):
+        return a.OpenPosition(
+            ticker="SMCI", bias="LONG", setup="Options Call SMCI260814C00034000 ($34C exp 2026-08-14)",
+            entry=1.32, stop=0.66, target1=1.98, target2=3.3, shares=300, entry_date="2026-08-10",
+        )
+
+    def _put_pos(self):
+        return a.OpenPosition(
+            ticker="SMCI", bias="SHORT", setup="Options Put SMCI260814P00029500 ($29.5P exp 2026-08-14)",
+            entry=1.13, stop=0.565, target1=1.695, target2=2.825, shares=200, entry_date="2026-08-10",
+        )
+
+    def test_opening_second_leg_does_not_evict_the_first(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._call_pos())
+        pt.open(self._put_pos())
+        self.assertEqual(len(pt.positions), 2)
+
+    def test_closing_one_leg_by_occ_symbol_leaves_the_other_open(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._call_pos())
+        pt.open(self._put_pos())
+        pt.close("SMCI", occ_symbol="SMCI260814C00034000")
+        self.assertEqual(len(pt.positions), 1)
+        self.assertTrue(pt.positions[0].setup.startswith("Options Put"))
+
+    def test_bare_ticker_close_does_not_match_either_options_leg(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._call_pos())
+        pt.open(self._put_pos())
+        found = pt.close("SMCI")
+        self.assertIsNone(found, "a bare-ticker close must not ambiguously match an options leg")
+        self.assertEqual(len(pt.positions), 2)
+
 
 class TestMergeJsonLists(unittest.TestCase):
     """merge_json_lists() covers the high-frequency append-only files
@@ -1626,6 +1693,32 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
             tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
             n = a.sync_alpaca_fills(tracker)
         self.assertEqual(n, 0)
+
+    def test_already_recorded_close_still_clears_a_resurrected_entry(self):
+        # Confirmed live 2026-08-11: CLRO's closing stop order (filled
+        # 2026-08-06) was already in recorded_ids from when it first closed
+        # correctly, but merge_positions_snapshots() later resurrected the
+        # tracked entry from a stale snapshot. Every sync_alpaca_fills()
+        # cycle since then just `continue`-d past the already-recorded order
+        # id and never reached a pt.close() call -- removal used to live
+        # ONLY inside the "found a NEW closing fill" branch -- leaving CLRO
+        # stuck as a phantom "open" position for 5 real days. Once
+        # _alp_sym is confirmed absent from Alpaca, the stale entry must be
+        # cleared regardless of whether its closing order was recorded before.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []   # not held at Alpaca
+        mock_client.get_orders.return_value = [
+            self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21),
+        ]
+        with open(self._sync_tmp.name, "w") as f:
+            json.dump({"last_sync": None, "recorded_ids": ["order-1"]}, f)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 0, "an already-recorded close must not be double-recorded")
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0,
+                          "the stale entry must still be cleared even though nothing new was recorded")
 
 
 class TestAiThemeMomentumBonus(unittest.TestCase):

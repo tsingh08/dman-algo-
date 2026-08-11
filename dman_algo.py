@@ -8619,6 +8619,28 @@ class OpenPosition:
                                   # see OPTIONS_TRAIL_ACTIVATE_GAIN_PCT.
 
 
+def _position_identity(ticker: str, setup: str) -> str:
+    """
+    Unique key for a tracked position. Multiple options legs on the same
+    underlying (e.g. an earnings call+put strangle) share `ticker` but are
+    genuinely different positions — use the OCC symbol embedded in `setup`
+    instead wherever it identifies one, so ticker-keyed operations (dedup
+    on open, merge, close) can't collide two legs into one.
+
+    Confirmed live 2026-08-11: merge_positions_snapshots() keyed purely by
+    ticker and silently dropped the SMCI call leg during a routine
+    concurrent-write merge ("4 local + 4 remote -> 3 merged") because it
+    shares ticker "SMCI" with the SMCI put — the call went completely
+    untracked (no stop, no milestone alerts) for hours before this was
+    caught by manual account inspection, not by the system itself.
+    """
+    if setup.startswith("Options Call ") or setup.startswith("Options Put "):
+        parts = setup.split()
+        if len(parts) >= 3:
+            return parts[2]
+    return ticker.upper()
+
+
 class PositionTracker:
     """Persists open positions to disk and provides a live P&L dashboard."""
 
@@ -8640,7 +8662,8 @@ class PositionTracker:
             json.dump([asdict(p) for p in self.positions], f, indent=2)
 
     def open(self, pos: OpenPosition) -> bool:
-        self.positions = [p for p in self.positions if p.ticker != pos.ticker]
+        _ident = _position_identity(pos.ticker, pos.setup)
+        self.positions = [p for p in self.positions if _position_identity(p.ticker, p.setup) != _ident]
         if len(self.positions) >= MAX_POSITIONS:
             print(f"  ⚠️  MAX_POSITIONS ({MAX_POSITIONS}) reached — cannot open {pos.ticker}.")
             return False
@@ -8648,9 +8671,12 @@ class PositionTracker:
         self._save()
         return True
 
-    def close(self, ticker: str) -> Optional[OpenPosition]:
-        found = next((p for p in self.positions if p.ticker == ticker.upper()), None)
-        self.positions = [p for p in self.positions if p.ticker != ticker.upper()]
+    def close(self, ticker: str, occ_symbol: Optional[str] = None) -> Optional[OpenPosition]:
+        # occ_symbol disambiguates which leg to close when the ticker alone
+        # is shared by multiple open options legs (see _position_identity).
+        ident = occ_symbol if occ_symbol else ticker.upper()
+        found = next((p for p in self.positions if _position_identity(p.ticker, p.setup) == ident), None)
+        self.positions = [p for p in self.positions if _position_identity(p.ticker, p.setup) != ident]
         self._save()
         return found
 
@@ -8769,21 +8795,28 @@ def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict]) -
     call detects it's flat at Alpaca and removes/records it correctly
     within one cycle regardless — resurrecting a closed ticket for a few
     minutes is self-healing, silently losing a stop-raise is not.
+
+    Keyed by _position_identity(), not bare ticker: two options legs on
+    the same underlying (e.g. an earnings call+put strangle) share ticker
+    but are different positions. Confirmed live 2026-08-11 — a ticker-keyed
+    version of this merge silently collapsed a real SMCI call+put pair into
+    one record, dropping the call from tracking entirely for hours.
     """
-    by_ticker: dict[str, dict] = {}
+    by_ident: dict[str, dict] = {}
     for rec in remote_list + local_list:
         t = rec.get("ticker")
         if not t:
             continue
-        prev = by_ticker.get(t)
+        ident = _position_identity(t, rec.get("setup", ""))
+        prev = by_ident.get(ident)
         if prev is None:
-            by_ticker[t] = rec
+            by_ident[ident] = rec
             continue
         rec_shares, prev_shares = float(rec.get("shares", 0)), float(prev.get("shares", 0))
         rec_stop,   prev_stop   = float(rec.get("stop", 0)),   float(prev.get("stop", 0))
         if rec_shares < prev_shares or (rec_shares == prev_shares and rec_stop > prev_stop):
-            by_ticker[t] = rec
-    return list(by_ticker.values())
+            by_ident[ident] = rec
+    return list(by_ident.values())
 
 
 def sync_positions_with_remote() -> None:
@@ -11982,7 +12015,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 is_live = True,   # a real Alpaca fill, not a simulation
             ))
             record_daily_pnl(acct_pct)
-            pt.close(ticker)
+            pt.close(ticker, occ_symbol=_occ_sym)
 
             sign = "+" if dollar_pnl >= 0 else ""
             print(f"  📋 Synced: {ticker} {pos.bias}  "
@@ -11997,8 +12030,24 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             new_count += 1
             break   # one exit record per position
         else:
-            # Inner loop found no valid closing fill. Entry order may have been
-            # cancelled or expired (limit never filled at open) — remove the ghost.
+            # Inner loop found no valid closing fill to record. Two distinct
+            # cases land here:
+            #  1. Entry order was cancelled/expired (never filled) — a ghost.
+            #  2. The closing order was already recorded in a PRIOR cycle (its
+            #     id is already in recorded_ids), but the tracked entry still
+            #     exists anyway — e.g. resurrected by merge_positions_snapshots()'s
+            #     union-of-tickers rule pulling in a stale snapshot that
+            #     predates the original close. Confirmed live 2026-08-11: CLRO
+            #     sat as a phantom "open" position for 5 days this way — its
+            #     closing stop order (filled 2026-08-06) was already in
+            #     recorded_ids, so every cycle kept silently `continue`-ing
+            #     past it, because removal used to live ONLY inside the
+            #     "found a NEW closing fill" branch above, never running for
+            #     an already-recorded one.
+            # _alp_sym is confirmed absent from alp_open (checked above) in
+            # both cases — always clear the stale tracker entry here, and
+            # only alert/re-record for the genuine "never filled" ghost case
+            # so an already-reported close doesn't re-notify.
             # Options always buy-to-open; equity: BUY for LONG, SELL for SHORT.
             _entry_side = OrderSide.BUY if (is_lo or _occ_sym) else OrderSide.SELL
             # Same class of bug as the FILLED check above, plus a spelling
@@ -12006,16 +12055,19 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             # L), this compared against "cancelled" (two L) — doubly never
             # matched regardless of the str()-vs-enum issue.
             _GHOST_STATUSES = (_OrderStatus.CANCELED, _OrderStatus.EXPIRED, _OrderStatus.REPLACED)
-            for _eo in orders:
-                if (_eo.side == _entry_side and _eo.status in _GHOST_STATUSES):
-                    pt.close(ticker)
-                    _ghost_lbl = _occ_sym if _occ_sym else ticker
-                    print(f"  🗑️  Ghost cleared: {_ghost_lbl} — entry limit {_eo.status}, never filled")
-                    send_telegram(
-                        f"🗑️ <b>Ghost cleared</b>: {_ghost_lbl} — entry limit order "
-                        f"{str(_eo.status)} (never filled). Removed from position tracker."
-                    )
-                    break
+            _ghost_order = next((_eo for _eo in orders
+                                  if _eo.side == _entry_side and _eo.status in _GHOST_STATUSES), None)
+            pt.close(ticker, occ_symbol=_occ_sym)
+            _lbl = _occ_sym if _occ_sym else ticker
+            if _ghost_order is not None:
+                print(f"  🗑️  Ghost cleared: {_lbl} — entry limit {_ghost_order.status}, never filled")
+                send_telegram(
+                    f"🗑️ <b>Ghost cleared</b>: {_lbl} — entry limit order "
+                    f"{str(_ghost_order.status)} (never filled). Removed from position tracker."
+                )
+            else:
+                print(f"  🧹 Stale entry cleared: {_lbl} — not open at Alpaca, "
+                      f"already-recorded close (likely resurrected by a state merge)")
 
     state["last_sync"]    = datetime.utcnow().isoformat()
     state["recorded_ids"] = list(recorded_ids)[-500:]

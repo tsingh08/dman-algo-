@@ -8974,11 +8974,35 @@ def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str) -> No
 
 
 def sync_scan_log_with_remote() -> None:
-    """dman_scan_log.json — flat list, capped at 20 most recent."""
+    """
+    dman_scan_log.json — flat list, capped at 20 most recent.
+
+    Confirmed live 2026-08-11: positional `merged[-20:]` (matching
+    merge_json_lists()'s own max_entries convention) silently froze this
+    file at a full day-old snapshot. merge_json_lists() concatenates as
+    local + new-from-remote, so whenever local and remote have each been
+    independently appended-and-capped-at-20 by separate runs (the normal
+    case — hourly scanner + 60s daemon, each writing its own checkout) and
+    their content has diverged, EVERY remote entry can look "new" to
+    local's key_fn (byte-for-byte match only) — putting all 20 remote
+    entries after local's in the concatenation. `merged[-20:]` then keeps
+    only that remote tail, discarding 100% of local's fresh entries
+    including the newest one just appended. The rewritten local file then
+    exactly matches origin, so the next git diff finds nothing to commit —
+    silently repeating forever with no error, no print, nothing to catch.
+    Unlike dman_win_rate.json (whose "date" field is backtest data, NOT
+    reliably chronological-by-insertion — see merge_json_lists()'s
+    docstring), every entry here comes from a single call site using
+    datetime.now(ET).isoformat() — always a real wall-clock append time —
+    so sorting by it before capping is safe here specifically and fixes
+    the eviction: genuinely newest entries always survive regardless of
+    which side of the local/remote concatenation they landed on.
+    """
     _sync_json_file_via_merge(
         SCAN_LOG_FILE,
         extract=lambda d: (d, None),
-        rebuild=lambda merged, _le, _re: merged[-20:],
+        rebuild=lambda merged, _le, _re: sorted(
+            merged, key=lambda e: e.get("ts", ""), reverse=True)[:20][::-1],
         label="dman_scan_log.json",
     )
 

@@ -367,6 +367,60 @@ class TestMergeJsonLists(unittest.TestCase):
         self.assertEqual(a.merge_json_lists(["x"], ["y"], key_fn=None), ["x"])
 
 
+class TestSyncScanLogWithRemote(unittest.TestCase):
+    """Confirmed live 2026-08-11: sync_scan_log_with_remote() used to cap
+    the merged list positionally (merged[-20:]), matching
+    merge_json_lists()'s own local+new-from-remote concatenation order.
+    Whenever local and remote had each independently been appended-and-
+    capped-at-20 by separate runs (the normal case — hourly scanner + 60s
+    daemon) and diverged in content, every remote entry could look "new"
+    to local's byte-for-byte key_fn, landing all of remote after local in
+    the concatenation — so merged[-20:] kept ONLY remote's tail, silently
+    discarding 100% of local's fresh entries including the one just
+    appended this run. The rewritten local file then matched origin
+    exactly, so the next git diff found nothing to commit — repeating
+    forever with no error. dman_scan_log.json sat frozen at a full day-old
+    snapshot this way. The fix sorts by the always-reliable wall-clock
+    `ts` field before capping, so genuinely newest entries always survive
+    regardless of which side of the concatenation produced them."""
+
+    def _entry(self, ts):
+        return {"ts": ts, "signals": 0, "universe": "curated"}
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "SCAN_LOG_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def test_fresh_local_entry_survives_a_diverged_same_size_remote(self):
+        # local: 19 old entries + 1 brand-new one just appended this run.
+        local = [self._entry(f"2026-08-01T{h:02d}:00:00-04:00") for h in range(19)]
+        local.append(self._entry("2026-08-11T21:00:00-04:00"))   # the newest entry
+        # remote: a fully-diverged, equally-sized, older snapshot (the
+        # "frozen a day ago" scenario) — none of it byte-matches local.
+        remote = [self._entry(f"2026-08-10T{h:02d}:30:00-04:00") for h in range(20)]
+        with open(self._tmp.name, "w") as f:
+            json.dump(local, f)
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(
+                returncode=0, stdout=json.dumps(remote))
+            a.sync_scan_log_with_remote()
+        with open(self._tmp.name) as f:
+            result = json.load(f)
+        self.assertEqual(len(result), 20)
+        self.assertIn("2026-08-11T21:00:00-04:00", [e["ts"] for e in result],
+                       "the newest local entry must survive the merge, not be "
+                       "evicted by an equally-sized but older remote snapshot")
+        self.assertEqual(result[-1]["ts"], "2026-08-11T21:00:00-04:00",
+                          "newest entry must remain last (ascending order), "
+                          "matching print_scan_log()'s reversed() convention")
+
+
 class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
     """A stretch of live orders silently failed (stale Alpaca key → 401) with
     zero visibility: submit_alpaca_trade() only printed the exception to the

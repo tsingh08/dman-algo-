@@ -239,6 +239,24 @@ OPTIONS_TARGET_DTE      = 14            # target 2-week DTE — DMan gap plays r
 OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — documents strike scan intent
 OPTIONS_CLOSE_DTE       = 7             # DTE ≤ 7 → close/roll warning from the monitor
 
+# Trailing exit for options premium — added 2026-08-10, replacing the fixed
+# T2 (+150%) auto-close. Confirmed live: a fixed target ignores how the
+# trade actually got there — the same +150% print means something very
+# different after a smooth grind up vs. a spike that's already reversing.
+# Once a position has run up ACTIVATE_GAIN_PCT from entry, this tracks the
+# highest premium seen (peak_premium) and closes the remaining position if
+# premium gives back TRAIL_GIVEBACK_PCT off that peak — adapts to the
+# trade's real trend instead of waiting for (or missing) one static number.
+# Wider than the equivalent equity thresholds (15% activate / matched trail)
+# because options premium is inherently more volatile than the underlying
+# (leverage + theta + IV all move it) — a tight trail here would whipsaw
+# out on normal option noise. The T1 half-sell and the pre-trail fixed stop
+# (-50%, protects a position that never gets meaningfully profitable at
+# all) are unchanged — this only replaces what happens to the runner AFTER
+# real profit has accrued.
+OPTIONS_TRAIL_ACTIVATE_GAIN_PCT = 25.0
+OPTIONS_TRAIL_GIVEBACK_PCT      = 30.0
+
 # Pre-event strangles (direction-neutral, buys both call + put before big catalysts)
 STRANGLE_TICKERS    = ["SPY", "QQQ"]   # always liquid enough for two-legged plays
 STRANGLE_OTM_PCT    = 0.04             # 4% OTM per leg (keeps premium reasonable)
@@ -270,9 +288,21 @@ EARNINGS_DIRECTIONAL_MIN_MOVES = 3       # of EARNINGS_DIRECTIONAL_LOOKBACK, nee
 EARNINGS_DIRECTIONAL_LOOKBACK  = 4       # how many past earnings moves to look at
 EARNINGS_DIRECTIONAL_MIN_AVG_PCT = 8.0   # ...and the average magnitude must be at least this
 EARNINGS_IV_BACKWARDATION_MIN  = 0.05    # front-vs-back ATM IV gap required to treat "earnings today" as still pending
-EARNINGS_APPROVAL_TIMEOUT_MIN  = 30      # minutes to wait for a Telegram YES before the offer expires
+EARNINGS_APPROVAL_TIMEOUT_MIN  = 240     # minutes to wait for a Telegram YES before the offer expires
                                           # (permanent, always-on gate — no auto-promotion to autonomous
-                                          # submission; every earnings spread requires a human YES)
+                                          # submission; every earnings spread requires a human YES).
+                                          # Was 30 min until 2026-08-10: confirmed live that's
+                                          # unworkable for a user who isn't on their phone most of
+                                          # the workday — a real SMCI offer built at 11:40 AM expired
+                                          # at 12:10 PM and was swept before it was ever seen,
+                                          # leading to an unmanaged manual trade placed outside the
+                                          # algo entirely. 4 hours gives a realistic window (a lunch
+                                          # break, an end-of-day check) without leaving an offer live
+                                          # into the next session. See EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT
+                                          # for the staleness guard this widened window now needs.
+EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT = 8.0   # abort a late approval instead of submitting a spread
+                                               # priced off a stale snapshot — see
+                                               # _handle_earnings_approval_reply's drift check
 EARNINGS_SPREAD_PENDING_FILE   = "dman_earnings_pending.json"
 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
@@ -1818,6 +1848,32 @@ def _handle_earnings_approval_reply(text: str) -> bool:
         return True
 
     plan = entry["plan"]
+
+    # Added 2026-08-10 alongside widening EARNINGS_APPROVAL_TIMEOUT_MIN to
+    # 4 hours: the plan's strikes/net_debit/AI analysis are all computed
+    # from a price SNAPSHOT at offer-build time (plan["current_price"]),
+    # never refreshed. A 30-min window made that an acceptable risk; a
+    # 4-hour window does not — a real move in either direction could make
+    # the debit spread's math (breakeven, max gain, even which strikes are
+    # still sensibly ITM/OTM) stale enough that blindly submitting it no
+    # longer reflects the setup that was actually approved. Abort and ask
+    # for a fresh scan rather than submit off outdated pricing.
+    _snapshot_px = float(plan.get("current_price", 0) or 0)
+    if _snapshot_px > 0:
+        _now_px = get_live_price(entry["ticker"])
+        if _now_px is not None:
+            _drift_pct = abs(_now_px - _snapshot_px) / _snapshot_px * 100
+            if _drift_pct > EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT:
+                send_telegram(
+                    f"⚠️ <b>{entry['ticker']} earnings spread NOT submitted</b> — price moved "
+                    f"{_drift_pct:.1f}% since this offer was built (${_snapshot_px:.2f} → "
+                    f"${_now_px:.2f}), past the {EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT:.0f}% "
+                    f"staleness limit. The strikes/pricing no longer reflect the current setup — "
+                    f"wait for the next scan to generate a fresh offer."
+                )
+                _save_earnings_pending(pending)
+                return True
+
     order_id, err = _submit_earnings_spread(client, plan)
     if err:
         send_telegram(f"❌ <b>{entry['ticker']} earnings spread FAILED</b>\n{err}")
@@ -3783,6 +3839,33 @@ def _update_position_field(ticker: str, **fields) -> None:
         print(f"  ⚠️  Could not update position {ticker}: {_e}")
 
 
+def _update_option_position_field(occ_symbol: str, **fields) -> None:
+    """
+    Like _update_position_field, but matches a SPECIFIC options leg by its
+    OCC symbol embedded in `setup` (e.g. "Options Call SMCI260814C00034000
+    (...)") rather than by ticker. Multiple options legs on the same
+    underlying (e.g. a call AND a put, as in a manually-built earnings
+    strangle) share the same `ticker` field — _update_position_field's
+    ticker-only match would silently update BOTH when only one leg's
+    peak_premium/milestone state should actually change. Added 2026-08-10
+    alongside the options trailing-exit and P&L milestone features.
+    """
+    try:
+        with open(POSITIONS_FILE) as f:
+            data = json.load(f)
+        changed = False
+        for p in data:
+            _setup = p.get("setup", "")
+            if occ_symbol and occ_symbol in _setup.split():
+                p.update(fields)
+                changed = True
+        if changed:
+            with open(POSITIONS_FILE, "w") as f:
+                json.dump(data, f, indent=2)
+    except Exception as _e:
+        print(f"  ⚠️  Could not update option position {occ_symbol}: {_e}")
+
+
 def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, Optional[str]]:
     """
     Submit a closing SELL for an options position — the enforcement arm of the
@@ -3857,9 +3940,59 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
         return "failed", None
 
 
+OPTIONS_MILESTONE_START_PCT = 30.0   # first gain/loss %% that triggers a milestone alert
+OPTIONS_MILESTONE_STEP_PCT  = 10.0   # every additional %% beyond the start that re-alerts
+
+def _check_options_pnl_milestone(pos: dict, kind: str, occ: str, cur_prem: float,
+                                  entry_prem: float, underlying_px: Optional[float]) -> None:
+    """
+    Tiered P&L milestone notifications for one options leg — added
+    2026-08-10 for ongoing visibility into how a position's P&L is moving,
+    independent of the stop/trail/T1 alerts (which only fire on a
+    threshold CROSS, not on every step along the way). Fires at
+    OPTIONS_MILESTONE_START_PCT (30%) and every further
+    OPTIONS_MILESTONE_STEP_PCT (10%) beyond it, in EITHER direction.
+
+    Tracked persistently on the position record itself
+    (milestone_gain_alerted / milestone_loss_alerted), not a same-day
+    dedup — an earnings-hold position can span multiple days, and a
+    milestone already announced shouldn't re-fire just because a new
+    calendar day started while price is still sitting at the same level.
+    Only re-alerts on a NEW, FURTHER bucket (e.g. won't fire again at 32%
+    once 30% was already announced, but will at 41% once past 40%).
+    """
+    if entry_prem <= 0 or not occ:
+        return
+    pnl_pct = (cur_prem - entry_prem) / entry_prem * 100
+    _px_note = f"  Underlying: ${underlying_px:.2f}" if underlying_px else ""
+    if pnl_pct >= OPTIONS_MILESTONE_START_PCT:
+        bucket  = (int(pnl_pct) // int(OPTIONS_MILESTONE_STEP_PCT)) * OPTIONS_MILESTONE_STEP_PCT
+        already = float(pos.get("milestone_gain_alerted", 0) or 0)
+        if bucket <= already:
+            return
+        send_telegram(
+            f"📈 <b>{pos.get('ticker','')} {kind} milestone</b> — +{bucket:.0f}% reached\n"
+            f"Premium ${entry_prem:.2f} → ${cur_prem:.2f} ({pnl_pct:+.1f}%){_px_note}\n"
+            f"{occ}"
+        )
+        _update_option_position_field(occ, milestone_gain_alerted=float(bucket))
+    elif pnl_pct <= -OPTIONS_MILESTONE_START_PCT:
+        bucket  = (int(abs(pnl_pct)) // int(OPTIONS_MILESTONE_STEP_PCT)) * OPTIONS_MILESTONE_STEP_PCT
+        already = float(pos.get("milestone_loss_alerted", 0) or 0)
+        if bucket <= already:
+            return
+        send_telegram(
+            f"📉 <b>{pos.get('ticker','')} {kind} milestone</b> — -{bucket:.0f}% reached\n"
+            f"Premium ${entry_prem:.2f} → ${cur_prem:.2f} ({pnl_pct:+.1f}%){_px_note}\n"
+            f"{occ}"
+        )
+        _update_option_position_field(occ, milestone_loss_alerted=float(bucket))
+
+
 def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
     """
-    Enforce stop / T1 / T2 / DTE rules on one tracked options position.
+    Enforce stop / trailing-exit / T1 / DTE rules on one tracked options
+    position, plus P&L milestone notifications (_check_options_pnl_milestone).
     kind: "CALL" or "PUT". Submits closing orders via _submit_options_close
     and returns a status line for the alert digest (None if record unusable).
     Shared by run_momentum_watch (hourly cron) and the always-on daemon (60s).
@@ -3873,7 +4006,9 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
         return None
     _stop_prem  = float(pos.get("stop",    _entry_prem * 0.5))
     _t1_prem    = float(pos.get("target1", _entry_prem * 1.5))
-    _t2_prem    = float(pos.get("target2", _entry_prem * 2.5))
+    # target2/T2 is no longer a fixed auto-close threshold here (see
+    # OPTIONS_TRAIL_ACTIVATE_GAIN_PCT) — the trailing exit replaced it
+    # 2026-08-10. The field still exists on new positions for reference.
     _delta_entry= float(pos.get("atr",     0.45))   # entry delta stored in atr field
     _ctrs       = max(1, int(pos.get("shares", 100)) // 100)
 
@@ -3896,12 +4031,29 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
     except Exception:
         _dte_now = 99
 
+    # Peak-premium tracking drives the trailing exit below — update BEFORE
+    # branching so a fresh new high this exact check is still trail-active
+    # against (not one check behind).
+    _peak_prem = max(float(pos.get("peak_premium", 0) or 0), _cur_prem)
+    if _peak_prem > float(pos.get("peak_premium", 0) or 0):
+        _update_option_position_field(_occ, peak_premium=_peak_prem)
+    _trail_active = _peak_prem >= _entry_prem * (1 + OPTIONS_TRAIL_ACTIVATE_GAIN_PCT / 100)
+
+    # Extra P&L visibility independent of which branch below fires (or
+    # doesn't) — see _check_options_pnl_milestone.
+    try:
+        _check_options_pnl_milestone(pos, kind, _occ, _cur_prem, _entry_prem, get_live_price(t))
+    except Exception as _me:
+        print(f"  ⚠️  {t} {kind}: milestone check failed — {_me}")
+
     _kp    = "OPT" if kind == "CALL" else "PUT"     # legacy dedup-key prefix
     _tod   = date.today().isoformat()
-    _t1k, _t2k    = f"{t}_{_kp}_T1_{_tod}",   f"{t}_{_kp}_T2_{_tod}"
+    _t1k, _trailk = f"{t}_{_kp}_T1_{_tod}",   f"{t}_{_kp}_TRAIL_{_tod}"
     _stopk, _dtek = f"{t}_{_kp}_STOP_{_tod}", f"{t}_{_kp}_DTE_{_tod}"
 
-    if _exit_prem <= _stop_prem:
+    if not _trail_active and _exit_prem <= _stop_prem:
+        # Baseline floor for a position that never became meaningfully
+        # profitable — trailing can't protect a move that hasn't happened.
         _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} stop")
         if _st == "submitted":
             _action = "🔴 STOP HIT — AUTO-CLOSED"
@@ -3921,25 +4073,29 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
         if not _is_alerted_today(_stopk):
             send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} {kind} {_occ}\n{_msg}")
             _mark_alerted(_stopk)
-    elif _cur_prem >= _t2_prem:
-        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} T2")
+    elif _trail_active and _cur_prem <= _peak_prem * (1 - OPTIONS_TRAIL_GIVEBACK_PCT / 100):
+        # Replaces the old fixed T2 (+150%) auto-close (2026-08-10) — reacts
+        # to how the trade actually moved (peak, then a real give-back)
+        # instead of one static number that could be missed on a fast
+        # reversal or fire too early on a slow, healthy grind.
+        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} trail")
+        _giveback_desc = f"peak ${_peak_prem:.2f} → now ${_cur_prem:.2f} ({_pnl_pct:+.0f}% from entry)"
         if _st == "submitted":
-            _action = "🚀 T2 HIT — AUTO-CLOSED (full exit)"
-            _msg = (f"Premium ${_cur_prem:.2f} ≥ T2 ${_t2_prem:.2f} "
-                    f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
-                    f"(id {_coid[:8]}…). Full runner banked.")
+            _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
+            _msg = (f"Gave back {OPTIONS_TRAIL_GIVEBACK_PCT:.0f}%+ off the peak — {_giveback_desc} — "
+                    f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
         elif _st == "pending":
-            _action = "🚀 T2 HIT — close order working"
+            _action = "🚀 TRAIL EXIT — close order working"
             _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
         elif _st == "already_closed":
-            _action = "🚀 T2 — position already closed at Alpaca"
+            _action = "🚀 TRAIL EXIT — position already closed at Alpaca"
             _msg = "Nothing held — next sync records the P&L"
         else:
-            _action = "🚀 T2 HIT — ⚠️ AUTO-CLOSE FAILED"
-            _msg = f"Premium ${_cur_prem:.2f} ≥ T2 ({_pnl_pct:+.0f}%) — SELL MANUALLY"
-        if not _is_alerted_today(_t2k):
-            send_telegram(f"🚀 <b>OPTIONS T2 HIT</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(_t2k)
+            _action = "🚀 TRAIL EXIT — ⚠️ AUTO-CLOSE FAILED"
+            _msg = f"Gave back {OPTIONS_TRAIL_GIVEBACK_PCT:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
+        if not _is_alerted_today(_trailk):
+            send_telegram(f"🚀 <b>OPTIONS TRAIL EXIT</b> — {t} {kind} {_occ}\n{_msg}")
+            _mark_alerted(_trailk)
     elif _cur_prem >= _t1_prem and _stop_prem < _entry_prem:
         # T1: sell half if ≥2 contracts, raise stop to breakeven either way.
         # (_stop_prem < entry guard = T1 not yet taken)
@@ -3964,7 +4120,7 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
             _update_position_field(t, stop=round(_entry_prem, 2))
             _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
             _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
-                    f"single contract: holding for T2, stop raised to "
+                    f"single contract: riding the trailing exit, stop raised to "
                     f"breakeven ${_entry_prem:.2f} (risk-free runner)")
         if not _is_alerted_today(_t1k):
             send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} {kind} {_occ}\n{_msg}")
@@ -3984,13 +4140,18 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
         _action = ("✅ HOLDING" if kind == "CALL" else "🐻 HOLDING")
         _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day  DTE {_dte_now}d"
 
+    _trail_desc = (f"trailing active, peak ${_peak_prem:.2f} (exits below "
+                    f"${_peak_prem * (1 - OPTIONS_TRAIL_GIVEBACK_PCT / 100):.2f})"
+                    if _trail_active else
+                    f"not yet active (arms at +{OPTIONS_TRAIL_ACTIVATE_GAIN_PCT:.0f}%)")
     return (
         f"{_action}  <b>{t}</b> {kind} {_occ}\n"
         f"   Prem: entry ${_entry_prem:.2f} → now ${_cur_prem:.2f} (bid ${_exit_prem:.2f})  "
         f"({_pnl_pct:+.0f}%)  {_ctrs}ct × 100 = ${_cur_prem*_ctrs*100:.0f} mkt val\n"
         f"   {_msg}\n"
         f"   Δ {_delta_now:.2f}  θ {_theta_now:.3f}/d  IV {_iv_now*100:.0f}%  "
-        f"T1 ${_t1_prem:.2f}  T2 ${_t2_prem:.2f}  Stop ${_stop_prem:.2f}  DTE {_dte_now}d"
+        f"T1 ${_t1_prem:.2f}  Stop ${_stop_prem:.2f}  DTE {_dte_now}d\n"
+        f"   Trail: {_trail_desc}"
     )
 
 
@@ -4179,7 +4340,8 @@ def run_options_guard(verbose: bool = True) -> list[str]:
     return alerts
 
 
-def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float) -> Optional[str]:
+def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
+                                       trigger_price: Optional[float] = None) -> Optional[str]:
     """
     Automates what the T1 alert has only ever told a HUMAN to do manually
     for equity positions — options already self-manage this via the
@@ -4187,6 +4349,17 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float) -> 
     at +24.58% with its original entry-time stop completely untouched —
     the T1 alert said "move stop to breakeven" but nothing ever executed
     it, leaving the entire gain exposed.
+
+    `trigger_price` overrides the gate below pos.target1 — pass a lower
+    threshold to progress the stop BEFORE a full T1 hit. Added 2026-08-10
+    after CLRO ran from $9.80 to a peak of $14.08 (+43.7%), reversed hard
+    within 80 minutes, and gave nearly all of it back to a real loss —
+    T1 was $14.73, never reached, so this function's T1-only gate meant
+    zero protection ever engaged despite a massive run-up. See
+    _check_equity_position_target()'s early-profit-lock branch, the new
+    caller that passes a %-gain-based trigger_price instead of waiting
+    for the full target. Defaults to pos.target1 when omitted, so every
+    existing T1-triggered call site is unchanged.
 
     Two-step transition, run once per position (tracked via stop_stage):
       1. Replace the existing stop order's stop_price to breakeven (entry)
@@ -4204,19 +4377,23 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float) -> 
          breakeven rather than ever leaving the position unprotected.
 
     Trail percent is capped so the trailing stop's INITIAL level can never
-    sit below breakeven, however far past T1 price has already run:
-    min(the position's own original entry-to-stop distance%, the actual
-    current-price-to-entry distance%). Preserves each setup's designed
-    risk cushion (a smallcap's wider stop stays wider) while guaranteeing
-    this step never introduces new risk below what's already locked in.
+    sit below breakeven, however far past the trigger price has already
+    run: min(the position's own original entry-to-stop distance%, the
+    actual current-price-to-entry distance%). Preserves each setup's
+    designed risk cushion (a smallcap's wider stop stays wider) while
+    guaranteeing this step never introduces new risk below what's already
+    locked in. Once submitted, Alpaca's native trailing stop keeps
+    ratcheting up on its own as price continues rising — this doesn't need
+    to be called again to keep tightening after the initial trigger.
 
     Returns a human-readable description of what happened, or None if
-    nothing changed (already trailing, T1 not yet reached, bad data, or a
-    real failure — always printed, never silently swallowed).
+    nothing changed (already trailing, threshold not yet reached, bad
+    data, or a real failure — always printed, never silently swallowed).
     """
     if pos.stop_stage == "trailing":
         return None
-    if pos.target1 <= 0 or cur_price < pos.target1 or pos.entry <= 0:
+    _gate = trigger_price if trigger_price is not None else pos.target1
+    if _gate <= 0 or cur_price < _gate or pos.entry <= 0:
         return None
 
     client = get_alpaca_client()
@@ -4233,7 +4410,7 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float) -> 
             symbols=[pos.ticker], status=QueryOrderStatus.OPEN, limit=10))
         stop_orders = [o for o in open_orders if o.order_type in (OrderType.STOP, OrderType.STOP_LIMIT)]
         if not stop_orders:
-            print(f"  ⚠️  {pos.ticker}: T1 hit but no live stop order found — can't progress it")
+            print(f"  ⚠️  {pos.ticker}: trigger reached but no live stop order found — can't progress it")
             return None
         stop_order = stop_orders[0]
 
@@ -4281,6 +4458,8 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float) -> 
             )
             return None
 
+
+EARLY_PROFIT_LOCK_GAIN_PCT = 15.0   # see _check_equity_position_target's early-lock branch
 
 def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) -> None:
     """
@@ -4337,6 +4516,36 @@ def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) 
             f"riding to T2 ${_t2e} with a locked-in floor.{_stop_msg}"
         )
         _mark_alerted(_t1k)
+    elif _pnle >= EARLY_PROFIT_LOCK_GAIN_PCT:
+        # Confirmed live 2026-08-10: CLRO ran from $9.80 to a peak of $14.08
+        # (+43.7%) in 39 minutes, reversed hard, and gave nearly all of it
+        # back to a real loss within 80 minutes — T1 was $14.73, never
+        # reached, so the T1-only branch above never engaged and this
+        # position got ZERO automated protection despite a massive run-up.
+        # "Low Float Catalyst" names are specifically known for this
+        # spike-and-fade pattern. This locks in a trailing stop once gain
+        # crosses EARLY_PROFIT_LOCK_GAIN_PCT, well before the full target —
+        # same proven mechanism as the T1 branch, just triggered earlier.
+        # Alpaca's native trailing stop then ratchets up on its own as
+        # price keeps rising, so this doesn't need to re-fire to keep
+        # tightening — only once per day (dedup) to avoid alert spam while
+        # already-trailing positions keep clearing this same threshold.
+        _lockk = f"{t}_EARLYLOCK_{date.today().isoformat()}"
+        if not _is_alerted_today(_lockk):
+            _trigger_px = round(e * (1 + EARLY_PROFIT_LOCK_GAIN_PCT / 100), 4)
+            try:
+                _prog = _progress_equity_stop_to_trailing(OpenPosition(**pos), _cur_eq, trigger_price=_trigger_px)
+                if _prog:
+                    send_telegram(
+                        f"🔒 <b>Early profit lock</b> — {t} LONG\n"
+                        f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)\n"
+                        f"{_prog}\n"
+                        f"Locking in gains ahead of full T1 (${_t1e}) — protects against "
+                        f"a fast reversal instead of waiting for the complete target."
+                    )
+                    _mark_alerted(_lockk)
+            except Exception as _pe:
+                print(f"  ⚠️  {t}: early profit-lock progression failed — {_pe}")
 
 
 def run_equity_guard(get_price_fn=None) -> None:
@@ -8331,6 +8540,18 @@ class OpenPosition:
                                      # stop untouched — the T1 alert told the
                                      # human to "move stop to breakeven" but
                                      # nothing ever executed it.
+    milestone_gain_alerted: float = 0.0   # furthest P&L% gain milestone already
+    milestone_loss_alerted: float = 0.0   # alerted for this position (options only,
+                                            # see _check_options_pnl_milestone) — 0.0
+                                            # means none yet. Added 2026-08-10 for
+                                            # extra visibility into P&L swings on top
+                                            # of the existing stop/T1/T2 alerts.
+    peak_premium: float = 0.0   # options only — highest premium seen since entry
+                                  # (or since T1, once taken). Drives the trailing-
+                                  # exit in _monitor_option_position: added 2026-08-10
+                                  # so exits react to how the trade is actually
+                                  # moving instead of only a fixed stop/T2 number —
+                                  # see OPTIONS_TRAIL_ACTIVATE_GAIN_PCT.
 
 
 class PositionTracker:

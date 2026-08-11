@@ -81,6 +81,14 @@ jobs:
           GITHUB_TOKEN:        ${{ secrets.GITHUB_TOKEN }}
           DAEMON_RUN_UNTIL:    ${{ steps.session.outputs.until }}
           PYTHONIOENCODING:    utf-8
+          # Real-time equity position price streaming + continuous T1/stop
+          # guard (see market_data_stream_loop / run_equity_guard in
+          # dman_algo.py). Built and live-verified 2026-08-09, enabled
+          # 2026-08-10 following the CLRO incident (a spike from $9.80 to
+          # $14.08 that reversed before hitting T1, giving back the entire
+          # gain with zero protection since equity positions previously had
+          # no continuous daemon-side monitoring at all).
+          ENABLE_REALTIME_EQUITY_STREAM: "true"
         run: python dman_daemon.py
 
       - name: Notify on daemon failure

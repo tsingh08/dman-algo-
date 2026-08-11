@@ -1057,6 +1057,32 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         self.assertIsNone(result)
         mock_client.get_orders.assert_not_called()
 
+    def test_custom_trigger_price_below_it_does_nothing(self):
+        # Added 2026-08-10 for the early-profit-lock feature: a caller-
+        # supplied trigger_price replaces the T1 gate entirely -- below it,
+        # even a price that's already well past the position's real T1
+        # target must still do nothing if it hasn't reached the custom gate.
+        mock_client = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(
+                self._pos(), cur_price=1.30, trigger_price=1.40)
+        self.assertIsNone(result)
+        mock_client.get_orders.assert_not_called()
+
+    def test_custom_trigger_price_below_t1_still_progresses(self):
+        # The core of the fix: a trigger_price BELOW pos.target1 must let
+        # this fire even though cur_price never reached the real T1.
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._stop_order()]
+        mock_client.submit_order.return_value = MagicMock(id="early-trail-1")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            result = a._progress_equity_stop_to_trailing(
+                self._pos(target1=14.73), cur_price=11.56, trigger_price=1.31)
+        self.assertIsNotNone(result, "a trigger_price below the real T1 must still "
+                              "allow progression -- this is what protects a position "
+                              "that never reaches its full target")
+        mock_client.replace_order_by_id.assert_called_once()
+
     def test_successful_transition_updates_stage_and_uses_capped_trail(self):
         mock_client = MagicMock()
         mock_client.get_orders.return_value = [self._stop_order()]
@@ -1223,6 +1249,42 @@ class TestCheckEquityPositionTarget(unittest.TestCase):
             a._check_equity_position_target(self._pos(entry=0), cur_price=100.0)
         mock_price.assert_not_called()
 
+    def test_early_lock_engages_before_t1(self):
+        # Real CLRO incident, 2026-08-10: entry $9.80, T1 $14.73, peaked at
+        # $14.08 (+43.7%) and reversed hard -- T1 was never reached, so the
+        # T1 branch never engaged and this position got zero protection.
+        # +18% here is well past the 15% trigger but nowhere near T1.
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        with patch.object(a, "_progress_equity_stop_to_trailing", return_value="stop raised to breakeven, now trailing") as mock_prog:
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(pos, cur_price=11.56)   # +18%
+        mock_tg.assert_called_once()
+        self.assertIn("Early profit lock", mock_tg.call_args[0][0])
+        # must pass a trigger_price BELOW T1, not fall through to the T1 gate
+        self.assertEqual(mock_prog.call_args.kwargs.get("trigger_price"), round(9.80 * 1.15, 4))
+
+    def test_below_early_lock_threshold_does_nothing(self):
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=11.00)   # +12.2%, below the 15% trigger
+        mock_tg.assert_not_called()
+
+    def test_early_lock_does_not_refire_same_day(self):
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        with patch.object(a, "_progress_equity_stop_to_trailing", return_value="locked"):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(pos, cur_price=11.56)
+                a._check_equity_position_target(pos, cur_price=12.00)
+        self.assertEqual(mock_tg.call_count, 1)
+
+    def test_early_lock_silent_when_progression_returns_none(self):
+        # Already trailing (from an earlier check) -- no new alert, no dedup mark.
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83, stop_stage="trailing")
+        with patch.object(a, "_progress_equity_stop_to_trailing", return_value=None):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_equity_position_target(pos, cur_price=11.56)
+        mock_tg.assert_not_called()
+
 
 class TestRunEquityGuard(unittest.TestCase):
     """Added 2026-08-09: the always-on daemon's continuous counterpart to
@@ -1271,6 +1333,199 @@ class TestRunEquityGuard(unittest.TestCase):
         with patch.object(a, "_check_equity_position_target") as mock_check:
             a.run_equity_guard()
         mock_check.assert_not_called()
+
+
+class TestOptionsPnlMilestone(unittest.TestCase):
+    """Added 2026-08-10: tiered P&L notifications for options legs the user
+    wants live visibility into (e.g. an earnings hold) independent of the
+    stop/trail/T1 alerts. A regression here means either silence on a real
+    swing or repeat-alert spam on every check once past the threshold."""
+
+    def setUp(self):
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.write(b"{}")
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._pos_patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._pos_patch.start()
+
+    def tearDown(self):
+        self._dedup_patch.stop(); os.unlink(self._dedup_tmp.name)
+        self._pos_patch.stop();   os.unlink(self._pos_tmp.name)
+
+    def _pos(self, **overrides):
+        base = {"ticker": "SMCI", "milestone_gain_alerted": 0.0, "milestone_loss_alerted": 0.0}
+        base.update(overrides)
+        return base
+
+    def test_below_start_threshold_does_nothing(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_options_pnl_milestone(self._pos(), "CALL", "SMCI260814C00034000",
+                                           cur_prem=1.20, entry_prem=1.00, underlying_px=33.0)   # +20%
+        mock_tg.assert_not_called()
+
+    def test_gain_milestone_fires_at_30(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_options_pnl_milestone(self._pos(), "CALL", "SMCI260814C00034000",
+                                           cur_prem=1.35, entry_prem=1.00, underlying_px=34.0)   # +35%
+        mock_tg.assert_called_once()
+        self.assertIn("+30%", mock_tg.call_args[0][0])
+
+    def test_gain_milestone_does_not_refire_same_bucket(self):
+        pos = self._pos(milestone_gain_alerted=30.0)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_options_pnl_milestone(pos, "CALL", "SMCI260814C00034000",
+                                           cur_prem=1.38, entry_prem=1.00, underlying_px=34.0)   # +38%, still bucket 30
+        mock_tg.assert_not_called()
+
+    def test_gain_milestone_fires_at_new_higher_bucket(self):
+        pos = self._pos(milestone_gain_alerted=30.0)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_options_pnl_milestone(pos, "CALL", "SMCI260814C00034000",
+                                           cur_prem=1.45, entry_prem=1.00, underlying_px=35.0)   # +45% -> bucket 40
+        mock_tg.assert_called_once()
+        self.assertIn("+40%", mock_tg.call_args[0][0])
+
+    def test_loss_milestone_fires_independently_of_gain_side(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_options_pnl_milestone(self._pos(), "PUT", "SMCI260814P00029500",
+                                           cur_prem=0.65, entry_prem=1.00, underlying_px=33.0)   # -35%
+        mock_tg.assert_called_once()
+        self.assertIn("-30%", mock_tg.call_args[0][0])
+
+
+class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
+    """Added 2026-08-10: replaced the fixed T2 (+150%) auto-close with a
+    trailing exit (activate after OPTIONS_TRAIL_ACTIVATE_GAIN_PCT gain,
+    close on OPTIONS_TRAIL_GIVEBACK_PCT giveback from the peak) after the
+    CLRO incident showed a fixed target either gets missed on a fast
+    reversal or fires too rigidly. This is real-money-managing, previously
+    completely untested code -- every path must leave the position either
+    correctly closed or correctly still-open, never in between."""
+
+    def setUp(self):
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.write(b"{}")
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.close()
+        self._pos_patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._pos_patch.start()
+
+        self._milestone_patch = patch.object(a, "_check_options_pnl_milestone", return_value=None)
+        self._milestone_patch.start()
+        self._price_patch = patch.object(a, "get_live_price", return_value=33.0)
+        self._price_patch.start()
+
+    def tearDown(self):
+        self._dedup_patch.stop();    os.unlink(self._dedup_tmp.name)
+        self._pos_patch.stop();      os.unlink(self._pos_tmp.name)
+        self._milestone_patch.stop()
+        self._price_patch.stop()
+
+    def _write_positions(self, positions):
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump(positions, f)
+
+    def _pos(self, **overrides):
+        base = {"ticker": "SMCI", "setup": "Options Call SMCI260814C00034000 ($34C exp 2026-08-14)",
+                "entry": 1.00, "stop": 0.50, "target1": 1.50, "target2": 2.50,
+                "atr": 0.45, "shares": 100, "peak_premium": 0.0,
+                "milestone_gain_alerted": 0.0, "milestone_loss_alerted": 0.0}
+        base.update(overrides)
+        return base
+
+    def _snap(self, mid, delta=0.6, theta=-0.05, iv=0.3):
+        return {"bid": mid - 0.02, "ask": mid + 0.02, "mid": mid, "delta": delta,
+                "gamma": 0.01, "theta": theta, "vega": 0.1, "iv": iv, "oi": 500}
+
+    def test_pre_trail_stop_loss_still_closes(self):
+        # Never got meaningfully profitable -- baseline floor must still work.
+        self._write_positions([self._pos()])
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.48)):   # -52%
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord1")) as mock_close:
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    a._monitor_option_position(self._pos(), "CALL")
+        mock_close.assert_called_once()
+        self.assertIn("OPTIONS STOP", mock_tg.call_args[0][0])
+
+    def test_trail_not_active_before_activation_gain_even_with_a_drop(self):
+        # Peak only ever reached +10% (below the 25% activation) -- a drop
+        # from there must NOT trigger a trail exit (trail was never armed).
+        pos = self._pos(peak_premium=1.10)   # +10% peak, stop=0.50 keeps this above baseline stop
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.90)):   # -10% from entry, -18% off peak
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(pos, "CALL")
+        mock_close.assert_not_called()
+        self.assertIn("not yet active", result)
+
+    def test_trail_exit_fires_after_activation_and_giveback(self):
+        # Peak hit +30% (past the 25% activation), now given back to +5%
+        # from entry -- a ~19% drop off peak... need past 30% giveback.
+        # Peak 1.35 (+35%), current 0.90 -> giveback (1.35-0.90)/1.35=33.3% > 30%.
+        pos = self._pos(peak_premium=1.35)
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.90)):
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord2")) as mock_close:
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    a._monitor_option_position(pos, "CALL")
+        mock_close.assert_called_once()
+        self.assertIn("TRAIL EXIT", mock_tg.call_args[0][0])
+
+    def test_trail_active_but_giveback_not_enough_does_not_exit(self):
+        # Peak +35%, current only given back ~11% off peak (1.35 -> 1.20) --
+        # under the 30% giveback threshold, must stay open.
+        pos = self._pos(peak_premium=1.35, target1=999.0)   # target1 sky-high so T1 branch can't interfere
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.20)):
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(pos, "CALL")
+        mock_close.assert_not_called()
+        self.assertIn("trailing active", result)
+
+    def test_peak_premium_updates_on_new_high(self):
+        self._write_positions([self._pos(peak_premium=1.00)])
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.10)):
+            with patch.object(a, "_submit_options_close"):
+                with patch.object(a, "send_telegram", return_value=True):
+                    with patch.object(a, "_update_option_position_field") as mock_update:
+                        a._monitor_option_position(self._pos(peak_premium=1.00), "CALL")
+        mock_update.assert_any_call("SMCI260814C00034000", peak_premium=1.10)
+
+    def test_peak_premium_does_not_regress_on_a_lower_price(self):
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.80)):
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord4")):
+                with patch.object(a, "send_telegram", return_value=True):
+                    with patch.object(a, "_update_option_position_field") as mock_update:
+                        a._monitor_option_position(self._pos(peak_premium=1.50), "CALL")
+        for c in mock_update.call_args_list:
+            self.assertNotIn("peak_premium", c.kwargs)
+
+    def test_t1_half_sell_unaffected_by_trailing_change(self):
+        # Real regression guard: T1 logic must still work exactly as before.
+        pos = self._pos(target1=1.20, shares=200)   # 2 contracts
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.25)):   # past T1, below trail-activate
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord3")) as mock_close:
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    a._monitor_option_position(pos, "CALL")
+        mock_close.assert_called_once_with("SMCI260814C00034000", 1, "SMCI CALL T1 half")
+        self.assertIn("T1 HIT", mock_tg.call_args[0][0])
+
+    def test_milestone_check_is_invoked(self):
+        # setUp already patches _check_options_pnl_milestone to a MagicMock --
+        # just inspect that mock directly rather than re-patching mid-test.
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.05)):
+            with patch.object(a, "send_telegram", return_value=True):
+                a._monitor_option_position(self._pos(), "CALL")
+        a._check_options_pnl_milestone.assert_called_once()
 
 
 class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
@@ -2487,6 +2742,64 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         consumed = a._handle_earnings_approval_reply("what's the weather")
         self.assertFalse(consumed)
         self.assertEqual(len(a._load_earnings_pending()), 1)
+
+    def _plan_with_snapshot(self, current_price):
+        p = self._plan()
+        p["current_price"] = current_price
+        return p
+
+    def _add_pending_with_plan(self, ticker, plan, minutes_until_expiry=240):
+        entry = {"ticker": ticker, "earn_date": "2026-07-29",
+                 "created_at": datetime.now(a.ET).isoformat(),
+                 "expires_at": (datetime.now(a.ET) + timedelta(minutes=minutes_until_expiry)).isoformat(),
+                 "status": "awaiting_approval", "plan": plan}
+        pending = a._load_earnings_pending()
+        pending.append(entry)
+        a._save_earnings_pending(pending)
+
+    def test_small_price_drift_still_submits(self):
+        # Added 2026-08-10 alongside widening the approval window to 4hrs:
+        # a small move since the offer was built must not block a real approval.
+        self._add_pending_with_plan("HOOD", self._plan_with_snapshot(100.0))
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = MagicMock(id="ord1")
+        with patch.object(a, "send_telegram", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+                    with patch.object(a, "get_live_price", return_value=103.0):   # +3%, under the 8% limit
+                        with patch.object(a, "PositionTracker"):
+                            a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_called_once()
+
+    def test_large_price_drift_aborts_without_submitting(self):
+        # The core of the fix: a widened approval window means the snapshot
+        # pricing/strikes can go stale enough to no longer reflect reality --
+        # must abort rather than submit a spread built on outdated numbers.
+        self._add_pending_with_plan("HOOD", self._plan_with_snapshot(100.0))
+        mock_client = MagicMock()
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                with patch.object(a, "get_live_price", return_value=112.0):   # +12%, over the 8% limit
+                    consumed = a._handle_earnings_approval_reply("yes")
+        self.assertTrue(consumed)
+        mock_client.submit_order.assert_not_called()
+        self.assertIn("NOT submitted", mock_tg.call_args[0][0])
+        self.assertEqual(a._load_earnings_pending(), [], "an aborted-on-drift offer must not "
+                          "stay pending forever -- it's consumed, not re-approvable")
+
+    def test_drift_check_skipped_when_no_snapshot_price_stored(self):
+        # Older/malformed plans without a current_price snapshot must fail
+        # open to the pre-existing submit path, not silently block forever.
+        self._add_pending("HOOD")   # no current_price key
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = MagicMock(id="ord1")
+        with patch.object(a, "send_telegram", return_value=True):
+            with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+                    with patch.object(a, "get_live_price", return_value=99999.0):
+                        with patch.object(a, "PositionTracker"):
+                            a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_called_once()
 
 
 class TestWorkflowRestartFeature(unittest.TestCase):

@@ -6598,6 +6598,58 @@ def _format_earnings_surprise_note(surprise: dict) -> str:
     return f"\n📊 <b>Earnings {surprise.get('date','')}</b>: " + ", ".join(parts)
 
 
+EARNINGS_REACTION_LOOKBACK_DAYS = 2   # matches _recent_earnings_surprise's default window
+
+def check_earnings_reaction(ticker: str, bias: str) -> tuple[bool, int]:
+    """
+    Confluence bonus (up to 7 pts) if a REAL, recently-reported earnings
+    surprise fundamentally confirms this signal's direction — added
+    2026-08-11 so a signal riding a genuine earnings beat scores higher
+    than an identical-looking one with no fundamental backing (previously
+    _recent_earnings_surprise's data only ever reached alert TEXT, never
+    the score itself).
+
+    Deliberately does NOT average EPS and revenue surprise together.
+    Confirmed live 2026-08-10: RIOT missed EPS by -106% (a GAAP loss
+    heavily distorted by non-cash crypto-asset mark-to-market accounting)
+    but beat revenue by +14.6%, and the market rallied +22.9% overnight —
+    an averaged score would have read that as net negative and missed a
+    genuinely strong, fundamentally-backed setup. Revenue is scored as
+    the primary signal (harder to flatter than EPS via cost-cutting, more
+    directly reflects real business momentum); a same-direction EPS
+    result adds a smaller bonus on top. An EPS miss is never itself a
+    penalty here — the opposite-direction price action that would result
+    from a truly bad quarter is already what keeps a contradicting ticker
+    from generating a same-direction signal in the first place (e.g. a
+    real down-move on bad numbers won't produce a Gap & Hold LONG
+    candidate to apply this bonus to).
+
+    Never a hard gate (always returns ok=True) — most signals simply have
+    no earnings in the window, which isn't itself bearish or bullish.
+    """
+    try:
+        surprise = _recent_earnings_surprise(ticker, days_back=EARNINGS_REACTION_LOOKBACK_DAYS)
+        if not surprise:
+            return True, 0
+        rev_pct = surprise.get("revenue_surprise_percent")
+        eps_pct = surprise.get("eps_surprise_percent")
+        want_long = (bias == "LONG")
+        score = 0
+        if rev_pct is not None:
+            signed_rev = rev_pct if want_long else -rev_pct
+            if signed_rev >= 0.10:
+                score += 5
+            elif signed_rev >= 0.05:
+                score += 3
+        if eps_pct is not None:
+            signed_eps = eps_pct if want_long else -eps_pct
+            if signed_eps >= 0:
+                score += 2
+        return True, min(score, 7)
+    except Exception:
+        return True, 0
+
+
 def _extract_earnings_dates(ticker: str) -> list[date]:
     """
     Shared calendar parser for check_earnings_safe()/get_upcoming_earnings().
@@ -9382,6 +9434,18 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     macro_ok, macro_score = check_macro_safe()
     signal.macro_ok = macro_ok
     breakdown["Macro"] = macro_score
+
+    # 5c. Earnings reaction confirmation (up to 7 pts, free — already-fetched
+    # Massive/Benzinga data). Added 2026-08-11: _recent_earnings_surprise()
+    # already existed and was surfaced in alert TEXT, but never fed the
+    # actual score — a signal could look identical whether or not real
+    # numbers backed it up. See check_earnings_reaction() for why this
+    # deliberately doesn't average EPS and revenue together (RIOT missed
+    # EPS by -106% but beat revenue +14.6% and still rallied +22.9%
+    # overnight, confirmed live 2026-08-10 — an averaged score would have
+    # scored that setup negative).
+    _, earn_react_score = check_earnings_reaction(signal.ticker, signal.bias)
+    breakdown["Earn React"] = earn_react_score
 
     # 6. Fibonacci (10 pts)
     fib_ok, fib_score = check_fibonacci(df, signal.entry)

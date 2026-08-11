@@ -2570,6 +2570,76 @@ class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):
             self.assertNotIn("OPEN POSITION RISK", _call[0][0])
 
 
+class TestEarningsReactionScoring(unittest.TestCase):
+    """Added 2026-08-11: _recent_earnings_surprise() already existed and
+    fed alert TEXT, but never the actual confluence score -- a signal
+    looked identical whether or not real numbers backed it up. A
+    regression here means either a fundamentally-backed setup doesn't get
+    credited, or (worse) an averaged EPS+revenue score wrongly penalizes
+    a case like RIOT (missed EPS -106%, beat revenue +14.6%, rallied
+    +22.9% overnight, confirmed live 2026-08-10)."""
+
+    def _surprise(self, rev_pct=None, eps_pct=None, when="2026-08-10"):
+        return {"date": when, "revenue_surprise_percent": rev_pct, "eps_surprise_percent": eps_pct}
+
+    def test_no_recent_earnings_returns_zero(self):
+        with patch.object(a, "_recent_earnings_surprise", return_value=None):
+            ok, score = a.check_earnings_reaction("TESTX", "LONG")
+        self.assertTrue(ok)
+        self.assertEqual(score, 0)
+
+    def test_strong_revenue_beat_scores_max_tier(self):
+        with patch.object(a, "_recent_earnings_surprise", return_value=self._surprise(rev_pct=0.12)):
+            ok, score = a.check_earnings_reaction("TESTX", "LONG")
+        self.assertEqual(score, 5)
+
+    def test_moderate_revenue_beat_scores_mid_tier(self):
+        with patch.object(a, "_recent_earnings_surprise", return_value=self._surprise(rev_pct=0.07)):
+            ok, score = a.check_earnings_reaction("TESTX", "LONG")
+        self.assertEqual(score, 3)
+
+    def test_small_revenue_beat_below_threshold_scores_zero(self):
+        with patch.object(a, "_recent_earnings_surprise", return_value=self._surprise(rev_pct=0.02)):
+            ok, score = a.check_earnings_reaction("TESTX", "LONG")
+        self.assertEqual(score, 0)
+
+    def test_eps_beat_adds_a_secondary_bonus(self):
+        with patch.object(a, "_recent_earnings_surprise", return_value=self._surprise(rev_pct=0.12, eps_pct=0.10)):
+            ok, score = a.check_earnings_reaction("TESTX", "LONG")
+        self.assertEqual(score, 7)   # 5 (revenue) + 2 (EPS)
+
+    def test_riot_style_eps_miss_with_revenue_beat_is_not_penalized(self):
+        # Real numbers, confirmed live 2026-08-10: EPS missed by -106%,
+        # revenue beat by +14.6%, price rallied +22.9% overnight.
+        with patch.object(a, "_recent_earnings_surprise",
+                          return_value=self._surprise(rev_pct=0.1457, eps_pct=-1.0606)):
+            ok, score = a.check_earnings_reaction("RIOT", "LONG")
+        self.assertTrue(ok)
+        self.assertEqual(score, 5, "the EPS miss must not drag down the genuine revenue-beat bonus")
+
+    def test_short_bias_inverts_the_direction(self):
+        # A miss confirms a SHORT/bearish setup, not a beat.
+        with patch.object(a, "_recent_earnings_surprise", return_value=self._surprise(rev_pct=-0.12)):
+            ok, score = a.check_earnings_reaction("TESTX", "SHORT")
+        self.assertEqual(score, 5)
+
+    def test_beat_does_not_confirm_a_short_bias(self):
+        with patch.object(a, "_recent_earnings_surprise", return_value=self._surprise(rev_pct=0.12)):
+            ok, score = a.check_earnings_reaction("TESTX", "SHORT")
+        self.assertEqual(score, 0)
+
+    def test_score_is_capped_at_seven(self):
+        with patch.object(a, "_recent_earnings_surprise", return_value=self._surprise(rev_pct=0.50, eps_pct=0.50)):
+            ok, score = a.check_earnings_reaction("TESTX", "LONG")
+        self.assertEqual(score, 7)
+
+    def test_exception_fails_open(self):
+        with patch.object(a, "_recent_earnings_surprise", side_effect=Exception("boom")):
+            ok, score = a.check_earnings_reaction("TESTX", "LONG")
+        self.assertTrue(ok)
+        self.assertEqual(score, 0)
+
+
 class TestEarningsAlreadyReportedCheck(unittest.TestCase):
     """_check_earnings_already_reported() must match real earnings-release
     headline phrasing and fail closed (False, not a crash) when Benzinga

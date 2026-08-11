@@ -241,6 +241,17 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
+          # Confirmed live 2026-08-10: `git rebase --continue` after resolving
+          # a conflict needs to open an editor for the commit message — with
+          # no interactive terminal on a runner, that failed with "Terminal is
+          # dumb, but EDITOR unset", which the `|| git rebase --abort`
+          # fallback then treated as an unrecoverable conflict and discarded,
+          # silently dropping that ENTIRE run's real scan results (verified:
+          # a genuine "No A+ setups today" scan output with real universe
+          # data never made it into dman_scan_log.json for at least 2
+          # separate Monday runs). `true` as the editor accepts git's own
+          # auto-generated rebase commit message with no prompt needed.
+          git config core.editor true
 
           # Fetch BEFORE staging/merging so dman_positions.json can be
           # semantically merged against origin/main's current copy. The

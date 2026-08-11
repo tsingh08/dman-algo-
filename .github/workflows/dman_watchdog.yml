@@ -67,6 +67,11 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
+          # See dman_scanner.yml's identical fix, confirmed live 2026-08-10:
+          # `git rebase --continue` needs an editor for the commit message,
+          # which doesn't exist on a runner and silently discards the whole
+          # run's real results via the `|| git rebase --abort` fallback.
+          git config core.editor true
           [ -f dman_last_alerts.json ] && git add dman_last_alerts.json || true
           if git diff --staged --quiet; then
             echo "No changes to commit"

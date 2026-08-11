@@ -1,18 +1,6 @@
 [
   {
     "ticker": "DUOL",
-    "date": "2024-10-10",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 264.26,
-    "exit": 290.28,
-    "outcome": "WIN",
-    "pnl_pct": 9.92,
-    "score": 88,
-    "is_live": false
-  },
-  {
-    "ticker": "DUOL",
     "date": "2024-11-07",
     "bias": "LONG",
     "setup": "Gap & Hold",
@@ -5949,6 +5937,18 @@
     "outcome": "BE",
     "pnl_pct": 0.0,
     "score": 0,
+    "is_live": true
+  },
+  {
+    "ticker": "CLRO",
+    "date": "2026-08-11",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 9.8,
+    "exit": 7.05,
+    "outcome": "LOSS",
+    "pnl_pct": -28.06,
+    "score": 100,
     "is_live": true
   },
   {

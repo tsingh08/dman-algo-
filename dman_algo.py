@@ -543,11 +543,11 @@ def build_scan_universe(min_price: float = 2.0,
             "https://www.nasdaqtrader.com/dynamic/symdir/nasdaqlisted.txt", "Symbol")
         other_syms  = _fetch_syms(
             "https://www.nasdaqtrader.com/dynamic/symdir/otherlisted.txt", "ACT Symbol")
-        all_syms = list(set(nasdaq_syms + other_syms) - set(WATCHLIST))
+        all_syms = sorted(set(nasdaq_syms + other_syms) - set(WATCHLIST))
     except Exception as e:
         print(f"  [universe] Symbol fetch failed ({e}), using curated + extended list.", flush=True)
         # Fallback: curated watchlist + extended universe (RVOL filter still applied below)
-        all_syms = list(set(EXTENDED_UNIVERSE) - set(WATCHLIST))
+        all_syms = sorted(set(EXTENDED_UNIVERSE) - set(WATCHLIST))
 
     print(f"  [universe] {len(all_syms):,} symbols → filtering by price/volume...", flush=True)
 
@@ -555,6 +555,19 @@ def build_scan_universe(min_price: float = 2.0,
     active: list[tuple[str, float]] = []
     batch_size = 400
     batches = [all_syms[i:i+batch_size] for i in range(0, len(all_syms), batch_size)]
+    # Confirmed live 2026-08-10: the 7-min budget below only ever gets through
+    # ~56% of the batches (18/32 on a real run) — combined with `set()`'s
+    # hash-randomized iteration order (a fresh, unseeded value every process,
+    # confirmed: the same 7 tickers printed in a different order on every
+    # run), this meant a different ~44% of the whole market was silently
+    # skipped every single scan with no guarantee any given ticker was ever
+    # actually checked. Sorting (above) makes the order deterministic, and
+    # rotating the starting batch by day-of-year means each day's ~56% is a
+    # DIFFERENT slice that cycles through the full universe over a few days,
+    # instead of leaving coverage to chance every run.
+    if batches:
+        _rotate = date.today().toordinal() % len(batches)
+        batches = batches[_rotate:] + batches[:_rotate]
     _univ_start = time.monotonic()
     _univ_budget = 7 * 60  # 7-min cap so universe build never blows the 25-min job timeout
     for idx, batch in enumerate(batches, 1):

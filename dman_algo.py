@@ -12026,6 +12026,34 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                          if getattr(order, "filled_at", None) else
                          datetime.today().strftime("%Y-%m-%d"))
 
+            # Independent safety net against duplicate recording, on top of
+            # (not instead of) the recorded_ids check above. Confirmed live
+            # 2026-08-11: _restore_corrupted_json()'s `git checkout -- file`
+            # fallback (dman_daemon.py, on a stash-pop conflict) can revert
+            # dman_alpaca_sync.json to whatever was in the LAST COMMIT at
+            # that exact moment — if that commit predates when an order's
+            # id was safely pushed, the restore silently un-records it,
+            # letting an already-closed position (CLRO) get re-detected and
+            # re-recorded 5 times in one day, each one adding its full P&L
+            # again to both the win-rate history and dman_daily_pnl.json —
+            # the latter accumulated to a phantom -24.76% "today" that
+            # would have tripped DAILY_LOSS_LIMIT (3%) and halted all new
+            # entries had the corruption finished accumulating during
+            # market hours instead of after close. recorded_ids is a
+            # cache, not a ledger — this checks the ledger itself
+            # (tracker.records, i.e. dman_win_rate.json) directly, so a
+            # lost cache entry can no longer cause a duplicate no matter
+            # what upstream git race caused it.
+            _dupe = any(r.ticker == ticker and r.setup == pos.setup
+                        and abs(r.exit - round(fill_px, 2)) < 0.005
+                        for r in tracker.records)
+            if _dupe:
+                pt.close(ticker, occ_symbol=_occ_sym)
+                recorded_ids.add(oid)
+                print(f"  ⏭️  Skipped duplicate close record: {ticker} "
+                      f"${pos.entry}→${fill_px:.2f} already in win-rate history")
+                break
+
             tracker.record(TradeRecord(
                 ticker  = ticker,
                 date    = fill_date,

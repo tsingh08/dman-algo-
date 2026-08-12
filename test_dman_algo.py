@@ -1774,6 +1774,35 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0,
                           "the stale entry must still be cleared even though nothing new was recorded")
 
+    def test_matching_win_rate_record_blocks_a_second_recording_even_with_a_new_order_id(self):
+        # Confirmed live 2026-08-11: _restore_corrupted_json()'s git-checkout
+        # fallback (dman_daemon.py) can revert dman_alpaca_sync.json to a
+        # PAST commit that predates a real order id being safely pushed,
+        # un-recording it from recorded_ids -- so the SAME real close (CLRO)
+        # got detected as "new" and re-recorded 5 times in one day, each one
+        # double-counting P&L into dman_win_rate.json and dman_daily_pnl.json
+        # (which accumulated to a phantom -24.76%, well past the 3% daily
+        # loss circuit breaker). This is the independent ledger-level guard:
+        # even with a genuinely different (never-seen) order id, a matching
+        # ticker+setup+exit already in win-rate history must block a second
+        # recording.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+        tracker.record(a.TradeRecord(
+            ticker="IOTR", date="2026-08-06", bias="LONG", setup="Low Float Catalyst",
+            entry=3.52, exit=3.21, outcome="LOSS", pnl_pct=-8.7, score=0, is_live=True,
+        ))
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        order = self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21)
+        order.id = "a-different-never-seen-order-id"
+        mock_client.get_orders.return_value = [order]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 0, "a ledger-matching close must not be recorded again")
+        self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 1,
+                          "win-rate history must still have exactly one IOTR record")
+
 
 class TestAiThemeMomentumBonus(unittest.TestCase):
     """Added 2026-08-07, direct instruction: AI isn't a GICS/SPDR sector, so

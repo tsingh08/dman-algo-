@@ -1963,6 +1963,129 @@ class TestDynamicTickerPriceFloor(unittest.TestCase):
             self.assertIn("count=50", call[0][0])
 
 
+class TestFetchEarningsMoverTickers(unittest.TestCase):
+    """Confirmed live 2026-08-12: CRWV beat EPS by +30.9% and gapped +15.7%
+    the next morning on 24M avg daily volume, and the algo never once
+    considered it because every other earnings lookup in this file only
+    checks tickers already on the fixed WATCHLIST. fetch_earnings_mover_tickers()
+    closes that blind spot via Massive's earnings endpoint, which (confirmed
+    live the same day) supports a plain date-range query with no ticker
+    filter. These tests lock in the filtering: a real beat AND a real live
+    gap AND enough liquidity, restricted to names not already covered by
+    the normal watchlist path."""
+
+    def _hist(self, prev_close, avg_vol):
+        import pandas as pd
+        return pd.DataFrame({
+            "Close":  [prev_close] * 10,
+            "Volume": [avg_vol] * 10,
+        })
+
+    def _earnings_response(self, records):
+        resp = MagicMock()
+        resp.status_code = 200
+        resp.json.return_value = {"results": records}
+        return resp
+
+    def _record(self, ticker, importance=4, eps_pct=0.30, rev_pct=0.01):
+        return {"ticker": ticker, "importance": importance,
+                "eps_surprise_percent": eps_pct, "revenue_surprise_percent": rev_pct}
+
+    def setUp(self):
+        self._patches = [
+            patch.object(a, "ENABLE_EARNINGS_MOVER_SCAN", True),
+            patch.object(a, "MASSIVE_API_KEY", "test-key"),
+            patch.object(a, "WATCHLIST", ["AAPL", "MSFT"]),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+
+    def test_real_beat_and_gap_is_found(self):
+        # The actual CRWV shape: importance 4, +30.9% EPS beat, live price
+        # gapped well above prior close on real volume.
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=104.51), \
+             patch.object(a, "fetch_df", return_value=self._hist(90.32, 24_000_000)):
+            mock_requests.get.return_value = self._earnings_response(
+                [self._record("CRWV")])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertIn("CRWV", result)
+
+    def test_ticker_already_on_watchlist_is_excluded(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=104.51), \
+             patch.object(a, "fetch_df", return_value=self._hist(90.32, 24_000_000)):
+            mock_requests.get.return_value = self._earnings_response(
+                [self._record("AAPL")])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertNotIn("AAPL", result,
+                          "the normal watchlist path already covers this ticker")
+
+    def test_below_importance_threshold_excluded(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=104.51), \
+             patch.object(a, "fetch_df", return_value=self._hist(90.32, 24_000_000)):
+            mock_requests.get.return_value = self._earnings_response(
+                [self._record("CRWV", importance=2)])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertNotIn("CRWV", result)
+
+    def test_beat_on_paper_but_no_real_gap_excluded(self):
+        # SLAB's actual shape: +22.4% EPS beat but the stock didn't move at
+        # all -- market already priced it in, not a signal.
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=218.905), \
+             patch.object(a, "fetch_df", return_value=self._hist(218.94, 178_940)):
+            mock_requests.get.return_value = self._earnings_response(
+                [self._record("SLAB", eps_pct=0.224, rev_pct=-0.0009)])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertNotIn("SLAB", result,
+                          "a beat with no real price reaction must not be treated as a signal")
+
+    def test_miss_is_never_included_shorts_disabled(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=60.0), \
+             patch.object(a, "fetch_df", return_value=self._hist(80.0, 5_000_000)):
+            mock_requests.get.return_value = self._earnings_response(
+                [self._record("MISS", eps_pct=-0.30, rev_pct=-0.10)])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertNotIn("MISS", result,
+                          "ALLOW_SHORTS is False -- a miss, however dramatic the gap down, isn't tradeable")
+
+    def test_illiquid_name_excluded(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=12.0), \
+             patch.object(a, "fetch_df", return_value=self._hist(10.0, 50_000)):
+            mock_requests.get.return_value = self._earnings_response(
+                [self._record("THIN")])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertNotIn("THIN", result)
+
+    def test_flag_disabled_returns_empty(self):
+        with patch.object(a, "ENABLE_EARNINGS_MOVER_SCAN", False):
+            with patch.object(a, "requests") as mock_requests:
+                result = a.fetch_earnings_mover_tickers()
+        mock_requests.get.assert_not_called()
+        self.assertEqual(result, [])
+
+    def test_no_api_key_returns_empty(self):
+        with patch.object(a, "MASSIVE_API_KEY", ""):
+            with patch.object(a, "requests") as mock_requests:
+                result = a.fetch_earnings_mover_tickers()
+        mock_requests.get.assert_not_called()
+        self.assertEqual(result, [])
+
+    def test_http_error_fails_open_to_empty_list(self):
+        with patch.object(a, "requests") as mock_requests:
+            mock_requests.get.side_effect = Exception("network error")
+            result = a.fetch_earnings_mover_tickers()
+        self.assertEqual(result, [])
+
+
 class TestGithubHealthDiagnosis(unittest.TestCase):
     """_diagnose_github_health() drives run_fallback_guard() -- the whole
     point is running the scan locally the moment GitHub Actions can't, so

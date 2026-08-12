@@ -786,6 +786,106 @@ def fetch_dman_dynamic_tickers(max_tickers: int = 80) -> list[str]:
     return unique
 
 
+ENABLE_EARNINGS_MOVER_SCAN   = os.getenv("ENABLE_EARNINGS_MOVER_SCAN", "true").strip().lower() == "true"
+EARNINGS_MOVER_MIN_IMPORTANCE  = 3        # Benzinga/Massive importance scale, 1-5
+EARNINGS_MOVER_MIN_SURPRISE_PCT = 0.05    # at least a 5% EPS or revenue beat
+EARNINGS_MOVER_MIN_GAP_PCT     = 5.0      # live price must actually be reacting, not just a beat on paper
+EARNINGS_MOVER_MIN_AVG_VOLUME  = 300_000  # liquid enough to trade on a small account without brutal spreads
+EARNINGS_MOVER_MAX_PRICE       = 500.0    # keep position sizing realistic on a small account
+
+
+def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
+    """
+    Broad, watchlist-independent earnings-reaction scan. Every other earnings
+    lookup in this file (check_earnings_safe, _recent_earnings_surprise,
+    get_upcoming_earnings, the premarket briefing's earnings section) only
+    ever queries ONE ticker at a time, and only for tickers already on
+    WATCHLIST/DMAN_SMALLCAP_WATCHLIST — so a name that isn't already on
+    those fixed lists is structurally invisible no matter how big its move.
+
+    Confirmed live 2026-08-12: CRWV beat EPS by +30.9% and gapped +15.7% the
+    next morning on 24M avg daily volume — about as clean a catalyst as
+    exists — and the algo never once considered it, because CRWV was never
+    on WATCHLIST. Also confirmed live the same day: Massive's
+    /benzinga/v1/earnings endpoint (see _fetch_massive_earnings) actually
+    supports a plain date-range query with NO ticker filter, returning every
+    company reporting in that window — nothing in this file used it that
+    way before. This closes the blind spot the same way
+    fetch_dman_dynamic_tickers() already closes it for pure price/volume
+    movers: discover new tickers and feed them into the SAME
+    scan_signal()/score_signal() pipeline everything else goes through
+    (MTF, sector, RS, macro-safe, earnings-safe blackout, heat cap,
+    confluence score, min-score gate) rather than building a separate entry
+    path with its own risk surface.
+
+    Window is yesterday through today so both last night's AMC reports
+    (reacting at today's open) and this morning's BMO reports are covered.
+    Requires a real beat on EPS or revenue AND a live gap actually
+    confirming the market cares — ALLOW_SHORTS is False, so a miss (even a
+    big one) isn't tradeable here regardless of how dramatic the gap down
+    is. Fails open to an empty list on any error — this is a discovery net,
+    not a critical-path dependency the rest of the scan needs to function.
+    """
+    if not ENABLE_EARNINGS_MOVER_SCAN or not MASSIVE_API_KEY:
+        return []
+    try:
+        yesterday = date.today() - timedelta(days=1)
+        resp = requests.get(
+            "https://api.massive.com/benzinga/v1/earnings",
+            params={
+                "date.gte": yesterday.isoformat(),
+                "date.lte": date.today().isoformat(),
+                "limit":    200,
+                "apiKey":   MASSIVE_API_KEY,
+            },
+            timeout=15,
+        )
+        if resp.status_code != 200:
+            return []
+        results = resp.json().get("results", []) or []
+    except Exception:
+        return []
+
+    found: list[tuple[str, float]] = []   # (ticker, gap_pct)
+    for r in results:
+        ticker = str(r.get("ticker", "")).upper().strip()
+        if not ticker or not ticker.isalpha() or not (1 <= len(ticker) <= 5):
+            continue
+        if ticker in WATCHLIST:
+            continue   # already covered by the normal watchlist path
+        if (r.get("importance") or 0) < EARNINGS_MOVER_MIN_IMPORTANCE:
+            continue
+        eps_pct = r.get("eps_surprise_percent")
+        rev_pct = r.get("revenue_surprise_percent")
+        if eps_pct is None and rev_pct is None:
+            continue
+        beat = ((eps_pct is not None and eps_pct >= EARNINGS_MOVER_MIN_SURPRISE_PCT) or
+                (rev_pct is not None and rev_pct >= EARNINGS_MOVER_MIN_SURPRISE_PCT))
+        if not beat:
+            continue
+        try:
+            px = get_live_price(ticker)
+            if px is None or px <= 0 or px > EARNINGS_MOVER_MAX_PRICE:
+                continue
+            hist = fetch_df(ticker, period_days=30)
+            if hist is None or len(hist) < 5:
+                continue
+            prev_close = float(hist["Close"].iloc[-1])
+            avg_vol    = float(hist["Volume"].tail(10).mean())
+            if avg_vol < EARNINGS_MOVER_MIN_AVG_VOLUME or prev_close <= 0:
+                continue
+            gap_pct = (px - prev_close) / prev_close * 100
+            if gap_pct < EARNINGS_MOVER_MIN_GAP_PCT:
+                continue   # beat on paper, but the market isn't actually reacting
+        except Exception:
+            continue
+        found.append((ticker, gap_pct))
+
+    found.sort(key=lambda x: x[1], reverse=True)
+    unique = list(dict.fromkeys(t for t, _ in found))[:max_tickers]
+    return unique
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 2 — DATA LAYER
 # ═══════════════════════════════════════════════════════════════════════════
@@ -13873,6 +13973,24 @@ def main():
                     if _added:
                         print(f"  📈  +{_added} live movers added (Yahoo gainers/actives): "
                               f"{', '.join(_live_movers[:8])}{'...' if _added > 8 else ''}")
+            except Exception:
+                pass
+        # Watchlist-independent earnings movers — see fetch_earnings_mover_tickers()
+        # docstring: CRWV beat EPS +30.9% and gapped +15.7% (2026-08-12) and was
+        # never once considered because it was never on WATCHLIST. This closes
+        # that blind spot the same way the live-movers injection above closes it
+        # for pure price/volume movers.
+        if ENABLE_EARNINGS_MOVER_SCAN:
+            try:
+                _earn_movers = fetch_earnings_mover_tickers(max_tickers=15)
+                if _earn_movers:
+                    _before = len(tickers)
+                    tickers = list(dict.fromkeys(list(tickers) + _earn_movers))
+                    _added  = len(tickers) - _before
+                    if _added:
+                        print(f"  🚀  +{_added} earnings movers added (beat + real gap, "
+                              f"off-watchlist): {', '.join(_earn_movers[:8])}"
+                              f"{'...' if _added > 8 else ''}")
             except Exception:
                 pass
 

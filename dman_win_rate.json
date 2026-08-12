@@ -5986,5 +5986,17 @@
     "pnl_pct": 93.18,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "CELZ",
+    "date": "2026-08-12",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 1.17,
+    "exit": 1.17,
+    "outcome": "BE",
+    "pnl_pct": 0.0,
+    "score": 85,
+    "is_live": true
   }
 ]

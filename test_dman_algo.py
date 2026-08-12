@@ -2086,6 +2086,30 @@ class TestFetchEarningsMoverTickers(unittest.TestCase):
         self.assertEqual(result, [])
 
 
+class TestAlertsIncludeOptionsHint(unittest.TestCase):
+    """Direct feedback: when the algo sends a play, the user wants to act
+    on it immediately via the /options -> /buy Telegram flow rather than
+    typing the ticker in by hand. Every alert that represents an actual
+    play (a real signal, or a StockTwits call worth a look) must include a
+    ready-to-use "/options TICKER" line."""
+
+    def _signal(self, ticker="ABCD", entry=50.0):
+        return a.ProSignal(
+            ticker=ticker, bias="LONG", setup="Gap & Hold",
+            entry=entry, stop=48.0, target1=54.0, target2=58.0,
+            shares=10, rr=2.0, rsi=55.0, rvol=2.0,
+            reason="test signal", confluence_score=85,
+        )
+
+    def test_format_signal_telegram_includes_options_hint(self):
+        msg = a.format_signal_telegram(self._signal(), {"regime": "BULL"})
+        self.assertIn("/options ABCD", msg)
+
+    def test_format_smallcap_telegram_includes_options_hint(self):
+        msg = a.format_smallcap_telegram(self._signal(ticker="MICRO", entry=0.50), fl_m=5.0, sh_pct=0.0)
+        self.assertIn("/options MICRO", msg)
+
+
 class TestStocktwitsQuickTake(unittest.TestCase):
     """_stocktwits_quick_take() attaches a live technical snapshot to a
     freshly-detected StockTwits call so the Telegram alert itself answers

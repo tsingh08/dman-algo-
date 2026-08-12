@@ -1305,6 +1305,7 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
         + _earn_note
         + _fomc_note
         + _friday_note
+        + f"\n💬 <code>/options {s.ticker}</code> to browse strikes and buy"
     )
 
 
@@ -2782,7 +2783,8 @@ def run_stocktwits_monitor() -> None:
     for _c in _new_calls:
         _tag = "✅ added to scanner" if _c["ticker"] in _added else "already tracked"
         _quick = _stocktwits_quick_take(_c["ticker"])
-        _lines.append(f"  <b>{_c['ticker']}</b> [{_tag}]\n  \"{_c['body']}\"\n{_quick}")
+        _lines.append(f"  <b>{_c['ticker']}</b> [{_tag}]\n  \"{_c['body']}\"\n{_quick}\n"
+                      f"  💬 <code>/options {_c['ticker']}</code> to browse strikes and buy")
 
     send_telegram(
         f"📡 <b>DMan StockTwits — {len(_new_calls)} call(s) detected</b>\n\n"
@@ -10498,7 +10500,8 @@ def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
         f"{rotation_line}"
         f"Size: {sig.shares} shares  Cost: ${sig.cost:,.0f}  Risk: ${sig.risk_usd:.0f}\n"
         f"⚠️ Micro-cap: smaller position, wider stop, news-driven\n"
-        f"{sig.reason}"
+        f"{sig.reason}\n"
+        f"💬 <code>/options {sig.ticker}</code> to browse strikes and buy (if a liquid chain exists)"
     )
 
 

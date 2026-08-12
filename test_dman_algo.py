@@ -2373,27 +2373,77 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
             a._handle_buy_command(["/buy", "99"])
         self.assertIn("No item #99", mock_tg.call_args[0][0])
 
-    def test_buy_command_stages_pending_confirmation_without_ordering(self):
+    def test_buy_command_defaults_to_one_contract_at_ask(self):
         with open(self._menu_tmp.name, "w") as f:
             json.dump(self._menu(), f)
         with patch.object(a, "get_alpaca_client") as mock_gac, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._handle_buy_command(["/buy", "1", "150"])
+            a._handle_buy_command(["/buy", "1"])
         mock_gac.assert_not_called()   # staging a confirmation must never touch the broker
         with open(self._buy_tmp.name) as f:
             pending = json.load(f)
         self.assertEqual(pending["occ_symbol"], "SMCI260814C00034000")
+        self.assertEqual(pending["contracts"], 1)
+        self.assertEqual(pending["limit_price"], 1.55)   # item 1's ask in _menu()
+        self.assertIn("Confirm", mock_tg.call_args[0][0])
+        self.assertIn("asking price", mock_tg.call_args[0][0])
+
+    def test_buy_command_with_explicit_qty_and_price(self):
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(self._menu(), f)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "1", "3", "1.50"])
+        with open(self._buy_tmp.name) as f:
+            pending = json.load(f)
+        self.assertEqual(pending["contracts"], 3)
+        self.assertEqual(pending["limit_price"], 1.50)
+        self.assertAlmostEqual(pending["total_cost"], 3 * 1.50 * 100)
+        msg = mock_tg.call_args[0][0]
+        self.assertIn("Buy 3 calls", msg)
+        self.assertIn("your limit price of $1.50", msg)
+
+    def test_buy_command_qty_capped_at_max_contracts(self):
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(self._menu(), f)
+        with patch.object(a, "send_telegram", return_value=True):
+            a._handle_buy_command(["/buy", "1", "999", "0.10"])
+        with open(self._buy_tmp.name) as f:
+            pending = json.load(f)
+        self.assertEqual(pending["contracts"], a.MANUAL_BUY_MAX_CONTRACTS)
+
+    def test_buy_command_fat_finger_price_rejected(self):
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(self._menu(), f)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            # item 1's ask is 1.55 -- "15.00" is a plausible "meant 1.50, typed
+            # 15.00" fat-finger, well past the 2x-ask sanity ceiling.
+            a._handle_buy_command(["/buy", "1", "1", "15.00"])
+        self.assertIn("looks like a typo", mock_tg.call_args[0][0])
+        self.assertEqual(os.path.getsize(self._buy_tmp.name), 0,
+                          "a rejected fat-finger price must not stage a pending confirmation")
+
+    def test_buy_command_low_price_below_ask_is_allowed(self):
+        # A passive limit below the ask is a completely normal, legitimate
+        # choice (may or may not fill) -- must never be blocked the way an
+        # absurdly HIGH price is.
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(self._menu(), f)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "1", "1", "0.90"])
+        with open(self._buy_tmp.name) as f:
+            pending = json.load(f)
+        self.assertEqual(pending["limit_price"], 0.90)
         self.assertIn("Confirm", mock_tg.call_args[0][0])
 
-    def test_buy_command_too_expensive_for_budget_rejected(self):
+    def test_buy_command_over_per_trade_cap_rejected(self):
         menu = self._menu()
         menu["items"][0]["bid"] = 200.0
         menu["items"][0]["ask"] = 201.0
         with open(self._menu_tmp.name, "w") as f:
             json.dump(menu, f)
         with patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._handle_buy_command(["/buy", "1", "50"])
-        self.assertIn("more than 1.5x", mock_tg.call_args[0][0])
+            a._handle_buy_command(["/buy", "1", "3"])   # 3 contracts @ $201 ask = $60,300
+        self.assertIn("per-trade cap", mock_tg.call_args[0][0])
         self.assertEqual(os.path.getsize(self._buy_tmp.name), 0,
                           "a rejected /buy must not stage a pending confirmation")
 
@@ -2403,7 +2453,7 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         return {
             "ticker": "SMCI", "occ_symbol": "SMCI260814C00034000", "option_type": "CALL",
             "strike": 34.0, "expiry": "2026-08-14", "contracts": 3, "ask_at_confirm": 1.55,
-            "total_cost": 465.0, "risk_dollars": 150.0,
+            "limit_price": 1.55, "total_cost": 465.0,
             "created_at": now.isoformat(),
             "expires_at": (now + timedelta(minutes=expires_in_min)).isoformat(),
         }
@@ -2494,6 +2544,7 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
         return {
             "ticker": "SMCI", "occ_symbol": "SMCI260814C00034000", "option_type": "CALL",
             "strike": 34.0, "expiry": "2026-08-14", "contracts": 3, "ask_at_confirm": 1.55,
+            "limit_price": 1.55,
         }
 
     def test_price_drift_past_limit_aborts(self):
@@ -2538,7 +2589,13 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
         self.assertIn("MAX_POSITIONS", err)
         mock_client.cancel_order_by_id.assert_called_once_with("order-xyz")
 
-    def test_successful_submission_uses_target_stop_formula(self):
+    def test_successful_submission_uses_the_users_chosen_price_not_live_ask(self):
+        # Confirmed live 2026-08-12 (direct user feedback): the order used
+        # to always submit at live_ask*1.03 regardless of what price the
+        # user confirmed in /buy -- defeating the whole point of letting
+        # them specify their own limit. The live ask here (1.56) is
+        # deliberately different from the pending confirmation's chosen
+        # price (1.55) to prove the submitted order uses the latter.
         mock_client = MagicMock()
         mock_client.submit_order.return_value = MagicMock(id="order-xyz")
         with patch.object(a, "_get_option_snapshot", return_value={"bid": 1.52, "ask": 1.56, "delta": 0.5}), \
@@ -2546,12 +2603,14 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
             order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
         self.assertEqual(order_id, "order-xyz")
         self.assertIsNone(err)
+        _, kwargs = mock_client.submit_order.call_args
+        submitted_order = mock_client.submit_order.call_args[0][0]
+        self.assertEqual(submitted_order.limit_price, 1.55)
         pos = a.PositionTracker(filepath=self._pos_tmp.name).positions[0]
-        limit_px = round(1.56 * 1.03, 2)
-        self.assertAlmostEqual(pos.entry, limit_px)
-        self.assertAlmostEqual(pos.target1, round(limit_px * 1.5, 2))
-        self.assertAlmostEqual(pos.target2, round(limit_px * 2.5, 2))
-        self.assertAlmostEqual(pos.stop, round(limit_px * 0.5, 2))
+        self.assertAlmostEqual(pos.entry, 1.55)
+        self.assertAlmostEqual(pos.target1, round(1.55 * 1.5, 2))
+        self.assertAlmostEqual(pos.target2, round(1.55 * 2.5, 2))
+        self.assertAlmostEqual(pos.stop, round(1.55 * 0.5, 2))
         self.assertEqual(pos.shares, 300)   # 3 contracts * 100
 
 

@@ -312,10 +312,15 @@ TELEGRAM_OPTIONS_MENU_TIMEOUT_MIN = 10     # /options menu expires — a stale i
 TELEGRAM_MANUAL_BUY_TIMEOUT_MIN   = 5      # YES/NO confirmation window
 MANUAL_BUY_MAX_PRICE_DRIFT_PCT    = 8.0    # abort a late YES rather than submit off a stale quote —
                                             # same staleness philosophy as EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT
-MANUAL_BUY_DEFAULT_RISK_DOLLARS   = 150.0  # used when /buy N omits a $ amount
-MANUAL_BUY_MAX_RISK_DOLLARS       = OPTIONS_MAX_POSITION_COST  # never let a manual buy exceed the
-                                                                 # same per-trade ceiling automated
-                                                                 # entries already respect
+MANUAL_BUY_MAX_CONTRACTS          = 10     # /buy N [qty] [price] — qty ceiling, matches the
+                                            # automated path's own flat contract cap
+MANUAL_BUY_MAX_RISK_DOLLARS       = OPTIONS_MAX_POSITION_COST  # never let a manual buy's total
+                                                                 # cost exceed the same per-trade
+                                                                 # ceiling automated entries respect
+MANUAL_BUY_MAX_PRICE_VS_ASK_MULT  = 2.0    # fat-finger guard — reject a chosen price more than
+                                            # 2x the live ask outright (e.g. typing "15" meaning
+                                            # "1.50"); a price BELOW the ask is never blocked here,
+                                            # that's just a passive limit that may or may not fill
 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
@@ -1814,7 +1819,7 @@ def _handle_telegram_command(text: str) -> None:
             "/resume — re-enable entries\n"
             "/close TICKER — close a position now\n"
             "/options TICKER [E] — browse live calls/puts (E = expiry # from the list)\n"
-            "/buy N [risk$] — size + confirm item N from the last /options menu\n"
+            "/buy N [qty] [price] — confirm item N from the last /options menu\n"
             "/restart — force a fresh daemon session (last resort, works even if it's frozen)"
         )
 
@@ -1907,35 +1912,43 @@ def _handle_options_command(parts: list[str]) -> None:
                      for _n, _e in enumerate(_expiries, start=1)]
         _lines.append("\n<b>Other expiries</b>  (/options " + ticker + " E)")
         _lines.append("  " + "   ".join(_exp_bits))
-    _lines.append(f"\nReply <code>/buy N [risk$]</code> to size and confirm "
-                  f"(e.g. <code>/buy {ordered[0]['idx']} 150</code> — default "
-                  f"${MANUAL_BUY_DEFAULT_RISK_DOLLARS:.0f} if omitted). "
+    _lines.append(f"\nReply <code>/buy N [qty] [price]</code> to confirm "
+                  f"(e.g. <code>/buy {ordered[0]['idx']} 3 1.50</code> = 3 contracts @ $1.50 — "
+                  f"qty defaults to 1, price defaults to ask if omitted). "
                   f"Menu expires in {TELEGRAM_OPTIONS_MENU_TIMEOUT_MIN} min.")
     send_telegram("\n".join(_lines))
 
 
 def _handle_buy_command(parts: list[str]) -> None:
     """
-    /buy N [risk$] — size and stage a confirmation for item N from the most
-    recent /options menu. Does NOT place the order — sends a confirmation
-    message the user must reply YES/NO to (same pattern as the earnings-
-    spread approval flow), so a single mistyped index can never directly
-    become a live order. halt/macro-blackout checks happen at the YES step
+    /buy N [qty] [price] — stage a confirmation for item N from the most
+    recent /options menu. qty defaults to 1 contract if omitted; price
+    defaults to the item's live ask if omitted — give one explicitly
+    (e.g. "1.50") to set your own limit instead of paying the ask, exactly
+    like a normal limit order. This is the price that actually gets
+    submitted (see _submit_manual_options_buy) — it is NOT silently
+    re-priced to ask+3% the way automated entries are, since the whole
+    point of specifying qty/price directly is control over what you pay.
+
+    Does NOT place the order — sends a confirmation message the user must
+    reply YES/NO to (same pattern as the earnings-spread approval flow),
+    so a single mistyped index/qty/price can never directly become a live
+    order. halt/macro-blackout checks happen at the YES step
     (_handle_manual_options_buy_reply), not here — see that function's
     docstring for why.
     """
     if len(parts) < 2 or not parts[1].isdigit():
-        send_telegram("Usage: <code>/buy N [risk$]</code> — N from the last /options menu.")
+        send_telegram("Usage: <code>/buy N [qty] [price]</code> — N from the last /options "
+                       "menu (e.g. <code>/buy 5 3 1.50</code> = item 5, 3 contracts, $1.50 limit).")
         return
     idx = int(parts[1])
-    risk_dollars = MANUAL_BUY_DEFAULT_RISK_DOLLARS
+
+    qty = 1
     if len(parts) >= 3:
-        try:
-            risk_dollars = float(parts[2].replace("$", ""))
-        except ValueError:
-            send_telegram(f"❌ Couldn't parse risk amount '{parts[2]}' — usage: /buy N [risk$]")
+        if not parts[2].isdigit() or int(parts[2]) < 1:
+            send_telegram(f"❌ Couldn't parse quantity '{parts[2]}' — usage: /buy N [qty] [price]")
             return
-    risk_dollars = max(10.0, min(risk_dollars, MANUAL_BUY_MAX_RISK_DOLLARS))
+        qty = min(int(parts[2]), MANUAL_BUY_MAX_CONTRACTS)
 
     try:
         with open(TELEGRAM_OPTIONS_MENU_FILE) as f:
@@ -1953,26 +1966,40 @@ def _handle_buy_command(parts: list[str]) -> None:
         send_telegram(f"❌ No item #{idx} on the current menu ({len(menu['items'])} items). "
                        f"Run /options {menu['ticker']} again to see it.")
         return
-
-    mid = (item["bid"] + item["ask"]) / 2
-    if mid <= 0:
+    if item["ask"] <= 0:
         send_telegram(f"❌ {item['occ_symbol']} has no usable quote right now.")
         return
-    if mid * 100 > risk_dollars * 1.5:
-        send_telegram(f"⚠️ 1 contract of {item['occ_symbol']} costs ~${mid*100:.0f}, "
-                       f"more than 1.5x your ${risk_dollars:.0f} budget — pick a cheaper "
-                       f"strike or raise the budget (e.g. /buy {idx} {mid*100*1.5:.0f}).")
+
+    limit_price = item["ask"]
+    if len(parts) >= 4:
+        try:
+            limit_price = float(parts[3])
+        except ValueError:
+            send_telegram(f"❌ Couldn't parse price '{parts[3]}' — usage: /buy N [qty] [price]")
+            return
+        if limit_price <= 0:
+            send_telegram("❌ Price must be positive.")
+            return
+        if limit_price > item["ask"] * MANUAL_BUY_MAX_PRICE_VS_ASK_MULT:
+            send_telegram(f"⚠️ ${limit_price:.2f} is more than {MANUAL_BUY_MAX_PRICE_VS_ASK_MULT:.0f}x "
+                           f"the live ask (${item['ask']:.2f}) for {item['occ_symbol']} — this looks "
+                           f"like a typo, not submitted. Use /buy {idx} {qty} to confirm you really "
+                           f"meant a price that far above ask.")
+            return
+
+    total_cost = round(qty * limit_price * 100, 2)
+    if total_cost > MANUAL_BUY_MAX_RISK_DOLLARS:
+        send_telegram(f"⚠️ {qty}x {item['occ_symbol']} @ ${limit_price:.2f} = ~${total_cost:.0f}, "
+                       f"over the ${MANUAL_BUY_MAX_RISK_DOLLARS:.0f} per-trade cap — "
+                       f"reduce the quantity or price.")
         return
-    premium_per_contract = mid * 100
-    contracts  = max(1, min(int(risk_dollars / premium_per_contract), 10))
-    total_cost = round(contracts * mid * 100, 2)
 
     _now = datetime.now(ET)
     pending = {
         "ticker": menu["ticker"], "occ_symbol": item["occ_symbol"],
         "option_type": item["type"], "strike": item["strike"], "expiry": menu["expiry"],
-        "contracts": contracts, "ask_at_confirm": item["ask"],
-        "total_cost": total_cost, "risk_dollars": risk_dollars,
+        "contracts": qty, "limit_price": limit_price, "ask_at_confirm": item["ask"],
+        "total_cost": total_cost,
         "created_at": _now.isoformat(),
         "expires_at": (_now + timedelta(minutes=TELEGRAM_MANUAL_BUY_TIMEOUT_MIN)).isoformat(),
     }
@@ -1983,10 +2010,11 @@ def _handle_buy_command(parts: list[str]) -> None:
         send_telegram(f"❌ Couldn't stage confirmation: {_e}")
         return
 
-    _word = item["type"].lower() + ("s" if contracts != 1 else "")   # "call"/"calls", "put"/"puts"
+    _word = item["type"].lower() + ("s" if qty != 1 else "")   # "call"/"calls", "put"/"puts"
+    _px_note = "the asking price of" if limit_price == item["ask"] else "your limit price of"
     send_telegram(
-        f"🎯 <b>Confirm</b>: Buy {contracts} {_word} of {menu['ticker']} at the asking "
-        f"price of ${item['ask']:.2f}\n"
+        f"🎯 <b>Confirm</b>: Buy {qty} {_word} of {menu['ticker']} at {_px_note} "
+        f"${limit_price:.2f}\n"
         f"(${item['strike']:g} strike, exp {menu['expiry']}, ~${total_cost:.0f} total, "
         f"Δ{item['delta']:.2f})\n"
         f"Reply <b>YES</b> to place, <b>NO</b> to cancel. Expires in "
@@ -13823,11 +13851,17 @@ def _submit_manual_options_buy(client, pending: dict) -> tuple[Optional[str], Op
     /buy confirmation could be several minutes old — and aborts if the ask
     has moved past MANUAL_BUY_MAX_PRICE_DRIFT_PCT since confirmation, same
     staleness philosophy as _handle_earnings_approval_reply's drift check.
-    Respects the same MAX_POSITIONS tracking-slot cap automated entries
-    do (pt.open() below); deliberately does NOT re-check the portfolio
-    heat cap from run_pro_scanner()'s admission loop — that cap exists to
-    stop automated signal admission from silently over-concentrating,
-    whereas this is one deliberate, human-confirmed action at a time.
+    This is purely a "has the market moved" gate; the price actually
+    submitted is always pending["limit_price"] (the user's own chosen
+    price from /buy, defaulting to the ask shown at menu time) — unlike
+    automated entries, this is never silently re-priced to ask+3%, since
+    the whole point of /buy taking an explicit price is control over
+    exactly what gets paid. Respects the same MAX_POSITIONS tracking-slot
+    cap automated entries do (pt.open() below); deliberately does NOT
+    re-check the portfolio heat cap from run_pro_scanner()'s admission
+    loop — that cap exists to stop automated signal admission from
+    silently over-concentrating, whereas this is one deliberate,
+    human-confirmed action at a time.
 
     Returns (order_id, error_message) — error_message is None on success.
     """
@@ -13847,7 +13881,7 @@ def _submit_manual_options_buy(client, pending: dict) -> tuple[Optional[str], Op
                           f"not submitted. Run /options again for a fresh quote.")
 
     contracts  = int(pending["contracts"])
-    limit_px   = round(_ask_now * 1.03, 2)   # mid/ask + 3% buffer for fill, same as automated entries
+    limit_px   = round(float(pending["limit_price"]), 2)   # the user's own chosen price, not ask+3%
     total_cost = round(contracts * limit_px * 100, 2)
 
     _cash_ok, _cash_msg = _cash_available_for(total_cost)

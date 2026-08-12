@@ -5974,5 +5974,17 @@
     "pnl_pct": 80.3,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "SMCI",
+    "date": "2026-08-12",
+    "bias": "LONG",
+    "setup": "Options Call SMCI260814C00034000 ($34C exp 2026-08-14)",
+    "entry": 1.32,
+    "exit": 2.55,
+    "outcome": "WIN",
+    "pnl_pct": 93.18,
+    "score": 0,
+    "is_live": true
   }
 ]

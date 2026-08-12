@@ -119,6 +119,11 @@ SMALLCAP_MAX_PRICE     = 20.0     # max stock price
 SMALLCAP_MIN_PRICE     = 0.10     # min stock price — Dman buys $0.07-$0.50 regularly
 SMALLCAP_MIN_RVOL      = 2.0      # minimum RVOL for dynamically discovered tickers
 DMAN_WATCHLIST_MIN_RVOL = 0.5    # watchlist tickers: Dman's call IS the catalyst — 0.5x enough
+CATALYST_NEWS_LOOKBACK_HOURS = 48   # detect_low_float_catalyst()'s real-news confirmation
+                                      # window for dynamically-discovered (non-watchlist) tickers —
+                                      # wider than the main scan's 20h news prefetch since a
+                                      # low-float RVOL spike can be a delayed market reaction to
+                                      # news that broke a day or two earlier, not always same-day
 SMALLCAP_RISK_PCT      = 0.02     # 2% account risk per trade — aggressive sizing for small account
 SMALLCAP_MAX_COST      = 2_500    # hard cap on position cost — micro-caps are high risk
 SMALLCAP_MIN_SCORE          = 55   # minimum score for dynamically discovered tickers
@@ -255,7 +260,20 @@ OPTIONS_CLOSE_DTE       = 7             # DTE ≤ 7 → close/roll warning from 
 # all) are unchanged — this only replaces what happens to the runner AFTER
 # real profit has accrued.
 OPTIONS_TRAIL_ACTIVATE_GAIN_PCT = 25.0
-OPTIONS_TRAIL_GIVEBACK_PCT      = 30.0
+
+# Giveback tolerance now WIDENS with how deep the position already is,
+# instead of a flat percentage — confirmed live 2026-08-12: SMCI's call
+# peaked at +160% (option $3.44 off a $1.32 entry), a flat 30% giveback
+# stopped the remaining position out at $2.38 (+80%), and premium then
+# ran on to a $4.25 high / $3.75 close the SAME DAY — a real, verified
+# missed continuation, not just noise. A pullback that would threaten a
+# modest +25-30% winner is normal chop once a position is already up
+# 100%+; direct instruction after that trade was to scale the tolerance
+# with depth of profit rather than apply one number everywhere. See
+# _options_trail_giveback_pct().
+OPTIONS_TRAIL_GIVEBACK_MIN_PCT    = 30.0    # tolerance right at the activation threshold
+OPTIONS_TRAIL_GIVEBACK_MAX_PCT    = 50.0    # tolerance once peak gain is very large
+OPTIONS_TRAIL_GIVEBACK_MAX_AT_PCT = 150.0   # peak gain (%) at which tolerance reaches the max
 
 # Pre-event strangles (direction-neutral, buys both call + put before big catalysts)
 STRANGLE_TICKERS    = ["SPY", "QQQ"]   # always liquid enough for two-legged plays
@@ -4456,6 +4474,25 @@ def _check_options_pnl_milestone(pos: dict, kind: str, occ: str, cur_prem: float
         _update_option_position_field(occ, milestone_loss_alerted=float(bucket))
 
 
+def _options_trail_giveback_pct(peak_gain_pct: float) -> float:
+    """
+    Graduated giveback tolerance for the options trailing exit — see the
+    OPTIONS_TRAIL_GIVEBACK_MIN/MAX_PCT docstring for the SMCI incident this
+    replaced a flat percentage over. Linearly interpolates from MIN_PCT at
+    exactly the activation threshold up to MAX_PCT once peak_gain_pct
+    reaches OPTIONS_TRAIL_GIVEBACK_MAX_AT_PCT, capped at MAX_PCT beyond
+    that. peak_gain_pct below the activation threshold isn't a real input
+    (the trail isn't active yet) but still returns MIN_PCT rather than
+    erroring, since callers may compute this before checking _trail_active.
+    """
+    if peak_gain_pct <= OPTIONS_TRAIL_ACTIVATE_GAIN_PCT:
+        return OPTIONS_TRAIL_GIVEBACK_MIN_PCT
+    _span = OPTIONS_TRAIL_GIVEBACK_MAX_AT_PCT - OPTIONS_TRAIL_ACTIVATE_GAIN_PCT
+    _progress = (peak_gain_pct - OPTIONS_TRAIL_ACTIVATE_GAIN_PCT) / _span if _span > 0 else 1.0
+    _progress = max(0.0, min(1.0, _progress))
+    return OPTIONS_TRAIL_GIVEBACK_MIN_PCT + _progress * (OPTIONS_TRAIL_GIVEBACK_MAX_PCT - OPTIONS_TRAIL_GIVEBACK_MIN_PCT)
+
+
 def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
     """
     Enforce stop / trailing-exit / T1 / DTE rules on one tracked options
@@ -4504,7 +4541,9 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
     _peak_prem = max(float(pos.get("peak_premium", 0) or 0), _cur_prem)
     if _peak_prem > float(pos.get("peak_premium", 0) or 0):
         _update_option_position_field(_occ, peak_premium=_peak_prem)
-    _trail_active = _peak_prem >= _entry_prem * (1 + OPTIONS_TRAIL_ACTIVATE_GAIN_PCT / 100)
+    _trail_active   = _peak_prem >= _entry_prem * (1 + OPTIONS_TRAIL_ACTIVATE_GAIN_PCT / 100)
+    _peak_gain_pct  = (_peak_prem - _entry_prem) / _entry_prem * 100 if _entry_prem > 0 else 0.0
+    _giveback_pct   = _options_trail_giveback_pct(_peak_gain_pct)
 
     # Extra P&L visibility independent of which branch below fires (or
     # doesn't) — see _check_options_pnl_milestone.
@@ -4540,7 +4579,7 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
         if not _is_alerted_today(_stopk):
             send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} {kind} {_occ}\n{_msg}")
             _mark_alerted(_stopk)
-    elif _trail_active and _cur_prem <= _peak_prem * (1 - OPTIONS_TRAIL_GIVEBACK_PCT / 100):
+    elif _trail_active and _cur_prem <= _peak_prem * (1 - _giveback_pct / 100):
         # Replaces the old fixed T2 (+150%) auto-close (2026-08-10) — reacts
         # to how the trade actually moved (peak, then a real give-back)
         # instead of one static number that could be missed on a fast
@@ -4549,7 +4588,7 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
         _giveback_desc = f"peak ${_peak_prem:.2f} → now ${_cur_prem:.2f} ({_pnl_pct:+.0f}% from entry)"
         if _st == "submitted":
             _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
-            _msg = (f"Gave back {OPTIONS_TRAIL_GIVEBACK_PCT:.0f}%+ off the peak — {_giveback_desc} — "
+            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
                     f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
         elif _st == "pending":
             _action = "🚀 TRAIL EXIT — close order working"
@@ -4559,7 +4598,7 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
             _msg = "Nothing held — next sync records the P&L"
         else:
             _action = "🚀 TRAIL EXIT — ⚠️ AUTO-CLOSE FAILED"
-            _msg = f"Gave back {OPTIONS_TRAIL_GIVEBACK_PCT:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
+            _msg = f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
         if not _is_alerted_today(_trailk):
             send_telegram(f"🚀 <b>OPTIONS TRAIL EXIT</b> — {t} {kind} {_occ}\n{_msg}")
             _mark_alerted(_trailk)
@@ -4608,7 +4647,7 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
         _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day  DTE {_dte_now}d"
 
     _trail_desc = (f"trailing active, peak ${_peak_prem:.2f} (exits below "
-                    f"${_peak_prem * (1 - OPTIONS_TRAIL_GIVEBACK_PCT / 100):.2f})"
+                    f"${_peak_prem * (1 - _giveback_pct / 100):.2f})"
                     if _trail_active else
                     f"not yet active (arms at +{OPTIONS_TRAIL_ACTIVATE_GAIN_PCT:.0f}%)")
     return (
@@ -10352,6 +10391,26 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
 
         ultra_note  = " | ⚡ ULTRA-LOW FLOAT" if ultra_low else ""
         moon_note   = f" | 🚀 MOON SHOT (gap {today_gap_pct:+.0f}% / {rvol:.0f}x RVOL / T3 +100%)" if moonshot else ""
+
+        # Catalyst confirmation — everything above (float, RVOL, MACD, RSI,
+        # 52wk-low proximity) treats a volume spike as a PROXY for a real
+        # catalyst, never actually confirming one exists. Confirmed live
+        # 2026-08-12: FGL cleared every one of those gates (28x float
+        # rotation on the day) with no findable news or filing behind it —
+        # direct instruction after that trade: require a real, confirmed
+        # catalyst before committing capital to a low-float spike, not
+        # just trust volume alone. DMan's own curated watchlist is exempt
+        # — his public call already IS the catalyst (same reasoning as
+        # DMAN_WATCHLIST_MIN_RVOL's lower bar above), so a separate
+        # news-API hit would be redundant, not additional confirmation.
+        # Fails CLOSED (blocks entry) on no headlines OR an API failure —
+        # the safer default for a speculative micro-cap is to skip a trade
+        # we can't verify, not force one through.
+        if ticker not in DMAN_SMALLCAP_WATCHLIST:
+            _news_map = _fetch_massive_benzinga_news([ticker], hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
+            if not _news_map.get(ticker):
+                return None
+
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
                   f"{ultra_note}{moon_note}{rotation_note}{squeeze_note}{insider_note}"
                   f"{rs_note}{bot_note}{cash_note} | {pattern_note}")

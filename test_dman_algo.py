@@ -1520,6 +1520,40 @@ class TestOptionsPnlMilestone(unittest.TestCase):
         self.assertIn("-30%", mock_tg.call_args[0][0])
 
 
+class TestOptionsTrailGivebackPct(unittest.TestCase):
+    """_options_trail_giveback_pct() replaced a flat 30% giveback with one
+    that widens as peak profit deepens -- confirmed live 2026-08-12: SMCI's
+    call peaked +160%, a flat 30% giveback exited at +80% (option $2.38),
+    and premium then ran to a $4.25 high / $3.75 close the same day. Pure
+    math tests for the interpolation, independent of the monitor plumbing."""
+
+    def test_at_or_below_activation_returns_min(self):
+        self.assertEqual(a._options_trail_giveback_pct(0.0), a.OPTIONS_TRAIL_GIVEBACK_MIN_PCT)
+        self.assertEqual(a._options_trail_giveback_pct(a.OPTIONS_TRAIL_ACTIVATE_GAIN_PCT),
+                          a.OPTIONS_TRAIL_GIVEBACK_MIN_PCT)
+
+    def test_at_max_gain_threshold_returns_max(self):
+        self.assertAlmostEqual(a._options_trail_giveback_pct(a.OPTIONS_TRAIL_GIVEBACK_MAX_AT_PCT),
+                               a.OPTIONS_TRAIL_GIVEBACK_MAX_PCT)
+
+    def test_beyond_max_gain_threshold_stays_capped_at_max(self):
+        self.assertAlmostEqual(a._options_trail_giveback_pct(a.OPTIONS_TRAIL_GIVEBACK_MAX_AT_PCT + 500),
+                               a.OPTIONS_TRAIL_GIVEBACK_MAX_PCT)
+
+    def test_midpoint_interpolates_linearly(self):
+        mid_gain = (a.OPTIONS_TRAIL_ACTIVATE_GAIN_PCT + a.OPTIONS_TRAIL_GIVEBACK_MAX_AT_PCT) / 2
+        expected = (a.OPTIONS_TRAIL_GIVEBACK_MIN_PCT + a.OPTIONS_TRAIL_GIVEBACK_MAX_PCT) / 2
+        self.assertAlmostEqual(a._options_trail_giveback_pct(mid_gain), expected)
+
+    def test_smci_incident_peak_gain_gives_capped_tolerance(self):
+        # Real numbers: entry 1.32, peak 3.44 -> peak_gain ~160.6%, past
+        # the 150% ceiling, so tolerance is capped at MAX_PCT (50%) --
+        # verified this alone is enough to have kept the position open
+        # through the real $2.38 exit (only a 30.8% giveback).
+        peak_gain = (3.44 - 1.32) / 1.32 * 100
+        self.assertAlmostEqual(a._options_trail_giveback_pct(peak_gain), a.OPTIONS_TRAIL_GIVEBACK_MAX_PCT)
+
+
 class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
     """Added 2026-08-10: replaced the fixed T2 (+150%) auto-close with a
     trailing exit (activate after OPTIONS_TRAIL_ACTIVATE_GAIN_PCT gain,
@@ -1611,6 +1645,35 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
                     result = a._monitor_option_position(pos, "CALL")
         mock_close.assert_not_called()
         self.assertIn("trailing active", result)
+
+    def test_smci_style_deep_winner_survives_a_giveback_that_used_to_exit(self):
+        # Reproduces the real 2026-08-12 incident: SMCI's call peaked at
+        # +160% (option $3.44 off a $1.32 entry), the OLD flat 30% giveback
+        # closed the remaining position at $2.38 (a 30.8% pullback from
+        # peak), and premium then ran on to a $4.25 high / $3.75 close the
+        # SAME DAY -- verified missed continuation. Same shape here: peak
+        # +160% (2.60 off 1.00), current giveback ~32.7% off peak -- past
+        # the OLD flat 30% (would have exited) but under the new widened
+        # tolerance at this depth of profit (interpolated toward 50%).
+        pos = self._pos(peak_premium=2.60, target1=999.0)
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.75)):
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(pos, "CALL")
+        mock_close.assert_not_called()
+        self.assertIn("trailing active", result)
+
+    def test_extreme_giveback_still_exits_even_at_deep_profit(self):
+        # The widened tolerance is not unlimited -- a giveback past even
+        # the MAX_PCT ceiling (interpolated to 50% at this +160% peak gain)
+        # must still trigger the exit.
+        pos = self._pos(peak_premium=2.60)
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.20)):   # 53.8% off peak
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord3")) as mock_close:
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    a._monitor_option_position(pos, "CALL")
+        mock_close.assert_called_once()
+        self.assertIn("TRAIL EXIT", mock_tg.call_args[0][0])
 
     def test_peak_premium_updates_on_new_high(self):
         self._write_positions([self._pos(peak_premium=1.00)])
@@ -2822,6 +2885,14 @@ class TestIntradayHighPullbackGuard(unittest.TestCase):
             patch.object(a, "_get_short_float_data", return_value=(1.0, 5.0, 5.0, 0.1)),
             patch.object(a, "_is_recent_reverse_split", return_value=False),
             patch.object(a, "get_effective_account", return_value=5000.0),
+            # Catalyst-confirmation gate added 2026-08-12 makes a real network
+            # call otherwise -- these tests exercise the pullback guard, not
+            # the news gate, and must not depend on live API state (a real
+            # ticker like CELZ happening to have real news right now vs. a
+            # fake one like TESTX not is exactly the kind of nondeterminism
+            # a unit test must never have).
+            patch.object(a, "_fetch_massive_benzinga_news",
+                        side_effect=lambda tickers, **kw: {t: ["headline"] for t in tickers}),
         ]
         for p in self._patches:
             p.start()
@@ -2853,6 +2924,70 @@ class TestIntradayHighPullbackGuard(unittest.TestCase):
         df = self._df(close=close, high=high)
         sig = a.detect_low_float_catalyst(df, "TESTX")
         self.assertIsNotNone(sig)
+
+
+class TestLowFloatCatalystNewsGate(unittest.TestCase):
+    """Confirmed live 2026-08-12: FGL cleared every technical gate in
+    detect_low_float_catalyst() (float, RVOL -- a 28x float rotation that
+    day --, MACD, RSI, 52wk-low proximity) with no findable news or filing
+    behind it. Direct instruction after that trade: require a real,
+    confirmed catalyst before committing capital to a low-float spike,
+    not just trust volume as a proxy for one. These tests lock in that
+    a non-watchlist ticker with no news is blocked, one with news passes,
+    and DMan's own curated watchlist is exempt (his call already IS the
+    catalyst -- same reasoning as its separately-lower RVOL bar)."""
+
+    def _df(self, close=8.5, high=8.6, n=6):
+        import pandas as pd
+        rows = []
+        for i in range(n - 1):
+            rows.append({"Close": 8.0, "High": 8.2, "Low": 7.8, "Open": 7.9,
+                         "RVOL": 1.0, "MACD": 0.1, "MACD_sig": 0.2,
+                         "MACD_hist": -0.05, "RSI": 45.0, "Volume": 500_000})
+        rows.append({"Close": close, "High": high, "Low": min(close, high) * 0.95,
+                     "Open": high * 0.98, "RVOL": 6.0, "MACD": 1.0, "MACD_sig": 0.5,
+                     "MACD_hist": 0.3, "RSI": 40.0, "Volume": 3_000_000})
+        return pd.DataFrame(rows)
+
+    def setUp(self):
+        self._patches = [
+            patch.object(a, "ENABLE_SMALLCAP", True),
+            patch.object(a, "_get_short_float_data", return_value=(1.0, 5.0, 5.0, 0.1)),
+            patch.object(a, "_is_recent_reverse_split", return_value=False),
+            patch.object(a, "get_effective_account", return_value=5000.0),
+            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", {"DMANPICK"}),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+
+    def test_no_news_blocks_non_watchlist_ticker(self):
+        with patch.object(a, "_fetch_massive_benzinga_news", return_value={"FGL": []}):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        self.assertIsNone(sig)
+
+    def test_confirmed_news_allows_non_watchlist_ticker(self):
+        with patch.object(a, "_fetch_massive_benzinga_news",
+                          return_value={"FGL": ["Company announces XYZ"]}):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        self.assertIsNotNone(sig)
+
+    def test_dman_watchlist_ticker_exempt_from_news_check(self):
+        with patch.object(a, "_fetch_massive_benzinga_news") as mock_news:
+            sig = a.detect_low_float_catalyst(self._df(), "DMANPICK")
+        mock_news.assert_not_called()
+        self.assertIsNotNone(sig)
+
+    def test_news_api_failure_fails_closed(self):
+        # Fail-closed: an API error (empty dict from the existing
+        # _fetch_massive_benzinga_news failure handling) must block entry,
+        # not silently let an unverified spike through.
+        with patch.object(a, "_fetch_massive_benzinga_news", return_value={}):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        self.assertIsNone(sig)
 
 
 class TestDayStartEquityBaseline(unittest.TestCase):

@@ -1,20 +1,5 @@
 [
   {
-    "ts": "2026-07-31T12:25:58.800182-04:00",
-    "regime": "CHOP",
-    "regime_score": 14,
-    "vix": 17.2,
-    "min_score": 75,
-    "universe": "all",
-    "tickers_total": 100,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 98,
-    "rejected_hard_gate": 2,
-    "rejected_low_score": 0,
-    "budget_hit": false
-  },
-  {
     "ts": "2026-08-02T21:30:03.818793-04:00",
     "regime": "CHOP",
     "regime_score": 14,
@@ -310,6 +295,23 @@
     "signals": 0,
     "signal_tickers": [],
     "rejected_no_signal": 112,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false
+  },
+  {
+    "ts": "2026-08-12T12:53:11.938235-04:00",
+    "regime": "BULL",
+    "regime_score": 17,
+    "vix": 14.8,
+    "min_score": 85,
+    "universe": "curated",
+    "tickers_total": 85,
+    "signals": 1,
+    "signal_tickers": [
+      "FGL"
+    ],
+    "rejected_no_signal": 85,
     "rejected_hard_gate": 0,
     "rejected_low_score": 0,
     "budget_hit": false

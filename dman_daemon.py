@@ -79,6 +79,10 @@ STATE_FILES = [
                                 # 1-week TTL cache, pointless if it doesn't survive between sessions
     "dman_stock_feed_state.json",  # same class of bug as dman_options_feed_state.json above, for
                                      # Algo Trader Plus's stock-side SIP entitlement (added 2026-08-09)
+    "dman_telegram_options_menu.json",  # the /options TICKER menu /buy N resolves an index against —
+                                          # must survive a daemon restart between the two commands
+    "dman_telegram_manual_buy.json",    # the staged /buy confirmation awaiting a YES/NO reply — same
+                                          # reasoning as dman_earnings_pending.json above
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

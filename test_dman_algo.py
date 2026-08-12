@@ -2086,6 +2086,396 @@ class TestFetchEarningsMoverTickers(unittest.TestCase):
         self.assertEqual(result, [])
 
 
+class TestStocktwitsQuickTake(unittest.TestCase):
+    """_stocktwits_quick_take() attaches a live technical snapshot to a
+    freshly-detected StockTwits call so the Telegram alert itself answers
+    'is this worth looking at right now' instead of just 'ticker added,
+    check back later.' Deliberately a lightweight heuristic, not a
+    duplicate of the real scanner's scoring -- these tests lock in that
+    it degrades safely (never blocks the alert) and that the strong/weak
+    labels point the right direction."""
+
+    def _uptrend_df(self, n=40, spike_vol=True):
+        import pandas as pd
+        closes = [10.0 + i * 0.15 for i in range(n)]   # steady uptrend
+        highs  = [c + 0.1 for c in closes]
+        lows   = [c - 0.1 for c in closes]
+        vols   = [500_000] * (n - 1) + ([2_000_000] if spike_vol else [500_000])
+        return pd.DataFrame({"Open": closes, "High": highs, "Low": lows,
+                              "Close": closes, "Volume": vols})
+
+    def test_strong_uptrend_gets_positive_label(self):
+        df = self._uptrend_df()
+        last_close = float(df["Close"].iloc[-1])
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "get_live_price", return_value=last_close * 1.08):
+            result = a._stocktwits_quick_take("XYZ")
+        self.assertIn("Strong setup", result)
+
+    def test_insufficient_data_fails_open(self):
+        import pandas as pd
+        with patch.object(a, "fetch_df", return_value=pd.DataFrame({"Close": [1, 2]})):
+            result = a._stocktwits_quick_take("XYZ")
+        self.assertIn("unavailable", result)
+
+    def test_none_data_fails_open(self):
+        with patch.object(a, "fetch_df", return_value=None):
+            result = a._stocktwits_quick_take("XYZ")
+        self.assertIn("unavailable", result)
+
+    def test_exception_fails_open_never_raises(self):
+        with patch.object(a, "fetch_df", side_effect=Exception("network error")):
+            result = a._stocktwits_quick_take("XYZ")
+        self.assertIn("unavailable", result)
+
+    def test_declining_low_volume_does_not_get_strong_label(self):
+        import pandas as pd
+        n = 40
+        closes = [20.0 - i * 0.15 for i in range(n)]   # steady downtrend
+        highs  = [c + 0.1 for c in closes]
+        lows   = [c - 0.1 for c in closes]
+        vols   = [500_000] * n
+        df = pd.DataFrame({"Open": closes, "High": highs, "Low": lows,
+                            "Close": closes, "Volume": vols})
+        last_close = float(df["Close"].iloc[-1])
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "get_live_price", return_value=last_close * 0.94):
+            result = a._stocktwits_quick_take("XYZ")
+        self.assertNotIn("Strong setup", result)
+
+
+class TestFetchOptionChainForDisplay(unittest.TestCase):
+    """_fetch_option_chain_for_display() is the browse-side counterpart to
+    _find_best_call_contract/_find_best_put_contract — instead of picking
+    ONE ITM-biased 'best' contract, it returns a symmetric band of BOTH
+    calls and puts around ATM for a human to choose from via /options.
+    These tests lock in the liquidity gate and that contracts with no
+    usable quote are dropped rather than shown with a garbage price."""
+
+    def _snap(self, bid, ask, delta=0.5):
+        return {"bid": bid, "ask": ask, "delta": delta, "spread_pct": 0.03}
+
+    def test_illiquid_underlying_returns_none(self):
+        mock_client = MagicMock()
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 100_000
+            result = a._fetch_option_chain_for_display(mock_client, "THIN", 50.0)
+        self.assertIsNone(result)
+        mock_client.get_option_contracts.assert_not_called()
+
+    def test_returns_both_calls_and_puts(self):
+        class FakeContract:
+            symbol = "TESTX260814C00100000"
+            strike_price = 100.0
+
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = MagicMock(option_contracts=[FakeContract()])
+        with patch.object(a, "yf") as mock_yf, \
+             patch.object(a, "_get_option_snapshot", return_value=self._snap(2.0, 2.1)):
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            result = a._fetch_option_chain_for_display(mock_client, "TESTX", 100.0, strikes_each_side=2)
+        self.assertIsNotNone(result)
+        types = {i["type"] for i in result["items"]}
+        self.assertEqual(types, {"CALL", "PUT"})
+
+    def test_contracts_with_no_quote_are_skipped(self):
+        class FakeContract:
+            symbol = "TESTX260814C00100000"
+            strike_price = 100.0
+
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = MagicMock(option_contracts=[FakeContract()])
+        with patch.object(a, "yf") as mock_yf, \
+             patch.object(a, "_get_option_snapshot", return_value=self._snap(0, 0)):
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            result = a._fetch_option_chain_for_display(mock_client, "TESTX", 100.0, strikes_each_side=2)
+        self.assertIsNone(result, "a chain with zero usable quotes must return None, not an empty-ish menu")
+
+
+class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
+    """The /options -> /buy -> YES/NO Telegram flow places REAL orders, so
+    these tests are deliberately thorough: staging a confirmation must
+    never itself place an order, an expired/invalid menu or confirmation
+    must be rejected rather than guessed at, and halt/macro-blackout must
+    be enforced at the final YES step regardless of what was staged
+    earlier."""
+
+    def _menu(self, ticker="SMCI", expires_in_min=10, expiry="2026-08-14"):
+        now = datetime.now(a.ET) if hasattr(a, "ET") else __import__("datetime").datetime.now()
+        return {
+            "ticker": ticker,
+            "created_at": now.isoformat(),
+            "expires_at": (now + timedelta(minutes=expires_in_min)).isoformat(),
+            "expiry": expiry,
+            "items": [
+                {"idx": 1, "type": "CALL", "occ_symbol": "SMCI260814C00034000",
+                 "strike": 34.0, "bid": 1.50, "ask": 1.55, "delta": 0.51, "delta_estimated": False},
+                {"idx": 2, "type": "PUT", "occ_symbol": "SMCI260814P00029500",
+                 "strike": 29.5, "bid": 1.05, "ask": 1.10, "delta": -0.42, "delta_estimated": False},
+            ],
+        }
+
+    def setUp(self):
+        self._menu_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._menu_tmp.close()
+        self._buy_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._buy_tmp.close()
+        self._pos_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._pos_tmp.write("[]")
+        self._pos_tmp.close()
+        import functools
+        _isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patches = [
+            patch.object(a, "TELEGRAM_OPTIONS_MENU_FILE", self._menu_tmp.name),
+            patch.object(a, "TELEGRAM_MANUAL_BUY_FILE", self._buy_tmp.name),
+            patch.object(a, "PositionTracker", _isolated_pt),
+            patch.object(a, "send_telegram", return_value=True),
+            patch.object(a, "is_halted", return_value=False),
+            patch.object(a, "check_macro_safe", return_value=(True, 5)),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._menu_tmp, self._buy_tmp, self._pos_tmp):
+            try:
+                os.unlink(f.name)
+            except FileNotFoundError:
+                pass
+
+    # ── /options ──────────────────────────────────────────────────────
+    def test_options_command_no_ticker_shows_usage(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command("")
+        self.assertIn("Usage", mock_tg.call_args[0][0])
+
+    def test_options_command_no_chain_sends_error(self):
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_option_chain_for_display", return_value=None), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command("SMCI")
+        self.assertIn("No liquid options chain", mock_tg.call_args[0][0])
+
+    def test_options_command_saves_menu_and_numbers_items(self):
+        chain = {"ticker": "SMCI", "expiry": "2026-08-14", "dte": 2, "underlying_price": 34.0,
+                  "items": [{"type": "CALL", "occ_symbol": "X", "strike": 34.0,
+                              "bid": 1.5, "ask": 1.55, "delta": 0.51, "delta_estimated": False}]}
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_option_chain_for_display", return_value=chain), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command("smci")
+        with open(self._menu_tmp.name) as f:
+            saved = json.load(f)
+        self.assertEqual(saved["ticker"], "SMCI")
+        self.assertEqual(saved["items"][0]["idx"], 1)
+        self.assertIn("CALLS", mock_tg.call_args[0][0])
+
+    # ── /buy ──────────────────────────────────────────────────────────
+    def test_buy_command_no_menu_file(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "1"])
+        self.assertIn("No active /options menu", mock_tg.call_args[0][0])
+
+    def test_buy_command_expired_menu(self):
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(self._menu(expires_in_min=-5), f)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "1"])
+        self.assertIn("expired", mock_tg.call_args[0][0])
+
+    def test_buy_command_invalid_index(self):
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(self._menu(), f)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "99"])
+        self.assertIn("No item #99", mock_tg.call_args[0][0])
+
+    def test_buy_command_stages_pending_confirmation_without_ordering(self):
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(self._menu(), f)
+        with patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "1", "150"])
+        mock_gac.assert_not_called()   # staging a confirmation must never touch the broker
+        with open(self._buy_tmp.name) as f:
+            pending = json.load(f)
+        self.assertEqual(pending["occ_symbol"], "SMCI260814C00034000")
+        self.assertIn("Confirm", mock_tg.call_args[0][0])
+
+    def test_buy_command_too_expensive_for_budget_rejected(self):
+        menu = self._menu()
+        menu["items"][0]["bid"] = 200.0
+        menu["items"][0]["ask"] = 201.0
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(menu, f)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "1", "50"])
+        self.assertIn("more than 1.5x", mock_tg.call_args[0][0])
+        self.assertEqual(os.path.getsize(self._buy_tmp.name), 0,
+                          "a rejected /buy must not stage a pending confirmation")
+
+    # ── YES/NO reply ─────────────────────────────────────────────────
+    def _pending(self, expires_in_min=5):
+        now = datetime.now(a.ET)
+        return {
+            "ticker": "SMCI", "occ_symbol": "SMCI260814C00034000", "option_type": "CALL",
+            "strike": 34.0, "expiry": "2026-08-14", "contracts": 3, "ask_at_confirm": 1.55,
+            "total_cost": 465.0, "risk_dollars": 150.0,
+            "created_at": now.isoformat(),
+            "expires_at": (now + timedelta(minutes=expires_in_min)).isoformat(),
+        }
+
+    def test_non_yes_no_text_returns_false(self):
+        self.assertFalse(a._handle_manual_options_buy_reply("hello there"))
+
+    def test_yes_with_nothing_pending_returns_false(self):
+        self.assertFalse(a._handle_manual_options_buy_reply("YES"))
+
+    def test_no_cancels_without_ordering(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(), f)
+        with patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            handled = a._handle_manual_options_buy_reply("NO")
+        self.assertTrue(handled)
+        mock_gac.assert_not_called()
+        self.assertIn("cancelled", mock_tg.call_args[0][0])
+
+    def test_expired_confirmation_declines_without_ordering(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(expires_in_min=-5), f)
+        with patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_manual_options_buy_reply("YES")
+        mock_gac.assert_not_called()
+        self.assertIn("expired", mock_tg.call_args[0][0])
+
+    def test_halted_blocks_order(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(), f)
+        with patch.object(a, "is_halted", return_value=True), \
+             patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_manual_options_buy_reply("YES")
+        mock_gac.assert_not_called()
+        self.assertIn("halted", mock_tg.call_args[0][0])
+
+    def test_macro_blackout_blocks_order(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(), f)
+        with patch.object(a, "check_macro_safe", return_value=(False, 0)), \
+             patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_manual_options_buy_reply("YES")
+        mock_gac.assert_not_called()
+        self.assertIn("blackout", mock_tg.call_args[0][0])
+
+    def test_yes_submits_and_registers_position(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(), f)
+        snap = {"bid": 1.52, "ask": 1.56, "delta": 0.51}
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = MagicMock(id="order-abc-123")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "_get_option_snapshot", return_value=snap), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_manual_options_buy_reply("YES")
+        mock_client.submit_order.assert_called_once()
+        positions = a.PositionTracker().positions
+        self.assertEqual(len(positions), 1)
+        self.assertTrue(positions[0].setup.startswith("Options Call SMCI260814C00034000"))
+        self.assertIn("SUBMITTED", mock_tg.call_args[0][0])
+
+
+class TestSubmitManualOptionsBuy(unittest.TestCase):
+    """_submit_manual_options_buy() is the actual order-placement half of
+    the /options -> /buy -> YES flow. Isolated from the Telegram-handler
+    tests above so the staleness/cash/MAX_POSITIONS guards can be tested
+    directly against its (order_id, error) return contract."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._pos_tmp.write("[]")
+        self._pos_tmp.close()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patch = patch.object(a, "PositionTracker", self._isolated_pt)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._pos_tmp.name)
+
+    def _pending(self):
+        return {
+            "ticker": "SMCI", "occ_symbol": "SMCI260814C00034000", "option_type": "CALL",
+            "strike": 34.0, "expiry": "2026-08-14", "contracts": 3, "ask_at_confirm": 1.55,
+        }
+
+    def test_price_drift_past_limit_aborts(self):
+        mock_client = MagicMock()
+        with patch.object(a, "_get_option_snapshot", return_value={"bid": 2.0, "ask": 2.05, "delta": 0.5}):
+            order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
+        self.assertIsNone(order_id)
+        self.assertIn("moved", err)
+        mock_client.submit_order.assert_not_called()
+
+    def test_no_live_quote_aborts(self):
+        mock_client = MagicMock()
+        with patch.object(a, "_get_option_snapshot", return_value=None):
+            order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
+        self.assertIsNone(order_id)
+        mock_client.submit_order.assert_not_called()
+
+    def test_insufficient_cash_aborts(self):
+        mock_client = MagicMock()
+        with patch.object(a, "_get_option_snapshot", return_value={"bid": 1.52, "ask": 1.56, "delta": 0.5}), \
+             patch.object(a, "_cash_available_for", return_value=(False, "insufficient cash")):
+            order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
+        self.assertIsNone(order_id)
+        self.assertIn("insufficient cash", err)
+        mock_client.submit_order.assert_not_called()
+
+    def test_max_positions_cancels_the_just_placed_order(self):
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = MagicMock(id="order-xyz")
+        # Fill the tracker to MAX_POSITIONS before submitting.
+        pt = a.PositionTracker(filepath=self._pos_tmp.name)
+        for i in range(a.MAX_POSITIONS):
+            pt.open(a.OpenPosition(
+                ticker=f"T{i}", bias="LONG", setup="Low Float Catalyst",
+                entry=1.0, stop=0.9, target1=1.1, target2=1.2,
+                shares=10, entry_date="2026-08-01",
+            ))
+        with patch.object(a, "_get_option_snapshot", return_value={"bid": 1.52, "ask": 1.56, "delta": 0.5}), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")):
+            order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
+        self.assertIsNone(order_id)
+        self.assertIn("MAX_POSITIONS", err)
+        mock_client.cancel_order_by_id.assert_called_once_with("order-xyz")
+
+    def test_successful_submission_uses_target_stop_formula(self):
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = MagicMock(id="order-xyz")
+        with patch.object(a, "_get_option_snapshot", return_value={"bid": 1.52, "ask": 1.56, "delta": 0.5}), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")):
+            order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
+        self.assertEqual(order_id, "order-xyz")
+        self.assertIsNone(err)
+        pos = a.PositionTracker(filepath=self._pos_tmp.name).positions[0]
+        limit_px = round(1.56 * 1.03, 2)
+        self.assertAlmostEqual(pos.entry, limit_px)
+        self.assertAlmostEqual(pos.target1, round(limit_px * 1.5, 2))
+        self.assertAlmostEqual(pos.target2, round(limit_px * 2.5, 2))
+        self.assertAlmostEqual(pos.stop, round(limit_px * 0.5, 2))
+        self.assertEqual(pos.shares, 300)   # 3 contracts * 100
+
+
 class TestGithubHealthDiagnosis(unittest.TestCase):
     """_diagnose_github_health() drives run_fallback_guard() -- the whole
     point is running the scan locally the moment GitHub Actions can't, so

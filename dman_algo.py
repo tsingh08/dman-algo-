@@ -305,6 +305,18 @@ EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT = 8.0   # abort a late approval instead of
                                                # _handle_earnings_approval_reply's drift check
 EARNINGS_SPREAD_PENDING_FILE   = "dman_earnings_pending.json"
 
+# ── Telegram manual options browse/buy ("/options TICKER" -> "/buy N" -> YES) ──
+TELEGRAM_OPTIONS_MENU_FILE        = "dman_telegram_options_menu.json"
+TELEGRAM_MANUAL_BUY_FILE          = "dman_telegram_manual_buy.json"
+TELEGRAM_OPTIONS_MENU_TIMEOUT_MIN = 10     # /options menu expires — a stale index must not resolve
+TELEGRAM_MANUAL_BUY_TIMEOUT_MIN   = 5      # YES/NO confirmation window
+MANUAL_BUY_MAX_PRICE_DRIFT_PCT    = 8.0    # abort a late YES rather than submit off a stale quote —
+                                            # same staleness philosophy as EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT
+MANUAL_BUY_DEFAULT_RISK_DOLLARS   = 150.0  # used when /buy N omits a $ amount
+MANUAL_BUY_MAX_RISK_DOLLARS       = OPTIONS_MAX_POSITION_COST  # never let a manual buy exceed the
+                                                                 # same per-trade ceiling automated
+                                                                 # entries already respect
+
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
 
@@ -1786,6 +1798,12 @@ def _handle_telegram_command(text: str) -> None:
             except Exception as _e:
                 send_telegram(f"❌ /close {_arg} failed: {_e}")
 
+    elif _cmd == "options":
+        _handle_options_command(_arg)
+
+    elif _cmd == "buy":
+        _handle_buy_command(_parts)
+
     else:
         send_telegram(
             "🤖 <b>DMan commands</b>\n"
@@ -1795,8 +1813,224 @@ def _handle_telegram_command(text: str) -> None:
             "/halt [reason] — block new entries (exits still run)\n"
             "/resume — re-enable entries\n"
             "/close TICKER — close a position now\n"
+            "/options TICKER — browse live calls/puts around the money\n"
+            "/buy N [risk$] — size + confirm item N from the last /options menu\n"
             "/restart — force a fresh daemon session (last resort, works even if it's frozen)"
         )
+
+
+def _handle_options_command(ticker: str) -> None:
+    """
+    /options TICKER — browse a symmetric band of calls/puts around ATM for
+    the nearest OPTIONS_TARGET_DTE expiry, numbered so /buy N can reference
+    one. Read-only: never places an order by itself, and works regardless
+    of /halt state (browsing isn't an entry — /buy's final YES confirmation
+    is where halt/macro-blackout actually get enforced).
+    """
+    ticker = ticker.upper().strip()
+    if not ticker:
+        send_telegram("Usage: <code>/options TICKER</code>")
+        return
+    client = get_alpaca_client()
+    if client is None:
+        send_telegram("❌ Alpaca unavailable — can't fetch options chain.")
+        return
+    px = get_live_price(ticker)
+    if px is None or px <= 0:
+        send_telegram(f"❌ Couldn't get a live price for {ticker}.")
+        return
+    chain = _fetch_option_chain_for_display(client, ticker, px)
+    if not chain or not chain["items"]:
+        send_telegram(f"❌ No liquid options chain found for {ticker} "
+                       f"(below the {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M underlying volume "
+                       f"floor, or no listed contracts near the money).")
+        return
+
+    calls = sorted((i for i in chain["items"] if i["type"] == "CALL"), key=lambda x: x["strike"])
+    puts  = sorted((i for i in chain["items"] if i["type"] == "PUT"),  key=lambda x: x["strike"])
+    ordered = calls + puts
+    for _i, _item in enumerate(ordered, start=1):
+        _item["idx"] = _i
+
+    _now = datetime.now(ET)
+    menu = {
+        "ticker": ticker, "created_at": _now.isoformat(),
+        "expires_at": (_now + timedelta(minutes=TELEGRAM_OPTIONS_MENU_TIMEOUT_MIN)).isoformat(),
+        "expiry": chain["expiry"], "items": ordered,
+    }
+    try:
+        with open(TELEGRAM_OPTIONS_MENU_FILE, "w") as f:
+            json.dump(menu, f, indent=2)
+    except Exception as _e:
+        send_telegram(f"❌ Couldn't save options menu: {_e}")
+        return
+
+    _lines = [f"📊 <b>{ticker}</b>  ${px:.2f}   exp {chain['expiry']} ({chain['dte']}d)"]
+    if calls:
+        _lines.append("\n<b>CALLS</b>")
+        for _i in calls:
+            _dtag = "~" if _i["delta_estimated"] else ""
+            _lines.append(f"{_i['idx']}) ${_i['strike']:g}C  bid/ask "
+                          f"{_i['bid']:.2f}/{_i['ask']:.2f}  Δ{_dtag}{_i['delta']:.2f}")
+    if puts:
+        _lines.append("\n<b>PUTS</b>")
+        for _i in puts:
+            _dtag = "~" if _i["delta_estimated"] else ""
+            _lines.append(f"{_i['idx']}) ${_i['strike']:g}P  bid/ask "
+                          f"{_i['bid']:.2f}/{_i['ask']:.2f}  Δ{_dtag}{_i['delta']:.2f}")
+    _lines.append(f"\nReply <code>/buy N [risk$]</code> to size and confirm "
+                  f"(e.g. <code>/buy {ordered[0]['idx']} 150</code> — default "
+                  f"${MANUAL_BUY_DEFAULT_RISK_DOLLARS:.0f} if omitted). "
+                  f"Menu expires in {TELEGRAM_OPTIONS_MENU_TIMEOUT_MIN} min.")
+    send_telegram("\n".join(_lines))
+
+
+def _handle_buy_command(parts: list[str]) -> None:
+    """
+    /buy N [risk$] — size and stage a confirmation for item N from the most
+    recent /options menu. Does NOT place the order — sends a confirmation
+    message the user must reply YES/NO to (same pattern as the earnings-
+    spread approval flow), so a single mistyped index can never directly
+    become a live order. halt/macro-blackout checks happen at the YES step
+    (_handle_manual_options_buy_reply), not here — see that function's
+    docstring for why.
+    """
+    if len(parts) < 2 or not parts[1].isdigit():
+        send_telegram("Usage: <code>/buy N [risk$]</code> — N from the last /options menu.")
+        return
+    idx = int(parts[1])
+    risk_dollars = MANUAL_BUY_DEFAULT_RISK_DOLLARS
+    if len(parts) >= 3:
+        try:
+            risk_dollars = float(parts[2].replace("$", ""))
+        except ValueError:
+            send_telegram(f"❌ Couldn't parse risk amount '{parts[2]}' — usage: /buy N [risk$]")
+            return
+    risk_dollars = max(10.0, min(risk_dollars, MANUAL_BUY_MAX_RISK_DOLLARS))
+
+    try:
+        with open(TELEGRAM_OPTIONS_MENU_FILE) as f:
+            menu = json.load(f)
+    except Exception:
+        send_telegram("❌ No active /options menu — run /options TICKER first.")
+        return
+
+    if datetime.now(ET) >= datetime.fromisoformat(menu["expires_at"]):
+        send_telegram("⏰ That /options menu expired — run /options TICKER again.")
+        return
+
+    item = next((i for i in menu["items"] if i["idx"] == idx), None)
+    if item is None:
+        send_telegram(f"❌ No item #{idx} on the current menu ({len(menu['items'])} items). "
+                       f"Run /options {menu['ticker']} again to see it.")
+        return
+
+    mid = (item["bid"] + item["ask"]) / 2
+    if mid <= 0:
+        send_telegram(f"❌ {item['occ_symbol']} has no usable quote right now.")
+        return
+    if mid * 100 > risk_dollars * 1.5:
+        send_telegram(f"⚠️ 1 contract of {item['occ_symbol']} costs ~${mid*100:.0f}, "
+                       f"more than 1.5x your ${risk_dollars:.0f} budget — pick a cheaper "
+                       f"strike or raise the budget (e.g. /buy {idx} {mid*100*1.5:.0f}).")
+        return
+    premium_per_contract = mid * 100
+    contracts  = max(1, min(int(risk_dollars / premium_per_contract), 10))
+    total_cost = round(contracts * mid * 100, 2)
+
+    _now = datetime.now(ET)
+    pending = {
+        "ticker": menu["ticker"], "occ_symbol": item["occ_symbol"],
+        "option_type": item["type"], "strike": item["strike"], "expiry": menu["expiry"],
+        "contracts": contracts, "ask_at_confirm": item["ask"],
+        "total_cost": total_cost, "risk_dollars": risk_dollars,
+        "created_at": _now.isoformat(),
+        "expires_at": (_now + timedelta(minutes=TELEGRAM_MANUAL_BUY_TIMEOUT_MIN)).isoformat(),
+    }
+    try:
+        with open(TELEGRAM_MANUAL_BUY_FILE, "w") as f:
+            json.dump(pending, f, indent=2)
+    except Exception as _e:
+        send_telegram(f"❌ Couldn't stage confirmation: {_e}")
+        return
+
+    _dir = "P" if item["type"] == "PUT" else "C"
+    send_telegram(
+        f"🎯 <b>Confirm</b>: BUY {contracts}x {menu['ticker']} ${item['strike']:g}{_dir} "
+        f"exp {menu['expiry']}\n"
+        f"@ ask ${item['ask']:.2f}  (~${total_cost:.0f} total, Δ{item['delta']:.2f})\n"
+        f"Reply <b>YES</b> to place, <b>NO</b> to cancel. Expires in "
+        f"{TELEGRAM_MANUAL_BUY_TIMEOUT_MIN} min."
+    )
+
+
+def _handle_manual_options_buy_reply(text: str) -> bool:
+    """
+    Matches a bare (non-"/"-prefixed) YES/NO reply against a pending manual
+    options buy staged by /buy. Mirrors _handle_earnings_approval_reply's
+    shape (expiration check, price-staleness re-check before submitting)
+    but for a single pending buy at a time rather than a list — the
+    /options -> /buy -> YES/NO flow is a one-at-a-time interactive
+    sequence, not concurrent offers. halt and macro-blackout are enforced
+    HERE, not at /buy time, so staging a confirmation always reflects the
+    real-time gate state at the moment money would actually move. Returns
+    True if the message was YES/NO-shaped (whether or not a buy was
+    actually pending), so the caller doesn't also try to process it as an
+    earnings-approval reply.
+    """
+    import re
+    m = re.match(r"^(yes|y|no|n)\b\s*$", text.strip(), re.IGNORECASE)
+    if not m:
+        return False
+
+    try:
+        with open(TELEGRAM_MANUAL_BUY_FILE) as f:
+            pending = json.load(f)
+    except Exception:
+        return False   # nothing pending — not our message to consume
+
+    try:
+        os.remove(TELEGRAM_MANUAL_BUY_FILE)
+    except Exception:
+        pass
+
+    if datetime.now(ET) >= datetime.fromisoformat(pending["expires_at"]):
+        send_telegram(f"⏰ {pending['ticker']} buy confirmation expired — no order placed.")
+        return True
+
+    is_yes = m.group(1).lower() in ("yes", "y")
+    if not is_yes:
+        send_telegram(f"👍 {pending['ticker']} buy cancelled — no order placed.")
+        return True
+
+    if is_halted():
+        send_telegram(f"🛑 Bot is halted — {pending['ticker']} buy NOT placed. /resume first, then /buy again.")
+        return True
+
+    _macro_ok, _ = check_macro_safe()
+    if not _macro_ok:
+        send_telegram(f"⛔ {pending['ticker']} buy NOT placed — macro blackout active "
+                       f"(FOMC/CPI/NFP window, stops unreliable right now). Try again "
+                       f"after the blackout lifts.")
+        return True
+
+    client = get_alpaca_client()
+    if client is None:
+        send_telegram(f"❌ {pending['ticker']} buy approved but Alpaca is unavailable — not submitted.")
+        return True
+
+    order_id, err = _submit_manual_options_buy(client, pending)
+    if err:
+        send_telegram(f"❌ <b>{pending['ticker']} buy FAILED</b>\n{err}")
+        return True
+
+    strike_dir = "P" if pending["option_type"] == "PUT" else "C"
+    send_telegram(
+        f"📤 <b>{pending['ticker']} {pending['option_type']} SUBMITTED</b>  id {order_id[:8]}…\n"
+        f"{pending['contracts']}x ${pending['strike']:g}{strike_dir} exp {pending['expiry']}  "
+        f"~${pending['total_cost']:.0f}"
+    )
+    return True
 
 
 def _load_earnings_pending() -> list[dict]:
@@ -2035,12 +2269,18 @@ def _process_telegram_commands(timeout: int = 0) -> int:
         if not _text.startswith("/"):
             # Plain (non-"/") replies used to be silently dropped here —
             # that's the only way a human can answer an earnings-spread
-            # approval request (see format_earnings_spread_telegram()).
+            # approval request (see format_earnings_spread_telegram()) or a
+            # manual /options -> /buy confirmation. The manual-buy check
+            # runs first since it's a narrower, one-at-a-time flow — if
+            # nothing's pending there it returns False immediately and
+            # falls through to the earnings check unchanged.
             try:
-                if _handle_earnings_approval_reply(_text):
+                if _handle_manual_options_buy_reply(_text):
+                    _handled += 1
+                elif _handle_earnings_approval_reply(_text):
                     _handled += 1
             except Exception as _e:
-                print(f"  ⚠️  Earnings approval reply error ({_text}): {_e}")
+                print(f"  ⚠️  Reply handling error ({_text}): {_e}")
             continue
         try:
             _handle_telegram_command(_text)
@@ -2337,6 +2577,57 @@ def _diagnose_github_health(runs: list[dict], now_et: datetime) -> tuple[bool, s
     return False, ""
 
 
+def _stocktwits_quick_take(ticker: str) -> str:
+    """
+    Lightweight technical snapshot for a freshly-detected StockTwits call,
+    computed at DETECTION time so the Telegram alert itself carries real
+    signal ("is this worth looking at right now") instead of just "ticker
+    added, check back later." Deliberately NOT a duplicate scoring engine —
+    the real, full evaluation still happens via the existing immediate-
+    scan-dispatch path (dman_stocktwits.yml's "Trigger immediate scan"
+    step). This uses the exact same fetch_df/compute_indicators the real
+    scanner uses so the numbers a human sees here match what the full
+    scan sees moments later. Fails open to a short "unavailable" string —
+    never blocks the alert itself from sending.
+    """
+    try:
+        df = fetch_df(ticker, period_days=40)
+        if df is None or len(df) < 20:
+            return "  quick-take unavailable (insufficient data)"
+        df = compute_indicators(df.copy())
+        last = df.iloc[-1]
+        prev_close = float(df["Close"].iloc[-2]) if len(df) >= 2 else float(last["Close"])
+        px = get_live_price(ticker) or float(last["Close"])
+        gap_pct = (px - prev_close) / prev_close * 100 if prev_close > 0 else 0.0
+        rvol = float(last.get("RVOL", 0) or 0)
+        rsi  = float(last.get("RSI", 0) or 0)
+        hi20 = float(df["High"].tail(20).max())
+        off_high_pct = (px - hi20) / hi20 * 100 if hi20 > 0 else 0.0
+
+        flags = [f"{gap_pct:+.1f}% today"]
+        score = 1 if gap_pct >= 5 else (-1 if gap_pct <= -5 else 0)
+        if rvol > 0:
+            flags.append(f"RVOL {rvol:.1f}x")
+            score += 1 if rvol >= 2 else 0
+        if rsi:
+            flags.append(f"RSI {rsi:.0f}")
+            score += 1 if 50 <= rsi <= 75 else (-1 if (rsi >= 85 or rsi <= 30) else 0)
+        if off_high_pct >= -2:
+            flags.append("near 20d high")
+            score += 1
+        elif off_high_pct <= -15:
+            flags.append(f"{off_high_pct:.0f}% off 20d high")
+            score -= 1
+
+        label = ("🔥 Strong setup" if score >= 3 else
+                  "👀 Worth a look" if score >= 1 else
+                  "⚠️ Caution — weak technicals" if score <= -2 else
+                  "😐 Mixed")
+        return f"  ${px:.2f}  " + " | ".join(flags) + f"\n  {label}"
+    except Exception:
+        return "  quick-take unavailable (data error)"
+
+
 def run_stocktwits_monitor() -> None:
     """
     Fetch ProfessorDman1's recent StockTwits messages.
@@ -2426,11 +2717,14 @@ def run_stocktwits_monitor() -> None:
     _to_add  = [_c["ticker"] for _c in _new_calls]
     _added   = _stocktwits_inject_tickers(_to_add)
 
-    # Telegram — confirm what was added
+    # Telegram — confirm what was added, with a live quick-take so the alert
+    # itself answers "is this worth looking at right now" instead of just
+    # "ticker added, check back later."
     _lines = []
     for _c in _new_calls:
         _tag = "✅ added to scanner" if _c["ticker"] in _added else "already tracked"
-        _lines.append(f"  <b>{_c['ticker']}</b> [{_tag}]\n  \"{_c['body']}\"")
+        _quick = _stocktwits_quick_take(_c["ticker"])
+        _lines.append(f"  <b>{_c['ticker']}</b> [{_tag}]\n  \"{_c['body']}\"\n{_quick}")
 
     send_telegram(
         f"📡 <b>DMan StockTwits — {len(_new_calls)} call(s) detected</b>\n\n"
@@ -13003,6 +13297,101 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
     return None
 
 
+def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
+                                     strikes_each_side: int = 3) -> Optional[dict]:
+    """
+    Broader, human-browsable options chain for the Telegram /options command.
+
+    Unlike _find_best_call_contract/_find_best_put_contract (each of which
+    picks ONE ITM-biased "best" contract for the automated scanner, scanning
+    only strikes below/above current price respectively), this returns a
+    symmetric band of strikes around ATM for BOTH calls and puts, live
+    bid/ask/delta per contract, so a human can actually see and choose from
+    a menu instead of only ever getting the algo's single automatic pick.
+    Not filtered by the automated path's delta/spread hard-gates — browsing
+    should show what's actually available; the human (or, for an automated
+    entry, the normal scan/score pipeline) is the filter here.
+
+    Returns {"ticker", "expiry", "dte", "underlying_price", "items": [...]}
+    or None if the underlying fails the same liquidity gate the automated
+    path uses, or no expiry/contracts can be found. Each item is a dict:
+    {"type": "CALL"/"PUT", "occ_symbol", "strike", "bid", "ask", "delta",
+    "delta_estimated"}. Never raises — a single strike's lookup failure is
+    skipped, not fatal to the whole chain.
+    """
+    from alpaca.trading.requests import GetOptionContractsRequest
+    from alpaca.trading.enums import ContractType
+
+    try:
+        _fi  = yf.Ticker(ticker).fast_info
+        _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
+            return None
+    except Exception:
+        return None
+
+    today = date.today()
+    target_expiry = None
+    _best_diff = float("inf")
+    for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == 4:   # Friday
+            _diff = abs(offset - OPTIONS_TARGET_DTE)
+            if _diff < _best_diff:
+                _best_diff = _diff
+                target_expiry = candidate
+    if not target_expiry:
+        return None
+
+    incr = 1.0 if current_price < 25 else (2.5 if current_price < 200 else 5.0)
+    atm  = round(round(current_price / incr) * incr, 2)
+    strikes = [round(atm + i * incr, 2) for i in range(-strikes_each_side, strikes_each_side + 1)
+               if atm + i * incr > 0]
+
+    items: list[dict] = []
+    for _otype, _contract_type in (("CALL", ContractType.CALL), ("PUT", ContractType.PUT)):
+        for strike in strikes:
+            try:
+                raw = client.get_option_contracts(GetOptionContractsRequest(
+                    underlying_symbols=[ticker],
+                    expiration_date=target_expiry,
+                    type=_contract_type,
+                    strike_price_gte=str(round(strike - 0.01, 2)),
+                    strike_price_lte=str(round(strike + 0.01, 2)),
+                    limit=1,
+                ))
+                found = getattr(raw, "option_contracts", None) or (
+                    raw if isinstance(raw, list) else []
+                )
+                if not found:
+                    continue
+                occ  = found[0].symbol
+                snap = _get_option_snapshot(occ)
+                if not snap or snap.get("bid", 0) <= 0 or snap.get("ask", 0) <= 0:
+                    continue
+                delta_estimated = False
+                if snap["delta"] == 0.0:
+                    delta_estimated = True
+                    snap["delta"] = _estimate_bs_delta(
+                        current_price, strike, (target_expiry - today).days,
+                        _otype == "CALL", _realized_vol_estimate(ticker))
+                items.append({
+                    "type": _otype, "occ_symbol": occ, "strike": strike,
+                    "bid": snap["bid"], "ask": snap["ask"],
+                    "delta": snap["delta"], "delta_estimated": delta_estimated,
+                })
+            except Exception:
+                continue
+
+    if not items:
+        return None
+    return {
+        "ticker": ticker, "expiry": target_expiry.isoformat(),
+        "dte": (target_expiry - today).days, "underlying_price": current_price,
+        "items": items,
+    }
+
+
 def _find_spread_legs(client, ticker: str, current_price: float, side: str,
                       target_debit: float) -> Optional[dict]:
     """
@@ -13341,6 +13730,82 @@ def _submit_options_call(
     except Exception as exc:
         print(f"  ❌ Options order failed ({ticker}): {exc}")
         return None, None
+
+
+def _submit_manual_options_buy(client, pending: dict) -> tuple[Optional[str], Optional[str]]:
+    """
+    Submit the user-confirmed BUY-to-open from the Telegram
+    /options -> /buy -> YES flow, and register it in PositionTracker using
+    the SAME setup-string convention and target/stop formula
+    _submit_options_call/_submit_options_put use for automated entries
+    (target1 = ask*1.5, target2 = ask*2.5, stop = ask*0.5), so the existing
+    monitoring machinery (_monitor_option_position, trailing exit,
+    milestone alerts, DTE alerts) treats a manually-opened position
+    identically to an automated one regardless of how it was opened.
+
+    Re-fetches a live quote right before submitting — the /options menu or
+    /buy confirmation could be several minutes old — and aborts if the ask
+    has moved past MANUAL_BUY_MAX_PRICE_DRIFT_PCT since confirmation, same
+    staleness philosophy as _handle_earnings_approval_reply's drift check.
+    Respects the same MAX_POSITIONS tracking-slot cap automated entries
+    do (pt.open() below); deliberately does NOT re-check the portfolio
+    heat cap from run_pro_scanner()'s admission loop — that cap exists to
+    stop automated signal admission from silently over-concentrating,
+    whereas this is one deliberate, human-confirmed action at a time.
+
+    Returns (order_id, error_message) — error_message is None on success.
+    """
+    occ = pending["occ_symbol"]
+    snap = _get_option_snapshot(occ)
+    if not snap or snap.get("ask", 0) <= 0:
+        return None, f"{occ}: no live quote available right now — not submitted."
+
+    _ask_then = float(pending.get("ask_at_confirm", 0) or 0)
+    _ask_now  = float(snap["ask"])
+    if _ask_then > 0:
+        _drift = abs(_ask_now - _ask_then) / _ask_then * 100
+        if _drift > MANUAL_BUY_MAX_PRICE_DRIFT_PCT:
+            return None, (f"{occ}: ask moved {_drift:.1f}% since you confirmed "
+                          f"(${_ask_then:.2f} → ${_ask_now:.2f}), past the "
+                          f"{MANUAL_BUY_MAX_PRICE_DRIFT_PCT:.0f}% staleness limit — "
+                          f"not submitted. Run /options again for a fresh quote.")
+
+    contracts  = int(pending["contracts"])
+    limit_px   = round(_ask_now * 1.03, 2)   # mid/ask + 3% buffer for fill, same as automated entries
+    total_cost = round(contracts * limit_px * 100, 2)
+
+    _cash_ok, _cash_msg = _cash_available_for(total_cost)
+    if not _cash_ok:
+        return None, f"{occ}: {_cash_msg}"
+
+    try:
+        order = client.submit_order(LimitOrderRequest(
+            symbol=occ, qty=contracts, side=OrderSide.BUY,
+            limit_price=limit_px, time_in_force=TimeInForce.DAY,
+        ))
+    except Exception as exc:
+        return None, f"{occ}: order submission failed — {exc}"
+
+    strike_dir = "P" if pending["option_type"] == "PUT" else "C"
+    t1 = round(limit_px * 1.5, 2)
+    t2 = round(limit_px * 2.5, 2)
+    sl = round(limit_px * 0.50, 2)
+    tracked = PositionTracker().open(OpenPosition(
+        ticker     = pending["ticker"],
+        bias       = "LONG" if pending["option_type"] == "CALL" else "SHORT",
+        setup      = (f"Options {pending['option_type'].title()} {occ} "
+                      f"(${pending['strike']:g}{strike_dir} exp {pending['expiry']})"),
+        entry      = limit_px, stop = sl, target1 = t1, target2 = t2,
+        shares     = contracts * 100, entry_date = datetime.today().strftime("%Y-%m-%d"),
+        atr        = float(snap.get("delta", 0)), score = 0,
+    ))
+    if not tracked:
+        try:
+            client.cancel_order_by_id(str(order.id))
+        except Exception:
+            pass
+        return None, f"{occ}: MAX_POSITIONS reached — order cancelled, no tracking slot available."
+    return str(order.id), None
 
 
 def _shares_fallback_allowed(ticker: str) -> bool:

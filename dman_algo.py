@@ -1799,7 +1799,7 @@ def _handle_telegram_command(text: str) -> None:
                 send_telegram(f"❌ /close {_arg} failed: {_e}")
 
     elif _cmd == "options":
-        _handle_options_command(_arg)
+        _handle_options_command(_parts)
 
     elif _cmd == "buy":
         _handle_buy_command(_parts)
@@ -1813,24 +1813,37 @@ def _handle_telegram_command(text: str) -> None:
             "/halt [reason] — block new entries (exits still run)\n"
             "/resume — re-enable entries\n"
             "/close TICKER — close a position now\n"
-            "/options TICKER — browse live calls/puts around the money\n"
+            "/options TICKER [E] — browse live calls/puts (E = expiry # from the list)\n"
             "/buy N [risk$] — size + confirm item N from the last /options menu\n"
             "/restart — force a fresh daemon session (last resort, works even if it's frozen)"
         )
 
 
-def _handle_options_command(ticker: str) -> None:
+def _handle_options_command(parts: list[str]) -> None:
     """
-    /options TICKER — browse a symmetric band of calls/puts around ATM for
-    the nearest OPTIONS_TARGET_DTE expiry, numbered so /buy N can reference
-    one. Read-only: never places an order by itself, and works regardless
-    of /halt state (browsing isn't an entry — /buy's final YES confirmation
-    is where halt/macro-blackout actually get enforced).
+    /options TICKER [E] — browse OPTIONS_CHAIN_STRIKES_PER_SIDE calls and
+    the same number of puts around ATM, numbered so /buy N can reference
+    one. Defaults to the nearest OPTIONS_TARGET_DTE expiry (same one the
+    automated path would pick); E selects a different expiry by its index
+    in the "other expiries" list this command always shows, so
+    "/options SMCI" then "/options SMCI 3" browses out the real listed
+    ladder instead of only ever seeing one date. Read-only: never places
+    an order by itself, and works regardless of /halt state (browsing
+    isn't an entry — /buy's final YES confirmation is where
+    halt/macro-blackout actually get enforced).
     """
-    ticker = ticker.upper().strip()
+    ticker = parts[1].upper().strip() if len(parts) > 1 else ""
     if not ticker:
-        send_telegram("Usage: <code>/options TICKER</code>")
+        send_telegram("Usage: <code>/options TICKER [E]</code> — E picks an expiry "
+                       "from the list shown at the bottom of the last /options reply.")
         return
+    _expiry_idx = None
+    if len(parts) > 2:
+        if not parts[2].isdigit():
+            send_telegram(f"❌ Couldn't parse expiry number '{parts[2]}' — usage: /options TICKER [E]")
+            return
+        _expiry_idx = int(parts[2])
+
     client = get_alpaca_client()
     if client is None:
         send_telegram("❌ Alpaca unavailable — can't fetch options chain.")
@@ -1839,7 +1852,17 @@ def _handle_options_command(ticker: str) -> None:
     if px is None or px <= 0:
         send_telegram(f"❌ Couldn't get a live price for {ticker}.")
         return
-    chain = _fetch_option_chain_for_display(client, ticker, px)
+
+    _expiries = _fetch_available_expiries(client, ticker)
+    _target_expiry = None
+    if _expiry_idx is not None:
+        if not _expiries or not (1 <= _expiry_idx <= len(_expiries)):
+            send_telegram(f"❌ No expiry #{_expiry_idx} for {ticker} "
+                           f"({len(_expiries)} available) — run /options {ticker} to see the list.")
+            return
+        _target_expiry = _expiries[_expiry_idx - 1]
+
+    chain = _fetch_option_chain_for_display(client, ticker, px, expiry=_target_expiry)
     if not chain or not chain["items"]:
         send_telegram(f"❌ No liquid options chain found for {ticker} "
                        f"(below the {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M underlying volume "
@@ -1878,6 +1901,12 @@ def _handle_options_command(ticker: str) -> None:
             _dtag = "~" if _i["delta_estimated"] else ""
             _lines.append(f"{_i['idx']}) ${_i['strike']:g}P  bid/ask "
                           f"{_i['bid']:.2f}/{_i['ask']:.2f}  Δ{_dtag}{_i['delta']:.2f}")
+    if _expiries:
+        _today = date.today()
+        _exp_bits = [f"{_n}) {_e.strftime('%a %b %d')} ({(_e-_today).days}d)"
+                     for _n, _e in enumerate(_expiries, start=1)]
+        _lines.append("\n<b>Other expiries</b>  (/options " + ticker + " E)")
+        _lines.append("  " + "   ".join(_exp_bits))
     _lines.append(f"\nReply <code>/buy N [risk$]</code> to size and confirm "
                   f"(e.g. <code>/buy {ordered[0]['idx']} 150</code> — default "
                   f"${MANUAL_BUY_DEFAULT_RISK_DOLLARS:.0f} if omitted). "
@@ -1954,11 +1983,12 @@ def _handle_buy_command(parts: list[str]) -> None:
         send_telegram(f"❌ Couldn't stage confirmation: {_e}")
         return
 
-    _dir = "P" if item["type"] == "PUT" else "C"
+    _word = item["type"].lower() + ("s" if contracts != 1 else "")   # "call"/"calls", "put"/"puts"
     send_telegram(
-        f"🎯 <b>Confirm</b>: BUY {contracts}x {menu['ticker']} ${item['strike']:g}{_dir} "
-        f"exp {menu['expiry']}\n"
-        f"@ ask ${item['ask']:.2f}  (~${total_cost:.0f} total, Δ{item['delta']:.2f})\n"
+        f"🎯 <b>Confirm</b>: Buy {contracts} {_word} of {menu['ticker']} at the asking "
+        f"price of ${item['ask']:.2f}\n"
+        f"(${item['strike']:g} strike, exp {menu['expiry']}, ~${total_cost:.0f} total, "
+        f"Δ{item['delta']:.2f})\n"
         f"Reply <b>YES</b> to place, <b>NO</b> to cancel. Expires in "
         f"{TELEGRAM_MANUAL_BUY_TIMEOUT_MIN} min."
     )
@@ -2024,11 +2054,11 @@ def _handle_manual_options_buy_reply(text: str) -> bool:
         send_telegram(f"❌ <b>{pending['ticker']} buy FAILED</b>\n{err}")
         return True
 
-    strike_dir = "P" if pending["option_type"] == "PUT" else "C"
+    _word = pending["option_type"].lower() + ("s" if pending["contracts"] != 1 else "")
     send_telegram(
-        f"📤 <b>{pending['ticker']} {pending['option_type']} SUBMITTED</b>  id {order_id[:8]}…\n"
-        f"{pending['contracts']}x ${pending['strike']:g}{strike_dir} exp {pending['expiry']}  "
-        f"~${pending['total_cost']:.0f}"
+        f"📤 <b>Submitted</b>: {pending['contracts']} {_word} of {pending['ticker']}  "
+        f"id {order_id[:8]}…\n"
+        f"(${pending['strike']:g} strike, exp {pending['expiry']}, ~${pending['total_cost']:.0f} total)"
     )
     return True
 
@@ -13297,20 +13327,61 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
     return None
 
 
+def _fetch_available_expiries(client, ticker: str, max_days: int = 90) -> list[date]:
+    """
+    All distinct expiration dates actually listed for `ticker` within the
+    next `max_days`, sorted ascending — backs /options TICKER's "browse
+    other expiries" list.
+
+    Confirmed live 2026-08-12: GetOptionContractsRequest WITHOUT explicit
+    expiration_date_gte/lte bounds silently narrows to just the single
+    nearest expiry (68 contracts, 1 expiry for SMCI) instead of the real
+    listed ladder — passing an explicit range surfaces it correctly (344
+    contracts, 7 weekly expiries out to late September). Every other
+    options function in this file only ever needs ONE target expiry
+    (computed directly, never enumerated) and so never hit this; it only
+    surfaced once /options TICKER needed the real expiry list to browse.
+    Returns [] on any failure — a discovery helper, not a hard dependency.
+    """
+    from alpaca.trading.requests import GetOptionContractsRequest
+    from alpaca.trading.enums import ContractType
+    try:
+        raw = client.get_option_contracts(GetOptionContractsRequest(
+            underlying_symbols=[ticker], type=ContractType.CALL,
+            expiration_date_gte=date.today(),
+            expiration_date_lte=date.today() + timedelta(days=max_days),
+            limit=1000,
+        ))
+        items = getattr(raw, "option_contracts", None) or (raw if isinstance(raw, list) else [])
+        expiries = set()
+        for i in items:
+            _e = i.expiration_date
+            expiries.add(_e if isinstance(_e, date) else date.fromisoformat(str(_e)))
+        return sorted(expiries)
+    except Exception:
+        return []
+
+
 def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
-                                     strikes_each_side: int = 3) -> Optional[dict]:
+                                     expiry: Optional[date] = None,
+                                     num_strikes: int = 8) -> Optional[dict]:
     """
     Broader, human-browsable options chain for the Telegram /options command.
 
     Unlike _find_best_call_contract/_find_best_put_contract (each of which
     picks ONE ITM-biased "best" contract for the automated scanner, scanning
     only strikes below/above current price respectively), this returns a
-    symmetric band of strikes around ATM for BOTH calls and puts, live
+    band of `num_strikes` strikes around ATM for BOTH calls and puts, live
     bid/ask/delta per contract, so a human can actually see and choose from
     a menu instead of only ever getting the algo's single automatic pick.
     Not filtered by the automated path's delta/spread hard-gates — browsing
     should show what's actually available; the human (or, for an automated
     entry, the normal scan/score pipeline) is the filter here.
+
+    `expiry` picks a specific listed date (from _fetch_available_expiries);
+    if omitted, defaults to the nearest Friday to OPTIONS_TARGET_DTE — same
+    default the automated path uses, so a plain "/options TICKER" behaves
+    consistently with what the scanner would pick.
 
     Returns {"ticker", "expiry", "dte", "underlying_price", "items": [...]}
     or None if the underlying fails the same liquidity gate the automated
@@ -13331,22 +13402,27 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
         return None
 
     today = date.today()
-    target_expiry = None
-    _best_diff = float("inf")
-    for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
-        candidate = today + timedelta(days=offset)
-        if candidate.weekday() == 4:   # Friday
-            _diff = abs(offset - OPTIONS_TARGET_DTE)
-            if _diff < _best_diff:
-                _best_diff = _diff
-                target_expiry = candidate
+    target_expiry = expiry
+    if target_expiry is None:
+        _best_diff = float("inf")
+        for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
+            candidate = today + timedelta(days=offset)
+            if candidate.weekday() == 4:   # Friday
+                _diff = abs(offset - OPTIONS_TARGET_DTE)
+                if _diff < _best_diff:
+                    _best_diff = _diff
+                    target_expiry = candidate
     if not target_expiry:
         return None
 
     incr = 1.0 if current_price < 25 else (2.5 if current_price < 200 else 5.0)
     atm  = round(round(current_price / incr) * incr, 2)
-    strikes = [round(atm + i * incr, 2) for i in range(-strikes_each_side, strikes_each_side + 1)
-               if atm + i * incr > 0]
+    # num_strikes strikes centered near ATM, slightly ITM-biased (one more
+    # below than above) to match the same ITM lean _find_best_call_contract
+    # uses elsewhere, rather than a purely symmetric OTM/ITM split.
+    _lo = -(num_strikes // 2)
+    _hi = num_strikes + _lo
+    strikes = [round(atm + i * incr, 2) for i in range(_lo, _hi) if atm + i * incr > 0]
 
     items: list[dict] = []
     for _otype, _contract_type in (("CALL", ContractType.CALL), ("PUT", ContractType.PUT)):

@@ -2144,6 +2144,42 @@ class TestStocktwitsQuickTake(unittest.TestCase):
         self.assertNotIn("Strong setup", result)
 
 
+class TestFetchAvailableExpiries(unittest.TestCase):
+    """Confirmed live 2026-08-12: GetOptionContractsRequest WITHOUT explicit
+    expiration_date_gte/lte bounds silently narrows to just the single
+    nearest expiry instead of the real listed ladder -- for SMCI that was
+    1 expiry (68 contracts) vs. the real 7 weekly expiries (344 contracts)
+    once explicit bounds were passed. This is the exact call shape /options
+    TICKER needs to let a real "browse other expiries" list exist at all."""
+
+    def test_returns_sorted_distinct_expiries(self):
+        class C:
+            def __init__(self, exp):
+                self.expiration_date = exp
+        import datetime as _dt
+        raw = MagicMock(option_contracts=[
+            C(_dt.date(2026, 8, 21)), C(_dt.date(2026, 8, 14)),
+            C(_dt.date(2026, 8, 14)),  # duplicate strike, same expiry
+            C(_dt.date(2026, 8, 28)),
+        ])
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = raw
+        result = a._fetch_available_expiries(mock_client, "SMCI")
+        self.assertEqual(result, [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)])
+        # Must have passed explicit bounds -- confirmed live this is required
+        # for Alpaca to return more than just the nearest expiry.
+        _, kwargs = mock_client.get_option_contracts.call_args
+        req = mock_client.get_option_contracts.call_args[0][0]
+        self.assertIsNotNone(getattr(req, "expiration_date_gte", None))
+        self.assertIsNotNone(getattr(req, "expiration_date_lte", None))
+
+    def test_exception_fails_open_to_empty_list(self):
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.side_effect = Exception("network error")
+        result = a._fetch_available_expiries(mock_client, "SMCI")
+        self.assertEqual(result, [])
+
+
 class TestFetchOptionChainForDisplay(unittest.TestCase):
     """_fetch_option_chain_for_display() is the browse-side counterpart to
     _find_best_call_contract/_find_best_put_contract — instead of picking
@@ -2173,7 +2209,7 @@ class TestFetchOptionChainForDisplay(unittest.TestCase):
         with patch.object(a, "yf") as mock_yf, \
              patch.object(a, "_get_option_snapshot", return_value=self._snap(2.0, 2.1)):
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
-            result = a._fetch_option_chain_for_display(mock_client, "TESTX", 100.0, strikes_each_side=2)
+            result = a._fetch_option_chain_for_display(mock_client, "TESTX", 100.0, num_strikes=4)
         self.assertIsNotNone(result)
         types = {i["type"] for i in result["items"]}
         self.assertEqual(types, {"CALL", "PUT"})
@@ -2188,7 +2224,7 @@ class TestFetchOptionChainForDisplay(unittest.TestCase):
         with patch.object(a, "yf") as mock_yf, \
              patch.object(a, "_get_option_snapshot", return_value=self._snap(0, 0)):
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
-            result = a._fetch_option_chain_for_display(mock_client, "TESTX", 100.0, strikes_each_side=2)
+            result = a._fetch_option_chain_for_display(mock_client, "TESTX", 100.0, num_strikes=4)
         self.assertIsNone(result, "a chain with zero usable quotes must return None, not an empty-ish menu")
 
 
@@ -2248,15 +2284,16 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
     # ── /options ──────────────────────────────────────────────────────
     def test_options_command_no_ticker_shows_usage(self):
         with patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._handle_options_command("")
+            a._handle_options_command(["/options"])
         self.assertIn("Usage", mock_tg.call_args[0][0])
 
     def test_options_command_no_chain_sends_error(self):
         with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
              patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=[]), \
              patch.object(a, "_fetch_option_chain_for_display", return_value=None), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._handle_options_command("SMCI")
+            a._handle_options_command(["/options", "SMCI"])
         self.assertIn("No liquid options chain", mock_tg.call_args[0][0])
 
     def test_options_command_saves_menu_and_numbers_items(self):
@@ -2265,14 +2302,56 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
                               "bid": 1.5, "ask": 1.55, "delta": 0.51, "delta_estimated": False}]}
         with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
              patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=[]), \
              patch.object(a, "_fetch_option_chain_for_display", return_value=chain), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._handle_options_command("smci")
+            a._handle_options_command(["/options", "smci"])
         with open(self._menu_tmp.name) as f:
             saved = json.load(f)
         self.assertEqual(saved["ticker"], "SMCI")
         self.assertEqual(saved["items"][0]["idx"], 1)
         self.assertIn("CALLS", mock_tg.call_args[0][0])
+
+    def test_options_command_shows_other_expiries_footer(self):
+        import datetime as _dt
+        chain = {"ticker": "SMCI", "expiry": "2026-08-14", "dte": 2, "underlying_price": 34.0,
+                  "items": [{"type": "CALL", "occ_symbol": "X", "strike": 34.0,
+                              "bid": 1.5, "ask": 1.55, "delta": 0.51, "delta_estimated": False}]}
+        expiries = [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)]
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=expiries), \
+             patch.object(a, "_fetch_option_chain_for_display", return_value=chain), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command(["/options", "SMCI"])
+        msg = mock_tg.call_args[0][0]
+        self.assertIn("Other expiries", msg)
+        self.assertIn("Aug 21", msg)
+
+    def test_options_command_with_valid_expiry_index_uses_that_expiry(self):
+        import datetime as _dt
+        chain = {"ticker": "SMCI", "expiry": "2026-08-28", "dte": 16, "underlying_price": 34.0,
+                  "items": [{"type": "CALL", "occ_symbol": "X", "strike": 34.0,
+                              "bid": 1.5, "ask": 1.55, "delta": 0.51, "delta_estimated": False}]}
+        expiries = [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)]
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=expiries), \
+             patch.object(a, "_fetch_option_chain_for_display", return_value=chain) as mock_fetch, \
+             patch.object(a, "send_telegram", return_value=True):
+            a._handle_options_command(["/options", "SMCI", "3"])
+        _, kwargs = mock_fetch.call_args
+        self.assertEqual(kwargs.get("expiry"), _dt.date(2026, 8, 28))
+
+    def test_options_command_with_invalid_expiry_index_shows_error(self):
+        import datetime as _dt
+        expiries = [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21)]
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=expiries), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command(["/options", "SMCI", "9"])
+        self.assertIn("No expiry #9", mock_tg.call_args[0][0])
 
     # ── /buy ──────────────────────────────────────────────────────────
     def test_buy_command_no_menu_file(self):
@@ -2389,7 +2468,7 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         positions = a.PositionTracker().positions
         self.assertEqual(len(positions), 1)
         self.assertTrue(positions[0].setup.startswith("Options Call SMCI260814C00034000"))
-        self.assertIn("SUBMITTED", mock_tg.call_args[0][0])
+        self.assertIn("Submitted", mock_tg.call_args[0][0])
 
 
 class TestSubmitManualOptionsBuy(unittest.TestCase):

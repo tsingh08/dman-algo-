@@ -846,6 +846,36 @@ EARNINGS_MOVER_MIN_AVG_VOLUME  = 300_000  # liquid enough to trade on a small ac
 EARNINGS_MOVER_MAX_PRICE       = 500.0    # keep position sizing realistic on a small account
 
 
+def _alert_massive_api_failure(source: str, detail: str) -> None:
+    """
+    One Telegram alert per source per day on a Massive/Benzinga API
+    failure. Added 2026-08-13 after an API audit found both
+    fetch_earnings_mover_tickers() and _fetch_massive_reference_news()
+    fail open (return []) on any non-200/exception with zero logging or
+    alerting — the exact silent-failure shape that cost a full week of
+    missed options signals during the 2026-08-06 OPRA entitlement 403
+    before anyone noticed. Those two functions are discovery/gating nets
+    rather than critical-path order logic, so this still fails open
+    (never blocks a scan), it just makes a persistent outage visible
+    instead of silently degrading earnings-mover discovery or the
+    catalyst sentiment gate for days. _is_alerted_today's existing daily
+    dedup naturally rate-limits this to one ping per source per day even
+    if the underlying call fails on every single invocation.
+    """
+    key = f"MASSIVE_API_FAIL_{source}_{date.today().isoformat()}"
+    if _is_alerted_today(key):
+        return
+    try:
+        send_telegram(
+            f"⚠️ <b>Massive API failure</b> — {source}\n{detail}\n"
+            f"Failing open (returning empty) — check MASSIVE_API_KEY / "
+            f"api.massive.com status if this repeats."
+        )
+    except Exception:
+        pass
+    _mark_alerted(key)
+
+
 def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
     """
     Broad, watchlist-independent earnings-reaction scan. Every other earnings
@@ -893,9 +923,12 @@ def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
             timeout=15,
         )
         if resp.status_code != 200:
+            _alert_massive_api_failure(
+                "earnings-mover", f"HTTP {resp.status_code} from /benzinga/v1/earnings")
             return []
         results = resp.json().get("results", []) or []
-    except Exception:
+    except Exception as exc:
+        _alert_massive_api_failure("earnings-mover", str(exc))
         return []
 
     found: list[tuple[str, float]] = []   # (ticker, gap_pct)
@@ -3023,11 +3056,14 @@ def _fetch_massive_reference_news(ticker: str, hours_back: int = 48) -> list[dic
             timeout=10,
         )
         if resp.status_code != 200:
+            _alert_massive_api_failure(
+                "reference-news", f"HTTP {resp.status_code} from /v2/reference/news")
             return []
         results = resp.json().get("results", []) or []
         _MASSIVE_SENTIMENT_CACHE[cache_key] = (time.time(), results)
         return results
-    except Exception:
+    except Exception as exc:
+        _alert_massive_api_failure("reference-news", str(exc))
         return []
 
 

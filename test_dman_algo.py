@@ -2210,6 +2210,51 @@ class TestNewsSentimentVerdict(unittest.TestCase):
             self.assertIsNone(a._news_sentiment_verdict("FGL"))
 
 
+class TestAlertMassiveApiFailure(unittest.TestCase):
+    """Added 2026-08-13 after an API audit found fetch_earnings_mover_tickers()
+    and _fetch_massive_reference_news() both failed open with zero logging
+    or alerting on a non-200/exception -- the same silent-failure shape
+    that cost a full week of missed options signals during the 2026-08-06
+    OPRA entitlement 403 before anyone noticed. This is real production
+    Telegram/dedup-file plumbing, not a throwaway helper -- must never hit
+    the live dman_alerts_dedup.json or send a real Telegram message from
+    a test run."""
+
+    def setUp(self):
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.write(b"{}")
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+    def tearDown(self):
+        self._dedup_patch.stop()
+        os.unlink(self._dedup_tmp.name)
+
+    def test_sends_one_telegram_alert_on_first_failure(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._alert_massive_api_failure("earnings-mover", "HTTP 500")
+        mock_tg.assert_called_once()
+        self.assertIn("earnings-mover", mock_tg.call_args[0][0])
+        self.assertIn("HTTP 500", mock_tg.call_args[0][0])
+
+    def test_second_failure_same_day_same_source_is_deduped(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._alert_massive_api_failure("earnings-mover", "HTTP 500")
+            a._alert_massive_api_failure("earnings-mover", "HTTP 500 again")
+        mock_tg.assert_called_once()
+
+    def test_different_sources_each_get_their_own_alert(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._alert_massive_api_failure("earnings-mover", "HTTP 500")
+            a._alert_massive_api_failure("reference-news", "HTTP 403")
+        self.assertEqual(mock_tg.call_count, 2)
+
+    def test_telegram_send_failure_does_not_raise(self):
+        with patch.object(a, "send_telegram", side_effect=Exception("telegram down")):
+            a._alert_massive_api_failure("earnings-mover", "HTTP 500")   # must not raise
+
+
 class TestFetchMassiveReferenceNews(unittest.TestCase):
     """Isolated tests for the raw HTTP wrapper — fail-open behavior and
     the real endpoint/params shape confirmed live 2026-08-13."""
@@ -2226,17 +2271,22 @@ class TestFetchMassiveReferenceNews(unittest.TestCase):
 
     def test_non_200_returns_empty(self):
         with patch.object(a, "MASSIVE_API_KEY", "test-key"), \
-             patch.object(a, "requests") as mock_requests:
+             patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_alert_massive_api_failure") as mock_alert:
             mock_requests.get.return_value = MagicMock(status_code=403)
             result = a._fetch_massive_reference_news("FGL")
         self.assertEqual(result, [])
+        mock_alert.assert_called_once()
+        self.assertEqual(mock_alert.call_args[0][0], "reference-news")
 
     def test_exception_fails_open_to_empty_list(self):
         with patch.object(a, "MASSIVE_API_KEY", "test-key"), \
-             patch.object(a, "requests") as mock_requests:
+             patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_alert_massive_api_failure") as mock_alert:
             mock_requests.get.side_effect = Exception("network error")
             result = a._fetch_massive_reference_news("FGL")
         self.assertEqual(result, [])
+        mock_alert.assert_called_once()
 
     def test_successful_call_hits_the_confirmed_endpoint(self):
         with patch.object(a, "MASSIVE_API_KEY", "test-key"), \
@@ -2368,10 +2418,22 @@ class TestFetchEarningsMoverTickers(unittest.TestCase):
         self.assertEqual(result, [])
 
     def test_http_error_fails_open_to_empty_list(self):
-        with patch.object(a, "requests") as mock_requests:
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_alert_massive_api_failure") as mock_alert:
             mock_requests.get.side_effect = Exception("network error")
             result = a.fetch_earnings_mover_tickers()
         self.assertEqual(result, [])
+        mock_alert.assert_called_once()
+        self.assertEqual(mock_alert.call_args[0][0], "earnings-mover")
+
+    def test_non_200_fails_open_and_alerts(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_alert_massive_api_failure") as mock_alert:
+            mock_requests.get.return_value = MagicMock(status_code=500)
+            result = a.fetch_earnings_mover_tickers()
+        self.assertEqual(result, [])
+        mock_alert.assert_called_once()
+        self.assertEqual(mock_alert.call_args[0][0], "earnings-mover")
 
 
 class TestAlertsIncludeOptionsHint(unittest.TestCase):

@@ -1,18 +1,6 @@
 [
   {
     "ticker": "DUOL",
-    "date": "2024-11-07",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 319.17,
-    "exit": 302.46,
-    "outcome": "LOSS",
-    "pnl_pct": -5.23,
-    "score": 80,
-    "is_live": false
-  },
-  {
-    "ticker": "DUOL",
     "date": "2025-05-06",
     "bias": "LONG",
     "setup": "Gap & Hold",
@@ -5997,6 +5985,18 @@
     "outcome": "BE",
     "pnl_pct": 0.0,
     "score": 85,
+    "is_live": true
+  },
+  {
+    "ticker": "FGL",
+    "date": "2026-08-13",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 0.8,
+    "exit": 0.5,
+    "outcome": "LOSS",
+    "pnl_pct": -37.89,
+    "score": 100,
     "is_live": true
   }
 ]

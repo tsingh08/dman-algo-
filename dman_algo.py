@@ -9494,7 +9494,8 @@ class PositionTracker:
         print(f"{'═'*W}\n")
 
 
-def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict]) -> list[dict]:
+def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict],
+                              closed_identities: Optional[set] = None) -> list[dict]:
     """
     Semantic per-ticker merge for dman_positions.json — replaces git's blind
     "whoever wins the conflict" resolution with a rule that can't regress
@@ -9515,11 +9516,22 @@ def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict]) -
     this assumption breaks only if short equity setups are ever re-enabled
     (ALLOW_SHORTS is False today).
 
-    Tickers present in only one copy are kept (union), not dropped: if a
-    position was genuinely closed elsewhere, the next sync_alpaca_fills()
-    call detects it's flat at Alpaca and removes/records it correctly
-    within one cycle regardless — resurrecting a closed ticket for a few
-    minutes is self-healing, silently losing a stop-raise is not.
+    Tickers present in only one copy are normally kept (union), not
+    dropped — EXCEPT `closed_identities`: identities this same process
+    already confirmed closed at Alpaca (via sync_alpaca_fills(), ground
+    truth) but that are present ONLY in `remote_list` (i.e. absent from
+    `local_list`, meaning THIS run's own pt.close() already removed it
+    locally) are never resurrected, full stop. Confirmed live 2026-08-13:
+    without this, a genuinely-closed position (FGL, stopped out -37.89%)
+    resurrected on EVERY git_sync() cycle for 35+ minutes straight, not
+    "a few minutes" as originally assumed — sync_positions_with_remote()
+    runs BEFORE this cycle's own commit+push, so origin/main never catches
+    up to the local close in time for the NEXT cycle's `git show
+    origin/main:...` read, and the union rule kept re-adding it back from
+    that stale remote copy before every single commit, forever. Guarded on
+    local ABSENCE (not a blanket identity filter) so a same-day legitimate
+    re-entry on the same ticker — which shows up present in local_list via
+    its own pt.open() — is never blocked by a stale tombstone.
 
     Keyed by _position_identity(), not bare ticker: two options legs on
     the same underlying (e.g. an earnings call+put strangle) share ticker
@@ -9527,12 +9539,17 @@ def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict]) -
     version of this merge silently collapsed a real SMCI call+put pair into
     one record, dropping the call from tracking entirely for hours.
     """
+    closed_identities = closed_identities or set()
+    local_idents = {_position_identity(rec.get("ticker", ""), rec.get("setup", ""))
+                    for rec in local_list if rec.get("ticker")}
     by_ident: dict[str, dict] = {}
     for rec in remote_list + local_list:
         t = rec.get("ticker")
         if not t:
             continue
         ident = _position_identity(t, rec.get("setup", ""))
+        if ident not in local_idents and ident in closed_identities:
+            continue   # confirmed closed by this process; not local's job to re-add it
         prev = by_ident.get(ident)
         if prev is None:
             by_ident[ident] = rec
@@ -9573,7 +9590,8 @@ def sync_positions_with_remote() -> None:
 
     if not remote_list and not local_list:
         return
-    merged = merge_positions_snapshots(local_list, remote_list)
+    merged = merge_positions_snapshots(local_list, remote_list,
+                                       closed_identities=_recent_closed_identities())
     if merged != local_list:
         with open(POSITIONS_FILE, "w") as f:
             json.dump(merged, f, indent=2)
@@ -12573,6 +12591,43 @@ def _save_sync_state(state: dict) -> None:
         json.dump(state, f, indent=2)
 
 
+# See merge_positions_snapshots()'s docstring for the full incident this
+# guards against (FGL resurrecting every git_sync() cycle for 35+ minutes,
+# 2026-08-13). 6 hours is a generous margin over any realistic sync-cycle
+# gap — this only needs to survive long enough for the close to actually
+# reach a committed origin/main, typically one cycle (SYNC_EVERY_S=300s).
+_CLOSED_IDENTITY_TOMBSTONE_S = 6 * 3600
+
+
+def _recent_closed_identities() -> set:
+    """_position_identity() values sync_alpaca_fills() has confirmed closed
+    at Alpaca within the last _CLOSED_IDENTITY_TOMBSTONE_S seconds — read
+    by sync_positions_with_remote() so merge_positions_snapshots() never
+    resurrects a position this process already knows, with certainty
+    (a real Alpaca fill), is actually closed."""
+    try:
+        state = _load_sync_state()
+        closed = state.get("closed_identities", {})
+        now = time.time()
+        return {ident for ident, ts in closed.items()
+                if now - float(ts) < _CLOSED_IDENTITY_TOMBSTONE_S}
+    except Exception:
+        return set()
+
+
+def _mark_identity_closed(state: dict, ticker: str, setup: str) -> None:
+    """Records `ticker`/`setup`'s _position_identity() into `state`'s
+    closed_identities tombstone (mutates in place — caller still owns
+    _save_sync_state()). Also prunes anything past the TTL so this dict
+    doesn't grow unbounded across a long-running daemon session."""
+    now = time.time()
+    closed = state.setdefault("closed_identities", {})
+    closed[_position_identity(ticker, setup)] = now
+    for ident, ts in list(closed.items()):
+        if now - float(ts) >= _CLOSED_IDENTITY_TOMBSTONE_S:
+            del closed[ident]
+
+
 def _get_pdt_status() -> dict:
     """
     Query Alpaca for current PDT day-trade count.
@@ -12830,6 +12885,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                         for r in tracker.records)
             if _dupe:
                 pt.close(ticker, occ_symbol=_occ_sym)
+                _mark_identity_closed(state, ticker, pos.setup)
                 recorded_ids.add(oid)
                 print(f"  ⏭️  Skipped duplicate close record: {ticker} "
                       f"${pos.entry}→${fill_px:.2f} already in win-rate history")
@@ -12849,6 +12905,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             ))
             record_daily_pnl(acct_pct)
             pt.close(ticker, occ_symbol=_occ_sym)
+            _mark_identity_closed(state, ticker, pos.setup)
 
             sign = "+" if dollar_pnl >= 0 else ""
             print(f"  📋 Synced: {ticker} {pos.bias}  "
@@ -12891,6 +12948,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             _ghost_order = next((_eo for _eo in orders
                                   if _eo.side == _entry_side and _eo.status in _GHOST_STATUSES), None)
             pt.close(ticker, occ_symbol=_occ_sym)
+            _mark_identity_closed(state, ticker, pos.setup)
             _lbl = _occ_sym if _occ_sym else ticker
             if _ghost_order is not None:
                 print(f"  🗑️  Ghost cleared: {_lbl} — entry limit {_ghost_order.status}, never filled")

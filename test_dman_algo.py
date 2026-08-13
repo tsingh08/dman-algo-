@@ -53,6 +53,7 @@ import os
 import re
 import sys
 import tempfile
+import time
 import unittest
 from datetime import date, datetime, timedelta
 from unittest.mock import patch, MagicMock
@@ -233,6 +234,146 @@ class TestMergePositionsSnapshots(unittest.TestCase):
                           "both options legs must survive a merge even though they share a ticker")
         self.assertIn(call["setup"], setups)
         self.assertIn(put["setup"], setups)
+
+    def test_closed_identity_absent_from_local_is_not_resurrected_from_remote(self):
+        # Reproduces the real 2026-08-13 FGL incident: sync_alpaca_fills()
+        # confirmed (via a real Alpaca fill) that FGL is closed and removed
+        # it locally -- local_list no longer has it -- but origin/main
+        # hasn't been pushed with that removal yet, so remote_list still
+        # does. Without the closed_identities guard, the plain union rule
+        # resurrected it on every single git_sync() cycle for 35+ minutes.
+        local: list[dict] = []
+        remote = [{"ticker": "FGL", "setup": "Low Float Catalyst", "stop": 0.64, "shares": 100}]
+        merged = a.merge_positions_snapshots(local, remote, closed_identities={"FGL"})
+        self.assertEqual(merged, [], "a confirmed-closed identity must never be "
+                                      "re-added just because remote hasn't caught up yet")
+
+    def test_closed_identity_present_in_local_is_not_blocked(self):
+        # A same-day legitimate re-entry on the same ticker must never be
+        # silently dropped by a stale tombstone -- local's own presence is
+        # the authoritative signal here, not the tombstone.
+        local  = [{"ticker": "FGL", "setup": "Low Float Catalyst", "stop": 1.1, "shares": 100}]
+        remote: list[dict] = []
+        merged = a.merge_positions_snapshots(local, remote, closed_identities={"FGL"})
+        self.assertEqual(len(merged), 1, "a freshly-reopened position must survive "
+                                          "even if its identity is still tombstoned")
+        self.assertEqual(merged[0]["stop"], 1.1)
+
+    def test_closed_identities_defaults_to_no_effect(self):
+        # Omitting the new parameter entirely must reproduce the exact old
+        # union-keep behavior -- every existing caller passes nothing.
+        local: list[dict] = []
+        remote = [{"ticker": "AAPL", "stop": 200, "shares": 100}]
+        merged = a.merge_positions_snapshots(local, remote)
+        self.assertEqual(len(merged), 1)
+
+
+class TestClosedIdentityTombstone(unittest.TestCase):
+    """Added 2026-08-13 alongside the FGL-resurrection fix: _mark_identity_closed()
+    writes into the sync-state file's closed_identities dict (mutating in
+    place, same pattern as recorded_ids), and _recent_closed_identities()
+    reads it back with a TTL. These are the two primitives
+    merge_positions_snapshots()'s new guard depends on for correctness."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.write("{}")
+        self._tmp.close()
+        self._patch = patch.object(a, "ALPACA_SYNC_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+
+    def test_mark_then_recent_round_trips(self):
+        state = a._load_sync_state()
+        a._mark_identity_closed(state, "FGL", "Low Float Catalyst")
+        a._save_sync_state(state)
+        self.assertIn("FGL", a._recent_closed_identities())
+
+    def test_expired_entry_is_not_returned(self):
+        state = a._load_sync_state()
+        a._mark_identity_closed(state, "FGL", "Low Float Catalyst")
+        # Backdate past the TTL directly, bypassing the real clock.
+        ident = a._position_identity("FGL", "Low Float Catalyst")
+        state["closed_identities"][ident] = time.time() - a._CLOSED_IDENTITY_TOMBSTONE_S - 1
+        a._save_sync_state(state)
+        self.assertNotIn("FGL", a._recent_closed_identities())
+
+    def test_options_leg_uses_occ_identity_not_bare_ticker(self):
+        state = a._load_sync_state()
+        a._mark_identity_closed(state, "SMCI", "Options Call SMCI260814C00034000 ($34C exp 2026-08-14)")
+        a._save_sync_state(state)
+        closed = a._recent_closed_identities()
+        self.assertIn("SMCI260814C00034000", closed)
+        self.assertNotIn("SMCI", closed)
+
+    def test_missing_state_file_returns_empty_set_not_a_crash(self):
+        os.unlink(self._tmp.name)
+        self.assertEqual(a._recent_closed_identities(), set())
+
+
+class TestSyncPositionsWithRemoteTombstone(unittest.TestCase):
+    """End-to-end reproduction of the real 2026-08-13 incident: FGL closed
+    (stopped out, -37.89%) and sync_alpaca_fills() correctly removed it
+    from the local dman_positions.json, but origin/main still had it (not
+    yet pushed) -- and sync_positions_with_remote()'s merge kept adding it
+    right back on every single cycle, before the commit that would have
+    caught origin up ever got a chance to land. Reproduces the exact
+    local-empty / remote-has-it / tombstone-present shape via a mocked
+    `git show origin/main:...` call, same pattern as TestSyncScanLogWithRemote."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._pos_tmp.close()
+        self._sync_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._sync_tmp.write("{}")
+        self._sync_tmp.close()
+        self._patches = [
+            patch.object(a, "POSITIONS_FILE", self._pos_tmp.name),
+            patch.object(a, "ALPACA_SYNC_FILE", self._sync_tmp.name),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        os.unlink(self._pos_tmp.name)
+        os.unlink(self._sync_tmp.name)
+
+    def test_tombstoned_close_survives_a_stale_remote_copy(self):
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump([], f)   # FGL already closed locally
+        state = a._load_sync_state()
+        a._mark_identity_closed(state, "FGL", "Low Float Catalyst")
+        a._save_sync_state(state)
+
+        remote = [{"ticker": "FGL", "setup": "Low Float Catalyst", "stop": 0.64, "shares": 100}]
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_positions_with_remote()
+
+        with open(self._pos_tmp.name) as f:
+            result = json.load(f)
+        self.assertEqual(result, [], "the confirmed-closed FGL must not "
+                                      "reappear just because remote is stale")
+
+    def test_without_a_tombstone_the_old_union_behavior_still_applies(self):
+        # Sanity check that the fix is additive, not a behavior change for
+        # the ordinary "not yet synced" case this rule exists to protect.
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump([], f)
+        remote = [{"ticker": "AAPL", "setup": "Gap & Hold", "stop": 200, "shares": 100}]
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_positions_with_remote()
+        with open(self._pos_tmp.name) as f:
+            result = json.load(f)
+        self.assertEqual(len(result), 1, "a position missing locally with no "
+                                          "tombstone must still be kept (union)")
 
 
 class TestPositionTrackerMultiLegOptions(unittest.TestCase):
@@ -1941,6 +2082,23 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self.assertEqual(tracker.records[0].ticker, "IOTR")
         self.assertEqual(tracker.records[0].exit, 3.21)
         self.assertTrue(tracker.records[0].is_live)
+
+    def test_real_close_writes_a_tombstone_for_the_merge_guard(self):
+        # See merge_positions_snapshots()'s docstring for the full incident
+        # this closes: without a tombstone recorded here, the NEXT
+        # git_sync() cycle's merge_positions_snapshots() call had no way to
+        # know this exact close was already confirmed against real Alpaca
+        # ground truth, and kept resurrecting it from a stale remote copy.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [
+            self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            a.sync_alpaca_fills(tracker)
+        self.assertIn("IOTR", a._recent_closed_identities())
 
     def test_non_filled_order_is_not_recorded(self):
         from alpaca.trading.enums import OrderStatus, OrderSide

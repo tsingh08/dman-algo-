@@ -1,18 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "FGL",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 0.8016,
-      "stop": 0.6413,
-      "target1": 1.2,
-      "target2": 2.0,
-      "score": 100,
-      "date": "2026-08-12",
-      "timestamp": "2026-08-12T10:00:46.237951-04:00"
-    },
-    {
       "ticker": "LITX",
       "setup": "Gap & Hold",
       "bias": "LONG",
@@ -35,6 +23,18 @@
       "score": 65,
       "date": "2026-08-12",
       "timestamp": "2026-08-12T14:08:06.539968-04:00"
+    },
+    {
+      "ticker": "FGL",
+      "setup": "Low Float Catalyst",
+      "bias": "LONG",
+      "entry": 0.8016,
+      "stop": 0.6413,
+      "target1": 1.2,
+      "target2": 2.0,
+      "score": 100,
+      "date": "2026-08-12",
+      "timestamp": "2026-08-12T10:00:46.237951-04:00"
     },
     {
       "ticker": "AMZN",

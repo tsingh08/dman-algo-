@@ -5,6 +5,15 @@ on:
     # Sunday 5 PM ET — weekly readiness check, shows which watchlist tickers
     # pass all pre-gap filters heading into Monday
     - cron: '0 21 * * 0'
+    # ~4:36 AM ET — earliest pre-market scanner pass, added 2026-08-13 to
+    # close the overnight coverage gap (nothing ran between ~4:20 PM and
+    # ~7:06 AM before this). Alpaca's extended pre-market session opens at
+    # 4:00 AM ET; this catches an AMC-earnings gap/news reaction as soon as
+    # it's actually trading instead of waiting ~2.5 more hours. Same
+    # premarket-early mode as the 7:06 AM slot below — same quality gates,
+    # just an earlier additional look. Offset to :36 for the same
+    # quiet-queue reasoning as the other non-round-minute crons in this file.
+    - cron: '36 8 * * 1-5'
     # ~7:06 AM ET — early pre-market scanner: sweeps small-cap universe for
     # overnight gaps ≥5% and news catalysts (FDA, merger, squeeze, etc.) so
     # IOTR-style plays are flagged BEFORE the open, not after. Offset from
@@ -167,9 +176,13 @@ jobs:
               print(f"NYSE holiday ({now.strftime('%a %b %d')}) — market closed, skipping scan.")
               sys.exit(0)
 
-          # 7:00 AM ET — early pre-market scan for overnight gaps and news catalysts.
-          # Window: 6:50 AM – 8:30 AM (absorbs runner queue; stops before 9 AM briefing).
-          if now.weekday() < 5 and 650 <= t <= 830:
+          # Pre-market scan for overnight gaps and news catalysts.
+          # Window widened 2026-08-13: 4:30 AM – 8:30 AM (was 6:50 AM start)
+          # to also catch the new ~4:36 AM cron slot above, which closes the
+          # gap between the daemon's evening session ending and this scan's
+          # old 6:50 AM floor. Still absorbs runner queue drift and stops
+          # before the 9 AM briefing either way.
+          if now.weekday() < 5 and 430 <= t <= 830:
               result = subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", "premarket-early"],
                   capture_output=False

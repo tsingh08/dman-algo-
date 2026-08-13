@@ -66,6 +66,18 @@ ENABLE_REALTIME_EQUITY_STREAM = os.getenv(
 ENABLE_REALTIME_OPTIONS_STREAM = os.getenv(
     "ENABLE_REALTIME_OPTIONS_STREAM", "false").strip().lower() == "true"
 
+# Real-time news headline streaming (2026-08-13) — every news lookup in
+# dman_algo.py today (_fetch_massive_reference_news, _fetch_massive_benzinga_news,
+# the Alpaca NewsClient fallback) is REST/poll-based, so a breaking headline
+# on a held position or watchlist name only surfaces at the next scan_loop
+# pass or hourly cron. This subscribes to Alpaca's NewsDataStream for the
+# curated universe and pushes an instant Telegram alert the moment a
+# relevant headline breaks — informational only, same as every other
+# real-time stream here: it doesn't gate or trigger any order submission,
+# the existing REST-based sentiment gate still governs new entries.
+ENABLE_REALTIME_NEWS_STREAM = os.getenv(
+    "ENABLE_REALTIME_NEWS_STREAM", "false").strip().lower() == "true"
+
 GUARD_EVERY_S   = 60        # options stop/target enforcement cadence
 SYNC_EVERY_S    = 300       # fill sync + git state sync cadence
 SCAN_INTERVAL_S = 600       # curated-universe signal scan cadence (10 min) —
@@ -152,6 +164,39 @@ _realtime_option_quotes: dict[str, tuple[dict, float]] = {}
 _realtime_option_quotes_lock = threading.Lock()
 _REALTIME_OPTION_QUOTE_MAX_AGE_S = 30
 
+# Fourth, independent stream (real-time news headlines, see
+# news_data_stream_loop) — tracked separately for the same reason as the
+# three streams above: its own connect/disconnect schedule.
+_active_news_stream_lock = threading.Lock()
+_active_news_stream = None   # the live NewsDataStream instance, if any
+
+# Dedup cache for news_data_stream_loop — Alpaca's news websocket has no
+# documented redelivery guarantee, but a reconnect happening mid-story
+# (multiple wire updates to the same headline) is plausible, and this is
+# cheap insurance against a duplicate Telegram alert either way. Plain
+# dict used as an insertion-ordered set (Python 3.7+ guarantee) so the
+# oldest id is O(1) to evict once the cap is hit — no need for real news
+# history here, just "have we already alerted on this one."
+_news_seen_ids: dict = {}
+_news_seen_ids_lock = threading.Lock()
+_NEWS_SEEN_IDS_MAX = 2000
+
+# Feeds scan_loop()'s fast-scan trigger (added 2026-08-13 alongside the
+# widened watchlist quote stream below): market_data_stream_loop's
+# on_quote handler snapshots each curated-universe ticker's price into
+# _scan_baseline_prices the first time it's seen after every scan_loop
+# pass, then compares every later tick against that baseline. A move past
+# FAST_SCAN_MOVE_TRIGGER_PCT sets _fast_scan_trigger, which scan_loop
+# waits on instead of a fixed sleep — wakes the SAME run_pro_scanner()
+# pipeline (same gates, same quality bar) early instead of waiting up to
+# SCAN_INTERVAL_S. This is a detection-latency change only, not a trading-
+# rule change — _submit_signals_to_alpaca()'s already-tracked guard means
+# an early look at an already-held ticker is a harmless no-op.
+FAST_SCAN_MOVE_TRIGGER_PCT = 3.0
+_scan_baseline_prices: dict[str, float] = {}
+_scan_baseline_lock = threading.Lock()
+_fast_scan_trigger = threading.Event()
+
 
 def _close_active_stream() -> None:
     """Best-effort clean close of whatever stream connection is currently
@@ -178,6 +223,13 @@ def _close_active_stream() -> None:
             os_.stop()
         except Exception:
             pass
+    with _active_news_stream_lock:
+        ns = _active_news_stream
+    if ns is not None:
+        try:
+            ns.stop()
+        except Exception:
+            pass
 
 
 def _get_realtime_price(ticker: str) -> float | None:
@@ -196,22 +248,29 @@ def _get_realtime_price(ticker: str) -> float | None:
     return price
 
 
-def _current_equity_tickers() -> list[str]:
-    """Tickers currently held as plain equity positions (not options/
-    earnings spreads) — the real-time stream's subscription list. Same
-    setup-prefix filtering run_equity_guard() uses to skip positions
-    already covered by run_options_guard()."""
+def _curated_universe_tickers() -> list[str]:
+    """WATCHLIST + DMAN_SMALLCAP_WATCHLIST + every currently-held ticker
+    (the "ticker" field is always the underlying regardless of setup type
+    — plain equity, options call/put, or earnings spread — so no
+    setup-prefix filtering is needed here, unlike the options-leg helper
+    below). Shared subscription list for both real-time streams that
+    benefit from broad coverage rather than just open positions:
+    market_data_stream_loop() (equity quotes — widened 2026-08-13 from
+    open-positions-only so a watchlist name's fast move can be caught
+    without waiting for the next scan_loop cycle) and
+    news_data_stream_loop() (breaking headlines). Bounded (~200 symbols)
+    and changes rarely, unlike _current_option_occ_symbols() which churns
+    on every contract-level open/close."""
+    tickers = set(algo.WATCHLIST) | set(algo.DMAN_SMALLCAP_WATCHLIST)
     try:
         with open(algo.POSITIONS_FILE) as f:
             positions = json.load(f)
+        for pos in positions:
+            t = pos.get("ticker", "")
+            if t:
+                tickers.add(t)
     except Exception:
-        return []
-    tickers = set()
-    for pos in positions:
-        setup = pos.get("setup", "")
-        t = pos.get("ticker", "")
-        if t and not setup.startswith(("Options Call ", "Options Put ", "Earnings ")):
-            tickers.add(t)
+        pass
     return sorted(tickers)
 
 
@@ -235,8 +294,9 @@ def _get_realtime_option_snapshot(occ_symbol: str) -> dict | None:
 def _current_option_occ_symbols() -> list[str]:
     """OCC symbols for every currently-tracked options leg (naked calls/
     puts and earnings-spread legs alike) — the options stream's
-    subscription list. Mirrors _current_equity_tickers()'s setup-prefix
-    filtering, inverted (this is exactly the set that function skips)."""
+    subscription list. Contract-level, so (unlike _curated_universe_tickers())
+    this changes on every open/close and can't be folded into that
+    shared helper."""
     try:
         with open(algo.POSITIONS_FILE) as f:
             positions = json.load(f)
@@ -499,9 +559,18 @@ def scan_loop() -> None:
     (rather than the full 5-minute periodic sync interval), this loop
     calls git_sync() immediately after any submission attempt instead of
     waiting for guard_loop()'s next scheduled sync.
+
+    Fast-scan trigger (added 2026-08-13): the 30s poll below now waits on
+    _fast_scan_trigger instead of a plain sleep. market_data_stream_loop's
+    widened watchlist quote stream sets that event the moment any curated-
+    universe ticker moves FAST_SCAN_MOVE_TRIGGER_PCT+ since this loop's
+    last pass, pulling next_scan_due to now so the SAME run_pro_scanner()
+    gates get checked immediately instead of up to SCAN_INTERVAL_S late.
+    Only changes when a look happens, never what counts as a real signal.
     """
     log(f"Signal scan loop started (curated universe, every {SCAN_INTERVAL_S}s "
-        f"during market hours, {SCAN_RETRY_S}s retry after a failed scan)")
+        f"during market hours, {SCAN_RETRY_S}s retry after a failed scan, "
+        f"fast-triggered early on a {FAST_SCAN_MOVE_TRIGGER_PCT:.0f}%+ watchlist move)")
     next_scan_due = 0.0
     while True:
         try:
@@ -532,6 +601,12 @@ def scan_loop() -> None:
                     scan_ok = True
                 except Exception as exc:
                     log(f"scan error: {exc}")
+                # Fresh baseline for the fast-scan trigger now that a look
+                # just happened, whether it was itself fast-triggered or on
+                # the normal schedule — a move measured from a stale
+                # baseline would just keep re-firing on the same old move.
+                with _scan_baseline_lock:
+                    _scan_baseline_prices.clear()
                 # Self-healing: on a failed scan, come back soon instead of
                 # waiting the full interval — every minute of downed
                 # coverage is a real missed setup. On success, the normal
@@ -541,7 +616,11 @@ def scan_loop() -> None:
                 else:
                     log(f"retrying scan in {SCAN_RETRY_S}s (not waiting the full {SCAN_INTERVAL_S}s interval)")
                     next_scan_due = time.time() + SCAN_RETRY_S
-            time.sleep(30)
+            if _fast_scan_trigger.wait(timeout=30):
+                _fast_scan_trigger.clear()
+                log(f"Fast-scan trigger: a watchlist ticker moved "
+                    f"{FAST_SCAN_MOVE_TRIGGER_PCT:.0f}%+ since the last pass — scanning now")
+                next_scan_due = 0.0
         except Exception as exc:
             log(f"scan loop error: {exc}")
             time.sleep(30)
@@ -694,14 +773,22 @@ def stream_loop() -> None:
 
 def market_data_stream_loop() -> None:
     """
-    Real-time equity quote stream for open positions — feeds
-    _realtime_prices so guard_loop's run_equity_guard() call can check
-    T1/stop progression against a fresh streamed price instead of a fresh
-    REST call every single 60s check. Off by default
-    (ENABLE_REALTIME_EQUITY_STREAM) — added 2026-08-09 alongside
-    run_equity_guard() itself; see that function's docstring for why
-    equity positions needed continuous daemon-side monitoring at all
-    (they previously had none — only the hourly cron checked them).
+    Real-time equity quote stream — feeds _realtime_prices so guard_loop's
+    run_equity_guard() call can check T1/stop progression against a fresh
+    streamed price instead of a fresh REST call every single 60s check.
+    Off by default (ENABLE_REALTIME_EQUITY_STREAM) — added 2026-08-09
+    alongside run_equity_guard() itself; see that function's docstring
+    for why equity positions needed continuous daemon-side monitoring at
+    all (they previously had none — only the hourly cron checked them).
+
+    Widened 2026-08-13 from open-positions-only to the full curated
+    universe (_curated_universe_tickers(): WATCHLIST + smallcap watchlist
+    + positions) — an Alpaca account gets exactly one live equity data
+    connection per feed, so broadening coverage means widening THIS
+    stream's subscription rather than opening a second one. The extra
+    ticks for non-position symbols aren't wasted: they feed
+    scan_baseline_prices/_fast_scan_trigger below, letting scan_loop react
+    to a fast watchlist move without waiting for its next scheduled pass.
 
     Mirrors stream_loop()'s reconnect-storm guard exactly — same failure
     mode (an ordinary disconnect triggering a reconnect flood that gets
@@ -714,9 +801,9 @@ def market_data_stream_loop() -> None:
     list (cross-thread call safety into alpaca-py's asyncio internals
     isn't something to bet a live position's monitoring on without much
     more testing time than tonight has), this reconnects with a fresh
-    symbol list whenever the open equity position set changes. Positions
-    change rarely enough that this is simple, safe, and not a reconnect-
-    storm risk on its own — polled at most once per POSITION_POLL_S.
+    symbol list whenever the curated universe changes. It changes rarely
+    enough that this is simple, safe, and not a reconnect-storm risk on
+    its own — polled at most once per POSITION_POLL_S.
     """
     try:
         from alpaca.data.live import StockDataStream
@@ -730,16 +817,25 @@ def market_data_stream_loop() -> None:
             sym = getattr(q, "symbol", None)
             bid = float(getattr(q, "bid_price", 0) or 0)
             ask = float(getattr(q, "ask_price", 0) or 0)
-            if sym and bid > 0 and ask > 0:
-                with _realtime_prices_lock:
-                    _realtime_prices[sym] = (round((bid + ask) / 2, 4), time.monotonic())
+            if not (sym and bid > 0 and ask > 0):
+                return
+            mid = round((bid + ask) / 2, 4)
+            with _realtime_prices_lock:
+                _realtime_prices[sym] = (mid, time.monotonic())
+            with _scan_baseline_lock:
+                base = _scan_baseline_prices.get(sym)
+                if base is None:
+                    _scan_baseline_prices[sym] = mid
+                elif base > 0 and abs(mid - base) / base * 100 >= FAST_SCAN_MOVE_TRIGGER_PCT:
+                    _scan_baseline_prices[sym] = mid   # reset so this fires again only on a FURTHER move
+                    _fast_scan_trigger.set()
         except Exception as exc:
             log(f"quote handler error: {exc}")
 
     STORM_WINDOW_S         = 30
     STORM_ATTEMPT_COUNT    = 20
     STORM_ALERT_COOLDOWN_S = 1800   # don't spam Telegram every backoff cycle
-    POSITION_POLL_S        = 60     # how often to check for a changed position set
+    POSITION_POLL_S        = 60     # how often to check for a changed universe
     backoff = 15
     last_storm_alert = 0.0
 
@@ -749,7 +845,7 @@ def market_data_stream_loop() -> None:
             log("market data stream loop stopping — shutdown requested")
             return
 
-        tickers = _current_equity_tickers()
+        tickers = _curated_universe_tickers()
         if not tickers:
             # Nothing to stream — check back soon without opening a
             # connection for zero symbols.
@@ -798,11 +894,11 @@ def market_data_stream_loop() -> None:
                     connected.clear()
                     backoff = 15
                     log(f"market data stream connected — real-time equity quotes on "
-                        f"({len(tickers)} symbol(s): {tickers})")
+                        f"{len(tickers)} symbol(s) (curated watchlist + open positions)")
                 if now - last_poll > POSITION_POLL_S:
                     last_poll = now
-                    if _current_equity_tickers() != tickers:
-                        log("open equity positions changed — reconnecting stream with updated symbols")
+                    if _curated_universe_tickers() != tickers:
+                        log("curated universe changed — reconnecting stream with updated symbols")
                         break
 
             if _shutdown_event.is_set():
@@ -833,9 +929,10 @@ def market_data_stream_loop() -> None:
                 backoff = min(backoff * 2, 300)
                 continue
 
-            # Thread exited cleanly — either the position set changed (see the
-            # poll check above) or an ordinary disconnect. Either way, loop
-            # back around and reconnect with a freshly-derived symbol list.
+            # Thread exited cleanly — either the curated universe changed
+            # (see the poll check above) or an ordinary disconnect. Either
+            # way, loop back around and reconnect with a freshly-derived
+            # symbol list.
             try:
                 stream.stop()
             except Exception:
@@ -1010,6 +1107,187 @@ def option_data_stream_loop() -> None:
                     _active_option_stream = None
 
 
+def news_data_stream_loop() -> None:
+    """
+    Real-time news headline stream for the curated universe — instant
+    Telegram alert the moment a relevant headline breaks, instead of
+    waiting for the next scan_loop pass or hourly cron's REST poll. Off
+    by default (ENABLE_REALTIME_NEWS_STREAM), added 2026-08-13 as the
+    news counterpart to market_data_stream_loop() / option_data_stream_loop()
+    — same reconnect-storm guard, same subscription-changes-trigger-
+    reconnect model; see market_data_stream_loop()'s docstring for the
+    full incident writeup this pattern guards against.
+
+    Alert only — this does not gate or trigger any order submission. The
+    existing REST-based Massive sentiment gate (_news_sentiment_verdict)
+    still governs whether a new low-float-catalyst entry is allowed; this
+    is purely a faster way for a human (or a future automated path) to
+    find out a headline broke at all.
+
+    Subscribes to _curated_universe_tickers() (~200 symbols: WATCHLIST +
+    smallcap watchlist + open positions) rather than Alpaca's "*"
+    firehose — keeps volume tied to names the algo can actually act on,
+    same scoping choice as the equity/options streams.
+    """
+    try:
+        from alpaca.data.live import NewsDataStream
+    except ImportError:
+        log("alpaca-py news data stream unavailable — real-time news alerts disabled")
+        return
+
+    def _already_seen(news_id) -> bool:
+        with _news_seen_ids_lock:
+            if news_id in _news_seen_ids:
+                return True
+            _news_seen_ids[news_id] = True
+            if len(_news_seen_ids) > _NEWS_SEEN_IDS_MAX:
+                _news_seen_ids.pop(next(iter(_news_seen_ids)))
+            return False
+
+    async def on_news(n) -> None:
+        try:
+            news_id  = getattr(n, "id", None)
+            headline = (getattr(n, "headline", "") or "").strip()
+            symbols  = getattr(n, "symbols", None) or []
+            source   = (getattr(n, "source", "") or "").strip()
+            url      = (getattr(n, "url", "") or "").strip()
+            if news_id is None or not headline or not symbols:
+                return
+            if _already_seen(news_id):
+                return
+            try:
+                with open(algo.POSITIONS_FILE) as f:
+                    held = {p.get("ticker", "") for p in json.load(f)}
+            except Exception:
+                held = set()
+            relevant = [s for s in symbols if s in held or s in algo.WATCHLIST
+                        or s in algo.DMAN_SMALLCAP_WATCHLIST]
+            if not relevant:
+                return
+            held_hit = [s for s in relevant if s in held]
+            tag = "🔴 <b>HELD POSITION</b> —" if held_hit else "📰 <b>Breaking news</b> —"
+            msg = f"{tag} {', '.join(relevant[:5])}\n{headline}"
+            if source:
+                msg += f"\n<i>{source}</i>"
+            if held_hit:
+                msg += f"\n💬 <code>/options {held_hit[0]}</code> to review"
+            algo.send_telegram(msg)
+        except Exception as exc:
+            log(f"news handler error: {exc}")
+
+    STORM_WINDOW_S         = 30
+    STORM_ATTEMPT_COUNT    = 20
+    STORM_ALERT_COOLDOWN_S = 1800   # don't spam Telegram every backoff cycle
+    UNIVERSE_POLL_S        = 300    # curated universe rarely changes — check less often than leg-level streams
+    backoff = 15
+    last_storm_alert = 0.0
+
+    global _active_news_stream
+    while True:
+        if _shutdown_event.is_set():
+            log("news data stream loop stopping — shutdown requested")
+            return
+
+        symbols = _curated_universe_tickers()
+        if not symbols:
+            time.sleep(UNIVERSE_POLL_S)
+            continue
+
+        attempt_times: list[float] = []
+        connected = threading.Event()
+        stopped   = threading.Event()
+        stream    = None
+        try:
+            stream = NewsDataStream(algo.ALPACA_API_KEY, algo.ALPACA_SECRET_KEY)
+            stream.subscribe_news(on_news, *symbols)
+            with _active_news_stream_lock:
+                _active_news_stream = stream
+
+            _orig_start_ws = stream._start_ws
+            async def _watched_start_ws(_orig=_orig_start_ws):
+                attempt_times.append(time.monotonic())
+                await _orig()
+                connected.set()
+            stream._start_ws = _watched_start_ws
+
+            def _run_stream():
+                try:
+                    stream.run()
+                finally:
+                    stopped.set()
+
+            t = threading.Thread(target=_run_stream, daemon=True)
+            t.start()
+
+            storm = False
+            last_poll = time.monotonic()
+            while t.is_alive() and not stopped.is_set():
+                if _shutdown_event.is_set():
+                    break
+                time.sleep(3)
+                now = time.monotonic()
+                attempt_times[:] = [a for a in attempt_times if now - a < STORM_WINDOW_S]
+                if len(attempt_times) >= STORM_ATTEMPT_COUNT:
+                    storm = True
+                    break
+                if connected.is_set():
+                    connected.clear()
+                    backoff = 15
+                    log(f"news data stream connected — real-time headlines on {len(symbols)} symbol(s)")
+                if now - last_poll > UNIVERSE_POLL_S:
+                    last_poll = now
+                    if _curated_universe_tickers() != symbols:
+                        log("curated universe changed — reconnecting news stream with updated symbols")
+                        break
+
+            if _shutdown_event.is_set():
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                log("news data stream stopped cleanly (shutdown)")
+                return
+
+            if storm:
+                log(f"news data stream reconnect storm detected ({len(attempt_times)} "
+                    f"attempts in {STORM_WINDOW_S}s, likely rate-limited) — stopping and "
+                    f"backing off {backoff}s")
+                if time.monotonic() - last_storm_alert > STORM_ALERT_COOLDOWN_S:
+                    algo.send_telegram(
+                        "⚠️ Real-time news stream hit a reconnect storm — backing off. "
+                        "Breaking-news alerts are paused; the existing REST-based "
+                        "catalyst/sentiment checks in the scan pipeline keep working.")
+                    last_storm_alert = time.monotonic()
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                time.sleep(backoff)
+                backoff = min(backoff * 2, 300)
+                continue
+
+            # Thread exited cleanly — either the curated universe changed
+            # (see the poll check above) or an ordinary disconnect. Either
+            # way, loop back around and reconnect with a freshly-derived
+            # symbol list.
+            try:
+                stream.stop()
+            except Exception:
+                pass
+            stopped.wait(timeout=10)
+            time.sleep(1)
+        except Exception as exc:
+            log(f"news data stream error: {exc} — reconnecting in {backoff}s")
+            time.sleep(backoff)
+            backoff = min(backoff * 2, 300)
+        finally:
+            with _active_news_stream_lock:
+                if _active_news_stream is stream:
+                    _active_news_stream = None
+
+
 def earnings_loop() -> None:
     """
     Once daily, ~75 min before the 4 PM close, scans WATCHLIST for tickers
@@ -1091,6 +1369,9 @@ def main() -> None:
     if ENABLE_REALTIME_OPTIONS_STREAM:
         threads.append(threading.Thread(target=option_data_stream_loop,
                                         daemon=True, name="option-data-stream"))
+    if ENABLE_REALTIME_NEWS_STREAM:
+        threads.append(threading.Thread(target=news_data_stream_loop,
+                                        daemon=True, name="news-data-stream"))
     for t in threads:
         t.start()
 

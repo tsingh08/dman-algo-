@@ -2210,6 +2210,64 @@ class TestNewsSentimentVerdict(unittest.TestCase):
             self.assertIsNone(a._news_sentiment_verdict("FGL"))
 
 
+class TestPrewarmAlpacaBarsChunking(unittest.TestCase):
+    """Added 2026-08-13 alongside the chunk_size 50->100 / inter-chunk
+    sleep 0.2->0.1 retuning (API-usage audit found the original values
+    were an untested guess from before this account ever ran a single
+    scan under real Algo Trader Plus credentials -- since proven safe
+    across every live session with zero recorded 429s). Locks in the new
+    default and confirms chunking still respects whatever chunk_size is
+    actually passed, so a future retune can't silently break batching."""
+
+    def setUp(self):
+        self._cache_backup = dict(a._cache)
+        a._cache.clear()
+
+    def tearDown(self):
+        a._cache.clear()
+        a._cache.update(self._cache_backup)
+
+    def _fake_bar(self):
+        return MagicMock(open=10.0, high=11.0, low=9.5, close=10.5, volume=1000,
+                         timestamp=datetime.now() - timedelta(days=1))
+
+    def test_default_chunk_size_is_100(self):
+        import inspect
+        sig = inspect.signature(a.prewarm_alpaca_bars)
+        self.assertEqual(sig.parameters["chunk_size"].default, 100)
+
+    def test_batches_respect_explicit_chunk_size(self):
+        tickers = [f"TEST{i}" for i in range(5)]
+        calls: list[list[str]] = []
+
+        def fake_get_stock_bars(req):
+            calls.append(list(req.symbol_or_symbols))
+            resp = MagicMock()
+            # _bars_to_df requires >= 20 bars (min_bars default) or it
+            # returns None and this ticker silently doesn't get warmed.
+            resp.data = {t: [self._fake_bar()] * 25 for t in req.symbol_or_symbols}
+            return resp
+
+        mock_dc = MagicMock()
+        mock_dc.get_stock_bars.side_effect = fake_get_stock_bars
+        with patch.object(a, "ALPACA_AVAILABLE", True), \
+             patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            warmed = a.prewarm_alpaca_bars(tickers, chunk_size=2)
+        self.assertEqual([len(c) for c in calls], [2, 2, 1])
+        self.assertEqual(warmed, 5)
+
+    def test_no_alpaca_client_returns_zero(self):
+        with patch.object(a, "ALPACA_AVAILABLE", True), \
+             patch.object(a, "get_alpaca_data_client", return_value=None):
+            self.assertEqual(a.prewarm_alpaca_bars(["AAPL"]), 0)
+
+    def test_alpaca_unavailable_returns_zero_without_a_call(self):
+        with patch.object(a, "ALPACA_AVAILABLE", False), \
+             patch.object(a, "get_alpaca_data_client") as mock_get_client:
+            self.assertEqual(a.prewarm_alpaca_bars(["AAPL"]), 0)
+        mock_get_client.assert_not_called()
+
+
 class TestAlertMassiveApiFailure(unittest.TestCase):
     """Added 2026-08-13 after an API audit found fetch_earnings_mover_tickers()
     and _fetch_massive_reference_news() both failed open with zero logging

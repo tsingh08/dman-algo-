@@ -1111,7 +1111,7 @@ def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]
 
 
 def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
-                        chunk_size: int = 50) -> int:
+                        chunk_size: int = 100) -> int:
     """
     Batch-fetch daily bars for many tickers in a handful of Alpaca SIP calls
     (Algo Trader Plus — paid for exactly this: fast, reliable, real-time
@@ -1127,10 +1127,18 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
     The entire function body is one outer try/except (belt-and-suspenders
     on top of the per-chunk try/except below) — this function must NEVER
     be able to take down the scan that calls it, whatever goes wrong.
-    chunk_size defaults to 50 (not 100) and pauses briefly between chunks
-    as a conservative margin against undocumented multi-symbol batch limits
-    or rate-limiting on a real account under live market-hours load — this
-    was never exercised with real credentials before going live.
+
+    chunk_size loosened 50→100 and the inter-chunk pause 0.2s→0.1s
+    (2026-08-13, API-usage audit): the original chunk_size=50 was picked
+    before this account had ever actually run under real ATP credentials,
+    purely as an untested guess against undocumented multi-symbol batch
+    limits. It has since run this exact path across every live session
+    since ATP was confirmed active with zero recorded 429s
+    (dman_rate_limit_events.json has never had a prewarm-related entry) —
+    still keeping a real, non-zero pause rather than removing it outright,
+    since that history doesn't prove there's no limit, only that this
+    account's actual daily universe (WATCHLIST + smallcap watchlist,
+    ~200 tickers, 2 chunks at the new size) has never come close to it.
     """
     try:
         if not ALPACA_AVAILABLE:
@@ -1166,7 +1174,7 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
                         _cache[key] = df
                         warmed += 1
                 if i + chunk_size < len(tickers):
-                    time.sleep(0.2)   # brief pause between chunks — avoid rate-limit bursts
+                    time.sleep(0.1)   # brief pause between chunks — avoid rate-limit bursts
             except Exception as exc:
                 print(f"  [prewarm_alpaca_bars] chunk {i}-{i+len(chunk)} failed "
                       f"(non-fatal, falls back to per-ticker fetch): {exc}", file=sys.stderr)

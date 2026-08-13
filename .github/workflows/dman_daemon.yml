@@ -3,10 +3,19 @@ name: DMan Cloud Daemon
 # Runs the always-on daemon on GitHub's runners using the secrets already
 # stored in this repo — zero local setup, nothing to click.
 #
-# GitHub caps a job at 6 hours, so the trading day is covered by two
+# GitHub caps a job at 6 hours, so the trading day is covered by three
 # back-to-back sessions sharing a concurrency group:
 #   Session A: ~9:23 AM ET  → exits itself at 12:55 PM ET
-#   Session B: ~12:53 PM ET → cancels A (seamless handover) → exits 4:12 PM ET
+#   Session B: ~12:53 PM ET → cancels A (seamless handover) → exits ~5:00 PM ET
+#   Session C: ~4:53 PM ET  → cancels B (seamless handover) → exits ~8:05 PM ET
+#
+# Session C (added 2026-08-13) extends coverage through the post-market
+# close — NOT for order execution (guard_loop's actual stop/T1 order
+# management stays gated to 9:25 AM-4:05 PM ET via market_hours(), so
+# nothing changes there), but because the real-time news and (widened,
+# curated-universe) equity quote streams are NOT time-gated and keep
+# alerting on AMC earnings reactions through the evening instead of going
+# fully dark from ~4:20 PM until the next morning's premarket cron.
 #
 # The daemon gives: options stop/T1/T2 enforcement every 60s, instant fill
 # alerts via websocket, real-time Telegram commands, 5-min fill sync, and
@@ -23,6 +32,7 @@ on:
     # hour, not the trigger minute, so this doesn't change anything else.
     - cron: '23 13 * * 1-5'   # ~9:23 AM ET — morning session
     - cron: '53 16 * * 1-5'   # ~12:53 PM ET — afternoon session (takes over)
+    - cron: '53 20 * * 1-5'   # ~4:53 PM ET — evening session (takes over, post-market coverage)
   workflow_dispatch:
 
 # Afternoon session cancels the (nearly finished) morning session so exactly
@@ -62,8 +72,20 @@ jobs:
           import zoneinfo, datetime, os
           ET = zoneinfo.ZoneInfo("America/New_York")
           now = datetime.datetime.now(ET)
-          # Morning start → hand over at 12:55 ET; afternoon → run to 16:12 ET
-          until = "1255" if now.hour < 12 else "1612"
+          # Morning start (hour<12) → hand over at 12:55 ET.
+          # Afternoon start (12<=hour<16) → run to 17:00 ET — extended from
+          # the old 16:12 exit as a safety-net overlap with the new evening
+          # session's ~16:53 start, so a late/failed evening trigger still
+          # leaves the afternoon session covering until 17:00 instead of a
+          # cold stop at 16:12.
+          # Evening start (hour>=16) → run to 20:05 ET, through the 8 PM
+          # post-market close (see the workflow header comment).
+          if now.hour < 12:
+              until = "1255"
+          elif now.hour < 16:
+              until = "1700"
+          else:
+              until = "2005"
           print(f"Session start {now:%H:%M} ET — running until {until} ET")
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"until={until}\n")
@@ -97,6 +119,14 @@ jobs:
           # pattern as ENABLE_REALTIME_EQUITY_STREAM above, applied to
           # options positions.
           ENABLE_REALTIME_OPTIONS_STREAM: "true"
+          # Real-time news headline streaming — instant Telegram alert on a
+          # relevant headline instead of waiting for the next scan_loop pass
+          # or hourly cron's REST poll (see news_data_stream_loop in
+          # dman_daemon.py). Built and live-verified 2026-08-13, enabled the
+          # same day. Lower-risk than the two streams above: alert-only, it
+          # never touches order submission — the existing REST-based Massive
+          # sentiment gate still governs every new entry unchanged.
+          ENABLE_REALTIME_NEWS_STREAM: "true"
         run: python dman_daemon.py
 
       - name: Notify on daemon failure

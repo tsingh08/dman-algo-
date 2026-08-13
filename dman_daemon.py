@@ -832,6 +832,7 @@ def main() -> None:
     log(f"DMan daemon starting — repo {REPO_DIR}"
         + (f"  (cloud session until {run_until} ET)" if cloud else ""))
     git_sync()
+    algo._register_telegram_commands()
     algo.send_telegram("🤖 <b>DMan daemon ONLINE</b>"
                        + (f" [cloud session → {run_until[:2]}:{run_until[2:]} ET]" if cloud else "")
                        + " — real-time entries, exits, fill stream, and phone "

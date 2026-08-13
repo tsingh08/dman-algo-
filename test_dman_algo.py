@@ -3053,6 +3053,84 @@ class TestLowFloatCatalystNewsGate(unittest.TestCase):
         self.assertIsNone(sig)
 
 
+class TestSendSignalAlertBatch(unittest.TestCase):
+    """Confirmed live 2026-08-13 API audit: send_telegram() had zero
+    batching logic -- a scan producing several signals fired that many
+    separate Telegram notifications. _send_signal_alert_batch() combines
+    them into one digest message, splitting only if the combined length
+    would exceed Telegram's practical limit."""
+
+    def test_empty_list_sends_nothing(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._send_signal_alert_batch([])
+        mock_tg.assert_not_called()
+
+    def test_single_message_sent_unchanged_no_header(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._send_signal_alert_batch(["one signal's full alert text"])
+        mock_tg.assert_called_once_with("one signal's full alert text")
+
+    def test_multiple_messages_combined_into_one_send(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._send_signal_alert_batch(["alert A", "alert B", "alert C"])
+        mock_tg.assert_called_once()
+        combined = mock_tg.call_args[0][0]
+        for piece in ("alert A", "alert B", "alert C"):
+            self.assertIn(piece, combined)
+        self.assertIn("3", combined)   # "3 new plays found" header
+
+    def test_oversized_batch_splits_into_multiple_sends(self):
+        huge_messages = ["x" * 3000 for _ in range(3)]   # 3 * 3000 > one safe chunk
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._send_signal_alert_batch(huge_messages)
+        self.assertGreater(mock_tg.call_count, 1)
+        # every original message must still appear somewhere across the sends
+        all_sent = "".join(c[0][0] for c in mock_tg.call_args_list)
+        self.assertEqual(all_sent.count("x" * 3000), 3)
+
+
+class TestRegisterTelegramCommands(unittest.TestCase):
+    """Confirmed live 2026-08-13 API audit: only sendMessage and getUpdates
+    were ever used anywhere in this file -- setMyCommands was never called,
+    so /options, /buy, etc. never showed up in Telegram's command
+    autocomplete. TELEGRAM_COMMANDS is the single source of truth both this
+    function and the unknown-command help text read from, so they can't
+    silently drift apart."""
+
+    def test_sends_every_command_with_its_description(self):
+        with patch.object(a, "TELEGRAM_TOKEN", "test-token"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = MagicMock(status_code=200,
+                                                         json=lambda: {"ok": True})
+            result = a._register_telegram_commands()
+        self.assertTrue(result)
+        sent = mock_requests.post.call_args[1]["json"]["commands"]
+        sent_names = {c["command"] for c in sent}
+        expected_names = {c for c, _ in a.TELEGRAM_COMMANDS}
+        self.assertEqual(sent_names, expected_names)
+
+    def test_no_token_returns_false_without_a_call(self):
+        with patch.object(a, "TELEGRAM_TOKEN", ""), \
+             patch.object(a, "requests") as mock_requests:
+            result = a._register_telegram_commands()
+        self.assertFalse(result)
+        mock_requests.post.assert_not_called()
+
+    def test_http_failure_fails_open_returns_false_never_raises(self):
+        with patch.object(a, "TELEGRAM_TOKEN", "test-token"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.side_effect = Exception("network error")
+            result = a._register_telegram_commands()
+        self.assertFalse(result)
+
+    def test_help_text_lists_every_registered_command(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_telegram_command("/unknowncommand")
+        msg = mock_tg.call_args[0][0]
+        for cmd, _ in a.TELEGRAM_COMMANDS:
+            self.assertIn(f"/{cmd}", msg)
+
+
 class TestIsMarketOpenHolidayAware(unittest.TestCase):
     """Confirmed live 2026-08-13 audit: is_market_open() was a pure
     weekday+time check with zero holiday awareness, despite _MARKET_HOLIDAYS

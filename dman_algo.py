@@ -1282,6 +1282,85 @@ def send_telegram(message: str) -> bool:
     return False
 
 
+# The full command list, kept in exactly one place — the unknown-command
+# help text in _handle_telegram_command() and _register_telegram_commands()
+# both source from this so the two can't silently drift apart the way the
+# git-sync logic across workflow files did.
+TELEGRAM_COMMANDS: list[tuple[str, str]] = [
+    ("status",    "Account, halt state, positions count"),
+    ("positions", "List tracked positions"),
+    ("pnl",       "Today + month P&L"),
+    ("halt",      "Block new entries (exits still run)"),
+    ("resume",    "Re-enable entries"),
+    ("close",     "Close a position now — /close TICKER"),
+    ("options",   "Browse live calls/puts — /options TICKER [E]"),
+    ("buy",       "Confirm a buy from /options — /buy N [qty] [price]"),
+    ("restart",   "Force a fresh daemon session (last resort)"),
+]
+
+
+def _register_telegram_commands() -> bool:
+    """
+    Registers TELEGRAM_COMMANDS with Telegram's setMyCommands so they show
+    up in the client's command autocomplete/menu button instead of only
+    working if typed out from memory. Confirmed live 2026-08-13 API audit:
+    only sendMessage and getUpdates were ever used anywhere in this file —
+    setMyCommands costs one call and is idempotent (Telegram just overwrites
+    the registered list), so it's safe to call on every daemon startup
+    rather than needing one-time bookkeeping. Never raises — a failure here
+    only means the command menu doesn't populate, not that commands stop
+    working (they're still handled by _handle_telegram_command() either way).
+    """
+    if not TELEGRAM_TOKEN:
+        return False
+    try:
+        resp = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/setMyCommands",
+            json={"commands": [{"command": c, "description": d} for c, d in TELEGRAM_COMMANDS]},
+            timeout=10,
+        )
+        return resp.status_code == 200 and resp.json().get("ok", False)
+    except Exception as exc:
+        print(f"  [Telegram] setMyCommands failed: {exc}", file=sys.stderr)
+        return False
+
+
+def _send_signal_alert_batch(messages: list[str]) -> None:
+    """
+    Sends one or more formatted signal alerts as digest message(s) instead
+    of one Telegram message per signal. Confirmed live 2026-08-13 API
+    audit: send_telegram() had zero batching/combining logic anywhere — a
+    single scan producing several signals fired that many separate
+    notifications, each repeating its own header/formatting overhead.
+
+    A single signal is sent exactly as before (no behavior change for the
+    common case). Multiple signals are combined under one shared header,
+    separated by a divider, splitting into more than one Telegram message
+    only if the combined length would exceed a safe margin below
+    Telegram's ~4096-char hard limit — send_telegram()'s own truncation
+    is a last-resort safety net, not something this should lean on to
+    silently cut a real alert's content.
+    """
+    if not messages:
+        return
+    if len(messages) == 1:
+        send_telegram(messages[0])
+        return
+    _header = f"🔥 <b>{len(messages)} new plays found</b>\n{'─'*20}"
+    _chunk_parts = [_header]
+    _chunk_len   = len(_header)
+    for msg in messages:
+        _piece = "\n\n" + msg
+        if _chunk_len + len(_piece) > 3800 and len(_chunk_parts) > 1:
+            send_telegram("".join(_chunk_parts))
+            _chunk_parts = [_header]
+            _chunk_len   = len(_header)
+        _chunk_parts.append(_piece)
+        _chunk_len += len(_piece)
+    if len(_chunk_parts) > 1:
+        send_telegram("".join(_chunk_parts))
+
+
 def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     """Format a ProSignal as a Telegram-ready HTML message."""
     arrow = "🟢 LONG" if s.bias == "LONG" else "🔴 SHORT"
@@ -1847,16 +1926,8 @@ def _handle_telegram_command(text: str) -> None:
 
     else:
         send_telegram(
-            "🤖 <b>DMan commands</b>\n"
-            "/status — account, halt state, positions count\n"
-            "/positions — list tracked positions\n"
-            "/pnl — today + month P&L\n"
-            "/halt [reason] — block new entries (exits still run)\n"
-            "/resume — re-enable entries\n"
-            "/close TICKER — close a position now\n"
-            "/options TICKER [E] — browse live calls/puts (E = expiry # from the list)\n"
-            "/buy N [qty] [price] — confirm item N from the last /options menu\n"
-            "/restart — force a fresh daemon session (last resort, works even if it's frozen)"
+            "🤖 <b>DMan commands</b>\n" +
+            "\n".join(f"/{c} — {d}" for c, d in TELEGRAM_COMMANDS)
         )
 
 
@@ -11429,17 +11500,19 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # for it (the caller only submits this function's *returned* list). This
     # also kept phantom entries out of live-signal outcome tracking, which
     # previously recorded a "signal" for tickers that were never traded.
+    _alert_batch: list[str] = []
     for sig in signals:
         if _is_duplicate_alert(sig.ticker):
             sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
             continue
         if sig.ticker in _smallcap_extra:
             fl_m, sh_pct, insider_pct, post_rs = _smallcap_extra[sig.ticker]
-            send_telegram(format_smallcap_telegram(sig, fl_m, sh_pct, insider_pct, post_rs))
+            _alert_batch.append(format_smallcap_telegram(sig, fl_m, sh_pct, insider_pct, post_rs))
         else:
-            send_telegram(format_signal_telegram(sig, regime))
+            _alert_batch.append(format_signal_telegram(sig, regime))
         _save_last_alert(sig.ticker)
         _log_live_signal(sig)   # record for live outcome tracking
+    _send_signal_alert_batch(_alert_batch)
 
     print(f"\n{'─'*68}")
     print(f"  ✅  {len(signals)} A+ setup(s) passed all filters")

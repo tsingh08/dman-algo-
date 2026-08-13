@@ -1,27 +1,5 @@
 [
   {
-    "ticker": "FGL",
-    "bias": "LONG",
-    "setup": "Low Float Catalyst",
-    "entry": 0.8,
-    "stop": 0.64,
-    "target1": 1.2,
-    "target2": 1.44,
-    "shares": 511,
-    "entry_date": "2026-08-12",
-    "atr": 0.0,
-    "score": 100,
-    "legs": [],
-    "spread_qty": 0,
-    "max_loss": 0.0,
-    "max_gain": 0.0,
-    "earn_date": "",
-    "stop_stage": "initial",
-    "milestone_gain_alerted": 0.0,
-    "milestone_loss_alerted": 0.0,
-    "peak_premium": 0.0
-  },
-  {
     "ticker": "LITX",
     "bias": "LONG",
     "setup": "Gap & Hold",

@@ -89,6 +89,14 @@ jobs:
           # gain with zero protection since equity positions previously had
           # no continuous daemon-side monitoring at all).
           ENABLE_REALTIME_EQUITY_STREAM: "true"
+          # Real-time options quote streaming + continuous stop/trail/T1
+          # guard fed from the live cache instead of a fresh REST snapshot
+          # every 60s check (see option_data_stream_loop / get_snapshot_fn
+          # in dman_algo.py / dman_daemon.py). Built and live-verified
+          # 2026-08-12, enabled the same day — same reconnect-storm-guarded
+          # pattern as ENABLE_REALTIME_EQUITY_STREAM above, applied to
+          # options positions.
+          ENABLE_REALTIME_OPTIONS_STREAM: "true"
         run: python dman_daemon.py
 
       - name: Notify on daemon failure

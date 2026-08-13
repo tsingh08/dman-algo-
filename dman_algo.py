@@ -543,9 +543,26 @@ EXTENDED_UNIVERSE = [
 # ═══════════════════════════════════════════════════════════════════════════
 
 def is_market_open() -> bool:
-    """Return True if US market is currently open (9:30am–4:00pm ET, Mon–Fri)."""
+    """
+    Return True if US market is currently open (9:30am–4:00pm ET, Mon–Fri,
+    excluding NYSE holidays).
+
+    Confirmed live 2026-08-13 audit: this never checked _MARKET_HOLIDAYS
+    (defined later in this file but referenced fine here — function bodies
+    only evaluate at call time, long after the whole module has loaded) —
+    a pure weekday+time check would report the market open on Thanksgiving,
+    July 4th, etc. whenever they land on a weekday. The one caller that
+    matters most is _submit_signals_to_alpaca()'s belt-and-suspenders gate
+    right before real order submission, specifically for the case its own
+    docstring calls out — "in case this function is called directly (e.g.
+    --mode alpaca, manual workflow_dispatch after close)" — exactly the
+    kind of off-schedule invocation that bypasses whatever normally keeps
+    the cron schedule from running on a holiday in the first place.
+    """
     now = datetime.now(ET)
     if now.weekday() >= 5:
+        return False
+    if now.date() in _MARKET_HOLIDAYS:
         return False
     t = now.hour * 100 + now.minute
     return 930 <= t <= 1600

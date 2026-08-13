@@ -3053,6 +3053,31 @@ class TestLowFloatCatalystNewsGate(unittest.TestCase):
         self.assertIsNone(sig)
 
 
+class TestIsMarketOpenHolidayAware(unittest.TestCase):
+    """Confirmed live 2026-08-13 audit: is_market_open() was a pure
+    weekday+time check with zero holiday awareness, despite _MARKET_HOLIDAYS
+    already existing in this file for other purposes. The caller that
+    matters most is _submit_signals_to_alpaca()'s belt-and-suspenders gate
+    right before real order submission -- specifically for a manual/off-
+    schedule invocation (--mode alpaca, workflow_dispatch) that bypasses
+    whatever normally keeps the cron schedule from running on a holiday."""
+
+    def test_thanksgiving_during_normal_hours_is_closed(self):
+        # Thanksgiving 2026-11-26 is a Thursday -- a weekday+time-only
+        # check would incorrectly report the market open.
+        fake_now = datetime(2026, 11, 26, 11, 0, tzinfo=a.ET)
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = fake_now
+            self.assertFalse(a.is_market_open())
+
+    def test_normal_weekday_during_hours_is_still_open(self):
+        # A regular non-holiday Wednesday must be unaffected by the fix.
+        fake_now = datetime(2026, 8, 12, 11, 0, tzinfo=a.ET)
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = fake_now
+            self.assertTrue(a.is_market_open())
+
+
 class TestDayStartEquityBaseline(unittest.TestCase):
     """Alpaca's last_equity is the prior TRADING DAY's close -- it doesn't
     account for a same-day deposit, so (equity - last_equity) treats new

@@ -10922,7 +10922,25 @@ def _check_open_position_risk(regime: dict) -> None:
 # ═══════════════════════════════════════════════════════════════════════════
 
 def _append_scan_log(entry: dict, max_entries: int = 20) -> None:
-    """Append one scan result to the rolling scan log (keeps last max_entries)."""
+    """
+    Append one scan result to the rolling scan log (keeps last max_entries
+    by actual timestamp, not list position).
+
+    Confirmed live 2026-08-12: this used a positional log[-max_entries:]
+    slice, which sync_scan_log_with_remote()'s rebuild step was ALSO doing
+    until fixed the night before (2026-08-11) to sort by ts first —  but
+    that fix only touched the cross-process MERGE step, not this function,
+    which runs first, on every single scan, before any merge happens. A
+    real trading day produced this exact failure: entries from 6 days
+    earlier (2026-08-06) were still present alongside only-through-11:47am
+    entries from the CURRENT day, with every scan from 11:54am to market
+    close silently missing — this function's own truncation dropped them
+    the moment the on-disk file wasn't already perfectly sorted (e.g. after
+    a git-level conflict resolution grabbed a stale snapshot), because it
+    trusted list position instead of the ts field every entry already
+    carries. Sorting here closes the gap regardless of whatever order the
+    file was in when loaded.
+    """
     log: list[dict] = []
     if os.path.exists(SCAN_LOG_FILE):
         try:
@@ -10931,7 +10949,7 @@ def _append_scan_log(entry: dict, max_entries: int = 20) -> None:
         except Exception:
             log = []
     log.append(entry)
-    log = log[-max_entries:]  # keep rolling window
+    log = sorted(log, key=lambda e: e.get("ts", ""), reverse=True)[:max_entries][::-1]
     with open(SCAN_LOG_FILE, "w") as f:
         json.dump(log, f, indent=2)
 

@@ -367,6 +367,69 @@ class TestMergeJsonLists(unittest.TestCase):
         self.assertEqual(a.merge_json_lists(["x"], ["y"], key_fn=None), ["x"])
 
 
+class TestAppendScanLog(unittest.TestCase):
+    """Confirmed live 2026-08-12: _append_scan_log() used a positional
+    log[-max_entries:] slice, unfixed by the 2026-08-11 sync_scan_log_
+    with_remote() sort-by-ts fix -- that fix only touched the cross-
+    process MERGE step, not this function, which runs FIRST on every
+    single scan, before any merge happens. Real trading day evidence:
+    entries from 6 days earlier were still present alongside only-
+    through-11:47am entries from the CURRENT day, with every scan from
+    11:54am to market close silently missing -- this function's own
+    truncation dropped them the moment the on-disk file wasn't already
+    perfectly sorted, because it trusted list position instead of the ts
+    field every entry already carries."""
+
+    def _entry(self, ts):
+        return {"ts": ts, "signals": 0, "universe": "curated"}
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "SCAN_LOG_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def test_new_entry_survives_when_file_starts_out_of_order(self):
+        # Reproduces the real incident: the on-disk file already has old
+        # entries (6 days back) interleaved with recent ones, NOT sorted
+        # by ts -- exactly what a stale git-level conflict resolution can
+        # leave behind. A positional [-20:] slice on this unsorted input
+        # can drop the brand-new append; sorting first cannot.
+        scrambled = ([self._entry("2026-08-06T10:00:00-04:00")] * 19 +
+                     [self._entry("2026-08-12T11:47:00-04:00")])
+        with open(a.SCAN_LOG_FILE, "w") as f:
+            json.dump(scrambled, f)
+        a._append_scan_log(self._entry("2026-08-12T11:56:00-04:00"), max_entries=20)
+        with open(a.SCAN_LOG_FILE) as f:
+            result = json.load(f)
+        self.assertIn("2026-08-12T11:56:00-04:00", [e["ts"] for e in result],
+                      "the entry just appended must survive regardless of on-disk order")
+        self.assertEqual(result[-1]["ts"], "2026-08-12T11:56:00-04:00",
+                          "newest entry must be last (ascending order), matching "
+                          "print_scan_log()'s reversed() convention")
+
+    def test_oldest_entries_evicted_first_when_over_cap(self):
+        entries = [self._entry(f"2026-08-{d:02d}T10:00:00-04:00") for d in range(1, 21)]
+        with open(a.SCAN_LOG_FILE, "w") as f:
+            json.dump(entries, f)
+        a._append_scan_log(self._entry("2026-08-21T10:00:00-04:00"), max_entries=20)
+        with open(a.SCAN_LOG_FILE) as f:
+            result = json.load(f)
+        self.assertEqual(len(result), 20)
+        self.assertNotIn("2026-08-01T10:00:00-04:00", [e["ts"] for e in result])
+        self.assertIn("2026-08-21T10:00:00-04:00", [e["ts"] for e in result])
+
+    def test_missing_file_starts_fresh(self):
+        a._append_scan_log(self._entry("2026-08-12T10:00:00-04:00"))
+        with open(a.SCAN_LOG_FILE) as f:
+            result = json.load(f)
+        self.assertEqual(len(result), 1)
+
+
 class TestSyncScanLogWithRemote(unittest.TestCase):
     """Confirmed live 2026-08-11: sync_scan_log_with_remote() used to cap
     the merged list positionally (merged[-20:]), matching

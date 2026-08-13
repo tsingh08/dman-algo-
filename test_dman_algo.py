@@ -2089,6 +2089,88 @@ class TestDynamicTickerPriceFloor(unittest.TestCase):
             self.assertIn("count=50", call[0][0])
 
 
+class TestNewsSentimentVerdict(unittest.TestCase):
+    """_news_sentiment_verdict() is a majority vote over
+    _fetch_massive_reference_news()'s per-article insights[] entries.
+    Confirmed live 2026-08-13: Massive's /v2/reference/news endpoint is
+    accessible under the current MASSIVE_API_KEY (real multi-publisher
+    results with sentiment) even though the separate analyst-ratings tier
+    is 403'd -- these tests lock in the vote-counting logic in isolation
+    from the catalyst-gate integration."""
+
+    def _article(self, ticker, sentiment):
+        return {"title": "test", "insights": [{"ticker": ticker, "sentiment": sentiment}]}
+
+    def test_no_articles_returns_none(self):
+        with patch.object(a, "_fetch_massive_reference_news", return_value=[]):
+            self.assertIsNone(a._news_sentiment_verdict("FGL"))
+
+    def test_majority_positive_wins(self):
+        articles = [self._article("FGL", "positive"), self._article("FGL", "positive"),
+                    self._article("FGL", "negative")]
+        with patch.object(a, "_fetch_massive_reference_news", return_value=articles):
+            self.assertEqual(a._news_sentiment_verdict("FGL"), "positive")
+
+    def test_majority_negative_wins(self):
+        articles = [self._article("FGL", "negative"), self._article("FGL", "negative"),
+                    self._article("FGL", "neutral")]
+        with patch.object(a, "_fetch_massive_reference_news", return_value=articles):
+            self.assertEqual(a._news_sentiment_verdict("FGL"), "negative")
+
+    def test_only_matching_ticker_insights_counted(self):
+        # An article can tag multiple tickers -- only THIS ticker's own
+        # insight entry should count, not an unrelated co-mentioned symbol.
+        articles = [self._article("OTHERCO", "negative"), self._article("FGL", "positive")]
+        with patch.object(a, "_fetch_massive_reference_news", return_value=articles):
+            self.assertEqual(a._news_sentiment_verdict("FGL"), "positive")
+
+    def test_articles_with_no_matching_insights_return_none(self):
+        articles = [self._article("OTHERCO", "negative")]
+        with patch.object(a, "_fetch_massive_reference_news", return_value=articles):
+            self.assertIsNone(a._news_sentiment_verdict("FGL"))
+
+
+class TestFetchMassiveReferenceNews(unittest.TestCase):
+    """Isolated tests for the raw HTTP wrapper — fail-open behavior and
+    the real endpoint/params shape confirmed live 2026-08-13."""
+
+    def setUp(self):
+        a._MASSIVE_SENTIMENT_CACHE.clear()
+
+    def test_no_api_key_returns_empty_without_a_call(self):
+        with patch.object(a, "MASSIVE_API_KEY", ""), \
+             patch.object(a, "requests") as mock_requests:
+            result = a._fetch_massive_reference_news("FGL")
+        self.assertEqual(result, [])
+        mock_requests.get.assert_not_called()
+
+    def test_non_200_returns_empty(self):
+        with patch.object(a, "MASSIVE_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.get.return_value = MagicMock(status_code=403)
+            result = a._fetch_massive_reference_news("FGL")
+        self.assertEqual(result, [])
+
+    def test_exception_fails_open_to_empty_list(self):
+        with patch.object(a, "MASSIVE_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.get.side_effect = Exception("network error")
+            result = a._fetch_massive_reference_news("FGL")
+        self.assertEqual(result, [])
+
+    def test_successful_call_hits_the_confirmed_endpoint(self):
+        with patch.object(a, "MASSIVE_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.get.return_value = MagicMock(
+                status_code=200, json=lambda: {"results": [{"title": "x"}]})
+            result = a._fetch_massive_reference_news("FGL")
+        self.assertEqual(result, [{"title": "x"}])
+        url = mock_requests.get.call_args[0][0]
+        self.assertEqual(url, "https://api.massive.com/v2/reference/news")
+        params = mock_requests.get.call_args[1]["params"]
+        self.assertEqual(params["ticker"], "FGL")
+
+
 class TestFetchEarningsMoverTickers(unittest.TestCase):
     """Confirmed live 2026-08-12: CRWV beat EPS by +30.9% and gapped +15.7%
     the next morning on 24M avg daily volume, and the algo never once
@@ -3019,6 +3101,10 @@ class TestLowFloatCatalystNewsGate(unittest.TestCase):
             patch.object(a, "_is_recent_reverse_split", return_value=False),
             patch.object(a, "get_effective_account", return_value=5000.0),
             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", {"DMANPICK"}),
+            # Default to a neutral sentiment verdict so existing tests that
+            # only care about the news-existence gate aren't incidentally
+            # blocked by the separate sentiment check added 2026-08-13.
+            patch.object(a, "_news_sentiment_verdict", return_value="neutral"),
         ]
         for p in self._patches:
             p.start()
@@ -3039,9 +3125,40 @@ class TestLowFloatCatalystNewsGate(unittest.TestCase):
         self.assertIsNotNone(sig)
 
     def test_dman_watchlist_ticker_exempt_from_news_check(self):
-        with patch.object(a, "_fetch_massive_benzinga_news") as mock_news:
+        with patch.object(a, "_fetch_massive_benzinga_news") as mock_news, \
+             patch.object(a, "_news_sentiment_verdict") as mock_sentiment:
             sig = a.detect_low_float_catalyst(self._df(), "DMANPICK")
         mock_news.assert_not_called()
+        mock_sentiment.assert_not_called()
+        self.assertIsNotNone(sig)
+
+    def test_negative_sentiment_blocks_despite_confirmed_news(self):
+        # Confirmed live 2026-08-13: Massive's /v2/reference/news provides
+        # real per-article sentiment even though the analyst-ratings tier
+        # is 403'd. "There is news" alone doesn't mean it supports a LONG
+        # entry -- a volume spike whose only real news is negative is a
+        # sell-off, not a catalyst, on a long-only system.
+        with patch.object(a, "_fetch_massive_benzinga_news",
+                          return_value={"FGL": ["Company misses guidance"]}), \
+             patch.object(a, "_news_sentiment_verdict", return_value="negative"):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        self.assertIsNone(sig)
+
+    def test_positive_sentiment_allows_entry(self):
+        with patch.object(a, "_fetch_massive_benzinga_news",
+                          return_value={"FGL": ["Company announces contract win"]}), \
+             patch.object(a, "_news_sentiment_verdict", return_value="positive"):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        self.assertIsNotNone(sig)
+
+    def test_unknown_sentiment_does_not_override_confirmed_news(self):
+        # No sentiment data found (None) must NOT block -- the primary
+        # news-existence check already confirmed a real catalyst; this is
+        # an additional refinement on top, not a replacement gate.
+        with patch.object(a, "_fetch_massive_benzinga_news",
+                          return_value={"FGL": ["Company announces XYZ"]}), \
+             patch.object(a, "_news_sentiment_verdict", return_value=None):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
         self.assertIsNotNone(sig)
 
     def test_news_api_failure_fails_closed(self):

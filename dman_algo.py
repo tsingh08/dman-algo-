@@ -2980,6 +2980,86 @@ def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> di
     return result
 
 
+_MASSIVE_SENTIMENT_CACHE: dict[tuple, tuple[float, list]] = {}
+_MASSIVE_SENTIMENT_CACHE_TTL_S = 600   # matches _MASSIVE_NEWS_CACHE_TTL_S
+
+
+def _fetch_massive_reference_news(ticker: str, hours_back: int = 48) -> list[dict]:
+    """
+    Massive's /v2/reference/news — distinct from _fetch_massive_benzinga_news's
+    /benzinga/v2/news (Benzinga-only headlines, no sentiment). This one
+    aggregates MULTIPLE publishers (Motley Fool, Investing.com, etc.) and
+    includes per-article sentiment analysis (results[].insights[].sentiment:
+    positive/neutral/negative, plus a plain-English sentiment_reasoning).
+
+    Confirmed live 2026-08-13: accessible under the current MASSIVE_API_KEY
+    (200, real multi-publisher results with sentiment) even though the
+    separate analyst-ratings/bulls-bears-say/corporate-guidance tier is
+    403'd on this plan (see the "no further paid API tiers" comment near
+    check_insider_activity) — this endpoint closes the "market sentiment"
+    gap those were meant to fill without needing a plan upgrade.
+
+    Returns raw result dicts (title, published_utc, insights, ...); [] on
+    any failure or if MASSIVE_API_KEY isn't set (fail-open to callers).
+    10-min TTL cache, same reasoning as _fetch_massive_benzinga_news.
+    """
+    if not MASSIVE_API_KEY:
+        return []
+    from datetime import timezone as _tz
+    cutoff = datetime.now(_tz.utc) - timedelta(hours=hours_back)
+    cache_key = (ticker, hours_back)
+    cached = _MASSIVE_SENTIMENT_CACHE.get(cache_key)
+    if cached and (time.time() - cached[0]) < _MASSIVE_SENTIMENT_CACHE_TTL_S:
+        return cached[1]
+    try:
+        resp = requests.get(
+            "https://api.massive.com/v2/reference/news",
+            params={
+                "ticker":            ticker,
+                "published_utc.gte": cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "limit":             10,
+                "apiKey":            MASSIVE_API_KEY,
+            },
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            return []
+        results = resp.json().get("results", []) or []
+        _MASSIVE_SENTIMENT_CACHE[cache_key] = (time.time(), results)
+        return results
+    except Exception:
+        return []
+
+
+def _news_sentiment_verdict(ticker: str, hours_back: int = 48) -> Optional[str]:
+    """
+    "positive", "neutral", "negative", or None (no sentiment data found) —
+    majority vote across every article's insights[] entry matching this
+    ticker from _fetch_massive_reference_news(). Ties resolve to whichever
+    dict.max() picks first among equal counts (positive > neutral >
+    negative in insertion order), which only matters for genuinely tied
+    votes — not worth a tie-break rule for a 2-3 article sample size.
+
+    Used by detect_low_float_catalyst()'s catalyst-confirmation gate to
+    tell a genuine bullish catalyst apart from a volume spike driven by
+    BAD news — "there is news" alone doesn't mean the news supports a
+    LONG entry on a long-only system.
+    """
+    articles = _fetch_massive_reference_news(ticker, hours_back)
+    if not articles:
+        return None
+    votes = {"positive": 0, "neutral": 0, "negative": 0}
+    for art in articles:
+        for insight in art.get("insights", []) or []:
+            if str(insight.get("ticker", "")).upper() == ticker.upper():
+                s = insight.get("sentiment")
+                if s in votes:
+                    votes[s] += 1
+    if sum(votes.values()) == 0:
+        return None
+    return max(votes, key=votes.get)
+
+
 def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
     """
     Fetch real-time ticker-specific headlines from Benzinga Basic API.
@@ -10497,6 +10577,21 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         if ticker not in DMAN_SMALLCAP_WATCHLIST:
             _news_map = _fetch_massive_benzinga_news([ticker], hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
             if not _news_map.get(ticker):
+                return None
+            # "There is news" alone doesn't mean the news supports a LONG
+            # entry -- confirmed live 2026-08-13 that Massive's separate
+            # /v2/reference/news endpoint provides real per-article
+            # sentiment (positive/neutral/negative) even though the
+            # analyst-ratings/bulls-bears-say tier is 403'd. A volume spike
+            # whose only real news is negative is a sell-off, not a
+            # catalyst worth buying on a long-only system -- block it the
+            # same way a missing catalyst is blocked. Unknown/no-sentiment-
+            # data (None) does NOT block here -- the primary news-existence
+            # check above already confirmed a real catalyst exists; this is
+            # an additional refinement on top; not finding a sentiment
+            # verdict isn't grounds to override that.
+            _sentiment = _news_sentiment_verdict(ticker, hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
+            if _sentiment == "negative":
                 return None
 
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"

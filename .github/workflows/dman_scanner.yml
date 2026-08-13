@@ -236,24 +236,12 @@ jobs:
           sys.exit(result.returncode)
           EOF
 
-      - name: Persist alert cache and live signal logs
+      - name: Merge positions/scan-log/win-rate against remote
         if: always()
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          # Confirmed live 2026-08-10: `git rebase --continue` after resolving
-          # a conflict needs to open an editor for the commit message — with
-          # no interactive terminal on a runner, that failed with "Terminal is
-          # dumb, but EDITOR unset", which the `|| git rebase --abort`
-          # fallback then treated as an unrecoverable conflict and discarded,
-          # silently dropping that ENTIRE run's real scan results (verified:
-          # a genuine "No A+ setups today" scan output with real universe
-          # data never made it into dman_scan_log.json for at least 2
-          # separate Monday runs). `true` as the editor accepts git's own
-          # auto-generated rebase commit message with no prompt needed.
-          git config core.editor true
-
-          # Fetch BEFORE staging/merging so dman_positions.json can be
+          # Fetch BEFORE the persist step below so dman_positions.json can be
           # semantically merged against origin/main's current copy. The
           # always-on daemon and this hourly scanner both independently
           # raise stops to breakeven / reduce shares after a partial sell on
@@ -264,12 +252,14 @@ jobs:
           git fetch origin main
           python dman_algo.py --mode merge-positions || true
 
-          # STATE_FILES includes files that are created lazily (dman_halt.json,
-          # dman_telegram_state.json only exist after the first /halt or bot
-          # command). `git add a.json missing.json` fails ATOMICALLY on the
-          # missing pathspec and silently stages NOTHING — not even a.json —
-          # so every file must be existence-checked individually, never
-          # passed to one bare `git add f1 f2 f3` call.
+      - name: Persist alert cache and live signal logs
+        if: always()
+        uses: ./.github/actions/persist-state
+        with:
+          commit_message: "chore: update alert/signal cache [skip ci]"
+          # Files created lazily (dman_halt.json, dman_telegram_state.json
+          # only exist after the first /halt or bot command) are fine here —
+          # the composite action existence-checks each one individually.
           # dman_sec_cik_map.json: SEC EDGAR ticker->CIK map backing the free
           # insider-buying signal (check_insider_activity). Runners are
           # ephemeral (fresh checkout every run) — without persisting this
@@ -286,86 +276,17 @@ jobs:
           # work across runs. The stock-side file backs the same detection
           # for Algo Trader Plus's SIP feed, added 2026-08-09 after ATP
           # billing voided twice before finally activating.
-          STATE_FILES="dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv \
-                       dman_alpaca_sync.json dman_positions.json \
-                       dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json \
-                       dman_scan_log.json dman_universe_cache.json \
-                       dman_stocktwits_seen.json dman_smallcap_watchlist.json \
-                       dman_telegram_state.json dman_halt.json dman_alerts_dedup.json \
-                       dman_earnings_pending.json dman_rate_limit_events.json \
-                       dman_sec_cik_map.json dman_options_feed_state.json \
-                       dman_stock_feed_state.json dman_telegram_options_menu.json \
-                       dman_telegram_manual_buy.json"
-
-          # Defense-in-depth: never stage a corrupted .json file. This caught
-          # a real production incident — the daemon's git-stash-pop conflict
-          # handling (separately fixed) once left literal <<<<<<< conflict
-          # markers in dman_alpaca_sync.json, which the old code would have
-          # committed and pushed as-is. Any file that fails to parse here is
-          # restored from the last good commit and skipped this cycle only.
-          for f in $STATE_FILES; do
-            if [ -f "$f" ]; then
-              case "$f" in
-                *.json)
-                  if ! python -c "import json,sys; json.load(open(sys.argv[1]))" "$f" 2>/dev/null; then
-                    echo "  ⚠️  $f failed JSON validation — restoring last good commit"
-                    git checkout -- "$f" 2>/dev/null || true
-                  fi
-                  ;;
-              esac
-              git add "$f"
-            fi
-          done
-
-          if git diff --staged --quiet; then
-            echo "No data changes to commit"
-            exit 0
-          fi
-          git commit -m "chore: update alert/signal cache [skip ci]"
-          # Re-fetch/rebase in case something else pushed during the scan+merge above
-          git fetch origin main
-          # Confirmed live 2026-08-07: a stray uncommitted change (source
-          # unclear -- possibly a side effect of merge-positions writing
-          # after this point, possibly a lingering write from the scan step
-          # above) appeared between the commit above and this rebase,
-          # causing "cannot rebase: You have unstaged changes" -- a
-          # precondition failure, NOT a merge conflict. The conflict-recovery
-          # path below (git rebase --continue/--abort) has nothing to
-          # recover from in that case and fails with "no rebase in
-          # progress", killing the whole step with exit 128 -- the actual
-          # scan had already succeeded, only this state-persist step died.
-          # Absorbing any stray change into its own commit first means the
-          # working tree is always clean before rebase is ever attempted.
-          if ! git diff --quiet || ! git diff --staged --quiet; then
-            echo "Stray uncommitted change detected before rebase — absorbing into its own commit"
-            git add -A
-            git commit -m "chore: absorb stray state change [skip ci]" || true
-          fi
-          if ! git rebase origin/main; then
-            # NOTE: during `git rebase` (unlike `git merge`), --ours/--theirs
-            # are REVERSED — "ours" resolves to the upstream commit we're
-            # rebasing ONTO, "theirs" resolves to the commit being replayed
-            # (our new scan data). Verified by direct reproduction — this was
-            # `--ours` for weeks and silently discarded real scan results
-            # (and any signal found in them) on every rebase conflict.
-            echo "Rebase conflict on data files — keeping our new scan data (theirs, during rebase)"
-            for f in $STATE_FILES; do
-              [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
-            done
-            git add -u
-            git rebase --continue || git rebase --abort
-          fi
-          # Try push; if rejected (race), fetch-rebase-push once more
-          if ! git push origin HEAD:main; then
-            echo "First push rejected — refetching and retrying"
-            git fetch origin main
-            if ! git diff --quiet || ! git diff --staged --quiet; then
-              git add -A
-              git commit -m "chore: absorb stray state change [skip ci]" || true
-            fi
-            git rebase origin/main || git rebase --abort
-            git push origin HEAD:main || echo "ERROR: data push failed after retry — check branch protection rules"
-          fi
+          files: >-
+            dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv
+            dman_alpaca_sync.json dman_positions.json
+            dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json
+            dman_scan_log.json dman_universe_cache.json
+            dman_stocktwits_seen.json dman_smallcap_watchlist.json
+            dman_telegram_state.json dman_halt.json dman_alerts_dedup.json
+            dman_earnings_pending.json dman_rate_limit_events.json
+            dman_sec_cik_map.json dman_options_feed_state.json
+            dman_stock_feed_state.json dman_telegram_options_menu.json
+            dman_telegram_manual_buy.json
 
       - name: Notify on workflow failure
         if: failure()

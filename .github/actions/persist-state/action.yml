@@ -1,0 +1,124 @@
+name: 'Persist DMan state files'
+description: >-
+  Shared git stash/fetch/rebase/push cycle for syncing JSON state files
+  back to origin/main, with a JSON-corruption guard and push-retry-on-
+  rejection. Extracted 2026-08-13 after this exact logic was hand-copied
+  into dman_scanner.yml, dman_watchdog.yml, and dman_stocktwits.yml and
+  had already drifted apart in production: dman_watchdog.yml was missing
+  both the JSON-corruption guard and the push-retry-on-rejection logic
+  the other two files had, and a real fix found in dman_scanner.yml (the
+  core.editor / rebase --continue bug) needed to be manually re-applied
+  to the other two as separate edits rather than landing everywhere at
+  once. One copy of this logic means one fix lands everywhere from now on.
+
+inputs:
+  files:
+    description: 'Space-separated list of state files to persist (existence-checked individually).'
+    required: true
+  commit_message:
+    description: 'Commit message to use when there are staged changes.'
+    required: true
+
+outputs:
+  changed:
+    description: '"true" if a commit was made, "false" if there was nothing to persist.'
+    value: ${{ steps.persist.outputs.changed }}
+  changed_files:
+    description: 'Space-separated list of files that were actually part of the staged diff.'
+    value: ${{ steps.persist.outputs.changed_files }}
+
+runs:
+  using: 'composite'
+  steps:
+    - id: persist
+      shell: bash
+      run: |
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        # Confirmed live 2026-08-10 (dman_scanner.yml): `git rebase --continue`
+        # after resolving a conflict needs to open an editor for the commit
+        # message — with no interactive terminal on a runner, that failed
+        # with "Terminal is dumb, but EDITOR unset", which the
+        # `|| git rebase --abort` fallback then treated as an unrecoverable
+        # conflict and discarded, silently dropping that entire run's real
+        # results. `true` as the editor accepts git's own auto-generated
+        # rebase commit message with no prompt needed.
+        git config core.editor true
+
+        STATE_FILES="${{ inputs.files }}"
+
+        # Defense-in-depth: never stage a corrupted .json file. Confirmed
+        # live in production: a stash-pop conflict once left literal
+        # <<<<<<< conflict markers in a state file, which would have been
+        # committed and pushed as-is without this guard. Any file that
+        # fails to parse is restored from the last good commit and skipped
+        # this cycle only — this used to only exist in dman_scanner.yml,
+        # meaning a corrupted file committed by the watchdog or StockTwits
+        # workflows was never caught before staging.
+        for f in $STATE_FILES; do
+          if [ -f "$f" ]; then
+            case "$f" in
+              *.json)
+                if ! python -c "import json,sys; json.load(open(sys.argv[1]))" "$f" 2>/dev/null; then
+                  echo "  ⚠️  $f failed JSON validation — restoring last good commit"
+                  git checkout -- "$f" 2>/dev/null || true
+                fi
+                ;;
+            esac
+            git add "$f"
+          fi
+        done
+
+        if git diff --staged --quiet; then
+          echo "No data changes to commit"
+          echo "changed=false" >> "$GITHUB_OUTPUT"
+          echo "changed_files=" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        CHANGED_FILES=$(git diff --staged --name-only | tr '\n' ' ')
+        echo "changed=true" >> "$GITHUB_OUTPUT"
+        echo "changed_files=$CHANGED_FILES" >> "$GITHUB_OUTPUT"
+
+        git commit -m "${{ inputs.commit_message }}"
+        # Re-fetch/rebase in case something else pushed since this job's checkout.
+        git fetch origin main
+        # Confirmed live 2026-08-07 (dman_scanner.yml): a stray uncommitted
+        # change can appear between a commit and the rebase right after it,
+        # causing "cannot rebase: You have unstaged changes" -- a
+        # precondition failure the conflict-recovery path below has nothing
+        # to recover from ("no rebase in progress"), killing the step
+        # outright. Absorbing any stray change first keeps the working tree
+        # clean going into the rebase.
+        if ! git diff --quiet || ! git diff --staged --quiet; then
+          echo "Stray uncommitted change detected before rebase — absorbing into its own commit"
+          git add -A
+          git commit -m "chore: absorb stray state change [skip ci]" || true
+        fi
+        if ! git rebase origin/main; then
+          # NOTE: during `git rebase` (unlike `git merge`), --ours/--theirs
+          # are REVERSED — "ours" resolves to the upstream commit we're
+          # rebasing ONTO, "theirs" resolves to the commit being replayed
+          # (our new data). Verified by direct reproduction — using --ours
+          # here silently discarded real results on every rebase conflict.
+          echo "Rebase conflict on data files — keeping our new data (theirs, during rebase)"
+          for f in $STATE_FILES; do
+            [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
+          done
+          git add -u
+          git rebase --continue || git rebase --abort
+        fi
+        # Try push; if rejected (race with another workflow), fetch-rebase-push once more.
+        # Confirmed live: dman_watchdog.yml used to give up on the first
+        # rejection instead of retrying like dman_scanner.yml and
+        # dman_stocktwits.yml both already did.
+        if ! git push origin HEAD:main; then
+          echo "First push rejected — refetching and retrying"
+          git fetch origin main
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git add -A
+            git commit -m "chore: absorb stray state change [skip ci]" || true
+          fi
+          git rebase origin/main || git rebase --abort
+          git push origin HEAD:main || echo "ERROR: data push failed after retry — check branch protection rules"
+        fi

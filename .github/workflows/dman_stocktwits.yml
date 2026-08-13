@@ -52,58 +52,24 @@ jobs:
       - name: Commit new tickers and seen cache
         id: commit
         if: always()
+        uses: ./.github/actions/persist-state
+        with:
+          files: dman_stocktwits_seen.json dman_smallcap_watchlist.json
+          commit_message: "feat: auto-add DMan StockTwits calls to watchlist data file [skip ci]"
+
+      - name: Determine if the watchlist file changed
+        # A new ticker call is the signal worth acting on immediately below —
+        # the seen-cache alone (no watchlist change) doesn't need a scan.
+        # Derived from the persist step's generic changed_files output
+        # rather than re-implementing the diff check here.
+        id: watchlist_check
+        if: always()
+        shell: bash
         run: |
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          # See dman_scanner.yml's identical fix, confirmed live 2026-08-10:
-          # `git rebase --continue` needs an editor for the commit message,
-          # which doesn't exist on a runner and silently discards the whole
-          # run's real results via the `|| git rebase --abort` fallback.
-          git config core.editor true
-          git add dman_stocktwits_seen.json dman_smallcap_watchlist.json || true
-          if git diff --staged --quiet; then
-            echo "No StockTwits changes to commit"
-            echo "watchlist_changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          # A new ticker call is the signal worth acting on immediately below —
-          # the seen-cache alone (no watchlist change) doesn't need a scan.
-          if git diff --staged --name-only | grep -q dman_smallcap_watchlist.json; then
+          if echo "${{ steps.commit.outputs.changed_files }}" | grep -q "dman_smallcap_watchlist.json"; then
             echo "watchlist_changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "watchlist_changed=false" >> "$GITHUB_OUTPUT"
-          fi
-          git commit -m "feat: auto-add DMan StockTwits calls to watchlist data file [skip ci]"
-          git fetch origin main
-          # Confirmed live 2026-08-07 (dman_scanner.yml): a stray uncommitted
-          # change can appear between a commit and the rebase right after it,
-          # causing "cannot rebase: You have unstaged changes" -- a
-          # precondition failure the conflict-recovery path below has
-          # nothing to recover from ("no rebase in progress"), killing the
-          # step outright. Absorbing any stray change first keeps the
-          # working tree clean going into the rebase.
-          if ! git diff --quiet || ! git diff --staged --quiet; then
-            git add -A
-            git commit -m "chore: absorb stray state change [skip ci]" || true
-          fi
-          if ! git rebase origin/main; then
-            # `git rebase` reverses --ours/--theirs vs `git merge`: "ours" is
-            # the upstream commit being rebased ONTO, "theirs" is our own new
-            # commit. This was `--ours` and silently discarded newly-added
-            # tickers on conflict — verified by direct reproduction.
-            echo "Rebase conflict — keeping our watchlist additions and seen cache (theirs, during rebase)"
-            git checkout --theirs -- dman_smallcap_watchlist.json dman_stocktwits_seen.json 2>/dev/null || true
-            git add dman_smallcap_watchlist.json dman_stocktwits_seen.json
-            git rebase --continue || git rebase --abort
-          fi
-          if ! git push origin HEAD:main; then
-            git fetch origin main
-            if ! git diff --quiet || ! git diff --staged --quiet; then
-              git add -A
-              git commit -m "chore: absorb stray state change [skip ci]" || true
-            fi
-            git rebase origin/main || git rebase --abort
-            git push origin HEAD:main || echo "ERROR: StockTwits push failed after retry"
           fi
 
       - name: Trigger immediate scan for the new call(s)
@@ -117,7 +83,7 @@ jobs:
         # same file's own time-of-day routing (pre-open -> premarket-early's
         # moonshot auto-submit, market-hours -> real --submit scan) so no new
         # trading logic is added here — just the immediate trigger.
-        if: steps.commit.outputs.watchlist_changed == 'true'
+        if: steps.watchlist_check.outputs.watchlist_changed == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

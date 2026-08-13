@@ -1726,6 +1726,52 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
         mock_close.assert_not_called()
         self.assertIn("trailing active", result)
 
+    def test_get_snapshot_fn_used_instead_of_rest_when_it_returns_data(self):
+        # Added 2026-08-12 alongside the options WebSocket stream: a
+        # provided get_snapshot_fn (the daemon's real-time quote cache)
+        # must win over the REST snapshot, and the REST path must not be
+        # called at all when the injected one already has data -- same
+        # contract as run_equity_guard's get_price_fn.
+        pos = self._pos(target1=999.0)
+        with patch.object(a, "_get_option_snapshot") as mock_rest:
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(
+                        pos, "CALL", get_snapshot_fn=lambda occ: self._snap(1.05))
+        mock_rest.assert_not_called()
+        mock_close.assert_not_called()
+        self.assertIn("+5%", result)
+
+    def test_get_snapshot_fn_falls_back_to_rest_when_it_returns_none(self):
+        # A cold/stale/disconnected stream returns None -- must fall
+        # through to the REST snapshot exactly as if no fn were given at
+        # all, never leaving the position unchecked.
+        pos = self._pos(target1=999.0)
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.05)) as mock_rest:
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(
+                        pos, "CALL", get_snapshot_fn=lambda occ: None)
+        mock_rest.assert_called_once()
+        mock_close.assert_not_called()
+        self.assertIn("+5%", result)
+
+    def test_greeks_default_gracefully_when_stream_snapshot_omits_them(self):
+        # The real-time feed only carries bid/ask/mid/sizes, no Greeks --
+        # this must not crash and must fall back to the entry-delta /
+        # zeroed Greeks the function already defaults to via .get().
+        pos = self._pos(target1=999.0, atr=0.62)
+        stream_snap = {"bid": 1.03, "ask": 1.07, "mid": 1.05}
+        with patch.object(a, "_get_option_snapshot") as mock_rest:
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(
+                        pos, "CALL", get_snapshot_fn=lambda occ: stream_snap)
+        mock_rest.assert_not_called()
+        mock_close.assert_not_called()
+        self.assertIn("Δ 0.62", result)   # entry delta default
+        self.assertIn("θ 0.000", result)  # theta defaults to 0
+
     def test_extreme_giveback_still_exits_even_at_deep_profit(self):
         # The widened tolerance is not unlimited -- a giveback past even
         # the MAX_PCT ceiling (interpolated to 50% at this +160% peak gain)
@@ -1773,6 +1819,40 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
             with patch.object(a, "send_telegram", return_value=True):
                 a._monitor_option_position(self._pos(), "CALL")
         a._check_options_pnl_milestone.assert_called_once()
+
+
+class TestRunOptionsGuardSnapshotFnPassthrough(unittest.TestCase):
+    """Added 2026-08-12: run_options_guard() must forward get_snapshot_fn
+    through to _monitor_option_position() for every naked call/put leg --
+    the actual point of the injection point is defeated if it's silently
+    dropped at the dispatch layer."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.close()
+        self._patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._pos_tmp.name):
+            os.unlink(self._pos_tmp.name)
+
+    def _write_positions(self, positions):
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump(positions, f)
+
+    def test_snapshot_fn_forwarded_to_calls_and_puts(self):
+        self._write_positions([
+            {"ticker": "AAPL", "setup": "Options Call AAPL260821C00310000 ($310C exp 2026-08-21)"},
+            {"ticker": "TSLA", "setup": "Options Put TSLA260821P00250000 ($250P exp 2026-08-21)"},
+        ])
+        sentinel_fn = lambda occ: None
+        with patch.object(a, "_monitor_option_position", return_value=None) as mock_mon:
+            a.run_options_guard(verbose=False, get_snapshot_fn=sentinel_fn)
+        self.assertEqual(mock_mon.call_count, 2)
+        for c in mock_mon.call_args_list:
+            self.assertIs(c.kwargs.get("get_snapshot_fn"), sentinel_fn)
 
 
 class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):

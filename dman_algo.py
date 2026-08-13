@@ -4661,13 +4661,23 @@ def _options_trail_giveback_pct(peak_gain_pct: float) -> float:
     return OPTIONS_TRAIL_GIVEBACK_MIN_PCT + _progress * (OPTIONS_TRAIL_GIVEBACK_MAX_PCT - OPTIONS_TRAIL_GIVEBACK_MIN_PCT)
 
 
-def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
+def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None) -> Optional[str]:
     """
     Enforce stop / trailing-exit / T1 / DTE rules on one tracked options
     position, plus P&L milestone notifications (_check_options_pnl_milestone).
     kind: "CALL" or "PUT". Submits closing orders via _submit_options_close
     and returns a status line for the alert digest (None if record unusable).
     Shared by run_momentum_watch (hourly cron) and the always-on daemon (60s).
+
+    `get_snapshot_fn(occ_symbol) -> dict | None`, if given, is tried first
+    (e.g. the daemon's real-time options WebSocket quote cache) before
+    falling back to the REST snapshot below — same injection pattern as
+    run_equity_guard's get_price_fn. The real-time feed only carries
+    bid/ask/mid/sizes, not Greeks (OPRA/indicative quote messages don't
+    include them) — every Greek field is read with .get(..., default)
+    below, so a stream-fed snapshot just means Greeks display as 0 /
+    entry-delta rather than blocking the stop/trail/T1 price checks that
+    matter, which never depend on Greeks.
     """
     t     = pos.get("ticker", "")
     setup = pos.get("setup", "")
@@ -4684,7 +4694,9 @@ def _monitor_option_position(pos: dict, kind: str) -> Optional[str]:
     _delta_entry= float(pos.get("atr",     0.45))   # entry delta stored in atr field
     _ctrs       = max(1, int(pos.get("shares", 100)) // 100)
 
-    _snap = _get_option_snapshot(_occ)
+    _snap = get_snapshot_fn(_occ) if get_snapshot_fn else None
+    if not _snap:
+        _snap = _get_option_snapshot(_occ)
     if not _snap:
         return (f"⚠️ <b>{t}</b> {kind} {_occ}\n"
                 f"   Cannot fetch live quote — check position manually")
@@ -4984,12 +4996,20 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
     return None
 
 
-def run_options_guard(verbose: bool = True) -> list[str]:
+def run_options_guard(verbose: bool = True, get_snapshot_fn=None) -> list[str]:
     """
     Enforce stops/targets on every tracked options position right now.
     The always-on daemon calls this every 60s during market hours;
     momentum-watch runs the same engine hourly as backup.
     Returns the per-position status lines.
+
+    `get_snapshot_fn(occ_symbol) -> dict | None`, if given, is passed
+    through to _monitor_option_position() for naked calls/puts (e.g. the
+    daemon's real-time options WebSocket quote cache) — mirrors
+    run_equity_guard's get_price_fn. Earnings spreads aren't wired to it
+    since _monitor_earnings_spread_position() fetches each leg's snapshot
+    directly; only DTE/take-profit checks run there, not a stop/trail
+    engine that benefits from tighter freshness.
     """
     alerts: list[str] = []
     try:
@@ -5000,9 +5020,9 @@ def run_options_guard(verbose: bool = True) -> list[str]:
     for _pos in _positions:
         _setup = _pos.get("setup", "")
         if _setup.startswith("Options Call "):
-            _a = _monitor_option_position(_pos, "CALL")
+            _a = _monitor_option_position(_pos, "CALL", get_snapshot_fn=get_snapshot_fn)
         elif _setup.startswith("Options Put "):
-            _a = _monitor_option_position(_pos, "PUT")
+            _a = _monitor_option_position(_pos, "PUT", get_snapshot_fn=get_snapshot_fn)
         elif _setup.startswith("Earnings "):
             _a = _monitor_earnings_spread_position(_pos)
         else:

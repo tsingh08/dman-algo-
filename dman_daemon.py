@@ -53,6 +53,19 @@ import dman_algo as algo    # noqa: E402  (needs cwd set first)
 ENABLE_REALTIME_EQUITY_STREAM = os.getenv(
     "ENABLE_REALTIME_EQUITY_STREAM", "false").strip().lower() == "true"
 
+# Real-time options quote streaming — same reasoning and same OFF-by-default
+# rollout as ENABLE_REALTIME_EQUITY_STREAM above, applied to the options
+# side (2026-08-12). run_options_guard() already checks every tracked
+# call/put every 60s via a REST snapshot; this doesn't change that cadence,
+# it feeds each check a quote that's already live in memory (a WebSocket
+# push) instead of a fresh REST round-trip every single time, so a fast
+# stop/trail move gets caught against fresher data without hammering the
+# options snapshot endpoint 60x/hour per position. Greeks (needed only for
+# the theta-decay alert, not the stop/trail/T1 price checks) stay REST-only
+# — see _monitor_option_position's get_snapshot_fn docstring.
+ENABLE_REALTIME_OPTIONS_STREAM = os.getenv(
+    "ENABLE_REALTIME_OPTIONS_STREAM", "false").strip().lower() == "true"
+
 GUARD_EVERY_S   = 60        # options stop/target enforcement cadence
 SYNC_EVERY_S    = 300       # fill sync + git state sync cadence
 SCAN_INTERVAL_S = 600       # curated-universe signal scan cadence (10 min) —
@@ -123,6 +136,22 @@ _realtime_prices: dict[str, tuple[float, float]] = {}
 _realtime_prices_lock = threading.Lock()
 _REALTIME_PRICE_MAX_AGE_S = 30
 
+# Third, independent stream (real-time options quotes, see
+# option_data_stream_loop) — tracked separately from both streams above for
+# the same reason _active_market_stream is separate from _active_stream:
+# each connects/disconnects on its own schedule (open options legs changing
+# is a different event than open equity positions changing).
+_active_option_stream_lock = threading.Lock()
+_active_option_stream = None   # the live OptionDataStream instance, if any
+
+# Real-time options quote cache fed by option_data_stream_loop, consumed by
+# guard_loop's run_options_guard(get_snapshot_fn=...) call. Keyed by OCC
+# symbol -> (snapshot dict, monotonic_timestamp), same staleness guard as
+# _realtime_prices above.
+_realtime_option_quotes: dict[str, tuple[dict, float]] = {}
+_realtime_option_quotes_lock = threading.Lock()
+_REALTIME_OPTION_QUOTE_MAX_AGE_S = 30
+
 
 def _close_active_stream() -> None:
     """Best-effort clean close of whatever stream connection is currently
@@ -140,6 +169,13 @@ def _close_active_stream() -> None:
     if ms is not None:
         try:
             ms.stop()
+        except Exception:
+            pass
+    with _active_option_stream_lock:
+        os_ = _active_option_stream
+    if os_ is not None:
+        try:
+            os_.stop()
         except Exception:
             pass
 
@@ -177,6 +213,47 @@ def _current_equity_tickers() -> list[str]:
         if t and not setup.startswith(("Options Call ", "Options Put ", "Earnings ")):
             tickers.add(t)
     return sorted(tickers)
+
+
+def _get_realtime_option_snapshot(occ_symbol: str) -> dict | None:
+    """Real-time streamed bid/ask/mid snapshot for `occ_symbol`, or None if
+    the stream isn't running / hasn't reported one / it's gone stale.
+    Passed as run_options_guard()'s get_snapshot_fn — that function already
+    falls back to a REST snapshot on None, so a dead or cold stream never
+    blocks a check, it just makes that one check as slow as it always was.
+    Mirrors _get_realtime_price() exactly."""
+    with _realtime_option_quotes_lock:
+        entry = _realtime_option_quotes.get(occ_symbol)
+    if entry is None:
+        return None
+    snap, ts = entry
+    if time.monotonic() - ts > _REALTIME_OPTION_QUOTE_MAX_AGE_S:
+        return None
+    return snap
+
+
+def _current_option_occ_symbols() -> list[str]:
+    """OCC symbols for every currently-tracked options leg (naked calls/
+    puts and earnings-spread legs alike) — the options stream's
+    subscription list. Mirrors _current_equity_tickers()'s setup-prefix
+    filtering, inverted (this is exactly the set that function skips)."""
+    try:
+        with open(algo.POSITIONS_FILE) as f:
+            positions = json.load(f)
+    except Exception:
+        return []
+    symbols = set()
+    for pos in positions:
+        setup = pos.get("setup", "")
+        if setup.startswith(("Options Call ", "Options Put ")):
+            parts = setup.split()
+            if len(parts) >= 3 and parts[2]:
+                symbols.add(parts[2])
+        elif setup.startswith("Earnings "):
+            for sym in pos.get("legs", []):
+                if sym:
+                    symbols.add(sym)
+    return sorted(symbols)
 
 
 def _handle_sigterm(signum, frame) -> None:
@@ -353,9 +430,13 @@ def guard_loop() -> None:
     """Options exit enforcement + periodic fill sync during market hours.
     When ENABLE_REALTIME_EQUITY_STREAM is on, also runs the equity
     counterpart (run_equity_guard) on the same 60s cadence — see that
-    function's docstring for why equity positions needed this at all."""
+    function's docstring for why equity positions needed this at all.
+    When ENABLE_REALTIME_OPTIONS_STREAM is on, run_options_guard() is fed
+    the streamed quote cache (option_data_stream_loop) instead of relying
+    solely on its own REST fallback — same 60s cadence, fresher data."""
     log("Options guard loop started (60s cadence during market hours)"
-        + (", equity guard also active" if ENABLE_REALTIME_EQUITY_STREAM else ""))
+        + (", equity guard also active" if ENABLE_REALTIME_EQUITY_STREAM else "")
+        + (", options stream feeding checks" if ENABLE_REALTIME_OPTIONS_STREAM else ""))
     last_sync = 0.0
     was_open  = False
     while True:
@@ -366,7 +447,8 @@ def guard_loop() -> None:
                     algo.send_telegram("🛡 <b>Daemon active</b> — real-time options "
                                        "guard + fill stream running for today's session.")
                     was_open = True
-                alerts = algo.run_options_guard(verbose=False)
+                _snap_fn = _get_realtime_option_snapshot if ENABLE_REALTIME_OPTIONS_STREAM else None
+                alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn)
                 for a in alerts:
                     log(a.split("\n")[0].replace("<b>", "").replace("</b>", ""))
                 if ENABLE_REALTIME_EQUITY_STREAM:
@@ -770,6 +852,164 @@ def market_data_stream_loop() -> None:
                     _active_market_stream = None
 
 
+def option_data_stream_loop() -> None:
+    """
+    Real-time options quote stream for open calls/puts/spread legs — feeds
+    _realtime_option_quotes so guard_loop's run_options_guard() call can
+    check stop/trail/T1 against a fresh streamed quote instead of a fresh
+    REST snapshot every single 60s check. Off by default
+    (ENABLE_REALTIME_OPTIONS_STREAM), added 2026-08-12 as the options
+    counterpart to market_data_stream_loop() — same reconnect-storm guard,
+    same subscription-changes-trigger-reconnect model, same reasoning
+    throughout; see that function's docstring for the full incident
+    writeup this pattern guards against. Only bid/ask/mid/sizes stream —
+    Greeks stay REST-only (see _monitor_option_position's get_snapshot_fn
+    docstring in dman_algo.py), which is fine since Greeks don't gate the
+    stop/trail/T1 price checks this exists to speed up.
+    """
+    try:
+        from alpaca.data.live import OptionDataStream
+        from alpaca.data.enums import OptionsFeed
+    except ImportError:
+        log("alpaca-py options data stream unavailable — real-time option quotes disabled")
+        return
+
+    async def on_quote(q) -> None:
+        try:
+            sym = getattr(q, "symbol", None)
+            bid = float(getattr(q, "bid_price", 0) or 0)
+            ask = float(getattr(q, "ask_price", 0) or 0)
+            if not sym or ask <= 0:
+                return
+            mid = round((bid + ask) / 2, 2) if bid > 0 else round(ask, 2)
+            snap = {
+                "bid": round(bid, 2), "ask": round(ask, 2), "mid": mid,
+                "bid_size": int(getattr(q, "bid_size", 0) or 0),
+                "ask_size": int(getattr(q, "ask_size", 0) or 0),
+                "spread_pct": round((ask - bid) / mid, 3) if mid > 0 else 1.0,
+            }
+            with _realtime_option_quotes_lock:
+                _realtime_option_quotes[sym] = (snap, time.monotonic())
+        except Exception as exc:
+            log(f"option quote handler error: {exc}")
+
+    STORM_WINDOW_S         = 30
+    STORM_ATTEMPT_COUNT    = 20
+    STORM_ALERT_COOLDOWN_S = 1800   # don't spam Telegram every backoff cycle
+    POSITION_POLL_S        = 60     # how often to check for a changed leg set
+    backoff = 15
+    last_storm_alert = 0.0
+
+    global _active_option_stream
+    while True:
+        if _shutdown_event.is_set():
+            log("option data stream loop stopping — shutdown requested")
+            return
+
+        occ_symbols = _current_option_occ_symbols()
+        if not occ_symbols:
+            # Nothing to stream — check back soon without opening a
+            # connection for zero symbols.
+            time.sleep(POSITION_POLL_S)
+            continue
+
+        feed = OptionsFeed.OPRA if algo._resolve_options_feed() == "opra" else OptionsFeed.INDICATIVE
+
+        attempt_times: list[float] = []
+        connected = threading.Event()
+        stopped   = threading.Event()
+        stream    = None
+        try:
+            stream = OptionDataStream(algo.ALPACA_API_KEY, algo.ALPACA_SECRET_KEY, feed=feed)
+            stream.subscribe_quotes(on_quote, *occ_symbols)
+            with _active_option_stream_lock:
+                _active_option_stream = stream
+
+            _orig_start_ws = stream._start_ws
+            async def _watched_start_ws(_orig=_orig_start_ws):
+                attempt_times.append(time.monotonic())
+                await _orig()
+                connected.set()
+            stream._start_ws = _watched_start_ws
+
+            def _run_stream():
+                try:
+                    stream.run()
+                finally:
+                    stopped.set()
+
+            t = threading.Thread(target=_run_stream, daemon=True)
+            t.start()
+
+            storm = False
+            last_poll = time.monotonic()
+            while t.is_alive() and not stopped.is_set():
+                if _shutdown_event.is_set():
+                    break
+                time.sleep(3)
+                now = time.monotonic()
+                attempt_times[:] = [a for a in attempt_times if now - a < STORM_WINDOW_S]
+                if len(attempt_times) >= STORM_ATTEMPT_COUNT:
+                    storm = True
+                    break
+                if connected.is_set():
+                    connected.clear()
+                    backoff = 15
+                    log(f"option data stream connected — real-time option quotes on "
+                        f"({len(occ_symbols)} symbol(s): {occ_symbols}, feed={feed.value})")
+                if now - last_poll > POSITION_POLL_S:
+                    last_poll = now
+                    if _current_option_occ_symbols() != occ_symbols:
+                        log("open options legs changed — reconnecting stream with updated symbols")
+                        break
+
+            if _shutdown_event.is_set():
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                log("option data stream stopped cleanly (shutdown)")
+                return
+
+            if storm:
+                log(f"option data stream reconnect storm detected ({len(attempt_times)} "
+                    f"attempts in {STORM_WINDOW_S}s, likely rate-limited) — stopping and "
+                    f"backing off {backoff}s")
+                if time.monotonic() - last_storm_alert > STORM_ALERT_COOLDOWN_S:
+                    algo.send_telegram(
+                        "⚠️ Real-time options quote stream hit a reconnect storm — backing "
+                        "off. Options stop/trail/T1 checks fall back to REST in the "
+                        "meantime, nothing stops working.")
+                    last_storm_alert = time.monotonic()
+                try:
+                    stream.stop()
+                except Exception:
+                    pass
+                stopped.wait(timeout=10)
+                time.sleep(backoff)
+                backoff = min(backoff * 2, 300)
+                continue
+
+            # Thread exited cleanly — either the leg set changed (see the
+            # poll check above) or an ordinary disconnect. Either way, loop
+            # back around and reconnect with a freshly-derived symbol list.
+            try:
+                stream.stop()
+            except Exception:
+                pass
+            stopped.wait(timeout=10)
+            time.sleep(1)
+        except Exception as exc:
+            log(f"option data stream error: {exc} — reconnecting in {backoff}s")
+            time.sleep(backoff)
+            backoff = min(backoff * 2, 300)
+        finally:
+            with _active_option_stream_lock:
+                if _active_option_stream is stream:
+                    _active_option_stream = None
+
+
 def earnings_loop() -> None:
     """
     Once daily, ~75 min before the 4 PM close, scans WATCHLIST for tickers
@@ -848,6 +1088,9 @@ def main() -> None:
     if ENABLE_REALTIME_EQUITY_STREAM:
         threads.append(threading.Thread(target=market_data_stream_loop,
                                         daemon=True, name="market-data-stream"))
+    if ENABLE_REALTIME_OPTIONS_STREAM:
+        threads.append(threading.Thread(target=option_data_stream_loop,
+                                        daemon=True, name="option-data-stream"))
     for t in threads:
         t.start()
 

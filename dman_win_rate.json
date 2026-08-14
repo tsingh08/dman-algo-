@@ -1,17 +1,5 @@
 [
   {
-    "ticker": "DUOL",
-    "date": "2025-05-06",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 400.4,
-    "exit": 455.14,
-    "outcome": "WIN",
-    "pnl_pct": 11.95,
-    "score": 79,
-    "is_live": false
-  },
-  {
     "ticker": "GME",
     "date": "2024-11-14",
     "bias": "LONG",
@@ -5997,6 +5985,18 @@
     "outcome": "LOSS",
     "pnl_pct": -37.89,
     "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "ARTL",
+    "date": "2026-08-14",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 0.72,
+    "exit": 0.76,
+    "outcome": "WIN",
+    "pnl_pct": 6.06,
+    "score": 65,
     "is_live": true
   }
 ]

@@ -3123,6 +3123,27 @@ def _news_sentiment_verdict(ticker: str, hours_back: int = 48) -> Optional[str]:
     return max(votes, key=votes.get)
 
 
+def _news_boost_after_sentiment_veto(has_headline: bool, ticker: str) -> bool:
+    """
+    Refines the cheap "does a headline exist" check (has_headline) with a
+    sentiment lookup — returns False if the news backing that headline is
+    confirmed NEGATIVE, otherwise passes has_headline through unchanged.
+    Added 2026-08-14, direct instruction to make sure news actually helps
+    get into plays rather than just "a headline exists" earning the same
+    +5-point score credit (and, for Gap & Hold / Bear Gap Hold, the same
+    MTF override — see score_signal) regardless of what it says. Mirrors
+    the exact block-on-negative philosophy detect_low_float_catalyst()'s
+    catalyst gate already uses; unknown/neutral/positive all pass through
+    unchanged, same as that gate. Only called when has_headline is already
+    True (the batch presence check has already run) — this is the one
+    network call this adds, and _news_sentiment_verdict has its own 10-min
+    cache on top.
+    """
+    if not has_headline:
+        return False
+    return _news_sentiment_verdict(ticker) != "negative"
+
+
 def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
     """
     Fetch real-time ticker-specific headlines from Benzinga Basic API.
@@ -11535,8 +11556,11 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             rejected_counts["no_signal"] += 1
             continue
 
-        # Tag news catalyst before scoring (adds +5 pts in score_signal)
-        sig.news_boost = bool(_scan_news_map.get(ticker))
+        # Tag news catalyst before scoring (adds +5 pts in score_signal, and
+        # can override MTF for Gap & Hold / Bear Gap Hold — see score_signal).
+        # See _news_boost_after_sentiment_veto's docstring for why a negative
+        # headline doesn't earn the same credit a positive one does.
+        sig.news_boost = _news_boost_after_sentiment_veto(bool(_scan_news_map.get(ticker)), ticker)
 
         # Apply all pro filters
         sig = score_signal(sig, df, regime, tracker)

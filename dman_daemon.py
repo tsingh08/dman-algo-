@@ -1188,11 +1188,14 @@ def news_data_stream_loop() -> None:
     reconnect model; see market_data_stream_loop()'s docstring for the
     full incident writeup this pattern guards against.
 
-    Alert only — this does not gate or trigger any order submission. The
-    existing REST-based Massive sentiment gate (_news_sentiment_verdict)
-    still governs whether a new low-float-catalyst entry is allowed; this
-    is purely a faster way for a human (or a future automated path) to
-    find out a headline broke at all.
+    Alert-only for macro/held-position headlines. For a non-negative
+    catalyst on a large-cap WATCHLIST ticker not already held, this ALSO
+    wakes scan_loop() early via the shared _fast_scan_trigger (added
+    2026-08-14, direct instruction to make sure news actually helps get
+    into plays, not just alert about them) — see on_news's inline comment
+    for the exact scope/reasoning. This never skips a gate: it only makes
+    run_pro_scanner()'s existing MTF/sector/RS/macro-safe/confluence/
+    news_boost checks run sooner, never changes what they allow.
 
     Subscribes to _news_subscription_symbols() (_curated_universe_tickers()
     — ~200 symbols: WATCHLIST + smallcap watchlist + open positions — plus
@@ -1221,6 +1224,7 @@ def news_data_stream_loop() -> None:
             return False
 
     async def on_news(n) -> None:
+        global _last_fast_scan_trigger_ts
         try:
             news_id  = getattr(n, "id", None)
             headline = (getattr(n, "headline", "") or "").strip()
@@ -1242,6 +1246,29 @@ def news_data_stream_loop() -> None:
             if not relevant and not is_macro:
                 return
             held_hit = [s for s in relevant if s in held]
+
+            # Fast-scan trigger extension (2026-08-14, direct instruction to
+            # make sure news actually helps get into plays, not just alert
+            # about them): a non-negative catalyst on a large-cap WATCHLIST
+            # ticker not already held wakes scan_loop early, same mechanism
+            # market_data_stream_loop's price-based trigger already uses
+            # (same shared cooldown/market-hours gate). Restricted to
+            # WATCHLIST, not DMAN_SMALLCAP_WATCHLIST or the macro proxies —
+            # smallcap names already have their own dedicated catalyst gate
+            # in detect_low_float_catalyst(), and a macro/index headline
+            # isn't a single ticker to newly enter on. This never skips a
+            # gate: run_pro_scanner() re-checks MTF/sector/RS/macro-safe/
+            # confluence/its own (now sentiment-aware) news_boost exactly as
+            # it would on the next scheduled pass — this only changes WHEN
+            # that check happens, not what it allows.
+            if not is_macro and not held_hit and market_hours():
+                _watchlist_hits = [s for s in relevant if s in algo.WATCHLIST]
+                if _watchlist_hits and algo._news_sentiment_verdict(_watchlist_hits[0]) != "negative":
+                    now_mono = time.monotonic()
+                    if now_mono - _last_fast_scan_trigger_ts >= FAST_SCAN_TRIGGER_COOLDOWN_S:
+                        _last_fast_scan_trigger_ts = now_mono
+                        _fast_scan_trigger.set()
+
             if is_macro:
                 tag = "🏛 <b>Macro/Fed news</b> —"
             elif held_hit:

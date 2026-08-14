@@ -2483,6 +2483,40 @@ class TestNewsSentimentVerdict(unittest.TestCase):
             self.assertIsNone(a._news_sentiment_verdict("FGL"))
 
 
+class TestNewsBoostAfterSentimentVeto(unittest.TestCase):
+    """Added 2026-08-14, direct instruction to make sure news actually
+    helps get into plays: run_pro_scanner()'s news_boost (+5 confluence
+    points, and an MTF override for Gap & Hold / Bear Gap Hold — see
+    score_signal) used to fire off a bare "does a headline exist" check,
+    with zero regard for whether that headline was good or bad news.
+    These lock in the sentiment veto in isolation from the full scan."""
+
+    def test_no_headline_returns_false_without_a_sentiment_call(self):
+        with patch.object(a, "_news_sentiment_verdict") as mock_verdict:
+            result = a._news_boost_after_sentiment_veto(False, "FGL")
+        self.assertFalse(result)
+        mock_verdict.assert_not_called()
+
+    def test_headline_with_negative_sentiment_is_vetoed(self):
+        with patch.object(a, "_news_sentiment_verdict", return_value="negative"):
+            self.assertFalse(a._news_boost_after_sentiment_veto(True, "FGL"))
+
+    def test_headline_with_positive_sentiment_passes(self):
+        with patch.object(a, "_news_sentiment_verdict", return_value="positive"):
+            self.assertTrue(a._news_boost_after_sentiment_veto(True, "FGL"))
+
+    def test_headline_with_unknown_sentiment_passes(self):
+        # None (no sentiment data found) must NOT veto -- same "don't let a
+        # missing refinement override an already-confirmed catalyst" rule
+        # detect_low_float_catalyst()'s gate already uses.
+        with patch.object(a, "_news_sentiment_verdict", return_value=None):
+            self.assertTrue(a._news_boost_after_sentiment_veto(True, "FGL"))
+
+    def test_headline_with_neutral_sentiment_passes(self):
+        with patch.object(a, "_news_sentiment_verdict", return_value="neutral"):
+            self.assertTrue(a._news_boost_after_sentiment_veto(True, "FGL"))
+
+
 class TestPrewarmAlpacaBarsChunking(unittest.TestCase):
     """Added 2026-08-13 alongside the chunk_size 50->100 / inter-chunk
     sleep 0.2->0.1 retuning (API-usage audit found the original values

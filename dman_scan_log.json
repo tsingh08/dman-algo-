@@ -1,20 +1,5 @@
 [
   {
-    "ts": "2026-08-07T14:10:44.080546-04:00",
-    "regime": "BULL",
-    "regime_score": 18,
-    "vix": 14.9,
-    "min_score": 75,
-    "universe": "curated",
-    "tickers_total": 91,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 90,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false
-  },
-  {
     "ts": "2026-08-07T14:20:53.869949-04:00",
     "regime": "BULL",
     "regime_score": 18,
@@ -318,6 +303,23 @@
       "UMAC"
     ],
     "rejected_no_signal": 149,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false
+  },
+  {
+    "ts": "2026-08-14T14:33:58.756436-04:00",
+    "regime": "BULL",
+    "regime_score": 17,
+    "vix": 14.3,
+    "min_score": 85,
+    "universe": "all",
+    "tickers_total": 160,
+    "signals": 1,
+    "signal_tickers": [
+      "UMAC"
+    ],
+    "rejected_no_signal": 158,
     "rejected_hard_gate": 1,
     "rejected_low_score": 0,
     "budget_hit": false

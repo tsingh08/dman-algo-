@@ -179,6 +179,23 @@ class TestYfinanceMultiIndexDefense(unittest.TestCase):
         a._cache.clear()
 
 
+class TestSetupMinConfluenceOverrides(unittest.TestCase):
+    """Added 2026-08-14 after reviewing a month of live trades: 'Low Float
+    Catalyst' had a 0% win rate on every non-BE trade (IOTR -8.7%,
+    CLRO -28.1%, FGL -37.9%), avg loss -24.9% -- confirmed on FGL/CLRO
+    specifically that plain-stop fills on these illiquid low-float names
+    slip 8-18 points past the intended stop with no liquidity in between.
+    SETUP_MIN_CONFLUENCE is the existing, already-battle-tested lever for
+    this (same one Gap & Short / Vol Breakdown / MACD Bear already use) --
+    this locks in that the override actually exists and is set high enough
+    to matter (above VOLATILE_MIN_CONFLUENCE, not just above the default)."""
+
+    def test_low_float_catalyst_has_a_stricter_override(self):
+        self.assertIn("Low Float Catalyst", a.SETUP_MIN_CONFLUENCE)
+        self.assertGreaterEqual(a.SETUP_MIN_CONFLUENCE["Low Float Catalyst"],
+                                a.VOLATILE_MIN_CONFLUENCE)
+
+
 class TestMergePositionsSnapshots(unittest.TestCase):
     """The daemon (60s cadence) and hourly cron scanner can both update the
     same tracked position from separate processes/checkouts. These tests

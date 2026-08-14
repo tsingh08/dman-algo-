@@ -68,6 +68,20 @@ SETUP_MIN_CONFLUENCE = {         # per-setup overrides for historically weak set
     "MACD Bear":      82,
     "OS Bounce":      82,
     "Morning Runner": 85,
+    # Added 2026-08-14 — live setup_stats() confirms 0% win rate over 3
+    # non-BE trades this past month (IOTR -8.7%, CLRO -28.1%, FGL -37.9%),
+    # avg loss -24.9%, well beyond backtest-implied risk. Root cause
+    # (confirmed on FGL and CLRO specifically): plain-stop fills on
+    # low-float/illiquid names slip 8-18 points past the intended stop
+    # price with no liquidity in between to catch it — a real, structural
+    # risk this setup type carries live that the backtest didn't capture.
+    # size_position_kelly() already uses per-setup win rate, but floors it
+    # at 50% (see tracker.setup_stats() call site) specifically to avoid
+    # over-reacting to a small sample in the SIZING math — this raises the
+    # ENTRY quality bar instead (same lever VOLATILE_TICKERS already uses),
+    # requiring a materially higher-conviction setup before taking this
+    # specific risk again, rather than changing sizing based on 3 trades.
+    "Low Float Catalyst": 90,
 }
 
 # OB Reversal disabled — 41% WR / avg -4.77% in backtest, consistent loser

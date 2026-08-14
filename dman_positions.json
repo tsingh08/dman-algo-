@@ -20,5 +20,27 @@
     "milestone_gain_alerted": 0.0,
     "milestone_loss_alerted": 0.0,
     "peak_premium": 0.0
+  },
+  {
+    "ticker": "UMAC",
+    "bias": "LONG",
+    "setup": "Options Call UMAC260828C00025000 ($25.0C exp 2026-08-28)",
+    "entry": 9.22,
+    "stop": 4.61,
+    "target1": 13.83,
+    "target2": 23.05,
+    "shares": 200,
+    "entry_date": "2026-08-14",
+    "atr": 0.882,
+    "score": 100,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": "",
+    "stop_stage": "initial",
+    "milestone_gain_alerted": 0.0,
+    "milestone_loss_alerted": 0.0,
+    "peak_premium": 8.75
   }
 ]

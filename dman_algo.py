@@ -82,6 +82,7 @@ VOLATILE_TICKERS = {
     "NIO","AFRM","HOOD","CELH","RIVN",
     "BABA","BIDU","PDD","JD","KWEB",   # Chinese ADRs — geopolitical + currency risk, tighter confluence needed
     "COIN","MSTR",                     # crypto-proxy — extreme vol, needs high conviction
+    "SNDK","SKHY",                     # memory/storage supercycle — +13.7%/+7.3% single-day moves, needs high conviction
 }
 VOLATILE_MIN_CONFLUENCE = 88   # vs 85 default for standard tickers
 
@@ -464,6 +465,10 @@ TICKER_SECTOR = {
     "NFLX":"Comm Services","CRM":"Technology","SNOW":"Technology","PLTR":"Technology",
     "SMCI":"Technology","AVGO":"Technology",
     "AMAT":"Technology","MU":"Technology",
+    # Memory/storage supercycle names (added 2026-08-13, direct request) —
+    # SNDK +13.7%/SKHY +7.3% same-day as the broader rally, both flagged
+    # VOLATILE_TICKERS below given the size of that single-day move.
+    "SNDK":"Technology","SKHY":"Technology",
     # Semis
     "QCOM":"Technology","MRVL":"Technology","KLAC":"Technology","ON":"Technology",
     # High-beta fintech (ARM, COIN, MARA, PYPL, UPST, SOFI, SHOP removed — 0% WR or <30% WR in backtest)

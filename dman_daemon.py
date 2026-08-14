@@ -181,6 +181,47 @@ _news_seen_ids: dict = {}
 _news_seen_ids_lock = threading.Lock()
 _NEWS_SEEN_IDS_MAX = 2000
 
+# Macro/Fed-policy news extension (added 2026-08-13, direct request after
+# reviewing the Thursday session): the news stream above only ever alerted
+# on watchlist-ticker-tagged headlines, with no way to catch a broad
+# monetary-policy story (Fed/FOMC commentary, a CPI/PPI print interpreted
+# as dovish/hawkish) that isn't tagged to any single stock. get_market_regime()
+# already treats TLT (rates) and UUP (dollar) as Fed-policy price proxies —
+# these symbols aren't in WATCHLIST/DMAN_SMALLCAP_WATCHLIST today, so a
+# headline tagged only to one of them would currently be silently dropped
+# by the relevance filter even though it's exactly the kind of story this
+# exists to catch. DIA is added alongside SPY/QQQ/IWM (already in
+# WATCHLIST) since broad-market macro stories commonly tag all four index
+# ETFs together. MACRO_NEWS_KEYWORDS is a second, independent net: a
+# headline's own text is scanned regardless of which of the SUBSCRIBED
+# symbols it happens to be tagged with, so a Fed story tagged alongside an
+# unrelated watchlist ticker still gets flagged as macro rather than
+# rendered as an ordinary single-stock alert.
+MACRO_NEWS_SYMBOLS = ["SPY", "QQQ", "DIA", "IWM", "TLT", "UUP"]
+MACRO_NEWS_KEYWORDS = [
+    "fed ", "federal reserve", "fomc", "rate cut", "rate hike",
+    "interest rate", "powell", "treasury yield", "monetary policy",
+    "inflation", " cpi ", " ppi ", "jobs report", "nonfarm payroll",
+]
+
+
+def _news_subscription_symbols() -> list[str]:
+    """_curated_universe_tickers() plus the macro-proxy symbols above —
+    the news stream's actual subscription list. Kept as one function so
+    the subscribe call and the later reconnect-on-change poll compare
+    against the exact same set."""
+    return sorted(set(_curated_universe_tickers()) | set(MACRO_NEWS_SYMBOLS))
+
+
+def _is_macro_headline(headline: str) -> bool:
+    """Case-insensitive substring match against MACRO_NEWS_KEYWORDS.
+    Padded keywords (e.g. "fed ", " cpi ") avoid matching mid-word
+    (e.g. "federal" already has its own full-word entry; a bare "fed"
+    would also match "federated", "federal-express-adjacent", etc.)."""
+    h = f" {headline.lower()} "
+    return any(kw in h for kw in MACRO_NEWS_KEYWORDS)
+
+
 # Feeds scan_loop()'s fast-scan trigger (added 2026-08-13 alongside the
 # widened watchlist quote stream below): market_data_stream_loop's
 # on_quote handler snapshots each curated-universe ticker's price into
@@ -1153,10 +1194,16 @@ def news_data_stream_loop() -> None:
     is purely a faster way for a human (or a future automated path) to
     find out a headline broke at all.
 
-    Subscribes to _curated_universe_tickers() (~200 symbols: WATCHLIST +
-    smallcap watchlist + open positions) rather than Alpaca's "*"
-    firehose — keeps volume tied to names the algo can actually act on,
-    same scoping choice as the equity/options streams.
+    Subscribes to _news_subscription_symbols() (_curated_universe_tickers()
+    — ~200 symbols: WATCHLIST + smallcap watchlist + open positions — plus
+    MACRO_NEWS_SYMBOLS, the Fed/rates/dollar proxies get_market_regime()
+    already tracks) rather than Alpaca's "*" firehose — keeps volume tied
+    to names the algo can actually act on plus the handful of symbols that
+    carry macro-policy news, same scoping choice as the equity/options
+    streams. MACRO_NEWS_KEYWORDS is a second, symbol-independent net on
+    top: a headline's own text is checked regardless of which subscribed
+    symbol it's tagged with, so a Fed/CPI/PPI story tagged alongside an
+    unrelated watchlist ticker still surfaces as macro news.
     """
     try:
         from alpaca.data.live import NewsDataStream
@@ -1184,18 +1231,25 @@ def news_data_stream_loop() -> None:
                 return
             if _already_seen(news_id):
                 return
+            is_macro = _is_macro_headline(headline) or any(s in MACRO_NEWS_SYMBOLS for s in symbols)
             try:
                 with open(algo.POSITIONS_FILE) as f:
                     held = {p.get("ticker", "") for p in json.load(f)}
             except Exception:
                 held = set()
             relevant = [s for s in symbols if s in held or s in algo.WATCHLIST
-                        or s in algo.DMAN_SMALLCAP_WATCHLIST]
-            if not relevant:
+                        or s in algo.DMAN_SMALLCAP_WATCHLIST or s in MACRO_NEWS_SYMBOLS]
+            if not relevant and not is_macro:
                 return
             held_hit = [s for s in relevant if s in held]
-            tag = "🔴 <b>HELD POSITION</b> —" if held_hit else "📰 <b>Breaking news</b> —"
-            msg = f"{tag} {', '.join(relevant[:5])}\n{headline}"
+            if is_macro:
+                tag = "🏛 <b>Macro/Fed news</b> —"
+            elif held_hit:
+                tag = "🔴 <b>HELD POSITION</b> —"
+            else:
+                tag = "📰 <b>Breaking news</b> —"
+            sym_str = ', '.join(relevant[:5]) if relevant else ', '.join(symbols[:5])
+            msg = f"{tag} {sym_str}\n{headline}"
             if source:
                 msg += f"\n<i>{source}</i>"
             if held_hit:
@@ -1217,7 +1271,7 @@ def news_data_stream_loop() -> None:
             log("news data stream loop stopping — shutdown requested")
             return
 
-        symbols = _curated_universe_tickers()
+        symbols = _news_subscription_symbols()
         if not symbols:
             time.sleep(UNIVERSE_POLL_S)
             continue
@@ -1265,7 +1319,7 @@ def news_data_stream_loop() -> None:
                     log(f"news data stream connected — real-time headlines on {len(symbols)} symbol(s)")
                 if now - last_poll > UNIVERSE_POLL_S:
                     last_poll = now
-                    if _curated_universe_tickers() != symbols:
+                    if _news_subscription_symbols() != symbols:
                         log("curated universe changed — reconnecting news stream with updated symbols")
                         break
 

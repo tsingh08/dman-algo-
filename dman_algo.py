@@ -11219,6 +11219,37 @@ def _append_scan_log(entry: dict, max_entries: int = 20) -> None:
         json.dump(log, f, indent=2)
 
 
+def _log_scan_halt(reason: str, tickers: list, min_score: int) -> None:
+    """
+    Records a circuit-breaker halt (consecutive-loss / monthly-loss /
+    daily-loss guard) to the same rolling scan log run_pro_scanner()
+    writes to on a normal pass. Added 2026-08-13: those three guards
+    return [] before EVER reaching run_pro_scanner()'s own
+    _append_scan_log() call (which sits ~350 lines later, after regime
+    computation) — meaning the entire scan log goes dark for the rest of
+    the day the moment a limit trips, indistinguishable from the scanner
+    silently being broken. Confirmed live the same day: dman_scan_log.json
+    showed zero entries for all of 2026-08-13 despite 9+ real scanner runs,
+    because the daily loss limit tripped ~10:40 AM ET and every run after
+    that hit this exact silent gap. This is deliberately minimal (no
+    regime/VIX lookup) — the only thing worth persisting here is THAT a
+    halt happened and why, not a full market read for a run that never
+    got that far.
+    """
+    try:
+        _append_scan_log({
+            "ts":            datetime.now(ET).isoformat(),
+            "halted":        True,
+            "halt_reason":   reason,
+            "min_score":     min_score,
+            "tickers_total": len(tickers),
+            "signals":       0,
+            "signal_tickers": [],
+        })
+    except Exception:
+        pass
+
+
 def print_scan_log() -> None:
     """Print a human-readable summary of the scan history log."""
     if not os.path.exists(SCAN_LOG_FILE):
@@ -11242,6 +11273,12 @@ def print_scan_log() -> None:
             ts = _dt.fromisoformat(ts_raw).strftime("%b %d %I:%M %p")
         except Exception:
             ts = ts_raw[:16]
+
+        if entry.get("halted"):
+            print(f"  {ts}  |  🛑 HALTED — {entry.get('halt_reason', '?')}  "
+                  f"({entry.get('tickers_total', '?')} tickers, min={entry.get('min_score', '?')})")
+            print(f"{'─'*W}")
+            continue
 
         regime     = entry.get("regime", "?")
         rscore     = entry.get("regime_score", "?")
@@ -11311,6 +11348,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 f"Scanner paused for the day. Review your last trades."
             )
             _save_last_alert("__CONSEC_LOSS__")
+        _log_scan_halt("consecutive_losses", tickers, min_score or 0)
         return []
 
     # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
@@ -11322,6 +11360,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
             send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
             _save_last_alert("__MONTHLY_LIMIT__")
+        _log_scan_halt("monthly_loss_limit", tickers, min_score or 0)
         return []
 
     # Daily loss circuit breaker — dedup
@@ -11333,6 +11372,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         if not _is_duplicate_alert("__DAILY_LIMIT__"):
             send_telegram(f"🛑 <b>Daily loss limit hit</b> — down {todays_loss:.1f}% today. Halted.")
             _save_last_alert("__DAILY_LIMIT__")
+        _log_scan_halt("daily_loss_limit", tickers, min_score or 0)
         return []
 
     print(f"\n{'═'*68}")

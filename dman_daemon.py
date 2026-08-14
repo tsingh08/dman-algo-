@@ -192,7 +192,27 @@ _NEWS_SEEN_IDS_MAX = 2000
 # SCAN_INTERVAL_S. This is a detection-latency change only, not a trading-
 # rule change — _submit_signals_to_alpaca()'s already-tracked guard means
 # an early look at an already-held ticker is a harmless no-op.
+#
+# Confirmed live 2026-08-13, first day this ran: fired 123 times in one
+# regular-hours session and 348 times in one after-hours session — nowhere
+# near the intended "catch a genuinely fast move between 10-min cron
+# cycles" rate. Two compounding causes, both fixed below:
+#   1. No market_hours() gate — during closed/extended hours,
+#      scan_loop's own scan (and thus the baseline-clearing that follows
+#      it) never runs, so a ticker's baseline is never reset; every
+#      illiquid after-hours print that happened to cross the threshold
+#      fired again, forever, for nothing (no scan can even run then).
+#   2. Evaluated against the FULL curated universe, including
+#      DMAN_SMALLCAP_WATCHLIST — a 3% intraday swing on a sub-$50M-float
+#      microcap is routine noise, not a signal; those names already get
+#      dedicated, purpose-built coverage via the StockTwits monitor and
+#      the smallcap catalyst gate. Restricted to the large-cap WATCHLIST,
+#      where a 3% move is actually notable.
+# A cooldown is also applied as a second line of defense against a
+# genuinely fast, multi-ticker session still thrashing scan_loop.
 FAST_SCAN_MOVE_TRIGGER_PCT = 3.0
+FAST_SCAN_TRIGGER_COOLDOWN_S = 120
+_last_fast_scan_trigger_ts = 0.0
 _scan_baseline_prices: dict[str, float] = {}
 _scan_baseline_lock = threading.Lock()
 _fast_scan_trigger = threading.Event()
@@ -813,6 +833,7 @@ def market_data_stream_loop() -> None:
         return
 
     async def on_quote(q) -> None:
+        global _last_fast_scan_trigger_ts
         try:
             sym = getattr(q, "symbol", None)
             bid = float(getattr(q, "bid_price", 0) or 0)
@@ -822,13 +843,21 @@ def market_data_stream_loop() -> None:
             mid = round((bid + ask) / 2, 4)
             with _realtime_prices_lock:
                 _realtime_prices[sym] = (mid, time.monotonic())
-            with _scan_baseline_lock:
-                base = _scan_baseline_prices.get(sym)
-                if base is None:
-                    _scan_baseline_prices[sym] = mid
-                elif base > 0 and abs(mid - base) / base * 100 >= FAST_SCAN_MOVE_TRIGGER_PCT:
-                    _scan_baseline_prices[sym] = mid   # reset so this fires again only on a FURTHER move
-                    _fast_scan_trigger.set()
+            # Fast-scan trigger: large-cap WATCHLIST only, market hours only
+            # (see FAST_SCAN_MOVE_TRIGGER_PCT's docstring above for why —
+            # smallcap noise and after-hours illiquidity both false-fired
+            # this constantly on 2026-08-13, the day it shipped).
+            if market_hours() and sym in algo.WATCHLIST:
+                with _scan_baseline_lock:
+                    base = _scan_baseline_prices.get(sym)
+                    if base is None:
+                        _scan_baseline_prices[sym] = mid
+                    elif base > 0 and abs(mid - base) / base * 100 >= FAST_SCAN_MOVE_TRIGGER_PCT:
+                        _scan_baseline_prices[sym] = mid   # reset so this fires again only on a FURTHER move
+                        now_mono = time.monotonic()
+                        if now_mono - _last_fast_scan_trigger_ts >= FAST_SCAN_TRIGGER_COOLDOWN_S:
+                            _last_fast_scan_trigger_ts = now_mono
+                            _fast_scan_trigger.set()
         except Exception as exc:
             log(f"quote handler error: {exc}")
 

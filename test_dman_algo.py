@@ -571,6 +571,104 @@ class TestAppendScanLog(unittest.TestCase):
         self.assertEqual(len(result), 1)
 
 
+class TestLogScanHalt(unittest.TestCase):
+    """Added 2026-08-13: run_pro_scanner()'s three circuit breakers
+    (consecutive-loss / monthly-loss / daily-loss) all `return []` before
+    ever reaching the function's own _append_scan_log() call ~350 lines
+    later -- meaning the scan log went completely dark for the rest of
+    2026-08-13 the moment the daily loss limit tripped (~10:40 AM ET),
+    with zero visible difference from the scanner silently being broken.
+    Confirmed live: 9+ real scanner runs that day, zero scan_log entries.
+    _log_scan_halt() closes that gap without needing a full regime lookup
+    for a run that never got that far."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "SCAN_LOG_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def test_writes_a_minimal_halted_entry(self):
+        a._log_scan_halt("daily_loss_limit", ["AAPL", "MSFT"], 85)
+        with open(a.SCAN_LOG_FILE) as f:
+            result = json.load(f)
+        self.assertEqual(len(result), 1)
+        entry = result[0]
+        self.assertTrue(entry["halted"])
+        self.assertEqual(entry["halt_reason"], "daily_loss_limit")
+        self.assertEqual(entry["tickers_total"], 2)
+        self.assertEqual(entry["signals"], 0)
+
+    def test_failure_is_silent_never_raises(self):
+        with patch.object(a, "_append_scan_log", side_effect=Exception("disk full")):
+            a._log_scan_halt("daily_loss_limit", [], 85)   # must not raise
+
+    def test_print_scan_log_renders_a_halted_entry(self):
+        a._log_scan_halt("consecutive_losses", ["AAPL"], 75)
+        with patch("builtins.print") as mock_print:
+            a.print_scan_log()
+        rendered = " ".join(str(c.args[0]) for c in mock_print.call_args_list if c.args)
+        self.assertIn("HALTED", rendered)
+        self.assertIn("consecutive_losses", rendered)
+
+
+class TestRunProScannerHaltLogging(unittest.TestCase):
+    """Confirms run_pro_scanner() actually calls _log_scan_halt() from
+    each of the three circuit-breaker early returns -- the point of
+    _log_scan_halt existing is defeated if a guard forgets to call it."""
+
+    def setUp(self):
+        self._patches = [
+            patch.object(a, "send_telegram", return_value=True),
+            patch.object(a, "_is_duplicate_alert", return_value=False),
+            patch.object(a, "_save_last_alert", return_value=None),
+            patch.object(a, "resolve_live_outcomes", return_value=0),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+
+    def test_consecutive_loss_guard_logs_a_halt(self):
+        with patch.object(a.WinRateTracker, "rolling_stats",
+                          return_value={"consec_losses": a.MAX_CONSEC_LOSSES, "consec_wins": 0}), \
+             patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "_log_scan_halt") as mock_halt:
+            result = a.run_pro_scanner(["AAPL"], universe_label="test")
+        self.assertEqual(result, [])
+        mock_halt.assert_called_once()
+        self.assertEqual(mock_halt.call_args[0][0], "consecutive_losses")
+
+    def test_monthly_loss_guard_logs_a_halt(self):
+        with patch.object(a.WinRateTracker, "rolling_stats",
+                          return_value={"consec_losses": 0, "consec_wins": 0}), \
+             patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "_log_scan_halt") as mock_halt:
+            result = a.run_pro_scanner(["AAPL"], universe_label="test")
+        self.assertEqual(result, [])
+        mock_halt.assert_called_once()
+        self.assertEqual(mock_halt.call_args[0][0], "monthly_loss_limit")
+
+    def test_daily_loss_guard_logs_a_halt(self):
+        with patch.object(a.WinRateTracker, "rolling_stats",
+                          return_value={"consec_losses": 0, "consec_wins": 0}), \
+             patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "_log_scan_halt") as mock_halt:
+            result = a.run_pro_scanner(["AAPL"], universe_label="test")
+        self.assertEqual(result, [])
+        mock_halt.assert_called_once()
+        self.assertEqual(mock_halt.call_args[0][0], "daily_loss_limit")
+
+
 class TestSyncScanLogWithRemote(unittest.TestCase):
     """Confirmed live 2026-08-11: sync_scan_log_with_remote() used to cap
     the merged list positionally (merged[-20:]), matching

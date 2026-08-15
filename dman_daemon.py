@@ -78,7 +78,17 @@ ENABLE_REALTIME_OPTIONS_STREAM = os.getenv(
 ENABLE_REALTIME_NEWS_STREAM = os.getenv(
     "ENABLE_REALTIME_NEWS_STREAM", "false").strip().lower() == "true"
 
-GUARD_EVERY_S   = 60        # options stop/target enforcement cadence
+GUARD_EVERY_S   = 10        # options stop/target enforcement cadence — tightened from
+                            # 60s (2026-08-15, direct instruction to watch the option
+                            # chain as closely as possible on the live UMAC play). Safe
+                            # to tighten this far specifically BECAUSE the streamed
+                            # snapshot cache (option_data_stream_loop) already updates
+                            # every tick from Alpaca's OPRA feed — this cadence controls
+                            # how often the DECISION logic (stop/trail/T1 checks) reads
+                            # that already-live cache, not how often data is fetched, so
+                            # it doesn't multiply REST calls or rate-limit risk on the
+                            # happy path (stream connected). SYNC_EVERY_S (git/fill sync)
+                            # is unaffected — that stays on its own separate cadence.
 SYNC_EVERY_S    = 300       # fill sync + git state sync cadence
 SCAN_INTERVAL_S = 600       # curated-universe signal scan cadence (10 min) —
                             # a full-scan takes a few minutes itself (large-cap
@@ -202,6 +212,12 @@ MACRO_NEWS_KEYWORDS = [
     "fed ", "federal reserve", "fomc", "rate cut", "rate hike",
     "interest rate", "powell", "treasury yield", "monetary policy",
     "inflation", " cpi ", " ppi ", "jobs report", "nonfarm payroll",
+    "tariff",   # added 2026-08-15 — the live catalyst behind the open UMAC
+                # play (Trump's 100% drone-import tariff) is trade policy,
+                # same broad-economic-policy category as the rest of this
+                # list. Catches a follow-on tariff headline even when it's
+                # tagged to a sector peer (RCAT/ONDS/AVAV) rather than UMAC
+                # itself directly.
 ]
 
 
@@ -550,12 +566,12 @@ def telegram_loop() -> None:
 def guard_loop() -> None:
     """Options exit enforcement + periodic fill sync during market hours.
     When ENABLE_REALTIME_EQUITY_STREAM is on, also runs the equity
-    counterpart (run_equity_guard) on the same 60s cadence — see that
-    function's docstring for why equity positions needed this at all.
+    counterpart (run_equity_guard) on the same GUARD_EVERY_S cadence — see
+    that function's docstring for why equity positions needed this at all.
     When ENABLE_REALTIME_OPTIONS_STREAM is on, run_options_guard() is fed
     the streamed quote cache (option_data_stream_loop) instead of relying
-    solely on its own REST fallback — same 60s cadence, fresher data."""
-    log("Options guard loop started (60s cadence during market hours)"
+    solely on its own REST fallback — same cadence, fresher data."""
+    log(f"Options guard loop started ({GUARD_EVERY_S}s cadence during market hours)"
         + (", equity guard also active" if ENABLE_REALTIME_EQUITY_STREAM else "")
         + (", options stream feeding checks" if ENABLE_REALTIME_OPTIONS_STREAM else ""))
     last_sync = 0.0

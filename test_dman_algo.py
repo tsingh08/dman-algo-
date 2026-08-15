@@ -809,6 +809,89 @@ class TestLogNewsEvent(unittest.TestCase):
         self.assertIn("NEWEST", [s for e in result for s in e["symbols"]])
 
 
+class TestNewsSentimentBreadth(unittest.TestCase):
+    """Added 2026-08-15 as an OBSERVATION-ONLY regime factor (direct
+    instruction: surface it, don't score on it yet — no live track record
+    on this account). These lock in the aggregation math in isolation from
+    get_market_regime()'s own network-heavy plumbing: window filtering,
+    curated-universe filtering, unknown-sentiment handling, and the
+    breadth_pct formula itself."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patches = [
+            patch.object(a, "NEWS_LOG_FILE", self._tmp.name),
+            patch.object(a, "WATCHLIST", ["AAPL", "MSFT"]),
+            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["ARTL"]),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+
+    def _write(self, entries):
+        with open(self._tmp.name, "w") as f:
+            json.dump(entries, f)
+
+    def _entry(self, hours_ago, symbols, sentiment):
+        from datetime import timezone as _tz
+        ts = (datetime.now(_tz.utc) - timedelta(hours=hours_ago)).isoformat()
+        return {"ts": ts, "symbols": symbols, "headline": "h", "source": "",
+                "tag": "watchlist", "sentiment": sentiment}
+
+    def test_missing_log_returns_zeroed_result(self):
+        os.unlink(self._tmp.name)
+        result = a._news_sentiment_breadth()
+        self.assertEqual(result["total"], 0)
+        self.assertIsNone(result["breadth_pct"])
+
+    def test_counts_and_breadth_pct_within_window(self):
+        self._write([
+            self._entry(1, ["AAPL"], "positive"),
+            self._entry(2, ["AAPL"], "positive"),
+            self._entry(3, ["MSFT"], "negative"),
+            self._entry(4, ["ARTL"], "neutral"),
+        ])
+        result = a._news_sentiment_breadth(hours_back=24.0)
+        self.assertEqual(result["positive"], 2)
+        self.assertEqual(result["negative"], 1)
+        self.assertEqual(result["neutral"], 1)
+        self.assertEqual(result["total"], 4)
+        # (2 positive - 1 negative) / (2+1) scored = 33.3%
+        self.assertAlmostEqual(result["breadth_pct"], 33.3, places=1)
+
+    def test_entries_outside_window_are_excluded(self):
+        self._write([self._entry(48, ["AAPL"], "positive")])   # 48h ago, outside a 24h window
+        result = a._news_sentiment_breadth(hours_back=24.0)
+        self.assertEqual(result["total"], 0)
+
+    def test_entries_outside_curated_universe_are_excluded(self):
+        self._write([self._entry(1, ["NOTONWATCHLIST"], "positive")])
+        result = a._news_sentiment_breadth(hours_back=24.0)
+        self.assertEqual(result["total"], 0)
+
+    def test_unknown_sentiment_counted_separately_and_excluded_from_breadth(self):
+        self._write([
+            self._entry(1, ["AAPL"], None),
+            self._entry(2, ["AAPL"], None),
+        ])
+        result = a._news_sentiment_breadth(hours_back=24.0)
+        self.assertEqual(result["unknown"], 2)
+        self.assertEqual(result["total"], 2)
+        self.assertIsNone(result["breadth_pct"], "an all-unscored sample must not silently read as neutral (0%)")
+
+    def test_never_raises_on_a_malformed_log(self):
+        with open(self._tmp.name, "w") as f:
+            f.write("not valid json")
+        result = a._news_sentiment_breadth()   # must not raise
+        self.assertEqual(result["total"], 0)
+
+
 class TestSyncNewsLogWithRemote(unittest.TestCase):
     """sync_news_log_with_remote() mirrors sync_scan_log_with_remote()'s
     ts-sort-before-cap merge exactly — see TestSyncScanLogWithRemote for

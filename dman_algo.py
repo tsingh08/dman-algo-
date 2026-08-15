@@ -3312,6 +3312,69 @@ def _log_news_event(symbols: list[str], headline: str, source: str = "",
         pass   # background knowledge-base write — never worth blocking a scan/alert over
 
 
+def _news_sentiment_breadth(hours_back: float = 24.0) -> dict:
+    """
+    Rolling positive-vs-negative sentiment breadth across the curated
+    universe (WATCHLIST + DMAN_SMALLCAP_WATCHLIST), computed entirely from
+    the background news log (NEWS_LOG_FILE) — same "is the tape broadly
+    turning" spirit as get_market_regime()'s existing IWM-breadth /
+    QQQ-leadership inputs, just built from news flow instead of price.
+
+    Added 2026-08-15 as an OBSERVATION-ONLY factor, direct instruction:
+    surfaced in get_market_regime()'s details for visibility, NOT added to
+    the numeric score or any gate. That score directly decides which
+    trades get taken (regime_allows_signal, per-signal score
+    contribution) — a sentiment signal with zero live track record on
+    this account has no business influencing real entries on day one.
+    Revisit wiring it into score only after watching this run for real.
+
+    Counts LOG ENTRIES (distinct stories, after _log_news_event's own
+    dedup), not ticker-mentions — a single multi-symbol headline
+    shouldn't get double weight just because it's tagged with more
+    tickers. "unknown" (sentiment=None — no verdict was available when
+    logged) is tracked separately and excluded from breadth_pct's
+    denominator; a quiet news day with mostly-unknown sentiment must
+    read as low-confidence, not silently default to neutral.
+
+    Returns a dict; every count defaults to 0 and breadth_pct to None on
+    any failure or empty log — never raises, matching this file's
+    fail-open convention for anything that isn't a hard trading gate.
+    """
+    result = {"positive": 0, "negative": 0, "neutral": 0, "unknown": 0,
+             "total": 0, "breadth_pct": None, "hours_back": hours_back}
+    try:
+        if not os.path.exists(NEWS_LOG_FILE):
+            return result
+        with open(NEWS_LOG_FILE) as f:
+            log = json.load(f)
+        from datetime import timezone as _tz
+        cutoff = datetime.now(_tz.utc) - timedelta(hours=hours_back)
+        universe = set(WATCHLIST) | set(DMAN_SMALLCAP_WATCHLIST)
+        for entry in log:
+            try:
+                ts = datetime.fromisoformat(entry.get("ts", ""))
+                if ts.tzinfo is None:
+                    continue
+                if ts.astimezone(_tz.utc) < cutoff:
+                    continue
+            except Exception:
+                continue
+            if not (set(entry.get("symbols", [])) & universe):
+                continue
+            s = entry.get("sentiment")
+            if s in ("positive", "negative", "neutral"):
+                result[s] += 1
+            else:
+                result["unknown"] += 1
+            result["total"] += 1
+        _scored = result["positive"] + result["negative"]
+        if _scored > 0:
+            result["breadth_pct"] = round((result["positive"] - result["negative"]) / _scored * 100, 1)
+    except Exception:
+        pass
+    return result
+
+
 def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, list[str]]:
     """
     Fetch recent news headlines for a list of tickers.
@@ -7117,6 +7180,24 @@ def get_market_regime() -> dict:
         except Exception:
             spy_ema20_dist = spy_ema50_dist = 0.0
 
+        # News sentiment breadth — OBSERVATION ONLY (2026-08-15, direct
+        # instruction). Deliberately not added to `score` or referenced by
+        # regime_allows_signal()/any gate — see _news_sentiment_breadth()'s
+        # docstring for why a signal with zero live track record has no
+        # business influencing real entries yet. Purely a display note for
+        # now, same visibility tier as the VIX complacency/term-structure
+        # notes above before those were ever considered for scoring either.
+        try:
+            _nb = _news_sentiment_breadth(hours_back=24.0)
+            if _nb["breadth_pct"] is None:
+                news_breadth_note = f"no scored sentiment in last 24h ({_nb['total']} logged, {_nb['unknown']} unscored)"
+            else:
+                news_breadth_note = (f"{_nb['breadth_pct']:+.0f}% "
+                                     f"({_nb['positive']}pos/{_nb['negative']}neg/{_nb['neutral']}neu, "
+                                     f"{_nb['unknown']} unscored, 24h)")
+        except Exception:
+            news_breadth_note = "N/A"
+
         result.update({
             "regime":     regime,
             "score":      score,
@@ -7147,6 +7228,7 @@ def get_market_regime() -> dict:
                 "VIX Term Structure": vix_term_note,
                 "VIX Complacency":   vix_complacency_warn or "none",
                 "Def Rotation":      def_rotation_note or ("none" if not defensive_rotation else "detected"),
+                "News Sentiment Breadth (obs. only, not scored)": news_breadth_note,
             }
         })
     except Exception as e:
@@ -11699,9 +11781,18 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         # rather than just the hours the daemon happens to be up.
         # _log_news_event's own (symbols, headline) dedup keeps the same
         # story from re-logging every time this 20h-lookback fetch runs.
+        # Sentiment looked up once per TICKER (not per headline) — it's
+        # already a majority vote across that ticker's recent articles,
+        # not headline-specific — and reused for every headline logged
+        # for it this pass; _news_sentiment_verdict's own 10-min cache
+        # keeps repeat cross-cycle lookups cheap.
         for _nt, _heads in _scan_news_map.items():
+            if not _heads:
+                continue
+            _nt_sentiment = _news_sentiment_verdict(_nt)
             for _h in _heads:
-                _log_news_event([_nt], _h, source="scan-prefetch", tag="watchlist")
+                _log_news_event([_nt], _h, source="scan-prefetch", tag="watchlist",
+                               sentiment=_nt_sentiment)
     except Exception as _ne:
         print(f"error ({str(_ne)[:60]})")
 

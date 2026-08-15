@@ -1303,8 +1303,14 @@ def news_data_stream_loop() -> None:
             # only flash a headline past in an alert and lose it) — EVERY
             # relevant headline gets logged here, alerted or not. Tag
             # reflects which relevance bucket matched, for filtering later.
+            # Sentiment attached at write-time (not macro — a macro/index
+            # headline isn't about one ticker's sentiment) so the log
+            # itself is the data source _news_sentiment_breadth() reads
+            # later, no separate re-fetch needed at query time.
             _log_tag = "macro" if is_macro else ("held" if held_hit else "watchlist")
-            algo._log_news_event(relevant or symbols, headline, source=source, tag=_log_tag)
+            _log_syms = relevant or symbols
+            _log_sentiment = None if is_macro else algo._news_sentiment_verdict(_log_syms[0])
+            algo._log_news_event(_log_syms, headline, source=source, tag=_log_tag, sentiment=_log_sentiment)
 
             # Telegram alerting quieted to near-silent (2026-08-15, direct
             # instruction — "I don't need much of it on my phone"): only

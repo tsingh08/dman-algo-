@@ -84,6 +84,13 @@ SETUP_MIN_CONFLUENCE = {         # per-setup overrides for historically weak set
     "Low Float Catalyst": 90,
 }
 
+# Per-setup live performance drift monitor (WinRateTracker.setup_performance_drift)
+# — a setup needs at least this many LIVE trades before its win rate means
+# anything, and gets flagged once that win rate drops below the floor. See
+# setup_performance_drift()'s docstring for why this is live-only.
+SETUP_PERFORMANCE_ALERT_MIN_TRADES = 3
+SETUP_PERFORMANCE_ALERT_WR_FLOOR   = 0.40
+
 # OB Reversal disabled — 41% WR / avg -4.77% in backtest, consistent loser
 ENABLE_OB_REVERSAL = False
 
@@ -1355,6 +1362,7 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("halt",      "Block new entries (exits still run)"),
     ("resume",    "Re-enable entries"),
     ("close",     "Close a position now — /close TICKER"),
+    ("why",       "Explain a ticker's current signal — /why TICKER"),
     ("options",   "Browse live calls/puts — /options TICKER [E]"),
     ("buy",       "Confirm a buy from /options — /buy N [qty] [price]"),
     ("restart",   "Force a fresh daemon session (last resort)"),
@@ -1979,6 +1987,12 @@ def _handle_telegram_command(text: str) -> None:
                 send_telegram(f"📤 /close {_arg}: equity close submitted")
             except Exception as _e:
                 send_telegram(f"❌ /close {_arg} failed: {_e}")
+
+    elif _cmd == "why" and _arg:
+        try:
+            send_telegram(explain_ticker(_arg))
+        except Exception as _e:
+            send_telegram(f"❌ /why {_arg} failed: {_e}")
 
     elif _cmd == "options":
         _handle_options_command(_parts)
@@ -8930,10 +8944,33 @@ def get_effective_account() -> float:
                 if _eq > 0:
                     _live_equity_cache["equity"] = _eq
                     _live_equity_cache["ts"]     = time.time()
-        if _live_equity_cache["equity"] > 0:
-            return _live_equity_cache["equity"]
     except Exception:
         pass
+    # Checked outside the try/except above on purpose: a transient exception
+    # during the re-fetch attempt (e.g. a network blip) must not also skip
+    # this stale-but-still-good cached value — before this fix, any fetch
+    # exception fell straight through to the ACCOUNT_SIZE fallback below
+    # even when a perfectly usable (just slightly stale) cached equity
+    # figure was sitting right here. Found 2026-08-15 while testing the
+    # fallback-alert path added below.
+    if _live_equity_cache["equity"] > 0:
+        return _live_equity_cache["equity"]
+    # Reached only when the cache has NEVER been populated (cold start with
+    # no successful fetch yet) — a stale-but-previously-good cached value is
+    # still returned above and never falls through here, so this path means
+    # position sizing is running on the static ACCOUNT_SIZE secret instead
+    # of real account state, silently, until the next successful fetch.
+    # Added 2026-08-15: no prior alerting existed on this fallback at all.
+    if not _is_duplicate_alert("__EQUITY_FALLBACK__"):
+        try:
+            send_telegram(
+                "⚠️ <b>Live equity unavailable</b> — position sizing is using the "
+                f"static ACCOUNT_SIZE (${ACCOUNT_SIZE:,.0f}, loss-adjusted) instead "
+                "of real Alpaca account equity. Check Alpaca API connectivity."
+            )
+            _save_last_alert("__EQUITY_FALLBACK__")
+        except Exception:
+            pass
     pnl_pct = get_todays_loss()   # signed %; 0 or negative on loss days
     adjusted = ACCOUNT_SIZE * (1 + pnl_pct / 100)
     return max(adjusted, ACCOUNT_SIZE * 0.5)   # floor at 50% of configured size
@@ -9438,6 +9475,41 @@ class WinRateTracker:
         elif wr > target_wr + 0.05:
             return max(70, base - 3)    # above target — can relax a bit
         return base
+
+    def setup_performance_drift(self, min_trades: int = SETUP_PERFORMANCE_ALERT_MIN_TRADES,
+                                 wr_floor: float = SETUP_PERFORMANCE_ALERT_WR_FLOOR) -> list[dict]:
+        """
+        Scan every distinct setup with enough LIVE (real Alpaca fill, not
+        backtest) trades to mean something, and flag any whose rolling win
+        rate has dropped below wr_floor. This is the generalized, automatic
+        version of the manual investigation that found Low Float Catalyst's
+        0% WR / -24.9% avg loss (which led to the SETUP_MIN_CONFLUENCE
+        override above) — that discovery only happened because it was
+        chased down by hand after a string of visible losses. Restricted to
+        is_live trades deliberately: live fills are the ones with real
+        slippage/execution risk baked in, and mixing in backtest-era
+        records (which dominate by volume, see TradeRecord.is_live) would
+        dilute or hide a real live-only problem.
+        """
+        live = [r for r in self.records if r.is_live]
+        setups = sorted({r.setup for r in live if r.setup})
+        drifting = []
+        for setup in setups:
+            recent = [r for r in live if r.setup == setup][-30:]
+            if len(recent) < min_trades:
+                continue
+            wins   = [r for r in recent if r.outcome == "WIN"]
+            losses = [r for r in recent if r.outcome == "LOSS"]
+            wr = len(wins) / len(recent)
+            if wr < wr_floor:
+                avg_loss_r = (abs(sum(r.pnl_pct for r in losses)) / len(losses)
+                              if losses else 0.0)
+                drifting.append({
+                    "setup": setup, "win_rate": round(wr, 3), "total": len(recent),
+                    "wins": len(wins), "losses": len(losses),
+                    "avg_loss_pct": round(avg_loss_r, 1),
+                })
+        return drifting
 
     def print_report(self):
         stats = self.rolling_stats()
@@ -11293,16 +11365,28 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
         return False, f"auto-restore attempt failed: {exc}"
 
 
-def _check_open_position_risk(regime: dict) -> None:
-    """Read pending live signals, fetch current prices, alert if within 2% of stop.
-    Also alerts on orphan Alpaca positions that have no stop coverage in our tracker."""
-    # Populated inside the try block below (real Alpaca positions). None
-    # (not {}) is the "couldn't verify" sentinel — an empty dict is a
+def _check_stop_coverage() -> Optional[dict]:
+    """Orphan-position check + broker-side live-stop check, split out
+    (2026-08-15) from _check_open_position_risk() so it can run on a tight
+    cadence independent of regime computation. Originally only reached via
+    run_pro_scanner()'s ~10min scan cadence — meaning a broken bracket order
+    (e.g. the LITX stuck-HELD stop found live 2026-08-14) could sit
+    undetected for most of a scan cycle. guard_loop() in dman_daemon.py now
+    also calls this directly on its 10s cadence; _is_duplicate_alert()
+    already caps actual alert volume, so calling this more often only
+    tightens detection latency, it doesn't add alert spam.
+
+    Returns the raw {symbol: Position} dict fetched from Alpaca (None if the
+    fetch itself failed) so callers that also need "what do I actually hold
+    right now" don't have to re-fetch — _check_open_position_risk() uses
+    this to cross-reference pending signals against real positions.
+    """
+    # None (not {}) is the "couldn't verify" sentinel — an empty dict is a
     # legitimate "zero real positions" result, and the two must be
-    # distinguishable by the pending-signal filter further down (an empty
-    # dict must filter pending down to nothing; a failed fetch must NOT
-    # silently hide potentially-stale risk info by treating "unknown" the
-    # same as "you hold nothing").
+    # distinguishable by callers that filter against it (an empty dict must
+    # filter pending down to nothing; a failed fetch must NOT silently hide
+    # potentially-stale risk info by treating "unknown" the same as "you
+    # hold nothing").
     _alp_positions: Optional[dict] = None
     # ── Orphan position check ──────────────────────────────────────────────
     # Any Alpaca open position not in dman_live_signals.json has no automated
@@ -11426,6 +11510,13 @@ def _check_open_position_risk(regime: dict) -> None:
                     print(f"  🚨 {len(_unprotected)} position(s) with NO live stop — alert suppressed (sent recently): {_unprotected}")
     except Exception as _oe:
         print(f"  ⚠  Orphan/stop-coverage check failed: {_oe}")
+
+    return _alp_positions
+
+
+def _check_open_position_risk(regime: dict) -> None:
+    """Read pending live signals, fetch current prices, alert if within 2% of stop."""
+    _alp_positions = _check_stop_coverage()
 
     try:
         with open(LIVE_SIGNALS_FILE, "r") as f:
@@ -11626,6 +11717,97 @@ def print_scan_log() -> None:
         print(f"    Rejected: {rej_none} no-gap  {rej_gate} gate  {rej_score} low-score")
         print(f"{'─'*W}")
     print()
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+#  SECTION 19.6 — SIGNAL EXPLAINABILITY  (/why TICKER)
+# ═══════════════════════════════════════════════════════════════════════════
+
+def explain_ticker(ticker: str, min_score: int = None) -> str:
+    """
+    Read-only diagnostic: runs the exact same detection → scoring → gate
+    sequence run_pro_scanner() uses, but for one ticker on demand, and
+    reports exactly where it stands instead of only showing up (or not) in
+    the next scan pass. Never submits an order, writes to the win-rate
+    tracker, or logs an alert — pure inspection. Added 2026-08-15 so a
+    "why didn't/did TICKER trigger" question has a direct answer instead of
+    re-deriving it by hand from scan log output, the way every prior
+    incident in this session needed manual digging to explain.
+    """
+    ticker = ticker.upper().strip()
+    lines = [f"🔍 <b>{ticker} — Signal Explain</b>"]
+    try:
+        raw = fetch_df(ticker)
+        if raw is None or len(raw) < 60:
+            lines.append(f"  ❌ No usable price data for {ticker} (fetch failed or too little history).")
+            return "\n".join(lines)
+        df = compute_indicators(raw.copy())
+        df.dropna(subset=["EMA50", "RSI", "MACD", "ATR"], inplace=True)
+        if len(df) < 10:
+            lines.append("  ❌ Not enough indicator history after warm-up.")
+            return "\n".join(lines)
+
+        sig = _raw_signals(df, ticker)
+        if sig is None:
+            r = df.iloc[-1]
+            c = float(r["Close"])
+            atr_val = float(r["ATR"]) if not pd.isna(r["ATR"]) else 0.0
+            avg_vol = float(r["AvgVol20"]) if ("AvgVol20" in r.index and not pd.isna(r["AvgVol20"])) else 0.0
+            atr_pct = atr_val / c * 100 if c > 0 else 0.0
+            avg_dv  = c * avg_vol
+            lines.append("  ❌ No qualifying pattern detected right now.")
+            if atr_pct < ATR_PCT_MIN or avg_dv < AVG_DOLLAR_VOL_MIN:
+                lines.append(f"  ⚠️ Quality gate failed: ATR% {atr_pct:.2f} (min {ATR_PCT_MIN}) | "
+                              f"$vol {avg_dv:,.0f} (min {AVG_DOLLAR_VOL_MIN:,.0f})")
+            else:
+                lines.append("  Quality gates passed — none of the current LONG/SHORT "
+                              "setups matched today's structure.")
+            return "\n".join(lines)
+
+        regime  = get_market_regime()
+        tracker = WinRateTracker()
+        try:
+            _news_map = _fetch_alpaca_news([ticker], hours_back=20)
+        except Exception:
+            _news_map = {}
+        sig.news_boost = _news_boost_after_sentiment_veto(bool(_news_map.get(ticker)), ticker)
+
+        sig = score_signal(sig, df, regime, tracker)
+
+        min_score = min_score or tracker.adaptive_min_score()
+        effective_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
+        if sig.ticker in VOLATILE_TICKERS:
+            effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
+
+        lines.append(f"  Setup   : <b>{sig.setup}</b> ({sig.bias})")
+        lines.append(f"  Entry ${sig.entry:.2f} | Stop ${sig.stop:.2f} | T1 ${sig.target1:.2f} | RR {sig.rr:.2f}")
+        lines.append(f"  Score   : {sig.confluence_score}/100  (need ≥{effective_min})")
+
+        gates = {
+            "Regime": sig.regime_ok, "MTF": sig.mtf_ok, "Rel Strength": sig.rs_ok,
+            "Sector": sig.sector_ok, "Earnings": sig.earnings_ok, "Macro": sig.macro_ok,
+            "No Divergence": sig.divergence_free,
+        }
+        for name, ok in gates.items():
+            lines.append(f"  {'✅' if ok else '❌'} {name}")
+
+        hard_fail = [n for n, ok in gates.items() if not ok]
+        if hard_fail:
+            lines.append(f"\n  🛑 Would be BLOCKED — failed hard gate(s): {', '.join(hard_fail)}")
+        elif sig.confluence_score < effective_min:
+            lines.append(f"\n  🛑 Would be BLOCKED — score {sig.confluence_score} < required {effective_min}")
+        else:
+            lines.append("\n  ✅ Would PASS all gates right now.")
+
+        if sig.score_breakdown:
+            lines.append("\n  Score breakdown:")
+            for k, v in sig.score_breakdown.items():
+                lines.append(f"    {k}: {v}")
+
+        return "\n".join(lines)
+    except Exception as e:
+        lines.append(f"  ⚠️ Explain failed: {e}")
+        return "\n".join(lines)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -13527,6 +13709,28 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
         print(f"  📊 P&L summary sent — equity ${equity:,.2f}  day {day_pl_pct:+.2f}%")
     except Exception as e:
         print(f"  ⚠️  P&L summary failed: {e}")
+
+    # Per-setup live win-rate drift — piggybacks on this function's existing
+    # once/day EOD cron cadence rather than adding a new schedule. Separate
+    # Telegram message (not appended above) so it's easy to scan/search on
+    # its own, and deduped like every other alert so a manual `--mode pnl`
+    # run doesn't repeat it within the same cooldown window.
+    try:
+        _drift = WinRateTracker().setup_performance_drift()
+        if _drift and not _is_duplicate_alert("__SETUP_PERF_DRIFT__"):
+            _lines = ["📉 <b>Setup Performance Drift</b>",
+                      "Live win rate has dropped below floor for:\n"]
+            for _d in _drift:
+                _lines.append(
+                    f"  <b>{_d['setup']}</b>: {_d['win_rate']*100:.0f}% WR over last "
+                    f"{_d['total']} live trade(s) ({_d['wins']}W/{_d['losses']}L, "
+                    f"avg loss {_d['avg_loss_pct']:.1f}%)"
+                )
+            send_telegram("\n".join(_lines))
+            _save_last_alert("__SETUP_PERF_DRIFT__")
+            print(f"  📉 Setup drift alert sent for {len(_drift)} setup(s)")
+    except Exception as e:
+        print(f"  ⚠️  Setup drift check failed: {e}")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

@@ -574,7 +574,12 @@ def guard_loop() -> None:
     that function's docstring for why equity positions needed this at all.
     When ENABLE_REALTIME_OPTIONS_STREAM is on, run_options_guard() is fed
     the streamed quote cache (option_data_stream_loop) instead of relying
-    solely on its own REST fallback — same cadence, fresher data."""
+    solely on its own REST fallback — same cadence, fresher data.
+    Also runs _check_stop_coverage() (orphan-position + broker-side
+    live-stop check, split out of _check_open_position_risk 2026-08-15) on
+    this same tight cadence instead of only via run_pro_scanner()'s ~10min
+    scan pass, so a broken bracket order (e.g. a stop stuck HELD) gets
+    caught and auto-restored in seconds instead of minutes."""
     log(f"Options guard loop started ({GUARD_EVERY_S}s cadence during market hours)"
         + (", equity guard also active" if ENABLE_REALTIME_EQUITY_STREAM else "")
         + (", options stream feeding checks" if ENABLE_REALTIME_OPTIONS_STREAM else ""))
@@ -593,6 +598,10 @@ def guard_loop() -> None:
                 alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn, get_price_fn=_und_price_fn)
                 for a in alerts:
                     log(a.split("\n")[0].replace("<b>", "").replace("</b>", ""))
+                try:
+                    algo._check_stop_coverage()
+                except Exception as exc:
+                    log(f"stop coverage check error: {exc}")
                 if ENABLE_REALTIME_EQUITY_STREAM:
                     try:
                         algo.run_equity_guard(get_price_fn=_get_realtime_price)

@@ -5398,6 +5398,345 @@ class TestInsiderScoreSignalGating(unittest.TestCase):
         self.assertEqual(boosted.confluence_score, base.confluence_score + 4)
 
 
+class TestCheckStopCoverageSplit(unittest.TestCase):
+    """_check_stop_coverage() was split out of _check_open_position_risk()
+    2026-08-15 so guard_loop() (dman_daemon.py) can run it on its tight 10s
+    cadence instead of waiting for run_pro_scanner()'s ~10min scan pass. A
+    regression here (e.g. _check_open_position_risk silently stops calling
+    the split-out function) would widen detection latency for a broken
+    bracket order back to minutes without any test catching it."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._pos_patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._pos_patch.start()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._pt_patch = patch.object(a, "PositionTracker", self._isolated_pt)
+        self._pt_patch.start()
+
+        self._sig_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._sig_tmp.write(b'{"pending": []}')
+        self._sig_tmp.close()
+        self._sig_patch = patch.object(a, "LIVE_SIGNALS_FILE", self._sig_tmp.name)
+        self._sig_patch.start()
+
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
+    def tearDown(self):
+        self._pos_patch.stop();    os.unlink(self._pos_tmp.name)
+        self._pt_patch.stop()
+        self._sig_patch.stop();    os.unlink(self._sig_tmp.name)
+        self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+
+    def test_check_stop_coverage_returns_the_raw_alpaca_positions_dict(self):
+        from alpaca.trading.enums import AssetClass, OrderType, OrderStatus
+        pos = MagicMock()
+        pos.symbol = "W"; pos.asset_class = AssetClass.US_EQUITY; pos.qty = "3"
+        pos.avg_entry_price = "116.25"; pos.unrealized_pl = "-2.40"; pos.unrealized_plpc = "-0.02"
+        order = MagicMock()
+        order.symbol = "W"; order.order_type = OrderType.STOP; order.status = OrderStatus.NEW
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [pos]
+        mock_client.get_orders.return_value = [order]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "send_telegram", return_value=True):
+            result = a._check_stop_coverage()
+        self.assertIsNotNone(result)
+        self.assertIn("W", result)
+
+    def test_check_open_position_risk_delegates_to_check_stop_coverage(self):
+        with patch.object(a, "_check_stop_coverage", return_value=None) as mock_split:
+            a._check_open_position_risk({})
+        mock_split.assert_called_once_with()
+
+
+class TestSetupPerformanceDrift(unittest.TestCase):
+    """WinRateTracker.setup_performance_drift() generalizes the manual
+    investigation that found Low Float Catalyst's 0% WR / -24.9% avg loss
+    (see SETUP_MIN_CONFLUENCE's comment) into an automatic, ongoing check.
+    Live-only by design -- see the method's docstring for why mixing in
+    backtest-era records would dilute a real live problem."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"[]")
+        self._tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._tmp.name)
+
+    def _record(self, tracker, outcome, setup="Low Float Catalyst", is_live=True, pnl_pct=None):
+        if pnl_pct is None:
+            pnl_pct = -10.0 if outcome == "LOSS" else 10.0
+        tracker.record(a.TradeRecord(
+            ticker="TESTX", date="2026-08-15", bias="LONG", setup=setup,
+            entry=10.0, exit=9.0, outcome=outcome, pnl_pct=pnl_pct,
+            score=90, is_live=is_live,
+        ))
+
+    def test_below_min_trades_is_not_flagged(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self._record(tracker, "LOSS")
+        self._record(tracker, "LOSS")
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(drift, [])
+
+    def test_below_wr_floor_with_enough_trades_is_flagged(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(3):
+            self._record(tracker, "LOSS", pnl_pct=-20.0)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["setup"], "Low Float Catalyst")
+        self.assertEqual(drift[0]["win_rate"], 0.0)
+        self.assertEqual(drift[0]["total"], 3)
+        self.assertAlmostEqual(drift[0]["avg_loss_pct"], 20.0)
+
+    def test_above_wr_floor_is_not_flagged(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self._record(tracker, "WIN")
+        self._record(tracker, "WIN")
+        self._record(tracker, "LOSS")
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(drift, [])
+
+    def test_backtest_only_records_are_excluded_even_with_a_bad_win_rate(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(10):
+            self._record(tracker, "LOSS", is_live=False)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(drift, [])
+
+    def test_live_losses_not_masked_by_a_large_backtest_pool_of_wins(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(50):
+            self._record(tracker, "WIN", is_live=False)
+        for _ in range(3):
+            self._record(tracker, "LOSS", is_live=True)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["win_rate"], 0.0)
+
+
+class TestSetupPerformanceDriftAlert(unittest.TestCase):
+    """setup_performance_drift() is only useful if it actually reaches
+    Telegram -- this locks in send_account_pnl_telegram()'s wiring (a
+    separate, deduped message from the account summary) added 2026-08-15."""
+
+    def setUp(self):
+        import functools
+        self._wr_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._wr_tmp.write(b"[]")
+        self._wr_tmp.close()
+        # WinRateTracker's filepath default is early-bound to WIN_RATE_FILE
+        # at class-definition time (same gotcha documented for
+        # PositionTracker) -- patching WIN_RATE_FILE alone would not reach
+        # the bare WinRateTracker() call inside send_account_pnl_telegram.
+        self._RealWRT = a.WinRateTracker
+        self._isolated_wrt = functools.partial(self._RealWRT, filepath=self._wr_tmp.name)
+        self._wrt_patch = patch.object(a, "WinRateTracker", self._isolated_wrt)
+        self._wrt_patch.start()
+
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
+    def tearDown(self):
+        self._wrt_patch.stop()
+        os.unlink(self._wr_tmp.name)
+        self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+
+    def _record_drifting_setup(self):
+        tracker = a.WinRateTracker()
+        for _ in range(3):
+            tracker.record(a.TradeRecord(
+                ticker="TESTX", date="2026-08-15", bias="LONG", setup="Low Float Catalyst",
+                entry=10.0, exit=8.0, outcome="LOSS", pnl_pct=-20.0, score=90, is_live=True,
+            ))
+
+    def _run_with_mocked_account(self, mock_tg):
+        acct = MagicMock()
+        acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = acct
+        mock_client.get_all_positions.return_value = []
+        with patch.object(a, "_get_day_start_equity", return_value=5000.0), \
+             patch("alpaca.trading.client.TradingClient", return_value=mock_client), \
+             patch.object(a, "ALPACA_API_KEY", "k"), \
+             patch.object(a, "ALPACA_SECRET_KEY", "s"), \
+             patch.object(a, "send_telegram", mock_tg):
+            a.send_account_pnl_telegram()
+
+    def test_drifting_setup_sends_a_separate_telegram_message(self):
+        self._record_drifting_setup()
+        mock_tg = MagicMock(return_value=True)
+        self._run_with_mocked_account(mock_tg)
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        drift_msgs = [m for m in msgs if "Setup Performance Drift" in m]
+        self.assertEqual(len(drift_msgs), 1)
+        self.assertIn("Low Float Catalyst", drift_msgs[0])
+
+    def test_no_drift_sends_only_the_account_summary(self):
+        mock_tg = MagicMock(return_value=True)
+        self._run_with_mocked_account(mock_tg)
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        self.assertFalse(any("Setup Performance Drift" in m for m in msgs))
+        self.assertEqual(len(msgs), 1)
+
+    def test_repeat_call_within_cooldown_does_not_repeat_the_drift_alert(self):
+        self._record_drifting_setup()
+        mock_tg = MagicMock(return_value=True)
+        self._run_with_mocked_account(mock_tg)
+        self._run_with_mocked_account(mock_tg)
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        drift_msgs = [m for m in msgs if "Setup Performance Drift" in m]
+        self.assertEqual(len(drift_msgs), 1)
+
+
+class TestExplainTicker(unittest.TestCase):
+    """/why TICKER (explain_ticker) re-runs the scan detection/scoring
+    pipeline for one ticker on demand. These tests lock in the headline
+    outcomes without re-deriving _raw_signals/score_signal's own internals,
+    which already have their own coverage elsewhere."""
+
+    def _signal(self, score=80, setup="Gap & Hold", regime_ok=True, mtf_ok=True,
+                rs_ok=True, sector_ok=True, earnings_ok=True, macro_ok=True,
+                divergence_free=True):
+        sig = a.ProSignal(
+            ticker="TESTX", bias="LONG", setup=setup,
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+            rr=2.0, rsi=50.0, rvol=2.0, reason="test",
+        )
+        sig.confluence_score = score
+        sig.regime_ok = regime_ok
+        sig.mtf_ok = mtf_ok
+        sig.rs_ok = rs_ok
+        sig.sector_ok = sector_ok
+        sig.earnings_ok = earnings_ok
+        sig.macro_ok = macro_ok
+        sig.divergence_free = divergence_free
+        sig.score_breakdown = {"MTF": 20, "Regime": 15}
+        return sig
+
+    def test_no_price_data_reports_cleanly(self):
+        with patch.object(a, "fetch_df", return_value=None):
+            msg = a.explain_ticker("ZZZZ")
+        self.assertIn("No usable price data", msg)
+
+    def test_no_pattern_detected_is_reported(self):
+        df = _fake_df()
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=None):
+            msg = a.explain_ticker("testx")
+        self.assertIn("No qualifying pattern detected", msg)
+
+    def test_passing_signal_reports_pass_verdict(self):
+        df = _fake_df()
+        sig = self._signal(score=90)
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=_fake_regime()), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig):
+            msg = a.explain_ticker("TESTX", min_score=75)
+        self.assertIn("Would PASS all gates", msg)
+
+    def test_failing_score_reports_blocked_with_the_score_gap(self):
+        df = _fake_df()
+        sig = self._signal(score=50)
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=_fake_regime()), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig):
+            msg = a.explain_ticker("TESTX", min_score=75)
+        self.assertIn("BLOCKED", msg)
+        self.assertIn("score 50", msg)
+
+    def test_failed_hard_gate_names_the_gate(self):
+        df = _fake_df()
+        sig = self._signal(score=90, mtf_ok=False)
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=_fake_regime()), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig):
+            msg = a.explain_ticker("TESTX", min_score=75)
+        self.assertIn("BLOCKED", msg)
+        self.assertIn("MTF", msg)
+
+
+class TestEquityFallbackAlert(unittest.TestCase):
+    """get_effective_account() silently fell back to the static
+    ACCOUNT_SIZE secret with zero alerting whenever live equity was
+    unreachable. Added 2026-08-15 so that failure mode becomes visible."""
+
+    def setUp(self):
+        self._orig_cache = dict(a._live_equity_cache)
+        a._live_equity_cache["equity"] = 0.0
+        a._live_equity_cache["ts"] = 0.0
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
+    def tearDown(self):
+        a._live_equity_cache.clear()
+        a._live_equity_cache.update(self._orig_cache)
+        self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+
+    def test_unreachable_client_triggers_fallback_alert(self):
+        with patch.object(a, "get_alpaca_client", return_value=None), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            result = a.get_effective_account()
+        self.assertEqual(result, a.ACCOUNT_SIZE)
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("Live equity unavailable" in m for m in msgs))
+
+    def test_successful_fetch_sends_no_alert(self):
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(equity="9876.0")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            result = a.get_effective_account()
+        self.assertEqual(result, 9876.0)
+        mock_tg.assert_not_called()
+
+    def test_stale_but_previously_good_cache_is_reused_without_alerting(self):
+        a._live_equity_cache["equity"] = 12345.0
+        a._live_equity_cache["ts"] = time.time() - 400   # older than the 300s cache window
+        with patch.object(a, "get_alpaca_client", side_effect=Exception("network down")), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            result = a.get_effective_account()
+        self.assertEqual(result, 12345.0)
+        mock_tg.assert_not_called()
+
+    def test_repeat_calls_within_cooldown_do_not_repeat_the_alert(self):
+        with patch.object(a, "get_alpaca_client", return_value=None), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a.get_effective_account()
+            a.get_effective_account()
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        fallback_msgs = [m for m in msgs if "Live equity unavailable" in m]
+        self.assertEqual(len(fallback_msgs), 1)
+
+
 def _fake_df():
     import pandas as pd
     import numpy as np

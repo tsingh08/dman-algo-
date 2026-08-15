@@ -585,7 +585,8 @@ def guard_loop() -> None:
                                        "guard + fill stream running for today's session.")
                     was_open = True
                 _snap_fn = _get_realtime_option_snapshot if ENABLE_REALTIME_OPTIONS_STREAM else None
-                alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn)
+                _und_price_fn = _get_realtime_price if ENABLE_REALTIME_EQUITY_STREAM else None
+                alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn, get_price_fn=_und_price_fn)
                 for a in alerts:
                     log(a.split("\n")[0].replace("<b>", "").replace("</b>", ""))
                 if ENABLE_REALTIME_EQUITY_STREAM:

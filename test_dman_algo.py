@@ -1806,8 +1806,21 @@ class TestOptionsPnlMilestone(unittest.TestCase):
     def test_below_start_threshold_does_nothing(self):
         with patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._check_options_pnl_milestone(self._pos(), "CALL", "SMCI260814C00034000",
-                                           cur_prem=1.20, entry_prem=1.00, underlying_px=33.0)   # +20%
+                                           cur_prem=1.10, entry_prem=1.00, underlying_px=33.0)   # +10%, below the 15% start
         mock_tg.assert_not_called()
+
+    def test_threshold_tightened_to_15_fires_where_old_30_would_not(self):
+        # Locks in the 2026-08-15 tightening (direct instruction to catch
+        # any meaningful move on the live UMAC play, not wait for a 30%
+        # swing) -- +22% is below the OLD 30% start but above the new 15%.
+        # (Deliberately not exactly +20% -- (1.20-1.00)/1.00*100 lands at
+        # 19.999999999999996 in float, one bucket below what it looks like
+        # on paper; +22% sits comfortably inside the 20% bucket instead.)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_options_pnl_milestone(self._pos(), "CALL", "SMCI260814C00034000",
+                                           cur_prem=1.22, entry_prem=1.00, underlying_px=33.0)   # +22%
+        mock_tg.assert_called_once()
+        self.assertIn("+20%", mock_tg.call_args[0][0])
 
     def test_gain_milestone_fires_at_30(self):
         with patch.object(a, "send_telegram", return_value=True) as mock_tg:
@@ -2027,6 +2040,34 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
         mock_close.assert_not_called()
         self.assertIn("Δ 0.62", result)   # entry delta default
         self.assertIn("θ 0.000", result)  # theta defaults to 0
+
+    def test_get_price_fn_used_for_milestone_underlying_display_price(self):
+        # Added 2026-08-15 alongside GUARD_EVERY_S dropping to 10s:
+        # get_live_price() is an uncached REST call, so blindly calling it
+        # every cycle for the milestone alert's cosmetic underlying-price
+        # line would 6x that call volume for zero decision-making benefit.
+        # get_price_fn (the daemon's real-time equity quote cache) must be
+        # tried first, with get_live_price() only as a fallback.
+        pos = self._pos(target1=999.0)
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.05)):
+            with patch.object(a, "get_live_price") as mock_rest_price:
+                with patch.object(a, "_submit_options_close"):
+                    with patch.object(a, "send_telegram", return_value=True):
+                        a._monitor_option_position(
+                            pos, "CALL", get_price_fn=lambda t: 42.5)
+        mock_rest_price.assert_not_called()
+        self.assertEqual(a._check_options_pnl_milestone.call_args.args[5], 42.5)
+
+    def test_get_price_fn_falls_back_to_rest_when_it_returns_none(self):
+        pos = self._pos(target1=999.0)
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.05)):
+            with patch.object(a, "get_live_price", return_value=33.0) as mock_rest_price:
+                with patch.object(a, "_submit_options_close"):
+                    with patch.object(a, "send_telegram", return_value=True):
+                        a._monitor_option_position(
+                            pos, "CALL", get_price_fn=lambda t: None)
+        mock_rest_price.assert_called_once()
+        self.assertEqual(a._check_options_pnl_milestone.call_args.args[5], 33.0)
 
     def test_extreme_giveback_still_exits_even_at_deep_profit(self):
         # The widened tolerance is not unlimited -- a giveback past even

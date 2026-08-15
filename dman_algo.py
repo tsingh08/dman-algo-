@@ -4677,7 +4677,13 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
         return "failed", None
 
 
-OPTIONS_MILESTONE_START_PCT = 30.0   # first gain/loss %% that triggers a milestone alert
+OPTIONS_MILESTONE_START_PCT = 15.0   # first gain/loss %% that triggers a milestone alert —
+                                      # tightened from 30.0 (2026-08-15, direct instruction
+                                      # to be pinged on any meaningful UMAC move without
+                                      # having to ask). Bucket-gated, not time-gated (see
+                                      # _check_options_pnl_milestone), so this is safe to
+                                      # tighten regardless of guard cadence — it can only
+                                      # ever fire once per new price bucket, never repeat.
 OPTIONS_MILESTONE_STEP_PCT  = 10.0   # every additional %% beyond the start that re-alerts
 
 def _check_options_pnl_milestone(pos: dict, kind: str, occ: str, cur_prem: float,
@@ -4745,13 +4751,13 @@ def _options_trail_giveback_pct(peak_gain_pct: float) -> float:
     return OPTIONS_TRAIL_GIVEBACK_MIN_PCT + _progress * (OPTIONS_TRAIL_GIVEBACK_MAX_PCT - OPTIONS_TRAIL_GIVEBACK_MIN_PCT)
 
 
-def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None) -> Optional[str]:
+def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_price_fn=None) -> Optional[str]:
     """
     Enforce stop / trailing-exit / T1 / DTE rules on one tracked options
     position, plus P&L milestone notifications (_check_options_pnl_milestone).
     kind: "CALL" or "PUT". Submits closing orders via _submit_options_close
     and returns a status line for the alert digest (None if record unusable).
-    Shared by run_momentum_watch (hourly cron) and the always-on daemon (60s).
+    Shared by run_momentum_watch (hourly cron) and the always-on daemon.
 
     `get_snapshot_fn(occ_symbol) -> dict | None`, if given, is tried first
     (e.g. the daemon's real-time options WebSocket quote cache) before
@@ -4762,6 +4768,16 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None) -> Opti
     below, so a stream-fed snapshot just means Greeks display as 0 /
     entry-delta rather than blocking the stop/trail/T1 price checks that
     matter, which never depend on Greeks.
+
+    `get_price_fn(ticker) -> float | None` (same shape as
+    run_equity_guard's own get_price_fn) supplies the UNDERLYING stock's
+    price for the milestone alert's display line — added 2026-08-15 when
+    GUARD_EVERY_S dropped to 10s: get_live_price() is an uncached REST
+    call, and calling it unconditionally every 10s per options position
+    would have quietly 6x'd that call volume for zero benefit (the
+    underlying price here is purely cosmetic — it's not used in any
+    stop/trail/T1 decision). Falls back to get_live_price() on a miss,
+    same as every other injection point in this file.
     """
     t     = pos.get("ticker", "")
     setup = pos.get("setup", "")
@@ -4812,7 +4828,8 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None) -> Opti
     # Extra P&L visibility independent of which branch below fires (or
     # doesn't) — see _check_options_pnl_milestone.
     try:
-        _check_options_pnl_milestone(pos, kind, _occ, _cur_prem, _entry_prem, get_live_price(t))
+        _underlying_px = (get_price_fn(t) if get_price_fn else None) or get_live_price(t)
+        _check_options_pnl_milestone(pos, kind, _occ, _cur_prem, _entry_prem, _underlying_px)
     except Exception as _me:
         print(f"  ⚠️  {t} {kind}: milestone check failed — {_me}")
 
@@ -5080,12 +5097,12 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
     return None
 
 
-def run_options_guard(verbose: bool = True, get_snapshot_fn=None) -> list[str]:
+def run_options_guard(verbose: bool = True, get_snapshot_fn=None, get_price_fn=None) -> list[str]:
     """
     Enforce stops/targets on every tracked options position right now.
-    The always-on daemon calls this every 60s during market hours;
-    momentum-watch runs the same engine hourly as backup.
-    Returns the per-position status lines.
+    The always-on daemon calls this on its guard cadence; momentum-watch
+    runs the same engine hourly as backup. Returns the per-position status
+    lines.
 
     `get_snapshot_fn(occ_symbol) -> dict | None`, if given, is passed
     through to _monitor_option_position() for naked calls/puts (e.g. the
@@ -5094,6 +5111,11 @@ def run_options_guard(verbose: bool = True, get_snapshot_fn=None) -> list[str]:
     since _monitor_earnings_spread_position() fetches each leg's snapshot
     directly; only DTE/take-profit checks run there, not a stop/trail
     engine that benefits from tighter freshness.
+
+    `get_price_fn(ticker) -> float | None`, if given, is also passed
+    through — supplies the underlying stock's price for the milestone
+    alert's display line without an uncached REST call every cycle. See
+    _monitor_option_position's docstring for why this exists.
     """
     alerts: list[str] = []
     try:
@@ -5104,9 +5126,9 @@ def run_options_guard(verbose: bool = True, get_snapshot_fn=None) -> list[str]:
     for _pos in _positions:
         _setup = _pos.get("setup", "")
         if _setup.startswith("Options Call "):
-            _a = _monitor_option_position(_pos, "CALL", get_snapshot_fn=get_snapshot_fn)
+            _a = _monitor_option_position(_pos, "CALL", get_snapshot_fn=get_snapshot_fn, get_price_fn=get_price_fn)
         elif _setup.startswith("Options Put "):
-            _a = _monitor_option_position(_pos, "PUT", get_snapshot_fn=get_snapshot_fn)
+            _a = _monitor_option_position(_pos, "PUT", get_snapshot_fn=get_snapshot_fn, get_price_fn=get_price_fn)
         elif _setup.startswith("Earnings "):
             _a = _monitor_earnings_spread_position(_pos)
         else:

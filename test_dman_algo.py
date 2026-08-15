@@ -740,6 +740,114 @@ class TestSyncScanLogWithRemote(unittest.TestCase):
                           "matching print_scan_log()'s reversed() convention")
 
 
+class TestLogNewsEvent(unittest.TestCase):
+    """Added 2026-08-15, direct instruction to have the algo "constantly
+    internalize" news across market + extended hours instead of losing
+    each headline the moment its alert (now near-silent by the same
+    instruction) scrolls past. Applies sync_scan_log_with_remote()'s
+    already-learned ts-sort-before-cap lesson from the start, since this
+    file has the identical high-frequency multi-writer shape (cron
+    scanner's REST pre-fetch + daemon's real-time stream both append)."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "NEWS_LOG_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _read(self):
+        with open(a.NEWS_LOG_FILE) as f:
+            return json.load(f)
+
+    def test_writes_a_new_entry(self):
+        a._log_news_event(["UMAC"], "Unusual Machines Soars 22%", source="Barron's", tag="held")
+        result = self._read()
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["symbols"], ["UMAC"])
+        self.assertEqual(result[0]["headline"], "Unusual Machines Soars 22%")
+        self.assertEqual(result[0]["tag"], "held")
+
+    def test_exact_duplicate_story_is_not_re_logged(self):
+        # The REST pre-fetch path has a rolling lookback window, so the
+        # same headline can legitimately reappear in the next scan cycle's
+        # fetch -- must not bloat the log with repeats of the same story.
+        a._log_news_event(["UMAC"], "Unusual Machines Soars 22%", tag="held")
+        a._log_news_event(["UMAC"], "Unusual Machines Soars 22%", tag="held")
+        self.assertEqual(len(self._read()), 1)
+
+    def test_same_headline_different_symbols_is_a_distinct_entry(self):
+        a._log_news_event(["UMAC"], "Trump Levies Drone Tariffs", tag="held")
+        a._log_news_event(["RCAT", "ONDS"], "Trump Levies Drone Tariffs", tag="macro")
+        self.assertEqual(len(self._read()), 2)
+
+    def test_symbols_are_stored_sorted_for_stable_dedup(self):
+        a._log_news_event(["ONDS", "RCAT"], "same story", tag="macro")
+        a._log_news_event(["RCAT", "ONDS"], "same story", tag="macro")   # different input order
+        self.assertEqual(len(self._read()), 1, "sorted-symbols dedup must not care about input order")
+
+    def test_missing_symbols_or_headline_is_a_silent_no_op(self):
+        a._log_news_event([], "headline with no symbols", tag="watchlist")
+        a._log_news_event(["AAPL"], "", tag="watchlist")
+        # Neither call should ever reach the write path -- file stays
+        # exactly as setUp left it (empty), never becomes an empty JSON list.
+        self.assertEqual(os.path.getsize(a.NEWS_LOG_FILE), 0)
+
+    def test_oldest_entries_evicted_first_when_over_cap(self):
+        entries = [{"ts": f"2026-08-{d:02d}T10:00:00-04:00", "symbols": [f"T{d}"],
+                   "headline": f"story {d}", "source": "", "tag": "watchlist", "sentiment": None}
+                  for d in range(1, a.NEWS_LOG_MAX_ENTRIES + 1)]
+        with open(a.NEWS_LOG_FILE, "w") as f:
+            json.dump(entries, f)
+        a._log_news_event(["NEWEST"], "the newest story", tag="watchlist")
+        result = self._read()
+        self.assertEqual(len(result), a.NEWS_LOG_MAX_ENTRIES)
+        self.assertNotIn("T1", [s for e in result for s in e["symbols"]])
+        self.assertIn("NEWEST", [s for e in result for s in e["symbols"]])
+
+
+class TestSyncNewsLogWithRemote(unittest.TestCase):
+    """sync_news_log_with_remote() mirrors sync_scan_log_with_remote()'s
+    ts-sort-before-cap merge exactly — see TestSyncScanLogWithRemote for
+    the full incident this pattern guards against (dman_scan_log.json
+    freezing for a full trading day). Applied here proactively since this
+    file has the identical multi-writer shape from day one."""
+
+    def _entry(self, ts, sym="UMAC"):
+        return {"ts": ts, "symbols": [sym], "headline": f"story at {ts}",
+               "source": "", "tag": "watchlist", "sentiment": None}
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "NEWS_LOG_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def test_fresh_local_entry_survives_a_diverged_same_size_remote(self):
+        local = [self._entry(f"2026-08-01T{h:02d}:00:00-04:00") for h in range(a.NEWS_LOG_MAX_ENTRIES - 1)]
+        local.append(self._entry("2026-08-15T21:00:00-04:00"))   # the newest entry
+        remote = [self._entry(f"2026-08-10T{h % 24:02d}:30:00-04:00", sym=f"R{h}")
+                 for h in range(a.NEWS_LOG_MAX_ENTRIES)]
+        with open(self._tmp.name, "w") as f:
+            json.dump(local, f)
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_news_log_with_remote()
+        with open(self._tmp.name) as f:
+            result = json.load(f)
+        self.assertEqual(len(result), a.NEWS_LOG_MAX_ENTRIES)
+        self.assertIn("2026-08-15T21:00:00-04:00", [e["ts"] for e in result],
+                      "the newest local entry must survive the merge")
+        self.assertEqual(result[-1]["ts"], "2026-08-15T21:00:00-04:00")
+
+
 class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
     """A stretch of live orders silently failed (stale Alpaca key → 401) with
     zero visibility: submit_alpaca_trade() only printed the exception to the

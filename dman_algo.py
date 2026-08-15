@@ -430,6 +430,8 @@ HALT_FILE           = "dman_halt.json"            # exists = /halt active: no ne
 LIVE_SIGNALS_FILE  = "dman_live_signals.json"   # pending live signals awaiting outcome
 LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # ground-truth live trade log
 SCAN_LOG_FILE      = "dman_scan_log.json"        # rolling log of each scan run (last 20)
+NEWS_LOG_FILE      = "dman_news_log.json"        # rolling background news log — see _log_news_event()
+NEWS_LOG_MAX_ENTRIES = 500
 
 # Shared scan metadata written by run_pro_scanner(), read by the heartbeat in main()
 _last_scan_meta: dict = {}
@@ -3251,6 +3253,63 @@ def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, s
         return results[:6]
     except Exception:
         return []
+
+
+def _log_news_event(symbols: list[str], headline: str, source: str = "",
+                    tag: str = "watchlist", sentiment: Optional[str] = None) -> None:
+    """
+    Appends one headline to the rolling background news log
+    (NEWS_LOG_FILE) — added 2026-08-15, direct instruction to have the
+    algo "constantly internalize" news across market + extended hours
+    instead of only flashing headlines past in a Telegram alert and
+    losing them. Every relevant headline gets logged here regardless of
+    whether it also triggers a Telegram alert (see news_data_stream_loop's
+    on_news handler, now near-silent by the same instruction — held-
+    position and macro news still alert, routine watchlist headlines log
+    quietly here instead).
+
+    tag is one of "held" / "macro" / "watchlist" — which relevance bucket
+    matched, for filtering later without re-deriving it. Deduped by exact
+    (symbols, headline) match against the current log so the SAME story
+    re-appearing across repeated REST fetches (run_pro_scanner's hourly
+    cron news pre-fetch has a rolling lookback window, so an already-seen
+    headline can legitimately reappear in the next cycle's fetch) doesn't
+    bloat the log with duplicates — the real-time stream side already has
+    its own id-based dedup (_news_seen_ids) before this is ever called,
+    but the REST path has no article id to dedup on, only the text.
+
+    Sorted by ts and capped at NEWS_LOG_MAX_ENTRIES on every write, same
+    pattern as _append_scan_log() — see that function's docstring for why
+    a positional slice instead of a ts-sort silently drops entries the
+    moment the on-disk file isn't already perfectly ordered.
+    """
+    if not symbols or not headline:
+        return
+    try:
+        log: list[dict] = []
+        if os.path.exists(NEWS_LOG_FILE):
+            try:
+                with open(NEWS_LOG_FILE) as f:
+                    log = json.load(f)
+            except Exception:
+                log = []
+        _sorted_syms = sorted(symbols)
+        for _e in log:
+            if _e.get("symbols") == _sorted_syms and _e.get("headline") == headline:
+                return   # already logged, same story re-fetched
+        log.append({
+            "ts":        datetime.now(ET).isoformat(),
+            "symbols":   _sorted_syms,
+            "headline":  headline,
+            "source":    source,
+            "tag":       tag,
+            "sentiment": sentiment,
+        })
+        log = sorted(log, key=lambda e: e.get("ts", ""), reverse=True)[:NEWS_LOG_MAX_ENTRIES][::-1]
+        with open(NEWS_LOG_FILE, "w") as f:
+            json.dump(log, f, indent=2)
+    except Exception:
+        pass   # background knowledge-base write — never worth blocking a scan/alert over
 
 
 def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, list[str]]:
@@ -9812,6 +9871,29 @@ def sync_scan_log_with_remote() -> None:
     )
 
 
+def sync_news_log_with_remote() -> None:
+    """
+    dman_news_log.json — flat list, capped at NEWS_LOG_MAX_ENTRIES most
+    recent. Added 2026-08-15 alongside _log_news_event() itself, proactively
+    using the same ts-sort-before-cap merge sync_scan_log_with_remote()
+    needed a real production incident to discover was necessary — this file
+    has the identical high-frequency multi-writer shape (the cron scanner's
+    hourly + premarket-early REST pre-fetch AND the daemon's continuous
+    real-time stream both append to it), so the same positional-cap data
+    loss is a real risk here from day one, not a hypothetical. Every entry
+    uses datetime.now(ET).isoformat() from a single call site, so sorting
+    by ts before capping is safe here for the identical reason it is for
+    the scan log.
+    """
+    _sync_json_file_via_merge(
+        NEWS_LOG_FILE,
+        extract=lambda d: (d, None),
+        rebuild=lambda merged, _le, _re: sorted(
+            merged, key=lambda e: e.get("ts", ""), reverse=True)[:NEWS_LOG_MAX_ENTRIES][::-1],
+        label="dman_news_log.json",
+    )
+
+
 def sync_win_rate_with_remote() -> None:
     """dman_win_rate.json — flat list, capped at 500 most recent (see
     WinRateTracker._save())."""
@@ -11608,6 +11690,18 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=20)
         _news_count = sum(1 for v in _scan_news_map.values() if v)
         print(f"{_news_count}/{len(tickers)} tickers have recent news")
+        # Background knowledge-base log (2026-08-15) — this REST pre-fetch
+        # is the only news pathway that runs during the cron scanner's own
+        # windows (including premarket-early, before the daemon's
+        # continuous news stream is even running for the day), so logging
+        # here alongside the stream's own logging is what actually makes
+        # coverage continuous across the full 4 AM-8 PM trading window
+        # rather than just the hours the daemon happens to be up.
+        # _log_news_event's own (symbols, headline) dedup keeps the same
+        # story from re-logging every time this 20h-lookback fetch runs.
+        for _nt, _heads in _scan_news_map.items():
+            for _h in _heads:
+                _log_news_event([_nt], _h, source="scan-prefetch", tag="watchlist")
     except Exception as _ne:
         print(f"error ({str(_ne)[:60]})")
 
@@ -15081,6 +15175,7 @@ def main():
         sync_win_rate_with_remote()
         sync_live_signals_with_remote()
         sync_alpaca_sync_state_with_remote()
+        sync_news_log_with_remote()
         return
     if args.mode == "watchdog":
         run_watchdog()

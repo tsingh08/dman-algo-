@@ -118,6 +118,10 @@ STATE_FILES = [
                                           # must survive a daemon restart between the two commands
     "dman_telegram_manual_buy.json",    # the staged /buy confirmation awaiting a YES/NO reply — same
                                           # reasoning as dman_earnings_pending.json above
+    "dman_news_log.json",   # rolling background news log (see algo._log_news_event) — must
+                              # survive a session handover for "constantly internalize news
+                              # across market + extended hours" to actually mean something
+                              # continuous, not a log that resets every ~3 hours
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close
@@ -518,7 +522,7 @@ def git_sync() -> None:
         # was silently discarding whichever side's entry lost the race.
         for _sync_fn in (algo.sync_positions_with_remote, algo.sync_scan_log_with_remote,
                         algo.sync_win_rate_with_remote, algo.sync_live_signals_with_remote,
-                        algo.sync_alpaca_sync_state_with_remote):
+                        algo.sync_alpaca_sync_state_with_remote, algo.sync_news_log_with_remote):
             try:
                 _sync_fn()
             except Exception as exc:
@@ -1196,23 +1200,31 @@ def option_data_stream_loop() -> None:
 
 def news_data_stream_loop() -> None:
     """
-    Real-time news headline stream for the curated universe — instant
-    Telegram alert the moment a relevant headline breaks, instead of
-    waiting for the next scan_loop pass or hourly cron's REST poll. Off
-    by default (ENABLE_REALTIME_NEWS_STREAM), added 2026-08-13 as the
-    news counterpart to market_data_stream_loop() / option_data_stream_loop()
+    Real-time news headline stream for the curated universe. Off by
+    default (ENABLE_REALTIME_NEWS_STREAM), added 2026-08-13 as the news
+    counterpart to market_data_stream_loop() / option_data_stream_loop()
     — same reconnect-storm guard, same subscription-changes-trigger-
     reconnect model; see market_data_stream_loop()'s docstring for the
     full incident writeup this pattern guards against.
 
-    Alert-only for macro/held-position headlines. For a non-negative
-    catalyst on a large-cap WATCHLIST ticker not already held, this ALSO
-    wakes scan_loop() early via the shared _fast_scan_trigger (added
-    2026-08-14, direct instruction to make sure news actually helps get
-    into plays, not just alert about them) — see on_news's inline comment
-    for the exact scope/reasoning. This never skips a gate: it only makes
-    run_pro_scanner()'s existing MTF/sector/RS/macro-safe/confluence/
-    news_boost checks run sooner, never changes what they allow.
+    Every relevant headline is logged to the background news log
+    (algo._log_news_event) regardless of relevance tier — added
+    2026-08-15, direct instruction to have the algo "constantly
+    internalize" news across market + extended hours instead of losing
+    each headline the moment its alert scrolls past. Telegram alerting
+    itself is near-silent by the same instruction ("I don't need much of
+    it on my phone"): only macro/Fed-scale and held-position headlines
+    actually page the phone now; a routine watchlist headline still logs,
+    it just doesn't alert.
+
+    For a non-negative catalyst on a large-cap WATCHLIST ticker not
+    already held, this ALSO wakes scan_loop() early via the shared
+    _fast_scan_trigger (added 2026-08-14, direct instruction to make sure
+    news actually helps get into plays, not just alert about them) — see
+    on_news's inline comment for the exact scope/reasoning. This never
+    skips a gate: it only makes run_pro_scanner()'s existing
+    MTF/sector/RS/macro-safe/confluence/news_boost checks run sooner,
+    never changes what they allow.
 
     Subscribes to _news_subscription_symbols() (_curated_universe_tickers()
     — ~200 symbols: WATCHLIST + smallcap watchlist + open positions — plus
@@ -1286,12 +1298,24 @@ def news_data_stream_loop() -> None:
                         _last_fast_scan_trigger_ts = now_mono
                         _fast_scan_trigger.set()
 
-            if is_macro:
-                tag = "🏛 <b>Macro/Fed news</b> —"
-            elif held_hit:
-                tag = "🔴 <b>HELD POSITION</b> —"
-            else:
-                tag = "📰 <b>Breaking news</b> —"
+            # Background knowledge-base log (2026-08-15, direct instruction
+            # to have the algo "constantly internalize" news rather than
+            # only flash a headline past in an alert and lose it) — EVERY
+            # relevant headline gets logged here, alerted or not. Tag
+            # reflects which relevance bucket matched, for filtering later.
+            _log_tag = "macro" if is_macro else ("held" if held_hit else "watchlist")
+            algo._log_news_event(relevant or symbols, headline, source=source, tag=_log_tag)
+
+            # Telegram alerting quieted to near-silent (2026-08-15, direct
+            # instruction — "I don't need much of it on my phone"): only
+            # held-position and macro/Fed-scale news actually pings the
+            # phone now. A routine watchlist headline (no held-position or
+            # macro relevance) still gets logged above, just doesn't alert
+            # — it's exactly the kind of volume that was the complaint.
+            if not (is_macro or held_hit):
+                return
+
+            tag = "🏛 <b>Macro/Fed news</b> —" if is_macro else "🔴 <b>HELD POSITION</b> —"
             sym_str = ', '.join(relevant[:5]) if relevant else ', '.join(symbols[:5])
             msg = f"{tag} {sym_str}\n{headline}"
             if source:

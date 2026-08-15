@@ -588,6 +588,48 @@ class TestAppendScanLog(unittest.TestCase):
         self.assertEqual(len(result), 1)
 
 
+class TestPrintScanLogNewsBreadth(unittest.TestCase):
+    """Added 2026-08-15: the whole point of persisting a per-scan news
+    sentiment breadth snapshot is to have a reviewable trend before ever
+    deciding whether to wire it into scoring — locks in that the number
+    actually SHOWS UP when the log is reviewed, not just sits silently in
+    the JSON, and that older entries from before this field existed don't
+    break rendering (regular .get() defaults, no KeyError)."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "SCAN_LOG_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _rendered(self):
+        with patch("builtins.print") as mock_print:
+            a.print_scan_log()
+        return " ".join(str(c.args[0]) for c in mock_print.call_args_list if c.args)
+
+    def test_breadth_pct_is_rendered(self):
+        a._append_scan_log({"ts": "2026-08-15T10:00:00-04:00", "regime": "BULL",
+                            "regime_score": 17, "vix": 14.5, "min_score": 85,
+                            "universe": "curated", "tickers_total": 79, "signals": 0,
+                            "signal_tickers": [], "news_breadth_pct": 33.3, "news_breadth_total": 4})
+        rendered = self._rendered()
+        self.assertIn("+33%", rendered)
+
+    def test_pre_existing_entry_without_the_field_renders_without_crashing(self):
+        # Reproduces an entry shape from before this field existed --
+        # print_scan_log must never KeyError on old scan history.
+        a._append_scan_log({"ts": "2026-08-14T10:00:00-04:00", "regime": "BULL",
+                            "regime_score": 17, "vix": 14.5, "min_score": 85,
+                            "universe": "curated", "tickers_total": 79, "signals": 0,
+                            "signal_tickers": []})
+        rendered = self._rendered()   # must not raise
+        self.assertNotIn("breadth", rendered)
+
+
 class TestLogScanHalt(unittest.TestCase):
     """Added 2026-08-13: run_pro_scanner()'s three circuit breakers
     (consecutive-loss / monthly-loss / daily-loss) all `return []` before

@@ -7187,6 +7187,7 @@ def get_market_regime() -> dict:
         # business influencing real entries yet. Purely a display note for
         # now, same visibility tier as the VIX complacency/term-structure
         # notes above before those were ever considered for scoring either.
+        _nb = None
         try:
             _nb = _news_sentiment_breadth(hours_back=24.0)
             if _nb["breadth_pct"] is None:
@@ -7206,6 +7207,12 @@ def get_market_regime() -> dict:
             "vix_ok":     vix_mid,
             "vix_shock":  vix_shock,
             "defensive_rotation": defensive_rotation,
+            # Raw numbers behind the display note above — added 2026-08-15
+            # so callers (run_pro_scanner's scan-log entry, chiefly) can
+            # persist a per-scan snapshot for trend review over the coming
+            # days, without re-parsing the formatted string or re-reading
+            # the news log a second time. None if the lookup itself failed.
+            "news_breadth": _nb,
             "details": {
                 "SPY vs EMA20":      spy_above_20,
                 "SPY vs EMA50":      spy_above_50,
@@ -11603,14 +11610,18 @@ def print_scan_log() -> None:
         rej_score  = entry.get("rejected_low_score", 0)
         budget_hit = entry.get("budget_hit", False)
         universe   = entry.get("universe", "?")
+        nb_pct     = entry.get("news_breadth_pct")
+        nb_total   = entry.get("news_breadth_total", 0)
 
         sig_icon = "🟢" if n_signals > 0 else "❌"
         sig_str  = (f"{n_signals} signal(s): {', '.join(sig_ticks)}"
                     if sig_ticks else f"{n_signals} signals")
         budget_str = "  ⏱ TIME BUDGET HIT" if budget_hit else ""
+        nb_str = (f"  📰 breadth {nb_pct:+.0f}% ({nb_total})" if nb_pct is not None
+                  else f"  📰 breadth n/a ({nb_total})" if nb_total else "")
 
         print(f"  {ts}  |  {regime}({rscore}/19)  VIX {vix:.1f}  "
-              f"min={min_sc}  [{universe}]")
+              f"min={min_sc}  [{universe}]{nb_str}")
         print(f"    {sig_icon} {n_tickers} tickers → {sig_str}{budget_str}")
         print(f"    Rejected: {rej_none} no-gap  {rej_gate} gate  {rej_score} low-score")
         print(f"{'─'*W}")
@@ -12076,6 +12087,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     # Persist scan result to rolling log
     try:
+        # News sentiment breadth snapshot (2026-08-15) — observation-only
+        # per get_market_regime()'s own docstring; recorded here purely so
+        # there's a reviewable per-scan trend to look back on before ever
+        # deciding whether to wire it into scoring. None-safe: regime's
+        # own news_breadth is None if that lookup itself failed.
+        _nb = regime.get("news_breadth") or {}
         _append_scan_log({
             "ts":                  datetime.now(ET).isoformat(),
             "regime":              regime.get("regime", "?"),
@@ -12090,6 +12107,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             "rejected_hard_gate":  rejected_counts["hard_gate"],
             "rejected_low_score":  rejected_counts["low_score"],
             "budget_hit":          _budget_hit,
+            "news_breadth_pct":    _nb.get("breadth_pct"),
+            "news_breadth_total":  _nb.get("total", 0),
         })
     except Exception:
         pass  # never let logging block the scan return

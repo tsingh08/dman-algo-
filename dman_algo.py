@@ -11033,6 +11033,73 @@ def generate_strangle_advisory(event: str) -> None:
               f"need {result['move_needed_pct']}%+ move")
 
 
+def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, str]:
+    """
+    Attempts to restore live stop protection for `ticker`, which
+    _check_open_position_risk() has already confirmed has zero live
+    STOP-type order right now. Returns (success, detail) — the caller
+    folds `detail` into the Telegram alert either way, so a failure is
+    never silent, just no longer purely manual either.
+
+    Added 2026-08-15 after this exact gap (a position's stop stuck HELD
+    or CANCELED with nothing re-establishing it) hit twice in 48 hours —
+    LITX (stop stuck HELD since entry, its take-profit sibling had
+    claimed all shares via Alpaca's held_for_orders accounting, breaking
+    the OCO link — the same "W" incident shape from 2026-08-04) and ARTL
+    (a duplicate bracket-order race left the real position's stop
+    CANCELED). The alert alone caught both, correctly — but still needed
+    a human to notice and manually cancel the conflicting order(s) before
+    a fresh stop could get share allocation. This automates exactly that
+    sequence:
+      1. Look up the intended stop price from PositionTracker — the same
+         value the original bracket order used. If the ticker isn't
+         tracked there (a genuine orphan, not just a broken bracket),
+         there's no known-safe price to use, so this refuses to guess
+         and returns False rather than inventing a stop level.
+      2. Cancel every other open SELL order for the ticker — typically
+         the take-profit leg still claiming the shares the new stop
+         needs. Safe to do broadly: closing the whole position is a
+         strictly more conservative outcome than a stuck stop, and any
+         genuinely-wanted take-profit can be resubmitted once the stop
+         is confirmed live.
+      3. Submit a fresh plain STOP (never STOP_LIMIT — see
+         submit_alpaca_trade()'s docstring for why: a stop-limit leg has
+         gotten stuck in this exact same HELD state 3/3 times on this
+         account).
+    """
+    try:
+        tracked = next((p for p in PositionTracker().positions
+                        if p.ticker == ticker
+                        and not p.setup.startswith(("Options Call ", "Options Put ", "Earnings "))),
+                       None)
+        if tracked is None or tracked.stop <= 0:
+            return False, "not in PositionTracker (or no stop price on record) — can't safely auto-restore, needs manual review"
+
+        from alpaca.trading.requests import GetOrdersRequest as _GOReq, StopOrderRequest as _StopReq
+        from alpaca.trading.enums import QueryOrderStatus as _QOS, OrderSide as _OSide, TimeInForce as _TIF
+
+        _open = client.get_orders(filter=_GOReq(symbols=[ticker], status=_QOS.OPEN, limit=20))
+        _cancelled_any = False
+        for _o in _open:
+            if _o.side == _OSide.SELL:
+                try:
+                    client.cancel_order_by_id(_o.id)
+                    _cancelled_any = True
+                except Exception:
+                    pass
+        if _cancelled_any:
+            time.sleep(2)   # let the cancel(s) actually process before resubmitting for the same shares
+
+        stop_px = round(tracked.stop, 2)
+        order = client.submit_order(_StopReq(
+            symbol=ticker, qty=qty, side=_OSide.SELL,
+            time_in_force=_TIF.GTC, stop_price=stop_px,
+        ))
+        return True, f"resubmitted a plain stop at ${stop_px} (id {str(order.id)[:8]}…)"
+    except Exception as exc:
+        return False, f"auto-restore attempt failed: {exc}"
+
+
 def _check_open_position_risk(regime: dict) -> None:
     """Read pending live signals, fetch current prices, alert if within 2% of stop.
     Also alerts on orphan Alpaca positions that have no stop coverage in our tracker."""
@@ -11130,20 +11197,38 @@ def _check_open_position_risk(regime: dict) -> None:
                 if _pos.asset_class == AssetClass.US_EQUITY and sym not in _live_stop_symbols
             ]
             if _unprotected:
+                # Auto-restore attempt (added 2026-08-15) BEFORE building the
+                # alert, so the alert itself reports what actually happened
+                # rather than always reading as "needs manual action" even
+                # when this already fixed it. See _auto_restore_missing_stop()
+                # for the full incident history and why this is safe.
                 _up_msgs = []
+                _any_restored = False
                 for _sym in _unprotected:
                     _pos = _alp_positions[_sym]
-                    _up_msgs.append(f"  {_sym}: {float(_pos.qty):.0f}sh — no live stop order on Alpaca right now")
+                    _qty = float(_pos.qty)
+                    _restored, _detail = _auto_restore_missing_stop(_client, _sym, _qty)
+                    if _restored:
+                        _any_restored = True
+                        _up_msgs.append(f"  ✅ {_sym}: {_qty:.0f}sh — {_detail}")
+                    else:
+                        _up_msgs.append(f"  🚨 {_sym}: {_qty:.0f}sh — no live stop, auto-restore failed: {_detail}")
                 _up_key = "__NO_LIVE_STOP__"
                 if not _is_duplicate_alert(_up_key):
+                    _header = ("🛠 <b>STOP AUTO-RESTORED</b>" if _any_restored and all(
+                                   "✅" in m for m in _up_msgs)
+                               else "🚨 <b>NO LIVE STOP PROTECTION</b>")
+                    _footer = ("\n\n<i>Fresh stop(s) submitted automatically — verify in Alpaca when convenient.</i>"
+                               if _any_restored else
+                               "\n\n<i>Auto-restore failed — check for a stuck/HELD order or a broken OCO link, manual action needed.</i>")
                     send_telegram(
-                        "🚨 <b>NO LIVE STOP PROTECTION</b>\n"
-                        "These equity positions have zero working stop-loss order on the exchange:\n\n"
-                        + "\n".join(_up_msgs)
-                        + "\n\n<i>Check for a stuck/HELD order or a broken OCO link — manual action needed.</i>"
+                        f"{_header}\n"
+                        "These equity positions had zero working stop-loss order on the exchange:\n\n"
+                        + "\n".join(_up_msgs) + _footer
                     )
                     _save_last_alert(_up_key)
-                    print(f"  🚨 {len(_unprotected)} position(s) with NO live stop: {_unprotected}")
+                    print(f"  🚨 {len(_unprotected)} position(s) with NO live stop: {_unprotected}"
+                          + (" (auto-restore attempted)" if _any_restored else ""))
                 else:
                     print(f"  🚨 {len(_unprotected)} position(s) with NO live stop — alert suppressed (sent recently): {_unprotected}")
     except Exception as _oe:

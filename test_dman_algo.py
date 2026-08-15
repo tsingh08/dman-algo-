@@ -4131,6 +4131,15 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
         self._pos_tmp.close()
         self._pos_patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
         self._pos_patch.start()
+        # PositionTracker's filepath is an early-bound default parameter --
+        # patching POSITIONS_FILE alone doesn't reach a bare PositionTracker()
+        # call (used by both the orphan check and _auto_restore_missing_stop).
+        # Patching the class reference forces every construction in the call
+        # graph onto the isolated temp file regardless of how it's called.
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._pt_patch = patch.object(a, "PositionTracker", self._isolated_pt)
+        self._pt_patch.start()
 
         self._sig_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._sig_tmp.write(b'{"pending": []}')
@@ -4146,6 +4155,7 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
 
     def tearDown(self):
         self._pos_patch.stop();    os.unlink(self._pos_tmp.name)
+        self._pt_patch.stop()
         self._sig_patch.stop();    os.unlink(self._sig_tmp.name)
         self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
 
@@ -4180,6 +4190,31 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
         stop_msgs = [m for m in msgs if "NO LIVE STOP" in m]
         self.assertEqual(len(stop_msgs), 1)
         self.assertIn("W", stop_msgs[0])
+
+    def test_successful_auto_restore_reports_as_restored_not_manual_action(self):
+        # End-to-end: W is tracked with a real stop price, so
+        # _auto_restore_missing_stop should succeed, and the alert text
+        # must reflect that rather than always reading as "manual action
+        # needed" even when nothing manual is actually required anymore.
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump([{"ticker": "W", "bias": "LONG", "setup": "Gap & Hold",
+                       "entry": 118.0, "stop": 110.0, "target1": 130.0, "target2": 140.0,
+                       "shares": 3, "entry_date": "2026-08-01"}], f)
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [self._equity_position("W")]
+        # get_orders is called twice: once for the broad stop-coverage scan
+        # (empty — that's WHY this is unprotected), once inside
+        # _auto_restore_missing_stop for W specifically (also empty — nothing to cancel).
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="restored-order-id")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_open_position_risk({})
+        msgs = self._messages(mock_tg)
+        restore_msgs = [m for m in msgs if "STOP AUTO-RESTORED" in m]
+        self.assertEqual(len(restore_msgs), 1)
+        self.assertIn("✅", restore_msgs[0])
+        mock_client.submit_order.assert_called_once()
 
     def test_held_stop_does_not_count_as_coverage(self):
         # This is the exact failure mode from the live incident: an order
@@ -4219,6 +4254,127 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
                 a._check_open_position_risk({})
         for _call in mock_tg.call_args_list:
             self.assertNotIn("NO LIVE STOP", _call[0][0])
+
+
+class TestAutoRestoreMissingStop(unittest.TestCase):
+    """Added 2026-08-15 after the no-live-stop gap hit twice in 48 hours
+    (a real position's stop stuck HELD, another CANCELED by a duplicate-
+    order race) and both needed manual intervention despite the alert
+    firing correctly. These lock in _auto_restore_missing_stop() in
+    isolation: it must never guess a stop price for an untracked ticker,
+    must clear conflicting sell orders before resubmitting, and must
+    always use a plain STOP.
+
+    PositionTracker's filepath is an early-bound default parameter
+    (filepath: str = POSITIONS_FILE, evaluated once at class-definition
+    time) -- patch.object(a, "POSITIONS_FILE", ...) does NOT affect
+    PositionTracker() calls that don't pass filepath explicitly, and
+    _auto_restore_missing_stop() is exactly such a call. Patching the
+    PositionTracker class reference itself (forcing every construction
+    anywhere in the call graph onto an isolated temp file) is the only
+    reliable isolation -- confirmed the hard way: an earlier version of
+    these tests used a bare ticker name and silently read this machine's
+    REAL production dman_positions.json instead of the test fixture.
+    ZTEST9x is used as the ticker specifically to never collide with a
+    real held position even if isolation were somehow to fail again."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._pt_patch = patch.object(a, "PositionTracker", self._isolated_pt)
+        self._pt_patch.start()
+
+    def tearDown(self):
+        self._pt_patch.stop()
+        os.unlink(self._pos_tmp.name)
+
+    def _write_positions(self, positions):
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump(positions, f)
+
+    def _tracked_litx(self, stop=28.01):
+        return {"ticker": "ZTEST9x", "bias": "LONG", "setup": "Gap & Hold",
+                "entry": 35.85, "stop": stop, "target1": 55.45, "target2": 67.21,
+                "shares": 47, "entry_date": "2026-08-12"}
+
+    def test_untracked_ticker_refuses_to_guess_a_stop(self):
+        self._write_positions([])   # nothing tracked
+        mock_client = MagicMock()
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+        self.assertFalse(ok)
+        self.assertIn("not in PositionTracker", detail)
+        mock_client.submit_order.assert_not_called()
+
+    def test_zero_stop_on_record_refuses_to_guess(self):
+        self._write_positions([self._tracked_litx(stop=0)])
+        mock_client = MagicMock()
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+        self.assertFalse(ok)
+        mock_client.submit_order.assert_not_called()
+
+    def test_options_leg_is_not_matched_by_bare_ticker(self):
+        # A tracked options position on the same underlying must not be
+        # mistaken for an equity stop level -- setups are filtered out
+        # the same way _check_open_position_risk's orphan check does.
+        self._write_positions([{
+            "ticker": "ZTEST9x", "bias": "LONG",
+            "setup": "Options Call ZTEST9x260828C00040000 ($40C exp 2026-08-28)",
+            "entry": 3.0, "stop": 1.5, "target1": 4.5, "target2": 6.0,
+            "shares": 100, "entry_date": "2026-08-12",
+        }])
+        mock_client = MagicMock()
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+        self.assertFalse(ok)
+        self.assertIn("not in PositionTracker", detail)
+
+    def test_successful_restore_submits_a_plain_stop_at_the_tracked_price(self):
+        self._write_positions([self._tracked_litx(stop=28.01)])
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = []   # nothing to cancel
+        mock_order = MagicMock(id="new-stop-order-id-12345678")
+        mock_client.submit_order.return_value = mock_order
+
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+
+        self.assertTrue(ok)
+        self.assertIn("28.01", detail)
+        mock_client.submit_order.assert_called_once()
+        req = mock_client.submit_order.call_args[0][0]
+        from alpaca.trading.requests import StopOrderRequest
+        self.assertIsInstance(req, StopOrderRequest)
+        self.assertEqual(req.stop_price, 28.01)
+        self.assertEqual(req.qty, 47)
+
+    def test_conflicting_sell_orders_are_cancelled_before_resubmitting(self):
+        # Reproduces the actual root cause on both real incidents: a
+        # take-profit (or duplicate entry) leg claims all shares via
+        # Alpaca's held_for_orders accounting, so a fresh stop can't get
+        # share allocation until that sibling is cleared first.
+        self._write_positions([self._tracked_litx(stop=28.01)])
+        mock_client = MagicMock()
+        stale_tp = MagicMock(id="stale-take-profit-id")
+        from alpaca.trading.enums import OrderSide
+        stale_tp.side = OrderSide.SELL
+        mock_client.get_orders.return_value = [stale_tp]
+        mock_client.submit_order.return_value = MagicMock(id="new-id")
+
+        with patch.object(a.time, "sleep"):   # don't actually block the test suite
+            ok, _ = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+
+        self.assertTrue(ok)
+        mock_client.cancel_order_by_id.assert_called_once_with("stale-take-profit-id")
+
+    def test_submission_failure_is_reported_not_raised(self):
+        self._write_positions([self._tracked_litx(stop=28.01)])
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.side_effect = Exception("insufficient buying power")
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+        self.assertFalse(ok)
+        self.assertIn("insufficient buying power", detail)
 
 
 class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):

@@ -222,6 +222,25 @@ MACRO_NEWS_KEYWORDS = [
                 # list. Catches a follow-on tariff headline even when it's
                 # tagged to a sector peer (RCAT/ONDS/AVAV) rather than UMAC
                 # itself directly.
+    # Added 2026-08-15 after a market-conditions review turned up two gaps:
+    "warsh", "jackson hole",   # Kevin Warsh became Fed chair 2026-05-13
+                # (replacing Powell) -- "powell" above is now a stale name
+                # for this same category, kept harmless for historical/
+                # comparison mentions but no longer the person actually
+                # setting policy. His first Jackson Hole keynote as chair
+                # (symposium runs Aug 27-29, keynote expected ~Aug 28) is a
+                # major, genuinely uncertain policy-signal event given how
+                # contested his confirmation was (54-45, narrowest in Fed
+                # history) -- exactly the kind of headline this list exists
+                # to elevate out of the quiet watchlist log.
+    "strait of hormuz", "houthi", "opec",   # active Middle East flashpoint
+                # confirmed live 2026-08-15: Iran-US talks stalled, Houthi
+                # attacks on Saudi tankers/energy facilities in the Bab
+                # el-Mandeb and Hormuz straits, pushing oil and gold up.
+                # This is a real supply-shock channel (oil price shock ->
+                # broad market vol) with zero prior keyword coverage here --
+                # every headline about it was silently logged as routine
+                # "watchlist" instead of surfacing as the macro risk it is.
 ]
 
 

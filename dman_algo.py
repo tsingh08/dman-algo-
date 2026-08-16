@@ -8190,6 +8190,22 @@ _MAJOR_MACRO_EVENT_DATES: set[date] = {
                         # blackout, same reasoning as FOMC: single-session
                         # whipsaw risk from a high-uncertainty event makes
                         # stops unreliable regardless of setup quality.
+    date(2026, 8, 28),  # Jackson Hole Economic Policy Symposium keynote
+                        # (symposium runs Aug 27-29; the chair's address has
+                        # historically landed Friday morning). Confirmed as
+                        # of 2026-08-15: Kevin Warsh was sworn in as Fed
+                        # chair 2026-05-13 (54-45 Senate vote — the
+                        # narrowest confirmation in Fed history) and this is
+                        # his FIRST Jackson Hole keynote as chair, with
+                        # inflation readings recently described as
+                        # complicating the rate path. A brand-new, narrowly-
+                        # confirmed chair's first major policy address is at
+                        # least as market-moving as a routine FOMC decision
+                        # — same single-session whipsaw/stop-reliability
+                        # reasoning applies. ±1 day blackout covers Aug 27-28
+                        # (Aug 29 is a Saturday, moot). Update/remove after
+                        # the fact if the keynote's actual date/impact
+                        # turned out different from this estimate.
 }
 
 

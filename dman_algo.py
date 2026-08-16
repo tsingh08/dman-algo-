@@ -8892,7 +8892,7 @@ def get_todays_loss() -> float:
     try:
         with open(DAILY_PNL_FILE) as f:
             data = json.load(f)
-        if data.get("date") != date.today().isoformat():
+        if data.get("date") != datetime.now(ET).date().isoformat():
             return 0.0
         return float(data.get("pnl_pct", 0.0))
     except (FileNotFoundError, json.JSONDecodeError):
@@ -8901,7 +8901,14 @@ def get_todays_loss() -> float:
 
 def record_daily_pnl(pnl_pct: float) -> None:
     """Add pnl_pct (signed %) to today's running P&L file."""
-    today_str = date.today().isoformat()
+    # ET, not date.today() (system/UTC) -- the evening cloud daemon session
+    # runs until 20:05 ET, i.e. past midnight UTC, so date.today() on that
+    # runner reads "tomorrow" for the last ~5 min of every trading day.
+    # Found 2026-08-16 review: a loss recorded in that window used to reset
+    # this accumulator instead of adding to it (data["date"] mismatch), so
+    # a day's realized loss could split across two "days" and never trip
+    # DAILY_LOSS_LIMIT.
+    today_str = datetime.now(ET).date().isoformat()
     try:
         with open(DAILY_PNL_FILE) as f:
             data = json.load(f)
@@ -8919,7 +8926,7 @@ def get_this_month_loss() -> float:
     try:
         with open(MONTHLY_PNL_FILE) as f:
             data = json.load(f)
-        if data.get("month") != date.today().strftime("%Y-%m"):
+        if data.get("month") != datetime.now(ET).strftime("%Y-%m"):
             return 0.0
         return float(data.get("pnl_pct", 0.0))
     except (FileNotFoundError, json.JSONDecodeError):
@@ -8928,7 +8935,10 @@ def get_this_month_loss() -> float:
 
 def record_monthly_pnl(pnl_pct: float) -> None:
     """Add pnl_pct (signed %) to this month's running P&L file."""
-    month_str = date.today().strftime("%Y-%m")
+    # Same ET-vs-UTC reasoning as record_daily_pnl() -- matters even more
+    # here since a month-boundary evening session would otherwise reset
+    # the WHOLE month's accumulated loss to 0.0, not just one day's.
+    month_str = datetime.now(ET).strftime("%Y-%m")
     try:
         with open(MONTHLY_PNL_FILE) as f:
             data = json.load(f)
@@ -9297,9 +9307,25 @@ def kelly_fraction(win_rate: float, avg_win_r: float,
 
 def size_position_kelly(signal: ProSignal, account: float,
                          win_rate: float, avg_win_r: float,
+                         avg_loss_r: float = 1.0,
                          vix: float = VIX_SIZE_BASE) -> ProSignal:
-    """Apply Kelly-optimal, beta-adjusted, VIX-scaled position sizing to a signal."""
-    kf  = kelly_fraction(win_rate, avg_win_r)
+    """Apply Kelly-optimal, beta-adjusted, VIX-scaled position sizing to a signal.
+
+    avg_loss_r defaults to 1.0 for any OTHER caller (there are none today,
+    but the parameter is new) — the one real caller, score_signal(), always
+    passes the setup's actual average loss now. Found 2026-08-16 review:
+    this was previously hardcoded inside kelly_fraction() itself with no
+    way to pass a real value in, so the payoff ratio b = avg_win/avg_loss
+    always used a loss of exactly 1.0 regardless of the setup's real
+    average loss — for setup_stats()'s percentage-based avg_win_r values
+    (typically several points, e.g. 6-10 for a good setup), that made b
+    artificially huge, which made full_kelly (and therefore the fractional
+    Kelly size) come out strongly positive for nearly every setup
+    regardless of actual win rate, saturating the 3% cap on every trade
+    instead of sizing down setups with a real edge below what the
+    documented RISK_PER_TRADE (2%) target assumes.
+    """
+    kf  = kelly_fraction(win_rate, avg_win_r, avg_loss_r)
 
     # Beta adjustment: scale down proportionally for high-volatility stocks.
     # beta=1.0 → no change; beta=2.0 → half size; beta=0.5 → no increase (capped at 1x).
@@ -9836,6 +9862,20 @@ def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict],
     but are different positions. Confirmed live 2026-08-11 — a ticker-keyed
     version of this merge silently collapsed a real SMCI call+put pair into
     one record, dropping the call from tracking entirely for hours.
+
+    Options-only progress fields (peak_premium, milestone_gain_alerted,
+    milestone_loss_alerted, stop_stage) are NOT covered by the shares/stop
+    tie-break above — for an options position those two fields are set once
+    at entry and don't change again until T1, so they're tied on nearly
+    every merge that happens pre-T1 (the normal, common case), and the
+    tie-break's "keep prev" default then discarded whichever side had
+    actually progressed further in real time. Confirmed live 2026-08-15:
+    a real open UMAC call's peak_premium was found pinned below its own
+    entry price, permanently, because of exactly this gap — disarming its
+    trailing-exit protection with no error anywhere. Fixed by always
+    carrying forward the higher (more-progressed) value of each field from
+    whichever side loses the shares/stop comparison, and never letting
+    stop_stage regress from "trailing" back to "initial".
     """
     closed_identities = closed_identities or set()
     local_idents = {_position_identity(rec.get("ticker", ""), rec.get("setup", ""))
@@ -9855,7 +9895,19 @@ def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict],
         rec_shares, prev_shares = float(rec.get("shares", 0)), float(prev.get("shares", 0))
         rec_stop,   prev_stop   = float(rec.get("stop", 0)),   float(prev.get("stop", 0))
         if rec_shares < prev_shares or (rec_shares == prev_shares and rec_stop > prev_stop):
-            by_ident[ident] = rec
+            winner, loser = rec, prev
+        else:
+            winner, loser = prev, rec
+        merged = dict(winner)
+        merged["peak_premium"] = max(float(winner.get("peak_premium", 0) or 0),
+                                      float(loser.get("peak_premium", 0) or 0))
+        merged["milestone_gain_alerted"] = max(float(winner.get("milestone_gain_alerted", 0) or 0),
+                                                float(loser.get("milestone_gain_alerted", 0) or 0))
+        merged["milestone_loss_alerted"] = max(float(winner.get("milestone_loss_alerted", 0) or 0),
+                                                float(loser.get("milestone_loss_alerted", 0) or 0))
+        if loser.get("stop_stage") == "trailing":
+            merged["stop_stage"] = "trailing"
+        by_ident[ident] = merged
     return list(by_ident.values())
 
 
@@ -10724,10 +10776,11 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     _vix_now = float(regime.get("details", {}).get("VIX", VIX_SIZE_BASE))
     signal = size_position_kelly(
         signal,
-        account   = get_effective_account(),
-        win_rate  = max(0.5, setup_s["win_rate"]),
-        avg_win_r = max(1.5, setup_s["avg_win_r"]),
-        vix       = _vix_now,
+        account    = get_effective_account(),
+        win_rate   = max(0.5, setup_s["win_rate"]),
+        avg_win_r  = max(1.5, setup_s["avg_win_r"]),
+        avg_loss_r = max(1.0, setup_s["avg_loss_r"]),
+        vix        = _vix_now,
     )
 
     # Final weighted score: confluence (70%) + AI score (30%)
@@ -11314,6 +11367,8 @@ def generate_strangle_advisory(event: str) -> None:
               f"need {result['move_needed_pct']}%+ move")
 
 
+_STOP_RESTORE_COOLDOWN_KEY_FMT = "{ticker}_STOP_RESTORE_ATTEMPT"
+
 def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, str]:
     """
     Attempts to restore live stop protection for `ticker`, which
@@ -11330,24 +11385,50 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
     (a duplicate bracket-order race left the real position's stop
     CANCELED). The alert alone caught both, correctly — but still needed
     a human to notice and manually cancel the conflicting order(s) before
-    a fresh stop could get share allocation. This automates exactly that
-    sequence:
-      1. Look up the intended stop price from PositionTracker — the same
-         value the original bracket order used. If the ticker isn't
-         tracked there (a genuine orphan, not just a broken bracket),
-         there's no known-safe price to use, so this refuses to guess
-         and returns False rather than inventing a stop level.
-      2. Cancel every other open SELL order for the ticker — typically
-         the take-profit leg still claiming the shares the new stop
-         needs. Safe to do broadly: closing the whole position is a
-         strictly more conservative outcome than a stuck stop, and any
-         genuinely-wanted take-profit can be resubmitted once the stop
-         is confirmed live.
+    a fresh stop could get share allocation. This automates that sequence:
+      1. Look up the intended stop price (and target1, for TP restoration)
+         from PositionTracker. If the ticker isn't tracked there (a
+         genuine orphan, not just a broken bracket), there's no known-safe
+         price to use, so this refuses to guess and returns False rather
+         than inventing a stop level.
+      2. Cancel only STOP-type orders first — those are the broken ones,
+         and cancelling them can never affect a healthy take-profit leg.
+         Try submitting the fresh stop with just that. Only if THAT still
+         fails (the take-profit leg is the one holding the shares via
+         Alpaca's held_for_orders accounting — the actual LITX/W failure
+         shape) does this fall back to also cancelling the take-profit
+         leg and retrying once.
       3. Submit a fresh plain STOP (never STOP_LIMIT — see
          submit_alpaca_trade()'s docstring for why: a stop-limit leg has
          gotten stuck in this exact same HELD state 3/3 times on this
          account).
+      4. If a take-profit leg had to be cancelled in step 2, resubmit a
+         fresh one at the tracked target1 once the stop is confirmed
+         live — added 2026-08-16 after review found the original version
+         of this function cancelled the take-profit leg and NOTHING ever
+         put it back, permanently losing the position's automated exit
+         despite the docstring's original claim that it "can be
+         resubmitted once the stop is confirmed live."
+
+    Rate-limited to one restore ATTEMPT per symbol per ALERT_COOLDOWN_MIN
+    (30 min, the same rolling dedup mechanism the alert itself already
+    uses) — added 2026-08-16 after review found this running on the 10s
+    guard cadence with no throttle on the action itself (only on the
+    Telegram alert). If a freshly-submitted stop lands HELD again (the
+    exact failure this function exists to fix), the previous version
+    cancelled and resubmitted it every single 10s tick indefinitely —
+    leaving the position with zero live stop for a multi-second window on
+    every cycle, forever, feeding the same 429 lockout risk
+    _record_alpaca_429 was built to detect. This does not weaken
+    detection: _check_stop_coverage()'s alert still fires (and this still
+    auto-attempts on the FIRST pass), it just stops retrying faster than a
+    human or a fixed underlying issue could plausibly resolve.
     """
+    _cd_key = _STOP_RESTORE_COOLDOWN_KEY_FMT.format(ticker=ticker)
+    if _is_duplicate_alert(_cd_key):
+        return False, (f"restore attempted recently (within {ALERT_COOLDOWN_MIN}m) — "
+                        "waiting on cooldown instead of retrying every cycle, needs manual review "
+                        "if this persists")
     try:
         tracked = next((p for p in PositionTracker().positions
                         if p.ticker == ticker
@@ -11356,28 +11437,61 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
         if tracked is None or tracked.stop <= 0:
             return False, "not in PositionTracker (or no stop price on record) — can't safely auto-restore, needs manual review"
 
-        from alpaca.trading.requests import GetOrdersRequest as _GOReq, StopOrderRequest as _StopReq
-        from alpaca.trading.enums import QueryOrderStatus as _QOS, OrderSide as _OSide, TimeInForce as _TIF
+        from alpaca.trading.requests import (GetOrdersRequest as _GOReq, StopOrderRequest as _StopReq,
+                                              LimitOrderRequest as _LimReq)
+        from alpaca.trading.enums import (QueryOrderStatus as _QOS, OrderSide as _OSide,
+                                           TimeInForce as _TIF, OrderType as _OType)
 
         _open = client.get_orders(filter=_GOReq(symbols=[ticker], status=_QOS.OPEN, limit=20))
-        _cancelled_any = False
-        for _o in _open:
-            if _o.side == _OSide.SELL:
+        _stop_orders = [o for o in _open if o.side == _OSide.SELL
+                        and o.order_type in (_OType.STOP, _OType.STOP_LIMIT, _OType.TRAILING_STOP)]
+        _stop_ids    = {o.id for o in _stop_orders}
+        _tp_orders   = [o for o in _open if o.side == _OSide.SELL and o.id not in _stop_ids]
+
+        def _cancel_all(orders) -> bool:
+            _any = False
+            for _o in orders:
                 try:
                     client.cancel_order_by_id(_o.id)
-                    _cancelled_any = True
+                    _any = True
                 except Exception:
                     pass
-        if _cancelled_any:
-            time.sleep(2)   # let the cancel(s) actually process before resubmitting for the same shares
+            return _any
 
         stop_px = round(tracked.stop, 2)
-        order = client.submit_order(_StopReq(
-            symbol=ticker, qty=qty, side=_OSide.SELL,
-            time_in_force=_TIF.GTC, stop_price=stop_px,
-        ))
-        return True, f"resubmitted a plain stop at ${stop_px} (id {str(order.id)[:8]}…)"
+        _tp_cancelled = False
+        if _cancel_all(_stop_orders):
+            time.sleep(2)   # let the cancel(s) actually process before resubmitting for the same shares
+        try:
+            order = client.submit_order(_StopReq(
+                symbol=ticker, qty=qty, side=_OSide.SELL,
+                time_in_force=_TIF.GTC, stop_price=stop_px,
+            ))
+        except Exception:
+            # Broker rejected it (most likely: the take-profit leg still
+            # holds the shares) — cancel it too and retry exactly once.
+            if _cancel_all(_tp_orders):
+                _tp_cancelled = True
+                time.sleep(2)
+            order = client.submit_order(_StopReq(
+                symbol=ticker, qty=qty, side=_OSide.SELL,
+                time_in_force=_TIF.GTC, stop_price=stop_px,
+            ))
+        _save_last_alert(_cd_key)
+
+        _detail = f"resubmitted a plain stop at ${stop_px} (id {str(order.id)[:8]}…)"
+        if _tp_cancelled and tracked.target1 and tracked.target1 > 0:
+            try:
+                tp_order = client.submit_order(_LimReq(
+                    symbol=ticker, qty=qty, side=_OSide.SELL,
+                    time_in_force=_TIF.GTC, limit_price=round(tracked.target1, 2),
+                ))
+                _detail += f"; take-profit re-submitted at ${round(tracked.target1, 2)} (id {str(tp_order.id)[:8]}…)"
+            except Exception as _tp_exc:
+                _detail += f"; ⚠️ take-profit re-submit FAILED ({_tp_exc}) — stop is live but no take-profit order exists"
+        return True, _detail
     except Exception as exc:
+        _save_last_alert(_cd_key)
         return False, f"auto-restore attempt failed: {exc}"
 
 
@@ -13439,16 +13553,31 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
 
             # Options: premium P&L = always (exit - entry) * qty regardless of put/call.
             # Both calls and puts are bought-to-open; exit price > entry = WIN.
+            # qty here is order.filled_qty, which Alpaca reports in CONTRACTS
+            # for an options order (see the qty=contracts submission at
+            # _submit_options_call, ~line 14981) -- one contract controls 100
+            # shares of premium, so the dollar P&L needs the *100 real-money
+            # multiplier. Missing it (found 2026-08-16 review) meant a real
+            # options loss/gain was recorded as 1/100th of its actual size in
+            # dman_daily_pnl.json, making DAILY_LOSS_LIMIT effectively blind
+            # to options P&L -- a real -20% options loss on this account was
+            # recorded as roughly -0.04% for circuit-breaker purposes.
             if _occ_sym:
                 pnl_pct    = (fill_px - pos.entry) / pos.entry * 100 if pos.entry > 0 else 0
-                dollar_pnl = (fill_px - pos.entry) * qty
+                dollar_pnl = (fill_px - pos.entry) * qty * 100
             else:
                 pnl_pct    = ((fill_px - pos.entry) / pos.entry * 100 if is_lo
                                else (pos.entry - fill_px) / pos.entry * 100)
                 dollar_pnl = (fill_px - pos.entry) * qty * (1 if is_lo else -1)
             outcome    = ("WIN" if pnl_pct > 0.1 else
                           "LOSS" if pnl_pct < -0.1 else "BE")
-            acct_pct   = dollar_pnl / ACCOUNT_SIZE * 100
+            # get_effective_account() (live equity), not the static
+            # ACCOUNT_SIZE secret -- the account has grown/shrunk from
+            # whatever ACCOUNT_SIZE was last set to, so dividing by the
+            # stale constant understates or overstates every recorded %
+            # relative to what DAILY_LOSS_LIMIT/MONTHLY_LOSS_LIMIT actually
+            # compare it against on this same live account.
+            acct_pct   = dollar_pnl / get_effective_account() * 100
 
             fill_date = (order.filled_at.strftime("%Y-%m-%d")
                          if getattr(order, "filled_at", None) else
@@ -13496,6 +13625,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 is_live = True,   # a real Alpaca fill, not a simulation
             ))
             record_daily_pnl(acct_pct)
+            record_monthly_pnl(acct_pct)
             pt.close(ticker, occ_symbol=_occ_sym)
             _mark_identity_closed(state, ticker, pos.setup)
 

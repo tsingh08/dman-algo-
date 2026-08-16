@@ -284,6 +284,54 @@ class TestMergePositionsSnapshots(unittest.TestCase):
         merged = a.merge_positions_snapshots(local, remote)
         self.assertEqual(len(merged), 1)
 
+    def test_tied_shares_and_stop_still_keeps_the_higher_peak_premium(self):
+        # Reproduces a real live incident (2026-08-15): an options position's
+        # shares/stop don't change until T1, so they're tied on nearly every
+        # merge before that -- and the old tie-break ("keep prev", i.e.
+        # remote) silently discarded whichever side had actually observed
+        # the higher real-time peak. Confirmed live: UMAC's peak_premium was
+        # found pinned at 8.75, BELOW its own 9.22 entry, while the real
+        # intraday high (verified against Alpaca's own historical bars) was
+        # 10.20 -- this is exactly that shape, minified.
+        local  = [{"ticker": "UMAC", "stop": 4.61, "shares": 200, "peak_premium": 10.20}]
+        remote = [{"ticker": "UMAC", "stop": 4.61, "shares": 200, "peak_premium": 8.75}]
+        merged = a.merge_positions_snapshots(local, remote)
+        self.assertEqual(merged[0]["peak_premium"], 10.20,
+                         "the higher observed peak must survive a tie, regardless of "
+                         "which side is 'local' vs 'remote'")
+
+    def test_tied_shares_and_stop_keeps_the_further_milestone_alerted(self):
+        # Same tie shape, for the P&L-milestone dedup fields -- taking the
+        # max prevents a regression from re-firing an already-sent alert.
+        local  = [{"ticker": "UMAC", "stop": 4.61, "shares": 200,
+                   "milestone_gain_alerted": 30.0, "milestone_loss_alerted": 0.0}]
+        remote = [{"ticker": "UMAC", "stop": 4.61, "shares": 200,
+                   "milestone_gain_alerted": 20.0, "milestone_loss_alerted": 10.0}]
+        merged = a.merge_positions_snapshots(local, remote)
+        self.assertEqual(merged[0]["milestone_gain_alerted"], 30.0)
+        self.assertEqual(merged[0]["milestone_loss_alerted"], 10.0)
+
+    def test_tied_shares_and_stop_never_regresses_trailing_back_to_initial(self):
+        local  = [{"ticker": "CELZ", "stop": 10.0, "shares": 100, "stop_stage": "trailing"}]
+        remote = [{"ticker": "CELZ", "stop": 10.0, "shares": 100, "stop_stage": "initial"}]
+        merged = a.merge_positions_snapshots(local, remote)
+        self.assertEqual(merged[0]["stop_stage"], "trailing")
+        # And the reverse ordering (remote has "trailing") must also survive.
+        merged2 = a.merge_positions_snapshots(remote, local)
+        self.assertEqual(merged2[0]["stop_stage"], "trailing")
+
+    def test_a_more_protective_stop_still_carries_forward_the_losing_sides_peak(self):
+        # When shares/stop are NOT tied, the existing rule still picks the
+        # more-protective side -- but the losing side's peak_premium must
+        # not just vanish if it happens to be the higher one (e.g. the
+        # side that raised its stop first hasn't re-observed the peak yet).
+        local  = [{"ticker": "UMAC", "stop": 6.00, "shares": 200, "peak_premium": 11.00}]
+        remote = [{"ticker": "UMAC", "stop": 4.61, "shares": 200, "peak_premium": 13.50}]
+        merged = a.merge_positions_snapshots(local, remote)
+        self.assertEqual(merged[0]["stop"], 6.00, "the more-protective stop still wins")
+        self.assertEqual(merged[0]["peak_premium"], 13.50,
+                         "but the higher real peak from the losing side must not be lost")
+
 
 class TestClosedIdentityTombstone(unittest.TestCase):
     """Added 2026-08-13 alongside the FGL-resurrection fix: _mark_identity_closed()
@@ -2557,6 +2605,186 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
                           "win-rate history must still have exactly one IOTR record")
 
 
+class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
+    """Found in the 2026-08-16 review: options P&L recorded into
+    dman_daily_pnl.json was missing the *100 contracts multiplier (Alpaca
+    reports filled_qty in CONTRACTS for an options order, not shares), and
+    both the daily and monthly files were divided by the static
+    ACCOUNT_SIZE secret instead of live equity. Together these meant
+    DAILY_LOSS_LIMIT was effectively blind to real options losses -- a
+    real -20% options loss recorded as roughly -0.04%. Also locks in that
+    record_monthly_pnl() is actually called now (it previously had zero
+    call sites anywhere, making MONTHLY_LOSS_LIMIT permanently dead)."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._sync_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._sync_tmp.write(b"{}")
+        self._sync_tmp.close()
+        self._wr_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._wr_tmp.write(b"[]")
+        self._wr_tmp.close()
+        self._daily_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._daily_tmp.write(b"{}")
+        self._daily_tmp.close()
+        self._monthly_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._monthly_tmp.write(b"{}")
+        self._monthly_tmp.close()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patches = [
+            patch.object(a, "PositionTracker", self._isolated_pt),
+            patch.object(a, "ALPACA_SYNC_FILE", self._sync_tmp.name),
+            patch.object(a, "DAILY_PNL_FILE", self._daily_tmp.name),
+            patch.object(a, "MONTHLY_PNL_FILE", self._monthly_tmp.name),
+            patch.object(a, "send_telegram", return_value=True),
+            patch.object(a, "get_effective_account", return_value=4500.0),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._pos_tmp, self._sync_tmp, self._wr_tmp, self._daily_tmp, self._monthly_tmp):
+            os.unlink(f.name)
+
+    def _order(self, side, status, filled_avg_price, filled_qty):
+        o = MagicMock()
+        o.id = "order-1"
+        o.side = side
+        o.status = status
+        o.filled_avg_price = filled_avg_price
+        o.filled_qty = filled_qty
+        o.qty = filled_qty
+        o.filled_at = None
+        return o
+
+    def test_options_close_applies_the_100x_contract_multiplier(self):
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(a.OpenPosition(
+            ticker="UMAC", bias="LONG",
+            setup="Options Call UMAC260828C00025000 ($25.0C exp 2026-08-28)",
+            entry=9.22, stop=4.61, target1=13.83, target2=23.05,
+            shares=200, entry_date="2026-08-14",
+        ))
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []   # no longer held
+        # 2 contracts, stopped out at 4.61 -- real dollar loss is
+        # (4.61-9.22) * 2 * 100 = -$922, not -$9.22.
+        mock_client.get_orders.return_value = [
+            self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=4.61, filled_qty="2"),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            a.sync_alpaca_fills(tracker)
+        with open(self._daily_tmp.name) as f:
+            daily = json.load(f)
+        # -$922 / $4500 effective account * 100 = -20.49%
+        self.assertAlmostEqual(daily["pnl_pct"], -922 / 4500 * 100, places=2)
+
+    def test_equity_close_pnl_uses_live_effective_account_not_static_size(self):
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(a.OpenPosition(
+            ticker="LITX", bias="LONG", setup="Gap & Hold",
+            entry=35.85, stop=28.01, target1=55.45, target2=67.21,
+            shares=47, entry_date="2026-08-12",
+        ))
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [
+            self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=28.01, filled_qty="47"),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            a.sync_alpaca_fills(tracker)
+        with open(self._daily_tmp.name) as f:
+            daily = json.load(f)
+        dollar_pnl = (28.01 - 35.85) * 47
+        self.assertAlmostEqual(daily["pnl_pct"], dollar_pnl / 4500.0 * 100, places=2)
+
+    def test_a_real_close_also_records_monthly_pnl(self):
+        # record_monthly_pnl() previously had zero call sites anywhere in
+        # the codebase -- MONTHLY_LOSS_LIMIT could never trip no matter how
+        # far the account drew down over a month. This is the direct fix.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(a.OpenPosition(
+            ticker="LITX", bias="LONG", setup="Gap & Hold",
+            entry=35.85, stop=28.01, target1=55.45, target2=67.21,
+            shares=47, entry_date="2026-08-12",
+        ))
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [
+            self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=28.01, filled_qty="47"),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            a.sync_alpaca_fills(tracker)
+        with open(self._monthly_tmp.name) as f:
+            monthly = json.load(f)
+        self.assertIn("pnl_pct", monthly)
+        self.assertLess(monthly["pnl_pct"], 0)
+
+
+class TestDailyMonthlyPnlUsesEtClock(unittest.TestCase):
+    """record_daily_pnl()/get_todays_loss() and record_monthly_pnl()/
+    get_this_month_loss() used date.today() (system/UTC on the GitHub
+    Actions runner) instead of ET. The evening cloud daemon session runs
+    to 20:05 ET -- past midnight UTC -- so for the last ~5 minutes of
+    every trading day, date.today() on that runner already reads
+    "tomorrow." Found alongside the P&L accounting fix above; fixed by
+    switching both pairs to datetime.now(ET)."""
+
+    def setUp(self):
+        self._daily_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._daily_tmp.write(b"{}")
+        self._daily_tmp.close()
+        self._monthly_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._monthly_tmp.write(b"{}")
+        self._monthly_tmp.close()
+        self._patches = [
+            patch.object(a, "DAILY_PNL_FILE", self._daily_tmp.name),
+            patch.object(a, "MONTHLY_PNL_FILE", self._monthly_tmp.name),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._daily_tmp, self._monthly_tmp):
+            os.unlink(f.name)
+
+    def test_daily_pnl_boundary_uses_et_not_utc(self):
+        # 11:30 PM UTC on 2026-08-14 is still 7:30 PM ET the SAME day -- a
+        # date.today()-based implementation (system/UTC on the GitHub
+        # Actions runner) would already say 2026-08-15 here and wrongly
+        # reset the accumulator instead of adding to it.
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(2026, 8, 14, 19, 30, tzinfo=a.ET)
+            a.record_daily_pnl(-1.5)
+            mock_dt.now.return_value = datetime(2026, 8, 14, 19, 45, tzinfo=a.ET)
+            a.record_daily_pnl(-1.0)
+        with open(self._daily_tmp.name) as f:
+            data = json.load(f)
+        self.assertAlmostEqual(data["pnl_pct"], -2.5, places=4,
+                                msg="both calls landed in the same ET trading day and must accumulate together")
+
+    def test_monthly_pnl_boundary_uses_et_not_utc(self):
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(2026, 8, 31, 19, 30, tzinfo=a.ET)
+            a.record_monthly_pnl(-2.0)
+            mock_dt.now.return_value = datetime(2026, 8, 31, 19, 50, tzinfo=a.ET)
+            a.record_monthly_pnl(-1.5)
+        with open(self._monthly_tmp.name) as f:
+            data = json.load(f)
+        self.assertAlmostEqual(data["pnl_pct"], -3.5, places=4,
+                                msg="both calls landed in the same ET calendar month and must accumulate together")
+
+
 class TestAiThemeMomentumBonus(unittest.TestCase):
     """Added 2026-08-07, direct instruction: AI isn't a GICS/SPDR sector, so
     AI-heavy names (NVDA, PLTR, SMCI, ...) only ever got generic Technology/
@@ -4561,9 +4789,24 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         self._pt_patch = patch.object(a, "PositionTracker", self._isolated_pt)
         self._pt_patch.start()
 
+        # _auto_restore_missing_stop() now rate-limits itself via
+        # _is_duplicate_alert()/_save_last_alert(), which read/write the
+        # real LAST_ALERTS_FILE by default -- without isolating it here,
+        # every test after the first one to succeed would silently hit the
+        # real cooldown and get "restore attempted recently" instead of
+        # exercising the behavior under test. Same isolation need as
+        # PositionTracker above, just for a different shared file.
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
     def tearDown(self):
         self._pt_patch.stop()
         os.unlink(self._pos_tmp.name)
+        self._alerts_patch.stop()
+        os.unlink(self._alerts_tmp.name)
 
     def _write_positions(self, positions):
         with open(self._pos_tmp.name, "w") as f:
@@ -4626,20 +4869,67 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         # Reproduces the actual root cause on both real incidents: a
         # take-profit (or duplicate entry) leg claims all shares via
         # Alpaca's held_for_orders accounting, so a fresh stop can't get
-        # share allocation until that sibling is cleared first.
+        # share allocation until that sibling is cleared first. The first
+        # stop submission is rejected (shares still held by the TP leg);
+        # only THEN does the function cancel the TP and retry -- it no
+        # longer cancels every SELL order up front (see
+        # test_take_profit_is_left_alone_when_stop_submission_succeeds).
         self._write_positions([self._tracked_litx(stop=28.01)])
         mock_client = MagicMock()
         stale_tp = MagicMock(id="stale-take-profit-id")
         from alpaca.trading.enums import OrderSide
         stale_tp.side = OrderSide.SELL
         mock_client.get_orders.return_value = [stale_tp]
-        mock_client.submit_order.return_value = MagicMock(id="new-id")
+        mock_client.submit_order.side_effect = [
+            Exception("insufficient qty available (shares held by another order)"),
+            MagicMock(id="new-id"),
+            MagicMock(id="new-tp-id"),
+        ]
 
         with patch.object(a.time, "sleep"):   # don't actually block the test suite
-            ok, _ = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+            ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
 
         self.assertTrue(ok)
         mock_client.cancel_order_by_id.assert_called_once_with("stale-take-profit-id")
+        # target1 is set on the tracked fixture (55.45) -- a fresh take-profit
+        # should be resubmitted once the stop succeeds, not left permanently gone.
+        self.assertIn("take-profit re-submitted", detail)
+        self.assertEqual(mock_client.submit_order.call_count, 3)   # stop attempt 1 (fails), stop attempt 2, TP resubmit
+
+    def test_take_profit_is_left_alone_when_stop_submission_succeeds(self):
+        # If the stop submits cleanly on the first try, a healthy take-profit
+        # order must never be touched -- only STOP-type orders are cancelled
+        # up front, and the TP-cancel fallback should never trigger.
+        self._write_positions([self._tracked_litx(stop=28.01)])
+        mock_client = MagicMock()
+        healthy_tp = MagicMock(id="healthy-take-profit-id")
+        from alpaca.trading.enums import OrderSide
+        healthy_tp.side = OrderSide.SELL
+        mock_client.get_orders.return_value = [healthy_tp]
+        mock_client.submit_order.return_value = MagicMock(id="new-stop-id")
+
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+
+        self.assertTrue(ok)
+        mock_client.cancel_order_by_id.assert_not_called()
+        self.assertNotIn("take-profit re-submitted", detail)
+        mock_client.submit_order.assert_called_once()
+
+    def test_repeat_call_within_cooldown_does_not_touch_orders(self):
+        self._write_positions([self._tracked_litx(stop=28.01)])
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="new-stop-id")
+
+        ok1, _ = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+        self.assertTrue(ok1)
+        mock_client.reset_mock()
+
+        ok2, detail2 = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+        self.assertFalse(ok2)
+        self.assertIn("restore attempted recently", detail2)
+        mock_client.get_orders.assert_not_called()
+        mock_client.submit_order.assert_not_called()
 
     def test_submission_failure_is_reported_not_raised(self):
         self._write_positions([self._tracked_litx(stop=28.01)])
@@ -5352,6 +5642,72 @@ class TestInsiderBuyingSignal(unittest.TestCase):
             ok, score = a.check_insider_activity("TEST", "LONG")
         self.assertTrue(ok)
         self.assertEqual(score, 0)
+
+
+class TestKellySizingUsesRealAvgLoss(unittest.TestCase):
+    """Found in the 2026-08-16 review: size_position_kelly() never passed a
+    real avg_loss_r through to kelly_fraction() -- it silently used the
+    hardcoded default of 1.0 no matter what a setup's actual average loss
+    was. setup_stats()'s avg_win_r is a percentage (e.g. 6-10 for a decent
+    setup, not an R-multiple near 1-3), so b = avg_win_r / 1.0 came out far
+    too large, which pushed full_kelly (and the fractional Kelly result)
+    strongly positive for nearly every setup regardless of real win rate --
+    in practice, sizing always saturated at kelly_fraction()'s 3% cap. These
+    lock in that a real avg_loss_r produces a genuinely smaller size for a
+    setup with a weak payoff ratio, and a genuinely larger one for a setup
+    with a strong ratio -- i.e. that sizing is actually responsive again."""
+
+    def _signal(self, entry=10.0, stop=9.0, beta=1.0):
+        return a.ProSignal(
+            ticker="TEST", bias="LONG", setup="Gap & Hold",
+            entry=entry, stop=stop, target1=12.0, target2=14.0,
+            rr=2.0, rsi=50.0, rvol=2.0, reason="test", beta=beta,
+        )
+
+    def test_weak_payoff_ratio_no_longer_saturates_the_cap(self):
+        # 55% win rate, average winner +6%, average LOSER -12% (a genuinely
+        # bad payoff ratio, b=0.5) -- full Kelly here is negative, so this
+        # must land at the 0.5% floor, not the 3% cap.
+        sig = self._signal()
+        sig = a.size_position_kelly(sig, account=10_000.0, win_rate=0.55,
+                                     avg_win_r=6.0, avg_loss_r=12.0)
+        self.assertAlmostEqual(sig.kelly_frac, 0.005, places=4)
+
+    def test_strong_payoff_ratio_sizes_larger_than_weak_one(self):
+        weak = a.size_position_kelly(self._signal(), account=10_000.0, win_rate=0.55,
+                                      avg_win_r=6.0, avg_loss_r=12.0)
+        strong = a.size_position_kelly(self._signal(), account=10_000.0, win_rate=0.75,
+                                        avg_win_r=10.0, avg_loss_r=4.0)
+        self.assertGreater(strong.kelly_frac, weak.kelly_frac,
+                           "a setup with a real edge must size meaningfully larger than "
+                           "one without, instead of both landing on the same saturated cap")
+
+    def test_default_avg_loss_r_of_one_still_works_for_a_true_r_multiple_caller(self):
+        # Backward-compat: a hypothetical caller that already passes true
+        # R-multiples (avg_win_r=2.0 meaning "wins average 2R") and omits
+        # avg_loss_r should behave exactly as before this fix.
+        sig = a.size_position_kelly(self._signal(), account=10_000.0,
+                                     win_rate=0.6, avg_win_r=2.0)
+        self.assertGreater(sig.kelly_frac, 0)
+
+    def test_score_signal_passes_the_setups_real_avg_loss_through(self):
+        # Integration point: score_signal() must read setup_stats()'s
+        # avg_loss_r (not the kelly_fraction() default) and pass it to
+        # size_position_kelly(), not silently drop it on the floor.
+        sig = self._signal()
+        fake_stats = {"win_rate": 0.55, "avg_win_r": 6.0, "avg_loss_r": 12.0, "total": 30}
+        with patch.object(a, "check_mtf", return_value=(True, 15)), \
+             patch.object(a, "check_relative_strength", return_value=(True, 10)), \
+             patch.object(a, "check_sector", return_value=(True, 8)), \
+             patch.object(a, "check_earnings_safe", return_value=(True, 1)), \
+             patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
+             patch.object(a, "fetch_df", return_value=None):
+            tracker = MagicMock()
+            tracker.setup_stats.return_value = fake_stats
+            scored = a.score_signal(sig, _fake_df(), _fake_regime(), tracker)
+        self.assertAlmostEqual(scored.kelly_frac, 0.005, places=4,
+                               msg="a weak real payoff ratio (b=0.5) must reach the sizing "
+                                   "floor, not silently size as if avg_loss_r were 1.0")
 
 
 class TestInsiderScoreSignalGating(unittest.TestCase):

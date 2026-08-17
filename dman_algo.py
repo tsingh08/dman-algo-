@@ -983,7 +983,21 @@ def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
             hist = fetch_df(ticker, period_days=30)
             if hist is None or len(hist) < 5:
                 continue
-            prev_close = float(hist["Close"].iloc[-1])
+            # fetch_df's last daily bar is TODAY's still-forming bar once
+            # the market has opened — this function runs from every hourly
+            # scan throughout the day, not just pre-market. Comparing the
+            # live quote against that same still-forming bar's close made
+            # gap_pct ≈ 0 on every call, so this discovery feature (built
+            # specifically to catch a CRWV-style mover) never once actually
+            # returned a candidate. Use the last COMPLETED bar (yesterday's
+            # close) whenever today's bar is already present in the
+            # history; fall back to the last bar itself on the rare
+            # pre-market call where today's bar doesn't exist yet.
+            try:
+                _last_bar_is_today = hist.index[-1].date() == date.today()
+            except Exception:
+                _last_bar_is_today = True   # safest assumption during market hours
+            prev_close = float(hist["Close"].iloc[-2] if _last_bar_is_today else hist["Close"].iloc[-1])
             avg_vol    = float(hist["Volume"].tail(10).mean())
             if avg_vol < EARNINGS_MOVER_MIN_AVG_VOLUME or prev_close <= 0:
                 continue
@@ -7697,16 +7711,38 @@ def _extract_earnings_dates(ticker: str) -> list[date]:
 
 def check_earnings_safe(ticker: str) -> tuple[bool, int]:
     """
-    Blocks signals if earnings are within EARNINGS_BLACKOUT days.
-    Uses yfinance calendar data.
+    Blocks signals if earnings are UPCOMING and unreported, within
+    EARNINGS_BLACKOUT days — protects against entering right before an
+    unknown reaction. Does NOT block a real post-earnings gap: earnings
+    from yesterday, or a same-day report already confirmed released this
+    morning, are both KNOWN reactions by the time a signal can fire on
+    them.
+
+    Found 2026-08-16 review: the old `-1 <= days_away <= EARNINGS_BLACKOUT`
+    range blocked days_away == -1 (reported yesterday) and days_away == 0
+    (today, regardless of whether it already happened) unconditionally —
+    meaning a 96/100-scoring post-earnings gap-and-hold got rejected with
+    "EARNINGS BLACKOUT" every single time, on principle, and
+    fetch_earnings_mover_tickers()'s discoveries (every one of which
+    reported within the last day, by construction) could never produce a
+    tradeable signal through this gate at all. days_away == -1 is
+    unambiguous (any earnings time yesterday is now in the past) and never
+    blocks. days_away == 0 is ambiguous — could be a BMO report already
+    out, or an AMC report still pending later today — so it's the one case
+    that still needs a real check: _check_earnings_already_reported()
+    fails closed (still blocks) when it can't confirm, so an unconfirmed
+    same-day report is treated exactly as conservatively as before.
+
     Returns (safe, score 0-5).
     """
     try:
         today = date.today()
         for ed in _extract_earnings_dates(ticker):
             days_away = (ed - today).days
-            if -1 <= days_away <= EARNINGS_BLACKOUT:
-                return False, 0   # too close to earnings
+            if 1 <= days_away <= EARNINGS_BLACKOUT:
+                return False, 0   # upcoming, unreported — unknown reaction, stay out
+            if days_away == 0 and not _check_earnings_already_reported(ticker):
+                return False, 0   # today, not yet confirmed reported — could still be AMC-pending
         return True, 5
     except Exception:
         return True, 5
@@ -10560,7 +10596,13 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     # execution layer routes to _submit_options_put() instead.
     if OPTIONS_ENABLE_PUTS:
         try:
-            _bg_gap_pct  = (float(p["Close"]) - c) / float(p["Close"]) * 100   # gap down %
+            # Gap % from today's OPEN vs prior close — not today's current/
+            # close price. Found 2026-08-16 review: this used `c` (current
+            # price) as the gap endpoint, so a stock that opened FLAT and
+            # simply drifted down 2% intraday read as a "gap down 2%" and
+            # could trigger a real ITM put purchase on ordinary noise, not
+            # an actual gap. Matches L6 Gap & Hold's (correct) convention.
+            _bg_gap_pct  = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
             _bg_dv       = c * float(r.get("AvgVol20", 0))
             if (_bg_gap_pct >= 1.5
                     and c <= float(r["Open"]) * 1.005          # holding at/below open
@@ -10579,6 +10621,15 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 _bg_echo_t2 = round(c * (1 - _bg_gap_pct / 100 * 1.5), 2)
                 sig.target1 = min(sig.target1, _bg_echo_t1)   # more aggressive of the two
                 sig.target2 = min(sig.target2, _bg_echo_t2)
+                # Recompute rr against the (possibly echo-overridden) target1 —
+                # matches L6 Gap & Hold's pattern. Found 2026-08-16 review:
+                # this was missing here, so both the MIN_RR gate just below
+                # and the single-pattern-per-ticker selector at the bottom
+                # of this function (max(candidates, key=lambda s: s.rr))
+                # were comparing a stale rr that no longer matched the
+                # signal's real target whenever the echo target won.
+                _bg_risk = _bg_stop - c
+                sig.rr = round((c - sig.target1) / _bg_risk, 2) if _bg_risk > 0 else 0
                 if sig.rr >= MIN_RR:
                     candidates.append(sig)
         except Exception:

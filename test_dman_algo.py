@@ -1286,12 +1286,13 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
     "safe" and get_upcoming_earnings() always returned [], so
     EARNINGS_BLACKOUT never actually blocked a signal in production."""
 
-    def test_dict_shaped_calendar_blocks_earnings_today(self):
+    def test_dict_shaped_calendar_blocks_unconfirmed_earnings_today(self):
         fake_cal = {"Earnings Date": [date.today()], "Earnings High": 5.0}
-        with patch.object(a.yf, "Ticker") as mock_tk:
+        with patch.object(a.yf, "Ticker") as mock_tk, \
+             patch.object(a, "_check_earnings_already_reported", return_value=False):
             mock_tk.return_value.calendar = fake_cal
             safe, score = a.check_earnings_safe("TESTX")
-        self.assertFalse(safe, "earnings today must be blocked, not silently passed")
+        self.assertFalse(safe, "an unconfirmed same-day report (could still be AMC-pending) must be blocked")
         self.assertEqual(score, 0)
 
     def test_dict_shaped_calendar_allows_earnings_far_out(self):
@@ -1334,6 +1335,53 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
             mock_tk.return_value.calendar = fake_cal
             result = a.get_upcoming_earnings(["TESTX"], days_ahead=5)
         self.assertEqual(result, [])
+
+
+class TestEarningsBlackoutAllowsKnownReactions(unittest.TestCase):
+    """Found in the 2026-08-16 review: check_earnings_safe()'s old
+    `-1 <= days_away <= EARNINGS_BLACKOUT` range blocked yesterday's AND
+    today's earnings unconditionally -- which is exactly the state of a
+    real post-earnings gap, the setup Gap & Hold's earnings-gap variant and
+    fetch_earnings_mover_tickers() exist to catch. days_away == -1 is an
+    unambiguous known reaction (any earnings time yesterday is in the
+    past); days_away == 0 needs a real check since it could be a still-
+    pending AMC report later today."""
+
+    def _mock_calendar(self, earn_date):
+        return patch.object(a, "_extract_earnings_dates", return_value=[earn_date])
+
+    def test_earnings_yesterday_no_longer_blocks(self):
+        yesterday = date.today() - timedelta(days=1)
+        with self._mock_calendar(yesterday):
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertTrue(safe, "a real post-earnings gap from yesterday must be tradeable")
+        self.assertEqual(score, 5)
+
+    def test_same_day_confirmed_reported_does_not_block(self):
+        today = date.today()
+        with self._mock_calendar(today), \
+             patch.object(a, "_check_earnings_already_reported", return_value=True):
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertTrue(safe, "a same-day BMO report already confirmed released is a known reaction")
+
+    def test_same_day_unconfirmed_still_blocks(self):
+        today = date.today()
+        with self._mock_calendar(today), \
+             patch.object(a, "_check_earnings_already_reported", return_value=False):
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertFalse(safe, "an unconfirmed same-day report could still be AMC-pending later today")
+
+    def test_upcoming_earnings_within_blackout_still_blocks(self):
+        upcoming = date.today() + timedelta(days=2)
+        with self._mock_calendar(upcoming):
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertFalse(safe, "an upcoming, unreported earnings date must still block entries")
+
+    def test_two_days_ago_no_longer_relevant_stays_safe(self):
+        two_days_ago = date.today() - timedelta(days=2)
+        with self._mock_calendar(two_days_ago):
+            safe, score = a.check_earnings_safe("TESTX")
+        self.assertTrue(safe)
 
 
 class TestBarSetContainsBugFix(unittest.TestCase):
@@ -3341,12 +3389,24 @@ class TestFetchEarningsMoverTickers(unittest.TestCase):
     gap AND enough liquidity, restricted to names not already covered by
     the normal watchlist path."""
 
-    def _hist(self, prev_close, avg_vol):
+    def _hist(self, prev_close, avg_vol, today_close=None):
+        # today_close, when given, makes the last bar's Close DIFFERENT from
+        # prev_close and dates it as today — the real fetch_df() shape
+        # during market hours (last daily bar is today's still-forming
+        # bar). Every pre-existing test below omits it, so the last bar's
+        # Close equals prev_close either way and can't distinguish
+        # iloc[-1] from iloc[-2] -- see TestEarningsMoverUsesCompletedBar
+        # for the tests that actually exercise the distinction.
         import pandas as pd
+        n = 10
+        idx = pd.date_range(end=pd.Timestamp.today().normalize(), periods=n, freq="D")
+        closes = [prev_close] * n
+        if today_close is not None:
+            closes[-1] = today_close
         return pd.DataFrame({
-            "Close":  [prev_close] * 10,
-            "Volume": [avg_vol] * 10,
-        })
+            "Close":  closes,
+            "Volume": [avg_vol] * n,
+        }, index=idx)
 
     def _earnings_response(self, records):
         resp = MagicMock()
@@ -3431,6 +3491,42 @@ class TestFetchEarningsMoverTickers(unittest.TestCase):
                 [self._record("THIN")])
             result = a.fetch_earnings_mover_tickers()
         self.assertNotIn("THIN", result)
+
+    def test_gap_measured_against_yesterdays_close_not_todays_forming_bar(self):
+        # Found 2026-08-16 review: during market hours, fetch_df()'s LAST
+        # daily bar is today's still-forming one -- comparing the live
+        # quote against that same bar's close (instead of yesterday's
+        # completed close) made gap_pct ~= 0 always, so this function
+        # never once returned a candidate. Real CRWV shape: prior close
+        # 90.32, live price 104.51 (+15.7%). today's still-forming bar
+        # closes wherever the price happens to be recorded mid-session
+        # (104.30 here, close to but not exactly the live quote) -- the
+        # OLD buggy code would compare 104.51 against 104.30 (~0.2%, fails
+        # the 5% threshold); the fix compares against the real prior
+        # close, 90.32 (~15.7%, clears it).
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=104.51), \
+             patch.object(a, "fetch_df", return_value=self._hist(90.32, 24_000_000, today_close=104.30)):
+            mock_requests.get.return_value = self._earnings_response([self._record("CRWV")])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertIn("CRWV", result,
+                      "a real overnight gap must be detected even though fetch_df's "
+                      "last bar is today's still-forming one, not yesterday's close")
+
+    def test_premarket_call_with_no_todays_bar_yet_uses_the_last_bar_directly(self):
+        # If this ever runs before today's daily bar exists at all (a
+        # pre-market call), the last bar genuinely IS the most recent
+        # completed day -- iloc[-2] would wrongly skip back an extra day.
+        import pandas as pd
+        n = 10
+        idx = pd.date_range(end=pd.Timestamp.today().normalize() - pd.Timedelta(days=1), periods=n, freq="D")
+        hist = pd.DataFrame({"Close": [90.32] * n, "Volume": [24_000_000] * n}, index=idx)
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "get_live_price", return_value=104.51), \
+             patch.object(a, "fetch_df", return_value=hist):
+            mock_requests.get.return_value = self._earnings_response([self._record("CRWV")])
+            result = a.fetch_earnings_mover_tickers()
+        self.assertIn("CRWV", result)
 
     def test_flag_disabled_returns_empty(self):
         with patch.object(a, "ENABLE_EARNINGS_MOVER_SCAN", False):
@@ -5989,6 +6085,59 @@ class TestKellySizingUsesRealAvgLoss(unittest.TestCase):
                                    "floor, not silently size as if avg_loss_r were 1.0")
 
 
+class TestBearGapHoldMeasuresRealGap(unittest.TestCase):
+    """Found in the 2026-08-16 review: L9 Bear Gap Hold computed "gap %"
+    from today's CURRENT price vs. prior close, not today's OPEN vs. prior
+    close (every other gap detector in the file, including this setup's own
+    bullish mirror L6, uses open-vs-prior-close). A stock that opened
+    essentially flat and then drifted down intraday could read as a real
+    gap-down and fire a signal that, in the live options branch, buys a
+    real ITM put on ordinary noise, not an actual gap."""
+
+    def test_flat_open_with_intraday_drift_does_not_trigger(self):
+        # Opened at 20.95 vs prior close 21.00 (0.24% gap -- not a real
+        # gap), then drifted down to 20.30 intraday (3.1% intraday drop).
+        # The OLD buggy calc, (21.00-20.30)/21.00=3.33%, would have crossed
+        # the 1.5% threshold and could fire; the real gap is nowhere close.
+        df = _bear_gap_hold_df(prior_close=21.00, prior_open=21.50,
+                               today_open=20.95, today_close=20.30)
+        sig = a._raw_signals(df, "TESTX")
+        self.assertIsNone(sig, "ordinary intraday drift on a flat open must not read as a gap")
+
+    def test_a_real_overnight_gap_down_still_triggers(self):
+        # Prior close 21.00, opens at 20.30 (3.33% real overnight gap),
+        # holds below open through the session.
+        df = _bear_gap_hold_df(prior_close=21.00, prior_open=21.50,
+                               today_open=20.30, today_close=20.20)
+        sig = a._raw_signals(df, "TESTX")
+        self.assertIsNotNone(sig, "a genuine overnight gap-down must still fire")
+        self.assertEqual(sig.setup, "Bear Gap Hold")
+        self.assertEqual(sig.bias, "SHORT")
+
+    def test_rr_reflects_the_echo_target_when_it_wins(self):
+        # A large gap where the echo target is tighter than the 4.0R
+        # default -- rr must be recomputed against it, not left stale.
+        # Stale-rr would have been the value computed before the echo
+        # override -- i.e. against the 4.0R default target, not target1.
+        df = _bear_gap_hold_df(prior_close=21.00, prior_open=21.50,
+                               today_open=19.00, today_close=18.90)
+        sig = a._raw_signals(df, "TESTX")
+        self.assertIsNotNone(sig)
+        self.assertLess(sig.target1, 18.90 - 2.0 * (sig.stop - 18.90),
+                        "the echo target must actually be the tighter (winning) one here")
+        # rr must reflect target1 (whatever it ended up being, echo or
+        # default), not a value computed before the override. Small
+        # tolerance below: the source recomputes rr against the unrounded
+        # local stop variable (same convention L6 Gap & Hold already
+        # uses), while this test only has access to the rounded, stored
+        # sig.stop.
+        risk = sig.stop - 18.90
+        expected_rr = round((18.90 - sig.target1) / risk, 2)
+        self.assertAlmostEqual(sig.rr, expected_rr, delta=0.05,
+                               msg="rr must match the actual (possibly echo-overridden) target1, "
+                                   "not a stale pre-override value")
+
+
 class TestScoreSignalPreservesTargets(unittest.TestCase):
     """Found in the 2026-08-16 review: score_signal() used to unconditionally
     overwrite target1/target2 with a flat 2.0x/3.0x multiplier of the
@@ -6481,6 +6630,39 @@ def _fake_df():
         "EMA50": close, "ATR": [0.5] * n, "AvgVol20": [5_000_000] * n,
         "RVOL": [2.0] * n,
     }, index=idx)
+
+
+def _bear_gap_hold_df(prior_close, prior_open, today_open, today_close):
+    """Builds a DataFrame shaped to isolate Bear Gap Hold's (L9) own gap
+    calculation from every OTHER hard-coded condition in _raw_signals() --
+    every row except the last two is flat filler satisfying the RSI/MACD/
+    RVOL/dollar-volume/ATR conditions; only Open/Close on the final two
+    rows (today vs. yesterday) vary, since gap-down % is the one thing
+    under test."""
+    import pandas as pd
+    import numpy as np
+    n = 30
+    idx = pd.date_range("2026-05-01", periods=n, freq="D")
+    close = np.full(n, prior_close)
+    df = pd.DataFrame({
+        "Open": close, "High": close * 1.01, "Low": close * 0.99,
+        "Close": close, "Volume": [3_000_000] * n,
+        "RSI": [40.0] * n, "MACD": [-0.5] * n, "MACD_sig": [-0.2] * n,
+        "MACD_hist": [-0.1] * n, "EMA9": close, "EMA20": close,
+        "EMA50": close, "ATR": [0.5] * n, "AvgVol20": [3_000_000] * n,
+        "RVOL": [3.0] * n,
+    }, index=idx)
+    # Yesterday: red day (close < open) — required by Bear Gap Hold.
+    df.loc[df.index[-2], "Open"]  = prior_open
+    df.loc[df.index[-2], "Close"] = prior_close
+    df.loc[df.index[-2], "High"]  = max(prior_open, prior_close) * 1.005
+    df.loc[df.index[-2], "Low"]   = min(prior_open, prior_close) * 0.995
+    # Today.
+    df.loc[df.index[-1], "Open"]  = today_open
+    df.loc[df.index[-1], "Close"] = today_close
+    df.loc[df.index[-1], "High"]  = max(today_open, today_close) * 1.005
+    df.loc[df.index[-1], "Low"]   = min(today_open, today_close) * 0.995
+    return df
 
 
 def _fake_regime():

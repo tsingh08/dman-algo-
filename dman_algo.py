@@ -4524,6 +4524,23 @@ def run_premarket_early_scan() -> None:
 # Intraday momentum watch — entry timing + exit management
 # ──────────────────────────────────────────────────────────────────────────────
 
+def _interval_to_resample_rule(interval: str) -> Optional[str]:
+    """Maps a yfinance-style interval string ("5m", "1h", ...) to a pandas
+    resample rule ("5min", "1h"). Returns None on an unrecognized format —
+    caller should skip resampling rather than guess."""
+    try:
+        interval = interval.strip().lower()
+        if interval.endswith("m"):
+            return f"{int(interval[:-1])}min"
+        if interval.endswith("h"):
+            return f"{int(interval[:-1])}h"
+        if interval.endswith("d"):
+            return f"{int(interval[:-1])}D"
+    except Exception:
+        pass
+    return None
+
+
 def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
     """Fetch intraday bars — Alpaca 1-min SIP primary (Algo Trader Plus), yfinance 5-min fallback."""
     # ── Alpaca 1-min bars (SIP real-time feed) ────────────────────────────────
@@ -4555,6 +4572,28 @@ def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
                     ]
                     _df = pd.DataFrame(_records).set_index("Timestamp")
                     _df.index = pd.to_datetime(_df.index, utc=True)
+                    # Resample Alpaca's native 1-min bars to the REQUESTED
+                    # interval. Found 2026-08-16 review: this always
+                    # returned raw 1-min bars regardless of `interval`,
+                    # while every real caller passes "5m" and every
+                    # downstream consumer (_compute_session_levels,
+                    # _detect_pre_breakout, _detect_momentum_fade — the
+                    # momentum-watch exit manager for live small-cap
+                    # positions) is written and documented for 5-minute
+                    # granularity. "No new session high in 5 bars" silently
+                    # meant 5 minutes instead of 25; a breakout "tight
+                    # coil" read covered 3 minutes instead of 15.
+                    _rule = _interval_to_resample_rule(interval)
+                    if _rule and _rule != "1min":
+                        # left-closed/left-labeled: a bar's timestamp is
+                        # its START time (Alpaca's and yfinance's own
+                        # convention), so the 9:30 bar must anchor the
+                        # [9:30, 9:35) bucket labeled 9:30, not fall into
+                        # the PRIOR bucket the way right-closed would.
+                        _df = _df.resample(_rule, label="left", closed="left").agg({
+                            "Open": "first", "High": "max", "Low": "min",
+                            "Close": "last", "Volume": "sum",
+                        }).dropna(subset=["Open"])
                     return _df
     except Exception:
         pass

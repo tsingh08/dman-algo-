@@ -1585,6 +1585,89 @@ class TestEarningsBlackoutAllowsKnownReactions(unittest.TestCase):
         self.assertTrue(safe)
 
 
+class TestIntervalToResampleRule(unittest.TestCase):
+    def test_minutes(self):
+        self.assertEqual(a._interval_to_resample_rule("5m"), "5min")
+        self.assertEqual(a._interval_to_resample_rule("1m"), "1min")
+        self.assertEqual(a._interval_to_resample_rule("15m"), "15min")
+
+    def test_hours(self):
+        self.assertEqual(a._interval_to_resample_rule("1h"), "1h")
+
+    def test_unrecognized_format_returns_none(self):
+        self.assertIsNone(a._interval_to_resample_rule("bogus"))
+        self.assertIsNone(a._interval_to_resample_rule(""))
+
+
+class TestFetchIntradayBarsRespectsInterval(unittest.TestCase):
+    """Found in the 2026-08-16 review: _fetch_intraday_bars() always
+    returned Alpaca's native 1-minute bars regardless of its own `interval`
+    parameter -- every real caller passes "5m", and every downstream
+    consumer (_compute_session_levels, _detect_pre_breakout,
+    _detect_momentum_fade -- the momentum-watch exit manager for live
+    small-cap positions) is written and documented for 5-minute
+    granularity. "No new session high in 5 bars" silently meant 5 minutes
+    instead of 25."""
+
+    def _one_min_bars(self, n, start_hour=9, start_minute=30, base_price=10.0):
+        import zoneinfo
+        ET = zoneinfo.ZoneInfo("America/New_York")
+        base = datetime(2026, 8, 17, start_hour, start_minute, tzinfo=ET)
+        bars = []
+        for i in range(n):
+            px = base_price + i * 0.01
+            bars.append(MagicMock(
+                open=px, high=px + 0.05, low=px - 0.05, close=px + 0.02,
+                volume=1000 + i, timestamp=base + timedelta(minutes=i),
+            ))
+        return bars
+
+    def test_fifteen_one_minute_bars_resample_to_three_five_minute_bars(self):
+        bars = self._one_min_bars(15)
+        mock_resp = MagicMock()
+        mock_resp.data = {"TESTX": bars}
+        mock_dc = MagicMock()
+        mock_dc.get_stock_bars.return_value = mock_resp
+        with patch.object(a, "ALPACA_AVAILABLE", True), \
+             patch.object(a, "get_alpaca_data_client", return_value=mock_dc), \
+             patch.object(a, "_resolve_stock_feed", return_value="sip"):
+            df = a._fetch_intraday_bars("TESTX", interval="5m")
+        self.assertIsNotNone(df)
+        self.assertEqual(len(df), 3, "15 one-minute bars must resample into exactly 3 five-minute bars")
+
+    def test_resampled_bar_ohlc_is_correctly_aggregated(self):
+        bars = self._one_min_bars(5)   # exactly one 5-min bar's worth
+        mock_resp = MagicMock()
+        mock_resp.data = {"TESTX": bars}
+        mock_dc = MagicMock()
+        mock_dc.get_stock_bars.return_value = mock_resp
+        with patch.object(a, "ALPACA_AVAILABLE", True), \
+             patch.object(a, "get_alpaca_data_client", return_value=mock_dc), \
+             patch.object(a, "_resolve_stock_feed", return_value="sip"):
+            df = a._fetch_intraday_bars("TESTX", interval="5m")
+        self.assertEqual(len(df), 1)
+        row = df.iloc[0]
+        self.assertAlmostEqual(float(row["Open"]), bars[0].open, places=4,
+                               msg="Open must come from the FIRST 1-min bar")
+        self.assertAlmostEqual(float(row["Close"]), bars[-1].close, places=4,
+                               msg="Close must come from the LAST 1-min bar")
+        self.assertAlmostEqual(float(row["High"]), max(b.high for b in bars), places=4)
+        self.assertAlmostEqual(float(row["Low"]), min(b.low for b in bars), places=4)
+        self.assertAlmostEqual(float(row["Volume"]), sum(b.volume for b in bars), places=4)
+
+    def test_one_minute_interval_request_skips_resampling(self):
+        bars = self._one_min_bars(5)
+        mock_resp = MagicMock()
+        mock_resp.data = {"TESTX": bars}
+        mock_dc = MagicMock()
+        mock_dc.get_stock_bars.return_value = mock_resp
+        with patch.object(a, "ALPACA_AVAILABLE", True), \
+             patch.object(a, "get_alpaca_data_client", return_value=mock_dc), \
+             patch.object(a, "_resolve_stock_feed", return_value="sip"):
+            df = a._fetch_intraday_bars("TESTX", interval="1m")
+        self.assertEqual(len(df), 5, "a 1m request must keep the native 1-minute granularity")
+
+
 class TestBarSetContainsBugFix(unittest.TestCase):
     """Regression test for a confirmed production bug: alpaca-py's BarSet does
     not support `in` the way a dict does — `ticker in resp` was always False

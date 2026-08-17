@@ -2779,5 +2779,18 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T15:17:58.772693-04:00",
+    "symbols": [
+      "AMD",
+      "GOOGL",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Jumps After Multibillion-Dollar Stakes Revealed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

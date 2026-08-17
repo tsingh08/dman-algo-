@@ -2617,6 +2617,81 @@ class TestSetupStatsIsLiveFiltering(unittest.TestCase):
         self.assertEqual(stats["win_rate"], 1.0)
 
 
+class TestPositionTrackerShowOptionsPricing(unittest.TestCase):
+    """Found in the 2026-08-16 review: PositionTracker.show() (--mode
+    positions) excluded only earnings spreads from the equity display
+    path -- a single-leg options position fell through to it and had
+    the UNDERLYING STOCK price compared against premium-denominated
+    entry/stop/target fields, producing a fabricated P&L and, worse, a
+    FALSE "T2 HIT" Telegram alert whenever the stock price happened to
+    numerically exceed a premium target (unrelated scales)."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._pos_tmp.name)
+
+    def _write(self, positions):
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump(positions, f)
+
+    def test_single_leg_option_uses_premium_not_underlying_stock_price(self):
+        # Real UMAC shape: entry is a $9.22 PREMIUM, but the underlying
+        # stock trades around $25 -- a naive get_live_price(ticker) call
+        # here would return the stock price, not the premium.
+        self._write([{
+            "ticker": "UMAC", "bias": "LONG",
+            "setup": "Options Call UMAC260828C00025000 ($25.0C exp 2026-08-28)",
+            "entry": 9.22, "stop": 4.61, "target1": 13.83, "target2": 23.05,
+            "shares": 200, "entry_date": "2026-08-14",
+        }])
+        tracker = a.PositionTracker(filepath=self._pos_tmp.name)
+        with patch.object(a, "get_live_price") as mock_stock_price, \
+             patch.object(a, "_get_option_snapshot", return_value={
+                 "bid": 10.10, "ask": 10.30, "mid": 10.20}) as mock_opt_snap, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            tracker.show()
+        mock_stock_price.assert_not_called()
+        mock_opt_snap.assert_called_once_with("UMAC260828C00025000")
+        # No false T2 alert: real premium (10.20) is well below the real
+        # premium target (23.05), even though the underlying stock price
+        # (~$25) would have numerically exceeded it.
+        for _call in mock_tg.call_args_list:
+            self.assertNotIn("T2 HIT", _call[0][0])
+
+    def test_equity_position_is_unaffected(self):
+        self._write([{
+            "ticker": "CELZ", "bias": "LONG", "setup": "Gap & Hold",
+            "entry": 10.0, "stop": 9.0, "target1": 12.0, "target2": 14.0,
+            "shares": 100, "entry_date": "2026-08-14",
+        }])
+        tracker = a.PositionTracker(filepath=self._pos_tmp.name)
+        with patch.object(a, "get_live_price", return_value=11.0) as mock_stock_price, \
+             patch.object(a, "_get_option_snapshot") as mock_opt_snap, \
+             patch.object(a, "send_telegram", return_value=True):
+            tracker.show()
+        mock_stock_price.assert_called_once_with("CELZ")
+        mock_opt_snap.assert_not_called()
+
+    def test_earnings_spread_is_still_handled_by_its_own_branch(self):
+        self._write([{
+            "ticker": "HOOD", "bias": "NEUTRAL", "setup": "Earnings Call Spread",
+            "entry": 191.0, "stop": 0.0, "target1": 0.0, "target2": 0.0,
+            "shares": 0, "entry_date": "2026-08-14",
+            "legs": ["HOOD260807C00096000", "HOOD260807C00099000"],
+            "max_loss": 191.0, "max_gain": 193.0,
+        }])
+        tracker = a.PositionTracker(filepath=self._pos_tmp.name)
+        with patch.object(a, "get_live_price") as mock_stock_price, \
+             patch.object(a, "_get_option_snapshot") as mock_opt_snap:
+            tracker.show()
+        mock_stock_price.assert_not_called()
+        mock_opt_snap.assert_not_called()
+
+
 class TestProgressEquityStopToTrailing(unittest.TestCase):
     """Confirmed live 2026-08-08: CELZ sat at +24.58% with its original
     entry-time stop completely untouched -- the T1 alert only ever told a

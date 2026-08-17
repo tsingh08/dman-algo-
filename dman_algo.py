@@ -10224,6 +10224,38 @@ class PositionTracker:
                       f"legs: {', '.join(p.legs)}")
                 continue
 
+            if p.setup.startswith("Options Call ") or p.setup.startswith("Options Put "):
+                # Found in the 2026-08-16 review: only earnings spreads
+                # were excluded from the equity path above -- a single-
+                # leg options position fell through to it and had the
+                # UNDERLYING STOCK price compared against premium-
+                # denominated entry/stop/target fields (e.g. entry=$9.22
+                # premium vs. a stock price in the tens/hundreds), the
+                # same class of bug this branch fixes for spreads, one
+                # tier down. That's not just a cosmetic display bug: a
+                # stock price that happens to numerically exceed a
+                # premium target field (unrelated scales) fires a FALSE
+                # "T2 HIT — take remaining profits" Telegram alert.
+                _occ_parts = p.setup.split()
+                _occ = _occ_parts[2] if len(_occ_parts) >= 3 else ""
+                _snap = _get_option_snapshot(_occ) if _occ else None
+                if not _snap:
+                    print(f"\n  ◆ {p.ticker}  {p.setup}\n    Unable to fetch live option quote")
+                    continue
+                _cur_prem = _snap["mid"]
+                _ctrs     = max(1, int(p.shares) // 100)
+                _unreal   = (_cur_prem - p.entry) * _ctrs * 100
+                _pnl_pct  = (_cur_prem - p.entry) / p.entry * 100 if p.entry > 0 else 0
+                total_unreal += _unreal
+                _days_in = (date.today() - date.fromisoformat(p.entry_date)).days
+                print(f"\n  ◆ {p.ticker}  {p.setup}")
+                print(f"    Premium ${p.entry:.2f}  →  ${_cur_prem:.2f}  "
+                      f"({'+' if _pnl_pct >= 0 else ''}{_pnl_pct:.1f}%)  "
+                      f"{'+' if _unreal >= 0 else ''}${_unreal:,.0f}  |  "
+                      f"{_days_in}d held  |  {_ctrs}ct")
+                print(f"    Stop ${p.stop:.2f}  T1 ${p.target1:.2f}  T2 ${p.target2:.2f}")
+                continue
+
             cur = get_live_price(p.ticker)
             if cur is None:
                 print(f"\n  {p.ticker}: unable to fetch price")

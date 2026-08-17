@@ -3483,12 +3483,45 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         mock_client.get_all_positions.return_value = []
         order = self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21)
         order.id = "a-different-never-seen-order-id"
+        # The re-detection this guards against is same-day/adjacent-day
+        # (see the CLRO incident docstring) -- the dupe match now also
+        # requires the fill date to be close to the existing record's
+        # date, so this must reflect a realistic same-day re-fire rather
+        # than relying on the default filled_at=None -> "today" fallback.
+        order.filled_at = datetime(2026, 8, 6)
         mock_client.get_orders.return_value = [order]
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             n = a.sync_alpaca_fills(tracker)
         self.assertEqual(n, 0, "a ledger-matching close must not be recorded again")
         self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 1,
                           "win-rate history must still have exactly one IOTR record")
+
+    def test_a_genuinely_separate_trade_weeks_later_at_the_same_price_is_not_a_dupe(self):
+        # Found in the 2026-08-16 review: the ledger-matching dupe guard
+        # above had no date component -- ticker + setup + exit-price-
+        # within-half-a-cent alone can coincidentally match two REAL,
+        # separate trades weeks apart that both happened to close near
+        # the same round-number level. Without a date check, the second
+        # trade's real P&L would be silently dropped from win-rate
+        # history, indistinguishable from the intentional dupe-guard
+        # behavior above.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+        tracker.record(a.TradeRecord(
+            ticker="IOTR", date="2026-07-01", bias="LONG", setup="Low Float Catalyst",
+            entry=3.52, exit=3.21, outcome="LOSS", pnl_pct=-8.7, score=0, is_live=True,
+        ))
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        order = self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21)
+        order.id = "a-genuinely-new-later-order"
+        order.filled_at = datetime(2026, 8, 6)   # 36 days after the first trade
+        mock_client.get_orders.return_value = [order]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 1, "a genuinely separate trade weeks later must be recorded, "
+                          "not silently dropped as a false-positive dupe match")
+        self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 2)
 
 
 class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):

@@ -14256,8 +14256,26 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             # (tracker.records, i.e. dman_win_rate.json) directly, so a
             # lost cache entry can no longer cause a duplicate no matter
             # what upstream git race caused it.
+            # Found in the 2026-08-16 review: this match had no date
+            # component -- ticker + setup + exit-price-within-half-a-cent
+            # alone can coincidentally match two genuinely SEPARATE trades
+            # weeks apart that both happened to close near the same
+            # round-number level (a common occurrence, not a rare edge
+            # case). The real re-detection this guards against (see the
+            # CLRO incident above) is always same-day or adjacent-day, so
+            # requiring the matched record's date to be within a tight
+            # window keeps the actual protection while no longer silently
+            # dropping an unrelated real trade's P&L from win-rate history.
+            _DUPE_DATE_WINDOW_DAYS = 2
+            def _dates_close(r_date: str) -> bool:
+                try:
+                    return abs((date.fromisoformat(r_date) - date.fromisoformat(fill_date)).days) \
+                           <= _DUPE_DATE_WINDOW_DAYS
+                except (TypeError, ValueError):
+                    return False
             _dupe = any(r.ticker == ticker and r.setup == pos.setup
                         and abs(r.exit - round(fill_px, 2)) < 0.005
+                        and _dates_close(r.date)
                         for r in tracker.records)
             if _dupe:
                 pt.close(ticker, occ_symbol=_occ_sym)

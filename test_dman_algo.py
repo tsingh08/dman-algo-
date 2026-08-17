@@ -3524,6 +3524,62 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 2)
 
 
+class TestPdtStatusFailsClosed(unittest.TestCase):
+    """Found in the 2026-08-16 review: _get_pdt_status() used to fail OPEN
+    ({"remaining": 3, "swing_mode": False} -- "plenty of budget, use the
+    normal path") on both a missing Alpaca client and any exception
+    fetching account state. That's the unsafe direction on a sub-$25k
+    account: a transient API hiccup at the exact moment the REAL PDT
+    budget was already exhausted would let a same-day round-trip trade
+    through unblocked, risking a real broker-flagged PDT violation."""
+
+    def test_missing_client_fails_closed(self):
+        with patch.object(a, "get_alpaca_client", return_value=None):
+            status = a._get_pdt_status()
+        self.assertEqual(status["remaining"], 0)
+        self.assertTrue(status["swing_mode"])
+
+    def test_account_fetch_exception_fails_closed(self):
+        mock_client = MagicMock()
+        mock_client.get_account.side_effect = Exception("network error")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            status = a._get_pdt_status()
+        self.assertEqual(status["remaining"], 0)
+        self.assertTrue(status["swing_mode"])
+
+    def test_successful_lookup_with_real_budget_left_is_not_swing_mode(self):
+        mock_acct = MagicMock()
+        mock_acct.equity = "10000.0"
+        mock_acct.daytrade_count = 0
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = mock_acct
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            status = a._get_pdt_status()
+        self.assertEqual(status["remaining"], 3)
+        self.assertFalse(status["swing_mode"])
+
+    def test_successful_lookup_with_budget_exhausted_is_swing_mode(self):
+        mock_acct = MagicMock()
+        mock_acct.equity = "10000.0"
+        mock_acct.daytrade_count = 3
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = mock_acct
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            status = a._get_pdt_status()
+        self.assertEqual(status["remaining"], 0)
+        self.assertTrue(status["swing_mode"])
+
+    def test_equity_over_25k_is_never_swing_mode(self):
+        mock_acct = MagicMock()
+        mock_acct.equity = "30000.0"
+        mock_acct.daytrade_count = 5
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = mock_acct
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            status = a._get_pdt_status()
+        self.assertFalse(status["swing_mode"])
+
+
 class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
     """Found in the 2026-08-16 review: options P&L recorded into
     dman_daily_pnl.json was missing the *100 contracts multiplier (Alpaca
@@ -7266,6 +7322,8 @@ class TestReanchorPreservesTargetRatio(unittest.TestCase):
              patch.object(a, "_fetch_global_context", return_value={
                  "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
              patch.object(a, "_cash_available_for", return_value=(True, "")), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
              patch.object(a, "submit_alpaca_trade", return_value=("order-1", None)), \
              patch.object(a, "send_telegram", return_value=True):
             MockWRT.return_value.rolling_stats.return_value = {

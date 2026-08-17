@@ -13994,12 +13994,23 @@ def _get_pdt_status() -> dict:
     Query Alpaca for current PDT day-trade count.
     Returns dict with keys: used, remaining, swing_mode, equity.
     swing_mode=True when equity < $25k AND remaining <= 1 (save last trade for emergencies).
-    Falls back to safe defaults (swing_mode=False, remaining=3) if Alpaca is unavailable.
+
+    Fails CLOSED (remaining=0, swing_mode=True) if the real PDT budget
+    can't be verified. Found in the 2026-08-16 review: this used to fail
+    OPEN ("remaining": 3, swing_mode=False, "use the normal path") on
+    both a missing Alpaca client AND any exception fetching account
+    state -- the unsafe direction on a sub-$25k account. A transient API
+    hiccup at the exact moment the REAL budget was already exhausted
+    would let a same-day round-trip trade through unblocked, risking an
+    actual PDT-rule violation flagged by the broker. Failing closed costs
+    nothing but an unnecessary overnight hold in the false-positive case
+    (assumed zero budget when real budget existed); it never risks a
+    real violation.
     """
     try:
         _client = get_alpaca_client()
         if _client is None:
-            return {"used": 0, "remaining": 3, "swing_mode": False, "equity": 0.0}
+            return {"used": 0, "remaining": 0, "swing_mode": True, "equity": 0.0}
         _acct     = _client.get_account()
         _equity   = float(getattr(_acct, "equity", 0) or 0)
         _dt_count = int(getattr(_acct, "daytrade_count", 0) or 0)
@@ -14009,7 +14020,7 @@ def _get_pdt_status() -> dict:
         _swing     = _remaining <= 1   # at 1 or 0 remaining: go swing to protect the budget
         return {"used": _dt_count, "remaining": _remaining, "swing_mode": _swing, "equity": _equity}
     except Exception:
-        return {"used": 0, "remaining": 3, "swing_mode": False, "equity": 0.0}
+        return {"used": 0, "remaining": 0, "swing_mode": True, "equity": 0.0}
 
 
 def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]]:

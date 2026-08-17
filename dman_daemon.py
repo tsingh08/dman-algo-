@@ -569,7 +569,8 @@ def git_sync() -> None:
         # was silently discarding whichever side's entry lost the race.
         for _sync_fn in (algo.sync_positions_with_remote, algo.sync_scan_log_with_remote,
                         algo.sync_win_rate_with_remote, algo.sync_live_signals_with_remote,
-                        algo.sync_alpaca_sync_state_with_remote, algo.sync_news_log_with_remote):
+                        algo.sync_alpaca_sync_state_with_remote, algo.sync_news_log_with_remote,
+                        algo.sync_daily_pnl_with_remote, algo.sync_monthly_pnl_with_remote):
             try:
                 _sync_fn()
             except Exception as exc:

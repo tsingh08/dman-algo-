@@ -926,6 +926,97 @@ class TestSyncAlpacaSyncStateWithRemote(unittest.TestCase):
         self.assertEqual(result["last_sync"], "2026-08-16T10:05:00-04:00")
 
 
+class TestPnlEntriesAreMergeSafe(unittest.TestCase):
+    """Found in the 2026-08-16 review: dman_daily_pnl.json/
+    dman_monthly_pnl.json were a single mutated {"date"/"month", "pnl_pct"}
+    scalar with no semantic merge -- unlike every other multi-writer state
+    file in this project (scan log, win rate, alpaca sync state), a naive
+    git merge conflict between the daemon and the hourly cron scanner could
+    silently keep only one side's contribution, under-counting today's real
+    loss against DAILY_LOSS_LIMIT/MONTHLY_LOSS_LIMIT. Fixed by converting
+    both files to an append-only list of {ts, pnl_pct} entries (summed at
+    read time) plus a union-then-sort merge, the same pattern already
+    proven for scan_log/news_log. These lock in the merge itself and that a
+    pre-migration legacy-shape file upgrades instead of losing its one
+    running total."""
+
+    def setUp(self):
+        self._daily_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._daily_tmp.close()
+        self._monthly_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._monthly_tmp.close()
+        self._patches = [
+            patch.object(a, "DAILY_PNL_FILE", self._daily_tmp.name),
+            patch.object(a, "MONTHLY_PNL_FILE", self._monthly_tmp.name),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._daily_tmp, self._monthly_tmp):
+            os.unlink(f.name)
+
+    def _write(self, path, data):
+        with open(path, "w") as f:
+            json.dump(data, f)
+
+    def _sync_daily_against_remote(self, remote):
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_daily_pnl_with_remote()
+        with open(self._daily_tmp.name) as f:
+            return json.load(f)
+
+    def _sync_monthly_against_remote(self, remote):
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_monthly_pnl_with_remote()
+        with open(self._monthly_tmp.name) as f:
+            return json.load(f)
+
+    def test_local_and_remote_entries_both_survive_a_merge(self):
+        self._write(self._daily_tmp.name, {"entries": [
+            {"ts": "2026-08-16T10:00:00-04:00", "pnl_pct": -1.0}]})
+        remote = {"entries": [{"ts": "2026-08-16T10:05:00-04:00", "pnl_pct": -0.5}]}
+        result = self._sync_daily_against_remote(remote)
+        total = sum(e["pnl_pct"] for e in result["entries"])
+        self.assertAlmostEqual(total, -1.5, places=4,
+                                msg="neither side's contribution to today's realized P&L may be dropped")
+
+    def test_identical_entry_on_both_sides_is_not_double_counted(self):
+        entry = {"ts": "2026-08-16T10:00:00-04:00", "pnl_pct": -1.0}
+        self._write(self._daily_tmp.name, {"entries": [entry]})
+        result = self._sync_daily_against_remote({"entries": [dict(entry)]})
+        self.assertEqual(len(result["entries"]), 1)
+
+    def test_monthly_merge_uses_the_same_union_logic(self):
+        self._write(self._monthly_tmp.name, {"entries": [
+            {"ts": "2026-08-01T10:00:00-04:00", "pnl_pct": -2.0}]})
+        remote = {"entries": [{"ts": "2026-08-16T10:05:00-04:00", "pnl_pct": -3.0}]}
+        result = self._sync_monthly_against_remote(remote)
+        total = sum(e["pnl_pct"] for e in result["entries"])
+        self.assertAlmostEqual(total, -5.0, places=4)
+
+    def test_pre_migration_legacy_shape_local_file_is_not_dropped_by_a_sync(self):
+        # A file that hasn't been touched by record_daily_pnl() yet is still
+        # in the old {"date", "pnl_pct"} shape -- the sync's extract() must
+        # upgrade it the same way _load_pnl_entries() does, not treat it as
+        # having zero entries and let the merge silently wipe it out.
+        self._write(self._daily_tmp.name, {"date": "2026-08-16", "pnl_pct": -1.25})
+        remote = {"entries": [{"ts": "2026-08-16T10:05:00-04:00", "pnl_pct": -0.5}]}
+        result = self._sync_daily_against_remote(remote)
+        total = sum(e["pnl_pct"] for e in result["entries"])
+        self.assertAlmostEqual(total, -1.75, places=4)
+
+    def test_legacy_shape_file_upgrades_transparently_via_load_pnl_entries(self):
+        self._write(self._daily_tmp.name, {"date": "2026-08-16", "pnl_pct": -1.25})
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(2026, 8, 16, 12, 0, tzinfo=a.ET)
+            self.assertAlmostEqual(a.get_todays_loss(), -1.25, places=4)
+
+
 class TestLogNewsEvent(unittest.TestCase):
     """Added 2026-08-15, direct instruction to have the algo "constantly
     internalize" news across market + extended hours instead of losing
@@ -3291,7 +3382,8 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
         with open(self._daily_tmp.name) as f:
             daily = json.load(f)
         # -$922 / $4500 effective account * 100 = -20.49%
-        self.assertAlmostEqual(daily["pnl_pct"], -922 / 4500 * 100, places=2)
+        total = sum(e["pnl_pct"] for e in daily["entries"])
+        self.assertAlmostEqual(total, -922 / 4500 * 100, places=2)
 
     def test_equity_close_pnl_uses_live_effective_account_not_static_size(self):
         from alpaca.trading.enums import OrderStatus, OrderSide
@@ -3311,7 +3403,8 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
         with open(self._daily_tmp.name) as f:
             daily = json.load(f)
         dollar_pnl = (28.01 - 35.85) * 47
-        self.assertAlmostEqual(daily["pnl_pct"], dollar_pnl / 4500.0 * 100, places=2)
+        total = sum(e["pnl_pct"] for e in daily["entries"])
+        self.assertAlmostEqual(total, dollar_pnl / 4500.0 * 100, places=2)
 
     def test_a_real_close_also_records_monthly_pnl(self):
         # record_monthly_pnl() previously had zero call sites anywhere in
@@ -3333,8 +3426,9 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
             a.sync_alpaca_fills(tracker)
         with open(self._monthly_tmp.name) as f:
             monthly = json.load(f)
-        self.assertIn("pnl_pct", monthly)
-        self.assertLess(monthly["pnl_pct"], 0)
+        self.assertIn("entries", monthly)
+        total = sum(e["pnl_pct"] for e in monthly["entries"])
+        self.assertLess(total, 0)
 
 
 class TestDailyMonthlyPnlUsesEtClock(unittest.TestCase):
@@ -3378,7 +3472,8 @@ class TestDailyMonthlyPnlUsesEtClock(unittest.TestCase):
             a.record_daily_pnl(-1.0)
         with open(self._daily_tmp.name) as f:
             data = json.load(f)
-        self.assertAlmostEqual(data["pnl_pct"], -2.5, places=4,
+        total = sum(e["pnl_pct"] for e in data["entries"])
+        self.assertAlmostEqual(total, -2.5, places=4,
                                 msg="both calls landed in the same ET trading day and must accumulate together")
 
     def test_monthly_pnl_boundary_uses_et_not_utc(self):
@@ -3389,7 +3484,8 @@ class TestDailyMonthlyPnlUsesEtClock(unittest.TestCase):
             a.record_monthly_pnl(-1.5)
         with open(self._monthly_tmp.name) as f:
             data = json.load(f)
-        self.assertAlmostEqual(data["pnl_pct"], -3.5, places=4,
+        total = sum(e["pnl_pct"] for e in data["entries"])
+        self.assertAlmostEqual(total, -3.5, places=4,
                                 msg="both calls landed in the same ET calendar month and must accumulate together")
 
 

@@ -9101,69 +9101,100 @@ Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
 #  SECTION 16 — FILTER 12: KELLY CRITERION POSITION SIZING
 # ═══════════════════════════════════════════════════════════════════════════
 
+_PNL_ENTRY_MAX_AGE_DAYS = 45   # comfortably more than one month, bounds file growth
+
+def _normalize_pnl_data(data) -> list[dict]:
+    """
+    Extract the entries list from already-parsed P&L JSON, in whatever
+    shape it happens to be in. Shared by _load_pnl_entries() (reads from
+    disk) and sync_daily_pnl_with_remote()/sync_monthly_pnl_with_remote()
+    (operate on JSON already parsed off local disk / `git show`) so both
+    paths upgrade a pre-migration legacy file the same way — a sync
+    running against a not-yet-migrated local file must not treat its one
+    running total as "no entries" and silently drop it during the merge.
+    """
+    if isinstance(data, dict) and "entries" in data:
+        return data["entries"]
+    if isinstance(data, list):   # backward-compat: never actually shipped this shape
+        return data
+    # Legacy single-accumulator shape ({"date"/"month": ..., "pnl_pct": ...})
+    # from before this file became an entry log — treat its one running
+    # total as a single historical entry so an in-place upgrade doesn't
+    # silently discard whatever was already accumulated today/this month.
+    if isinstance(data, dict) and "pnl_pct" in data:
+        _ts = data.get("date") or data.get("month") or datetime.now(ET).date().isoformat()
+        return [{"ts": f"{_ts}T00:00:00", "pnl_pct": data["pnl_pct"]}]
+    return []
+
+
+def _load_pnl_entries(filepath: str) -> list[dict]:
+    try:
+        with open(filepath) as f:
+            data = json.load(f)
+        return _normalize_pnl_data(data)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
 def get_todays_loss() -> float:
     """
     Return today's realized P&L as a signed percentage of account size.
     Negative = loss. Returns 0.0 if no trades recorded today.
     """
-    try:
-        with open(DAILY_PNL_FILE) as f:
-            data = json.load(f)
-        if data.get("date") != datetime.now(ET).date().isoformat():
-            return 0.0
-        return float(data.get("pnl_pct", 0.0))
-    except (FileNotFoundError, json.JSONDecodeError):
-        return 0.0
+    today_str = datetime.now(ET).date().isoformat()
+    entries = _load_pnl_entries(DAILY_PNL_FILE)
+    total = sum(float(e.get("pnl_pct", 0.0)) for e in entries
+                if str(e.get("ts", "")).startswith(today_str))
+    return round(total, 4)
 
 
 def record_daily_pnl(pnl_pct: float) -> None:
-    """Add pnl_pct (signed %) to today's running P&L file."""
-    # ET, not date.today() (system/UTC) -- the evening cloud daemon session
-    # runs until 20:05 ET, i.e. past midnight UTC, so date.today() on that
-    # runner reads "tomorrow" for the last ~5 min of every trading day.
-    # Found 2026-08-16 review: a loss recorded in that window used to reset
-    # this accumulator instead of adding to it (data["date"] mismatch), so
-    # a day's realized loss could split across two "days" and never trip
-    # DAILY_LOSS_LIMIT.
-    today_str = datetime.now(ET).date().isoformat()
-    try:
-        with open(DAILY_PNL_FILE) as f:
-            data = json.load(f)
-        if data.get("date") != today_str:
-            data = {"date": today_str, "pnl_pct": 0.0}
-    except (FileNotFoundError, json.JSONDecodeError):
-        data = {"date": today_str, "pnl_pct": 0.0}
-    data["pnl_pct"] = round(data["pnl_pct"] + pnl_pct, 4)
-    _write_json_atomic(DAILY_PNL_FILE, data)
+    """
+    Append pnl_pct (signed %) as a new entry to today's P&L log.
+
+    An append-only entry log, not a single mutated running total — found
+    2026-08-16 review: dman_daily_pnl.json is written by BOTH the daemon
+    and the hourly cron scanner (both call sync_alpaca_fills(), which
+    calls this), from separate checkouts, with no semantic merge — unlike
+    every other multi-writer file in this project (positions, scan log,
+    win rate, etc.), which all got one specifically because a naive git
+    merge can silently keep only one side's update. A single mutated
+    total has no way to recover a lost update after the fact; an
+    append-only log of individual contributions can be merged the exact
+    same way sync_scan_log_with_remote()/sync_news_log_with_remote()
+    already merge their own append-only logs (union by content, sorted by
+    ts) — see sync_daily_pnl_with_remote(). ET, not date.today()
+    (system/UTC): the evening cloud daemon session runs until 20:05 ET,
+    past midnight UTC, so date.today() on that runner reads "tomorrow"
+    for the last ~5 min of every trading day.
+    """
+    entries = _load_pnl_entries(DAILY_PNL_FILE)
+    entries.append({"ts": datetime.now(ET).isoformat(), "pnl_pct": round(pnl_pct, 4)})
+    _cutoff = (datetime.now(ET) - timedelta(days=_PNL_ENTRY_MAX_AGE_DAYS)).isoformat()
+    entries = sorted([e for e in entries if str(e.get("ts", "")) >= _cutoff],
+                      key=lambda e: e.get("ts", ""))
+    _write_json_atomic(DAILY_PNL_FILE, {"entries": entries}, indent=2)
 
 
 def get_this_month_loss() -> float:
     """Return this calendar month's realized P&L as a signed % of account. 0.0 if none."""
-    try:
-        with open(MONTHLY_PNL_FILE) as f:
-            data = json.load(f)
-        if data.get("month") != datetime.now(ET).strftime("%Y-%m"):
-            return 0.0
-        return float(data.get("pnl_pct", 0.0))
-    except (FileNotFoundError, json.JSONDecodeError):
-        return 0.0
+    month_str = datetime.now(ET).strftime("%Y-%m")
+    entries = _load_pnl_entries(MONTHLY_PNL_FILE)
+    total = sum(float(e.get("pnl_pct", 0.0)) for e in entries
+                if str(e.get("ts", "")).startswith(month_str))
+    return round(total, 4)
 
 
 def record_monthly_pnl(pnl_pct: float) -> None:
-    """Add pnl_pct (signed %) to this month's running P&L file."""
-    # Same ET-vs-UTC reasoning as record_daily_pnl() -- matters even more
-    # here since a month-boundary evening session would otherwise reset
-    # the WHOLE month's accumulated loss to 0.0, not just one day's.
-    month_str = datetime.now(ET).strftime("%Y-%m")
-    try:
-        with open(MONTHLY_PNL_FILE) as f:
-            data = json.load(f)
-        if data.get("month") != month_str:
-            data = {"month": month_str, "pnl_pct": 0.0}
-    except (FileNotFoundError, json.JSONDecodeError):
-        data = {"month": month_str, "pnl_pct": 0.0}
-    data["pnl_pct"] = round(data["pnl_pct"] + pnl_pct, 4)
-    _write_json_atomic(MONTHLY_PNL_FILE, data)
+    """Append pnl_pct (signed %) as a new entry to this month's P&L log.
+    See record_daily_pnl()'s docstring — same append-only-log reasoning,
+    same multi-writer merge safety, same ET-vs-UTC fix."""
+    entries = _load_pnl_entries(MONTHLY_PNL_FILE)
+    entries.append({"ts": datetime.now(ET).isoformat(), "pnl_pct": round(pnl_pct, 4)})
+    _cutoff = (datetime.now(ET) - timedelta(days=400)).isoformat()   # ~13 months of history
+    entries = sorted([e for e in entries if str(e.get("ts", "")) >= _cutoff],
+                      key=lambda e: e.get("ts", ""))
+    _write_json_atomic(MONTHLY_PNL_FILE, {"entries": entries}, indent=2)
 
 
 _live_equity_cache: dict = {"equity": 0.0, "ts": 0.0}
@@ -10429,6 +10460,42 @@ def sync_alpaca_sync_state_with_remote() -> None:
         extract=_extract,
         rebuild=_rebuild,
         label="dman_alpaca_sync.json",
+    )
+
+
+def sync_daily_pnl_with_remote() -> None:
+    """
+    dman_daily_pnl.json — append-only list of {ts, pnl_pct} entries (see
+    record_daily_pnl()). Same multi-writer shape as scan_log/news_log
+    (daemon + hourly cron scanner both append via sync_alpaca_fills()), so
+    the same union-then-sort merge applies: every entry's ts comes from a
+    single datetime.now(ET).isoformat() call site, so sorting by it is
+    safe, and a union (not a positional concat-then-cap) means neither
+    side's contribution to today's realized P&L can be silently dropped —
+    which get_todays_loss() feeds directly into DAILY_LOSS_LIMIT, so a
+    lost entry here isn't just a display bug, it's a live risk-guard that
+    can silently under-count today's real loss.
+    """
+    _sync_json_file_via_merge(
+        DAILY_PNL_FILE,
+        extract=lambda d: (_normalize_pnl_data(d), None),
+        rebuild=lambda merged, _le, _re: {
+            "entries": sorted(merged, key=lambda e: e.get("ts", ""))[-2000:]
+        },
+        label="dman_daily_pnl.json",
+    )
+
+
+def sync_monthly_pnl_with_remote() -> None:
+    """dman_monthly_pnl.json — same reasoning and shape as
+    sync_daily_pnl_with_remote(), feeding MONTHLY_LOSS_LIMIT instead."""
+    _sync_json_file_via_merge(
+        MONTHLY_PNL_FILE,
+        extract=lambda d: (_normalize_pnl_data(d), None),
+        rebuild=lambda merged, _le, _re: {
+            "entries": sorted(merged, key=lambda e: e.get("ts", ""))[-2000:]
+        },
+        label="dman_monthly_pnl.json",
     )
 
 

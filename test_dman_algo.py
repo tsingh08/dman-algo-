@@ -1337,6 +1337,78 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
         self.assertEqual(result, [])
 
 
+class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
+    """Found in the 2026-08-16 review: ai_score_signal() returned 0 on
+    EVERY failure path (no key, timeout, rate limit, malformed response)
+    and the caller's `sig.ai_score < 6` check couldn't distinguish that
+    from "the AI genuinely scored this low" -- a transient API failure
+    silently rejected a real signal as "AI score too low." Also hardened
+    the response parsing to find the first text-type content block instead
+    of blindly assuming content[0] is text (which breaks if a non-text
+    block, e.g. a thinking block, ever precedes it)."""
+
+    def _signal(self):
+        return a.ProSignal(
+            ticker="TEST", bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+            rr=2.0, rsi=50.0, rvol=2.0, reason="test",
+        )
+
+    def test_no_api_key_returns_none_not_zero(self):
+        with patch.object(a, "ANTHROPIC_API_KEY", ""):
+            result = a.ai_score_signal(self._signal(), _fake_regime())
+        self.assertIsNone(result)
+
+    def test_request_exception_returns_none_not_zero(self):
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.side_effect = Exception("timeout")
+            result = a.ai_score_signal(self._signal(), _fake_regime())
+        self.assertIsNone(result)
+
+    def test_valid_text_response_is_parsed(self):
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {"content": [{"type": "text", "text": "8"}]}
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = mock_resp
+            result = a.ai_score_signal(self._signal(), _fake_regime())
+        self.assertEqual(result, 8)
+
+    def test_non_text_block_before_the_real_text_block_is_skipped_not_fatal(self):
+        # Reproduces the exact shape a thinking-enabled response could take:
+        # a non-text block first, the real answer in a later block.
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {"content": [
+            {"type": "thinking", "thinking": "considering the setup..."},
+            {"type": "text", "text": "7"},
+        ]}
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = mock_resp
+            result = a.ai_score_signal(self._signal(), _fake_regime())
+        self.assertEqual(result, 7)
+
+    def test_no_text_block_at_all_returns_none_not_zero(self):
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {"content": [{"type": "thinking", "thinking": "..."}]}
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = mock_resp
+            result = a.ai_score_signal(self._signal(), _fake_regime())
+        self.assertIsNone(result)
+
+    def test_unparseable_text_defaults_to_five(self):
+        # Pre-existing behavior, must survive the None-vs-0 change unchanged.
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {"content": [{"type": "text", "text": "not a number"}]}
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = mock_resp
+            result = a.ai_score_signal(self._signal(), _fake_regime())
+        self.assertEqual(result, 5)
+
+
 class TestOptimizeStopTighteningCap(unittest.TestCase):
     """Found in the 2026-08-16 review: optimize_stop()'s "never tighten so
     much it invalidates 2R" clamp was mathematically dead code -- both the

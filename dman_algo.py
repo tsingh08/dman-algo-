@@ -8938,15 +8938,26 @@ def optimize_stop(df: pd.DataFrame, raw_stop: float,
 #  SECTION 15 — FILTER 11: AI SETUP SCORER (Claude API)
 # ═══════════════════════════════════════════════════════════════════════════
 
-def ai_score_signal(signal: ProSignal, regime: dict) -> int:
+def ai_score_signal(signal: ProSignal, regime: dict) -> Optional[int]:
     """
     Send signal details to Claude and get a 1-10 confidence score.
-    Returns integer score (0 if API unavailable or key not set).
+    Returns None if the API call/response couldn't produce a real score
+    (no key, timeout, rate limit, malformed response) — the caller must
+    treat that as "couldn't get an AI opinion this time," not as a low
+    score. Found 2026-08-16 review: this used to return 0 on every one of
+    those failure paths, and the caller's `sig.ai_score < 6` check couldn't
+    tell "the AI said this is bad" apart from "the AI call itself failed" —
+    a rate-limited or timed-out request silently rejected the signal with
+    "AI score too low" instead of falling back to the confluence-only
+    judgment. Also bumped max_tokens 10->20: a single-digit-or-two answer
+    plus any small amount of response overhead was tight enough to
+    plausibly truncate the actual answer out of the response entirely,
+    which fed the same silent-failure path.
 
     Prompt is concise to minimise tokens; macro env added for context-aware scoring.
     """
     if not ANTHROPIC_API_KEY or ANTHROPIC_API_KEY == "":
-        return 0   # AI scoring skipped — no key
+        return None   # AI scoring skipped — no key
 
     det = regime.get("details", {})
     tlt_trend = det.get("TLT Trend", "flat")
@@ -8997,17 +9008,20 @@ Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
             },
             json={
                 "model":      "claude-sonnet-5",
-                "max_tokens": 10,
+                "max_tokens": 20,
                 "messages":   [{"role": "user", "content": prompt}],
             },
             timeout=15,
         )
-        text = resp.json()["content"][0]["text"].strip()
+        content = resp.json()["content"]
+        text = next((b["text"] for b in content if b.get("type") == "text"), "").strip()
+        if not text:
+            return None
         m = re.search(r'\b(10|[1-9])\b', text)
         score = int(m.group(1)) if m else 5
         return max(1, min(10, score))
     except Exception:
-        return 0
+        return None
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -12423,14 +12437,25 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             sys.stdout.write(f"score {sig.confluence_score}/100 < {effective_min}\n")
             continue
 
-        # Optional AI scoring
+        # Optional AI scoring. A None result means the call itself failed
+        # (no key, timeout, rate limit, malformed response) — that must NOT
+        # be treated as "the AI scored this low." Found 2026-08-16 review:
+        # this used to always assign the return value (0 on failure)
+        # straight into sig.ai_score and reject on `< 6`, so a rate-limited
+        # or timed-out request silently rejected a signal that never
+        # actually got an AI opinion, indistinguishable in the log from a
+        # real low score.
         if use_ai and ANTHROPIC_API_KEY:
-            sig.ai_score = ai_score_signal(sig, regime)
-            sig.final_score = round(sig.confluence_score*0.70 + sig.ai_score*10*0.30, 1)
-            if sig.ai_score < 6:
-                rejected_counts["low_score"] += 1
-                sys.stdout.write(f"AI score {sig.ai_score}/10 too low\n")
-                continue
+            _ai_result = ai_score_signal(sig, regime)
+            if _ai_result is None:
+                sys.stdout.write("AI score unavailable (API error) — falling back to confluence-only  ")
+            else:
+                sig.ai_score = _ai_result
+                sig.final_score = round(sig.confluence_score*0.70 + sig.ai_score*10*0.30, 1)
+                if sig.ai_score < 6:
+                    rejected_counts["low_score"] += 1
+                    sys.stdout.write(f"AI score {sig.ai_score}/10 too low\n")
+                    continue
 
         # Gap & Hold: suppress alerts in first 15 min of session (9:30–9:44 AM ET).
         # Gaps that haven't survived initial selling pressure aren't proven holds yet.

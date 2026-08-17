@@ -2729,5 +2729,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T14:55:20.069194-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What&#39;s Going On With Meta Platforms Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T14:55:20.071749-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Sheds Billions as $1.4 Trillion Trial Opens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T14:55:20.398322-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Home Depot Earnings Prediction Market Preview: Will CEO Ted Decker Talk About Tariffs?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T14:55:20.682287-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What&#39;s Going On With Amazon Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

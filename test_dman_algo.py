@@ -7191,6 +7191,51 @@ class TestKellySizingUsesRealAvgLoss(unittest.TestCase):
                                    "floor, not silently size as if avg_loss_r were 1.0")
 
 
+class TestKellyFloorDoesNotOvershootRisk(unittest.TestCase):
+    """Found in the 2026-08-16 review: size_position_kelly() used to force
+    at least 1 share regardless of budget (max(1, ...)) -- when the sized
+    risk budget was smaller than one share's worth of stop distance,
+    actual dollar risk became the FULL stop distance, not the sized
+    fraction, which could be several times the intended budget on a
+    wide-stop or higher-priced name. This defeats the entire point of
+    Kelly sizing."""
+
+    def _signal(self, entry, stop):
+        return a.ProSignal(
+            ticker="TEST", bias="LONG", setup="Gap & Hold",
+            entry=entry, stop=stop, target1=entry * 1.2, target2=entry * 1.4,
+            rr=2.0, rsi=50.0, rvol=2.0, reason="test", beta=1.0,
+        )
+
+    def test_a_severe_overshoot_skips_rather_than_force_buys_one_share(self):
+        # account=10,000, kelly floor 0.5% -> risk_budget=$50. rps=$200
+        # (entry=1000, stop=800): even 1 share risks $200, 4x the budget
+        # -- must skip (shares=0), not force-buy at 4x intended risk.
+        sig = self._signal(entry=1000.0, stop=800.0)
+        sig = a.size_position_kelly(sig, account=10_000.0, win_rate=0.55,
+                                    avg_win_r=6.0, avg_loss_r=12.0)
+        self.assertEqual(sig.shares, 0)
+        self.assertEqual(sig.risk_usd, 0)
+
+    def test_a_small_overshoot_still_floors_to_one_share(self):
+        # risk_budget=$50, rps=$60 -- 1 share risks $60, only 1.2x the
+        # budget (within the 1.5x rounding margin) -- still worth taking
+        # rather than skipping a barely-oversized, otherwise-good setup.
+        sig = self._signal(entry=1000.0, stop=940.0)
+        sig = a.size_position_kelly(sig, account=10_000.0, win_rate=0.55,
+                                    avg_win_r=6.0, avg_loss_r=12.0)
+        self.assertEqual(sig.shares, 1)
+        self.assertEqual(sig.risk_usd, 60.0)
+
+    def test_a_well_sized_signal_is_unaffected(self):
+        # Plenty of budget for many shares -- the floor logic must not
+        # interfere with the normal multi-share sizing path.
+        sig = self._signal(entry=10.0, stop=9.0)
+        sig = a.size_position_kelly(sig, account=10_000.0, win_rate=0.75,
+                                    avg_win_r=10.0, avg_loss_r=4.0)
+        self.assertGreater(sig.shares, 1)
+
+
 class TestBearGapHoldMeasuresRealGap(unittest.TestCase):
     """Found in the 2026-08-16 review: L9 Bear Gap Hold computed "gap %"
     from today's CURRENT price vs. prior close, not today's OPEN vs. prior
@@ -7339,6 +7384,45 @@ class TestReanchorPreservesTargetRatio(unittest.TestCase):
         new_entry = round(10.05 * 1.001, 2)
         self.assertAlmostEqual(sig.target1, new_entry + 3.0 * 1.0, places=2)
         self.assertAlmostEqual(sig.target2, new_entry + 6.0 * 1.0, places=2)
+
+
+class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
+    """Found in the 2026-08-16 review: size_position_kelly() now reports
+    shares=0 when even 1 share would overshoot the sized risk budget by
+    more than a reasonable margin (see TestKellyFloorDoesNotOvershootRisk)
+    -- _submit_signals_to_alpaca() must actually skip that signal, not
+    attempt to submit a qty=0 order."""
+
+    def test_zero_share_signal_is_skipped_before_order_submission(self):
+        sig = a.ProSignal(
+            ticker="TEST", bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=13.0, target2=16.0,
+            rr=3.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=90,
+            shares=0, cost=0.0,
+        )
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price") as mock_validate, \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "submit_alpaca_trade") as mock_submit, \
+             patch.object(a, "send_telegram", return_value=True):
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0,
+            }
+            MockPT.return_value.positions = []
+            a._submit_signals_to_alpaca([sig])
+        mock_validate.assert_not_called()
+        mock_submit.assert_not_called()
 
 
 class TestInsiderScoreSignalGating(unittest.TestCase):

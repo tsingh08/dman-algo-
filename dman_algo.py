@@ -9738,7 +9738,21 @@ def size_position_kelly(signal: ProSignal, account: float,
 
     risk_budget = account * kf
     raw_shares  = int(risk_budget / rps)
-    adj_shares  = max(1, int(raw_shares * vix_mult))
+    adj_shares  = int(raw_shares * vix_mult)
+
+    # Found in the 2026-08-16 review: forcing at least 1 share regardless
+    # of budget (the old unconditional max(1, ...)) could push real
+    # dollar risk several times past the sized Kelly fraction on a wide-
+    # stop or higher-priced name -- when risk_budget is smaller than one
+    # share's worth of stop distance, actual risk becomes the FULL stop
+    # distance (rps), not the sized budget, defeating the entire point of
+    # Kelly sizing. Only floor to 1 share when doing so stays within a
+    # reasonable rounding margin of the intended budget (1.5x); a name
+    # where even 1 share risks meaningfully more than that is skipped
+    # (shares=0) instead of force-bought — the caller must treat 0 shares
+    # as "sizing failed, don't trade this."
+    if adj_shares < 1:
+        adj_shares = 1 if rps <= risk_budget * 1.5 else 0
 
     if vix_mult < 0.98 and raw_shares != adj_shares:
         print(f"     📉 VIX {vix:.1f} size adj: {raw_shares}→{adj_shares} shares "
@@ -15948,6 +15962,18 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     for sig in signals:
         if sig.ticker in already_tracked:
             print(f"  ⏭️  {sig.ticker:<8} already in open positions — skipping duplicate")
+            continue
+
+        # size_position_kelly() reports shares=0 when even 1 share would
+        # risk meaningfully more than the sized Kelly budget (a wide-stop
+        # or higher-priced name against a small risk fraction) -- see its
+        # docstring. Must be skipped here, not submitted: a qty=0 order
+        # would either be rejected by the broker or, worse, silently
+        # round up somewhere downstream and re-blow the exact budget this
+        # was meant to protect.
+        if sig.shares <= 0:
+            print(f"  ⏭️  {sig.ticker:<8} sizing failed — even 1 share exceeds the "
+                  f"risk budget for this stop distance — skipping")
             continue
 
         valid, cur = validate_entry_price(sig)

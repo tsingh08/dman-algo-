@@ -5121,6 +5121,44 @@ def _options_trail_giveback_pct(peak_gain_pct: float) -> float:
     return OPTIONS_TRAIL_GIVEBACK_MIN_PCT + _progress * (OPTIONS_TRAIL_GIVEBACK_MAX_PCT - OPTIONS_TRAIL_GIVEBACK_MIN_PCT)
 
 
+_option_greeks_cache: dict[str, tuple[dict, float]] = {}
+_OPTION_GREEKS_CACHE_TTL_S = 300   # Greeks move slowly relative to bid/ask; a few
+                                    # minutes stale is still meaningfully accurate.
+
+def _cached_option_greeks(occ_symbol: str) -> dict:
+    """
+    Greeks (delta/gamma/theta/vega/iv) for occ_symbol, REST-fetched via
+    _get_option_snapshot() and cached for _OPTION_GREEKS_CACHE_TTL_S.
+
+    Found in the 2026-08-16 review: _monitor_option_position()'s theta-
+    decay alert silently never fired whenever fed by the real-time
+    options stream (get_snapshot_fn), since that feed only carries
+    bid/ask/mid/sizes by design (OPRA/indicative quote messages don't
+    include Greeks) — _snap.get("theta", 0) always read 0, and 0 can
+    never clear the alert's >5.0 threshold. Unlike bid/ask, Greeks
+    change slowly enough that a several-minute-stale REST-fetched value
+    is still meaningfully accurate for a decay-rate alert, so this
+    restores the check via a periodic REST fetch instead of reintroducing
+    one on every 10s guard cycle (the exact call-volume problem the
+    stream was built to avoid — see this function's own docstring above).
+    """
+    now = time.monotonic()
+    cached = _option_greeks_cache.get(occ_symbol)
+    if cached and now - cached[1] < _OPTION_GREEKS_CACHE_TTL_S:
+        return cached[0]
+    snap = _get_option_snapshot(occ_symbol)
+    if snap:
+        greeks = {"delta": snap.get("delta", 0), "gamma": snap.get("gamma", 0),
+                  "theta": snap.get("theta", 0), "vega": snap.get("vega", 0),
+                  "iv": snap.get("iv", 0)}
+    elif cached:
+        greeks = cached[0]   # REST fetch failed this cycle — keep the last known value
+    else:
+        greeks = {"delta": 0, "gamma": 0, "theta": 0, "vega": 0, "iv": 0}
+    _option_greeks_cache[occ_symbol] = (greeks, now)
+    return greeks
+
+
 def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_price_fn=None) -> Optional[str]:
     """
     Enforce stop / trailing-exit / T1 / DTE rules on one tracked options
@@ -5174,9 +5212,14 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     _cur_prem  = _snap["mid"]                       # display P&L at mid
     _exit_prem = _snap.get("bid", _cur_prem)        # exits fill at bid
     _pnl_pct   = (_cur_prem - _entry_prem) / _entry_prem * 100
-    _theta_now = _snap.get("theta", 0)
-    _delta_now = _snap.get("delta", _delta_entry)
-    _iv_now    = _snap.get("iv", 0)
+    # A stream-fed snapshot has no Greeks keys at all (not even a 0
+    # default) — fall back to the periodically REST-refreshed cache so
+    # the theta-decay alert below still has a real value to check
+    # against. See _cached_option_greeks()'s docstring.
+    _greeks_src = _snap if "theta" in _snap else _cached_option_greeks(_occ)
+    _theta_now = _greeks_src.get("theta", 0)
+    _delta_now = _greeks_src.get("delta", _delta_entry)
+    _iv_now    = _greeks_src.get("iv", 0)
     _theta_pct = abs(_theta_now / _cur_prem * 100) if _cur_prem > 0 else 0
     try:
         _occ_exp = _occ[-15:-9] if len(_occ) >= 15 else ""

@@ -3027,12 +3027,17 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
         self._milestone_patch.start()
         self._price_patch = patch.object(a, "get_live_price", return_value=33.0)
         self._price_patch.start()
+        # Module-level Greeks cache (_cached_option_greeks) must not leak a
+        # value across tests that reuse the same OCC symbol.
+        self._greeks_cache_patch = patch.object(a, "_option_greeks_cache", {})
+        self._greeks_cache_patch.start()
 
     def tearDown(self):
         self._dedup_patch.stop();    os.unlink(self._dedup_tmp.name)
         self._pos_patch.stop();      os.unlink(self._pos_tmp.name)
         self._milestone_patch.stop()
         self._price_patch.stop()
+        self._greeks_cache_patch.stop()
 
     def _write_positions(self, positions):
         with open(self._pos_tmp.name, "w") as f:
@@ -3141,21 +3146,53 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
         mock_close.assert_not_called()
         self.assertIn("+5%", result)
 
-    def test_greeks_default_gracefully_when_stream_snapshot_omits_them(self):
-        # The real-time feed only carries bid/ask/mid/sizes, no Greeks --
-        # this must not crash and must fall back to the entry-delta /
-        # zeroed Greeks the function already defaults to via .get().
-        pos = self._pos(target1=999.0, atr=0.62)
+    def test_greeks_fall_back_to_a_rest_fetch_when_the_stream_snapshot_omits_them(self):
+        # Found in the 2026-08-16 review: the real-time feed only carries
+        # bid/ask/mid/sizes, no Greeks -- silently defaulting theta to 0
+        # (the old behavior) meant the theta-decay alert could never fire
+        # whenever the stream was live. Must now fall back to a (cached)
+        # REST fetch so real Greeks values are used, not crash, and not
+        # silently read as zero.
+        pos = self._pos(target1=999.0, atr=0.62,
+                        setup="Options Call SMCI270101C00034000 ($34C exp 2027-01-01)")
         stream_snap = {"bid": 1.03, "ask": 1.07, "mid": 1.05}
-        with patch.object(a, "_get_option_snapshot") as mock_rest:
+        rest_snap = self._snap(1.05, delta=0.58, theta=-0.09, iv=0.35)
+        with patch.object(a, "_get_option_snapshot", return_value=rest_snap) as mock_rest:
             with patch.object(a, "_submit_options_close") as mock_close:
                 with patch.object(a, "send_telegram", return_value=True):
                     result = a._monitor_option_position(
                         pos, "CALL", get_snapshot_fn=lambda occ: stream_snap)
-        mock_rest.assert_not_called()
+        mock_rest.assert_called_once()
         mock_close.assert_not_called()
-        self.assertIn("Δ 0.62", result)   # entry delta default
-        self.assertIn("θ 0.000", result)  # theta defaults to 0
+        self.assertIn("Δ 0.58", result)      # real delta from the REST fallback, not the entry default
+        self.assertIn("θ -0.090/d", result)  # real theta from the REST fallback, not silently 0
+
+    def test_stream_snapshot_greeks_fallback_is_cached_not_refetched_every_call(self):
+        pos = self._pos(target1=999.0)
+        stream_snap = {"bid": 1.03, "ask": 1.07, "mid": 1.05}
+        rest_snap = self._snap(1.05, theta=-0.09)
+        with patch.object(a, "_get_option_snapshot", return_value=rest_snap) as mock_rest:
+            with patch.object(a, "_submit_options_close"):
+                with patch.object(a, "send_telegram", return_value=True):
+                    a._monitor_option_position(pos, "CALL", get_snapshot_fn=lambda occ: stream_snap)
+                    a._monitor_option_position(pos, "CALL", get_snapshot_fn=lambda occ: stream_snap)
+        mock_rest.assert_called_once()
+
+    def test_theta_alert_fires_using_the_real_rest_fetched_theta_not_a_silent_zero(self):
+        # The actual bug: a live stream feed used to make this branch
+        # permanently unreachable (theta always read as 0). With a real
+        # decaying theta pulled from the REST fallback, the alert must
+        # fire exactly as it would on a pure-REST snapshot.
+        pos = self._pos(target1=999.0,
+                        setup="Options Call SMCI270101C00034000 ($34C exp 2027-01-01)")
+        stream_snap = {"bid": 0.99, "ask": 1.01, "mid": 1.00}   # +0% pnl -- theta branch is reachable
+        rest_snap = self._snap(1.00, theta=-0.08)   # 8% of premium/day -- well past the 5% threshold
+        with patch.object(a, "_get_option_snapshot", return_value=rest_snap):
+            with patch.object(a, "_submit_options_close"):
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(
+                        pos, "CALL", get_snapshot_fn=lambda occ: stream_snap)
+        self.assertIn("THETA ALERT", result)
 
     def test_get_price_fn_used_for_milestone_underlying_display_price(self):
         # Added 2026-08-15 alongside GUARD_EVERY_S dropping to 10s:

@@ -5089,6 +5089,35 @@ class TestOptionsFeedResolution(unittest.TestCase):
                     a._resolve_options_feed()
         mock_get.assert_called_once()
 
+    def test_transient_error_after_a_real_downgrade_does_not_silently_restore(self):
+        # Found 2026-08-16 review: `resolved` used to always default to
+        # OPTIONS_DATA_FEED (the preferred feed) before the probe, and
+        # neither the "couldn't get a probe symbol" early return nor the
+        # except-branch touched it -- so a real, still-active downgrade
+        # (cached "indicative") got silently reverted the moment the next
+        # hourly re-probe hit ANY transient error, even though OPRA
+        # entitlement never actually came back.
+        mock_client = MagicMock()
+        mock_client.get_option_contracts.return_value = self._mock_contract()
+        mock_403 = MagicMock(status_code=403)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", return_value=mock_403):
+                with patch.object(a, "send_telegram", return_value=True):
+                    a._resolve_options_feed()   # real downgrade, caches "indicative"
+        with open(self._tmp.name) as f:
+            state = json.load(f)
+        state["checked_at"] -= (a._OPTIONS_FEED_RECHECK_S + 1)
+        with open(self._tmp.name, "w") as f:
+            json.dump(state, f)
+        a._options_feed_state["checked_at"] = 0.0
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a.requests, "get", side_effect=Exception("network timeout")):
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    feed = a._resolve_options_feed()
+        self.assertEqual(feed, "indicative", "a transient error must keep the real cached "
+                                             "downgrade, not silently restore the preferred feed")
+        mock_tg.assert_not_called()
+
 
 class TestStockFeedResolution(unittest.TestCase):
     """Mirrors TestOptionsFeedResolution for the stock-side SIP entitlement.
@@ -5208,6 +5237,31 @@ class TestStockFeedResolution(unittest.TestCase):
                 feed = a._resolve_stock_feed()
         self.assertEqual(feed, a.STOCK_DATA_FEED)
         mock_get.assert_not_called()
+
+    def test_transient_error_after_a_real_downgrade_does_not_silently_restore(self):
+        # Found 2026-08-16 review: this used to always default `resolved`
+        # to the PREFERRED feed before the probe, and a bare network
+        # exception (not just a clean 403) never touched it -- so a real,
+        # still-active downgrade (cached "iex") got silently reverted back
+        # to the preferred feed the moment the NEXT hourly re-probe hit any
+        # transient error, even though entitlement never actually came
+        # back. Every call in that window then hit real 403s again.
+        mock_403 = MagicMock(status_code=403)
+        with patch.object(a.requests, "get", return_value=mock_403):
+            with patch.object(a, "send_telegram", return_value=True):
+                a._resolve_stock_feed()   # real downgrade, caches "iex"
+        with open(self._tmp.name) as f:
+            state = json.load(f)
+        state["checked_at"] -= (a._STOCK_FEED_RECHECK_S + 1)   # force a re-probe
+        with open(self._tmp.name, "w") as f:
+            json.dump(state, f)
+        a._stock_feed_state["checked_at"] = 0.0
+        with patch.object(a.requests, "get", side_effect=Exception("network timeout")):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                feed = a._resolve_stock_feed()
+        self.assertEqual(feed, "iex", "a transient error must keep the real cached "
+                                      "downgrade, not silently restore the preferred feed")
+        mock_tg.assert_not_called()
 
 
 class TestMacroCalendarProximity(unittest.TestCase):

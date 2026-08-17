@@ -1105,7 +1105,19 @@ def _resolve_stock_feed() -> str:
         return _stock_feed_state["feed"]
 
     _stock_feed_state["checked_at"] = now
-    resolved = STOCK_DATA_FEED
+    # Default to whatever was cached before THIS probe, not the preferred
+    # feed. Found 2026-08-16 review: this used to always start as
+    # STOCK_DATA_FEED (the preferred feed), and the except-branch never
+    # touched it — so any transient error (a timeout/connect failure, not
+    # just a clean 403 response) silently reverted a real, still-active
+    # downgrade (e.g. cached "iex") back to the preferred feed for the
+    # next _STOCK_FEED_RECHECK_S (1hr) window. Every call in that window
+    # then hit real 403s and fell through to the slower yfinance path —
+    # exactly the silent-degradation failure mode this mechanism exists to
+    # prevent, just for up to an hour instead of indefinitely. The
+    # comment here already said "keep whatever we resolved last" — this
+    # makes the code actually do that.
+    resolved = _stock_feed_state["feed"] or STOCK_DATA_FEED
     try:
         r = requests.get(
             "https://data.alpaca.markets/v2/stocks/AAPL/quotes/latest",
@@ -1123,11 +1135,13 @@ def _resolve_stock_feed() -> str:
                     f"(free tier, single-exchange quotes, no consolidated tape). "
                     f"Check the Algo Trader Plus subscription/billing if this is unexpected."
                 )
-        elif r.status_code == 200 and _stock_feed_state["feed"] == "iex":
-            # Was on fallback, preferred feed just came back — worth knowing.
-            send_telegram(f"✅ <b>{STOCK_DATA_FEED} stock feed entitlement restored</b> — back to real-time SIP quotes.")
+        elif r.status_code == 200:
+            resolved = STOCK_DATA_FEED
+            if _stock_feed_state["feed"] == "iex":
+                # Was on fallback, preferred feed just came back — worth knowing.
+                send_telegram(f"✅ <b>{STOCK_DATA_FEED} stock feed entitlement restored</b> — back to real-time SIP quotes.")
     except Exception:
-        pass   # network hiccup — keep whatever we resolved last, don't flap on a transient error
+        pass   # network hiccup — keep whatever was cached (resolved already defaults to it)
 
     _stock_feed_state["feed"] = resolved
     _save_stock_feed_state()
@@ -14242,7 +14256,18 @@ def _resolve_options_feed() -> str:
         return _options_feed_state["feed"]
 
     _options_feed_state["checked_at"] = now
-    resolved = OPTIONS_DATA_FEED
+    # Default to whatever was cached before THIS probe, not the preferred
+    # feed — same fix as _resolve_stock_feed(). Found 2026-08-16 review:
+    # this used to always start as OPTIONS_DATA_FEED, and neither the
+    # early "couldn't get a probe symbol" return nor the except-branch
+    # touched it, so any transient error (or a probe-symbol miss) silently
+    # reverted a real, still-active downgrade (cached "indicative") back
+    # to the preferred feed for up to _OPTIONS_FEED_RECHECK_S (1hr) —
+    # every options snapshot call in that window then hit real 403s and
+    # returned None, reproducing the exact week-long silent-failure
+    # incident this mechanism exists to prevent, just bounded to an hour
+    # instead of indefinite.
+    resolved = _options_feed_state["feed"] or OPTIONS_DATA_FEED
     try:
         # The snapshot endpoint needs a real OCC-format contract symbol —
         # a bare ticker 400s (invalid format) rather than 403ing, which
@@ -14282,9 +14307,11 @@ def _resolve_options_feed() -> str:
                     f"Options trading still works, just on delayed/indicative quotes. "
                     f"Check the Algo Trader Plus subscription if this is unexpected."
                 )
-        elif r.status_code == 200 and _options_feed_state["feed"] == "indicative":
-            # Was on fallback, preferred feed just came back — worth knowing.
-            send_telegram(f"✅ <b>{OPTIONS_DATA_FEED} options feed entitlement restored</b> — back to real-time quotes.")
+        elif r.status_code == 200:
+            resolved = OPTIONS_DATA_FEED
+            if _options_feed_state["feed"] == "indicative":
+                # Was on fallback, preferred feed just came back — worth knowing.
+                send_telegram(f"✅ <b>{OPTIONS_DATA_FEED} options feed entitlement restored</b> — back to real-time quotes.")
     except Exception:
         pass   # network hiccup — keep whatever we resolved last, don't flap on a transient error
 

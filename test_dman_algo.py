@@ -6942,6 +6942,80 @@ class TestExplainTicker(unittest.TestCase):
         self.assertIn("BLOCKED", msg)
         self.assertIn("MTF", msg)
 
+    def test_failed_rel_strength_alone_does_not_report_blocked(self):
+        # Found 2026-08-16 review: RS/Sector used to be reported as HARD
+        # blocking gates here, but the live scanner (run_pro_scanner) only
+        # ever scores them as points -- a signal missing RS/Sector can
+        # still trade live. This directly contradicted the live scanner's
+        # real decision on exactly the question /why exists to answer.
+        df = _fake_df()
+        sig = self._signal(score=90, rs_ok=False, sector_ok=False)
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=_fake_regime()), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig):
+            msg = a.explain_ticker("TESTX", min_score=75)
+        self.assertIn("Would PASS all gates", msg,
+                     "a real hard-gate pass with only RS/Sector missing must not report BLOCKED")
+
+    def test_elevated_vix_raises_the_score_floor_like_the_live_scanner(self):
+        # A signal scoring 80 clears a 75 floor but not the VIX>25 floor of
+        # 90 -- the live scanner would reject this; explain_ticker must
+        # agree.
+        df = _fake_df()
+        sig = self._signal(score=80)
+        regime = {"regime": "CHOP", "score": 10, "vix_ok": True,
+                 "details": {"VIX": 28.0}}
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=regime), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig):
+            msg = a.explain_ticker("TESTX", min_score=75)
+        self.assertIn("BLOCKED", msg, "VIX>25 must raise the required score to 90, "
+                                      "matching the live scanner")
+
+    def test_vix_shock_adds_five_to_the_floor(self):
+        # Isolated from the current real calendar month's seasonal filter
+        # (which would otherwise interact with the floor) -- this test is
+        # specifically about the vix_shock +5 escalation.
+        df = _fake_df()
+        sig = self._signal(score=83, setup="Gap & Hold")   # no per-setup override, seasonal-exempt too
+        regime = {"regime": "CHOP", "score": 10, "vix_ok": True,
+                 "details": {"VIX": 18.0, "VIX Shock": "15->22 in one session"},
+                 "vix_shock": True}
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=regime), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig):
+            msg = a.explain_ticker("TESTX", min_score=75)
+        # base min_score 75 -> vix_shock adds +5 = 80; Gap & Hold has no
+        # per-setup override and is seasonal-exempt, so 80 is the real
+        # floor -- an 83 score clears it.
+        self.assertIn("need ≥80", msg)
+        self.assertIn("Would PASS all gates", msg)
+
+    def test_defensive_rotation_penalizes_tech_long_score_like_the_live_scanner(self):
+        df = _fake_df()
+        sig = self._signal(score=80)
+        sig.ticker = "AAPL"   # a real Technology-sector ticker
+        regime = {"regime": "CHOP", "score": 10, "vix_ok": True,
+                 "details": {"VIX": 15.0}, "defensive_rotation": True}
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=regime), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig):
+            msg = a.explain_ticker("AAPL", min_score=75)
+        self.assertIn("Score   : 75/100", msg, "the -5 defensive-rotation penalty on a "
+                                               "tech LONG must be applied, matching the live scanner")
+
 
 class TestEquityFallbackAlert(unittest.TestCase):
     """get_effective_account() silently fell back to the static

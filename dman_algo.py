@@ -12172,24 +12172,64 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
 
         sig = score_signal(sig, df, regime, tracker)
 
+        # Replicate run_pro_scanner()'s exact min-score escalation and gate
+        # sequence — found 2026-08-16 review: this used to compute its own,
+        # simpler version that could directly contradict what the live
+        # scanner would actually do. Two gaps specifically: (1) Rel
+        # Strength and Sector were reported as HARD blocking gates here,
+        # but the live scanner only ever scores them as points — a signal
+        # missing on RS/Sector can still trade live while this reported
+        # "BLOCKED". (2) the VIX>25 / VIX-shock / seasonal-month / active
+        # defensive-rotation adjustments the live scanner applies to the
+        # score threshold (and, for defensive rotation, to the score
+        # itself) were never applied here, so this could report "PASS" on
+        # a signal the live system would reject on exactly the kind of
+        # elevated-risk day someone is most likely to run /why on.
         min_score = min_score or tracker.adaptive_min_score()
+        _vix_now = float(regime.get("details", {}).get("VIX", VIX_SIZE_BASE))
+        if _vix_now > 25:
+            min_score = max(min_score, 90)
+        if regime.get("vix_shock"):
+            min_score = max(min_score, min_score + 5)
+
+        _def_rotation = regime.get("defensive_rotation", False)
+        if _def_rotation and sig.bias == "LONG" and TICKER_SECTOR.get(sig.ticker, "") == "Technology":
+            sig.confluence_score = max(0, sig.confluence_score - 5)
+
+        _curr_month = datetime.today().month
+        _seasonal_active = _curr_month in SEASONAL_WEAK_MONTHS
+        _SEASONAL_EXEMPT = {"Gap & Hold", "Morning Runner"}
+
         effective_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
         if sig.ticker in VOLATILE_TICKERS:
             effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
+        if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
+            effective_min = max(effective_min, SEASONAL_MIN_SCORE)
 
         lines.append(f"  Setup   : <b>{sig.setup}</b> ({sig.bias})")
         lines.append(f"  Entry ${sig.entry:.2f} | Stop ${sig.stop:.2f} | T1 ${sig.target1:.2f} | RR {sig.rr:.2f}")
         lines.append(f"  Score   : {sig.confluence_score}/100  (need ≥{effective_min})")
+        if _vix_now > 25 or regime.get("vix_shock") or _def_rotation or _seasonal_active:
+            lines.append(f"  Session : " + ", ".join(filter(None, [
+                f"VIX {_vix_now:.1f} (>25, floor raised)" if _vix_now > 25 else "",
+                "VIX shock (+5 floor)" if regime.get("vix_shock") else "",
+                "defensive rotation (-5 tech LONG penalty)" if _def_rotation else "",
+                f"seasonal weak month (floor {SEASONAL_MIN_SCORE})" if _seasonal_active else "",
+            ])))
 
-        gates = {
-            "Regime": sig.regime_ok, "MTF": sig.mtf_ok, "Rel Strength": sig.rs_ok,
-            "Sector": sig.sector_ok, "Earnings": sig.earnings_ok, "Macro": sig.macro_ok,
-            "No Divergence": sig.divergence_free,
+        # Hard gates — must match run_pro_scanner()'s own list exactly.
+        # Rel Strength / Sector are shown below for context but are SCORE
+        # contributors only, never blocking on their own.
+        hard_gates = {
+            "Regime": sig.regime_ok, "MTF": sig.mtf_ok, "Earnings": sig.earnings_ok,
+            "Macro": sig.macro_ok, "No Divergence": sig.divergence_free,
         }
-        for name, ok in gates.items():
+        for name, ok in hard_gates.items():
             lines.append(f"  {'✅' if ok else '❌'} {name}")
+        lines.append(f"  {'✅' if sig.rs_ok else 'ℹ️ '} Rel Strength (score only, not a hard gate)")
+        lines.append(f"  {'✅' if sig.sector_ok else 'ℹ️ '} Sector (score only, not a hard gate)")
 
-        hard_fail = [n for n, ok in gates.items() if not ok]
+        hard_fail = [n for n, ok in hard_gates.items() if not ok]
         if hard_fail:
             lines.append(f"\n  🛑 Would be BLOCKED — failed hard gate(s): {', '.join(hard_fail)}")
         elif sig.confluence_score < effective_min:

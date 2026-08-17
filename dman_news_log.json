@@ -2769,5 +2769,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T15:05:52.394700-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump approval falls to 33%, lowest of his presidency, Reuters/Ipsos poll finds&#39; - Reuters",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

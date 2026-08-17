@@ -12182,9 +12182,19 @@ def _check_stop_coverage() -> Optional[dict]:
                     + "\n".join(_orphan_msgs)
                     + "\n\n<i>Close manually or add to watchlist to restore monitoring.</i>"
                 )
-                if not _is_duplicate_alert("__ORPHAN_POSITIONS__"):
+                # Found in the 2026-08-16 review: this used to be one
+                # single global key shared across every symbol, so a
+                # cooldown started by orphan set {A} would suppress a
+                # genuine alert for an unrelated later orphan set {B} for
+                # the next ALERT_COOLDOWN_MIN+ minutes. Keying by the
+                # sorted set of currently-orphaned symbols means the
+                # SAME orphan set still dedupes normally (no re-alert
+                # spam while nothing has changed), but a genuinely
+                # different set of symbols always gets its own alert.
+                _orphan_key = "__ORPHAN_POSITIONS__:" + ",".join(sorted(_orphans))
+                if not _is_duplicate_alert(_orphan_key):
                     send_telegram(_msg)
-                    _save_last_alert("__ORPHAN_POSITIONS__")
+                    _save_last_alert(_orphan_key)
                     print(f"  ⚠  {len(_orphans)} orphan position(s) — sent alert: {_orphans}")
                 else:
                     print(f"  ⚠  {len(_orphans)} orphan position(s) — alert suppressed (sent recently)")
@@ -12230,7 +12240,12 @@ def _check_stop_coverage() -> Optional[dict]:
                         _up_msgs.append(f"  ✅ {_sym}: {_qty:.0f}sh — {_detail}")
                     else:
                         _up_msgs.append(f"  🚨 {_sym}: {_qty:.0f}sh — no live stop, auto-restore failed: {_detail}")
-                _up_key = "__NO_LIVE_STOP__"
+                # Same fix as __ORPHAN_POSITIONS__ above: keyed by the
+                # sorted set of currently-unprotected symbols instead of
+                # one global key, so a benign "stop auto-restored" for
+                # symbol A can no longer suppress a genuine "no live
+                # stop" alert for an unrelated symbol B.
+                _up_key = "__NO_LIVE_STOP__:" + ",".join(sorted(_unprotected))
                 if not _is_duplicate_alert(_up_key):
                     _header = ("🛠 <b>STOP AUTO-RESTORED</b>" if _any_restored and all(
                                    "✅" in m for m in _up_msgs)

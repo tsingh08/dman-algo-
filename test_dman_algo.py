@@ -6024,6 +6024,39 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
         self.assertIn("✅", restore_msgs[0])
         mock_client.submit_order.assert_called_once()
 
+    def test_a_restored_stop_for_one_symbol_does_not_suppress_a_genuine_alert_for_another(self):
+        # Found in the 2026-08-16 review: __NO_LIVE_STOP__ used to be one
+        # single global dedup key shared across every symbol -- a benign
+        # "stop auto-restored" for W would start the cooldown and
+        # suppress a genuine "no live stop" alert for an unrelated
+        # symbol (CLRO) for the next ALERT_COOLDOWN_MIN+ minutes, even
+        # though CLRO's situation is completely different and dangerous.
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump([{"ticker": "W", "bias": "LONG", "setup": "Gap & Hold",
+                       "entry": 118.0, "stop": 110.0, "target1": 130.0, "target2": 140.0,
+                       "shares": 3, "entry_date": "2026-08-01"}], f)
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [self._equity_position("W")]
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="restored-order-id")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._check_open_position_risk({})   # W: auto-restore succeeds, starts the cooldown
+        self.assertEqual(len([m for m in self._messages(mock_tg) if "STOP AUTO-RESTORED" in m]), 1)
+
+        # Now CLRO is unprotected -- a genuinely different, still-dangerous
+        # situation -- immediately after, well within the cooldown window.
+        mock_client2 = MagicMock()
+        mock_client2.get_all_positions.return_value = [self._equity_position("CLRO")]
+        mock_client2.get_orders.return_value = []   # nothing to restore from -- genuinely unprotected
+        with patch.object(a, "get_alpaca_client", return_value=mock_client2):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg2:
+                a._check_open_position_risk({})
+        stop_msgs = [m for m in self._messages(mock_tg2) if "NO LIVE STOP" in m]
+        self.assertEqual(len(stop_msgs), 1,
+                         "a genuine alert for CLRO must not be suppressed by W's unrelated cooldown")
+        self.assertIn("CLRO", stop_msgs[0])
+
     def test_held_stop_does_not_count_as_coverage(self):
         # This is the exact failure mode from the live incident: an order
         # exists and is the right type, but its status means it isn't

@@ -2367,16 +2367,68 @@ def _handle_manual_options_buy_reply(text: str) -> bool:
     return True
 
 
-def _load_earnings_pending() -> list[dict]:
+_EARNINGS_OFFER_TOMBSTONE_S = 6 * 3600   # same margin as _CLOSED_IDENTITY_TOMBSTONE_S
+
+def _earnings_offer_identity(entry: dict) -> str:
+    return f"{entry.get('ticker', '')}_{entry.get('earn_date', '')}"
+
+
+def _load_earnings_state() -> tuple[list[dict], dict]:
     try:
         with open(EARNINGS_SPREAD_PENDING_FILE) as f:
-            return json.load(f)
+            data = json.load(f)
+        if isinstance(data, list):   # pre-migration legacy shape: bare list, no tombstones yet
+            return data, {}
+        return data.get("pending", []), data.get("consumed", {})
     except Exception:
-        return []
+        return [], {}
+
+
+def _load_earnings_pending() -> list[dict]:
+    return _load_earnings_state()[0]
+
+
+def _save_earnings_state(pending: list[dict], consumed: dict) -> None:
+    now = time.time()
+    consumed = {k: v for k, v in consumed.items() if now - float(v) < _EARNINGS_OFFER_TOMBSTONE_S}
+    _write_json_atomic(EARNINGS_SPREAD_PENDING_FILE,
+                       {"pending": pending, "consumed": consumed}, indent=2, default=str)
 
 
 def _save_earnings_pending(entries: list[dict]) -> None:
-    _write_json_atomic(EARNINGS_SPREAD_PENDING_FILE, entries, indent=2, default=str)
+    """
+    Back-compat wrapper for callers that aren't consuming (finalizing) any
+    specific offer -- preserves whatever consumed-identity tombstones are
+    already on disk. A caller that IS finalizing a specific offer (a YES/
+    NO reply reaching a terminal outcome) must use
+    _consume_earnings_offer_save() instead, so the removal is tombstoned
+    against resurrection by a stale remote copy of this file -- see
+    sync_earnings_pending_with_remote().
+    """
+    _, consumed = _load_earnings_state()
+    _save_earnings_state(entries, consumed)
+
+
+def _consume_earnings_offer_save(pending: list[dict], entry: dict) -> None:
+    """
+    Persist `pending` (with `entry` already removed by the caller) and
+    tombstone entry's identity so a later git merge against a stale
+    remote copy of dman_earnings_pending.json -- one that still shows
+    this offer as "awaiting_approval" -- can't resurrect it. Found in the
+    2026-08-16 review: unlike every sibling multi-writer state file, this
+    one had no semantic merge at all, just git's default whole-file
+    last-writer-wins. A resurrected offer here is a live-money risk, not
+    a cosmetic one: this daemon and the hourly cron scanner both handle
+    Telegram replies from separate checkouts, and these offers gate real
+    earnings-spread orders -- a resurrected APPROVED-and-submitted offer
+    could let a later stray/ambiguous YES re-submit the same real spread
+    a second time; a resurrected REJECTED offer carries the identical
+    risk if the user later approves what they believe is a different
+    pending offer.
+    """
+    _, consumed = _load_earnings_state()
+    consumed[_earnings_offer_identity(entry)] = time.time()
+    _save_earnings_state(pending, consumed)
 
 
 def format_earnings_spread_telegram(plan: dict) -> str:
@@ -2518,26 +2570,26 @@ def _handle_earnings_approval_reply(text: str) -> bool:
 
     if not is_yes:
         send_telegram(f"👍 {entry['ticker']} earnings spread rejected — no order placed.")
-        _save_earnings_pending(pending)
+        _consume_earnings_offer_save(pending, entry)
         return True
 
     _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
     if not _cb_ok:
         send_telegram(f"🛑 {entry['ticker']} earnings spread approved but NOT submitted — {_cb_reason}.")
-        _save_earnings_pending(pending)
+        _consume_earnings_offer_save(pending, entry)
         return True
 
     _macro_ok, _ = check_macro_safe()
     if not _macro_ok:
         send_telegram(f"⛔ {entry['ticker']} earnings spread NOT submitted — macro blackout active "
                        f"(FOMC/CPI/NFP window, stops unreliable right now).")
-        _save_earnings_pending(pending)
+        _consume_earnings_offer_save(pending, entry)
         return True
 
     client = get_alpaca_client()
     if client is None:
         send_telegram(f"❌ {entry['ticker']} earnings spread approved but Alpaca is unavailable — not submitted.")
-        _save_earnings_pending(pending)
+        _consume_earnings_offer_save(pending, entry)
         return True
 
     plan = entry["plan"]
@@ -2564,19 +2616,19 @@ def _handle_earnings_approval_reply(text: str) -> bool:
                     f"staleness limit. The strikes/pricing no longer reflect the current setup — "
                     f"wait for the next scan to generate a fresh offer."
                 )
-                _save_earnings_pending(pending)
+                _consume_earnings_offer_save(pending, entry)
                 return True
 
     order_id, err = _submit_earnings_spread(client, plan)
     if err:
         send_telegram(f"❌ <b>{entry['ticker']} earnings spread FAILED</b>\n{err}")
-        _save_earnings_pending(pending)
+        _consume_earnings_offer_save(pending, entry)
         return True
 
     _open_earnings_spread_position(plan)
     send_telegram(f"📤 <b>{entry['ticker']} EARNINGS SPREAD SUBMITTED</b>  id {order_id[:8]}…\n"
                  f"Cost ${plan['total_cost']:.0f}  Max loss ${plan['max_loss']:.0f}")
-    _save_earnings_pending(pending)
+    _consume_earnings_offer_save(pending, entry)
     return True
 
 
@@ -10496,6 +10548,52 @@ def sync_monthly_pnl_with_remote() -> None:
             "entries": sorted(merged, key=lambda e: e.get("ts", ""))[-2000:]
         },
         label="dman_monthly_pnl.json",
+    )
+
+
+def sync_earnings_pending_with_remote() -> None:
+    """
+    dman_earnings_pending.json — pending list nested in a dict, plus a
+    consumed-identity tombstone dict (see _consume_earnings_offer_save()).
+
+    Found in the 2026-08-16 review: unlike every sibling multi-writer
+    state file, this one had no dedicated semantic merge at all — just
+    git's default whole-file last-writer-wins. That's a live-money risk
+    specifically here: this daemon (continuous) and the hourly cron
+    scanner both call _handle_earnings_approval_reply() from separate
+    checkouts, and these offers gate real earnings-spread orders. If the
+    process that just consumed (approved/rejected) an offer loses a git
+    merge to a stale remote copy still showing it "awaiting_approval", a
+    later YES — meant for a genuinely new offer, or a stray duplicate
+    reply — could re-submit a real spread order that was already placed
+    (or explicitly rejected) once. Guarded the same way
+    merge_positions_snapshots() guards its FGL tombstone: an identity
+    this process just consumed is never re-added from remote, full stop.
+    """
+    def _extract(d):
+        if isinstance(d, list):   # pre-migration legacy shape: bare list, no tombstones yet
+            return d, {}
+        return d.get("pending", []), d.get("consumed", {})
+
+    def _rebuild(merged, local_consumed, remote_consumed):
+        now = time.time()
+        merged_consumed = dict(local_consumed)
+        for ident, ts in remote_consumed.items():
+            try:
+                merged_consumed[ident] = max(float(ts), float(merged_consumed.get(ident, 0)))
+            except (TypeError, ValueError):
+                continue   # a corrupted timestamp on the remote side must not poison a good local one
+        merged_consumed = {ident: ts for ident, ts in merged_consumed.items()
+                           if now - float(ts) < _EARNINGS_OFFER_TOMBSTONE_S}
+        merged_pending = [e for e in merged
+                          if _earnings_offer_identity(e) not in merged_consumed]
+        return {"pending": merged_pending, "consumed": merged_consumed}
+
+    _sync_json_file_via_merge(
+        EARNINGS_SPREAD_PENDING_FILE,
+        extract=_extract,
+        rebuild=_rebuild,
+        label="dman_earnings_pending.json",
     )
 
 

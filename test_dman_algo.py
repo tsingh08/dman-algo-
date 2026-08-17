@@ -6291,6 +6291,96 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         mock_client.submit_order.assert_called_once()
 
 
+class TestEarningsPendingMergeSafety(unittest.TestCase):
+    """Found in the 2026-08-16 review: dman_earnings_pending.json had no
+    semantic merge -- just git's default whole-file last-writer-wins,
+    unlike every sibling multi-writer state file. A consumed (approved/
+    rejected) offer could resurrect from a stale remote copy that still
+    showed it "awaiting_approval", letting a later YES re-submit a real
+    spread that was already placed (or explicitly rejected) once. Fixed
+    with a merge_positions_snapshots()-style tombstone: a consumed
+    identity is recorded with a timestamp and never re-added from remote."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _offer(self, ticker="HOOD", earn_date="2026-07-29", status="awaiting_approval"):
+        return {"ticker": ticker, "earn_date": earn_date, "created_at": "2026-08-16T10:00:00-04:00",
+                "expires_at": "2026-08-16T14:00:00-04:00", "status": status, "plan": {"ticker": ticker}}
+
+    def _write_local(self, data):
+        with open(self._tmp.name, "w") as f:
+            json.dump(data, f)
+
+    def _sync_against_remote(self, remote):
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_earnings_pending_with_remote()
+        with open(self._tmp.name) as f:
+            return json.load(f)
+
+    def test_a_just_consumed_offer_is_not_resurrected_by_a_stale_remote(self):
+        # Local just approved-and-submitted HOOD (removed it, tombstoned its
+        # identity). Remote is a stale checkout that hasn't seen the
+        # submission yet and still shows HOOD awaiting approval.
+        self._write_local({"pending": [], "consumed": {"HOOD_2026-07-29": time.time()}})
+        remote = {"pending": [self._offer("HOOD")], "consumed": {}}
+        result = self._sync_against_remote(remote)
+        self.assertEqual(result["pending"], [],
+                         "a consumed offer must never be resurrected as awaiting_approval")
+
+    def test_remote_only_consumed_tombstone_is_pulled_in(self):
+        # The mirror case: THIS process's copy still shows HOOD pending, but
+        # a different checkout already consumed it -- must not require local
+        # to already know about a remote-side tombstone for it to apply.
+        self._write_local({"pending": [self._offer("HOOD")], "consumed": {}})
+        remote = {"pending": [], "consumed": {"HOOD_2026-07-29": time.time()}}
+        result = self._sync_against_remote(remote)
+        self.assertEqual(result["pending"], [])
+
+    def test_unrelated_pending_offer_still_merges_normally(self):
+        self._write_local({"pending": [self._offer("HOOD")], "consumed": {}})
+        remote = {"pending": [self._offer("RIVN")], "consumed": {}}
+        result = self._sync_against_remote(remote)
+        tickers = {e["ticker"] for e in result["pending"]}
+        self.assertEqual(tickers, {"HOOD", "RIVN"})
+
+    def test_expired_tombstone_is_pruned_by_the_merge(self):
+        stale = time.time() - a._EARNINGS_OFFER_TOMBSTONE_S - 10
+        self._write_local({"pending": [], "consumed": {"OLD_2026-01-01": stale}})
+        remote = {"pending": [self._offer("RIVN")], "consumed": {}}
+        result = self._sync_against_remote(remote)
+        self.assertNotIn("OLD_2026-01-01", result["consumed"])
+
+    def test_pre_migration_legacy_bare_list_local_file_merges_without_error(self):
+        # A file that hasn't been touched by the new save path yet is still
+        # a bare list -- the merge's extract() must handle that shape rather
+        # than crashing or silently treating it as empty.
+        self._write_local([self._offer("HOOD")])
+        remote = {"pending": [self._offer("RIVN")], "consumed": {}}
+        result = self._sync_against_remote(remote)
+        tickers = {e["ticker"] for e in result["pending"]}
+        self.assertEqual(tickers, {"HOOD", "RIVN"})
+
+    def test_consume_earnings_offer_save_tombstones_and_removes(self):
+        entry = self._offer("HOOD")
+        a._save_earnings_pending([entry, self._offer("RIVN")])
+        pending = a._load_earnings_pending()
+        remaining = [e for e in pending if e["ticker"] != "HOOD"]
+        a._consume_earnings_offer_save(remaining, entry)
+        with open(self._tmp.name) as f:
+            data = json.load(f)
+        self.assertEqual([e["ticker"] for e in data["pending"]], ["RIVN"])
+        self.assertIn("HOOD_2026-07-29", data["consumed"])
+
+
 class TestWorkflowRestartFeature(unittest.TestCase):
     """The whole point of /restart and the watchdog auto-heal is that they
     work even when the daemon is frozen — a bug here means the "last resort"

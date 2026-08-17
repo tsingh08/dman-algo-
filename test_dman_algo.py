@@ -1502,6 +1502,21 @@ class TestMacroBlackoutWindows(unittest.TestCase):
         self.assertFalse(safe, "a configured major macro event day must "
                                "be blocked the same way FOMC is")
 
+    def test_no_bls_release_date_falls_on_a_weekend(self):
+        # Found in the 2026-08-16 review: _PPI_DATES' April 2026/2027
+        # entries were computed as CPI+1 CALENDAR day, not next business
+        # day as documented -- April CPI lands on a Friday both years, so
+        # PPI+1 landed on a Saturday, a date BLS never actually releases
+        # on. The real April PPI print (the following Monday) had zero
+        # blackout coverage either year. BLS (CPI/PPI/NFP) never releases
+        # on a weekend, so this is a hard invariant, not a heuristic.
+        for _name, _dates in (("_CPI_DATES", a._CPI_DATES), ("_PPI_DATES", a._PPI_DATES)):
+            weekend_dates = sorted(d for d in _dates if d.weekday() >= 5)
+            self.assertEqual(weekend_dates, [],
+                             f"{_name} has date(s) on a weekend, which BLS never "
+                             f"releases on -- likely calendar-day-not-business-day "
+                             f"arithmetic: {weekend_dates}")
+
 
 class TestMtfCatalystOverride(unittest.TestCase):
     """The override that unblocks a news-confirmed earnings-gap play (the

@@ -8485,15 +8485,24 @@ _CPI_DATES: set[date] = {
 
 # PPI release dates (8:30 AM ET) — released ~1 business day after CPI; similar gap/whipsaw risk.
 # Blackout: same as CPI — pre-10 AM on release day only. Update each December from bls.gov.
+#
+# Found in the 2026-08-16 review: the estimate below was calendar-day
+# (CPI+1 day) arithmetic, not next-BUSINESS-day as the comment claimed.
+# April CPI lands on a Friday both 2026 and 2027, so CPI+1 CALENDAR day
+# landed on a Saturday both years -- a date BLS never actually releases
+# on -- meaning the real April PPI print (the following Monday) had
+# zero blackout coverage either year. Corrected those two entries to the
+# next business day; every other month's CPI falls on a weekday that
+# doesn't hit this collision.
 _PPI_DATES: set[date] = {
     # 2026 — estimated as CPI+1 business day (verify from bls.gov/schedule)
     date(2026,  1, 15), date(2026,  2, 12), date(2026,  3, 12),
-    date(2026,  4, 11), date(2026,  5, 14), date(2026,  6, 11),
+    date(2026,  4, 13), date(2026,  5, 14), date(2026,  6, 11),
     date(2026,  7, 15), date(2026,  8, 13), date(2026,  9, 10),
     date(2026, 10, 15), date(2026, 11, 13), date(2026, 12, 11),
     # 2027 — estimated; verify from bls.gov each December
     date(2027,  1, 14), date(2027,  2, 11), date(2027,  3, 11),
-    date(2027,  4, 10), date(2027,  5, 13), date(2027,  6, 10),
+    date(2027,  4, 12), date(2027,  5, 13), date(2027,  6, 10),
     date(2027,  7, 15), date(2027,  8, 12), date(2027,  9,  9),
     date(2027, 10, 14), date(2027, 11, 11), date(2027, 12, 10),
 }

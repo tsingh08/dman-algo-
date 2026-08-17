@@ -841,6 +841,60 @@ class TestSectorConcentrationCap(unittest.TestCase):
         self.assertEqual(tickers, ["AAPL", "MSFT", "ZZZQ1", "ZZZQ2"])
 
 
+class TestFinalizeAndAlertSignalsLogsDedupSuppressed(unittest.TestCase):
+    """Found in the 2026-08-16 review: a signal suppressed by the alert
+    cooldown (_is_duplicate_alert) is still tradeable -- it's still in the
+    list run_pro_scanner() returns and the caller submits to Alpaca -- but
+    _log_live_signal() used to be skipped in the same branch that skipped
+    the Telegram alert, so a real fill from a dedup-suppressed signal had
+    no entry in the live-outcome pending log to ever resolve win/loss
+    against. Only the alert should be suppressed by dedup, not outcome
+    tracking."""
+
+    def _signal(self, ticker):
+        return a.ProSignal(
+            ticker=ticker, bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+            shares=100, rr=2.0, rsi=50.0, rvol=2.0,
+            reason="test", confluence_score=0,
+        )
+
+    def test_dedup_suppressed_signal_still_gets_logged_for_outcome_tracking(self):
+        sig = self._signal("AAPL")
+        with patch.object(a, "_is_duplicate_alert", return_value=True), \
+             patch.object(a, "_log_live_signal") as mock_log, \
+             patch.object(a, "_save_last_alert") as mock_save, \
+             patch.object(a, "_send_signal_alert_batch") as mock_send:
+            a._finalize_and_alert_signals([sig], {"regime": "TREND"}, {})
+        mock_log.assert_called_once_with(sig)
+        mock_save.assert_not_called()
+        mock_send.assert_called_once_with([])
+
+    def test_non_suppressed_signal_is_logged_and_alerted(self):
+        sig = self._signal("AAPL")
+        with patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_log_live_signal") as mock_log, \
+             patch.object(a, "_save_last_alert") as mock_save, \
+             patch.object(a, "format_signal_telegram", return_value="msg"), \
+             patch.object(a, "_send_signal_alert_batch") as mock_send:
+            a._finalize_and_alert_signals([sig], {"regime": "TREND"}, {})
+        mock_log.assert_called_once_with(sig)
+        mock_save.assert_called_once_with("AAPL")
+        mock_send.assert_called_once_with(["msg"])
+
+    def test_smallcap_extra_ticker_uses_the_smallcap_telegram_format(self):
+        sig = self._signal("ZZZQ")
+        with patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_log_live_signal"), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "format_smallcap_telegram", return_value="smallcap msg") as mock_fmt, \
+             patch.object(a, "_send_signal_alert_batch") as mock_send:
+            a._finalize_and_alert_signals([sig], {"regime": "TREND"},
+                                          {"ZZZQ": (5.0, 20.0, 3.0, 60.0)})
+        mock_fmt.assert_called_once_with(sig, 5.0, 20.0, 3.0, 60.0)
+        mock_send.assert_called_once_with(["smallcap msg"])
+
+
 class TestSyncScanLogWithRemote(unittest.TestCase):
     """Confirmed live 2026-08-11: sync_scan_log_with_remote() used to cap
     the merged list positionally (merged[-20:]), matching

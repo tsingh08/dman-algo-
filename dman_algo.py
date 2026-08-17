@@ -12515,6 +12515,44 @@ def _apply_sector_concentration_cap(signals: list["ProSignal"]) -> list["ProSign
     return concentrated
 
 
+def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
+                                smallcap_extra: dict) -> None:
+    """
+    Alert only AFTER heat-cap + sector-cap have finalized the list. Both
+    passes used to send the Telegram alert the moment a signal was
+    detected, before those two caps ran — so a signal excluded by either
+    cap still fired a "LONG XYZ" notification with no order ever
+    submitted for it (the caller only submits `signals`, the list this
+    function is handed after both caps have already run). This also kept
+    phantom entries out of live-signal outcome tracking, which previously
+    recorded a "signal" for tickers that were never traded.
+
+    _log_live_signal() runs for EVERY signal here, dedup-suppressed or
+    not -- found in the 2026-08-16 review: a signal inside the alert
+    cooldown window is still tradeable (it's still in `signals`, what the
+    caller actually submits to Alpaca), so skipping this call left a real
+    fill with no entry in the live-outcome pending log to ever resolve
+    win/loss against. Only the Telegram ALERT should be suppressed by
+    dedup, not outcome tracking. Safe to call unconditionally:
+    _log_live_signal() already dedupes internally by ticker+date, so a
+    signal that keeps getting alert-suppressed across several scans in
+    the same day still only logs once.
+    """
+    _alert_batch: list[str] = []
+    for sig in signals:
+        _log_live_signal(sig)
+        if _is_duplicate_alert(sig.ticker):
+            sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
+            continue
+        if sig.ticker in smallcap_extra:
+            fl_m, sh_pct, insider_pct, post_rs = smallcap_extra[sig.ticker]
+            _alert_batch.append(format_smallcap_telegram(sig, fl_m, sh_pct, insider_pct, post_rs))
+        else:
+            _alert_batch.append(format_signal_telegram(sig, regime))
+        _save_last_alert(sig.ticker)
+    _send_signal_alert_batch(_alert_batch)
+
+
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
                     min_score: int = None,
                     use_ai: bool = False,
@@ -12937,26 +12975,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     signals = _apply_sector_concentration_cap(signals)
 
-    # Alert only AFTER heat-cap + sector-cap have finalized the list. Both
-    # passes above used to send the Telegram alert the moment a signal was
-    # detected, before these two caps ran — so a signal excluded by either
-    # cap still fired a "LONG XYZ" notification with no order ever submitted
-    # for it (the caller only submits this function's *returned* list). This
-    # also kept phantom entries out of live-signal outcome tracking, which
-    # previously recorded a "signal" for tickers that were never traded.
-    _alert_batch: list[str] = []
-    for sig in signals:
-        if _is_duplicate_alert(sig.ticker):
-            sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
-            continue
-        if sig.ticker in _smallcap_extra:
-            fl_m, sh_pct, insider_pct, post_rs = _smallcap_extra[sig.ticker]
-            _alert_batch.append(format_smallcap_telegram(sig, fl_m, sh_pct, insider_pct, post_rs))
-        else:
-            _alert_batch.append(format_signal_telegram(sig, regime))
-        _save_last_alert(sig.ticker)
-        _log_live_signal(sig)   # record for live outcome tracking
-    _send_signal_alert_batch(_alert_batch)
+    _finalize_and_alert_signals(signals, regime, _smallcap_extra)
 
     print(f"\n{'─'*68}")
     print(f"  ✅  {len(signals)} A+ setup(s) passed all filters")

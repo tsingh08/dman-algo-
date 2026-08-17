@@ -179,6 +179,74 @@ class TestYfinanceMultiIndexDefense(unittest.TestCase):
         a._cache.clear()
 
 
+class TestSimulateTradeOutcomeStopCheckOrdering(unittest.TestCase):
+    """Found in the 2026-08-16 review: within one daily bar,
+    _simulate_trade_outcome() used to check the BE@1R trigger (did High
+    reach +1R) BEFORE the stop-breach check (did Low breach the ORIGINAL
+    stop) -- and the BE@1R check mutates trail_stop in place, so a bar
+    whose High reached +1R AND whose Low also breached the original stop
+    got the stop check evaluated against the freshly-promoted breakeven
+    stop instead. Daily OHLC can't tell you which extreme happened first
+    intraday -- the Low could just as easily have breached the original
+    stop BEFORE the High ever reached +1R that same day, which is a real
+    loss, not a breakeven "win". This look-ahead bias could inflate the
+    reported win rate."""
+
+    def _df_with_one_wide_bar(self, entry_open, entry_high, entry_low, entry_close,
+                              bar_high, bar_low, bar_close):
+        import pandas as pd
+        idx = pd.date_range("2026-06-01", periods=2, freq="D")
+        return pd.DataFrame({
+            "Open":   [entry_open, entry_close],
+            "High":   [entry_high, bar_high],
+            "Low":    [entry_low, bar_low],
+            "Close":  [entry_close, bar_close],
+            "Volume": [1_000_000, 1_000_000],
+        }, index=idx)
+
+    def test_same_bar_stop_breach_and_1r_touch_is_a_real_loss_not_breakeven(self):
+        # entry=15, stop=12 -> be1r_px = 15 + (15-12) = 18. This bar's High
+        # (18.5) clears +1R AND its Low (11.5) breaches the ORIGINAL stop --
+        # daily OHLC can't tell us which happened first, so the
+        # conservative (non-look-ahead) read must be a real stop-out.
+        df = self._df_with_one_wide_bar(15.0, 15.2, 14.8, 15.0, 18.5, 11.5, 13.0)
+        with patch.object(a.yf, "download", return_value=df):
+            result = a._simulate_trade_outcome(
+                ticker="TESTX", entry=15.0, stop=12.0,
+                target1=20.0, target2=25.0, bias="LONG",
+                start_date="2026-06-01",
+            )
+        self.assertIsNotNone(result)
+        self.assertEqual(result["outcome"], "LOSS")
+        self.assertEqual(result["exit_reason"], "STOP")
+        self.assertAlmostEqual(result["pnl_pct"], -20.0, places=1)
+
+    def test_1r_touch_without_a_stop_breach_still_arms_breakeven_for_the_next_bar(self):
+        # Regression check: the reordering must not break the normal,
+        # non-ambiguous BE@1R promotion path -- a bar that reaches +1R
+        # WITHOUT breaching the original stop should still arm breakeven,
+        # and a later bar breaching that NEW (breakeven) stop should
+        # report STOP(BE) with ~0% pnl, not a real loss.
+        import pandas as pd
+        idx = pd.date_range("2026-06-01", periods=3, freq="D")
+        df = pd.DataFrame({
+            "Open":   [15.0, 17.5, 14.5],
+            "High":   [15.2, 18.5, 15.1],   # bar 2 clears +1R (18.0), stop NOT breached (Low > 12)
+            "Low":    [14.8, 17.0, 14.4],   # bar 3 breaches the NEW breakeven stop (15.0)
+            "Close":  [15.0, 18.0, 14.6],
+            "Volume": [1_000_000, 1_000_000, 1_000_000],
+        }, index=idx)
+        with patch.object(a.yf, "download", return_value=df):
+            result = a._simulate_trade_outcome(
+                ticker="TESTX", entry=15.0, stop=12.0,
+                target1=25.0, target2=30.0, bias="LONG",
+                start_date="2026-06-01",
+            )
+        self.assertIsNotNone(result)
+        self.assertEqual(result["exit_reason"], "STOP(BE)")
+        self.assertAlmostEqual(result["pnl_pct"], 0.0, places=1)
+
+
 class TestSetupMinConfluenceOverrides(unittest.TestCase):
     """Added 2026-08-14 after reviewing a month of live trades: 'Low Float
     Catalyst' had a 0% win rate on every non-BE trade (IOTR -8.7%,

@@ -1668,13 +1668,20 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
         hold += 1
         exit_bar_date = str(df.index[i].date())
 
-        # BE@1R: move stop to entry once 1R profit is reached (before T1)
-        if not be1r_set and not t1_hit:
-            if (is_long and H >= be1r_px) or (not is_long and L <= be1r_px):
-                trail_stop = entry
-                be1r_set   = True
-
-        # Stop check
+        # Stop check FIRST, against trail_stop as it stood at the START of
+        # this bar -- found in the 2026-08-16 review: this used to run
+        # AFTER the BE@1R block below, so a bar whose High reached +1R
+        # AND whose Low also breached the ORIGINAL stop got the stop
+        # check evaluated against the JUST-PROMOTED breakeven stop
+        # instead, misclassifying it as a breakeven "win" (~0%). A daily
+        # bar can't tell you which extreme happened first intraday — the
+        # Low could just as easily have breached the original stop
+        # BEFORE the High ever reached +1R later that same day, which
+        # would be a real loss, not breakeven. Checking the stop against
+        # the pre-bar trail_stop (conservative: assume the worse-case
+        # ordering, same convention already used correctly for the T1
+        # block further below) closes that look-ahead gap, which could
+        # otherwise inflate the reported win rate.
         stopped = (is_long and L <= trail_stop) or (not is_long and H >= trail_stop)
         if stopped:
             exit_px     = trail_stop
@@ -1684,6 +1691,13 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
                     "exit_reason": exit_reason,
                     "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
                     "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
+
+        # BE@1R: move stop to entry once 1R profit is reached (before T1) --
+        # applies only to FUTURE bars now, same as T1's own trail_stop move.
+        if not be1r_set and not t1_hit:
+            if (is_long and H >= be1r_px) or (not is_long and L <= be1r_px):
+                trail_stop = entry
+                be1r_set   = True
 
         # T1 hit — scale out, move stop to breakeven
         if not t1_hit:

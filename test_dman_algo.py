@@ -725,8 +725,9 @@ class TestLogScanHalt(unittest.TestCase):
 
 class TestRunProScannerHaltLogging(unittest.TestCase):
     """Confirms run_pro_scanner() actually calls _log_scan_halt() from
-    each of the three circuit-breaker early returns -- the point of
-    _log_scan_halt existing is defeated if a guard forgets to call it."""
+    each of the four circuit-breaker early returns (consecutive-loss,
+    monthly, daily, VIX-extreme) -- the point of _log_scan_halt existing
+    is defeated if a guard forgets to call it."""
 
     def setUp(self):
         self._patches = [
@@ -774,6 +775,27 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
         self.assertEqual(result, [])
         mock_halt.assert_called_once()
         self.assertEqual(mock_halt.call_args[0][0], "daily_loss_limit")
+
+    def test_vix_extreme_guard_logs_a_halt(self):
+        # Found in the 2026-08-16 review: the other three circuit breakers
+        # (consecutive-loss, monthly, daily) all call _log_scan_halt() so
+        # the scan log doesn't go dark for the rest of a halted session --
+        # the VIX>=40 crisis halt, the single highest-stakes day for this
+        # to matter, never did.
+        regime = {"regime": "CRISIS", "score": 0, "vix_ok": False, "details": {"VIX": 45.0}}
+        with patch.object(a.WinRateTracker, "rolling_stats",
+                          return_value={"consec_losses": 0, "consec_wins": 0,
+                                        "win_rate": 0.5, "total": 10}), \
+             patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_market_regime", return_value=regime), \
+             patch.object(a, "get_top_sectors", return_value=[]), \
+             patch.object(a, "_log_scan_halt") as mock_halt:
+            result = a.run_pro_scanner(["AAPL"], universe_label="test")
+        self.assertEqual(result, [])
+        mock_halt.assert_called_once()
+        self.assertEqual(mock_halt.call_args[0][0], "vix_extreme")
 
 
 class TestSyncScanLogWithRemote(unittest.TestCase):

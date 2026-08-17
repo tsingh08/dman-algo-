@@ -12578,6 +12578,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 f"All trading suspended. Protect capital. Come back when VIX < 35."
             )
             _save_last_alert("__VIX_EXTREME__")
+        _log_scan_halt("vix_extreme", tickers, min_score or 0)
         return []
 
     # VIX regime scaling — tighten confluence floor in elevated-volatility markets

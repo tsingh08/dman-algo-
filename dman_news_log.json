@@ -1190,5 +1190,235 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:33.595452-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Reported Aug. 14: &#39;U.S. Urges Apple Not to Buy Chinese Memory Chips&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-17T11:01:34.234083-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA\u2019s Ohio AI Megadeal: OpenAI, 8 GW of Compute and a $1.5 Billion SB Energy Bet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T11:01:34.527922-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "QUICK SPARK: Intel Stock Rises After CEO Spends $10 Million on Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T11:01:37.605257-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "UBS Maintains Buy on Marvell Technology, Lowers Price Target to $300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:38.376029-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Enphase Energy, Raises Price Target to $41",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:38.631176-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on First Solar, Lowers Price Target to $218",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-17T11:01:39.341995-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Rep. Michael Guest Has Sold Up to $45K Worth Of Airbnb Stock: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:39.831043-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "QUICK SPARK: Intel Stock Rises After CEO Spends $10 Million on Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:42.149504-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Rep. Michael Guest Has Sold Up to $45K Worth Of Airbnb Stock: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T11:01:42.662208-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "David Tepper Gets More Selective on China With Alibaba Cut, Baidu Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:42.916098-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "David Tepper Gets More Selective on China With Alibaba Cut, Baidu Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:43.167088-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "David Tepper Gets More Selective on China With Alibaba Cut, Baidu Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:43.419624-04:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "David Tepper Gets More Selective on China With Alibaba Cut, Baidu Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:43.673509-04:00",
+    "symbols": [
+      "KWEB"
+    ],
+    "headline": "David Tepper Gets More Selective on China With Alibaba Cut, Baidu Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:44.365218-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Aug. 14: &#39;U.S. Urges Apple Not to Buy Chinese Memory Chips&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:45.965802-04:00",
+    "symbols": [
+      "EYPT"
+    ],
+    "headline": "EyePoint Stock Plummets on Mixed Primary Data From Blindness Drug Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:46.450657-04:00",
+    "symbols": [
+      "QNTM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:46.960906-04:00",
+    "symbols": [
+      "OCUL"
+    ],
+    "headline": "H World Group Posts Upbeat Q2 Results, Joins Almonty Industries, Diana Shipping And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:46.962381-04:00",
+    "symbols": [
+      "OCUL"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:47.208195-04:00",
+    "symbols": [
+      "DUOT"
+    ],
+    "headline": "Axe Compute And Duos Technologies Enter Agreements Adding Up To 55 MW Of AI Data Center Capacity Across Multiple U.S. Locations Implying $500M+ In Expected Aggregate Payments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:47.450913-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Stock Slides Following Leadership Restructuring: What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:47.452348-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T11:01:47.453716-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Announced CEO, Director Raj Talluri Resigned; Chairman And Largest Shareholder T.J. Rodgers Appointed Executive Chairman; CFO Ryan Benton Appointed Interim CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

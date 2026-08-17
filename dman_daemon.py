@@ -486,7 +486,7 @@ def _tracked(paths: list[str]) -> list[str]:
         return []
 
 
-def _restore_corrupted_json(paths: list[str]) -> list[str]:
+def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
     """
     Guarantee nothing invalid ever gets staged. Any .json file that fails to
     parse — most commonly literal `<<<<<<<` conflict markers left behind by
@@ -499,20 +499,44 @@ def _restore_corrupted_json(paths: list[str]) -> list[str]:
     self-healing (the next tick recomputes it fresh); publishing broken JSON
     to the shared repo is not — every future read of that file falls back to
     an empty default until someone notices, silently discarding sync history.
+
+    Found in the 2026-08-16 review: this only ever validated .json files.
+    dman_live_outcomes.csv is in STATE_FILES but isn't JSON, so the exact
+    same stash-pop-conflict failure mode there sailed straight through
+    unvalidated and would get staged/committed/pushed with raw conflict
+    markers still in it -- corrupting the win-rate ledger's CSV export
+    the same way an unvalidated JSON file corrupts its own state. Checked
+    for the literal `<<<<<<<`/`>>>>>>>` marker text rather than parsing as
+    a structured CSV (this file's rows are free-text ticker/setup fields,
+    so a stricter structural check risks false positives on legitimate
+    content) — those two specific markers are unambiguous git artifacts
+    that can't occur naturally in trade data.
     """
     ok: list[str] = []
     for p in paths:
-        if not p.endswith(".json"):
-            ok.append(p)
+        if p.endswith(".json"):
+            try:
+                with open(p) as f:
+                    json.load(f)
+                ok.append(p)
+            except Exception as exc:
+                log(f"  ⚠️  {p} failed JSON validation ({exc}) — restoring last "
+                    f"good commit, skipping this cycle's update to that file")
+                _git("checkout", "--", p)
             continue
-        try:
-            with open(p) as f:
-                json.load(f)
-            ok.append(p)
-        except Exception as exc:
-            log(f"  ⚠️  {p} failed JSON validation ({exc}) — restoring last "
-                f"good commit, skipping this cycle's update to that file")
-            _git("checkout", "--", p)
+        if p.endswith(".csv"):
+            try:
+                with open(p, "r", errors="replace") as f:
+                    content = f.read()
+                if "<<<<<<<" in content or ">>>>>>>" in content:
+                    raise ValueError("unresolved git conflict marker found")
+                ok.append(p)
+            except Exception as exc:
+                log(f"  ⚠️  {p} failed CSV validation ({exc}) — restoring last "
+                    f"good commit, skipping this cycle's update to that file")
+                _git("checkout", "--", p)
+            continue
+        ok.append(p)
     return ok
 
 
@@ -557,7 +581,7 @@ def git_sync() -> None:
                 # files applied cleanly by pop itself, the rest reset by us)
                 # — drop it so conflicted stashes don't pile up run over run.
                 log("stash pop conflict — restoring corrupted file(s) from last commit")
-                _restore_corrupted_json(_existing(STATE_FILES))
+                _restore_corrupted_state_files(_existing(STATE_FILES))
                 _git("stash", "drop")
 
         # Semantic merge for dman_positions.json: this daemon (60s cadence)
@@ -586,11 +610,12 @@ def git_sync() -> None:
 
         # Stage and push any local state changes (re-check existence — the
         # stash pop, pull, or merge above may have created/removed files).
-        # _restore_corrupted_json is a second, unconditional safety net here
-        # — catches corruption from any source, not just a flagged stash
-        # conflict (e.g. a process killed mid-write leaving a truncated file).
+        # _restore_corrupted_state_files is a second, unconditional safety
+        # net here — catches corruption from any source, not just a
+        # flagged stash conflict (e.g. a process killed mid-write leaving
+        # a truncated file).
         _present = _existing(STATE_FILES)
-        _present = _restore_corrupted_json(_present)
+        _present = _restore_corrupted_state_files(_present)
         # Union with _tracked(): a STATE_FILES entry that's been deleted
         # locally (still tracked in git, absent from _present) must still
         # reach `git add -A` so its deletion gets staged — see _tracked()'s

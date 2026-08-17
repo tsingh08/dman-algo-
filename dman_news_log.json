@@ -968,5 +968,27 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T10:04:42.660118-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia To Invest $100B For OpenAI Data Centre In Ohio&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-17T10:05:03.875206-04:00",
+    "symbols": [
+      "AMZN",
+      "SPCX"
+    ],
+    "headline": "SpaceX Launches 2 Rockets Just 38 Minutes Apart, Setting New Record for Musk\u2019s Launch Machine",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

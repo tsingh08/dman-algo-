@@ -2267,5 +2267,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:18:49.740669-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "xAI Faces Fresh Allegation Over Grok\u2019s Role in Creating Child Abuse Material",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-17T13:22:04.258002-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia-OpenAI Deal Isn&#39;t &#39;Circular Financing,&#39; Says Jensen Huang, Sees $600B Compute Opportunity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

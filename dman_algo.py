@@ -12190,17 +12190,19 @@ def _check_stop_coverage() -> Optional[dict]:
             try:
                 _pt_pos = PositionTracker().positions
                 for _p in _pt_pos:
-                    if _p.setup.startswith("Options Call ") or _p.setup.startswith("Options Put "):
-                        _sp = _p.setup.split()
-                        if len(_sp) >= 3:
-                            _tracked_occ.add(_sp[2])
-                    elif _p.setup.startswith("Earnings "):
+                    if _p.setup.startswith("Earnings "):
                         # A spread position has 2-4 real option legs, not a single
                         # symbol embedded in `setup` — without this, every leg
                         # would falsely alarm as an orphan (untracked) position.
                         _tracked_occ |= set(_p.legs)
+                    elif _p.setup.startswith("Options Call ") or _p.setup.startswith("Options Put "):
+                        # _position_identity() already extracts the OCC symbol
+                        # for exactly this purpose -- found in the 2026-08-16
+                        # review: this used to reimplement the same parsing
+                        # inline, one of three duplicated copies in the project.
+                        _tracked_occ.add(_position_identity(_p.ticker, _p.setup))
                     else:
-                        _tracked_tickers.add(_p.ticker)
+                        _tracked_tickers.add(_position_identity(_p.ticker, _p.setup))
             except Exception:
                 pass
             _orphans = [sym for sym in _alp_positions
@@ -14289,13 +14291,14 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
         if pos.setup.startswith("Earnings "):
             continue
         # Options positions: Alpaca reports the OCC symbol (e.g. "SMCI260724C00027500"),
-        # not the underlying. Extract OCC from setup string for correct lookup.
-        _occ_sym = None
-        if pos.setup.startswith("Options Call ") or pos.setup.startswith("Options Put "):
-            _sp = pos.setup.split()
-            _occ_sym = _sp[2] if len(_sp) >= 3 else None
-
-        _alp_sym = _occ_sym if _occ_sym else ticker
+        # not the underlying. _position_identity() already extracts OCC
+        # from the setup string for exactly this purpose -- found in the
+        # 2026-08-16 review: this used to reimplement the same parsing
+        # inline (and, unlike _position_identity(), fell back to plain
+        # `ticker` instead of ticker.upper() for the non-options case).
+        _is_options = pos.setup.startswith("Options Call ") or pos.setup.startswith("Options Put ")
+        _alp_sym = _position_identity(ticker, pos.setup)
+        _occ_sym = _alp_sym if _is_options else None
         if _alp_sym in alp_open:
             continue    # still open — nothing to record yet
 

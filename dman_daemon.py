@@ -406,14 +406,20 @@ def _current_option_occ_symbols() -> list[str]:
     symbols = set()
     for pos in positions:
         setup = pos.get("setup", "")
-        if setup.startswith(("Options Call ", "Options Put ")):
-            parts = setup.split()
-            if len(parts) >= 3 and parts[2]:
-                symbols.add(parts[2])
-        elif setup.startswith("Earnings "):
+        if setup.startswith("Earnings "):
             for sym in pos.get("legs", []):
                 if sym:
                     symbols.add(sym)
+        elif setup.startswith(("Options Call ", "Options Put ")):
+            # algo._position_identity() already extracts the OCC symbol
+            # for exactly this purpose -- found in the 2026-08-16 review:
+            # this used to reimplement the same parsing inline, one of
+            # three duplicated copies in the project (the other two in
+            # dman_algo.py: sync_alpaca_fills(), the orphan-position
+            # detector). If the setup-string format ever changes, the
+            # canonical helper gets fixed and copies like this one
+            # silently don't.
+            symbols.add(algo._position_identity(pos.get("ticker", ""), setup))
     return sorted(symbols)
 
 

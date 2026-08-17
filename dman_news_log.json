@@ -2340,5 +2340,34 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:37:48.952201-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:41:21.328060-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "First Solar shares are trading lower after Evercore ISI Group lowered its price target on the stock from $219 to $218.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

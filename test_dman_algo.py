@@ -6381,6 +6381,117 @@ class TestEarningsPendingMergeSafety(unittest.TestCase):
         self.assertIn("HOOD_2026-07-29", data["consumed"])
 
 
+class TestCashAvailableForAccountsForOpenOrders(unittest.TestCase):
+    """Found in the 2026-08-16 review: _cash_available_for() only checked
+    Alpaca's raw account.cash figure, which is NOT reduced until an order
+    actually FILLS. A queued-but-unfilled GTC entry (or earnings-spread
+    MLEG debit leg, or manual options buy) doesn't show up there, so a
+    second real trade could be green-lit on top of cash that's already
+    spoken for -- a genuine over-spend the instant both orders fill.
+    Fixed by reserving the notional of every open BUY-side order (and
+    MLEG net-debit spreads) against the raw cash figure before approving
+    a new trade."""
+
+    def setUp(self):
+        self._cache_patch = patch.object(a, "_reserved_cash_cache", {"reserved": 0.0, "ts": 0.0})
+        self._cache_patch.start()
+
+    def tearDown(self):
+        self._cache_patch.stop()
+
+    def _order(self, order_class, side=None, asset_class=None, qty=0,
+              limit_price=None, stop_price=None):
+        o = MagicMock()
+        o.order_class = order_class
+        o.side = side
+        o.asset_class = asset_class
+        o.qty = qty
+        o.limit_price = limit_price
+        o.stop_price = stop_price
+        return o
+
+    def _client_with_orders(self, orders):
+        client = MagicMock()
+        client.get_orders.return_value = orders
+        return client
+
+    def test_open_equity_buy_order_is_reserved_against_cash(self):
+        from alpaca.trading.enums import OrderClass, OrderSide, AssetClass
+        order = self._order(OrderClass.SIMPLE, side=OrderSide.BUY, asset_class=AssetClass.US_EQUITY,
+                            qty=10, limit_price=50.0)
+        client = self._client_with_orders([order])
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "get_available_cash", return_value=1000.0):
+            # $1000 cash - $500 reserved (10 * $50 queued) = $500 free; $600 > $500 -> blocked
+            ok, msg = a._cash_available_for(600.0)
+        self.assertFalse(ok)
+        self.assertIn("cash", msg)
+
+    def test_open_equity_sell_stop_order_is_not_reserved(self):
+        from alpaca.trading.enums import OrderClass, OrderSide, AssetClass
+        order = self._order(OrderClass.SIMPLE, side=OrderSide.SELL, asset_class=AssetClass.US_EQUITY,
+                            qty=10, stop_price=45.0)
+        client = self._client_with_orders([order])
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "get_available_cash", return_value=1000.0):
+            ok, _ = a._cash_available_for(900.0)
+        self.assertTrue(ok, "a protective SELL stop must not reduce cash available for a NEW buy")
+
+    def test_open_options_buy_order_uses_100x_multiplier(self):
+        from alpaca.trading.enums import OrderClass, OrderSide, AssetClass
+        order = self._order(OrderClass.SIMPLE, side=OrderSide.BUY, asset_class=AssetClass.US_OPTION,
+                            qty=2, limit_price=3.0)
+        client = self._client_with_orders([order])
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "get_available_cash", return_value=1000.0):
+            # reserved = 2 * $3.00 * 100 = $600; free = $400; $500 > $400 -> blocked
+            ok, _ = a._cash_available_for(500.0)
+        self.assertFalse(ok)
+
+    def test_open_mleg_debit_spread_reserves_net_debit_times_100(self):
+        from alpaca.trading.enums import OrderClass
+        order = self._order(OrderClass.MLEG, qty=2, limit_price=4.0)
+        client = self._client_with_orders([order])
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "get_available_cash", return_value=1000.0):
+            # reserved = 2 sets * $4.00 net debit * 100 = $800; free = $200; $300 > $200 -> blocked
+            ok, _ = a._cash_available_for(300.0)
+        self.assertFalse(ok)
+
+    def test_mleg_net_credit_reserves_nothing(self):
+        from alpaca.trading.enums import OrderClass
+        order = self._order(OrderClass.MLEG, qty=2, limit_price=-1.5)   # net credit, not a debit
+        client = self._client_with_orders([order])
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "get_available_cash", return_value=1000.0):
+            ok, _ = a._cash_available_for(900.0)
+        self.assertTrue(ok)
+
+    def test_no_open_orders_behaves_exactly_like_before(self):
+        client = self._client_with_orders([])
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "get_available_cash", return_value=1000.0):
+            ok, _ = a._cash_available_for(900.0)
+        self.assertTrue(ok)
+
+    def test_client_unavailable_for_reserved_lookup_does_not_block_an_otherwise_fundable_trade(self):
+        # get_available_cash() already fails CLOSED on its own if the real
+        # cash balance is unverifiable. A client outage specific to the
+        # reserved-open-orders lookup must not layer on a SECOND,
+        # redundant fail-closed path -- it just falls back to zero
+        # reserved, exactly the pre-fix behavior.
+        with patch.object(a, "get_alpaca_client", return_value=None), \
+             patch.object(a, "get_available_cash", return_value=1000.0):
+            ok, _ = a._cash_available_for(900.0)
+        self.assertTrue(ok)
+
+    def test_cash_none_still_fails_closed_regardless_of_open_orders(self):
+        with patch.object(a, "get_available_cash", return_value=None):
+            ok, msg = a._cash_available_for(1.0)
+        self.assertFalse(ok)
+        self.assertIn("unavailable", msg)
+
+
 class TestWorkflowRestartFeature(unittest.TestCase):
     """The whole point of /restart and the watchdog auto-heal is that they
     work even when the daemon is frozen — a bug here means the "last resort"

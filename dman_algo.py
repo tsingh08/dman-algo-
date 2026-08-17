@@ -9301,6 +9301,7 @@ def get_effective_account() -> float:
 
 
 _live_cash_cache: dict = {"cash": None, "ts": 0.0}
+_reserved_cash_cache: dict = {"reserved": 0.0, "ts": 0.0}
 
 
 def get_available_cash() -> Optional[float]:
@@ -9331,17 +9332,70 @@ def get_available_cash() -> Optional[float]:
         return _live_cash_cache["cash"]   # last known value, possibly still None
 
 
+def _reserved_cash_for_open_orders() -> float:
+    """
+    Dollar notional still reserved by open BUY-side orders that haven't
+    filled yet (queued GTC swing entries, earnings-spread MLEG debit
+    legs, manual options buys). Alpaca's account.cash field is NOT
+    reduced until an order actually FILLS, so _cash_available_for()
+    checking raw cash alone can green-light a new order that, stacked on
+    top of what's already queued, would overspend the instant those
+    queued orders also fill (real risk: GTC entries can sit open
+    overnight, well past this function's own 30s cache window). Same 30s
+    cache cadence as get_available_cash() so the two figures stay in
+    sync with each other. Returns 0.0 (fails OPEN, not closed) on any
+    error — deliberately the opposite of get_available_cash()'s fail-
+    closed None, since this is a subtracted correction, not the primary
+    balance: losing sight of reserved orders only makes the check as
+    permissive as it was before this fix existed, never more so.
+    """
+    try:
+        if time.time() - _reserved_cash_cache["ts"] > 30:
+            client = get_alpaca_client()
+            if client is None:
+                return _reserved_cash_cache["reserved"]
+            from alpaca.trading.requests import GetOrdersRequest
+            from alpaca.trading.enums import QueryOrderStatus, OrderSide, OrderClass, AssetClass
+            orders = client.get_orders(filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=500))
+            reserved = 0.0
+            for o in orders:
+                if o.order_class == OrderClass.MLEG:
+                    # Multi-leg spreads omit side/asset_class at the top level —
+                    # qty is sets, limit_price is net debit per set (see
+                    # _submit_earnings_spread()'s identical *100 convention).
+                    px = float(o.limit_price or 0)
+                    if px > 0:   # a net credit (px<0) reserves no cash
+                        reserved += float(o.qty or 0) * px * 100
+                    continue
+                if o.side != OrderSide.BUY:
+                    continue   # a protective SELL stop/TP doesn't reserve cash for a NEW buy
+                qty = float(o.qty or 0)
+                px  = float(o.limit_price or o.stop_price or 0)
+                mult = 100 if o.asset_class == AssetClass.US_OPTION else 1
+                reserved += qty * px * mult
+            _reserved_cash_cache["reserved"] = reserved
+            _reserved_cash_cache["ts"] = time.time()
+        return _reserved_cash_cache["reserved"]
+    except Exception:
+        return _reserved_cash_cache["reserved"]
+
+
 def _cash_available_for(cost: float) -> tuple[bool, str]:
     """
-    True if `cost` can be covered by real cash on hand without touching
-    margin. Fails CLOSED if cash can't be verified — an unknown balance
-    is not a green light to spend real money. See get_available_cash().
+    True if `cost` can be covered by real cash on hand — net of what's
+    already reserved by open BUY orders that haven't filled yet — without
+    touching margin. Fails CLOSED if cash can't be verified — an unknown
+    balance is not a green light to spend real money. See
+    get_available_cash() / _reserved_cash_for_open_orders().
     """
     cash = get_available_cash()
     if cash is None:
         return False, "cash balance unavailable — skipping rather than risk margin"
-    if cost > cash:
-        return False, f"would need ${cost:.0f}, only ${cash:.0f} cash available (no margin)"
+    reserved = _reserved_cash_for_open_orders()
+    free = cash - reserved
+    if cost > free:
+        return False, (f"would need ${cost:.0f}, only ${free:.0f} cash free "
+                       f"(${cash:.0f} cash − ${reserved:.0f} reserved by open orders, no margin)")
     return True, ""
 
 

@@ -1166,9 +1166,18 @@ def option_data_stream_loop() -> None:
             sym = getattr(q, "symbol", None)
             bid = float(getattr(q, "bid_price", 0) or 0)
             ask = float(getattr(q, "ask_price", 0) or 0)
-            if not sym or ask <= 0:
+            # Found in the 2026-08-16 review: this only guarded ask <= 0,
+            # unlike market_data_stream_loop()'s equity on_quote() above
+            # (requires bid > 0 AND ask > 0). A single transient one-sided
+            # tick (no market maker currently quoting a bid on a thin
+            # contract -- not "the option is actually worthless") could
+            # sit as this cache's authoritative view for up to 30s, and
+            # the options guard's stop-check logic sells against bid --
+            # reading a real bid of 0 as "at or below stop" and triggering
+            # a market sell on a book that was never actually that thin.
+            if not sym or bid <= 0 or ask <= 0:
                 return
-            mid = round((bid + ask) / 2, 2) if bid > 0 else round(ask, 2)
+            mid = round((bid + ask) / 2, 2)
             snap = {
                 "bid": round(bid, 2), "ask": round(ask, 2), "mid": mid,
                 "bid_size": int(getattr(q, "bid_size", 0) or 0),

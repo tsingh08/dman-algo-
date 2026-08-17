@@ -26,6 +26,7 @@
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 import signal
@@ -1353,7 +1354,7 @@ def news_data_stream_loop() -> None:
                 _news_seen_ids.pop(next(iter(_news_seen_ids)))
             return False
 
-    async def on_news(n) -> None:
+    def _handle_news_sync(n) -> None:
         global _last_fast_scan_trigger_ts
         try:
             news_id  = getattr(n, "id", None)
@@ -1433,6 +1434,49 @@ def news_data_stream_loop() -> None:
         except Exception as exc:
             log(f"news handler error: {exc}")
 
+    # _news_queue/_news_consumer_task (used by on_news() below, nonlocal)
+    # are declared per reconnect-loop iteration further down, not here --
+    # each iteration gets a fresh event loop via alpaca-py's stream.run(),
+    # and an asyncio.Queue/Task from a prior loop can't be awaited on a
+    # new one. See on_news()'s docstring.
+
+    async def _news_consumer_loop(queue: "asyncio.Queue") -> None:
+        while True:
+            n = await queue.get()
+            await asyncio.to_thread(_handle_news_sync, n)
+
+    async def on_news(n) -> None:
+        """
+        Alpaca's NewsDataStream drives this callback from its own asyncio
+        event loop -- the SAME loop that sends websocket pings and parses
+        incoming frames. _handle_news_sync() does real blocking work
+        (a positions-file read, up to two synchronous sentiment-lookup
+        HTTP calls, a full JSON news-log rewrite via algo._log_news_event,
+        a blocking Telegram POST) that would stall that loop if run
+        inline. A cluster of headlines (a Fed print, exactly the scenario
+        this stream exists to catch) could block it long enough for
+        alpaca-py to drop the connection and force a reconnect right when
+        news matters most.
+
+        Just enqueues and returns immediately; a single background
+        consumer task drains the queue one headline at a time via
+        asyncio.to_thread(), off this event loop. One consumer, not
+        asyncio.to_thread() called directly from here, deliberately:
+        calling it here would let alpaca-py dispatch several headlines
+        onto SEPARATE worker threads concurrently, and
+        algo._log_news_event()'s read-modify-write JSON file has no lock
+        -- exactly the same in-process lost-update race this project
+        already fixed at the cross-process level for every other
+        multi-writer state file. Serializing through one queue/consumer
+        keeps headline handling in the same one-at-a-time order it always
+        ran in, just off the event loop instead of blocking it.
+        """
+        nonlocal _news_queue, _news_consumer_task
+        if _news_queue is None:
+            _news_queue = asyncio.Queue()
+            _news_consumer_task = asyncio.get_event_loop().create_task(_news_consumer_loop(_news_queue))
+        await _news_queue.put(n)
+
     STORM_WINDOW_S         = 30
     STORM_ATTEMPT_COUNT    = 20
     STORM_ALERT_COOLDOWN_S = 1800   # don't spam Telegram every backoff cycle
@@ -1455,6 +1499,8 @@ def news_data_stream_loop() -> None:
         connected = threading.Event()
         stopped   = threading.Event()
         stream    = None
+        _news_queue = None            # fresh queue/consumer task bound to this
+        _news_consumer_task = None    # iteration's event loop -- see on_news()
         try:
             stream = NewsDataStream(algo.ALPACA_API_KEY, algo.ALPACA_SECRET_KEY)
             stream.subscribe_news(on_news, *symbols)

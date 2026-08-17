@@ -1337,6 +1337,75 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
         self.assertEqual(result, [])
 
 
+class TestGetTopSectorsCacheServesAnyN(unittest.TestCase):
+    """Found in the 2026-08-16 review: get_top_sectors()'s 4-hour cache
+    used to store ranked[:n] -- a truncated top-n -- rather than the full
+    ranking, so whichever call happened to populate the cache first fixed
+    its size for every OTHER caller for the next 4 hours. check_sector()'s
+    SHORT path calls get_top_sectors(11) (wants the bottom 4 of all 11,
+    via reversed()[:4]); the premarket briefing calls the n=4 default every
+    morning. A cache primed by n=4 silently gave the SHORT gate only 4
+    (reversed, the top-4 STRONGEST) sectors instead of the true bottom 4 --
+    inverting the gate."""
+
+    def setUp(self):
+        self._orig_cache = a._sector_cache
+        self._orig_ts = a._sector_cache_ts
+        a._sector_cache = None
+        a._sector_cache_ts = None
+
+    def tearDown(self):
+        a._sector_cache = self._orig_cache
+        a._sector_cache_ts = self._orig_ts
+
+    def test_cache_primed_by_small_n_still_serves_a_larger_n_correctly(self):
+        # 11 sectors, each with a distinct, known momentum ranking.
+        sectors = list(a.SECTOR_ETFS.keys())
+        with patch.object(a, "fetch_df", side_effect=self._fetch_df_ranked(sectors)):
+            top4 = a.get_top_sectors(4)     # primes the cache
+            all11 = a.get_top_sectors(11)   # must NOT be capped at 4 just because the cache saw n=4 first
+        self.assertEqual(len(top4), 4)
+        self.assertEqual(len(all11), 11)
+        self.assertEqual(all11[:4], top4, "the top 4 of the full ranking must match the earlier n=4 call")
+
+    def test_cache_primed_by_large_n_still_serves_a_smaller_n_correctly(self):
+        sectors = list(a.SECTOR_ETFS.keys())
+        with patch.object(a, "fetch_df", side_effect=self._fetch_df_ranked(sectors)):
+            all11 = a.get_top_sectors(11)   # primes the cache
+            top4 = a.get_top_sectors(4)     # must be capped at 4, not still return all 11
+        self.assertEqual(len(all11), 11)
+        self.assertEqual(len(top4), 4)
+        self.assertEqual(top4, all11[:4])
+
+    def test_short_gate_bottom_four_unaffected_by_an_earlier_n4_call(self):
+        # Direct reproduction of check_sector()'s SHORT path: reversed(get_top_sectors(11))[:4].
+        sectors = list(a.SECTOR_ETFS.keys())
+        with patch.object(a, "fetch_df", side_effect=self._fetch_df_ranked(sectors)):
+            a.get_top_sectors(4)   # premarket-briefing-style call, primes the cache with n=4
+            bottom4 = list(reversed(a.get_top_sectors(11)))[:4]
+        # The weakest sectors are the LAST 4 of the ranked-by-strength list
+        # fetch_df_ranked() constructs (see helper) -- verify we actually
+        # got the true bottom 4, not the top 4 relabeled.
+        true_bottom4 = sectors[-4:]
+        self.assertEqual(set(bottom4), set(true_bottom4))
+
+    def _fetch_df_ranked(self, sectors):
+        # sectors[0] is the strongest performer, sectors[-1] the weakest --
+        # a distinct, decreasing 20-day return per sector so ranking order
+        # is unambiguous and verifiable.
+        import pandas as pd
+        import numpy as np
+        etf_to_perf = {a.SECTOR_ETFS[s]: (len(sectors) - i) * 2.0 for i, s in enumerate(sectors)}
+
+        def _fetch(etf, *args, **kwargs):
+            perf = etf_to_perf.get(etf, 0.0)
+            n = 25
+            close = np.concatenate([np.full(4, 100.0), np.linspace(100.0, 100.0 * (1 + perf / 100), 21)])
+            idx = pd.date_range("2026-07-01", periods=n, freq="D")
+            return pd.DataFrame({"Close": close}, index=idx)
+        return _fetch
+
+
 class TestEarningsBlackoutAllowsKnownReactions(unittest.TestCase):
     """Found in the 2026-08-16 review: check_earnings_safe()'s old
     `-1 <= days_away <= EARNINGS_BLACKOUT` range blocked yesterday's AND
@@ -2595,6 +2664,53 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
                     a._monitor_option_position(pos, "CALL")
         mock_close.assert_called_once_with("SMCI260814C00034000", 1, "SMCI CALL T1 half")
         self.assertIn("T1 HIT", mock_tg.call_args[0][0])
+
+    def test_t1_half_sell_updates_by_occ_symbol_not_ticker(self):
+        # Found 2026-08-16 review: the T1 half-sell branch used the
+        # ticker-keyed _update_position_field() instead of the OCC-keyed
+        # _update_option_position_field() -- exactly the bug
+        # _update_option_position_field() was introduced to prevent
+        # (silently updating every position sharing this ticker, e.g. a
+        # call+put strangle or an unrelated equity position).
+        pos = self._pos(target1=1.20, shares=200)
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.25)):
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord3")):
+                with patch.object(a, "send_telegram", return_value=True):
+                    with patch.object(a, "_update_option_position_field") as mock_opt_update, \
+                         patch.object(a, "_update_position_field") as mock_ticker_update:
+                        a._monitor_option_position(pos, "CALL")
+        mock_opt_update.assert_any_call("SMCI260814C00034000", shares=100, stop=1.00)
+        mock_ticker_update.assert_not_called()
+
+    def test_t1_single_contract_breakeven_updates_by_occ_symbol_not_ticker(self):
+        pos = self._pos(target1=1.20, shares=100)   # 1 contract -- no half-sell branch
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.25)):
+            with patch.object(a, "send_telegram", return_value=True):
+                with patch.object(a, "_update_option_position_field") as mock_opt_update, \
+                     patch.object(a, "_update_position_field") as mock_ticker_update:
+                    a._monitor_option_position(pos, "CALL")
+        mock_opt_update.assert_any_call("SMCI260814C00034000", stop=1.00)
+        mock_ticker_update.assert_not_called()
+
+    def test_t1_fill_does_not_corrupt_a_sibling_position_on_the_same_ticker(self):
+        # End-to-end reproduction of the real incident shape: a call and a
+        # put on the same underlying (a manually-built strangle). The
+        # call's T1 fill must leave the put's stop/shares completely
+        # untouched.
+        call_leg = self._pos(target1=1.20, shares=200,
+                             setup="Options Call SMCI260814C00034000 ($34C exp 2026-08-14)")
+        put_leg  = self._pos(target1=0.30, shares=300, stop=0.70, entry=0.50,
+                             setup="Options Put SMCI260814P00029500 ($29.5P exp 2026-08-14)")
+        self._write_positions([call_leg, put_leg])
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.25)):
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord3")):
+                with patch.object(a, "send_telegram", return_value=True):
+                    a._monitor_option_position(call_leg, "CALL")
+        with open(self._pos_tmp.name) as f:
+            saved = json.load(f)
+        put_saved = next(p for p in saved if p["setup"].startswith("Options Put"))
+        self.assertEqual(put_saved["stop"], 0.70, "the put leg's stop must be untouched by the call's T1 fill")
+        self.assertEqual(put_saved["shares"], 300, "the put leg's shares must be untouched by the call's T1 fill")
 
     def test_milestone_check_is_invoked(self):
         # setUp already patches _check_options_pnl_milestone to a MagicMock --

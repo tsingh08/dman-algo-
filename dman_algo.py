@@ -5085,8 +5085,17 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
             _half = _ctrs // 2
             _st, _coid = _submit_options_close(_occ, _half, f"{t} {kind} T1 half")
             if _st == "submitted":
-                _update_position_field(t, shares=(_ctrs - _half) * 100,
-                                       stop=round(_entry_prem, 2))
+                # OCC-keyed, not ticker-keyed — found 2026-08-16 review:
+                # _update_option_position_field() exists specifically
+                # because a ticker-keyed update silently modifies every
+                # position sharing this underlying (a call+put strangle,
+                # or an options leg alongside an unrelated equity position
+                # on the same ticker — see that function's docstring for
+                # the confirmed SMCI incident). This T1 branch was never
+                # migrated to it, so a real T1 fill could overwrite an
+                # unrelated position's stop/shares.
+                _update_option_position_field(_occ, shares=(_ctrs - _half) * 100,
+                                              stop=round(_entry_prem, 2))
                 _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
                 _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
                         f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
@@ -5099,7 +5108,7 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
                 _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
                         "— sell ½ manually, raise stop to breakeven")
         else:
-            _update_position_field(t, stop=round(_entry_prem, 2))
+            _update_option_position_field(_occ, stop=round(_entry_prem, 2))
             _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
             _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
                     f"single contract: riding the trailing exit, stop raised to "
@@ -7441,12 +7450,28 @@ def get_top_sectors(n: int = 4) -> list[str]:
     """
     Rank all 11 sectors by 20-day momentum and return the top n.
     Cached for 4 hours to avoid spamming yfinance.
+
+    The cache stores the FULL ranking (all scored sectors), not a
+    truncated top-n — found 2026-08-16 review: it used to cache
+    `ranked[:n]`, so whichever call happened to populate the cache first
+    fixed its size for the next 4 hours regardless of what a LATER caller
+    asked for. The premarket briefing calls this with the default n=4
+    every morning; for hours afterward, check_sector()'s SHORT path (which
+    wants the bottom 4 of all 11 via `get_top_sectors(11)`) would silently
+    receive only 4 elements back — reversed, that's the same top-4
+    *strongest* sectors, inverting the SHORT gate into requiring a
+    candidate's sector be among the market's strongest to pass. A LONG
+    call for `get_top_sectors(6)` after an n=11 caller had populated the
+    cache had the opposite problem — all 11 sectors, effectively
+    disabling the gate. Slicing to `n` on every return (hit or miss) means
+    one shared 4-hour cache correctly serves every caller regardless of
+    which one happens to run first.
     """
     global _sector_cache, _sector_cache_ts
 
     if (_sector_cache is not None and _sector_cache_ts is not None
             and (datetime.now() - _sector_cache_ts).total_seconds() < 14400):
-        return _sector_cache
+        return _sector_cache[:n]
 
     scores = {}
     for sector, etf in SECTOR_ETFS.items():
@@ -7461,9 +7486,9 @@ def get_top_sectors(n: int = 4) -> list[str]:
             continue
 
     ranked = sorted(scores, key=scores.get, reverse=True)
-    _sector_cache    = ranked[:n]
+    _sector_cache    = ranked
     _sector_cache_ts = datetime.now()
-    return _sector_cache
+    return _sector_cache[:n]
 
 
 def check_sector(ticker: str, bias: str) -> tuple[bool, int]:

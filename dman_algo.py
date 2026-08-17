@@ -33,7 +33,7 @@
 
 from __future__ import annotations
 
-import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv
+import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile
 from datetime import datetime, timedelta, date
 from dataclasses import dataclass, field, asdict
 from typing import Optional
@@ -1076,8 +1076,7 @@ def _load_stock_feed_state() -> None:
 
 def _save_stock_feed_state() -> None:
     try:
-        with open(_STOCK_FEED_STATE_FILE, "w") as f:
-            json.dump(_stock_feed_state, f)
+        _write_json_atomic(_STOCK_FEED_STATE_FILE, _stock_feed_state)
     except Exception:
         pass
 
@@ -1529,6 +1528,37 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     )
 
 
+def _write_json_atomic(path: str, data, **dump_kwargs) -> None:
+    """
+    Write JSON to `path` crash-safely: serialize to a temp file in the same
+    directory, then atomically swap it into place via os.replace().
+
+    Found 2026-08-16 review: every JSON write in this file used to be a
+    plain `open(path, "w")` + `json.dump()` — a process killed mid-write
+    (OOM-kill, a VPS reboot, a broken pipe) leaves a truncated file, and
+    every reader's `except (FileNotFoundError, json.JSONDecodeError)`
+    handler treats that identically to "this file never existed." For
+    PositionTracker specifically, that means silently reporting ZERO open
+    positions to a live-money guard loop instead of surfacing real
+    corruption. os.replace() is atomic on both POSIX and Windows (unlike
+    os.rename(), which raises on Windows if the destination already
+    exists) — a reader can never observe a partially-written file, only
+    the fully-old or fully-new one.
+    """
+    _dir = os.path.dirname(os.path.abspath(path)) or "."
+    _fd, _tmp_path = tempfile.mkstemp(prefix=".tmp_", dir=_dir)
+    try:
+        with os.fdopen(_fd, "w") as f:
+            json.dump(data, f, **dump_kwargs)
+        os.replace(_tmp_path, path)
+    except Exception:
+        try:
+            os.unlink(_tmp_path)
+        except Exception:
+            pass
+        raise
+
+
 def _load_last_alerts() -> dict:
     try:
         with open(LAST_ALERTS_FILE) as f:
@@ -1540,8 +1570,7 @@ def _save_last_alert(ticker: str) -> None:
     alerts = _load_last_alerts()
     alerts[ticker] = datetime.now(ET).isoformat()
     try:
-        with open(LAST_ALERTS_FILE, "w") as f:
-            json.dump(alerts, f)
+        _write_json_atomic(LAST_ALERTS_FILE, alerts)
     except Exception:
         pass
 
@@ -1585,8 +1614,7 @@ def _log_live_signal(sig: "ProSignal") -> None:
     })
     data["pending"] = pending
     try:
-        with open(LIVE_SIGNALS_FILE, "w") as f:
-            json.dump(data, f, indent=2)
+        _write_json_atomic(LIVE_SIGNALS_FILE, data, indent=2)
     except Exception:
         pass
 
@@ -1789,8 +1817,7 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
             f.write("\n".join(csv_rows) + "\n")
 
     data["pending"] = still_open
-    with open(LIVE_SIGNALS_FILE, "w") as f:
-        json.dump(data, f, indent=2)
+    _write_json_atomic(LIVE_SIGNALS_FILE, data, indent=2)
 
     if verbose and resolved_count:
         print(f"\n  {resolved_count} trade(s) resolved → {LIVE_OUTCOMES_FILE}")
@@ -2135,8 +2162,7 @@ def _handle_options_command(parts: list[str]) -> None:
         "expiry": chain["expiry"], "items": ordered,
     }
     try:
-        with open(TELEGRAM_OPTIONS_MENU_FILE, "w") as f:
-            json.dump(menu, f, indent=2)
+        _write_json_atomic(TELEGRAM_OPTIONS_MENU_FILE, menu, indent=2)
     except Exception as _e:
         send_telegram(f"❌ Couldn't save options menu: {_e}")
         return
@@ -2252,8 +2278,7 @@ def _handle_buy_command(parts: list[str]) -> None:
         "expires_at": (_now + timedelta(minutes=TELEGRAM_MANUAL_BUY_TIMEOUT_MIN)).isoformat(),
     }
     try:
-        with open(TELEGRAM_MANUAL_BUY_FILE, "w") as f:
-            json.dump(pending, f, indent=2)
+        _write_json_atomic(TELEGRAM_MANUAL_BUY_FILE, pending, indent=2)
     except Exception as _e:
         send_telegram(f"❌ Couldn't stage confirmation: {_e}")
         return
@@ -2351,8 +2376,7 @@ def _load_earnings_pending() -> list[dict]:
 
 
 def _save_earnings_pending(entries: list[dict]) -> None:
-    with open(EARNINGS_SPREAD_PENDING_FILE, "w") as f:
-        json.dump(entries, f, indent=2, default=str)
+    _write_json_atomic(EARNINGS_SPREAD_PENDING_FILE, entries, indent=2, default=str)
 
 
 def format_earnings_spread_telegram(plan: dict) -> str:
@@ -3401,8 +3425,7 @@ def _log_news_event(symbols: list[str], headline: str, source: str = "",
             "sentiment": sentiment,
         })
         log = sorted(log, key=lambda e: e.get("ts", ""), reverse=True)[:NEWS_LOG_MAX_ENTRIES][::-1]
-        with open(NEWS_LOG_FILE, "w") as f:
-            json.dump(log, f, indent=2)
+        _write_json_atomic(NEWS_LOG_FILE, log, indent=2)
     except Exception:
         pass   # background knowledge-base write — never worth blocking a scan/alert over
 
@@ -4826,8 +4849,7 @@ def _update_position_field(ticker: str, **fields) -> None:
                 p.update(fields)
                 changed = True
         if changed:
-            with open(POSITIONS_FILE, "w") as f:
-                json.dump(data, f, indent=2)
+            _write_json_atomic(POSITIONS_FILE, data, indent=2)
     except Exception as _e:
         print(f"  ⚠️  Could not update position {ticker}: {_e}")
 
@@ -4853,8 +4875,7 @@ def _update_option_position_field(occ_symbol: str, **fields) -> None:
                 p.update(fields)
                 changed = True
         if changed:
-            with open(POSITIONS_FILE, "w") as f:
-                json.dump(data, f, indent=2)
+            _write_json_atomic(POSITIONS_FILE, data, indent=2)
     except Exception as _e:
         print(f"  ⚠️  Could not update option position {occ_symbol}: {_e}")
 
@@ -8491,8 +8512,7 @@ def _load_sec_cik_map() -> dict:
                 for v in resp.json().values()
             }
             try:
-                with open(_SEC_CIK_MAP_FILE, "w") as f:
-                    json.dump(cik_map, f)
+                _write_json_atomic(_SEC_CIK_MAP_FILE, cik_map)
             except Exception:
                 pass
             _sec_cik_map = cik_map
@@ -9114,8 +9134,7 @@ def record_daily_pnl(pnl_pct: float) -> None:
     except (FileNotFoundError, json.JSONDecodeError):
         data = {"date": today_str, "pnl_pct": 0.0}
     data["pnl_pct"] = round(data["pnl_pct"] + pnl_pct, 4)
-    with open(DAILY_PNL_FILE, "w") as f:
-        json.dump(data, f)
+    _write_json_atomic(DAILY_PNL_FILE, data)
 
 
 def get_this_month_loss() -> float:
@@ -9144,8 +9163,7 @@ def record_monthly_pnl(pnl_pct: float) -> None:
     except (FileNotFoundError, json.JSONDecodeError):
         data = {"month": month_str, "pnl_pct": 0.0}
     data["pnl_pct"] = round(data["pnl_pct"] + pnl_pct, 4)
-    with open(MONTHLY_PNL_FILE, "w") as f:
-        json.dump(data, f)
+    _write_json_atomic(MONTHLY_PNL_FILE, data)
 
 
 _live_equity_cache: dict = {"equity": 0.0, "ts": 0.0}
@@ -9609,8 +9627,7 @@ class WinRateTracker:
         # Prevents dman_win_rate.json growing unboundedly and slowing GitHub Actions.
         if len(self.records) > 500:
             self.records = self.records[-500:]
-        with open(self.filepath, "w") as f:
-            json.dump([asdict(r) for r in self.records], f, indent=2)
+        _write_json_atomic(self.filepath, [asdict(r) for r in self.records], indent=2)
 
     def record(self, trade: TradeRecord):
         self.records.append(trade)
@@ -9917,8 +9934,7 @@ class PositionTracker:
             self.positions = []
 
     def _save(self):
-        with open(self.filepath, "w") as f:
-            json.dump([asdict(p) for p in self.positions], f, indent=2)
+        _write_json_atomic(self.filepath, [asdict(p) for p in self.positions], indent=2)
 
     def open(self, pos: OpenPosition) -> bool:
         _ident = _position_identity(pos.ticker, pos.setup)
@@ -10153,8 +10169,7 @@ def sync_positions_with_remote() -> None:
     merged = merge_positions_snapshots(local_list, remote_list,
                                        closed_identities=_recent_closed_identities())
     if merged != local_list:
-        with open(POSITIONS_FILE, "w") as f:
-            json.dump(merged, f, indent=2)
+        _write_json_atomic(POSITIONS_FILE, merged, indent=2)
         print(f"  🔀 Merged dman_positions.json with origin/main "
               f"({len(local_list)} local + {len(remote_list)} remote → {len(merged)} merged)")
 
@@ -10270,8 +10285,7 @@ def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str) -> No
     if len(merged_list) == len(local_list) and local_extra == remote_extra:
         return   # nothing new from remote and no extra-field change — avoid a needless rewrite
     rebuilt = rebuild(merged_list, local_extra, remote_extra)
-    with open(filepath, "w") as f:
-        json.dump(rebuilt, f, indent=2)
+    _write_json_atomic(filepath, rebuilt, indent=2)
     print(f"  🔀 Merged {label} with origin/main "
           f"({len(local_list)} local + {len(remote_list)} remote → {len(merged_list)} merged)")
 
@@ -12022,8 +12036,7 @@ def _append_scan_log(entry: dict, max_entries: int = 20) -> None:
             log = []
     log.append(entry)
     log = sorted(log, key=lambda e: e.get("ts", ""), reverse=True)[:max_entries][::-1]
-    with open(SCAN_LOG_FILE, "w") as f:
-        json.dump(log, f, indent=2)
+    _write_json_atomic(SCAN_LOG_FILE, log, indent=2)
 
 
 def _log_scan_halt(reason: str, tickers: list, min_score: int) -> None:
@@ -13612,8 +13625,7 @@ def _load_sync_state() -> dict:
 
 
 def _save_sync_state(state: dict) -> None:
-    with open(ALPACA_SYNC_FILE, "w") as f:
-        json.dump(state, f, indent=2)
+    _write_json_atomic(ALPACA_SYNC_FILE, state, indent=2)
 
 
 # See merge_positions_snapshots()'s docstring for the full incident this
@@ -14123,8 +14135,7 @@ def _get_day_start_equity(current_equity: float) -> float:
             return float(data["equity"])
     except (FileNotFoundError, json.JSONDecodeError, KeyError, ValueError):
         pass
-    with open(_DAY_START_EQUITY_FILE, "w") as f:
-        json.dump({"date": today_str, "equity": current_equity}, f)
+    _write_json_atomic(_DAY_START_EQUITY_FILE, {"date": today_str, "equity": current_equity})
     return current_equity
 
 
@@ -14269,8 +14280,7 @@ def _load_options_feed_state() -> None:
 
 def _save_options_feed_state() -> None:
     try:
-        with open(_OPTIONS_FEED_STATE_FILE, "w") as f:
-            json.dump(_options_feed_state, f)
+        _write_json_atomic(_OPTIONS_FEED_STATE_FILE, _options_feed_state)
     except Exception:
         pass
 
@@ -16244,8 +16254,7 @@ def main():
                 print("  [dry-run] Pass --submit to place live orders.\n")
             if args.export:
                 fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
-                with open(fname, "w") as f:
-                    json.dump([asdict(s) for s in signals], f, indent=2)
+                _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
                 print(f"  💾 Signals exported to {fname}\n")
 
     elif args.mode == "live-outcomes":
@@ -16304,8 +16313,7 @@ def main():
                 _submit_signals_to_alpaca(signals)
             if args.export:
                 fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
-                with open(fname, "w") as f:
-                    json.dump([asdict(s) for s in signals], f, indent=2)
+                _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
                 print(f"  💾 Signals exported to {fname}\n")
 
         # Safety EOD P&L — fires on the 3:30 PM scan as a belt-and-suspenders backup

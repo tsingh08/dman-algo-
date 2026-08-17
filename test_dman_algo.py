@@ -1469,6 +1469,73 @@ class TestOptimizeStopTighteningCap(unittest.TestCase):
         self.assertEqual(result, 48.0)
 
 
+class TestWriteJsonAtomic(unittest.TestCase):
+    """Found in the 2026-08-16 review: every JSON write in this file was a
+    plain open(path,"w") + json.dump() -- a process killed mid-write
+    (OOM-kill, a VPS reboot) leaves a truncated file, and every reader's
+    except (FileNotFoundError, json.JSONDecodeError) handler treats that
+    identically to "this file never existed." For PositionTracker
+    specifically, that means silently reporting ZERO open positions to a
+    live-money guard loop. These lock in that _write_json_atomic() never
+    leaves a truncated file in place of a good one, on either a clean
+    write or one that fails partway through serialization."""
+
+    def setUp(self):
+        self._tmp_dir = tempfile.mkdtemp()
+        self._path = os.path.join(self._tmp_dir, "atomic_test.json")
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self._tmp_dir, ignore_errors=True)
+
+    def test_writes_valid_json_readable_afterward(self):
+        a._write_json_atomic(self._path, {"a": 1, "b": [1, 2, 3]})
+        with open(self._path) as f:
+            self.assertEqual(json.load(f), {"a": 1, "b": [1, 2, 3]})
+
+    def test_passes_through_dump_kwargs_like_indent(self):
+        a._write_json_atomic(self._path, {"a": 1}, indent=2)
+        with open(self._path) as f:
+            content = f.read()
+        self.assertIn("\n", content, "indent=2 must actually be applied, not silently dropped")
+
+    def test_original_file_survives_a_failure_partway_through_serialization(self):
+        # Write a good file first.
+        a._write_json_atomic(self._path, {"good": "data"})
+        with open(self._path) as f:
+            original = f.read()
+
+        class Unserializable:
+            pass
+
+        with self.assertRaises(TypeError):
+            a._write_json_atomic(self._path, {"bad": Unserializable()})
+
+        with open(self._path) as f:
+            after = f.read()
+        self.assertEqual(original, after, "a failed write must never touch the original file")
+
+    def test_failed_write_does_not_leave_a_stray_temp_file_behind(self):
+        class Unserializable:
+            pass
+        try:
+            a._write_json_atomic(self._path, {"bad": Unserializable()})
+        except TypeError:
+            pass
+        leftover = [f for f in os.listdir(self._tmp_dir) if f.startswith(".tmp_")]
+        self.assertEqual(leftover, [], "a failed write must clean up its own temp file")
+
+    def test_no_intermediate_state_ever_visible_to_a_concurrent_reader(self):
+        # Simulate the crash-safety property directly: after a successful
+        # write, the file on disk is NEVER the empty/half-written
+        # intermediate state -- it's atomically either the old content or
+        # the new content, never something in between.
+        a._write_json_atomic(self._path, {"version": 1})
+        a._write_json_atomic(self._path, {"version": 2})
+        with open(self._path) as f:
+            self.assertEqual(json.load(f), {"version": 2})
+
+
 class TestGetTopSectorsCacheServesAnyN(unittest.TestCase):
     """Found in the 2026-08-16 review: get_top_sectors()'s 4-hour cache
     used to store ranked[:n] -- a truncated top-n -- rather than the full

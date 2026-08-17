@@ -56,6 +56,14 @@ _acct_raw    = os.getenv("ACCOUNT_SIZE", "").strip()
 ACCOUNT_SIZE = float(_acct_raw) if _acct_raw else 25_000.0   # set via ACCOUNT_SIZE env/secret
 RISK_PER_TRADE     = 0.02        # base risk — Kelly may reduce this
 MIN_RR             = 2.0
+OPTIMIZE_STOP_MIN_RISK_FRACTION = 0.5   # optimize_stop() may tighten a raw
+                                          # stop toward real price structure,
+                                          # but never past this fraction of
+                                          # the original risk-per-share — see
+                                          # optimize_stop()'s docstring for
+                                          # the 2026-08-16 fix this backs
+                                          # (the previous clamp was dead code,
+                                          # so tightening had no real cap).
 DAY2_MAX_CUMULATIVE_MOVE_PCT = 15.0   # Day 2 Continuation: skip if price has
                                        # already run this far from the pre-gap
                                        # baseline by entry — confirmed live
@@ -8880,30 +8888,46 @@ def optimize_stop(df: pd.DataFrame, raw_stop: float,
     Principle: stops at REAL price structure hold better than arbitrary ones.
     - Long  : stop = max(raw_stop, recent_swing_low - 0.5*ATR)
     - Short : stop = min(raw_stop, recent_swing_high + 0.5*ATR)
+
+    Tightening is capped at OPTIMIZE_STOP_MIN_RISK_FRACTION of the raw
+    risk-per-share. Found 2026-08-16 review: the previous "never tighten so
+    much it invalidates 2R" clamp was mathematically dead code — both the
+    swing-low/ATR candidate selection AND the old clamp line included
+    raw_stop/raw risk as one term of a max()/min(), which guarantees the
+    clamp could never actually change the result (it can only ever widen
+    toward raw risk, and the selected stop was already at least that wide
+    by construction). There was no real cap on tightening at all. On a
+    tight-consolidation setup (VCP, Vol Breakout — exactly what this
+    system targets) a shallow recent swing low close to entry could
+    collapse risk-per-share by 80%+, inflating the resulting share count
+    and notional exposure far beyond what Kelly sizing intended for the
+    same modeled dollar risk.
     """
     try:
         atr   = float(df["ATR"].iloc[-1]) if "ATR" in df.columns else 0
         if atr == 0:
             return raw_stop
 
-        window = df.iloc[-15:]
+        window   = df.iloc[-15:]
+        raw_risk = abs(entry - raw_stop)
+        if raw_risk <= 0:
+            return raw_stop
+        min_risk = raw_risk * OPTIMIZE_STOP_MIN_RISK_FRACTION
 
         if bias == "LONG":
             swing_low  = float(window["Low"].min())
             atr_stop   = entry - 1.5 * atr
             # Use the HIGHER of raw and swing-low stop (tighter but real)
             best_stop  = max(swing_low - 0.3*atr, raw_stop, atr_stop)
-            # Never tighten so much it invalidates 2R
-            max_risk   = (entry - raw_stop) * 1.3
-            best_stop  = max(best_stop, entry - max_risk)
+            # Cap tightening: risk-per-share may never shrink below min_risk.
+            best_stop  = min(best_stop, entry - min_risk)
             return round(best_stop, 2)
 
         else:  # SHORT
             swing_high = float(window["High"].max())
             atr_stop   = entry + 1.5 * atr
             best_stop  = min(swing_high + 0.3*atr, raw_stop, atr_stop)
-            max_risk   = (raw_stop - entry) * 1.3
-            best_stop  = min(best_stop, entry + max_risk)
+            best_stop  = max(best_stop, entry + min_risk)
             return round(best_stop, 2)
 
     except Exception:

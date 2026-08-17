@@ -1337,6 +1337,66 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
         self.assertEqual(result, [])
 
 
+class TestOptimizeStopTighteningCap(unittest.TestCase):
+    """Found in the 2026-08-16 review: optimize_stop()'s "never tighten so
+    much it invalidates 2R" clamp was mathematically dead code -- both the
+    swing-low candidate selection and the clamp line included raw_stop as
+    one term of a max(), guaranteeing the clamp could never change the
+    result. There was no actual cap on tightening. These lock in the real
+    fix: risk-per-share can never shrink below OPTIMIZE_STOP_MIN_RISK_FRACTION
+    of the raw risk, regardless of how close a recent swing low sits to
+    entry."""
+
+    def _df(self, lows, atr=0.5):
+        import pandas as pd
+        n = len(lows)
+        idx = pd.date_range("2026-07-01", periods=n, freq="D")
+        return pd.DataFrame({
+            "Low": lows, "High": [l + 1 for l in lows],
+            "Close": lows, "ATR": [atr] * n,
+        }, index=idx)
+
+    def test_shallow_swing_low_no_longer_collapses_risk_past_the_floor(self):
+        # Reproduces the audit finding's exact shape: entry=$50, raw_stop=$48
+        # (raw risk $2.00), a shallow 15-bar swing low at $49.70 close to
+        # entry. Old buggy behavior: best_stop ~= 49.61, risk collapses to
+        # ~$0.39 (an 80%+ collapse). Fixed: risk can't fall below 50% of
+        # $2.00 = $1.00, so stop can't rise above entry-1.00 = $49.00.
+        lows = [49.70] * 15
+        df = self._df(lows, atr=0.10)
+        result = a.optimize_stop(df, raw_stop=48.0, entry=50.0, bias="LONG")
+        risk = 50.0 - result
+        self.assertGreaterEqual(risk, 2.0 * a.OPTIMIZE_STOP_MIN_RISK_FRACTION - 0.01,
+                                "risk-per-share must never fall below the tightening floor")
+        self.assertLess(result, 49.70, "the stop must still be meaningfully tighter than the raw one")
+
+    def test_short_side_shallow_swing_high_also_respects_the_floor(self):
+        import pandas as pd
+        n = 15
+        idx = pd.date_range("2026-07-01", periods=n, freq="D")
+        highs = [50.30] * n
+        df = pd.DataFrame({"Low": [h - 1 for h in highs], "High": highs,
+                           "Close": highs, "ATR": [0.10] * n}, index=idx)
+        result = a.optimize_stop(df, raw_stop=52.0, entry=50.0, bias="SHORT")
+        risk = result - 50.0
+        self.assertGreaterEqual(risk, 2.0 * a.OPTIMIZE_STOP_MIN_RISK_FRACTION - 0.01)
+
+    def test_a_genuinely_wider_swing_low_is_not_artificially_tightened(self):
+        # The floor only caps EXCESSIVE tightening -- when both the swing
+        # low AND the ATR-derived candidate are wider than raw_stop (a
+        # large ATR here keeps entry-1.5*ATR below raw_stop too), raw_stop
+        # itself wins on its own, with no tightening for the floor to cap.
+        lows = [45.0] * 15   # well below raw_stop=48
+        df = self._df(lows, atr=1.5)
+        result = a.optimize_stop(df, raw_stop=48.0, entry=50.0, bias="LONG")
+        self.assertEqual(result, 48.0, "raw_stop wins when nothing actually tightens past it")
+
+    def test_zero_atr_returns_raw_stop_unchanged(self):
+        df = self._df([49.0] * 15, atr=0.0)
+        result = a.optimize_stop(df, raw_stop=48.0, entry=50.0, bias="LONG")
+        self.assertEqual(result, 48.0)
+
+
 class TestGetTopSectorsCacheServesAnyN(unittest.TestCase):
     """Found in the 2026-08-16 review: get_top_sectors()'s 4-hour cache
     used to store ranked[:n] -- a truncated top-n -- rather than the full

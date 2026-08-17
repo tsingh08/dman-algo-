@@ -5012,6 +5012,41 @@ class TestIntradayHighPullbackGuard(unittest.TestCase):
         self.assertIsNotNone(sig)
 
 
+class TestPremarketEntryPlanSkipsGapDown(unittest.TestCase):
+    """Found in the 2026-08-16 review: the pre-market mover report's
+    is_mover gate includes gap-DOWN movers by design, and a catalyst-
+    less gap-down defaults to tier C (not D) -- so it used to fall
+    straight into the bullish LONG entry plan: VWAP-hold/breakout
+    entries and +30%/+50% T1/T2 targets computed off the DEPRESSED
+    price, reading a decline as a breakout setup. Informational only
+    (no auto-order), but this is the system's main human-facing entry
+    surface."""
+
+    def test_gap_down_never_gets_a_long_entry_plan_even_on_a_good_tier(self):
+        block = a._build_premarket_entry_plan(
+            gap_pct=-8.0, tier="A", vwap=9.5, pre_px=9.4, prev_close=10.2,
+            fl_m=1.5, is_moon=False)
+        self.assertIn("Gap DOWN", block)
+        self.assertNotIn("ENTRY PLAN</b>\n     Aggressive", block)
+        self.assertNotIn("Moderate (9:30)", block)
+        self.assertNotIn("T1:", block)
+
+    def test_gap_up_tier_a_still_gets_the_full_long_plan(self):
+        block = a._build_premarket_entry_plan(
+            gap_pct=12.0, tier="A", vwap=9.5, pre_px=9.4, prev_close=8.4,
+            fl_m=1.5, is_moon=False)
+        self.assertIn("Aggressive (pre-mkt)", block)
+        self.assertIn("Moderate (9:30)", block)
+        self.assertIn("T1:", block)
+
+    def test_gap_up_tier_d_still_shows_the_dilution_skip_not_a_plan(self):
+        block = a._build_premarket_entry_plan(
+            gap_pct=20.0, tier="D", vwap=9.5, pre_px=9.4, prev_close=7.8,
+            fl_m=1.5, is_moon=False)
+        self.assertIn("dilution/offering risk", block)
+        self.assertNotIn("T1:", block)
+
+
 class TestLowFloatCatalystFailOpenOnMissing52wkLow(unittest.TestCase):
     """Found in the 2026-08-16 review: when the 52wk-low lookback raises
     (missing/short data), the except branch set near_bottom = True

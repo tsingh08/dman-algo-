@@ -4246,6 +4246,54 @@ def _detect_day_n_fade(ticker: str, gap_pct: float) -> str:
         return ""
 
 
+def _build_premarket_entry_plan(gap_pct: float, tier: str, vwap: float, pre_px: float,
+                                prev_close: float, fl_m: float, is_moon: bool) -> str:
+    """
+    Builds the "🎯 ENTRY PLAN" block of the pre-market mover report.
+
+    Found in the 2026-08-16 review: is_mover (this report's own gate)
+    includes gap-DOWN movers by design (the report is meant to surface
+    any big move, not just gap-ups), and a catalyst-less gap-down
+    defaults to tier C ("PR / weak") — not tier D — so a gap-down mover
+    used to fall straight into the bullish LONG plan below: VWAP-hold/
+    breakout entries and +30%/+50% T1/T2 targets computed off the
+    DEPRESSED price, reading a decline as a breakout setup. Informational
+    only (no auto-order), but this is the system's main human-facing
+    entry surface, so a wrong-direction plan here is a real risk to a
+    human acting on it manually. gap_pct < 0 now short-circuits before
+    tier is even consulted.
+    """
+    entry_parts = ["  🎯 <b>ENTRY PLAN</b>"]
+    if gap_pct < 0:
+        entry_parts.append(
+            "     ⛔ Gap DOWN — no long entry plan shown (this system is "
+            "long-only; a bullish continuation plan would misread a decline "
+            "as a breakout setup)."
+        )
+    elif tier != "D":
+        if vwap > 0 and tier in ("A", "B"):
+            entry_parts.append(
+                f"     Aggressive (pre-mkt): ${vwap:.4f} VWAP hold  "
+                f"← Tier {tier} catalyst, float {fl_m:.2f}M"
+            )
+        entry_parts.append(
+            "     Moderate (9:30): first 5-min candle high breakout → trail VWAP"
+        )
+        entry_parts.append(
+            f"     Conservative (9:45): Gap & Hold gate — hold above open ${pre_px:.4f}"
+        )
+        stop_px = round(vwap * 0.97, 4) if vwap > 0 else round(prev_close * 1.05, 4)
+        t1 = round(pre_px * 1.30, 4)
+        t2 = round(pre_px * 1.50, 4)
+        moon_str = f"  T3 (2x): ${round(pre_px * 2.0, 4):.4f}" if is_moon else ""
+        entry_parts.append(
+            f"     Stop: ${stop_px:.4f}  |  T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){moon_str}"
+        )
+    else:
+        entry_parts.append("     ⛔ Skip — dilution/offering risk outweighs gap.")
+    return "\n".join(entry_parts)
+
+
 def run_premarket_early_scan() -> None:
     """
     7 AM ET early scanner — sweeps DMAN_SMALLCAP_WATCHLIST for pre-market movers,
@@ -4366,29 +4414,8 @@ def run_premarket_early_scan() -> None:
 
                 # Entry plan block
                 vwap = pm["pm_vwap"]
-                entry_parts = ["  🎯 <b>ENTRY PLAN</b>"]
-                if tier != "D":
-                    if vwap > 0 and tier in ("A", "B"):
-                        entry_parts.append(
-                            f"     Aggressive (pre-mkt): ${vwap:.4f} VWAP hold  "
-                            f"← Tier {tier} catalyst, float {fl_m:.2f}M"
-                        )
-                    entry_parts.append(
-                        "     Moderate (9:30): first 5-min candle high breakout → trail VWAP"
-                    )
-                    entry_parts.append(
-                        f"     Conservative (9:45): Gap & Hold gate — hold above open ${pre_px:.4f}"
-                    )
-                    stop_px = round(vwap * 0.97, 4) if vwap > 0 else round(prev_close * 1.05, 4)
-                    t1 = round(pre_px * 1.30, 4)
-                    t2 = round(pre_px * 1.50, 4)
-                    moon_str = f"  T3 (2x): ${round(pre_px * 2.0, 4):.4f}" if is_moon else ""
-                    entry_parts.append(
-                        f"     Stop: ${stop_px:.4f}  |  T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){moon_str}"
-                    )
-                else:
-                    entry_parts.append("     ⛔ Skip — dilution/offering risk outweighs gap.")
-                entry_block = "\n".join(entry_parts)
+                entry_block = _build_premarket_entry_plan(
+                    gap_pct, tier, vwap, pre_px, prev_close, fl_m, is_moon)
 
                 parts = [header, cat_line]
                 if pm_line:

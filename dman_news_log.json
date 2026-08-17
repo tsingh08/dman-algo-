@@ -1995,5 +1995,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T13:00:52.429425-04:00",
+    "symbols": [
+      "QQQ",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Gary Black Has \u2018Low Interest\u2019 in Tesla Stock at Current Price, Even With a Potential SpaceX Buyout",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:01:19.314690-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Shares of SpaceX are trading higher after multiple institutional investors disclosed multibillion-dollar stakes in 13F filings last week, including Google, Nvidia, Harvard Management, Saudi Arabia\u2019s Public Investment Fund, Peter Thiel&#39;s Founders Fund, Fidelity Investments, Gigafund Management and BlackRock.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

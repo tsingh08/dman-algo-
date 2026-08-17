@@ -1,18 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "ARTL",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 0.7162,
-      "stop": 0.5873,
-      "target1": 0.93,
-      "target2": 1.25,
-      "score": 65,
-      "date": "2026-08-12",
-      "timestamp": "2026-08-12T14:08:06.539968-04:00"
-    },
-    {
       "ticker": "UMAC",
       "setup": "Gap & Hold",
       "bias": "LONG",
@@ -35,6 +23,18 @@
       "score": 88,
       "date": "2026-08-17",
       "timestamp": "2026-08-17T09:51:58.996096-04:00"
+    },
+    {
+      "ticker": "ARTL",
+      "setup": "Low Float Catalyst",
+      "bias": "LONG",
+      "entry": 0.7162,
+      "stop": 0.5873,
+      "target1": 0.93,
+      "target2": 1.25,
+      "score": 65,
+      "date": "2026-08-12",
+      "timestamp": "2026-08-12T14:08:06.539968-04:00"
     },
     {
       "ticker": "LITX",

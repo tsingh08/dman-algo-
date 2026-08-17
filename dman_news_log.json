@@ -2167,5 +2167,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:12:35.281781-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Crosses $1,000: Here&#39;s How to Amplify the Trade with ETFs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T13:12:35.283976-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T13:12:35.357860-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T13:12:35.615293-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:12:37.203618-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings Boosts Liquidity With New $600 Million Capital Raise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:12:37.819075-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Canada Prime Minister Carney Says He Expects To Speak To Trump Before August 19 Tariffs Deadline; Says We&#39;ll Have Opportunities Over The Next 48 Hours To Discuss In More Detail As The Negotiations Go Forward",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:12:37.914771-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T13:12:37.979768-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T13:12:54.164263-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "This Hedge Fund Portfolio Shrinks 17% as Billionaire Bets Big on Gold",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

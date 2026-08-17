@@ -42,5 +42,27 @@
     "milestone_gain_alerted": 0.0,
     "milestone_loss_alerted": 20.0,
     "peak_premium": 10.2
+  },
+  {
+    "ticker": "ARTL",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 0.75,
+    "stop": 0.61,
+    "target1": 0.98,
+    "target2": 1.31,
+    "shares": 504,
+    "entry_date": "2026-08-17",
+    "atr": 0.0,
+    "score": 88,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": "",
+    "stop_stage": "initial",
+    "milestone_gain_alerted": 0.0,
+    "milestone_loss_alerted": 0.0,
+    "peak_premium": 0.0
   }
 ]

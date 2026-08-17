@@ -1,18 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "LITX",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 35.86,
-      "stop": 28.02,
-      "target1": 51.54,
-      "target2": 59.38,
-      "score": 100,
-      "date": "2026-08-12",
-      "timestamp": "2026-08-12T13:37:34.155932-04:00"
-    },
-    {
       "ticker": "ARTL",
       "setup": "Low Float Catalyst",
       "bias": "LONG",
@@ -35,6 +23,30 @@
       "score": 100,
       "date": "2026-08-14",
       "timestamp": "2026-08-14T13:37:24.814055-04:00"
+    },
+    {
+      "ticker": "ARTL",
+      "setup": "Low Float Catalyst",
+      "bias": "LONG",
+      "entry": 0.7505,
+      "stop": 0.6154,
+      "target1": 0.98,
+      "target2": 1.31,
+      "score": 88,
+      "date": "2026-08-17",
+      "timestamp": "2026-08-17T09:51:58.996096-04:00"
+    },
+    {
+      "ticker": "LITX",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 35.86,
+      "stop": 28.02,
+      "target1": 51.54,
+      "target2": 59.38,
+      "score": 100,
+      "date": "2026-08-12",
+      "timestamp": "2026-08-12T13:37:34.155932-04:00"
     },
     {
       "ticker": "FGL",
@@ -107,18 +119,6 @@
       "score": 100,
       "date": "2026-07-31",
       "timestamp": "2026-07-31T14:14:05.403000-04:00"
-    },
-    {
-      "ticker": "ARTL",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 0.7505,
-      "stop": 0.6154,
-      "target1": 0.98,
-      "target2": 1.31,
-      "score": 88,
-      "date": "2026-08-17",
-      "timestamp": "2026-08-17T09:51:58.996096-04:00"
     }
   ]
 }

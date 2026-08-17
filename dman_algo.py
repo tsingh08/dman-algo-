@@ -1886,6 +1886,35 @@ def is_halted() -> bool:
     return os.path.exists(HALT_FILE)
 
 
+def _entry_circuit_breakers_ok() -> tuple[bool, str]:
+    """
+    Checks the same four entry-blocking conditions _submit_signals_to_alpaca()
+    already enforces (halt, consecutive-loss guard, daily loss limit, monthly
+    loss limit) — factored out so every path that can place a REAL order on a
+    human's approval (earnings-spread YES, manual /buy YES) enforces the same
+    set, not a hand-copied subset that's easy to let drift out of sync.
+
+    Added 2026-08-16 review: _handle_earnings_approval_reply() previously
+    checked none of these four (only offer-matching, Alpaca reachability, and
+    price drift) — a real multi-leg spread could submit while the bot was
+    halted or a loss limit had already tripped. _handle_manual_options_buy_reply()
+    checked halt and macro but not the three loss/consec-loss guards.
+
+    Returns (ok, reason) — reason is a human-readable string for the Telegram
+    reply when ok is False, empty otherwise.
+    """
+    if is_halted():
+        return False, "bot is halted (/resume first)"
+    _stats = WinRateTracker().rolling_stats()
+    if _stats["consec_losses"] >= MAX_CONSEC_LOSSES:
+        return False, f"consecutive-loss guard active ({_stats['consec_losses']} losses)"
+    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+        return False, "daily loss limit active"
+    if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
+        return False, "monthly loss limit active"
+    return True, ""
+
+
 def _handle_telegram_command(text: str) -> None:
     """Execute one bot command and reply via Telegram."""
     _parts = text.split()
@@ -2212,8 +2241,10 @@ def _handle_manual_options_buy_reply(text: str) -> bool:
     shape (expiration check, price-staleness re-check before submitting)
     but for a single pending buy at a time rather than a list — the
     /options -> /buy -> YES/NO flow is a one-at-a-time interactive
-    sequence, not concurrent offers. halt and macro-blackout are enforced
-    HERE, not at /buy time, so staging a confirmation always reflects the
+    sequence, not concurrent offers. Halt, the loss/consec-loss circuit
+    breakers (via _entry_circuit_breakers_ok(), added 2026-08-16 — this
+    used to only check halt), and macro-blackout are all enforced HERE,
+    not at /buy time, so staging a confirmation always reflects the
     real-time gate state at the moment money would actually move. Returns
     True if the message was YES/NO-shaped (whether or not a buy was
     actually pending), so the caller doesn't also try to process it as an
@@ -2244,8 +2275,9 @@ def _handle_manual_options_buy_reply(text: str) -> bool:
         send_telegram(f"👍 {pending['ticker']} buy cancelled — no order placed.")
         return True
 
-    if is_halted():
-        send_telegram(f"🛑 Bot is halted — {pending['ticker']} buy NOT placed. /resume first, then /buy again.")
+    _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
+    if not _cb_ok:
+        send_telegram(f"🛑 {pending['ticker']} buy NOT placed — {_cb_reason}.")
         return True
 
     _macro_ok, _ = check_macro_safe()
@@ -2426,6 +2458,19 @@ def _handle_earnings_approval_reply(text: str) -> bool:
 
     if not is_yes:
         send_telegram(f"👍 {entry['ticker']} earnings spread rejected — no order placed.")
+        _save_earnings_pending(pending)
+        return True
+
+    _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
+    if not _cb_ok:
+        send_telegram(f"🛑 {entry['ticker']} earnings spread approved but NOT submitted — {_cb_reason}.")
+        _save_earnings_pending(pending)
+        return True
+
+    _macro_ok, _ = check_macro_safe()
+    if not _macro_ok:
+        send_telegram(f"⛔ {entry['ticker']} earnings spread NOT submitted — macro blackout active "
+                       f"(FOMC/CPI/NFP window, stops unreliable right now).")
         _save_earnings_pending(pending)
         return True
 
@@ -10157,21 +10202,53 @@ def sync_live_signals_with_remote() -> None:
 def sync_alpaca_sync_state_with_remote() -> None:
     """
     dman_alpaca_sync.json — recorded_ids list nested in a dict, plus a
-    last_sync scalar. Losing an entry from recorded_ids risks
+    last_sync scalar, plus a closed_identities tombstone dict (see
+    _mark_identity_closed()). Losing an entry from recorded_ids risks
     RE-processing an already-recorded Alpaca fill on the next sync,
     double-counting it in the win-rate tracker — this file's whole purpose
     is preventing exactly that, so it's worth protecting the same way.
     last_sync takes whichever of the two ISO timestamps is chronologically
     later — a plain string comparison works here since both are always
     produced by the same isoformat() call site.
+
+    closed_identities is unioned (per-identity, keeping the later
+    timestamp) and re-pruned to the same TTL _mark_identity_closed() uses
+    — added 2026-08-16 after finding the previous rebuild() silently
+    dropped this field on every rewrite (it only ever reconstructed
+    last_sync/recorded_ids). That is the actual, still-live root cause of
+    the documented FGL resurrection incident: this function runs on nearly
+    every cycle (last_sync changes on every sync_alpaca_fills() call, so
+    it almost never matches remote's last_sync and a rewrite happens), and
+    it runs BEFORE this cycle's own commit — so the tombstone
+    merge_positions_snapshots() depends on to keep a genuinely-closed
+    position from reappearing was being wiped almost as fast as it was
+    written, re-arming the exact bug the tombstone exists to prevent.
     """
-    _sync_json_file_via_merge(
-        ALPACA_SYNC_FILE,
-        extract=lambda d: (d.get("recorded_ids", []), d.get("last_sync", "")),
-        rebuild=lambda merged, local_ts, remote_ts: {
+    def _extract(d):
+        return d.get("recorded_ids", []), (d.get("last_sync", ""), d.get("closed_identities", {}))
+
+    def _rebuild(merged, local_extra, remote_extra):
+        local_ts,  local_closed  = local_extra
+        remote_ts, remote_closed = remote_extra
+        now = time.time()
+        merged_closed = dict(local_closed)
+        for ident, ts in remote_closed.items():
+            try:
+                merged_closed[ident] = max(float(ts), float(merged_closed.get(ident, 0)))
+            except (TypeError, ValueError):
+                continue   # a corrupted timestamp on the remote side must not poison a good local one
+        merged_closed = {ident: ts for ident, ts in merged_closed.items()
+                         if now - float(ts) < _CLOSED_IDENTITY_TOMBSTONE_S}
+        return {
             "last_sync": max(local_ts or "", remote_ts or ""),
             "recorded_ids": merged[-500:],
-        },
+            "closed_identities": merged_closed,
+        }
+
+    _sync_json_file_via_merge(
+        ALPACA_SYNC_FILE,
+        extract=_extract,
+        rebuild=_rebuild,
         label="dman_alpaca_sync.json",
     )
 

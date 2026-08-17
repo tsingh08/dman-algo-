@@ -830,6 +830,102 @@ class TestSyncScanLogWithRemote(unittest.TestCase):
                           "matching print_scan_log()'s reversed() convention")
 
 
+class TestSyncAlpacaSyncStateWithRemote(unittest.TestCase):
+    """Found in the 2026-08-16 review: sync_alpaca_sync_state_with_remote()'s
+    rebuild() only ever reconstructed last_sync/recorded_ids, silently
+    dropping closed_identities on every rewrite -- and this function runs on
+    nearly every git_sync() cycle (last_sync changes every time
+    sync_alpaca_fills() runs). That's the actual, still-live root cause of
+    the documented FGL resurrection incident: the tombstone
+    merge_positions_snapshots() depends on to keep a genuinely-closed
+    position from reappearing was being wiped almost as fast as it was
+    written. These lock in that closed_identities now survives a merge,
+    with per-identity later-timestamp-wins and TTL pruning."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "ALPACA_SYNC_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _write_local(self, data):
+        with open(self._tmp.name, "w") as f:
+            json.dump(data, f)
+
+    def _sync_against_remote(self, remote):
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_alpaca_sync_state_with_remote()
+        with open(self._tmp.name) as f:
+            return json.load(f)
+
+    def test_local_only_closed_identity_survives_a_merge(self):
+        now = time.time()
+        self._write_local({"last_sync": "2026-08-16T10:00:00-04:00",
+                            "recorded_ids": ["a"], "closed_identities": {"FGL": now}})
+        remote = {"last_sync": "2026-08-16T09:59:00-04:00", "recorded_ids": ["b"],
+                  "closed_identities": {}}
+        result = self._sync_against_remote(remote)
+        self.assertIn("FGL", result["closed_identities"],
+                      "a tombstone only local knows about must not be dropped by the merge")
+
+    def test_remote_only_closed_identity_is_pulled_in_not_discarded(self):
+        # The exact FGL shape: THIS process's own pt.close() already removed
+        # a position locally and tombstoned it -- but the merge itself must
+        # not require local to already know about a remote-side tombstone
+        # for that tombstone to survive.
+        now = time.time()
+        self._write_local({"last_sync": "2026-08-16T10:00:00-04:00",
+                            "recorded_ids": ["a"], "closed_identities": {}})
+        remote = {"last_sync": "2026-08-16T10:05:00-04:00", "recorded_ids": ["a"],
+                  "closed_identities": {"FGL": now}}
+        result = self._sync_against_remote(remote)
+        self.assertIn("FGL", result["closed_identities"])
+
+    def test_same_identity_keeps_the_later_timestamp(self):
+        now = time.time()
+        self._write_local({"last_sync": "2026-08-16T10:00:00-04:00",
+                            "recorded_ids": ["a"],
+                            "closed_identities": {"FGL": now - 100}})
+        remote = {"last_sync": "2026-08-16T10:05:00-04:00", "recorded_ids": ["a", "c"],
+                  "closed_identities": {"FGL": now}}
+        result = self._sync_against_remote(remote)
+        self.assertAlmostEqual(result["closed_identities"]["FGL"], now, delta=1)
+
+    def test_expired_closed_identity_is_pruned_by_the_merge(self):
+        stale = time.time() - a._CLOSED_IDENTITY_TOMBSTONE_S - 10
+        self._write_local({"last_sync": "2026-08-16T10:00:00-04:00",
+                            "recorded_ids": ["a"], "closed_identities": {"OLD": stale}})
+        remote = {"last_sync": "2026-08-16T10:05:00-04:00", "recorded_ids": ["a", "c"],
+                  "closed_identities": {}}
+        result = self._sync_against_remote(remote)
+        self.assertNotIn("OLD", result["closed_identities"])
+
+    def test_corrupted_remote_timestamp_does_not_poison_a_good_local_entry(self):
+        now = time.time()
+        self._write_local({"last_sync": "2026-08-16T10:00:00-04:00",
+                            "recorded_ids": ["a"], "closed_identities": {"FGL": now}})
+        remote = {"last_sync": "2026-08-16T10:05:00-04:00", "recorded_ids": ["a", "c"],
+                  "closed_identities": {"FGL": "not-a-number"}}
+        result = self._sync_against_remote(remote)
+        self.assertAlmostEqual(result["closed_identities"]["FGL"], now, delta=1)
+
+    def test_recorded_ids_and_last_sync_still_merge_correctly(self):
+        # Regression check: the pre-existing behavior this function already
+        # had must survive the closed_identities addition unchanged.
+        self._write_local({"last_sync": "2026-08-16T10:00:00-04:00",
+                            "recorded_ids": ["a"], "closed_identities": {}})
+        remote = {"last_sync": "2026-08-16T10:05:00-04:00",
+                  "recorded_ids": ["a", "b"], "closed_identities": {}}
+        result = self._sync_against_remote(remote)
+        self.assertEqual(set(result["recorded_ids"]), {"a", "b"})
+        self.assertEqual(result["last_sync"], "2026-08-16T10:05:00-04:00")
+
+
 class TestLogNewsEvent(unittest.TestCase):
     """Added 2026-08-15, direct instruction to have the algo "constantly
     internalize" news across market + extended hours instead of losing
@@ -2456,6 +2552,9 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self._pnl_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._pnl_tmp.write(b"{}")
         self._pnl_tmp.close()
+        self._monthly_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._monthly_tmp.write(b"{}")
+        self._monthly_tmp.close()
         # PositionTracker's filepath is an early-bound default parameter
         # (filepath: str = POSITIONS_FILE, evaluated once at class-definition
         # time) -- patch.object(a, "POSITIONS_FILE", ...) does NOT affect
@@ -2477,6 +2576,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
             patch.object(a, "PositionTracker", _isolated_pt),
             patch.object(a, "ALPACA_SYNC_FILE", self._sync_tmp.name),
             patch.object(a, "DAILY_PNL_FILE", self._pnl_tmp.name),
+            patch.object(a, "MONTHLY_PNL_FILE", self._monthly_tmp.name),
             patch.object(a, "send_telegram", return_value=True),
         ]
         for p in self._patches:
@@ -2490,7 +2590,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
     def tearDown(self):
         for p in self._patches:
             p.stop()
-        for f in (self._pos_tmp, self._sync_tmp, self._wr_tmp, self._pnl_tmp):
+        for f in (self._pos_tmp, self._sync_tmp, self._wr_tmp, self._pnl_tmp, self._monthly_tmp):
             os.unlink(f.name)
 
     def _order(self, side, status, filled_avg_price=None, filled_qty="7"):
@@ -3744,6 +3844,42 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         mock_gac.assert_not_called()
         self.assertIn("blackout", mock_tg.call_args[0][0])
 
+    def test_consecutive_loss_guard_blocks_order(self):
+        # Added 2026-08-16: this path previously checked only halt and
+        # macro-blackout -- a real manual buy could submit while the
+        # consecutive-loss/daily/monthly circuit breakers had tripped.
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(), f)
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
+                      "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
+             patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_manual_options_buy_reply("YES")
+        mock_gac.assert_not_called()
+        self.assertIn("consecutive-loss", mock_tg.call_args[0][0])
+
+    def test_daily_loss_limit_blocks_order(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(), f)
+        with patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_manual_options_buy_reply("YES")
+        mock_gac.assert_not_called()
+        self.assertIn("daily loss", mock_tg.call_args[0][0])
+
+    def test_monthly_loss_limit_blocks_order(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump(self._pending(), f)
+        with patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "get_alpaca_client") as mock_gac, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_manual_options_buy_reply("YES")
+        mock_gac.assert_not_called()
+        self.assertIn("monthly loss", mock_tg.call_args[0][0])
+
+
     def test_yes_submits_and_registers_position(self):
         with open(self._buy_tmp.name, "w") as f:
             json.dump(self._pending(), f)
@@ -3760,6 +3896,31 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         self.assertEqual(len(positions), 1)
         self.assertTrue(positions[0].setup.startswith("Options Call SMCI260814C00034000"))
         self.assertIn("Submitted", mock_tg.call_args[0][0])
+
+
+class TestEntryCircuitBreakersOk(unittest.TestCase):
+    """Direct unit coverage of the shared helper both approval paths above
+    now use, isolated from the Telegram-flow scaffolding."""
+
+    def test_all_clear_returns_ok(self):
+        mock_stats = {"consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                      "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4}
+        with patch.object(a, "is_halted", return_value=False), \
+             patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0):
+            ok, reason = a._entry_circuit_breakers_ok()
+        self.assertTrue(ok)
+        self.assertEqual(reason, "")
+
+    def test_checks_short_circuit_in_order_halt_first(self):
+        # If halted, the more expensive checks (tracker stats, P&L reads)
+        # should never even run.
+        with patch.object(a, "is_halted", return_value=True), \
+             patch.object(a.WinRateTracker, "rolling_stats") as mock_stats:
+            ok, reason = a._entry_circuit_breakers_ok()
+        self.assertFalse(ok)
+        mock_stats.assert_not_called()
 
 
 class TestSubmitManualOptionsBuy(unittest.TestCase):
@@ -5308,6 +5469,62 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         consumed = a._handle_earnings_approval_reply("what's the weather")
         self.assertFalse(consumed)
         self.assertEqual(len(a._load_earnings_pending()), 1)
+
+    def test_halt_blocks_submission(self):
+        # Added 2026-08-16: this path previously checked NONE of halt,
+        # consec-loss, daily-loss, or monthly-loss before submitting a real
+        # multi-leg spread -- only offer-matching/reachability/price-drift.
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        with patch.object(a, "is_halted", return_value=True), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_not_called()
+        self.assertIn("halted", mock_tg.call_args[0][0])
+        self.assertEqual(a._load_earnings_pending(), [], "offer is still consumed, not left dangling")
+
+    def test_consecutive_loss_guard_blocks_submission(self):
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
+                      "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_not_called()
+        self.assertIn("consecutive-loss", mock_tg.call_args[0][0])
+
+    def test_daily_loss_limit_blocks_submission(self):
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        with patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_not_called()
+        self.assertIn("daily loss", mock_tg.call_args[0][0])
+
+    def test_monthly_loss_limit_blocks_submission(self):
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        with patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_not_called()
+        self.assertIn("monthly loss", mock_tg.call_args[0][0])
+
+    def test_macro_blackout_blocks_submission(self):
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        with patch.object(a, "check_macro_safe", return_value=(False, 0)), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._handle_earnings_approval_reply("yes")
+        mock_client.submit_order.assert_not_called()
+        self.assertIn("blackout", mock_tg.call_args[0][0])
 
     def _plan_with_snapshot(self, current_price):
         p = self._plan()

@@ -451,6 +451,34 @@ def _existing(paths: list[str]) -> list[str]:
     return [p for p in paths if os.path.exists(p)]
 
 
+def _tracked(paths: list[str]) -> list[str]:
+    """Subset of `paths` git already knows about (committed, in HEAD or the
+    index) regardless of whether they currently exist on disk right now.
+
+    Added 2026-08-16 after reproducing a real, permanent git_sync() wedge:
+    _existing() alone can't see a file that WAS committed but has since
+    been deleted locally — e.g. dman_telegram_manual_buy.json, removed by
+    os.remove() on EVERY YES/NO reply to /buy, or dman_halt.json, removed
+    by os.remove() on /resume. A deleted-but-still-tracked file is an
+    uncommitted change git cares about, and `git pull --rebase` refuses to
+    run at all while any such change is unstaged — every git_sync() call
+    after that point fails its pre-flight silently (only a `log()` line),
+    origin/main stops advancing, and the daemon stops publishing state
+    (raised stops, closed positions, halt flags) for the rest of the
+    session. Used at the staging step (git add -A) so a deletion actually
+    gets committed instead of sitting as a permanent unstaged change.
+    """
+    if not paths:
+        return []
+    try:
+        result = _git("ls-files", "--", *paths)
+        if result.returncode != 0:
+            return []
+        return [line for line in result.stdout.splitlines() if line]
+    except Exception:
+        return []
+
+
 def _restore_corrupted_json(paths: list[str]) -> list[str]:
     """
     Guarantee nothing invalid ever gets staged. Any .json file that fails to
@@ -554,8 +582,17 @@ def git_sync() -> None:
         # conflict (e.g. a process killed mid-write leaving a truncated file).
         _present = _existing(STATE_FILES)
         _present = _restore_corrupted_json(_present)
-        if _present:
-            _git("add", "--", *_present)
+        # Union with _tracked(): a STATE_FILES entry that's been deleted
+        # locally (still tracked in git, absent from _present) must still
+        # reach `git add -A` so its deletion gets staged — see _tracked()'s
+        # docstring for the real incident this fixes. `-A` (not a bare add)
+        # is what actually stages a removal for a path git already knows
+        # about; a path that's neither existing nor tracked is deliberately
+        # excluded from the pathspec (git add -A errors atomically — stages
+        # NOTHING — if any single pathspec element matches nothing at all).
+        _stage_paths = sorted(set(_present) | set(_tracked(STATE_FILES)))
+        if _stage_paths:
+            _git("add", "-A", "--", *_stage_paths)
         staged = _git("diff", "--staged", "--quiet")
         if staged.returncode != 0:          # something staged
             _git("-c", "user.email=github-actions[bot]@users.noreply.github.com",

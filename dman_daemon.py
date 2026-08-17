@@ -1418,10 +1418,22 @@ def news_data_stream_loop() -> None:
             if not is_macro and not held_hit and market_hours():
                 _watchlist_hits = [s for s in relevant if s in algo.WATCHLIST]
                 if _watchlist_hits and algo._news_sentiment_verdict(_watchlist_hits[0]) != "negative":
-                    now_mono = time.monotonic()
-                    if now_mono - _last_fast_scan_trigger_ts >= FAST_SCAN_TRIGGER_COOLDOWN_S:
-                        _last_fast_scan_trigger_ts = now_mono
-                        _fast_scan_trigger.set()
+                    # Found in the 2026-08-16 review: market_data_stream_loop's
+                    # own trigger (above) holds _scan_baseline_lock across
+                    # this exact check-and-set on _last_fast_scan_trigger_ts;
+                    # this one didn't lock at all. Two threads (this one and
+                    # the market-data stream's) can both read the stale
+                    # cooldown timestamp before either writes, both pass, and
+                    # both fire the trigger -- the same class of double-fire
+                    # bug FAST_SCAN_TRIGGER_COOLDOWN_S exists to prevent.
+                    # Reuses the same lock rather than a new one: they guard
+                    # the same shared timestamp and must serialize against
+                    # each other, not just within themselves.
+                    with _scan_baseline_lock:
+                        now_mono = time.monotonic()
+                        if now_mono - _last_fast_scan_trigger_ts >= FAST_SCAN_TRIGGER_COOLDOWN_S:
+                            _last_fast_scan_trigger_ts = now_mono
+                            _fast_scan_trigger.set()
 
             # Background knowledge-base log (2026-08-15, direct instruction
             # to have the algo "constantly internalize" news rather than

@@ -958,5 +958,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T10:00:08.915496-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "NAHB Housing Market Index For August\u00a035 Vs 33\u00a0 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

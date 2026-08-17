@@ -13969,7 +13969,15 @@ def get_live_price(ticker: str) -> Optional[float]:
     try:
         dc = get_alpaca_data_client()
         if dc is not None:
-            req   = StockLatestQuoteRequest(symbol_or_symbols=ticker)
+            # Found in the 2026-08-16 review: this is the single hottest
+            # price-check path in the file (behind T1/T2/early-lock
+            # decisions and entry-price drift validation) and omitted
+            # feed= entirely, unlike every other stock-data call site
+            # (_fetch_alpaca_daily etc.) — a SIP entitlement lapse would
+            # degrade this specific path silently, with no downgrade
+            # alert, same class of gap as market_data_stream_loop()'s
+            # hardcoded DataFeed.SIP.
+            req   = StockLatestQuoteRequest(symbol_or_symbols=ticker, feed=_resolve_stock_feed())
             quote = dc.get_stock_latest_quote(req)[ticker]
             ask, bid = float(quote.ask_price), float(quote.bid_price)
             if ask > 0 and bid > 0:

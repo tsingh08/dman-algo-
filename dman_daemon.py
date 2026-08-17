@@ -1044,8 +1044,16 @@ def market_data_stream_loop() -> None:
         stopped   = threading.Event()
         stream    = None
         try:
+            # Found in the 2026-08-16 review: this hardcoded DataFeed.SIP
+            # instead of calling algo._resolve_stock_feed() (the options
+            # stream does this correctly for its own OPRA/indicative
+            # choice a few hundred lines below). A SIP entitlement lapse
+            # would silently degrade this stream with no downgrade alert
+            # -- the exact class of gap _resolve_stock_feed() exists to
+            # close for every OTHER stock-data call site in the project.
+            _feed = DataFeed.SIP if algo._resolve_stock_feed() == "sip" else DataFeed.IEX
             stream = StockDataStream(algo.ALPACA_API_KEY, algo.ALPACA_SECRET_KEY,
-                                     feed=DataFeed.SIP)
+                                     feed=_feed)
             stream.subscribe_quotes(on_quote, *tickers)
             with _active_market_stream_lock:
                 _active_market_stream = stream

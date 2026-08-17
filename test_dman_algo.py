@@ -2013,6 +2013,51 @@ class TestFetchIntradayBarsRespectsInterval(unittest.TestCase):
         self.assertEqual(len(df), 5, "a 1m request must keep the native 1-minute granularity")
 
 
+class TestGetLivePriceUsesFeedResolver(unittest.TestCase):
+    """Found in the 2026-08-16 review: get_live_price() -- the single
+    hottest price-check path in the file, behind T1/T2/early-lock
+    decisions and entry-price drift validation -- omitted feed= entirely,
+    unlike every other stock-data call site (_fetch_alpaca_daily,
+    _fetch_intraday_bars, prewarm_alpaca_bars all pass
+    feed=_resolve_stock_feed()). A SIP entitlement lapse would degrade
+    this specific path silently, with no downgrade alert."""
+
+    def _quote(self, ask=10.05, bid=10.00):
+        q = MagicMock()
+        q.ask_price = ask
+        q.bid_price = bid
+        return q
+
+    def test_feed_resolver_result_is_passed_to_the_quote_request(self):
+        captured = {}
+
+        def fake_get_stock_latest_quote(req):
+            captured["feed"] = req.feed
+            return {"TESTX": self._quote()}
+
+        mock_dc = MagicMock()
+        mock_dc.get_stock_latest_quote.side_effect = fake_get_stock_latest_quote
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc), \
+             patch.object(a, "_resolve_stock_feed", return_value="iex"):
+            px = a.get_live_price("TESTX")
+        self.assertEqual(str(captured["feed"]).lower(), "datafeed.iex")
+        self.assertAlmostEqual(px, 10.025, places=3)
+
+    def test_sip_entitled_still_requests_sip(self):
+        captured = {}
+
+        def fake_get_stock_latest_quote(req):
+            captured["feed"] = req.feed
+            return {"TESTX": self._quote()}
+
+        mock_dc = MagicMock()
+        mock_dc.get_stock_latest_quote.side_effect = fake_get_stock_latest_quote
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc), \
+             patch.object(a, "_resolve_stock_feed", return_value="sip"):
+            a.get_live_price("TESTX")
+        self.assertEqual(str(captured["feed"]).lower(), "datafeed.sip")
+
+
 class TestBarSetContainsBugFix(unittest.TestCase):
     """Regression test for a confirmed production bug: alpaca-py's BarSet does
     not support `in` the way a dict does — `ticker in resp` was always False

@@ -11384,7 +11384,18 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
             low_52wk = float(df["Low"].iloc[-lookback:].min())
             near_bottom = c <= low_52wk * (1 + SMALLCAP_52WK_LOW_PCT)
         except Exception:
-            near_bottom = True  # data unavailable — don't block
+            # Found in the 2026-08-16 review: this branch intended "data
+            # unavailable — don't block," but left low_52wk unassigned.
+            # The bot_note f-string further down unconditionally
+            # references low_52wk whenever near_bottom is True, so a
+            # missing 52wk-low computation raised a silent NameError
+            # there, caught by this function's own outer catch-all —
+            # dropping the ENTIRE signal instead of letting it through as
+            # intended. low_52wk=c makes the fallback genuinely fail
+            # open: the bot_note then reads "0% off 52wk low" (unknown,
+            # treated as at it) instead of crashing the whole detector.
+            near_bottom = True
+            low_52wk = c
 
         # Must be either near 52wk low OR have very high RVOL (catalyst-driven spike)
         if not (near_bottom or rvol >= 5.0):

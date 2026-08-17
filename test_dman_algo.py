@@ -5012,6 +5012,52 @@ class TestIntradayHighPullbackGuard(unittest.TestCase):
         self.assertIsNotNone(sig)
 
 
+class TestLowFloatCatalystFailOpenOnMissing52wkLow(unittest.TestCase):
+    """Found in the 2026-08-16 review: when the 52wk-low lookback raises
+    (missing/short data), the except branch set near_bottom = True
+    ("data unavailable -- don't block") but never assigned low_52wk on
+    that path. The bot_note f-string further down unconditionally
+    references low_52wk whenever near_bottom is True, so this actually
+    raised a silent NameError caught by the function's own outer
+    catch-all -- dropping the ENTIRE signal, the exact opposite of the
+    documented fail-open intent."""
+
+    def _df_missing_low_column(self, n=6):
+        import pandas as pd
+        rows = []
+        for i in range(n - 1):
+            rows.append({"Close": 8.0, "High": 8.2, "Open": 7.9,
+                         "RVOL": 1.0, "MACD": 0.1, "MACD_sig": 0.2,
+                         "MACD_hist": -0.05, "RSI": 45.0, "Volume": 500_000})
+        rows.append({"Close": 8.5, "High": 8.6, "Open": 8.3,
+                     "RVOL": 6.0, "MACD": 1.0, "MACD_sig": 0.5,
+                     "MACD_hist": 0.3, "RSI": 40.0, "Volume": 3_000_000})
+        return pd.DataFrame(rows)   # deliberately no "Low" column
+
+    def setUp(self):
+        self._patches = [
+            patch.object(a, "ENABLE_SMALLCAP", True),
+            patch.object(a, "_get_short_float_data", return_value=(1.0, 5.0, 5.0, 0.1)),
+            patch.object(a, "_is_recent_reverse_split", return_value=False),
+            patch.object(a, "get_effective_account", return_value=5000.0),
+            patch.object(a, "_fetch_massive_benzinga_news",
+                        side_effect=lambda tickers, **kw: {t: ["headline"] for t in tickers}),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+
+    def test_missing_52wk_low_data_does_not_silently_drop_the_whole_signal(self):
+        df = self._df_missing_low_column()
+        sig = a.detect_low_float_catalyst(df, "TESTX")
+        self.assertIsNotNone(sig, "a missing 52wk-low lookback must fail OPEN (still produce a "
+                              "signal, per the documented intent), not silently drop the whole "
+                              "detector via an unrelated NameError")
+
+
 class TestLowFloatCatalystNewsGate(unittest.TestCase):
     """Confirmed live 2026-08-12: FGL cleared every technical gate in
     detect_low_float_catalyst() (float, RVOL -- a 28x float rotation that

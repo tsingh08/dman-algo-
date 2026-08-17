@@ -12484,6 +12484,37 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
 #  SECTION 20 — PRO SCANNER
 # ═══════════════════════════════════════════════════════════════════════════
 
+_UNMAPPED_SECTOR = "Unmapped/Small-Cap"
+
+def _apply_sector_concentration_cap(signals: list["ProSignal"]) -> list["ProSignal"]:
+    """
+    Max 2 signals per sector per scan, to avoid overweighting one sector.
+    TICKER_SECTOR only curates large-caps -- found in the 2026-08-16
+    review: TICKER_SECTOR.get(ticker, "") returns "" for anything outside
+    that map, and the old check treated an empty sector as automatically
+    EXEMPT from the cap, so it never applied to small-cap catalyst or
+    dynamically-discovered signals at all, no matter how many fired in one
+    scan. Bucketing every unmapped ticker under one shared sentinel sector
+    isn't a real GICS classification, but it closes the actual hole: at
+    most 2 unmapped-sector signals can now pass per scan, instead of an
+    unbounded number.
+    """
+    sector_counts: dict[str, int] = {}
+    concentrated: list[ProSignal] = []
+    for sig in signals:
+        sec   = TICKER_SECTOR.get(sig.ticker) or _UNMAPPED_SECTOR
+        count = sector_counts.get(sec, 0)
+        if count < 2:
+            concentrated.append(sig)
+            sector_counts[sec] = count + 1
+        else:
+            sys.stdout.write(
+                f"  📊 Sector cap: {sig.ticker} skipped "
+                f"({sec} already has {count} signal(s))\n"
+            )
+    return concentrated
+
+
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
                     min_score: int = None,
                     use_ai: bool = False,
@@ -12904,21 +12935,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             )
     signals = heat_capped
 
-    # Sector concentration cap: max 2 signals per sector to avoid overweighting
-    sector_counts: dict[str, int] = {}
-    concentrated: list[ProSignal] = []
-    for sig in signals:
-        sec   = TICKER_SECTOR.get(sig.ticker, "")
-        count = sector_counts.get(sec, 0)
-        if not sec or count < 2:
-            concentrated.append(sig)
-            sector_counts[sec] = count + 1
-        else:
-            sys.stdout.write(
-                f"  📊 Sector cap: {sig.ticker} skipped "
-                f"({sec} already has {count} signal(s))\n"
-            )
-    signals = concentrated
+    signals = _apply_sector_concentration_cap(signals)
 
     # Alert only AFTER heat-cap + sector-cap have finalized the list. Both
     # passes above used to send the Telegram alert the moment a signal was

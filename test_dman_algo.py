@@ -798,6 +798,49 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
         self.assertEqual(mock_halt.call_args[0][0], "vix_extreme")
 
 
+class TestSectorConcentrationCap(unittest.TestCase):
+    """Found in the 2026-08-16 review: TICKER_SECTOR.get(ticker, "")
+    returns "" for anything outside the curated large-cap map, and the
+    cap treated an empty sector as automatically EXEMPT -- so it never
+    applied to small-cap catalyst or dynamically-discovered signals at
+    all, no matter how many fired in the same scan. Fixed by bucketing
+    every unmapped ticker under one shared sentinel sector and applying
+    the same max-2 cap to it."""
+
+    def _signal(self, ticker):
+        return a.ProSignal(
+            ticker=ticker, bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+            shares=100, rr=2.0, rsi=50.0, rvol=2.0,
+            reason="test", confluence_score=0,
+        )
+
+    def test_a_third_signal_in_a_known_sector_is_capped(self):
+        # AAPL/MSFT/NVDA are all TICKER_SECTOR "Technology" real entries.
+        sigs = [self._signal("AAPL"), self._signal("MSFT"), self._signal("NVDA")]
+        result = a._apply_sector_concentration_cap(sigs)
+        self.assertEqual([s.ticker for s in result], ["AAPL", "MSFT"])
+
+    def test_unmapped_small_cap_tickers_are_now_capped_too(self):
+        # Three tickers with no TICKER_SECTOR entry at all -- the actual
+        # bug: previously an unbounded number of these could pass.
+        sigs = [self._signal("ZZZQ1"), self._signal("ZZZQ2"), self._signal("ZZZQ3")]
+        result = a._apply_sector_concentration_cap(sigs)
+        self.assertEqual(len(result), 2, "unmapped-sector signals must be capped at 2, same as any real sector")
+
+    def test_two_unmapped_tickers_both_pass(self):
+        sigs = [self._signal("ZZZQ1"), self._signal("ZZZQ2")]
+        result = a._apply_sector_concentration_cap(sigs)
+        self.assertEqual(len(result), 2)
+
+    def test_known_and_unmapped_sectors_are_capped_independently(self):
+        sigs = [self._signal("AAPL"), self._signal("MSFT"), self._signal("NVDA"),
+               self._signal("ZZZQ1"), self._signal("ZZZQ2"), self._signal("ZZZQ3")]
+        result = a._apply_sector_concentration_cap(sigs)
+        tickers = [s.ticker for s in result]
+        self.assertEqual(tickers, ["AAPL", "MSFT", "ZZZQ1", "ZZZQ2"])
+
+
 class TestSyncScanLogWithRemote(unittest.TestCase):
     """Confirmed live 2026-08-11: sync_scan_log_with_remote() used to cap
     the merged list positionally (merged[-20:]), matching

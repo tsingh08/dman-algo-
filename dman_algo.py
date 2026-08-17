@@ -12176,7 +12176,20 @@ def _check_open_position_risk(regime: dict) -> None:
     # having filled a real order, which read as real open exposure that
     # didn't exist. Cross-referencing against real Alpaca positions (already
     # fetched above) keeps this check honest: only tickers you actually hold.
-    if _alp_positions is not None:
+    #
+    # `_alp_positions is None` (Alpaca unreachable) deliberately still
+    # checks every pending entry rather than skipping — see
+    # test_alpaca_unreachable_fails_open_still_shows_pending's docstring:
+    # silently going dark on a position you genuinely hold, just because
+    # Alpaca was briefly unreachable, is judged the worse failure mode
+    # than an occasional false alarm on a phantom (alerted-but-never-
+    # filled) signal. verified=False is threaded into the alert text
+    # below instead, so a human reading it knows this specific alert
+    # couldn't be cross-checked against real broker state this cycle —
+    # reducing the FGL/AMZN false-CERTAINTY problem without reintroducing
+    # a silent-outage blind spot on a real position.
+    verified = _alp_positions is not None
+    if verified:
         pending = [p for p in pending if p.get("ticker") in _alp_positions]
 
     if not pending:
@@ -12227,6 +12240,9 @@ def _check_open_position_risk(regime: dict) -> None:
 
     if alerts:
         header = "⚠️ <b>OPEN POSITION RISK ALERT</b>\n\n"
+        if not verified:
+            header += ("⚠️ <i>Alpaca unreachable this cycle — could not confirm these are real "
+                       "positions vs. an alerted-but-never-filled signal.</i>\n\n")
         send_telegram(header + "\n\n".join(alerts))
         print(f"  ⚠  Risk alert sent for {len(alerts)} position(s).")
     else:

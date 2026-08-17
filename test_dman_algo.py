@@ -7249,6 +7249,28 @@ class TestCheckStopCoverageSplit(unittest.TestCase):
             a._check_open_position_risk({})
         mock_split.assert_called_once_with()
 
+    def test_alpaca_unreachable_still_alerts_but_flags_it_as_unverified(self):
+        # Found in the 2026-08-16 review: a stray "at risk" alert for a
+        # phantom (alerted-but-never-filled) signal like FGL/AMZN reads
+        # identically to a real one when Alpaca is briefly unreachable,
+        # since the phantom-position filter can't run without a real
+        # positions fetch. Deliberately still fails OPEN here rather than
+        # going silent (test_alpaca_unreachable_fails_open_still_shows_
+        # pending's rationale: silently missing a genuine at-risk
+        # position is judged worse than an occasional false alarm) --
+        # but the alert text must now say it couldn't be cross-checked,
+        # so a human reading it knows to treat it with less certainty.
+        with open(self._sig_tmp.name, "w") as f:
+            json.dump({"pending": [{"ticker": "FGL", "bias": "LONG", "entry": 10.0,
+                                    "stop": 9.0, "target1": 12.0, "score": 90}]}, f)
+        with patch.object(a, "_check_stop_coverage", return_value=None), \
+             patch.object(a, "get_live_price", return_value=9.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_open_position_risk({})
+        mock_tg.assert_called_once()
+        self.assertIn("could not confirm", mock_tg.call_args[0][0])
+        self.assertIn("FGL", mock_tg.call_args[0][0])
+
 
 class TestSetupPerformanceDrift(unittest.TestCase):
     """WinRateTracker.setup_performance_drift() generalizes the manual

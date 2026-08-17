@@ -2320,5 +2320,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T13:36:40.155215-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "UBS Maintains Buy on SpaceX, Maintains $210 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-17T13:37:15.687063-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Tutor Perini Corporation Awarded $60M U.S. Coast Guard Contract",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

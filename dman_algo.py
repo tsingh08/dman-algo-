@@ -9517,11 +9517,24 @@ class WinRateTracker:
     def setup_stats(self, setup: str, n: int = 30) -> dict:
         """
         Rolling win-rate stats for a specific setup pattern (e.g. "VCP").
-        Falls back to aggregate stats if fewer than 5 trades exist for this setup.
+        Falls back to aggregate LIVE stats if fewer than 5 real trades exist
+        for this setup.
+
+        Live-only (TradeRecord.is_live), unlike rolling_stats()'s own
+        default — this is the one function real position sizing
+        (size_position_kelly(), via score_signal()) reads from, and mixing
+        in backtest-era records here isn't a cosmetic display choice the
+        way it is elsewhere (rolling_stats()'s unfiltered default still
+        backs adaptive_min_score() deliberately). Found 2026-08-16 review:
+        before this filter, "Gap & Hold" showed 475 backtest records and
+        exactly 1 real live trade, but setup_stats() reported the blended
+        83% win rate as if it were a proven live track record — sizing a
+        real position on an account's actual single live data point
+        dressed up as 475 trades of confidence.
         """
-        recent = [r for r in self.records[-200:] if r.setup == setup][-n:]
+        recent = [r for r in self.records[-200:] if r.setup == setup and r.is_live][-n:]
         if len(recent) < 5:
-            return self.rolling_stats()   # not enough data — use aggregate
+            return self.rolling_stats(live_only=True)   # not enough data — use live-only aggregate
         wins   = [r for r in recent if r.outcome == "WIN"]
         losses = [r for r in recent if r.outcome == "LOSS"]
         wr     = len(wins) / len(recent)
@@ -10837,13 +10850,24 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # Apply ATR stop optimizer
     signal.stop = optimize_stop(df, signal.stop, signal.entry, signal.bias)
 
-    # Recalculate targets after stop adjustment
-    if signal.bias == "LONG":
-        signal.target1 = round(signal.entry + 2.0*(signal.entry - signal.stop), 2)
-        signal.target2 = round(signal.entry + 3.0*(signal.entry - signal.stop), 2)
-    else:
-        signal.target1 = round(signal.entry - 2.0*(signal.stop - signal.entry), 2)
-        signal.target2 = round(signal.entry - 3.0*(signal.stop - signal.entry), 2)
+    # RR against the (possibly ATR-tightened) stop — target1/target2 are
+    # deliberately left untouched here. Found 2026-08-16 review: this block
+    # used to unconditionally overwrite both targets with a flat 2.0x/3.0x
+    # multiplier of the NEW stop distance, discarding whatever
+    # _raw_signals() had actually set — Gap & Hold's and Bear Gap Hold's
+    # gap-echo targets (a specific technical price level the setup is
+    # betting on, not a multiple of risk — rescaling it against a
+    # different stop would be wrong in the OTHER direction too) and every
+    # setup's real multiplier (2.5x/4.0x for several setups, not a
+    # universal 2.0x/3.0x). A second, independently hardcoded multiplier
+    # (also 2.5x/4.0x, not this function's 2.0x/3.0x) then got reapplied
+    # again at live order-submission time on top of THIS overwrite — so
+    # what got logged/alerted here never matched what the broker bracket
+    # order actually used, and the WinRateTracker's "ground truth" live
+    # outcome resolution was being scored against a target the trade never
+    # had. optimize_stop() only refines WHERE the stop sits based on
+    # ATR/swing structure; it was never meant to imply the profit target
+    # should move too.
     rps = abs(signal.entry - signal.stop)
     if rps > 0:
         signal.rr = round(abs(signal.target1 - signal.entry) / rps, 2)
@@ -15349,22 +15373,34 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             sig.shares = max(1, int(sig.shares * _risk_off_mult))
             sig.cost   = round(sig.shares * sig.entry, 2)
 
-        # Re-anchor bracket to live price — preserves original R multiple but
-        # uses the actual price we'll fill at, so stop and target are correct.
+        # Re-anchor bracket to live price — preserves the signal's ACTUAL
+        # target ratio (whatever score_signal()/_raw_signals() set — a
+        # setup-specific multiplier or a gap-echo level, no longer a
+        # hardcoded number here) and shifts the whole entry/stop/target
+        # structure together to the real fill price, so a small amount of
+        # drift between signal-time and submission-time doesn't change
+        # what trade this actually is. Found 2026-08-16 review: this used
+        # to hardcode a 2.5x/4.0x multiplier here — a THIRD number,
+        # different from score_signal()'s (then also-hardcoded) 2.0x/3.0x
+        # — so what got submitted to the broker never matched what was
+        # logged/alerted even before score_signal()'s own overwrite bug is
+        # counted separately.
         _orig_risk = round(sig.entry - sig.stop, 4)  # risk-per-share from signal detection
         if _orig_risk > 0:
+            _t1_mult = abs(sig.target1 - sig.entry) / _orig_risk
+            _t2_mult = abs(sig.target2 - sig.entry) / _orig_risk
             if sig.bias == "LONG":
                 _live_entry = round(cur * 1.001, 2)    # 0.1% buffer → improves fill odds
                 sig.entry   = _live_entry
                 sig.stop    = round(_live_entry - _orig_risk, 2)
-                sig.target1 = round(_live_entry + 2.5 * _orig_risk, 2)
-                sig.target2 = round(_live_entry + 4.0 * _orig_risk, 2)
+                sig.target1 = round(_live_entry + _t1_mult * _orig_risk, 2)
+                sig.target2 = round(_live_entry + _t2_mult * _orig_risk, 2)
             else:  # SHORT
                 _live_entry = round(cur * 0.999, 2)
                 sig.entry   = _live_entry
                 sig.stop    = round(_live_entry + _orig_risk, 2)
-                sig.target1 = round(_live_entry - 2.5 * _orig_risk, 2)
-                sig.target2 = round(_live_entry - 4.0 * _orig_risk, 2)
+                sig.target1 = round(_live_entry - _t1_mult * _orig_risk, 2)
+                sig.target2 = round(_live_entry - _t2_mult * _orig_risk, 2)
 
         # ── Options branch: calls (LONG) or puts (SHORT) ──────────────────────
         # Calls: WATCHLIST membership OR a setup already trusted for options

@@ -1818,6 +1818,68 @@ class TestWinRateLiveOnlyFiltering(unittest.TestCase):
         self.assertEqual(tracker.rolling_stats(live_only=True)["total"], 0)
 
 
+class TestSetupStatsIsLiveFiltering(unittest.TestCase):
+    """Found in the 2026-08-16 review: setup_stats() -- the one function
+    real position sizing (size_position_kelly, via score_signal) reads
+    from -- had no is_live filter at all. A real check against production
+    data found "Gap & Hold" carrying 475 backtest records against exactly
+    1 real live trade, with setup_stats() blending them into an 83% win
+    rate presented as if it meant something about live performance. These
+    lock in that only real fills count, and that a setup with too few live
+    trades falls back to the live-only aggregate, not the backtest-
+    dominated one."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"[]")
+        self._tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._tmp.name)
+
+    def _record(self, tracker, setup, outcome, is_live, pnl_pct=1.0):
+        tracker.record(a.TradeRecord(
+            ticker="TESTX", date="2026-08-16", bias="LONG", setup=setup,
+            entry=10.0, exit=11.0, outcome=outcome, pnl_pct=pnl_pct,
+            score=100, is_live=is_live,
+        ))
+
+    def test_backtest_records_for_the_setup_are_excluded(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(475):
+            self._record(tracker, "Gap & Hold", "WIN", is_live=False, pnl_pct=8.0)
+        for _ in range(5):
+            self._record(tracker, "Gap & Hold", "LOSS", is_live=True, pnl_pct=-5.0)
+        stats = tracker.setup_stats("Gap & Hold")
+        self.assertEqual(stats["total"], 5)
+        self.assertEqual(stats["losses"], 5)
+        self.assertEqual(stats["win_rate"], 0.0,
+                         "475 backtest wins must not paper over 5 real live losses")
+
+    def test_fewer_than_5_live_trades_falls_back_to_live_only_aggregate_not_backtest(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(475):
+            self._record(tracker, "Gap & Hold", "WIN", is_live=False, pnl_pct=8.0)
+        self._record(tracker, "Gap & Hold", "WIN", is_live=True, pnl_pct=6.0)   # only 1 live trade
+        # A different setup with a real live loss -- this is what the
+        # live-only aggregate fallback should actually reflect.
+        self._record(tracker, "Low Float Catalyst", "LOSS", is_live=True, pnl_pct=-20.0)
+        stats = tracker.setup_stats("Gap & Hold")
+        # Must equal rolling_stats(live_only=True), NOT the 476-trade blend.
+        self.assertEqual(stats["total"], 2)
+        self.assertLess(stats["win_rate"], 1.0,
+                        "the real live loss on a different setup must be visible in the "
+                        "fallback aggregate, not hidden behind 475 backtest wins")
+
+    def test_five_or_more_live_trades_uses_the_setup_specific_stats(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(5):
+            self._record(tracker, "Morning Runner", "WIN", is_live=True, pnl_pct=10.0)
+        stats = tracker.setup_stats("Morning Runner")
+        self.assertEqual(stats["total"], 5)
+        self.assertEqual(stats["win_rate"], 1.0)
+
+
 class TestProgressEquityStopToTrailing(unittest.TestCase):
     """Confirmed live 2026-08-08: CELZ sat at +24.58% with its original
     entry-time stop completely untouched -- the T1 alert only ever told a
@@ -5925,6 +5987,101 @@ class TestKellySizingUsesRealAvgLoss(unittest.TestCase):
         self.assertAlmostEqual(scored.kelly_frac, 0.005, places=4,
                                msg="a weak real payoff ratio (b=0.5) must reach the sizing "
                                    "floor, not silently size as if avg_loss_r were 1.0")
+
+
+class TestScoreSignalPreservesTargets(unittest.TestCase):
+    """Found in the 2026-08-16 review: score_signal() used to unconditionally
+    overwrite target1/target2 with a flat 2.0x/3.0x multiplier of the
+    (possibly ATR-tightened) stop, discarding whatever _raw_signals() had
+    actually set -- a setup's real multiplier (e.g. 2.5x/4.0x) or a
+    gap-echo target (a specific technical price level, not a multiple of
+    risk). These lock in that targets now survive score_signal() untouched,
+    with only rr recomputed against the new stop."""
+
+    def _signal(self, target1=13.0, target2=16.0, entry=10.0, stop=9.0, bias="LONG"):
+        return a.ProSignal(
+            ticker="TEST", bias=bias, setup="Gap & Hold",
+            entry=entry, stop=stop, target1=target1, target2=target2,
+            rr=2.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=0,
+        )
+
+    def _score(self, sig, optimized_stop):
+        with patch.object(a, "check_mtf", return_value=(True, 15)), \
+             patch.object(a, "check_relative_strength", return_value=(True, 10)), \
+             patch.object(a, "check_sector", return_value=(True, 8)), \
+             patch.object(a, "check_earnings_safe", return_value=(True, 1)), \
+             patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
+             patch.object(a, "fetch_df", return_value=None), \
+             patch.object(a, "optimize_stop", return_value=optimized_stop):
+            return a.score_signal(sig, _fake_df(), _fake_regime(), a.WinRateTracker())
+
+    def test_non_default_target_ratio_survives_a_stop_that_tightens(self):
+        # target1 at 3.0 risk (not 2.0), target2 at 6.0 risk (not 3.0) --
+        # exactly the shape of a setup with its own real multiplier or a
+        # gap-echo target that isn't the old hardcoded 2R/3R.
+        sig = self._signal(entry=10.0, stop=9.0, target1=13.0, target2=16.0)
+        scored = self._score(sig, optimized_stop=9.5)   # optimizer tightens the stop
+        self.assertEqual(scored.target1, 13.0, "target1 must be untouched by the stop change")
+        self.assertEqual(scored.target2, 16.0, "target2 must be untouched by the stop change")
+
+    def test_rr_is_recomputed_against_the_new_stop(self):
+        sig = self._signal(entry=10.0, stop=9.0, target1=13.0, target2=16.0)
+        scored = self._score(sig, optimized_stop=9.5)
+        # New risk is 0.5 (10.0 - 9.5); target1 distance from entry is 3.0.
+        self.assertAlmostEqual(scored.rr, 3.0 / 0.5, places=2)
+
+    def test_short_bias_target_also_survives(self):
+        sig = self._signal(entry=10.0, stop=11.0, target1=6.5, target2=3.0, bias="SHORT")
+        scored = self._score(sig, optimized_stop=10.5)
+        self.assertEqual(scored.target1, 6.5)
+        self.assertEqual(scored.target2, 3.0)
+
+
+class TestReanchorPreservesTargetRatio(unittest.TestCase):
+    """Companion to TestScoreSignalPreservesTargets: _submit_signals_to_alpaca()'s
+    live-price re-anchor step used to hardcode ITS OWN 2.5x/4.0x multiplier
+    -- a THIRD number, different from score_signal()'s (then also
+    hardcoded) 2.0x/3.0x -- so what actually got submitted to the broker
+    never matched what was logged/alerted regardless of which of the two
+    overwrite bugs you look at. This locks in that the re-anchor now scales
+    the signal's OWN target ratio to the live entry, not a fixed multiplier."""
+
+    def test_custom_ratio_is_preserved_when_re_anchored_to_a_new_entry(self):
+        # Signal detected at entry=10, stop=9 (risk=1), target1=13 (3R),
+        # target2=16 (6R) -- deliberately not 2.5R/4.0R. Live fill price
+        # drifts to 10.05.
+        sig = a.ProSignal(
+            ticker="TEST", bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=13.0, target2=16.0,
+            rr=3.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=90,
+            shares=10, cost=100.0,
+        )
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price", return_value=(True, 10.05)), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
+             patch.object(a, "submit_alpaca_trade", return_value=("order-1", None)), \
+             patch.object(a, "send_telegram", return_value=True):
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0,
+            }
+            MockPT.return_value.positions = []
+            a._submit_signals_to_alpaca([sig])
+        # New entry ~10.05*1.001 = 10.0601, risk stays 1.0 (entry-stop delta
+        # from signal detection), so target1 should be entry + 3*risk,
+        # target2 entry + 6*risk -- the SAME ratio as before, not 2.5/4.0.
+        new_entry = round(10.05 * 1.001, 2)
+        self.assertAlmostEqual(sig.target1, new_entry + 3.0 * 1.0, places=2)
+        self.assertAlmostEqual(sig.target2, new_entry + 6.0 * 1.0, places=2)
 
 
 class TestInsiderScoreSignalGating(unittest.TestCase):

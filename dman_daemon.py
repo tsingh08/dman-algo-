@@ -846,18 +846,35 @@ def stream_loop() -> None:
             with _active_stream_lock:
                 _active_stream = stream
 
+            # Every mutable object this pair of closures touches is passed
+            # as a default-argument (early-bound at definition time), not
+            # read as a free variable off stream_loop()'s own locals.
+            # Found 2026-08-16 review: only `_orig` had this treatment —
+            # attempt_times/connected/stream were read by NAME, so they
+            # shared ONE cell across every loop iteration (Python closures
+            # capture by reference, not by value). If a zombie thread from
+            # iteration N is still blocked inside stream.run() (the exact
+            # failure mode this whole function exists to guard against —
+            # see the module docstring above) when iteration N+1 begins
+            # and reassigns attempt_times/connected/stream to fresh
+            # objects, the zombie's own _watched_start_ws/_run_stream
+            # calls would silently operate on iteration N+1's objects
+            # instead of its own — falsely arming the NEW stream's storm
+            # detector with the OLD stream's reconnect attempts, and
+            # letting the OLD stream's eventual stopped.set() fire on the
+            # NEW iteration's Event.
             _orig_start_ws = stream._start_ws
-            async def _watched_start_ws(_orig=_orig_start_ws):
-                attempt_times.append(time.monotonic())
+            async def _watched_start_ws(_orig=_orig_start_ws, _attempts=attempt_times, _connected=connected):
+                _attempts.append(time.monotonic())
                 await _orig()
-                connected.set()
+                _connected.set()
             stream._start_ws = _watched_start_ws
 
-            def _run_stream():
+            def _run_stream(_stream=stream, _stopped=stopped):
                 try:
-                    stream.run()
+                    _stream.run()
                 finally:
-                    stopped.set()
+                    _stopped.set()
 
             t = threading.Thread(target=_run_stream, daemon=True)
             t.start()
@@ -907,6 +924,17 @@ def stream_loop() -> None:
 
             # Thread exited cleanly (stop() called elsewhere, or a non-WebSocketException
             # escaped _run_forever) without ever storming — treat as a normal disconnect.
+            # Found 2026-08-16 review: unlike the other three stream loops,
+            # this branch never called stream.stop()/waited on `stopped`
+            # before looping back around to build a fresh TradingStream —
+            # leaking the old stream object un-stopped every ordinary
+            # disconnect, and using the full `backoff` (>=15s, doubling)
+            # here instead of a short fixed wait.
+            try:
+                stream.stop()
+            except Exception:
+                pass
+            stopped.wait(timeout=10)
             time.sleep(backoff)
         except Exception as exc:
             log(f"stream error: {exc} — reconnecting in {backoff}s")
@@ -1019,18 +1047,21 @@ def market_data_stream_loop() -> None:
             with _active_market_stream_lock:
                 _active_market_stream = stream
 
+            # Force-bind attempt_times/connected/stream via default args —
+            # see stream_loop()'s matching comment for the full zombie-
+            # thread closure-sharing bug this prevents.
             _orig_start_ws = stream._start_ws
-            async def _watched_start_ws(_orig=_orig_start_ws):
-                attempt_times.append(time.monotonic())
+            async def _watched_start_ws(_orig=_orig_start_ws, _attempts=attempt_times, _connected=connected):
+                _attempts.append(time.monotonic())
                 await _orig()
-                connected.set()
+                _connected.set()
             stream._start_ws = _watched_start_ws
 
-            def _run_stream():
+            def _run_stream(_stream=stream, _stopped=stopped):
                 try:
-                    stream.run()
+                    _stream.run()
                 finally:
-                    stopped.set()
+                    _stopped.set()
 
             t = threading.Thread(target=_run_stream, daemon=True)
             t.start()
@@ -1178,18 +1209,21 @@ def option_data_stream_loop() -> None:
             with _active_option_stream_lock:
                 _active_option_stream = stream
 
+            # Force-bind attempt_times/connected/stream via default args —
+            # see stream_loop()'s matching comment for the full zombie-
+            # thread closure-sharing bug this prevents.
             _orig_start_ws = stream._start_ws
-            async def _watched_start_ws(_orig=_orig_start_ws):
-                attempt_times.append(time.monotonic())
+            async def _watched_start_ws(_orig=_orig_start_ws, _attempts=attempt_times, _connected=connected):
+                _attempts.append(time.monotonic())
                 await _orig()
-                connected.set()
+                _connected.set()
             stream._start_ws = _watched_start_ws
 
-            def _run_stream():
+            def _run_stream(_stream=stream, _stopped=stopped):
                 try:
-                    stream.run()
+                    _stream.run()
                 finally:
-                    stopped.set()
+                    _stopped.set()
 
             t = threading.Thread(target=_run_stream, daemon=True)
             t.start()
@@ -1425,18 +1459,21 @@ def news_data_stream_loop() -> None:
             with _active_news_stream_lock:
                 _active_news_stream = stream
 
+            # Force-bind attempt_times/connected/stream via default args —
+            # see stream_loop()'s matching comment for the full zombie-
+            # thread closure-sharing bug this prevents.
             _orig_start_ws = stream._start_ws
-            async def _watched_start_ws(_orig=_orig_start_ws):
-                attempt_times.append(time.monotonic())
+            async def _watched_start_ws(_orig=_orig_start_ws, _attempts=attempt_times, _connected=connected):
+                _attempts.append(time.monotonic())
                 await _orig()
-                connected.set()
+                _connected.set()
             stream._start_ws = _watched_start_ws
 
-            def _run_stream():
+            def _run_stream(_stream=stream, _stopped=stopped):
                 try:
-                    stream.run()
+                    _stream.run()
                 finally:
-                    stopped.set()
+                    _stopped.set()
 
             t = threading.Thread(target=_run_stream, daemon=True)
             t.start()

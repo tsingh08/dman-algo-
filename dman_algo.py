@@ -1958,6 +1958,79 @@ def _trigger_workflow_restart(workflow_file: str, ref: str = "main") -> tuple[bo
         return False, str(exc)
 
 
+def _check_and_heal_watchdog(now_et: Optional[datetime] = None) -> None:
+    """
+    Meta-watchdog: checks whether DMan Watchdog's OWN scheduled trigger has
+    actually fired recently, and dispatches a fresh run if not.
+
+    Found live 2026-08-17: both dman_daemon.yml's and dman_watchdog.yml's
+    scheduled cron triggers silently failed to fire for 2+ hours during a
+    live trading session with real open positions — a known, GitHub-
+    platform-level scheduling reliability issue (see both workflow files'
+    own docstrings for the near-identical 2026-08-03 precedent, already
+    partially mitigated once by offsetting trigger minutes off the
+    hour/half-hour) — while Scanner, StockTwits, and Pre-Market Briefing
+    all fired normally that same morning. run_watchdog() already detects
+    and auto-restarts a stale DAEMON — but only if the watchdog itself
+    actually runs. Nothing previously checked whether the watchdog's own
+    trigger fired, so when GitHub dropped both crons on the same morning,
+    nobody — human or machine — noticed until a human happened to check
+    by hand, hours into the session.
+
+    Deliberately minimal: this only checks watchdog freshness and, if
+    stale, dispatches dman_watchdog.yml — it does NOT duplicate
+    run_watchdog()'s own daemon-staleness/auto-restart logic (single
+    source of truth stays there). Once the watchdog actually runs again,
+    its own existing checks take it from there.
+
+    Called from two independently-scheduled, empirically-reliable-that-
+    morning workflows (scan mode + stocktwits mode) rather than added as
+    a THIRD single point of failure — the whole point is that no one
+    trigger being dropped can recreate this exact silent gap again.
+    Fails quiet on any error (network, missing token): this is a
+    redundant safety net layered on top of the primary watchdog, not
+    something that should ever block or alarm on its own account.
+    """
+    now_et = now_et or datetime.now(ET)
+    if now_et.weekday() >= 5:
+        return
+    t = now_et.hour * 100 + now_et.minute
+    if not (935 <= t <= 1600):   # 5 min past open, so the 9:07/9:37 AM slots have had a chance to fire
+        return
+    if not GITHUB_TOKEN:
+        return
+    try:
+        resp = requests.get(
+            f"https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/dman_watchdog.yml/runs",
+            headers={"Authorization": f"Bearer {GITHUB_TOKEN}", "Accept": "application/vnd.github+json"},
+            params={"per_page": 1}, timeout=10,
+        )
+        runs = resp.json().get("workflow_runs", [])
+        if not runs:
+            return
+        from datetime import timezone as _tz
+        _last_run_at = datetime.fromisoformat(runs[0]["created_at"].replace("Z", "+00:00"))
+        _stale_min = (datetime.now(_tz.utc) - _last_run_at).total_seconds() / 60
+    except Exception:
+        return
+
+    if _stale_min <= 40:   # watchdog's own cadence is every 30 min -- 40 min is a real gap, not a blip
+        return
+    _key = "__META_WATCHDOG_RESTART__"
+    if _is_duplicate_alert(_key):
+        return
+    print(f"  🐕‍🦺 Meta-watchdog: DMan Watchdog hasn't run in {_stale_min:.0f} min — dispatching a fresh run")
+    _ok, _msg = _trigger_workflow_restart("dman_watchdog.yml")
+    if _ok:
+        send_telegram(f"🐕‍🦺 <b>Meta-watchdog</b>: DMan Watchdog hadn't run in {_stale_min:.0f} min "
+                      "(its own schedule may have been dropped by GitHub) — dispatched a fresh run.")
+    else:
+        send_telegram(f"🐕‍🦺 <b>Meta-watchdog</b>: DMan Watchdog appears stale ({_stale_min:.0f} min) "
+                      f"but auto-restart failed ({_msg}). Reply <b>/restart</b> manually, or "
+                      f"GitHub app → Actions → DMan Watchdog → Run workflow.")
+    _save_last_alert(_key)
+
+
 def is_halted() -> bool:
     """True when a manual /halt is active — blocks NEW entries only."""
     return os.path.exists(HALT_FILE)
@@ -16594,6 +16667,15 @@ def main():
 
     elif args.mode == "stocktwits":
         run_stocktwits_monitor()
+        # Meta-watchdog belt-and-suspenders — see _check_and_heal_watchdog()'s
+        # docstring for the 2026-08-17 incident this closes. StockTwits runs
+        # far more frequently than the scanner, so this is the tighter of
+        # the two redundant checks. Never let this block or fail the
+        # primary stocktwits run.
+        try:
+            _check_and_heal_watchdog()
+        except Exception:
+            pass
 
     elif args.mode == "watchdog":
         run_watchdog()
@@ -16811,6 +16893,14 @@ def main():
         if 1525 <= _eod_t <= 1600:
             print("\n  [EOD] Final scan window — sending P&L summary...")
             send_account_pnl_telegram("EOD")
+
+        # Meta-watchdog belt-and-suspenders — see _check_and_heal_watchdog()'s
+        # docstring for the 2026-08-17 incident this closes. Never let this
+        # block or fail the actual scan.
+        try:
+            _check_and_heal_watchdog()
+        except Exception:
+            pass
 
         # Scan heartbeat — include regime context so user knows why it's quiet
         # get_market_regime() is cheap here because fetch_df() hits the in-memory cache

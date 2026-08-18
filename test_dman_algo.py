@@ -5247,6 +5247,102 @@ class TestFallbackGuardWiring(unittest.TestCase):
         mock_run.assert_not_called()
 
 
+class TestCheckAndHealWatchdog(unittest.TestCase):
+    """Found live 2026-08-17: both dman_daemon.yml's and dman_watchdog.yml's
+    scheduled cron triggers silently failed to fire for 2+ hours during a
+    live trading session with real open positions, while Scanner/StockTwits/
+    Pre-Market Briefing all fired normally. run_watchdog() already detects
+    and auto-restarts a stale DAEMON, but only if the watchdog itself
+    actually runs -- nothing previously checked whether the watchdog's own
+    trigger fired. _check_and_heal_watchdog() closes that gap, called from
+    two other independently-scheduled workflows (scan + stocktwits)."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"{}")
+        self._tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._tmp.name)
+        self._alerts_patch.start()
+        self._token_patch = patch.object(a, "GITHUB_TOKEN", "fake-token")
+        self._token_patch.start()
+
+    def tearDown(self):
+        self._alerts_patch.stop()
+        self._token_patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _weekday_market_hours(self):
+        return datetime(2026, 8, 18, 11, 0, tzinfo=a.ET)   # a fixed Tuesday, 11 AM ET
+
+    def _runs_response(self, minutes_ago):
+        from datetime import timezone as _tz
+        created = (datetime.now(_tz.utc) - timedelta(minutes=minutes_ago)).isoformat().replace("+00:00", "Z")
+        resp = MagicMock()
+        resp.json.return_value = {"workflow_runs": [{"created_at": created}]}
+        return resp
+
+    def test_weekend_is_a_no_op(self):
+        saturday = datetime(2026, 8, 16, 11, 0, tzinfo=a.ET)
+        with patch.object(a, "requests") as mock_requests:
+            a._check_and_heal_watchdog(now_et=saturday)
+        mock_requests.get.assert_not_called()
+
+    def test_outside_market_hours_is_a_no_op(self):
+        evening = datetime(2026, 8, 18, 20, 0, tzinfo=a.ET)
+        with patch.object(a, "requests") as mock_requests:
+            a._check_and_heal_watchdog(now_et=evening)
+        mock_requests.get.assert_not_called()
+
+    def test_no_github_token_is_a_no_op(self):
+        self._token_patch.stop()
+        with patch.object(a, "GITHUB_TOKEN", ""), \
+             patch.object(a, "requests") as mock_requests:
+            a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
+        mock_requests.get.assert_not_called()
+        self._token_patch.start()   # tearDown expects this to still be running
+
+    def test_fresh_watchdog_run_does_not_dispatch(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_trigger_workflow_restart") as mock_restart:
+            mock_requests.get.return_value = self._runs_response(minutes_ago=5)
+            a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
+        mock_restart.assert_not_called()
+
+    def test_stale_watchdog_dispatches_a_fresh_run_and_alerts(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_trigger_workflow_restart", return_value=(True, "dispatched")) as mock_restart, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            mock_requests.get.return_value = self._runs_response(minutes_ago=90)
+            a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
+        mock_restart.assert_called_once_with("dman_watchdog.yml")
+        mock_tg.assert_called_once()
+        self.assertIn("Meta-watchdog", mock_tg.call_args[0][0])
+
+    def test_repeated_calls_within_cooldown_do_not_re_dispatch(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_trigger_workflow_restart", return_value=(True, "dispatched")) as mock_restart, \
+             patch.object(a, "send_telegram", return_value=True):
+            mock_requests.get.return_value = self._runs_response(minutes_ago=90)
+            a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
+            a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
+        mock_restart.assert_called_once()
+
+    def test_api_failure_fails_quiet(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_trigger_workflow_restart") as mock_restart:
+            mock_requests.get.side_effect = Exception("network timeout")
+            a._check_and_heal_watchdog(now_et=self._weekday_market_hours())   # must not raise
+        mock_restart.assert_not_called()
+
+    def test_restart_failure_still_alerts_with_manual_instructions(self):
+        with patch.object(a, "requests") as mock_requests, \
+             patch.object(a, "_trigger_workflow_restart", return_value=(False, "HTTP 403")), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            mock_requests.get.return_value = self._runs_response(minutes_ago=90)
+            a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
+        self.assertIn("/restart", mock_tg.call_args[0][0])
+
+
 class TestSmallcapPullbackToleranceScaling(unittest.TestCase):
     """Confirmed live 2026-08-06: CLRO gapped +217% intraday, CELZ +70%, both
     far beyond the ~15-50% range the flat 12% pullback tolerance was

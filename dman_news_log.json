@@ -4685,5 +4685,30 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T13:35:20.725307-04:00",
+    "symbols": [
+      "ARM",
+      "MSTR",
+      "MU",
+      "NBIS",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T13:35:21.167500-04:00",
+    "symbols": [
+      "ABBV",
+      "LLY"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

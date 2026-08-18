@@ -1,30 +1,6 @@
 [
   {
     "ticker": "SOUN",
-    "date": "2024-11-13",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 7.78,
-    "exit": 6.75,
-    "outcome": "LOSS",
-    "pnl_pct": -13.17,
-    "score": 88,
-    "is_live": false
-  },
-  {
-    "ticker": "SOUN",
-    "date": "2024-12-06",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 8.26,
-    "exit": 12.81,
-    "outcome": "WIN",
-    "pnl_pct": 48.16,
-    "score": 75,
-    "is_live": false
-  },
-  {
-    "ticker": "SOUN",
     "date": "2025-05-15",
     "bias": "LONG",
     "setup": "Gap & Hold",
@@ -5997,6 +5973,30 @@
     "outcome": "LOSS",
     "pnl_pct": -42.52,
     "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "LITX",
+    "date": "2026-08-18",
+    "bias": "LONG",
+    "setup": "Gap & Hold",
+    "entry": 35.85,
+    "exit": 29.82,
+    "outcome": "LOSS",
+    "pnl_pct": -16.83,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "ARTL",
+    "date": "2026-08-18",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 0.76,
+    "exit": 0.72,
+    "outcome": "LOSS",
+    "pnl_pct": -5.08,
+    "score": 0,
     "is_live": true
   }
 ]

@@ -658,10 +658,10 @@ def telegram_loop() -> None:
 
 
 def guard_loop() -> None:
-    """Options exit enforcement + periodic fill sync during market hours.
-    When ENABLE_REALTIME_EQUITY_STREAM is on, also runs the equity
-    counterpart (run_equity_guard) on the same GUARD_EVERY_S cadence — see
-    that function's docstring for why equity positions needed this at all.
+    """Options exit enforcement during market hours. When
+    ENABLE_REALTIME_EQUITY_STREAM is on, also runs the equity counterpart
+    (run_equity_guard) on the same GUARD_EVERY_S cadence — see that
+    function's docstring for why equity positions needed this at all.
     When ENABLE_REALTIME_OPTIONS_STREAM is on, run_options_guard() is fed
     the streamed quote cache (option_data_stream_loop) instead of relying
     solely on its own REST fallback — same cadence, fresher data.
@@ -669,12 +669,23 @@ def guard_loop() -> None:
     live-stop check, split out of _check_open_position_risk 2026-08-15) on
     this same tight cadence instead of only via run_pro_scanner()'s ~10min
     scan pass, so a broken bracket order (e.g. a stop stuck HELD) gets
-    caught and auto-restored in seconds instead of minutes."""
+    caught and auto-restored in seconds instead of minutes.
+
+    git_sync() and the fill sync run on their OWN thread (sync_loop(),
+    below) rather than inline here — found in the 2026-08-16 review: they
+    used to run on THIS thread every SYNC_EVERY_S (5 min), roughly 10
+    blocking git subprocesses plus a REST-heavy fill sync, stalling every
+    check in this function (stop enforcement, T1/T2, orphan detection)
+    for however long that took. A slow git push/rebase-retry (network
+    hiccup, a real merge conflict) reintroduced exactly the latency the
+    10s cadence tightening was meant to remove, for the duration of a
+    network round-trip -- on a bad day, real minutes with no live stop
+    enforcement.
+    """
     log(f"Options guard loop started ({GUARD_EVERY_S}s cadence during market hours)"
         + (", equity guard also active" if ENABLE_REALTIME_EQUITY_STREAM else "")
         + (", options stream feeding checks" if ENABLE_REALTIME_OPTIONS_STREAM else ""))
-    last_sync = 0.0
-    was_open  = False
+    was_open = False
     while True:
         try:
             if market_hours():
@@ -697,24 +708,47 @@ def guard_loop() -> None:
                         algo.run_equity_guard(get_price_fn=_get_realtime_price)
                     except Exception as exc:
                         log(f"equity guard error: {exc}")
-                if time.time() - last_sync > SYNC_EVERY_S:
-                    git_sync()
-                    try:
-                        n = algo.sync_alpaca_fills(algo.WinRateTracker())
-                        if n:
-                            log(f"synced {n} closed trade(s)")
-                    except Exception as exc:
-                        log(f"fill sync error: {exc}")
-                    last_sync = time.time()
             else:
                 if was_open:
                     log("Market closed — guard idle")
-                    git_sync()   # final push of the day's state
                     was_open = False
             time.sleep(GUARD_EVERY_S)
         except Exception as exc:
             log(f"guard loop error: {exc}")
             time.sleep(GUARD_EVERY_S)
+
+
+def sync_loop() -> None:
+    """
+    git state sync + Alpaca fill sync, on its own thread — decoupled from
+    guard_loop()'s tight stop-checking cadence so a slow git push/rebase
+    or a REST-heavy fill sync can never stall stop/T1/T2 enforcement. See
+    guard_loop()'s docstring for the full reasoning. git_sync() itself is
+    already safe to call from multiple threads (_git_lock serializes it
+    against scan_loop's own immediate post-submission sync calls), so
+    adding this third caller needs no new locking.
+    """
+    log(f"Sync loop started ({SYNC_EVERY_S}s cadence during market hours)")
+    was_open = False
+    while True:
+        try:
+            if market_hours():
+                was_open = True
+                git_sync()
+                try:
+                    n = algo.sync_alpaca_fills(algo.WinRateTracker())
+                    if n:
+                        log(f"synced {n} closed trade(s)")
+                except Exception as exc:
+                    log(f"fill sync error: {exc}")
+            else:
+                if was_open:
+                    git_sync()   # final push of the day's state
+                    was_open = False
+            time.sleep(SYNC_EVERY_S)
+        except Exception as exc:
+            log(f"sync loop error: {exc}")
+            time.sleep(SYNC_EVERY_S)
 
 
 def scan_loop() -> None:
@@ -1726,6 +1760,7 @@ def main() -> None:
     threads = [
         threading.Thread(target=telegram_loop, daemon=True, name="telegram"),
         threading.Thread(target=guard_loop,    daemon=True, name="guard"),
+        threading.Thread(target=sync_loop,     daemon=True, name="sync"),
         threading.Thread(target=stream_loop,   daemon=True, name="stream"),
         threading.Thread(target=scan_loop,     daemon=True, name="scan"),
         threading.Thread(target=earnings_loop, daemon=True, name="earnings"),

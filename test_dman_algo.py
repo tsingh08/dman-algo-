@@ -6147,11 +6147,21 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
         self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
         self._alerts_patch.start()
 
+        # _check_stop_coverage() now caches its Alpaca fetch for
+        # _STOP_COVERAGE_CACHE_TTL_S (30s real wall-clock) -- without a
+        # fresh cache per test, a later test's call within that window
+        # would silently reuse an earlier test's mocked positions/orders
+        # instead of hitting its own mock_client.
+        self._cache_patch = patch.object(
+            a, "_stop_coverage_fetch_cache", {"positions": None, "orders": None, "ts": 0.0})
+        self._cache_patch.start()
+
     def tearDown(self):
         self._pos_patch.stop();    os.unlink(self._pos_tmp.name)
         self._pt_patch.stop()
         self._sig_patch.stop();    os.unlink(self._sig_tmp.name)
         self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+        self._cache_patch.stop()
 
     def _equity_position(self, symbol="W", qty="3"):
         p = MagicMock()
@@ -6232,6 +6242,11 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
 
         # Now CLRO is unprotected -- a genuinely different, still-dangerous
         # situation -- immediately after, well within the cooldown window.
+        # Cache reset: simulates enough real time passing for the next
+        # guard tick to re-fetch (this test is about the ALERT dedup key,
+        # not the data-fetch cache -- without this the second call would
+        # just reuse the first call's cached mock_client positions).
+        a._stop_coverage_fetch_cache["ts"] = 0.0
         mock_client2 = MagicMock()
         mock_client2.get_all_positions.return_value = [self._equity_position("CLRO")]
         mock_client2.get_orders.return_value = []   # nothing to restore from -- genuinely unprotected
@@ -6500,10 +6515,20 @@ class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):
         self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
         self._alerts_patch.start()
 
+        # _check_stop_coverage() now caches its Alpaca fetch for
+        # _STOP_COVERAGE_CACHE_TTL_S (30s real wall-clock) -- without a
+        # fresh cache per test, a later test's call within that window
+        # would silently reuse an earlier test's mocked positions/orders
+        # instead of hitting its own mock_client.
+        self._cache_patch = patch.object(
+            a, "_stop_coverage_fetch_cache", {"positions": None, "orders": None, "ts": 0.0})
+        self._cache_patch.start()
+
     def tearDown(self):
         self._pos_patch.stop();    os.unlink(self._pos_tmp.name)
         self._sig_patch.stop();    os.unlink(self._sig_tmp.name)
         self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+        self._cache_patch.stop()
 
     def _write_pending(self, tickers):
         with open(self._sig_tmp.name, "w") as f:
@@ -7801,11 +7826,21 @@ class TestCheckStopCoverageSplit(unittest.TestCase):
         self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
         self._alerts_patch.start()
 
+        # _check_stop_coverage() now caches its Alpaca fetch for
+        # _STOP_COVERAGE_CACHE_TTL_S (30s real wall-clock) -- without a
+        # fresh cache per test, a later test's call within that window
+        # would silently reuse an earlier test's mocked positions/orders
+        # instead of hitting its own mock_client.
+        self._cache_patch = patch.object(
+            a, "_stop_coverage_fetch_cache", {"positions": None, "orders": None, "ts": 0.0})
+        self._cache_patch.start()
+
     def tearDown(self):
         self._pos_patch.stop();    os.unlink(self._pos_tmp.name)
         self._pt_patch.stop()
         self._sig_patch.stop();    os.unlink(self._sig_tmp.name)
         self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+        self._cache_patch.stop()
 
     def test_check_stop_coverage_returns_the_raw_alpaca_positions_dict(self):
         from alpaca.trading.enums import AssetClass, OrderType, OrderStatus

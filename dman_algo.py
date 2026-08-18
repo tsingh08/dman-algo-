@@ -12219,6 +12219,10 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
         return False, f"auto-restore attempt failed: {exc}"
 
 
+_stop_coverage_fetch_cache: dict = {"positions": None, "orders": None, "ts": 0.0}
+_STOP_COVERAGE_CACHE_TTL_S = 30   # matches the already-vetted _REALTIME_PRICE_MAX_AGE_S /
+                                  # _REALTIME_OPTION_QUOTE_MAX_AGE_S staleness convention
+
 def _check_stop_coverage() -> Optional[dict]:
     """Orphan-position check + broker-side live-stop check, split out
     (2026-08-15) from _check_open_position_risk() so it can run on a tight
@@ -12234,153 +12238,191 @@ def _check_stop_coverage() -> Optional[dict]:
     fetch itself failed) so callers that also need "what do I actually hold
     right now" don't have to re-fetch — _check_open_position_risk() uses
     this to cross-reference pending signals against real positions.
+
+    Found in the 2026-08-16 review: on the 10s guard cadence this made 2
+    unconditional REST calls (get_all_positions, get_orders) every single
+    tick with no caching -- ~4,800 calls/session, whether or not anything
+    had changed. Both fetches are now cached for _STOP_COVERAGE_CACHE_TTL_S
+    (30s, the same staleness this project already accepts for the
+    real-time price/option-quote caches), a ~3x reduction that still keeps
+    detection latency far tighter than the ~10min scan-only cadence this
+    was originally built to improve on.
+
+    Also found: the orphan check and the live-stop check used to share ONE
+    exception boundary, so a failure partway through the orphan check
+    silently skipped the live-stop check right after it -- the one that
+    actually restores missing protection. Split into two independent
+    try/except blocks so a failure in either is isolated and doesn't take
+    the other down with it.
     """
-    # None (not {}) is the "couldn't verify" sentinel — an empty dict is a
-    # legitimate "zero real positions" result, and the two must be
-    # distinguishable by callers that filter against it (an empty dict must
-    # filter pending down to nothing; a failed fetch must NOT silently hide
-    # potentially-stale risk info by treating "unknown" the same as "you
-    # hold nothing").
-    _alp_positions: Optional[dict] = None
+    _client = get_alpaca_client()
+    if _client is None:
+        return None
+
+    now = time.time()
+    if (now - _stop_coverage_fetch_cache["ts"] < _STOP_COVERAGE_CACHE_TTL_S
+            and _stop_coverage_fetch_cache["positions"] is not None):
+        _alp_positions = _stop_coverage_fetch_cache["positions"]
+        _open_orders   = _stop_coverage_fetch_cache["orders"]
+    else:
+        try:
+            _alp_positions = {p.symbol: p for p in _client.get_all_positions()}
+            _open_orders = _client.get_orders(
+                filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=200))
+            _stop_coverage_fetch_cache["positions"] = _alp_positions
+            _stop_coverage_fetch_cache["orders"]    = _open_orders
+            _stop_coverage_fetch_cache["ts"]        = now
+        except Exception as _fe:
+            print(f"  ⚠  Stop-coverage position/order fetch failed: {_fe}")
+            # None (not {}) is the "couldn't verify" sentinel — an empty dict is
+            # a legitimate "zero real positions" result, and the two must be
+            # distinguishable by callers that filter against it (an empty dict
+            # must filter pending down to nothing; a failed fetch must NOT
+            # silently hide potentially-stale risk info by treating "unknown"
+            # the same as "you hold nothing").
+            return None
+
     # ── Orphan position check ──────────────────────────────────────────────
     # Any Alpaca open position not in dman_live_signals.json has no automated
     # stop management — flag immediately so manual action can be taken.
+    # Own try/except (isolated from the live-stop check below): a failure
+    # here must not silently skip the live-stop check right after it.
     try:
-        _client = get_alpaca_client()
-        if _client is not None:
-            _alp_positions = {p.symbol: p for p in _client.get_all_positions()}
-            # Build tracked set from BOTH sources:
-            # 1. dman_live_signals.json — signals logged by run_pro_scanner()
-            # 2. dman_positions.json   — positions logged by PositionTracker (covers pre-market fills)
-            _tracked_tickers: set[str] = set()
-            _tracked_occ:     set[str] = set()   # options: Alpaca reports OCC symbols, not ticker
-            try:
-                with open(LIVE_SIGNALS_FILE) as _f:
-                    _pf = json.load(_f)
-                _tracked_tickers |= {p.get("ticker") for p in _pf.get("pending", [])}
-            except Exception:
-                pass
-            try:
-                _pt_pos = PositionTracker().positions
-                for _p in _pt_pos:
-                    if _p.setup.startswith("Earnings "):
-                        # A spread position has 2-4 real option legs, not a single
-                        # symbol embedded in `setup` — without this, every leg
-                        # would falsely alarm as an orphan (untracked) position.
-                        _tracked_occ |= set(_p.legs)
-                    elif _p.setup.startswith("Options Call ") or _p.setup.startswith("Options Put "):
-                        # _position_identity() already extracts the OCC symbol
-                        # for exactly this purpose -- found in the 2026-08-16
-                        # review: this used to reimplement the same parsing
-                        # inline, one of three duplicated copies in the project.
-                        _tracked_occ.add(_position_identity(_p.ticker, _p.setup))
-                    else:
-                        _tracked_tickers.add(_position_identity(_p.ticker, _p.setup))
-            except Exception:
-                pass
-            _orphans = [sym for sym in _alp_positions
-                        if sym not in _tracked_tickers and sym not in _tracked_occ]
-            if _orphans:
-                _orphan_msgs = []
-                for _sym in _orphans:
-                    _pos = _alp_positions[_sym]
-                    _qty  = float(_pos.qty)
-                    _ep   = float(_pos.avg_entry_price)
-                    _upnl = float(_pos.unrealized_pl)
-                    _upct = float(_pos.unrealized_plpc) * 100
-                    _orphan_msgs.append(
-                        f"  {_sym}: {_qty:.0f}sh @ ${_ep:.2f}  "
-                        f"unreal {'+' if _upnl >= 0 else ''}{_upnl:.2f} ({_upct:+.1f}%)"
-                    )
-                _msg = (
-                    "⚠️ <b>ORPHAN POSITIONS — NO STOP COVERAGE</b>\n"
-                    "These are open in Alpaca but NOT in signal tracker:\n\n"
-                    + "\n".join(_orphan_msgs)
-                    + "\n\n<i>Close manually or add to watchlist to restore monitoring.</i>"
+        # Build tracked set from BOTH sources:
+        # 1. dman_live_signals.json — signals logged by run_pro_scanner()
+        # 2. dman_positions.json   — positions logged by PositionTracker (covers pre-market fills)
+        _tracked_tickers: set[str] = set()
+        _tracked_occ:     set[str] = set()   # options: Alpaca reports OCC symbols, not ticker
+        try:
+            with open(LIVE_SIGNALS_FILE) as _f:
+                _pf = json.load(_f)
+            _tracked_tickers |= {p.get("ticker") for p in _pf.get("pending", [])}
+        except Exception:
+            pass
+        try:
+            _pt_pos = PositionTracker().positions
+            for _p in _pt_pos:
+                if _p.setup.startswith("Earnings "):
+                    # A spread position has 2-4 real option legs, not a single
+                    # symbol embedded in `setup` — without this, every leg
+                    # would falsely alarm as an orphan (untracked) position.
+                    _tracked_occ |= set(_p.legs)
+                elif _p.setup.startswith("Options Call ") or _p.setup.startswith("Options Put "):
+                    # _position_identity() already extracts the OCC symbol
+                    # for exactly this purpose -- found in the 2026-08-16
+                    # review: this used to reimplement the same parsing
+                    # inline, one of three duplicated copies in the project.
+                    _tracked_occ.add(_position_identity(_p.ticker, _p.setup))
+                else:
+                    _tracked_tickers.add(_position_identity(_p.ticker, _p.setup))
+        except Exception:
+            pass
+        _orphans = [sym for sym in _alp_positions
+                    if sym not in _tracked_tickers and sym not in _tracked_occ]
+        if _orphans:
+            _orphan_msgs = []
+            for _sym in _orphans:
+                _pos = _alp_positions[_sym]
+                _qty  = float(_pos.qty)
+                _ep   = float(_pos.avg_entry_price)
+                _upnl = float(_pos.unrealized_pl)
+                _upct = float(_pos.unrealized_plpc) * 100
+                _orphan_msgs.append(
+                    f"  {_sym}: {_qty:.0f}sh @ ${_ep:.2f}  "
+                    f"unreal {'+' if _upnl >= 0 else ''}{_upnl:.2f} ({_upct:+.1f}%)"
                 )
-                # Found in the 2026-08-16 review: this used to be one
-                # single global key shared across every symbol, so a
-                # cooldown started by orphan set {A} would suppress a
-                # genuine alert for an unrelated later orphan set {B} for
-                # the next ALERT_COOLDOWN_MIN+ minutes. Keying by the
-                # sorted set of currently-orphaned symbols means the
-                # SAME orphan set still dedupes normally (no re-alert
-                # spam while nothing has changed), but a genuinely
-                # different set of symbols always gets its own alert.
-                _orphan_key = "__ORPHAN_POSITIONS__:" + ",".join(sorted(_orphans))
-                if not _is_duplicate_alert(_orphan_key):
-                    send_telegram(_msg)
-                    _save_last_alert(_orphan_key)
-                    print(f"  ⚠  {len(_orphans)} orphan position(s) — sent alert: {_orphans}")
-                else:
-                    print(f"  ⚠  {len(_orphans)} orphan position(s) — alert suppressed (sent recently)")
-
-            # ── Broker-side live-stop check ──────────────────────────────
-            # A different question from the orphan check above: that one asks
-            # "do WE know about this position," this asks "does ALPACA
-            # actually have a LIVE protective stop working for it right now."
-            # Confirmed live 2026-08-04: W was simultaneously an orphan (not
-            # in either tracker) AND had its stop-limit leg stuck in HELD
-            # status — its take-profit sibling had claimed all shares via
-            # Alpaca's held_for_orders accounting, breaking the OCO link, so
-            # the stop could never get shares allocated. Nothing caught this
-            # until a manual Alpaca API query. Options positions are
-            # excluded — they have no broker-side bracket by design and rely
-            # entirely on the daemon's own 60s stop/T1/T2 loop instead.
-            from alpaca.trading.enums import OrderType, OrderStatus, AssetClass
-            _open_orders = _client.get_orders(
-                filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=200))
-            _live_stop_symbols = {
-                _o.symbol for _o in _open_orders
-                if _o.order_type in (OrderType.STOP, OrderType.STOP_LIMIT, OrderType.TRAILING_STOP)
-                and _o.status != OrderStatus.HELD
-            }
-            _unprotected = [
-                sym for sym, _pos in _alp_positions.items()
-                if _pos.asset_class == AssetClass.US_EQUITY and sym not in _live_stop_symbols
-            ]
-            if _unprotected:
-                # Auto-restore attempt (added 2026-08-15) BEFORE building the
-                # alert, so the alert itself reports what actually happened
-                # rather than always reading as "needs manual action" even
-                # when this already fixed it. See _auto_restore_missing_stop()
-                # for the full incident history and why this is safe.
-                _up_msgs = []
-                _any_restored = False
-                for _sym in _unprotected:
-                    _pos = _alp_positions[_sym]
-                    _qty = float(_pos.qty)
-                    _restored, _detail = _auto_restore_missing_stop(_client, _sym, _qty)
-                    if _restored:
-                        _any_restored = True
-                        _up_msgs.append(f"  ✅ {_sym}: {_qty:.0f}sh — {_detail}")
-                    else:
-                        _up_msgs.append(f"  🚨 {_sym}: {_qty:.0f}sh — no live stop, auto-restore failed: {_detail}")
-                # Same fix as __ORPHAN_POSITIONS__ above: keyed by the
-                # sorted set of currently-unprotected symbols instead of
-                # one global key, so a benign "stop auto-restored" for
-                # symbol A can no longer suppress a genuine "no live
-                # stop" alert for an unrelated symbol B.
-                _up_key = "__NO_LIVE_STOP__:" + ",".join(sorted(_unprotected))
-                if not _is_duplicate_alert(_up_key):
-                    _header = ("🛠 <b>STOP AUTO-RESTORED</b>" if _any_restored and all(
-                                   "✅" in m for m in _up_msgs)
-                               else "🚨 <b>NO LIVE STOP PROTECTION</b>")
-                    _footer = ("\n\n<i>Fresh stop(s) submitted automatically — verify in Alpaca when convenient.</i>"
-                               if _any_restored else
-                               "\n\n<i>Auto-restore failed — check for a stuck/HELD order or a broken OCO link, manual action needed.</i>")
-                    send_telegram(
-                        f"{_header}\n"
-                        "These equity positions had zero working stop-loss order on the exchange:\n\n"
-                        + "\n".join(_up_msgs) + _footer
-                    )
-                    _save_last_alert(_up_key)
-                    print(f"  🚨 {len(_unprotected)} position(s) with NO live stop: {_unprotected}"
-                          + (" (auto-restore attempted)" if _any_restored else ""))
-                else:
-                    print(f"  🚨 {len(_unprotected)} position(s) with NO live stop — alert suppressed (sent recently): {_unprotected}")
+            _msg = (
+                "⚠️ <b>ORPHAN POSITIONS — NO STOP COVERAGE</b>\n"
+                "These are open in Alpaca but NOT in signal tracker:\n\n"
+                + "\n".join(_orphan_msgs)
+                + "\n\n<i>Close manually or add to watchlist to restore monitoring.</i>"
+            )
+            # Found in the 2026-08-16 review: this used to be one
+            # single global key shared across every symbol, so a
+            # cooldown started by orphan set {A} would suppress a
+            # genuine alert for an unrelated later orphan set {B} for
+            # the next ALERT_COOLDOWN_MIN+ minutes. Keying by the
+            # sorted set of currently-orphaned symbols means the
+            # SAME orphan set still dedupes normally (no re-alert
+            # spam while nothing has changed), but a genuinely
+            # different set of symbols always gets its own alert.
+            _orphan_key = "__ORPHAN_POSITIONS__:" + ",".join(sorted(_orphans))
+            if not _is_duplicate_alert(_orphan_key):
+                send_telegram(_msg)
+                _save_last_alert(_orphan_key)
+                print(f"  ⚠  {len(_orphans)} orphan position(s) — sent alert: {_orphans}")
+            else:
+                print(f"  ⚠  {len(_orphans)} orphan position(s) — alert suppressed (sent recently)")
     except Exception as _oe:
-        print(f"  ⚠  Orphan/stop-coverage check failed: {_oe}")
+        print(f"  ⚠  Orphan check failed: {_oe}")
+
+    # ── Broker-side live-stop check ──────────────────────────────────────
+    # A different question from the orphan check above: that one asks
+    # "do WE know about this position," this asks "does ALPACA
+    # actually have a LIVE protective stop working for it right now."
+    # Confirmed live 2026-08-04: W was simultaneously an orphan (not
+    # in either tracker) AND had its stop-limit leg stuck in HELD
+    # status — its take-profit sibling had claimed all shares via
+    # Alpaca's held_for_orders accounting, breaking the OCO link, so
+    # the stop could never get shares allocated. Nothing caught this
+    # until a manual Alpaca API query. Options positions are
+    # excluded — they have no broker-side bracket by design and rely
+    # entirely on the daemon's own 60s stop/T1/T2 loop instead.
+    # Own try/except: isolated from the orphan check above so a failure
+    # in either can't silently take down the other.
+    try:
+        from alpaca.trading.enums import OrderType, OrderStatus, AssetClass
+        _live_stop_symbols = {
+            _o.symbol for _o in _open_orders
+            if _o.order_type in (OrderType.STOP, OrderType.STOP_LIMIT, OrderType.TRAILING_STOP)
+            and _o.status != OrderStatus.HELD
+        }
+        _unprotected = [
+            sym for sym, _pos in _alp_positions.items()
+            if _pos.asset_class == AssetClass.US_EQUITY and sym not in _live_stop_symbols
+        ]
+        if _unprotected:
+            # Auto-restore attempt (added 2026-08-15) BEFORE building the
+            # alert, so the alert itself reports what actually happened
+            # rather than always reading as "needs manual action" even
+            # when this already fixed it. See _auto_restore_missing_stop()
+            # for the full incident history and why this is safe.
+            _up_msgs = []
+            _any_restored = False
+            for _sym in _unprotected:
+                _pos = _alp_positions[_sym]
+                _qty = float(_pos.qty)
+                _restored, _detail = _auto_restore_missing_stop(_client, _sym, _qty)
+                if _restored:
+                    _any_restored = True
+                    _up_msgs.append(f"  ✅ {_sym}: {_qty:.0f}sh — {_detail}")
+                else:
+                    _up_msgs.append(f"  🚨 {_sym}: {_qty:.0f}sh — no live stop, auto-restore failed: {_detail}")
+            # Same fix as __ORPHAN_POSITIONS__ above: keyed by the
+            # sorted set of currently-unprotected symbols instead of
+            # one global key, so a benign "stop auto-restored" for
+            # symbol A can no longer suppress a genuine "no live
+            # stop" alert for an unrelated symbol B.
+            _up_key = "__NO_LIVE_STOP__:" + ",".join(sorted(_unprotected))
+            if not _is_duplicate_alert(_up_key):
+                _header = ("🛠 <b>STOP AUTO-RESTORED</b>" if _any_restored and all(
+                               "✅" in m for m in _up_msgs)
+                           else "🚨 <b>NO LIVE STOP PROTECTION</b>")
+                _footer = ("\n\n<i>Fresh stop(s) submitted automatically — verify in Alpaca when convenient.</i>"
+                           if _any_restored else
+                           "\n\n<i>Auto-restore failed — check for a stuck/HELD order or a broken OCO link, manual action needed.</i>")
+                send_telegram(
+                    f"{_header}\n"
+                    "These equity positions had zero working stop-loss order on the exchange:\n\n"
+                    + "\n".join(_up_msgs) + _footer
+                )
+                _save_last_alert(_up_key)
+                print(f"  🚨 {len(_unprotected)} position(s) with NO live stop: {_unprotected}"
+                      + (" (auto-restore attempted)" if _any_restored else ""))
+            else:
+                print(f"  🚨 {len(_unprotected)} position(s) with NO live stop — alert suppressed (sent recently): {_unprotected}")
+    except Exception as _se:
+        print(f"  ⚠  Live-stop check failed: {_se}")
 
     return _alp_positions
 

@@ -5156,7 +5156,7 @@ OPTIONS_MILESTONE_START_PCT = 15.0   # first gain/loss %% that triggers a milest
 OPTIONS_MILESTONE_STEP_PCT  = 10.0   # every additional %% beyond the start that re-alerts
 
 def _check_options_pnl_milestone(pos: dict, kind: str, occ: str, cur_prem: float,
-                                  entry_prem: float, underlying_px: Optional[float]) -> None:
+                                  entry_prem: float, get_underlying_px_fn=None) -> None:
     """
     Tiered P&L milestone notifications for one options leg — added
     2026-08-10 for ongoing visibility into how a position's P&L is moving,
@@ -5172,16 +5172,26 @@ def _check_options_pnl_milestone(pos: dict, kind: str, occ: str, cur_prem: float
     calendar day started while price is still sitting at the same level.
     Only re-alerts on a NEW, FURTHER bucket (e.g. won't fire again at 32%
     once 30% was already announced, but will at 41% once past 40%).
+
+    get_underlying_px_fn() -> float | None, if given, is called LAZILY —
+    only right before a milestone actually fires, not on every guard
+    tick. Found in the 2026-08-16 review: the caller used to unconditionally
+    fetch the underlying price up front (falling back to an UNCACHED REST
+    call whenever the daemon's real-time price cache missed — routine for
+    thin small-caps) even though it's purely a display annotation in the
+    alert text, discarded on every tick where nothing crosses a milestone
+    (the vast majority of ticks).
     """
     if entry_prem <= 0 or not occ:
         return
     pnl_pct = (cur_prem - entry_prem) / entry_prem * 100
-    _px_note = f"  Underlying: ${underlying_px:.2f}" if underlying_px else ""
     if pnl_pct >= OPTIONS_MILESTONE_START_PCT:
         bucket  = (int(pnl_pct) // int(OPTIONS_MILESTONE_STEP_PCT)) * OPTIONS_MILESTONE_STEP_PCT
         already = float(pos.get("milestone_gain_alerted", 0) or 0)
         if bucket <= already:
             return
+        underlying_px = get_underlying_px_fn() if get_underlying_px_fn else None
+        _px_note = f"  Underlying: ${underlying_px:.2f}" if underlying_px else ""
         send_telegram(
             f"📈 <b>{pos.get('ticker','')} {kind} milestone</b> — +{bucket:.0f}% reached\n"
             f"Premium ${entry_prem:.2f} → ${cur_prem:.2f} ({pnl_pct:+.1f}%){_px_note}\n"
@@ -5193,6 +5203,8 @@ def _check_options_pnl_milestone(pos: dict, kind: str, occ: str, cur_prem: float
         already = float(pos.get("milestone_loss_alerted", 0) or 0)
         if bucket <= already:
             return
+        underlying_px = get_underlying_px_fn() if get_underlying_px_fn else None
+        _px_note = f"  Underlying: ${underlying_px:.2f}" if underlying_px else ""
         send_telegram(
             f"📉 <b>{pos.get('ticker','')} {kind} milestone</b> — -{bucket:.0f}% reached\n"
             f"Premium ${entry_prem:.2f} → ${cur_prem:.2f} ({pnl_pct:+.1f}%){_px_note}\n"
@@ -5338,10 +5350,13 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     _giveback_pct   = _options_trail_giveback_pct(_peak_gain_pct)
 
     # Extra P&L visibility independent of which branch below fires (or
-    # doesn't) — see _check_options_pnl_milestone.
+    # doesn't) — see _check_options_pnl_milestone. The underlying-price
+    # fetch is passed as a callable so it's only ever invoked on the rare
+    # tick where a milestone bucket is actually about to fire, not on
+    # every guard tick for every open leg.
     try:
-        _underlying_px = (get_price_fn(t) if get_price_fn else None) or get_live_price(t)
-        _check_options_pnl_milestone(pos, kind, _occ, _cur_prem, _entry_prem, _underlying_px)
+        _get_underlying_px = lambda: (get_price_fn(t) if get_price_fn else None) or get_live_price(t)
+        _check_options_pnl_milestone(pos, kind, _occ, _cur_prem, _entry_prem, _get_underlying_px)
     except Exception as _me:
         print(f"  ⚠️  {t} {kind}: milestone check failed — {_me}")
 

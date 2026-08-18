@@ -5964,6 +5964,7 @@
     "is_live": true
   },
   {
+<<<<<<< Updated upstream
     "ticker": "UMAC",
     "date": "2026-08-18",
     "bias": "LONG",
@@ -5976,6 +5977,8 @@
     "is_live": true
   },
   {
+=======
+>>>>>>> Stashed changes
     "ticker": "LITX",
     "date": "2026-08-18",
     "bias": "LONG",
@@ -5988,6 +5991,21 @@
     "is_live": true
   },
   {
+<<<<<<< Updated upstream
+=======
+    "ticker": "UMAC",
+    "date": "2026-08-18",
+    "bias": "LONG",
+    "setup": "Options Call UMAC260828C00025000 ($25.0C exp 2026-08-28)",
+    "entry": 9.22,
+    "exit": 5.3,
+    "outcome": "LOSS",
+    "pnl_pct": -42.52,
+    "score": 100,
+    "is_live": true
+  },
+  {
+>>>>>>> Stashed changes
     "ticker": "ARTL",
     "date": "2026-08-18",
     "bias": "LONG",

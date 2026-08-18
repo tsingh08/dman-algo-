@@ -4425,5 +4425,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T11:42:45.410889-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "META",
+      "NVDA"
+    ],
+    "headline": "Nvidia, AMD, Broadcom, Meta Slide as Bond Yields Surge: Why Tech Stocks Are Getting Hit",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T11:42:51.353860-04:00",
+    "symbols": [
+      "NET",
+      "NVDA",
+      "PLTR",
+      "RBLX",
+      "SNOW"
+    ],
+    "headline": "Cathie Wood&#39;s ARK Is Quietly Building an AI Picks-and-Shovels Portfolio",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T11:43:57.371225-04:00",
+    "symbols": [
+      "META",
+      "QQQ"
+    ],
+    "headline": "What&#39;s Going On With Meta Platforms Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T11:45:10.125457-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Citadel Advisors and Millennium Boosted Fabrinet Stakes in Q2 as AI Demand Accelerated",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T11:45:35.380953-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "If You Invested $100 In Vistra Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T11:46:23.238949-04:00",
+    "symbols": [
+      "CRM",
+      "GOOGL"
+    ],
+    "headline": "Salesforce&#39;s and ServiceNow\u2019s Business Models Are in Danger, Expert Cautions: What Does It Mean For CRM and NOW?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

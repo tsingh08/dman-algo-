@@ -4951,5 +4951,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T15:14:41.905168-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Is Weighing Whether To Grant Canada A Tariff Reprieve; A Deal To Avoid 50 Percent Duties On Some Canadian Goods Is On Trump&#39;s Desk, As Ottawa And Washington Work Towards A Broader Trade Agreement&#39; - Politico",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T15:15:37.828730-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Stock Pauses Tuesday as Autonomous Delivery, Robotaxi Moves Take Center Stage",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

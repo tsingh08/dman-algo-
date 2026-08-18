@@ -7347,6 +7347,7 @@ class ProSignal:
     macro_ok:    bool = True
     fib_ok:      bool = False
     divergence_free: bool = True
+    not_chasing_extended_highs: bool = True   # see _is_chasing_extended_highs()
     candle_pattern:  str  = ""
 
     # Breakdown
@@ -7363,7 +7364,7 @@ class ProSignal:
     def passed_all_gates(self) -> bool:
         return (self.regime_ok and self.mtf_ok and self.rs_ok
                 and self.sector_ok and self.earnings_ok and self.macro_ok
-                and self.divergence_free
+                and self.divergence_free and self.not_chasing_extended_highs
                 and self.confluence_score >= MIN_CONFLUENCE)
 
     def summary(self) -> str:
@@ -7372,6 +7373,7 @@ class ProSignal:
             "RS": self.rs_ok, "Sector": self.sector_ok,
             "Earnings": self.earnings_ok, "Macro": self.macro_ok,
             "NoDiverg": self.divergence_free,
+            "NotChasing": self.not_chasing_extended_highs,
         }
         passed = [k for k,v in gates.items() if v]
         failed = [k for k,v in gates.items() if not v]
@@ -11272,6 +11274,91 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     return max(candidates, key=lambda s: s.rr)
 
 
+EXTENDED_RUN_LOOKBACK_DAYS = 10      # trading days to measure the recent run over
+EXTENDED_RUN_MIN_GAIN_PCT  = 25.0    # up this much or more over the lookback = "already extended"
+EXTENDED_NEAR_HIGH_PCT     = 5.0     # within this % of the 52wk (or full-history) high = "at/near highs"
+EXTENDED_BLOWOFF_RVOL      = 4.0     # RVOL at/above this on the latest bar = euphoric/climactic volume
+EXTENDED_WEAK_CLOSE_PCT    = 50.0    # latest bar closing below this % of its own range = rejected off the high
+
+def _is_chasing_extended_highs(df: pd.DataFrame) -> bool:
+    """
+    True if this setup means buying an already-extended move into (near)
+    52-week highs, with no real evidence the move still has room — a
+    fresh breakout, not a chase. Added 2026-08-17, direct instruction
+    after UMAC (options) and ARTL (equity) were both entered right
+    around a huge recent volume spike into new highs, then reversed
+    hard: UMAC ran $24→$34 (+40%) into new highs on a 15.9M-share
+    outlier-volume day, then gapped down and continued lower the very
+    next session; ARTL spiked to a fresh local high on 15-25x normal
+    volume and closed near the day's low the same session. Both show the
+    same underlying signature — a large recent run culminating in a
+    high-volume spike, entered with no confirmation the move had
+    actually held.
+
+    "Guaranteed continuation" doesn't exist in markets, so this
+    deliberately defaults to blocking rather than trying to score a
+    probability. Two independent conditions must BOTH be true before this
+    even applies:
+      1. Price is within EXTENDED_NEAR_HIGH_PCT of its 52-week high (or
+         full available history if under a year) — the "already at/near
+         highs" part. Uses the exact same hi52 computation as the
+         52wk-high-proximity scoring bonus, so the two stay consistent.
+      2. The stock is already up EXTENDED_RUN_MIN_GAIN_PCT+ over the
+         trailing EXTENDED_RUN_LOOKBACK_DAYS trading days — this is what
+         distinguishes a genuinely fresh breakout (near highs but hasn't
+         run far yet) from an already-extended move. Most well-behaved
+         breakouts near highs have NOT run 25%+ in just 10 sessions, so
+         this stays narrow rather than blocking every near-high entry.
+
+    If both hold, this only clears with real confirmation on the latest
+    completed bar instead of exhaustion: it closed in the top half of its
+    own day's range (wasn't rejected/sold into), AND its volume wasn't
+    itself a euphoric outlier (RVOL < EXTENDED_BLOWOFF_RVOL) — a huge-
+    volume day right at the top of an already-extended move is the
+    "climax" signature associated with a reversal, not confirmation of
+    continuation.
+
+    Fails OPEN (doesn't block) on insufficient history or bad data —
+    this targets a specific, computed pattern in AVAILABLE data, not
+    thin/short-history tickers in general (common across this system's
+    smallcap-heavy universe, and unrelated to the risk this exists to
+    catch).
+    """
+    try:
+        if len(df) < EXTENDED_RUN_LOOKBACK_DAYS + 1:
+            return False
+        r = df.iloc[-1]
+        c = float(r["Close"])
+        today_high = float(r["High"])
+        hi = float(df["High"].iloc[-252:].max()) if len(df) >= 252 else float(df["High"].max())
+        if hi <= 0:
+            return False
+        # Compares the day's HIGH, not its close, against the 52-week high
+        # — a stock that just made a fresh high intraday and then reversed
+        # to close weak is exactly the pattern this targets, and by
+        # definition its CLOSE won't be near that same high anymore.
+        off_hi = (hi - today_high) / hi * 100
+        if off_hi > EXTENDED_NEAR_HIGH_PCT:
+            return False   # didn't even approach the recent high today — not what this gate targets
+
+        base_close = float(df["Close"].iloc[-(EXTENDED_RUN_LOOKBACK_DAYS + 1)])
+        if base_close <= 0:
+            return False
+        run_pct = (c - base_close) / base_close * 100
+        if run_pct < EXTENDED_RUN_MIN_GAIN_PCT:
+            return False   # near highs but hasn't run far recently — a fresh breakout, not a chase
+
+        # Both extended AND near highs — only clears with real confirmation.
+        day_low, day_high = float(r["Low"]), float(r["High"])
+        day_range = day_high - day_low
+        close_position_pct = ((c - day_low) / day_range * 100) if day_range > 0 else 100.0
+        rvol = float(r["RVOL"]) if "RVOL" in df.columns and not pd.isna(r.get("RVOL", np.nan)) else 0.0
+        confirmed = close_position_pct >= EXTENDED_WEAK_CLOSE_PCT and rvol < EXTENDED_BLOWOFF_RVOL
+        return not confirmed
+    except Exception:
+        return False
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 19 — MASTER CONFLUENCE SCORER
 # ═══════════════════════════════════════════════════════════════════════════
@@ -11432,6 +11519,13 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     except Exception:
         prox_score = 0
     breakdown["52wk Prox"] = prox_score
+
+    # 11.5 Not chasing an already-extended move into highs — hard gate,
+    # LONG only (shorts chasing 52wk lows would be the mirror concern,
+    # moot while ALLOW_SHORTS is False). See _is_chasing_extended_highs()
+    # for the full incident this closes.
+    if signal.bias == "LONG":
+        signal.not_chasing_extended_highs = not _is_chasing_extended_highs(df)
 
     # 12. Candlestick pattern (8 pts)
     candle_name, candle_score = detect_candle_pattern(df.iloc[-1], df.iloc[-2], signal.bias)
@@ -11697,6 +11791,16 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
 
         # Must be either near 52wk low OR have very high RVOL (catalyst-driven spike)
         if not (near_bottom or rvol >= 5.0):
+            return None
+
+        # Not chasing an already-extended move into highs — see
+        # _is_chasing_extended_highs() for the full incident this closes.
+        # A high RVOL alone is this setup's own catalyst signal (expected,
+        # not a red flag here) — this only blocks when the stock is ALSO
+        # already within 5% of its 52wk high AND already up 25%+ over the
+        # last 10 sessions, i.e. buying the top of an extended run rather
+        # than a fresh catalyst off a base.
+        if _is_chasing_extended_highs(df):
             return None
 
         # Gap size computed here (moved up from the Moon Shot section below)
@@ -12839,6 +12943,7 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
         hard_gates = {
             "Regime": sig.regime_ok, "MTF": sig.mtf_ok, "Earnings": sig.earnings_ok,
             "Macro": sig.macro_ok, "No Divergence": sig.divergence_free,
+            "Not Chasing Highs": sig.not_chasing_extended_highs,
         }
         for name, ok in hard_gates.items():
             lines.append(f"  {'✅' if ok else '❌'} {name}")
@@ -13194,6 +13299,11 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         if not sig.divergence_free:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"DIVERGENCE DETECTED\n")
+            continue
+        if not sig.not_chasing_extended_highs:
+            rejected_counts["hard_gate"] += 1
+            sys.stdout.write(f"CHASING EXTENDED HIGHS (already up {EXTENDED_RUN_MIN_GAIN_PCT:.0f}%+ "
+                             f"in {EXTENDED_RUN_LOOKBACK_DAYS}d, near 52wk high, no confirmation)\n")
             continue
 
         # Defensive rotation penalty — during active tech→defensive rotation sessions,
@@ -13921,6 +14031,7 @@ def _missing_components(sig: ProSignal, gap: int) -> str:
     if not sig.sector_ok:       failed.append("Sector")
     if not sig.earnings_ok:     failed.append("Earnings!")
     if not sig.divergence_free: failed.append("Divergence!")
+    if not sig.not_chasing_extended_highs: failed.append("Chasing highs!")
     return ", ".join(failed[:3]) if failed else f"score {gap}pts short"
 
 

@@ -5500,6 +5500,129 @@ class TestCheckAndHealWatchdog(unittest.TestCase):
         self.assertIn("/restart", mock_tg.call_args[0][0])
 
 
+class TestIsChasingExtendedHighs(unittest.TestCase):
+    """Direct instruction, 2026-08-17: don't enter plays that already ran
+    to (near) all-time/52-week highs unless there's real confirmation the
+    move held, not just chasing exhaustion. Added after UMAC (options) and
+    ARTL (equity) were both entered right around a huge recent volume
+    spike into new highs, then reversed hard: UMAC ran $24->$34 (+40%)
+    into new highs on a 15.9M-share outlier-volume day, then gapped down
+    and continued lower the very next session; ARTL spiked to a fresh
+    local high on 15-25x normal volume and closed near the day's low the
+    same session."""
+
+    def _df(self, closes, highs=None, lows=None, rvol_last=1.5, n_lookback=15):
+        # closes[-1] is "today". highs/lows default to a tight range around
+        # each close so the day-range-position math stays well-defined
+        # unless a test overrides it explicitly. Filler (pre-lookback)
+        # rows are priced flat at closes[0] -- NOT some arbitrary far-off
+        # constant -- since the gate takes the max High over the WHOLE
+        # available frame when there are under 252 rows, and a filler
+        # price outside the real range would silently corrupt the 52wk-
+        # high calculation the gate depends on.
+        import pandas as pd
+        n = n_lookback + len(closes)
+        pad = [closes[0]] * n_lookback
+        all_closes = pad + list(closes)
+        all_highs  = highs if highs is not None else [c * 1.01 for c in all_closes]
+        all_lows   = lows  if lows  is not None else [c * 0.99 for c in all_closes]
+        rvol = [1.0] * (len(all_closes) - 1) + [rvol_last]
+        idx = pd.date_range("2026-07-01", periods=len(all_closes), freq="D")
+        return pd.DataFrame({
+            "Open": all_closes, "High": all_highs, "Low": all_lows,
+            "Close": all_closes, "Volume": [1_000_000] * len(all_closes),
+            "RVOL": rvol,
+        }, index=idx)
+
+    def test_umac_style_extended_run_with_weak_close_is_blocked(self):
+        # Base ~$24 ten sessions back, run hard into today, today makes a
+        # fresh high intraday ($34.93) on outlier volume but gives most
+        # of it back to close weak ($30.15) -- the actual blow-off-top
+        # shape, still near its own high but no longer confirmed.
+        closes = [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 30.15]
+        df = self._df(closes, rvol_last=3.0)
+        df.loc[df.index[-1], "High"] = 34.93
+        df.loc[df.index[-1], "Low"]  = 29.35
+        df.loc[df.index[-1], "Close"] = 30.15   # closes in the bottom ~15% of the day's range
+        self.assertTrue(a._is_chasing_extended_highs(df))
+
+    def test_artl_style_flat_base_single_day_spike_is_not_this_gates_target(self):
+        # ARTL was actually chopping/flat (~-4% over 10 sessions) right
+        # before today's spike -- this is a same-day catalyst fakeout from
+        # a flat base, NOT an "already extended into highs" situation this
+        # gate targets by design (that's UMAC's shape, not this one). The
+        # existing intraday-high pullback guard is the mechanism aimed at
+        # this specific pattern instead. Documented here so this boundary
+        # is explicit rather than silently assumed.
+        closes = [0.75, 0.76, 0.75, 0.74, 0.73, 0.75, 0.74, 0.76, 0.75, 0.77, 0.7210]
+        df = self._df(closes, rvol_last=15.0)
+        df.loc[df.index[-1], "High"] = 0.7999
+        df.loc[df.index[-1], "Low"]  = 0.6902
+        df.loc[df.index[-1], "Close"] = 0.7210   # bottom ~28% of the day's range
+        self.assertFalse(a._is_chasing_extended_highs(df))
+
+    def test_healthy_breakout_near_highs_without_a_big_recent_run_is_not_blocked(self):
+        # Near its high, but has NOT run 25%+ in the last 10 sessions --
+        # a fresh breakout off a base, exactly what this must NOT block.
+        closes = [28, 28.2, 27.9, 28.3, 28.5, 28.4, 28.7, 28.9, 29.0, 29.3, 29.5]
+        df = self._df(closes, rvol_last=1.8)
+        self.assertFalse(a._is_chasing_extended_highs(df))
+
+    def test_extended_run_with_a_strong_confirmed_close_is_not_blocked(self):
+        # Same extended run as the UMAC case, but today closes strong
+        # (top of its range) on normal (not euphoric) volume -- real
+        # confirmation, not exhaustion.
+        closes = [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
+        df = self._df(closes, rvol_last=1.5)
+        df.loc[df.index[-1], "High"]  = 34.2
+        df.loc[df.index[-1], "Low"]   = 33.5
+        df.loc[df.index[-1], "Close"] = 34.0   # near the top of the day's range
+        self.assertFalse(a._is_chasing_extended_highs(df))
+
+    def test_near_high_but_run_below_threshold_is_not_blocked(self):
+        # Near highs, up only ~12% over 10 sessions -- below the 25%
+        # threshold, not what this gate targets.
+        closes = [30, 30.5, 31, 31.2, 31.5, 31.8, 32, 32.5, 33, 33.3, 33.6]
+        df = self._df(closes, rvol_last=2.0)
+        df.loc[df.index[-1], "Low"]   = 32.0
+        df.loc[df.index[-1], "Close"] = 33.6
+        self.assertFalse(a._is_chasing_extended_highs(df))
+
+    def test_insufficient_history_fails_open(self):
+        df = self._df([10, 11], n_lookback=2)   # far short of the 10-day lookback
+        self.assertFalse(a._is_chasing_extended_highs(df))
+
+    def test_signal_gate_is_wired_into_score_signal(self):
+        closes = [24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 30.15]
+        df = self._df(closes, rvol_last=2.0)
+        df.loc[df.index[-1], "High"] = 33.19
+        df.loc[df.index[-1], "Low"]  = 29.90
+        df.loc[df.index[-1], "Close"] = 30.15
+        # Give the indicator columns score_signal() needs so it doesn't
+        # blow up on missing data -- reuses the same minimal shape other
+        # score_signal tests already build.
+        for col, val in [("EMA9", 30), ("EMA20", 29), ("EMA50", 28), ("SMA200", 27),
+                         ("RSI", 55), ("MACD", 0.5), ("MACD_sig", 0.3), ("MACD_hist", 0.2),
+                         ("ATR", 1.0), ("AvgVol20", 5_000_000), ("OBV", 0), ("ST_bull", True)]:
+            df[col] = val
+        sig = a.ProSignal(
+            ticker="TESTX", bias="LONG", setup="Gap & Hold",
+            entry=30.15, stop=28.0, target1=35.0, target2=40.0,
+            shares=10, rr=2.0, rsi=55.0, rvol=2.0,
+            reason="test", confluence_score=0,
+        )
+        with patch.object(a, "regime_allows_signal", return_value=(True, 15)), \
+             patch.object(a, "check_mtf", return_value=(True, 20)), \
+             patch.object(a, "check_relative_strength", return_value=(True, 15)), \
+             patch.object(a, "check_sector", return_value=(True, 10)), \
+             patch.object(a, "check_earnings_safe", return_value=(True, 0)), \
+             patch.object(a, "check_macro_safe", return_value=(True, 0)), \
+             patch.object(a, "fetch_weekly", return_value=None):
+            result = a.score_signal(sig, df, {"regime": "BULL", "score": 15}, a.WinRateTracker(filepath=os.devnull))
+        self.assertFalse(result.not_chasing_extended_highs)
+        self.assertFalse(result.passed_all_gates())
+
+
 class TestSmallcapPullbackToleranceScaling(unittest.TestCase):
     """Confirmed live 2026-08-06: CLRO gapped +217% intraday, CELZ +70%, both
     far beyond the ~15-50% range the flat 12% pullback tolerance was

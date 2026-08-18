@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-17T09:51:09.310656-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "David Tepper Cuts Micron Stake, Exits SanDisk as Appaloosa Goes Big on These Magnificent 7 Stocks in Q2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T09:51:09.311106-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Alibaba\u2019s AI Pivot Deepens, Plans to Offload Gaming Business For at Least $1.5 Billion: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T09:51:09.311378-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Assessing Apple&#39;s Performance Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-17T09:51:09.311674-04:00",
     "symbols": [
       "AAPL"
@@ -5053,5 +5023,77 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T16:09:50.608640-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Collaborates With Canadian Microelectronics, Integrating IonQ\u2019s Commercial Trapped-Ion Quantum Computing Systems Into Canada&#39;s FABrIC Quantum Computing Sandbox",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T16:13:13.386904-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Michael Saylor Would Welcome $10B Short Bet Against STRC: &#39;That&#39;s Good For Us&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T16:24:39.125687-04:00",
+    "symbols": [
+      "LIMN"
+    ],
+    "headline": "Liminatus Pharma shares are trading lower after the company announced a reverse stock split of its common stock at a ratio of 1-for-50.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T16:39:58.566286-04:00",
+    "symbols": [
+      "CRWD",
+      "NET",
+      "PANW"
+    ],
+    "headline": "5 Cybersecurity Stocks with More Upside Ahead",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T16:40:06.812048-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin Is Under Pressure, But This Strategy ETF Is Suddenly the Fund to Watch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T16:50:37.980015-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "API Crude Oil Stock 0.328M Barrel Draw Vs 9.072M Barrel Build Prior.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T16:56:02.160996-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Onboarding Into The U.S. Space Force\u2019s Space Data Network Consortium; Co. Awarded Two Delivery Orders Totaling A Combined Value Of $12M To Support The SDN-B Program To Demonstrate Interoperability Of Secure Optical Communications In Space",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -4515,5 +4515,20 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T12:00:12.877438-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "AI&#39;s Half-Trillion-Dollar Borrowing Binge Is Competing With Uncle Sam for Bond Buyers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

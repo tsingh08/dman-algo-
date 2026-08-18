@@ -4346,5 +4346,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-18T11:17:51.145514-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Semi Deployment Triples Einride&#39;s Capacity As 500 Units Join Amazon Freight Push",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T11:18:04.521194-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "UPDATE: VinSpace Inks Contract With SpaceX Was Announced On August 11, 2026",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T11:19:30.612424-04:00",
+    "symbols": [
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Shares of memory chip-related companies are trading lower amid sympathy with peer SK Hynix after the South Korean government denied a report suggesting it is discussing a semiconductor project as the first investment under its $350 billion commitment to the U.S. Also, weakness may reflect a broader bond market sell-off.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

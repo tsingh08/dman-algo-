@@ -11509,20 +11509,35 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
 #  SECTION 19.5 — SMALL-CAP / LOW FLOAT CATALYST MODULE (Dman style)
 # ═══════════════════════════════════════════════════════════════════════════
 
+_reverse_split_cache: dict[tuple[str, int], bool] = {}
+
 def _is_recent_reverse_split(ticker: str, days: int = 45) -> bool:
     """
     Return True if ticker had a reverse split within `days` days.
     Post-RS plays are Professor Dman's #1 category: float collapses, shorts get trapped.
+
+    Cached per session (like its sibling _get_short_float_data()) — found
+    in the 2026-08-16 review: this had no cache at all, unlike every
+    other yfinance-backed lookup in this file, so the same live
+    yf.Ticker.splits call could fire up to 3x for one candidate within a
+    single scan pass. Split history for a given `days` window doesn't
+    change within a session, so this is safe to cache unconditionally.
     """
+    _key = (ticker, days)
+    if _key in _reverse_split_cache:
+        return _reverse_split_cache[_key]
     try:
         splits = yf.Ticker(ticker).splits
         if splits is None or splits.empty:
-            return False
-        cutoff = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=days)
-        recent = splits[splits.index >= cutoff]
-        return bool((recent < 1.0).any())   # ratio < 1.0 = reverse split
+            result = False
+        else:
+            cutoff = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=days)
+            recent = splits[splits.index >= cutoff]
+            result = bool((recent < 1.0).any())   # ratio < 1.0 = reverse split
     except Exception:
-        return False
+        result = False
+    _reverse_split_cache[_key] = result
+    return result
 
 
 def _smallcap_pullback_tolerance_pct(gap_pct: float) -> float:
@@ -13238,25 +13253,32 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     # Portfolio heat cap: admit signals until total open risk hits the limit.
     # Seed with EXISTING open positions so prior-scan risk is counted.
+    # Found in the 2026-08-16 review: this used to call get_all_positions()
+    # directly, a duplicate REST fetch of exactly what _check_open_position_risk()
+    # (called earlier in this same scan, via _check_stop_coverage()) already
+    # fetched. _check_stop_coverage() now caches its Alpaca fetch for 30s, so
+    # calling it again here reuses that cache instead of a second round-trip
+    # in the common case (this runs well within that window of the earlier call).
     heat_capped: list[ProSignal] = []
     eff_account = get_effective_account()
     total_risk_pct = 0.0
     try:
-        _heat_client = get_alpaca_client()
-        if _heat_client is not None and eff_account > 0:
-            for _hp in _heat_client.get_all_positions():
-                # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
-                # Alpaca doesn't expose stop_price on positions, so we approximate risk as
-                # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
-                # Options legs are excluded here — confirmed live 2026-08-11: with 2
-                # equity swings (CELZ, CLRO) + 2 SMCI option legs open, this loop hit
-                # 8% against the 6% cap and would have silently heat-capped out ANY
-                # new equity signal, however good, regardless of the options' actual
-                # (much smaller, already-defined) premium risk. Options are already
-                # risk-managed separately — trailing stop, milestone alerts — so they
-                # shouldn't also consume the equity heat budget.
-                if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
-                    total_risk_pct += SMALLCAP_RISK_PCT
+        if eff_account > 0:
+            _heat_positions = _check_stop_coverage()
+            if _heat_positions:
+                for _hp in _heat_positions.values():
+                    # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
+                    # Alpaca doesn't expose stop_price on positions, so we approximate risk as
+                    # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
+                    # Options legs are excluded here — confirmed live 2026-08-11: with 2
+                    # equity swings (CELZ, CLRO) + 2 SMCI option legs open, this loop hit
+                    # 8% against the 6% cap and would have silently heat-capped out ANY
+                    # new equity signal, however good, regardless of the options' actual
+                    # (much smaller, already-defined) premium risk. Options are already
+                    # risk-managed separately — trailing stop, milestone alerts — so they
+                    # shouldn't also consume the equity heat budget.
+                    if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
+                        total_risk_pct += SMALLCAP_RISK_PCT
     except Exception:
         pass   # if Alpaca unavailable, proceed without existing-position offset
     if total_risk_pct > 0:

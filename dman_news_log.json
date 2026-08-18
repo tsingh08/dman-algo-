@@ -4971,5 +4971,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T15:22:09.776018-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Is Interviewing Potential Nominees for FDA Commissioner&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T15:22:40.622188-04:00",
+    "symbols": [
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "Michael Burry Says This AI Chip Startup Is &#39;Serious Competition&#39; for Nvidia",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

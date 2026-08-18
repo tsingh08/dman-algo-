@@ -1052,34 +1052,58 @@ def _bars_to_df(bars: list, min_bars: int = 20) -> Optional[pd.DataFrame]:
         return None
 
 
+def _load_feed_state(state: dict, filepath: str) -> None:
+    """
+    Shared load logic for _load_stock_feed_state()/_load_options_feed_state().
+
+    Confirmed live 2026-08-08 (options side): the in-memory feed-state
+    dict resets to {"feed": None, "checked_at": 0.0} on every fresh
+    process — GitHub Actions spins up a brand-new process for every scan/
+    momentum-watch/daemon-session run, so from each process's perspective
+    "feed" always starts at None. The "only alert on a real state change"
+    check then reads every single re-probe as a fresh None -> downgraded
+    transition and re-sends the Telegram alert, and the hourly recheck
+    throttle never actually throttles across processes either (checked_at
+    resets to 0.0 every time too, so every process re-probes immediately).
+    Persisting to disk makes both the recheck throttle and the alert-on-
+    change check work across process boundaries, not just within one.
+
+    Mutates `state` in place (.clear()+.update(), never reassigns it) so
+    the caller's module-level dict object identity is preserved — no
+    `global` needed here, and _resolve_stock_feed()/_resolve_options_feed()
+    can keep mutating the same dict via subscript afterward.
+    """
+    if state["checked_at"] != 0.0:
+        return   # already loaded (or updated) this process — don't clobber
+    try:
+        if os.path.exists(filepath):
+            with open(filepath) as f:
+                loaded = json.load(f)
+            if isinstance(loaded, dict) and "feed" in loaded and "checked_at" in loaded:
+                state.clear()
+                state.update(loaded)
+    except Exception:
+        pass
+
+
+def _save_feed_state(state: dict, filepath: str) -> None:
+    """Shared save logic for _save_stock_feed_state()/_save_options_feed_state()."""
+    try:
+        _write_json_atomic(filepath, state)
+    except Exception:
+        pass
+
+
 _stock_feed_state: dict = {"feed": None, "checked_at": 0.0}
 _STOCK_FEED_RECHECK_S = 3600   # re-probe hourly — mirrors _resolve_options_feed()
 _STOCK_FEED_STATE_FILE = "dman_stock_feed_state.json"
 
 def _load_stock_feed_state() -> None:
-    """See _load_options_feed_state() — identical reasoning: an in-memory-only
-    cache resets on every fresh GitHub Actions process, defeating both the
-    recheck throttle and the alert-on-change dedup across runs. Persisted so
-    a stock-feed entitlement flip behaves the same way an options one now
-    does — alert once, not once per run."""
-    global _stock_feed_state
-    if _stock_feed_state["checked_at"] != 0.0:
-        return
-    try:
-        if os.path.exists(_STOCK_FEED_STATE_FILE):
-            with open(_STOCK_FEED_STATE_FILE) as f:
-                loaded = json.load(f)
-            if isinstance(loaded, dict) and "feed" in loaded and "checked_at" in loaded:
-                _stock_feed_state = loaded
-    except Exception:
-        pass
+    _load_feed_state(_stock_feed_state, _STOCK_FEED_STATE_FILE)
 
 
 def _save_stock_feed_state() -> None:
-    try:
-        _write_json_atomic(_STOCK_FEED_STATE_FILE, _stock_feed_state)
-    except Exception:
-        pass
+    _save_feed_state(_stock_feed_state, _STOCK_FEED_STATE_FILE)
 
 
 def _resolve_stock_feed() -> str:
@@ -14893,40 +14917,13 @@ _OPTIONS_FEED_RECHECK_S = 3600   # re-probe hourly — entitlement can also come
 _OPTIONS_FEED_STATE_FILE = "dman_options_feed_state.json"
 
 def _load_options_feed_state() -> None:
-    """
-    Confirmed live 2026-08-08: _options_feed_state is an in-memory dict
-    that resets to {"feed": None, "checked_at": 0.0} on every fresh
-    process. GitHub Actions spins up a brand-new process for every scan/
-    momentum-watch/daemon-session run, so from each process's perspective
-    "feed" always starts at None -- the "only alert on a real state
-    change" check below then reads every single re-probe as a fresh
-    None -> indicative transition and re-sends the Telegram alert, and
-    the hourly recheck throttle never actually throttles across
-    processes either (checked_at resets to 0.0 every time too, so every
-    process re-probes immediately). User reported the same "options data
-    feed downgraded" message repeating every ~10 min -- this is why.
-    Persisting to disk (same pattern as _DAY_START_EQUITY_FILE / the SEC
-    CIK map cache) makes both the recheck throttle and the alert-on-
-    change check work across process boundaries, not just within one.
-    """
-    global _options_feed_state
-    if _options_feed_state["checked_at"] != 0.0:
-        return   # already loaded (or updated) this process — don't clobber
-    try:
-        if os.path.exists(_OPTIONS_FEED_STATE_FILE):
-            with open(_OPTIONS_FEED_STATE_FILE) as f:
-                loaded = json.load(f)
-            if isinstance(loaded, dict) and "feed" in loaded and "checked_at" in loaded:
-                _options_feed_state = loaded
-    except Exception:
-        pass
+    """See _load_feed_state()'s docstring for the full incident this fixes
+    (confirmed live 2026-08-08 on this exact state dict)."""
+    _load_feed_state(_options_feed_state, _OPTIONS_FEED_STATE_FILE)
 
 
 def _save_options_feed_state() -> None:
-    try:
-        _write_json_atomic(_OPTIONS_FEED_STATE_FILE, _options_feed_state)
-    except Exception:
-        pass
+    _save_feed_state(_options_feed_state, _OPTIONS_FEED_STATE_FILE)
 
 
 def _resolve_options_feed() -> str:

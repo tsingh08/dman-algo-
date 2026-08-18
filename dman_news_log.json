@@ -4827,5 +4827,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T14:23:29.706367-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading lower as elevated energy prices and bond yields dampen investor sentiment in an industry that will require heavy borrowing to bring projects to market.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T14:24:02.872362-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "QQQ",
+      "SKHY",
+      "SNDK",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "US Debt Nearing $40T; Home Depot earnings Better Than Expected",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T14:27:37.218603-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Bond King&#39; Jeff Gundlach Compares Nvidia&#39;s $500 Billion AI Financing Push to Bonds Backed by Bananas: &#39;Will Not Age Well&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -9354,65 +9354,67 @@ def _load_pnl_entries(filepath: str) -> list[dict]:
         return []
 
 
-def get_todays_loss() -> float:
-    """
-    Return today's realized P&L as a signed percentage of account size.
-    Negative = loss. Returns 0.0 if no trades recorded today.
-    """
-    today_str = datetime.now(ET).date().isoformat()
-    entries = _load_pnl_entries(DAILY_PNL_FILE)
+def _period_pnl_total(filepath: str, period_key: str) -> float:
+    """Shared sum logic for get_todays_loss()/get_this_month_loss() —
+    period_key is a date or "%Y-%m" string; entries are matched by ts
+    prefix (a day's entries all start with its date, a month's with its
+    "%Y-%m")."""
+    entries = _load_pnl_entries(filepath)
     total = sum(float(e.get("pnl_pct", 0.0)) for e in entries
-                if str(e.get("ts", "")).startswith(today_str))
+                if str(e.get("ts", "")).startswith(period_key))
     return round(total, 4)
 
 
-def record_daily_pnl(pnl_pct: float) -> None:
+def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int) -> None:
     """
-    Append pnl_pct (signed %) as a new entry to today's P&L log.
+    Shared append logic for record_daily_pnl()/record_monthly_pnl().
 
     An append-only entry log, not a single mutated running total — found
-    2026-08-16 review: dman_daily_pnl.json is written by BOTH the daemon
-    and the hourly cron scanner (both call sync_alpaca_fills(), which
-    calls this), from separate checkouts, with no semantic merge — unlike
-    every other multi-writer file in this project (positions, scan log,
-    win rate, etc.), which all got one specifically because a naive git
-    merge can silently keep only one side's update. A single mutated
-    total has no way to recover a lost update after the fact; an
-    append-only log of individual contributions can be merged the exact
-    same way sync_scan_log_with_remote()/sync_news_log_with_remote()
-    already merge their own append-only logs (union by content, sorted by
-    ts) — see sync_daily_pnl_with_remote(). ET, not date.today()
-    (system/UTC): the evening cloud daemon session runs until 20:05 ET,
-    past midnight UTC, so date.today() on that runner reads "tomorrow"
-    for the last ~5 min of every trading day.
+    2026-08-16 review: dman_daily_pnl.json/dman_monthly_pnl.json are
+    written by BOTH the daemon and the hourly cron scanner (both call
+    sync_alpaca_fills(), which calls this), from separate checkouts, with
+    no semantic merge — unlike every other multi-writer file in this
+    project (positions, scan log, win rate, etc.), which all got one
+    specifically because a naive git merge can silently keep only one
+    side's update. A single mutated total has no way to recover a lost
+    update after the fact; an append-only log of individual contributions
+    can be merged the exact same way sync_scan_log_with_remote()/
+    sync_news_log_with_remote() already merge their own append-only logs
+    (union by content, sorted by ts) — see sync_daily_pnl_with_remote().
+    ET, not date.today() (system/UTC): the evening cloud daemon session
+    runs until 20:05 ET, past midnight UTC, so date.today() on that
+    runner reads "tomorrow" for the last ~5 min of every trading day.
     """
-    entries = _load_pnl_entries(DAILY_PNL_FILE)
+    entries = _load_pnl_entries(filepath)
     entries.append({"ts": datetime.now(ET).isoformat(), "pnl_pct": round(pnl_pct, 4)})
-    _cutoff = (datetime.now(ET) - timedelta(days=_PNL_ENTRY_MAX_AGE_DAYS)).isoformat()
+    _cutoff = (datetime.now(ET) - timedelta(days=max_age_days)).isoformat()
     entries = sorted([e for e in entries if str(e.get("ts", "")) >= _cutoff],
                       key=lambda e: e.get("ts", ""))
-    _write_json_atomic(DAILY_PNL_FILE, {"entries": entries}, indent=2)
+    _write_json_atomic(filepath, {"entries": entries}, indent=2)
+
+
+def get_todays_loss() -> float:
+    """Return today's realized P&L as a signed percentage of account
+    size. Negative = loss. Returns 0.0 if no trades recorded today."""
+    return _period_pnl_total(DAILY_PNL_FILE, datetime.now(ET).date().isoformat())
+
+
+def record_daily_pnl(pnl_pct: float) -> None:
+    """Append pnl_pct (signed %) as a new entry to today's P&L log.
+    See _record_period_pnl()'s docstring for the merge-safety reasoning."""
+    _record_period_pnl(DAILY_PNL_FILE, pnl_pct, _PNL_ENTRY_MAX_AGE_DAYS)
 
 
 def get_this_month_loss() -> float:
     """Return this calendar month's realized P&L as a signed % of account. 0.0 if none."""
-    month_str = datetime.now(ET).strftime("%Y-%m")
-    entries = _load_pnl_entries(MONTHLY_PNL_FILE)
-    total = sum(float(e.get("pnl_pct", 0.0)) for e in entries
-                if str(e.get("ts", "")).startswith(month_str))
-    return round(total, 4)
+    return _period_pnl_total(MONTHLY_PNL_FILE, datetime.now(ET).strftime("%Y-%m"))
 
 
 def record_monthly_pnl(pnl_pct: float) -> None:
     """Append pnl_pct (signed %) as a new entry to this month's P&L log.
-    See record_daily_pnl()'s docstring — same append-only-log reasoning,
+    See _record_period_pnl()'s docstring — same append-only-log reasoning,
     same multi-writer merge safety, same ET-vs-UTC fix."""
-    entries = _load_pnl_entries(MONTHLY_PNL_FILE)
-    entries.append({"ts": datetime.now(ET).isoformat(), "pnl_pct": round(pnl_pct, 4)})
-    _cutoff = (datetime.now(ET) - timedelta(days=400)).isoformat()   # ~13 months of history
-    entries = sorted([e for e in entries if str(e.get("ts", "")) >= _cutoff],
-                      key=lambda e: e.get("ts", ""))
-    _write_json_atomic(MONTHLY_PNL_FILE, {"entries": entries}, indent=2)
+    _record_period_pnl(MONTHLY_PNL_FILE, pnl_pct, 400)   # ~13 months of history
 
 
 _live_equity_cache: dict = {"equity": 0.0, "ts": 0.0}

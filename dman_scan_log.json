@@ -1,20 +1,5 @@
 [
   {
-    "ts": "2026-08-12T12:34:47.177986-04:00",
-    "regime": "BULL",
-    "regime_score": 17,
-    "vix": 14.8,
-    "min_score": 85,
-    "universe": "all",
-    "tickers_total": 112,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 112,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false
-  },
-  {
     "ts": "2026-08-12T12:53:11.938235-04:00",
     "regime": "BULL",
     "regime_score": 17,
@@ -329,6 +314,15 @@
     "halt_reason": "monthly_loss_limit",
     "min_score": 85,
     "tickers_total": 111,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-08-18T15:55:52.157247-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 267,
     "signals": 0,
     "signal_tickers": []
   }

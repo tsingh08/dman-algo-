@@ -3092,6 +3092,71 @@ class TestRunEquityGuard(unittest.TestCase):
         mock_check.assert_not_called()
 
 
+class TestUpdatePositionFieldMatching(unittest.TestCase):
+    """_update_position_field() (ticker match) and
+    _update_option_position_field() (OCC-symbol match) share one
+    load/mutate/write helper (_update_positions_matching()) now -- these
+    lock in that each still matches ONLY what it's supposed to, since
+    the whole reason the OCC-keyed version exists is a real incident
+    where the ticker-keyed one updated the wrong leg."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.close()
+        self._patch = patch.object(a, "POSITIONS_FILE", self._pos_tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._pos_tmp.name):
+            os.unlink(self._pos_tmp.name)
+
+    def _write(self, positions):
+        with open(self._pos_tmp.name, "w") as f:
+            json.dump(positions, f)
+
+    def _read(self):
+        with open(self._pos_tmp.name) as f:
+            return json.load(f)
+
+    def test_update_position_field_matches_by_ticker(self):
+        self._write([
+            {"ticker": "CELZ", "setup": "Low Float Catalyst", "stop": 1.0},
+            {"ticker": "AAPL", "setup": "Gap & Hold", "stop": 5.0},
+        ])
+        a._update_position_field("CELZ", stop=1.5)
+        result = self._read()
+        self.assertEqual(next(p for p in result if p["ticker"] == "CELZ")["stop"], 1.5)
+        self.assertEqual(next(p for p in result if p["ticker"] == "AAPL")["stop"], 5.0)
+
+    def test_update_option_position_field_matches_only_the_named_occ_leg(self):
+        # The real incident this OCC-keyed matcher exists to prevent: two
+        # legs sharing the same ticker (a call and a put on the same
+        # underlying) must never both get updated by one call.
+        self._write([
+            {"ticker": "SMCI", "setup": "Options Call SMCI260814C00034000 ($34C exp 2026-08-14)",
+             "peak_premium": 1.0},
+            {"ticker": "SMCI", "setup": "Options Put SMCI260814P00030000 ($30P exp 2026-08-14)",
+             "peak_premium": 1.0},
+        ])
+        a._update_option_position_field("SMCI260814C00034000", peak_premium=2.0)
+        result = self._read()
+        call_leg = next(p for p in result if "Call" in p["setup"])
+        put_leg  = next(p for p in result if "Put" in p["setup"])
+        self.assertEqual(call_leg["peak_premium"], 2.0, "the named leg must be updated")
+        self.assertEqual(put_leg["peak_premium"], 1.0, "the sibling leg on the same ticker must not be touched")
+
+    def test_no_match_leaves_the_file_untouched(self):
+        self._write([{"ticker": "CELZ", "setup": "Low Float Catalyst", "stop": 1.0}])
+        a._update_position_field("NOMATCH", stop=99.0)
+        result = self._read()
+        self.assertEqual(result[0]["stop"], 1.0)
+
+    def test_missing_positions_file_does_not_raise(self):
+        os.unlink(self._pos_tmp.name)
+        a._update_position_field("CELZ", stop=1.5)   # must not raise
+
+
 class TestOptionsPnlMilestone(unittest.TestCase):
     """Added 2026-08-10: tiered P&L notifications for options legs the user
     wants live visibility into (e.g. an earnings hold) independent of the

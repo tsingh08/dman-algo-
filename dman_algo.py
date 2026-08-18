@@ -5029,20 +5029,31 @@ def _detect_momentum_fade(levels: dict, entry_px: float, float_shares_m: float) 
     return result
 
 
-def _update_position_field(ticker: str, **fields) -> None:
-    """Update fields on a tracked position in dman_positions.json (e.g. raise stop)."""
+def _update_positions_matching(match, label: str, **fields) -> None:
+    """
+    Shared load/mutate/write for _update_position_field()/
+    _update_option_position_field() — the two differed only in how they
+    matched a position (ticker vs. OCC symbol embedded in `setup`) and
+    their error-message wording; `match` is the one thing callers still
+    need to specify themselves.
+    """
     try:
         with open(POSITIONS_FILE) as f:
             data = json.load(f)
         changed = False
         for p in data:
-            if p.get("ticker") == ticker:
+            if match(p):
                 p.update(fields)
                 changed = True
         if changed:
             _write_json_atomic(POSITIONS_FILE, data, indent=2)
     except Exception as _e:
-        print(f"  ⚠️  Could not update position {ticker}: {_e}")
+        print(f"  ⚠️  Could not update position {label}: {_e}")
+
+
+def _update_position_field(ticker: str, **fields) -> None:
+    """Update fields on a tracked position in dman_positions.json (e.g. raise stop)."""
+    _update_positions_matching(lambda p: p.get("ticker") == ticker, ticker, **fields)
 
 
 def _update_option_position_field(occ_symbol: str, **fields) -> None:
@@ -5056,19 +5067,9 @@ def _update_option_position_field(occ_symbol: str, **fields) -> None:
     peak_premium/milestone state should actually change. Added 2026-08-10
     alongside the options trailing-exit and P&L milestone features.
     """
-    try:
-        with open(POSITIONS_FILE) as f:
-            data = json.load(f)
-        changed = False
-        for p in data:
-            _setup = p.get("setup", "")
-            if occ_symbol and occ_symbol in _setup.split():
-                p.update(fields)
-                changed = True
-        if changed:
-            _write_json_atomic(POSITIONS_FILE, data, indent=2)
-    except Exception as _e:
-        print(f"  ⚠️  Could not update option position {occ_symbol}: {_e}")
+    _update_positions_matching(
+        lambda p: bool(occ_symbol) and occ_symbol in p.get("setup", "").split(),
+        occ_symbol, **fields)
 
 
 def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, Optional[str]]:

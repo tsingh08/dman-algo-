@@ -4573,5 +4573,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T12:12:45.518696-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Fabrinet Shares Tumble As Nvidia Datacom Weakness Overshadows Telecom Strength",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T12:14:32.242364-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Why Is ExxonMobil Stock Gaining Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

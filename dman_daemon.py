@@ -584,60 +584,110 @@ def git_sync() -> None:
                 _restore_corrupted_state_files(_existing(STATE_FILES))
                 _git("stash", "drop")
 
-        # Semantic merge for dman_positions.json: this daemon (60s cadence)
-        # and the hourly cron scanner both independently raise stops to
-        # breakeven / reduce shares on the same open positions from separate
-        # concurrency groups — git's line-based stash-pop/rebase merge can
-        # silently keep the LESS-protective side. algo.sync_positions_with_remote()
-        # re-reconciles against origin/main using a rule that can't regress
+        # Merge + stage + commit + push, retried up to 3x — each attempt
+        # re-runs EVERY semantic merge fresh, right before its own commit.
+        #
+        # Found live 2026-08-17: the previous version ran these merges
+        # ONCE, then on a rejected push (another session pushed a real
+        # change in the meantime — two overlapping daemon sessions,
+        # caused by that same morning's separate scheduling-reliability
+        # incident, both racing to push) did a raw `git pull --rebase` +
+        # blind retry. That rebases the ALREADY-COMMITTED, now-stale
+        # merge result onto the new origin/main via a line-based git
+        # merge — it never re-runs the SEMANTIC merge to reconcile
+        # against whatever actually changed on the other side. A real
+        # ARTL position, tracked by one daemon session via
+        # PositionTracker.open(), was silently dropped from
+        # dman_positions.json this exact way the same night this fix was
+        # written: the losing session's stale, unremerged retry
+        # overwrote the winning session's real addition. Each attempt
+        # below re-runs every sync_*_with_remote() call fresh before
+        # trying to push again, so a rejected push always gets a genuine
+        # re-reconciliation against whatever is ACTUALLY on origin/main,
+        # never a replay of a decision made against data that's since
+        # changed. Cheap to repeat — each merge already no-ops when
+        # there's genuinely nothing new to reconcile.
+        #
+        # Semantic merge for dman_positions.json specifically: this
+        # daemon (60s cadence) and the hourly cron scanner both
+        # independently raise stops to breakeven / reduce shares on the
+        # same open positions from separate concurrency groups — git's
+        # line-based stash-pop/rebase merge can silently keep the LESS-
+        # protective side. algo.sync_positions_with_remote() re-
+        # reconciles against origin/main using a rule that can't regress
         # protection, regardless of whether the stash pop above was clean.
         #
-        # The other four are the SAME class of bug, confirmed in production
-        # on 2026-07-27: dman_scan_log.json went a full trading day with
-        # zero new entries despite 8+ genuinely successful scans, because
-        # it's rewritten by both the daemon (every 10 min) and the cron
-        # scanner (hourly) so often that a whole-file conflict resolution
-        # was silently discarding whichever side's entry lost the race.
-        for _sync_fn in (algo.sync_positions_with_remote, algo.sync_scan_log_with_remote,
-                        algo.sync_win_rate_with_remote, algo.sync_live_signals_with_remote,
-                        algo.sync_alpaca_sync_state_with_remote, algo.sync_news_log_with_remote,
-                        algo.sync_daily_pnl_with_remote, algo.sync_monthly_pnl_with_remote,
-                        algo.sync_earnings_pending_with_remote):
-            try:
-                _sync_fn()
-            except Exception as exc:
-                log(f"{_sync_fn.__name__} error (non-fatal): {exc}")
+        # The other syncs are the SAME class of bug, confirmed in
+        # production on 2026-07-27: dman_scan_log.json went a full
+        # trading day with zero new entries despite 8+ genuinely
+        # successful scans, because it's rewritten by both the daemon
+        # (every 10 min) and the cron scanner (hourly) so often that a
+        # whole-file conflict resolution was silently discarding
+        # whichever side's entry lost the race.
+        for _attempt in range(3):
+            for _sync_fn in (algo.sync_positions_with_remote, algo.sync_scan_log_with_remote,
+                            algo.sync_win_rate_with_remote, algo.sync_live_signals_with_remote,
+                            algo.sync_alpaca_sync_state_with_remote, algo.sync_news_log_with_remote,
+                            algo.sync_daily_pnl_with_remote, algo.sync_monthly_pnl_with_remote,
+                            algo.sync_earnings_pending_with_remote):
+                try:
+                    _sync_fn()
+                except Exception as exc:
+                    log(f"{_sync_fn.__name__} error (non-fatal): {exc}")
 
-        # Stage and push any local state changes (re-check existence — the
-        # stash pop, pull, or merge above may have created/removed files).
-        # _restore_corrupted_state_files is a second, unconditional safety
-        # net here — catches corruption from any source, not just a
-        # flagged stash conflict (e.g. a process killed mid-write leaving
-        # a truncated file).
-        _present = _existing(STATE_FILES)
-        _present = _restore_corrupted_state_files(_present)
-        # Union with _tracked(): a STATE_FILES entry that's been deleted
-        # locally (still tracked in git, absent from _present) must still
-        # reach `git add -A` so its deletion gets staged — see _tracked()'s
-        # docstring for the real incident this fixes. `-A` (not a bare add)
-        # is what actually stages a removal for a path git already knows
-        # about; a path that's neither existing nor tracked is deliberately
-        # excluded from the pathspec (git add -A errors atomically — stages
-        # NOTHING — if any single pathspec element matches nothing at all).
-        _stage_paths = sorted(set(_present) | set(_tracked(STATE_FILES)))
-        if _stage_paths:
-            _git("add", "-A", "--", *_stage_paths)
-        staged = _git("diff", "--staged", "--quiet")
-        if staged.returncode != 0:          # something staged
+            # Re-check existence every attempt — the stash pop, pull, or
+            # merge above may have created/removed files.
+            # _restore_corrupted_state_files is a second, unconditional
+            # safety net here — catches corruption from any source, not
+            # just a flagged stash conflict (e.g. a process killed
+            # mid-write leaving a truncated file).
+            _present = _existing(STATE_FILES)
+            _present = _restore_corrupted_state_files(_present)
+            # Union with _tracked(): a STATE_FILES entry that's been deleted
+            # locally (still tracked in git, absent from _present) must still
+            # reach `git add -A` so its deletion gets staged — see _tracked()'s
+            # docstring for the real incident this fixes. `-A` (not a bare add)
+            # is what actually stages a removal for a path git already knows
+            # about; a path that's neither existing nor tracked is deliberately
+            # excluded from the pathspec (git add -A errors atomically — stages
+            # NOTHING — if any single pathspec element matches nothing at all).
+            _stage_paths = sorted(set(_present) | set(_tracked(STATE_FILES)))
+            if _stage_paths:
+                _git("add", "-A", "--", *_stage_paths)
+            staged = _git("diff", "--staged", "--quiet")
+            if staged.returncode == 0:
+                break   # nothing to push this attempt — already in sync
+
             _git("-c", "user.email=github-actions[bot]@users.noreply.github.com",
                  "-c", "user.name=github-actions[bot]",
                  "commit", "-m", "chore: daemon state sync [skip ci]")
             push = _git("push", "origin", "HEAD:main")
-            if push.returncode != 0:
-                pull2 = _git("pull", "--rebase", "origin", "main")
-                if pull2.returncode != 0:
-                    _git("rebase", "--abort")
-                _git("push", "origin", "HEAD:main")
+            if push.returncode == 0:
+                break   # published successfully
+
+            log(f"git sync: push rejected (attempt {_attempt + 1}/3) — "
+                "re-fetching and re-merging against current origin/main before retrying")
+            # fetch + reset --soft (not `pull --rebase`) deliberately:
+            # --soft only moves the branch pointer, leaving the index and
+            # working tree exactly as they are — it asks git to do NO
+            # content-level merge at all, so there's no line-based
+            # rebase conflict to hit in the first place. The actual
+            # reconciliation happens at the application layer on the
+            # next loop iteration, when the sync_*_with_remote() calls
+            # re-read the now-current origin/main and re-merge it against
+            # whatever's still sitting in the working tree (which still
+            # has every local change this process ever made, uncommitted-
+            # but-staged relative to the new HEAD).  `pull --rebase` was
+            # tried here first and confirmed live to hit exactly this
+            # kind of conflict on a JSON file mid-race — see this
+            # function's docstring for the full incident.
+            fetch_retry = _git("fetch", "origin", "main")
+            if fetch_retry.returncode != 0:
+                log("git sync: fetch failed on retry — giving up this cycle, next sync will catch up")
+                break
+            _git("reset", "--soft", "origin/main")
+        else:
+            log("git sync: push still rejected after 3 attempts — giving up this cycle, next sync will catch up")
     except Exception as exc:
         log(f"git sync error (non-fatal): {exc}")
     finally:

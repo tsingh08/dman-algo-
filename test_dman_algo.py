@@ -559,6 +559,80 @@ class TestPositionTrackerMultiLegOptions(unittest.TestCase):
         self.assertEqual(len(pt.positions), 2)
 
 
+class TestPositionTrackerOpenAccumulatesOnScaleIn(unittest.TestCase):
+    """Found live 2026-08-17: ARTL was bought in 3 separate scan-cycle
+    batches (a sustained-RVOL small-cap catalyst signal firing again on
+    several scans before the position was recognized as already held).
+    open() used to silently REPLACE the tracked entry on every repeat
+    call for the same identity -- the recorded share count never matched
+    what was actually held on the exchange. A regression here means a
+    real scale-in position drifts out of sync with the broker again."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.write("[]")
+        self._tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._tmp.name)
+
+    def _pos(self, **overrides):
+        base = dict(ticker="ARTL", bias="LONG", setup="Low Float Catalyst",
+                    entry=0.75, stop=0.61, target1=0.98, target2=1.31,
+                    shares=504, entry_date="2026-08-17")
+        base.update(overrides)
+        return a.OpenPosition(**base)
+
+    def test_repeat_open_accumulates_shares_instead_of_replacing(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(shares=504, entry=0.75))
+        pt.open(self._pos(shares=493, entry=0.76))
+        self.assertEqual(len(pt.positions), 1, "a scale-in must not create a second tracked entry")
+        self.assertEqual(pt.positions[0].shares, 504 + 493)
+
+    def test_repeat_open_computes_size_weighted_average_entry(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(shares=100, entry=1.00))
+        pt.open(self._pos(shares=100, entry=2.00))
+        self.assertAlmostEqual(pt.positions[0].entry, 1.50, places=4)
+
+    def test_repeat_open_keeps_the_more_protective_stop(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(stop=0.61))
+        pt.open(self._pos(stop=0.55))   # a looser stop must not win
+        self.assertEqual(pt.positions[0].stop, 0.61)
+        pt2 = a.PositionTracker(filepath=self._tmp.name)
+        pt2.positions = []
+        pt2.open(self._pos(stop=0.61))
+        pt2.open(self._pos(stop=0.65))   # a tighter/more-protective stop should win
+        self.assertEqual(pt2.positions[0].stop, 0.65)
+
+    def test_repeat_open_keeps_the_original_entry_date(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(entry_date="2026-08-14"))
+        pt.open(self._pos(entry_date="2026-08-17"))
+        self.assertEqual(pt.positions[0].entry_date, "2026-08-14")
+
+    def test_repeat_open_does_not_regress_trailing_stop_stage(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(stop_stage="trailing"))
+        pt.open(self._pos(stop_stage="initial"))   # a later batch's default must not reset it
+        self.assertEqual(pt.positions[0].stop_stage, "trailing")
+
+    def test_repeat_open_carries_forward_the_higher_milestone_progress(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(peak_premium=1.5, milestone_gain_alerted=20.0))
+        pt.open(self._pos(peak_premium=1.2, milestone_gain_alerted=0.0))
+        self.assertEqual(pt.positions[0].peak_premium, 1.5)
+        self.assertEqual(pt.positions[0].milestone_gain_alerted, 20.0)
+
+    def test_a_genuinely_different_identity_still_opens_separately(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(ticker="ARTL"))
+        pt.open(self._pos(ticker="CELZ"))
+        self.assertEqual(len(pt.positions), 2, "unrelated tickers must never be accumulated together")
+
+
 class TestMergeJsonLists(unittest.TestCase):
     """merge_json_lists() covers the high-frequency append-only files
     (scan_log, win_rate, live_signals pending, alpaca_sync recorded_ids)

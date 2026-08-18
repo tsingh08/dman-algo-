@@ -10327,7 +10327,49 @@ class PositionTracker:
         _write_json_atomic(self.filepath, [asdict(p) for p in self.positions], indent=2)
 
     def open(self, pos: OpenPosition) -> bool:
+        """
+        Register a new position — or ACCUMULATE into an already-tracked
+        one sharing the same identity (ticker, or OCC symbol for
+        options).
+
+        Found live 2026-08-17: ARTL was bought in 3 separate scan-cycle
+        batches (a sustained-RVOL small-cap catalyst signal kept firing
+        across several scans before the position was recognized as
+        already held). The previous behavior silently REPLACED the
+        tracked entry on every repeat open() for the same identity — the
+        share count shown here never matched what was actually held on
+        the exchange, even before a separate git-sync race (see
+        git_sync()'s docstring) wiped the entry out entirely the same
+        night. Real shares were accumulated in the account the whole
+        time; only the RECORD of it was silently wrong first.
+
+        Accumulation: shares sum, entry becomes the size-weighted
+        average of old + new. stop is kept as whichever of the two is
+        MORE protective (higher, since this project's book is long-only
+        — ALLOW_SHORTS is False) rather than blindly taking the newest
+        signal's value, same principle merge_positions_snapshots()
+        already uses for the identical reason (a re-open must never
+        regress protection). entry_date and any already-earned
+        trailing-stop/milestone progress carry forward from the
+        ORIGINAL entry, not the newest batch.
+        """
         _ident = _position_identity(pos.ticker, pos.setup)
+        _existing = next((p for p in self.positions
+                          if _position_identity(p.ticker, p.setup) == _ident), None)
+        if _existing is not None:
+            _total_shares = _existing.shares + pos.shares
+            if _total_shares > 0:
+                pos.entry = round(
+                    (_existing.entry * _existing.shares + pos.entry * pos.shares) / _total_shares, 6)
+            pos.shares = _total_shares
+            pos.stop = max(_existing.stop, pos.stop)
+            pos.entry_date = _existing.entry_date
+            pos.peak_premium = max(_existing.peak_premium, pos.peak_premium)
+            pos.milestone_gain_alerted = max(_existing.milestone_gain_alerted, pos.milestone_gain_alerted)
+            pos.milestone_loss_alerted = max(_existing.milestone_loss_alerted, pos.milestone_loss_alerted)
+            if _existing.stop_stage == "trailing":
+                pos.stop_stage = "trailing"
+
         self.positions = [p for p in self.positions if _position_identity(p.ticker, p.setup) != _ident]
         if len(self.positions) >= MAX_POSITIONS:
             print(f"  ⚠️  MAX_POSITIONS ({MAX_POSITIONS}) reached — cannot open {pos.ticker}.")

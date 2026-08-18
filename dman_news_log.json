@@ -4387,5 +4387,33 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T11:28:16.061687-04:00",
+    "symbols": [
+      "AMAT",
+      "KLAC"
+    ],
+    "headline": "Shares of wafer-fabrication-related semiconductor and chip companies are trading lower amid rising oil prices and bond yields, prompting inflation concerns. Also, declining memory chip companies may weigh on the broader industry.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T11:29:19.286650-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "AVGO",
+      "IONQ",
+      "MRVL",
+      "ON",
+      "QCOM",
+      "WOLF"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading lower amid rising oil prices and bond yields, prompting inflation concerns. Also, declining memory chip companies may weigh on the broader industry.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

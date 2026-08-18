@@ -1026,6 +1026,7 @@ def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
 # ═══════════════════════════════════════════════════════════════════════════
 
 _cache: dict[str, pd.DataFrame] = {}
+_indicator_cache: dict[str, pd.DataFrame] = {}   # see _compute_indicators_cached()
 
 def _bars_to_df(bars: list, min_bars: int = 20) -> Optional[pd.DataFrame]:
     """Convert a list of alpaca-py Bar objects to the OHLCV DataFrame shape
@@ -7110,6 +7111,33 @@ def compute_indicators(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _compute_indicators_cached(ticker: str, raw: pd.DataFrame, interval: str = "1d") -> pd.DataFrame:
+    """
+    compute_indicators(), cached per ticker for the same lifetime as
+    fetch_df()'s own _cache (identical key convention, cleared at the
+    same point). Found in the 2026-08-16 review: the intended cache-reuse
+    guard at several call sites ("MACD" not in df.columns) never actually
+    tripped, because fetch_df() only ever caches the RAW (pre-indicator)
+    dataframe — compute_indicators() was always called fresh on a
+    .copy() of it. A ticker appearing in both the main scan universe and
+    a later pass (small-cap catalyst, momentum-watch radar) got its
+    entire indicator suite — including a pure-Python triple loop
+    (_supertrend_bull) — recomputed a second time, every scan and every
+    fast-trigger, for ~200 tickers.
+
+    Always returns a fresh .copy() of the cached result, cache hit or
+    miss: several callers do an in-place dropna() on what this returns
+    (e.g. df.dropna(..., inplace=True)), which would otherwise silently
+    corrupt the shared cached dataframe for every later caller in the
+    same scan pass. The copy costs far less than recomputing the whole
+    indicator suite, so the cache still nets a large win.
+    """
+    key = f"{ticker}_{interval}"
+    if key not in _indicator_cache:
+        _indicator_cache[key] = compute_indicators(raw.copy())
+    return _indicator_cache[key].copy()
+
+
 def compute_weekly_indicators(df: pd.DataFrame) -> pd.DataFrame:
     """Compute key indicators on weekly bars for MTF analysis."""
     c = df["Close"]
@@ -12686,7 +12714,7 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
         if raw is None or len(raw) < 60:
             lines.append(f"  ❌ No usable price data for {ticker} (fetch failed or too little history).")
             return "\n".join(lines)
-        df = compute_indicators(raw.copy())
+        df = _compute_indicators_cached(ticker, raw)
         df.dropna(subset=["EMA50", "RSI", "MACD", "ATR"], inplace=True)
         if len(df) < 10:
             lines.append("  ❌ Not enough indicator history after warm-up.")
@@ -13084,7 +13112,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         if raw is None or len(raw) < 60:
             rejected_counts["no_signal"] += 1
             continue
-        df = compute_indicators(raw.copy())
+        df = _compute_indicators_cached(ticker, raw)
         df.dropna(subset=["EMA50","RSI","MACD","ATR"], inplace=True)
         if len(df) < 10:
             rejected_counts["no_signal"] += 1
@@ -13212,7 +13240,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             df = fetch_df(ticker)   # already cached from the large-cap pass
             if df is None or len(df) < 30:
                 continue
-            df = compute_indicators(df.copy()) if "MACD" not in df.columns else df
+            df = _compute_indicators_cached(ticker, df)
             sc_sig = detect_low_float_catalyst(df, ticker)
             if sc_sig is None:
                 sc_rejected += 1
@@ -13990,7 +14018,7 @@ def get_radar_picks(pending_tickers: set, n: int = 3) -> list[ProSignal]:
             df = fetch_df(ticker)
             if df is None or len(df) < 30:
                 continue
-            df = compute_indicators(df.copy()) if "MACD" not in df.columns else df
+            df = _compute_indicators_cached(ticker, df)
 
             r, p = df.iloc[-1], df.iloc[-2]
             c    = float(r["Close"])
@@ -16835,7 +16863,8 @@ def main():
                     break
 
                 print(f"\n  ── Scan at {now.strftime('%H:%M ET')} ──")
-                _cache.clear()   # force fresh data
+                _cache.clear()             # force fresh data
+                _indicator_cache.clear()   # stale indicators computed off the old raw data must not survive the clear
                 # Sync any fills that came in since last cycle
                 n_fills = sync_alpaca_fills(WinRateTracker())
                 if n_fills:

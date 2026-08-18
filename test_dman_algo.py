@@ -2073,6 +2073,72 @@ class TestGetLivePriceUsesFeedResolver(unittest.TestCase):
         self.assertEqual(str(captured["feed"]).lower(), "datafeed.sip")
 
 
+class TestComputeIndicatorsCached(unittest.TestCase):
+    """Found in the 2026-08-16 review: the intended cache-reuse guard at
+    several call sites ("MACD" not in df.columns) never actually tripped,
+    because fetch_df()'s own cache only ever stores the RAW (pre-indicator)
+    dataframe -- compute_indicators() was always called fresh. A ticker
+    appearing in both the main scan universe and a later pass (small-cap
+    catalyst, momentum-watch radar) got its entire indicator suite --
+    including a pure-Python triple loop -- recomputed a second time, every
+    scan and every fast-trigger, for ~200 tickers."""
+
+    def setUp(self):
+        self._cache_patch = patch.object(a, "_indicator_cache", {})
+        self._cache_patch.start()
+
+    def tearDown(self):
+        self._cache_patch.stop()
+
+    def _raw_df(self, n=60):
+        import pandas as pd, numpy as np
+        idx = pd.date_range("2026-05-01", periods=n, freq="D")
+        close = np.linspace(10, 12, n)
+        return pd.DataFrame({
+            "Open": close, "High": close * 1.01, "Low": close * 0.99,
+            "Close": close, "Volume": [1_000_000] * n,
+        }, index=idx)
+
+    def test_second_call_for_the_same_ticker_does_not_recompute(self):
+        raw = self._raw_df()
+        with patch.object(a, "compute_indicators", wraps=a.compute_indicators) as mock_ci:
+            a._compute_indicators_cached("TESTX", raw)
+            a._compute_indicators_cached("TESTX", raw)
+        mock_ci.assert_called_once()
+
+    def test_different_tickers_each_compute_once(self):
+        raw = self._raw_df()
+        with patch.object(a, "compute_indicators", wraps=a.compute_indicators) as mock_ci:
+            a._compute_indicators_cached("TESTX", raw)
+            a._compute_indicators_cached("OTHERX", raw)
+        self.assertEqual(mock_ci.call_count, 2)
+
+    def test_result_has_indicator_columns(self):
+        result = a._compute_indicators_cached("TESTX", self._raw_df())
+        self.assertIn("MACD", result.columns)
+        self.assertIn("RSI", result.columns)
+
+    def test_mutating_one_callers_result_does_not_corrupt_the_next_callers(self):
+        # Real regression risk: several call sites do df.dropna(...,
+        # inplace=True) on what this returns -- if that mutated the SHARED
+        # cached object, the next caller for the same ticker would get a
+        # silently truncated/corrupted dataframe instead of the full one.
+        raw = self._raw_df()
+        first = a._compute_indicators_cached("TESTX", raw)
+        first.dropna(subset=["MACD"], inplace=True)
+        second = a._compute_indicators_cached("TESTX", raw)
+        self.assertEqual(len(second), len(raw), "a mutation on one caller's "
+                         "result must not affect what the next caller gets back")
+
+    def test_clearing_the_cache_forces_recomputation(self):
+        raw = self._raw_df()
+        with patch.object(a, "compute_indicators", wraps=a.compute_indicators) as mock_ci:
+            a._compute_indicators_cached("TESTX", raw)
+            a._indicator_cache.clear()
+            a._compute_indicators_cached("TESTX", raw)
+        self.assertEqual(mock_ci.call_count, 2)
+
+
 class TestBarSetContainsBugFix(unittest.TestCase):
     """Regression test for a confirmed production bug: alpaca-py's BarSet does
     not support `in` the way a dict does — `ticker in resp` was always False

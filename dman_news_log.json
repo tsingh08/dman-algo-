@@ -4193,5 +4193,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T10:11:32.895838-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Buy Now, Pay Later Giant Klarna Sounds Alarm On German Shoppers, Cuts 2026 Volume Outlook",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T10:11:57.628201-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Cisco, Nvidia, Amazon and Nokia: The Customer List Behind Fabrinet&#39;s AI Boom (CORRECTED)",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T10:13:32.235319-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Stock Edges Lower Tuesday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

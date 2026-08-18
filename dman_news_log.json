@@ -4604,5 +4604,33 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T12:38:13.713110-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "&#39;British data group Quantexa explores UK or US IPO, sources say&#39; - Reuters",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T12:40:18.593311-04:00",
+    "symbols": [
+      "DIA",
+      "DUOL",
+      "IWM",
+      "MRVL",
+      "MU",
+      "QQQ",
+      "SNDK",
+      "SPOT",
+      "XOM"
+    ],
+    "headline": "Nasdaq Drops, Chip Stocks Crater As Bond Yields Bite: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

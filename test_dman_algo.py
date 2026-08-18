@@ -3091,6 +3091,18 @@ class TestRunEquityGuard(unittest.TestCase):
             a.run_equity_guard()
         mock_check.assert_not_called()
 
+    def test_passed_in_positions_skips_the_file_read_entirely(self):
+        # Found in the 2026-08-16 review: guard_loop() loads
+        # dman_positions.json once and passes it to both
+        # run_options_guard() and run_equity_guard() instead of each
+        # re-reading it -- the file must never even be opened when a
+        # positions list is supplied.
+        os.unlink(self._pos_tmp.name)   # if this got opened anyway, it would raise
+        with patch.object(a, "_check_equity_position_target") as mock_check:
+            a.run_equity_guard(positions=[{"ticker": "CELZ", "setup": "Low Float Catalyst"}])
+        mock_check.assert_called_once()
+        self.assertEqual(mock_check.call_args.args[0]["ticker"], "CELZ")
+
 
 class TestUpdatePositionFieldMatching(unittest.TestCase):
     """_update_position_field() (ticker match) and
@@ -3616,6 +3628,20 @@ class TestRunOptionsGuardSnapshotFnPassthrough(unittest.TestCase):
         self.assertEqual(mock_mon.call_count, 2)
         for c in mock_mon.call_args_list:
             self.assertIs(c.kwargs.get("get_snapshot_fn"), sentinel_fn)
+
+    def test_passed_in_positions_skips_the_file_read_entirely(self):
+        # Found in the 2026-08-16 review: guard_loop() loads
+        # dman_positions.json once and passes it to both
+        # run_options_guard() and run_equity_guard() instead of each
+        # re-reading it -- the file must never even be opened when a
+        # positions list is supplied.
+        os.unlink(self._pos_tmp.name)   # if this got opened anyway, it would raise
+        with patch.object(a, "_monitor_option_position", return_value=None) as mock_mon:
+            alerts = a.run_options_guard(verbose=False, positions=[
+                {"ticker": "AAPL", "setup": "Options Call AAPL260821C00310000 ($310C exp 2026-08-21)"},
+            ])
+        mock_mon.assert_called_once()
+        self.assertEqual(alerts, [])
 
 
 class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):

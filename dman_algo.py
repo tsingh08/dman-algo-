@@ -5618,7 +5618,8 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
     return None
 
 
-def run_options_guard(verbose: bool = True, get_snapshot_fn=None, get_price_fn=None) -> list[str]:
+def run_options_guard(verbose: bool = True, get_snapshot_fn=None, get_price_fn=None,
+                      positions: Optional[list] = None) -> list[str]:
     """
     Enforce stops/targets on every tracked options position right now.
     The always-on daemon calls this on its guard cadence; momentum-watch
@@ -5637,14 +5638,23 @@ def run_options_guard(verbose: bool = True, get_snapshot_fn=None, get_price_fn=N
     through — supplies the underlying stock's price for the milestone
     alert's display line without an uncached REST call every cycle. See
     _monitor_option_position's docstring for why this exists.
+
+    `positions`, if given, is used instead of re-reading POSITIONS_FILE —
+    found in the 2026-08-16 review: guard_loop() calls this,
+    run_equity_guard(), AND _check_stop_coverage() (via PositionTracker)
+    back to back every 10s guard tick, each independently re-reading and
+    re-parsing the same small JSON file. Optional and defaults to the
+    original self-loading behavior so every other caller (momentum-watch,
+    tests) is unaffected.
     """
     alerts: list[str] = []
-    try:
-        with open(POSITIONS_FILE) as _f:
-            _positions = json.load(_f)
-    except Exception:
-        return alerts
-    for _pos in _positions:
+    if positions is None:
+        try:
+            with open(POSITIONS_FILE) as _f:
+                positions = json.load(_f)
+        except Exception:
+            return alerts
+    for _pos in positions:
         _setup = _pos.get("setup", "")
         if _setup.startswith("Options Call "):
             _a = _monitor_option_position(_pos, "CALL", get_snapshot_fn=get_snapshot_fn, get_price_fn=get_price_fn)
@@ -5869,7 +5879,7 @@ def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) 
                 print(f"  ⚠️  {t}: early profit-lock progression failed — {_pe}")
 
 
-def run_equity_guard(get_price_fn=None) -> None:
+def run_equity_guard(get_price_fn=None, positions: Optional[list] = None) -> None:
     """
     Continuous equity-position T1/T2/stop-progression check — the
     always-on daemon's counterpart to run_options_guard() (which only
@@ -5889,12 +5899,18 @@ def run_equity_guard(get_price_fn=None) -> None:
     is stale) — this never fails closed just because the stream is down,
     it just gets slower, matching the same guarantee options positions
     already have via run_options_guard()'s plain REST-based checks.
+
+    `positions`, if given, is used instead of re-reading POSITIONS_FILE —
+    see run_options_guard()'s matching docstring for why (guard_loop()
+    calls both back to back every 10s guard tick). Optional and defaults
+    to the original self-loading behavior.
     """
-    try:
-        with open(POSITIONS_FILE) as f:
-            positions = json.load(f)
-    except Exception:
-        return
+    if positions is None:
+        try:
+            with open(POSITIONS_FILE) as f:
+                positions = json.load(f)
+        except Exception:
+            return
     for pos in positions:
         setup = pos.get("setup", "")
         if setup.startswith(("Options Call ", "Options Put ", "Earnings ")):

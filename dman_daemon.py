@@ -694,9 +694,22 @@ def guard_loop() -> None:
                     algo.send_telegram("🛡 <b>Daemon active</b> — real-time options "
                                        "guard + fill stream running for today's session.")
                     was_open = True
+                # Loaded once and passed to both guards -- found in the
+                # 2026-08-16 review: run_options_guard() and
+                # run_equity_guard() each independently re-read and
+                # re-parsed the same small dman_positions.json every 10s
+                # guard tick. (_check_stop_coverage() below still does its
+                # own PositionTracker() read -- different shape, left as
+                # its own fetch rather than risk that larger refactor.)
+                try:
+                    with open(algo.POSITIONS_FILE) as _pf:
+                        _guard_positions = json.load(_pf)
+                except Exception:
+                    _guard_positions = []
                 _snap_fn = _get_realtime_option_snapshot if ENABLE_REALTIME_OPTIONS_STREAM else None
                 _und_price_fn = _get_realtime_price if ENABLE_REALTIME_EQUITY_STREAM else None
-                alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn, get_price_fn=_und_price_fn)
+                alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn,
+                                                get_price_fn=_und_price_fn, positions=_guard_positions)
                 for a in alerts:
                     log(a.split("\n")[0].replace("<b>", "").replace("</b>", ""))
                 try:
@@ -705,7 +718,7 @@ def guard_loop() -> None:
                     log(f"stop coverage check error: {exc}")
                 if ENABLE_REALTIME_EQUITY_STREAM:
                     try:
-                        algo.run_equity_guard(get_price_fn=_get_realtime_price)
+                        algo.run_equity_guard(get_price_fn=_get_realtime_price, positions=_guard_positions)
                     except Exception as exc:
                         log(f"equity guard error: {exc}")
             else:

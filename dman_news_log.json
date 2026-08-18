@@ -3212,5 +3212,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T17:12:56.603088-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Onboarded To The United States Space Force\u2019s NITE-STAR IDIQ Contract, An Advanced Space Test And Training Infrastructure With A $981M Contract Ceiling",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T17:45:33.662521-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning AppLovin Stock In The Last 15 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-17T18:15:29.128799-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Robinhood Markets 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-17T19:45:33.288612-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning CrowdStrike Holdings Stock In The Last 5 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

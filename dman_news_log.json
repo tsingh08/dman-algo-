@@ -4560,5 +4560,18 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-18T12:08:27.074768-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Major indices are trading lower as elevated energy prices and bond yields fuel concerns that inflationary pressures may lead to Fed tightening, which may erode confidence in further upside for stocks.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

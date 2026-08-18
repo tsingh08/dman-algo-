@@ -4530,5 +4530,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T12:06:13.202334-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announces Changes For Apps In The European Union; Says In EU Core Technology Fee To Be Replaced By 5% Core Technology Commission On Digital Transactions Outside App Store; App Store Apps Using Apple In-app Purchase To Pay 26% Commission In EU; Adjusting Commission Rates In EU Across App Store, Alternative App Payments &amp; Alternatively Distributed Apps; Commission Will Be 20% In EU For App Store Apps Using Alternative Payment Processing",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T12:06:14.233000-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Says Changes To Business Terms For Apps In The EU Effective October 1; Commission Will Be 15% In EU For App Store Apps That Link Out Of The App To Complete Purchases; Expanding Who Is Eligible To Operate Alternative App Marketplace Or Distribute Apps Via Web In The EU; Developers Can Offer Apple In-app Purchase With Alternative Payment Options Which Had Not Previously Been Permitted In EU; Adds EU Child Safety Measures Including Parental Gates For Users Under 18 On Alternative Payments",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-18T12:06:46.079289-04:00",
+    "symbols": [
+      "XOS"
+    ],
+    "headline": "Crude Oil Gains 1%; US Pending Home Sales Fall In July",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

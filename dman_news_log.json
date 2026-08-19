@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:46:22.638989-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T13:46:22.787631-04:00",
     "symbols": [
       "AMD"
@@ -5089,5 +5079,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:13:41.246273-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Live On CNBC, Kevin Simpson Announces Bought More Alphabet Class A",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

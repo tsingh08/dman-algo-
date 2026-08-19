@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:12:37.979768-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T13:12:54.164263-04:00",
     "symbols": [
       "GOOGL"
@@ -5092,6 +5082,16 @@
       "COIN"
     ],
     "headline": "Coinbase Stock Catches a Bid as Bitcoin Climbs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:49:13.979395-04:00",
+    "symbols": [
+      "ELAB"
+    ],
+    "headline": "PMGC Announces 1-For-10 Reverse Stock Split, Effective Aug. 21",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:01:38.376029-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Enphase Energy, Raises Price Target to $41",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:01:38.631176-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on First Solar, Lowers Price Target to $218",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-17T11:01:39.341995-04:00",
     "symbols": [
       "XOM"
@@ -5093,5 +5073,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:08:13.014760-04:00",
+    "symbols": [
+      "MRNA",
+      "MRVL"
+    ],
+    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:08:28.889762-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Truist Securities Maintains Buy on CrowdStrike Holdings, Raises Price Target to $245",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

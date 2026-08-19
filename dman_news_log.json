@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:53.324316-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Michael Saylor Says Don&#39;t Invest in Bitcoin Unless You\u2019ll Hold It for Over 4 Years\u2014 MSTR Chair Offers No &#39;Useful Wisdom&#39; for Short-Term Traders (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T09:53:53.326495-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "MSTR CEO Calls MSCI\u2019s Index Proposal \u2018Ill-Advised,\u2019 Says Bitcoin Is an Operating Asset",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T09:53:53.328361-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Jane Street&#39;s Q2 Filing Reveals Nearly $1 Billion Bet on These Bitcoin ETFs \u2014 and a Major Stake in Michael Saylor&#39;s MSTR",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T09:53:53.330731-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Elon Musk to Merge SpaceX and Tesla? Prediction Markets Are Betting on This Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-18T09:53:53.630975-04:00",
     "symbols": [
       "UBER"
@@ -5109,6 +5069,46 @@
     "headline": "Leon Cooperman Warns of AI Bust and Recession: 4 ETFs to Take Cover In",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:12:02.353109-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S.-Canada Trade Deal Expected To Cut Top-Line U.S. Tariff Rates On Canadian Autos To 15%; Expected To Cut Top-Line U.S. Tariff Rates On Canadian Steel, Aluminum To 25% But Also Will Include Some Quota Arrangements",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:12:46.065511-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;SpaceX Attempted to Acquire AI Coding Startup Cognition&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T15:13:09.227411-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says We Would Really Like To See Interest Rates Come Down",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:13:39.319447-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump On Xi Visit, Says &#39;We Will Probably Talk About AI&#39;",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:54.736648-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu\u2019s AI Pivot Hits the Gas, but Its Advertising Cash Cow Is Losing Steam",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-18T09:53:54.738783-04:00",
     "symbols": [
       "BIDU"
@@ -5114,6 +5104,16 @@
     "headline": "President Trump On Canada, Says We May Bring Some Of The Tariffs Down To A Level Where Other Countries Are, Because Canada Was Paying A Higher Tariff",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:46:35.631770-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Shares of software companies are trading higher after B of A Securities raised its price targets on several stocks. The analyst attributed the raise to a combination of strong earnings, accelerated growth across several names and a re-rating of valuations as concerns about AI-related disruption ease.",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

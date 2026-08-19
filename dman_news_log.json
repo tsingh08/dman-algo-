@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:46:27.114844-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:56:36.825903-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Why Is Target Stock Falling on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T14:03:52.928650-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Why Is Target Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T14:03:59.208752-04:00",
-    "symbols": [
-      "EYPT"
-    ],
-    "headline": "Why Is Ocular Therapeutix Stock Gaining Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T14:03:59.211246-04:00",
-    "symbols": [
-      "EYPT"
-    ],
-    "headline": "JP Morgan Downgrades EyePoint to Neutral",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T14:03:59.213688-04:00",
     "symbols": [
       "EYPT"
@@ -5091,5 +5041,58 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:44:21.560783-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Eyes ARR Growth as Analysts Debate Premium Valuation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T12:44:38.475623-04:00",
+    "symbols": [
+      "APLD",
+      "MSFT",
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With IREN Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-19T12:47:45.825363-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What\u2019s Going On With Exxon Stock on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:47:56.183232-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What&#39;s Going On With IREN Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T12:47:56.344234-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With IREN Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -7801,6 +7801,44 @@ class TestWorkflowRestartFeature(unittest.TestCase):
         sent_texts = [c.args[0] for c in mock_tg.call_args_list]
         self.assertTrue(any("failed" in t.lower() and "Run workflow" in t for t in sent_texts))
 
+    def test_trigger_restart_passes_inputs_when_given(self):
+        # Added 2026-08-19 alongside /scan: dman_scanner.yml's manual
+        # dispatch needs an inputs.mode="scan" payload, unlike
+        # dman_daemon.yml's plain restart which passes none.
+        mock_resp = MagicMock(status_code=204)
+        with patch.object(a, "GITHUB_TOKEN", "fake-token"):
+            with patch.object(a.requests, "post", return_value=mock_resp) as mock_post:
+                ok, msg = a._trigger_workflow_restart("dman_scanner.yml", inputs={"mode": "scan"})
+        self.assertTrue(ok)
+        call_url = mock_post.call_args[0][0]
+        self.assertIn("actions/workflows/dman_scanner.yml/dispatches", call_url)
+        self.assertEqual(mock_post.call_args[1]["json"], {"ref": "main", "inputs": {"mode": "scan"}})
+
+    def test_trigger_restart_omits_inputs_key_when_not_given(self):
+        # Must NOT send an empty "inputs": {} -- confirms the existing
+        # /restart call site (no inputs) keeps its original payload shape.
+        mock_resp = MagicMock(status_code=204)
+        with patch.object(a, "GITHUB_TOKEN", "fake-token"):
+            with patch.object(a.requests, "post", return_value=mock_resp) as mock_post:
+                a._trigger_workflow_restart("dman_daemon.yml")
+        self.assertEqual(mock_post.call_args[1]["json"], {"ref": "main"})
+
+    def test_scan_command_dispatches_scanner_with_scan_mode_and_confirms(self):
+        with patch.object(a, "_trigger_workflow_restart", return_value=(True, "dispatched")) as mock_trigger:
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._handle_telegram_command("/scan")
+        mock_trigger.assert_called_once_with("dman_scanner.yml", inputs={"mode": "scan"})
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("Scan requested" in t for t in sent_texts))
+        self.assertTrue(any("dispatched" in t.lower() for t in sent_texts))
+
+    def test_scan_command_reports_failure_with_fallback_instructions(self):
+        with patch.object(a, "_trigger_workflow_restart", return_value=(False, "HTTP 403: nope")):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._handle_telegram_command("/scan")
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("failed" in t.lower() and "Run workflow" in t for t in sent_texts))
+
     def test_watchdog_auto_restarts_when_daemon_stale_past_45_min(self):
         stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         stale_sync.close()

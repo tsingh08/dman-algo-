@@ -1429,6 +1429,7 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("options",   "Browse live calls/puts — /options TICKER [E]"),
     ("buy",       "Confirm a buy from /options — /buy N [qty] [price]"),
     ("restart",   "Force a fresh daemon session (last resort)"),
+    ("scan",      "Force an immediate scanner run now (real submission if market's open)"),
 ]
 
 
@@ -1946,7 +1947,8 @@ def run_readiness_scan() -> None:
 # /restart work from your phone. Cron runs poll once per run; the daemon
 # polls live.
 
-def _trigger_workflow_restart(workflow_file: str, ref: str = "main") -> tuple[bool, str]:
+def _trigger_workflow_restart(workflow_file: str, ref: str = "main",
+                               inputs: Optional[dict] = None) -> tuple[bool, str]:
     """
     Dispatch a fresh run of a GitHub Actions workflow via the REST API —
     the mechanism behind both /restart (phone-triggered, last resort) and
@@ -1965,10 +1967,19 @@ def _trigger_workflow_restart(workflow_file: str, ref: str = "main") -> tuple[bo
     cancel-in-progress: true) applies to every trigger type including
     workflow_dispatch, so dispatching a fresh run automatically supersedes
     a stuck one — no separate cancel-then-restart dance needed.
+
+    `inputs`, if given, is passed straight through as the dispatch's
+    workflow_dispatch inputs — e.g. {"mode": "scan"} for
+    dman_scanner.yml's own manual-dispatch handler (see /scan), which
+    already special-cases mode=="scan" as "run the real thing now"
+    (full --submit, not a dry run) rather than requiring a new endpoint.
     """
     if not GITHUB_TOKEN:
         return False, "GITHUB_TOKEN not available in this run"
     try:
+        _payload: dict = {"ref": ref}
+        if inputs:
+            _payload["inputs"] = inputs
         resp = requests.post(
             f"https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/{workflow_file}/dispatches",
             headers={
@@ -1976,7 +1987,7 @@ def _trigger_workflow_restart(workflow_file: str, ref: str = "main") -> tuple[bo
                 "Accept":               "application/vnd.github+json",
                 "X-GitHub-Api-Version": "2022-11-28",
             },
-            json={"ref": ref},
+            json=_payload,
             timeout=15,
         )
         if resp.status_code == 204:
@@ -2233,6 +2244,29 @@ def _handle_telegram_command(text: str) -> None:
         else:
             send_telegram(f"❌ Restart dispatch failed: {_msg}\n"
                           f"Fallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.")
+
+    elif _cmd == "scan":
+        # Dispatches dman_scanner.yml's own manual-trigger handler with
+        # mode="scan" -- already implemented there (2026-08-13) as "run the
+        # real thing now" (--universe curated --ai --submit, not a dry
+        # run), previously only reachable from the GitHub Actions UI.
+        # Scheduled scans already cover market hours automatically (9:45 AM
+        # ET onward); this is for forcing an immediate extra pass — e.g.
+        # right at open instead of waiting for the next cron slot, or
+        # after a manual state change. If the market happens to be closed
+        # when this fires, the run still scans and reports but
+        # _submit_signals_to_alpaca() itself refuses to place real orders
+        # (same guard every scheduled scan already relies on) -- fails
+        # safe rather than needing a duplicate time check here.
+        send_telegram("🔍 <b>Scan requested</b> — dispatching an immediate scanner run "
+                      "(curated universe, real submission if the market's open). "
+                      "Results post the same way a scheduled scan would.")
+        _ok, _msg = _trigger_workflow_restart("dman_scanner.yml", inputs={"mode": "scan"})
+        if _ok:
+            send_telegram("✅ Scan dispatched — should start within a minute or two.")
+        else:
+            send_telegram(f"❌ Scan dispatch failed: {_msg}\n"
+                          f"Fallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.")
 
     elif _cmd == "close" and _arg:
         _pt  = PositionTracker()

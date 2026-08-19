@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:57:44.206467-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:57:44.442963-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Riot Platforms, Raises Price Target to $22",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:57:44.912326-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Canada Says Continues To Take Action To Address Promotion And Sale Of Unapproved And Illegal Retatrutide Products In Canada; Disagrees With Characterizations In Canada Revenue Agency\u2019s Application; Will Respond Formally Through Court Process In Due Course",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:57:45.445556-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "TD Cowen Maintains Buy on CrowdStrike Holdings, Raises Price Target to $235",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:57:45.533856-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "TD Cowen Maintains Buy on Palo Alto Networks, Raises Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-17T11:57:45.712398-04:00",
     "symbols": [
       "UBER"
@@ -5097,5 +5047,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:50:59.885006-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T10:51:00.575791-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:51:01.525454-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:51:03.193757-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:53:08.314062-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "TD Cowen Maintains Buy on Vistra, Lowers Price Target to $221",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

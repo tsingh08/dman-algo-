@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T23:24:19.638261-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Nasdaq&#39;s Going Almost 24/7: Exchange Eyes 23-Hour Trading Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T23:24:21.684065-04:00",
     "symbols": [
       "XOM"
@@ -5102,6 +5092,16 @@
       "MRNA"
     ],
     "headline": "Pfizer Stock Rises Wednesday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T14:00:37.840085-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;NVIDIA Discusses Funding Its AI Data Supplier Mercor At A $20 Billion Valuation&#39; - The Information",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

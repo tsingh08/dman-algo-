@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-17T18:15:29.128799-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Robinhood Markets 5 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T19:45:33.288612-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning CrowdStrike Holdings Stock In The Last 5 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T23:24:12.110047-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cathie Wood Buys $22.8 Million of Nvidia Stock, Ark Invest Dumps AMD and Palantir Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T23:24:12.549991-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cathie Wood Buys $22.8 Million of Nvidia Stock, Ark Invest Dumps AMD and Palantir Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T23:24:12.975845-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nike, Meta Platforms, INVO Fertility, EyePoint Pharmaceuticals, and Micron: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T23:24:13.420096-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Tesla Cybercab Launch Could Begin In This City Soon as Elon Musk-Led Company Prepares Driverless Vehicles for Public Roads: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T23:24:13.436158-04:00",
     "symbols": [
       "GOOGL"
@@ -5105,5 +5045,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:48:28.900261-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:48:30.915976-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:48:31.110572-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:48:32.206503-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:48:32.513441-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:48:51.759656-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Mizuho Maintains Outperform on Palo Alto Networks, Raises Price Target to $415",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

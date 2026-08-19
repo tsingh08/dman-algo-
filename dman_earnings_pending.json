@@ -1,4 +1,56 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "ticker": "BABA",
+      "earn_date": "2026-08-20",
+      "created_at": "2026-08-19T10:28:02.758432-04:00",
+      "expires_at": "2026-08-19T14:28:02.758443-04:00",
+      "status": "awaiting_approval",
+      "plan": {
+        "ticker": "BABA",
+        "earn_date": "2026-08-20",
+        "timing": "PENDING-TOMORROW",
+        "current_price": 128.07000732421875,
+        "sets": 1,
+        "net_debit": 1.7,
+        "total_cost": 170.0,
+        "directional": null,
+        "last_moves_pct": [
+          9.6,
+          -8.5,
+          4.6,
+          7.9
+        ],
+        "call": {
+          "long_occ": "BABA260828C00137000",
+          "short_occ": "BABA260828C00141000",
+          "long_strike": 137.0,
+          "short_strike": 141.0,
+          "long_oi": 199,
+          "short_oi": 134,
+          "net_debit": 0.88,
+          "expiry": "2026-08-28",
+          "dte": 9,
+          "max_gain": 312.0,
+          "breakeven": 137.88
+        },
+        "put": {
+          "long_occ": "BABA260828P00119000",
+          "short_occ": "BABA260828P00115000",
+          "long_strike": 119.0,
+          "short_strike": 115.0,
+          "long_oi": 269,
+          "short_oi": 2587,
+          "net_debit": 0.82,
+          "expiry": "2026-08-28",
+          "dte": 9,
+          "max_gain": 318.0,
+          "breakeven": 118.18
+        },
+        "max_loss": 170.0,
+        "ai_analysis": "BABA is in a solid uptrend heading into earnings, trading above both EMAs with positive MACD and RSI at 66.1, signaling strong but not yet extreme momentum. Consensus estimates ($1.85 EPS, $38.63B revenue) are below prior quarter actuals ($2.06 EPS, $34.57B revenue), meaning the bar is set lower on earnings but higher on revenue growth expectations, a mixed setup that could go either way. The last four post-earnings moves (+9.6%, -8.5%, +4.6%, +7.9%) show consistently large swings, mostly to the upside, which fits a double-sided debit spread designed to profit from a big move in either direction rather than needing to predict direction. Headlines are mixed-to-neutral: eased China AI chip curbs (Nvidia/ByteDance/Tencent) is a modest sector tailwind, but Tepper tr"
+      }
+    }
+  ],
   "consumed": {}
 }

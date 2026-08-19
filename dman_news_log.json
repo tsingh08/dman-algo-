@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:54.743143-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-18T09:53:54.986255-04:00",
     "symbols": [
       "PDD"
@@ -5112,6 +5102,16 @@
       "AMZN"
     ],
     "headline": "Watching Amazon; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T15:52:52.752915-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Eagle Point Backs $1.3B Loan for Anthropic-Anchored Texas Data Center",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

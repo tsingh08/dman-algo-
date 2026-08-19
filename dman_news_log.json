@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:49.633610-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Nasdaq 100 Short Exposure Hits $20 Billion as Insiders Near \u201815-Year High\u2019 in Buying: Is a Squeeze Imminent?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-18T09:53:49.960573-04:00",
     "symbols": [
       "SKHY"
@@ -5105,5 +5095,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T14:59:06.198184-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "JP Morgan Maintains Overweight on e.l.f. Beauty, Lowers Price Target to $106",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

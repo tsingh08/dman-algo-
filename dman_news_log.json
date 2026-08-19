@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:54.472513-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Trump-Backed World Liberty Partners With Platform Offering Chinese AI Models Flagged by US: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-18T09:53:54.736648-04:00",
     "symbols": [
       "BIDU"
@@ -5115,5 +5105,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T15:39:03.359162-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump On Canada, Says We May Bring Some Of The Tariffs Down To A Level Where Other Countries Are, Because Canada Was Paying A Higher Tariff",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

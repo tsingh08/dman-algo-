@@ -1,402 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:57:48.231099-04:00",
-    "symbols": [
-      "MAIR"
-    ],
-    "headline": "Madison Air Solutions Discloses \u20ac250M Fee To Be Paid To emb-pabst In Event Of Deal Termination",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:57:48.232795-04:00",
-    "symbols": [
-      "MAIR"
-    ],
-    "headline": "Madison Air Solutions To Acquire ebm-pabst At EV Of $5.4B; Deal Expected To Be Adjusted EPS Accretive In The First Full Year Following Closing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T12:38:42.669204-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Bill Ackman Bets Big on Magnificent 7 Stocks, But Only Loves 3 of Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T12:38:42.814520-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bill Ackman Bets Big on Magnificent 7 Stocks, But Only Loves 3 of Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T12:38:42.816307-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "New York\u2019s Factory Activity Expands to 4-Year Highs: Is AI Powering a Manufacturing Boom?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T12:38:42.930626-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bill Ackman Bets Big on Magnificent 7 Stocks, But Only Loves 3 of Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:42.932399-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SpaceX Stock Is Everywhere: Google, Nvidia, AMD, Harvard Disclose Stakes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.063303-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "SpaceX Stock Is Everywhere: Google, Nvidia, AMD, Harvard Disclose Stakes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.240936-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bill Ackman Bets Big on Magnificent 7 Stocks, But Only Loves 3 of Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.242717-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "New York\u2019s Factory Activity Expands to 4-Year Highs: Is AI Powering a Manufacturing Boom?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.371472-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Bill Ackman Bets Big on Magnificent 7 Stocks, But Only Loves 3 of Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.373659-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "New York\u2019s Factory Activity Expands to 4-Year Highs: Is AI Powering a Manufacturing Boom?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.375194-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "SpaceX Stock Is Everywhere: Google, Nvidia, AMD, Harvard Disclose Stakes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.563508-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Bill Ackman Bets Big on Magnificent 7 Stocks, But Only Loves 3 of Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.565175-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "New York\u2019s Factory Activity Expands to 4-Year Highs: Is AI Powering a Manufacturing Boom?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.731449-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Bill Ackman Bets Big on Magnificent 7 Stocks, But Only Loves 3 of Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-17T12:38:43.857637-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Netflix Stock In The Last 10 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:45.070874-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Anthropic Paying 33% Above Market for AI Capacity, JPMorgan Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T12:38:46.570553-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "What&#39;s Going On With Serve Robotics Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:38:46.810659-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "TD Cowen Maintains Buy on Zscaler, Raises Price Target to $200",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T12:38:46.922315-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Why Is Nike Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T12:41:26.615033-04:00",
-    "symbols": [
-      "AMZN",
-      "AVGO",
-      "KLAC",
-      "META",
-      "NVDA",
-      "RIOT"
-    ],
-    "headline": "Dan Loeb Exits Nvidia, Meta And Broadcom \u2014 Bets Big On Warner Bros. Discovery",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:52:02.027867-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Dan Loeb Exits Nvidia, Meta And Broadcom \u2014 Bets Big On Warner Bros. Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:52:02.310579-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Dan Loeb Exits Nvidia, Meta And Broadcom \u2014 Bets Big On Warner Bros. Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:52:02.616511-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Dan Loeb Exits Nvidia, Meta And Broadcom \u2014 Bets Big On Warner Bros. Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:52:03.209279-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Dan Loeb Exits Nvidia, Meta And Broadcom \u2014 Bets Big On Warner Bros. Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T12:52:04.104297-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Dan Loeb Exits Nvidia, Meta And Broadcom \u2014 Bets Big On Warner Bros. Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T12:52:04.381015-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Dan Loeb Exits Nvidia, Meta And Broadcom \u2014 Bets Big On Warner Bros. Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T12:57:52.245596-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Goes All-In On Drone Delivery With Zipline",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:00:52.429425-04:00",
-    "symbols": [
-      "QQQ",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Gary Black Has \u2018Low Interest\u2019 in Tesla Stock at Current Price, Even With a Potential SpaceX Buyout",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:01:19.314690-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Shares of SpaceX are trading higher after multiple institutional investors disclosed multibillion-dollar stakes in 13F filings last week, including Google, Nvidia, Harvard Management, Saudi Arabia\u2019s Public Investment Fund, Peter Thiel&#39;s Founders Fund, Fidelity Investments, Gigafund Management and BlackRock.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-17T13:03:09.658483-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Gary Black Has \u2018Low Interest\u2019 in Tesla Stock at Current Price, Even With a Potential SpaceX Buyout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-17T13:03:16.350500-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Goes All-In On Drone Delivery With Zipline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:03:20.328577-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Gary Black Has \u2018Low Interest\u2019 in Tesla Stock at Current Price, Even With a Potential SpaceX Buyout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:03:21.108525-04:00",
-    "symbols": [
-      "OABI"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on OmniAb, Maintains $11 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:03:21.110821-04:00",
-    "symbols": [
-      "OABI"
-    ],
-    "headline": "Gold Gains 1%; NY Empire State Manufacturing Index Rises In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:03:21.350683-04:00",
-    "symbols": [
-      "EYPT"
-    ],
-    "headline": "Gold Gains 1%; NY Empire State Manufacturing Index Rises In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:03:22.140979-04:00",
-    "symbols": [
-      "ENVX"
-    ],
-    "headline": "Gold Gains 1%; NY Empire State Manufacturing Index Rises In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:03:24.077298-04:00",
-    "symbols": [
-      "HIVE"
-    ],
-    "headline": "Stock Market Futures Mixed: Dow Futures Slips, Nasdaq 100, S&amp;P 500 Rises as Fed Rate Hike Odds Drop to 30% for September\u2014SanDisk, Micron, HIVE Digital in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T13:03:24.079385-04:00",
     "symbols": [
       "HIVE"
@@ -5099,5 +4702,395 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:09:41.749809-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Alphabet Raises $3.9B in First Australian Bond Sale as AI Spending Surges",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T11:09:42.690891-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Recent Report Shows That Rep. Rick Allen Sold Up to $50K Worth of Abbott Laboratories Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:09:43.277635-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "A Congress Member Bought Up To $60K In Amazon.com Stock: Here&#39;s What You Need To Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:09:43.282124-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Raises $3.9B in First Australian Bond Sale as AI Spending Surges",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:09:43.748313-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Rolls Out Alexa+ On Fire TV At No Additional Charges",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:09:43.752825-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "A Congress Member Bought Up To $60K In Amazon.com Stock: Here&#39;s What You Need To Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:09:45.509215-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Micron Technology 15 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:09:47.573581-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Jumps 150%, Best Day Ever On Cancer Vaccine Win",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:51.734120-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Watching Airbnb; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T11:09:52.557945-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Baidu Analysts Slash Their Forecasts After Weak Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.360638-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Dow Gains Over 100 Points; Target Posts Upbeat Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.365081-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.369372-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Market-Moving News for August 19th",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.373662-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Why Keysight Shares Are Trading Higher By 3%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.377945-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Tenon Medical (TNON) Stock Jumps 77% After Hours: Why It Is Trending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.651823-04:00",
+    "symbols": [
+      "TGL"
+    ],
+    "headline": "Treasure Global Says Its Common Stock Is Now Accessible To Eligible Investors Through Binance Stocks Trading",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.656271-04:00",
+    "symbols": [
+      "TGL"
+    ],
+    "headline": "Why Keysight Shares Are Trading Higher By 3%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.660710-04:00",
+    "symbols": [
+      "TGL"
+    ],
+    "headline": "Treasure Global (TGL) Stock Soars Over 31% After-Hours: Here&#39;s What&#39;s Going On",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:54.664998-04:00",
+    "symbols": [
+      "TGL"
+    ],
+    "headline": "Treasure Global&#39;s TADAA Technologies And Apexcode Innovations Terminate Software Enhancement Agreement Dated March 11, 2026; TADAA Waives Right To Refund of RM3.9M First Milestone Payment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:55.234530-04:00",
+    "symbols": [
+      "TEM"
+    ],
+    "headline": "Tempus AI Soars as Merck-Moderna Cancer Trial Validates Personalis Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:56.142126-04:00",
+    "symbols": [
+      "TOYO"
+    ],
+    "headline": "Transcript: Toyo Co Q2 2026 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:56.146597-04:00",
+    "symbols": [
+      "TOYO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:56.150921-04:00",
+    "symbols": [
+      "TOYO"
+    ],
+    "headline": "Toyo Co H1 EPS $0.45 Misses $0.52 Estimate, Sales $118.185M Miss $192.573M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:56.879174-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Moderna Stock Jumps 150%, Best Day Ever On Cancer Vaccine Win",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:56.883806-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:56.888165-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Merck and Moderna Release Landmark Personalized Cancer Therapy Trial Success, Stocks Soar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:56.892471-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Merck And Moderna Announce Topline Results From The Phase 3 Interpath-001 Trial Evaluating Adjuvant Treatment With Intismeran Autogene In Combination With KEYTRUDA In Patients With Completely Resected Stage IIB-IV Melanoma; At A Pre-specified Interim Analysis, Intismeran In Combination With KEYTRUDA As Adjuvant Therapy Demonstrated Statistically Significant And Clinically Meaningful Improvements In RFS And DMFS Compared To KEYTRUDA Alone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:57.193593-04:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:57.198051-04:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "BMO Capital Initiates Coverage On Prime Medicine with Outperform Rating, Announces Price Target of $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:57.452769-04:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Full Transcript: Opera Q2 2026 Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:57.457199-04:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera Q2 Adj. EPS $0.33, Inline, Sales $178.068M Beat $177.255M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:57.461479-04:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera Sees Q3 Sales $181.000M-$183.000M vs $180.119M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:57.465775-04:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera Raises FY2026 Sales Guidance from $727.000M-$740.000M to $734.000M-$742.000M vs $736.779M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:57.730312-04:00",
+    "symbols": [
+      "EDIT"
+    ],
+    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:58.134454-04:00",
+    "symbols": [
+      "LZB"
+    ],
+    "headline": "La-Z-Boy Q1 2027 Earnings Call: Complete Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:58.138899-04:00",
+    "symbols": [
+      "LZB"
+    ],
+    "headline": "Market-Moving News for August 19th",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:58.143194-04:00",
+    "symbols": [
+      "LZB"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:58.147476-04:00",
+    "symbols": [
+      "LZB"
+    ],
+    "headline": "La-Z-Boy Sees Q2 Sales $500.000M-$520.000M vs $536.792M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:09:58.151717-04:00",
+    "symbols": [
+      "LZB"
+    ],
+    "headline": "La-Z-Boy Q1 Adj. EPS $0.43 Misses $0.49 Estimate, Sales $475.689M Miss $501.340M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

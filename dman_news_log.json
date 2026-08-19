@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-17T15:59:01.698546-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Why Is Nike Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T15:59:02.081708-04:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "Why Is L3Harris Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T15:59:02.084824-04:00",
     "symbols": [
       "LHX"
@@ -5101,5 +5081,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:18:48.899582-04:00",
+    "symbols": [
+      "ELAB"
+    ],
+    "headline": "PMGC Holdings shares are trading lower after the company announced a 1-for-10 reverse stock split, effective August 21.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:20:18.553460-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "QUICK SPARK: Tom Lee Says Avoid Robinhood Stock in 2026",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

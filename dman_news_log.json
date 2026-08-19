@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:53.639123-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Gavin Newsom Touts Rideshare Drivers Union in California, Praises Push to Represent Uber, Lyft Drivers \u2014 Slams Trump for Attacking \u2018Workers\u2019 Rights\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:53.641040-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Vmoto Renews Uber Partnership, Aiming To Electrify Food Delivery Fleet In Netherlands With CPx E-Moped Discounts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-18T09:53:53.642899-04:00",
     "symbols": [
       "UBER"
@@ -5107,6 +5087,31 @@
       "TLT"
     ],
     "headline": "QUICK SPARK: iShares 20+ Year Treasury ETF Eyes Best Rally In 9 Months",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:23:44.179256-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "AVGO",
+      "IONQ",
+      "KLAC",
+      "WOLF"
+    ],
+    "headline": "Shares of semiconductor companies are trading lower amid concerns that OpenAI&#39;s Q2 earnings may weigh on AI growth. Today&#39;s Fed minutes revealed that many participants assessed that higher rates would likely be necessary if inflation did not fall.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:24:17.731489-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CFTC Chair Selig Says Tomorrow, I Will Provide More Details On Regulatory Path Forward At Meeting",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:03:24.571036-04:00",
-    "symbols": [
-      "SNAP"
-    ],
-    "headline": "Evolution Metals &amp; Technologies, Barfresh Food Group, Snap And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T13:12:35.281781-04:00",
     "symbols": [
       "MU"
@@ -5095,5 +5085,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:35:20.990412-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Had Good Conversation With Canada&#39;s Carney Last Night; We&#39;ve Come To A Deal; Tariffs Will Be Non-Existent For Our Farmers; We Have No Tariffs Going Into Canada; Deal Subject To Finalization Of Documents",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

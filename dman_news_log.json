@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-17T14:03:59.215930-04:00",
-    "symbols": [
-      "EYPT"
-    ],
-    "headline": "Jefferies Maintains Buy on EyePoint, Lowers Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T14:03:59.430511-04:00",
-    "symbols": [
-      "CDTG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T14:03:59.533612-04:00",
-    "symbols": [
-      "FULC"
-    ],
-    "headline": "Fulcrum Therapeutics Strikes All-Stock Merger With Slate Medicines",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T14:03:59.722007-04:00",
-    "symbols": [
-      "EWC"
-    ],
-    "headline": "Canada Prime Minister Carney Says We Are In Intense And Delicate Negotiations With The U.S., Not Going To Carry Out Talks In Public",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T14:03:59.724504-04:00",
-    "symbols": [
-      "EWC"
-    ],
-    "headline": "Canada Prime Minister Carney Says He Expects To Speak To Trump Before August 19 Tariffs Deadline; Says We&#39;ll Have Opportunities Over The Next 48 Hours To Discuss In More Detail As The Negotiations Go Forward",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T14:03:59.998290-04:00",
     "symbols": [
       "ENVX"
@@ -5094,5 +5044,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:03:47.192681-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, Target, iShares Bitcoin Trust, iShares Gold Trust Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:03:55.921075-04:00",
+    "symbols": [
+      "HDV"
+    ],
+    "headline": "What\u2019s Going On With Exxon Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:03:56.083992-04:00",
+    "symbols": [
+      "IBIT"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, Target, iShares Bitcoin Trust, iShares Gold Trust Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:03:56.847966-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Why Is BioNTech Stock Surging on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:03:57.040680-04:00",
+    "symbols": [
+      "IAU"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, Target, iShares Bitcoin Trust, iShares Gold Trust Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

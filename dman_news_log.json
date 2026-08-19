@@ -1,36 +1,5 @@
 [
   {
-    "ts": "2026-08-18T10:11:32.895838-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Buy Now, Pay Later Giant Klarna Sounds Alarm On German Shoppers, Cuts 2026 Volume Outlook",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T10:11:57.628201-04:00",
-    "symbols": [
-      "AMZN",
-      "NVDA"
-    ],
-    "headline": "Cisco, Nvidia, Amazon and Nokia: The Customer List Behind Fabrinet&#39;s AI Boom (CORRECTED)",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T10:13:32.235319-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Stock Edges Lower Tuesday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-08-18T10:20:49.965683-04:00",
     "symbols": [
       "META",
@@ -5112,6 +5081,36 @@
     ],
     "headline": "Perfect Stocks Portfolio: August 2026 Edition",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T16:03:30.939027-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Is No Longer a Trillionaire, but He Could Still Give Every Person on Earth $69.420 and Stay the World&#39;s Richest",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T16:05:58.085389-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Wolfspeed Q4 Adj. EPS $(2.26) Beats $(2.45) Estimate, Sales $149.600M Miss $224.475M Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T16:06:50.491227-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Wolfspeed Sees Q1 Sales $140.000M-$160.000M vs $150.400M Est",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

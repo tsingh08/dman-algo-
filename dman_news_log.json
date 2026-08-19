@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:53.642899-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Jim Cramer Has This \u2018Great Long-Term\u2019 Ride-Hailing Stock on His Radar: \u2018I Am a Buyer\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-18T09:53:54.197486-04:00",
     "symbols": [
       "MDB"
@@ -5112,6 +5102,16 @@
       "SPY"
     ],
     "headline": "CFTC Chair Selig Says Tomorrow, I Will Provide More Details On Regulatory Path Forward At Meeting",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:30:07.149375-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says We Have A Meeting Next Week With AI People",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

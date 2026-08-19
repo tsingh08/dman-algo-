@@ -295,7 +295,7 @@ jobs:
             dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json
             dman_scan_log.json dman_universe_cache.json
             dman_stocktwits_seen.json dman_smallcap_watchlist.json
-            dman_telegram_state.json dman_halt.json dman_alerts_dedup.json
+            dman_telegram_state.json dman_halt.json dman_probation.json dman_alerts_dedup.json
             dman_earnings_pending.json dman_rate_limit_events.json
             dman_sec_cik_map.json dman_options_feed_state.json
             dman_stock_feed_state.json dman_telegram_options_menu.json

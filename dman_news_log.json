@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:49.960573-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Google Plans to Pull All Pixel Production Out of China by 2027 Amid US-China Tensions: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-18T09:53:49.962496-04:00",
     "symbols": [
       "SKHY"
@@ -5104,6 +5094,21 @@
     "headline": "JP Morgan Maintains Overweight on e.l.f. Beauty, Lowers Price Target to $106",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:02:12.942846-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "MRNA",
+      "MRVL",
+      "MSTR",
+      "QQQ"
+    ],
+    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

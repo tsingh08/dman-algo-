@@ -1,84 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:36:40.155215-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "UBS Maintains Buy on SpaceX, Maintains $210 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-17T13:37:15.687063-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Tutor Perini Corporation Awarded $60M U.S. Coast Guard Contract",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:37:48.952201-04:00",
-    "symbols": [
-      "AAPL",
-      "AMD",
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:41:21.328060-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "First Solar shares are trading lower after Evercore ISI Group lowered its price target on the stock from $219 to $218.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T13:46:13.251797-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Elon Musk Thinks AI Is Getting Cheaper, Not Just Smarter",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:46:22.536346-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T13:46:22.635066-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-17T13:46:22.638989-04:00",
     "symbols": [
       "NVDA"
@@ -5087,6 +5008,76 @@
     "headline": "Shares of crypto-related companies are trading higher alongside a rise in Bitcoin prices as Treasury yields decline, improving risk appetite and supporting demand for higher-risk assets. Sentiment is also supported by President Trump\u2019s planned meeting with cryptocurrency executives at the White House, as U.S. financial regulators prepare to advance a framework for certain digital assets.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:05:34.064127-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Meta Stock Climbs as Landmark Trial Threatens $1.4 Trillion Penalties",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T12:05:34.735596-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Stock Climbs as Landmark Trial Threatens $1.4 Trillion Penalties",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T12:05:37.663870-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Crude Oil Moves Higher; Lowe\u2019s Shares Gain After Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:05:40.680364-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Stifel Maintains Buy on Zscaler, Raises Price Target to $200",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:05:43.791013-04:00",
+    "symbols": [
+      "IBIT"
+    ],
+    "headline": "Bitcoin ETFs See $486M Inflows in 2 Days: Could This Be the Best Week Since January?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:05:43.977884-04:00",
+    "symbols": [
+      "EL"
+    ],
+    "headline": "Crude Oil Moves Higher; Lowe\u2019s Shares Gain After Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:05:44.158785-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Moderna&#39;s Cancer Vaccine Win Is Merck&#39;s Story Too",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

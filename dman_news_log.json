@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:57:42.072775-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Synchrony Partners With OpenAI To Enhance Its Services In Shopping, Payments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T11:57:42.229581-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron\u2019s AI Boom Could Unlock a $640 Billion Cash Flow Machine, But the Market Barely Sees It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:57:42.231263-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Could Become the \u2018Federal Reserve Of AI,\u2019 Gavin Baker Says: Will \u2018Dark GPUs\u2019 Become Its First Test?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:57:42.447845-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Is Netflix Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T11:57:42.830465-04:00",
     "symbols": [
       "TSLA"
@@ -5094,5 +5054,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:30:20.424278-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Crude Oil Inventories 4.405M Barrel Build Vs 0.200M Barrel Build Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:30:39.795496-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks 1.530M Barrel Draw Vs 0.900M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:30:57.785327-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Gasoline Inventories 0.688M Barrel Build Vs 1.200M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:33:11.562999-04:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "Duolingo shares are trading higher after a Form 8 filing revealed preliminary data showing daily active user growth of about 27% year\u2011over\u2011year, though the company cautioned the figures are unvalidated and not guidance.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

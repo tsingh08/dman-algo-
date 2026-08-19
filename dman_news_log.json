@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:01:42.662208-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "David Tepper Gets More Selective on China With Alibaba Cut, Baidu Boost",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:01:42.916098-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "David Tepper Gets More Selective on China With Alibaba Cut, Baidu Boost",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T11:01:43.167088-04:00",
     "symbols": [
       "PDD"
@@ -5094,5 +5074,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:18:37.154786-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Truist Securities Maintains Buy on Palo Alto Networks, Raises Price Target to $435",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:21:45.148577-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Why Is Robinhood Stock Surging on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-17T23:24:13.436158-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google is Paying $10 Million for Bankrupt Spirit Airlines&#39; Old Emails and Spreadsheets: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T23:24:13.876635-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Warren Buffett Became a Surprise Toy Company Owner in 2022: Now Squishmallows Is Getting a Movie",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T23:24:14.302062-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Cybercab Launch Could Begin In This City Soon as Elon Musk-Led Company Prepares Driverless Vehicles for Public Roads: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-17T23:24:15.130176-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Buys $22.8 Million of Nvidia Stock, Ark Invest Dumps AMD and Palantir Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T23:24:16.758557-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nike, Meta Platforms, INVO Fertility, EyePoint Pharmaceuticals, and Micron: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T23:24:19.638261-04:00",
     "symbols": [
       "HOOD"
@@ -5105,5 +5055,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:51:55.827860-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Mizuho Maintains Outperform on Snowflake, Raises Price Target to $355",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:52:44.241854-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on e.l.f. Beauty, Raises Price Target to $110",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:52:56.355631-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US Said to Halve Tariffs on Canada Steel, Aluminum in Trade Deal&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:53:18.509276-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Mizuho Maintains Outperform on Zscaler, Raises Price Target to $210",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:56:14.771430-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Pfizer Stock Rises Wednesday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

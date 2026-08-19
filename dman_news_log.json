@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-17T15:59:03.345868-04:00",
-    "symbols": [
-      "IEP"
-    ],
-    "headline": "Carl Icahn Trims JetBlue, AEP Stakes While Sitting Out New Stock Bets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T15:59:03.348916-04:00",
-    "symbols": [
-      "IEP"
-    ],
-    "headline": "Evolution Metals &amp; Technologies, Barfresh Food Group, Snap And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T17:12:56.603088-04:00",
     "symbols": [
       "RKLB"
@@ -5101,5 +5081,29 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:35:08.801101-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on ExxonMobil Holdings, Raises Price Target to $177",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:35:16.288725-04:00",
+    "symbols": [
+      "CRWD",
+      "KLAC",
+      "MRVL",
+      "MSTR",
+      "NVDA"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

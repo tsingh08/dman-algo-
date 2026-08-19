@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:01:39.341995-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Rep. Michael Guest Has Sold Up to $45K Worth Of Airbnb Stock: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:01:39.831043-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "QUICK SPARK: Intel Stock Rises After CEO Spends $10 Million on Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:01:42.149504-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Rep. Michael Guest Has Sold Up to $45K Worth Of Airbnb Stock: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T11:01:42.662208-04:00",
     "symbols": [
       "BABA"
@@ -5094,5 +5064,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T10:15:40.929639-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Applied Materials 15 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:15:54.409387-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:15:54.786116-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

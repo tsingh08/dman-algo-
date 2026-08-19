@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:46:22.787631-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T13:46:22.920260-04:00",
     "symbols": [
       "META"
@@ -5089,5 +5079,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T12:16:56.955522-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Nominates Heidi Overton, MD, PhD, As Next FDA Commissioner",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

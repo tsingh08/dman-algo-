@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-17T15:59:02.084824-04:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "L3Harris Technologies Affirms FY2026 Sales Guidance of $23.200B-$23.700B vs $23.579B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T15:59:02.087675-04:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "L3Harris Technologies Appoints Sam Mehta President, CEO, Effective Immediately",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T15:59:02.983566-04:00",
-    "symbols": [
-      "FRNM"
-    ],
-    "headline": "Jefferies Initiates Coverage On Freenome with Buy Rating, Announces Price Target of $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T15:59:02.986610-04:00",
-    "symbols": [
-      "FRNM"
-    ],
-    "headline": "BTIG Initiates Coverage On Freenome with Buy Rating, Announces Price Target of $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T15:59:03.345868-04:00",
     "symbols": [
       "IEP"
@@ -5101,5 +5061,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:21:22.145799-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Announces Its Offering Zero Data Retention For Frontier Models",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:23:11.934593-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks\u2019 Key Test Is Whether Fiscal 2027 NGS ARR Guidance Can Beat Expectations: Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:23:25.509169-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Strategy, Bitmine, Coinbase Surge Over 12% as CLARITY Act Optimism Builds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:23:25.595275-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy, Bitmine, Coinbase Surge Over 12% as CLARITY Act Optimism Builds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

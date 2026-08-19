@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:03:24.568873-04:00",
-    "symbols": [
-      "SNAP"
-    ],
-    "headline": "Snap Stock Drops Monday: What&#39;s Driving the Move?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T13:03:24.571036-04:00",
     "symbols": [
       "SNAP"
@@ -5091,6 +5081,18 @@
     ],
     "headline": "SpaceX Rolls Out Grok 4.6 on Amazon Bedrock",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:29:54.151047-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "TSLA"
+    ],
+    "headline": "Cathie Wood Says Elon Musk&#39;s Tesla Playbook Explains Why She&#39;s Avoiding SK Hynix and Micron",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

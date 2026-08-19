@@ -442,6 +442,7 @@ LAST_ALERTS_FILE   = "dman_last_alerts.json"
 ALERT_COOLDOWN_MIN = 30          # suppress duplicate Telegram alert for same ticker within N min
 TELEGRAM_STATE_FILE = "dman_telegram_state.json"  # getUpdates offset for two-way bot commands
 HALT_FILE           = "dman_halt.json"            # exists = /halt active: no new entries (exits still run)
+PROBATION_FILE       = "dman_probation.json"      # exists = probation active — see is_on_probation()
 LIVE_SIGNALS_FILE  = "dman_live_signals.json"   # pending live signals awaiting outcome
 LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # ground-truth live trade log
 SCAN_LOG_FILE      = "dman_scan_log.json"        # rolling log of each scan run (last 20)
@@ -1421,6 +1422,8 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("pnl",       "Today + month P&L"),
     ("halt",      "Block new entries (exits still run)"),
     ("resume",    "Re-enable entries"),
+    ("probation", "Resume at reduced size, bypassing consec/monthly guards — /probation [mult]"),
+    ("endprobation", "End probation, restore normal circuit breakers"),
     ("close",     "Close a position now — /close TICKER"),
     ("why",       "Explain a ticker's current signal — /why TICKER"),
     ("options",   "Browse live calls/puts — /options TICKER [E]"),
@@ -2061,6 +2064,39 @@ def is_halted() -> bool:
     return os.path.exists(HALT_FILE)
 
 
+def is_on_probation() -> tuple[bool, float]:
+    """
+    (active, size_mult) for a manually-declared probation period — added
+    2026-08-18 after a 3-consecutive-loss day (UMAC/LITX/ARTL) tripped
+    BOTH the consecutive-loss guard and the monthly loss limit. Unlike
+    the daily loss limit (resets automatically at midnight ET), the
+    monthly one only clears when enough wins pull the running total back
+    above -MONTHLY_LOSS_LIMIT or the calendar rolls to next month, and
+    the consecutive-loss guard only clears on a win — neither can happen
+    while both stay tripped, a permanent lock with no path out on its
+    own. Direct instruction: resume trading deliberately at reduced size
+    instead of sitting fully halted for the rest of the month, or
+    trusting the day's newly-shipped gates at full size untested.
+
+    Bypasses ONLY the consecutive-loss and monthly-loss checks in
+    _entry_circuit_breakers_ok() and its two duplicated inline copies —
+    the daily loss limit and manual /halt still apply in full, so a
+    genuinely bad new day still halts trading the same as normal.
+    size_mult multiplies into _submit_signals_to_alpaca()'s existing
+    risk_off_mult sizing chain, covering equity, options, and puts
+    uniformly through that one choke point. Fails safe (inactive,
+    1.0x) on a missing or corrupt file.
+    """
+    try:
+        with open(PROBATION_FILE) as f:
+            state = json.load(f)
+        if not state.get("active"):
+            return False, 1.0
+        return True, float(state.get("size_mult", 1.0))
+    except Exception:
+        return False, 1.0
+
+
 def _entry_circuit_breakers_ok() -> tuple[bool, str]:
     """
     Checks the same four entry-blocking conditions _submit_signals_to_alpaca()
@@ -2080,13 +2116,15 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
     """
     if is_halted():
         return False, "bot is halted (/resume first)"
-    _stats = WinRateTracker().rolling_stats()
-    if _stats["consec_losses"] >= MAX_CONSEC_LOSSES:
-        return False, f"consecutive-loss guard active ({_stats['consec_losses']} losses)"
+    _on_probation, _ = is_on_probation()
+    if not _on_probation:
+        _stats = WinRateTracker().rolling_stats()
+        if _stats["consec_losses"] >= MAX_CONSEC_LOSSES:
+            return False, f"consecutive-loss guard active ({_stats['consec_losses']} losses)"
+        if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
+            return False, "monthly loss limit active"
     if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
         return False, "daily loss limit active"
-    if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
-        return False, "monthly loss limit active"
     return True, ""
 
 
@@ -2118,8 +2156,34 @@ def _handle_telegram_command(text: str) -> None:
         except Exception as _e:
             send_telegram(f"❌ /resume failed: {_e}")
 
+    elif _cmd == "probation":
+        try:
+            _mult = float(_arg) if _arg else 0.5
+            with open(PROBATION_FILE, "w") as _f:
+                json.dump({"active": True, "size_mult": _mult,
+                           "started": datetime.now(ET).isoformat(),
+                           "note": " ".join(_parts[2:]) or "manual"}, _f)
+            send_telegram(f"🟡 <b>PROBATION ON</b> — sizing ×{_mult:.2f}. Bypasses the "
+                          f"consecutive-loss and monthly-loss guards only; daily loss "
+                          f"limit and /halt still apply. Send /endprobation to clear.")
+        except Exception as _e:
+            send_telegram(f"❌ /probation failed: {_e}")
+
+    elif _cmd == "endprobation":
+        try:
+            if os.path.exists(PROBATION_FILE):
+                os.remove(PROBATION_FILE)
+                send_telegram("🟢 <b>PROBATION ENDED</b> — normal circuit breakers restored.")
+            else:
+                send_telegram("🟢 Not on probation — nothing to end.")
+        except Exception as _e:
+            send_telegram(f"❌ /endprobation failed: {_e}")
+
     elif _cmd == "status":
         _h = "🛑 HALTED" if is_halted() else "🟢 active"
+        _prob_on, _prob_mult = is_on_probation()
+        if _prob_on:
+            _h += f"  |  🟡 PROBATION ×{_prob_mult:.2f}"
         try:
             _acct = get_alpaca_client().get_account()
             _eq   = float(_acct.equity)
@@ -13127,30 +13191,44 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     if resolved:
         print(f"  📊 {resolved} live trade(s) resolved — run --mode live-perf to see stats")
 
-    # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
-    if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
-        print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
-        print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
-        if not _is_duplicate_alert("__CONSEC_LOSS__"):
-            send_telegram(
-                f"🛑 <b>DMan halted</b> — {stats['consec_losses']} consecutive losses.\n"
-                f"Scanner paused for the day. Review your last trades."
-            )
-            _save_last_alert("__CONSEC_LOSS__")
-        _log_scan_halt("consecutive_losses", tickers, min_score or 0)
-        return []
+    # Consecutive loss guard / monthly loss limit — bypassed during a
+    # declared probation period (see is_on_probation()); both would
+    # otherwise stay tripped indefinitely once hit (consec-loss only
+    # clears on a win, monthly only on a new calendar month), with no
+    # path back to trading on their own. Daily loss limit still applies
+    # unconditionally below — a genuinely bad new day still halts.
+    _on_probation, _probation_mult = is_on_probation()
+    if not _on_probation:
+        # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
+        if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
+            print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
+            print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
+            if not _is_duplicate_alert("__CONSEC_LOSS__"):
+                send_telegram(
+                    f"🛑 <b>DMan halted</b> — {stats['consec_losses']} consecutive losses.\n"
+                    f"Scanner paused for the day. Review your last trades."
+                )
+                _save_last_alert("__CONSEC_LOSS__")
+            _log_scan_halt("consecutive_losses", tickers, min_score or 0)
+            return []
 
-    # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
-    month_loss = get_this_month_loss()
-    if month_loss <= -(MONTHLY_LOSS_LIMIT * 100):
-        print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
-              f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
-        print(f"     Stop trading for the month. Review setups. Reset.\n")
-        if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
-            send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
-            _save_last_alert("__MONTHLY_LIMIT__")
-        _log_scan_halt("monthly_loss_limit", tickers, min_score or 0)
-        return []
+        # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
+        month_loss = get_this_month_loss()
+        if month_loss <= -(MONTHLY_LOSS_LIMIT * 100):
+            print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
+                  f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
+            print(f"     Stop trading for the month. Review setups. Reset.\n")
+            if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
+                send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
+                _save_last_alert("__MONTHLY_LIMIT__")
+            _log_scan_halt("monthly_loss_limit", tickers, min_score or 0)
+            return []
+    elif not _is_duplicate_alert("__PROBATION_ACTIVE__"):
+        print(f"\n  🟡 PROBATION ACTIVE — consec-loss/monthly-loss guards bypassed, "
+              f"sizing ×{_probation_mult:.2f}\n")
+        send_telegram(f"🟡 <b>Probation active</b> — trading resumed at ×{_probation_mult:.2f} sizing "
+                      f"(consec-loss/monthly-loss guards bypassed; daily limit still applies).")
+        _save_last_alert("__PROBATION_ACTIVE__")
 
     # Daily loss circuit breaker — dedup
     todays_loss = get_todays_loss()
@@ -16274,16 +16352,18 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             pass
         print(f"  🛑 Manual halt active{(' — ' + _hr) if _hr else ''} — no orders submitted (/resume to re-enable).")
         return
-    _tracker_cb = WinRateTracker()
-    _stats_cb   = _tracker_cb.rolling_stats()
-    if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
-        print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
-        return
+    _on_probation_sub, _ = is_on_probation()
+    if not _on_probation_sub:
+        _tracker_cb = WinRateTracker()
+        _stats_cb   = _tracker_cb.rolling_stats()
+        if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
+            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
+            return
+        if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
+            print(f"  🛑 Monthly loss limit active — no orders.")
+            return
     if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
         print(f"  🛑 Daily loss limit active — no orders.")
-        return
-    if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
-        print(f"  🛑 Monthly loss limit active — no orders.")
         return
 
     mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
@@ -16407,6 +16487,16 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     elif _consec_loss_live == 1:
         _risk_off_mult = min(_risk_off_mult, 0.85)
         print(f"  ⚠️  1 consecutive loss — early caution, sizing →0.85×")
+
+    # Probation sizing cut — compounds on top of everything above (see
+    # is_on_probation()). Applied last and unconditionally so it always
+    # takes effect regardless of what regime/streak state produced
+    # _risk_off_mult, rather than being skippable by whichever branch
+    # happened to run above.
+    _probation_active, _probation_size_mult = is_on_probation()
+    if _probation_active and _probation_size_mult != 1.0:
+        _risk_off_mult *= _probation_size_mult
+        print(f"  🟡 Probation sizing: ×{_probation_size_mult:.2f} → net ×{_risk_off_mult:.2f}")
 
     pt        = PositionTracker()
     submitted = 0

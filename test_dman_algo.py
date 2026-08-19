@@ -889,6 +889,7 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
         with patch.object(a.WinRateTracker, "rolling_stats",
                           return_value={"consec_losses": a.MAX_CONSEC_LOSSES, "consec_wins": 0}), \
              patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
              patch.object(a, "_log_scan_halt") as mock_halt:
             result = a.run_pro_scanner(["AAPL"], universe_label="test")
         self.assertEqual(result, [])
@@ -900,11 +901,48 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
                           return_value={"consec_losses": 0, "consec_wins": 0}), \
              patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
              patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
              patch.object(a, "_log_scan_halt") as mock_halt:
             result = a.run_pro_scanner(["AAPL"], universe_label="test")
         self.assertEqual(result, [])
         mock_halt.assert_called_once()
         self.assertEqual(mock_halt.call_args[0][0], "monthly_loss_limit")
+
+    def test_probation_bypasses_consec_and_monthly_guards(self):
+        # Added 2026-08-18: with probation active, a scan that would
+        # otherwise halt on either guard must proceed past both. Also
+        # trips the (cheap, network-free) VIX-crisis halt right after so
+        # the scan terminates quickly instead of falling through into a
+        # real live scan of "AAPL" -- this only asserts the two bypassed
+        # reasons never got logged, not that scanning fully completed.
+        _stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_wins": 0,
+                  "win_rate": 0.3, "total": 10, "wins": 3, "losses": 7}
+        regime = {"regime": "CRISIS", "score": 0, "vix_ok": False, "details": {"VIX": 45.0}}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=_stats), \
+             patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
+             patch.object(a, "get_market_regime", return_value=regime), \
+             patch.object(a, "get_top_sectors", return_value=[]), \
+             patch.object(a, "_log_scan_halt") as mock_halt:
+            result = a.run_pro_scanner(["AAPL"], universe_label="test")
+        self.assertEqual(result, [])
+        mock_halt.assert_called_once()
+        self.assertEqual(mock_halt.call_args[0][0], "vix_extreme")
+
+    def test_probation_still_lets_daily_loss_guard_halt(self):
+        with patch.object(a.WinRateTracker, "rolling_stats",
+                          return_value={"consec_losses": a.MAX_CONSEC_LOSSES, "consec_wins": 0}), \
+             patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
+             patch.object(a, "_log_scan_halt") as mock_halt:
+            result = a.run_pro_scanner(["AAPL"], universe_label="test")
+        self.assertEqual(result, [])
+        mock_halt.assert_called_once()
+        self.assertEqual(mock_halt.call_args[0][0], "daily_loss_limit")
 
     def test_daily_loss_guard_logs_a_halt(self):
         with patch.object(a.WinRateTracker, "rolling_stats",
@@ -5210,9 +5248,18 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         self.assertIn("halted", mock_tg.call_args[0][0])
 
     def test_macro_blackout_blocks_order(self):
+        # Explicit clean rolling_stats() so this test doesn't depend on
+        # whatever the ambient real dman_win_rate.json happens to show --
+        # found 2026-08-18: a genuine live 3-loss day made this (and
+        # several sibling tests below) fail on unrelated real state.
         with open(self._buy_tmp.name, "w") as f:
             json.dump(self._pending(), f)
-        with patch.object(a, "check_macro_safe", return_value=(False, 0)), \
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "check_macro_safe", return_value=(False, 0)), \
              patch.object(a, "get_alpaca_client") as mock_gac, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._handle_manual_options_buy_reply("YES")
@@ -5228,6 +5275,7 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
                       "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
              patch.object(a, "get_alpaca_client") as mock_gac, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._handle_manual_options_buy_reply("YES")
@@ -5237,7 +5285,11 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
     def test_daily_loss_limit_blocks_order(self):
         with open(self._buy_tmp.name, "w") as f:
             json.dump(self._pending(), f)
-        with patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
              patch.object(a, "get_alpaca_client") as mock_gac, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._handle_manual_options_buy_reply("YES")
@@ -5247,7 +5299,11 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
     def test_monthly_loss_limit_blocks_order(self):
         with open(self._buy_tmp.name, "w") as f:
             json.dump(self._pending(), f)
-        with patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
              patch.object(a, "get_alpaca_client") as mock_gac, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._handle_manual_options_buy_reply("YES")
@@ -5261,7 +5317,12 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         snap = {"bid": 1.52, "ask": 1.56, "delta": 0.51}
         mock_client = MagicMock()
         mock_client.submit_order.return_value = MagicMock(id="order-abc-123")
-        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "get_alpaca_client", return_value=mock_client), \
              patch.object(a, "_get_option_snapshot", return_value=snap), \
              patch.object(a, "_cash_available_for", return_value=(True, "")), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
@@ -5296,6 +5357,87 @@ class TestEntryCircuitBreakersOk(unittest.TestCase):
             ok, reason = a._entry_circuit_breakers_ok()
         self.assertFalse(ok)
         mock_stats.assert_not_called()
+
+    def test_probation_bypasses_consec_loss_guard(self):
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3,
+                      "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7}
+        with patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
+             patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1):
+            ok, reason = a._entry_circuit_breakers_ok()
+        self.assertTrue(ok)
+        self.assertEqual(reason, "")
+
+    def test_probation_still_enforces_daily_loss_limit(self):
+        # Probation only bypasses consec-loss/monthly-loss -- a genuinely
+        # bad NEW day during probation must still halt.
+        with patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
+             patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1):
+            ok, reason = a._entry_circuit_breakers_ok()
+        self.assertFalse(ok)
+        self.assertIn("daily loss", reason)
+
+    def test_probation_still_enforces_manual_halt(self):
+        with patch.object(a, "is_halted", return_value=True), \
+             patch.object(a, "is_on_probation", return_value=(True, 0.5)):
+            ok, reason = a._entry_circuit_breakers_ok()
+        self.assertFalse(ok)
+        self.assertIn("halted", reason)
+
+    def test_without_probation_consec_loss_guard_still_blocks(self):
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3,
+                      "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7}
+        with patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
+             patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats):
+            ok, reason = a._entry_circuit_breakers_ok()
+        self.assertFalse(ok)
+        self.assertIn("consecutive-loss", reason)
+
+
+class TestIsOnProbation(unittest.TestCase):
+    """Direct coverage of the probation-file reader added 2026-08-18 —
+    lets Wednesday's session resume at reduced size after a 3-loss day
+    tripped both the consecutive-loss guard and the monthly loss limit,
+    neither of which had a path back to trading on its own."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        os.unlink(self._tmp.name)   # start absent, matching HALT_FILE's own default state
+        self._patch = patch.object(a, "PROBATION_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+
+    def test_missing_file_is_inactive(self):
+        self.assertEqual(a.is_on_probation(), (False, 1.0))
+
+    def test_active_file_returns_configured_multiplier(self):
+        with open(self._tmp.name, "w") as f:
+            json.dump({"active": True, "size_mult": 0.5}, f)
+        self.assertEqual(a.is_on_probation(), (True, 0.5))
+
+    def test_active_false_is_inactive_regardless_of_size_mult(self):
+        with open(self._tmp.name, "w") as f:
+            json.dump({"active": False, "size_mult": 0.5}, f)
+        self.assertEqual(a.is_on_probation(), (False, 1.0))
+
+    def test_missing_size_mult_defaults_to_one(self):
+        with open(self._tmp.name, "w") as f:
+            json.dump({"active": True}, f)
+        self.assertEqual(a.is_on_probation(), (True, 1.0))
+
+    def test_corrupt_file_fails_safe_to_inactive(self):
+        with open(self._tmp.name, "w") as f:
+            f.write("{not valid json")
+        self.assertEqual(a.is_on_probation(), (False, 1.0))
 
 
 class TestSubmitManualOptionsBuy(unittest.TestCase):
@@ -7204,11 +7346,16 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         self._add_pending("HOOD")
         mock_client = MagicMock()
         mock_client.submit_order.return_value = MagicMock(id="ord1")
-        with patch.object(a, "send_telegram", return_value=True):
-            with patch.object(a, "get_alpaca_client", return_value=mock_client):
-                with patch.object(a, "get_available_cash", return_value=1_000_000.0):
-                    with patch.object(a, "PositionTracker") as MockPT:
-                        consumed = a._handle_earnings_approval_reply("yes")
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0):
+            with patch.object(a, "send_telegram", return_value=True):
+                with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                    with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+                        with patch.object(a, "PositionTracker") as MockPT:
+                            consumed = a._handle_earnings_approval_reply("yes")
         self.assertTrue(consumed)
         mock_client.submit_order.assert_called_once()
         self.assertEqual(a._load_earnings_pending(), [])
@@ -7277,6 +7424,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
                       "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg, \
              patch.object(a, "get_alpaca_client", return_value=mock_client):
             a._handle_earnings_approval_reply("yes")
@@ -7286,7 +7434,11 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_daily_loss_limit_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
-        with patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg, \
              patch.object(a, "get_alpaca_client", return_value=mock_client):
             a._handle_earnings_approval_reply("yes")
@@ -7296,7 +7448,11 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_monthly_loss_limit_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
-        with patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg, \
              patch.object(a, "get_alpaca_client", return_value=mock_client):
             a._handle_earnings_approval_reply("yes")
@@ -7306,7 +7462,12 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_macro_blackout_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
-        with patch.object(a, "check_macro_safe", return_value=(False, 0)), \
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "check_macro_safe", return_value=(False, 0)), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg, \
              patch.object(a, "get_alpaca_client", return_value=mock_client):
             a._handle_earnings_approval_reply("yes")
@@ -7333,12 +7494,17 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         self._add_pending_with_plan("HOOD", self._plan_with_snapshot(100.0))
         mock_client = MagicMock()
         mock_client.submit_order.return_value = MagicMock(id="ord1")
-        with patch.object(a, "send_telegram", return_value=True):
-            with patch.object(a, "get_alpaca_client", return_value=mock_client):
-                with patch.object(a, "get_available_cash", return_value=1_000_000.0):
-                    with patch.object(a, "get_live_price", return_value=103.0):   # +3%, under the 8% limit
-                        with patch.object(a, "PositionTracker"):
-                            a._handle_earnings_approval_reply("yes")
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0):
+            with patch.object(a, "send_telegram", return_value=True):
+                with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                    with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+                        with patch.object(a, "get_live_price", return_value=103.0):   # +3%, under the 8% limit
+                            with patch.object(a, "PositionTracker"):
+                                a._handle_earnings_approval_reply("yes")
         mock_client.submit_order.assert_called_once()
 
     def test_large_price_drift_aborts_without_submitting(self):
@@ -7363,12 +7529,17 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         self._add_pending("HOOD")   # no current_price key
         mock_client = MagicMock()
         mock_client.submit_order.return_value = MagicMock(id="ord1")
-        with patch.object(a, "send_telegram", return_value=True):
-            with patch.object(a, "get_alpaca_client", return_value=mock_client):
-                with patch.object(a, "get_available_cash", return_value=1_000_000.0):
-                    with patch.object(a, "get_live_price", return_value=99999.0):
-                        with patch.object(a, "PositionTracker"):
-                            a._handle_earnings_approval_reply("yes")
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0):
+            with patch.object(a, "send_telegram", return_value=True):
+                with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                    with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+                        with patch.object(a, "get_live_price", return_value=99999.0):
+                            with patch.object(a, "PositionTracker"):
+                                a._handle_earnings_approval_reply("yes")
         mock_client.submit_order.assert_called_once()
 
 
@@ -8146,6 +8317,65 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
             MockPT.return_value.positions = []
             a._submit_signals_to_alpaca([sig])
         mock_validate.assert_not_called()
+        mock_submit.assert_not_called()
+
+
+class TestSubmitSignalsProbationSizing(unittest.TestCase):
+    """Added 2026-08-18 alongside is_on_probation(): the belt-and-suspenders
+    circuit-breaker recheck in _submit_signals_to_alpaca() must bypass the
+    consec-loss/monthly-loss checks during probation (mirroring the
+    scanner-level guard), and the probation size_mult must compound into
+    the same _risk_off_mult chain that already scales shares for
+    macro/hot-streak/cold-streak sizing."""
+
+    def _sig(self, shares=10):
+        return a.ProSignal(
+            ticker="TEST", bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=13.0, target2=16.0,
+            rr=3.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=90,
+            shares=shares, cost=shares * 10.0,
+        )
+
+    def test_probation_halves_submitted_share_size(self):
+        sig = self._sig(shares=10)
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=-(a.MONTHLY_LOSS_LIMIT * 100) - 1), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price", return_value=(True, 10.0)), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "submit_alpaca_trade", return_value=("order-1", None)), \
+             patch.object(a, "send_telegram", return_value=True):
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7, "consec_wins": 0,
+            }
+            MockPT.return_value.positions = []
+            a._submit_signals_to_alpaca([sig])
+        self.assertEqual(sig.shares, 5)
+
+    def test_without_probation_belt_and_suspenders_blocks_on_consec_loss(self):
+        sig = self._sig(shares=10)
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "submit_alpaca_trade") as mock_submit, \
+             patch.object(a, "send_telegram", return_value=True):
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7, "consec_wins": 0,
+            }
+            a._submit_signals_to_alpaca([sig])
         mock_submit.assert_not_called()
 
 

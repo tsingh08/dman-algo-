@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T09:51:09.311674-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Ferrari&#39;s First Luce EV Production Unit Sold for $40 Million at Sotheby&#39;s Auction, More Than 36 Times Its Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-17T09:51:09.311945-04:00",
     "symbols": [
       "AAPL"
@@ -5095,5 +5085,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-18T18:01:02.499740-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "$1000 Invested In Cloudflare 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

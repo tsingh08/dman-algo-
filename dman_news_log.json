@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:46:27.039894-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Anthropic&#39;s Revenue Jumps 14x; Chinese AI Targets Nvidia&#39;s Moat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T13:46:27.114844-04:00",
     "symbols": [
       "QQQ"
@@ -5091,5 +5081,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T12:39:16.901082-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Why Is BioNTech Stock Surging on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

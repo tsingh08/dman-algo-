@@ -1,285 +1,5 @@
 [
   {
-    "ts": "2026-08-17T23:24:21.684065-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "CORRECTION: Targa Resources Executes 20-Year Agreement With ExxonMobil Over Integrated Natural Gas Gathering, Processing In Permian Basin",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T23:24:21.699888-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Targa Resources Executes 2-Year Agreement With ExxonMobil Over Integrated Natural Gas Gathering, Processing In Permian Basin",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T23:24:24.652213-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, Dogecoin Rise, XRP Flat as Trump Prepares to Host White House Crypto Summit: Analyst Says BTC &#39;High-Momentum Uptrend&#39; Unlikely Until This Happens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T09:53:45.074673-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple\u2019s Foldable iPhone is an \u2018Underappreciated\u2019 Opportunity That Could Send AAPL Stock Soaring, Says Analyst \u2014 14 Million Units Seen Selling by 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.076862-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Google Plans to Pull All Pixel Production Out of China by 2027 Amid US-China Tensions: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.078531-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "China&#39;s Chip Revenue Hits Record $245 Billion As SMIC and CXMT Lead the Pack: ETFs to Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.326634-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "J.P. Morgan\u2019s Bill Eigen Sounds 2008 Crash Alarm Over AI Boom \u2014 Says Investors Are Missing One Warning Sign That Could Change Everything: \u2018What I\u2019m Terrified of Is\u2026\u2019 (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.328362-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "CBRS Stock Popped Nearly 10% Over 5 Sessions, IREN Jumped 15% \u2014 Here\u2019s the \u2018Situational Awareness\u2019 Strategy Connecting Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.330061-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Launches ChatGPT For Teens And Partners With CodeAI To Prepare The First AI Generation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.331673-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "In-Depth Analysis: Microsoft Versus Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.670009-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Stock Dips Tuesday: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.671840-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cisco, Nvidia, Amazon and Nokia: The Customer List Behind Fabrinet&#39;s AI Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.673598-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "J.P. Morgan\u2019s Bill Eigen Sounds 2008 Crash Alarm Over AI Boom \u2014 Says Investors Are Missing One Warning Sign That Could Change Everything: \u2018What I\u2019m Terrified of Is\u2026\u2019 (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.675244-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "OpenAI Launches ChatGPT For Teens And Partners With CodeAI To Prepare The First AI Generation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.676859-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump-Backed World Liberty Partners With Platform Offering Chinese AI Models Flagged by US: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:45.940077-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:46.263067-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "J.P. Morgan\u2019s Bill Eigen Sounds 2008 Crash Alarm Over AI Boom \u2014 Says Investors Are Missing One Warning Sign That Could Change Everything: \u2018What I\u2019m Terrified of Is\u2026\u2019 (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:46.264878-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Trump-Backed World Liberty Partners With Platform Offering Chinese AI Models Flagged by US: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:46.746162-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "J.P. Morgan\u2019s Bill Eigen Sounds 2008 Crash Alarm Over AI Boom \u2014 Says Investors Are Missing One Warning Sign That Could Change Everything: \u2018What I\u2019m Terrified of Is\u2026\u2019 (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:46.748052-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Reported Earlier: &#39;Google plans to stop making Pixel products in China in 2027&#39; - Nikkei Asia Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:46.749735-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Tesla\u2019s Steering-Wheel-Free Cybercab Could Hit Austin Streets This Month as Elon Musk Ramps Up Robotaxi Push: TSLA Stock Down 1.38% (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:46.751505-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "California\u2019s Billionaire Tax Wins Support From Nearly 50% of Voters as November Vote Nears: Poll",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:46.753215-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Plans to Pull All Pixel Production Out of China by 2027 Amid US-China Tensions: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:47.115766-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cisco, Nvidia, Amazon and Nokia: The Customer List Behind Fabrinet&#39;s AI Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:47.117895-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "J.P. Morgan\u2019s Bill Eigen Sounds 2008 Crash Alarm Over AI Boom \u2014 Says Investors Are Missing One Warning Sign That Could Change Everything: \u2018What I\u2019m Terrified of Is\u2026\u2019 (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:47.119651-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Comparing Amazon.com With Industry Competitors In Broadline Retail Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:47.467456-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "GLJ Research Reiterates Sell on Tesla, Maintains $24.86 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:47.469269-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla\u2019s Steering-Wheel-Free Cybercab Could Hit Austin Streets This Month as Elon Musk Ramps Up Robotaxi Push: TSLA Stock Down 1.38% (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-18T09:53:47.470975-04:00",
     "symbols": [
       "TSLA"
@@ -5095,6 +4815,286 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:58:48.471084-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:58:50.320183-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Mizuho Maintains Outperform on Snowflake, Raises Price Target to $355",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:58:52.096862-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:58:52.297993-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:52.918075-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Pfizer Stock Rises Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:58:54.423328-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T13:58:54.639850-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Mizuho Maintains Outperform on Palo Alto Networks, Raises Price Target to $415",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:55.051057-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:55.694714-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on e.l.f. Beauty, Raises Price Target to $110",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:56.196998-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Mizuho Maintains Outperform on Zscaler, Raises Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:57.744923-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US Said to Halve Tariffs on Canada Steel, Aluminum in Trade Deal&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:58.619719-04:00",
+    "symbols": [
+      "EPM"
+    ],
+    "headline": "Evolution Petroleum Prices Underwritten Offering Of 3.7M Common Shares At Public Offering Price Of $3.25 Per Share For Total Expected Gross Proceeds Of ~ $12,025,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:58.822208-04:00",
+    "symbols": [
+      "PSNL"
+    ],
+    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:58:59.430432-04:00",
+    "symbols": [
+      "IBIT"
+    ],
+    "headline": "Bitcoin Rampage Triggers Biggest Short-Liquidation Event in History: &#39;It Cannot Be Understated How Insane This Is&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:00.033202-04:00",
+    "symbols": [
+      "NVAX"
+    ],
+    "headline": "Novavax Stock Moves Higher Wednesday: What&#39;s Driving the Action?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:00.714006-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Pfizer Stock Rises Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:59:00.717633-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:59:00.721176-04:00",
+    "symbols": [
+      "MRK"
+    ],
+    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T13:59:00.931756-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP Investors Aren&#39;t Keeping Pace With the Market, Bitwise&#39;s Matt Hougan Says: Beware These 3 Mistakes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:01.391904-04:00",
+    "symbols": [
+      "JELD"
+    ],
+    "headline": "11 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:01.798604-04:00",
+    "symbols": [
+      "NOMD"
+    ],
+    "headline": "Perfect Stocks Portfolio: August 2026 Edition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:02.000160-04:00",
+    "symbols": [
+      "PUK"
+    ],
+    "headline": "Perfect Stocks Portfolio: August 2026 Edition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:02.230219-04:00",
+    "symbols": [
+      "ITB"
+    ],
+    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:02.639517-04:00",
+    "symbols": [
+      "FLNG"
+    ],
+    "headline": "Flex LNG Affirms FY2026 Sales Guidance of $345.000M-$370.000M vs $356.000M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:02.643107-04:00",
+    "symbols": [
+      "FLNG"
+    ],
+    "headline": "Flex LNG Q2 Adj. EPS $0.79 Beats $0.61 Estimate, Sales $106.800M Beat $93.633M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:02.868463-04:00",
+    "symbols": [
+      "KGC"
+    ],
+    "headline": "Stop Buying Gold Miners Until You Check This Metric",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:03.347869-04:00",
+    "symbols": [
+      "NBIG"
+    ],
+    "headline": "Why Are Nebius Shares Trading Lower On Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T13:59:03.799996-04:00",
+    "symbols": [
+      "EIKN"
+    ],
+    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   },
   {
     "ts": "2026-08-19T14:00:37.840085-04:00",

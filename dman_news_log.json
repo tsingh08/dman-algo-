@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:57:42.830465-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Has Explored A Variety Of Designs For Its Much Delayed Next Generation Roadster, Including A Repurposed Model S Plaid And Looks That Borrow From The Lamborghini Countach And S-71 Blackbird Aircraft",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-17T11:57:42.985815-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Why Is Netflix Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:57:43.072394-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Stock Falls Monday: What&#39;s Driving the Move?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:57:43.235419-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Broadcom Stock In The Last 15 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:57:43.599841-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron\u2019s AI Boom Could Unlock a $640 Billion Cash Flow Machine, But the Market Barely Sees It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T11:57:43.823746-04:00",
     "symbols": [
       "SNDK"
@@ -5091,6 +5041,59 @@
       "DUOL"
     ],
     "headline": "Duolingo shares are trading higher after a Form 8 filing revealed preliminary data showing daily active user growth of about 27% year\u2011over\u2011year, though the company cautioned the figures are unvalidated and not guidance.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:33:16.988585-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Benchmark Maintains Buy on Baidu, Lowers Price Target to $150",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:34:51.400935-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Replit Rolling Out GPT-5.6 Luna-Powered Free Mode",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T10:35:41.639454-04:00",
+    "symbols": [
+      "GTE"
+    ],
+    "headline": "Watching Gran Tierra Energy; Hearing Zacks Under $10 Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:37:11.251374-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Falling AI Prices Could Be Good News for Nvidia Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T10:37:43.943412-04:00",
+    "symbols": [
+      "AVGO",
+      "GOOGL",
+      "MRVL",
+      "NVDA"
+    ],
+    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

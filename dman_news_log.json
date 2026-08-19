@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:53.630975-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Jim Cramer Says Buy Uber, Calls Rockwell Automation &#39;One Ugly Chart&#39; but a &#39;Great Long-Term Situation&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T09:53:53.633079-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Pony AI CEO \u2018Confident\u2019 Robotaxi Revenue Will Beat Full-Year Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-18T09:53:53.639123-04:00",
     "symbols": [
       "UBER"
@@ -5107,6 +5087,26 @@
       "SPY"
     ],
     "headline": "President Trump On Xi Visit, Says &#39;We Will Probably Talk About AI&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:18:11.622141-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Citigroup Maintains Buy on Lucid Group, Lowers Price Target to $11",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:18:54.867753-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "QUICK SPARK: iShares 20+ Year Treasury ETF Eyes Best Rally In 9 Months",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

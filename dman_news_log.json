@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:03:24.085322-04:00",
-    "symbols": [
-      "HIVE"
-    ],
-    "headline": "Why HIVE Digital Technologies Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:03:24.323853-04:00",
-    "symbols": [
-      "NXE"
-    ],
-    "headline": "&#39;Uranium Miner Nexgen Energy Says Sharing Technical Information With BHP As Nexgen Looks To Raise Over $1B For Rook I Mine; BHP Assessed Nexgen As Potential Takeover Target Last Year, Sources Say&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T13:03:24.568873-04:00",
     "symbols": [
       "SNAP"
@@ -5092,5 +5072,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:16:59.090550-04:00",
+    "symbols": [
+      "AMZN",
+      "SPCX"
+    ],
+    "headline": "SpaceX Rolls Out Grok 4.6 on Amazon Bedrock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:17:12.356448-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "SpaceX Rolls Out Grok 4.6 on Amazon Bedrock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

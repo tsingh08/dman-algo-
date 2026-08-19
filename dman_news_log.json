@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-08-17T10:13:16.112568-04:00",
-    "symbols": [
-      "EYPT"
-    ],
-    "headline": "EyePoint Announces Topline Results From LUGANO, First Pivotal Phase 3 Clinical Trial For DURAVYU For Treatment Of Wet Age-Related Macular Degeneration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T10:13:16.210171-04:00",
-    "symbols": [
-      "FIEE"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T10:13:16.211507-04:00",
-    "symbols": [
-      "FIEE"
-    ],
-    "headline": "Why HIVE Digital Technologies Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T10:13:16.306776-04:00",
-    "symbols": [
-      "FULC"
-    ],
-    "headline": "Fulcrum Therapeutics And Slate Medicines Merge In All-Stock Deal; Combined Company To Operate As Slate Medicines",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:01:33.595452-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Reported Aug. 14: &#39;U.S. Urges Apple Not to Buy Chinese Memory Chips&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-17T11:01:34.234083-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA\u2019s Ohio AI Megadeal: OpenAI, 8 GW of Compute and a $1.5 Billion SB Energy Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:01:34.527922-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "QUICK SPARK: Intel Stock Rises After CEO Spends $10 Million on Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:01:37.605257-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "UBS Maintains Buy on Marvell Technology, Lowers Price Target to $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T11:01:38.376029-04:00",
     "symbols": [
       "ENPH"
@@ -5090,6 +5010,86 @@
       "LCID"
     ],
     "headline": "Lucid Group Names Eric Muller As Chief Executive Officer To Lead Next Phase Of Growth; Rick Sannem Steps Down As CEO, Becomes Strategic Advisor To Board",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:03:23.369525-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Taiwan Semiconductor\u2019s AI Bottleneck Hands Samsung a Powerful Pricing Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T10:03:23.683347-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Taiwan Semiconductor\u2019s AI Bottleneck Hands Samsung a Powerful Pricing Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T10:03:24.176723-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Taiwan Semiconductor\u2019s AI Bottleneck Hands Samsung a Powerful Pricing Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:03:24.526990-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Taiwan Semiconductor\u2019s AI Bottleneck Hands Samsung a Powerful Pricing Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:03:24.960587-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Taiwan Semiconductor\u2019s AI Bottleneck Hands Samsung a Powerful Pricing Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T10:03:26.363399-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "$100 Invested In Spotify Technology 5 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T10:04:26.486041-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Holdings shares are trading lower. Cantor Fitzgerald maintained its Overweight rating on the stock and lowered its price target from $725 to $250.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T10:07:07.995091-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "CORRECTION: Privately-Held Lucid Group, A Healthcare Communications And Commercialization Company, Named Eric Muller As CEO, Not The Electric Vehicle Company",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

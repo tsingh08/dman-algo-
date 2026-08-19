@@ -1,7 +1,7 @@
 {
   "ticker": "BABA",
-  "created_at": "2026-08-19T14:30:22.154635-04:00",
-  "expires_at": "2026-08-19T14:40:22.154635-04:00",
+  "created_at": "2026-08-19T14:43:28.022085-04:00",
+  "expires_at": "2026-08-19T14:53:28.022085-04:00",
   "expiry": "2026-09-04",
   "items": [
     {
@@ -9,7 +9,7 @@
       "occ_symbol": "BABA260904C00120000",
       "strike": 120.0,
       "bid": 10.4,
-      "ask": 11.4,
+      "ask": 11.3,
       "delta": 0.766,
       "delta_estimated": false,
       "idx": 1
@@ -18,7 +18,7 @@
       "type": "CALL",
       "occ_symbol": "BABA260904C00125000",
       "strike": 125.0,
-      "bid": 7.5,
+      "bid": 7.35,
       "ask": 7.8,
       "delta": 0.633,
       "delta_estimated": false,
@@ -30,7 +30,7 @@
       "strike": 130.0,
       "bid": 5.0,
       "ask": 5.3,
-      "delta": 0.492,
+      "delta": 0.491,
       "delta_estimated": false,
       "idx": 3
     },
@@ -38,9 +38,9 @@
       "type": "CALL",
       "occ_symbol": "BABA260904C00135000",
       "strike": 135.0,
-      "bid": 3.2,
-      "ask": 3.4,
-      "delta": 0.36,
+      "bid": 3.1,
+      "ask": 3.35,
+      "delta": 0.357,
       "delta_estimated": false,
       "idx": 4
     },
@@ -49,7 +49,7 @@
       "occ_symbol": "BABA260904P00120000",
       "strike": 120.0,
       "bid": 1.85,
-      "ask": 2.09,
+      "ask": 2.04,
       "delta": -0.233,
       "delta_estimated": false,
       "idx": 5
@@ -59,8 +59,8 @@
       "occ_symbol": "BABA260904P00125000",
       "strike": 125.0,
       "bid": 3.5,
-      "ask": 3.75,
-      "delta": -0.365,
+      "ask": 3.9,
+      "delta": -0.367,
       "delta_estimated": false,
       "idx": 6
     },
@@ -69,8 +69,8 @@
       "occ_symbol": "BABA260904P00130000",
       "strike": 130.0,
       "bid": 5.85,
-      "ask": 6.25,
-      "delta": -0.509,
+      "ask": 6.35,
+      "delta": -0.51,
       "delta_estimated": false,
       "idx": 7
     },
@@ -78,8 +78,8 @@
       "type": "PUT",
       "occ_symbol": "BABA260904P00135000",
       "strike": 135.0,
-      "bid": 9.0,
-      "ask": 9.5,
+      "bid": 9.05,
+      "ask": 9.6,
       "delta": -0.643,
       "delta_estimated": false,
       "idx": 8

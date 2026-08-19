@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:22:04.258002-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia-OpenAI Deal Isn&#39;t &#39;Circular Financing,&#39; Says Jensen Huang, Sees $600B Compute Opportunity",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:32:42.550861-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "What&#39;s Going On With Viasat Stock Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T13:35:16.469161-04:00",
     "symbols": [
       "AMAT",
@@ -5096,5 +5076,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T12:00:21.365531-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Stifel Maintains Buy on Zscaler, Raises Price Target to $200",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T12:01:44.820413-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Crude Oil Moves Higher; Lowe\u2019s Shares Gain After Q2 Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

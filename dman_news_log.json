@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:54.738783-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Trump-Backed World Liberty Partners With Platform Offering Chinese AI Models Flagged by US: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T09:53:54.740743-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Q2 Adj. EPS $1.06 Misses $1.35 Estimate, Sales $4.617B Miss $4.650B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-18T09:53:54.743143-04:00",
     "symbols": [
       "BIDU"
@@ -5115,5 +5095,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:50:01.015581-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#34;OpenAI \u2018Will Be A Public Company In 2027\u2019 Or Sooner, CFO Friar Tells Employees&#34; - CNBC",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T15:51:55.966423-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Watching Amazon; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

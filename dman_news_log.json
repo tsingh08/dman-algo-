@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-17T11:57:45.712398-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Why Is Netflix Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T11:57:46.956767-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Seasonality: Can The First Six Months Predict Performance Of ES Futures?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:57:47.960293-04:00",
-    "symbols": [
-      "MNSO"
-    ],
-    "headline": "Evolution Metals &amp; Technologies, Barfresh Food Group, Snap And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T11:57:47.962061-04:00",
-    "symbols": [
-      "MNSO"
-    ],
-    "headline": "Why HIVE Digital Technologies Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T11:57:48.046401-04:00",
     "symbols": [
       "HTHT"
@@ -5097,5 +5057,47 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:00:15.368724-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL"
+    ],
+    "headline": "Alphabet Raises $3.9B in First Australian Bond Sale as AI Spending Surges",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T11:00:23.764795-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Recent Report Shows That Rep. Rick Allen Sold Up to $50K Worth of Abbott Laboratories Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:00:24.070222-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "A Congress Member Bought Up To $60K In Amazon.com Stock: Here&#39;s What You Need To Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:00:59.159236-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Micron Technology 15 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

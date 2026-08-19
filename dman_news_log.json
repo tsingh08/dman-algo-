@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:47.470975-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Einride Announces Planned Deployment Of 500 Tesla Semi Trucks On Its Saga AI Fleet Intelligence Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:47.472738-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Former Tesla President Says Roadster Demo Could Be a \u2018Not-So-Hidden Attempt\u2019 to Knit TSLA and SPCX Together: \u2018Probably Sooner Rather Than Later\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:47.474435-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "ChronicleBio Cofounder Fidji Simo Says AI Could Transform Disease Treatment, But Smarter Models Aren\u2019t Enough",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T09:53:48.039424-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Snowflake, Raises Price Target to $408",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-18T09:53:48.285557-04:00",
     "symbols": [
       "PLTR"
@@ -5105,5 +5065,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T14:02:49.407797-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes: Most Participants At Fed&#39;s July 28-29 Meeting Supported Keeping Interest Rates Unchanged, But Several Favored An Increase; Many Participants Assessed Higher Rates Would Likely Be Necessary If Inflation Did Not Fall; Some Participants Said Financial Conditions Might Not Be Restrictive Enough To Return Inflation To 2% Target",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T14:03:16.747210-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes: Various Participants Said Tighter Financial Conditions Over Inter-meeting Period Reflected Strong Economic Growth And Expectations For Fed To Adopt More Restrictive Stance Before Long; A Few Participants Who Favored Raising Rates At The Meeting Judged Doing So Would Likely Help Forestall Need For Further Hikes; Chairman Warsh Said Six Scheduled Meetings Per Year, Held Roughly Every Two Months, Would Allow More Information To Accumulate Between Meetings",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T14:04:37.295425-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes: Almost All Members Agreed It Was Appropriate To Retain Policy Statement Language Affirming FOMC &#39;Will Deliver Price Stability&#39;; No Decisions Were Made On Number Of Meetings And Warsh Indicated No Change To The 2026 Schedule; Fed Staff Economic Outlook Showed Inflation Forecast Was Similar To One Prepared For The June Meeting, But Economic Outlook Was A &#39;Touch Weaker&#39;; Several Participants Said Price Increases Over The Past Year Were Broad Based, Spanning Various Categories Of Goods And Services",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T14:05:43.092466-04:00",
+    "symbols": [
+      "KWM"
+    ],
+    "headline": "K Wave Media To Commence ~$1M Offering Of 526,314 Shares At $1.90 Per Share",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

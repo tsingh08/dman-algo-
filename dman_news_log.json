@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:12:35.281781-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Crosses $1,000: Here&#39;s How to Amplify the Trade with ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:12:35.283976-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:12:35.357860-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-17T13:12:35.615293-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:12:37.203618-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings Boosts Liquidity With New $600 Million Capital Raise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-17T13:12:37.819075-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Canada Prime Minister Carney Says He Expects To Speak To Trump Before August 19 Tariffs Deadline; Says We&#39;ll Have Opportunities Over The Next 48 Hours To Discuss In More Detail As The Negotiations Go Forward",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-17T13:12:37.914771-04:00",
     "symbols": [
       "QQQ"
@@ -5095,5 +5035,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:39:05.818818-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Oil Prices Will Be A Lot Lower When This Is Over",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:43:08.470173-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Stifel Maintains Buy on Palo Alto Networks, Raises Price Target to $415",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T11:43:17.765318-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "What&#39;s Going On With Netflix Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T11:43:19.870390-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Cathie Wood Says Elon Musk&#39;s Tesla Playbook Explains Why She&#39;s Avoiding SK Hynix and Micron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:43:20.603613-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Cathie Wood Says Elon Musk&#39;s Tesla Playbook Explains Why She&#39;s Avoiding SK Hynix and Micron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:43:20.863256-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Cathie Wood Says Elon Musk&#39;s Tesla Playbook Explains Why She&#39;s Avoiding SK Hynix and Micron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

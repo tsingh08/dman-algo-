@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-18T09:53:54.197486-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Guggenheim Maintains Buy on MongoDB, Raises Price Target to $560",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T09:53:54.468245-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;Ant Group Said to Sell 3% Paytm Stake in $309 Million Deal&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T09:53:54.470234-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "JD.com Beat Expectations, Investors Still Sold The Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-18T09:53:54.472513-04:00",
     "symbols": [
       "BABA"
@@ -5115,5 +5085,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:32:54.304599-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Amplitude Therapeutics Partners With Eli Lilly Over Discovery, Development Of taRNA Vaccine Candidates For Infectious Diseases",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:33:43.548046-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, On Canada Trade Talks, Says We Will Probably Have A Deal; I Think We Have A Deal That Is Good For Everyone",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T15:35:49.615492-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "William Blair Upgrades Moderna to Outperform",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

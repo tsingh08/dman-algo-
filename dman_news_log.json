@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-17T13:12:37.914771-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "SanDisk Rips 10%, Micron Rises 6% as AI Memory Frenzy Builds: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-17T13:12:37.979768-04:00",
     "symbols": [
       "IWM"
@@ -5095,5 +5085,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T11:45:11.426717-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Stock Catches a Bid as Bitcoin Climbs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

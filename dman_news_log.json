@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:25:22.417147-04:00",
-    "symbols": [
-      "MSS"
-    ],
-    "headline": "Maison Solutions (MSS) Stock Soars Nearly 41% After Hours: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:22.548167-04:00",
-    "symbols": [
-      "MRVI"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:22.707789-04:00",
-    "symbols": [
-      "TEM"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T10:25:22.893195-04:00",
     "symbols": [
       "EL"
@@ -5064,5 +5034,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:53:52.403062-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Riot Platforms Stock Gains as Bitcoin Crosses $72,000",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:55:03.036396-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "UBS Maintains Neutral on Moderna, Raises Price Target to $150",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:55:05.913008-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Nvidia Partner Ouster Says Humanoid Robots Could Need Up to 12 Cameras Each",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

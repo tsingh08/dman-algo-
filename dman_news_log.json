@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:40.704645-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Zscaler, Maintains $225 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.787312-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Citizens Maintains Market Outperform on MongoDB, Raises Price Target to $519",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.862452-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "&#39;Cantor Lets Hedge Funds Place Big Bets on Kalshi\u2019s Prediction Markets&#39; - Wall Street Journal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.956039-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Nvidia Gets a Limited China Break \u2014 H200 Chips Reach ByteDance, Tencent as Beijing Eases AI Curbs: Report (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:41.045894-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Baidu, Lowers Price Target to $96",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:41.050875-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "This Baidu Analyst Turns Bearish; Here Are Top 5 Downgrades For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:41.055583-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Palo Alto To Rally Around 14%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:41.060530-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Morgan Stanley Downgrades Baidu to Underweight, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:41.065176-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Profusa, Baidu, Amylyx Pharmaceuticals, FreeCast and Klarna Group: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T09:54:41.228572-04:00",
     "symbols": [
       "ACHR"
@@ -5059,6 +4969,98 @@
       "SPY"
     ],
     "headline": "Treasury Secretary Bessent Speaking On CNBC Says Markets Got A Little Ahead Of Themselves; Says Treasury And Fed Would Work Together On Any Balance Sheet Change, Rates Have Nothing To Do With Buyback Decision",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:11:05.487991-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "Why Is Singularity Future Tech Stock Soaring Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:12:03.378309-04:00",
+    "symbols": [
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T11:12:16.760016-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:12:17.241790-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:12:17.587974-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T11:12:26.157534-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:12:26.716674-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:13:06.444836-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent, On CNBC, Speaking On Iran Says Maximum Economic Pressure Means Likely Not A Kinetic Restart; Oil Markets Misinterpreting What Economic Pressure Means; Will Be Coordinated Economic Isolation; If Countries Insist On Doing Business With Tehran, U.S. Will Enforce Actions Against Them; Actions Will Curtail Iran&#39;s Ability To Take Action Through Proxies; Going To Have The Toughest Sanctions In History; We Are Going To Collapse This Regime",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:14:31.188925-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent, On CNBC, On Whether Iran Actions Will Include China Says Some Conversations Better To Be Private; Confident That Everyone, Including China, Wants To See Hormuz Strait Reopened",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

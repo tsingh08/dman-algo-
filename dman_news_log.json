@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:39.998832-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Palo Alto To Rally Around 14%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T09:54:40.003864-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on CrowdStrike Holdings, Lowers Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T09:54:40.008847-04:00",
     "symbols": [
       "CRWD"
@@ -5057,5 +5037,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T10:30:38.880382-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What&#39;s Going On With Apple Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T10:34:15.805930-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Group shares are trading lower. The company upsized its private offering of convertible senior notes from $4.5 billion to $5 billion.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

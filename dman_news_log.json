@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:58:52.096862-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T13:58:52.297993-04:00",
     "symbols": [
       "KLAC"
@@ -5063,6 +5053,16 @@
     "headline": "Biotech Is Booming, But These 2 Stocks Missed the Memo",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T15:20:10.013788-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba Says AI Now Drives More Than One-Third of Cloud Revenue",
+    "source": "benzinga",
+    "tag": "held",
     "sentiment": null
   }
 ]

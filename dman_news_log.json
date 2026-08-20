@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:15:54.786116-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:18:37.154786-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Truist Securities Maintains Buy on Palo Alto Networks, Raises Price Target to $435",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:21:45.148577-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Surging on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:25:13.350310-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Applied Materials 15 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:14.140801-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:25:14.508961-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Surging on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T10:25:14.873870-04:00",
     "symbols": [
       "MRNA"
@@ -5063,5 +5003,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:36:16.615050-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Speaking On CNBC Says Underlying Inflation Is Between 2.5% And 3%, Too High And Must Be Lowered; Sees Lower Probability Of Getting Inflation To 2% At Current Fed Rates",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:36:34.130590-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Speaking On CNBC Says Hiking Rates Now Could Save More Aggressive Action Later; Says Best Thing Fed Can Do For Growth Is Get Inflation Back To 2%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:36:51.073766-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Speaking On CNBC Says Productivity Is Seeing A Recovery; Says Some Parts Of Economy Are Seeing Credit Get Crowded Out",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:37:29.228186-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem, On CNBC, Says Forward Guidance Is Useful When Rates Are At Zero; Forward Guidance Suggests Committment, Communicating A Framework Is Different; When You Have Supply Shocks You Have To Look At Core Inflation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:38:06.875995-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Software&#39;s AI Panic Is Fading, and These 10 Stocks Are the First to Benefit",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T11:39:00.237793-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem, On CNBC, Says Earlier, Gradual Interest Rate Increases Are Preferable And Less Disruptive; Won&#39;t Offer Firm View On What He Wants Fed To Do At September FOMC; Won&#39;t Prejudge Upcoming FOMC Meeting",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

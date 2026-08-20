@@ -37,6 +37,30 @@
       "timestamp": "2026-08-20T12:08:13.912345-04:00"
     },
     {
+      "ticker": "PURR",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 9.77,
+      "stop": 8.88,
+      "target1": 12.2,
+      "target2": 13.66,
+      "score": 100,
+      "date": "2026-08-20",
+      "timestamp": "2026-08-20T15:19:32.149708-04:00"
+    },
+    {
+      "ticker": "NDSN",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 334.15,
+      "stop": 319.75,
+      "target1": 406.19,
+      "target2": 449.41,
+      "score": 100,
+      "date": "2026-08-20",
+      "timestamp": "2026-08-20T15:19:32.150487-04:00"
+    },
+    {
       "ticker": "UMAC",
       "setup": "Gap & Hold",
       "bias": "LONG",

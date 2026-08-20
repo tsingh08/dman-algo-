@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:25:22.893195-04:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T10:25:22.898046-04:00",
     "symbols": [
       "EL"
@@ -5061,6 +5051,16 @@
       "NVDA"
     ],
     "headline": "QUICK SPARK: Nvidia Partner Ouster Says Humanoid Robots Could Need Up to 12 Cameras Each",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:57:38.117637-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "UBS Maintains Buy on Marvell Technology, Raises Price Target to $310",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

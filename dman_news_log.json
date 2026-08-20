@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:58:52.918075-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Pfizer Stock Rises Wednesday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T13:58:54.423328-04:00",
     "symbols": [
       "CRWD"
@@ -5061,6 +5051,16 @@
       "TLT"
     ],
     "headline": "Short-Duration Treasury ETFs Are Looking Safer as US Debt Tops $40 Trillion",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T15:55:45.452717-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Canadian Minister In Charge Of U.S. Trade Ties Says Canada And U.S. Are Continuing To Hold Talks On A Possible Deal; Canada And U.S. Are Very Close To A Deal, We Are Continuing To Make Progress; Says We Will Stay Here Until We Have Details Of A Deal Worked Out",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

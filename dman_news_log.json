@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:40.102956-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Palo Alto Networks, Raises Price Target to $425",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.107970-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "5 Cybersecurity Stocks with More Upside Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T09:54:40.112670-04:00",
     "symbols": [
       "PANW"
@@ -5060,5 +5040,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T10:46:11.394546-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "Ripple CEO Garlinghouse Says Crypto Isn&#39;t &#39;Fringe&#39; After President Trump Declares US Is &#39;Winning&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T10:48:05.738526-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia Partner Ouster Says Physical AI Is Moving From &#39;Demo To Deployment&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

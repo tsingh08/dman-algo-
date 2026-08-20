@@ -1,54 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:11:29.944019-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "META",
-      "MRNA",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "SKHY",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:11:36.744525-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T13:11:36.853352-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T13:11:37.128496-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T13:11:37.412587-04:00",
     "symbols": [
       "META"
@@ -5061,6 +5012,47 @@
     ],
     "headline": "QUICK SPARK: Moderna Stock Drops 25%, Eyes Worst Day in Company&#39;s History",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T13:54:21.758581-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "JP Morgan Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $235",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-20T13:56:53.254442-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "What&#39;s Going On With Robinhood Markets Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T13:57:13.650574-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "What&#39;s Going On With Robinhood Markets Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-20T13:57:16.512933-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "What&#39;s Going On With Robinhood Markets Stock Thursday?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:12:01.923172-04:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Amazon, Target, iShares Bitcoin Trust, iShares Gold Trust Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T13:12:01.927472-04:00",
     "symbols": [
       "TGT"
@@ -5066,6 +5056,16 @@
     "headline": "Singularity Future Tech shares are trading higher after the company announced a non-binding strategic development framework agreement with Florence Development and pricing of $5 million registered direct offering.",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T14:44:39.615852-04:00",
+    "symbols": [
+      "UUP"
+    ],
+    "headline": "One Market Move Has Repeated 9 Out of the Last 10 Labor Days",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

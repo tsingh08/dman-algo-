@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:12:01.927472-04:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "Walmart Q2 Preview: Retailer Beats Revenue 25 Straight Quarters, Could Streak Extension Help Close Gap with Target Stock?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T13:12:01.931711-04:00",
     "symbols": [
       "TGT"
@@ -5066,6 +5056,17 @@
     "headline": "One Market Move Has Repeated 9 Out of the Last 10 Labor Days",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T14:51:07.621307-04:00",
+    "symbols": [
+      "DECK",
+      "ONON"
+    ],
+    "headline": "Shares of apparel and footwear companies are trading lower amid possible sympathy with Walmart after it reported its slowest growth in U.S. comparable sales in six years. This may act as a bellwether for apparel companies, as retail shoppers may exercise caution in response to climbing prices.",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

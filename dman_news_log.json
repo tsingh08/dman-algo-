@@ -1,38 +1,5 @@
 [
   {
-    "ts": "2026-08-19T12:44:38.475623-04:00",
-    "symbols": [
-      "APLD",
-      "MSFT",
-      "NBIS",
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With IREN Stock Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-19T12:47:45.825363-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "What\u2019s Going On With Exxon Stock on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T12:47:56.183232-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "What&#39;s Going On With IREN Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T12:47:56.344234-04:00",
     "symbols": [
       "NVDA"
@@ -5062,5 +5029,39 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T13:34:24.213986-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "Digital Brands Group shares are trading lower after the company reported mixed Q2 financial results.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T13:35:18.768255-04:00",
+    "symbols": [
+      "PLTR",
+      "SMCI"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T13:35:19.055412-04:00",
+    "symbols": [
+      "AMZN",
+      "LCID",
+      "ONON",
+      "PDD"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

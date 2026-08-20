@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:12:01.484740-04:00",
-    "symbols": [
-      "KC"
-    ],
-    "headline": "Kingsoft Cloud Hldgs Q2 2026 Earnings Call: Complete Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:12:01.489200-04:00",
-    "symbols": [
-      "KC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:12:01.493464-04:00",
-    "symbols": [
-      "KC"
-    ],
-    "headline": "Kingsoft&#39;s AI Cloud Billings Jump 82%, Stock Soars",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:12:01.497769-04:00",
-    "symbols": [
-      "KC"
-    ],
-    "headline": "Kingsoft Cloud Holdings Q2 Adj. EPS $(0.03) Beats $(0.10) Estimate, Sales $452.752M Beat $447.800M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:12:01.592541-04:00",
-    "symbols": [
-      "PPC"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:12:01.730774-04:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T13:12:01.826554-04:00",
     "symbols": [
       "JKHY"
@@ -5065,6 +5005,66 @@
     ],
     "headline": "&#39;Anthropic Prepares To File Publicly For Its Potential Mega-IPO As Soon As The End Of August; Expects To Match SpaceX\u2019s Record IPO Size Tr Top It&#39; - Bloomberg",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T14:20:00.857768-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EPA, In Consultation With DOE, Expands Gasoline Supply To Lower Prices At The Pump",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T14:22:28.939175-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Anthropic Prepares To File Publicly For Its Potential Mega-IPO As Soon As The End Of August; Expects To Match SpaceX\u2019s Record IPO Size Tr Top It&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T14:22:30.108866-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic Prepares To File Publicly For Its Potential Mega-IPO As Soon As The End Of August; Expects To Match SpaceX\u2019s Record IPO Size Tr Top It&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T14:22:30.113818-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic Plans to Change Data Retention Policy for Advanced AI&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T14:22:30.392201-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic Prepares To File Publicly For Its Potential Mega-IPO As Soon As The End Of August; Expects To Match SpaceX\u2019s Record IPO Size Tr Top It&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T14:22:30.397482-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic Plans to Change Data Retention Policy for Advanced AI&#39; - Bloomberg",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

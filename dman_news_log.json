@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:58:55.051057-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:58:55.694714-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on e.l.f. Beauty, Raises Price Target to $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:58:56.196998-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Mizuho Maintains Outperform on Zscaler, Raises Price Target to $210",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:58:57.744923-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US Said to Halve Tariffs on Canada Steel, Aluminum in Trade Deal&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:58:58.619719-04:00",
-    "symbols": [
-      "EPM"
-    ],
-    "headline": "Evolution Petroleum Prices Underwritten Offering Of 3.7M Common Shares At Public Offering Price Of $3.25 Per Share For Total Expected Gross Proceeds Of ~ $12,025,000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:58:58.822208-04:00",
-    "symbols": [
-      "PSNL"
-    ],
-    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T13:58:59.430432-04:00",
     "symbols": [
       "IBIT"
@@ -5066,5 +5006,67 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T16:11:07.715184-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Hyundai to increase U.S. production at new Georgia plant, CEO tells CNBC&#39;-CNBC",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T16:15:28.725432-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "&#39;Broadcom Seeks More Than $60 Billion in Latest AI Debt Deal&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T16:16:36.691305-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Technology Board Approves Increase In Share Repurchase Program By Additional $1.5B",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T16:21:48.296439-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Congressman Has Bought Nothing but Apple Since 2024, and It&#39;s All on Autopilot",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T16:22:35.278187-04:00",
+    "symbols": [
+      "DIA",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "QUICK SPARK: Dow Falls 700 Points, Nasdaq Drops 1% As Yields Rise Again",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T16:30:23.818167-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase CEO Brian Armstrong Says Crypto May Be on the Cusp of Next Bull Market, Touts &#39;AI-Fi&#39; as New Opportunity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

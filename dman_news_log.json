@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:40.481486-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum Gain; XRP, Dogecoin Dip as Trump Denies Iran Talks: Analyst Says BTC May &#39;Resume Its Advance&#39; if This Support Holds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.552721-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Bitcoin ETFs See $486M Inflows in 2 Days: Could This Be the Best Week Since January?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.630428-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "3 Sectors Investors Should Buy Now as S&amp;P 500 Stumbles \u2014 Strategist Sees 15%-18% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T09:54:40.635477-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Institutional Investors Added Over 70 Million RIVN Shares as AMZN, UBER Remain Key Holders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T09:54:40.704645-04:00",
     "symbols": [
       "ZS"
@@ -5061,5 +5021,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:06:29.357289-04:00",
+    "symbols": [
+      "COIN",
+      "MARA"
+    ],
+    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:08:05.715539-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury Secretary Bessent Speaking On CNBC Says Very Good Chance Peak Deficit Has Been Seen, Expects 2026 Tariff Income Similar To 2025; Says There&#39;s Nothing Magic About The $40T Debt Number",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:08:23.944470-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury Secretary Bessent Speaking On CNBC Says Yields Don&#39;t Represent Underlying Fundamentals; Says Buyback Operations Could Be More Than $4B Per Issue",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:09:55.368164-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury Secretary Bessent Speaking On CNBC Says Markets Got A Little Ahead Of Themselves; Says Treasury And Fed Would Work Together On Any Balance Sheet Change, Rates Have Nothing To Do With Buyback Decision",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

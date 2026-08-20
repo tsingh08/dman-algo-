@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:37.770689-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Cathie Wood Says Investors Should Avoid Memory Chip Stocks: Micron, SK Hynix in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T09:54:37.776316-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Optimus Rival Unitree Robotics Explodes 629% in Shanghai Debut, Briefly Hits $66 Billion Valuation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T09:54:37.781466-04:00",
     "symbols": [
       "TSLA"
@@ -5045,6 +5025,26 @@
     "headline": "US Leading Index (MoM) For July 0.2% Vs 0.1% Est.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T10:05:39.461177-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Unveils $10 Billion Research Labs To Advance Memory and AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T10:06:14.699945-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Shares Gain as Bitcoin Breaks $71K After White House Crypto Summit",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

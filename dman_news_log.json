@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:38.732021-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Stripe\u2019s $8 Billion OpenRouter Deal Reveals Where the AI ETF Trade Is Actually Expanding",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T09:54:38.737339-04:00",
     "symbols": [
       "SKHY"
@@ -5057,5 +5047,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T10:26:06.085664-04:00",
+    "symbols": [
+      "CAST"
+    ],
+    "headline": "FreeCast shares are trading higher after the company announced a deal with Rede Brasileira de Televis\u00e3o to add 28 Brazilian TV channels, advancing its global streaming expansion.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:12:01.918752-04:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T13:12:01.923172-04:00",
     "symbols": [
       "TGT"
@@ -5064,6 +5054,16 @@
       "CELZ"
     ],
     "headline": "Creative Medical shares are trading higher after the company announced that all patients have now been enrolled and treated across its FDA-cleared ADAPT clinical trial of CELZ-201 / Olastrocel, including the opioid expansion cohort.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T14:37:01.523847-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "Singularity Future Tech shares are trading higher after the company announced a non-binding strategic development framework agreement with Florence Development and pricing of $5 million registered direct offering.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

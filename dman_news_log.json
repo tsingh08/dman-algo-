@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-19T11:09:54.651823-04:00",
-    "symbols": [
-      "TGL"
-    ],
-    "headline": "Treasure Global Says Its Common Stock Is Now Accessible To Eligible Investors Through Binance Stocks Trading",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T11:09:54.656271-04:00",
-    "symbols": [
-      "TGL"
-    ],
-    "headline": "Why Keysight Shares Are Trading Higher By 3%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T11:09:54.660710-04:00",
     "symbols": [
       "TGL"
@@ -5070,6 +5050,27 @@
     ],
     "headline": "Why Is SK Hynix Stock Surging on Thursday?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:52:28.995458-04:00",
+    "symbols": [
+      "QQQ",
+      "TLT"
+    ],
+    "headline": "Scott Bessent Brings His Hedge Fund Playbook To Treasury. The Bond Market Is Fighting Back",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:52:51.475272-04:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "Wedbush Maintains Neutral on Duolingo, Raises Price Target to $150",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

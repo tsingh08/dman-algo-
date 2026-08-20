@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:03:26.363399-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "$100 Invested In Spotify Technology 5 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T10:04:26.486041-04:00",
     "symbols": [
       "CRWD"
@@ -5061,6 +5051,16 @@
       "SPY"
     ],
     "headline": "Treasury Secretary Bessent Speaking On CNBC Says Treasury Will See What Bond Market Conditions Are And Whether More Action Is Needed; Says Trying To Keep Market In Equilibrium",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:21:49.571599-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump administration to back US minerals projects with $500 million in grants&#39; - Reuters Exclusive",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

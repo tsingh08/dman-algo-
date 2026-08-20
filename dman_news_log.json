@@ -1,270 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:30:20.424278-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Crude Oil Inventories 4.405M Barrel Build Vs 0.200M Barrel Build Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:30:39.795496-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "EIA Weekly Distillates Stocks 1.530M Barrel Draw Vs 0.900M Barrel Draw Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:30:57.785327-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Gasoline Inventories 0.688M Barrel Build Vs 1.200M Barrel Draw Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:33:11.562999-04:00",
-    "symbols": [
-      "DUOL"
-    ],
-    "headline": "Duolingo shares are trading higher after a Form 8 filing revealed preliminary data showing daily active user growth of about 27% year\u2011over\u2011year, though the company cautioned the figures are unvalidated and not guidance.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:33:16.988585-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Benchmark Maintains Buy on Baidu, Lowers Price Target to $150",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:34:51.400935-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Replit Rolling Out GPT-5.6 Luna-Powered Free Mode",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T10:35:41.639454-04:00",
-    "symbols": [
-      "GTE"
-    ],
-    "headline": "Watching Gran Tierra Energy; Hearing Zacks Under $10 Buys Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:37:11.251374-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Falling AI Prices Could Be Good News for Nvidia Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T10:37:43.943412-04:00",
-    "symbols": [
-      "AVGO",
-      "GOOGL",
-      "MRVL",
-      "NVDA"
-    ],
-    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:38:55.948322-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Watching Robinhood Markets; Hearing Investor Business Daily SwingTrader Sells Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:50:59.885006-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T10:51:00.575791-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:51:01.525454-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:51:03.193757-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T10:53:08.314062-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "TD Cowen Maintains Buy on Vistra, Lowers Price Target to $221",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T11:00:15.368724-04:00",
-    "symbols": [
-      "AAPL",
-      "GOOGL"
-    ],
-    "headline": "Alphabet Raises $3.9B in First Australian Bond Sale as AI Spending Surges",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T11:00:23.764795-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Recent Report Shows That Rep. Rick Allen Sold Up to $50K Worth of Abbott Laboratories Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:00:24.070222-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL"
-    ],
-    "headline": "A Congress Member Bought Up To $60K In Amazon.com Stock: Here&#39;s What You Need To Know",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:00:59.159236-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Here&#39;s How Much $1000 Invested In Micron Technology 15 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:05:46.697616-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Analysts Slash Their Forecasts After Weak Q2 Results",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T11:05:55.627739-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Alphabet Raises $3.9B in First Australian Bond Sale as AI Spending Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T11:05:56.436389-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "A Congress Member Bought Up To $60K In Amazon.com Stock: Here&#39;s What You Need To Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:05:56.441032-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Raises $3.9B in First Australian Bond Sale as AI Spending Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:05:56.627646-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "A Congress Member Bought Up To $60K In Amazon.com Stock: Here&#39;s What You Need To Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:06:46.562945-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Jumps 150%, Best Day Ever On Cancer Vaccine Win",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T11:08:22.103686-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Rolls Out Alexa+ On Fire TV At No Additional Charges",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T11:09:09.990307-04:00",
     "symbols": [
       "ABNB"
@@ -5071,5 +4806,265 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T12:06:49.157423-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T12:06:50.021002-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T12:06:50.336076-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T12:06:50.651369-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:06:52.505541-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:06:54.141406-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:06:54.145863-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "UBS Maintains Buy on Marvell Technology, Raises Price Target to $310",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:06:55.151922-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Biotech Is Booming, But These 2 Stocks Missed the Memo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:06:56.233785-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T12:06:58.439181-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:06:59.737115-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "Singularity Future Technology Commences ~$5M Offering Of 1.563M Common Shares At $3.20 Per Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:06:59.741596-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:06:59.745914-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "Market-Moving News for August 20th",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:06:59.750239-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "Singularity Future Tech Enters Nonbinding Strategic Development Framework Agreement With Florence Development Regarding An ~900-Acre Industrial Site In Florence, South Carolina",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:07:00.522582-04:00",
+    "symbols": [
+      "SCSC"
+    ],
+    "headline": "Crude Oil Gains 3%; Walmart Shares Drop After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:07:00.526970-04:00",
+    "symbols": [
+      "SCSC"
+    ],
+    "headline": "ScanSource CEO Says It\u2019s Time to \u2018Take Market Share\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:07:00.531266-04:00",
+    "symbols": [
+      "SCSC"
+    ],
+    "headline": "Full Transcript: ScanSource Q4 2026 Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:07:00.535505-04:00",
+    "symbols": [
+      "SCSC"
+    ],
+    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:07:00.539742-04:00",
+    "symbols": [
+      "SCSC"
+    ],
+    "headline": "ScanSource Signs Deal To Acquire MicroAge For $220.5M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:07:00.793277-04:00",
+    "symbols": [
+      "GOF"
+    ],
+    "headline": "Watching Guggenheim Strategic Opportunities Fund; The Bear Cave Newsletter Issues Report On Co Titled &#34;Problems at Guggenheim Strategic Opportunities Fund (GOF)&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:07:01.303255-04:00",
+    "symbols": [
+      "TEM"
+    ],
+    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:07:01.307810-04:00",
+    "symbols": [
+      "TEM"
+    ],
+    "headline": "Why Is Tempus AI Stock Gaining Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:07:01.312124-04:00",
+    "symbols": [
+      "TEM"
+    ],
+    "headline": "BTIG Maintains Buy on Tempus AI, Raises Price Target to $80",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:07:01.316417-04:00",
+    "symbols": [
+      "TEM"
+    ],
+    "headline": "Moderna Stock Cools Off After-Hours, Following Massive 177% Cancer Vaccine Rally \u2014 Merck, Pfizer and BioNTech Among mRNA Names Trending Tonight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:07:01.564569-04:00",
+    "symbols": [
+      "LYTS"
+    ],
+    "headline": "LSI Industries Q4 Adj. EPS $0.38 Beats $0.36 Estimate, Sales $234.621M Beat $222.781M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:07:01.568978-04:00",
+    "symbols": [
+      "LYTS"
+    ],
+    "headline": "LSI Industries Announces CFO James E. Galeese To Retire August 31, 2027; Successor Expected To Be Named In H1 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

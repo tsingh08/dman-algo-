@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:40.112670-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Cybersecurity &#39;Golden Age&#39; Is Coming, Says Dan Ives \u2014 But Warns Of A &#39;Sci-Fi Movie Gone Bad&#39; Without Regulation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.219773-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "5 Cybersecurity Stocks with More Upside Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.401609-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Investors Aren&#39;t Keeping Pace With the Market, Bitwise&#39;s Matt Hougan Says: Beware These 3 Mistakes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T09:54:40.472142-04:00",
     "symbols": [
       "MSTR"
@@ -5059,6 +5029,36 @@
     ],
     "headline": "EXCLUSIVE: Nvidia Partner Ouster Says Physical AI Is Moving From &#39;Demo To Deployment&#39;",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T10:56:58.820250-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Says Electron Rocket Deployed Latest QPS-SAR Earth-Imaging Satellite For iQPS On 93rd Electron Launch; Nine Dedicated iQPS Launches Remain Booked Through 2030",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T10:57:04.820460-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ripple CEO Garlinghouse Says Crypto Isn&#39;t &#39;Fringe&#39; After President Trump Declares US Is &#39;Winning&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T10:57:06.736867-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Ripple CEO Garlinghouse Says Crypto Isn&#39;t &#39;Fringe&#39; After President Trump Declares US Is &#39;Winning&#39;",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

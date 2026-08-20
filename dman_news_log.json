@@ -1,74 +1,5 @@
 [
   {
-    "ts": "2026-08-18T11:18:04.521194-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "UPDATE: VinSpace Inks Contract With SpaceX Was Announced On August 11, 2026",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-18T11:19:30.612424-04:00",
-    "symbols": [
-      "MU",
-      "SNDK"
-    ],
-    "headline": "Shares of memory chip-related companies are trading lower amid sympathy with peer SK Hynix after the South Korean government denied a report suggesting it is discussing a semiconductor project as the first investment under its $350 billion commitment to the U.S. Also, weakness may reflect a broader bond market sell-off.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T11:24:36.966823-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "DA Davidson Maintains Neutral on Nebius Group, Raises Price Target to $250",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-18T11:28:16.061687-04:00",
-    "symbols": [
-      "AMAT",
-      "KLAC"
-    ],
-    "headline": "Shares of wafer-fabrication-related semiconductor and chip companies are trading lower amid rising oil prices and bond yields, prompting inflation concerns. Also, declining memory chip companies may weigh on the broader industry.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T11:29:19.286650-04:00",
-    "symbols": [
-      "AMD",
-      "ARM",
-      "AVGO",
-      "IONQ",
-      "MRVL",
-      "ON",
-      "QCOM",
-      "WOLF"
-    ],
-    "headline": "Shares of semiconductor and chip companies are trading lower amid rising oil prices and bond yields, prompting inflation concerns. Also, declining memory chip companies may weigh on the broader industry.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-18T11:40:20.610556-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Wants Customers to Buy New AI Chips \u2014 Without Giving Up Their Old Ones",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-18T11:42:45.410889-04:00",
     "symbols": [
       "AMD",
@@ -5111,5 +5042,69 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T17:12:23.631847-04:00",
+    "symbols": [
+      "GOOGL",
+      "NVDA",
+      "QCOM",
+      "SKHY",
+      "TSLA"
+    ],
+    "headline": "Samsung Tumbled Nearly 8% in Seoul Even as AI Demand Drives Chip Prices Up To 15%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-19T17:13:59.148846-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "Digital Brands Group Q2 EPS $(13.59) Up From $(32.34) YoY, Sales $1.208M Down From $2.251M YoY",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T17:28:01.654756-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Cognition&#39;s Scott Wu Says Report That SpaceX Tried To Acquire Cognition Is Not True; Cognition Is Not For Sale And We Haven&#39;t Been Talking",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-19T17:29:24.853602-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Wolfspeed Q4 2026 Earnings Call Transcript",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T17:30:44.584734-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Palo Alto Networks Stock In The Last 10 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-19T17:49:09.455124-04:00",
+    "symbols": [
+      "XBI"
+    ],
+    "headline": "Merck, Moderna Cancer Vaccine Breakthrough Could Be Catalyst the mRNA ETF Trade Has Been Waiting For",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

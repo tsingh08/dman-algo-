@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:58:54.423328-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T13:58:54.639850-04:00",
     "symbols": [
       "PANW"
@@ -5063,6 +5053,17 @@
     "headline": "Canadian Minister In Charge Of U.S. Trade Ties Says Canada And U.S. Are Continuing To Hold Talks On A Possible Deal; Canada And U.S. Are Very Close To A Deal, We Are Continuing To Make Progress; Says We Will Stay Here Until We Have Details Of A Deal Worked Out",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T15:56:47.360990-04:00",
+    "symbols": [
+      "ACHR",
+      "DFSC"
+    ],
+    "headline": "Shares of aerospace and defense companies are trading lower. Reports suggest that Deputy Defense Secretary Steve Feinberg signed a memo proposing a software tool that would give the government direct access to defense companies&#39; financial systems, potentially impeding commercial and nontraditional firms from doing business with the Pentagon.",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

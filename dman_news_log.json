@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:40.472142-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin ETFs See $486M Inflows in 2 Days: Could This Be the Best Week Since January?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T09:54:40.476692-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Nasdaq-Listed Chinese Company Does a Michael Saylor, Launches New Bitcoin Treasury Worth $154.7 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T09:54:40.481486-04:00",
     "symbols": [
       "MSTR"
@@ -5059,6 +5039,26 @@
     ],
     "headline": "Ripple CEO Garlinghouse Says Crypto Isn&#39;t &#39;Fringe&#39; After President Trump Declares US Is &#39;Winning&#39;",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:00:56.548961-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "If You Invested $1000 In Amazon.com Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:02:53.630534-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna&#39;s Intismeran Close to Keytruda Style Oncology Opportunity: Analyst",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

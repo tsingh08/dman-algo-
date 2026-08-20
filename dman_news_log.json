@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:04:26.486041-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Holdings shares are trading lower. Cantor Fitzgerald maintained its Overweight rating on the stock and lowered its price target from $725 to $250.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T10:07:07.995091-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "CORRECTION: Privately-Held Lucid Group, A Healthcare Communications And Commercialization Company, Named Eric Muller As CEO, Not The Electric Vehicle Company",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:08:13.014760-04:00",
-    "symbols": [
-      "MRNA",
-      "MRVL"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:08:28.889762-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Truist Securities Maintains Buy on CrowdStrike Holdings, Raises Price Target to $245",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T10:15:40.929639-04:00",
     "symbols": [
       "AMAT"
@@ -5061,6 +5020,46 @@
       "SPY"
     ],
     "headline": "&#39;Trump administration to back US minerals projects with $500 million in grants&#39; - Reuters Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:27:25.652585-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury Secretary Bessent Speaking On CNBC Says Treasury Will See What Bond Market Conditions Are And Whether More Action Is Needed; Says Trying To Keep Market In Equilibrium, Would Think About Companies Issuing More Five-Year Debt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:27:25.901392-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:29:24.710143-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary, To Reporters, Says Have Been Tasked Along With OMB At Tackling Fiscal Consolidation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:30:36.841715-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says Strong Growth And Investment Are Influencing The Bond Market; Says Fed Credibility Is Not In Question And Fed Is Focused On Keeping Monetary Policy Independent Of Fiscal Policy",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

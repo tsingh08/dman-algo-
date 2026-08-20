@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-19T12:34:35.298840-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Hims &amp; Hers Rejects Privacy Allegations While Promising Expanded Patient Access",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T12:34:35.794542-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Short Sellers Are Losing Big on Palantir \u2014 Here&#39;s the Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T12:34:36.110108-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Short Sellers Are Losing Big on Palantir \u2014 Here&#39;s the Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T12:34:37.373913-04:00",
     "symbols": [
       "HIMS"
@@ -5062,5 +5032,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T13:14:10.011767-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Merck and Moderna&#39;s Phase 3 Win Raises the Stakes for BioNTech and Roche (CORRECTED)",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T13:14:16.831954-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Truist Securities Maintains Buy on Snowflake, Raises Price Target to $375",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T13:14:59.110391-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Why Iovance Biotherapeutics Stock Hit 52-Week High",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

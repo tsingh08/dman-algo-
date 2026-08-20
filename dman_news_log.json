@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:25:22.898046-04:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "Est\u00e9e Lauder CEO Says Growth Is Back \u2014 and 2027 Could Be Even Stronger",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:22.902459-04:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "Estee Lauder Cos Sees FY2027 Adj EPS $3.10-$3.35 vs $3.18 Est; Sees Sales $15.500B-$15.801B vs $15.557B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:22.906841-04:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "Estee Lauder Cos Sees FY2027 GAAP EPS $2.52-$2.85 vs $2.89 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:22.911191-04:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "Estee Lauder Affirms Fiscal 2027 Outlook of Organic Net Sales Growth of 3% to 5%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T10:30:20.424278-04:00",
     "symbols": [
       "SPY"
@@ -5064,5 +5024,52 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:02:02.364348-04:00",
+    "symbols": [
+      "ONFO"
+    ],
+    "headline": "Crude Oil Gains 3%; Walmart Shares Drop After Q2 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:02:09.179379-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Stock of the Day: Is Nebius About to Reverse?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:03:06.143331-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Biotech Is Booming, But These 2 Stocks Missed the Memo",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:05:58.955273-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "ARM",
+      "AVGO",
+      "BABA",
+      "GOOGL",
+      "META",
+      "MRVL"
+    ],
+    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
   }
 ]

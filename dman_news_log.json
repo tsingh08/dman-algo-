@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T11:09:54.360638-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Dow Gains Over 100 Points; Target Posts Upbeat Q2 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T11:09:54.365081-04:00",
     "symbols": [
       "TNON"
@@ -5067,6 +5057,19 @@
     ],
     "headline": "Marvell\u2019s Google AI Deal Could Unlock a Staggering $120 Billion Opportunity, Analyst Says",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:38:28.935915-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Why Is SK Hynix Stock Surging on Thursday?",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

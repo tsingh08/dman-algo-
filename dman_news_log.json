@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:03:56.847966-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Why Is BioNTech Stock Surging on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T13:03:57.040680-04:00",
     "symbols": [
       "IAU"
@@ -5061,6 +5051,16 @@
     ],
     "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T13:48:03.919594-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials Sees Years Of AI-Fueled Growth Ahead",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

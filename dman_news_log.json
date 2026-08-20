@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T12:34:37.373913-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Hims &amp; Hers Rejects Privacy Allegations While Promising Expanded Patient Access",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T12:39:16.901082-04:00",
     "symbols": [
       "MRNA"
@@ -5062,5 +5052,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T13:20:03.986242-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Salesforce, Raises Price Target to $230",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

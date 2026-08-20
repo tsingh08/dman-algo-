@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-08-19T11:09:43.282124-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Raises $3.9B in First Australian Bond Sale as AI Spending Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:09:43.748313-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Rolls Out Alexa+ On Fire TV At No Additional Charges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:09:43.752825-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "A Congress Member Bought Up To $60K In Amazon.com Stock: Here&#39;s What You Need To Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:09:45.509215-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Here&#39;s How Much $1000 Invested In Micron Technology 15 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T11:09:47.573581-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Jumps 150%, Best Day Ever On Cancer Vaccine Win",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T11:09:51.734120-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Watching Airbnb; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-19T11:09:52.557945-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Analysts Slash Their Forecasts After Weak Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T11:09:54.360638-04:00",
     "symbols": [
       "TNON"
@@ -5067,6 +4997,76 @@
     ],
     "headline": "Marvell\u2019s Google AI Deal Could Unlock a Staggering $120 Billion Opportunity, Analyst Says",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:29:20.036460-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;DoD memo pushes for more contractor pricing info, potential direct software link&#39; - Breaking Defense",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:29:42.125940-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Bought Spotify Technology",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:29:54.471330-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia Partner Says Tesla, Waymo Are Growing the Physical AI Market \u2014 Not Competing With It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:29:55.377334-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Marvell\u2019s Google AI Deal Could Unlock a Staggering $120 Billion Opportunity, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:29:55.381758-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "EXCLUSIVE: Nvidia Partner Says Tesla, Waymo Are Growing the Physical AI Market \u2014 Not Competing With It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:29:55.900681-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia Partner Says Tesla, Waymo Are Growing the Physical AI Market \u2014 Not Competing With It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T12:29:58.756940-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell\u2019s Google AI Deal Could Unlock a Staggering $120 Billion Opportunity, Analyst Says",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

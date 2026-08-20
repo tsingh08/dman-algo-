@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T11:09:09.990307-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Watching Airbnb; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T11:09:41.749809-04:00",
     "symbols": [
       "AAPL"
@@ -5066,5 +5056,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T12:15:15.132905-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on AbbVie, Raises Price Target to $303",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

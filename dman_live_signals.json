@@ -25,18 +25,6 @@
       "timestamp": "2026-08-18T09:54:29.915602-04:00"
     },
     {
-      "ticker": "UMAC",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 33.45,
-      "stop": 29.06,
-      "target1": 42.23,
-      "target2": 46.62,
-      "score": 100,
-      "date": "2026-08-14",
-      "timestamp": "2026-08-14T13:37:24.814055-04:00"
-    },
-    {
       "ticker": "ARTL",
       "setup": "Low Float Catalyst",
       "bias": "LONG",
@@ -47,6 +35,18 @@
       "score": 47,
       "date": "2026-08-20",
       "timestamp": "2026-08-20T12:08:13.912345-04:00"
+    },
+    {
+      "ticker": "UMAC",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 33.45,
+      "stop": 29.06,
+      "target1": 42.23,
+      "target2": 46.62,
+      "score": 100,
+      "date": "2026-08-14",
+      "timestamp": "2026-08-14T13:37:24.814055-04:00"
     }
   ]
 }

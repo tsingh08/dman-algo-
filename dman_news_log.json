@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:58:52.297993-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "8 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T13:58:52.918075-04:00",
     "symbols": [
       "MRNA"
@@ -5063,6 +5053,16 @@
     "headline": "Alibaba Says AI Now Drives More Than One-Third of Cloud Revenue",
     "source": "benzinga",
     "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T15:29:51.367776-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Short-Duration Treasury ETFs Are Looking Safer as US Debt Tops $40 Trillion",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

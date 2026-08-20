@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:37.883806-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Co-Founder Reed Hastings Says Companies Aren\u2019t Families: \u2018You Would Never Lay Off Two of Your Kids\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T09:54:37.992528-04:00",
     "symbols": [
       "SMCI"
@@ -5052,6 +5042,18 @@
       "TLT"
     ],
     "headline": "A 10-Year Treasury Bond Now Pays More Than 118 Of America&#39;s Biggest Companies",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T10:18:17.999686-04:00",
+    "symbols": [
+      "QQQ",
+      "SPY",
+      "TLT"
+    ],
+    "headline": "QUICK SPARK: SPY Gets $1.9B Boost in One Day as QQQ, GLD and SOXL See Outflows",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-19T09:54:37.781466-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Gary Black Says Tesla Bulls On Social Media Are Like College Students Doing &#39;Tequila Shots&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T09:54:37.787311-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "US Debt Nearing $40T; Home Depot earnings Better Than Expected",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T09:54:37.878514-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix, Eli Lilly, Elanco Animal Health And More Stock On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T09:54:37.883806-04:00",
     "symbols": [
       "NFLX"
@@ -5045,6 +5015,45 @@
     "headline": "Strategy Shares Gain as Bitcoin Breaks $71K After White House Crypto Summit",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T10:11:08.365851-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Trades Lower Following Report of Executive CTO Departure",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-20T10:12:35.611478-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "TD Cowen Maintains Buy on Snowflake, Raises Price Target to $370",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T10:12:47.996315-04:00",
+    "symbols": [
+      "AAPL",
+      "AMAT",
+      "AVGO",
+      "GOOGL",
+      "KLAC",
+      "META",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "TLT"
+    ],
+    "headline": "A 10-Year Treasury Bond Now Pays More Than 118 Of America&#39;s Biggest Companies",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:11:37.631973-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T13:11:37.830415-04:00",
     "symbols": [
       "TSLA"
@@ -5055,5 +5045,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T14:04:08.310882-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "QQQ",
+      "SKHY",
+      "SNDK",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

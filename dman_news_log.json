@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:58:54.639850-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Mizuho Maintains Outperform on Palo Alto Networks, Raises Price Target to $415",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T13:58:55.051057-04:00",
     "symbols": [
       "MSTR"
@@ -5064,6 +5054,17 @@
     "headline": "Shares of aerospace and defense companies are trading lower. Reports suggest that Deputy Defense Secretary Steve Feinberg signed a memo proposing a software tool that would give the government direct access to defense companies&#39; financial systems, potentially impeding commercial and nontraditional firms from doing business with the Pentagon.",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T16:04:20.545324-04:00",
+    "symbols": [
+      "BABA",
+      "NVDA"
+    ],
+    "headline": "Alibaba Gives Nvidia&#39;s Older AI Chips an Unexpected Vote of Confidence",
+    "source": "benzinga",
+    "tag": "held",
     "sentiment": null
   }
 ]

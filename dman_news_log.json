@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:12:01.409956-04:00",
-    "symbols": [
-      "BMNR"
-    ],
-    "headline": "Bitcoin, Ethereum Gain; XRP, Dogecoin Dip as Trump Denies Iran Talks: Analyst Says BTC May &#39;Resume Its Advance&#39; if This Support Holds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T13:12:01.484740-04:00",
     "symbols": [
       "KC"
@@ -5062,6 +5052,18 @@
       "GOOGL"
     ],
     "headline": "&#39;Anthropic Plans to Change Data Retention Policy for Advanced AI&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T14:13:09.970034-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;Anthropic Prepares To File Publicly For Its Potential Mega-IPO As Soon As The End Of August; Expects To Match SpaceX\u2019s Record IPO Size Tr Top It&#39; - Bloomberg",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

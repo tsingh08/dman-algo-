@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-19T10:25:14.873870-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Estee Lauder, Moderna, Merck And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:19.890731-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Truist Securities Maintains Buy on Palo Alto Networks, Raises Price Target to $435",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T10:25:22.412309-04:00",
-    "symbols": [
-      "MSS"
-    ],
-    "headline": "Why Keysight Shares Are Trading Higher By 3%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-19T10:25:22.417147-04:00",
     "symbols": [
       "MSS"
@@ -5062,6 +5032,37 @@
     "headline": "Fed&#39;s Musalem, On CNBC, Says Earlier, Gradual Interest Rate Increases Are Preferable And Less Disruptive; Won&#39;t Offer Firm View On What He Wants Fed To Do At September FOMC; Won&#39;t Prejudge Upcoming FOMC Meeting",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:46:13.266799-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Upsizes Convertible Offering to $5 Billion As AI Expansion Accelerates",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T11:48:00.239792-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Board Clears Management in Export Probe, Takes Compliance Actions",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-20T11:50:24.173299-04:00",
+    "symbols": [
+      "LUNR",
+      "RKLB"
+    ],
+    "headline": "Shares of space-related companies are trading lower, possibly amid sympathy for peer SpaceX, which is experiencing a sell-off due to the expiration of its second lockup period.",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

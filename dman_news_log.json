@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:11:37.412587-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-19T13:11:37.631973-04:00",
     "symbols": [
       "AMZN"
@@ -5053,6 +5043,16 @@
     ],
     "headline": "What&#39;s Going On With Robinhood Markets Stock Thursday?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T13:57:52.614315-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Goldman Sachs Maintains Neutral on Moderna, Raises Price Target to $120",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

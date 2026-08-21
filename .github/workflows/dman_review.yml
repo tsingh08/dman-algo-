@@ -1,0 +1,164 @@
+name: DMan Session Review
+
+# Post-close (and on-demand via /review on Telegram) review session — a
+# real Claude Code agent, not more hand-written Python heuristics, reads
+# the day's actual state (positions, P&L, recent trades, scan history)
+# and the codebase itself, and reports what it finds: how the session
+# went, anything that looks off heading into the next trading day, and
+# specific code improvements it would recommend.
+#
+# REPORT ONLY, deliberately, by construction rather than just instruction
+# — direct decision 2026-08-21 after the /review idea was raised:
+#   1. permissions below grant `contents: read` only, never `write` — even
+#      if the agent tried to commit and push a fix, GitHub would reject it
+#      with a real 403. There's also no persist-state step, so any local
+#      file edits made during the run are ephemeral and vanish when the
+#      runner is torn down regardless.
+#   2. No Alpaca credentials (APCA_API_KEY_ID/APCA_API_SECRET_KEY) are
+#      passed to this job at all — the agent works from the git-tracked
+#      state files the daemon already keeps synced (dman_positions.json,
+#      dman_win_rate.json, dman_daily_pnl.json, dman_scan_log.json,
+#      dman_news_log.json), not a live broker session. It is structurally
+#      incapable of placing a real order here, not just told not to.
+# Proposed code changes are reported as text (diff/description) for a
+# human — or a follow-up Claude Code session explicitly asked to apply
+# them — to act on, the same review-then-approve flow every other change
+# in this repo already goes through.
+
+on:
+  schedule:
+    # ~4:20 PM ET weekdays (20:20 UTC) — after the 4:04 PM EOD P&L summary
+    # and momentum-watch have both settled, so today's real close-of-day
+    # state is fully synced before the review reads it. Offset from :00
+    # for the same GitHub-queue-congestion reasoning every other cron in
+    # this repo already uses (see dman_watchdog.yml's comment for the
+    # confirmed-live incident behind that pattern).
+    - cron: '24 20 * * 1-5'
+  workflow_dispatch:   # /review on Telegram dispatches this directly
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+# Only one review runs at a time — an on-demand /review firing seconds
+# after the scheduled 4:20 PM run would otherwise race on the same repo
+# state (harmless since both are read-only, but wastes a full session).
+concurrency:
+  group: dman-review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read   # deliberately NOT write -- see the file header
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run review session
+        id: review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          PROMPT='You are reviewing the just-closed (or most recent) trading
+          session for a live-money algorithmic trading system in this repo.
+          You have READ-ONLY repo access and NO live broker credentials --
+          work entirely from the git-tracked state files and codebase.
+
+          Look at: dman_positions.json (currently open positions),
+          dman_win_rate.json (recent trade outcomes), dman_daily_pnl.json /
+          dman_monthly_pnl.json (realized P&L), dman_scan_log.json (recent
+          scan activity), dman_news_log.json (recent headlines), dman_halt.json
+          and dman_probation.json if present (current risk-control state),
+          and recent git log / diffs for anything that changed today. Cross-
+          reference against dman_algo.py and dman_daemon.py as needed to
+          understand what a given state actually means.
+
+          Produce a concise report covering:
+          1. How the session actually went -- realized P&L, what closed, what
+             is still open and its current risk exposure.
+          2. Anything that looks off, risky, or worth flagging before the
+             next trading day -- stale/inconsistent state, a setup with a
+             notably bad recent record, a circuit breaker in an unexpected
+             state, anything that would surprise a human reviewing it fresh.
+          3. Specific, concrete code improvements you would recommend -- name
+             the file/function, describe the change, and why. Do not just
+             gesture at "the code could be cleaner" -- be specific enough that
+             someone could hand this straight to a follow-up session to
+             implement.
+
+          Hard constraints: this is a REPORT ONLY. Do not run git commit, git
+          push, or any command that submits a real trade -- you have no
+          credentials to do the latter regardless. If you are not sure
+          whether something needs a human decision, say so explicitly rather
+          than assuming an answer.
+
+          Keep your FINAL reply under 3500 characters -- it is posted
+          directly to a phone via Telegram. Prioritize the most important 3-5
+          findings over an exhaustive list. Use plain text, no markdown
+          tables.'
+
+          set +e
+          OUTPUT=$(claude -p "$PROMPT" \
+            --model claude-fable-5 \
+            --dangerously-skip-permissions \
+            --allowedTools "Read,Grep,Glob,Bash(git log:*),Bash(git diff:*),Bash(git show:*)" \
+            2>&1)
+          STATUS=$?
+          set -e
+
+          echo "exit_status=$STATUS" >> "$GITHUB_OUTPUT"
+
+          # Telegram's hard cap is 4096 chars -- truncate defensively even
+          # though the prompt already asks for <3500.
+          TRUNCATED=$(echo "$OUTPUT" | cut -c1-3900)
+          {
+            echo "review_output<<REVIEW_EOF"
+            echo "$TRUNCATED"
+            echo "REVIEW_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Post report to Telegram
+        if: always()
+        env:
+          REVIEW_OUTPUT: ${{ steps.review.outputs.review_output }}
+          REVIEW_STATUS: ${{ steps.review.outputs.exit_status }}
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'EOF'
+          import os, html, requests
+          token  = os.environ["TELEGRAM_TOKEN"]
+          chat   = os.environ["TELEGRAM_CHAT_ID"]
+          status = os.environ.get("REVIEW_STATUS", "1")
+          header = ("🔎 <b>DMan session review</b>" if status == "0" else
+                     "⚠️ <b>DMan session review — the run itself hit an error, showing what it captured</b>")
+          body = os.environ.get("REVIEW_OUTPUT", "").strip() or "(no output captured)"
+          text = f"{header}\n\n{html.escape(body)}"
+          requests.post(
+              f"https://api.telegram.org/bot{token}/sendMessage",
+              data={"chat_id": chat, "text": text, "parse_mode": "HTML"},
+              timeout=15,
+          )
+          EOF
+
+      - name: Notify on workflow failure
+        if: failure()
+        env:
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            -d "text=⚠️ <b>DMan review FAILED</b> — pre-run step failed (checkout/install). Check GitHub Actions." \
+            -d "parse_mode=HTML" || true

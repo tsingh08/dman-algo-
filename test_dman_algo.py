@@ -7935,6 +7935,22 @@ class TestWorkflowRestartFeature(unittest.TestCase):
         sent_texts = [c.args[0] for c in mock_tg.call_args_list]
         self.assertTrue(any("failed" in t.lower() and "Run workflow" in t for t in sent_texts))
 
+    def test_review_command_dispatches_review_workflow_and_confirms(self):
+        with patch.object(a, "_trigger_workflow_restart", return_value=(True, "dispatched")) as mock_trigger:
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._handle_telegram_command("/review")
+        mock_trigger.assert_called_once_with("dman_review.yml")
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("Review requested" in t for t in sent_texts))
+        self.assertTrue(any("dispatched" in t.lower() for t in sent_texts))
+
+    def test_review_command_reports_failure_with_fallback_instructions(self):
+        with patch.object(a, "_trigger_workflow_restart", return_value=(False, "HTTP 403: nope")):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                a._handle_telegram_command("/review")
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("failed" in t.lower() and "Run workflow" in t for t in sent_texts))
+
     def test_watchdog_auto_restarts_when_daemon_stale_past_45_min(self):
         stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         stale_sync.close()

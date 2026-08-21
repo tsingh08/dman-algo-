@@ -1558,6 +1558,7 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("buy",       "Confirm a buy from /options — /buy N [qty] [price]"),
     ("restart",   "Force a fresh daemon session (last resort)"),
     ("scan",      "Force an immediate scanner run now (real submission if market's open)"),
+    ("review",    "Run a session review now (report only — also runs automatically after close)"),
 ]
 
 
@@ -2395,6 +2396,25 @@ def _handle_telegram_command(text: str) -> None:
         else:
             send_telegram(f"❌ Scan dispatch failed: {_msg}\n"
                           f"Fallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.")
+
+    elif _cmd == "review":
+        # Dispatches dman_review.yml -- added 2026-08-21, direct instruction
+        # for an on-demand post-close review (also runs automatically
+        # ~4:20 PM ET every trading day). A real Claude Code session reads
+        # the day's state files and codebase and reports findings/
+        # recommended improvements to Telegram -- report only, by
+        # construction: that workflow has contents:read (no write) and no
+        # Alpaca credentials, so it's structurally unable to push code or
+        # place a real trade regardless of what it decides to do.
+        send_telegram("🔎 <b>Review requested</b> — dispatching a session review now "
+                      "(report only, nothing gets pushed or traded automatically). "
+                      "Takes a few minutes — the report posts here when it's done.")
+        _ok, _msg = _trigger_workflow_restart("dman_review.yml")
+        if _ok:
+            send_telegram("✅ Review dispatched.")
+        else:
+            send_telegram(f"❌ Review dispatch failed: {_msg}\n"
+                          f"Fallback: GitHub app → Actions → DMan Session Review → Run workflow.")
 
     elif _cmd == "close" and _arg:
         _pt  = PositionTracker()

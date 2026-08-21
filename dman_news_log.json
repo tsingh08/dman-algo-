@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:01.561095-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Trump&#39;s Crypto Comments Cheered: Robinhood CEO Stresses &#39;Broad Ownership&#39; At White House Event, Binance Founder Says, &#39;We&#39;re So Back&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:57:01.730998-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin Eyes Best Week Since Trump&#39;s Election Victory: Why Is This A Fed&#39;s Warsh Problem?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T09:57:01.735440-04:00",
     "symbols": [
       "MSTR"
@@ -5073,5 +5053,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T11:45:07.852301-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Data Shows Bitcoin&#39;s 20% 3-Day Rally Was Historic: Here&#39;s What Happened After Comparable Rallies",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T11:46:06.754995-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "MicroCloud Hologram Doubles Down on Bitcoin-Linked Assets With Strategy Stake",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

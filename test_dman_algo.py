@@ -2645,40 +2645,6 @@ class TestSharesFallbackPolicy(unittest.TestCase):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
 
-class TestSharesFallbackBudgetShares(unittest.TestCase):
-    """User decision 2026-08-08: an options-eligible signal (WATCHLIST/
-    OPTIONS_SETUPS) that genuinely can't get an options fill and isn't on
-    the small-cap watchlist now falls back to a BUDGET-CAPPED shares
-    position instead of skipping entirely -- capped to the same
-    options-equivalent budget, not the signal's normal full-size equity
-    sizing. Confirmed live: AMBA/AMZN/RBLX-style signals were previously
-    alerted and then silently produced zero trade. A regression here
-    either buys far more shares than the risk budget intends (the
-    max(1, ...) floor this replaced would buy 1 share of even a $5,000
-    stock against a $1,250 budget) or refuses to buy anything affordable."""
-
-    def test_computes_whole_shares_within_budget(self):
-        self.assertEqual(a._shares_fallback_budget_shares(current_price=10.0, budget=1250.0), 125)
-
-    def test_rounds_down_not_up(self):
-        # $87 AMBA-style price against the $1,250 budget -> 14 shares
-        # ($1,218), not 15 ($1,305, over budget).
-        self.assertEqual(a._shares_fallback_budget_shares(current_price=87.35, budget=1250.0), 14)
-
-    def test_price_exceeding_budget_returns_zero_not_one(self):
-        # Must NOT force a floor of 1 share when even a single share blows
-        # past the budget (e.g. a $2,000+ stock against a $1,250 budget) --
-        # that would silently exceed the intended risk cap.
-        self.assertEqual(a._shares_fallback_budget_shares(current_price=2093.0, budget=1250.0), 0)
-
-    def test_zero_or_negative_price_fails_closed(self):
-        self.assertEqual(a._shares_fallback_budget_shares(current_price=0.0, budget=1250.0), 0)
-        self.assertEqual(a._shares_fallback_budget_shares(current_price=-5.0, budget=1250.0), 0)
-
-    def test_zero_budget_fails_closed(self):
-        self.assertEqual(a._shares_fallback_budget_shares(current_price=10.0, budget=0.0), 0)
-
-
 class TestWinRateLiveOnlyFiltering(unittest.TestCase):
     """Added 2026-08-07: dman_win_rate.json's 500 records span back to
     2024 -- almost entirely backtest simulation, with real trades so
@@ -3934,6 +3900,14 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []   # not held at Alpaca
+        # Genuinely not found -- matches the real Alpaca SDK, which raises
+        # on get_open_position() for a symbol with no open position, rather
+        # than returning a falsy value. Needed since 2026-08-20: a bare
+        # MagicMock()'s auto-mocked __float__ doesn't raise on its own,
+        # so leaving this unconfigured would make the single-symbol
+        # false-negative re-check (added after the ARTL incident) think
+        # the position is still open and skip clearing it.
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
             self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21),
         ]
@@ -4007,6 +3981,46 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self.assertEqual(n, 1, "a genuinely separate trade weeks later must be recorded, "
                           "not silently dropped as a false-positive dupe match")
         self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 2)
+
+    def test_bulk_snapshot_false_negative_does_not_clear_a_genuinely_open_position(self):
+        # Confirmed live 2026-08-20: ARTL's second same-day accumulating
+        # entry fill landed while get_all_positions() -- the bulk snapshot
+        # taken once at the top of this function -- hadn't yet caught up
+        # to it (Alpaca's own eventual consistency between an order fill
+        # and the positions API), so ARTL looked absent from alp_open even
+        # though it was genuinely still open. The old code took that at
+        # face value and cleared the tracked position entirely (losing the
+        # first fill's already-accumulated 159 shares), leaving nothing
+        # for the second fill's PositionTracker.open() to accumulate
+        # against. A direct single-symbol re-check must catch this.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []   # bulk snapshot: false negative
+        mock_client.get_open_position.return_value = MagicMock(qty="159")   # direct check: really open
+        mock_client.get_orders.return_value = []   # no closing order exists at all
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 0)
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 1,
+                          "a genuinely still-open position must not be cleared on a bulk-snapshot false negative")
+
+    def test_genuinely_closed_position_still_gets_cleared(self):
+        # The false-negative re-check must not swallow the real "actually
+        # closed" case -- get_open_position() raising (matches the real
+        # Alpaca SDK on a symbol with no open position) must still fall
+        # through to the existing ghost/stale-clear logic.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 0)
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0,
+                          "a genuinely closed position must still be cleared")
 
 
 class TestPdtStatusFailsClosed(unittest.TestCase):
@@ -5022,6 +5036,15 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
             patch.object(a, "send_telegram", return_value=True),
             patch.object(a, "is_halted", return_value=False),
             patch.object(a, "check_macro_safe", return_value=(True, 5)),
+            # _options_position_budget() (replaced the flat
+            # MANUAL_BUY_MAX_RISK_DOLLARS constant 2026-08-21) calls
+            # get_effective_account() on every check -- without mocking
+            # this, it falls through to a real get_alpaca_client() call
+            # (breaking "staging a confirmation must never touch the
+            # broker" assertions) and MagicMock's auto-mocked numeric
+            # coercion produces a near-zero budget, rejecting every test
+            # trade as "over the per-trade cap" before it ever stages.
+            patch.object(a, "get_effective_account", return_value=25_000.0),
         ]
         for p in self._patches:
             p.start()
@@ -8358,6 +8381,54 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
         mock_submit.assert_not_called()
 
 
+class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
+    """Removed 2026-08-21: the budget-capped shares fallback (added
+    2026-08-08) that used to fire when an options-eligible signal
+    (WATCHLIST/OPTIONS_SETUPS) found no real options fill and the ticker
+    wasn't on DMan's small-cap watchlist. Direct instruction after NDSN --
+    a large industrial name, nothing like a low-float catalyst play --
+    bought as a single $334 share exactly this way: shares should only
+    ever happen for a real low-float catalyst pick, everything else must
+    skip outright rather than settle for a consolation equity position."""
+
+    def test_options_eligible_but_unfillable_non_watchlist_signal_is_skipped_not_bought(self):
+        sig = a.ProSignal(
+            ticker="NDSN", bias="LONG", setup="Gap & Hold",   # Gap & Hold is in OPTIONS_SETUPS
+            entry=334.75, stop=320.35, target1=406.79, target2=450.01,
+            rr=3.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=100,
+            shares=1, cost=334.75,
+        )
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price", return_value=(True, 334.75)), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "WATCHLIST", []), \
+             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", []), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "_submit_options_call", return_value=(None, None)), \
+             patch.object(a, "submit_alpaca_trade") as mock_submit, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0,
+            }
+            MockPT.return_value.positions = []
+            a._submit_signals_to_alpaca([sig])
+        mock_submit.assert_not_called()
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("not executed" in t for t in sent_texts))
+
+
 class TestSubmitSignalsProbationSizing(unittest.TestCase):
     """Added 2026-08-18 alongside is_on_probation(): the belt-and-suspenders
     circuit-breaker recheck in _submit_signals_to_alpaca() must bypass the
@@ -8904,6 +8975,30 @@ class TestEquityFallbackAlert(unittest.TestCase):
         msgs = [c[0][0] for c in mock_tg.call_args_list]
         fallback_msgs = [m for m in msgs if "Live equity unavailable" in m]
         self.assertEqual(len(fallback_msgs), 1)
+
+
+class TestOptionsPositionBudget(unittest.TestCase):
+    """Added 2026-08-21: OPTIONS_MAX_POSITION_COST (a flat $2,000) replaced
+    with OPTIONS_MAX_POSITION_PCT (15% of current equity) after the flat
+    figure -- already flagged as ~40% concentration when set against a
+    $5,044 account -- drifted to 61% of a single options trade on the same
+    $2,000 against a $3,273 account post-losing-stretch. A regression here
+    means position sizing silently stops tracking real account size again."""
+
+    def test_budget_scales_with_current_equity(self):
+        with patch.object(a, "get_effective_account", return_value=10_000.0):
+            self.assertEqual(a._options_position_budget(), 1_500.0)
+
+    def test_budget_shrinks_as_account_shrinks(self):
+        with patch.object(a, "get_effective_account", return_value=3_273.0):
+            self.assertAlmostEqual(a._options_position_budget(), 490.95, places=2)
+
+    def test_not_cached_reflects_a_fresh_get_effective_account_call_each_time(self):
+        with patch.object(a, "get_effective_account", side_effect=[5_000.0, 2_000.0]):
+            first  = a._options_position_budget()
+            second = a._options_position_budget()
+        self.assertEqual(first, 750.0)
+        self.assertEqual(second, 300.0)
 
 
 def _fake_df():

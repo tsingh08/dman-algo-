@@ -191,22 +191,26 @@ ENABLE_PREMARKET_SUBMIT = True
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
 ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
-OPTIONS_MAX_POSITION_COST   = 2000.0  # flat target budget per options trade (2026-08-09 —
-                                       # direct instruction to size up further, was $1,250 set
-                                       # 2026-08-07). Raises the "too expensive" ceiling
-                                       # (1.5x this) from $1,875 to $3,000 — confirmed live
-                                       # 2026-08-08 that AMZN's cheapest qualifying ITM
-                                       # contract cost $2,093, just over the old ceiling; this
-                                       # unlocks that class of higher-priced-underlying signal.
-                                       # ~39.6% of account equity ($5,044.65 as of 2026-08-08)
-                                       # in a SINGLE options trade — real concentration risk,
-                                       # not something the portfolio heat cap compensates for
-                                       # (PORTFOLIO_HEAT_LIMIT/SMALLCAP_RISK_PCT count POSITIONS
-                                       # flatly, not actual dollar size — see
-                                       # _submit_signals_to_alpaca's heat-cap loop). Still scaled
-                                       # by _risk_off_mult so this stays adaptive to real regime/
-                                       # macro conditions (e.g. derated heading into NFP/CPI),
-                                       # not a flat number regardless of risk.
+OPTIONS_MAX_POSITION_PCT    = 0.15   # target budget per options trade, as a fraction of
+                                       # CURRENT equity (2026-08-21 — was a flat $2,000,
+                                       # direct instruction to size up further from $1,250 on
+                                       # 2026-08-09, itself already flagged then as ~39.6% of a
+                                       # $5,044.65 account in a SINGLE options trade — real
+                                       # concentration risk, not something the portfolio heat
+                                       # cap compensates for (PORTFOLIO_HEAT_LIMIT/
+                                       # SMALLCAP_RISK_PCT count POSITIONS flatly, not actual
+                                       # dollar size — see _submit_signals_to_alpaca's heat-cap
+                                       # loop). A flat dollar figure never revisits itself as
+                                       # the account's real size changes — confirmed live
+                                       # 2026-08-20: the same $2,000 had drifted to 61% of a
+                                       # $3,273 account after a losing stretch, well past what
+                                       # was already called out as too concentrated at the
+                                       # larger size. _options_position_budget() computes the
+                                       # real dollar figure fresh each call, so this shrinks and
+                                       # grows with the account automatically. Still scaled by
+                                       # _risk_off_mult on top of this so sizing stays adaptive
+                                       # to real regime/macro conditions (e.g. derated heading
+                                       # into NFP/CPI), not a flat number regardless of risk.
 OPTIONS_DTE_MIN             = 5      # minimum 5 DTE — allows weekly for fast gap plays
 OPTIONS_DTE_MAX             = 28     # max 4 weeks
 OPTIONS_MAX_SPREAD_PCT      = 0.15   # skip contract if bid-ask spread > 15% of mid (was 20% of ask)
@@ -362,9 +366,6 @@ MANUAL_BUY_MAX_PRICE_DRIFT_PCT    = 8.0    # abort a late YES rather than submit
                                             # same staleness philosophy as EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT
 MANUAL_BUY_MAX_CONTRACTS          = 10     # /buy N [qty] [price] — qty ceiling, matches the
                                             # automated path's own flat contract cap
-MANUAL_BUY_MAX_RISK_DOLLARS       = OPTIONS_MAX_POSITION_COST  # never let a manual buy's total
-                                                                 # cost exceed the same per-trade
-                                                                 # ceiling automated entries respect
 MANUAL_BUY_MAX_PRICE_VS_ASK_MULT  = 2.0    # fat-finger guard — reject a chosen price more than
                                             # 2x the live ask outright (e.g. typing "15" meaning
                                             # "1.50"); a price BELOW the ask is never blocked here,
@@ -2472,9 +2473,12 @@ def _handle_buy_command(parts: list[str]) -> None:
             return
 
     total_cost = round(qty * limit_price * 100, 2)
-    if total_cost > MANUAL_BUY_MAX_RISK_DOLLARS:
+    _manual_buy_cap = _options_position_budget()   # never let a manual buy's total cost
+                                                     # exceed the same per-trade ceiling
+                                                     # automated entries respect
+    if total_cost > _manual_buy_cap:
         send_telegram(f"⚠️ {qty}x {item['occ_symbol']} @ ${limit_price:.2f} = ~${total_cost:.0f}, "
-                       f"over the ${MANUAL_BUY_MAX_RISK_DOLLARS:.0f} per-trade cap — "
+                       f"over the ${_manual_buy_cap:.0f} per-trade cap — "
                        f"reduce the quantity or price.")
         return
 
@@ -9652,6 +9656,14 @@ def get_effective_account() -> float:
     return max(adjusted, ACCOUNT_SIZE * 0.5)   # floor at 50% of configured size
 
 
+def _options_position_budget() -> float:
+    """Target dollar budget for one options trade — see OPTIONS_MAX_POSITION_PCT's
+    docstring for why this replaced a flat dollar constant. Computed fresh on
+    every call (not cached) so it always reflects get_effective_account()'s own
+    5-min-cached live equity, not a stale snapshot from whenever this was last read."""
+    return round(get_effective_account() * OPTIONS_MAX_POSITION_PCT, 2)
+
+
 _live_cash_cache: dict = {"cash": None, "ts": 0.0}
 _reserved_cash_cache: dict = {"reserved": 0.0, "ts": 0.0}
 
@@ -14956,6 +14968,26 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             # both cases — always clear the stale tracker entry here, and
             # only alert/re-record for the genuine "never filled" ghost case
             # so an already-reported close doesn't re-notify.
+            #
+            # Before actually clearing, re-check this ONE symbol directly.
+            # alp_open was a single bulk get_all_positions() snapshot taken
+            # at the top of this function -- Alpaca's own eventual
+            # consistency between an order fill and the positions API
+            # reflecting it means a position whose entry fill landed only
+            # seconds earlier can occasionally be absent from that snapshot
+            # despite genuinely being open. Confirmed live 2026-08-20: ARTL's
+            # second same-day accumulating entry vanished from tracking
+            # entirely between its two fills this exact way, losing the
+            # already-tracked 159 shares from the first fill before the
+            # second fill's PositionTracker.open() had anything to
+            # accumulate against. A single-symbol lookup is authoritative in
+            # a way the bulk snapshot momentarily wasn't.
+            try:
+                _recheck = client.get_open_position(_alp_sym)
+                if _recheck is not None and abs(float(_recheck.qty)) > 0:
+                    continue   # false negative — genuinely still open, leave tracking untouched
+            except Exception:
+                pass   # genuinely not found (404) — proceed with ghost/stale-clear logic below
             # Options always buy-to-open; equity: BUY for LONG, SELL for SHORT.
             _entry_side = OrderSide.BUY if (is_lo or _occ_sym) else OrderSide.SELL
             # Same class of bug as the FILLED check above, plus a spelling
@@ -16341,23 +16373,6 @@ def _shares_fallback_allowed(ticker: str) -> bool:
     return ticker in DMAN_SMALLCAP_WATCHLIST
 
 
-def _shares_fallback_budget_shares(current_price: float, budget: float) -> int:
-    """
-    How many whole shares fit inside `budget` at `current_price`. User
-    decision 2026-08-08: when an options-eligible signal has no execution
-    path (illiquid/too wide/too expensive) and isn't on the small-cap
-    watchlist, buy this many shares instead of skipping entirely — capped
-    to the SAME options-equivalent budget, not the signal's normal
-    full-size equity sizing, so this still honors "grow on options, not
-    expensive full-size shares." Returns 0 if the price is non-positive
-    or exceeds the whole budget (can't afford even 1 share) — the caller
-    treats 0 as "skip, budget too small for this name."
-    """
-    if current_price <= 0 or budget <= 0:
-        return 0
-    return int(budget / current_price)
-
-
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     """
     Validate entry prices and submit passing signals to Alpaca (paper or live).
@@ -16643,7 +16658,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         if _use_options:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(OPTIONS_MAX_POSITION_COST * _risk_off_mult, 2)
+                _opt_risk = round(_options_position_budget() * _risk_off_mult, 2)
                 print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_call(
@@ -16659,7 +16674,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
         elif _use_puts:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(OPTIONS_MAX_POSITION_COST * _risk_off_mult, 2)
+                _opt_risk = round(_options_position_budget() * _risk_off_mult, 2)
                 print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_put(
@@ -16677,55 +16692,33 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                 print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
                       f"not in WATCHLIST, and not a Bear Gap Hold signal")
                 continue
-            # Shares-fallback policy (2026-08-05): grow the account on options,
-            # not on buying expensive large-cap shares outright. DMan's own
-            # curated small-cap watchlist is the one deliberate exception —
-            # those are exactly the cheap, thin-float gap-ups where "buy a lot
-            # of shares" IS the play (and where options usually aren't liquid
-            # enough to exist anyway).
+            # Shares-fallback policy (2026-08-05, tightened 2026-08-21): grow
+            # the account on options, not on buying shares outright. DMan's
+            # own curated small-cap watchlist is the one deliberate
+            # exception — those are exactly the cheap, thin-float gap-ups
+            # where "buy a lot of shares" IS the play (and where options
+            # usually aren't liquid enough to exist anyway).
+            #
+            # Removed 2026-08-21: a budget-capped shares fallback for
+            # options-eligible-but-unfillable signals on NON-watchlist
+            # tickers (added 2026-08-08 so a valid signal never produced
+            # zero trade). Direct instruction after NDSN — a large
+            # industrial name, nothing like a low-float catalyst play —
+            # bought as a single $334 share this exact way when its Gap &
+            # Hold options attempt found no fill: shares should only ever
+            # happen for a real low-float catalyst (the watchlist
+            # exception below), everything else skips outright rather than
+            # settle for a consolation equity position.
             if not _shares_fallback_allowed(sig.ticker):
-                if not _options_was_attempted:
-                    # Never options-eligible in the first place (e.g. a Vol
-                    # Breakdown signal, or a setup outside OPTIONS_SETUPS) —
-                    # the original 2026-08-05 policy stands unchanged: skip
-                    # quietly, no shares purchase, no alert.
-                    print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible "
-                          f"and not a DMan watchlist ticker (shares reserved for DMan picks only)")
-                    continue
-                # Confirmed live 2026-08-08: a signal that WAS options-eligible
-                # (WATCHLIST/OPTIONS_SETUPS) and got a real attempt -- not just
-                # never-eligible -- silently produced zero trade, the same
-                # "valid signal, no execution path" dead-end already fixed once
-                # for puts (MBLY, see the OPTIONS_ENABLE_PUTS comment above).
-                # User decision 2026-08-08: fall back to a BUDGET-CAPPED shares
-                # position (same $ risk as the options attempt would have used,
-                # not the signal's normal full-size equity sizing) rather than
-                # skip entirely -- this still honors "grow on options, not
-                # expensive full-size shares," it just guarantees SOMETHING
-                # trades instead of a signal quietly vanishing after being
-                # alerted.
-                _fallback_budget = round(OPTIONS_MAX_POSITION_COST * _risk_off_mult, 2)
-                _fallback_shares = _shares_fallback_budget_shares(cur, _fallback_budget)
-                if _fallback_shares < 1:
-                    print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable and "
-                          f"price ${cur} too high for the ${_fallback_budget:.0f} shares-fallback budget")
+                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible "
+                      f"and not a DMan watchlist ticker (shares reserved for DMan picks only)")
+                if _options_was_attempted:
                     send_telegram(
                         f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
-                        f"Options attempted and unavailable. Price ${cur:.2f} exceeds the "
-                        f"${_fallback_budget:.0f} shares-fallback budget for even 1 share. No trade placed."
+                        f"Options attempted and unavailable, and shares are reserved for DMan's "
+                        f"low-float watchlist picks only. No trade placed."
                     )
-                    continue
-                sig.shares = _fallback_shares
-                sig.cost   = round(_fallback_shares * cur, 2)
-                print(f"  ↩️  {sig.ticker} {sig.setup}: options unavailable — falling back to "
-                      f"{_fallback_shares} budget-capped share(s) (${sig.cost:.0f} of ${_fallback_budget:.0f})")
-                oid, _submit_err = submit_alpaca_trade(sig)
-                if oid:
-                    send_telegram(
-                        f"↩️ <b>Options unavailable — capped shares fallback</b>: {sig.ticker} {sig.setup}\n"
-                        f"{_fallback_shares} sh @ ~${cur:.2f} = ${sig.cost:.0f} "
-                        f"(capped to the ${_fallback_budget:.0f} options-equivalent budget)"
-                    )
+                continue
             else:
                 oid, _submit_err = submit_alpaca_trade(sig)
 

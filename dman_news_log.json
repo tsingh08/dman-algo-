@@ -1,62 +1,5 @@
 [
   {
-    "ts": "2026-08-20T12:05:58.955273-04:00",
-    "symbols": [
-      "AAPL",
-      "AMD",
-      "ARM",
-      "AVGO",
-      "BABA",
-      "GOOGL",
-      "META",
-      "MRVL"
-    ],
-    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T12:06:49.157423-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T12:06:50.021002-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T12:06:50.336076-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T12:06:50.651369-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Broadcom\u2019s AI Competition Fears Look Overblown: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T12:06:52.505541-04:00",
     "symbols": [
       "AVGO"
@@ -5079,5 +5022,56 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T15:40:53.025134-04:00",
+    "symbols": [
+      "APP",
+      "META"
+    ],
+    "headline": "&#39;DOJ, TikTok settle for $400 million in children&#39;s privacy suit&#39; - Axios",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T15:41:23.101930-04:00",
+    "symbols": [
+      "VMAR"
+    ],
+    "headline": "Trading Halt: Halted at 3:41:22 p.m. ET - Trading Halt: Halt News Pending",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T15:44:13.234722-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Reducing GPT-5.6 Sol&#39;s API Prices By 20% For Next Three Months",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T15:44:26.398751-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;DOJ, TikTok settle for $400 million in children&#39;s privacy suit&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T15:44:29.214029-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "&#39;DOJ, TikTok settle for $400 million in children&#39;s privacy suit&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

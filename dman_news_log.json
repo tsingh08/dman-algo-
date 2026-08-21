@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T11:12:26.716674-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T11:12:51.473326-04:00",
     "symbols": [
       "MSFT"
@@ -5076,5 +5066,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:12:53.078496-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Beat, Raise, Repeat: Nvidia&#39;s Perfect Quarters Aren&#39;t Enough Anymore",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

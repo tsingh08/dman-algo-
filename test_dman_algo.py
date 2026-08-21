@@ -1814,6 +1814,79 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
         self.assertEqual(result, 5)
 
 
+class TestNewsKeywordFreshnessCheck(unittest.TestCase):
+    """Added 2026-08-21: check_news_keyword_freshness() reviews
+    MACRO_NEWS_KEYWORDS against real headlines the system has actually
+    seen and suggests gaps -- advisory only, must never edit the keyword
+    lists itself, and must fail closed (None) rather than raise on any
+    missing key/file/API failure since it runs alongside the weekly
+    readiness scan and must never be able to break it."""
+
+    def setUp(self):
+        self._log_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._log_tmp.close()
+        self._patch = patch.object(a, "NEWS_LOG_FILE", self._log_tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._log_tmp.name):
+            os.unlink(self._log_tmp.name)
+
+    def _write_log(self, headlines):
+        with open(self._log_tmp.name, "w") as f:
+            json.dump([{"headline": h, "symbols": ["AAPL"], "ts": "2026-08-20T10:00:00-04:00"}
+                       for h in headlines], f)
+
+    def test_no_api_key_returns_none(self):
+        self._write_log(["Some real headline"])
+        with patch.object(a, "ANTHROPIC_API_KEY", ""):
+            self.assertIsNone(a.check_news_keyword_freshness())
+
+    def test_missing_log_file_returns_none(self):
+        os.unlink(self._log_tmp.name)
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"):
+            self.assertIsNone(a.check_news_keyword_freshness())
+
+    def test_empty_log_returns_none(self):
+        self._write_log([])
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"):
+            self.assertIsNone(a.check_news_keyword_freshness())
+
+    def test_request_exception_returns_none_not_raises(self):
+        self._write_log(["A real headline about something"])
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.side_effect = Exception("timeout")
+            self.assertIsNone(a.check_news_keyword_freshness())
+
+    def test_valid_response_is_returned_and_includes_current_headlines(self):
+        self._write_log(["Some CEO says something notable", "Duplicate", "Duplicate"])
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {
+            "content": [{"type": "text", "text": "New CEO — repeatedly mentioned, market mover"}]
+        }
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = mock_resp
+            result = a.check_news_keyword_freshness()
+        self.assertEqual(result, "New CEO — repeatedly mentioned, market mover")
+        # Confirm duplicate headlines were deduped before being sent.
+        prompt = mock_requests.post.call_args[1]["json"]["messages"][0]["content"]
+        self.assertEqual(prompt.count("Duplicate"), 1)
+
+    def test_never_mutates_the_keyword_lists(self):
+        self._write_log(["A headline mentioning someone new"])
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {"content": [{"type": "text", "text": "Someone New — reason"}]}
+        before = list(a.MACRO_NEWS_KEYWORDS)
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = mock_resp
+            a.check_news_keyword_freshness()
+        self.assertEqual(a.MACRO_NEWS_KEYWORDS, before)
+
+
 class TestOptimizeStopTighteningCap(unittest.TestCase):
     """Found in the 2026-08-16 review: optimize_stop()'s "never tighten so
     much it invalidates 2R" clamp was mathematically dead code -- both the

@@ -556,6 +556,133 @@ TICKER_SECTOR = {
 
 WATCHLIST = list(TICKER_SECTOR.keys())
 
+# Real-time news relevance — moved here from dman_daemon.py 2026-08-21 (was
+# defined next to news_data_stream_loop, the only consumer at the time) so
+# check_news_keyword_freshness() below, a standalone dman_algo.py process
+# with no import of the daemon, can read and reason about the exact same
+# list the live stream matches against, not a copy that could drift.
+#
+# MACRO_NEWS_SYMBOLS: get_market_regime() already treats TLT (rates) and
+# UUP (dollar) as Fed-policy price proxies; these aren't in WATCHLIST/
+# DMAN_SMALLCAP_WATCHLIST, so a headline tagged only to one of them would
+# otherwise be silently dropped by the daemon's relevance filter even
+# though it's exactly the kind of story worth catching. DIA joins SPY/QQQ/
+# IWM (already in WATCHLIST) since broad-market macro stories commonly tag
+# all four index ETFs together.
+MACRO_NEWS_SYMBOLS = ["SPY", "QQQ", "DIA", "IWM", "TLT", "UUP"]
+
+# A headline's own text is scanned regardless of which SUBSCRIBED symbol
+# it happens to be tagged with (see MACRO_NEWS_SYMBOLS above) — a Fed
+# story tagged alongside an unrelated watchlist ticker still gets flagged
+# as macro rather than rendered as an ordinary single-stock alert.
+MACRO_NEWS_KEYWORDS = [
+    "fed ", "federal reserve", "fomc", "rate cut", "rate hike",
+    "interest rate", "powell", "treasury yield", "monetary policy",
+    "inflation", " cpi ", " ppi ", "jobs report", "nonfarm payroll",
+    "tariff",   # added 2026-08-15 — the live catalyst behind the open UMAC
+                # play (Trump's 100% drone-import tariff) is trade policy,
+                # same broad-economic-policy category as the rest of this
+                # list. Catches a follow-on tariff headline even when it's
+                # tagged to a sector peer (RCAT/ONDS/AVAV) rather than UMAC
+                # itself directly.
+    # Added 2026-08-15 after a market-conditions review turned up two gaps:
+    "warsh", "jackson hole",   # Kevin Warsh became Fed chair 2026-05-13
+                # (replacing Powell) -- "powell" above is now a stale name
+                # for this same category, kept harmless for historical/
+                # comparison mentions but no longer the person actually
+                # setting policy. His first Jackson Hole keynote as chair
+                # (symposium runs Aug 27-29, keynote expected ~Aug 28) is a
+                # major, genuinely uncertain policy-signal event given how
+                # contested his confirmation was (54-45, narrowest in Fed
+                # history) -- exactly the kind of headline this list exists
+                # to elevate out of the quiet watchlist log.
+    "strait of hormuz", "houthi", "opec",   # active Middle East flashpoint
+                # confirmed live 2026-08-15: Iran-US talks stalled, Houthi
+                # attacks on Saudi tankers/energy facilities in the Bab
+                # el-Mandeb and Hormuz straits, pushing oil and gold up.
+                # This is a real supply-shock channel (oil price shock ->
+                # broad market vol) with zero prior keyword coverage here --
+                # every headline about it was silently logged as routine
+                # "watchlist" instead of surfacing as the macro risk it is.
+    "trump",   # Added 2026-08-21, direct instruction: "tariff" above only
+               # catches the policy OUTCOME, not the source -- a Trump
+               # statement/social-media post routinely moves markets (or a
+               # specific sector) well before any formal tariff/policy
+               # headline follows it. Broader net on purpose; FAST_SCAN_
+               # MACRO_KEYWORDS below decides which of these matches are
+               # also worth waking the scanner early for, not this list.
+    "jensen huang", "nvidia ceo",   # Added 2026-08-21, direct instruction:
+               # same reasoning as "trump" -- Huang's public comments on AI
+               # chip demand/export policy are a real, repeated mover for
+               # the whole semis complex (AMD, AVGO, MU, SMCI, ON, MRVL,
+               # KLAC all sit in WATCHLIST already), not just NVDA itself.
+    # Added 2026-08-21, direct instruction ("Fed governors, sector CEOs,
+    # other policy figures, popular buzzwords... capture everything") --
+    # every name/topic below is a real, named voice or acute event that
+    # can move markets on an off-the-cuff remark or a sudden headline, not
+    # a routine earnings/product story already covered by WATCHLIST's own
+    # per-ticker news check.
+    #
+    # FOMC voting members beyond warsh/powell (each can move rate-cut odds
+    # on a single unscheduled remark, same category as Warsh/Powell above):
+    "bowman", "waller", "lisa cook", "mary daly", "kashkari",
+    "goolsbee", "bostic", "john williams",
+    # Trade/economic policy figures (the people who actually write and
+    # sign the tariff/export headlines "tariff" above only catches after
+    # the fact):
+    "bessent", "lutnick", "jamieson greer", "white house tariff",
+    "executive order", "export control", "entity list", "chip ban",
+    # Sector CEOs whose personal remarks (not just earnings prints) move
+    # their whole sector -- WATCHLIST already covers AAPL/MSFT/GOOGL/
+    # META/AMD/TSLA themselves, this catches the PERSON's name in a
+    # headline where the ticker tag might lag or miss:
+    "elon musk", "tim cook", "satya nadella", "sundar pichai",
+    "mark zuckerberg", "lisa su", "sam altman", "jamie dimon",
+    # Geopolitical/supply-chain flashpoints beyond hormuz/houthi/opec —
+    # Taiwan specifically for chip-supply-chain risk (TSMC/semis complex):
+    "taiwan", "xi jinping", "beijing",
+    # Acute, sudden-headline events with no earnings-calendar equivalent:
+    "government shutdown", "debt ceiling",
+    # Big-picture 2026 themes worth logging/alerting on even without a
+    # single ticker attached (AI capex sustainability, chip trade war,
+    # crypto regulatory shifts, quantum computing hype cycle — IONQ/RGTI-
+    # adjacent):
+    "ai bubble", "chip war", "semiconductor export", "stablecoin",
+    "crypto regulation", "quantum computing", "recession", "soft landing",
+]
+
+# Subset of MACRO_NEWS_KEYWORDS that also wakes the fast-scan trigger in
+# dman_daemon.py's news_data_stream_loop, on top of the existing non-macro
+# watchlist-hit trigger -- added 2026-08-21, direct instruction to get
+# into a gap-up faster than a scheduled cron would catch it. Deliberately
+# NOT every macro keyword: a scheduled, already-known-in-advance data
+# print (CPI, jobs report, FOMC minutes) doesn't reward speed the same
+# way an unscheduled remark or a sudden policy/geopolitical headline
+# does -- those are the ones where being 10 minutes ahead of the next
+# cron slot actually matters, not routine calendar events. Every NAMED
+# figure here (Fed voters, policy officials, sector CEOs) is included --
+# an off-the-cuff remark from any of them is exactly the unscheduled,
+# high-velocity case speed helps with. The acute-event topics (export
+# controls, shutdown, debt ceiling) are included for the same reason;
+# the slower-moving thematic buzzwords (ai bubble, chip war, recession,
+# soft landing, quantum computing, stablecoin/crypto regulation) are
+# deliberately left alert/log-only -- those build over many headlines,
+# not one sudden print, so an early scan wouldn't catch anything a normal
+# cron pass wouldn't. Still gate-checked identically to any other trigger
+# source (MTF/sector/RS/macro-safe/confluence) -- this only changes
+# detection latency, never what gets allowed through.
+FAST_SCAN_MACRO_KEYWORDS = {
+    "trump", "tariff", "jensen huang", "nvidia ceo",
+    "bowman", "waller", "lisa cook", "mary daly", "kashkari",
+    "goolsbee", "bostic", "john williams",
+    "bessent", "lutnick", "jamieson greer", "white house tariff",
+    "executive order", "export control", "entity list", "chip ban",
+    "elon musk", "tim cook", "satya nadella", "sundar pichai",
+    "mark zuckerberg", "lisa su", "sam altman", "jamie dimon",
+    "taiwan", "xi jinping", "beijing",
+    "government shutdown", "debt ceiling",
+}
+
 # Extended universe — scanned with --universe all when FTP/API fails.
 # These are strong gap-and-hold candidates not in the curated list.
 # RVOL filter still applies — only high-volume days make it through.
@@ -3757,6 +3884,100 @@ def _news_sentiment_breadth(hours_back: float = 24.0) -> dict:
     except Exception:
         pass
     return result
+
+
+def check_news_keyword_freshness() -> Optional[str]:
+    """
+    Weekly freshness check for MACRO_NEWS_KEYWORDS/FAST_SCAN_MACRO_KEYWORDS
+    -- added 2026-08-21, direct instruction after shipping the initial Fed-
+    governor/CEO/policy-figure list: "this list will need upkeep... fix
+    that" rather than leave it as a standing manual-maintenance liability.
+
+    Feeds Claude the CURRENT keyword list plus up to 200 distinct REAL
+    headlines this system has actually seen (NEWS_LOG_FILE, up to 500
+    rolling entries) and asks it to name recurring figures/topics that show
+    up multiple times but aren't yet tracked. Grounding the review in real,
+    already-collected data (not the model's own static knowledge, which
+    has no way to know what this account's news feed has actually been
+    seeing) is the whole point -- a plain "what's happening in the world"
+    prompt with no data behind it would just be a guess with extra steps.
+
+    Suggests only -- never edits MACRO_NEWS_KEYWORDS/FAST_SCAN_MACRO_KEYWORDS
+    itself. These lists control when the live trading algo wakes up and
+    looks at the market; an unsupervised bad addition (too broad a word,
+    a name that collides with something unrelated) could spam-trigger
+    scans or dilute signal quality, so a human reviews and applies the
+    suggestion explicitly, same as every other change to this code.
+
+    Returns the suggestion text (also sent to Telegram by the caller), or
+    None if there's no API key, no headlines to review yet, or the API
+    call fails -- never raises; this is advisory only and must not block
+    the rest of the readiness scan it runs alongside.
+    """
+    if not ANTHROPIC_API_KEY:
+        return None
+    try:
+        if not os.path.exists(NEWS_LOG_FILE):
+            return None
+        with open(NEWS_LOG_FILE) as f:
+            log = json.load(f)
+    except Exception:
+        return None
+    if not log:
+        return None
+
+    headlines: list[str] = []
+    seen: set[str] = set()
+    for entry in log[-500:]:
+        h = (entry.get("headline") or "").strip()
+        if h and h not in seen:
+            seen.add(h)
+            headlines.append(h)
+    if not headlines:
+        return None
+    headlines = headlines[-200:]   # cap prompt size regardless of log fullness
+
+    current_list = ", ".join(sorted(set(MACRO_NEWS_KEYWORDS)))
+    headline_block = "\n".join(f"- {h}" for h in headlines)
+
+    prompt = f"""You maintain the keyword list a live trading algorithm uses to detect \
+market-moving news (Fed officials, policy figures, sector CEOs, geopolitical/policy \
+topics) in real-time headlines. The list below is what it currently tracks.
+
+CURRENTLY TRACKED:
+{current_list}
+
+Here are real headlines this system has actually seen recently:
+{headline_block}
+
+Review the headlines above. Name any RECURRING named figures (people), companies, or \
+policy topics that appear multiple times and are clearly market-relevant, but are NOT \
+already covered by the tracked list. Ignore one-off mentions and anything already \
+covered by an existing entry (e.g. don't suggest "the fed" if "fed " is tracked).
+
+If you find genuine gaps, list each as "NAME/TOPIC — why it matters" (max 8 items). \
+If nothing stands out, reply with exactly: No gaps found."""
+
+    try:
+        resp = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key":         ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+                "content-type":      "application/json",
+            },
+            json={
+                "model":      "claude-sonnet-5",
+                "max_tokens": 500,
+                "messages":   [{"role": "user", "content": prompt}],
+            },
+            timeout=30,
+        )
+        content = resp.json()["content"]
+        text = next((b["text"] for b in content if b.get("type") == "text"), "").strip()
+        return text or None
+    except Exception:
+        return None
 
 
 def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, list[str]]:
@@ -17254,6 +17475,21 @@ def main():
 
     elif args.mode == "readiness":
         run_readiness_scan()
+        # Weekly news-keyword freshness check (2026-08-21) — runs alongside
+        # the existing Sunday readiness scan rather than its own separate
+        # cron, same "get ready for the week ahead" moment. Never blocks or
+        # fails the readiness scan itself — see the function's own
+        # fail-open contract.
+        try:
+            _kw_suggestion = check_news_keyword_freshness()
+            if _kw_suggestion and _kw_suggestion.strip().lower() != "no gaps found.":
+                send_telegram(
+                    "🔎 <b>Weekly news-keyword review</b>\n"
+                    f"{_kw_suggestion}\n\n"
+                    "Suggestions only — nothing was changed automatically."
+                )
+        except Exception as _kw_exc:
+            print(f"  ⚠️  News-keyword freshness check failed (non-fatal): {_kw_exc}")
 
     elif args.mode == "scan":
         # Sync Alpaca fills first so PositionTracker is current before we submit

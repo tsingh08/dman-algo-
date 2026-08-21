@@ -213,131 +213,28 @@ _NEWS_SEEN_IDS_MAX = 2000
 # symbols it happens to be tagged with, so a Fed story tagged alongside an
 # unrelated watchlist ticker still gets flagged as macro rather than
 # rendered as an ordinary single-stock alert.
-MACRO_NEWS_SYMBOLS = ["SPY", "QQQ", "DIA", "IWM", "TLT", "UUP"]
-MACRO_NEWS_KEYWORDS = [
-    "fed ", "federal reserve", "fomc", "rate cut", "rate hike",
-    "interest rate", "powell", "treasury yield", "monetary policy",
-    "inflation", " cpi ", " ppi ", "jobs report", "nonfarm payroll",
-    "tariff",   # added 2026-08-15 — the live catalyst behind the open UMAC
-                # play (Trump's 100% drone-import tariff) is trade policy,
-                # same broad-economic-policy category as the rest of this
-                # list. Catches a follow-on tariff headline even when it's
-                # tagged to a sector peer (RCAT/ONDS/AVAV) rather than UMAC
-                # itself directly.
-    # Added 2026-08-15 after a market-conditions review turned up two gaps:
-    "warsh", "jackson hole",   # Kevin Warsh became Fed chair 2026-05-13
-                # (replacing Powell) -- "powell" above is now a stale name
-                # for this same category, kept harmless for historical/
-                # comparison mentions but no longer the person actually
-                # setting policy. His first Jackson Hole keynote as chair
-                # (symposium runs Aug 27-29, keynote expected ~Aug 28) is a
-                # major, genuinely uncertain policy-signal event given how
-                # contested his confirmation was (54-45, narrowest in Fed
-                # history) -- exactly the kind of headline this list exists
-                # to elevate out of the quiet watchlist log.
-    "strait of hormuz", "houthi", "opec",   # active Middle East flashpoint
-                # confirmed live 2026-08-15: Iran-US talks stalled, Houthi
-                # attacks on Saudi tankers/energy facilities in the Bab
-                # el-Mandeb and Hormuz straits, pushing oil and gold up.
-                # This is a real supply-shock channel (oil price shock ->
-                # broad market vol) with zero prior keyword coverage here --
-                # every headline about it was silently logged as routine
-                # "watchlist" instead of surfacing as the macro risk it is.
-    "trump",   # Added 2026-08-21, direct instruction: "tariff" above only
-               # catches the policy OUTCOME, not the source -- a Trump
-               # statement/social-media post routinely moves markets (or a
-               # specific sector) well before any formal tariff/policy
-               # headline follows it. Broader net on purpose; FAST_SCAN_
-               # MACRO_KEYWORDS below decides which of these matches are
-               # also worth waking the scanner early for, not this list.
-    "jensen huang", "nvidia ceo",   # Added 2026-08-21, direct instruction:
-               # same reasoning as "trump" -- Huang's public comments on AI
-               # chip demand/export policy are a real, repeated mover for
-               # the whole semis complex (AMD, AVGO, MU, SMCI, ON, MRVL,
-               # KLAC all sit in WATCHLIST already), not just NVDA itself.
-    # Added 2026-08-21, direct instruction ("Fed governors, sector CEOs,
-    # other policy figures, popular buzzwords... capture everything") --
-    # every name/topic below is a real, named voice or acute event that
-    # can move markets on an off-the-cuff remark or a sudden headline, not
-    # a routine earnings/product story already covered by WATCHLIST's own
-    # per-ticker news check.
-    #
-    # FOMC voting members beyond warsh/powell (each can move rate-cut odds
-    # on a single unscheduled remark, same category as Warsh/Powell above):
-    "bowman", "waller", "lisa cook", "mary daly", "kashkari",
-    "goolsbee", "bostic", "john williams",
-    # Trade/economic policy figures (the people who actually write and
-    # sign the tariff/export headlines "tariff" above only catches after
-    # the fact):
-    "bessent", "lutnick", "jamieson greer", "white house tariff",
-    "executive order", "export control", "entity list", "chip ban",
-    # Sector CEOs whose personal remarks (not just earnings prints) move
-    # their whole sector -- WATCHLIST already covers AAPL/MSFT/GOOGL/
-    # META/AMD/TSLA themselves, this catches the PERSON's name in a
-    # headline where the ticker tag might lag or miss:
-    "elon musk", "tim cook", "satya nadella", "sundar pichai",
-    "mark zuckerberg", "lisa su", "sam altman", "jamie dimon",
-    # Geopolitical/supply-chain flashpoints beyond hormuz/houthi/opec —
-    # Taiwan specifically for chip-supply-chain risk (TSMC/semis complex):
-    "taiwan", "xi jinping", "beijing",
-    # Acute, sudden-headline events with no earnings-calendar equivalent:
-    "government shutdown", "debt ceiling",
-    # Big-picture 2026 themes worth logging/alerting on even without a
-    # single ticker attached (AI capex sustainability, chip trade war,
-    # crypto regulatory shifts, quantum computing hype cycle — IONQ/RGTI-
-    # adjacent):
-    "ai bubble", "chip war", "semiconductor export", "stablecoin",
-    "crypto regulation", "quantum computing", "recession", "soft landing",
-]
-
-# Subset of MACRO_NEWS_KEYWORDS that also wakes the fast-scan trigger
-# (see the "if not is_macro and not held_hit" trigger logic in
-# news_data_stream_loop) -- added 2026-08-21, direct instruction to get
-# into a gap-up faster than a scheduled cron would catch it. Deliberately
-# NOT every macro keyword: a scheduled, already-known-in-advance data
-# print (CPI, jobs report, FOMC minutes) doesn't reward speed the same
-# way an unscheduled remark or a sudden policy/geopolitical headline
-# does -- those are the ones where being 10 minutes ahead of the next
-# cron slot actually matters, not routine calendar events. Every NAMED
-# figure here (Fed voters, policy officials, sector CEOs) is included --
-# an off-the-cuff remark from any of them is exactly the unscheduled,
-# high-velocity case speed helps with. The acute-event topics (export
-# controls, shutdown, debt ceiling) are included for the same reason;
-# the slower-moving thematic buzzwords (ai bubble, chip war, recession,
-# soft landing, quantum computing, stablecoin/crypto regulation) are
-# deliberately left alert/log-only -- those build over many headlines,
-# not one sudden print, so an early scan wouldn't catch anything a normal
-# cron pass wouldn't. Still gate-checked identically to any other trigger
-# source (MTF/sector/RS/macro-safe/confluence) -- this only changes
-# detection latency, never what gets allowed through.
-FAST_SCAN_MACRO_KEYWORDS = {
-    "trump", "tariff", "jensen huang", "nvidia ceo",
-    "bowman", "waller", "lisa cook", "mary daly", "kashkari",
-    "goolsbee", "bostic", "john williams",
-    "bessent", "lutnick", "jamieson greer", "white house tariff",
-    "executive order", "export control", "entity list", "chip ban",
-    "elon musk", "tim cook", "satya nadella", "sundar pichai",
-    "mark zuckerberg", "lisa su", "sam altman", "jamie dimon",
-    "taiwan", "xi jinping", "beijing",
-    "government shutdown", "debt ceiling",
-}
-
-
+#
+# MACRO_NEWS_SYMBOLS/MACRO_NEWS_KEYWORDS/FAST_SCAN_MACRO_KEYWORDS moved to
+# dman_algo.py 2026-08-21 (see WATCHLIST's own neighborhood there) so
+# check_news_keyword_freshness() -- a standalone dman_algo.py process, no
+# import of this file -- can read the SAME list a Telegram-approved
+# addition/removal actually edits, instead of a copy that would silently
+# drift from what the live news stream here is really matching against.
 def _news_subscription_symbols() -> list[str]:
     """_curated_universe_tickers() plus the macro-proxy symbols above —
     the news stream's actual subscription list. Kept as one function so
     the subscribe call and the later reconnect-on-change poll compare
     against the exact same set."""
-    return sorted(set(_curated_universe_tickers()) | set(MACRO_NEWS_SYMBOLS))
+    return sorted(set(_curated_universe_tickers()) | set(algo.MACRO_NEWS_SYMBOLS))
 
 
 def _is_macro_headline(headline: str) -> bool:
-    """Case-insensitive substring match against MACRO_NEWS_KEYWORDS.
+    """Case-insensitive substring match against algo.MACRO_NEWS_KEYWORDS.
     Padded keywords (e.g. "fed ", " cpi ") avoid matching mid-word
     (e.g. "federal" already has its own full-word entry; a bare "fed"
     would also match "federated", "federal-express-adjacent", etc.)."""
     h = f" {headline.lower()} "
-    return any(kw in h for kw in MACRO_NEWS_KEYWORDS)
+    return any(kw in h for kw in algo.MACRO_NEWS_KEYWORDS)
 
 
 # Feeds scan_loop()'s fast-scan trigger (added 2026-08-13 alongside the
@@ -1589,14 +1486,14 @@ def news_data_stream_loop() -> None:
                 return
             if _already_seen(news_id):
                 return
-            is_macro = _is_macro_headline(headline) or any(s in MACRO_NEWS_SYMBOLS for s in symbols)
+            is_macro = _is_macro_headline(headline) or any(s in algo.MACRO_NEWS_SYMBOLS for s in symbols)
             try:
                 with open(algo.POSITIONS_FILE) as f:
                     held = {p.get("ticker", "") for p in json.load(f)}
             except Exception:
                 held = set()
             relevant = [s for s in symbols if s in held or s in algo.WATCHLIST
-                        or s in algo.DMAN_SMALLCAP_WATCHLIST or s in MACRO_NEWS_SYMBOLS]
+                        or s in algo.DMAN_SMALLCAP_WATCHLIST or s in algo.MACRO_NEWS_SYMBOLS]
             if not relevant and not is_macro:
                 return
             held_hit = [s for s in relevant if s in held]
@@ -1626,7 +1523,7 @@ def news_data_stream_loop() -> None:
             # advantage away for nothing. Same cooldown/lock, same "never
             # skips a gate" guarantee as every other trigger source here.
             _headline_lower = f" {headline.lower()} "
-            _is_fast_scan_macro = any(kw in _headline_lower for kw in FAST_SCAN_MACRO_KEYWORDS)
+            _is_fast_scan_macro = any(kw in _headline_lower for kw in algo.FAST_SCAN_MACRO_KEYWORDS)
             if not held_hit and market_hours() and (_is_fast_scan_macro or not is_macro):
                 _watchlist_hits = [s for s in relevant if s in algo.WATCHLIST]
                 _worth_a_look = _is_fast_scan_macro or (

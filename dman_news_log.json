@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:01.904349-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Aurora Innovation Form4 Filing Shows Uber Technologies Sold 72M Shares At $6.55/Share In $471.6M Block Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:57:02.273796-04:00",
     "symbols": [
       "MDB"
@@ -5073,5 +5063,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T12:19:32.662243-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "The \u2018Debasement\u2019 Trade Is Here, and Commodities Are Sending the Warning",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

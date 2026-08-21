@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T10:28:43.119803-04:00",
-    "symbols": [
-      "EVAX"
-    ],
-    "headline": "Evaxion Biotech Q2 EPS $(0.01) Beats $(0.31) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T10:28:43.124112-04:00",
     "symbols": [
       "EVAX"
@@ -5082,5 +5072,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T13:54:53.109779-04:00",
+    "symbols": [
+      "COIN",
+      "IONQ"
+    ],
+    "headline": "Why Is Coinbase Stock Surging Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

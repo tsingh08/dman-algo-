@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:01.546095-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin Eyes Best Week Since Trump&#39;s Election Victory: Why Is This A Fed&#39;s Warsh Problem?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:57:01.550916-04:00",
     "symbols": [
       "COIN"
@@ -5072,5 +5062,16 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T11:29:30.330064-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "Why Is Robinhood Stock Surging Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

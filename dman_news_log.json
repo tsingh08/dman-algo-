@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:56:55.348415-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Viking Global Shifts Gears: Andreas Halvorsen Makes $817 Million Bet on Ferrari, Slashes Tesla Stake by 78% in Q2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:56:55.352927-04:00",
     "symbols": [
       "MSFT"
@@ -5062,6 +5052,16 @@
     "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:12:00.680592-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba Group Holding shares are trading lower after DeepSeek released an experimental version of its V4 Flash Vision AI model. Also, Baird maintained its Outperform rating on the stock and lowered its price target from $164 to $160.",
+    "source": "benzinga",
+    "tag": "held",
     "sentiment": "positive"
   }
 ]

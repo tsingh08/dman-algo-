@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:56:59.824133-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Qnity Electronics Installs A KLA Corporation Surfscan SP7XP Unpatterned Wafer Defect Inspection System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T09:56:59.947655-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Surging Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:59.952467-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood CEO Says Trump Accounts Give Kids a Simple Way Into S&amp;P 500 \u2014 \u2018See the Magic of Compound Interest\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:59.956779-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Trump&#39;s Crypto Comments Cheered: Robinhood CEO Stresses &#39;Broad Ownership&#39; At White House Event, Binance Founder Says, &#39;We&#39;re So Back&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:59.962131-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Trump Says US is the &#39;Hottest Country&#39; and CLARITY Act Will Keep it Ahead Of China \u2014 Bitcoin Purchase &#39;Been Talked About&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:57:00.203334-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Pharma Bro Admits &#39;Playing Around&#39; With MRNA Short At $80 Before it Exploded 177% Following Cancer Vax Trials\u2014 \u2018I Bet You a Bunch of People Got Fired\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:57:00.208447-04:00",
     "symbols": [
       "MRNA"
@@ -5072,5 +5012,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T11:08:14.422974-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Has No \u2018Single Silver Bullet\u2019 To Engagement, Revenue Growth: Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T11:08:27.444826-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Recent Report Shows That Rep. David Taylor Sold Up to $50K Worth of Microsoft Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T11:08:28.354883-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Recent Report Shows That Rep. David Taylor Sold Up to $50K Worth of Microsoft Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T11:08:33.487811-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "QUICK SPARK: Strategy Stock Rallies 27% This Week on Bitcoin Revival",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T11:08:33.747367-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "QUICK SPARK: Strategy Stock Rallies 27% This Week on Bitcoin Revival",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T11:11:59.505774-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Barclays Maintains Overweight on Hims &amp; Hers Health, Lowers Price Target to $35",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

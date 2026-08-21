@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T12:07:00.531266-04:00",
-    "symbols": [
-      "SCSC"
-    ],
-    "headline": "Full Transcript: ScanSource Q4 2026 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T12:07:00.535505-04:00",
-    "symbols": [
-      "SCSC"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T12:07:00.539742-04:00",
     "symbols": [
       "SCSC"
@@ -5073,5 +5053,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T15:57:41.944893-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Citigroup Maintains Buy on Marvell Technology, Raises Price Target to $275",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T15:59:29.358142-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna shares are trading higher. The stock may be rallying on this week&#39;s announcement that topline results from the Phase 3 INTerpath-001 trial met its primary and a key secondary endpoint.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

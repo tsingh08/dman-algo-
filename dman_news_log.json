@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:56:58.811543-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Technology Announces Planned $10B Investment Over Next Decade In Micron Research Labs, A Boise-Headquartered Memory Research Hub; Groundbreaking Expected In Calendar 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:58.816653-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:56:58.991542-04:00",
     "symbols": [
       "SNDK"
@@ -5068,5 +5048,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:44:49.692123-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "COVID-19 Made Moderna Famous: Cancer Could Define Its Future",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:45:55.472425-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD",
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-linked companies are trading higher amid continued\u00a0 Bitcoin price momentum after President Trump recently urged Congress to pass the Clarity Act and said the CFTC is working to bring Hyperliquid to the U.S. Investors may be seeing a renewed appetite for high-risk assets after the Treasury Department expanded its debt repurchase program.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

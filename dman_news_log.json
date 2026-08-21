@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T10:26:06.085664-04:00",
-    "symbols": [
-      "CAST"
-    ],
-    "headline": "FreeCast shares are trading higher after the company announced a deal with Rede Brasileira de Televis\u00e3o to add 28 Brazilian TV channels, advancing its global streaming expansion.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T10:28:33.281926-04:00",
     "symbols": [
       "AAPL"
@@ -5068,6 +5058,16 @@
     ],
     "headline": "U.S. Baker Hughes Oil Rig Count  -3 To 452 Vs 456 Est.; U.S. Baker Hughes NatGas Rig Count -1 To 127; U.S. Baker Hughes Total Rig Count 589 Vs 593 Prior",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T13:20:25.819148-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "T3 Defense Targets UAV, Counter-UAV Market with New Platforms",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

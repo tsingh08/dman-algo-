@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-20T12:07:01.312124-04:00",
-    "symbols": [
-      "TEM"
-    ],
-    "headline": "BTIG Maintains Buy on Tempus AI, Raises Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T12:07:01.316417-04:00",
-    "symbols": [
-      "TEM"
-    ],
-    "headline": "Moderna Stock Cools Off After-Hours, Following Massive 177% Cancer Vaccine Rally \u2014 Merck, Pfizer and BioNTech Among mRNA Names Trending Tonight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T12:07:01.564569-04:00",
-    "symbols": [
-      "LYTS"
-    ],
-    "headline": "LSI Industries Q4 Adj. EPS $0.38 Beats $0.36 Estimate, Sales $234.621M Beat $222.781M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T12:07:01.568978-04:00",
-    "symbols": [
-      "LYTS"
-    ],
-    "headline": "LSI Industries Announces CFO James E. Galeese To Retire August 31, 2027; Successor Expected To Be Named In H1 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T12:15:15.132905-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on AbbVie, Raises Price Target to $303",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-20T12:17:19.973013-04:00",
     "symbols": [
       "GOOGL",
@@ -5076,5 +5026,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T16:10:01.567194-04:00",
+    "symbols": [
+      "VMAR"
+    ],
+    "headline": "Trading Halt: Halt status updated at 4:10:00 PM ET: Quotation Resumption: News and Resumption Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T16:18:23.085668-04:00",
+    "symbols": [
+      "PLAG"
+    ],
+    "headline": "Planet Green Holdings\u2019 ATM Sales Agreement To Be Terminated By Curvature Securities; No Shares Sold Under Program",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T16:26:01.853936-04:00",
+    "symbols": [
+      "PLAG"
+    ],
+    "headline": "Planet Green Holdings shares are trading higher after Curvature Securities announced it is terminating the Sales Agreement with the company.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T16:47:08.297537-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Ray Dalio Says Dump Bonds, Buy Gold: 4 ETFs in Focus as US Debt Risks Rise",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T16:47:44.859496-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Army Secretary Expected To Step Down By Year\u2019s End&#39;- WSJ",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

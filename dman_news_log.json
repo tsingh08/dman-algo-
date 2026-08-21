@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T10:24:13.070152-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on CrowdStrike Holdings, Raises Price Target to $205",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-08-20T10:24:26.324727-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Waymo Launches 5nm ASIC Chip",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T10:26:06.085664-04:00",
     "symbols": [
       "CAST"
@@ -5067,6 +5047,26 @@
       "TMC"
     ],
     "headline": "8 Materials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T13:14:15.070894-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "T3 Defense shares are trading lower. The company announced its subsidiary, Rimon Agencies, has entered the UAV and counter-UAV platform market.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T13:14:20.469340-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Baker Hughes Oil Rig Count  -3 To 452 Vs 456 Est.; U.S. Baker Hughes NatGas Rig Count -1 To 127; U.S. Baker Hughes Total Rig Count 589 Vs 593 Prior",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

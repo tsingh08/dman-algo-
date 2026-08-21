@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T11:12:51.732878-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T11:12:52.255571-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-20T11:12:52.727442-04:00",
     "symbols": [
       "AMZN"
@@ -5076,5 +5056,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:51:47.434878-04:00",
+    "symbols": [
+      "GOOGL",
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Launches Grok 4.6 On Google Cloud Vertex AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T14:52:18.214043-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple Cuts Jobs in Siri, Vision Pro Immersive Video and Gaming Teams&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

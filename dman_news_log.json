@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T12:02:09.179379-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Stock of the Day: Is Nebius About to Reverse?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T12:03:06.143331-04:00",
     "symbols": [
       "MRNA"
@@ -5077,6 +5067,16 @@
     ],
     "headline": "MARA Holdings, Coinbase Global, Ternium And Other Big Stocks Moving Higher On Friday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T15:19:38.720026-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Watching Airbnb; Hearing Investor Business Daily SwingTrader Sells Stock",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

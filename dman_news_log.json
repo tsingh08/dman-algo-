@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-19T13:58:59.430432-04:00",
-    "symbols": [
-      "IBIT"
-    ],
-    "headline": "Bitcoin Rampage Triggers Biggest Short-Liquidation Event in History: &#39;It Cannot Be Understated How Insane This Is&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:59:00.033202-04:00",
-    "symbols": [
-      "NVAX"
-    ],
-    "headline": "Novavax Stock Moves Higher Wednesday: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-19T13:59:00.714006-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Pfizer Stock Rises Wednesday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T13:59:00.717633-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Moderna Doubles, Gold Rallies To $4,500 As Dollar Sinks: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-19T13:59:00.721176-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Investors Should Position For Humanoid Robot Boom\u2014Here&#39;s A Picks-And-Shovels Play; First mRNA Cancer Vaccine Succeeds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-19T13:59:00.931756-04:00",
     "symbols": [
       "PURR"
@@ -5068,5 +5018,58 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T17:32:09.414280-04:00",
+    "symbols": [
+      "COIN",
+      "MSTR"
+    ],
+    "headline": "Bitcoin Cracks $72,500: What Do Prediction Markets Say Happens Next?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T17:58:32.892066-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;Anthropic Set to Add Citigroup to Top IPO Banks on Mega-Listing&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T18:45:26.268950-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Apple Stock In The Last 5 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-20T19:00:39.823399-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Palantir Technologies 10 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-20T19:50:01.143447-04:00",
+    "symbols": [
+      "ELAB"
+    ],
+    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

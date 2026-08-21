@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T12:07:00.539742-04:00",
-    "symbols": [
-      "SCSC"
-    ],
-    "headline": "ScanSource Signs Deal To Acquire MicroAge For $220.5M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T12:07:00.793277-04:00",
     "symbols": [
       "GOF"
@@ -5073,5 +5063,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T16:01:41.828180-04:00",
+    "symbols": [
+      "COIN",
+      "MRNA"
+    ],
+    "headline": "Bessent&#39;s Bond Band-Aid, Bitcoin&#39;s Best Week Since 2023: This Week on Wall Street",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

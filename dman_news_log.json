@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T10:28:33.281926-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "A 10-Year Treasury Bond Now Pays More Than 118 Of America&#39;s Biggest Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T10:28:33.964385-04:00",
     "symbols": [
       "NVDA"
@@ -5070,5 +5060,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T13:31:22.692754-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Expands Grok Bot Availability To SuperGrok Plus, Cursor Pro+, And Cursor Teams Plans",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

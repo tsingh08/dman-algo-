@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:01.540701-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Stock Surges Following White House Crypto Summit and Regulatory Push",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:57:01.546095-04:00",
     "symbols": [
       "COIN"
@@ -5071,6 +5061,16 @@
     "headline": "Barclays Maintains Overweight on Hims &amp; Hers Health, Lowers Price Target to $35",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T11:23:32.361294-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "PURR Surges Above $10 as Analysts Tout Hyperliquid Outperformance",
+    "source": "benzinga",
+    "tag": "held",
     "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:01.740084-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Robinhood CEO Says Trump Accounts Give Kids a Simple Way Into S&amp;P 500 \u2014 \u2018See the Magic of Compound Interest\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T09:57:01.744832-04:00",
     "symbols": [
       "MSTR"
@@ -5072,6 +5062,16 @@
     "headline": "Watching SpaceX; Shares Trading Higher, Falcon 9 Launches 29 Starlink Satellites To Orbit From Florida",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T11:56:19.558995-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba Stock Falls 7% on Profit Miss, but Analyst Stays Bullish on AI Cloud",
+    "source": "benzinga",
+    "tag": "held",
     "sentiment": "positive"
   }
 ]

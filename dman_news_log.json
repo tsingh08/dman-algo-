@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:56:59.615053-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Marvell Technology, Maintains $360 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:59.619811-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:56:59.824133-04:00",
     "symbols": [
       "KLAC"
@@ -5068,6 +5048,27 @@
       "MSTR"
     ],
     "headline": "QUICK SPARK: Strategy Stock Rallies 27% This Week on Bitcoin Revival",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:58:19.410618-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Barclays Maintains Overweight on Alibaba Gr Hldgs, Raises Price Target to $200",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T11:00:20.424493-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Recent Report Shows That Rep. David Taylor Sold Up to $50K Worth of Microsoft Stock",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

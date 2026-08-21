@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-20T10:28:33.964385-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "A 10-Year Treasury Bond Now Pays More Than 118 Of America&#39;s Biggest Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T10:28:34.545280-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "A 10-Year Treasury Bond Now Pays More Than 118 Of America&#39;s Biggest Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T10:28:34.825250-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Waymo Launches 5nm ASIC Chip",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T10:28:34.829811-04:00",
     "symbols": [
       "GOOGL"
@@ -5070,5 +5040,43 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T13:35:18.833813-04:00",
+    "symbols": [
+      "ENPH",
+      "MRVL",
+      "MSFT",
+      "MSTR",
+      "NVDA",
+      "PLTR",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T13:35:18.989034-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "10 Financials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T13:35:19.264048-04:00",
+    "symbols": [
+      "HIMS",
+      "LLY"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

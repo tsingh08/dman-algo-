@@ -255,6 +255,39 @@ MACRO_NEWS_KEYWORDS = [
                # chip demand/export policy are a real, repeated mover for
                # the whole semis complex (AMD, AVGO, MU, SMCI, ON, MRVL,
                # KLAC all sit in WATCHLIST already), not just NVDA itself.
+    # Added 2026-08-21, direct instruction ("Fed governors, sector CEOs,
+    # other policy figures, popular buzzwords... capture everything") --
+    # every name/topic below is a real, named voice or acute event that
+    # can move markets on an off-the-cuff remark or a sudden headline, not
+    # a routine earnings/product story already covered by WATCHLIST's own
+    # per-ticker news check.
+    #
+    # FOMC voting members beyond warsh/powell (each can move rate-cut odds
+    # on a single unscheduled remark, same category as Warsh/Powell above):
+    "bowman", "waller", "lisa cook", "mary daly", "kashkari",
+    "goolsbee", "bostic", "john williams",
+    # Trade/economic policy figures (the people who actually write and
+    # sign the tariff/export headlines "tariff" above only catches after
+    # the fact):
+    "bessent", "lutnick", "jamieson greer", "white house tariff",
+    "executive order", "export control", "entity list", "chip ban",
+    # Sector CEOs whose personal remarks (not just earnings prints) move
+    # their whole sector -- WATCHLIST already covers AAPL/MSFT/GOOGL/
+    # META/AMD/TSLA themselves, this catches the PERSON's name in a
+    # headline where the ticker tag might lag or miss:
+    "elon musk", "tim cook", "satya nadella", "sundar pichai",
+    "mark zuckerberg", "lisa su", "sam altman", "jamie dimon",
+    # Geopolitical/supply-chain flashpoints beyond hormuz/houthi/opec —
+    # Taiwan specifically for chip-supply-chain risk (TSMC/semis complex):
+    "taiwan", "xi jinping", "beijing",
+    # Acute, sudden-headline events with no earnings-calendar equivalent:
+    "government shutdown", "debt ceiling",
+    # Big-picture 2026 themes worth logging/alerting on even without a
+    # single ticker attached (AI capex sustainability, chip trade war,
+    # crypto regulatory shifts, quantum computing hype cycle — IONQ/RGTI-
+    # adjacent):
+    "ai bubble", "chip war", "semiconductor export", "stablecoin",
+    "crypto regulation", "quantum computing", "recession", "soft landing",
 ]
 
 # Subset of MACRO_NEWS_KEYWORDS that also wakes the fast-scan trigger
@@ -263,12 +296,31 @@ MACRO_NEWS_KEYWORDS = [
 # into a gap-up faster than a scheduled cron would catch it. Deliberately
 # NOT every macro keyword: a scheduled, already-known-in-advance data
 # print (CPI, jobs report, FOMC minutes) doesn't reward speed the same
-# way an unscheduled Trump/Jensen-Huang statement does -- those are the
-# ones where being 10 minutes ahead of the next cron slot actually
-# matters, not routine calendar events. Still gate-checked identically
-# to any other trigger source (MTF/sector/RS/macro-safe/confluence) --
-# this only changes detection latency, never what gets allowed through.
-FAST_SCAN_MACRO_KEYWORDS = {"trump", "tariff", "jensen huang", "nvidia ceo"}
+# way an unscheduled remark or a sudden policy/geopolitical headline
+# does -- those are the ones where being 10 minutes ahead of the next
+# cron slot actually matters, not routine calendar events. Every NAMED
+# figure here (Fed voters, policy officials, sector CEOs) is included --
+# an off-the-cuff remark from any of them is exactly the unscheduled,
+# high-velocity case speed helps with. The acute-event topics (export
+# controls, shutdown, debt ceiling) are included for the same reason;
+# the slower-moving thematic buzzwords (ai bubble, chip war, recession,
+# soft landing, quantum computing, stablecoin/crypto regulation) are
+# deliberately left alert/log-only -- those build over many headlines,
+# not one sudden print, so an early scan wouldn't catch anything a normal
+# cron pass wouldn't. Still gate-checked identically to any other trigger
+# source (MTF/sector/RS/macro-safe/confluence) -- this only changes
+# detection latency, never what gets allowed through.
+FAST_SCAN_MACRO_KEYWORDS = {
+    "trump", "tariff", "jensen huang", "nvidia ceo",
+    "bowman", "waller", "lisa cook", "mary daly", "kashkari",
+    "goolsbee", "bostic", "john williams",
+    "bessent", "lutnick", "jamieson greer", "white house tariff",
+    "executive order", "export control", "entity list", "chip ban",
+    "elon musk", "tim cook", "satya nadella", "sundar pichai",
+    "mark zuckerberg", "lisa su", "sam altman", "jamie dimon",
+    "taiwan", "xi jinping", "beijing",
+    "government shutdown", "debt ceiling",
+}
 
 
 def _news_subscription_symbols() -> list[str]:

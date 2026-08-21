@@ -1,87 +1,5 @@
 [
   {
-    "ts": "2026-08-20T11:08:23.944470-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Treasury Secretary Bessent Speaking On CNBC Says Yields Don&#39;t Represent Underlying Fundamentals; Says Buyback Operations Could Be More Than $4B Per Issue",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T11:09:55.368164-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Treasury Secretary Bessent Speaking On CNBC Says Markets Got A Little Ahead Of Themselves; Says Treasury And Fed Would Work Together On Any Balance Sheet Change, Rates Have Nothing To Do With Buyback Decision",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T11:11:05.487991-04:00",
-    "symbols": [
-      "SGLY"
-    ],
-    "headline": "Why Is Singularity Future Tech Stock Soaring Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T11:12:03.378309-04:00",
-    "symbols": [
-      "META",
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T11:12:16.760016-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T11:12:17.241790-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T11:12:17.587974-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T11:12:26.157534-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T11:12:26.716674-04:00",
     "symbols": [
       "MARA"
@@ -5075,6 +4993,86 @@
       "GEMI"
     ],
     "headline": "MARA Holdings, Coinbase Global, Ternium And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:05:47.996124-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Investors Build a Barbell: Big Tech On One End, Short-Term Bonds On The Other",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T14:05:50.827693-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Why Is Coinbase Stock Surging Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T14:05:51.831075-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Why Is Coinbase Stock Surging Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:05:51.903317-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Business Growth Hits 52-Month Highs: It&#39;s &#39;Booming,&#39; Economist Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:05:51.908574-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Investors Build a Barbell: Big Tech On One End, Short-Term Bonds On The Other",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:05:52.015818-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "US Business Growth Hits 52-Month Highs: It&#39;s &#39;Booming,&#39; Economist Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:05:52.020425-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Investors Build a Barbell: Big Tech On One End, Short-Term Bonds On The Other",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T14:05:52.101689-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Investors Build a Barbell: Big Tech On One End, Short-Term Bonds On The Other",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

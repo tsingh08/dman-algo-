@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T11:12:57.938283-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T11:12:58.371158-04:00",
     "symbols": [
       "MARA"
@@ -5077,5 +5067,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T15:06:03.462005-04:00",
+    "symbols": [
+      "MU",
+      "NBIS",
+      "SNDK"
+    ],
+    "headline": "Did Citadel\u2019s $4 Billion AI Stock Selloff Weigh On MU, SNDK, NBIS?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

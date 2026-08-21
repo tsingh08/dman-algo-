@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:02.273796-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "SNOW, MDB, PLTR: Is SaaS Losing Its Edge? Futurum Equities Says 95% of Software Could Become \u2018AI Plumbing\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T09:57:02.390053-04:00",
     "symbols": [
       "BABA"
@@ -5073,5 +5063,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T12:31:01.148092-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The U.S. Department Of State Has Made A Determination Approving A Possible Foreign Military Sale To The Government Of Norway For UH-60M Black Hawk Helicopters And Related Equipment; Estimated Total Cost Is $2.3B",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

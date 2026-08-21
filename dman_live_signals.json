@@ -61,6 +61,30 @@
       "timestamp": "2026-08-21T13:11:19.431457-04:00"
     },
     {
+      "ticker": "BITX",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 17.23,
+      "stop": 16.69,
+      "target1": 19.31,
+      "target2": 20.35,
+      "score": 100,
+      "date": "2026-08-21",
+      "timestamp": "2026-08-21T15:16:58.809514-04:00"
+    },
+    {
+      "ticker": "BITU",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 13.37,
+      "stop": 12.94,
+      "target1": 14.97,
+      "target2": 15.77,
+      "score": 100,
+      "date": "2026-08-21",
+      "timestamp": "2026-08-21T15:16:58.810277-04:00"
+    },
+    {
       "ticker": "ARTL",
       "setup": "Low Float Catalyst",
       "bias": "LONG",

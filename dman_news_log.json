@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-20T12:07:00.793277-04:00",
-    "symbols": [
-      "GOF"
-    ],
-    "headline": "Watching Guggenheim Strategic Opportunities Fund; The Bear Cave Newsletter Issues Report On Co Titled &#34;Problems at Guggenheim Strategic Opportunities Fund (GOF)&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T12:07:01.303255-04:00",
-    "symbols": [
-      "TEM"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T12:07:01.307810-04:00",
-    "symbols": [
-      "TEM"
-    ],
-    "headline": "Why Is Tempus AI Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T12:07:01.312124-04:00",
     "symbols": [
       "TEM"
@@ -5074,5 +5044,37 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T16:05:55.059202-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "MSTR Jumps to $120 on Bitcoin Boost to $77,000: What Do Prediction Markets Forecast?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T16:05:59.268889-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bessent&#39;s Bond Band-Aid, Bitcoin&#39;s Best Week Since 2023: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T16:08:31.605902-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;Anthropic Taps Google Chip Veteran as Part of Push Into Hardware&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

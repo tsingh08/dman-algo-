@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:01.749654-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin Near $70,000, Ethereum, XRP, Dogecoin Pop as Crypto Hits &#39;Greed&#39; Mode: Analyst Says It&#39;s Just the &#39;First Start&#39; as Markets Wake Up &#39;Massively&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T09:57:01.894783-04:00",
     "symbols": [
       "UBER"
@@ -5072,6 +5062,16 @@
     "headline": "JP Morgan Maintains Overweight on Alibaba Gr Hldgs, Raises Price Target to $210",
     "source": "benzinga",
     "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T12:07:58.401853-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "JP Morgan Maintains Underweight on Moderna, Raises Price Target to $77",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": "positive"
   }
 ]

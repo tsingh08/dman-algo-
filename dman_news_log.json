@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T11:12:52.727442-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "If You Invested $1000 In Amazon.com Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T11:12:56.175000-04:00",
     "symbols": [
       "MRNA"
@@ -5077,5 +5067,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T14:59:04.987771-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Record IPO Left University Endowments With Billion-Dollar Stakes. Anthropic Wants to Go Even Bigger",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

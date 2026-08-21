@@ -336,6 +336,19 @@ EARNINGS_SPREAD_MIN_OI         = 25      # per-leg minimum open interest
 EARNINGS_SPREAD_BUDGET_SLACK   = 1.3     # skip only if min-width spread still costs > budget * this
 EARNINGS_SPREAD_CLOSE_DTE      = 1       # close this many days before expiry — avoid short-leg pin/assignment risk
 EARNINGS_SPREAD_TAKE_PROFIT_PCT= 0.70    # optional early close at this fraction of max gain
+EARNINGS_SPREAD_POST_EVENT_EXIT_PCT = 0.5   # close once the earnings event has passed AND
+                                              # value has decayed below this fraction of the
+                                              # debit paid — added 2026-08-21 (session review
+                                              # finding): the only prior exits were DTE-based
+                                              # (could be days away) and take-profit (only
+                                              # fires on gains), so a spread that lost most of
+                                              # its value on the actual event had no path out
+                                              # until DTE even with nothing left to wait for.
+                                              # Confirmed live: BABA's double spread was down
+                                              # to ~$0 (from a $160 debit) the day after
+                                              # earnings, 7 days before its DTE close would
+                                              # have fired — the event edge is spent, only
+                                              # theta decay remains from here.
 EARNINGS_DIRECTIONAL_MIN_MOVES = 3       # of EARNINGS_DIRECTIONAL_LOOKBACK, need this many same-sign to go single-sided
 EARNINGS_DIRECTIONAL_LOOKBACK  = 4       # how many past earnings moves to look at
 EARNINGS_DIRECTIONAL_MIN_AVG_PCT = 8.0   # ...and the average magnitude must be at least this
@@ -2620,9 +2633,16 @@ def _handle_buy_command(parts: list[str]) -> None:
             return
 
     total_cost = round(qty * limit_price * 100, 2)
-    _manual_buy_cap = _options_position_budget()   # never let a manual buy's total cost
-                                                     # exceed the same per-trade ceiling
-                                                     # automated entries respect
+    # Never let a manual buy's total cost exceed the same per-trade ceiling
+    # automated entries respect -- including the probation size cut. Found
+    # in the 2026-08-21 session review: this cap didn't apply is_on_probation()'s
+    # multiplier at all, while _submit_signals_to_alpaca() does (see
+    # _risk_off_mult) -- a manual /buy during probation could size at the
+    # FULL budget while every automated entry was deliberately halved,
+    # defeating the point of the reduced-size period for the one path a
+    # human is most likely to reach for right after a losing stretch.
+    _probation_on, _probation_mult = is_on_probation()
+    _manual_buy_cap = _options_position_budget() * (_probation_mult if _probation_on else 1.0)
     if total_cost > _manual_buy_cap:
         send_telegram(f"⚠️ {qty}x {item['occ_symbol']} @ ${limit_price:.2f} = ~${total_cost:.0f}, "
                        f"over the ${_manual_buy_cap:.0f} per-trade cap — "
@@ -5972,6 +5992,34 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
             send_telegram(f"🚀 <b>EARNINGS SPREAD TAKE-PROFIT</b> — {t}\n{msg}")
             _mark_alerted(_tpk)
         return f"{t}: {action}"
+
+    # Post-event decay exit — see EARNINGS_SPREAD_POST_EVENT_EXIT_PCT's
+    # docstring. Checked after DTE/take-profit so it never overrides either
+    # (DTE is a harder deadline; take-profit only fires on gains, so there's
+    # no real overlap with this loss-side check).
+    _debit_paid = float(pos.get("entry", 0))
+    _earn_date_str = pos.get("earn_date", "")
+    if got_quotes and _debit_paid > 0 and _earn_date_str:
+        try:
+            _earn_date = date.fromisoformat(_earn_date_str)
+        except ValueError:
+            _earn_date = None
+        if _earn_date and date.today() > _earn_date and cur_value < _debit_paid * EARNINGS_SPREAD_POST_EVENT_EXIT_PCT:
+            st, oid = _close_earnings_spread(pos, f"{t} earnings spread post-event decay")
+            _pek = f"{t}_EARNSPREAD_POSTEVENT_{_tod}"
+            if st == "submitted":
+                action, msg = "📉 POST-EVENT DECAY — AUTO-CLOSED", \
+                    f"Value ${cur_value:.0f} vs ${_debit_paid:.0f} paid, earnings already resolved ({_earn_date_str}). id {oid[:8]}…"
+            elif st == "pending":
+                action, msg = "📉 POST-EVENT DECAY — close order working", "Close order already open — awaiting fill"
+            elif st == "already_closed":
+                action, msg = "📉 POST-EVENT — already closed at Alpaca", "Nothing held — next sync records the outcome"
+            else:
+                action, msg = "📉 POST-EVENT DECAY — ⚠️ AUTO-CLOSE FAILED", f"Value ${cur_value:.0f} — CLOSE MANUALLY"
+            if not _is_alerted_today(_pek):
+                send_telegram(f"📉 <b>EARNINGS SPREAD POST-EVENT</b> — {t}\n{msg}")
+                _mark_alerted(_pek)
+            return f"{t}: {action}"
 
     return None
 
@@ -12491,6 +12539,31 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     return min(100, score)
 
 
+def _smallcap_score_threshold(ticker: str, setup: str) -> int:
+    """
+    Minimum score.get(setup) required for a smallcap-discovery-path signal
+    to pass — DMan's own curated watchlist gets a lower BASE floor (his
+    curation is itself the edge signal), but that floor must never sit
+    BELOW a setup-specific tightening in SETUP_MIN_CONFLUENCE.
+
+    Extracted 2026-08-21 (was inline in run_pro_scanner()'s smallcap loop)
+    after the session review found SETUP_MIN_CONFLUENCE["Low Float
+    Catalyst"] — raised to 90 on 2026-08-14 specifically because this
+    setup's live record was a 0% WR streak — was silently dead code on
+    the only path that ever generates this setup type: the inline version
+    only ever compared against DMAN_WATCHLIST_MIN_SCORE (45) or
+    SMALLCAP_MIN_SCORE (55), never SETUP_MIN_CONFLUENCE at all. ARTL
+    (DMAN_SMALLCAP_WATCHLIST) kept re-entering through the 45-point
+    watchlist floor at scores as low as 47; its real record since is
+    1W/4L. max() keeps the watchlist floor for any OTHER setup this path
+    might ever produce, while making sure "Low Float Catalyst"
+    specifically can't route around its own tightening just because the
+    ticker happens to be curated.
+    """
+    base = DMAN_WATCHLIST_MIN_SCORE if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_SCORE
+    return max(base, SETUP_MIN_CONFLUENCE.get(setup, 0))
+
+
 def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
                               insider_pct: float = 0.0, post_rs: bool = False) -> str:
     """Telegram alert format for Low Float Catalyst signals — distinct from large-cap alerts."""
@@ -13827,10 +13900,11 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             if not earn_ok:
                 sc_rejected += 1
                 continue
-            # Score with small-cap specific scorer
-            # Watchlist tickers use lower threshold — Dman's curation is the edge signal
+            # Score with small-cap specific scorer — see
+            # _smallcap_score_threshold()'s docstring for why this can't
+            # just use the watchlist floor on its own.
             sc_sig.confluence_score = score_smallcap_signal(sc_sig)
-            _sc_threshold = DMAN_WATCHLIST_MIN_SCORE if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_SCORE
+            _sc_threshold = _smallcap_score_threshold(ticker, sc_sig.setup)
             if sc_sig.confluence_score < _sc_threshold:
                 sc_rejected += 1
                 continue

@@ -2655,6 +2655,102 @@ class TestCloseEarningsSpread(unittest.TestCase):
         mock_client.submit_order.assert_not_called()
 
 
+class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
+    """Added 2026-08-21 (session review finding): the only prior exits for
+    an earnings debit spread were DTE-based (could be days away) and
+    take-profit (only fires on gains) -- a spread that lost most of its
+    value on the actual earnings event had no path out until the DTE
+    close, even with the catalyst already spent and nothing left to wait
+    for. Confirmed live: BABA's double spread was down to ~$0 (from a
+    $160 debit) the day after earnings, 7 days before its DTE close would
+    have fired."""
+
+    def _pos(self, earn_date="2026-08-20", entry=160.0, max_gain=322.0,
+              expiry="260828", spread_qty=1):
+        return {
+            "ticker": "BABA", "earn_date": earn_date, "entry": entry,
+            "max_gain": max_gain, "spread_qty": spread_qty,
+            "legs": [f"BABA{expiry}C00138000", f"BABA{expiry}C00142000",
+                     f"BABA{expiry}P00120000", f"BABA{expiry}P00116000"],
+        }
+
+    def _snap(self, bid, ask):
+        return {"bid": bid, "ask": ask}
+
+    def test_decayed_spread_after_earnings_triggers_post_event_close(self):
+        # bid/ask chosen so cur_value nets to roughly -$4 (matches the real
+        # BABA case), well under 50% of the $160 debit paid.
+        snaps = {
+            "BABA260828C00138000": self._snap(0.80, 0.84),
+            "BABA260828C00142000": self._snap(0.61, 0.65),
+            "BABA260828P00120000": self._snap(0.30, 0.34),
+            "BABA260828P00116000": self._snap(0.53, 0.57),
+        }
+        with patch.object(a, "date") as mock_date:
+            mock_date.today.return_value = date(2026, 8, 21)   # 1 day after earn_date
+            mock_date.fromisoformat = date.fromisoformat
+            with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
+                 patch.object(a, "_close_earnings_spread", return_value=("submitted", "order123")) as mock_close, \
+                 patch.object(a, "_is_alerted_today", return_value=False), \
+                 patch.object(a, "_mark_alerted"), \
+                 patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                result = a._monitor_earnings_spread_position(self._pos())
+        mock_close.assert_called_once()
+        self.assertIn("post-event decay", mock_close.call_args[0][1])
+        self.assertIn("POST-EVENT DECAY", result)
+        self.assertTrue(any("POST-EVENT" in c.args[0] for c in mock_tg.call_args_list))
+
+    def test_same_day_as_earnings_does_not_trigger_yet(self):
+        # date.today() == earn_date (earnings today, market hasn't had a
+        # full session to react yet) -- must not fire on event day itself.
+        snaps = {
+            "BABA260828C00138000": self._snap(0.80, 0.84),
+            "BABA260828C00142000": self._snap(0.61, 0.65),
+            "BABA260828P00120000": self._snap(0.30, 0.34),
+            "BABA260828P00116000": self._snap(0.53, 0.57),
+        }
+        with patch.object(a, "date") as mock_date:
+            mock_date.today.return_value = date(2026, 8, 20)   # == earn_date
+            mock_date.fromisoformat = date.fromisoformat
+            with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
+                 patch.object(a, "_close_earnings_spread") as mock_close:
+                result = a._monitor_earnings_spread_position(self._pos())
+        mock_close.assert_not_called()
+        self.assertIsNone(result)
+
+    def test_healthy_value_after_earnings_does_not_trigger(self):
+        # Value still well above 50% of the debit paid -- no reason to
+        # force an early exit just because earnings already happened.
+        snaps = {
+            "BABA260828C00138000": self._snap(1.80, 1.84),
+            "BABA260828C00142000": self._snap(0.61, 0.65),
+            "BABA260828P00120000": self._snap(0.10, 0.14),
+            "BABA260828P00116000": self._snap(0.05, 0.09),
+        }
+        with patch.object(a, "date") as mock_date:
+            mock_date.today.return_value = date(2026, 8, 21)
+            mock_date.fromisoformat = date.fromisoformat
+            with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
+                 patch.object(a, "_close_earnings_spread") as mock_close:
+                result = a._monitor_earnings_spread_position(self._pos())
+        mock_close.assert_not_called()
+
+    def test_no_earn_date_never_triggers_post_event_exit(self):
+        # Older/malformed positions without earn_date must fail safe --
+        # no post-event exit attempted, same as the missing-snapshot case.
+        pos = self._pos(earn_date="")
+        snaps = {
+            "BABA260828C00138000": self._snap(0.10, 0.14),
+            "BABA260828C00142000": self._snap(0.05, 0.09),
+            "BABA260828P00120000": self._snap(0.05, 0.09),
+            "BABA260828P00116000": self._snap(0.05, 0.09),
+        }
+        with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
+             patch.object(a, "_close_earnings_spread") as mock_close:
+            result = a._monitor_earnings_spread_position(pos)
+        mock_close.assert_not_called()
+
+
 class TestRecentEarningsSurprise(unittest.TestCase):
     """Real actual-vs-estimate beat/miss data (Massive's /benzinga/v1/earnings
     response) was already being fetched for consensus-estimate fields but
@@ -2716,6 +2812,49 @@ class TestSharesFallbackPolicy(unittest.TestCase):
     def test_large_cap_ticker_not_allowed(self):
         with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
+
+
+class TestSmallcapScoreThreshold(unittest.TestCase):
+    """Added 2026-08-21 (session review finding): SETUP_MIN_CONFLUENCE's
+    per-setup tightening (e.g. "Low Float Catalyst" raised to 90 on
+    2026-08-14 after a 0% WR streak) was never consulted by the smallcap
+    discovery path -- the ONLY path that setup type is ever generated
+    from -- so a DMan-watchlist ticker could keep re-entering through the
+    much lower 45-point watchlist floor. A regression here silently
+    re-opens that exact loophole."""
+
+    def setUp(self):
+        self._patches = [
+            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["ARTL"]),
+            patch.object(a, "DMAN_WATCHLIST_MIN_SCORE", 45),
+            patch.object(a, "SMALLCAP_MIN_SCORE", 55),
+            patch.object(a, "SETUP_MIN_CONFLUENCE", {"Low Float Catalyst": 90}),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+
+    def test_watchlist_ticker_with_a_tightened_setup_uses_the_higher_bar(self):
+        self.assertEqual(a._smallcap_score_threshold("ARTL", "Low Float Catalyst"), 90)
+
+    def test_non_watchlist_ticker_with_a_tightened_setup_also_uses_the_higher_bar(self):
+        self.assertEqual(a._smallcap_score_threshold("RANDOM", "Low Float Catalyst"), 90)
+
+    def test_watchlist_ticker_with_an_untightened_setup_keeps_the_low_floor(self):
+        self.assertEqual(a._smallcap_score_threshold("ARTL", "Some Other Setup"), 45)
+
+    def test_non_watchlist_ticker_with_an_untightened_setup_keeps_the_smallcap_floor(self):
+        self.assertEqual(a._smallcap_score_threshold("RANDOM", "Some Other Setup"), 55)
+
+    def test_artl_at_its_real_recent_entry_score_now_fails_the_gate(self):
+        # ARTL's actual live entry on 2026-08-20 scored 47 -- below the
+        # tightened 90 bar, above the old 45 watchlist floor. This is the
+        # exact live case the fix closes.
+        threshold = a._smallcap_score_threshold("ARTL", "Low Float Catalyst")
+        self.assertGreater(threshold, 47)
 
 
 class TestWinRateLiveOnlyFiltering(unittest.TestCase):
@@ -5118,6 +5257,13 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
             # coercion produces a near-zero budget, rejecting every test
             # trade as "over the per-trade cap" before it ever stages.
             patch.object(a, "get_effective_account", return_value=25_000.0),
+            # is_on_probation() now also factors into the manual-buy cap
+            # (2026-08-21 fix) -- without mocking this, tests read whatever
+            # the REAL dman_probation.json on disk happens to say, the
+            # exact ambient-state fragility already fixed once this week
+            # for the win-rate file. Default to "not on probation" here;
+            # the dedicated probation-cap tests below override it.
+            patch.object(a, "is_on_probation", return_value=(False, 1.0)),
         ]
         for p in self._patches:
             p.start()
@@ -5296,6 +5442,40 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         self.assertIn("per-trade cap", mock_tg.call_args[0][0])
         self.assertEqual(os.path.getsize(self._buy_tmp.name), 0,
                           "a rejected /buy must not stage a pending confirmation")
+
+    def test_buy_command_during_probation_uses_the_halved_cap(self):
+        # Found in the 2026-08-21 session review: the manual /buy cap
+        # didn't apply is_on_probation()'s multiplier at all, while
+        # _submit_signals_to_alpaca() does for every automated entry --
+        # a manual buy during probation could size at the FULL budget
+        # while every automated entry was deliberately halved. Budget is
+        # 25,000 * 0.15 = 3,750 normally; halved to 1,875 on probation.
+        # 5 contracts @ $4.00 ask = $2,000 -- under the normal cap, over
+        # the halved one.
+        menu = self._menu()
+        menu["items"][0]["bid"] = 3.90
+        menu["items"][0]["ask"] = 4.00
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(menu, f)
+        with patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_buy_command(["/buy", "1", "5"])
+        self.assertIn("per-trade cap", mock_tg.call_args[0][0])
+        self.assertIn("1875", mock_tg.call_args[0][0].replace(",", ""))
+        self.assertEqual(os.path.getsize(self._buy_tmp.name), 0)
+
+    def test_buy_command_during_probation_still_allows_a_properly_sized_trade(self):
+        menu = self._menu()
+        menu["items"][0]["bid"] = 3.90
+        menu["items"][0]["ask"] = 4.00
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(menu, f)
+        with patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
+             patch.object(a, "send_telegram", return_value=True):
+            a._handle_buy_command(["/buy", "1", "4"])   # 4 x $400 = $1,600, under the $1,875 halved cap
+        with open(self._buy_tmp.name) as f:
+            pending = json.load(f)
+        self.assertEqual(pending["contracts"], 4)
 
     # ── YES/NO reply ─────────────────────────────────────────────────
     def _pending(self, expires_in_min=5):

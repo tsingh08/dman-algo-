@@ -103,6 +103,10 @@ STATE_FILES = [
     "dman_live_outcomes.csv", "dman_alpaca_sync.json", "dman_win_rate.json",
     "dman_daily_pnl.json", "dman_monthly_pnl.json", "dman_halt.json",
     "dman_probation.json",   # manual reduced-size trading period — see is_on_probation()
+    "dman_day_start_equity.json",   # today's EOD-P&L baseline — see _get_day_start_equity();
+                                      # found 2026-08-21 missing from every persist list, so it
+                                      # was never actually committed back and every session
+                                      # started from a stale multi-day-old checkout
     "dman_telegram_state.json", "dman_smallcap_watchlist.json",
     "dman_alerts_dedup.json",   # T1/T2/stop/DTE options-alert dedup — was missing,
                                  # meant every alert re-fired across separate runs
@@ -1804,6 +1808,23 @@ def main() -> None:
         + (f"  (cloud session until {run_until} ET)" if cloud else ""))
     git_sync()
     algo._register_telegram_commands()
+    # Snapshot today's day-start equity baseline as early as possible.
+    # Found in the 2026-08-21 session review: _get_day_start_equity() was
+    # ONLY ever called from inside send_account_pnl_telegram() itself,
+    # which only runs once, near 4 PM ET (the EOD summary) -- meaning the
+    # "day start" baseline and the "current" equity it's compared against
+    # were captured in the SAME call, so day_pl = equity - equity == 0
+    # every single day regardless of what actually happened. The morning
+    # daemon session (the first one to start most days, ~9:23 AM ET) is
+    # the natural place to set the real baseline; _get_day_start_equity()
+    # already no-ops if today's baseline is already set, so this is safe
+    # to call from every session without double-snapshotting the day.
+    try:
+        _eq_now = algo.get_effective_account()
+        if _eq_now > 0:
+            algo._get_day_start_equity(_eq_now)
+    except Exception as _eq_exc:
+        log(f"day-start equity snapshot failed (non-fatal): {_eq_exc}")
     algo.send_telegram("🤖 <b>DMan daemon ONLINE</b>"
                        + (f" [cloud session → {run_until[:2]}:{run_until[2:]} ET]" if cloud else "")
                        + " — real-time entries, exits, fill stream, and phone "

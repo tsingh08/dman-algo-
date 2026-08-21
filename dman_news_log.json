@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:02.390053-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Transcript: Alibaba Gr Hldgs Q1 2027 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T09:57:02.394847-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Says AI Spending Could Pay Off In 3 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T09:57:02.399658-04:00",
     "symbols": [
       "BABA"
@@ -5073,5 +5053,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T12:33:28.258413-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: Gold Surged Above $4,600 An Ounce On Friday And Is Up More Than 14% In August, Putting It On Track For Its Biggest Monthly Gain Since 1999; The Metal Is Also Trading Above All Key Moving Averages, Having Broken \u200babove The Closely Watched 200-Day Moving Average Of Around $4,513",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T12:36:11.052417-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Why Is Arbutus Biopharma Stock Gaining Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

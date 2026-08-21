@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:02.399658-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Executive Says It Can Break Even On AI-Related Capex In About Three Years Based On Current Average Gross Margins",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T09:57:02.403909-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Group Exec Says Cloud Undergoing Comprehensive Upgrade To Agentic Cloud; AI And Cloud Revenue Growth Will Accelerate Further In Coming Quarter; Expect Productivity Agents To Become Another Engine Of ArRR Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T09:57:02.408595-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Group Q1 Adj. EPADS $1.26 Misses $1.85 Estimate, Sales $39.639B Beat $38.630B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T09:57:02.557500-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Uber Brings Baidu\u2019s Driverless Robotaxis To Dubai",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T09:57:02.562671-04:00",
     "symbols": [
       "BIDU"
@@ -5070,6 +5030,54 @@
       "MRNA"
     ],
     "headline": "Why Is Arbutus Biopharma Stock Gaining Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T12:51:16.165948-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;AI Cloud Firm Nscale Is Said to Seek Up to $3 Billion in US IPO&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T12:52:13.743685-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TLT",
+      "TSLA"
+    ],
+    "headline": "Bond Buyback Is Simply A Band-Aid for $40T US Debt; Warsh Faces Jackson Hole Test",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T12:52:53.696602-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Walmart to Offer Apple Pay in Push for Contactless Payments&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T12:53:02.712521-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Vistra, Raises Price Target to $227",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

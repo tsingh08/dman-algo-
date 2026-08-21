@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:56:55.352927-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Mohamed El-Erian Warns US Treasury&#39;s Bond Buyback Is Just a &#39;Band-Aid,&#39; Not a Fix For a $40 Trillion Debt Problem",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.719116-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on NVIDIA, Maintains $300 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.724252-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Mark Cuban Fires Back At Jensen Huang\u2019s AI Warning \u2014 \u2018No Chance Radiologists Get Replaced\u2019 Despite Nvidia CEO\u2019s Prediction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.728775-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bernie Sanders Warns AI Billionaires Could \u2018Obliterate\u2019 Jobs and \u2018Destroy the Environment,\u2019 Calls for Data Center Moratorium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.733142-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SNOW, MDB, PLTR: Is SaaS Losing Its Edge? Futurum Equities Says 95% of Software Could Become \u2018AI Plumbing\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.738836-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Insights Into NVIDIA&#39;s Performance Versus Peers In Semiconductors &amp; Semiconductor Equipment Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:56:55.932071-04:00",
     "symbols": [
       "AMD"
@@ -5063,5 +5003,65 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:13:07.687098-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla To Recall 1,956,713 China-Made Model 3 And Y Vehicles",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T10:13:20.160006-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "UBS Sees S&amp;P 500 at 8,100 but Prediction Markets Don&#39;t Buy It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T10:13:20.433334-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "UBS Sees S&amp;P 500 at 8,100 but Prediction Markets Don&#39;t Buy It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:13:21.212690-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "UBS Sees S&amp;P 500 at 8,100 but Prediction Markets Don&#39;t Buy It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:13:21.451869-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "UBS Sees S&amp;P 500 at 8,100 but Prediction Markets Don&#39;t Buy It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:13:26.157567-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "UBS Sees S&amp;P 500 at 8,100 but Prediction Markets Don&#39;t Buy It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

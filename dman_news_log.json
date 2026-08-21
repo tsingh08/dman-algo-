@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:57:01.735440-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T09:57:01.740084-04:00",
     "symbols": [
       "MSTR"
@@ -5073,5 +5063,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T11:50:25.050052-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Watching SpaceX; Shares Trading Higher, Falcon 9 Launches 29 Starlink Satellites To Orbit From Florida",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

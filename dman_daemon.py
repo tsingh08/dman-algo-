@@ -243,7 +243,32 @@ MACRO_NEWS_KEYWORDS = [
                 # broad market vol) with zero prior keyword coverage here --
                 # every headline about it was silently logged as routine
                 # "watchlist" instead of surfacing as the macro risk it is.
+    "trump",   # Added 2026-08-21, direct instruction: "tariff" above only
+               # catches the policy OUTCOME, not the source -- a Trump
+               # statement/social-media post routinely moves markets (or a
+               # specific sector) well before any formal tariff/policy
+               # headline follows it. Broader net on purpose; FAST_SCAN_
+               # MACRO_KEYWORDS below decides which of these matches are
+               # also worth waking the scanner early for, not this list.
+    "jensen huang", "nvidia ceo",   # Added 2026-08-21, direct instruction:
+               # same reasoning as "trump" -- Huang's public comments on AI
+               # chip demand/export policy are a real, repeated mover for
+               # the whole semis complex (AMD, AVGO, MU, SMCI, ON, MRVL,
+               # KLAC all sit in WATCHLIST already), not just NVDA itself.
 ]
+
+# Subset of MACRO_NEWS_KEYWORDS that also wakes the fast-scan trigger
+# (see the "if not is_macro and not held_hit" trigger logic in
+# news_data_stream_loop) -- added 2026-08-21, direct instruction to get
+# into a gap-up faster than a scheduled cron would catch it. Deliberately
+# NOT every macro keyword: a scheduled, already-known-in-advance data
+# print (CPI, jobs report, FOMC minutes) doesn't reward speed the same
+# way an unscheduled Trump/Jensen-Huang statement does -- those are the
+# ones where being 10 minutes ahead of the next cron slot actually
+# matters, not routine calendar events. Still gate-checked identically
+# to any other trigger source (MTF/sector/RS/macro-safe/confluence) --
+# this only changes detection latency, never what gets allowed through.
+FAST_SCAN_MACRO_KEYWORDS = {"trump", "tariff", "jensen huang", "nvidia ceo"}
 
 
 def _news_subscription_symbols() -> list[str]:
@@ -1538,9 +1563,23 @@ def news_data_stream_loop() -> None:
             # confluence/its own (now sentiment-aware) news_boost exactly as
             # it would on the next scheduled pass — this only changes WHEN
             # that check happens, not what it allows.
-            if not is_macro and not held_hit and market_hours():
+            # Added 2026-08-21: a headline matching FAST_SCAN_MACRO_KEYWORDS
+            # (Trump/Jensen Huang-style unscheduled statements, not a
+            # calendar-known data print) also wakes the scanner early, on
+            # top of the existing non-macro watchlist-hit trigger below --
+            # this is exactly the "get in ahead of the gap-up" case: the
+            # headline itself isn't tied to one ticker, but the sector it
+            # moves (semis, drone/defense on a tariff, etc.) IS covered by
+            # WATCHLIST, and waiting for the next cron slot gives that
+            # advantage away for nothing. Same cooldown/lock, same "never
+            # skips a gate" guarantee as every other trigger source here.
+            _headline_lower = f" {headline.lower()} "
+            _is_fast_scan_macro = any(kw in _headline_lower for kw in FAST_SCAN_MACRO_KEYWORDS)
+            if not held_hit and market_hours() and (_is_fast_scan_macro or not is_macro):
                 _watchlist_hits = [s for s in relevant if s in algo.WATCHLIST]
-                if _watchlist_hits and algo._news_sentiment_verdict(_watchlist_hits[0]) != "negative":
+                _worth_a_look = _is_fast_scan_macro or (
+                    _watchlist_hits and algo._news_sentiment_verdict(_watchlist_hits[0]) != "negative")
+                if _worth_a_look:
                     # Found in the 2026-08-16 review: market_data_stream_loop's
                     # own trigger (above) holds _scan_baseline_lock across
                     # this exact check-and-set on _last_fast_scan_trigger_ts;

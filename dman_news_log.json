@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T11:12:51.473326-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Mark Cuban Fires Back At AI Warning: \u2018No Chance Radiologists Get Replaced\u2019 (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T11:12:51.732878-04:00",
     "symbols": [
       "NVDA"
@@ -5076,5 +5066,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T14:34:59.268788-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading higher. The world&#39;s largest uranium producer KazAtomProm said in its H1 financial results that the era of cheap uranium is fading away in addition to disclosing new supply deals with Russia and China. Also, Centrus&#39; CEO said in an interview that he expects the U.S. military to be a key buyer of its enriched uranium, which may help bolster demand for fuel and engineering services.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

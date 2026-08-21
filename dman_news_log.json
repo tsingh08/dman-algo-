@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-08-20T09:56:55.126792-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Evaluating Apple Against Peers In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.131202-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Viking Global Shifts Gears: Andreas Halvorsen Makes $817 Million Bet on Ferrari, Slashes Tesla Stake by 78% in Q2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.334101-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Mark Cuban Fires Back At Jensen Huang\u2019s AI Warning \u2014 \u2018No Chance Radiologists Get Replaced\u2019 Despite Nvidia CEO\u2019s Prediction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.338769-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bernie Sanders Warns AI Billionaires Could \u2018Obliterate\u2019 Jobs and \u2018Destroy the Environment,\u2019 Calls for Data Center Moratorium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T09:56:55.344094-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Exploring The Competitive Space: Microsoft Versus Industry Peers In Software",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T09:56:55.348415-04:00",
     "symbols": [
       "MSFT"
@@ -5059,5 +5009,59 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T10:02:50.714904-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Could Grab a Bigger Slice of the AI Boom As Helios Takes on NVIDIA, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T10:02:50.915976-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Could Grab a Bigger Slice of the AI Boom As Helios Takes on NVIDIA, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T10:02:51.110161-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Could Grab a Bigger Slice of the AI Boom As Helios Takes on NVIDIA, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T10:06:53.497257-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "UBS Sees S&amp;P 500 at 8,100 but Prediction Markets Don&#39;t Buy It",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-21T10:07:01.707987-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

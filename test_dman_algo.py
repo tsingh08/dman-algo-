@@ -4235,6 +4235,161 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
                           "a genuinely closed position must still be cleared")
 
 
+class TestSyncEarningsSpreadFills(unittest.TestCase):
+    """Added 2026-08-22: confirmed live that zero "Earnings " records exist
+    anywhere in 500 rows of win-rate history -- sync_alpaca_fills()
+    explicitly skips multi-leg spread positions, and neither
+    _monitor_earnings_spread_position() nor _close_earnings_spread() ever
+    recorded the outcome after submitting a close. Real P&L from this
+    strategy had never once counted toward DAILY_LOSS_LIMIT/
+    MONTHLY_LOSS_LIMIT. sync_earnings_spread_fills() is the multi-leg
+    counterpart that closes that gap."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._wr_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._wr_tmp.write(b"[]")
+        self._wr_tmp.close()
+        self._pnl_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pnl_tmp.write(b"{}")
+        self._pnl_tmp.close()
+        self._monthly_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._monthly_tmp.write(b"{}")
+        self._monthly_tmp.close()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patches = [
+            patch.object(a, "PositionTracker", self._isolated_pt),
+            patch.object(a, "DAILY_PNL_FILE", self._pnl_tmp.name),
+            patch.object(a, "MONTHLY_PNL_FILE", self._monthly_tmp.name),
+            patch.object(a, "send_telegram", return_value=True),
+            patch.object(a, "get_effective_account", return_value=3_500.0),
+        ]
+        for p in self._patches:
+            p.start()
+        self._isolated_pt().open(a.OpenPosition(
+            ticker="BABA", bias="NEUTRAL", setup="Earnings Double Spread",
+            entry=160.0, stop=0.0, target1=0.0, target2=0.0, shares=0,
+            entry_date="2026-08-19", score=0, spread_qty=1, max_loss=160.0,
+            max_gain=322.0, earn_date="2026-08-20",
+            legs=["BABA260828C00138000", "BABA260828C00142000",
+                  "BABA260828P00120000", "BABA260828P00116000"],
+        ))
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._pos_tmp, self._wr_tmp, self._pnl_tmp, self._monthly_tmp):
+            os.unlink(f.name)
+
+    def _leg_mock(self, symbol):
+        m = MagicMock()
+        m.symbol = symbol
+        return m
+
+    def _order(self, legs, status, filled_avg_price=-0.65, order_id="close-order-1"):
+        o = MagicMock()
+        o.id = order_id
+        o.legs = [self._leg_mock(s) for s in legs]
+        o.status = status
+        o.filled_avg_price = filled_avg_price
+        o.filled_at = None
+        return o
+
+    def test_all_legs_closed_with_a_credit_records_a_loss(self):
+        from alpaca.trading.enums import OrderStatus
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []   # no legs held anywhere
+        mock_client.get_orders.return_value = [self._order(
+            ["BABA260828C00138000", "BABA260828C00142000",
+             "BABA260828P00120000", "BABA260828P00116000"],
+            OrderStatus.FILLED, filled_avg_price=-0.65,
+        )]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, set())
+        self.assertEqual(n, 1)
+        self.assertEqual(len(tracker.records), 1)
+        rec = tracker.records[0]
+        self.assertEqual(rec.ticker, "BABA")
+        self.assertEqual(rec.outcome, "LOSS")
+        # Paid $160, received 0.65*100=$65 back -> -$95, -59.4% of the debit.
+        self.assertAlmostEqual(rec.pnl_pct, -59.38, places=1)
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0)
+
+    def test_partial_leg_close_does_not_record_or_clear(self):
+        from alpaca.trading.enums import OrderStatus
+        mock_client = MagicMock()
+        # Only 2 of 4 legs closed -- 2 still held.
+        mock_client.get_all_positions.return_value = [
+            MagicMock(symbol="BABA260828C00138000"), MagicMock(symbol="BABA260828P00120000"),
+        ]
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, set())
+        self.assertEqual(n, 0)
+        self.assertEqual(len(tracker.records), 0)
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 1,
+                          "a partially-closed spread must stay tracked, not be guessed at")
+
+    def test_no_matching_closing_order_leaves_tracking_untouched(self):
+        from alpaca.trading.enums import OrderStatus
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [self._order(
+            ["SOME260828C00001000", "SOME260828C00002000"], OrderStatus.FILLED,
+        )]   # an unrelated order, doesn't match BABA's legs
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, set())
+        self.assertEqual(n, 0)
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 1)
+
+    def test_already_recorded_id_is_skipped(self):
+        from alpaca.trading.enums import OrderStatus
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [self._order(
+            ["BABA260828C00138000", "BABA260828C00142000",
+             "BABA260828P00120000", "BABA260828P00116000"],
+            OrderStatus.FILLED, order_id="already-seen",
+        )]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, {"already-seen"})
+        self.assertEqual(n, 0)
+        self.assertEqual(len(tracker.records), 0)
+
+    def test_sync_alpaca_fills_includes_earnings_spread_count(self):
+        # Confirms sync_alpaca_fills() actually calls the new function and
+        # folds its count into the total, so every existing caller
+        # (--mode sync, --mode scan --submit, the daemon) picks this up
+        # with zero call-site changes.
+        from alpaca.trading.enums import OrderStatus
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [self._order(
+            ["BABA260828C00138000", "BABA260828C00142000",
+             "BABA260828P00120000", "BABA260828P00116000"],
+            OrderStatus.FILLED, filled_avg_price=-0.65,
+        )]
+        _sync_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        _sync_tmp.close()
+        try:
+            with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+                 patch.object(a, "ALPACA_SYNC_FILE", _sync_tmp.name):
+                tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+                n = a.sync_alpaca_fills(tracker)
+        finally:
+            os.unlink(_sync_tmp.name)
+        self.assertEqual(n, 1)
+        self.assertEqual(len(tracker.records), 1)
+        self.assertEqual(tracker.records[0].ticker, "BABA")
+
+
 class TestPdtStatusFailsClosed(unittest.TestCase):
     """Found in the 2026-08-16 review: _get_pdt_status() used to fail OPEN
     ({"remaining": 3, "swing_mode": False} -- "plenty of budget, use the

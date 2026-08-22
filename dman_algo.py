@@ -15098,11 +15098,15 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
         # Earnings spreads have 2-4 real option legs, not one symbol — the rest
         # of this loop (single-symbol "still open?" check, single-order exit
         # lookup) is built around exactly one Alpaca symbol per position and
-        # isn't a safe fit for a multi-leg position. Their full lifecycle
-        # (fill confirmation, DTE-based close, outcome recording) is already
-        # handled explicitly by _monitor_earnings_spread_position() /
-        # _close_earnings_spread() — skip them here rather than force a
-        # partial, likely-wrong adaptation of this single-symbol logic.
+        # isn't a safe fit for a multi-leg position. _monitor_earnings_spread_position()/
+        # _close_earnings_spread() handle the DTE/take-profit/post-event
+        # close DECISION and submit the closing order, but neither one ever
+        # recorded the OUTCOME — confirmed live 2026-08-22: zero "Earnings "
+        # records exist anywhere in 500 rows of win-rate history despite the
+        # strategy being live-traded repeatedly, meaning DAILY_LOSS_LIMIT/
+        # MONTHLY_LOSS_LIMIT have never once counted a real earnings-spread
+        # loss. sync_earnings_spread_fills() below is the multi-leg
+        # counterpart to the rest of this loop, called once at the end.
         if pos.setup.startswith("Earnings "):
             continue
         # Options positions: Alpaca reports the OCC symbol (e.g. "SMCI260724C00027500"),
@@ -15325,9 +15329,130 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 print(f"  🧹 Stale entry cleared: {_lbl} — not open at Alpaca, "
                       f"already-recorded close (likely resurrected by a state merge)")
 
+    new_count += sync_earnings_spread_fills(tracker, recorded_ids)
+
     state["last_sync"]    = datetime.utcnow().isoformat()
     state["recorded_ids"] = list(recorded_ids)[-500:]
     _save_sync_state(state)
+    return new_count
+
+
+def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) -> int:
+    """
+    Multi-leg counterpart to sync_alpaca_fills()'s main loop, which
+    explicitly skips "Earnings " positions (see its own comment) since its
+    single-symbol "still open?" check and single-order exit lookup aren't
+    a safe fit for a 2-4-leg spread. Confirmed live 2026-08-22: that skip
+    meant NO earnings-spread trade has ever had its outcome recorded,
+    anywhere, in 500 rows of win-rate history — real P&L from this
+    strategy has never once counted toward get_todays_loss()/
+    get_this_month_loss(), and therefore never toward DAILY_LOSS_LIMIT/
+    MONTHLY_LOSS_LIMIT either. `recorded_ids` is the SAME set
+    sync_alpaca_fills() reads/writes (one shared ledger in
+    dman_alpaca_sync.json, not a second one that could drift).
+
+    A position here counts as closed only when ALL of its legs are absent
+    from Alpaca's open positions — a partial multi-leg fill (e.g. only 2
+    of 4 legs closed) is left alone rather than guessed at.
+
+    Alpaca's own MLEG fill-price sign convention (confirmed live on the
+    BABA close this fixes): opening a net DEBIT reports a POSITIVE
+    filled_avg_price (what was paid); closing for a net CREDIT reports
+    NEGATIVE (what was received). dollar_pnl = credit_received - debit_paid.
+    """
+    client = get_alpaca_client()
+    if client is None:
+        return 0
+    pt = PositionTracker()
+    new_count = 0
+
+    try:
+        alp_open = {p.symbol for p in client.get_all_positions()}
+    except Exception as exc:
+        print(f"  ⚠️  Earnings spread sync: could not fetch positions — {exc}")
+        return 0
+
+    for pos in list(pt.positions):
+        if not pos.setup.startswith("Earnings "):
+            continue
+        legs = pos.legs
+        if not legs or any(leg in alp_open for leg in legs):
+            continue   # still open (at least one leg remains) — nothing to record yet
+
+        try:
+            orders = client.get_orders(filter=GetOrdersRequest(status=QueryOrderStatus.CLOSED, limit=20))
+        except Exception:
+            continue
+
+        from alpaca.trading.enums import OrderStatus as _OrderStatus
+        _matched = None
+        for order in orders:
+            if str(order.id) in recorded_ids:
+                continue
+            order_legs = {getattr(l, "symbol", None) for l in (getattr(order, "legs", None) or [])}
+            if order_legs and order_legs == set(legs) and order.status == _OrderStatus.FILLED:
+                _matched = order
+                break
+        if _matched is None:
+            # No new closing fill found among unrecorded orders -- either
+            # not actually filled yet, or its id is already in
+            # recorded_ids from a prior cycle but the tracked entry wasn't
+            # cleared that time. Don't clear tracking here regardless --
+            # unlike sync_alpaca_fills()'s single-symbol ghost-clear,
+            # there's no confirmed resurrection failure mode for spreads
+            # yet, and clearing without a confirmed close risks losing a
+            # genuinely still-open position from tracking.
+            continue
+
+        oid = str(_matched.id)
+        fill_px = float(_matched.filled_avg_price or 0)
+        qty = max(1, int(pos.spread_qty))
+        credit_received = -fill_px * 100 * qty
+        debit_paid = float(pos.entry)
+        dollar_pnl = credit_received - debit_paid
+        pnl_pct = (dollar_pnl / debit_paid * 100) if debit_paid > 0 else 0.0
+        outcome = "WIN" if pnl_pct > 0.1 else "LOSS" if pnl_pct < -0.1 else "BE"
+        acct_pct = dollar_pnl / get_effective_account() * 100
+        fill_date = (_matched.filled_at.strftime("%Y-%m-%d")
+                     if getattr(_matched, "filled_at", None) else datetime.today().strftime("%Y-%m-%d"))
+
+        # Same ledger-level dupe guard sync_alpaca_fills() uses (see its
+        # own comments for the CLRO incident this protects against).
+        _DUPE_DATE_WINDOW_DAYS = 2
+        def _dates_close(r_date: str) -> bool:
+            try:
+                return abs((date.fromisoformat(r_date) - date.fromisoformat(fill_date)).days) <= _DUPE_DATE_WINDOW_DAYS
+            except (TypeError, ValueError):
+                return False
+        _dupe = any(r.ticker == pos.ticker and r.setup == pos.setup
+                    and abs(r.exit - round(credit_received, 2)) < 0.5
+                    and _dates_close(r.date) for r in tracker.records)
+        if _dupe:
+            pt.close(pos.ticker)
+            recorded_ids.add(oid)
+            print(f"  ⏭️  Skipped duplicate earnings-spread close: {pos.ticker} already in win-rate history")
+            continue
+
+        tracker.record(TradeRecord(
+            ticker=pos.ticker, date=fill_date, bias=pos.bias, setup=pos.setup,
+            entry=round(debit_paid, 2), exit=round(credit_received, 2),
+            outcome=outcome, pnl_pct=round(pnl_pct, 2), score=pos.score, is_live=True,
+        ))
+        record_daily_pnl(acct_pct)
+        record_monthly_pnl(acct_pct)
+        pt.close(pos.ticker)
+        recorded_ids.add(oid)
+        new_count += 1
+        sign = "+" if dollar_pnl >= 0 else ""
+        print(f"  📋 Synced: {pos.ticker} EARNINGS SPREAD  ${debit_paid:.0f}→${credit_received:.0f}  "
+              f"{outcome}  {sign}{pnl_pct:.1f}%  ({sign}${dollar_pnl:,.0f})")
+        send_telegram(
+            f"📋 <b>Earnings Spread Closed</b> — {pos.ticker}\n"
+            f"Paid ${debit_paid:.0f} → Received ${credit_received:.0f}  |  "
+            f"{outcome}  {'+' if pnl_pct>=0 else ''}{pnl_pct:.1f}%\n"
+            f"P&L: {sign}${dollar_pnl:,.0f}"
+        )
+
     return new_count
 
 

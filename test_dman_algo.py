@@ -5870,6 +5870,42 @@ class TestIsOnProbation(unittest.TestCase):
             f.write("{not valid json")
         self.assertEqual(a.is_on_probation(), (False, 1.0))
 
+    def test_missing_started_field_does_not_force_expire(self):
+        # Pre-2026-08-22 probation files (or a hand-written one) have no
+        # "started" field at all -- must fail safe to NOT expired, not
+        # crash or treat a missing timestamp as infinitely old.
+        with open(self._tmp.name, "w") as f:
+            json.dump({"active": True, "size_mult": 0.5}, f)
+        with patch.object(a, "send_telegram") as mock_tg:
+            self.assertEqual(a.is_on_probation(), (True, 0.5))
+        mock_tg.assert_not_called()
+
+    def test_recent_probation_is_still_active(self):
+        started = (datetime.now(a.ET) - timedelta(days=2)).isoformat()
+        with open(self._tmp.name, "w") as f:
+            json.dump({"active": True, "size_mult": 0.5, "started": started}, f)
+        self.assertEqual(a.is_on_probation(), (True, 0.5))
+
+    def test_probation_past_max_days_auto_expires(self):
+        started = (datetime.now(a.ET) - timedelta(days=a.PROBATION_MAX_DAYS + 1)).isoformat()
+        with open(self._tmp.name, "w") as f:
+            json.dump({"active": True, "size_mult": 0.5, "started": started}, f)
+        with patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            self.assertEqual(a.is_on_probation(), (False, 1.0))
+        self.assertTrue(any("expired" in c.args[0].lower() for c in mock_tg.call_args_list))
+
+    def test_expiry_alert_only_fires_once(self):
+        started = (datetime.now(a.ET) - timedelta(days=a.PROBATION_MAX_DAYS + 1)).isoformat()
+        with open(self._tmp.name, "w") as f:
+            json.dump({"active": True, "size_mult": 0.5, "started": started}, f)
+        with patch.object(a, "_is_duplicate_alert", return_value=True), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a.is_on_probation()
+        mock_tg.assert_not_called()
+
 
 class TestSubmitManualOptionsBuy(unittest.TestCase):
     """_submit_manual_options_buy() is the actual order-placement half of

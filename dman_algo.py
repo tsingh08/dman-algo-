@@ -2217,6 +2217,19 @@ def is_halted() -> bool:
     return os.path.exists(HALT_FILE)
 
 
+PROBATION_MAX_DAYS = 10   # auto-expire after this many calendar days — added
+                          # 2026-08-22 (session review finding): probation had
+                          # no expiry at all and bypasses the monthly-loss
+                          # guard indefinitely. A human sends /probation once
+                          # during a stressful losing stretch and can easily
+                          # forget it's still silently bypassing a circuit
+                          # breaker weeks later, with nothing having actually
+                          # "proven out" the fixes that justified resuming in
+                          # the first place. ~2 trading weeks is enough time
+                          # for several real trades to either validate the
+                          # newly-shipped gates or not, without being so short
+                          # it lapses mid-recovery on its own.
+
 def is_on_probation() -> tuple[bool, float]:
     """
     (active, size_mult) for a manually-declared probation period — added
@@ -2239,11 +2252,33 @@ def is_on_probation() -> tuple[bool, float]:
     risk_off_mult sizing chain, covering equity, options, and puts
     uniformly through that one choke point. Fails safe (inactive,
     1.0x) on a missing or corrupt file.
+
+    Auto-expires PROBATION_MAX_DAYS after `started` — reverts to the
+    normal (conservative) circuit breakers rather than silently resuming
+    full-size trading, and fires a one-time Telegram nag so an expiry
+    that re-engages a still-tripped monthly guard doesn't look like
+    trading just stopped for no reason. Re-arm with a fresh /probation.
     """
     try:
         with open(PROBATION_FILE) as f:
             state = json.load(f)
         if not state.get("active"):
+            return False, 1.0
+        started_str = state.get("started", "")
+        try:
+            started = datetime.fromisoformat(started_str)
+            age_days = (datetime.now(started.tzinfo) - started).days
+        except (ValueError, TypeError):
+            age_days = 0   # unparseable/missing timestamp — don't force-expire on a data issue
+        if age_days >= PROBATION_MAX_DAYS:
+            if not _is_duplicate_alert("__PROBATION_EXPIRED__"):
+                send_telegram(
+                    f"🟡 <b>Probation expired</b> — {age_days} days since /probation, "
+                    f"past the {PROBATION_MAX_DAYS}-day limit. Reverted to normal circuit "
+                    f"breakers (a still-tripped monthly/consec-loss guard will halt entries "
+                    f"again). Send /probation to resume at reduced size if you want to continue."
+                )
+                _save_last_alert("__PROBATION_EXPIRED__")
             return False, 1.0
         return True, float(state.get("size_mult", 1.0))
     except Exception:

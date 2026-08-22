@@ -1,18 +1,6 @@
 [
   {
     "ticker": "SOUN",
-    "date": "2025-05-15",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 11.77,
-    "exit": 11.45,
-    "outcome": "LOSS",
-    "pnl_pct": -2.76,
-    "score": 78,
-    "is_live": false
-  },
-  {
-    "ticker": "SOUN",
     "date": "2025-07-11",
     "bias": "LONG",
     "setup": "Gap & Hold",
@@ -5996,6 +5984,18 @@
     "exit": 0.72,
     "outcome": "LOSS",
     "pnl_pct": -5.08,
+    "score": 0,
+    "is_live": true
+  },
+  {
+    "ticker": "BABA",
+    "date": "2026-08-21",
+    "bias": "NEUTRAL",
+    "setup": "Earnings Double Spread",
+    "entry": 160.0,
+    "exit": 65.0,
+    "outcome": "LOSS",
+    "pnl_pct": -59.38,
     "score": 0,
     "is_live": true
   }

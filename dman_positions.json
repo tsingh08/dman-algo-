@@ -1,32 +1,5 @@
 [
   {
-    "ticker": "BABA",
-    "bias": "NEUTRAL",
-    "setup": "Earnings Double Spread",
-    "entry": 160.0,
-    "stop": 0.0,
-    "target1": 0.0,
-    "target2": 0.0,
-    "shares": 0,
-    "entry_date": "2026-08-19",
-    "atr": 0.0,
-    "score": 0,
-    "legs": [
-      "BABA260828C00138000",
-      "BABA260828C00142000",
-      "BABA260828P00120000",
-      "BABA260828P00116000"
-    ],
-    "spread_qty": 1,
-    "max_loss": 160.0,
-    "max_gain": 322.0,
-    "earn_date": "2026-08-20",
-    "stop_stage": "initial",
-    "milestone_gain_alerted": 0.0,
-    "milestone_loss_alerted": 0.0,
-    "peak_premium": 0.0
-  },
-  {
     "ticker": "PURR",
     "bias": "LONG",
     "setup": "Options Call PURR260904C00009000 ($9.0C exp 2026-09-04)",

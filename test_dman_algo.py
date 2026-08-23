@@ -3835,6 +3835,30 @@ class TestOptionsTrailGivebackPct(unittest.TestCase):
         self.assertAlmostEqual(a._options_trail_giveback_pct(peak_gain), a.OPTIONS_TRAIL_GIVEBACK_MAX_PCT)
 
 
+class TestQuoteSizeImbalance(unittest.TestCase):
+    """_quote_size_imbalance() backs the order-flow-aware exit tightening
+    added 2026-08-23 (direct request: recognize a real-time pullback using
+    the size data Alpaca already provides at top-of-book, since true
+    Level 2 depth isn't available for what this account trades). Pure
+    math, independent of the monitor plumbing."""
+
+    def test_equal_sizes_is_neutral(self):
+        self.assertEqual(a._quote_size_imbalance(100, 100), 0.0)
+
+    def test_both_zero_is_neutral_not_a_crash(self):
+        self.assertEqual(a._quote_size_imbalance(0, 0), 0.0)
+
+    def test_bid_heavy_is_positive(self):
+        self.assertAlmostEqual(a._quote_size_imbalance(200, 50), 0.6)
+
+    def test_ask_heavy_is_negative(self):
+        self.assertAlmostEqual(a._quote_size_imbalance(20, 180), -0.8)
+
+    def test_range_is_bounded_to_plus_minus_one(self):
+        self.assertEqual(a._quote_size_imbalance(500, 0), 1.0)
+        self.assertEqual(a._quote_size_imbalance(0, 500), -1.0)
+
+
 class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
     """Added 2026-08-10: replaced the fixed T2 (+150%) auto-close with a
     trailing exit (activate after OPTIONS_TRAIL_ACTIVATE_GAIN_PCT gain,
@@ -3926,6 +3950,65 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
         # under the 30% giveback threshold, must stay open.
         pos = self._pos(peak_premium=1.35, target1=999.0)   # target1 sky-high so T1 branch can't interfere
         with patch.object(a, "_get_option_snapshot", return_value=self._snap(1.20)):
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(pos, "CALL")
+        mock_close.assert_not_called()
+        self.assertIn("trailing active", result)
+
+    def test_bearish_order_flow_tightens_the_exit_that_would_otherwise_stay_open(self):
+        # Same peak/current premium as
+        # test_trail_active_but_giveback_not_enough_does_not_exit above
+        # (normal 31.6% giveback threshold not yet reached) -- but now with
+        # heavy size stacked on the ask (order-flow lean well past
+        # ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD), the tightened 15% threshold
+        # IS reached (18.5% off peak) and the exit must fire.
+        pos = self._pos(peak_premium=1.35, target1=999.0)
+        bearish_snap = dict(self._snap(1.10), bid_size=10, ask_size=190)   # lean = -0.9
+        with patch.object(a, "_get_option_snapshot", return_value=bearish_snap):
+            with patch.object(a, "_submit_options_close", return_value=("submitted", "ord3")) as mock_close:
+                with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                    a._monitor_option_position(pos, "CALL")
+        mock_close.assert_called_once()
+        msg = mock_tg.call_args[0][0]
+        self.assertIn("TRAIL EXIT", msg)
+        self.assertIn("order flow", msg)
+
+    def test_bearish_order_flow_alone_does_not_exit_a_position_still_near_its_peak(self):
+        # Bounded-by-construction check: a strongly bearish lean with price
+        # still essentially AT the peak (no real pullback at all) must
+        # change nothing -- tightening the threshold doesn't matter if
+        # current premium hasn't actually fallen to it.
+        pos = self._pos(peak_premium=1.35, target1=999.0)
+        bearish_snap = dict(self._snap(1.34), bid_size=5, ask_size=195)   # lean = -0.95, barely off peak
+        with patch.object(a, "_get_option_snapshot", return_value=bearish_snap):
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    a._monitor_option_position(pos, "CALL")
+        mock_close.assert_not_called()
+
+    def test_bearish_order_flow_has_no_effect_before_trail_activates(self):
+        # Peak only ever +10% (below the 25% activation) -- order flow must
+        # not somehow arm a trail that hasn't earned activation yet. Same
+        # shape as test_trail_not_active_before_activation_gain_even_with_a_drop,
+        # with a bearish lean added.
+        pos = self._pos(peak_premium=1.10)
+        bearish_snap = dict(self._snap(0.90), bid_size=5, ask_size=195)
+        with patch.object(a, "_get_option_snapshot", return_value=bearish_snap):
+            with patch.object(a, "_submit_options_close") as mock_close:
+                with patch.object(a, "send_telegram", return_value=True):
+                    result = a._monitor_option_position(pos, "CALL")
+        mock_close.assert_not_called()
+        self.assertIn("not yet active", result)
+
+    def test_bullish_order_flow_does_not_tighten_the_exit(self):
+        # A positive/neutral lean must never tighten anything -- only a
+        # lean at or below ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD does. Same
+        # premium as the "not enough giveback" test above; bid-heavy flow
+        # must still leave it open.
+        pos = self._pos(peak_premium=1.35, target1=999.0)
+        bullish_snap = dict(self._snap(1.20), bid_size=190, ask_size=10)   # lean = +0.9
+        with patch.object(a, "_get_option_snapshot", return_value=bullish_snap):
             with patch.object(a, "_submit_options_close") as mock_close:
                 with patch.object(a, "send_telegram", return_value=True):
                     result = a._monitor_option_position(pos, "CALL")

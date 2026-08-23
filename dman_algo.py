@@ -309,6 +309,33 @@ OPTIONS_TRAIL_GIVEBACK_MIN_PCT    = 30.0    # tolerance right at the activation 
 OPTIONS_TRAIL_GIVEBACK_MAX_PCT    = 50.0    # tolerance once peak gain is very large
 OPTIONS_TRAIL_GIVEBACK_MAX_AT_PCT = 150.0   # peak gain (%) at which tolerance reaches the max
 
+# Order-flow-aware exit tightening — added 2026-08-23, direct request for the
+# algo to "recognize" a real-time pullback instead of only reacting to price
+# after the fact. True Level 2 (full order-book depth) isn't available for
+# what this account trades — Alpaca only offers it for crypto, confirmed via
+# research; equities/options here only ever get top-of-book (best bid/ask +
+# size at that single level). That's still a real, already-free signal:
+# _get_option_snapshot() and the real-time options quote stream both already
+# carry bid_size/ask_size, just never used for anything before this.
+# DELIBERATELY BOUNDED: this only ever TIGHTENS the existing trailing-exit
+# giveback tolerance once a real price pullback is already underway — a
+# strongly bearish order-flow reading by itself, with price still near its
+# peak, changes nothing. A single top-of-book read is noisy (thin names,
+# HFT quote flicker, routine iceberg/spoofing), so treating it as a
+# standalone trigger risked whipsawing out of healthy positions on noise;
+# gating it behind "price is already pulling back AND trail is already
+# armed" means the worst case is exiting a LITTLE earlier during a real
+# pullback, never a spurious exit during a flat or rising position.
+ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD = -0.4    # (bid_size-ask_size)/(bid_size+ask_size) at or below
+                                              # this = ask heavily outweighs bid (selling pressure
+                                              # sitting on top of the book) -- negative because more
+                                              # size offered than bid means thinner support under price
+ORDER_FLOW_TIGHTENED_GIVEBACK_PCT = 15.0    # tightened giveback once triggered -- below even
+                                              # OPTIONS_TRAIL_GIVEBACK_MIN_PCT (30%, the loosest
+                                              # tolerance the normal curve ever applies), since this
+                                              # only engages when order flow is independently
+                                              # confirming the price pullback, not replacing that curve
+
 # Pre-event strangles (direction-neutral, buys both call + put before big catalysts)
 STRANGLE_TICKERS    = ["SPY", "QQQ"]   # always liquid enough for two-legged plays
 STRANGLE_OTM_PCT    = 0.04             # 4% OTM per leg (keeps premium reasonable)
@@ -5790,6 +5817,28 @@ def _options_trail_giveback_pct(peak_gain_pct: float) -> float:
     return OPTIONS_TRAIL_GIVEBACK_MIN_PCT + _progress * (OPTIONS_TRAIL_GIVEBACK_MAX_PCT - OPTIONS_TRAIL_GIVEBACK_MIN_PCT)
 
 
+def _quote_size_imbalance(bid_size: float, ask_size: float) -> float:
+    """
+    Top-of-book order-flow lean from the size sitting at the best bid vs.
+    best ask right now: (bid_size - ask_size) / (bid_size + ask_size), in
+    [-1, +1]. Negative = more size offered at the ask than bid (thinner
+    buy-side support, selling pressure); positive = the reverse. Returns
+    0.0 (neutral) if both sizes are zero/missing rather than raising —
+    a quiet quote isn't evidence of pressure either way.
+
+    This is NOT Level 2 (full order-book depth) -- that isn't available
+    for equities/options through Alpaca (confirmed 2026-08-23: only their
+    crypto API offers it). It's the single best-bid/best-ask size pair,
+    which both _get_option_snapshot() and the real-time options quote
+    stream already carry for free. A real, if shallow, signal -- not a
+    substitute for genuine market depth.
+    """
+    total = bid_size + ask_size
+    if total <= 0:
+        return 0.0
+    return (bid_size - ask_size) / total
+
+
 _option_greeks_cache: dict[str, tuple[dict, float]] = {}
 _OPTION_GREEKS_CACHE_TTL_S = 300   # Greeks move slowly relative to bid/ask; a few
                                     # minutes stale is still meaningfully accurate.
@@ -5906,6 +5955,20 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     _trail_active   = _peak_prem >= _entry_prem * (1 + OPTIONS_TRAIL_ACTIVATE_GAIN_PCT / 100)
     _peak_gain_pct  = (_peak_prem - _entry_prem) / _entry_prem * 100 if _entry_prem > 0 else 0.0
     _giveback_pct   = _options_trail_giveback_pct(_peak_gain_pct)
+    # Order-flow-aware tightening (added 2026-08-23) -- see
+    # _quote_size_imbalance()'s docstring for exactly what this is and
+    # isn't (top-of-book size lean, not true Level 2 depth, which isn't
+    # available for what this account trades). Bounded by construction:
+    # this only ever makes _giveback_pct SMALLER (a stricter exit
+    # threshold) -- the trail-exit condition right below still requires
+    # premium to have actually fallen to that threshold, so a bearish
+    # reading alone, with price still at/near its peak, triggers nothing
+    # on its own. It only ever makes an ALREADY-HAPPENING pullback exit
+    # sooner, never creates a new reason to exit out of thin air.
+    _flow_lean = _quote_size_imbalance(_snap.get("bid_size", 0), _snap.get("ask_size", 0))
+    _flow_tightened = _trail_active and _flow_lean <= ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD
+    if _flow_tightened:
+        _giveback_pct = min(_giveback_pct, ORDER_FLOW_TIGHTENED_GIVEBACK_PCT)
 
     # Extra P&L visibility independent of which branch below fires (or
     # doesn't) — see _check_options_pnl_milestone. The underlying-price
@@ -5952,9 +6015,11 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         # reversal or fire too early on a slow, healthy grind.
         _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} trail")
         _giveback_desc = f"peak ${_peak_prem:.2f} → now ${_cur_prem:.2f} ({_pnl_pct:+.0f}% from entry)"
+        _flow_note = (f" — tightened by order flow (bid/ask size lean {_flow_lean:+.2f})"
+                      if _flow_tightened else "")
         if _st == "submitted":
             _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
-            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
+            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak{_flow_note} — {_giveback_desc} — "
                     f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
         elif _st == "pending":
             _action = "🚀 TRAIL EXIT — close order working"
@@ -6022,7 +6087,8 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         _msg = f"P&L: <b>{_pnl_pct:+.0f}%</b>  θ decay {_theta_pct:.1f}%/day  DTE {_dte_now}d"
 
     _trail_desc = (f"trailing active, peak ${_peak_prem:.2f} (exits below "
-                    f"${_peak_prem * (1 - _giveback_pct / 100):.2f})"
+                    f"${_peak_prem * (1 - _giveback_pct / 100):.2f}"
+                    f"{', tightened by order flow' if _flow_tightened else ''})"
                     if _trail_active else
                     f"not yet active (arms at +{OPTIONS_TRAIL_ACTIVATE_GAIN_PCT:.0f}%)")
     return (

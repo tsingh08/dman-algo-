@@ -2923,6 +2923,59 @@ class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
         mock_close.assert_not_called()
 
 
+class TestResolveEarningsTimingAlreadyReportedGap(unittest.TestCase):
+    """Added 2026-08-23: _resolve_earnings_timing() checked actual_eps
+    first (the strongest signal, but only populated once Massive has
+    backfilled it) and, when that was still None, trusted a scheduled
+    BMO/AMC time classification immediately -- returning "BMO"/"AMC" and
+    skipping the independent news-headline confirmation entirely. A
+    same-day BMO print scanned hours after the open (the daemon's 2:45 PM
+    ET trigger, or a later hourly-cron run) with actual_eps still
+    unbackfilled would classify as "BMO" with zero further check, letting
+    run_earnings_spread_scan() build and offer a real spread priced off an
+    underlying that had already reacted -- exactly the case
+    ALREADY-REPORTED exists to catch."""
+
+    def _item(self, ticker="NVDA", when="2026-08-26", actual_eps=None, time_str="07:00:00"):
+        return {"ticker": ticker, "date": when, "actual_eps": actual_eps, "time": time_str}
+
+    def test_days_away_one_never_needs_disambiguation(self):
+        result = a._resolve_earnings_timing(MagicMock(), "NVDA", date(2026, 8, 26), 200.0, days_away=1)
+        self.assertEqual(result, "PENDING-TOMORROW")
+
+    def test_actual_eps_present_is_already_reported_no_further_checks(self):
+        with patch.object(a, "_fetch_massive_earnings",
+                           return_value=[self._item(actual_eps=1.05)]), \
+             patch.object(a, "_check_earnings_already_reported") as mock_news:
+            result = a._resolve_earnings_timing(MagicMock(), "NVDA", date(2026, 8, 26), 200.0, days_away=0)
+        self.assertEqual(result, "ALREADY-REPORTED")
+        mock_news.assert_not_called()
+
+    def test_classifiable_time_but_already_reported_via_news_wins(self):
+        # THE FIX: actual_eps still None (not backfilled yet), time_str
+        # classifies cleanly to BMO -- but the independent news check
+        # confirms it already happened. ALREADY-REPORTED must win.
+        with patch.object(a, "_fetch_massive_earnings",
+                           return_value=[self._item(actual_eps=None, time_str="07:00:00")]), \
+             patch.object(a, "_check_earnings_already_reported", return_value=True):
+            result = a._resolve_earnings_timing(MagicMock(), "NVDA", date(2026, 8, 26), 200.0, days_away=0)
+        self.assertEqual(result, "ALREADY-REPORTED")
+
+    def test_classifiable_time_and_not_yet_reported_uses_the_classification(self):
+        # The normal, common case must be unaffected -- no regression.
+        with patch.object(a, "_fetch_massive_earnings",
+                           return_value=[self._item(actual_eps=None, time_str="07:00:00")]), \
+             patch.object(a, "_check_earnings_already_reported", return_value=False):
+            result = a._resolve_earnings_timing(MagicMock(), "NVDA", date(2026, 8, 26), 200.0, days_away=0)
+        self.assertEqual(result, "BMO")
+
+    def test_no_massive_match_still_falls_through_to_news_check(self):
+        with patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a, "_check_earnings_already_reported", return_value=True):
+            result = a._resolve_earnings_timing(MagicMock(), "NVDA", date(2026, 8, 26), 200.0, days_away=0)
+        self.assertEqual(result, "ALREADY-REPORTED")
+
+
 class TestRecentEarningsSurprise(unittest.TestCase):
     """Real actual-vs-estimate beat/miss data (Massive's /benzinga/v1/earnings
     response) was already being fetched for consensus-estimate fields but
@@ -8319,6 +8372,57 @@ class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):
         mock_build.assert_called_once()
 
 
+class TestEarningsSpreadScanSectorOverlapSymmetry(unittest.TestCase):
+    """Added 2026-08-23: _earnings_sector_overlap() used to be checked
+    against `pending`, which only grows as run_earnings_spread_scan()'s
+    own loop appends each new offer -- so of two same-sector candidates in
+    one scan pass, only whichever was processed SECOND (WATCHLIST order,
+    not sector order) ever saw the first's overlap. Fixed by comparing
+    against the full candidate batch up front, not just what's been
+    appended so far."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
+        self._patch.start()
+        a._save_earnings_pending([])
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+        self._dedup_patch.stop()
+        os.unlink(self._dedup_tmp.name)
+
+    def test_both_same_sector_candidates_see_each_others_overlap(self):
+        # NVDA and CRWD are both "Technology" in TICKER_SECTOR.
+        candidates = [
+            {"ticker": "NVDA", "earn_date": date.today(), "days_away": 0,
+             "timing": "AMC", "current_price": 200.0},
+            {"ticker": "CRWD", "earn_date": date.today(), "days_away": 0,
+             "timing": "AMC", "current_price": 400.0},
+        ]
+        seen_overlaps = {}
+        def _fake_format(plan, sector_overlap=None):
+            seen_overlaps[plan["ticker"]] = sector_overlap
+            return f"msg for {plan['ticker']}"
+        with patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_earnings_spread_candidates", return_value=candidates), \
+             patch.object(a, "build_earnings_spread_plan",
+                           side_effect=lambda client, ticker, *rest: {"ticker": ticker}), \
+             patch.object(a, "format_earnings_spread_telegram", side_effect=_fake_format), \
+             patch.object(a, "send_telegram", return_value=True):
+            a.run_earnings_spread_scan()
+        self.assertEqual(seen_overlaps.get("NVDA"), ["CRWD"],
+                          "the FIRST-processed candidate must also see the second's overlap")
+        self.assertEqual(seen_overlaps.get("CRWD"), ["NVDA"])
+
+
 class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     """The approve-gate is the entire safety rationale for this feature —
     every earnings spread requires an explicit human YES (permanent gate, no
@@ -8370,6 +8474,42 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         self.assertTrue(consumed)
         mock_client.submit_order.assert_called_once()
         self.assertEqual(a._load_earnings_pending(), [])
+
+    def test_offer_is_consumed_before_order_submission_not_after(self):
+        # Added 2026-08-23: this used to persist the consumed/tombstoned
+        # state only AFTER _submit_earnings_spread() returned (including
+        # after a successful submit) -- a process killed in that window
+        # would leave the offer still on disk as "awaiting_approval", and
+        # a redelivered Telegram update (a known real occurrence) could
+        # resubmit the exact same real spread a second time. Consuming
+        # first closes that window: verify the call order directly rather
+        # than just the end state, since the end state alone can't
+        # distinguish "consumed before" from "consumed after" once both
+        # have happened by the time the function returns.
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        call_order = []
+        _real_consume = a._consume_earnings_offer_save
+        def _tracked_consume(pending, entry):
+            call_order.append("consume")
+            return _real_consume(pending, entry)
+        def _tracked_submit(client, plan):
+            call_order.append("submit")
+            return "order-1", None
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "send_telegram", return_value=True), \
+             patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "get_available_cash", return_value=1_000_000.0), \
+             patch.object(a, "PositionTracker"), \
+             patch.object(a, "_consume_earnings_offer_save", side_effect=_tracked_consume), \
+             patch.object(a, "_submit_earnings_spread", side_effect=_tracked_submit):
+            a._handle_earnings_approval_reply("yes")
+        self.assertEqual(call_order, ["consume", "submit"],
+                          "the offer must be consumed BEFORE the order is submitted, not after")
 
     def test_yes_with_wrong_ticker_does_not_match(self):
         self._add_pending("HOOD")
@@ -8552,6 +8692,63 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
                             with patch.object(a, "PositionTracker"):
                                 a._handle_earnings_approval_reply("yes")
         mock_client.submit_order.assert_called_once()
+
+
+class TestExpiredOfferIsTombstoned(unittest.TestCase):
+    """Added 2026-08-23: both the inline expiry sweep in
+    _handle_earnings_approval_reply() and the dedicated
+    expire_earnings_spread_offers() used to drop an expired entry from
+    the pending LIST without ever tombstoning its identity -- so a stale
+    remote git copy that still shows it as "awaiting_approval" could
+    merge it back in. Both consumers re-validate expires_at on their own
+    next pass regardless (so this never risked an actual late approval),
+    but it's a real gap against the tombstone's documented guarantee and
+    produced duplicate "expired" Telegram spam on the resurrection."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
+        self._patch.start()
+        a._save_earnings_pending([])
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _expired_entry(self, ticker="HOOD"):
+        return {"ticker": ticker, "earn_date": "2026-07-29",
+                "created_at": (datetime.now(a.ET) - timedelta(hours=1)).isoformat(),
+                "expires_at": (datetime.now(a.ET) - timedelta(minutes=5)).isoformat(),
+                "status": "awaiting_approval", "plan": {"ticker": ticker}}
+
+    def test_inline_sweep_in_approval_reply_tombstones_the_expired_offer(self):
+        entry = self._expired_entry()
+        a._save_earnings_pending([entry])
+        with patch.object(a, "send_telegram", return_value=True):
+            a._handle_earnings_approval_reply("yes")
+        _, consumed = a._load_earnings_state()
+        self.assertIn(a._earnings_offer_identity(entry), consumed)
+
+    def test_expire_earnings_spread_offers_tombstones_the_expired_offer(self):
+        entry = self._expired_entry()
+        a._save_earnings_pending([entry])
+        with patch.object(a, "send_telegram", return_value=True):
+            a.expire_earnings_spread_offers()
+        _, consumed = a._load_earnings_state()
+        self.assertIn(a._earnings_offer_identity(entry), consumed)
+
+    def test_non_expired_offer_is_not_tombstoned_by_the_sweep(self):
+        entry = {"ticker": "HOOD", "earn_date": "2026-07-29",
+                 "created_at": datetime.now(a.ET).isoformat(),
+                 "expires_at": (datetime.now(a.ET) + timedelta(minutes=30)).isoformat(),
+                 "status": "awaiting_approval", "plan": {"ticker": "HOOD"}}
+        a._save_earnings_pending([entry])
+        with patch.object(a, "send_telegram", return_value=True):
+            a.expire_earnings_spread_offers()
+        _, consumed = a._load_earnings_state()
+        self.assertNotIn(a._earnings_offer_identity(entry), consumed)
+        self.assertEqual(len(a._load_earnings_pending()), 1)
 
 
 class TestEarningsPendingMergeSafety(unittest.TestCase):

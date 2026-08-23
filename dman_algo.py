@@ -3038,17 +3038,30 @@ def _handle_earnings_approval_reply(text: str) -> bool:
 
     now = datetime.now(ET)
     still_pending = []
+    _expired = []
     for entry in pending:
         if entry.get("status") == "awaiting_approval":
             try:
                 if now >= datetime.fromisoformat(entry["expires_at"]):
                     send_telegram(f"⏰ {entry['ticker']} earnings spread offer expired — "
                                  f"no reply within {EARNINGS_APPROVAL_TIMEOUT_MIN} min, no order placed.")
+                    _expired.append(entry)
                     continue
             except Exception:
                 pass
         still_pending.append(entry)
     pending = still_pending
+    # Tombstone each expired identity too, not just prune it from the list
+    # -- found in the 2026-08-23 review: without this, a stale remote git
+    # copy that still shows an already-expired offer as "awaiting_approval"
+    # can merge it back in (sync_earnings_pending_with_remote()'s union
+    # rule only ever skips identities THIS process explicitly consumed).
+    # Low real risk since both consumers re-validate expires_at on every
+    # pass regardless, but it's a real gap against the tombstone's own
+    # documented guarantee and produces duplicate "expired" Telegram spam
+    # on the resurrection.
+    for _exp in _expired:
+        _consume_earnings_offer_save(pending, _exp)
 
     awaiting = [e for e in pending if e.get("status") == "awaiting_approval"]
     if not awaiting:
@@ -3071,29 +3084,38 @@ def _handle_earnings_approval_reply(text: str) -> bool:
 
     entry = matches[0]
     pending = [e for e in pending if e is not entry]
+    # Consume BEFORE acting on the reply, not after each individual exit
+    # path — mirrors _handle_manual_options_buy_reply's remove-before-
+    # submit pattern. Found in the 2026-08-23 review: this used to persist
+    # the consumed state only at the END of every branch below (including
+    # after a successful _submit_earnings_spread() call), leaving a real
+    # window where a process killed between that submit succeeding and
+    # this save would leave the offer still on disk as "awaiting_approval"
+    # — a redelivered Telegram update (a known real occurrence, not
+    # hypothetical) could then resubmit the exact same real spread a
+    # second time. Consuming up front makes that impossible: by the time
+    # any order could be submitted, the offer is already gone and
+    # tombstoned, so a duplicate delivery finds nothing left to act on.
+    _consume_earnings_offer_save(pending, entry)
 
     if not is_yes:
         send_telegram(f"👍 {entry['ticker']} earnings spread rejected — no order placed.")
-        _consume_earnings_offer_save(pending, entry)
         return True
 
     _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
     if not _cb_ok:
         send_telegram(f"🛑 {entry['ticker']} earnings spread approved but NOT submitted — {_cb_reason}.")
-        _consume_earnings_offer_save(pending, entry)
         return True
 
     _macro_ok, _ = check_macro_safe()
     if not _macro_ok:
         send_telegram(f"⛔ {entry['ticker']} earnings spread NOT submitted — macro blackout active "
                        f"(FOMC/CPI/NFP window, stops unreliable right now).")
-        _consume_earnings_offer_save(pending, entry)
         return True
 
     client = get_alpaca_client()
     if client is None:
         send_telegram(f"❌ {entry['ticker']} earnings spread approved but Alpaca is unavailable — not submitted.")
-        _consume_earnings_offer_save(pending, entry)
         return True
 
     plan = entry["plan"]
@@ -3120,19 +3142,16 @@ def _handle_earnings_approval_reply(text: str) -> bool:
                     f"staleness limit. The strikes/pricing no longer reflect the current setup — "
                     f"wait for the next scan to generate a fresh offer."
                 )
-                _consume_earnings_offer_save(pending, entry)
                 return True
 
     order_id, err = _submit_earnings_spread(client, plan)
     if err:
         send_telegram(f"❌ <b>{entry['ticker']} earnings spread FAILED</b>\n{err}")
-        _consume_earnings_offer_save(pending, entry)
         return True
 
     _open_earnings_spread_position(plan)
     send_telegram(f"📤 <b>{entry['ticker']} EARNINGS SPREAD SUBMITTED</b>  id {order_id[:8]}…\n"
                  f"Cost ${plan['total_cost']:.0f}  Max loss ${plan['max_loss']:.0f}")
-    _consume_earnings_offer_save(pending, entry)
     return True
 
 
@@ -8918,6 +8937,19 @@ def _resolve_earnings_timing(client, ticker: str, earn_date: date, current_price
         if time_str:
             classified = _classify_bmo_amc(time_str, earn_date)
             if classified:
+                # Massive's actual_eps hasn't backfilled yet, but the
+                # scheduled time alone isn't proof the event hasn't
+                # already happened -- found in the 2026-08-23 review: a
+                # same-day BMO print scanned hours after the open (the
+                # daemon's own 2:45 PM ET trigger, or a later hourly-cron
+                # run) could classify as "BMO" here with no further check,
+                # offering a spread priced off an underlying that already
+                # reacted. The independent news-headline confirmation is a
+                # real-time signal that Massive's structured field lagging
+                # shouldn't block — same check the fallback path below
+                # already trusts, just reached too late to help here.
+                if _check_earnings_already_reported(ticker):
+                    return "ALREADY-REPORTED"
                 return classified
         break   # matched record but no usable actual_eps/time classification — fall through below
     if _check_earnings_already_reported(ticker):
@@ -9018,6 +9050,17 @@ def run_earnings_spread_scan() -> None:
         # and reported once per ticker/day via the same dedup mechanism as
         # successful offers, so a real rerun (hourly cron) doesn't re-spam it.
         skipped_no_legs = []
+        # Fixed 2026-08-23: _earnings_sector_overlap() was checked against
+        # `pending`, which only grows as THIS loop appends each new offer —
+        # so of two same-sector candidates in the same scan pass, only the
+        # one processed SECOND ever saw the first's overlap; the one
+        # processed first (WATCHLIST order, not sector order) never did.
+        # Comparing against every candidate in this batch up front, not
+        # just whatever's been appended so far, makes the warning symmetric
+        # regardless of processing order — a candidate that ultimately gets
+        # skipped (no legs, already-reported, etc.) still counts here,
+        # which is the conservative direction to be wrong in.
+        _batch_tickers = [{"ticker": _c["ticker"]} for _c in candidates]
         for c in candidates:
             key = (c["ticker"], c["earn_date"].isoformat())
             dedup_key = f"{c['ticker']}_EARNSPREAD_OFFER_{c['earn_date'].isoformat()}"
@@ -9042,7 +9085,7 @@ def run_earnings_spread_scan() -> None:
                     skipped_no_legs.append(c["ticker"])
                 continue
             _mark_alerted(dedup_key)
-            sector_overlap = _earnings_sector_overlap(c["ticker"], pending)
+            sector_overlap = _earnings_sector_overlap(c["ticker"], pending + _batch_tickers)
             pending.append({
                 "ticker": c["ticker"], "earn_date": c["earn_date"].isoformat(),
                 "created_at": datetime.now(ET).isoformat(),
@@ -9079,8 +9122,8 @@ def expire_earnings_spread_offers() -> None:
         if not pending:
             return
         now = datetime.now(ET)
-        changed = False
         still_pending = []
+        _expired = []
         for entry in pending:
             if entry.get("status") == "awaiting_approval":
                 try:
@@ -9088,13 +9131,15 @@ def expire_earnings_spread_offers() -> None:
                         send_telegram(
                             f"⏰ {entry['ticker']} earnings spread offer expired — no reply "
                             f"within {EARNINGS_APPROVAL_TIMEOUT_MIN} min, no order placed.")
-                        changed = True
+                        _expired.append(entry)
                         continue
                 except Exception:
                     pass
             still_pending.append(entry)
-        if changed:
-            _save_earnings_pending(still_pending)
+        # Tombstone each expired identity too -- see the matching comment in
+        # _handle_earnings_approval_reply()'s inline sweep for why.
+        for _exp in _expired:
+            _consume_earnings_offer_save(still_pending, _exp)
     except Exception as exc:
         print(f"  ⚠️  earnings expiry sweep error: {exc}", file=sys.stderr)
 

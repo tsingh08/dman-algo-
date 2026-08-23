@@ -128,6 +128,14 @@ STATE_FILES = [
                               # survive a session handover for "constantly internalize news
                               # across market + extended hours" to actually mean something
                               # continuous, not a log that resets every ~3 hours
+    "dman_scan_log.json",   # found 2026-08-23 missing from this list: scan_loop() writes it every
+                              # ~10 min, so `git pull --rebase` in _tracked() hit an unstaged change
+                              # on a file this daemon never stashed and failed outright — not a merge
+                              # conflict, a hard pull failure — which stops origin/main from advancing
+                              # and freezes every OTHER state file's sync for the rest of the session
+                              # too, the same wedge _tracked()'s own docstring describes for a
+                              # different trigger. sync_scan_log_with_remote() already exists to merge
+                              # this file correctly; it just never got a chance to run.
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

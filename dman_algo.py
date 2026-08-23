@@ -2785,6 +2785,37 @@ def _handle_manual_options_buy_reply(text: str) -> bool:
     return True
 
 
+def _has_pending_reply_prompt() -> bool:
+    """
+    True if there's a real, unexpired manual-buy confirmation or earnings-
+    spread offer currently waiting on a plain YES/NO reply. Used only to
+    decide whether an unrecognized plain-text reply deserves a "didn't
+    understand" nudge -- found in the 2026-08-23 review: both
+    _handle_manual_options_buy_reply() and _handle_earnings_approval_reply()
+    return False on ANY regex mismatch (e.g. a human typing "yeah"/"sure"/
+    "nah" instead of yes/y/no/n) before ever checking whether something was
+    actually pending, so a live-money approval prompt could go completely
+    unanswered with zero feedback that the reply didn't register.
+    """
+    try:
+        with open(TELEGRAM_MANUAL_BUY_FILE) as f:
+            pending = json.load(f)
+        if datetime.now(ET) < datetime.fromisoformat(pending["expires_at"]):
+            return True
+    except Exception:
+        pass
+    now = datetime.now(ET)
+    for entry in _load_earnings_pending():
+        if entry.get("status") != "awaiting_approval":
+            continue
+        try:
+            if now < datetime.fromisoformat(entry["expires_at"]):
+                return True
+        except Exception:
+            return True   # malformed expiry -- fail toward "still worth a nudge"
+    return False
+
+
 _EARNINGS_OFFER_TOMBSTONE_S = 6 * 3600   # same margin as _CLOSED_IDENTITY_TOMBSTONE_S
 
 def _earnings_offer_identity(entry: dict) -> str:
@@ -3135,6 +3166,14 @@ def _process_telegram_commands(timeout: int = 0) -> int:
                 if _handle_manual_options_buy_reply(_text):
                     _handled += 1
                 elif _handle_earnings_approval_reply(_text):
+                    _handled += 1
+                elif _has_pending_reply_prompt():
+                    # Neither handler recognized this as YES/NO-shaped, but
+                    # a real approval prompt IS waiting -- say so instead of
+                    # silently doing nothing, so a human doesn't believe an
+                    # informal "yeah"/"nah" registered when it didn't.
+                    send_telegram("🤔 Didn't recognize that as a reply — there's a pending "
+                                   "confirmation waiting. Reply exactly <b>YES</b> or <b>NO</b>.")
                     _handled += 1
             except Exception as _e:
                 print(f"  ⚠️  Reply handling error ({_text}): {_e}")
@@ -9232,8 +9271,13 @@ def check_macro_safe() -> tuple[bool, int]:
     Returns (safe, score 0-5).
     """
     try:
-        today  = date.today()
         now_et = datetime.now(ET)
+        # ET, not the runner's naive local clock (found 2026-08-23: the
+        # evening cloud daemon session runs past UTC midnight, so
+        # bare date.today() reads "tomorrow" for the last ~hour of ET
+        # evening on that runner -- the same bug class already fixed in
+        # _get_day_start_equity()/record_daily_pnl(), just missed here).
+        today  = now_et.date()
 
         if today.year > _FOMC_LAST_CONFIRMED_YEAR:
             import sys as _sys
@@ -10741,23 +10785,34 @@ class WinRateTracker:
 _ALERT_DEDUP_FILE = "dman_alerts_dedup.json"
 
 def _is_alerted_today(key: str) -> bool:
-    """Return True if this alert key was already sent today."""
+    """
+    Return True if this alert key was already sent today.
+
+    "Today" is ET, not the runner's naive local clock (found 2026-08-23:
+    this compared against bare `date.today()`, which on a GitHub Actions
+    runner is UTC — rolling over at 8 PM EDT / 7 PM EST, squarely inside
+    the evening daemon session's run window. A T1/trail/stop/DTE alert
+    marked just before that boundary would read as "not sent today" a
+    few minutes later and could re-fire a duplicate for the same real
+    trading day, worse in EST months when the gap to real market close
+    is even wider).
+    """
     try:
         with open(_ALERT_DEDUP_FILE) as _f:
             _d = json.load(_f)
-        return _d.get(key, "")[:10] == date.today().isoformat()
+        return _d.get(key, "")[:10] == datetime.now(ET).date().isoformat()
     except Exception:
         return False
 
 def _mark_alerted(key: str) -> None:
-    """Record that this alert key was sent today."""
+    """Record that this alert key was sent today (ET — see _is_alerted_today)."""
     try:
         try:
             with open(_ALERT_DEDUP_FILE) as _f:
                 _d = json.load(_f)
         except Exception:
             _d = {}
-        _d[key] = datetime.now().isoformat()
+        _d[key] = datetime.now(ET).isoformat()
         with open(_ALERT_DEDUP_FILE, "w") as _f:
             json.dump(_d, _f)
     except Exception:
@@ -10873,9 +10928,20 @@ class PositionTracker:
         — ALLOW_SHORTS is False) rather than blindly taking the newest
         signal's value, same principle merge_positions_snapshots()
         already uses for the identical reason (a re-open must never
-        regress protection). entry_date and any already-earned
-        trailing-stop/milestone progress carry forward from the
-        ORIGINAL entry, not the newest batch.
+        regress protection) -- capped at the newly-blended entry so
+        "more protective" can never invert into a stop ABOVE the
+        position's own cost basis. Found in the 2026-08-23 review: an
+        options position that already earned a breakeven stop via T1
+        (stop == its old, higher entry), then accumulated more
+        contracts at a genuinely lower price, blended to a lower entry
+        while `max(existing.stop, pos.stop)` kept the OLD entry as the
+        stop -- leaving the merged position with a stop above its own
+        blended cost basis, which would immediately read as "in the
+        red" against a stop meant to represent breakeven, and
+        permanently blocks T1 from ever re-arming for the newly added
+        shares (T1's own guard is `stop < entry`). entry_date and any
+        already-earned trailing-stop/milestone progress carry forward
+        from the ORIGINAL entry, not the newest batch.
         """
         _ident = _position_identity(pos.ticker, pos.setup)
         _existing = next((p for p in self.positions
@@ -10886,7 +10952,7 @@ class PositionTracker:
                 pos.entry = round(
                     (_existing.entry * _existing.shares + pos.entry * pos.shares) / _total_shares, 6)
             pos.shares = _total_shares
-            pos.stop = max(_existing.stop, pos.stop)
+            pos.stop = min(max(_existing.stop, pos.stop), pos.entry)
             pos.entry_date = _existing.entry_date
             pos.peak_premium = max(_existing.peak_premium, pos.peak_premium)
             pos.milestone_gain_alerted = max(_existing.milestone_gain_alerted, pos.milestone_gain_alerted)
@@ -15231,7 +15297,31 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
         if _alp_sym in alp_open:
             continue    # still open — nothing to record yet
 
-        # Position is gone from Alpaca — find the exit fill
+        # Re-check this ONE symbol directly before trusting the bulk snapshot
+        # above. alp_open was a single get_all_positions() call taken at the
+        # top of this function -- Alpaca's own eventual consistency between
+        # an order fill and the positions API reflecting it means a position
+        # whose entry (or an accumulating second entry) fill landed only
+        # seconds earlier can occasionally be absent from that snapshot
+        # despite genuinely being open. Confirmed live 2026-08-20: ARTL's
+        # second same-day accumulating entry vanished from tracking entirely
+        # between its two fills this exact way. Originally (2026-08-22) this
+        # re-check only guarded the ghost/stale-clear branch below, on the
+        # assumption that finding a real FILLED closing order was itself
+        # strong enough evidence -- but a T1 partial-sell's closing order
+        # can sit unrecorded for days (see the multi-tranche fix below) and
+        # get mistaken for THE close on a later, unrelated stale-snapshot
+        # tick for a position that's actually still open. A single-symbol
+        # lookup is authoritative in a way the bulk snapshot momentarily
+        # wasn't, so it now gates both paths that follow.
+        try:
+            _recheck = client.get_open_position(_alp_sym)
+            if _recheck is not None and abs(float(_recheck.qty)) > 0:
+                continue   # false negative — genuinely still open, leave tracking untouched
+        except Exception:
+            pass   # genuinely not found (404) — proceed below
+
+        # Position is gone from Alpaca — find the exit fill(s)
         try:
             orders = client.get_orders(filter=GetOrdersRequest(
                 symbols=[_alp_sym],
@@ -15246,6 +15336,18 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
         closing_side = OrderSide.SELL if (is_lo or _occ_sym) else OrderSide.BUY
 
         from alpaca.trading.enums import OrderStatus as _OrderStatus
+        _any_recorded = False
+        # No `break` on a match below (2026-08-23 fix): a position that took
+        # partial profit (e.g. T1's half-sell) has TWO real closing orders
+        # for the same symbol -- the partial exit and the final one. The old
+        # break-after-first-match logic recorded only whichever one this
+        # call happened to see first (Alpaca's own order, not necessarily
+        # oldest-first) and silently dropped the other tranche's P&L from
+        # win-rate history and DAILY_LOSS_LIMIT/MONTHLY_LOSS_LIMIT forever --
+        # confirmed live 2026-08-21: PURR's real $114 T1 half-sell would
+        # never have been recorded once the runner half eventually closed
+        # too. Scanning every order in this batch (not just the first
+        # match) records each real tranche exactly once.
         for order in orders:
             oid = str(order.id)
             if oid in recorded_ids:
@@ -15342,12 +15444,10 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                         and _dates_close(r.date)
                         for r in tracker.records)
             if _dupe:
-                pt.close(ticker, occ_symbol=_occ_sym)
-                _mark_identity_closed(state, ticker, pos.setup)
                 recorded_ids.add(oid)
                 print(f"  ⏭️  Skipped duplicate close record: {ticker} "
                       f"${pos.entry}→${fill_px:.2f} already in win-rate history")
-                break
+                continue   # keep scanning — a different order in this batch may be a real, distinct tranche
 
             tracker.record(TradeRecord(
                 ticker  = ticker,
@@ -15363,8 +15463,6 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             ))
             record_daily_pnl(acct_pct)
             record_monthly_pnl(acct_pct)
-            pt.close(ticker, occ_symbol=_occ_sym)
-            _mark_identity_closed(state, ticker, pos.setup)
 
             sign = "+" if dollar_pnl >= 0 else ""
             print(f"  📋 Synced: {ticker} {pos.bias}  "
@@ -15377,46 +15475,30 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             )
             recorded_ids.add(oid)
             new_count += 1
-            break   # one exit record per position
-        else:
-            # Inner loop found no valid closing fill to record. Two distinct
-            # cases land here:
-            #  1. Entry order was cancelled/expired (never filled) — a ghost.
-            #  2. The closing order was already recorded in a PRIOR cycle (its
-            #     id is already in recorded_ids), but the tracked entry still
-            #     exists anyway — e.g. resurrected by merge_positions_snapshots()'s
-            #     union-of-tickers rule pulling in a stale snapshot that
-            #     predates the original close. Confirmed live 2026-08-11: CLRO
-            #     sat as a phantom "open" position for 5 days this way — its
-            #     closing stop order (filled 2026-08-06) was already in
-            #     recorded_ids, so every cycle kept silently `continue`-ing
-            #     past it, because removal used to live ONLY inside the
-            #     "found a NEW closing fill" branch above, never running for
-            #     an already-recorded one.
-            # _alp_sym is confirmed absent from alp_open (checked above) in
-            # both cases — always clear the stale tracker entry here, and
-            # only alert/re-record for the genuine "never filled" ghost case
-            # so an already-reported close doesn't re-notify.
-            #
-            # Before actually clearing, re-check this ONE symbol directly.
-            # alp_open was a single bulk get_all_positions() snapshot taken
-            # at the top of this function -- Alpaca's own eventual
-            # consistency between an order fill and the positions API
-            # reflecting it means a position whose entry fill landed only
-            # seconds earlier can occasionally be absent from that snapshot
-            # despite genuinely being open. Confirmed live 2026-08-20: ARTL's
-            # second same-day accumulating entry vanished from tracking
-            # entirely between its two fills this exact way, losing the
-            # already-tracked 159 shares from the first fill before the
-            # second fill's PositionTracker.open() had anything to
-            # accumulate against. A single-symbol lookup is authoritative in
-            # a way the bulk snapshot momentarily wasn't.
-            try:
-                _recheck = client.get_open_position(_alp_sym)
-                if _recheck is not None and abs(float(_recheck.qty)) > 0:
-                    continue   # false negative — genuinely still open, leave tracking untouched
-            except Exception:
-                pass   # genuinely not found (404) — proceed with ghost/stale-clear logic below
+            _any_recorded = True
+            # No break — keep scanning the rest of this batch for another
+            # unrecorded tranche (see the comment above this loop).
+
+        # _alp_sym is confirmed absent from alp_open (single-symbol re-check
+        # above) either way below — always clear the stale tracker entry,
+        # and only ghost-detect/alert when NOTHING in this batch was a real
+        # tranche to record. Two distinct cases land in the ghost-detect
+        # branch:
+        #  1. Entry order was cancelled/expired (never filled) — a ghost.
+        #  2. The closing order was already recorded in a PRIOR cycle (its
+        #     id is already in recorded_ids), but the tracked entry still
+        #     exists anyway — e.g. resurrected by merge_positions_snapshots()'s
+        #     union-of-tickers rule pulling in a stale snapshot that
+        #     predates the original close. Confirmed live 2026-08-11: CLRO
+        #     sat as a phantom "open" position for 5 days this way — its
+        #     closing stop order (filled 2026-08-06) was already in
+        #     recorded_ids, so every cycle kept silently `continue`-ing
+        #     past it, because removal used to live ONLY inside the
+        #     "found a NEW closing fill" branch above, never running for
+        #     an already-recorded one.
+        pt.close(ticker, occ_symbol=_occ_sym)
+        _mark_identity_closed(state, ticker, pos.setup)
+        if not _any_recorded:
             # Options always buy-to-open; equity: BUY for LONG, SELL for SHORT.
             _entry_side = OrderSide.BUY if (is_lo or _occ_sym) else OrderSide.SELL
             # Same class of bug as the FILLED check above, plus a spelling
@@ -15426,8 +15508,6 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             _GHOST_STATUSES = (_OrderStatus.CANCELED, _OrderStatus.EXPIRED, _OrderStatus.REPLACED)
             _ghost_order = next((_eo for _eo in orders
                                   if _eo.side == _entry_side and _eo.status in _GHOST_STATUSES), None)
-            pt.close(ticker, occ_symbol=_occ_sym)
-            _mark_identity_closed(state, ticker, pos.setup)
             _lbl = _occ_sym if _occ_sym else ticker
             if _ghost_order is not None:
                 print(f"  🗑️  Ghost cleared: {_lbl} — entry limit {_ghost_order.status}, never filled")
@@ -15674,7 +15754,13 @@ def _get_day_start_equity(current_equity: float) -> float:
     the account by the time this first runs is correctly excluded from
     "today's" P&L rather than misread as a gain.
     """
-    today_str = date.today().isoformat()
+    # ET, not the runner's naive local clock (found 2026-08-23): the
+    # evening cloud daemon session runs past UTC midnight, so an on-demand
+    # /pnl check in the last ~5 minutes of that session could read bare
+    # date.today() as "tomorrow" and reset this baseline to the current
+    # equity right then -- reproducing the exact day_pl~=0 bug this
+    # function exists to fix.
+    today_str = datetime.now(ET).date().isoformat()
     try:
         with open(_DAY_START_EQUITY_FILE) as f:
             data = json.load(f)
@@ -17110,6 +17196,22 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     for sig in signals:
         if sig.ticker in already_tracked:
             print(f"  ⏭️  {sig.ticker:<8} already in open positions — skipping duplicate")
+            continue
+
+        # Found in the 2026-08-23 review: MAX_POSITIONS was only ever
+        # checked AFTER an order was already live at the broker -- pt.open()
+        # cancels the just-submitted order on a full tracker, but a fill
+        # that lands before/during that cancel call leaves a real position
+        # with no tracking slot at all. For an options position specifically
+        # that means ZERO stop-loss protection (no broker-side bracket by
+        # design -- see _submit_options_call()'s docstring), invisible
+        # until a human notices an orphan alert. Checking capacity here,
+        # before any order is submitted, closes that window; `pt` is reused
+        # (not re-instantiated) through the rest of this loop, so it stays
+        # accurate as earlier signals in this same batch fill tracking slots.
+        if len(pt.positions) >= MAX_POSITIONS:
+            print(f"  ⏭️  {sig.ticker:<8} skipped — MAX_POSITIONS ({MAX_POSITIONS}) "
+                  f"already reached, no tracking slot available")
             continue
 
         # size_position_kelly() reports shares=0 when even 1 share would

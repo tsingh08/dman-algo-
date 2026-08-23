@@ -632,6 +632,34 @@ class TestPositionTrackerOpenAccumulatesOnScaleIn(unittest.TestCase):
         pt.open(self._pos(ticker="CELZ"))
         self.assertEqual(len(pt.positions), 2, "unrelated tickers must never be accumulated together")
 
+    def test_repeat_open_never_lets_the_merged_stop_exceed_the_merged_entry(self):
+        # Added 2026-08-23: an options position that already earned a
+        # breakeven stop via T1 (stop == its old, higher entry), then
+        # accumulated more at a genuinely lower price, blended to a lower
+        # entry while the old `max(existing.stop, pos.stop)` rule kept the
+        # OLD entry as the stop -- leaving the merged position with a stop
+        # ABOVE its own blended cost basis. That's a real, live-money
+        # invariant violation for a long-only protective stop: it can
+        # never be more protective to sit above what you paid.
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(shares=200, entry=10.00, stop=10.00))   # T1 already taken, stop = old entry
+        pt.open(self._pos(shares=200, entry=9.00, stop=4.50))     # accumulate more at a real discount
+        self.assertAlmostEqual(pt.positions[0].entry, 9.50, places=4)
+        self.assertLessEqual(pt.positions[0].stop, pt.positions[0].entry,
+                              "a merged stop must never sit above the merged entry")
+        self.assertEqual(pt.positions[0].stop, 9.50,
+                          "capped at the new blended entry — still the most protective value "
+                          "that doesn't invert the stop/entry relationship")
+
+    def test_repeat_open_still_keeps_a_lower_old_stop_when_it_is_more_protective(self):
+        # The clamp must not regress the ORIGINAL "more protective wins"
+        # behavior for the ordinary case where the merged stop legitimately
+        # stays below the merged entry either way.
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(shares=100, entry=1.00, stop=0.61))
+        pt.open(self._pos(shares=100, entry=1.00, stop=0.55))   # looser — must not win
+        self.assertEqual(pt.positions[0].stop, 0.61)
+
 
 class TestMergeJsonLists(unittest.TestCase):
     """merge_json_lists() covers the high-frequency append-only files
@@ -1585,10 +1613,13 @@ class TestMacroBlackoutWindows(unittest.TestCase):
     sitting out a day that was actually clear."""
 
     def test_fomc_day_is_blocked(self):
+        # check_macro_safe() derives "today" from datetime.now(ET) (fixed
+        # 2026-08-23 to stop using the naive date.today() the runner's UTC
+        # clock could misread near midnight) -- mock that instead of date.
         fomc_day = sorted(a._FOMC_DATES)[0]
-        with patch.object(a, "date") as mock_date:
-            mock_date.today.return_value = fomc_day
-            mock_date.side_effect = lambda *args, **kw: date(*args, **kw)
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(fomc_day.year, fomc_day.month, fomc_day.day,
+                                                 12, 0, tzinfo=a.ET)
             safe, _ = a.check_macro_safe()
         self.assertFalse(safe, "FOMC day itself must be blocked")
 
@@ -1596,9 +1627,9 @@ class TestMacroBlackoutWindows(unittest.TestCase):
         fomc_day = sorted(a._FOMC_DATES)[0]
         clear_day = date(fomc_day.year, fomc_day.month, fomc_day.day) \
             .fromordinal(fomc_day.toordinal() + 3)
-        with patch.object(a, "date") as mock_date:
-            mock_date.today.return_value = clear_day
-            mock_date.side_effect = lambda *args, **kw: date(*args, **kw)
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(clear_day.year, clear_day.month, clear_day.day,
+                                                 12, 0, tzinfo=a.ET)
             safe, _ = a.check_macro_safe()
         self.assertTrue(safe, "3 days after an FOMC date is well outside "
                               "the ±1 day blackout and must be clear")
@@ -1607,9 +1638,9 @@ class TestMacroBlackoutWindows(unittest.TestCase):
         if not a._MAJOR_MACRO_EVENT_DATES:
             self.skipTest("no _MAJOR_MACRO_EVENT_DATES currently configured")
         event_day = sorted(a._MAJOR_MACRO_EVENT_DATES)[0]
-        with patch.object(a, "date") as mock_date:
-            mock_date.today.return_value = event_day
-            mock_date.side_effect = lambda *args, **kw: date(*args, **kw)
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(event_day.year, event_day.month, event_day.day,
+                                                 12, 0, tzinfo=a.ET)
             safe, _ = a.check_macro_safe()
         self.assertFalse(safe, "a configured major macro event day must "
                                "be blocked the same way FOMC is")
@@ -4020,6 +4051,112 @@ class TestRunOptionsGuardSnapshotFnPassthrough(unittest.TestCase):
         self.assertEqual(alerts, [])
 
 
+class TestAlertDedupUsesEtClock(unittest.TestCase):
+    """_is_alerted_today()/_mark_alerted() previously read the dedup date
+    from bare date.today()/datetime.now() -- the runner's naive local
+    clock, UTC on GitHub Actions. UTC midnight is 8 PM EDT / 7 PM EST,
+    squarely inside the evening daemon session's run window, so a T1/
+    trail/stop/DTE alert marked just before that boundary could read as
+    "not sent today" a few minutes later and re-fire a duplicate for the
+    same real trading day. Fixed by switching both to datetime.now(ET)."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"{}")
+        self._tmp.close()
+        self._patch = patch.object(a, "_ALERT_DEDUP_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def test_mark_alerted_calls_datetime_now_with_et_not_bare(self):
+        with patch.object(a, "datetime") as _mock_dt:
+            _mock_dt.now.return_value = datetime(2026, 8, 20, 20, 15)
+            a._mark_alerted("TEST_KEY")
+        _mock_dt.now.assert_called_once_with(a.ET)
+
+    def test_is_alerted_today_calls_datetime_now_with_et_not_bare(self):
+        with open(self._tmp.name, "w") as f:
+            json.dump({"TEST_KEY": "2026-08-20T20:15:00"}, f)
+        with patch.object(a, "datetime") as _mock_dt:
+            _mock_dt.now.return_value = datetime(2026, 8, 20, 20, 15)
+            a._is_alerted_today("TEST_KEY")
+        _mock_dt.now.assert_called_once_with(a.ET)
+
+    def test_mark_then_check_round_trips_using_the_same_et_day(self):
+        a._mark_alerted("ROUNDTRIP_KEY")
+        self.assertTrue(a._is_alerted_today("ROUNDTRIP_KEY"))
+
+
+class TestHasPendingReplyPrompt(unittest.TestCase):
+    """Added 2026-08-23: both _handle_manual_options_buy_reply() and
+    _handle_earnings_approval_reply() return False on any plain-text reply
+    that doesn't match their yes/y/no/n regex, even when a real approval
+    IS pending -- meaning a human typing "yeah"/"sure"/"nah" to a live-
+    money confirmation got zero feedback that it didn't register.
+    _has_pending_reply_prompt() is the check used to decide whether an
+    unrecognized reply deserves a "didn't understand" nudge."""
+
+    def setUp(self):
+        self._buy_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._buy_tmp.close()
+        os.unlink(self._buy_tmp.name)   # start absent -- "nothing pending" is the default
+        self._earn_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._earn_tmp.close()
+        self._patches = [
+            patch.object(a, "TELEGRAM_MANUAL_BUY_FILE", self._buy_tmp.name),
+            patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._earn_tmp.name),
+        ]
+        for p in self._patches:
+            p.start()
+        a._save_earnings_pending([])
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._buy_tmp.name, self._earn_tmp.name):
+            if os.path.exists(f):
+                os.unlink(f)
+
+    def test_nothing_pending_returns_false(self):
+        self.assertFalse(a._has_pending_reply_prompt())
+
+    def test_unexpired_manual_buy_returns_true(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump({"ticker": "NVDA",
+                       "expires_at": (datetime.now(a.ET) + timedelta(minutes=5)).isoformat()}, f)
+        self.assertTrue(a._has_pending_reply_prompt())
+
+    def test_expired_manual_buy_returns_false(self):
+        with open(self._buy_tmp.name, "w") as f:
+            json.dump({"ticker": "NVDA",
+                       "expires_at": (datetime.now(a.ET) - timedelta(minutes=5)).isoformat()}, f)
+        self.assertFalse(a._has_pending_reply_prompt())
+
+    def test_unexpired_awaiting_earnings_offer_returns_true(self):
+        a._save_earnings_pending([{
+            "ticker": "NVDA", "status": "awaiting_approval",
+            "expires_at": (datetime.now(a.ET) + timedelta(minutes=5)).isoformat(),
+        }])
+        self.assertTrue(a._has_pending_reply_prompt())
+
+    def test_expired_earnings_offer_returns_false(self):
+        a._save_earnings_pending([{
+            "ticker": "NVDA", "status": "awaiting_approval",
+            "expires_at": (datetime.now(a.ET) - timedelta(minutes=5)).isoformat(),
+        }])
+        self.assertFalse(a._has_pending_reply_prompt())
+
+    def test_non_awaiting_status_returns_false(self):
+        a._save_earnings_pending([{
+            "ticker": "NVDA", "status": "approved",
+            "expires_at": (datetime.now(a.ET) + timedelta(minutes=5)).isoformat(),
+        }])
+        self.assertFalse(a._has_pending_reply_prompt())
+
+
 class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
     """Confirmed live 2026-08-07: sync_alpaca_fills() compared
     str(order.status) against the bare string "filled", but a real Alpaca
@@ -4099,6 +4236,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []   # IOTR no longer held
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
             self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21),
         ]
@@ -4120,6 +4258,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
             self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21),
         ]
@@ -4132,6 +4271,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
             self._order(OrderSide.SELL, OrderStatus.PENDING_NEW),
         ]
@@ -4194,6 +4334,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         ))
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         order = self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21)
         order.id = "a-different-never-seen-order-id"
         # The re-detection this guards against is same-day/adjacent-day
@@ -4226,6 +4367,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         ))
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         order = self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21)
         order.id = "a-genuinely-new-later-order"
         order.filled_at = datetime(2026, 8, 6)   # 36 days after the first trade
@@ -4275,6 +4417,65 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self.assertEqual(n, 0)
         self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0,
                           "a genuinely closed position must still be cleared")
+
+    def test_two_separate_closing_tranches_are_both_recorded(self):
+        # Added 2026-08-23: a position that took partial profit (e.g. an
+        # options T1 half-sell) has TWO real closing orders for the same
+        # symbol -- confirmed live 2026-08-21 on PURR, whose real $114 T1
+        # half-sell would never have been recorded once the runner half
+        # eventually closed too, since the old code stopped scanning after
+        # the first match. Both orders here are genuinely distinct fills
+        # (different ids, prices, qtys) and must both land in win-rate
+        # history, with the position cleared exactly once regardless.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []   # fully closed now
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
+        tranche_1 = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                                 filled_avg_price=4.00, filled_qty="3")
+        tranche_1.id = "tranche-1-partial"
+        tranche_1.filled_at = datetime(2026, 8, 21, 14, 0)
+        tranche_2 = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                                 filled_avg_price=3.21, filled_qty="4")
+        tranche_2.id = "tranche-2-final"
+        tranche_2.filled_at = datetime(2026, 8, 21, 15, 0)
+        mock_client.get_orders.return_value = [tranche_1, tranche_2]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 2, "both distinct closing tranches must be recorded")
+        self.assertEqual(len(tracker.records), 2)
+        exits = sorted(r.exit for r in tracker.records)
+        self.assertEqual(exits, [3.21, 4.00])
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0,
+                          "the position must still be cleared exactly once")
+
+    def test_dupe_tranche_does_not_block_a_genuinely_different_second_tranche(self):
+        # The dupe-skip branch must `continue` scanning, not stop -- a
+        # duplicate match on one order in the batch must not prevent a
+        # genuinely different second order from still being recorded.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+        tracker.record(a.TradeRecord(
+            ticker="IOTR", date="2026-08-21", bias="LONG", setup="Low Float Catalyst",
+            entry=3.5168, exit=4.00, outcome="WIN", pnl_pct=13.8, score=0, is_live=True,
+        ))
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
+        dupe_order = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                                  filled_avg_price=4.00, filled_qty="3")
+        dupe_order.id = "a-never-seen-id-for-the-dupe"
+        dupe_order.filled_at = datetime(2026, 8, 21, 14, 0)
+        real_order = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                                  filled_avg_price=3.21, filled_qty="4")
+        real_order.id = "a-never-seen-id-for-the-real-one"
+        real_order.filled_at = datetime(2026, 8, 21, 15, 0)
+        mock_client.get_orders.return_value = [dupe_order, real_order]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 1, "only the genuinely new tranche should count as newly recorded")
+        self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 2)
 
 
 class TestSyncEarningsSpreadFills(unittest.TestCase):
@@ -4555,6 +4756,7 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
         ))
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []   # no longer held
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         # 2 contracts, stopped out at 4.61 -- real dollar loss is
         # (4.61-9.22) * 2 * 100 = -$922, not -$9.22.
         mock_client.get_orders.return_value = [
@@ -4578,6 +4780,7 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
         ))
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
             self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=28.01, filled_qty="47"),
         ]
@@ -4602,6 +4805,7 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
         ))
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
             self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=28.01, filled_qty="47"),
         ]
@@ -6805,6 +7009,24 @@ class TestDayStartEquityBaseline(unittest.TestCase):
             json.dump({"date": "2020-01-01", "equity": 1000.0}, f)
         baseline = a._get_day_start_equity(5000.0)
         self.assertEqual(baseline, 5000.0)
+
+    def test_calendar_day_uses_et_not_the_runners_naive_clock(self):
+        # Added 2026-08-23: this used bare date.today() -- UTC on a GitHub
+        # Actions runner. The evening cloud daemon session runs past UTC
+        # midnight (8 PM EDT / 7 PM EST), so an on-demand /pnl check in the
+        # last few minutes of that session could read "tomorrow" in UTC
+        # while it's still the same trading day in ET, and wrongly reseed
+        # the baseline to current equity -- reproducing the exact
+        # false-profit bug this function exists to prevent.
+        with open(self._tmp.name, "w") as f:
+            json.dump({"date": "2026-08-20", "equity": 4943.73}, f)
+        with patch.object(a, "datetime") as mock_dt:
+            # 12:15 AM UTC on 8/21 = 8:15 PM EDT on 8/20 -- still the SAME
+            # ET trading day the seeded baseline was recorded for.
+            mock_dt.now.return_value = datetime(2026, 8, 20, 20, 15, tzinfo=a.ET)
+            baseline = a._get_day_start_equity(4895.85)
+        self.assertEqual(baseline, 4943.73,
+                          "must still read as the same ET day and NOT reseed")
 
 
 class TestOptionsFeedResolution(unittest.TestCase):
@@ -9025,6 +9247,83 @@ class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
         mock_submit.assert_not_called()
         sent_texts = [c.args[0] for c in mock_tg.call_args_list]
         self.assertTrue(any("not executed" in t for t in sent_texts))
+
+
+class TestSubmitSignalsRespectsMaxPositionsBeforeSubmission(unittest.TestCase):
+    """Found in the 2026-08-23 review: MAX_POSITIONS was only ever enforced
+    AFTER an order was already live at the broker (inside pt.open(), which
+    cancels the just-submitted order on a full tracker) -- a fill landing
+    before/during that cancel call leaves a real position with no tracking
+    slot at all. For options especially, that's zero stop-loss protection
+    of any kind (no broker-side bracket by design) until a human notices an
+    orphan alert. The capacity check must happen before any order is
+    submitted, not after."""
+
+    def _sig(self, ticker="TEST"):
+        return a.ProSignal(
+            ticker=ticker, bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=13.0, target2=16.0,
+            rr=3.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=90,
+            shares=10, cost=100.0,
+        )
+
+    def test_signal_is_skipped_before_submission_when_already_at_max_positions(self):
+        sig = self._sig()
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price", return_value=(True, 10.0)), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "submit_alpaca_trade") as mock_submit:
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0,
+            }
+            # Already at capacity with UNRELATED tickers -- the new signal's
+            # own ticker isn't a duplicate, capacity alone must block it.
+            MockPT.return_value.positions = [
+                MagicMock(ticker=f"HELD{i}") for i in range(a.MAX_POSITIONS)
+            ]
+            a._submit_signals_to_alpaca([sig])
+        mock_submit.assert_not_called()
+
+    def test_signal_still_submits_when_under_max_positions(self):
+        sig = self._sig()
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "ENABLE_OPTIONS_TRADING", False), \
+             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["TEST"]), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price", return_value=(True, 10.0)), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "submit_alpaca_trade", return_value=("order-1", None)) as mock_submit:
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0,
+            }
+            MockPT.return_value.positions = [
+                MagicMock(ticker=f"HELD{i}") for i in range(a.MAX_POSITIONS - 1)
+            ]
+            a._submit_signals_to_alpaca([sig])
+        mock_submit.assert_called_once()
 
 
 class TestSubmitSignalsProbationSizing(unittest.TestCase):

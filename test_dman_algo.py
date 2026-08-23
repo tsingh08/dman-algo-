@@ -1629,6 +1629,48 @@ class TestMacroBlackoutWindows(unittest.TestCase):
                              f"releases on -- likely calendar-day-not-business-day "
                              f"arithmetic: {weekend_dates}")
 
+    def test_pce_release_day_is_blocked_before_10am(self):
+        # Added 2026-08-22: confirmed live that PCE (the Fed's own STATED
+        # preferred inflation gauge) had zero coverage anywhere in this
+        # file despite CPI/PPI/NFP all being tracked -- found researching
+        # the week of 2026-08-24, where PCE (Wed 8/26) lands the same day
+        # as NVDA's earnings. Uses 8/26 specifically (not just any
+        # _PCE_DATES entry) because it's confirmed clear of any FOMC/
+        # major-macro-event blackout that would otherwise block the whole
+        # day regardless of time and mask what this test is isolating.
+        pce_day = date(2026, 8, 26)
+        with patch.object(a, "date") as mock_date, \
+             patch.object(a, "datetime") as mock_dt:
+            mock_date.today.return_value = pce_day
+            mock_date.side_effect = lambda *args, **kw: date(*args, **kw)
+            mock_dt.now.return_value = datetime(pce_day.year, pce_day.month, pce_day.day, 9, 0, tzinfo=a.ET)
+            safe, _ = a.check_macro_safe()
+        self.assertFalse(safe, "PCE release day before 10 AM ET must be blocked, same as CPI/PPI")
+
+    def test_pce_release_day_opens_after_10am(self):
+        pce_day = date(2026, 8, 26)
+        with patch.object(a, "date") as mock_date, \
+             patch.object(a, "datetime") as mock_dt:
+            mock_date.today.return_value = pce_day
+            mock_date.side_effect = lambda *args, **kw: date(*args, **kw)
+            mock_dt.now.return_value = datetime(pce_day.year, pce_day.month, pce_day.day, 10, 30, tzinfo=a.ET)
+            safe, _ = a.check_macro_safe()
+        self.assertTrue(safe, "PCE release day after 10 AM ET must open, same as CPI/PPI")
+
+    def test_pce_dates_never_fall_on_a_weekend(self):
+        weekend_dates = sorted(d for d in a._PCE_DATES if d.weekday() >= 5)
+        self.assertEqual(weekend_dates, [], f"_PCE_DATES has weekend date(s): {weekend_dates}")
+
+    def test_aug_26_2026_nvda_earnings_day_is_a_registered_pce_date(self):
+        # The specific real-world date that surfaced this gap -- PCE lands
+        # the same day as NVDA's earnings (after close), confirmed
+        # directly from bea.gov/news/schedule.
+        self.assertIn(date(2026, 8, 26), a._PCE_DATES)
+
+    def test_days_to_next_macro_print_includes_pce(self):
+        result = a._days_to_next_macro_print(today=date(2026, 8, 25))
+        self.assertEqual(result, 1, "PCE on 8/26 must count as 1 day away from 8/25")
+
 
 class TestMtfCatalystOverride(unittest.TestCase):
     """The override that unblocks a news-confirmed earnings-gap play (the

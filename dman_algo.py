@@ -2067,6 +2067,8 @@ def run_readiness_scan() -> None:
             _macro_notes.append(f"📊 CPI {d.strftime('%a %b %d')}")
         if d in _PPI_DATES:
             _macro_notes.append(f"📊 PPI {d.strftime('%a %b %d')}")
+        if d in _PCE_DATES:
+            _macro_notes.append(f"📊 PCE {d.strftime('%a %b %d')}")
         if d.weekday() == 4 and d == _get_third_friday(d.year, d.month):
             _macro_notes.append(f"⚡ OPEX {d.strftime('%a %b %d')} — gamma event")
     macro_note = ("\n" + "\n".join(_macro_notes)) if _macro_notes else ""
@@ -4323,7 +4325,7 @@ def _days_to_next_macro_print(today: Optional[date] = None) -> Optional[int]:
     today = today or date.today()
     days_away = [
         (ev - today).days
-        for ev in (_nfp_dates() | _CPI_DATES | _PPI_DATES)
+        for ev in (_nfp_dates() | _CPI_DATES | _PPI_DATES | _PCE_DATES)
         if 0 <= (ev - today).days <= 1
     ]
     return min(days_away) if days_away else None
@@ -6840,6 +6842,11 @@ def run_premarket_briefing() -> None:
                     events_lines.append(f"📊 PPI today (6:30 AM MT) — blackout until 8:00 AM MT, then open")
                 else:
                     events_lines.append(f"📊 PPI {day_lbl} — inflation data; gap risk at open")
+            if d in _PCE_DATES:
+                if offset == 0:
+                    events_lines.append(f"📊 PCE today (6:30 AM MT) — blackout until 8:00 AM MT, then open")
+                else:
+                    events_lines.append(f"📊 PCE {day_lbl} — Fed's preferred inflation gauge; gap risk at open")
             # Major unscheduled macro events (tariff deadlines, etc.) — same
             # ±1 day full blackout as FOMC, and the same multi-day advance
             # warning treatment here. This is a manually-maintained set
@@ -7366,6 +7373,8 @@ def run_premarket_briefing() -> None:
             strangle_events.append("CPI tomorrow 6:30 AM MT")
         if _tomorrow in _PPI_DATES:
             strangle_events.append("PPI tomorrow 6:30 AM MT")
+        if _tomorrow in _PCE_DATES:
+            strangle_events.append("PCE tomorrow 6:30 AM MT")
         if _tomorrow in _nfp:
             strangle_events.append("NFP tomorrow 6:30 AM MT")
 
@@ -9092,6 +9101,29 @@ _PPI_DATES: set[date] = {
     date(2027, 10, 14), date(2027, 11, 11), date(2027, 12, 10),
 }
 
+# PCE (Personal Income and Outlays) release dates (8:30 AM ET) — the Fed's own
+# STATED preferred inflation gauge, distinct from CPI/PPI (which the Fed
+# tracks but doesn't target). Added 2026-08-22: confirmed live this had ZERO
+# coverage anywhere in this file despite CPI/PPI/NFP all being tracked --
+# found while researching the week of 2026-08-24, where PCE (Wed 8/26,
+# 8:30 AM) lands the SAME DAY as NVDA's earnings (after close) and one day
+# before the Jackson Hole blackout already covers. Same pre-market-release
+# shape as CPI/PPI, so treated identically everywhere those two are checked.
+# Confirmed 2026-08-22 directly from bea.gov/news/schedule -- unlike CPI/PPI,
+# PCE's 2026 cadence is NOT a clean "same weekday each month" formula this
+# year (BEA's own schedule shows an irregular cadence, attributed to an
+# Oct-Nov 2025 government-shutdown delay pushing 13 releases into 2026
+# instead of the usual 12) -- every date below is a verified BEA date, not
+# a computed estimate. 2027 not yet available from BEA; add once published.
+_PCE_DATES: set[date] = {
+    date(2026, 7, 30),    # June 2026 data
+    date(2026, 8, 26),    # July 2026 data -- same day as NVDA earnings (after close)
+    date(2026, 9, 30),    # August 2026 data
+    date(2026, 10, 29),   # September 2026 data
+    date(2026, 11, 25),   # October 2026 data
+    date(2026, 12, 23),   # November 2026 data
+}
+
 # Manually-maintained: major macro catalysts that aren't on a fixed schedule
 # (tariff deadlines, major geopolitical shocks) — unlike FOMC/NFP/CPI there's
 # no calendar formula for these, so add entries by hand as they're announced.
@@ -9178,7 +9210,7 @@ def check_macro_safe() -> tuple[bool, int]:
                 return False, 0
 
         # NFP / CPI / PPI: pre-market 8:30 AM release — block only before 10:00 AM ET
-        for ev in (_nfp_dates() | _CPI_DATES | _PPI_DATES):
+        for ev in (_nfp_dates() | _CPI_DATES | _PPI_DATES | _PCE_DATES):
             days_away = (ev - today).days
             if days_away == 0 and now_et.hour < 10:
                 return False, 0

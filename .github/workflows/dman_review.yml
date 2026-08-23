@@ -7,6 +7,14 @@ name: DMan Session Review
 # went, anything that looks off heading into the next trading day, and
 # specific code improvements it would recommend.
 #
+# Also runs at midday (added 2026-08-22, direct instruction) — same
+# mechanism, same safety model, but with time-remaining-in-the-session
+# framing instead of a post-mortem one, so real findings can be acted on
+# same-day instead of only in hindsight after close. Which framing a run
+# uses is decided by the actual ET time it executes at (see ET_HOUR
+# below), not which trigger fired it — a manual /review at 11 AM gets the
+# midday framing, at 6 PM gets the EOD one, regardless of source.
+#
 # REPORT ONLY, deliberately, by construction rather than just instruction
 # — direct decision 2026-08-21 after the /review idea was raised:
 #   1. permissions below grant `contents: read` only, never `write` — even
@@ -27,6 +35,11 @@ name: DMan Session Review
 
 on:
   schedule:
+    # ~12:34 PM ET weekdays (16:34 UTC) — midday check, well clear of the
+    # 9:45 AM Gap & Hold scan and the 10:34 AM-3:34 PM hourly momentum
+    # scans' own :34 slots (offset to :34 like those, same GitHub-queue-
+    # congestion reasoning as every other cron here).
+    - cron: '34 16 * * 1-5'
     # ~4:20 PM ET weekdays (20:20 UTC) — after the 4:04 PM EOD P&L summary
     # and momentum-watch have both settled, so today's real close-of-day
     # state is fully synced before the review reads it. Offset from :00
@@ -70,10 +83,11 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          PROMPT='You are reviewing the just-closed (or most recent) trading
-          session for a live-money algorithmic trading system in this repo.
-          You have READ-ONLY repo access and NO live broker credentials --
-          work entirely from the git-tracked state files and codebase.
+          ET_HOUR=$(TZ="America/New_York" date +%H)
+          SHARED_CONTEXT='You are checking in on a live-money algorithmic
+          trading system in this repo. You have READ-ONLY repo access and NO
+          live broker credentials -- work entirely from the git-tracked
+          state files and codebase.
 
           Look at: dman_positions.json (currently open positions),
           dman_win_rate.json (recent trade outcomes), dman_daily_pnl.json /
@@ -84,7 +98,52 @@ jobs:
           reference against dman_algo.py and dman_daemon.py as needed to
           understand what a given state actually means.
 
-          Produce a concise report covering:
+          Hard constraints: this is a REPORT ONLY. Do not run git commit, git
+          push, or any command that submits a real trade -- you have no
+          credentials to do the latter regardless. If you are not sure
+          whether something needs a human decision, say so explicitly rather
+          than assuming an answer.
+
+          Keep your FINAL reply under 3500 characters -- it is posted
+          directly to a phone via Telegram. Use plain text, no markdown
+          tables.'
+
+          # 10 AM - 3 PM ET: the market is still open and there's real time
+          # left to act on anything found -- frame around what to actually
+          # do with the rest of today, not a post-mortem. Outside that
+          # window (pre-market, after close, or a late-night manual
+          # /review): the original post-close framing, since "how did it
+          # go" is the useful question once the session is behind you.
+          if [ "$ET_HOUR" -ge 10 ] && [ "$ET_HOUR" -lt 15 ]; then
+            KIND="midday"
+            PROMPT="$SHARED_CONTEXT"'
+
+          It is currently mid-session -- the market is open and there is
+          real time left today to act on what you find. Produce a concise,
+          ACTIONABLE check-in covering:
+          1. What has happened so far today -- anything closed, anything
+             new opened, current realized P&L, current open risk exposure.
+          2. Anything that needs attention THIS AFTERNOON specifically --
+             a position nearing its stop/target, a circuit breaker state
+             that changes what can still be entered today, a scan that
+             silently failed this morning.
+          3. What is worth watching for the rest of today -- an upcoming
+             scheduled event later today or tomorrow morning that changes
+             risk (from dman_algo.py'"'"'s own macro-event calendars:
+             _FOMC_DATES, _CPI_DATES, _PPI_DATES, _PCE_DATES,
+             _MAJOR_MACRO_EVENT_DATES, earnings dates on open positions),
+             or a setup/sector that has looked notably strong or weak in
+             today'"'"'s scan log so far.
+
+          Do not spend much space on code recommendations here -- that is
+          what the end-of-day review is for. Only mention one if it is
+          urgent enough to matter before tomorrow.'
+          else
+            KIND="eod"
+            PROMPT="$SHARED_CONTEXT"'
+
+          You are reviewing the just-closed (or most recent) trading
+          session. Produce a concise report covering:
           1. How the session actually went -- realized P&L, what closed, what
              is still open and its current risk exposure.
           2. Anything that looks off, risky, or worth flagging before the
@@ -97,16 +156,9 @@ jobs:
              someone could hand this straight to a follow-up session to
              implement.
 
-          Hard constraints: this is a REPORT ONLY. Do not run git commit, git
-          push, or any command that submits a real trade -- you have no
-          credentials to do the latter regardless. If you are not sure
-          whether something needs a human decision, say so explicitly rather
-          than assuming an answer.
-
-          Keep your FINAL reply under 3500 characters -- it is posted
-          directly to a phone via Telegram. Prioritize the most important 3-5
-          findings over an exhaustive list. Use plain text, no markdown
-          tables.'
+          Prioritize the most important 3-5 findings over an exhaustive
+          list.'
+          fi
 
           set +e
           OUTPUT=$(claude -p "$PROMPT" \
@@ -116,6 +168,8 @@ jobs:
             2>&1)
           STATUS=$?
           set -e
+
+          echo "review_kind=$KIND" >> "$GITHUB_OUTPUT"
 
           echo "exit_status=$STATUS" >> "$GITHUB_OUTPUT"
 
@@ -133,6 +187,7 @@ jobs:
         env:
           REVIEW_OUTPUT: ${{ steps.review.outputs.review_output }}
           REVIEW_STATUS: ${{ steps.review.outputs.exit_status }}
+          REVIEW_KIND:   ${{ steps.review.outputs.review_kind }}
           TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
@@ -141,8 +196,10 @@ jobs:
           token  = os.environ["TELEGRAM_TOKEN"]
           chat   = os.environ["TELEGRAM_CHAT_ID"]
           status = os.environ.get("REVIEW_STATUS", "1")
-          header = ("🔎 <b>DMan session review</b>" if status == "0" else
-                     "⚠️ <b>DMan session review — the run itself hit an error, showing what it captured</b>")
+          kind   = os.environ.get("REVIEW_KIND", "eod")
+          label  = "midday check-in" if kind == "midday" else "session review"
+          header = (f"🔎 <b>DMan {label}</b>" if status == "0" else
+                     f"⚠️ <b>DMan {label} — the run itself hit an error, showing what it captured</b>")
           body = os.environ.get("REVIEW_OUTPUT", "").strip() or "(no output captured)"
           text = f"{header}\n\n{html.escape(body)}"
           requests.post(

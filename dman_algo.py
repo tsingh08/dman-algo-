@@ -2849,7 +2849,41 @@ def _consume_earnings_offer_save(pending: list[dict], entry: dict) -> None:
     _save_earnings_state(pending, consumed)
 
 
-def format_earnings_spread_telegram(plan: dict) -> str:
+def _earnings_sector_overlap(ticker: str, pending: list[dict]) -> list[str]:
+    """
+    Other tickers in the same TICKER_SECTOR bucket as `ticker` that are
+    either a currently open earnings-spread position or another
+    still-pending (awaiting_approval) earnings-spread offer — a same-
+    sector cluster the approve-before-trade flow had no way to surface
+    before this: get_earnings_spread_candidates() only ever looks at one
+    ticker at a time, so a week with several same-sector reporters (e.g.
+    NVDA/CRWD both Technology, both reporting the same week) generated N
+    individually-reasonable offers with no visibility that approving all
+    of them is one concentrated sector bet, not real diversification.
+    Advisory only — this never blocks or auto-rejects an offer, it just
+    tells the human approving it what else is already in the same
+    sector, consistent with the rest of this file's report-don't-decide
+    approach to anything that isn't a hard risk-limit breach.
+    """
+    sector = TICKER_SECTOR.get(ticker)
+    if not sector:
+        return []
+    overlap = set()
+    for entry in pending:
+        other = entry.get("ticker")
+        if other and other != ticker and TICKER_SECTOR.get(other) == sector:
+            overlap.add(other)
+    try:
+        for pos in PositionTracker().positions:
+            if (pos.setup.startswith("Earnings ") and pos.ticker != ticker
+                    and TICKER_SECTOR.get(pos.ticker) == sector):
+                overlap.add(pos.ticker)
+    except Exception:
+        pass
+    return sorted(overlap)
+
+
+def format_earnings_spread_telegram(plan: dict, sector_overlap: Optional[list[str]] = None) -> str:
     """Telegram approval-request message for a pending earnings spread."""
     lines = [f"⚡ <b>DMan EARNINGS SPREAD</b> — {plan['ticker']}  [{plan.get('timing', '?')}]"]
 
@@ -2889,6 +2923,13 @@ def format_earnings_spread_telegram(plan: dict) -> str:
     if plan.get("ai_analysis"):
         lines.append("")
         lines.append(f"🧠 <i>{plan['ai_analysis']}</i>")
+
+    if sector_overlap:
+        sector = TICKER_SECTOR.get(plan["ticker"], "?")
+        lines.append("")
+        lines.append(f"⚠️ Sector overlap: {', '.join(sector_overlap)} ({sector}) already "
+                      f"open/pending this week — approving both is one concentrated bet, "
+                      f"not two diversified ones.")
 
     _n_sides = int(bool(plan.get("call"))) + int(bool(plan.get("put")))
     lines.append(f"Reply <b>YES {plan['ticker']}</b> to approve (1 atomic order, {_n_sides} side(s)) "
@@ -8944,6 +8985,7 @@ def run_earnings_spread_scan() -> None:
                     skipped_no_legs.append(c["ticker"])
                 continue
             _mark_alerted(dedup_key)
+            sector_overlap = _earnings_sector_overlap(c["ticker"], pending)
             pending.append({
                 "ticker": c["ticker"], "earn_date": c["earn_date"].isoformat(),
                 "created_at": datetime.now(ET).isoformat(),
@@ -8951,8 +8993,9 @@ def run_earnings_spread_scan() -> None:
                               + timedelta(minutes=EARNINGS_APPROVAL_TIMEOUT_MIN)).isoformat(),
                 "status": "awaiting_approval", "plan": plan,
             })
-            send_telegram(format_earnings_spread_telegram(plan))
-            print(f"  📤 Earnings spread offer sent for {c['ticker']}")
+            send_telegram(format_earnings_spread_telegram(plan, sector_overlap))
+            print(f"  📤 Earnings spread offer sent for {c['ticker']}"
+                  + (f" (sector overlap: {', '.join(sector_overlap)})" if sector_overlap else ""))
         if skipped_no_legs:
             send_telegram(
                 "📅 Earnings spread scan ran, no order sent for: <b>"

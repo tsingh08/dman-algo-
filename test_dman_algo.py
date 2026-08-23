@@ -7761,6 +7761,102 @@ class TestEarningsAlreadyReportedCheck(unittest.TestCase):
             self.assertFalse(a._check_earnings_already_reported("TESTX"))
 
 
+class TestEarningsSectorOverlap(unittest.TestCase):
+    """Added 2026-08-23: get_earnings_spread_candidates() evaluates one
+    ticker at a time, so a week with several same-sector reporters (e.g.
+    NVDA and CRWD, both Technology, both reporting the same week) produced
+    N individually-reasonable approval offers with no visibility that
+    approving all of them is one concentrated sector bet. Advisory only —
+    never blocks an offer, just tells the human approving it what else is
+    already in the same sector."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patch = patch.object(a, "PositionTracker", self._isolated_pt)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._pos_tmp.name)
+
+    def _open(self, ticker, setup, entry_date="2026-08-25"):
+        self._isolated_pt().open(a.OpenPosition(
+            ticker=ticker, bias="NEUTRAL", setup=setup, entry=100.0, stop=0.0,
+            target1=0.0, target2=0.0, shares=0, entry_date=entry_date,
+        ))
+
+    def test_ticker_with_no_sector_returns_empty(self):
+        self.assertEqual(a._earnings_sector_overlap("SPY", []), [])
+
+    def test_same_sector_pending_offer_is_detected(self):
+        pending = [{"ticker": "CRWD"}]
+        self.assertEqual(a._earnings_sector_overlap("NVDA", pending), ["CRWD"])
+
+    def test_different_sector_pending_offer_is_not_flagged(self):
+        pending = [{"ticker": "MRNA"}]
+        self.assertEqual(a._earnings_sector_overlap("NVDA", pending), [])
+
+    def test_own_ticker_in_pending_is_not_self_flagged(self):
+        pending = [{"ticker": "NVDA"}]
+        self.assertEqual(a._earnings_sector_overlap("NVDA", pending), [])
+
+    def test_open_earnings_position_same_sector_is_detected(self):
+        self._open("MRVL", "Earnings Double Spread")
+        self.assertEqual(a._earnings_sector_overlap("NVDA", []), ["MRVL"])
+
+    def test_open_non_earnings_position_same_sector_is_ignored(self):
+        self._open("MRVL", "Gap & Hold")
+        self.assertEqual(a._earnings_sector_overlap("NVDA", []), [])
+
+    def test_open_earnings_position_different_sector_is_ignored(self):
+        self._open("MRNA", "Earnings Double Spread")
+        self.assertEqual(a._earnings_sector_overlap("NVDA", []), [])
+
+    def test_positiontracker_failure_fails_open_to_pending_only(self):
+        with patch.object(a, "PositionTracker", side_effect=Exception("disk error")):
+            pending = [{"ticker": "CRWD"}]
+            self.assertEqual(a._earnings_sector_overlap("NVDA", pending), ["CRWD"])
+
+    def test_combines_pending_and_open_without_duplicates(self):
+        self._open("CRWD", "Earnings Call Spread")
+        pending = [{"ticker": "CRWD"}, {"ticker": "MRVL"}]
+        self.assertEqual(a._earnings_sector_overlap("NVDA", pending), ["CRWD", "MRVL"])
+
+
+class TestFormatEarningsSpreadTelegramSectorWarning(unittest.TestCase):
+    """format_earnings_spread_telegram() must surface a sector-overlap
+    warning line when given one, and stay silent when not — the approval
+    message is the only thing a human sees before a real spread order
+    goes out, so a silently-dropped warning is as bad as never computing
+    it in the first place."""
+
+    def _plan(self):
+        return {
+            "ticker": "NVDA", "timing": "AMC", "directional": None,
+            "last_moves_pct": [], "call": None, "put": None,
+            "total_cost": 500.0, "sets": 1, "max_loss": 500.0,
+        }
+
+    def test_no_overlap_omits_warning_line(self):
+        msg = a.format_earnings_spread_telegram(self._plan(), None)
+        self.assertNotIn("Sector overlap", msg)
+
+    def test_empty_overlap_list_omits_warning_line(self):
+        msg = a.format_earnings_spread_telegram(self._plan(), [])
+        self.assertNotIn("Sector overlap", msg)
+
+    def test_overlap_included_names_the_other_tickers_and_sector(self):
+        msg = a.format_earnings_spread_telegram(self._plan(), ["CRWD", "MRVL"])
+        self.assertIn("Sector overlap", msg)
+        self.assertIn("CRWD", msg)
+        self.assertIn("MRVL", msg)
+        self.assertIn("Technology", msg)
+
+
 class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):
     """_resolve_earnings_timing()'s own docstring says UNKNOWN-TODAY means
     "caller should skip, not guess" — but run_earnings_spread_scan() never

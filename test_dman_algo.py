@@ -8286,6 +8286,153 @@ class TestEarningsSectorOverlap(unittest.TestCase):
         self.assertEqual(a._earnings_sector_overlap("NVDA", pending), ["CRWD", "MRVL"])
 
 
+class TestEarningsSpreadCommittedRisk(unittest.TestCase):
+    """Added 2026-08-23: _earnings_spread_committed_risk() backs a HARD
+    cap (EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT), unlike the advisory-only
+    sector-overlap warning -- it must correctly sum real dollars at risk
+    across both open earnings-spread positions and still-pending offers,
+    and fail safe (pending-only) if PositionTracker can't be read."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patch = patch.object(a, "PositionTracker", self._isolated_pt)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._pos_tmp.name)
+
+    def _open(self, ticker, setup, max_loss):
+        self._isolated_pt().open(a.OpenPosition(
+            ticker=ticker, bias="NEUTRAL", setup=setup, entry=100.0, stop=0.0,
+            target1=0.0, target2=0.0, shares=0, entry_date="2026-08-23",
+            max_loss=max_loss,
+        ))
+
+    def test_nothing_open_or_pending_is_zero(self):
+        self.assertEqual(a._earnings_spread_committed_risk([]), 0.0)
+
+    def test_open_earnings_position_counts_its_max_loss(self):
+        self._open("NVDA", "Earnings Double Spread", 150.0)
+        self.assertEqual(a._earnings_spread_committed_risk([]), 150.0)
+
+    def test_non_earnings_open_position_does_not_count(self):
+        self._open("NVDA", "Gap & Hold", 150.0)
+        self.assertEqual(a._earnings_spread_committed_risk([]), 0.0)
+
+    def test_awaiting_approval_pending_offer_counts_its_plan_max_loss(self):
+        pending = [{"ticker": "CRWD", "status": "awaiting_approval", "plan": {"max_loss": 200.0}}]
+        self.assertEqual(a._earnings_spread_committed_risk(pending), 200.0)
+
+    def test_non_awaiting_pending_entry_does_not_count(self):
+        pending = [{"ticker": "CRWD", "status": "approved", "plan": {"max_loss": 200.0}}]
+        self.assertEqual(a._earnings_spread_committed_risk(pending), 0.0)
+
+    def test_open_and_pending_sum_together(self):
+        self._open("NVDA", "Earnings Call Spread", 150.0)
+        pending = [{"ticker": "CRWD", "status": "awaiting_approval", "plan": {"max_loss": 200.0}}]
+        self.assertEqual(a._earnings_spread_committed_risk(pending), 350.0)
+
+    def test_positiontracker_failure_fails_safe_to_pending_only(self):
+        pending = [{"ticker": "CRWD", "status": "awaiting_approval", "plan": {"max_loss": 200.0}}]
+        with patch.object(a, "PositionTracker", side_effect=Exception("disk error")):
+            self.assertEqual(a._earnings_spread_committed_risk(pending), 200.0)
+
+
+class TestEarningsSpreadScanAggregateRiskCap(unittest.TestCase):
+    """Added 2026-08-23: nothing previously stopped 3+ same-week earnings-
+    spread offers, each individually within EARNINGS_SPREAD_RISK_PCT, from
+    collectively over-committing the account -- the sector-overlap warning
+    is advisory only. run_earnings_spread_scan() must now hard-skip a new
+    offer that would push total committed risk over
+    EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT of equity, notify once (not
+    spam every scan), and leave the main per-ticker dedup key untouched so
+    a LATER scan can still retry once room frees up."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._pending_patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
+        self._pending_patch.start()
+        a._save_earnings_pending([])
+
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+    def tearDown(self):
+        self._pending_patch.stop()
+        os.unlink(self._tmp.name)
+        self._dedup_patch.stop()
+        os.unlink(self._dedup_tmp.name)
+
+    def _candidate(self, ticker="NVDA"):
+        return {"ticker": ticker, "earn_date": date.today(), "days_away": 0,
+                "timing": "AMC", "current_price": 200.0}
+
+    def _run(self, equity, existing_committed, plan_max_loss, mock_build=None):
+        if mock_build is None:
+            mock_build = MagicMock(return_value={"ticker": "NVDA", "max_loss": plan_max_loss})
+        with patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_effective_account", return_value=equity), \
+             patch.object(a, "get_earnings_spread_candidates", return_value=[self._candidate()]), \
+             patch.object(a, "_earnings_spread_committed_risk", return_value=existing_committed), \
+             patch.object(a, "build_earnings_spread_plan", mock_build), \
+             patch.object(a, "format_earnings_spread_telegram", return_value="msg"), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a.run_earnings_spread_scan()
+        return mock_build, mock_tg
+
+    def test_offer_within_cap_is_sent_normally(self):
+        # $100,000 equity, 15% cap = $15,000; nothing committed yet, this
+        # offer's $100 max_loss is nowhere near the cap.
+        mock_build, mock_tg = self._run(equity=100_000.0, existing_committed=0.0, plan_max_loss=100.0)
+        mock_build.assert_called_once()
+        self.assertEqual(len(a._load_earnings_pending()), 1)
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("msg" in t for t in sent_texts))
+
+    def test_offer_that_would_exceed_the_cap_is_not_offered(self):
+        # $10,000 equity, 15% cap = $1,500; $1,450 already committed, this
+        # offer's $100 max_loss would push total to $1,550 > cap.
+        mock_build, mock_tg = self._run(equity=10_000.0, existing_committed=1_450.0, plan_max_loss=100.0)
+        mock_build.assert_called_once()   # the plan IS built (needed to know its max_loss) ...
+        self.assertEqual(len(a._load_earnings_pending()), 0,
+                          "... but never actually offered/tracked as pending")
+        sent_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("aggregate risk cap" in t for t in sent_texts))
+        self.assertFalse(any(t == "msg" for t in sent_texts), "the real offer message must never go out")
+
+    def test_cap_skip_notification_is_deduped_not_spammed(self):
+        mock_build, mock_tg = self._run(equity=10_000.0, existing_committed=1_450.0, plan_max_loss=100.0)
+        cap_msgs_first = [c for c in mock_tg.call_args_list if "aggregate risk cap" in c.args[0]]
+        self.assertEqual(len(cap_msgs_first), 1)
+
+        mock_build2, mock_tg2 = self._run(equity=10_000.0, existing_committed=1_450.0, plan_max_loss=100.0)
+        cap_msgs_second = [c for c in mock_tg2.call_args_list if "aggregate risk cap" in c.args[0]]
+        self.assertEqual(len(cap_msgs_second), 0, "a repeat cap-skip for the same ticker/day must not re-notify")
+
+    def test_cap_skip_does_not_permanently_block_a_later_retry(self):
+        # The main per-ticker dedup_key must NOT be marked on a cap-skip --
+        # only a genuinely SENT offer should ever permanently silence a
+        # ticker for the rest of the day. Simulate a later scan where room
+        # has freed up (existing_committed now low) and confirm it builds
+        # and offers normally, not silently skipped as "already handled."
+        self._run(equity=10_000.0, existing_committed=1_450.0, plan_max_loss=100.0)
+        self.assertEqual(len(a._load_earnings_pending()), 0)
+
+        mock_build2, mock_tg2 = self._run(equity=10_000.0, existing_committed=0.0, plan_max_loss=100.0)
+        mock_build2.assert_called_once()
+        self.assertEqual(len(a._load_earnings_pending()), 1,
+                          "once room frees up, a later scan must still be able to offer this ticker")
+
+
 class TestFormatEarningsSpreadTelegramSectorWarning(unittest.TestCase):
     """format_earnings_spread_telegram() must surface a sector-overlap
     warning line when given one, and stay silent when not — the approval
@@ -8412,9 +8559,10 @@ class TestEarningsSpreadScanSectorOverlapSymmetry(unittest.TestCase):
             return f"msg for {plan['ticker']}"
         with patch.object(a, "is_market_open", return_value=True), \
              patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_effective_account", return_value=100_000.0), \
              patch.object(a, "get_earnings_spread_candidates", return_value=candidates), \
              patch.object(a, "build_earnings_spread_plan",
-                           side_effect=lambda client, ticker, *rest: {"ticker": ticker}), \
+                           side_effect=lambda client, ticker, *rest: {"ticker": ticker, "max_loss": 100.0}), \
              patch.object(a, "format_earnings_spread_telegram", side_effect=_fake_format), \
              patch.object(a, "send_telegram", return_value=True):
             a.run_earnings_spread_scan()

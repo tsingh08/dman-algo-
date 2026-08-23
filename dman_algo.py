@@ -324,6 +324,17 @@ STRANGLE_RISK_PCT   = 0.01             # 1% of account per strangle event
 # never as separate single-leg orders, which would carry leg-imbalance risk.
 ENABLE_EARNINGS_SPREADS        = True
 EARNINGS_SPREAD_RISK_PCT       = 0.05    # 5% of equity per event (~$150 at $2,997.77)
+EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT = 0.15   # hard cap on TOTAL max_loss committed across every
+                                                  # open + pending earnings spread at once, not per
+                                                  # trade — added 2026-08-23 after the review found
+                                                  # the sector-overlap warning was advisory only, with
+                                                  # nothing actually stopping 3+ same-week
+                                                  # EARNINGS_SPREAD_RISK_PCT=5% offers from
+                                                  # collectively over-committing the account. Set to
+                                                  # match OPTIONS_MAX_POSITION_PCT's single-position
+                                                  # cap: exactly 3 full-sized concurrent spreads (real
+                                                  # diversification across a busy earnings week) before
+                                                  # a 4th is blocked, not 1.
 EARNINGS_SPREAD_MIN_DTE        = 3
 EARNINGS_SPREAD_MAX_DTE        = 14
 EARNINGS_SPREAD_TARGET_DTE     = 7
@@ -2926,6 +2937,37 @@ def _earnings_sector_overlap(ticker: str, pending: list[dict]) -> list[str]:
     except Exception:
         pass
     return sorted(overlap)
+
+
+def _earnings_spread_committed_risk(pending: list[dict]) -> float:
+    """
+    Total real dollars currently at risk across every earnings-spread
+    commitment: open positions' max_loss (PositionTracker) plus every
+    still-pending awaiting_approval offer's max_loss in `pending`.
+
+    `pending` is passed in rather than re-read from disk via
+    _load_earnings_pending() so a caller mid-scan (run_earnings_spread_scan()
+    builds several offers in one pass, appending to its own in-memory
+    `pending` as it goes) gets a total that includes THIS pass's earlier
+    offers too, not just what was already on disk before the scan started
+    — same reasoning as the sector-overlap batch fix right above.
+
+    Backs EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT, a hard cap — unlike
+    _earnings_sector_overlap()'s advisory warning, nothing here is
+    optional: run_earnings_spread_scan() skips building a new offer
+    entirely once this total would exceed the cap.
+    """
+    total = 0.0
+    try:
+        for pos in PositionTracker().positions:
+            if pos.setup.startswith("Earnings "):
+                total += float(pos.max_loss or 0)
+    except Exception:
+        pass
+    for entry in pending:
+        if entry.get("status") == "awaiting_approval":
+            total += float((entry.get("plan") or {}).get("max_loss", 0) or 0)
+    return total
 
 
 def format_earnings_spread_telegram(plan: dict, sector_overlap: Optional[list[str]] = None) -> str:
@@ -9083,6 +9125,33 @@ def run_earnings_spread_scan() -> None:
                 if not _is_alerted_today(skip_dedup_key):
                     _mark_alerted(skip_dedup_key)
                     skipped_no_legs.append(c["ticker"])
+                continue
+            # Hard aggregate cap, on top of build_earnings_spread_plan()'s own
+            # per-trade EARNINGS_SPREAD_RISK_PCT sizing and the advisory-only
+            # sector-overlap warning below — added 2026-08-23 after the
+            # review found nothing actually stopped 3+ same-week offers,
+            # each individually reasonable, from collectively over-
+            # committing the account. Deliberately does NOT mark dedup_key
+            # (the "offer sent" key) here: a cap-skip should be retryable by
+            # a later scan cycle once an existing spread closes and frees up
+            # room, not permanently silenced for the rest of today the way a
+            # real sent offer is.
+            _committed = _earnings_spread_committed_risk(pending)
+            _cap = get_effective_account() * EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT
+            if _committed + plan["max_loss"] > _cap:
+                print(f"  ⏭️  {c['ticker']} earnings spread skipped — aggregate risk cap "
+                      f"(${_committed:.0f} committed + ${plan['max_loss']:.0f} this offer > "
+                      f"${_cap:.0f} cap, {EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT*100:.0f}% of equity)")
+                cap_dedup_key = f"{c['ticker']}_EARNSPREAD_CAP_{c['earn_date'].isoformat()}"
+                if not _is_alerted_today(cap_dedup_key):
+                    _mark_alerted(cap_dedup_key)
+                    send_telegram(
+                        f"⏭️ <b>{c['ticker']} earnings spread NOT offered</b> — aggregate risk cap "
+                        f"reached: ${_committed:.0f} already committed across open/pending spreads "
+                        f"+ ${plan['max_loss']:.0f} for this one would exceed the "
+                        f"{EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT*100:.0f}% (${_cap:.0f}) cap. "
+                        f"Close or let an existing spread expire to free up room."
+                    )
                 continue
             _mark_alerted(dedup_key)
             sector_overlap = _earnings_sector_overlap(c["ticker"], pending + _batch_tickers)

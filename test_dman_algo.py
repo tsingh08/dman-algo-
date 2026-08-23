@@ -2430,6 +2430,55 @@ class TestGetLivePriceUsesFeedResolver(unittest.TestCase):
         self.assertEqual(str(captured["feed"]).lower(), "datafeed.sip")
 
 
+class TestGetLiveQuoteIncludesSizes(unittest.TestCase):
+    """Added 2026-08-23: get_live_quote() is the equity counterpart to
+    _get_option_snapshot()'s bid_size/ask_size -- backs order-flow-aware
+    exit tightening for equity positions. get_live_price() must keep
+    returning exactly the same mid it always did (verified by the
+    existing TestGetLivePriceUsesFeedResolver suite still passing
+    unchanged); these lock in the new function's own contract."""
+
+    def _quote(self, ask=10.05, bid=10.00, bid_size=300, ask_size=50):
+        q = MagicMock()
+        q.ask_price = ask
+        q.bid_price = bid
+        q.bid_size = bid_size
+        q.ask_size = ask_size
+        return q
+
+    def test_returns_full_quote_with_sizes(self):
+        mock_dc = MagicMock()
+        mock_dc.get_stock_latest_quote.return_value = {"TESTX": self._quote()}
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            result = a.get_live_quote("TESTX")
+        self.assertAlmostEqual(result["mid"], 10.025, places=3)
+        self.assertEqual(result["bid_size"], 300)
+        self.assertEqual(result["ask_size"], 50)
+
+    def test_no_data_client_returns_none(self):
+        with patch.object(a, "get_alpaca_data_client", return_value=None):
+            self.assertIsNone(a.get_live_quote("TESTX"))
+
+    def test_zero_bid_or_ask_returns_none(self):
+        mock_dc = MagicMock()
+        mock_dc.get_stock_latest_quote.return_value = {"TESTX": self._quote(bid=0)}
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            self.assertIsNone(a.get_live_quote("TESTX"))
+
+    def test_exception_returns_none_not_raises(self):
+        mock_dc = MagicMock()
+        mock_dc.get_stock_latest_quote.side_effect = Exception("network error")
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            self.assertIsNone(a.get_live_quote("TESTX"))
+
+    def test_get_live_price_still_returns_just_the_mid(self):
+        mock_dc = MagicMock()
+        mock_dc.get_stock_latest_quote.return_value = {"TESTX": self._quote()}
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            px = a.get_live_price("TESTX")
+        self.assertAlmostEqual(px, 10.025, places=3)
+
+
 class TestComputeIndicatorsCached(unittest.TestCase):
     """Found in the 2026-08-16 review: the intended cache-reuse guard at
     several call sites ("MACD" not in df.columns) never actually tripped,
@@ -2672,7 +2721,8 @@ class TestMissingGreeksDeltaEstimateFallback(unittest.TestCase):
         # the estimate should land comfortably above the 0.40 floor.
         zero_greeks_snap = {"bid": 30.0, "ask": 30.5, "mid": 30.25,
                              "spread_pct": 0.02, "delta": 0.0, "gamma": 0.0,
-                             "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0}
+                             "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0,
+                             "bid_size": 50, "ask_size": 50}
         client = self._client_returning("TESTX260821C00070000", 70.0)
         with patch.object(a, "yf") as mock_yf:
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
@@ -2690,7 +2740,7 @@ class TestMissingGreeksDeltaEstimateFallback(unittest.TestCase):
         # the estimate must never override a genuine value.
         real_snap = {"bid": 5.0, "ask": 5.2, "mid": 5.1, "spread_pct": 0.04,
                      "delta": 0.62, "gamma": 0.01, "theta": -0.05, "vega": 0.1,
-                     "iv": 0.3, "oi": 100}
+                     "iv": 0.3, "oi": 100, "bid_size": 50, "ask_size": 50}
         client = self._client_returning("TESTX260821C00095000", 95.0)
         with patch.object(a, "yf") as mock_yf:
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
@@ -2707,7 +2757,8 @@ class TestMissingGreeksDeltaEstimateFallback(unittest.TestCase):
         # Deep ITM put by construction (strike way above current price).
         zero_greeks_snap = {"bid": 30.0, "ask": 30.5, "mid": 30.25,
                              "spread_pct": 0.02, "delta": 0.0, "gamma": 0.0,
-                             "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0}
+                             "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0,
+                             "bid_size": 50, "ask_size": 50}
         client = self._client_returning("TESTX260821P00130000", 130.0)
         with patch.object(a, "yf") as mock_yf:
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
@@ -2719,6 +2770,88 @@ class TestMissingGreeksDeltaEstimateFallback(unittest.TestCase):
         self.assertTrue(contract["delta_estimated"])
         self.assertLess(contract["delta"], 0, "put delta must be negative")
         self.assertGreaterEqual(abs(contract["delta"]), 0.40)
+
+
+class TestOptionsEntryLiquidityGate(unittest.TestCase):
+    """Added 2026-08-23, entry-side counterpart to the order-flow exit
+    signal: _find_best_call_contract()/_find_best_put_contract() must
+    reject a contract whose top-of-book size is below
+    OPTIONS_MIN_QUOTE_SIZE on either side, even when delta and spread%
+    both look fine -- a thin book means the displayed spread can be
+    misleadingly tight relative to what's actually fillable there."""
+
+    class _FakeContract:
+        def __init__(self, symbol, strike):
+            self.symbol = symbol
+            self.strike_price = strike
+
+    def _client_returning(self, symbol, strike):
+        client = MagicMock()
+        client.get_option_contracts.return_value = MagicMock(
+            option_contracts=[self._FakeContract(symbol, strike)]
+        )
+        return client
+
+    def _snap(self, bid_size, ask_size):
+        return {"bid": 5.0, "ask": 5.2, "mid": 5.1, "spread_pct": 0.04,
+                "delta": 0.62, "gamma": 0.01, "theta": -0.05, "vega": 0.1,
+                "iv": 0.3, "oi": 100, "bid_size": bid_size, "ask_size": ask_size}
+
+    def test_call_rejects_thin_ask_size(self):
+        client = self._client_returning("TESTX260821C00095000", 95.0)
+        snap = self._snap(bid_size=50, ask_size=a.OPTIONS_MIN_QUOTE_SIZE - 1)
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s):
+                contract = a._find_best_call_contract(client, "TESTX", 100.0)
+        self.assertIsNone(contract, "a thin ask must reject the contract even with good delta/spread")
+
+    def test_call_rejects_thin_bid_size(self):
+        client = self._client_returning("TESTX260821C00095000", 95.0)
+        snap = self._snap(bid_size=a.OPTIONS_MIN_QUOTE_SIZE - 1, ask_size=50)
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s):
+                contract = a._find_best_call_contract(client, "TESTX", 100.0)
+        self.assertIsNone(contract, "a thin bid must reject the contract too, not just a thin ask")
+
+    def test_call_accepts_exactly_at_the_floor(self):
+        client = self._client_returning("TESTX260821C00095000", 95.0)
+        snap = self._snap(bid_size=a.OPTIONS_MIN_QUOTE_SIZE, ask_size=a.OPTIONS_MIN_QUOTE_SIZE)
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s):
+                contract = a._find_best_call_contract(client, "TESTX", 100.0)
+        self.assertIsNotNone(contract, "exactly at the floor must still pass, not just strictly above it")
+
+    def test_put_rejects_thin_ask_size(self):
+        client = self._client_returning("TESTX260821P00130000", 130.0)
+        snap = self._snap(bid_size=50, ask_size=a.OPTIONS_MIN_QUOTE_SIZE - 1)
+        snap["delta"] = -0.62
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s):
+                contract = a._find_best_put_contract(client, "TESTX", 100.0)
+        self.assertIsNone(contract)
+
+    def test_missing_size_keys_fail_closed_not_a_crash(self):
+        # A snap dict lacking bid_size/ask_size entirely (shouldn't happen
+        # in production -- _get_option_snapshot() always includes them --
+        # but must fail closed, not raise, if it ever does).
+        client = self._client_returning("TESTX260821C00095000", 95.0)
+        snap = {"bid": 5.0, "ask": 5.2, "mid": 5.1, "spread_pct": 0.04,
+                "delta": 0.62, "gamma": 0.01, "theta": -0.05, "vega": 0.1,
+                "iv": 0.3, "oi": 100}
+        with patch.object(a, "yf") as mock_yf:
+            mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
+            with patch.object(a, "_get_option_snapshot", return_value=snap), \
+                 patch.object(a, "_merge_contract_oi", side_effect=lambda s, c: s):
+                contract = a._find_best_call_contract(client, "TESTX", 100.0)
+        self.assertIsNone(contract)
 
 
 class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
@@ -3562,6 +3695,91 @@ class TestCheckEquityPositionTarget(unittest.TestCase):
             with patch.object(a, "send_telegram", return_value=True) as mock_tg:
                 a._check_equity_position_target(pos, cur_price=11.56)
         mock_tg.assert_not_called()
+
+    def test_bearish_order_flow_locks_in_between_the_two_gain_gates(self):
+        # Added 2026-08-23: entry $9.80, cur $11.00 = +12.24% -- inside
+        # (ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT=7.5%, EARLY_PROFIT_LOCK_GAIN_PCT=15%),
+        # below the normal early-lock gate but order flow independently
+        # confirms sellers stacking (lean well past
+        # ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD=-0.4). Must lock in now instead
+        # of waiting for the full 15% gate.
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        bearish_quote = {"mid": 11.00, "bid": 10.98, "ask": 11.02, "bid_size": 20, "ask_size": 180}
+        with patch.object(a, "get_live_quote", return_value=bearish_quote), \
+             patch.object(a, "_progress_equity_stop_to_trailing",
+                           return_value="stop raised to breakeven, now trailing") as mock_prog, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=11.00)
+        mock_tg.assert_called_once()
+        self.assertIn("Order-flow early lock", mock_tg.call_args[0][0])
+        self.assertEqual(mock_prog.call_args.kwargs.get("trigger_price"), 11.00)
+
+    def test_bullish_order_flow_does_not_lock_in_early(self):
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        bullish_quote = {"mid": 11.00, "bid": 10.98, "ask": 11.02, "bid_size": 180, "ask_size": 20}
+        with patch.object(a, "get_live_quote", return_value=bullish_quote), \
+             patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=11.00)
+        mock_tg.assert_not_called()
+        mock_prog.assert_not_called()
+
+    def test_already_trailing_is_not_re_triggered_by_order_flow(self):
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70,
+                        stop=7.83, stop_stage="trailing")
+        bearish_quote = {"mid": 11.00, "bid": 10.98, "ask": 11.02, "bid_size": 20, "ask_size": 180}
+        with patch.object(a, "get_live_quote", return_value=bearish_quote), \
+             patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=11.00)
+        mock_tg.assert_not_called()
+        mock_prog.assert_not_called()
+
+    def test_below_the_order_flow_floor_does_nothing_even_with_bearish_flow(self):
+        # +5%, below ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT (7.5%) -- must not
+        # act on order flow no matter how bearish; the gain floor is a
+        # hard requirement, not something order flow can override.
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        bearish_quote = {"mid": 10.29, "bid": 10.27, "ask": 10.31, "bid_size": 5, "ask_size": 195}
+        with patch.object(a, "get_live_quote", return_value=bearish_quote), \
+             patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=10.29)   # +5.0%
+        mock_tg.assert_not_called()
+        mock_prog.assert_not_called()
+
+    def test_at_or_above_the_normal_gate_uses_the_original_branch_not_order_flow(self):
+        # +18%, past EARLY_PROFIT_LOCK_GAIN_PCT -- the original branch must
+        # take precedence regardless of order flow (bearish here too), so
+        # the alert must say "Early profit lock", not "Order-flow early lock".
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        bearish_quote = {"mid": 11.56, "bid": 11.54, "ask": 11.58, "bid_size": 5, "ask_size": 195}
+        with patch.object(a, "get_live_quote", return_value=bearish_quote), \
+             patch.object(a, "_progress_equity_stop_to_trailing", return_value="stop raised"), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=11.56)   # +18%
+        mock_tg.assert_called_once()
+        self.assertIn("Early profit lock", mock_tg.call_args[0][0])
+        self.assertNotIn("Order-flow", mock_tg.call_args[0][0])
+
+    def test_order_flow_lock_does_not_refire_same_day(self):
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        bearish_quote = {"mid": 11.00, "bid": 10.98, "ask": 11.02, "bid_size": 20, "ask_size": 180}
+        with patch.object(a, "get_live_quote", return_value=bearish_quote), \
+             patch.object(a, "_progress_equity_stop_to_trailing", return_value="locked"), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=11.00)
+            a._check_equity_position_target(pos, cur_price=11.05)
+        self.assertEqual(mock_tg.call_count, 1)
+
+    def test_missing_quote_is_neutral_not_a_crash(self):
+        pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        with patch.object(a, "get_live_quote", return_value=None), \
+             patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._check_equity_position_target(pos, cur_price=11.00)
+        mock_tg.assert_not_called()
+        mock_prog.assert_not_called()
 
 
 class TestRunEquityGuard(unittest.TestCase):

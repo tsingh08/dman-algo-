@@ -214,6 +214,16 @@ OPTIONS_MAX_POSITION_PCT    = 0.15   # target budget per options trade, as a fra
 OPTIONS_DTE_MIN             = 5      # minimum 5 DTE — allows weekly for fast gap plays
 OPTIONS_DTE_MAX             = 28     # max 4 weeks
 OPTIONS_MAX_SPREAD_PCT      = 0.15   # skip contract if bid-ask spread > 15% of mid (was 20% of ask)
+OPTIONS_MIN_QUOTE_SIZE      = 5      # contracts resting on EACH side of the top-of-book quote --
+                                       # added 2026-08-23, entry-side counterpart to the order-flow
+                                       # exit signal (_quote_size_imbalance()). A thin book (size
+                                       # below this on either side) means the displayed spread% can
+                                       # be misleadingly tight relative to what's actually
+                                       # executable there. Deliberately NOT trying to read
+                                       # direction from size here (that's what the exit-side lean
+                                       # is for) -- this only gates out a genuinely illiquid moment
+                                       # before committing real capital to it, same spirit as the
+                                       # spread% check right above.
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
 OPTIONS_DATA_FEED           = "opra"        # preferred feed — real OPRA tape. Entitlement has flipped
@@ -6459,6 +6469,15 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
 
 
 EARLY_PROFIT_LOCK_GAIN_PCT = 15.0   # see _check_equity_position_target's early-lock branch
+# Order-flow-aware early lock (added 2026-08-23, equity counterpart to the
+# options trail-tightening feature) -- half of EARLY_PROFIT_LOCK_GAIN_PCT,
+# since the whole point is triggering the SAME already-tested stop-to-
+# trailing transition sooner than the normal gain-only gate would, when
+# order flow independently confirms the position is already turning.
+# Deliberately still requires REAL profit (not near-breakeven noise) --
+# this only ever moves UP the timing of a transition the position was
+# already eligible to make eventually, never invents a new action.
+ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT = EARLY_PROFIT_LOCK_GAIN_PCT / 2
 
 def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) -> None:
     """
@@ -6545,6 +6564,45 @@ def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) 
                     _mark_alerted(_lockk)
             except Exception as _pe:
                 print(f"  ⚠️  {t}: early profit-lock progression failed — {_pe}")
+    elif (ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT <= _pnle < EARLY_PROFIT_LOCK_GAIN_PCT
+          and pos.get("stop_stage") != "trailing"):
+        # Order-flow-aware early lock — added 2026-08-23, equity
+        # counterpart to the options trail-tightening feature (see
+        # _quote_size_imbalance()'s docstring for what top-of-book size
+        # lean is and isn't; true Level 2 depth isn't available for what
+        # this account trades). Same mechanism as the branch above, just
+        # triggered sooner — between ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT
+        # and the full EARLY_PROFIT_LOCK_GAIN_PCT gate — when order flow
+        # independently confirms sellers are already stacking up, instead
+        # of waiting for the gain-only threshold alone. Bounded the same
+        # way as the options version: this only ever moves UP the timing
+        # of a transition (lock stop to breakeven, arm a real trailing
+        # stop) the position was already eligible to make eventually —
+        # it can't fire below the minimum gain floor, and a quiet/missing
+        # quote (get_live_quote() returning None) reads as neutral, not
+        # as a reason to act.
+        _quote = get_live_quote(t)
+        _flow_lean_eq = (_quote_size_imbalance(_quote["bid_size"], _quote["ask_size"])
+                          if _quote else 0.0)
+        if _flow_lean_eq <= ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD:
+            _flowk = f"{t}_FLOWLOCK_{date.today().isoformat()}"
+            if not _is_alerted_today(_flowk):
+                try:
+                    _prog = _progress_equity_stop_to_trailing(
+                        OpenPosition(**pos), _cur_eq, trigger_price=_cur_eq)
+                    if _prog:
+                        send_telegram(
+                            f"🔒 <b>Order-flow early lock</b> — {t} LONG\n"
+                            f"Entry ${e} → Now ${_cur_eq:.2f} (+{_pnle}%)  "
+                            f"bid/ask size lean {_flow_lean_eq:+.2f}\n"
+                            f"{_prog}\n"
+                            f"Locking in gains ahead of the normal "
+                            f"{EARLY_PROFIT_LOCK_GAIN_PCT:.0f}% threshold — order flow is "
+                            f"already showing sellers stacking up."
+                        )
+                        _mark_alerted(_flowk)
+                except Exception as _pe:
+                    print(f"  ⚠️  {t}: order-flow early-lock progression failed — {_pe}")
 
 
 def run_equity_guard(get_price_fn=None, positions: Optional[list] = None) -> None:
@@ -15273,29 +15331,47 @@ def get_alpaca_data_client() -> Optional["StockHistoricalDataClient"]:
     return _alp_data
 
 
+def get_live_quote(ticker: str) -> Optional[dict]:
+    """
+    Full top-of-book quote from Alpaca — mid/bid/ask price AND bid_size/
+    ask_size. get_live_price() below wraps this and returns just the mid,
+    unchanged, for its many existing callers. Added 2026-08-23 so callers
+    that need size (order-flow-aware exit tightening — see
+    _quote_size_imbalance(), already live for options via
+    _get_option_snapshot()) don't need a second API call for the same
+    quote. No yfinance fallback here (unlike get_live_price()) — size
+    data isn't something a fallback source can plausibly substitute for,
+    so a caller that needs it should treat None as "skip this check,"
+    same as any other missing-data case.
+    """
+    try:
+        dc = get_alpaca_data_client()
+        if dc is None:
+            return None
+        # See get_live_price()'s matching comment: feed= must be explicit
+        # here too, same SIP-entitlement-lapse gap it was added to close.
+        req   = StockLatestQuoteRequest(symbol_or_symbols=ticker, feed=_resolve_stock_feed())
+        quote = dc.get_stock_latest_quote(req)[ticker]
+        ask, bid = float(quote.ask_price), float(quote.bid_price)
+        if ask <= 0 or bid <= 0:
+            return None
+        return {
+            "mid": round((ask + bid) / 2, 4), "bid": bid, "ask": ask,
+            "bid_size": int(getattr(quote, "bid_size", 0) or 0),
+            "ask_size": int(getattr(quote, "ask_size", 0) or 0),
+        }
+    except Exception:
+        return None
+
+
 def get_live_price(ticker: str) -> Optional[float]:
     """
     Mid-quote from Alpaca (real-time during market hours).
     Falls back to yfinance last close when Alpaca is unavailable.
     """
-    try:
-        dc = get_alpaca_data_client()
-        if dc is not None:
-            # Found in the 2026-08-16 review: this is the single hottest
-            # price-check path in the file (behind T1/T2/early-lock
-            # decisions and entry-price drift validation) and omitted
-            # feed= entirely, unlike every other stock-data call site
-            # (_fetch_alpaca_daily etc.) — a SIP entitlement lapse would
-            # degrade this specific path silently, with no downgrade
-            # alert, same class of gap as market_data_stream_loop()'s
-            # hardcoded DataFeed.SIP.
-            req   = StockLatestQuoteRequest(symbol_or_symbols=ticker, feed=_resolve_stock_feed())
-            quote = dc.get_stock_latest_quote(req)[ticker]
-            ask, bid = float(quote.ask_price), float(quote.bid_price)
-            if ask > 0 and bid > 0:
-                return round((ask + bid) / 2, 4)
-    except Exception:
-        pass
+    quote = get_live_quote(ticker)
+    if quote is not None:
+        return quote["mid"]
     return get_current_price(ticker)
 
 
@@ -16569,8 +16645,10 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
                     current_price, strike, (target_expiry - today).days,
                     True, _realized_vol_estimate(ticker))
                 snap["delta_estimated"] = True
-            # Hard filter: reject OTM (delta < 0.40) and wide-spread contracts
-            if snap["delta"] < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
+            # Hard filter: reject OTM (delta < 0.40), wide-spread, and thin-book contracts
+            if (snap["delta"] < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT
+                    or snap.get("bid_size", 0) < OPTIONS_MIN_QUOTE_SIZE
+                    or snap.get("ask_size", 0) < OPTIONS_MIN_QUOTE_SIZE):
                 continue
             score, reason = _score_option_contract(snap, current_price)
             _delta_tag = "~" if snap.get("delta_estimated") else ""
@@ -16670,7 +16748,9 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
                     False, _realized_vol_estimate(ticker))
                 snap["delta_estimated"] = True
             delta_abs = abs(snap.get("delta", 0))
-            if delta_abs < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT:
+            if (delta_abs < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT
+                    or snap.get("bid_size", 0) < OPTIONS_MIN_QUOTE_SIZE
+                    or snap.get("ask_size", 0) < OPTIONS_MIN_QUOTE_SIZE):
                 continue
             score, reason = _score_option_contract(snap, current_price)
             _delta_tag = "~" if snap.get("delta_estimated") else ""

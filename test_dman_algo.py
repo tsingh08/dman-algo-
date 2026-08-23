@@ -388,6 +388,18 @@ class TestMergePositionsSnapshots(unittest.TestCase):
         merged2 = a.merge_positions_snapshots(remote, local)
         self.assertEqual(merged2[0]["stop_stage"], "trailing")
 
+    def test_tied_shares_and_stop_keeps_the_higher_trail_pct(self):
+        # Added 2026-08-23 alongside the new trail_pct field -- same tie
+        # shape as peak_premium/milestones above: a merge must never lose
+        # the only local record of what a live trailing order's percent
+        # was submitted at.
+        local  = [{"ticker": "CELZ", "stop": 10.0, "shares": 100,
+                   "stop_stage": "trailing", "trail_pct": 8.5}]
+        remote = [{"ticker": "CELZ", "stop": 10.0, "shares": 100,
+                   "stop_stage": "trailing", "trail_pct": 0.0}]
+        merged = a.merge_positions_snapshots(local, remote)
+        self.assertEqual(merged[0]["trail_pct"], 8.5)
+
     def test_a_more_protective_stop_still_carries_forward_the_losing_sides_peak(self):
         # When shares/stop are NOT tied, the existing rule still picks the
         # more-protective side -- but the losing side's peak_premium must
@@ -619,6 +631,13 @@ class TestPositionTrackerOpenAccumulatesOnScaleIn(unittest.TestCase):
         pt.open(self._pos(stop_stage="initial"))   # a later batch's default must not reset it
         self.assertEqual(pt.positions[0].stop_stage, "trailing")
 
+    def test_repeat_open_carries_forward_trail_pct_when_already_trailing(self):
+        pt = a.PositionTracker(filepath=self._tmp.name)
+        pt.open(self._pos(stop_stage="trailing", trail_pct=8.5))
+        pt.open(self._pos(stop_stage="initial", trail_pct=0.0))
+        self.assertEqual(pt.positions[0].trail_pct, 8.5,
+                          "a later, non-trailing batch's default trail_pct must not erase it")
+
     def test_repeat_open_carries_forward_the_higher_milestone_progress(self):
         pt = a.PositionTracker(filepath=self._tmp.name)
         pt.open(self._pos(peak_premium=1.5, milestone_gain_alerted=20.0))
@@ -659,6 +678,86 @@ class TestPositionTrackerOpenAccumulatesOnScaleIn(unittest.TestCase):
         pt.open(self._pos(shares=100, entry=1.00, stop=0.61))
         pt.open(self._pos(shares=100, entry=1.00, stop=0.55))   # looser — must not win
         self.assertEqual(pt.positions[0].stop, 0.61)
+
+
+class TestPositionTrackerThreadSafety(unittest.TestCase):
+    """Added 2026-08-23: PositionTracker.open()/close() and
+    _update_positions_matching() each independently did a full
+    load->mutate->write of dman_positions.json with no coordination --
+    guard_loop/telegram_loop/scan_loop all run as separate threads of the
+    SAME daemon process, so one thread's read-modify-write could silently
+    clobber another's already-saved change (a classic lost-update race).
+    _POSITIONS_LOCK serializes every mutation; these tests actually run
+    concurrent threads against a real shared file rather than just
+    asserting the lock object exists, since a lock that's acquired in the
+    wrong place gives zero protection despite "looking" present."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"[]")
+        self._tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._tmp.name)
+
+    def _pos(self, ticker):
+        return a.OpenPosition(
+            ticker=ticker, bias="LONG", setup="Low Float Catalyst",
+            entry=1.0, stop=0.5, target1=1.5, target2=2.0,
+            shares=100, entry_date="2026-08-23",
+        )
+
+    def test_many_concurrent_opens_from_separate_instances_lose_none(self):
+        import threading
+        N = 25
+        barrier = threading.Barrier(N)
+
+        def _worker(i):
+            barrier.wait()   # maximize actual overlap, not just interleaved starts
+            a.PositionTracker(filepath=self._tmp.name).open(self._pos(f"T{i}"))
+
+        with patch.object(a, "MAX_POSITIONS", N + 10):   # isolate the lock behavior from capacity
+            threads = [threading.Thread(target=_worker, args=(i,)) for i in range(N)]
+            for t in threads:
+                t.start()
+            for t in threads:
+                t.join(timeout=10)
+
+        final = a.PositionTracker(filepath=self._tmp.name)
+        self.assertEqual(len(final.positions), N,
+                          "every concurrent open() from a separate instance must survive — "
+                          "a lost-update race would silently drop some")
+        self.assertEqual({p.ticker for p in final.positions}, {f"T{i}" for i in range(N)})
+
+    def test_concurrent_open_and_field_update_do_not_corrupt_each_other(self):
+        import threading
+        a.PositionTracker(filepath=self._tmp.name).open(self._pos("HELD"))
+        N = 20
+        barrier = threading.Barrier(N + 1)
+
+        def _open_worker(i):
+            barrier.wait()
+            a.PositionTracker(filepath=self._tmp.name).open(self._pos(f"NEW{i}"))
+
+        def _update_worker():
+            barrier.wait()
+            with patch.object(a, "POSITIONS_FILE", self._tmp.name):
+                for _ in range(20):
+                    a._update_position_field("HELD", stop=0.6)
+
+        with patch.object(a, "MAX_POSITIONS", N + 10):
+            threads = [threading.Thread(target=_open_worker, args=(i,)) for i in range(N)]
+            threads.append(threading.Thread(target=_update_worker))
+            for t in threads:
+                t.start()
+            for t in threads:
+                t.join(timeout=10)
+
+        final = a.PositionTracker(filepath=self._tmp.name)
+        self.assertEqual(len(final.positions), N + 1,
+                          "the pre-existing HELD position plus every new open() must all survive")
+        held = next(p for p in final.positions if p.ticker == "HELD")
+        self.assertEqual(held.stop, 0.6, "the field update must not be lost either")
 
 
 class TestMergeJsonLists(unittest.TestCase):
@@ -3227,6 +3326,12 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         # tracker updated to reflect the new stage
         tracker = a.PositionTracker(filepath=self._pos_tmp.name)
         self.assertEqual(tracker.positions[0].stop_stage, "trailing")
+        # trail_pct must be persisted too (2026-08-23) -- it's the only
+        # record of what the live trailing order was submitted at, since
+        # `stop` freezes at breakeven and Alpaca's own ratcheting isn't
+        # written back; without it, a later stop-restore has no way to
+        # reconstruct an equivalent trailing order.
+        self.assertAlmostEqual(tracker.positions[0].trail_pct, submit_call.trail_percent, places=4)
 
     def test_trail_percent_never_exceeds_current_gain(self):
         # A position with a very wide original stop but only just past T1 --
@@ -7750,6 +7855,85 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
         self.assertFalse(ok)
         self.assertIn("insufficient buying power", detail)
+
+    def _tracked_trailing_litx(self, stop=35.85, trail_pct=8.5):
+        pos = self._tracked_litx(stop=stop)
+        pos["stop_stage"] = "trailing"
+        pos["trail_pct"] = trail_pct
+        return pos
+
+    def test_trailing_stage_position_restores_a_fresh_trailing_stop(self):
+        # Added 2026-08-23: tracked.stop freezes at the breakeven price the
+        # moment a position progresses to "trailing" -- the real protection
+        # level lives entirely at Alpaca from then on and is never written
+        # back locally. Restoring a plain stop at that stale, frozen
+        # breakeven number would silently give back everything the live
+        # trail had since earned. A trailing-stage position with a real
+        # trail_pct on record must restore an equivalent TRAILING order,
+        # not a plain stop at the old breakeven.
+        self._write_positions([self._tracked_trailing_litx(stop=35.85, trail_pct=8.5)])
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="new-trail-id-12345678")
+
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+
+        self.assertTrue(ok)
+        self.assertIn("trailing stop", detail)
+        self.assertIn("8.5%", detail)
+        req = mock_client.submit_order.call_args[0][0]
+        from alpaca.trading.requests import TrailingStopOrderRequest
+        self.assertIsInstance(req, TrailingStopOrderRequest)
+        self.assertEqual(req.trail_percent, 8.5)
+        self.assertEqual(req.qty, 47)
+
+    def test_trailing_restore_falls_back_to_plain_stop_if_trailing_submit_fails(self):
+        # Never leave the position with nothing live -- if Alpaca rejects
+        # the trailing order for any reason, fall back to a plain stop at
+        # the tracked (breakeven) price rather than failing the whole
+        # restore.
+        self._write_positions([self._tracked_trailing_litx(stop=35.85, trail_pct=8.5)])
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.side_effect = [
+            Exception("trailing stop rejected"),
+            MagicMock(id="fallback-plain-stop-id"),
+        ]
+
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+
+        self.assertTrue(ok)
+        self.assertIn("plain stop", detail)
+        self.assertIn("35.85", detail)
+        self.assertIn("trailing stage", detail, "must say protection is now weaker than before, not silent")
+        self.assertEqual(mock_client.submit_order.call_count, 2)
+        from alpaca.trading.requests import StopOrderRequest
+        last_req = mock_client.submit_order.call_args_list[-1].args[0]
+        self.assertIsInstance(last_req, StopOrderRequest)
+        self.assertEqual(last_req.stop_price, 35.85)
+
+    def test_trailing_stage_without_a_recorded_trail_pct_uses_plain_stop(self):
+        # A position tracked before trail_pct existed (or that fell back to
+        # a plain breakeven stop originally, see stop_stage handling in
+        # _progress_equity_stop_to_trailing) has stop_stage=="trailing" but
+        # trail_pct==0 -- must not attempt a trail_percent=0 order, just
+        # use the existing plain-stop path unchanged.
+        pos = self._tracked_litx(stop=35.85)
+        pos["stop_stage"] = "trailing"
+        pos["trail_pct"] = 0.0
+        self._write_positions([pos])
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="plain-stop-id")
+
+        ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
+
+        self.assertTrue(ok)
+        self.assertIn("plain stop", detail)
+        mock_client.submit_order.assert_called_once()
+        from alpaca.trading.requests import StopOrderRequest
+        req = mock_client.submit_order.call_args[0][0]
+        self.assertIsInstance(req, StopOrderRequest)
 
 
 class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):

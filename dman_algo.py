@@ -33,7 +33,7 @@
 
 from __future__ import annotations
 
-import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile
+import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile, threading
 from datetime import datetime, timedelta, date
 from dataclasses import dataclass, field, asdict
 from typing import Optional
@@ -418,6 +418,20 @@ MAX_CONSEC_LOSSES  = 3           # halt after this many consecutive losses
 EARNINGS_BLACKOUT  = 5           # days before earnings to avoid
 WIN_RATE_FILE      = "dman_win_rate.json"
 POSITIONS_FILE     = "dman_positions.json"
+# Found in the 2026-08-23 review: PositionTracker.open()/close() and
+# _update_positions_matching() (used by _update_option_position_field(),
+# the always-on daemon's guard_loop calls this every GUARD_EVERY_S=10s)
+# each independently do a full load -> mutate -> write of POSITIONS_FILE
+# with no coordination between them. guard_loop, telegram_loop, and
+# scan_loop all run as separate threads of the SAME daemon process (see
+# main()'s threading.Thread(...) list in dman_daemon.py) -- a classic
+# lost-update race: one thread's read-modify-write can silently clobber
+# another's already-saved change made in between, with no error and no
+# git-merge safety net (that only covers cross-PROCESS state, e.g. the
+# daemon vs. the hourly cron scanner, not two threads in this one
+# process racing on the same local file). Every mutation of this file
+# now holds this lock for its full read-through-write span.
+_POSITIONS_LOCK = threading.RLock()
 DAILY_PNL_FILE     = "dman_daily_pnl.json"
 PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open positions
 ATR_PCT_MIN          = 1.5       # stock must move at least 1.5% avg daily
@@ -5515,18 +5529,21 @@ def _update_positions_matching(match, label: str, **fields) -> None:
     _update_option_position_field() — the two differed only in how they
     matched a position (ticker vs. OCC symbol embedded in `setup`) and
     their error-message wording; `match` is the one thing callers still
-    need to specify themselves.
+    need to specify themselves. Holds _POSITIONS_LOCK for the full
+    read-through-write span — see that lock's docstring for the
+    cross-thread race this closes.
     """
     try:
-        with open(POSITIONS_FILE) as f:
-            data = json.load(f)
-        changed = False
-        for p in data:
-            if match(p):
-                p.update(fields)
-                changed = True
-        if changed:
-            _write_json_atomic(POSITIONS_FILE, data, indent=2)
+        with _POSITIONS_LOCK:
+            with open(POSITIONS_FILE) as f:
+                data = json.load(f)
+            changed = False
+            for p in data:
+                if match(p):
+                    p.update(fields)
+                    changed = True
+            if changed:
+                _write_json_atomic(POSITIONS_FILE, data, indent=2)
     except Exception as _e:
         print(f"  ⚠️  Could not update position {label}: {_e}")
 
@@ -6284,7 +6301,8 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
             time_in_force=TimeInForce.GTC, trail_percent=trail_pct,
             position_intent=PositionIntent.SELL_TO_CLOSE,
         ))
-        _update_position_field(pos.ticker, stop_stage="trailing", stop=round(pos.entry, 2))
+        _update_position_field(pos.ticker, stop_stage="trailing", stop=round(pos.entry, 2),
+                                trail_pct=trail_pct)
         return (f"stop raised to breakeven ${pos.entry:.2f}, now trailing "
                 f"{trail_pct:.1f}% (id {str(trail_order.id)[:8]}…)")
     except Exception as exc:
@@ -10862,6 +10880,19 @@ class OpenPosition:
                                   # so exits react to how the trade is actually
                                   # moving instead of only a fixed stop/T2 number —
                                   # see OPTIONS_TRAIL_ACTIVATE_GAIN_PCT.
+    trail_pct: float = 0.0   # equity only — the trail_percent submitted to Alpaca's
+                               # native TrailingStopOrderRequest when stop_stage
+                               # became "trailing" (_progress_equity_stop_to_trailing()).
+                               # Added 2026-08-23: `stop` freezes at the breakeven
+                               # price set at that same moment and is never updated
+                               # again as the broker-side trailing stop keeps
+                               # ratcheting up on its own — without this, a restore
+                               # after that live order went missing had no way to
+                               # reconstruct an equivalent trailing order and fell
+                               # back to a plain stop at the stale, frozen breakeven
+                               # level, silently giving back real, already-locked-in
+                               # gain. 0.0 means never progressed to trailing (or a
+                               # position tracked before this field existed).
 
 
 def _position_identity(ticker: str, setup: str) -> str:
@@ -10942,40 +10973,59 @@ class PositionTracker:
         shares (T1's own guard is `stop < entry`). entry_date and any
         already-earned trailing-stop/milestone progress carry forward
         from the ORIGINAL entry, not the newest batch.
-        """
-        _ident = _position_identity(pos.ticker, pos.setup)
-        _existing = next((p for p in self.positions
-                          if _position_identity(p.ticker, p.setup) == _ident), None)
-        if _existing is not None:
-            _total_shares = _existing.shares + pos.shares
-            if _total_shares > 0:
-                pos.entry = round(
-                    (_existing.entry * _existing.shares + pos.entry * pos.shares) / _total_shares, 6)
-            pos.shares = _total_shares
-            pos.stop = min(max(_existing.stop, pos.stop), pos.entry)
-            pos.entry_date = _existing.entry_date
-            pos.peak_premium = max(_existing.peak_premium, pos.peak_premium)
-            pos.milestone_gain_alerted = max(_existing.milestone_gain_alerted, pos.milestone_gain_alerted)
-            pos.milestone_loss_alerted = max(_existing.milestone_loss_alerted, pos.milestone_loss_alerted)
-            if _existing.stop_stage == "trailing":
-                pos.stop_stage = "trailing"
 
-        self.positions = [p for p in self.positions if _position_identity(p.ticker, p.setup) != _ident]
-        if len(self.positions) >= MAX_POSITIONS:
-            print(f"  ⚠️  MAX_POSITIONS ({MAX_POSITIONS}) reached — cannot open {pos.ticker}.")
-            return False
-        self.positions.append(pos)
-        self._save()
-        return True
+        Holds _POSITIONS_LOCK for the full read-through-write span, and
+        re-reads the file fresh at the start of that span rather than
+        trusting whatever self.positions held from construction time (or
+        an earlier call on this same instance) — a caller that builds one
+        PositionTracker and calls open() several times across a loop (the
+        common pattern in _submit_signals_to_alpaca()) still gets a
+        consistent, non-stale view of what another thread may have
+        written in between, not just of its own prior calls.
+        """
+        with _POSITIONS_LOCK:
+            self._load()
+            _ident = _position_identity(pos.ticker, pos.setup)
+            _existing = next((p for p in self.positions
+                              if _position_identity(p.ticker, p.setup) == _ident), None)
+            if _existing is not None:
+                _total_shares = _existing.shares + pos.shares
+                if _total_shares > 0:
+                    pos.entry = round(
+                        (_existing.entry * _existing.shares + pos.entry * pos.shares) / _total_shares, 6)
+                pos.shares = _total_shares
+                pos.stop = min(max(_existing.stop, pos.stop), pos.entry)
+                pos.entry_date = _existing.entry_date
+                pos.peak_premium = max(_existing.peak_premium, pos.peak_premium)
+                pos.milestone_gain_alerted = max(_existing.milestone_gain_alerted, pos.milestone_gain_alerted)
+                pos.milestone_loss_alerted = max(_existing.milestone_loss_alerted, pos.milestone_loss_alerted)
+                if _existing.stop_stage == "trailing":
+                    pos.stop_stage = "trailing"
+                    pos.trail_pct = max(_existing.trail_pct, pos.trail_pct)
+
+            self.positions = [p for p in self.positions if _position_identity(p.ticker, p.setup) != _ident]
+            if len(self.positions) >= MAX_POSITIONS:
+                print(f"  ⚠️  MAX_POSITIONS ({MAX_POSITIONS}) reached — cannot open {pos.ticker}.")
+                return False
+            self.positions.append(pos)
+            self._save()
+            return True
 
     def close(self, ticker: str, occ_symbol: Optional[str] = None) -> Optional[OpenPosition]:
-        # occ_symbol disambiguates which leg to close when the ticker alone
-        # is shared by multiple open options legs (see _position_identity).
-        ident = occ_symbol if occ_symbol else ticker.upper()
-        found = next((p for p in self.positions if _position_identity(p.ticker, p.setup) == ident), None)
-        self.positions = [p for p in self.positions if _position_identity(p.ticker, p.setup) != ident]
-        self._save()
-        return found
+        """
+        Holds _POSITIONS_LOCK and re-reads fresh before mutating — see
+        open()'s docstring for why (same cross-thread staleness risk).
+        """
+        with _POSITIONS_LOCK:
+            self._load()
+            # occ_symbol disambiguates which leg to close when the ticker
+            # alone is shared by multiple open options legs (see
+            # _position_identity).
+            ident = occ_symbol if occ_symbol else ticker.upper()
+            found = next((p for p in self.positions if _position_identity(p.ticker, p.setup) == ident), None)
+            self.positions = [p for p in self.positions if _position_identity(p.ticker, p.setup) != ident]
+            self._save()
+            return found
 
     def show(self):
         if not self.positions:
@@ -11187,6 +11237,8 @@ def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict],
                                                 float(loser.get("milestone_loss_alerted", 0) or 0))
         if loser.get("stop_stage") == "trailing":
             merged["stop_stage"] = "trailing"
+        merged["trail_pct"] = max(float(winner.get("trail_pct", 0) or 0),
+                                   float(loser.get("trail_pct", 0) or 0))
         by_ident[ident] = merged
     return list(by_ident.values())
 
@@ -13009,9 +13061,10 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
             return False, "not in PositionTracker (or no stop price on record) — can't safely auto-restore, needs manual review"
 
         from alpaca.trading.requests import (GetOrdersRequest as _GOReq, StopOrderRequest as _StopReq,
-                                              LimitOrderRequest as _LimReq)
+                                              LimitOrderRequest as _LimReq, TrailingStopOrderRequest as _TrailReq)
         from alpaca.trading.enums import (QueryOrderStatus as _QOS, OrderSide as _OSide,
-                                           TimeInForce as _TIF, OrderType as _OType)
+                                           TimeInForce as _TIF, OrderType as _OType,
+                                           PositionIntent as _PIntent)
 
         _open = client.get_orders(filter=_GOReq(symbols=[ticker], status=_QOS.OPEN, limit=20))
         _stop_orders = [o for o in _open if o.side == _OSide.SELL
@@ -13030,27 +13083,57 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
             return _any
 
         stop_px = round(tracked.stop, 2)
+        # tracked.stop freezes at the breakeven price the moment a position
+        # progresses to "trailing" (_progress_equity_stop_to_trailing()) --
+        # the REAL protection level lives entirely at Alpaca from then on,
+        # ratcheting up on its own with price, and is never written back
+        # here. Restoring a plain stop at that stale breakeven number would
+        # silently give back everything the live trail had since earned.
+        # Reconstructing an equivalent fresh trailing order (same
+        # trail_pct, anchored to the CURRENT price by Alpaca) can't recover
+        # the exact prior high-water level either -- that information is
+        # genuinely gone once the order is -- but it's a real trailing
+        # stop again going forward instead of a frozen historical floor.
+        _use_trailing = tracked.stop_stage == "trailing" and tracked.trail_pct > 0
         _tp_cancelled = False
-        if _cancel_all(_stop_orders):
-            time.sleep(2)   # let the cancel(s) actually process before resubmitting for the same shares
-        try:
-            order = client.submit_order(_StopReq(
+        _used_trailing = False
+
+        def _submit_restore():
+            nonlocal _used_trailing
+            if _use_trailing:
+                try:
+                    _used_trailing = True
+                    return client.submit_order(_TrailReq(
+                        symbol=ticker, qty=qty, side=_OSide.SELL,
+                        time_in_force=_TIF.GTC, trail_percent=tracked.trail_pct,
+                        position_intent=_PIntent.SELL_TO_CLOSE,
+                    ))
+                except Exception:
+                    _used_trailing = False   # fall through to a plain stop below
+            return client.submit_order(_StopReq(
                 symbol=ticker, qty=qty, side=_OSide.SELL,
                 time_in_force=_TIF.GTC, stop_price=stop_px,
             ))
+
+        if _cancel_all(_stop_orders):
+            time.sleep(2)   # let the cancel(s) actually process before resubmitting for the same shares
+        try:
+            order = _submit_restore()
         except Exception:
             # Broker rejected it (most likely: the take-profit leg still
             # holds the shares) — cancel it too and retry exactly once.
             if _cancel_all(_tp_orders):
                 _tp_cancelled = True
                 time.sleep(2)
-            order = client.submit_order(_StopReq(
-                symbol=ticker, qty=qty, side=_OSide.SELL,
-                time_in_force=_TIF.GTC, stop_price=stop_px,
-            ))
+            order = _submit_restore()
         _save_last_alert(_cd_key)
 
-        _detail = f"resubmitted a plain stop at ${stop_px} (id {str(order.id)[:8]}…)"
+        _detail = (f"resubmitted a trailing stop at {tracked.trail_pct:.1f}% (id {str(order.id)[:8]}…)"
+                   if _used_trailing else
+                   f"resubmitted a plain stop at ${stop_px} (id {str(order.id)[:8]}…)"
+                   + (" — the position was in trailing stage but a fresh trailing order "
+                      "failed, so protection is a plain breakeven stop until reviewed"
+                      if _use_trailing else ""))
         if _tp_cancelled and tracked.target1 and tracked.target1 > 0:
             try:
                 tp_order = client.submit_order(_LimReq(

@@ -19,7 +19,8 @@
     "stop_stage": "initial",
     "milestone_gain_alerted": 50.0,
     "milestone_loss_alerted": 0.0,
-    "peak_premium": 2.35
+    "peak_premium": 2.35,
+    "trail_pct": 0.0
   },
   {
     "ticker": "NDSN",
@@ -41,7 +42,8 @@
     "stop_stage": "initial",
     "milestone_gain_alerted": 0.0,
     "milestone_loss_alerted": 0.0,
-    "peak_premium": 0.0
+    "peak_premium": 0.0,
+    "trail_pct": 0.0
   },
   {
     "ticker": "ARTL",
@@ -63,6 +65,7 @@
     "stop_stage": "initial",
     "milestone_gain_alerted": 0.0,
     "milestone_loss_alerted": 0.0,
-    "peak_premium": 0.0
+    "peak_premium": 0.0,
+    "trail_pct": 0.0
   }
 ]

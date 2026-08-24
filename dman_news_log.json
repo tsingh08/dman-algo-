@@ -1,86 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.998804-04:00",
-    "symbols": [
-      "IBIT"
-    ],
-    "headline": "Bitcoin Surges Above $71,000 as Raoul Pal Says It&#39;s The &#39;Bessent Put&#39; and &#39;The Signal Is Enormous&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:15.129696-04:00",
-    "symbols": [
-      "ETHA"
-    ],
-    "headline": "Ethereum&#39;s Target Is $4,000 or $10,000, Says Trader Who Predicted The Breakout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:15.225403-04:00",
-    "symbols": [
-      "IBB"
-    ],
-    "headline": "Bessent&#39;s Bond Rescue Fizzles, Walmart Craters 9%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:15.229687-04:00",
-    "symbols": [
-      "IBB"
-    ],
-    "headline": "Biotech Is Booming, But These 2 Stocks Missed the Memo",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:20:10.013788-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Says AI Now Drives More Than One-Third of Cloud Revenue",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:29:51.367776-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "Short-Duration Treasury ETFs Are Looking Safer as US Debt Tops $40 Trillion",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:55:45.452717-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Canadian Minister In Charge Of U.S. Trade Ties Says Canada And U.S. Are Continuing To Hold Talks On A Possible Deal; Canada And U.S. Are Very Close To A Deal, We Are Continuing To Make Progress; Says We Will Stay Here Until We Have Details Of A Deal Worked Out",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:56:47.360990-04:00",
-    "symbols": [
-      "ACHR",
-      "DFSC"
-    ],
-    "headline": "Shares of aerospace and defense companies are trading lower. Reports suggest that Deputy Defense Secretary Steve Feinberg signed a memo proposing a software tool that would give the government direct access to defense companies&#39; financial systems, potentially impeding commercial and nontraditional firms from doing business with the Pentagon.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T16:04:20.545324-04:00",
     "symbols": [
       "BABA",
@@ -5063,5 +4982,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T11:17:44.317033-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceXAI Expands Grok Infrastructure With NVIDIA Vera Rubin, Plans AI-Powered Starmind Satellite",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T11:17:44.559833-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Alphabet Stock In The Last 15 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T11:17:48.465898-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Q2 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:17:48.469516-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Posts Wider-Than-Expected Loss, Stock Falls",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:17:48.472889-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Sees Q3 Vehicle Deliveries 115K-121K Units",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:17:48.476357-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Sees Q3 Sales $3.196B-$3.446B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:17:48.479727-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Q2 Adj. EPS $(0.19) Down From $(0.06) YoY, Sales $2.910B Miss $2.950B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:17:48.625686-04:00",
+    "symbols": [
+      "WBTN"
+    ],
+    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

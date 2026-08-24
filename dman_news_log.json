@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-20T14:07:55.261848-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T14:07:55.514187-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T14:07:57.373544-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T14:07:57.629277-04:00",
     "symbols": [
       "SNDK"
@@ -5064,5 +5034,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T10:27:44.343642-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb shares are trading higher after Evercore ISI Group maintained its Outperform rating on the stock and raised its price target from $190 to $200.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:29:10.159845-04:00",
+    "symbols": [
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "&#39;Taiwan Indicts Nvidia Manager Following Chip Smuggling Probe&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:32:29.444337-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Taiwan Indicts Nvidia Manager Following Chip Smuggling Probe&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

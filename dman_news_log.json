@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-21T09:55:34.819967-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Wall Street Expects SpaceX to Outgrow Nvidia 7-to-1. Musk Says That&#39;s Too Low.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:34.824799-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;Apple paid $17bn in taxes to Ireland after court ruling on back levies&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-21T09:55:34.829186-04:00",
     "symbols": [
       "AAPL"
@@ -5054,6 +5034,27 @@
       "MU"
     ],
     "headline": "Micron Opens Boise Training Center To Expand U.S. Semiconductor Workforce",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T12:11:05.866288-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "UPDATE: Lancium Announces Partnership With NVIDIA To Deploy AI Factory Platform Across 4 GW Of Leased Capacity And 15+ GW Development Pipeline; NVIDIA Makes Strategic Investment, Terms Not Disclosed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:11:25.807509-04:00",
+    "symbols": [
+      "GOOGL",
+      "NFLX"
+    ],
+    "headline": "Netflix Gains Ground as App Bundling, Creator Push Drive Relative Strength",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

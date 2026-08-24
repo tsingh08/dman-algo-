@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T14:07:54.085189-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T14:07:54.399854-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T14:07:54.974713-04:00",
     "symbols": [
       "META"
@@ -5061,6 +5041,26 @@
       "MSTR"
     ],
     "headline": "Strategy Raises $2 Billion as Bitcoin&#39;s 24% Surge Turns Holdings Profitable",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:13:04.731832-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What&#39;s Going On With Apple Stock Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T10:14:15.303364-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Airbnb, Raises Price Target to $200",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

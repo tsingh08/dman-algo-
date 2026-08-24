@@ -2600,5 +2600,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T15:35:23.526815-04:00",
+    "symbols": [
+      "LIMN"
+    ],
+    "headline": "Liminatus Pharma shares are trading lower. The company announced it has engaged Synex Consulting to support the clinical development of IBC101, CD19xCD22 bivalent CAR-T cell therapy candidate.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T15:36:25.583738-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Treasury Announces Operation Economic Outcast Against Iran, Sanctioning Nearly 60 Entities, Individuals, And Vessels; Issues Five Sectoral Determinations Covering Digital Assets, Technology, Gold, Aviation, And Shipping",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

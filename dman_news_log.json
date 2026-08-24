@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.620136-04:00",
-    "symbols": [
-      "NDSN"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:14.624491-04:00",
-    "symbols": [
-      "NDSN"
-    ],
-    "headline": "Nordson Q3 2026 Earnings Call: Complete Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T15:18:14.628818-04:00",
     "symbols": [
       "NDSN"
@@ -5058,6 +5038,27 @@
       "RITR"
     ],
     "headline": "Reitar Logtech Announces Cold-Chain Logistics Joint Venture With Smart Pointer Logistics Warehouse; Five-Year Service Arrangement Valued At About HK120M",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:45:41.332195-04:00",
+    "symbols": [
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Meta Stock Faces Litigation Overhang: Expert Says It Lacks Tobacco&#39;s Pricing Power",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T10:45:58.579867-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Bernstein Maintains Outperform on Airbnb, Raises Price Target to $217",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

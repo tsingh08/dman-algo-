@@ -2579,5 +2579,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T15:31:12.832649-04:00",
+    "symbols": [
+      "NVDA",
+      "XOM"
+    ],
+    "headline": "Magnificent 7 Built The AI Boom, &#39;Munificent Seven&#39; Wants to Power It",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T15:32:34.177928-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Amazon plots a new &#39;Tetromino&#39; warehouse where robots tackle work that&#39;s notoriously hard to automate&#39; - Business Insider",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

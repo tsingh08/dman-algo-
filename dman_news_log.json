@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.904524-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Partners With 60-Year Dutch Automotive Group Munsterhuis To Expand Netherlands Customer Access",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:14.990082-04:00",
-    "symbols": [
-      "IBIT"
-    ],
-    "headline": "Bitcoin Reclaims $70K: Why Falling Treasury Yields Could Supercharge Spot BTC ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T15:18:14.994428-04:00",
     "symbols": [
       "IBIT"
@@ -5060,6 +5040,26 @@
       "RITR"
     ],
     "headline": "Reitar Logtech shares are trading higher after the company announced a joint venture with Smart Pointer, advancing cold-chain fulfilment and digital supply chain services across the Greater Bay area.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:12:35.413757-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceXAI Expands Grok Infrastructure With NVIDIA Vera Rubin, Plans AI-Powered Starmind Satellite",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T11:12:56.167396-04:00",
+    "symbols": [
+      "XHLD"
+    ],
+    "headline": "Short Seller Raises Concerns About TEN Holdings Stock: Potential &#39;Pump-and-Dump Scheme&#39;",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

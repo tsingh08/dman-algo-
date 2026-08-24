@@ -1,36 +1,5 @@
 [
   {
-    "ts": "2026-08-20T16:04:20.545324-04:00",
-    "symbols": [
-      "BABA",
-      "NVDA"
-    ],
-    "headline": "Alibaba Gives Nvidia&#39;s Older AI Chips an Unexpected Vote of Confidence",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T16:11:07.715184-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Hyundai to increase U.S. production at new Georgia plant, CEO tells CNBC&#39;-CNBC",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T16:15:28.725432-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "&#39;Broadcom Seeks More Than $60 Billion in Latest AI Debt Deal&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T16:16:36.691305-04:00",
     "symbols": [
       "SPOT"
@@ -5062,5 +5031,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:24:41.835408-04:00",
+    "symbols": [
+      "CRM",
+      "MSFT"
+    ],
+    "headline": "Salesforce To Report Mixed Q2; Investors Remain Skeptical About H2 Acceleration",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T11:24:53.521641-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Salesforce To Report Mixed Q2; Investors Remain Skeptical About H2 Acceleration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T11:24:55.232762-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce To Report Mixed Q2; Investors Remain Skeptical About H2 Acceleration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

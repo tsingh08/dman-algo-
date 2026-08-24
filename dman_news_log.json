@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.493987-04:00",
-    "symbols": [
-      "ILMN"
-    ],
-    "headline": "Bessent&#39;s Bond Rescue Fizzles, Walmart Craters 9%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:14.498281-04:00",
-    "symbols": [
-      "ILMN"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T15:18:14.620136-04:00",
     "symbols": [
       "NDSN"
@@ -5059,6 +5039,26 @@
     ],
     "headline": "The9 Q2 EPS $0.01, Sales $712.000K",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:41:13.322055-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Marvell Technology, Raises Price Target to $310",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T10:41:49.762584-04:00",
+    "symbols": [
+      "RITR"
+    ],
+    "headline": "Reitar Logtech Announces Cold-Chain Logistics Joint Venture With Smart Pointer Logistics Warehouse; Five-Year Service Arrangement Valued At About HK120M",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

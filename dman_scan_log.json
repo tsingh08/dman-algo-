@@ -1,22 +1,5 @@
 [
   {
-    "ts": "2026-08-24T13:35:40.504314-04:00",
-    "regime": "CHOP",
-    "regime_score": 13,
-    "vix": 15.7,
-    "min_score": 85,
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 81,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 100.0,
-    "news_breadth_total": 164
-  },
-  {
     "ts": "2026-08-24T13:39:50.391545-04:00",
     "regime": "CHOP",
     "regime_score": 13,
@@ -338,5 +321,22 @@
     "budget_hit": false,
     "news_breadth_pct": 100.0,
     "news_breadth_total": 203
+  },
+  {
+    "ts": "2026-08-24T15:47:04.501850-04:00",
+    "regime": "CHOP",
+    "regime_score": 13,
+    "vix": 15.8,
+    "min_score": 85,
+    "universe": "daemon-curated",
+    "tickers_total": 81,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 81,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 100.0,
+    "news_breadth_total": 205
   }
 ]

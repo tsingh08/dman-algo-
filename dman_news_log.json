@@ -2635,5 +2635,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T15:44:15.685243-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Secretary Of War Pete Hegseth, On Iran, Says Not Ruling Out Using Military Force In Strait Of Hormuz Or Anywhere Else",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T15:46:32.676537-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Ethereum, Circle, Coinbase Make Up Analyst&#39;s &#39;Galactic Three&#39;\u2014Here&#39;s Why",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T15:46:45.134514-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Magnificent 7 Built The AI Boom, &#39;Munificent Seven&#39; Wants to Power It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T15:46:51.000207-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Magnificent 7 Built The AI Boom, &#39;Munificent Seven&#39; Wants to Power It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T15:46:54.583895-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Announces Operation Economic Outcast Against Iran, Sanctioning Nearly 60 Entities, Individuals, And Vessels; Issues Five Sectoral Determinations Covering Digital Assets, Technology, Gold, Aviation, And Shipping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

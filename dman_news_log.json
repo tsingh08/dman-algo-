@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-20T18:45:26.268950-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Apple Stock In The Last 5 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T19:00:39.823399-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Palantir Technologies 10 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T19:50:01.143447-04:00",
-    "symbols": [
-      "ELAB"
-    ],
-    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-21T09:55:34.819967-04:00",
     "symbols": [
       "AAPL"
@@ -5057,5 +5027,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:04:49.563164-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is SMCI Stock Sliding on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:07:10.232505-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Blackstone&#39;s Lancium Announces Partnership With Nvidia To Deploy AI Factory Platform Across 4 GW Of Leased Capacity And 15+ GW Development Pipeline; Nvidia Makes Strategic Investment, Terms Not Disclosed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:07:54.731304-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Opens Boise Training Center To Expand U.S. Semiconductor Workforce",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

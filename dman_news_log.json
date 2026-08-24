@@ -1262,5 +1262,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T12:48:43.755420-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Taps NVIDIA To Build Faster AI Agents",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:49:01.321778-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Affirm Holdings, Raises Price Target to $100",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

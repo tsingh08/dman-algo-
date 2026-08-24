@@ -136,6 +136,12 @@ STATE_FILES = [
                               # too, the same wedge _tracked()'s own docstring describes for a
                               # different trigger. sync_scan_log_with_remote() already exists to merge
                               # this file correctly; it just never got a chance to run.
+    "dman_setup_probation.json",   # per-setup restriction state, see algo._enter_setup_probation() —
+                                     # added alongside the feature itself (2026-08-24) specifically to
+                                     # avoid a repeat of the dman_scan_log.json/dman_day_start_equity.json
+                                     # class of bug: a new state file that isn't in this list simply
+                                     # resets every fresh daemon checkout, silently undoing the whole
+                                     # point of an auto-expiring restriction.
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

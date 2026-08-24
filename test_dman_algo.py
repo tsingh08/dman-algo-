@@ -3182,11 +3182,18 @@ class TestSmallcapScoreThreshold(unittest.TestCase):
     re-opens that exact loophole."""
 
     def setUp(self):
+        self._setup_prob_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._setup_prob_tmp.close()
+        os.unlink(self._setup_prob_tmp.name)
         self._patches = [
             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["ARTL"]),
             patch.object(a, "DMAN_WATCHLIST_MIN_SCORE", 45),
             patch.object(a, "SMALLCAP_MIN_SCORE", 55),
             patch.object(a, "SETUP_MIN_CONFLUENCE", {"Low Float Catalyst": 90}),
+            # _setup_probation_bonus() (added 2026-08-24) reads real
+            # production state otherwise -- must be isolated like every
+            # other file this class already patches.
+            patch.object(a, "SETUP_PROBATION_FILE", self._setup_prob_tmp.name),
         ]
         for p in self._patches:
             p.start()
@@ -3194,6 +3201,8 @@ class TestSmallcapScoreThreshold(unittest.TestCase):
     def tearDown(self):
         for p in self._patches:
             p.stop()
+        if os.path.exists(self._setup_prob_tmp.name):
+            os.unlink(self._setup_prob_tmp.name)
 
     def test_watchlist_ticker_with_a_tightened_setup_uses_the_higher_bar(self):
         self.assertEqual(a._smallcap_score_threshold("ARTL", "Low Float Catalyst"), 90)
@@ -6610,6 +6619,164 @@ class TestIsOnProbation(unittest.TestCase):
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a.is_on_probation()
         mock_tg.assert_not_called()
+
+
+class TestSetupProbation(unittest.TestCase):
+    """Added 2026-08-24 (Monday-session review finding): setup_performance_drift()
+    was purely informational -- a setup the drift check flagged got an
+    alert and nothing else, even after already being caught drifting once
+    before (Low Float Catalyst's SETUP_MIN_CONFLUENCE=90 raise). This
+    closes the loop: a flagged setup now automatically gets a temporary
+    extra score requirement, same auto-expiry pattern as account-level
+    probation, scoped to just the underperforming setup."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        os.unlink(self._tmp.name)
+        self._patch = patch.object(a, "SETUP_PROBATION_FILE", self._tmp.name)
+        self._patch.start()
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+        self._alerts_patch.stop()
+        os.unlink(self._alerts_tmp.name)
+
+    def test_unrestricted_setup_has_no_bonus(self):
+        self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), 0)
+
+    def test_enter_restricts_and_returns_true_the_first_time(self):
+        newly = a._enter_setup_probation("Low Float Catalyst", "0% WR test")
+        self.assertTrue(newly)
+        self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), a.SETUP_PROBATION_SCORE_BONUS)
+
+    def test_re_entering_an_already_restricted_setup_returns_false(self):
+        a._enter_setup_probation("Low Float Catalyst", "first")
+        newly_again = a._enter_setup_probation("Low Float Catalyst", "second")
+        self.assertFalse(newly_again, "an already-restricted setup must not reset its clock")
+
+    def test_re_entering_does_not_reset_the_started_timestamp(self):
+        a._enter_setup_probation("Low Float Catalyst", "first")
+        original = a._load_setup_probation()["Low Float Catalyst"]["started"]
+        a._enter_setup_probation("Low Float Catalyst", "second")
+        self.assertEqual(a._load_setup_probation()["Low Float Catalyst"]["started"], original)
+
+    def test_only_the_restricted_setup_gets_a_bonus(self):
+        a._enter_setup_probation("Low Float Catalyst", "test")
+        self.assertEqual(a._setup_probation_bonus("Gap & Hold"), 0)
+
+    def test_recent_restriction_is_still_active(self):
+        state = {"Low Float Catalyst": {
+            "started": (datetime.now(a.ET) - timedelta(days=2)).isoformat(), "note": "x"}}
+        a._save_setup_probation(state)
+        self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), a.SETUP_PROBATION_SCORE_BONUS)
+
+    def test_restriction_past_max_days_auto_expires(self):
+        state = {"Low Float Catalyst": {
+            "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
+            "note": "x"}}
+        a._save_setup_probation(state)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), 0)
+        self.assertTrue(any("expired" in c.args[0].lower() for c in mock_tg.call_args_list))
+        self.assertNotIn("Low Float Catalyst", a._load_setup_probation(),
+                          "an expired restriction must actually be removed from state")
+
+    def test_expiry_alert_only_fires_once(self):
+        state = {"Low Float Catalyst": {
+            "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
+            "note": "x"}}
+        a._save_setup_probation(state)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._setup_probation_bonus("Low Float Catalyst")
+            a._save_setup_probation(state)   # simulate it drifting back in on a later check
+            a._setup_probation_bonus("Low Float Catalyst")
+        self.assertEqual(mock_tg.call_count, 1)
+
+    def test_missing_started_field_does_not_crash(self):
+        a._save_setup_probation({"Low Float Catalyst": {"note": "x"}})
+        with patch.object(a, "send_telegram", return_value=True):
+            self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), a.SETUP_PROBATION_SCORE_BONUS,
+                              "unparseable timestamp must fail safe to NOT expired")
+
+    def test_corrupt_state_fails_safe_to_zero(self):
+        with open(self._tmp.name, "w") as f:
+            f.write("{not valid json")
+        self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), 0)
+
+    def test_smallcap_score_threshold_includes_the_bonus(self):
+        # Direct integration with the smallcap-discovery gate.
+        base = a._smallcap_score_threshold("ARTL", "Low Float Catalyst")
+        a._enter_setup_probation("Low Float Catalyst", "test")
+        self.assertEqual(a._smallcap_score_threshold("ARTL", "Low Float Catalyst"),
+                          base + a.SETUP_PROBATION_SCORE_BONUS)
+
+
+class TestSetupProbationTelegramCommands(unittest.TestCase):
+    """/setupprobation and /endsetupprobation -- the manual override for
+    the auto-entry above. A live-money control needs a human escape
+    hatch: setting one before the automatic drift check would, or
+    clearing one early once a setup's newer trades look better."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        os.unlink(self._tmp.name)
+        self._patch = patch.object(a, "SETUP_PROBATION_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+
+    def test_setupprobation_restricts_a_multi_word_setup_name(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_telegram_command("/setupprobation Low Float Catalyst")
+        self.assertIn("Low Float Catalyst", a._load_setup_probation())
+        sent = mock_tg.call_args[0][0]
+        self.assertIn("SETUP PROBATION ON", sent)
+        self.assertIn("Low Float Catalyst", sent)
+
+    def test_setupprobation_with_no_name_is_a_usage_error_not_a_crash(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_telegram_command("/setupprobation")
+        self.assertEqual(a._load_setup_probation(), {})
+        self.assertIn("Usage", mock_tg.call_args[0][0])
+
+    def test_setupprobation_on_an_already_restricted_setup_says_so(self):
+        a._enter_setup_probation("Low Float Catalyst", "prior")
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_telegram_command("/setupprobation Low Float Catalyst")
+        self.assertIn("already restricted", mock_tg.call_args[0][0])
+
+    def test_endsetupprobation_clears_it(self):
+        a._enter_setup_probation("Low Float Catalyst", "prior")
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_telegram_command("/endsetupprobation Low Float Catalyst")
+        self.assertNotIn("Low Float Catalyst", a._load_setup_probation())
+        self.assertIn("SETUP PROBATION ENDED", mock_tg.call_args[0][0])
+
+    def test_endsetupprobation_on_an_unrestricted_setup_says_so_not_an_error(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_telegram_command("/endsetupprobation Low Float Catalyst")
+        self.assertIn("nothing to end", mock_tg.call_args[0][0])
+
+    def test_endsetupprobation_only_clears_the_named_setup(self):
+        a._enter_setup_probation("Low Float Catalyst", "prior")
+        a._enter_setup_probation("Gap & Short", "prior")
+        with patch.object(a, "send_telegram", return_value=True):
+            a._handle_telegram_command("/endsetupprobation Low Float Catalyst")
+        remaining = a._load_setup_probation()
+        self.assertNotIn("Low Float Catalyst", remaining)
+        self.assertIn("Gap & Short", remaining)
 
 
 class TestSubmitManualOptionsBuy(unittest.TestCase):
@@ -10443,10 +10610,20 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
         self._alerts_patch.start()
 
+        # _enter_setup_probation() (added 2026-08-24) writes here on every
+        # drift finding -- must be isolated same as everything else, or a
+        # real test run pollutes the actual production dman_setup_probation.json.
+        self._setup_prob_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._setup_prob_tmp.write(b"{}")
+        self._setup_prob_tmp.close()
+        self._setup_prob_patch = patch.object(a, "SETUP_PROBATION_FILE", self._setup_prob_tmp.name)
+        self._setup_prob_patch.start()
+
     def tearDown(self):
         self._wrt_patch.stop()
         os.unlink(self._wr_tmp.name)
         self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
+        self._setup_prob_patch.stop(); os.unlink(self._setup_prob_tmp.name)
 
     def _record_drifting_setup(self):
         tracker = a.WinRateTracker()
@@ -10493,6 +10670,29 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         msgs = [c[0][0] for c in mock_tg.call_args_list]
         drift_msgs = [m for m in msgs if "Setup Performance Drift" in m]
         self.assertEqual(len(drift_msgs), 1)
+
+    def test_drifting_setup_is_actually_restricted_not_just_alerted(self):
+        # Added 2026-08-24: the whole point of this change -- a flagged
+        # setup must come out of this with a real, live restriction, not
+        # just a Telegram message nobody has to act on.
+        self._record_drifting_setup()
+        mock_tg = MagicMock(return_value=True)
+        self._run_with_mocked_account(mock_tg)
+        self.assertIn("Low Float Catalyst", a._load_setup_probation())
+        self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), a.SETUP_PROBATION_SCORE_BONUS)
+        drift_msgs = [c[0][0] for c in mock_tg.call_args_list if "Setup Performance Drift" in c[0][0]]
+        self.assertIn("restricted", drift_msgs[0])
+
+    def test_already_restricted_setup_is_not_re_restricted_or_reworded_as_new(self):
+        self._record_drifting_setup()
+        a._enter_setup_probation("Low Float Catalyst", "already flagged yesterday")
+        original = a._load_setup_probation()["Low Float Catalyst"]["started"]
+        mock_tg = MagicMock(return_value=True)
+        with patch.object(a, "_is_duplicate_alert", return_value=False):
+            self._run_with_mocked_account(mock_tg)
+        self.assertEqual(a._load_setup_probation()["Low Float Catalyst"]["started"], original)
+        drift_msgs = [c[0][0] for c in mock_tg.call_args_list if "Setup Performance Drift" in c[0][0]]
+        self.assertIn("already restricted", drift_msgs[0])
 
 
 class TestExplainTicker(unittest.TestCase):

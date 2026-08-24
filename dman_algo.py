@@ -1627,6 +1627,8 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("resume",    "Re-enable entries"),
     ("probation", "Resume at reduced size, bypassing consec/monthly guards — /probation [mult]"),
     ("endprobation", "End probation, restore normal circuit breakers"),
+    ("setupprobation", "Manually restrict a weak setup — /setupprobation SETUP NAME"),
+    ("endsetupprobation", "Clear a setup's restriction — /endsetupprobation SETUP NAME"),
     ("close",     "Close a position now — /close TICKER"),
     ("why",       "Explain a ticker's current signal — /why TICKER"),
     ("options",   "Browse live calls/puts — /options TICKER [E]"),
@@ -2349,6 +2351,89 @@ def is_on_probation() -> tuple[bool, float]:
         return False, 1.0
 
 
+SETUP_PROBATION_FILE        = "dman_setup_probation.json"
+SETUP_PROBATION_MAX_DAYS    = 10    # same auto-expiry window as account-level probation
+SETUP_PROBATION_SCORE_BONUS = 10    # extra confluence points required for a restricted
+                                      # setup, on top of whatever SETUP_MIN_CONFLUENCE
+                                      # already demands
+
+# Added 2026-08-24 (Monday-session review finding): setup_performance_drift()
+# (send_account_pnl_telegram()'s per-setup live-win-rate check) has existed
+# for a while but was purely informational -- it tells a human "this setup's
+# live win rate dropped below floor," and nothing acts on that. Confirmed
+# live the same day it was flagged again: "Low Float Catalyst" sat at 12.5%
+# WR / -17.2% avg loss over its last 8 live trades, the same setup that
+# already got SETUP_MIN_CONFLUENCE raised to 90 once before after an
+# earlier 0% WR streak -- raising the static bar once didn't fix a setup
+# that keeps re-drifting. This closes the loop: a setup the drift check
+# flags now automatically gets a temporary EXTRA score requirement on top
+# of its existing bar, the same "prove it out before resuming full trust"
+# principle account-level probation already uses, just scoped to the one
+# setup that's actually underperforming instead of the whole account.
+def _load_setup_probation() -> dict:
+    try:
+        with open(SETUP_PROBATION_FILE) as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _save_setup_probation(state: dict) -> None:
+    _write_json_atomic(SETUP_PROBATION_FILE, state, indent=2)
+
+
+def _enter_setup_probation(setup: str, note: str) -> bool:
+    """
+    Marks `setup` as restricted, starting the auto-expiry clock now.
+    Idempotent — a setup already restricted keeps its ORIGINAL start time
+    (an already-running clock must not keep resetting just because the
+    drift check keeps re-flagging the same still-underperforming setup on
+    every subsequent EOD run). Returns True if this call newly restricted
+    it, False if it was already restricted.
+    """
+    state = _load_setup_probation()
+    if setup in state:
+        return False
+    state[setup] = {"started": datetime.now(ET).isoformat(), "note": note}
+    _save_setup_probation(state)
+    return True
+
+
+def _setup_probation_bonus(setup: str) -> int:
+    """
+    Extra confluence points required for `setup` right now — 0 if it
+    isn't currently restricted. Auto-expires SETUP_PROBATION_MAX_DAYS
+    after entry, firing a one-time Telegram notice, same pattern as
+    is_on_probation(). Fails safe (0, i.e. no extra restriction) on any
+    missing/corrupt state rather than silently over-restricting entries.
+    """
+    try:
+        state = _load_setup_probation()
+        entry = state.get(setup)
+        if not entry:
+            return 0
+        started_str = entry.get("started", "")
+        try:
+            started = datetime.fromisoformat(started_str)
+            age_days = (datetime.now(started.tzinfo) - started).days
+        except (ValueError, TypeError):
+            age_days = 0
+        if age_days >= SETUP_PROBATION_MAX_DAYS:
+            del state[setup]
+            _save_setup_probation(state)
+            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}"):
+                send_telegram(
+                    f"🟡 <b>Setup probation expired</b> — {setup}, {age_days} days since "
+                    f"restricted. Back to its normal SETUP_MIN_CONFLUENCE bar. Send "
+                    f"<b>/setupprobation {setup}</b> to restrict it again if it's still weak."
+                )
+                _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}")
+            return 0
+        return SETUP_PROBATION_SCORE_BONUS
+    except Exception:
+        return 0
+
+
 def _entry_circuit_breakers_ok() -> tuple[bool, str]:
     """
     Checks the same four entry-blocking conditions _submit_signals_to_alpaca()
@@ -2431,11 +2516,48 @@ def _handle_telegram_command(text: str) -> None:
         except Exception as _e:
             send_telegram(f"❌ /endprobation failed: {_e}")
 
+    elif _cmd == "setupprobation":
+        _setup_name = " ".join(_parts[1:]).strip()
+        if not _setup_name:
+            send_telegram("⚠️ Usage: /setupprobation SETUP NAME (e.g. /setupprobation Low Float Catalyst)")
+        else:
+            try:
+                _newly = _enter_setup_probation(_setup_name, "manual")
+                if _newly:
+                    send_telegram(
+                        f"🟡 <b>SETUP PROBATION ON</b> — {_setup_name}\n"
+                        f"+{SETUP_PROBATION_SCORE_BONUS}pts required on top of its normal bar "
+                        f"for {SETUP_PROBATION_MAX_DAYS}d. Send /endsetupprobation {_setup_name} to clear early."
+                    )
+                else:
+                    send_telegram(f"🟡 {_setup_name} is already restricted.")
+            except Exception as _e:
+                send_telegram(f"❌ /setupprobation failed: {_e}")
+
+    elif _cmd == "endsetupprobation":
+        _setup_name = " ".join(_parts[1:]).strip()
+        if not _setup_name:
+            send_telegram("⚠️ Usage: /endsetupprobation SETUP NAME")
+        else:
+            try:
+                state = _load_setup_probation()
+                if _setup_name in state:
+                    del state[_setup_name]
+                    _save_setup_probation(state)
+                    send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_setup_name} back to its normal bar.")
+                else:
+                    send_telegram(f"🟢 {_setup_name} isn't restricted — nothing to end.")
+            except Exception as _e:
+                send_telegram(f"❌ /endsetupprobation failed: {_e}")
+
     elif _cmd == "status":
         _h = "🛑 HALTED" if is_halted() else "🟢 active"
         _prob_on, _prob_mult = is_on_probation()
         if _prob_on:
             _h += f"  |  🟡 PROBATION ×{_prob_mult:.2f}"
+        _setup_prob = _load_setup_probation()
+        if _setup_prob:
+            _h += f"  |  🟡 {len(_setup_prob)} setup(s) restricted: {', '.join(_setup_prob.keys())}"
         try:
             _acct = get_alpaca_client().get_account()
             _eq   = float(_acct.equity)
@@ -13027,7 +13149,7 @@ def _smallcap_score_threshold(ticker: str, setup: str) -> int:
     ticker happens to be curated.
     """
     base = DMAN_WATCHLIST_MIN_SCORE if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_SCORE
-    return max(base, SETUP_MIN_CONFLUENCE.get(setup, 0))
+    return max(base, SETUP_MIN_CONFLUENCE.get(setup, 0)) + _setup_probation_bonus(setup)
 
 
 def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
@@ -13903,6 +14025,7 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
             effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
         if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
             effective_min = max(effective_min, SEASONAL_MIN_SCORE)
+        effective_min += _setup_probation_bonus(sig.setup)
 
         lines.append(f"  Setup   : <b>{sig.setup}</b> ({sig.bias})")
         lines.append(f"  Entry ${sig.entry:.2f} | Stop ${sig.stop:.2f} | T1 ${sig.target1:.2f} | RR {sig.rr:.2f}")
@@ -14313,6 +14436,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
         if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
             effective_min = max(effective_min, SEASONAL_MIN_SCORE)
+        effective_min += _setup_probation_bonus(sig.setup)
         if sig.confluence_score < effective_min:
             rejected_counts["low_score"] += 1
             sys.stdout.write(f"score {sig.confluence_score}/100 < {effective_min}\n")
@@ -16169,10 +16293,23 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
             _lines = ["📉 <b>Setup Performance Drift</b>",
                       "Live win rate has dropped below floor for:\n"]
             for _d in _drift:
+                # Auto-restrict, not just alert (added 2026-08-24) — a
+                # setup this weak gets a real, temporary extra score
+                # requirement now, the same way a human going through a
+                # rough stretch gets account-level probation, instead of
+                # this staying purely informational. Idempotent: an
+                # already-restricted setup keeps its original clock.
+                _newly = _enter_setup_probation(
+                    _d["setup"],
+                    f"{_d['win_rate']*100:.0f}% WR over last {_d['total']} live trades "
+                    f"({_d['wins']}W/{_d['losses']}L, avg loss {_d['avg_loss_pct']:.1f}%)")
+                _restrict_note = (f"restricted +{SETUP_PROBATION_SCORE_BONUS}pts for "
+                                  f"{SETUP_PROBATION_MAX_DAYS}d" if _newly else
+                                  "already restricted")
                 _lines.append(
                     f"  <b>{_d['setup']}</b>: {_d['win_rate']*100:.0f}% WR over last "
                     f"{_d['total']} live trade(s) ({_d['wins']}W/{_d['losses']}L, "
-                    f"avg loss {_d['avg_loss_pct']:.1f}%)"
+                    f"avg loss {_d['avg_loss_pct']:.1f}%) — {_restrict_note}"
                 )
             send_telegram("\n".join(_lines))
             _save_last_alert("__SETUP_PERF_DRIFT__")

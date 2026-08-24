@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T16:30:23.818167-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase CEO Brian Armstrong Says Crypto May Be on the Cusp of Next Bull Market, Touts &#39;AI-Fi&#39; as New Opportunity",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T17:32:09.414280-04:00",
     "symbols": [
       "COIN",
@@ -5060,5 +5050,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:56:37.295549-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Marvell Technology, Raises Price Target to $224",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,5 +1,118 @@
 [
   {
+<<<<<<< Updated upstream
+=======
+    "ts": "2026-08-21T09:55:35.202301-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Performance Comparison: Microsoft And Competitors In Software Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.207261-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Chris Hohn\u2019s TCI Revamps Q2 Portfolio, Exits Microsoft and Adds to Alphabet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.212133-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Anthropic Set to Add Citigroup to Top IPO Banks on Mega-Listing&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.508609-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Wall Street Expects SpaceX to Outgrow Nvidia 7-to-1. Musk Says That&#39;s Too Low.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.513211-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia in Talks to Invest Several Hundred Million Dollars in Data-Center Power Developer Cloverleaf Infrastructure&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.518574-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "This Nvidia Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.523325-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "BMO Capital Initiates Coverage On NVIDIA with Outperform Rating, Announces Price Target of $340",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.528691-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Could Snap up Korean AI Chip Startup Rebellions in Latest AI Power Play",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.874766-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "BMO Capital Initiates Coverage On Advanced Micro Devices with Outperform Rating, Announces Price Target of $550",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.879693-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Waymo Unveils First Custom Robotaxi Chip With More Than 1,000 TOPS of AI Processing Power",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-21T09:55:35.884110-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Deepseek Announced Experimental Multimodal Model DeepSeek-V4-Flash-Vision-Exp Is Now Live On API Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+>>>>>>> Stashed changes
     "ts": "2026-08-21T09:55:36.146338-04:00",
     "symbols": [
       "META"
@@ -4910,6 +5023,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-24T12:12:04.910062-04:00",
     "symbols": [
       "NVDA"
@@ -4931,6 +5045,19 @@
   },
   {
     "ts": "2026-08-24T12:12:05.252232-04:00",
+=======
+    "ts": "2026-08-24T12:17:24.081127-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FOX Business Reporter Charles Gasparino Says On X That According To Sources, Treasury Secretary Scott Bessent Will Do Whatever It Takes To Counter Bond Vigilantes Shorting Long End Of Curve, Including Buybacks, Selling Short-Term Debt, And Possible Elimination Of 20-Year Bond",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:17:36.289541-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "GOOGL"
     ],
@@ -4940,7 +5067,11 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-24T12:12:05.860615-04:00",
+=======
+    "ts": "2026-08-24T12:17:37.128156-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "NFLX"
     ],
@@ -4950,6 +5081,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-24T12:12:06.295842-04:00",
     "symbols": [
       "SMCI"
@@ -5056,6 +5188,14 @@
     ],
     "headline": "RUM Group Enters Warrant Term Sheet With Third Party Cloud Customer To Purchase Up 50,808,408 RUM Shares At An Exercise Price Of $0.01 Per Share; Customer Has Agreed To Purchase GPU Services In Three Tranches Totaling ~$13.7B",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-08-24T12:17:39.656864-04:00",
+    "symbols": [
+      "CELH"
+    ],
+    "headline": "Celsius Stock Extends Surge Monday: What&#39;s Going On?",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": null
   }

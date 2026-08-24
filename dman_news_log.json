@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-08-21T09:55:34.829186-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Exploring The Competitive Space: Apple Versus Industry Peers In Technology Hardware, Storage &amp; Peripherals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:34.834308-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Broadcom Steps up NVIDIA Challenge With Potential $100 Billion AI Financing Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.192956-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Wall Street Expects SpaceX to Outgrow Nvidia 7-to-1. Musk Says That&#39;s Too Low.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.197440-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bond Yields Are Rising Everywhere: Why This Isn&#39;t a US Debt Crisis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.202301-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Performance Comparison: Microsoft And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.207261-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Chris Hohn\u2019s TCI Revamps Q2 Portfolio, Exits Microsoft and Adds to Alphabet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.212133-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Anthropic Set to Add Citigroup to Top IPO Banks on Mega-Listing&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.508609-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Wall Street Expects SpaceX to Outgrow Nvidia 7-to-1. Musk Says That&#39;s Too Low.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.513211-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Nvidia in Talks to Invest Several Hundred Million Dollars in Data-Center Power Developer Cloverleaf Infrastructure&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.518574-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "This Nvidia Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.523325-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "BMO Capital Initiates Coverage On NVIDIA with Outperform Rating, Announces Price Target of $340",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.528691-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Could Snap up Korean AI Chip Startup Rebellions in Latest AI Power Play",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.874766-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "BMO Capital Initiates Coverage On Advanced Micro Devices with Outperform Rating, Announces Price Target of $550",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.879693-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Waymo Unveils First Custom Robotaxi Chip With More Than 1,000 TOPS of AI Processing Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-21T09:55:35.884110-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Deepseek Announced Experimental Multimodal Model DeepSeek-V4-Flash-Vision-Exp Is Now Live On API Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-21T09:55:36.146338-04:00",
     "symbols": [
       "META"
@@ -5058,5 +4908,155 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T12:12:04.910062-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "UPDATE: Lancium Announces Partnership With NVIDIA To Deploy AI Factory Platform Across 4 GW Of Leased Capacity And 15+ GW Development Pipeline; NVIDIA Makes Strategic Investment, Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:12:04.914617-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Blackstone&#39;s Lancium Announces Partnership With Nvidia To Deploy AI Factory Platform Across 4 GW Of Leased Capacity And 15+ GW Development Pipeline; Nvidia Makes Strategic Investment, Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:12:05.252232-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Netflix Gains Ground as App Bundling, Creator Push Drive Relative Strength",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T12:12:05.860615-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Gains Ground as App Bundling, Creator Push Drive Relative Strength",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T12:12:06.295842-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is SMCI Stock Sliding on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:06.742535-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Opens Boise Training Center To Expand U.S. Semiconductor Workforce",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T12:12:10.854633-04:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:10.859201-04:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "Why Is NAPCO Security Stock Soaring Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:10.929354-04:00",
+    "symbols": [
+      "RGNX"
+    ],
+    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:11.170063-04:00",
+    "symbols": [
+      "NPWR"
+    ],
+    "headline": "Net Power Announces Rights To Acquire 123 MW Of Gas-Fired Power Generation Equipment With $20M Deposit; Signs Cost Reimbursement Agreement With Prospective Customer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:11.238952-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:11.536063-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "Georgia Infrastructure Expansion Anchors $13.7 Billion RUM Group Contract",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:11.540617-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:11.545021-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:12:11.559817-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "RUM Group Enters Warrant Term Sheet With Third Party Cloud Customer To Purchase Up 50,808,408 RUM Shares At An Exercise Price Of $0.01 Per Share; Customer Has Agreed To Purchase GPU Services In Three Tranches Totaling ~$13.7B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

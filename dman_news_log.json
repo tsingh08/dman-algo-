@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-08-20T17:32:09.414280-04:00",
-    "symbols": [
-      "COIN",
-      "MSTR"
-    ],
-    "headline": "Bitcoin Cracks $72,500: What Do Prediction Markets Say Happens Next?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T17:58:32.892066-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT"
-    ],
-    "headline": "&#39;Anthropic Set to Add Citigroup to Top IPO Banks on Mega-Listing&#39;- Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-08-20T18:45:26.268950-04:00",
     "symbols": [
       "AAPL"
@@ -5060,5 +5037,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:00:43.302979-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "If You Invested $1000 In Tesla Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:03:00.333858-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#34;Bessent To Unveil Iran Secondary Sanctions Details; To Give Final Warning To Cut Economic Ties With Iran",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.738983-04:00",
-    "symbols": [
-      "PRQR"
-    ],
-    "headline": "Coty Posts Mixed Q4 Results, Joins Wolfspeed, ATRenew And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:14.743288-04:00",
-    "symbols": [
-      "PRQR"
-    ],
-    "headline": "B of A Securities Initiates Coverage On ProQR Therapeutics with Buy Rating, Announces Price Target of $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:14.824773-04:00",
-    "symbols": [
-      "GEMI"
-    ],
-    "headline": "Citigroup Maintains Sell on Gemini Space Station, Lowers Price Target to $3.2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T15:18:14.900256-04:00",
     "symbols": [
       "LCID"
@@ -5062,5 +5032,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T10:58:56.953304-04:00",
+    "symbols": [
+      "APVO"
+    ],
+    "headline": "Watching Aptevo Therapeutics; Zacks Small-Cap Research Gives Stock $30 Price Valuation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:01:38.328597-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Expands Grok Infrastructure With NVIDIA Vera Rubin, Plans AI-Powered Starmind Satellite",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T11:02:34.415122-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Launches Groq 3 LPX, Showcasing World-Class Speed For Agentic Coding And Other Latency-Sensitive Workload",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

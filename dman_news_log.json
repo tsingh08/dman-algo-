@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.900256-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T15:18:14.904524-04:00",
     "symbols": [
       "LCID"
@@ -5063,5 +5053,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T11:04:48.756144-04:00",
+    "symbols": [
+      "RITR"
+    ],
+    "headline": "Reitar Logtech shares are trading higher after the company announced a joint venture with Smart Pointer, advancing cold-chain fulfilment and digital supply chain services across the Greater Bay area.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

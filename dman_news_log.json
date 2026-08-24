@@ -1232,5 +1232,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:39:12.137202-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on with NVIDIA Stock on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:42:53.736310-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "EU Tariffs Threaten Temu Margins After US Trade Squeeze",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

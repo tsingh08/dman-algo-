@@ -1,18 +1,6 @@
 [
   {
     "ticker": "SOUN",
-    "date": "2025-07-11",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 12.72,
-    "exit": 11.84,
-    "outcome": "LOSS",
-    "pnl_pct": -6.95,
-    "score": 79,
-    "is_live": false
-  },
-  {
-    "ticker": "SOUN",
     "date": "2025-09-16",
     "bias": "LONG",
     "setup": "Gap & Hold",
@@ -5997,6 +5985,18 @@
     "outcome": "LOSS",
     "pnl_pct": -59.38,
     "score": 0,
+    "is_live": true
+  },
+  {
+    "ticker": "ARTL",
+    "date": "2026-08-24",
+    "bias": "LONG",
+    "setup": "Low Float Catalyst",
+    "entry": 0.72,
+    "exit": 0.68,
+    "outcome": "LOSS",
+    "pnl_pct": -6.45,
+    "score": 47,
     "is_live": true
   }
 ]

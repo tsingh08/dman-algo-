@@ -2465,5 +2465,19 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T14:21:05.902220-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "NVDA",
+      "PLTR",
+      "SPCX"
+    ],
+    "headline": "EXCLUSIVE: How AI&#39;s $220 Billion Bond Boom Competes With the Treasury",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

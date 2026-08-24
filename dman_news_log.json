@@ -1,27 +1,5 @@
 [
   {
-    "ts": "2026-08-20T16:21:48.296439-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Congressman Has Bought Nothing but Apple Since 2024, and It&#39;s All on Autopilot",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T16:22:35.278187-04:00",
-    "symbols": [
-      "DIA",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "QUICK SPARK: Dow Falls 700 Points, Nasdaq Drops 1% As Yields Rise Again",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T16:30:23.818167-04:00",
     "symbols": [
       "COIN"
@@ -5062,5 +5040,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T11:38:39.728836-04:00",
+    "symbols": [
+      "VMAR"
+    ],
+    "headline": "Vision Marine Announces 1-For-10 Reverse Stock Split, Effective August 26",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:41:55.232538-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Eyes China Overcapacity Tariffs of 7.5% Before Xi-Trump Talks&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

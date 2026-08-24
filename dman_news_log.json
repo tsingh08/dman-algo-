@@ -1903,5 +1903,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:31:50.876129-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "Elon Musk Posts On X &#34;SpaceX, in partnership with Nvidia, has designed a space-optimized Vera Rubin NVL72 system for launch to orbit in Q4 next year, with significant scale in 2028&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:32:02.231036-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Elon Musk Posts On X &#34;SpaceX, in partnership with Nvidia, has designed a space-optimized Vera Rubin NVL72 system for launch to orbit in Q4 next year, with significant scale in 2028&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

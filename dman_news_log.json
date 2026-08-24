@@ -1141,5 +1141,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T12:23:37.254323-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Selects Chainlink As Official Oracle Infrastructure Powering Its Newly Launched Tokenized Stocks, Unlocking Utility And Distribution Across Base Defi Ecosystem",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T12:27:23.860256-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Earnings Preview: Stock Has Dropped After 5 of Last 6 Reports, and &#39;A Simple Beat May Not Be Enough&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T12:28:02.858757-04:00",
+    "symbols": [
+      "MSFT",
+      "NBIS"
+    ],
+    "headline": "What&#39;s Going on With Nebius Shares on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

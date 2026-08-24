@@ -1283,5 +1283,425 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:38.035417-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T13:12:38.152212-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T13:12:38.228079-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T13:12:38.229264-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceXAI Taps NVIDIA To Build Faster AI Agents",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T13:12:38.406465-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T13:12:39.247195-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T13:12:39.418062-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T13:12:42.672758-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent Says No Longer Acceptable To Operate In The Gray Spaces Of This Conflict; Iran Faces Conplee Global Isolation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.674001-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Sanctions Nearly 60 Iran-Linked Entities, People And Vessels Across Nuclear, Missile, Cyber And Oil Networks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.675077-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.745146-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T13:12:42.823137-04:00",
+    "symbols": [
+      "OLOX"
+    ],
+    "headline": "What&#39;s Going On With Olenox Industries Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.824384-04:00",
+    "symbols": [
+      "OLOX"
+    ],
+    "headline": "Why Planet Green Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.895565-04:00",
+    "symbols": [
+      "PMI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.896823-04:00",
+    "symbols": [
+      "PMI"
+    ],
+    "headline": "Why Is Picard Medical Stock Gaining Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.898096-04:00",
+    "symbols": [
+      "PMI"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Slip Ahead of Data-Heavy Week, Nvidia Earnings, and Jackson Hole\u2014BABA, PMI, BIRK in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.899183-04:00",
+    "symbols": [
+      "PMI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:42.900333-04:00",
+    "symbols": [
+      "PMI"
+    ],
+    "headline": "Why Planet Green Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.024728-04:00",
+    "symbols": [
+      "PUSA"
+    ],
+    "headline": "Aureus Greenway Holdings Merger Partner Powerus Begins Production Of Its Its Guardian Counter UAV Interceptor Line Through Multi-Year Partnership With A Regional Defense Manufacturer In The Gulf Region",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.099932-04:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.101201-04:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "Why Is NAPCO Security Stock Soaring Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.102338-04:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.103466-04:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.104570-04:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "NAPCO Security Techs Q4 Adj. EPS $0.41 Beats $0.39 Estimate, Sales $55.809M Beat $52.509M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.231826-04:00",
+    "symbols": [
+      "SDOT"
+    ],
+    "headline": "Sadot Group Shares Soar as Debt Cleanup Fuels Fresh Momentum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.233136-04:00",
+    "symbols": [
+      "SDOT"
+    ],
+    "headline": "Nasdaq Down 150 Points; Chicago Fed National Activity Index Drops In July",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.234420-04:00",
+    "symbols": [
+      "SDOT"
+    ],
+    "headline": "Market-Moving News for August 24th",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.327099-04:00",
+    "symbols": [
+      "SDOT"
+    ],
+    "headline": "Why Planet Green Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.406813-04:00",
+    "symbols": [
+      "RGNX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.408159-04:00",
+    "symbols": [
+      "RGNX"
+    ],
+    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.409341-04:00",
+    "symbols": [
+      "RGNX"
+    ],
+    "headline": "Regenxbio Hits Regulatory Roadblock After FDA Puts RGX-121 on Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.410518-04:00",
+    "symbols": [
+      "RGNX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.411696-04:00",
+    "symbols": [
+      "RGNX"
+    ],
+    "headline": "Trading Halt: Halt status updated at 7:20:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.486789-04:00",
+    "symbols": [
+      "NPWR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.488129-04:00",
+    "symbols": [
+      "NPWR"
+    ],
+    "headline": "Net Power Announces Rights To Acquire 123 MW Of Gas-Fired Power Generation Equipment With $20M Deposit; Signs Cost Reimbursement Agreement With Prospective Customer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.601429-04:00",
+    "symbols": [
+      "SUPX"
+    ],
+    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.746338-04:00",
+    "symbols": [
+      "TJGC"
+    ],
+    "headline": "10 Communication Services Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.807462-04:00",
+    "symbols": [
+      "NCTY"
+    ],
+    "headline": "The9 Q2 EPS $0.01, Sales $712.000K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.895593-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "Georgia Infrastructure Expansion Anchors $13.7 Billion RUM Group Contract",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.897025-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.898291-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T13:12:43.899572-04:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "RUM Group Enters Warrant Term Sheet With Third Party Cloud Customer To Purchase Up 50,808,408 RUM Shares At An Exercise Price Of $0.01 Per Share; Customer Has Agreed To Purchase GPU Services In Three Tranches Totaling ~$13.7B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

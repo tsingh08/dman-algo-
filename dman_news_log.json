@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.628818-04:00",
-    "symbols": [
-      "NDSN"
-    ],
-    "headline": "Keybanc Maintains Overweight on Nordson, Raises Price Target to $360",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:14.633146-04:00",
-    "symbols": [
-      "NDSN"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Fall as Trump Launches \u2018Operation Economic Fury\u2019 on Iran\u2014 BULL, WMT, MRK Stock in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T15:18:14.637401-04:00",
-    "symbols": [
-      "NDSN"
-    ],
-    "headline": "Walmart, Deere And 3 Stocks To Watch Heading Into Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T15:18:14.738983-04:00",
     "symbols": [
       "PRQR"
@@ -5062,5 +5032,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:54:43.049230-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "UBS Maintains Neutral on MongoDB, Raises Price Target to $460",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:55:00.071057-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Stock Faces Litigation Overhang: Expert Says It Lacks Tobacco&#39;s Pricing Power",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T10:55:00.436690-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Meta Stock Faces Litigation Overhang: Expert Says It Lacks Tobacco&#39;s Pricing Power",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

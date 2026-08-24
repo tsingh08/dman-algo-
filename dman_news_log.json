@@ -2569,5 +2569,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T15:22:04.104212-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Announces Launch Of Quantum-Readiness Task Force For Financial Sector Post-Quantum Cryptography Transition",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

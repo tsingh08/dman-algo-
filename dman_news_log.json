@@ -2620,5 +2620,20 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T15:40:04.908760-04:00",
+    "symbols": [
+      "AMD",
+      "IONQ",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading lower. The industry may be pulling back ahead of Nvidia&#39;s Q2 earnings report due August, 26.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

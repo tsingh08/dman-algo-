@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-08-20T14:04:40.212012-04:00",
-    "symbols": [
-      "MWH"
-    ],
-    "headline": "Bessent&#39;s Bond Rescue Fizzles, Walmart Craters 9%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T14:04:40.390187-04:00",
-    "symbols": [
-      "LB"
-    ],
-    "headline": "Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T14:04:40.580218-04:00",
-    "symbols": [
-      "LEG"
-    ],
-    "headline": "Leggett &amp; Platt Announces Shareholder Approval Of Merger With Somnigroup International Pending Regulatory Approval",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-20T14:06:38.871939-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "xAI Just Did in 2.3 Years What Took SpaceX Nearly Two Decades",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-20T14:07:41.064983-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Prime Video Plans To Invest $2B In Latin America From 2027 Through 2030",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-20T14:07:53.782593-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-20T14:07:54.085189-04:00",
     "symbols": [
       "MSFT"
@@ -5063,5 +5003,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T10:07:46.981835-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is IREN Stock Sliding on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T10:07:47.255233-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is IREN Stock Sliding on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T10:07:47.260674-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Perplexity Deal Highlights a Pattern in Nvidia&#39;s AI Investments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T10:07:47.532373-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is IREN Stock Sliding on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-24T10:10:28.063908-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Tesla Sets Cybercab Launch Event for September 3 but Prediction Markets Doubt It&#39;ll Impress",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T10:10:37.037269-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Raises $2 Billion as Bitcoin&#39;s 24% Surge Turns Holdings Profitable",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

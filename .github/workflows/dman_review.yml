@@ -11,27 +11,49 @@ name: DMan Session Review
 # mechanism, same safety model, but with time-remaining-in-the-session
 # framing instead of a post-mortem one, so real findings can be acted on
 # same-day instead of only in hindsight after close. Which framing a run
-# uses is decided by the actual ET time it executes at (see ET_HOUR
-# below), not which trigger fired it — a manual /review at 11 AM gets the
-# midday framing, at 6 PM gets the EOD one, regardless of source.
+# uses is decided by the actual ET time it executes at (the "Determine
+# review kind" step below), not which trigger fired it — a manual /review
+# at 11 AM gets the midday framing, at 6 PM gets the EOD one, regardless
+# of source.
 #
-# REPORT ONLY, deliberately, by construction rather than just instruction
-# — direct decision 2026-08-21 after the /review idea was raised:
-#   1. permissions below grant `contents: read` only, never `write` — even
-#      if the agent tried to commit and push a fix, GitHub would reject it
-#      with a real 403. There's also no persist-state step, so any local
-#      file edits made during the run are ephemeral and vanish when the
-#      runner is torn down regardless.
-#   2. No Alpaca credentials (APCA_API_KEY_ID/APCA_API_SECRET_KEY) are
-#      passed to this job at all — the agent works from the git-tracked
-#      state files the daemon already keeps synced (dman_positions.json,
-#      dman_win_rate.json, dman_daily_pnl.json, dman_scan_log.json,
-#      dman_news_log.json), not a live broker session. It is structurally
-#      incapable of placing a real order here, not just told not to.
-# Proposed code changes are reported as text (diff/description) for a
-# human — or a follow-up Claude Code session explicitly asked to apply
-# them — to act on, the same review-then-approve flow every other change
-# in this repo already goes through.
+# The MIDDAY run stays REPORT ONLY, deliberately, by construction rather
+# than just instruction — direct decision 2026-08-21 after the /review idea
+# was raised, unchanged for midday: it never gets Edit/Write/git-commit
+# tools at all, so even if it tried, there is nothing in its toolset capable
+# of changing a file. No Alpaca credentials (APCA_API_KEY_ID/
+# APCA_API_SECRET_KEY) are passed to this job at all, for either kind — the
+# agent works from the git-tracked state files the daemon already keeps
+# synced (dman_positions.json, dman_win_rate.json, dman_daily_pnl.json,
+# dman_scan_log.json, dman_news_log.json), not a live broker session. It is
+# structurally incapable of placing a real order here, not just told not to.
+#
+# The EOD run can propose real code changes as of 2026-08-24 (direct
+# request) — but structurally as a PR, never a direct push to main, same
+# "not just told not to" philosophy applied to the new capability instead of
+# removed for it:
+#   1. The "Create review branch" step below checks out a fresh branch
+#      BEFORE Claude ever runs. The EOD invocation's --allowedTools includes
+#      Edit/Write/git add/git commit, but deliberately NEVER git checkout,
+#      git push, or gh — so even with contents: write at the job level, the
+#      agent has no tool in its box capable of reaching origin or switching
+#      back to main. It can only edit files and commit locally to the one
+#      branch the workflow already put it on.
+#   2. A SEPARATE step ("Push review branch and open PR") that runs after
+#      Claude exits — plain shell script, not the agent — checks whether
+#      any commits actually landed, and if so pushes THAT branch (git push
+#      -u origin HEAD, never main) and opens a PR against main with gh pr
+#      create. Nothing merges automatically; a human reviews the PR through
+#      the same process every other change in this repo already goes
+#      through. If Claude proposed nothing (the common case most nights),
+#      no branch is ever pushed and no PR is opened.
+#   3. main itself is never protected against direct pushes (the always-on
+#      daemon depends on pushing its own state-sync commits straight to
+#      main continuously through the trading day — branch-protecting main
+#      would break that), so this guarantee lives entirely in what tools
+#      the agent is handed, not in a GitHub-side restriction. Worth knowing
+#      if this workflow is ever edited again: removing the branch-creation
+#      step or widening --allowedTools to include git checkout/push/gh
+#      undoes the structural guarantee, not just a stated preference.
 
 on:
   schedule:
@@ -64,11 +86,37 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
-      contents: read   # deliberately NOT write -- see the file header
+      contents: write        # needed to push the review/* branch created below --
+                               # see the file header for why this can't reach main
+      pull-requests: write   # needed for the "open PR" step's `gh pr create`
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
+      - name: Determine review kind
+        id: kind
+        run: |
+          ET_HOUR=$(TZ="America/New_York" date +%H)
+          # Same 10 AM-3 PM ET window as the prompt-selection logic below --
+          # computed once here so the branch-creation step (EOD only) and
+          # the review-session step agree on which kind this run is,
+          # instead of recomputing (and risking drifting from) it twice.
+          if [ "$ET_HOUR" -ge 10 ] && [ "$ET_HOUR" -lt 15 ]; then
+            echo "kind=midday" >> "$GITHUB_OUTPUT"
+          else
+            echo "kind=eod" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create review branch
+        if: steps.kind.outputs.kind == 'eod'
+        id: branch
+        run: |
+          BRANCH="review/$(date -u +%Y%m%d-%H%M%S)"
+          git config user.name "dman-review-bot"
+          git config user.email "dman-review-bot@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -82,12 +130,11 @@ jobs:
         id: review
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KIND: ${{ steps.kind.outputs.kind }}
         run: |
-          ET_HOUR=$(TZ="America/New_York" date +%H)
           SHARED_CONTEXT='You are checking in on a live-money algorithmic
-          trading system in this repo. You have READ-ONLY repo access and NO
-          live broker credentials -- work entirely from the git-tracked
-          state files and codebase.
+          trading system in this repo. You have NO live broker credentials
+          -- work entirely from the git-tracked state files and codebase.
 
           Look at: dman_positions.json (currently open positions),
           dman_win_rate.json (recent trade outcomes), dman_daily_pnl.json /
@@ -98,25 +145,19 @@ jobs:
           reference against dman_algo.py and dman_daemon.py as needed to
           understand what a given state actually means.
 
-          Hard constraints: this is a REPORT ONLY. Do not run git commit, git
-          push, or any command that submits a real trade -- you have no
-          credentials to do the latter regardless. If you are not sure
-          whether something needs a human decision, say so explicitly rather
-          than assuming an answer.
+          If you are not sure whether something needs a human decision, say
+          so explicitly rather than assuming an answer.
 
           Keep your FINAL reply under 3500 characters -- it is posted
           directly to a phone via Telegram. Use plain text, no markdown
           tables.'
 
-          # 10 AM - 3 PM ET: the market is still open and there's real time
-          # left to act on anything found -- frame around what to actually
-          # do with the rest of today, not a post-mortem. Outside that
-          # window (pre-market, after close, or a late-night manual
-          # /review): the original post-close framing, since "how did it
-          # go" is the useful question once the session is behind you.
-          if [ "$ET_HOUR" -ge 10 ] && [ "$ET_HOUR" -lt 15 ]; then
-            KIND="midday"
+          if [ "$KIND" = "midday" ]; then
+            ALLOWED_TOOLS="Read,Grep,Glob,Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
             PROMPT="$SHARED_CONTEXT"'
+
+          You have READ-ONLY repo access this run -- report only, the same
+          as always for a midday check.
 
           It is currently mid-session -- the market is open and there is
           real time left today to act on what you find. Produce a concise,
@@ -139,8 +180,30 @@ jobs:
           what the end-of-day review is for. Only mention one if it is
           urgent enough to matter before tomorrow.'
           else
-            KIND="eod"
+            # EOD only, added 2026-08-24: real Edit/Write/local-commit
+            # access, deliberately still missing git checkout/push/gh --
+            # see the file header for why that specific gap is what keeps
+            # this PR-only rather than main-reachable. Already on a fresh
+            # review/* branch from the "Create review branch" step above.
+            ALLOWED_TOOLS="Read,Grep,Glob,Edit,Write,Bash(git add:*),Bash(git commit:*),Bash(git status:*),Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
             PROMPT="$SHARED_CONTEXT"'
+
+          You ALSO have Edit/Write access and can make real code changes
+          this run, already checked out on a fresh branch off main. If you
+          find something genuinely worth fixing -- not everything has to
+          be, most nights nothing will be -- make the change and commit it
+          locally (git add + git commit; you do not have git push or gh,
+          a separate step handles turning your commit(s) into a PR against
+          main if you make any). Prioritize small, well-verified,
+          low-risk fixes over ambitious rewrites: this runs unattended
+          overnight, no human is watching it work, and whatever you commit
+          becomes a real PR someone reviews tomorrow -- favor a fix you
+          are genuinely confident in over one that merely looks plausible.
+          If you are not confident a change is correct, describe it in
+          your report instead of committing something shaky. Never edit
+          .github/workflows/dman_review.yml itself (this file) -- a
+          change to the workflow that runs you should go through a normal
+          human-initiated session, not this one.
 
           You are reviewing the just-closed (or most recent) trading
           session. Produce a concise report covering:
@@ -154,7 +217,8 @@ jobs:
              the file/function, describe the change, and why. Do not just
              gesture at "the code could be cleaner" -- be specific enough that
              someone could hand this straight to a follow-up session to
-             implement.
+             implement. Say clearly whether you already committed each one
+             or are only describing it.
 
           Prioritize the most important 3-5 findings over an exhaustive
           list.'
@@ -164,7 +228,7 @@ jobs:
           OUTPUT=$(claude -p "$PROMPT" \
             --model claude-fable-5 \
             --dangerously-skip-permissions \
-            --allowedTools "Read,Grep,Glob,Bash(git log:*),Bash(git diff:*),Bash(git show:*)" \
+            --allowedTools "$ALLOWED_TOOLS" \
             2>&1)
           STATUS=$?
           set -e
@@ -182,12 +246,40 @@ jobs:
             echo "REVIEW_EOF"
           } >> "$GITHUB_OUTPUT"
 
+      - name: Push review branch and open PR
+        # EOD only. Deliberately a plain script, not the agent -- see the
+        # file header. Runs even if the review step's OWN exit code was
+        # non-zero (set +e above keeps the job itself green regardless),
+        # since a real commit can still be sitting on the branch even if
+        # Claude hit an error after making it; only skip if there's
+        # nothing to push.
+        if: steps.kind.outputs.kind == 'eod'
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ steps.branch.outputs.branch }}
+        run: |
+          COMMIT_COUNT=$(git rev-list --count origin/main.."$BRANCH" 2>/dev/null || echo 0)
+          if [ "$COMMIT_COUNT" -eq 0 ]; then
+            echo "  No commits on $BRANCH -- nothing to push, no PR."
+            echo "pr_url=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git push -u origin HEAD
+          PR_URL=$(gh pr create \
+            --title "DMan review: $(date -u +%Y-%m-%d) findings" \
+            --body "Opened automatically by the after-close /review session. $COMMIT_COUNT commit(s) on this branch -- see the Telegram report from the same run for the full writeup, and the commits themselves for what actually changed. Nothing here has been merged; review before merging, same as any other PR." \
+            --base main --head "$BRANCH")
+          echo "  PR opened: $PR_URL"
+          echo "pr_url=$PR_URL" >> "$GITHUB_OUTPUT"
+
       - name: Post report to Telegram
         if: always()
         env:
           REVIEW_OUTPUT: ${{ steps.review.outputs.review_output }}
           REVIEW_STATUS: ${{ steps.review.outputs.exit_status }}
           REVIEW_KIND:   ${{ steps.review.outputs.review_kind }}
+          PR_URL:        ${{ steps.pr.outputs.pr_url }}
           TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
@@ -197,11 +289,14 @@ jobs:
           chat   = os.environ["TELEGRAM_CHAT_ID"]
           status = os.environ.get("REVIEW_STATUS", "1")
           kind   = os.environ.get("REVIEW_KIND", "eod")
+          pr_url = os.environ.get("PR_URL", "").strip()
           label  = "midday check-in" if kind == "midday" else "session review"
           header = (f"🔎 <b>DMan {label}</b>" if status == "0" else
                      f"⚠️ <b>DMan {label} — the run itself hit an error, showing what it captured</b>")
           body = os.environ.get("REVIEW_OUTPUT", "").strip() or "(no output captured)"
           text = f"{header}\n\n{html.escape(body)}"
+          if kind == "eod" and pr_url:
+              text += f"\n\n📤 <b>PR opened:</b> {html.escape(pr_url)}"
           requests.post(
               f"https://api.telegram.org/bot{token}/sendMessage",
               data={"chat_id": chat, "text": text, "parse_mode": "HTML"},

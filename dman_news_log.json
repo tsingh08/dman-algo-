@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T14:07:54.974713-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Walmart&#39;s Outlook Signals Cautious Spending Ahead; Treasury Euphoria Fades; Samsung Soars; Bitcoin Shorts Crushed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-08-20T14:07:55.261848-04:00",
     "symbols": [
       "AMZN"
@@ -5064,5 +5054,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T10:23:52.659312-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Sets Cybercab Launch Event for September 3 but Prediction Markets Doubt It&#39;ll Impress",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

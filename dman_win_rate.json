@@ -1,29 +1,5 @@
 [
   {
-    "ticker": "SOUN",
-    "date": "2025-09-16",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 15.31,
-    "exit": 13.95,
-    "outcome": "LOSS",
-    "pnl_pct": -8.86,
-    "score": 85,
-    "is_live": false
-  },
-  {
-    "ticker": "RKLB",
-    "date": "2024-08-21",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 7.2,
-    "exit": 6.44,
-    "outcome": "LOSS",
-    "pnl_pct": -10.49,
-    "score": 85,
-    "is_live": false
-  },
-  {
     "ticker": "RKLB",
     "date": "2024-11-15",
     "bias": "LONG",
@@ -5997,6 +5973,30 @@
     "outcome": "LOSS",
     "pnl_pct": -6.45,
     "score": 47,
+    "is_live": true
+  },
+  {
+    "ticker": "PURR",
+    "date": "2026-08-24",
+    "bias": "LONG",
+    "setup": "Options Call PURR260904C00009000 ($9.0C exp 2026-09-04)",
+    "entry": 1.49,
+    "exit": 1.93,
+    "outcome": "WIN",
+    "pnl_pct": 29.53,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "PURR",
+    "date": "2026-08-21",
+    "bias": "LONG",
+    "setup": "Options Call PURR260904C00009000 ($9.0C exp 2026-09-04)",
+    "entry": 1.49,
+    "exit": 2.05,
+    "outcome": "WIN",
+    "pnl_pct": 37.58,
+    "score": 100,
     "is_live": true
   }
 ]

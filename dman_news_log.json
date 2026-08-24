@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-08-20T15:18:14.994428-04:00",
-    "symbols": [
-      "IBIT"
-    ],
-    "headline": "Amazon, Target And More On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-08-20T15:18:14.998804-04:00",
     "symbols": [
       "IBIT"
@@ -5063,5 +5053,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T11:15:23.012979-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Alphabet Stock In The Last 15 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

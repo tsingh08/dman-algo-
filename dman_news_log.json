@@ -1158,5 +1158,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:26:12.426454-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: Chinese Stocks Are Approaching Their Worst Relative Performance Against The S&amp;P 500 On Record",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:29:27.152327-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "What&#39;s Going On With T3 Defense Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:29:43.286946-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: S&amp;P 500 Dividend Yield Falls to Record Low As Stock Prices Outpace Dividends",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

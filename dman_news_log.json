@@ -1,2774 +1,16 @@
 [
   {
-    "ts": "2026-08-24T12:22:43.940729-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MRVL",
-      "MSFT"
-    ],
-    "headline": "Analyst Calls Marvell A Top Chip Pick As AI Demand Builds",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.342520-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "What&#39;s Going On With Apple Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.342889-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Inquiry Into Apple&#39;s Competitor Dynamics In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.343162-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia\u2019s AI Servers Are About to Get Even More Expensive as Rising Memory Costs Push Prices Up More Than 15%: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.343438-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Claude Turns 2-Year Wi-Fi Headache Into 10-Minute Fix After Finding 3 Hidden Problems, Boosting Speeds From 90 Mbps to 292 Mbps",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.343732-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Alibaba Stock Flashes a Bearish Pattern as a $10 Billion Risk Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.344348-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Salesforce To Report Mixed Q2; Investors Remain Skeptical About H2 Acceleration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.344645-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Why Is IREN Stock Sliding on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.344938-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Jim Cramer Pushes Back on Nvidia Skeptics Ahead of Earnings \u2014 Dan Ives Says Chip Demand Is Crushing Supply 15-To-1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.345239-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "AI&#39;s Next Bottleneck Isn&#39;t Chips, It&#39;s Power, With Demand Expected to Soar 1,100% by 2033: Why CEG, VST, GEV Stocks Are in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.345547-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Competitor Analysis: Evaluating Microsoft And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.345952-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "UPDATE: Lancium Announces Partnership With NVIDIA To Deploy AI Factory Platform Across 4 GW Of Leased Capacity And 15+ GW Development Pipeline; NVIDIA Makes Strategic Investment, Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.346258-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Blackstone&#39;s Lancium Announces Partnership With Nvidia To Deploy AI Factory Platform Across 4 GW Of Leased Capacity And 15+ GW Development Pipeline; Nvidia Makes Strategic Investment, Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.346601-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Launches Groq 3 LPX, Showcasing World-Class Speed For Agentic Coding And Other Latency-Sensitive Workload",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.346967-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SpaceXAI Expands Grok Infrastructure With NVIDIA Vera Rubin, Plans AI-Powered Starmind Satellite",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.347301-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Taiwan Indicts Nvidia Manager Following Chip Smuggling Probe&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.347729-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Stock Faces Litigation Overhang: Expert Says It Lacks Tobacco&#39;s Pricing Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.348109-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Is IREN Stock Sliding on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.348740-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "New Zealand Introducing Online Safety Bill To Ban Under-16 Users From Accessing Social Media",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.349135-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AI&#39;s Next Bottleneck Isn&#39;t Chips, It&#39;s Power, With Demand Expected to Soar 1,100% by 2033: Why CEG, VST, GEV Stocks Are in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.349527-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Uber Faces Nearly $1 Billion in Fines From Dutch Regulators Over Driver Suspensions Using Automation: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.350002-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Netflix Gains Ground as App Bundling, Creator Push Drive Relative Strength",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.350517-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Alphabet Stock In The Last 15 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.350960-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta Stock Faces Litigation Overhang: Expert Says It Lacks Tobacco&#39;s Pricing Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.351356-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Jim Cramer Pushes Back on Nvidia Skeptics Ahead of Earnings \u2014 Dan Ives Says Chip Demand Is Crushing Supply 15-To-1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.351835-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Cloud Collaborates With Verizon To Deploy Its Full-Stake AI Into Verizon Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.352315-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "AI&#39;s Next Bottleneck Isn&#39;t Chips, It&#39;s Power, With Demand Expected to Soar 1,100% by 2033: Why CEG, VST, GEV Stocks Are in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.352774-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Performance Comparison: Amazon.com And Competitors In Broadline Retail Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.353230-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Trump Says Communities Rejecting Data Centers Are \u2018Making a Mistake,\u2019 Says US Leads China In AI \u2018By a Lot\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.353708-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nvidia in Talks to Back Jeff Bezos-Funded Perplexity at Over $30 Billion Valuation As AI Startup&#39;s Revenue Explodes to $750 Million: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.354169-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Rep. Greg Steube Calls For Flock Camera Ban, Says Police Should \u2018Get a Warrant\u2019\u2014CEO Says Ban Is Like \u2018Banning Vehicles\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.354717-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "If You Invested $1000 In Tesla Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.355202-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Sets Cybercab Launch Event for September 3 but Prediction Markets Doubt It&#39;ll Impress",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.355697-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "XPeng Posts Wider-Than-Expected Loss, Stock Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.356205-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "TSLA Competitor? Xiaomi Joins NIO in Race to Build In-House Chips for Self-Driving Cars",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.356729-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk&#39;s Tesla Has &#39;Massive Advantage&#39; Before Selling Optimus in the Market, Says This Analyst \u2014 Crypto Prediction Market Weighs 2026 Launch Odds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.357312-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Gains Ground as App Bundling, Creator Push Drive Relative Strength",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.358117-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "&#39;Netflix reportedly considers opening its app to other streamers&#39;- The Verge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.358706-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce To Report Mixed Q2; Investors Remain Skeptical About H2 Acceleration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.359267-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Nvidia Could Swing $282 Billion In Value After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.359852-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "BTIG Reiterates Buy on Salesforce, Maintains $255 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.360396-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Claude Turns 2-Year Wi-Fi Headache Into 10-Minute Fix After Finding 3 Hidden Problems, Boosting Speeds From 90 Mbps to 292 Mbps",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.361000-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Remember Hugging Face? The AI Hub Hit by an OpenAI Security Breach Is Reportedly Exploring a $13 Billion Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.361594-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Anthropic Wants Investors to Buy Into a $2 Trillion Dream\u2014But a Wall Street Veteran Says SpaceX\u2019s IPO Offers a Warning for AI Investors (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.362202-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Why Is SMCI Stock Sliding on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.362861-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.363586-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Insights Into Broadcom&#39;s Performance Versus Peers In Semiconductors &amp; Semiconductor Equipment Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.364244-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Opens Boise Training Center To Expand U.S. Semiconductor Workforce",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.364885-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Dan Ives Says Nvidia&#39;s 15% AI Server Price Hike Is Bullish for Tech. Could Micron Be the Real Winner?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.365494-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron CEO Sounds Alarm on AI Memory Crunch \u2014 Supply May Not Catch Up Until 2028 as Demand Keeps Growing: MU Stock Falls 4% (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.366168-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.366821-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nvidia\u2019s AI Servers Are About to Get Even More Expensive as Rising Memory Costs Push Prices Up More Than 15%: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.367489-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Applied Optoelectronics, SanDisk, Seagate And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.368200-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.368914-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron CEO Sounds Alarm on AI Memory Crunch \u2014 Supply May Not Catch Up Until 2028 as Demand Keeps Growing: MU Stock Falls 4% (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.369654-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.370329-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Nvidia\u2019s AI Servers Are About to Get Even More Expensive as Rising Memory Costs Push Prices Up More Than 15%: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.371048-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Nvidia\u2019s AI Servers Are About to Get Even More Expensive as Rising Memory Costs Push Prices Up More Than 15%: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.371820-04:00",
+    "ts": "2026-08-25T12:22:44.244727-04:00",
     "symbols": [
       "MRVL"
     ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Marvell Technology, Raises Price Target to $224",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.372604-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Marvell Technology, Raises Price Target to $310",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.373327-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.374081-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Nvidia Could Swing $282 Billion In Value After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.375090-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Slip Ahead of Data-Heavy Week, Nvidia Earnings, and Jackson Hole\u2014BABA, PMI, BIRK in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.375873-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "The Bitcoin, Ethereum, XRP Record Week Was Just &#39;The Beginning,&#39; Prominent Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.376682-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Affirm Stock Wavers Ahead of Earnings: Will it Fall Like Klarna?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.377714-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "TSLA Competitor? Xiaomi Joins NIO in Race to Build In-House Chips for Self-Driving Cars",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.378500-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Slides Monday Following Historic Rally: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.379299-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Makes Foundayo Available To Eligible UK Adults Privately, Seeks NICE Assessment For NHS Use At \u00a3100-\u00a3120 Pricing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.380353-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Eisai And Biogen Announce Once Weekly Lecanemab-Irmb Subcutaneous Injection Is Now Available In U.S. For Initiation Therapy For Early Alzheimer\u2019s Disease",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.381298-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead\u2019s Trodelvy-Keytruda Combo Gets EU Approval for Metastatic Breast Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.382120-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;ExxonMobil Suspends Guyana Liza Unity Operation After Small Fire&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.382943-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;Shell Draws Exxon Interest In $8bn US Chemical Assets Sale&#39; - FT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.383821-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Nvidia Could Swing $282 Billion In Value After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.384692-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Slip Ahead of Data-Heavy Week, Nvidia Earnings, and Jackson Hole\u2014BABA, PMI, BIRK in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.385518-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Top S&amp;P 500 Stocks to Watch This Week: CrowdStrike, Salesforce, Workday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.386385-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Benchmark Maintains Buy on Palo Alto Networks, Raises Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.387260-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase CEO Says Stablecoins Let People Escape Inflation Without Leaving Home: &#39;Crypto Gives People a Way Out&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.388181-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Raises $2 Billion as Bitcoin&#39;s 24% Surge Turns Holdings Profitable",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.389084-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Moves Higher Monday: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.389973-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Adds &#39;USD Cash&#39; Component To Its Digital Credit Capital Framework For Purposes Including Acquiring Bitcoin, Paying Declared Cash Dividends And Interest On Debt, Stock Buybacks, Repaying, Convertible Note Actions And Increasing Dollar Reserves",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.390859-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum Gain, XRP, Dogecoin Slide as Crypto Market Takes a Breather: Analyst Predicts &#39;Little Dip&#39; Before BTC Hits &#39;New Highs&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.391791-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Peter Schiff Says Hitching Bitcoin to Artificial Intelligence Wagon is a Mistake: AI Isn&#39;t &#39;Bullish&#39; for BTC, It&#39;s a &#39;Threat&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.392726-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Zoomcar Announces Partnership With Uber To Offer Uber Intercity Bookings In Zoomcar App In Bengaluru, Delhi NCR, And Mumbai",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.393649-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "DoorDash, Uber Eats and Instacart Are Thriving as Consumers Cut Back Elsewhere: DASH CFO Explains Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.394559-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Faces Nearly $1 Billion in Fines From Dutch Regulators Over Driver Suspensions Using Automation: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.395508-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Mizuho Initiates Coverage On Vistra with Outperform Rating, Announces Price Target of $169",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.396485-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "AI&#39;s Next Bottleneck Isn&#39;t Chips, It&#39;s Power, With Demand Expected to Soar 1,100% by 2033: Why CEG, VST, GEV Stocks Are in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.397450-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Guggenheim Reiterates Buy on Zscaler, Maintains $214 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.398425-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "UBS Maintains Neutral on MongoDB, Raises Price Target to $460",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.399402-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Bernstein Maintains Outperform on Airbnb, Raises Price Target to $217",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.400414-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Airbnb, Raises Price Target to $200",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.401512-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Temu Parent PDD\u2019s Spending Spree Slashes Profit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.402510-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "XPeng Posts Wider-Than-Expected Loss, Stock Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.403503-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Michael Burry Planned to Move Back Into Alibaba After a Few Months. Now He Says BABA Stock Would Need to Fall 50% First (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.405312-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Slip Ahead of Data-Heavy Week, Nvidia Earnings, and Jackson Hole\u2014BABA, PMI, BIRK in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.406342-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Market-Moving News for August 24th",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.407386-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Uber Faces Nearly $1 Billion in Fines From Dutch Regulators Over Driver Suspensions Using Automation: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.408483-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "PDD Says It&#39;s Building &#39;Another PDD&#39; Over the Next 3 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.409539-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "Temu Parent PDD\u2019s Spending Spree Slashes Profit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.410906-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "PDD Holdings Q2 2026 Earnings Call: Complete Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.412018-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "PDD Holdings Exec Says Due To Changes In EU Customs Duties, Will Have Considerable Impact On Our Cross Border Business In The Short Term; Over Medium To Long Term We Will Broaden Supply Of Local Products And Expand The Coverage Of Local Fulfilment; In The Short Term, Cross-Border Orders In The Affected Markets Will Face Lower Fulfillment Efficiency And Higher Costs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.413101-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "PDD Holdings Q2 Adj. EPS $2.85 Beats $2.77 Estimate, Sales $16.560B Miss $17.130B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.414195-04:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "Michael Burry Planned to Move Back Into Alibaba After a Few Months. Now He Says BABA Stock Would Need to Fall 50% First (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.415290-04:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "BABA Stock Falls Nearly 4% Amid $10 Billion HK Placement: Analyst Nicholas Mugalli Says Market Reaction is &#39;Pure Relief&#39; For Shortsellers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.416431-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ&#39;s Skyloom Deploys Dozens Of Optical Terminals Into Orbit, Supporting The Space Development Agency\u2019s Proliferated Warfighter Space Architecture",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.417540-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "AEG, Archer Aviation Sign Partnership To Develop Downtown Los Angeles&#39; First Vertiport",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.418701-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "FOX Business Reporter Charles Gasparino Says On X That According To Sources, Treasury Secretary Scott Bessent Will Do Whatever It Takes To Counter Bond Vigilantes Shorting Long End Of Curve, Including Buybacks, Selling Short-Term Debt, And Possible Elimination Of 20-Year Bond",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.420181-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#34;Bessent To Unveil Iran Secondary Sanctions Details; To Give Final Warning To Cut Economic Ties With Iran",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.421321-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;U.S. Eyes China Overcapacity Tariffs of 7.5% Before Xi-Trump Talks&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.422442-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Taiwan Indicts Nvidia Manager Following Chip Smuggling Probe&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.423561-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump On Canada Says On January First, 2027, Tariffs On All Cars, Trucks, Both Large And Small, Automotive Parts, And Steel, Will Be Increased To 50%;  Build In U.S. And There Are Zero Tariffs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:22:46.424798-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "QUICK SPARK: $6.4 Billion Pours into S&amp;P 500 ETFs in One Day as QQQ Sees Outflows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.426063-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Slip Ahead of Data-Heavy Week, Nvidia Earnings, and Jackson Hole\u2014BABA, PMI, BIRK in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:22:46.427220-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:23:37.254323-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Selects Chainlink As Official Oracle Infrastructure Powering Its Newly Launched Tokenized Stocks, Unlocking Utility And Distribution Across Base Defi Ecosystem",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:27:23.860256-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Earnings Preview: Stock Has Dropped After 5 of Last 6 Reports, and &#39;A Simple Beat May Not Be Enough&#39;",
+    "headline": "Marvell Technology shares are trading higher after Rosenblatt maintained its Buy rating on the stock and raised its price target from $240 to $300. Also, Susquehanna maintained its Positive rating and raised its price target from $230 to $265.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-24T12:28:02.858757-04:00",
-    "symbols": [
-      "MSFT",
-      "NBIS"
-    ],
-    "headline": "What&#39;s Going on With Nebius Shares on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:37:50.865208-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "What&#39;s Going on With Nebius Shares on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:37:50.866588-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Analyst Calls Marvell A Top Chip Pick As AI Demand Builds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:37:51.804820-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Analyst Calls Marvell A Top Chip Pick As AI Demand Builds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:37:52.160425-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Analyst Calls Marvell A Top Chip Pick As AI Demand Builds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:37:55.019002-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Analyst Calls Marvell A Top Chip Pick As AI Demand Builds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:37:57.235924-04:00",
-    "symbols": [
-      "CELH"
-    ],
-    "headline": "Celsius Stock Extends Surge Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:39:12.137202-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on with NVIDIA Stock on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:42:53.736310-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "EU Tariffs Threaten Temu Margins After US Trade Squeeze",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T12:48:33.948407-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Needham Maintains Buy on SK hynix, Raises Price Target to $220",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T12:48:43.755420-04:00",
-    "symbols": [
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "SpaceXAI Taps NVIDIA To Build Faster AI Agents",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T12:49:01.321778-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Affirm Holdings, Raises Price Target to $100",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:38.035417-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:12:38.152212-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:12:38.228079-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:12:38.229264-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SpaceXAI Taps NVIDIA To Build Faster AI Agents",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:12:38.406465-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:12:39.247195-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:12:39.418062-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:12:42.672758-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Secretary Bessent Says No Longer Acceptable To Operate In The Gray Spaces Of This Conflict; Iran Faces Conplee Global Isolation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.674001-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Sanctions Nearly 60 Iran-Linked Entities, People And Vessels Across Nuclear, Missile, Cyber And Oil Networks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.675077-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.745146-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Samsung Crash Brings Semi Selling; Nvidia Earnings Ahead; $1T Treasury Firepower To Buy Bonds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:12:42.823137-04:00",
-    "symbols": [
-      "OLOX"
-    ],
-    "headline": "What&#39;s Going On With Olenox Industries Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.824384-04:00",
-    "symbols": [
-      "OLOX"
-    ],
-    "headline": "Why Planet Green Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.895565-04:00",
-    "symbols": [
-      "PMI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.896823-04:00",
-    "symbols": [
-      "PMI"
-    ],
-    "headline": "Why Is Picard Medical Stock Gaining Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.898096-04:00",
-    "symbols": [
-      "PMI"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Slip Ahead of Data-Heavy Week, Nvidia Earnings, and Jackson Hole\u2014BABA, PMI, BIRK in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.899183-04:00",
-    "symbols": [
-      "PMI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:42.900333-04:00",
-    "symbols": [
-      "PMI"
-    ],
-    "headline": "Why Planet Green Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.024728-04:00",
-    "symbols": [
-      "PUSA"
-    ],
-    "headline": "Aureus Greenway Holdings Merger Partner Powerus Begins Production Of Its Its Guardian Counter UAV Interceptor Line Through Multi-Year Partnership With A Regional Defense Manufacturer In The Gulf Region",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.099932-04:00",
-    "symbols": [
-      "NSSC"
-    ],
-    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.101201-04:00",
-    "symbols": [
-      "NSSC"
-    ],
-    "headline": "Why Is NAPCO Security Stock Soaring Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.102338-04:00",
-    "symbols": [
-      "NSSC"
-    ],
-    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.103466-04:00",
-    "symbols": [
-      "NSSC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.104570-04:00",
-    "symbols": [
-      "NSSC"
-    ],
-    "headline": "NAPCO Security Techs Q4 Adj. EPS $0.41 Beats $0.39 Estimate, Sales $55.809M Beat $52.509M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.231826-04:00",
-    "symbols": [
-      "SDOT"
-    ],
-    "headline": "Sadot Group Shares Soar as Debt Cleanup Fuels Fresh Momentum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.233136-04:00",
-    "symbols": [
-      "SDOT"
-    ],
-    "headline": "Nasdaq Down 150 Points; Chicago Fed National Activity Index Drops In July",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.234420-04:00",
-    "symbols": [
-      "SDOT"
-    ],
-    "headline": "Market-Moving News for August 24th",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.327099-04:00",
-    "symbols": [
-      "SDOT"
-    ],
-    "headline": "Why Planet Green Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.406813-04:00",
-    "symbols": [
-      "RGNX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.408159-04:00",
-    "symbols": [
-      "RGNX"
-    ],
-    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.409341-04:00",
-    "symbols": [
-      "RGNX"
-    ],
-    "headline": "Regenxbio Hits Regulatory Roadblock After FDA Puts RGX-121 on Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.410518-04:00",
-    "symbols": [
-      "RGNX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.411696-04:00",
-    "symbols": [
-      "RGNX"
-    ],
-    "headline": "Trading Halt: Halt status updated at 7:20:00 AM ET: Quotation Resumption: News and Resumption Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.486789-04:00",
-    "symbols": [
-      "NPWR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.488129-04:00",
-    "symbols": [
-      "NPWR"
-    ],
-    "headline": "Net Power Announces Rights To Acquire 123 MW Of Gas-Fired Power Generation Equipment With $20M Deposit; Signs Cost Reimbursement Agreement With Prospective Customer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.601429-04:00",
-    "symbols": [
-      "SUPX"
-    ],
-    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.746338-04:00",
-    "symbols": [
-      "TJGC"
-    ],
-    "headline": "10 Communication Services Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.807462-04:00",
-    "symbols": [
-      "NCTY"
-    ],
-    "headline": "The9 Q2 EPS $0.01, Sales $712.000K",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.895593-04:00",
-    "symbols": [
-      "RUM"
-    ],
-    "headline": "Georgia Infrastructure Expansion Anchors $13.7 Billion RUM Group Contract",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.897025-04:00",
-    "symbols": [
-      "RUM"
-    ],
-    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.898291-04:00",
-    "symbols": [
-      "RUM"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:12:43.899572-04:00",
-    "symbols": [
-      "RUM"
-    ],
-    "headline": "RUM Group Enters Warrant Term Sheet With Third Party Cloud Customer To Purchase Up 50,808,408 RUM Shares At An Exercise Price Of $0.01 Per Share; Customer Has Agreed To Purchase GPU Services In Three Tranches Totaling ~$13.7B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:18:04.099631-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Secretary Bessent Says I Expect A Major Financial Institution To Be Sanctioned This Week",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:18:10.269672-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:18:10.495728-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:18:11.145025-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Stock is Trending Higher: What&#39;s Going On Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:18:12.581618-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:18:12.842524-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:18:13.004067-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:18:13.373815-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:18:15.654253-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:18:16.651546-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:18:17.363669-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:18:18.087038-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Secretary Bessent Says Every Country Should Be Prepared To Face U.s. Sanctions If They Support Iran; Every Country Should Be Prepared To Face U.s. Sanctions If They Support Iran; Expects Other Countries To Take Similar Actions To Isolate Iran; You Will See A Major Financial Institution Being Sanctioned By The End Of This Week Over Iran",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:18:18.090855-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Secretary Bessent Says Trump Making Calls To World Leaders With Specific Requests To Cease Interactions With Iran; Trump Making Calls To World Leaders With Specific Requests To Cease Interactions With Iran; No One, Including China, Is Above The Reach Of U.S. Sanctions; Objective Is To Sever Iran&#39;s Economic Lifelines",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:18:18.092493-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Secretary Bessent Says No Longer Acceptable To Operate In The Gray Spaces Of This Conflict; Iran Faces Complete Global Isolation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:18:18.279432-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:18:18.458260-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Memory Stocks Slide as Trump Threatens 50% Tariffs on Canadian Autos, Steel in 2027: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:19:55.959500-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Bessent Says We Are Going To Continue With Our Regular Program Of Treasury Auctions, You Will Be Hearing From Us Again At Beginning Of Next Quarter; We Haven&#39;t Bought A Single Bond Yet, Next Operation Is Sept. 9; We Believe A Warning Shot And A Level-Set Is An Appropriate Action",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:20:47.964469-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Secretary Bessent Says Do Not Take Use Of Secondary Sanctions Lightly; You Will See Wave Of Sanctions When You Leave This Meeting Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:20:54.665214-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Truist Securities Maintains Hold on Hims &amp; Hers Health, Raises Price Target to $32",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:27:55.620977-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Canada PM Carney On Trump&#39;s Latest Tariff Threat, Says Not A Surprise U.S. Would Take Some Form Of Reprisal; There Is A Mutually Beneficial Deal Possible With U.S.; Canada Will Come To Negotiating Table When U.S. Has Right Attitude Toward Our Industry",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:31:50.876129-04:00",
-    "symbols": [
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "Elon Musk Posts On X &#34;SpaceX, in partnership with Nvidia, has designed a space-optimized Vera Rubin NVL72 system for launch to orbit in Q4 next year, with significant scale in 2028&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:32:02.231036-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Elon Musk Posts On X &#34;SpaceX, in partnership with Nvidia, has designed a space-optimized Vera Rubin NVL72 system for launch to orbit in Q4 next year, with significant scale in 2028&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:35:24.742258-04:00",
-    "symbols": [
-      "AAPL",
-      "CRM",
-      "MSTR",
-      "MU",
-      "NVDA",
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:35:24.980173-04:00",
-    "symbols": [
-      "GILD",
-      "MRNA"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:35:25.276312-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:39:37.319370-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO shares are trading lower amid possible sympathy with XPeng after that company reported a year-over-year decrease in Q2 adjusted EPS results and worse-than-expected Q2 sales results.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:50:03.989368-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:50:04.607848-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:50:06.808797-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T13:50:07.692921-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:50:07.915805-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:50:09.602940-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T13:50:10.186528-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:50:11.753402-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T13:50:47.059685-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Stock Drifts Lower Monday: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:00:46.162269-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jefferies Maintains Buy on CrowdStrike Holdings, Raises Price Target to $230",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:02:51.480488-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "What\u2019s Going On With Tempus AI Stock on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:05:38.166572-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "What\u2019s Going On With Tempus AI Stock on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:05:40.088664-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jefferies Maintains Buy on CrowdStrike Holdings, Raises Price Target to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:05:44.717012-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:44.719215-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "CID HoldCo  Shares Resumed Trade, Then Again Halted On Circuit Breaker To The Upside, Stock Now Up 441.31%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:44.721175-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "CID HoldCo Shares Halted On Circuit Breaker To The Upside, Stock Now Up 403.76%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:44.723143-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "Nasdaq Down 150 Points; Chicago Fed National Activity Index Drops In July",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:44.725106-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "CID HoldCo Shares Halted On Circuit Breaker To The Upside, Stock Now Up 194.84%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:45.476435-04:00",
-    "symbols": [
-      "DFNS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:47.202694-04:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:47.204853-04:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "XPeng Q2 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:47.206852-04:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "XPeng Posts Wider-Than-Expected Loss, Stock Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:47.208827-04:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "XPeng Sees Q3 Vehicle Deliveries 115K-121K Units",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:47.210909-04:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "XPeng Sees Q3 Sales $3.196B-$3.446B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:47.703016-04:00",
-    "symbols": [
-      "ABUS"
-    ],
-    "headline": "Arbutus Biopharma Announces Modified Dutch Auction Tender Offer To Purchase Up To $230M Of Common Shares At $5.00 To $5.75/Share, Expiring September 29",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.185112-04:00",
-    "symbols": [
-      "STTK"
-    ],
-    "headline": "Raymond James Initiates Coverage On Shattuck Labs with Strong Buy Rating, Announces Price Target of $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.433948-04:00",
-    "symbols": [
-      "WBTN"
-    ],
-    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.713410-04:00",
-    "symbols": [
-      "ALVO"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.715670-04:00",
-    "symbols": [
-      "ALVO"
-    ],
-    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.717741-04:00",
-    "symbols": [
-      "ALVO"
-    ],
-    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.719816-04:00",
-    "symbols": [
-      "ALVO"
-    ],
-    "headline": "B of A Securities Initiates Coverage On Alvotech with Buy Rating, Announces Price Target of $7",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.966517-04:00",
-    "symbols": [
-      "CAPR"
-    ],
-    "headline": "Why Is Capricor Therapeutics Stock Trading Higher on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:48.968818-04:00",
-    "symbols": [
-      "CAPR"
-    ],
-    "headline": "Capricor Therapeutics Says FDA Extends PDUFA Target Action Date For Its BLA For Deramiocel, Investigational Cell Therapy For Duchenne Muscular Dystrophy, From August 22 To November 22",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:49.456247-04:00",
-    "symbols": [
-      "CVRX"
-    ],
-    "headline": "CVRx Shareholder Urges Board To Launch Sale Process To Unlock Barostim\u2019s Strategic Value",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:49.458559-04:00",
-    "symbols": [
-      "CVRX"
-    ],
-    "headline": "CVRx Announces Devoted Health Issued Medicare Advantage Coverage Policy For Barostim Effective July 17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:49.700080-04:00",
-    "symbols": [
-      "AZTA"
-    ],
-    "headline": "Crude Oil Down 3%; XPeng Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:49.702402-04:00",
-    "symbols": [
-      "AZTA"
-    ],
-    "headline": "Azenta Appoints Martin Madaus Interim President, CEO; Co. Reiterates Q4 Revenue Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:49.948583-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "Napco Security Technologies Posts Upbeat Q4 Results, Joins Alvotech, Rum Group And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:49.950900-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "AMC Stock Climbs Monday as Governance Overhaul and Strong Box Office Sentiment Fuel Momentum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:50.201637-04:00",
-    "symbols": [
-      "ZJK"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:05:50.203963-04:00",
-    "symbols": [
-      "ZJK"
-    ],
-    "headline": "ZJK Industrial Secures Large-Volume Purchase Orders For AI Infrastructure Components From Several Customers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:08:24.611954-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Social Media, Says Canadian Officials Should Fall In LINE Or Consequences For Canada Will Be Far Worse",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:14:24.355237-04:00",
-    "symbols": [
-      "AAPL",
-      "GOOGL",
-      "MSFT",
-      "MU",
-      "NVDA",
-      "TSLA"
-    ],
-    "headline": "Trump\u2019s 50% Canada Auto Tariff Shock: These ETFs Could Be in the Crosshairs",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:14:37.754784-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Trump\u2019s 50% Canada Auto Tariff Shock: These ETFs Could Be in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T14:14:37.997207-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump\u2019s 50% Canada Auto Tariff Shock: These ETFs Could Be in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:14:38.239934-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump\u2019s 50% Canada Auto Tariff Shock: These ETFs Could Be in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:14:38.803166-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump\u2019s 50% Canada Auto Tariff Shock: These ETFs Could Be in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:14:39.436017-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Trump\u2019s 50% Canada Auto Tariff Shock: These ETFs Could Be in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T14:14:40.752090-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Trump\u2019s 50% Canada Auto Tariff Shock: These ETFs Could Be in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:21:05.902220-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "NVDA",
-      "PLTR",
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: How AI&#39;s $220 Billion Bond Boom Competes With the Treasury",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:27:13.576474-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Nio Stock Hits 52-Week Low: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:27:26.241590-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: How AI&#39;s $220 Billion Bond Boom Competes With the Treasury",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:27:26.790452-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "EXCLUSIVE: How AI&#39;s $220 Billion Bond Boom Competes With the Treasury",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:27:26.980041-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "EXCLUSIVE: How AI&#39;s $220 Billion Bond Boom Competes With the Treasury",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:27:27.687909-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "EXCLUSIVE: How AI&#39;s $220 Billion Bond Boom Competes With the Treasury",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T14:27:33.814574-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Truth Social, Says Canadian Officials Should Fall In Line Or Consequences For Canada Will Be Far Worse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:40:22.092217-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bessent Launches Economic D-Day Against Iran: 5 Things to Know",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T14:53:07.307008-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Iran Says Fully Prepared For New U.S. Economic Campaign; Not Easy To Cut Off Financial, Commercial Lifelines",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T15:09:18.014675-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Earnings: Wall Street Expects Growth to Slow in Q2 \u2014 Dan Niles Says Hyperscalers Are Spending Like Never Before",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T15:22:04.104212-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Announces Launch Of Quantum-Readiness Task Force For Financial Sector Post-Quantum Cryptography Transition",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T15:31:12.832649-04:00",
-    "symbols": [
-      "NVDA",
-      "XOM"
-    ],
-    "headline": "Magnificent 7 Built The AI Boom, &#39;Munificent Seven&#39; Wants to Power It",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T15:32:34.177928-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Amazon plots a new &#39;Tetromino&#39; warehouse where robots tackle work that&#39;s notoriously hard to automate&#39; - Business Insider",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T15:35:23.526815-04:00",
-    "symbols": [
-      "LIMN"
-    ],
-    "headline": "Liminatus Pharma shares are trading lower. The company announced it has engaged Synex Consulting to support the clinical development of IBC101, CD19xCD22 bivalent CAR-T cell therapy candidate.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T15:36:25.583738-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "US Treasury Announces Operation Economic Outcast Against Iran, Sanctioning Nearly 60 Entities, Individuals, And Vessels; Issues Five Sectoral Determinations Covering Digital Assets, Technology, Gold, Aviation, And Shipping",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T15:40:04.908760-04:00",
-    "symbols": [
-      "AMD",
-      "IONQ",
-      "MRVL",
-      "MU",
-      "NVDA",
-      "SKHY"
-    ],
-    "headline": "Shares of semiconductor and chip companies are trading lower. The industry may be pulling back ahead of Nvidia&#39;s Q2 earnings report due August, 26.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T15:44:15.685243-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Secretary Of War Pete Hegseth, On Iran, Says Not Ruling Out Using Military Force In Strait Of Hormuz Or Anywhere Else",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T15:46:32.676537-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Ethereum, Circle, Coinbase Make Up Analyst&#39;s &#39;Galactic Three&#39;\u2014Here&#39;s Why",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T15:46:45.134514-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Magnificent 7 Built The AI Boom, &#39;Munificent Seven&#39; Wants to Power It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-24T15:46:51.000207-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Magnificent 7 Built The AI Boom, &#39;Munificent Seven&#39; Wants to Power It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T15:46:54.583895-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Announces Operation Economic Outcast Against Iran, Sanctioning Nearly 60 Entities, Individuals, And Vessels; Issues Five Sectoral Determinations Covering Digital Assets, Technology, Gold, Aviation, And Shipping",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T16:03:49.878292-04:00",
-    "symbols": [
-      "AMIX"
-    ],
-    "headline": "Autonomix Medical Will Be Granted U.S. Patent No. 12,714,780 Tomorrow (August 25, 2026), Titled \u201cSystems and Methods for Regulating Organ and/or Tumor Growth Rates, Function, and/or Development.\u201d",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T16:08:25.078136-04:00",
-    "symbols": [
-      "AMIX"
-    ],
-    "headline": "Autonomix Medical shares are trading higher ahead of the Patent and Trademark Office&#39;s decision to grant the company U.S. Patent No. 12,714,780 titled \u201cSystems and Methods for Regulating Organ and/or Tumor Growth Rates, Function, and/or Development.\u201d",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T16:08:33.623598-04:00",
-    "symbols": [
-      "WLDS"
-    ],
-    "headline": "Wearable Devices H1 EPS $(3.50) Up From $(20.71) YoY, Sales $350.000 Down From $294.000K YoY",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T16:36:10.882457-04:00",
-    "symbols": [
-      "WLDS"
-    ],
-    "headline": "Wearable Devices shares are trading higher after the company reported a year-over-year increase in H1 EPS results.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T17:52:13.109253-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Cowell Remains Tethered To Apple But Investors Cheer Strong Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-24T18:15:29.448760-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "$1000 Invested In Gilead Sciences 5 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-24T18:33:20.312646-04:00",
-    "symbols": [
-      "GOOGL",
-      "MSFT"
-    ],
-    "headline": "Congressman Buys Magnificent Seven Stock, Blue Chip Stock \u2014 And a Stock You\u2019ve Never Heard Of",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:00:10.114544-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA CB Consumer Confidence For August 89.4 Vs 90.3 Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:00:16.227314-04:00",
+    "ts": "2026-08-25T12:22:53.211010-04:00",
     "symbols": [
       "AAPL"
     ],
@@ -2778,7 +20,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.230223-04:00",
+    "ts": "2026-08-25T12:22:53.211537-04:00",
     "symbols": [
       "AAPL"
     ],
@@ -2788,7 +30,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.233061-04:00",
+    "ts": "2026-08-25T12:22:53.211805-04:00",
     "symbols": [
       "AAPL"
     ],
@@ -2798,7 +40,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.235532-04:00",
+    "ts": "2026-08-25T12:22:53.212070-04:00",
     "symbols": [
       "AAPL"
     ],
@@ -2808,7 +50,27 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.459014-04:00",
+    "ts": "2026-08-25T12:22:53.212332-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Cowell Remains Tethered To Apple But Investors Cheer Strong Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.360635-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.361236-04:00",
     "symbols": [
       "MSFT"
     ],
@@ -2818,7 +80,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.461958-04:00",
+    "ts": "2026-08-25T12:22:53.361529-04:00",
     "symbols": [
       "MSFT"
     ],
@@ -2828,7 +90,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.464904-04:00",
+    "ts": "2026-08-25T12:22:53.361846-04:00",
     "symbols": [
       "MSFT"
     ],
@@ -2838,7 +100,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.467427-04:00",
+    "ts": "2026-08-25T12:22:53.362157-04:00",
     "symbols": [
       "MSFT"
     ],
@@ -2848,77 +110,77 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.469897-04:00",
+    "ts": "2026-08-25T12:22:53.474007-04:00",
     "symbols": [
-      "MSFT"
+      "NVDA"
     ],
-    "headline": "Trump Administration Proposes Over $100,000 H-1B Fee After Court Struck Down $100,000 Levy",
+    "headline": "QUICK SPARK: Nvidia-Backed Biotech Says AI Could Make Biology Programmable",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.474496-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia&#39;s Biggest Contribution to AI Drug Discovery Isn&#39;t Money, Generate CTO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.474867-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.475211-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Announces Jetson Orin Nano 2 Robotics Computer With 78 TOPS Of AI Compute; Module And Developer Kit Expected In H1 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.475561-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.652015-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.611549-04:00",
+    "ts": "2026-08-25T12:22:53.652528-04:00",
     "symbols": [
-      "NVDA"
+      "AMD"
     ],
-    "headline": "EXCLUSIVE: Watch These 3 AI Bottlenecks Ahead of Nvidia Earnings, Yorkville CEO Says",
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.614432-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With Super Micro Computer Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:00:16.617383-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "This Chip Stock Could Overtake Intel by 2027\u2014Wall Street Sees 40% Upside as AI Agents Reshape the CPU Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:00:16.620612-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Earnings Could Trigger a Chilling Reality Check For $1 Trillion AI Boom, Says Analyst: &#39;Biggest Thing I Am Watching...&#39; (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:00:16.623435-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cisco Partners With With Super Micro Computer To Expand Its Secure AI Factory With Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:00:16.719152-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA New Home Sales For July 607K Vs 620K Est",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:00:16.987716-04:00",
+    "ts": "2026-08-25T12:22:53.652939-04:00",
     "symbols": [
       "AMD"
     ],
@@ -2928,7 +190,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.990797-04:00",
+    "ts": "2026-08-25T12:22:53.653335-04:00",
     "symbols": [
       "AMD"
     ],
@@ -2938,7 +200,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.993354-04:00",
+    "ts": "2026-08-25T12:22:53.653737-04:00",
     "symbols": [
       "AMD"
     ],
@@ -2948,77 +210,77 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.996595-04:00",
+    "ts": "2026-08-25T12:22:53.738748-04:00",
     "symbols": [
-      "AMD"
+      "META"
     ],
-    "headline": "Nvidia To Rally More Than 8%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "headline": "Instagram Head Adam Mosseri Arrives At Court Now For Trial Against Meta Where U.S. States Accuse Meta Of Designing Its Platforms To Addict Children",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:16.999666-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Raymond James Upgrades Advanced Micro Devices to Strong Buy, Raises Price Target to $641",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:00:17.426217-04:00",
+    "ts": "2026-08-25T12:22:53.739306-04:00",
     "symbols": [
       "META"
     ],
     "headline": "OpenAI Uncovers a Covert Russian Influence Machine Using ChatGPT to Build Fake Expertise and Spread Pro-Moscow Narratives Across Social Media",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.429427-04:00",
+    "ts": "2026-08-25T12:22:53.739972-04:00",
     "symbols": [
       "META"
     ],
     "headline": "Meta Platforms Rolls Out New Account Security Features For WhatsApp; Upgrades Two-Step Security Verification To Full Password",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.432052-04:00",
+    "ts": "2026-08-25T12:22:53.740389-04:00",
     "symbols": [
       "META"
     ],
     "headline": "Evercore ISI Group Maintains Outperform on Meta Platforms, Raises Price Target to $860",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.435233-04:00",
+    "ts": "2026-08-25T12:22:53.740849-04:00",
     "symbols": [
       "META"
     ],
     "headline": "This Chip Stock Could Overtake Intel by 2027\u2014Wall Street Sees 40% Upside as AI Agents Reshape the CPU Market",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.437880-04:00",
+    "ts": "2026-08-25T12:22:53.871538-04:00",
     "symbols": [
-      "META"
+      "GOOGL"
     ],
-    "headline": "Nvidia Earnings Could Trigger a Chilling Reality Check For $1 Trillion AI Boom, Says Analyst: &#39;Biggest Thing I Am Watching...&#39; (UPDATED)",
+    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.546344-04:00",
+    "ts": "2026-08-25T12:22:53.872170-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Waymo Plans To Roll Out Robotaxi Service In Munich In Late 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:53.872636-04:00",
     "symbols": [
       "GOOGL"
     ],
@@ -3028,7 +290,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.549503-04:00",
+    "ts": "2026-08-25T12:22:53.873125-04:00",
     "symbols": [
       "GOOGL"
     ],
@@ -3038,7 +300,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.552427-04:00",
+    "ts": "2026-08-25T12:22:53.873593-04:00",
     "symbols": [
       "GOOGL"
     ],
@@ -3048,77 +310,77 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.555382-04:00",
+    "ts": "2026-08-25T12:22:53.983342-04:00",
     "symbols": [
-      "GOOGL"
+      "AMZN"
     ],
-    "headline": "Nvidia Earnings Could Trigger a Chilling Reality Check For $1 Trillion AI Boom, Says Analyst: &#39;Biggest Thing I Am Watching...&#39; (UPDATED)",
+    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.558042-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump Administration Proposes Over $100,000 H-1B Fee After Court Struck Down $100,000 Levy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:00:17.699084-04:00",
+    "ts": "2026-08-25T12:22:53.984004-04:00",
     "symbols": [
       "AMZN"
     ],
     "headline": "SanDisk Could Benefit as Amazon and Microsoft See AI Investments Start to Pay Off",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.702116-04:00",
+    "ts": "2026-08-25T12:22:53.984517-04:00",
     "symbols": [
       "AMZN"
     ],
     "headline": "Nvidia Earnings Could Trigger a Chilling Reality Check For $1 Trillion AI Boom, Says Analyst: &#39;Biggest Thing I Am Watching...&#39; (UPDATED)",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.705118-04:00",
+    "ts": "2026-08-25T12:22:53.985031-04:00",
     "symbols": [
       "AMZN"
     ],
     "headline": "In-Depth Analysis: Amazon.com Versus Competitors In Broadline Retail Industry",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.708049-04:00",
+    "ts": "2026-08-25T12:22:53.985551-04:00",
     "symbols": [
       "AMZN"
     ],
     "headline": "Bitcoin Beats Nvidia to Become Top-Performing Major Asset Over 10 Years as BTC Surges Above $80,000",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:17.711218-04:00",
+    "ts": "2026-08-25T12:22:54.296818-04:00",
     "symbols": [
-      "AMZN"
+      "TSLA"
     ],
-    "headline": "Trump Administration Proposes Over $100,000 H-1B Fee After Court Struck Down $100,000 Levy",
+    "headline": "Einhorn Vs. Musk: Hedge Fund Manager Says SpaceX IPO Was \u2018Meme-ification of the Market\u2019",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:17.968701-04:00",
+    "ts": "2026-08-25T12:22:54.297547-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Humanoid Robots Could Match Humans Within 5 Years, RoboStrategy CEO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:54.299053-04:00",
     "symbols": [
       "TSLA"
     ],
@@ -3128,7 +390,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:17.972135-04:00",
+    "ts": "2026-08-25T12:22:54.299620-04:00",
     "symbols": [
       "TSLA"
     ],
@@ -3138,7 +400,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:17.975140-04:00",
+    "ts": "2026-08-25T12:22:54.300572-04:00",
     "symbols": [
       "TSLA"
     ],
@@ -3148,27 +410,27 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:17.977886-04:00",
+    "ts": "2026-08-25T12:22:54.483195-04:00",
     "symbols": [
-      "TSLA"
+      "NFLX"
     ],
-    "headline": "Tesla&#39;s Website Shows Updated US Cybertruck Pricing, With Dual Motor AWD At $74,990 And Premium All-Wheel Drive At $84,990",
+    "headline": "Wolfe Research Maintains Outperform on Netflix, Raises Price Target to $95",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:17.981304-04:00",
+    "ts": "2026-08-25T12:22:54.577408-04:00",
     "symbols": [
-      "TSLA"
+      "CRM"
     ],
-    "headline": "Elon Musk Reveals Why SpaceX Launched Tesla\u2019s Roadster Into Orbit: \u2018We Didn\u2019t Want to Risk Anything Valuable\u2019",
+    "headline": "Salesforce Q2: AI Is Growing Fast, CRM Needs New Customers To Catch Up",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:18.190614-04:00",
+    "ts": "2026-08-25T12:22:54.578258-04:00",
     "symbols": [
       "CRM"
     ],
@@ -3178,7 +440,17 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:18.389838-04:00",
+    "ts": "2026-08-25T12:22:54.706543-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Benchmark Maintains Buy on Snowflake, Raises Price Target to $360",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:54.707354-04:00",
     "symbols": [
       "SNOW"
     ],
@@ -3188,7 +460,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:18.392907-04:00",
+    "ts": "2026-08-25T12:22:54.707999-04:00",
     "symbols": [
       "SNOW"
     ],
@@ -3198,17 +470,37 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:18.571324-04:00",
+    "ts": "2026-08-25T12:22:54.795217-04:00",
     "symbols": [
       "PLTR"
     ],
     "headline": "Jim Cramer: Williams Companies Is &#39;Terrific,&#39; This Tech Company Had An \u2018Amazing\u2019 Quarter",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:18.888569-04:00",
+    "ts": "2026-08-25T12:22:54.894035-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:54.895113-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:54.895983-04:00",
     "symbols": [
       "SMCI"
     ],
@@ -3218,7 +510,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:18.892412-04:00",
+    "ts": "2026-08-25T12:22:54.896663-04:00",
     "symbols": [
       "SMCI"
     ],
@@ -3228,7 +520,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:18.895447-04:00",
+    "ts": "2026-08-25T12:22:54.897326-04:00",
     "symbols": [
       "SMCI"
     ],
@@ -3238,7 +530,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:19.779635-04:00",
+    "ts": "2026-08-25T12:22:54.996955-04:00",
     "symbols": [
       "AVGO"
     ],
@@ -3248,7 +540,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:19.783216-04:00",
+    "ts": "2026-08-25T12:22:54.997804-04:00",
     "symbols": [
       "AVGO"
     ],
@@ -3258,7 +550,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.028333-04:00",
+    "ts": "2026-08-25T12:22:55.187158-04:00",
     "symbols": [
       "AMAT"
     ],
@@ -3268,7 +560,17 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:20.299895-04:00",
+    "ts": "2026-08-25T12:22:55.301848-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:55.302727-04:00",
     "symbols": [
       "MU"
     ],
@@ -3278,7 +580,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.303292-04:00",
+    "ts": "2026-08-25T12:22:55.303438-04:00",
     "symbols": [
       "MU"
     ],
@@ -3288,7 +590,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.306506-04:00",
+    "ts": "2026-08-25T12:22:55.304172-04:00",
     "symbols": [
       "MU"
     ],
@@ -3298,7 +600,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.309705-04:00",
+    "ts": "2026-08-25T12:22:55.304905-04:00",
     "symbols": [
       "MU"
     ],
@@ -3308,17 +610,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.312857-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nasdaq Tumbles 200 Points as Chip Stocks Slide: Fear &amp; Greed Index Remains In \u2018Neutral\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:00:20.437163-04:00",
+    "ts": "2026-08-25T12:22:55.394596-04:00",
     "symbols": [
       "SNDK"
     ],
@@ -3328,7 +620,7 @@
     "sentiment": "negative"
   },
   {
-    "ts": "2026-08-25T10:00:20.440621-04:00",
+    "ts": "2026-08-25T12:22:55.395544-04:00",
     "symbols": [
       "SNDK"
     ],
@@ -3338,7 +630,7 @@
     "sentiment": "negative"
   },
   {
-    "ts": "2026-08-25T10:00:20.444379-04:00",
+    "ts": "2026-08-25T12:22:55.396506-04:00",
     "symbols": [
       "SNDK"
     ],
@@ -3348,7 +640,7 @@
     "sentiment": "negative"
   },
   {
-    "ts": "2026-08-25T10:00:20.447556-04:00",
+    "ts": "2026-08-25T12:22:55.397276-04:00",
     "symbols": [
       "SNDK"
     ],
@@ -3358,7 +650,7 @@
     "sentiment": "negative"
   },
   {
-    "ts": "2026-08-25T10:00:20.450724-04:00",
+    "ts": "2026-08-25T12:22:55.398058-04:00",
     "symbols": [
       "SNDK"
     ],
@@ -3368,7 +660,17 @@
     "sentiment": "negative"
   },
   {
-    "ts": "2026-08-25T10:00:20.600211-04:00",
+    "ts": "2026-08-25T12:22:55.486986-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:22:55.487929-04:00",
     "symbols": [
       "SKHY"
     ],
@@ -3378,7 +680,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.603656-04:00",
+    "ts": "2026-08-25T12:22:55.488755-04:00",
     "symbols": [
       "SKHY"
     ],
@@ -3388,7 +690,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.606655-04:00",
+    "ts": "2026-08-25T12:22:55.489871-04:00",
     "symbols": [
       "SKHY"
     ],
@@ -3398,7 +700,27 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:20.724318-04:00",
+    "ts": "2026-08-25T12:22:55.573359-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:55.574398-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:55.575241-04:00",
     "symbols": [
       "MRVL"
     ],
@@ -3408,7 +730,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:20.727894-04:00",
+    "ts": "2026-08-25T12:22:55.576436-04:00",
     "symbols": [
       "MRVL"
     ],
@@ -3418,7 +740,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:20.732101-04:00",
+    "ts": "2026-08-25T12:22:55.577291-04:00",
     "symbols": [
       "MRVL"
     ],
@@ -3428,7 +750,37 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:20.801935-04:00",
+    "ts": "2026-08-25T12:22:55.654515-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning KLA Stock In The Last 10 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:55.786699-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Why Is Robinhood Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:55.787756-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitcoin, Ethereum Are &#39;Really Underowned,&#39; Analyst Says: &#39;Two of the Best Assets in the World&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:55.788634-04:00",
     "symbols": [
       "HOOD"
     ],
@@ -3438,7 +790,27 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:21.017166-04:00",
+    "ts": "2026-08-25T12:22:55.869242-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Wolfe Research Upgrades Moderna to Peer Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:55.870345-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:55.871467-04:00",
     "symbols": [
       "MRNA"
     ],
@@ -3448,7 +820,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:21.143921-04:00",
+    "ts": "2026-08-25T12:22:56.002235-04:00",
     "symbols": [
       "BIIB"
     ],
@@ -3458,7 +830,17 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:21.526170-04:00",
+    "ts": "2026-08-25T12:22:56.128298-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "$1000 Invested In Gilead Sciences 5 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:56.219681-04:00",
     "symbols": [
       "DUOL"
     ],
@@ -3468,7 +850,17 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:22.285838-04:00",
+    "ts": "2026-08-25T12:22:56.298598-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Airline Stocks Rally, Treasury Yields Fall as Oil Tumbles on Iran Sanctions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:56.519594-04:00",
     "symbols": [
       "RKLB"
     ],
@@ -3478,7 +870,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:22.288953-04:00",
+    "ts": "2026-08-25T12:22:56.520755-04:00",
     "symbols": [
       "RKLB"
     ],
@@ -3488,7 +880,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:22.358151-04:00",
+    "ts": "2026-08-25T12:22:56.628782-04:00",
     "symbols": [
       "ARM"
     ],
@@ -3498,7 +890,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:22.936538-04:00",
+    "ts": "2026-08-25T12:22:56.726847-04:00",
     "symbols": [
       "PANW"
     ],
@@ -3508,7 +900,27 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:23.047521-04:00",
+    "ts": "2026-08-25T12:22:56.812890-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Why Is Robinhood Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:56.814034-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitcoin, Ethereum Are &#39;Really Underowned,&#39; Analyst Says: &#39;Two of the Best Assets in the World&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:56.815023-04:00",
     "symbols": [
       "COIN"
     ],
@@ -3518,7 +930,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.050562-04:00",
+    "ts": "2026-08-25T12:22:56.816028-04:00",
     "symbols": [
       "COIN"
     ],
@@ -3528,7 +940,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.054322-04:00",
+    "ts": "2026-08-25T12:22:56.817389-04:00",
     "symbols": [
       "COIN"
     ],
@@ -3538,7 +950,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.140700-04:00",
+    "ts": "2026-08-25T12:22:56.983371-04:00",
     "symbols": [
       "MSTR"
     ],
@@ -3548,7 +960,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.143771-04:00",
+    "ts": "2026-08-25T12:22:56.984597-04:00",
     "symbols": [
       "MSTR"
     ],
@@ -3558,7 +970,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.427823-04:00",
+    "ts": "2026-08-25T12:22:57.096446-04:00",
     "symbols": [
       "UBER"
     ],
@@ -3568,7 +980,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:23.431383-04:00",
+    "ts": "2026-08-25T12:22:57.097704-04:00",
     "symbols": [
       "UBER"
     ],
@@ -3578,7 +990,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-08-25T10:00:23.509023-04:00",
+    "ts": "2026-08-25T12:22:57.176304-04:00",
     "symbols": [
       "DECK"
     ],
@@ -3588,7 +1000,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.599496-04:00",
+    "ts": "2026-08-25T12:22:57.263853-04:00",
     "symbols": [
       "ZS"
     ],
@@ -3598,7 +1010,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.688499-04:00",
+    "ts": "2026-08-25T12:22:57.342043-04:00",
     "symbols": [
       "MDB"
     ],
@@ -3608,7 +1020,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.692492-04:00",
+    "ts": "2026-08-25T12:22:57.343588-04:00",
     "symbols": [
       "MDB"
     ],
@@ -3618,7 +1030,7 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:23.794126-04:00",
+    "ts": "2026-08-25T12:22:57.464610-04:00",
     "symbols": [
       "ONON"
     ],
@@ -3628,1020 +1040,123 @@
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:24.362175-04:00",
+    "ts": "2026-08-25T12:22:57.556880-04:00",
     "symbols": [
       "BABA"
     ],
     "headline": "&#39;Jack Ma buys HK$600 million of Alibaba shares, signalling AI confidence: sources&#39; - South China Morning Post Exclusive",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": null
+    "sentiment": "negative"
   },
   {
-    "ts": "2026-08-25T10:00:24.537280-04:00",
+    "ts": "2026-08-25T12:22:57.647550-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Benchmark Maintains Buy on PDD Holdings, Lowers Price Target to $114",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:57.789609-04:00",
     "symbols": [
       "SPY"
     ],
-    "headline": "Iran Sets Hormuz Conditions Through Pakistan; Iran&#39;s Conditions Include Return To MoU Including On Hormuz; A Source Close To Iran\u2019s Negotiating Team Told Tasnim That Pakistan\u2019s Army Chief Asim Munir Carried No U.S. Threat During His Visit And Instead Sought To Reopen Negotiations; Iran Reportedly Outlined Its Strait Of Hormuz Conditions, Including A U.S. Return To Islamabad Agreement, Implementation Of Clause 5",
+    "headline": "&#39;Canada Retaliatory Duties To Target Steel, Dairy, Appliances, Farm Equipment; Canada To Impose Tariffs Of Up To 50% On $20 Billion Of U.S. Goods&#39;  - WSJ",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:24.541306-04:00",
+    "ts": "2026-08-25T12:22:57.790872-04:00",
     "symbols": [
       "SPY"
     ],
-    "headline": "USA House Price Index For June 442.5 Vs 442.4 Prior",
+    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:24.545149-04:00",
+    "ts": "2026-08-25T12:22:57.791968-04:00",
     "symbols": [
       "SPY"
     ],
-    "headline": "USA House Price Index (MoM) For June 0.0% Vs 0.2% Est.",
+    "headline": "President Trump, On Truth Social Post, Says Iran Has Been Notified That Any Ship Or Boat Placing New Mines Will Be Immediately And Systematically Destroyed; Been Informed By U.S. Navy That All Mines Have Been Removed And/Or Detonated From Within International Waters Of Strait Of Hormuz; Watching Every Square Inch Of Strait And Pickaxe Mountain",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:24.549039-04:00",
+    "ts": "2026-08-25T12:22:57.793067-04:00",
     "symbols": [
       "SPY"
     ],
-    "headline": "S&amp;P/CS HPI Composite - 20 n.s.a. (YoY) For June 2.1% Vs1.8% Est.",
+    "headline": "Boston Fed&#39;s Collins Says It Would Be Appropriate To Raise Interest Rates &#39;Soon&#39; Absent Evidence Of Sustained Disinflation",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },
   {
-    "ts": "2026-08-25T10:00:24.666583-04:00",
+    "ts": "2026-08-25T12:22:57.794163-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Boston Fed&#39;s Collins Says Maintaining The Current Policy Rate Will Require &#39;Continued Evidence&#39; That Inflation Is Falling; Flags &#39;Less Benign&#39; Scenarios Including Rising Inflation From The AI Buildout, Supply Shocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:22:57.882121-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:22:57.883410-04:00",
     "symbols": [
       "QQQ"
     ],
     "headline": "Stanley Druckenmiller Slams Scott Bessent\u2019s Bond Buybacks: \u2018This Wasn\u2019t Liquidity Management, It Was Price Management\u2019 (UPDATED)",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": null
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:24.671021-04:00",
+    "ts": "2026-08-25T12:22:57.884567-04:00",
     "symbols": [
       "QQQ"
     ],
     "headline": "This Treasury Strategy Could Backfire on Fed \u2014 Top Economists Warn Scott Bessent Is Mucking With a Critical Market Signal",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": null
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:24.674907-04:00",
+    "ts": "2026-08-25T12:22:57.885728-04:00",
     "symbols": [
       "QQQ"
     ],
     "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 1000 Futures Advance as Scott Bessent Expands Sanctions on Iran\u2014NTS, GRRR, REAX, ZM, LGVN in Focus (UPDATED)",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": null
+    "sentiment": "neutral"
   },
   {
-    "ts": "2026-08-25T10:00:24.678520-04:00",
+    "ts": "2026-08-25T12:22:57.886877-04:00",
     "symbols": [
       "QQQ"
     ],
     "headline": "QUICK SPARK: Gold ETF Leads Inflows as Investors Pull Billions From Mega-Cap ETFs in One Day",
     "source": "scan-prefetch",
     "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:00:24.682548-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "China Is Winning Big From Trump\u2019s &#39;Self-Inflicted Quagmire&#39; in Iran, Paul Krugman Warns: \u2018...Smell the Scent of Desperation\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:00:33.258850-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Richmond Manufacturing Index For August\u00a04 Vs 6 Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:00:42.581171-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA New Home Sales (MoM) For July -10.5% Vs 7.6% Prior",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:01:19.418488-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Richmond Services Index For August -8 Vs -3 Prior",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:03:48.209110-04:00",
-    "symbols": [
-      "MRNA",
-      "MRVL",
-      "SMCI"
-    ],
-    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:04:17.612407-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Boston Fed&#39;s Collins Says Inflation Is Still Too High And She Is Concerned About The Price Stability Part Of The Fed&#39;s Mandate; Says Labor Market Consistent With Full Employment",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:10:29.577024-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:10:30.345069-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
     "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:10:30.710887-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:10:32.607791-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Boston Fed&#39;s Collins Says Rise In Longer-Term Interest Rates Should Work Against A Re-Acceleration In Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:10:32.611430-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Boston Fed&#39;s Collins Says Sharply Reduced Immigration And Population Aging Should Keep Labor Force And Labor Demand In Balance; Concerns About High Prices Are Pervasive Among Contacts In New England Region; Will Be Looking For Evidence In Coming Months That Inflation Is Durably Returning To 2%; Consider Disinflation The Most Likely Outcome Based On Limited Additional Tariffs, Progress On Reopening Strait Of Hormuz; Current Monetary Policy Mildly Restrictive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:11:41.851567-04:00",
-    "symbols": [
-      "DECK",
-      "ONON"
-    ],
-    "headline": "Dick&#39;s Sporting Goods Notes Challenging Athletic Footwear And Apparel Market Conditions",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:13:01.035401-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Boston Fed&#39;s Collins Says Maintaining The Current Policy Rate Will Require &#39;Continued Evidence&#39; That Inflation Is Falling; Flags &#39;Less Benign&#39; Scenarios Including Rising Inflation From The AI Buildout, Supply Shocks",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:13:52.533403-04:00",
-    "symbols": [
-      "AMD",
-      "MU",
-      "NVDA",
-      "QCOM"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:14:40.645983-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Boston Fed&#39;s Collins Says It Would Be Appropriate To Raise Interest Rates &#39;Soon&#39; Absent Evidence Of Sustained Disinflation",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:14:58.031675-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "Benchmark Maintains Buy on PDD Holdings, Lowers Price Target to $114",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:17:25.281254-04:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene shares are trading higher after the company announced that Nasdaq granted its request for continued listing, subject to certain conditions.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:19:37.134384-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Benchmark Maintains Buy on Snowflake, Raises Price Target to $360",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:26:13.297874-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Waymo Plans To Roll Out Robotaxi Service In Munich In Late 2027",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:26:25.832591-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:26:25.963495-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:26:28.087258-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:26:28.485905-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:29:50.261515-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Wolfe Research Upgrades Moderna to Peer Perform",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:30:08.318942-04:00",
-    "symbols": [
-      "COIN",
-      "HOOD"
-    ],
-    "headline": "Bitcoin, Ethereum Are &#39;Really Underowned,&#39; Analyst Says: &#39;Two of the Best Assets in the World&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:32:36.109627-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna shares are trading higher after Wolfe Research upgraded its rating on the stock from Underperform to Peer Perform.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:32:42.081934-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Q2 Preview: SpaceX Is Becoming the &#39;Fifth Horseman,&#39; Gene Munster Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:33:56.299572-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Truth Social Post, Says Iran Has Been Notified That Any Ship Or Boat Placing New Mines Will Be Immediately And Systematically Destroyed; Been Informed By U.S. Navy That All Mines Have Been Removed And/Or Detonated From Within International Waters Of Strait Of Hormuz; Watching Every Square Inch Of Strait And Pickaxe Mountain",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:34:07.670121-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Deckers Outdoor shares are trading lower amid sympathy with Dick&#39;s Sporting Goods after the company reported worse-than-expected Q2 financial results and noted challenging athletic footwear and apparel markets.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:28.932405-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Q2 Preview: SpaceX Is Becoming the &#39;Fifth Horseman,&#39; Gene Munster Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:35:28.935065-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:35:29.172521-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:35:29.653416-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Waymo Plans To Roll Out Robotaxi Service In Munich In Late 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:35:31.811559-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:35:32.387758-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:35:32.860519-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Bitcoin, Ethereum Are &#39;Really Underowned,&#39; Analyst Says: &#39;Two of the Best Assets in the World&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T10:35:33.039440-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Wolfe Research Upgrades Moderna to Peer Perform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:34.565030-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin, Ethereum Are &#39;Really Underowned,&#39; Analyst Says: &#39;Two of the Best Assets in the World&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:36.525445-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Truth Social Post, Says Iran Has Been Notified That Any Ship Or Boat Placing New Mines Will Be Immediately And Systematically Destroyed; Been Informed By U.S. Navy That All Mines Have Been Removed And/Or Detonated From Within International Waters Of Strait Of Hormuz; Watching Every Square Inch Of Strait And Pickaxe Mountain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:36.994474-04:00",
-    "symbols": [
-      "RCON"
-    ],
-    "headline": "Recon Technology\u2019s Domestic Affiliated Entity, Nanjing Recon Technology, Secures $1.33M Contract For Oil &amp; Gas Informatization System Integration Service Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:37.235423-04:00",
-    "symbols": [
-      "JEM"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:37.238057-04:00",
-    "symbols": [
-      "JEM"
-    ],
-    "headline": "Why Cadeler Are Trading Higher By 6%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:37.240583-04:00",
-    "symbols": [
-      "JEM"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:37.431778-04:00",
-    "symbols": [
-      "RZLV"
-    ],
-    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:37.434428-04:00",
-    "symbols": [
-      "RZLV"
-    ],
-    "headline": "Rezolve AI Stock Climbs Tuesday: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:35:37.669245-04:00",
-    "symbols": [
-      "SHMD"
-    ],
-    "headline": "Schmid Group Lowers FY26 Adjusted EBITDA Margin Guidance to 6%-9%; Reaffirms Revenue Guidance Above \u20ac100M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:41:30.012930-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Kalshi&#39;s Nvidia Compute Markets Hit $4.4M: Is AI Compute the &#39;New Oil&#39;?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:45:28.900150-04:00",
-    "symbols": [
-      "TLT",
-      "XOM"
-    ],
-    "headline": "Airline Stocks Rally, Treasury Yields Fall as Oil Tumbles on Iran Sanctions",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:46:10.394790-04:00",
-    "symbols": [
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:48:59.351165-04:00",
-    "symbols": [
-      "NVDA",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:56:29.350306-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:56:29.354332-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T10:56:30.707134-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:56:32.302609-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Airline Stocks Rally, Treasury Yields Fall as Oil Tumbles on Iran Sanctions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:56:33.453402-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T10:56:33.543893-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T11:02:01.100036-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Humanoid Robots Could Match Humans Within 5 Years, RoboStrategy CEO Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T11:03:33.683247-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Canada Retaliatory Duties To Target Steel, Dairy, Appliances, Farm Equipment; Canada To Impose Tariffs Of Up To 50% On $20 Billion Of U.S. Goods&#39;  - WSJ",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T11:05:43.926701-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Announces Jetson Orin Nano 2 Robotics Computer With 78 TOPS Of AI Compute; Module And Developer Kit Expected In H1 2027",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T11:28:39.667927-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Wolfe Research Maintains Outperform on Netflix, Raises Price Target to $95",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T11:29:14.104031-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Wolfe Research Maintains Outperform on Netflix, Raises Price Target to $95",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T11:29:23.916051-04:00",
-    "symbols": [
-      "JEM"
-    ],
-    "headline": "707 Cayman Holdings Signs Term Sheet To Acquire Pharmaceutical Botanicals Firm Crucial Innovation ; Backed By $10.25M Committed Financing Led By GeoNova Holdings Together With Its Co-Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T11:29:24.810424-04:00",
-    "symbols": [
-      "PMI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T11:29:24.814374-04:00",
-    "symbols": [
-      "PMI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T11:44:31.999669-04:00",
-    "symbols": [
-      "AMD",
-      "MSFT",
-      "NVDA",
-      "SKHY"
-    ],
-    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T11:45:50.976284-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning KLA Stock In The Last 10 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T11:45:50.980944-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Q2: AI Is Growing Fast, CRM Needs New Customers To Catch Up",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T11:54:49.159752-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T11:54:49.262115-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T11:54:49.365419-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T11:54:51.381442-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T11:57:18.513004-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Nvidia&#39;s Biggest Contribution to AI Drug Discovery Isn&#39;t Money, Generate CTO Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T11:57:45.526687-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "Scott Bessent&#39;s Bond Plan &#39;Won&#39;t Work,&#39; Citi Economist Says: US Fiscal Position Is &#39;Absolutely Out of Control&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T12:01:49.354210-04:00",
-    "symbols": [
-      "VMAR"
-    ],
-    "headline": "Vision Marine Technologies Announces Delisting From TSX Venture Exchange Effective At Market Close August 26; Shares To Continue Trading On Nasdaq",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T12:02:37.275216-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "SPCX"
-    ],
-    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T12:02:59.921568-04:00",
-    "symbols": [
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Einhorn Vs. Musk: Hedge Fund Manager Says SpaceX IPO Was \u2018Meme-ification of the Market\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T12:12:15.508736-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Instagram Head Adam Mosseri Arrives At Court Now For Trial Against Meta Where U.S. States Accuse Meta Of Designing Its Platforms To Addict Children",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T12:12:27.677038-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T12:12:27.776392-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T12:12:28.025430-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Einhorn Vs. Musk: Hedge Fund Manager Says SpaceX IPO Was \u2018Meme-ification of the Market\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-08-25T12:14:48.259310-04:00",
-    "symbols": [
-      "COIN",
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Surging on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-<<<<<<< Updated upstream
-    "ts": "2026-08-25T12:15:55.580549-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Instagram Head Adam Mosseri Arrives At Court Now For Trial Against Meta Where U.S. States Accuse Meta Of Designing Its Platforms To Addict Children",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T12:15:55.809734-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T12:15:55.995818-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-08-25T12:15:56.229340-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Einhorn Vs. Musk: Hedge Fund Manager Says SpaceX IPO Was \u2018Meme-ification of the Market\u2019",
-    "source": "scan-prefetch",
-=======
-    "ts": "2026-08-25T12:16:26.166539-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "QUICK SPARK: Nvidia-Backed Biotech Says AI Could Make Biology Programmable",
-    "source": "benzinga",
->>>>>>> Stashed changes
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-<<<<<<< Updated upstream
-    "ts": "2026-08-25T12:15:59.631575-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Surging on Tuesday?",
-    "source": "scan-prefetch",
-=======
-    "ts": "2026-08-25T12:18:25.646953-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Posts On X &#34;Introducing Starbase, Louisiana \u2013 a high-cadence launch site that will enable Starship to open a pathway to the stars for humanity.&#34;",
-    "source": "benzinga",
->>>>>>> Stashed changes
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-<<<<<<< Updated upstream
-    "ts": "2026-08-25T12:16:01.502311-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Why Is Robinhood Stock Surging on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-08-25T12:16:04.013078-04:00",
-    "symbols": [
-      "RZLV"
-    ],
-    "headline": "Crude Oil Down Over 3%; US Home Prices Surge In June",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-=======
-    "ts": "2026-08-25T12:18:48.702634-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Advanced Micro Devices shares are trading higher after Raymond James upgraded its rating on the stock from Outperform to Strong Buy and raised its price target from $565 to $641.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
->>>>>>> Stashed changes
   }
 ]

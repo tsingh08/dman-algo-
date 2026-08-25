@@ -3902,5 +3902,76 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:26:13.297874-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Waymo Plans To Roll Out Robotaxi Service In Munich In Late 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T10:26:25.832591-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T10:26:25.963495-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T10:26:28.087258-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T10:26:28.485905-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T10:29:50.261515-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Wolfe Research Upgrades Moderna to Peer Perform",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:30:08.318942-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "Bitcoin, Ethereum Are &#39;Really Underowned,&#39; Analyst Says: &#39;Two of the Best Assets in the World&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -4307,5 +4307,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T11:05:43.926701-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Announces Jetson Orin Nano 2 Robotics Computer With 78 TOPS Of AI Compute; Module And Developer Kit Expected In H1 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -4287,5 +4287,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T11:02:01.100036-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Humanoid Robots Could Match Humans Within 5 Years, RoboStrategy CEO Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T11:03:33.683247-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Canada Retaliatory Duties To Target Steel, Dairy, Appliances, Farm Equipment; Canada To Impose Tariffs Of Up To 50% On $20 Billion Of U.S. Goods&#39;  - WSJ",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

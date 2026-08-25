@@ -1468,5 +1468,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T13:18:18.782953-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Enters Earnings on Its Worst Losing Streak Since 2022 as Jim Cramer Prepares &#39;a Truckload&#39; of Questions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

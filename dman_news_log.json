@@ -4546,6 +4546,7 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-25T12:15:55.580549-04:00",
     "symbols": [
       "META"
@@ -4582,20 +4583,38 @@
     ],
     "headline": "Einhorn Vs. Musk: Hedge Fund Manager Says SpaceX IPO Was \u2018Meme-ification of the Market\u2019",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-08-25T12:16:26.166539-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Nvidia-Backed Biotech Says AI Could Make Biology Programmable",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-25T12:15:59.631575-04:00",
     "symbols": [
       "HOOD"
     ],
     "headline": "Why Is Robinhood Stock Surging on Tuesday?",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-08-25T12:18:25.646953-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Posts On X &#34;Introducing Starbase, Louisiana \u2013 a high-cadence launch site that will enable Starship to open a pathway to the stars for humanity.&#34;",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-25T12:16:01.502311-04:00",
     "symbols": [
       "COIN"
@@ -4614,5 +4633,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+=======
+    "ts": "2026-08-25T12:18:48.702634-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Advanced Micro Devices shares are trading higher after Raymond James upgraded its rating on the stock from Outperform to Strong Buy and raised its price target from $565 to $641.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+>>>>>>> Stashed changes
   }
 ]

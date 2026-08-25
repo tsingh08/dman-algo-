@@ -4367,5 +4367,18 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T11:44:31.999669-04:00",
+    "symbols": [
+      "AMD",
+      "MSFT",
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "What&#39;s Going On With Dell Technologies Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

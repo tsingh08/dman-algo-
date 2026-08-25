@@ -3778,5 +3778,109 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:10:29.577024-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:10:30.345069-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T10:10:30.710887-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Nayax, Immatics, Moderna, Marvell Technology And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:10:32.607791-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Boston Fed&#39;s Collins Says Rise In Longer-Term Interest Rates Should Work Against A Re-Acceleration In Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:10:32.611430-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Boston Fed&#39;s Collins Says Sharply Reduced Immigration And Population Aging Should Keep Labor Force And Labor Demand In Balance; Concerns About High Prices Are Pervasive Among Contacts In New England Region; Will Be Looking For Evidence In Coming Months That Inflation Is Durably Returning To 2%; Consider Disinflation The Most Likely Outcome Based On Limited Additional Tariffs, Progress On Reopening Strait Of Hormuz; Current Monetary Policy Mildly Restrictive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:11:41.851567-04:00",
+    "symbols": [
+      "DECK",
+      "ONON"
+    ],
+    "headline": "Dick&#39;s Sporting Goods Notes Challenging Athletic Footwear And Apparel Market Conditions",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:13:01.035401-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Boston Fed&#39;s Collins Says Maintaining The Current Policy Rate Will Require &#39;Continued Evidence&#39; That Inflation Is Falling; Flags &#39;Less Benign&#39; Scenarios Including Rising Inflation From The AI Buildout, Supply Shocks",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:13:52.533403-04:00",
+    "symbols": [
+      "AMD",
+      "MU",
+      "NVDA",
+      "QCOM"
+    ],
+    "headline": "&#39;OpenAI Claims Its New Chips Can Outperform Nvidia Processors in Tests&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T10:14:40.645983-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Boston Fed&#39;s Collins Says It Would Be Appropriate To Raise Interest Rates &#39;Soon&#39; Absent Evidence Of Sustained Disinflation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:14:58.031675-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Benchmark Maintains Buy on PDD Holdings, Lowers Price Target to $114",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

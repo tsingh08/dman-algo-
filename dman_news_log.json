@@ -4544,5 +4544,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:15:55.580549-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Instagram Head Adam Mosseri Arrives At Court Now For Trial Against Meta Where U.S. States Accuse Meta Of Designing Its Platforms To Addict Children",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:15:55.809734-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:15:55.995818-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:15:56.229340-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Einhorn Vs. Musk: Hedge Fund Manager Says SpaceX IPO Was \u2018Meme-ification of the Market\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:15:59.631575-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Why Is Robinhood Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T12:16:01.502311-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Why Is Robinhood Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:16:04.013078-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Crude Oil Down Over 3%; US Home Prices Surge In June",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

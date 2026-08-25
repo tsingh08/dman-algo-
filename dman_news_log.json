@@ -4227,5 +4227,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:56:29.350306-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T10:56:29.354332-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T10:56:30.707134-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:56:32.302609-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Airline Stocks Rally, Treasury Yields Fall as Oil Tumbles on Iran Sanctions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:56:33.453402-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:56:33.543893-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

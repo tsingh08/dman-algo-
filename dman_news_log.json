@@ -4193,5 +4193,39 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T10:45:28.900150-04:00",
+    "symbols": [
+      "TLT",
+      "XOM"
+    ],
+    "headline": "Airline Stocks Rally, Treasury Yields Fall as Oil Tumbles on Iran Sanctions",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:46:10.394790-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T10:48:59.351165-04:00",
+    "symbols": [
+      "NVDA",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "AI At The Top, Cash At The Bottom: Is The Next Return In Between?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

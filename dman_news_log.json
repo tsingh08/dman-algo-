@@ -4440,5 +4440,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T11:57:18.513004-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia&#39;s Biggest Contribution to AI Drug Discovery Isn&#39;t Money, Generate CTO Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T11:57:45.526687-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Scott Bessent&#39;s Bond Plan &#39;Won&#39;t Work,&#39; Citi Economist Says: US Fiscal Position Is &#39;Absolutely Out of Control&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -50,45 +50,9 @@
         "max_loss": 195.0,
         "ai_analysis": ""
       }
-    },
-    {
-      "ticker": "CRWD",
-      "earn_date": "2026-08-26",
-      "created_at": "2026-08-25T10:38:27.233889-04:00",
-      "expires_at": "2026-08-25T14:38:27.233892-04:00",
-      "status": "awaiting_approval",
-      "plan": {
-        "ticker": "CRWD",
-        "earn_date": "2026-08-26",
-        "timing": "PENDING-TOMORROW",
-        "current_price": 188.7550048828125,
-        "sets": 1,
-        "net_debit": 1.65,
-        "total_cost": 165.0,
-        "directional": "PUT",
-        "last_moves_pct": [
-          -75.2,
-          -5.5,
-          -3.6,
-          5.3
-        ],
-        "put": {
-          "long_occ": "CRWD260904P00175000",
-          "short_occ": "CRWD260904P00170000",
-          "long_strike": 175.0,
-          "short_strike": 170.0,
-          "long_oi": 342,
-          "short_oi": 408,
-          "net_debit": 1.65,
-          "expiry": "2026-09-04",
-          "dte": 10,
-          "max_gain": 335.0,
-          "breakeven": 173.35
-        },
-        "max_loss": 165.0,
-        "ai_analysis": ""
-      }
     }
   ],
-  "consumed": {}
+  "consumed": {
+    "CRWD_2026-08-26": 1787676525.0908809
+  }
 }

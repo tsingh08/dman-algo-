@@ -21,5 +21,31 @@
     "milestone_loss_alerted": 0.0,
     "peak_premium": 0.0,
     "trail_pct": 0.0
+  },
+  {
+    "ticker": "CRWD",
+    "bias": "PUT",
+    "setup": "Earnings Put Spread",
+    "entry": 165.0,
+    "stop": 0.0,
+    "target1": 0.0,
+    "target2": 0.0,
+    "shares": 0,
+    "entry_date": "2026-08-25",
+    "atr": 0.0,
+    "score": 0,
+    "legs": [
+      "CRWD260904P00175000",
+      "CRWD260904P00170000"
+    ],
+    "spread_qty": 1,
+    "max_loss": 165.0,
+    "max_gain": 335.0,
+    "earn_date": "2026-08-26",
+    "stop_stage": "initial",
+    "milestone_gain_alerted": 0.0,
+    "milestone_loss_alerted": 0.0,
+    "peak_premium": 0.0,
+    "trail_pct": 0.0
   }
 ]

@@ -4380,5 +4380,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T11:45:50.976284-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning KLA Stock In The Last 10 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T11:45:50.980944-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Q2: AI Is Growing Fast, CRM Needs New Customers To Catch Up",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

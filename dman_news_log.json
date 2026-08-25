@@ -1361,5 +1361,105 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:35:33.451156-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI\u2019s Head of Data Centers Has Left Company&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:35:33.653238-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Could Swing By $286 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T15:35:33.655520-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Evercore: META Could Surge Over 50% on $22B AI Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T15:35:33.657098-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;OpenAI\u2019s Head of Data Centers Has Left Company&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T15:35:33.756993-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "&#39;OpenAI\u2019s Head of Data Centers Has Left Company&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:35:33.860813-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Evercore: META Could Surge Over 50% on $22B AI Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:35:34.230366-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;OpenAI\u2019s Head of Data Centers Has Left Company&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:35:34.602752-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Nvidia Could Swing By $286 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:35:35.251439-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "&#39;OpenAI\u2019s Head of Data Centers Has Left Company&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T15:35:37.254135-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Nvidia Could Swing By $286 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

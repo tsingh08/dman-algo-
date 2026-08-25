@@ -1323,5 +1323,31 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:25:13.038066-04:00",
+    "symbols": [
+      "CLSK",
+      "HOOD",
+      "MARA",
+      "MSTR",
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-linked stocks are trading higher as investors rotate into digital currencies as U.S. government spending concerns prompt debasement trade.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T15:26:48.776369-04:00",
+    "symbols": [
+      "META",
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "Evercore: META Could Surge Over 50% on $22B AI Opportunity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1461,5 +1461,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T15:40:52.883991-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FDA Approves Drug To Treat HIV Infection in Newborns",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

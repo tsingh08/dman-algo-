@@ -4327,5 +4327,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T11:29:14.104031-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Wolfe Research Maintains Outperform on Netflix, Raises Price Target to $95",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T11:29:23.916051-04:00",
+    "symbols": [
+      "JEM"
+    ],
+    "headline": "707 Cayman Holdings Signs Term Sheet To Acquire Pharmaceutical Botanicals Firm Crucial Innovation ; Backed By $10.25M Committed Financing Led By GeoNova Holdings Together With Its Co-Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T11:29:24.810424-04:00",
+    "symbols": [
+      "PMI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T11:29:24.814374-04:00",
+    "symbols": [
+      "PMI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

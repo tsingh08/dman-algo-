@@ -117,5 +117,22 @@
     "budget_hit": false,
     "news_breadth_pct": 67.6,
     "news_breadth_total": 136
+  },
+  {
+    "ts": "2026-08-25T13:34:09.914930-04:00",
+    "regime": "CHOP",
+    "regime_score": 17,
+    "vix": 15.5,
+    "min_score": 85,
+    "universe": "curated",
+    "tickers_total": 84,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 84,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 67.6,
+    "news_breadth_total": 136
   }
 ]

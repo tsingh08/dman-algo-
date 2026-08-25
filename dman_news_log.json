@@ -1358,5 +1358,58 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T14:38:37.805277-04:00",
+    "symbols": [
+      "AMD",
+      "GOOGL",
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Nvidia&#39;s AI Chips Are Making Liquid Cooling the New Standard as Cisco Expands Its AI Bet",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T14:38:50.167804-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia&#39;s AI Chips Are Making Liquid Cooling the New Standard as Cisco Expands Its AI Bet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T14:38:50.170765-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia&#39;s AI Chips Are Making Liquid Cooling the New Standard as Cisco Expands Its AI Bet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T14:38:50.492822-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nvidia&#39;s AI Chips Are Making Liquid Cooling the New Standard as Cisco Expands Its AI Bet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T14:38:51.140593-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Nvidia&#39;s AI Chips Are Making Liquid Cooling the New Standard as Cisco Expands Its AI Bet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

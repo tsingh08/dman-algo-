@@ -1338,5 +1338,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T14:29:33.642079-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Galaxy Now Lets You Borrow Against Your BTC, ETH, SOL Holdings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T14:32:32.244572-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase shares are trading higher after Goldman Sachs maintained its Buy rating on the stock and raised its price target from $173 to $196.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

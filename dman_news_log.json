@@ -2725,5 +2725,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T17:52:13.109253-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Cowell Remains Tethered To Apple But Investors Cheer Strong Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-24T18:15:29.448760-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "$1000 Invested In Gilead Sciences 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-24T18:33:20.312646-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Congressman Buys Magnificent Seven Stock, Blue Chip Stock \u2014 And a Stock You\u2019ve Never Heard Of",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

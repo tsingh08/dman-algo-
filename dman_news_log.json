@@ -3882,5 +3882,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-25T10:17:25.281254-04:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene shares are trading higher after the company announced that Nasdaq granted its request for continued listing, subject to certain conditions.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T10:19:37.134384-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Benchmark Maintains Buy on Snowflake, Raises Price Target to $360",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

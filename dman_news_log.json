@@ -1490,16 +1490,41 @@
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-25T13:33:24.141222-04:00",
     "symbols": [
       "MAIR"
     ],
     "headline": "Crude Oil Down Over 3%; US Home Prices Surge In June",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-08-25T13:35:17.319945-04:00",
+    "symbols": [
+      "AVGO",
+      "CLSK",
+      "NVDA",
+      "PLTR",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T13:35:17.424034-04:00",
+    "symbols": [
+      "GILD",
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-25T13:33:24.142926-04:00",
     "symbols": [
       "MAIR"
@@ -1538,5 +1563,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+=======
+    "ts": "2026-08-25T13:35:17.553364-04:00",
+    "symbols": [
+      "BABA",
+      "ONON",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+>>>>>>> Stashed changes
   }
 ]

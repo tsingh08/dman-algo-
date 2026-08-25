@@ -4460,5 +4460,38 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:01:49.354210-04:00",
+    "symbols": [
+      "VMAR"
+    ],
+    "headline": "Vision Marine Technologies Announces Delisting From TSX Venture Exchange Effective At Market Close August 26; Shares To Continue Trading On Nasdaq",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:02:37.275216-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "SPCX"
+    ],
+    "headline": "&#39;Anthropic Expected to Tell Investors It Sees Over $30 Trillion in Potential Revenue&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:02:59.921568-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Einhorn Vs. Musk: Hedge Fund Manager Says SpaceX IPO Was \u2018Meme-ification of the Market\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

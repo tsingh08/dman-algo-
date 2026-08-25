@@ -1453,6 +1453,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-25T15:16:12.684717-04:00",
     "symbols": [
       "NVDA"
@@ -1889,6 +1890,15 @@
     ],
     "headline": "The Marzetti Q4 Adj. EPS $1.46 Beats $1.40 Estimate, Sales $465.030M Miss $476.965M Estimate",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-08-25T15:15:00.196161-04:00",
+    "symbols": [
+      "LCID",
+      "NVDA"
+    ],
+    "headline": "Leveraged Single-Stock ETF Closures Went From 3 To 63 In A Year As Money Piles Into Nvidia Bets",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": null
   }

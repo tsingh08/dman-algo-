@@ -1478,5 +1478,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T13:29:29.354041-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX shares are trading higher amid multiple catalysts. The stock volume overhang caused by a lockup expiry last week is easing, with focus turning to operational plans including moving up the launch of Nvidia-powered AI satellites to 2027 and unveiling its $100B+ Starbase launch site in Louisiana.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1188,5 +1188,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:31:25.611659-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Live On CNBC, Karen Firestone Announces Bought Vertex Pharmaceuticals",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:33:24.765636-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Trimmed Palo Alto Networks Position",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T12:33:25.079207-04:00",
+    "symbols": [
+      "VMAR"
+    ],
+    "headline": "Vision Marine Technologies Announces Filing Of U.S. Patent Application Covering Charging Protection Technology For Its E-Motion Electric Marine Powertrain",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T12:33:59.959032-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading higher, possibly in response to Ontario Premier Ford&#39;s recent statement that Canada should cut the U.S. off from high-grade nickel and refined uranium produced in Ontario. The commodity has reached a seven-month high.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

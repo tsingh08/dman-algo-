@@ -1420,5 +1420,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T16:04:35.946202-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Sees Q3 GAAP EPS $1.81-$1.83 vs $1.90 Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T16:04:55.637306-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Raises FY2027 GAAP EPS Guidance from $7.93-$7.99 to $10.21-$10.25 vs $8.16 Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T16:07:18.298187-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Holdings Q2 Adj. EPS $0.31 Beats $0.29 Estimate, Sales $1.471B Beat $1.440B Estimate",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T16:08:26.581667-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Holdings Sees Q3 Adj EPS $0.31 vs $0.31 Est; Sees Sales $1.523B-$1.529B vs $1.515B Est",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
   }
 ]

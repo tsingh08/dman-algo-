@@ -2561,5 +2561,95 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:35:20.555077-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks\u00a02.228M Barrel Draw Vs 1.700M Barrel Draw Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:35:20.557489-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Gasoline Inventories 2.536M Barrel Draw Vs 1.000M Barrel Draw Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:35:20.559878-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Crude Oil Inventories 0.095M Barrel Build Vs 1.600M Barrel Build Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:35:21.046343-04:00",
+    "symbols": [
+      "VCIG"
+    ],
+    "headline": "VCI Global Launches Galatron AI Factory Under Its Five-Year AI Infrastructure Roadmap",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:35:21.243665-04:00",
+    "symbols": [
+      "SMTK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:35:21.519368-04:00",
+    "symbols": [
+      "PLAB"
+    ],
+    "headline": "Transcript: Photronics Q3 2026 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:35:21.521694-04:00",
+    "symbols": [
+      "PLAB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:35:21.523981-04:00",
+    "symbols": [
+      "PLAB"
+    ],
+    "headline": "Why Is Photronics Stock Soaring Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:35:21.526228-04:00",
+    "symbols": [
+      "PLAB"
+    ],
+    "headline": "Photronics Q3 Adj. EPS $0.50 Beats $0.40 Estimate, Sales $216.047M Beat $208.840M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

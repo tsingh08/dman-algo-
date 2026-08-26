@@ -1,45 +1,7 @@
 {
-  "pending": [
-    {
-      "ticker": "CRWD",
-      "earn_date": "2026-08-26",
-      "created_at": "2026-08-26T10:38:20.145156-04:00",
-      "expires_at": "2026-08-26T14:38:20.145162-04:00",
-      "status": "awaiting_approval",
-      "plan": {
-        "ticker": "CRWD",
-        "earn_date": "2026-08-26",
-        "timing": "AMC",
-        "current_price": 188.65989685058594,
-        "sets": 1,
-        "net_debit": 1.55,
-        "total_cost": 155.0,
-        "directional": "PUT",
-        "last_moves_pct": [
-          -75.2,
-          -5.5,
-          -3.6,
-          5.3
-        ],
-        "put": {
-          "long_occ": "CRWD260904P00175000",
-          "short_occ": "CRWD260904P00170000",
-          "long_strike": 175.0,
-          "short_strike": 170.0,
-          "long_oi": 347,
-          "short_oi": 348,
-          "net_debit": 1.55,
-          "expiry": "2026-09-04",
-          "dte": 9,
-          "max_gain": 345.0,
-          "breakeven": 173.45
-        },
-        "max_loss": 155.0,
-        "ai_analysis": ""
-      }
-    }
-  ],
+  "pending": [],
   "consumed": {
-    "NVDA_2026-08-26": 1787757123.5164564
+    "NVDA_2026-08-26": 1787757123.5164564,
+    "CRWD_2026-08-26": 1787769532.8392718
   }
 }

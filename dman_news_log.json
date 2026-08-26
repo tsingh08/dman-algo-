@@ -1249,5 +1249,35 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T15:00:38.540898-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "How Does Congress Feel About Nvidia Stock Ahead of Q2 Earnings? Here\u2019s How Many Have Sold in 2026",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T15:01:08.092009-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Crowdstrike Earnings Prediction Market Preview: What Will George Kurtz Say About AI?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T15:01:16.878656-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Crowdstrike Earnings Prediction Market Preview: What Will George Kurtz Say About AI?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

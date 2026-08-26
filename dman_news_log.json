@@ -1496,5 +1496,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T17:32:23.114417-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Rubio tells allies U.S. shifting from strikes to sanctions on Iran&#39;- Axios",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-25T19:00:41.727158-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Marvell Technology 10 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-25T19:50:01.080715-04:00",
+    "symbols": [
+      "VMAR"
+    ],
+    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

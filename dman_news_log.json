@@ -1526,5 +1526,920 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:37.202838-04:00",
+    "symbols": [
+      "AVGO",
+      "MARA",
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: God Bless America ETF Exec Says Nvidia Wins No Matter Who Leads AI Race: &#39;Pioneers Die With Arrows in Their Backs&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.002494-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Alleged Foldable iPhone Motherboard Photos Surface Online&#39; - MacRumors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.003852-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Evaluating Apple Against Peers In Technology Hardware, Storage &amp; Peripherals Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.005091-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "iPhone Buyers Rush in Before Potential Apple Price Increases",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.006322-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Jason Calacanis Says TSLA&#39;s Optimus Will Eclipse AAPL&#39;s iPhone, Predicts 1 Billion Robots By 2036",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.180881-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Unveils New Mac mini and Mac Studio With M6 and M5 Ultra Chips\u2014There\u2019s a Surprising $9 Twist Too",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.490005-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Goldman Sachs Executive Sounds The Alarm, Warns AI Could Cause &#39;Cognitive Atrophy&#39; on Wall Street: &#39;There\u2019s a Huge Danger Here&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.491355-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Expands Middle East AI Footprint Through Long-Term HUMAIN Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.492412-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Comparing Microsoft With Industry Competitors In Software Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.493493-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft And HUMAIN Announce Long-Term AI Collaboration To Bring ALLAM Models To Microsoft Foundry And M365 Copilot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.494655-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;China&#39;s Moonshot In Talks With Microsoft, Amazon, Google Over K3 Revenue Sharing, Sources Say&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.755961-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Earnings Prediction Market Preview: What Will Jensen Huang Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.757709-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Goldman Sachs Executive Sounds The Alarm, Warns AI Could Cause &#39;Cognitive Atrophy&#39; on Wall Street: &#39;There\u2019s a Huge Danger Here&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.758957-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: God Bless America ETF Exec Says Nvidia Wins No Matter Who Leads AI Race: &#39;Pioneers Die With Arrows in Their Backs&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.760474-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia GPUs Are Essential\u2014But They Won&#39;t Decide Who Wins AI Drug Discovery, Generate CTO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:52.761927-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Wants Millions of AI Satellites in Orbit\u2014But Experts Say Elon Musk Must Solve a \u2018Crazy\u2019 Logistics Problem First",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.046571-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Cathie Wood Loads Up on Cerebras Systems Stock as AI Chip Race With Nvidia Heats Up \u2014 Ark Keeps on Dumping AMD Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.048041-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AI Bubble Could Be Ready to Pop and Jim Cramer May Be the Warning Sign",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.355260-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Attor\u00adney Gen\u00ader\u00adal Ken Pax\u00adton Secures Over $1B From Meta In Set\u00adtle\u00adment That Pro\u00adtects Texas Kids Online",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.357002-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "California Attorney General Bonta Says Proposed Settlement Requires Meta To Blocks Notifications To Users Under 18 From 10pm To 7am, During School Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.358270-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Says $5.3B Of Settlement Agreement Also Tied To YouTube, TikTok Each Pays An Amount Matching The Figure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.359658-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms To Pay $18B Over 10 Years For Youth Online Safety Initiatives; To Accrue $10B Legal Expense In Q3 For Agreement; Independent Auditor To Review Meta Agreement Compliance For Five Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.361247-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Under Agreement, Meta Will Disable Teen Users From Seeing Number Of &#39;Likes&#39; Or Reactions To Posts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.683988-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;China&#39;s Moonshot In Talks With Microsoft, Amazon, Google Over K3 Revenue Sharing, Sources Say&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.685454-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Microsoft\u2019s Internal Pay Spreadsheet Shows Cloud and AI Workers Reporting Stock Awards as High as $1.4 Million: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.686676-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Warren Buffett-Style Cash Flow Stocks Could Face Heavy Downside in OpenAI Era, Warns Dwarkesh Patel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.687871-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Snapchat Accused of Misleading Parents About Adult Content as Pennsylvania Sues SNAP Over Streaks and &#39;Addictiveness&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:53.689069-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Bernie Sanders Says Sergey Brin &#39;Leading&#39; Campaign to Stop California&#39;s 5% Billionaire Tax: &#39;Greed is a Sickness&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.146599-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Goldman Sachs Executive Sounds The Alarm, Warns AI Could Cause &#39;Cognitive Atrophy&#39; on Wall Street: &#39;There\u2019s a Huge Danger Here&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.148256-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon&#39;s AWS To Acquire Amsterdam-Based Open Source Database Analytics Firm DuckLabs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.197813-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;China&#39;s Moonshot In Talks With Microsoft, Amazon, Google Over K3 Revenue Sharing, Sources Say&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.199195-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Warren Buffett-Style Cash Flow Stocks Could Face Heavy Downside in OpenAI Era, Warns Dwarkesh Patel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.469808-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Teases Tesla Vehicle &#39;Way Cooler Than a Minivan&#39;\u2014Is the Robovan Finally Coming?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.471385-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Jason Calacanis Says TSLA&#39;s Optimus Will Eclipse AAPL&#39;s iPhone, Predicts 1 Billion Robots By 2036",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.472772-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bernie Sanders Says Sergey Brin &#39;Leading&#39; Campaign to Stop California&#39;s 5% Billionaire Tax: &#39;Greed is a Sickness&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.474231-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Says 1 Million Optimus Robots, 1 GW of Solar Could Drive Galaxy-Wide Expansion As SpaceX&#39;s Starbase Louisiana Targets First Launch in 2029",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:54.735611-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Stella Artois And Netflix Unveil Global Partnership Spanning Eight Countries Ahead Of The Gentlemen Season 2 Premiere",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.023598-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Beat Last Quarter EPS Estimates by 75 Cents \u2014 Can It Repeat That Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:55.025327-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "How To Earn $500 A Month From Salesforce Stock Ahead Of Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:55.026714-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:55.306797-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Bill Gates Sounds a Chilling AI Warning: Millions of Jobs Could Disappear, Wealth Could Pile Up at the Top and Robots May Need to Be Taxed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.562991-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Jim Cramer: &#39;Put This Stock Away, Give It to Your Kids&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.565549-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "EXCLUSIVE: God Bless America ETF Exec Says Nvidia Wins No Matter Who Leads AI Race: &#39;Pioneers Die With Arrows in Their Backs&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.567064-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Fell 12.6% on Its Last Beat \u2014 Can It Avoid a Repeat in September?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.568736-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "RBC Capital Reiterates Sector Perform on Broadcom, Maintains $400 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.570168-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Performance Comparison: Broadcom And Competitors In Semiconductors &amp; Semiconductor Equipment Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.571642-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Daniel Newman Says Broadcom Deserves Credit for OpenAI\u2019s Jalape\u00f1o Chip, But Calls \u2018Nvidia Killer\u2019 Hype \u2018Exhausting\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.831484-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Technology Appoints Manish Bhatia President And Chief Operating Officer, Scott DeBoer As President And Chief Technology Officer, Effective Immediately",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:55.833156-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "AI Bubble Could Be Ready to Pop and Jim Cramer May Be the Warning Sign",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:56.102602-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "AI Bubble Could Be Ready to Pop and Jim Cramer May Be the Warning Sign",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:01:56.369991-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "What&#39;s Going On With Taiwan Semiconductor Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:56.657075-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "AI Bubble Could Be Ready to Pop and Jim Cramer May Be the Warning Sign",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:56.902895-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Argus Research Reiterates Buy on First Solar, Maintains $275 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:01:56.904526-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Trump&#39;s Solar Tariffs Could Spark The Next Intel-Style Government Deal: 2 Stocks To Watch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:01:56.905979-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Jim Cramer: &#39;Put This Stock Away, Give It to Your Kids&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:01:57.172458-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Dips Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:57.174539-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "EXCLUSIVE: Sunshine Biopharma Advances Vaccine Strategy for Lung Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:57.534814-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Announces Results From Real-World Study Of Overweight Or Obese Adults Over 55 Indicating That Staying On Zepbound For Weight Management Lowered Healthcare Costs Over Time",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:01:57.873940-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Eli Lilly Announces Results From Real-World Study Of Overweight Or Obese Adults Over 55 Indicating That Staying On Zepbound For Weight Management Lowered Healthcare Costs Over Time",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:01:58.120937-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Meta Agrees To Pay Maximum Settlement Of $16.68B To States As Part Of Agreement, Including $2.2B To California; Deal Requires Nationwide Changes For Teen Users Of Instagram And Facebook; Judgement Requires Meta Default Daily Limits And Nighttime Blocks For Teenage Users",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:58.122951-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Meta Agrees To Settlement With U.S. States Regarding Lawsuit Claiming That Its Technology Harmed Children",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:58.405914-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Iran Slams Trump\u2019s \u2018Economic D-Day\u2019 as \u2018Systemic Bullying,\u2019 Accuses US of \u2018Annihilating\u2019 International Law",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:58.407687-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Elizabeth Warren Slams Trump for \u2018Holding Millions\u2019 in Oil and Gas Stocks as Iran War Sends XOM, COP, OXY Higher",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:58.650070-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "SpaceX Ends Falcon 9 Starlink Launches From Florida As Starship Takes Over: &#39;End Of An Era&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:59.059283-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Needham Maintains Buy on AppLovin, Lowers Price Target to $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:59.288799-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Q2 Preview: &#39;Stock Poised to Rally Back to Old Highs and Earnings Could be the Catalyst&#39; (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:59.290697-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:01:59.558723-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "&#39;Inside Nikesh Arora\u2019s Deals Hunt for Palo Alto Networks&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:59.560930-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "BTIG Reiterates Buy on Palo Alto Networks, Maintains $380 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:01:59.877291-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "&#39;Inside Nikesh Arora\u2019s Deals Hunt for Palo Alto Networks&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:00.125567-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Argus Research Reiterates Hold on Coinbase Globalto Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:00.127516-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Better Mortgage And Coinbase Launch Token-Backed Mortgage Product",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:00.435717-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "MongoDB To Rally Around 14%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:00.437365-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bernstein Maintains Outperform on Strategy, Lowers Price Target to $350",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:00.438846-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Retreat Even as &#39;Greed&#39; Sentiment Prevails: Analyst Charts Two Possible Scenarios for BTC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:00.671407-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "EXCLUSIVE: God Bless America ETF Exec Says Nvidia Wins No Matter Who Leads AI Race: &#39;Pioneers Die With Arrows in Their Backs&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:00.961066-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Pony AI\u2019s Revenue Is Soaring, But Profitability Hinges On A Shared Ride",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:01.223752-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Zscaler, Raises Price Target to $215",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:01.484314-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB To Rally Around 14%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:01.486154-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Barclays Maintains Overweight on MongoDB, Raises Price Target to $460",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:01.776535-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba Launches QwenWork International Edition, Extending Its All-In-One Workplace AI Agent To Global Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.080132-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Pony AI\u2019s Revenue Is Soaring, But Profitability Hinges On A Shared Ride",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:02:02.347503-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "California Attorney General Bonta Says Proposed Settlement Requires Meta To Blocks Notifications To Users Under 18 From 10pm To 7am, During School Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.349686-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On The Glenn Beck Program, President Trump Says Will Look At Regulations For Beef Processing Plants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.351856-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On The Glenn Beck Program, President Trump Says Time To Teach Canada You Can&#39;t Do This Anymore",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.353801-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "An Agreement With Oman Over The Strait Of Hormuz Has Not Yet Been Finalised; Iran And Oman Are Still Working On The Details Of An Agreement Over The Strait Of Hormuz, Senior Iranian Source Tells Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.356021-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA PCE Price Index YoY For July 3.7% Vs 3.6% Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.623085-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Trump&#39;s Canada Trade War Is &#39;So Much Harder to Resolve&#39;: Top Economist Explains Why Mark Carney Won&#39;t Back Down",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.625254-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Dow Jones Futures Rise, S&amp;P 500 Slips Ahead of NVDA Q2 as Core PCE Comes in at 3.3% \u2014 Zoom, Intuit, Datavault AI in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:02:02.627224-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:05:08.451486-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "68% of AI Hyperscaler CapEx Could Go to Memory in 2027: Why Micron Matters",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

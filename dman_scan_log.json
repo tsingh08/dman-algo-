@@ -323,20 +323,36 @@
     "news_breadth_total": 289
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-26T12:07:43.093690-04:00",
+=======
+    "ts": "2026-08-26T12:08:48.325714-04:00",
+>>>>>>> Stashed changes
     "regime": "CHOP",
     "regime_score": 17,
     "vix": 15.5,
     "min_score": 85,
+<<<<<<< Updated upstream
     "universe": "all",
     "tickers_total": 102,
     "signals": 0,
     "signal_tickers": [],
     "rejected_no_signal": 102,
+=======
+    "universe": "daemon-curated",
+    "tickers_total": 81,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 81,
+>>>>>>> Stashed changes
     "rejected_hard_gate": 0,
     "rejected_low_score": 0,
     "budget_hit": false,
     "news_breadth_pct": 69.1,
+<<<<<<< Updated upstream
     "news_breadth_total": 288
+=======
+    "news_breadth_total": 291
+>>>>>>> Stashed changes
   }
 ]

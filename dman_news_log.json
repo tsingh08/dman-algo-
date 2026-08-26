@@ -2681,5 +2681,47 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:50:54.111408-04:00",
+    "symbols": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "headline": "Nvidia Stock: 84% of Benzinga Viewers Have Owned It. Here\u2019s How Many Still Do.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:51:03.549480-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Stock: 84% of Benzinga Viewers Have Owned It. Here\u2019s How Many Still Do.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:51:03.802340-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock: 84% of Benzinga Viewers Have Owned It. Here\u2019s How Many Still Do.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:51:04.795229-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nvidia Stock: 84% of Benzinga Viewers Have Owned It. Here\u2019s How Many Still Do.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

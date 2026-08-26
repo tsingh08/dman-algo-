@@ -1330,5 +1330,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T15:38:16.536874-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Moves AI-Responsibility Team Out of DeepMind Lab in Latest Shake-Up&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T15:38:35.930796-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Technology Could Swing $20.8 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T15:38:36.681622-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Marvell Technology Could Swing $20.8 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -2867,5 +2867,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T11:31:02.434851-04:00",
+    "symbols": [
+      "GOOGL",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "Elon Musk&#39;s Million-Satellite AI Vision Could Require 9 Starship Launches a Day",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T11:33:04.833719-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia&#39;s $2 Billion Synopsys Bet Signals AI&#39;s Next Frontier",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T11:34:36.480048-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "This SolarEdge Analyst Turns Bullish; Here Are Top 2 Upgrades For Wednesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1309,5 +1309,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T15:30:15.900920-04:00",
+    "symbols": [
+      "AFRM",
+      "MRVL"
+    ],
+    "headline": "Marvell Technology Could Swing $20.8 Billion After Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T15:30:19.420133-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Obesity Drug Alert: Eli Lilly Study Shows Sustained Zepbound Treatment Reduces Hospital Visits, Medical Costs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

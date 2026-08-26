@@ -2723,5 +2723,48 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T10:55:46.440124-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon&#39;s Ring Adopting New Measures, To Ensure Co. Cannot Access Clients&#39; Videos Once Processed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:57:37.364182-04:00",
+    "symbols": [
+      "CLSK",
+      "SOUN"
+    ],
+    "headline": "Short Sellers Are All-In on These 10 Stocks \u2014 Squeeze Watch List Inside",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:58:42.252546-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Secretary Brooke Rollins Posts On X &#34;BIG DAY AHEAD FOR AMERICAN FERTILIZER. Headed to Louisiana, where we will break ground on two major projects bringing critical fertilizer production back to American soil. More American investment. More American production. Lower costs and stronger supply chains for American farmers. Stay tuned.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:59:07.663047-04:00",
+    "symbols": [
+      "AMD",
+      "META",
+      "NVDA"
+    ],
+    "headline": "What Is Going On With AMD Stock on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

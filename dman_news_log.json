@@ -2899,5 +2899,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T11:41:28.932983-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Affirm Holdings, Raises Price Target to $80",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T11:41:39.221755-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Elon Musk&#39;s Million-Satellite AI Vision Could Require 9 Starship Launches a Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T11:41:39.690894-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Elon Musk&#39;s Million-Satellite AI Vision Could Require 9 Starship Launches a Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

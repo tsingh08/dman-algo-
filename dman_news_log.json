@@ -2531,5 +2531,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:30:15.423113-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Crude Oil Inventories 0.095M Barrel Build Vs 1.600M Barrel Build Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:30:43.848021-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Gasoline Inventories 2.536M Barrel Draw Vs 1.000M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:31:04.647451-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks\u00a02.228M Barrel Draw Vs 1.700M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

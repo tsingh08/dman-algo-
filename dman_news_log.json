@@ -2651,5 +2651,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T10:42:17.813659-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "SHIB Joins XRP, Bitcoin on Japan&#39;s First New Crypto Exchange in 4 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T10:43:28.355402-04:00",
+    "symbols": [
+      "MSS"
+    ],
+    "headline": "Maison Solutions shares are trading higher after the company announced that all outstanding obligations under its convertible notes have been paid, satisfied or otherwise discharged, as applicable.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T10:43:43.647512-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "DA Davidson Maintains Buy on MongoDB, Raises Price Target to $465",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

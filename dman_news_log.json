@@ -3362,5 +3362,825 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:22:54.782626-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.041649-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Bringing ChatGPT For Teachers To More U.S. School Districts; Data Privacy Agreement Spanning 16 States; Data Privacy Agreement Provides Common Framework For Districts To Evaluate ChatGPT For Teachers Against Student Data Privacy Requirements",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.044762-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.047602-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.050466-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft, Amazon, Google Court Kimi K3 Maker Despite Bessent Blacklist Threat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.298240-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jim Cramer Warns NVDA Stock &#39;Will Tumble&#39; Despite Strong Results if Bears are Right\u2014Flags China, HBM and Data Center Risks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.301478-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nscale Will Use NVIDIA&#39;s Vera Rubin Chips, Which Will Start To Come Online Late Next Year, To Meet Anthropic\u2019s Needs&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.304469-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.307381-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.310306-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft, Amazon, Google Court Kimi K3 Maker Despite Bessent Blacklist Threat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.825307-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What Is Going on With Meta Platforms Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:55.828559-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.169979-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Urban Outfitters Earnings Prediction Market Preview: Will $100M Tariff Refund Steal the Show?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.173389-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Stock Dips Wednesday as Investors Weigh AI Spending Against Cloud Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.176425-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What Is Going on With Meta Platforms Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.179522-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Selects 28 AI Energy Startups For Accelerator In North America And Europe; 2026 Accelerator Cohort To Use AI For Energy Efficiency And Grid Modernizatio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.182576-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Nscale Will Use NVIDIA&#39;s Vera Rubin Chips, Which Will Start To Come Online Late Next Year, To Meet Anthropic\u2019s Needs&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.498572-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Nscale Will Use NVIDIA&#39;s Vera Rubin Chips, Which Will Start To Come Online Late Next Year, To Meet Anthropic\u2019s Needs&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.501878-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic to Pay Nscale $45 Billion for AI Computing Power&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.504948-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.508064-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Microsoft, Amazon, Google Court Kimi K3 Maker Despite Bessent Blacklist Threat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.753378-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Reported Earlier: &#39;Japan&#39;s Terra Charge To Roll Out Tesla-Compatible EV Charging Stations; Service Provider To Build Up Network Of 2,500 NACS Chargers By Fiscal 2033&#39; - Nikkei",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:22:56.756678-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:22:58.647236-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:22:58.650605-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Valero Energy, Micron Technology, Flowserve, Howmet Aerospace",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:22:59.670676-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:00.002964-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "4 Financials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:00.556565-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Deutsche Bank Maintains Buy on First Solar, Raises Price Target to $299",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-26T14:23:00.805185-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:23:01.071716-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:23:02.098951-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:02.640217-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:02.885940-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Rises Ahead of Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:03.607682-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Crypto-Rich but House-Hunting? Coinbase and Better Unveil Token-Backed Mortgage",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:03.611152-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:03.855204-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:03.858844-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:05.426091-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "4 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:06.379232-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Lawmakers Seek Investigation Into Transportation Department Failure To Ensure Privacy Of Airline Passengers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:06.382949-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:06.619468-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:06.622919-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "The Fed Faces A Dangerous Choice For Investors; Nvidia Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:06.917261-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:07.652572-04:00",
+    "symbols": [
+      "SMTK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:08.404407-04:00",
+    "symbols": [
+      "SYRE"
+    ],
+    "headline": "Deutsche Bank Maintains Buy on Spyre Therapeutics, Lowers Price Target to $127",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:08.888443-04:00",
+    "symbols": [
+      "WEAT"
+    ],
+    "headline": "&#39;Iran war approaching Ukraine-style stalemate, says shipping boss&#39; - Financial Times Interview",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:09.123566-04:00",
+    "symbols": [
+      "JAZZ"
+    ],
+    "headline": "Deutsche Bank Maintains Buy on Jazz Pharmaceuticals, Raises Price Target to $300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:09.127287-04:00",
+    "symbols": [
+      "JAZZ"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Jazz Pharmaceuticals, Raises Price Target to $322",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:09.130810-04:00",
+    "symbols": [
+      "JAZZ"
+    ],
+    "headline": "These Analysts Increase Their Forecasts On Jazz Pharmaceuticals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:09.134122-04:00",
+    "symbols": [
+      "JAZZ"
+    ],
+    "headline": "Truist Securities Maintains Buy on Jazz Pharmaceuticals, Raises Price Target to $281",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:09.137449-04:00",
+    "symbols": [
+      "JAZZ"
+    ],
+    "headline": "MongoDB To Rally Around 14%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:09.379031-04:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Intuit, Lowers Price Target to $380",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:09.382664-04:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:09.629846-04:00",
+    "symbols": [
+      "SMTC"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:23:09.633566-04:00",
+    "symbols": [
+      "SMTC"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Semtech, Raises Price Target to $195",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:23:09.871519-04:00",
+    "symbols": [
+      "LEG"
+    ],
+    "headline": "Leggett &amp; Platt&#39;s Proposed Acquisition By Somnigroup International Receives European Commission Approval",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T14:23:10.114192-04:00",
+    "symbols": [
+      "QFIN"
+    ],
+    "headline": "Dow Falls Over 150 Points; JM Smucker Shares Gain Following Upbeat Q1 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.118023-04:00",
+    "symbols": [
+      "QFIN"
+    ],
+    "headline": "JP Morgan Downgrades Qfin Holdings to Underweight, Lowers Price Target to $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.121405-04:00",
+    "symbols": [
+      "QFIN"
+    ],
+    "headline": "Intuit, Zoom, Qfin Holdings And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.124829-04:00",
+    "symbols": [
+      "QFIN"
+    ],
+    "headline": "Market-Moving News for August 26th",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.366044-04:00",
+    "symbols": [
+      "SEDG"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.369853-04:00",
+    "symbols": [
+      "SEDG"
+    ],
+    "headline": "This SolarEdge Analyst Turns Bullish; Here Are Top 2 Upgrades For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.373250-04:00",
+    "symbols": [
+      "SEDG"
+    ],
+    "headline": "SolarEdge Stock Climbs on Analyst Upgrade: What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.376710-04:00",
+    "symbols": [
+      "SEDG"
+    ],
+    "headline": "UBS Upgrades SolarEdge Technologies to Buy, Raises Price Target to $42",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.632504-04:00",
+    "symbols": [
+      "WBTN"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:10.872158-04:00",
+    "symbols": [
+      "MATV"
+    ],
+    "headline": "Watching Mativ Holdings; Hearing Zacks HR Investor Buys Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:11.146432-04:00",
+    "symbols": [
+      "PRE"
+    ],
+    "headline": "Prenetics Global CEO Danny Yeung And CFO Brian Rosin Acquire Total Of $1M Worth Of Shares In Open Market Purchases",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:23:11.395167-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Kohl\u2019s Warns Fall Margins Will Turn Negative As Retail Promotions Heat Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:11.399079-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Kohl&#39;s CEO Says Sephora At Kohl&#39;s Business Faced Headwinds In Q2, With Sales Down 4%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:11.402772-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Kohl&#39;s CEO Says On Conference Call That Expects Challenging Macroeconomic Backdrop To Continue In Remainder Of The Year; Plan To Bring Seasonal Goods Earlier Heading Into Holiday Season To Capture Demand Early; Consumer Is Consistently Looking For Value And Compelling Assortment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:11.406577-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:11.410272-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Kohl&#39;s Q2 Comparable Sales Decreased 0.9%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:11.657854-04:00",
+    "symbols": [
+      "VCTR"
+    ],
+    "headline": "Victory Capital To Acquire First Eagle Investments For ~$7B, Comprising ~$4.4B In Cash And $2B In Newly Issued VCTR Shares; Deal Expected To Be ~35% Accretive To 2027 Adjusted EPS",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:11.900689-04:00",
+    "symbols": [
+      "KYIV"
+    ],
+    "headline": "&#39;Putin Moves to Escalate War in Ukraine With Talks at Dead End&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:12.137193-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo Stock Edges Higher Wednesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:23:12.141182-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Intuit, DICK&#39;S Sporting Goods, Zoom, Oklo and Rezolve AI: Why These 5 Stocks Are on Investors&#39; Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T14:23:12.431129-04:00",
+    "symbols": [
+      "SMMT"
+    ],
+    "headline": "Summit Therapeutics Partner Highlights Positive Interim Data Milestone for Lead Cancer Therapy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:12.435039-04:00",
+    "symbols": [
+      "SMMT"
+    ],
+    "headline": "Nasdaq 100 Falls as Hot PCE Inflation Stirs Rate-Hike Bets: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:12.438757-04:00",
+    "symbols": [
+      "SMMT"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Upbeat Q2 Results, Joins Semtech, Summit Therapeutics And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:12.442455-04:00",
+    "symbols": [
+      "SMMT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:12.446166-04:00",
+    "symbols": [
+      "SMMT"
+    ],
+    "headline": "HC Wainwright &amp; Co. Reiterates Neutral on Summit Therapeuticsto Neutral",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:23:12.682676-04:00",
+    "symbols": [
+      "QMLS"
+    ],
+    "headline": "QumulusAI Amends Surface Lease At Its Oklahoma Data Center, Extending Potential Tenure At Site Through January 31, 2044",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -3339,5 +3339,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T12:46:17.327597-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Stock Is Down 24% From Its High: Can Q2 Earnings Turn The Tide?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T12:49:52.280787-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Microsoft, Amazon, Google Court Kimi K3 Maker Despite Bessent Blacklist Threat",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -3299,5 +3299,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T12:32:02.639835-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Watching Robinhood Markets; Hearing Investor Business Daily SwingTrader Sells Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T12:32:28.340285-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Cycurion shares are trading lower after the company announced a 1-for-8 reverse stock split, effective August 28.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1370,5 +1370,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T16:00:44.784037-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "If You Invested $100 In AbbVie Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T16:02:13.400155-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Q2 Adj. EPS $5.90 Beats $3.27 Estimate, Sales $11.345B Beat $11.320B Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T16:03:10.954726-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Sees Q3 Adj EPS $3.42-$3.44 vs $3.37 Est; Sees Sales $11.420B-$11.500B vs $11.407B Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T16:03:43.987900-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Signs Order to Ban Some Foreign Energy Equipment From Grid&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T16:03:52.964932-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Raises FY2027 Adj EPS Guidance from $14.06-$14.12 to $16.67-$16.71 vs $14.14 Est; Raises FY2027 Sales Guidance from $45.900B-$46.200B to $46.100B-$46.400B vs $46.111B Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

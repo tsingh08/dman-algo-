@@ -2766,5 +2766,96 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T11:00:51.173382-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#34;Banks Fought Against Stablecoins. Now They Are Considering Launching Their Own; Executives Are On Defensive As Companies Outside Of Banking System Launch Coins&#34; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T11:01:25.730776-04:00",
+    "symbols": [
+      "GOOGL",
+      "LLY"
+    ],
+    "headline": "Ohio Rep. Michael Rulli Sold Up to $100K Worth of Alphabet Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T11:01:37.811573-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going On With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T11:01:38.011496-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going On With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T11:01:38.113048-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What Is Going On With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T11:01:38.117352-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Ohio Rep. Michael Rulli Sold Up to $100K Worth of Alphabet Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T11:01:39.788699-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Ohio Rep. Michael Rulli Sold Up to $100K Worth of Alphabet Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T11:01:41.099300-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Short Sellers Are All-In on These 10 Stocks \u2014 Squeeze Watch List Inside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T11:01:41.659089-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "Short Sellers Are All-In on These 10 Stocks \u2014 Squeeze Watch List Inside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

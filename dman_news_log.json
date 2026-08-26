@@ -2929,5 +2929,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-26T11:47:59.409458-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "&#39;Deep Cogito Aims to Put Companies in Control of Their Own AI&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T11:48:01.212341-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Citigroup Maintains Buy on Snowflake, Raises Price Target to $395",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T11:48:54.049537-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Judge Suspends Meta Trial, Says She Is Inclined To Approve Deal But Needs More Time To Review",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-26T11:49:20.802189-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Lucid Stock Slides Wednesday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1228,5 +1228,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:50:14.476347-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Roblox shares are trading lower, possibly in response to Meta agreeing to a maximum settlement in a lawsuit alleging its technology harmed children. An Australian regulator previously gave Roblox three months to improve children&#39;s online safety protections, and the settlement may prompt U.S. regulators to enforce stricter measures to protect American youth.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-26T14:51:55.732444-04:00",
+    "symbols": [
+      "CRWD",
+      "NVDA"
+    ],
+    "headline": "Crowdstrike Earnings Prediction Market Preview: What Will George Kurtz Say About AI?",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
   }
 ]

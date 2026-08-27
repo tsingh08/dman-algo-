@@ -2808,5 +2808,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T16:00:40.019681-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Says FDA Approved sBLAs For 2026-2027 Spikevax And mNEXSPIKE Formulas Targeting JN.1-Lineage XFG Subvariant; Says Vaccines Expected Available In Coming Days",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T16:00:58.948478-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Trump&#39;s Tariffs Were Built to Close the Trade Gap. The AI Buildout Is Keeping It Open",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-27T16:00:59.490541-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Trump&#39;s Tariffs Were Built to Close the Trade Gap. The AI Buildout Is Keeping It Open",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T16:02:19.861111-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Rosenblatt Maintains Buy on Meta Platforms, Raises Price Target to $886",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

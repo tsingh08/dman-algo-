@@ -2704,5 +2704,88 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T15:48:26.855100-04:00",
+    "symbols": [
+      "CRWD",
+      "FTNT",
+      "PANW",
+      "ZS"
+    ],
+    "headline": "CrowdStrike Just Hacked The AI Boom: The Cybersecurity ETF Trade Taking Shape",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T15:49:54.748169-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia At $1 Trillion In Annual Sales? Raymond James Says It\u2019s Possible By 2029",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T15:49:55.012263-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia At $1 Trillion In Annual Sales? Raymond James Says It\u2019s Possible By 2029",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T15:49:55.780060-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nvidia At $1 Trillion In Annual Sales? Raymond James Says It\u2019s Possible By 2029",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T15:50:01.512286-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Just Hacked The AI Boom: The Cybersecurity ETF Trade Taking Shape",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T15:50:01.901601-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "CrowdStrike Just Hacked The AI Boom: The Cybersecurity ETF Trade Taking Shape",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T15:50:03.867297-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "CrowdStrike Just Hacked The AI Boom: The Cybersecurity ETF Trade Taking Shape",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T15:50:04.284968-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "CrowdStrike Just Hacked The AI Boom: The Cybersecurity ETF Trade Taking Shape",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

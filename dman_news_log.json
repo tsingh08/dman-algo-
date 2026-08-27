@@ -2848,5 +2848,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T16:06:44.208441-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Tech Q2 Adj. EPS $0.94 Beats $0.92 Estimate, Sales $2.739B Beat $2.710B Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T16:06:56.486579-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Automotive CFO Claire McDonough Decides To Step Down, Effective Oct. 30",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

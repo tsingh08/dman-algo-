@@ -2652,5 +2652,47 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T15:28:52.924429-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Citigroup Maintains Buy on CrowdStrike Holdings, Raises Price Target to $260",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T15:30:34.184220-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Citigroup Maintains Neutral on Salesforce, Raises Price Target to $233",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T15:31:45.267445-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Citigroup Maintains Buy on NVIDIA, Raises Price Target to $315",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-27T15:32:37.268601-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL",
+      "NVDA"
+    ],
+    "headline": "Nvidia At $1 Trillion In Annual Sales? Raymond James Says It\u2019s Possible By 2029",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
   }
 ]

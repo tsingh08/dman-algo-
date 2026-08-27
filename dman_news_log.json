@@ -2787,5 +2787,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T15:54:58.109389-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US bank regulators to narrow enforcement focus to financial risks&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-27T15:56:07.262621-04:00",
+    "symbols": [
+      "MU",
+      "SKHY"
+    ],
+    "headline": "Trump&#39;s Tariffs Were Built to Close the Trade Gap. The AI Buildout Is Keeping It Open",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

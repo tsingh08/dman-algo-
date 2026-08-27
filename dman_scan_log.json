@@ -289,6 +289,7 @@
     "news_breadth_total": 144
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-27T15:21:50.974813-04:00",
     "halted": true,
     "halt_reason": "daily_loss_limit",
@@ -305,5 +306,22 @@
     "tickers_total": 95,
     "signals": 0,
     "signal_tickers": []
+=======
+    "ts": "2026-08-27T15:24:03.174678-04:00",
+    "regime": "CHOP",
+    "regime_score": 17,
+    "vix": 14.6,
+    "min_score": 85,
+    "universe": "daemon-curated",
+    "tickers_total": 81,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 80,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 100.0,
+    "news_breadth_total": 36
+>>>>>>> Stashed changes
   }
 ]

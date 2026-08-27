@@ -287,5 +287,14 @@
     "budget_hit": false,
     "news_breadth_pct": 72.1,
     "news_breadth_total": 144
+  },
+  {
+    "ts": "2026-08-27T15:21:50.974813-04:00",
+    "halted": true,
+    "halt_reason": "daily_loss_limit",
+    "min_score": 85,
+    "tickers_total": 152,
+    "signals": 0,
+    "signal_tickers": []
   }
 ]

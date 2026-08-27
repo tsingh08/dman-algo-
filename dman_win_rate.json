@@ -1,29 +1,5 @@
 [
   {
-    "ticker": "RKLB",
-    "date": "2024-11-15",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 14.79,
-    "exit": 18.4,
-    "outcome": "WIN",
-    "pnl_pct": 21.32,
-    "score": 80,
-    "is_live": false
-  },
-  {
-    "ticker": "BABA",
-    "date": "2025-09-05",
-    "bias": "LONG",
-    "setup": "Morning Runner",
-    "entry": 135.13,
-    "exit": 135.58,
-    "outcome": "WIN",
-    "pnl_pct": 0.33,
-    "score": 82,
-    "is_live": false
-  },
-  {
     "ticker": "PDD",
     "date": "2025-09-19",
     "bias": "LONG",
@@ -5997,6 +5973,30 @@
     "outcome": "WIN",
     "pnl_pct": 37.58,
     "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "NDSN",
+    "date": "2026-08-27",
+    "bias": "LONG",
+    "setup": "Gap & Hold",
+    "entry": 334.75,
+    "exit": 332.38,
+    "outcome": "LOSS",
+    "pnl_pct": -0.71,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "CRWD",
+    "date": "2026-08-25",
+    "bias": "PUT",
+    "setup": "Earnings Put Spread",
+    "entry": 165.0,
+    "exit": -160.0,
+    "outcome": "LOSS",
+    "pnl_pct": -196.97,
+    "score": 0,
     "is_live": true
   }
 ]

@@ -1,28 +1,5 @@
 [
   {
-    "ticker": "NDSN",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 334.75,
-    "stop": 320.35,
-    "target1": 406.79,
-    "target2": 450.01,
-    "shares": 1,
-    "entry_date": "2026-08-20",
-    "atr": 7.0053214285714285,
-    "score": 100,
-    "legs": [],
-    "spread_qty": 0,
-    "max_loss": 0.0,
-    "max_gain": 0.0,
-    "earn_date": "",
-    "stop_stage": "initial",
-    "milestone_gain_alerted": 0.0,
-    "milestone_loss_alerted": 0.0,
-    "peak_premium": 0.0,
-    "trail_pct": 0.0
-  },
-  {
     "ticker": "CRWD",
     "bias": "PUT",
     "setup": "Earnings Put Spread",

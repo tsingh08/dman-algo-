@@ -100,5 +100,14 @@
     "budget_hit": false,
     "news_breadth_pct": 94.7,
     "news_breadth_total": 140
+  },
+  {
+    "ts": "2026-08-28T16:21:04.503853-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 93,
+    "signals": 0,
+    "signal_tickers": []
   }
 ]

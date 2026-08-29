@@ -3043,6 +3043,14 @@ class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
     def test_no_earn_date_never_triggers_post_event_exit(self):
         # Older/malformed positions without earn_date must fail safe --
         # no post-event exit attempted, same as the missing-snapshot case.
+        # date.today() must be frozen the same way the sibling test above
+        # does: the legs' baked-in "260828" expiry is only in the future
+        # relative to a frozen date. Left ambient, this test passed only
+        # while the real calendar hadn't yet reached 2026-08-28 -- once it
+        # had, dte_now went negative and the (unrelated) DTE-close branch
+        # fired for real, calling the mocked _close_earnings_spread with no
+        # configured return value and blowing up the unpack in the caller,
+        # not the post-event-decay path this test actually exercises.
         pos = self._pos(earn_date="")
         snaps = {
             "BABA260828C00138000": self._snap(0.10, 0.14),
@@ -3050,9 +3058,12 @@ class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
             "BABA260828P00120000": self._snap(0.05, 0.09),
             "BABA260828P00116000": self._snap(0.05, 0.09),
         }
-        with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
-             patch.object(a, "_close_earnings_spread") as mock_close:
-            result = a._monitor_earnings_spread_position(pos)
+        with patch.object(a, "date") as mock_date:
+            mock_date.today.return_value = date(2026, 8, 21)   # comfortably before the 8/28 leg expiry
+            mock_date.fromisoformat = date.fromisoformat
+            with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
+                 patch.object(a, "_close_earnings_spread") as mock_close:
+                result = a._monitor_earnings_spread_position(pos)
         mock_close.assert_not_called()
 
 
@@ -9167,12 +9178,22 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._tmp.close()
-        self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
-        self._patch.start()
+        self._patches = [
+            patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name),
+            # Isolate from the real macro-event calendar (FOMC/CPI/NFP) --
+            # check_macro_safe() reads date.today() against real event
+            # dates, so an unmocked test here silently drifts into "blocked"
+            # once the real calendar rolls into a blackout window (confirmed
+            # live: these tests started failing once "today" hit one).
+            patch.object(a, "check_macro_safe", return_value=(True, 0)),
+        ]
+        for p in self._patches:
+            p.start()
         a._save_earnings_pending([])
 
     def tearDown(self):
-        self._patch.stop()
+        for p in self._patches:
+            p.stop()
         os.unlink(self._tmp.name)
 
     def _plan(self):
@@ -10928,7 +10949,18 @@ class TestExplainTicker(unittest.TestCase):
     def test_vix_shock_adds_five_to_the_floor(self):
         # Isolated from the current real calendar month's seasonal filter
         # (which would otherwise interact with the floor) -- this test is
-        # specifically about the vix_shock +5 escalation.
+        # specifically about the vix_shock +5 escalation. Also isolated from
+        # the real dman_setup_probation.json: "Gap & Hold" itself has no
+        # per-setup override in SETUP_MIN_CONFLUENCE, but a live setup can
+        # land on real probation (+10 to effective_min) independent of this
+        # test's scenario -- confirmed live 2026-08-28, "Gap & Hold" was
+        # auto-restricted for a real 3-trade losing streak, which silently
+        # broke this test's "80 is the real floor" assumption via an
+        # unrelated, unmocked production-state read.
+        _probation_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        _probation_tmp.write(b"{}")
+        _probation_tmp.close()
+        self.addCleanup(os.unlink, _probation_tmp.name)
         df = _fake_df()
         sig = self._signal(score=83, setup="Gap & Hold")   # no per-setup override, seasonal-exempt too
         regime = {"regime": "CHOP", "score": 10, "vix_ok": True,
@@ -10939,6 +10971,7 @@ class TestExplainTicker(unittest.TestCase):
              patch.object(a, "_raw_signals", return_value=sig), \
              patch.object(a, "get_market_regime", return_value=regime), \
              patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "SETUP_PROBATION_FILE", _probation_tmp.name), \
              patch.object(a, "score_signal", return_value=sig):
             msg = a.explain_ticker("TESTX", min_score=75)
         # base min_score 75 -> vix_shock adds +5 = 80; Gap & Hold has no

@@ -3038,5 +3038,15 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-28T19:50:01.280158-04:00",
+    "symbols": [
+      "ARTL"
+    ],
+    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

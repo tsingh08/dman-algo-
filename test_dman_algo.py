@@ -9230,6 +9230,37 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         mock_client.submit_order.assert_called_once()
         self.assertEqual(a._load_earnings_pending(), [])
 
+    def test_tracking_failure_after_a_real_fill_alerts_instead_of_vanishing(self):
+        # Regression for the live 2026-08-27 MRVL incident: the order
+        # actually filled at the broker for a real $462 debit, but
+        # _open_earnings_spread_position() never completed (no
+        # dman_positions.json entry at any commit since) -- with no
+        # try/except around it, that failure had no Telegram trace beyond
+        # the later, generic "orphan positions" alert, and no automated
+        # exit/close-sync could ever apply to a position PositionTracker
+        # never knew about. A tracking failure after a REAL fill must alert
+        # loudly, not just vanish.
+        self._add_pending("HOOD")
+        mock_client = MagicMock()
+        mock_client.submit_order.return_value = MagicMock(id="ord1")
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0):
+            with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+                with patch.object(a, "get_alpaca_client", return_value=mock_client):
+                    with patch.object(a, "get_available_cash", return_value=1_000_000.0):
+                        with patch.object(a, "_open_earnings_spread_position",
+                                           side_effect=KeyError("total_cost")):
+                            consumed = a._handle_earnings_approval_reply("yes")
+        self.assertTrue(consumed)
+        mock_client.submit_order.assert_called_once()   # the order really did go out
+        self.assertEqual(a._load_earnings_pending(), [])   # offer still consumed, no retry loop
+        alert_texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("NOT TRACKED" in t and "HOOD" in t for t in alert_texts),
+                         f"expected a loud tracking-failure alert, got: {alert_texts}")
+
     def test_offer_is_consumed_before_order_submission_not_after(self):
         # Added 2026-08-23: this used to persist the consumed/tombstoned
         # state only AFTER _submit_earnings_spread() returned (including

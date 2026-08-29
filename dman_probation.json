@@ -1,6 +1,6 @@
 {
   "active": true,
   "size_mult": 0.5,
-  "started": "2026-08-18T13:35:00-04:00",
-  "note": "3-loss day (UMAC -42.5%, LITX -16.8%, ARTL -5.1%) tripped both the consecutive-loss guard and the monthly loss limit, neither of which resets on its own. Resuming Wednesday at half size while the newly-shipped gates (anti-chasing-highs, catalyst confirmation, Low Float Catalyst confluence=90) prove out live. Clear with /endprobation once win rate stabilizes."
+  "started": "2026-08-29T00:49:30.342500-04:00",
+  "note": "Renewed after the prior probation (started 2026-08-18) auto-expired at the 10-day mark. Real monthly loss (after correcting the fabricated NVDA/CRWD sync bug) is -5.24%, past the 4% limit, with an additional ~-$442 MRVL loss still being reconciled. Resuming Monday 2026-08-31 at half size. Clear with /endprobation once win rate stabilizes."
 }

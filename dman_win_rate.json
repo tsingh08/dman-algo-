@@ -5998,5 +5998,17 @@
     "pnl_pct": 2.53,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "MRVL",
+    "date": "2026-08-28",
+    "bias": "NEUTRAL",
+    "setup": "Earnings Strangle (untracked)",
+    "entry": 462.0,
+    "exit": 20.0,
+    "outcome": "LOSS",
+    "pnl_pct": -95.67,
+    "score": 0,
+    "is_live": true
   }
 ]

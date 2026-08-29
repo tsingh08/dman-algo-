@@ -3350,7 +3350,33 @@ def _handle_earnings_approval_reply(text: str) -> bool:
         send_telegram(f"❌ <b>{entry['ticker']} earnings spread FAILED</b>\n{err}")
         return True
 
-    _open_earnings_spread_position(plan)
+    # By this point the order is REALLY live at the broker -- a failure here
+    # must never be allowed to disappear silently. Confirmed live 2026-08-27:
+    # MRVL's spread filled for a real $462 debit but never once appeared in
+    # PositionTracker (no dman_positions.json entry at any commit since),
+    # only ever surfacing as an "orphan positions" alert -- meaning this call
+    # raised and the exception was never caught, swallowing both the tracking
+    # AND (since it sat between the order and this function's own confirm
+    # message) very possibly the "SUBMITTED" Telegram too. sync_earnings_
+    # spread_fills() can only reconcile a close for a position it already
+    # knows about, so an untracked fill like this has no path to ever being
+    # recorded, at any point, by anything -- it has to be caught right here.
+    try:
+        _open_earnings_spread_position(plan)
+    except Exception as _exc:
+        _legs_desc = ", ".join(
+            plan.get(side, {}).get("long_occ", "") or plan.get(side, {}).get("short_occ", "")
+            for side in ("call", "put") if plan.get(side)
+        )
+        send_telegram(
+            f"🚨 <b>{entry['ticker']} earnings spread FILLED but NOT TRACKED</b>  id {order_id[:8]}…\n"
+            f"Cost ${plan.get('total_cost', 0):.0f} — position tracking failed ({_exc}). "
+            f"This is a REAL live position at the broker with no automated stop/exit/close-sync. "
+            f"Legs: {_legs_desc or plan}\n"
+            f"Track and close this manually — it will not self-heal."
+        )
+        return True
+
     send_telegram(f"📤 <b>{entry['ticker']} EARNINGS SPREAD SUBMITTED</b>  id {order_id[:8]}…\n"
                  f"Cost ${plan['total_cost']:.0f}  Max loss ${plan['max_loss']:.0f}")
     return True

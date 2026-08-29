@@ -5046,7 +5046,15 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 1,
                           "a partially-closed spread must stay tracked, not be guessed at")
 
-    def test_no_matching_closing_order_leaves_tracking_untouched(self):
+    def test_no_matching_closing_order_still_clears_the_stale_tracker_entry(self):
+        # Regression for the live 2026-08-28 NVDA/CRWD incident: both sat as
+        # phantom "open" positions for days because the old behavior only
+        # ever cleared tracking on the cycle a NEW match was found -- a
+        # position resurrected as "open" by a later state-merge (its real
+        # closing order already in recorded_ids from a prior cycle) then
+        # never healed. All legs confirmed absent from Alpaca must clear
+        # the tracker entry regardless, mirroring sync_alpaca_fills()'s
+        # already-fixed CLRO-incident behavior for the single-symbol path.
         from alpaca.trading.enums import OrderStatus
         mock_client = MagicMock()
         mock_client.get_all_positions.return_value = []
@@ -5057,7 +5065,9 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
             tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
             n = a.sync_earnings_spread_fills(tracker, set())
         self.assertEqual(n, 0)
-        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 1)
+        self.assertEqual(len(tracker.records), 0,
+                          "clearing the stale entry must not fabricate a win-rate record")
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0)
 
     def test_already_recorded_id_is_skipped(self):
         from alpaca.trading.enums import OrderStatus
@@ -5071,6 +5081,114 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
             n = a.sync_earnings_spread_fills(tracker, {"already-seen"})
+        self.assertEqual(n, 0)
+        self.assertEqual(len(tracker.records), 0)
+
+    def _simple_order(self, symbol, side, filled_avg_price, order_id, status=None):
+        from alpaca.trading.enums import OrderStatus, OrderClass
+        o = MagicMock()
+        o.id = order_id
+        o.legs = []
+        o.order_class = OrderClass.SIMPLE
+        o.symbol = symbol
+        o.side = side
+        o.status = status or OrderStatus.FILLED
+        o.filled_avg_price = filled_avg_price
+        o.filled_at = None
+        return o
+
+    def test_opening_order_is_never_mistaken_for_the_close(self):
+        # Regression for the live 2026-08-28 NVDA/CRWD incident: the ORIGINAL
+        # OPENING MLEG order has the exact same leg-set as any real closing
+        # order, and used to be matched by leg-set alone. Its fill price
+        # (+1.60, a debit paid) got negated to -160 as if it were a credit
+        # received, producing an impossible -196.97% pnl_pct. A genuine
+        # close of a debit-only-opened spread can never net positive, so an
+        # opening-shaped order (positive price) must be skipped, not matched.
+        from alpaca.trading.enums import OrderStatus
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [self._order(
+            ["BABA260828C00138000", "BABA260828C00142000",
+             "BABA260828P00120000", "BABA260828P00116000"],
+            OrderStatus.FILLED, filled_avg_price=1.60, order_id="opening-order",
+        )]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, set())
+        self.assertEqual(n, 0)
+        self.assertEqual(len(tracker.records), 0,
+                          "rejecting the opening order as a false match must not fabricate a record")
+        # All legs are absent from Alpaca either way, so the stale-entry
+        # self-heal still clears tracking -- it just records nothing.
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0)
+
+    def test_legs_closed_via_separate_simple_orders_are_reconstructed(self):
+        # Regression for the live 2026-08-28 NVDA/CRWD incident: both
+        # positions were actually closed leg-by-leg via separate SIMPLE
+        # orders (manual intervention), not one atomic MLEG close, so the
+        # leg-set matcher never found anything and both stayed stuck open
+        # in tracking forever. legs=[long_call, short_call, long_put,
+        # short_put]; closing sells the longs and buys back the shorts.
+        from alpaca.trading.enums import OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [
+            self._simple_order("BABA260828C00138000", OrderSide.SELL, 2.74, "leg-1"),
+            self._simple_order("BABA260828C00142000", OrderSide.BUY, 0.50, "leg-2"),
+            self._simple_order("BABA260828P00120000", OrderSide.SELL, 0.15, "leg-3"),
+            self._simple_order("BABA260828P00116000", OrderSide.BUY, 0.11, "leg-4"),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, set())
+        self.assertEqual(n, 1)
+        self.assertEqual(len(tracker.records), 1)
+        rec = tracker.records[0]
+        self.assertEqual(rec.ticker, "BABA")
+        # credit = (2.74 - 0.50 + 0.15 - 0.11) * 100 = $228; paid $160 -> +$68, WIN.
+        self.assertEqual(rec.exit, 228.0)
+        self.assertEqual(rec.outcome, "WIN")
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0)
+
+    def test_partial_simple_leg_closes_do_not_record_a_fabricated_pnl(self):
+        # Only 2 of 4 legs have a matching closing SIMPLE fill -- must not
+        # guess at the other 2's price and record a fabricated P&L. All
+        # legs are absent from Alpaca though (this isn't the still-held
+        # case), so the stale-entry self-heal still clears tracking, same
+        # as the no-match case above -- it just records nothing while
+        # doing so.
+        from alpaca.trading.enums import OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [
+            self._simple_order("BABA260828C00138000", OrderSide.SELL, 2.74, "leg-1"),
+            self._simple_order("BABA260828C00142000", OrderSide.BUY, 0.50, "leg-2"),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, set())
+        self.assertEqual(n, 0)
+        self.assertEqual(len(tracker.records), 0)
+        self.assertEqual(len(a.PositionTracker(filepath=self._pos_tmp.name).positions), 0)
+
+    def test_simple_leg_fill_on_wrong_side_is_not_treated_as_a_close(self):
+        # A SIMPLE order on one of the leg symbols but the WRONG side (e.g.
+        # the original BUY_TO_OPEN of a long leg) must not count toward the
+        # leg-by-leg fallback match, or the opening fills themselves could
+        # get replayed as if they were the close.
+        from alpaca.trading.enums import OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = [
+            self._simple_order("BABA260828C00138000", OrderSide.BUY, 1.20, "open-leg-1"),  # wrong side
+            self._simple_order("BABA260828C00142000", OrderSide.BUY, 0.50, "leg-2"),
+            self._simple_order("BABA260828P00120000", OrderSide.SELL, 0.15, "leg-3"),
+            self._simple_order("BABA260828P00116000", OrderSide.BUY, 0.11, "leg-4"),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_earnings_spread_fills(tracker, set())
         self.assertEqual(n, 0)
         self.assertEqual(len(tracker.records), 0)
 

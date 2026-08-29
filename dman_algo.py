@@ -16012,6 +16012,17 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
     BABA close this fixes): opening a net DEBIT reports a POSITIVE
     filled_avg_price (what was paid); closing for a net CREDIT reports
     NEGATIVE (what was received). dollar_pnl = credit_received - debit_paid.
+
+    Two failure modes confirmed live 2026-08-28 on NVDA/CRWD, both fixed
+    here: (1) the leg-set match above alone can hit the ORIGINAL OPENING
+    order (same legs, but a positive fill price) and misrecord it as the
+    close — guarded by requiring filled_avg_price <= 0, since every
+    earnings spread here is opened for a debit only (_submit_earnings_
+    spread() never submits a credit open), so a real close can never net
+    positive. (2) a spread can be closed leg-by-leg as separate SIMPLE
+    orders instead of one atomic MLEG order (e.g. manual intervention) —
+    handled by a fallback that reconstructs the close from one matching
+    SIMPLE fill per leg, only when every leg has one.
     """
     client = get_alpaca_client()
     if client is None:
@@ -16043,31 +16054,82 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
             if str(order.id) in recorded_ids:
                 continue
             order_legs = {getattr(l, "symbol", None) for l in (getattr(order, "legs", None) or [])}
-            if order_legs and order_legs == set(legs) and order.status == _OrderStatus.FILLED:
+            # _submit_earnings_spread() only ever opens for a net DEBIT
+            # (limit_price always positive — see its own docstring), so a
+            # genuine MLEG CLOSE of one of these spreads can only net <= 0
+            # (a credit, or worthless). Without this check, the ORIGINAL
+            # OPENING order (same leg-set, positive fill price) is itself a
+            # valid match and gets misread as the close — confirmed live
+            # 2026-08-28 on NVDA/CRWD, producing impossible -197%/-200%
+            # pnl_pct by negating the debit paid as if it were a credit.
+            if (order_legs and order_legs == set(legs) and order.status == _OrderStatus.FILLED
+                    and float(order.filled_avg_price or 0) <= 0):
                 _matched = order
                 break
         if _matched is None:
-            # No new closing fill found among unrecorded orders -- either
-            # not actually filled yet, or its id is already in
-            # recorded_ids from a prior cycle but the tracked entry wasn't
-            # cleared that time. Don't clear tracking here regardless --
-            # unlike sync_alpaca_fills()'s single-symbol ghost-clear,
-            # there's no confirmed resurrection failure mode for spreads
-            # yet, and clearing without a confirmed close risks losing a
-            # genuinely still-open position from tracking.
+            # Fallback: some closes happen leg-by-leg as separate SIMPLE
+            # orders instead of one atomic MLEG order (e.g. manual
+            # intervention in the Alpaca app) — confirmed live 2026-08-28,
+            # NVDA closed via 2 SIMPLE orders on 8/27 + 2 more on 8/28, CRWD
+            # via 2 SIMPLE orders on 8/27. Reconstruct the close only if
+            # every leg has its own matching closing fill (right symbol,
+            # right side per the long/short leg parity, FILLED, not yet
+            # recorded) — a partial set of leg fills is left alone rather
+            # than guessed at, same caution as the "still open" check above.
+            _leg_fills: dict[str, "object"] = {}
+            for order in orders:
+                if str(order.id) in recorded_ids or order.order_class != OrderClass.SIMPLE \
+                        or order.status != _OrderStatus.FILLED:
+                    continue
+                sym = getattr(order, "symbol", None)
+                if sym not in legs or sym in _leg_fills:
+                    continue
+                was_long = (legs.index(sym) % 2 == 0)
+                expected_side = OrderSide.SELL if was_long else OrderSide.BUY
+                if order.side == expected_side:
+                    _leg_fills[sym] = order
+            if len(_leg_fills) == len(legs):
+                _matched = [_leg_fills[s] for s in legs]
+        if _matched is None:
+            # Same self-healing fix sync_alpaca_fills() already carries for
+            # this exact class of bug (confirmed live 2026-08-11 on CLRO):
+            # a position whose closing order was already recorded in a
+            # PRIOR cycle (its id already in recorded_ids) can still be
+            # resurrected as "open" by a later state-merge pulling in a
+            # stale pre-close snapshot of dman_positions.json — confirmed
+            # live 2026-08-28, NVDA/CRWD both sat as phantom "open" spreads
+            # for days this way. All of this position's legs are already
+            # confirmed absent from Alpaca above, so close the tracker
+            # entry regardless of whether anything NEW was found to record
+            # this cycle -- gating the close behind a fresh match means a
+            # resurrected stale entry never heals.
+            pt.close(pos.ticker)
+            print(f"  🧹 Stale earnings-spread entry cleared: {pos.ticker} — "
+                  f"not open at Alpaca, no unrecorded closing fill found")
             continue
 
-        oid = str(_matched.id)
-        fill_px = float(_matched.filled_avg_price or 0)
         qty = max(1, int(pos.spread_qty))
-        credit_received = -fill_px * 100 * qty
+        if isinstance(_matched, list):
+            oids = [str(o.id) for o in _matched]
+            credit_received = 0.0
+            for o in _matched:
+                was_long = (legs.index(getattr(o, "symbol", None)) % 2 == 0)
+                px = float(o.filled_avg_price or 0)
+                credit_received += (px if was_long else -px) * 100 * qty
+            _fill_dts = [o.filled_at for o in _matched if getattr(o, "filled_at", None)]
+            fill_date = (max(_fill_dts).strftime("%Y-%m-%d") if _fill_dts
+                         else datetime.today().strftime("%Y-%m-%d"))
+        else:
+            oids = [str(_matched.id)]
+            fill_px = float(_matched.filled_avg_price or 0)
+            credit_received = -fill_px * 100 * qty
+            fill_date = (_matched.filled_at.strftime("%Y-%m-%d")
+                         if getattr(_matched, "filled_at", None) else datetime.today().strftime("%Y-%m-%d"))
         debit_paid = float(pos.entry)
         dollar_pnl = credit_received - debit_paid
         pnl_pct = (dollar_pnl / debit_paid * 100) if debit_paid > 0 else 0.0
         outcome = "WIN" if pnl_pct > 0.1 else "LOSS" if pnl_pct < -0.1 else "BE"
         acct_pct = dollar_pnl / get_effective_account() * 100
-        fill_date = (_matched.filled_at.strftime("%Y-%m-%d")
-                     if getattr(_matched, "filled_at", None) else datetime.today().strftime("%Y-%m-%d"))
 
         # Same ledger-level dupe guard sync_alpaca_fills() uses (see its
         # own comments for the CLRO incident this protects against).
@@ -16082,7 +16144,7 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
                     and _dates_close(r.date) for r in tracker.records)
         if _dupe:
             pt.close(pos.ticker)
-            recorded_ids.add(oid)
+            recorded_ids.update(oids)
             print(f"  ⏭️  Skipped duplicate earnings-spread close: {pos.ticker} already in win-rate history")
             continue
 
@@ -16094,7 +16156,7 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
         record_daily_pnl(acct_pct)
         record_monthly_pnl(acct_pct)
         pt.close(pos.ticker)
-        recorded_ids.add(oid)
+        recorded_ids.update(oids)
         new_count += 1
         sign = "+" if dollar_pnl >= 0 else ""
         print(f"  📋 Synced: {pos.ticker} EARNINGS SPREAD  ${debit_paid:.0f}→${credit_received:.0f}  "

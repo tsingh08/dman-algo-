@@ -5977,25 +5977,25 @@
   },
   {
     "ticker": "CRWD",
-    "date": "2026-08-25",
+    "date": "2026-08-27",
     "bias": "PUT",
     "setup": "Earnings Put Spread",
     "entry": 165.0,
-    "exit": -160.0,
+    "exit": 0.0,
     "outcome": "LOSS",
-    "pnl_pct": -196.97,
+    "pnl_pct": -100.0,
     "score": 0,
     "is_live": true
   },
   {
     "ticker": "NVDA",
-    "date": "2026-08-26",
+    "date": "2026-08-28",
     "bias": "NEUTRAL",
     "setup": "Earnings Double Spread",
     "entry": 198.0,
-    "exit": -198.0,
-    "outcome": "LOSS",
-    "pnl_pct": -200.0,
+    "exit": 203.0,
+    "outcome": "WIN",
+    "pnl_pct": 2.53,
     "score": 0,
     "is_live": true
   }

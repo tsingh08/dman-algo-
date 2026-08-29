@@ -59,69 +59,6 @@
       "score": 90,
       "date": "2026-08-24",
       "timestamp": "2026-08-24T10:34:58.171950-04:00"
-<<<<<<< Updated upstream
-    },
-    {
-      "ticker": "ARTL",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 0.7505,
-      "stop": 0.6154,
-      "target1": 0.98,
-      "target2": 1.31,
-      "score": 88,
-      "date": "2026-08-17",
-      "timestamp": "2026-08-17T09:51:58.996096-04:00"
-    },
-    {
-      "ticker": "ARTL",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 0.726,
-      "stop": 0.5953,
-      "target1": 0.94,
-      "target2": 1.27,
-      "score": 47,
-      "date": "2026-08-20",
-      "timestamp": "2026-08-20T12:08:13.912345-04:00"
-    },
-    {
-      "ticker": "NDSN",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 334.15,
-      "stop": 319.75,
-      "target1": 406.19,
-      "target2": 449.41,
-      "score": 100,
-      "date": "2026-08-20",
-      "timestamp": "2026-08-20T15:19:32.150487-04:00"
-    },
-    {
-      "ticker": "ARTL",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 0.7314,
-      "stop": 0.5997,
-      "target1": 0.95,
-      "target2": 1.28,
-      "score": 55,
-      "date": "2026-08-18",
-      "timestamp": "2026-08-18T09:54:29.915602-04:00"
-    },
-    {
-      "ticker": "UMAC",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 33.45,
-      "stop": 29.06,
-      "target1": 42.23,
-      "target2": 46.62,
-      "score": 100,
-      "date": "2026-08-14",
-      "timestamp": "2026-08-14T13:37:24.814055-04:00"
-=======
->>>>>>> Stashed changes
     }
   ]
 }

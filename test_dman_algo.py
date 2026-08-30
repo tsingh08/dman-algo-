@@ -6206,6 +6206,82 @@ class TestFetchOptionChainForDisplay(unittest.TestCase):
         self.assertIsNone(result, "a chain with zero usable quotes must return None, not an empty-ish menu")
 
 
+class TestRenderOptionsChainTable(unittest.TestCase):
+    """/options used to print two separate CALLS/PUTS lists; this renders
+    a single Robinhood-style chain instead -- calls left, one shared
+    strike column, puts right, ITM marked, a price divider inserted at
+    its natural spot. idx numbers must stay exactly what
+    _handle_options_command() assigned (calls-then-puts order) since
+    /buy N depends on them -- this is a pure display change, never a
+    re-indexing."""
+
+    def _call(self, idx, strike, bid=1.0, ask=1.1, delta=0.5, est=False):
+        return {"type": "CALL", "strike": strike, "bid": bid, "ask": ask,
+                "delta": delta, "delta_estimated": est, "idx": idx}
+
+    def _put(self, idx, strike, bid=1.0, ask=1.1, delta=0.5, est=False):
+        return {"type": "PUT", "strike": strike, "bid": bid, "ask": ask,
+                "delta": delta, "delta_estimated": est, "idx": idx}
+
+    def test_empty_chain_returns_empty_string(self):
+        self.assertEqual(a._render_options_chain_table([], [], 34.0), "")
+
+    def test_idx_numbers_are_preserved_verbatim_for_buy_n(self):
+        calls = [self._call(1, 30.0), self._call(2, 35.0)]
+        puts = [self._put(3, 30.0), self._put(4, 35.0)]
+        out = a._render_options_chain_table(calls, puts, 32.0)
+        self.assertIn(" 1)", out)
+        self.assertIn(" 2)", out)
+        self.assertIn(" 3)", out)
+        self.assertIn(" 4)", out)
+
+    def test_wrapped_in_pre_block_for_telegram_monospace_alignment(self):
+        out = a._render_options_chain_table([self._call(1, 30.0)], [], 30.0)
+        self.assertTrue(out.startswith("<pre>"))
+        self.assertTrue(out.endswith("</pre>"))
+
+    def test_itm_calls_are_marked_below_current_price(self):
+        # A call below the underlying price is ITM.
+        out = a._render_options_chain_table([self._call(1, 25.0)], [], 30.0)
+        self.assertIn("●", out)
+
+    def test_otm_calls_are_not_marked(self):
+        # A call above the underlying price is OTM -- no dot on that row.
+        out = a._render_options_chain_table([self._call(1, 40.0)], [], 30.0)
+        _rows = out.split("\n")
+        _row = next(r for r in _rows if r.strip().startswith("1)"))
+        self.assertNotIn("●", _row)
+
+    def test_itm_puts_are_marked_above_current_price(self):
+        # A put above the underlying price is ITM (opposite of calls).
+        out = a._render_options_chain_table([], [self._put(1, 40.0)], 30.0)
+        self.assertIn("●", out)
+
+    def test_price_divider_appears_between_straddling_strikes(self):
+        calls = [self._call(1, 30.0), self._call(2, 35.0)]
+        out = a._render_options_chain_table(calls, [], 32.0)
+        _rows = out.split("\n")
+        _i30 = next(i for i, r in enumerate(_rows) if "30" in r and r.strip().startswith("1)"))
+        _i35 = next(i for i, r in enumerate(_rows) if "35" in r and r.strip().startswith("2)"))
+        _idiv = next(i for i, r in enumerate(_rows) if "32.00" in r)
+        self.assertTrue(_i30 < _idiv < _i35,
+                         f"divider must sit between the straddling strikes, got rows: {_rows}")
+
+    def test_missing_call_or_put_at_a_strike_renders_a_blank_not_a_crash(self):
+        # Strikes don't always line up on both sides (a snapshot lookup
+        # can fail for just one side) -- a strike with only a call, or
+        # only a put, must render cleanly rather than KeyError.
+        calls = [self._call(1, 30.0)]
+        puts = [self._put(2, 35.0)]
+        out = a._render_options_chain_table(calls, puts, 32.0)
+        self.assertIn(" 1)", out)
+        self.assertIn(" 2)", out)
+
+    def test_estimated_delta_is_tagged(self):
+        out = a._render_options_chain_table([self._call(1, 30.0, delta=0.4, est=True)], [], 30.0)
+        self.assertIn("Δ~0.40", out)
+
+
 class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
     """The /options -> /buy -> YES/NO Telegram flow places REAL orders, so
     these tests are deliberately thorough: staging a confirmation must

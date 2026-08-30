@@ -2691,6 +2691,73 @@ def _handle_telegram_command(text: str) -> None:
         )
 
 
+def _render_options_chain_table(calls: list[dict], puts: list[dict], underlying_price: float) -> str:
+    """
+    Robinhood-style chain for /options: one strike column shared by both
+    sides (calls left, puts right) instead of two separate lists, ITM
+    contracts marked with a dot (Telegram's <pre> can't shade a cell
+    background the way an app can, so a marker is the closest analog),
+    and a "current price" divider row inserted at its natural position
+    between the two strikes it falls between — the same idea as the
+    horizontal price line Robinhood draws through its own chain.
+
+    idx numbers are untouched from the calls-then-puts numbering
+    _handle_options_command() already assigns before calling this, so
+    /buy N keeps resolving the exact same item it always did — this
+    function only changes how the chain is displayed, never how it's
+    indexed.
+    """
+    by_strike: dict[float, dict] = {}
+    for _c in calls:
+        by_strike.setdefault(_c["strike"], {})["call"] = _c
+    for _p in puts:
+        by_strike.setdefault(_p["strike"], {})["put"] = _p
+    strikes = sorted(by_strike.keys())
+    if not strikes:
+        return ""
+
+    _CALL_W, _STRIKE_W, _PUT_W = 21, 8, 21
+    _TOTAL_W = _CALL_W + 1 + _STRIKE_W + 1 + _PUT_W
+    _CALL_BLANK = " " * _CALL_W
+    _PUT_BLANK  = " " * _PUT_W
+
+    def _call_cell(item: Optional[dict]) -> str:
+        if not item:
+            return _CALL_BLANK
+        itm = "●" if item["strike"] < underlying_price else " "
+        dtag = "~" if item["delta_estimated"] else ""
+        bidask = f"{item['bid']:.2f}/{item['ask']:.2f}"
+        delta = f"Δ{dtag}{item['delta']:.2f}"
+        return f"{item['idx']:>2}){itm}{bidask:>10} {delta:<6}"
+
+    def _put_cell(item: Optional[dict]) -> str:
+        if not item:
+            return _PUT_BLANK
+        itm = "●" if item["strike"] > underlying_price else " "
+        dtag = "~" if item["delta_estimated"] else ""
+        bidask = f"{item['bid']:.2f}/{item['ask']:.2f}"
+        delta = f"Δ{dtag}{item['delta']:.2f}"
+        return f"{delta:>6} {bidask:<10}{itm}{item['idx']:>2})"
+
+    rows = [
+        "         CALLS         STRIKE          PUTS",
+        " idx  bid/ask   delta  |      |  delta   bid/ask   idx",
+    ]
+    _divider = f" ${underlying_price:.2f} ".center(_TOTAL_W, "─")
+    _divider_shown = False
+    for _s in strikes:
+        if not _divider_shown and _s >= underlying_price:
+            rows.append(_divider)
+            _divider_shown = True
+        pair = by_strike[_s]
+        rows.append(f"{_call_cell(pair.get('call'))} {_s:>6g} {_put_cell(pair.get('put'))}")
+    if not _divider_shown:
+        rows.append(_divider)
+    rows.append("")
+    rows.append("● = in the money")
+    return "<pre>" + "\n".join(rows) + "</pre>"
+
+
 def _handle_options_command(parts: list[str]) -> None:
     """
     /options TICKER [E] — browse OPTIONS_CHAIN_STRIKES_PER_SIDE calls and
@@ -2760,18 +2827,7 @@ def _handle_options_command(parts: list[str]) -> None:
         return
 
     _lines = [f"📊 <b>{ticker}</b>  ${px:.2f}   exp {chain['expiry']} ({chain['dte']}d)"]
-    if calls:
-        _lines.append("\n<b>CALLS</b>")
-        for _i in calls:
-            _dtag = "~" if _i["delta_estimated"] else ""
-            _lines.append(f"{_i['idx']}) ${_i['strike']:g}C  bid/ask "
-                          f"{_i['bid']:.2f}/{_i['ask']:.2f}  Δ{_dtag}{_i['delta']:.2f}")
-    if puts:
-        _lines.append("\n<b>PUTS</b>")
-        for _i in puts:
-            _dtag = "~" if _i["delta_estimated"] else ""
-            _lines.append(f"{_i['idx']}) ${_i['strike']:g}P  bid/ask "
-                          f"{_i['bid']:.2f}/{_i['ask']:.2f}  Δ{_dtag}{_i['delta']:.2f}")
+    _lines.append(_render_options_chain_table(calls, puts, px))
     if _expiries:
         _today = date.today()
         _exp_bits = [f"{_n}) {_e.strftime('%a %b %d')} ({(_e-_today).days}d)"

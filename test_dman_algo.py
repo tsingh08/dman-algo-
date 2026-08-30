@@ -6206,6 +6206,42 @@ class TestFetchOptionChainForDisplay(unittest.TestCase):
         self.assertIsNone(result, "a chain with zero usable quotes must return None, not an empty-ish menu")
 
 
+class TestGetOptionSnapshotVolume(unittest.TestCase):
+    """_get_option_snapshot()'s "oi" field is always 0 -- the snapshot
+    endpoint doesn't carry openInterest on any feed (see
+    _merge_contract_oi()'s docstring). Volume is different: confirmed
+    live 2026-08-30 that dailyBar.v IS present and real on this same
+    endpoint -- this locks in that parsing so a future response-shape
+    change can't silently zero it out unnoticed."""
+
+    def _mock_response(self, daily_bar=None):
+        resp = MagicMock()
+        resp.status_code = 200
+        resp.json.return_value = {"snapshots": {"TEST260904C00050000": {
+            "latestQuote": {"bp": 1.85, "ap": 1.93, "bs": 5, "as": 5},
+            "greeks": {"delta": 0.4},
+            "impliedVolatility": 0.5,
+            "dailyBar": daily_bar or {},
+        }}}
+        return resp
+
+    def test_real_daily_volume_is_parsed(self):
+        with patch.object(a, "ALPACA_API_KEY", "k"), \
+             patch.object(a, "ALPACA_SECRET_KEY", "s"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.get.return_value = self._mock_response({"v": 3133})
+            snap = a._get_option_snapshot("TEST260904C00050000")
+        self.assertEqual(snap["volume"], 3133)
+
+    def test_missing_daily_bar_defaults_volume_to_zero_not_a_crash(self):
+        with patch.object(a, "ALPACA_API_KEY", "k"), \
+             patch.object(a, "ALPACA_SECRET_KEY", "s"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.get.return_value = self._mock_response(None)
+            snap = a._get_option_snapshot("TEST260904C00050000")
+        self.assertEqual(snap["volume"], 0)
+
+
 class TestRenderOptionsChainTable(unittest.TestCase):
     """/options used to print two separate CALLS/PUTS lists; this renders
     a single Robinhood-style chain instead -- calls left, one shared
@@ -6215,13 +6251,13 @@ class TestRenderOptionsChainTable(unittest.TestCase):
     /buy N depends on them -- this is a pure display change, never a
     re-indexing."""
 
-    def _call(self, idx, strike, bid=1.0, ask=1.1, delta=0.5, est=False):
+    def _call(self, idx, strike, bid=1.0, ask=1.1, delta=0.5, est=False, oi=0, volume=0):
         return {"type": "CALL", "strike": strike, "bid": bid, "ask": ask,
-                "delta": delta, "delta_estimated": est, "idx": idx}
+                "delta": delta, "delta_estimated": est, "idx": idx, "oi": oi, "volume": volume}
 
-    def _put(self, idx, strike, bid=1.0, ask=1.1, delta=0.5, est=False):
+    def _put(self, idx, strike, bid=1.0, ask=1.1, delta=0.5, est=False, oi=0, volume=0):
         return {"type": "PUT", "strike": strike, "bid": bid, "ask": ask,
-                "delta": delta, "delta_estimated": est, "idx": idx}
+                "delta": delta, "delta_estimated": est, "idx": idx, "oi": oi, "volume": volume}
 
     def test_empty_chain_returns_empty_string(self):
         self.assertEqual(a._render_options_chain_table([], [], 34.0), "")
@@ -6280,6 +6316,24 @@ class TestRenderOptionsChainTable(unittest.TestCase):
     def test_estimated_delta_is_tagged(self):
         out = a._render_options_chain_table([self._call(1, 30.0, delta=0.4, est=True)], [], 30.0)
         self.assertIn("Δ~0.40", out)
+
+    def test_open_interest_and_volume_are_shown_per_strike(self):
+        out = a._render_options_chain_table(
+            [self._call(1, 30.0, oi=1250, volume=340)], [], 30.0)
+        self.assertIn("oi 1.2k", out)
+        self.assertIn("vol 340", out)
+
+    def test_large_oi_and_volume_are_abbreviated_with_k(self):
+        out = a._render_options_chain_table(
+            [self._call(1, 30.0, oi=15000, volume=2500)], [], 30.0)
+        self.assertIn("15.0k", out)
+        self.assertIn("2.5k", out)
+
+    def test_small_oi_and_volume_are_shown_exactly_not_abbreviated(self):
+        out = a._render_options_chain_table(
+            [self._call(1, 30.0, oi=42, volume=7)], [], 30.0)
+        self.assertIn("oi 42", out)
+        self.assertIn("vol 7", out)
 
 
 class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
@@ -6422,6 +6476,88 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._handle_options_command(["/options", "SMCI", "9"])
         self.assertIn("No expiry #9", mock_tg.call_args[0][0])
+
+    # ── /options next/prev ───────────────────────────────────────────
+    def _write_menu_at_expiry(self, ticker, expiry_str):
+        menu = self._menu(ticker=ticker, expiry=expiry_str)
+        with open(self._menu_tmp.name, "w") as f:
+            json.dump(menu, f)
+
+    def test_next_steps_forward_from_the_currently_shown_expiry(self):
+        import datetime as _dt
+        self._write_menu_at_expiry("SMCI", "2026-08-21")
+        expiries = [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)]
+        chain = {"ticker": "SMCI", "expiry": "2026-08-28", "dte": 16, "underlying_price": 34.0,
+                  "items": [{"type": "CALL", "occ_symbol": "X", "strike": 34.0,
+                              "bid": 1.5, "ask": 1.55, "delta": 0.51, "delta_estimated": False}]}
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=expiries), \
+             patch.object(a, "_fetch_option_chain_for_display", return_value=chain) as mock_fetch, \
+             patch.object(a, "send_telegram", return_value=True):
+            a._handle_options_command(["/options", "SMCI", "next"])
+        _, kwargs = mock_fetch.call_args
+        self.assertEqual(kwargs.get("expiry"), _dt.date(2026, 8, 28))
+
+    def test_prev_steps_backward_from_the_currently_shown_expiry(self):
+        import datetime as _dt
+        self._write_menu_at_expiry("SMCI", "2026-08-21")
+        expiries = [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)]
+        chain = {"ticker": "SMCI", "expiry": "2026-08-14", "dte": 2, "underlying_price": 34.0,
+                  "items": [{"type": "CALL", "occ_symbol": "X", "strike": 34.0,
+                              "bid": 1.5, "ask": 1.55, "delta": 0.51, "delta_estimated": False}]}
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=expiries), \
+             patch.object(a, "_fetch_option_chain_for_display", return_value=chain) as mock_fetch, \
+             patch.object(a, "send_telegram", return_value=True):
+            a._handle_options_command(["/options", "SMCI", "prev"])
+        _, kwargs = mock_fetch.call_args
+        self.assertEqual(kwargs.get("expiry"), _dt.date(2026, 8, 14))
+
+    def test_next_at_the_furthest_expiry_shows_an_error_not_a_wraparound(self):
+        import datetime as _dt
+        self._write_menu_at_expiry("SMCI", "2026-08-28")
+        expiries = [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)]
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=expiries), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command(["/options", "SMCI", "next"])
+        self.assertIn("furthest", mock_tg.call_args[0][0])
+
+    def test_prev_at_the_nearest_expiry_shows_an_error_not_a_wraparound(self):
+        import datetime as _dt
+        self._write_menu_at_expiry("SMCI", "2026-08-14")
+        expiries = [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)]
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "_fetch_available_expiries", return_value=expiries), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command(["/options", "SMCI", "prev"])
+        self.assertIn("nearest", mock_tg.call_args[0][0])
+
+    def test_next_with_no_saved_menu_asks_to_run_options_first(self):
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=34.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command(["/options", "SMCI", "next"])
+        self.assertIn("run /options SMCI first", mock_tg.call_args[0][0])
+
+    def test_next_for_a_different_ticker_than_the_saved_menu_is_rejected(self):
+        # The saved menu is for SMCI -- asking for "next" on a totally
+        # different ticker has no reference point to step from.
+        self._write_menu_at_expiry("SMCI", "2026-08-21")
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_live_price", return_value=100.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command(["/options", "AAPL", "next"])
+        self.assertIn("run /options AAPL first", mock_tg.call_args[0][0])
+
+    def test_unparseable_expiry_arg_shows_usage_error(self):
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._handle_options_command(["/options", "SMCI", "banana"])
+        self.assertIn("Couldn't parse", mock_tg.call_args[0][0])
 
     # ── /buy ──────────────────────────────────────────────────────────
     def test_buy_command_no_menu_file(self):

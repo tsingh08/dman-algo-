@@ -2721,6 +2721,21 @@ def _render_options_chain_table(calls: list[dict], puts: list[dict], underlying_
     _CALL_BLANK = " " * _CALL_W
     _PUT_BLANK  = " " * _PUT_W
 
+    def _k(n: int) -> str:
+        return f"{n/1000:.1f}k" if n >= 1000 else str(n)
+
+    def _liq_tag(item: Optional[dict]) -> str:
+        # OI/volume aren't in the top-line cell (already tight at 21 chars)
+        # -- shown on their own indented line per strike instead, so the
+        # main bid/ask/delta row stays scannable and liquidity is still
+        # right there without a second lookup. OI is real (merged in from
+        # the contract object -- the snapshot endpoint's own OI is always
+        # 0, see _merge_contract_oi()); volume is the real contract-day
+        # total from the same snapshot's dailyBar.
+        if item is None:
+            return ""
+        return f"oi {_k(item.get('oi', 0))}  vol {_k(item.get('volume', 0))}"
+
     def _call_cell(item: Optional[dict]) -> str:
         if not item:
             return _CALL_BLANK
@@ -2751,37 +2766,55 @@ def _render_options_chain_table(calls: list[dict], puts: list[dict], underlying_
             _divider_shown = True
         pair = by_strike[_s]
         rows.append(f"{_call_cell(pair.get('call'))} {_s:>6g} {_put_cell(pair.get('put'))}")
+        _call_liq, _put_liq = _liq_tag(pair.get("call")), _liq_tag(pair.get("put"))
+        if _call_liq or _put_liq:
+            rows.append(f"   {_call_liq:<18}{'':<9}{_put_liq}")
     if not _divider_shown:
         rows.append(_divider)
     rows.append("")
-    rows.append("● = in the money")
+    rows.append("● = in the money   oi = open interest   vol = today's contract volume")
     return "<pre>" + "\n".join(rows) + "</pre>"
 
 
 def _handle_options_command(parts: list[str]) -> None:
     """
-    /options TICKER [E] — browse OPTIONS_CHAIN_STRIKES_PER_SIDE calls and
-    the same number of puts around ATM, numbered so /buy N can reference
-    one. Defaults to the nearest OPTIONS_TARGET_DTE expiry (same one the
-    automated path would pick); E selects a different expiry by its index
-    in the "other expiries" list this command always shows, so
+    /options TICKER [E|next|prev] — browse OPTIONS_CHAIN_STRIKES_PER_SIDE
+    calls and the same number of puts around ATM, numbered so /buy N can
+    reference one. Defaults to the nearest OPTIONS_TARGET_DTE expiry (same
+    one the automated path would pick); E selects a different expiry by
+    its index in the "other expiries" list this command always shows, so
     "/options SMCI" then "/options SMCI 3" browses out the real listed
-    ladder instead of only ever seeing one date. Read-only: never places
-    an order by itself, and works regardless of /halt state (browsing
-    isn't an entry — /buy's final YES confirmation is where
-    halt/macro-blackout actually get enforced).
+    ladder instead of only ever seeing one date.
+
+    next/prev step relative to whatever expiry the LAST /options reply
+    for this same ticker showed (read from the saved menu file) rather
+    than requiring you to look up and retype an index each time — added
+    2026-08-30 so moving through a ladder of weekly expiries doesn't mean
+    round-tripping through the "Other expiries" list on every step. Falls
+    back to an explicit error (not a guess) if there's no saved menu for
+    this ticker yet, or the far/near end of the ladder is already showing.
+
+    Read-only: never places an order by itself, and works regardless of
+    /halt state (browsing isn't an entry — /buy's final YES confirmation
+    is where halt/macro-blackout actually get enforced).
     """
     ticker = parts[1].upper().strip() if len(parts) > 1 else ""
     if not ticker:
-        send_telegram("Usage: <code>/options TICKER [E]</code> — E picks an expiry "
-                       "from the list shown at the bottom of the last /options reply.")
+        send_telegram("Usage: <code>/options TICKER [E|next|prev]</code> — E picks an "
+                       "expiry from the list shown at the bottom of the last /options "
+                       "reply; next/prev steps from whatever expiry you're currently on.")
         return
     _expiry_idx = None
+    _relative = None
     if len(parts) > 2:
-        if not parts[2].isdigit():
-            send_telegram(f"❌ Couldn't parse expiry number '{parts[2]}' — usage: /options TICKER [E]")
+        _arg2 = parts[2].lower()
+        if _arg2 in ("next", "prev"):
+            _relative = _arg2
+        elif parts[2].isdigit():
+            _expiry_idx = int(parts[2])
+        else:
+            send_telegram(f"❌ Couldn't parse '{parts[2]}' — usage: /options TICKER [E|next|prev]")
             return
-        _expiry_idx = int(parts[2])
 
     client = get_alpaca_client()
     if client is None:
@@ -2800,6 +2833,30 @@ def _handle_options_command(parts: list[str]) -> None:
                            f"({len(_expiries)} available) — run /options {ticker} to see the list.")
             return
         _target_expiry = _expiries[_expiry_idx - 1]
+    elif _relative is not None:
+        try:
+            with open(TELEGRAM_OPTIONS_MENU_FILE) as _f:
+                _prev_menu = json.load(_f)
+            if _prev_menu.get("ticker") != ticker:
+                raise ValueError("different ticker")
+            _ref_expiry = date.fromisoformat(_prev_menu["expiry"])
+        except Exception:
+            send_telegram(f"❌ No current expiry to step from for {ticker} — "
+                           f"run /options {ticker} first, then next/prev.")
+            return
+        if not _expiries or _ref_expiry not in _expiries:
+            send_telegram(f"❌ Couldn't find {_ref_expiry.isoformat()} in {ticker}'s current "
+                           f"expiry list — run /options {ticker} again to refresh it.")
+            return
+        _ref_idx = _expiries.index(_ref_expiry)   # 0-based
+        _step = 1 if _relative == "next" else -1
+        _new_idx = _ref_idx + _step
+        if not (0 <= _new_idx < len(_expiries)):
+            _edge = "furthest" if _relative == "next" else "nearest"
+            send_telegram(f"❌ Already at the {_edge} listed expiry for {ticker} "
+                           f"({_ref_expiry.strftime('%a %b %d')}).")
+            return
+        _target_expiry = _expiries[_new_idx]
 
     chain = _fetch_option_chain_for_display(client, ticker, px, expiry=_target_expiry)
     if not chain or not chain["items"]:
@@ -2832,7 +2889,7 @@ def _handle_options_command(parts: list[str]) -> None:
         _today = date.today()
         _exp_bits = [f"{_n}) {_e.strftime('%a %b %d')} ({(_e-_today).days}d)"
                      for _n, _e in enumerate(_expiries, start=1)]
-        _lines.append("\n<b>Other expiries</b>  (/options " + ticker + " E)")
+        _lines.append("\n<b>Other expiries</b>  (/options " + ticker + " E, or next/prev)")
         _lines.append("  " + "   ".join(_exp_bits))
     _lines.append(f"\nReply <code>/buy N [qty] [price]</code> to confirm "
                   f"(e.g. <code>/buy {ordered[0]['idx']} 3 1.50</code> = 3 contracts @ $1.50 — "
@@ -16699,6 +16756,11 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
 
         iv = float(raw.get("impliedVolatility", 0) or 0)
         oi = int(raw.get("openInterest", 0) or 0)
+        # dailyBar.v IS present on this endpoint (confirmed live 2026-08-30,
+        # unlike openInterest right above -- see _merge_contract_oi()'s
+        # docstring for that one's separate workaround). Real contract-day
+        # volume, not a proxy.
+        volume = int((raw.get("dailyBar") or {}).get("v", 0) or 0)
 
         return {
             "bid": round(bid, 2), "ask": round(ask, 2), "mid": mid,
@@ -16710,6 +16772,7 @@ def _get_option_snapshot(occ_symbol: str) -> dict | None:
             "vega":  round(vega,  4),
             "iv":    round(iv, 3),      # e.g. 0.45 = 45% IV
             "oi":    oi,
+            "volume": volume,
         }
     except Exception:
         return None
@@ -17226,6 +17289,11 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
                 snap = _get_option_snapshot(occ)
                 if not snap or snap.get("bid", 0) <= 0 or snap.get("ask", 0) <= 0:
                     continue
+                # _get_option_snapshot()'s own "oi" is always 0 -- the
+                # snapshot endpoint doesn't carry it on any feed (see
+                # _merge_contract_oi()'s docstring). Real OI lives on the
+                # contract object already in hand from the lookup above.
+                snap = _merge_contract_oi(snap, found[0])
                 delta_estimated = False
                 if snap["delta"] == 0.0:
                     delta_estimated = True
@@ -17236,6 +17304,7 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
                     "type": _otype, "occ_symbol": occ, "strike": strike,
                     "bid": snap["bid"], "ask": snap["ask"],
                     "delta": snap["delta"], "delta_estimated": delta_estimated,
+                    "oi": snap.get("oi", 0), "volume": snap.get("volume", 0),
                 })
             except Exception:
                 continue

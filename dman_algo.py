@@ -16361,6 +16361,28 @@ def show_alpaca_account() -> None:
         print(f"  ❌ Alpaca account fetch failed: {exc}")
 
 
+def _describe_occ_symbol(occ: str) -> str:
+    """
+    Human-readable "TICKER $STRIKEC/P exp YYYY-MM-DD" from a raw OCC
+    option symbol, e.g. "SMCI260814C00034000" -> "SMCI $34C exp
+    2026-08-14". Same fixed-width slicing convention already used
+    elsewhere for expiry-only parsing (date+type+strike are always the
+    last 15 characters: 6-digit date, 1-char C/P, 8-digit strike*1000 --
+    ticker length varies, so it's always sliced from the right). Falls
+    back to the raw symbol unchanged if it doesn't parse as OCC-shaped.
+    """
+    if len(occ) < 15:
+        return occ
+    try:
+        ticker = occ[:-15]
+        exp_dt = datetime.strptime(occ[-15:-9], "%y%m%d").date()
+        opt_type = occ[-9]
+        strike = int(occ[-8:]) / 1000
+        return f"{ticker} ${strike:g}{opt_type}  exp {exp_dt.isoformat()}"
+    except (ValueError, IndexError):
+        return occ
+
+
 _DAY_START_EQUITY_FILE = "dman_day_start_equity.json"
 
 def _get_day_start_equity(current_equity: float) -> float:
@@ -16422,16 +16444,30 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
 
         positions = tc.get_all_positions()
         if positions:
+            from alpaca.trading.enums import AssetClass
             lines.append(f"\n<b>Open Positions ({len(positions)})</b>")
             for p in positions:
-                sym    = p.symbol
                 qty    = p.qty
                 avg_px = float(p.avg_entry_price)
                 pl     = float(p.unrealized_pl)
                 pl_pct = float(p.unrealized_plpc) * 100
                 p_arrow = "🟢" if pl >= 0 else "🔴"
-                lines.append(f"  {p_arrow} <b>{sym}</b>  {qty}sh @ ${avg_px:.2f}  "
-                              f"P&L ${pl:+.2f} ({pl_pct:+.1f}%)")
+                # Options positions used to fall through to this same
+                # equity-shaped line -- raw OCC symbol, "sh" instead of
+                # "ct", avg_entry_price shown as if it were a per-share
+                # stock price instead of a per-contract premium. Same
+                # class of bug already fixed once for PositionTracker.
+                # show()'s console report (2026-08-16 review); this
+                # separate function pulls positions straight from Alpaca
+                # rather than through PositionTracker, so it never got
+                # the same fix and was still doing it here.
+                if getattr(p, "asset_class", None) == AssetClass.US_OPTION:
+                    label = _describe_occ_symbol(p.symbol)
+                    lines.append(f"  {p_arrow} <b>{label}</b>  {qty}ct @ ${avg_px:.2f}  "
+                                  f"P&L ${pl:+.2f} ({pl_pct:+.1f}%)")
+                else:
+                    lines.append(f"  {p_arrow} <b>{p.symbol}</b>  {qty}sh @ ${avg_px:.2f}  "
+                                  f"P&L ${pl:+.2f} ({pl_pct:+.1f}%)")
         else:
             lines.append("\nNo open positions.")
 

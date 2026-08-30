@@ -10969,6 +10969,138 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         self.assertIn("already restricted", drift_msgs[0])
 
 
+class TestDescribeOccSymbol(unittest.TestCase):
+    """_describe_occ_symbol() turns a raw OCC option symbol into a
+    readable label -- same fixed-width slicing convention already used
+    elsewhere for expiry-only parsing (date+type+strike are always the
+    last 15 characters, ticker is everything before that)."""
+
+    def test_parses_ticker_strike_type_and_expiry(self):
+        out = a._describe_occ_symbol("SMCI260814C00034000")
+        self.assertIn("SMCI", out)
+        self.assertIn("34", out)
+        self.assertIn("C", out)
+        self.assertIn("2026-08-14", out)
+
+    def test_parses_put(self):
+        out = a._describe_occ_symbol("MRVL260904P00210000")
+        self.assertIn("MRVL", out)
+        self.assertIn("210", out)
+        self.assertIn("P", out)
+        self.assertIn("2026-09-04", out)
+
+    def test_ticker_length_does_not_affect_parsing(self):
+        # A 1-char and a 4-char ticker must both parse correctly -- the
+        # slice is always taken from the right, never assumes a fixed
+        # ticker width.
+        out = a._describe_occ_symbol("F260814C00012000")
+        self.assertTrue(out.startswith("F "))
+
+    def test_malformed_symbol_falls_back_to_the_raw_string(self):
+        self.assertEqual(a._describe_occ_symbol("NOTVALID"), "NOTVALID")
+        self.assertEqual(a._describe_occ_symbol("TOOSHORTXXXXXX"), "TOOSHORTXXXXXX")
+
+
+class TestAccountPnlTelegramOptionsPositionDisplay(unittest.TestCase):
+    """Regression: send_account_pnl_telegram()'s Open Positions block
+    pulls straight from Alpaca's raw position list, bypassing
+    PositionTracker entirely -- so it never got the 2026-08-16 fix that
+    stopped an options position from being displayed with the raw OCC
+    symbol and "sh" instead of a readable strike/expiry label and "ct".
+    The dollar P&L itself (Alpaca's own unrealized_pl/plpc) was always
+    correct; only the label was broken."""
+
+    def setUp(self):
+        self._wr_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._wr_tmp.write(b"[]")
+        self._wr_tmp.close()
+        import functools
+        self._patches = [
+            patch.object(a, "WinRateTracker", functools.partial(a.WinRateTracker, filepath=self._wr_tmp.name)),
+            patch.object(a, "_is_duplicate_alert", return_value=True),   # skip the separate drift message
+            patch.object(a, "_get_day_start_equity", return_value=5000.0),
+            patch.object(a, "ALPACA_API_KEY", "k"),
+            patch.object(a, "ALPACA_SECRET_KEY", "s"),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        os.unlink(self._wr_tmp.name)
+
+    def _option_position(self, symbol, qty="2", avg_px="9.22", pl="196.0", plpc="0.106"):
+        from alpaca.trading.enums import AssetClass
+        pos = MagicMock()
+        pos.symbol = symbol
+        pos.qty = qty
+        pos.avg_entry_price = avg_px
+        pos.unrealized_pl = pl
+        pos.unrealized_plpc = plpc
+        pos.asset_class = AssetClass.US_OPTION
+        return pos
+
+    def _equity_position(self, symbol="CELZ", qty="100", avg_px="10.0", pl="100.0", plpc="0.10"):
+        from alpaca.trading.enums import AssetClass
+        pos = MagicMock()
+        pos.symbol = symbol
+        pos.qty = qty
+        pos.avg_entry_price = avg_px
+        pos.unrealized_pl = pl
+        pos.unrealized_plpc = plpc
+        pos.asset_class = AssetClass.US_EQUITY
+        return pos
+
+    def test_options_position_shows_readable_label_and_contract_count(self):
+        acct = MagicMock()
+        acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = acct
+        mock_client.get_all_positions.return_value = [self._option_position("UMAC260828C00025000")]
+        mock_tg = MagicMock(return_value=True)
+        with patch("alpaca.trading.client.TradingClient", return_value=mock_client), \
+             patch.object(a, "send_telegram", mock_tg):
+            a.send_account_pnl_telegram()
+        msg = mock_tg.call_args_list[0][0][0]
+        self.assertIn("UMAC", msg)
+        self.assertIn("$25", msg)
+        self.assertIn("2026-08-28", msg)
+        self.assertIn("2ct", msg)
+        self.assertNotIn("UMAC260828C00025000", msg)   # raw OCC symbol must not leak through
+        self.assertNotIn("2sh", msg)                    # must not be mislabeled as shares
+
+    def test_equity_position_is_unaffected(self):
+        acct = MagicMock()
+        acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = acct
+        mock_client.get_all_positions.return_value = [self._equity_position()]
+        mock_tg = MagicMock(return_value=True)
+        with patch("alpaca.trading.client.TradingClient", return_value=mock_client), \
+             patch.object(a, "send_telegram", mock_tg):
+            a.send_account_pnl_telegram()
+        msg = mock_tg.call_args_list[0][0][0]
+        self.assertIn("CELZ", msg)
+        self.assertIn("100sh", msg)
+
+    def test_mixed_equity_and_options_positions_both_display_correctly(self):
+        acct = MagicMock()
+        acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = acct
+        mock_client.get_all_positions.return_value = [
+            self._equity_position(), self._option_position("UMAC260828C00025000"),
+        ]
+        mock_tg = MagicMock(return_value=True)
+        with patch("alpaca.trading.client.TradingClient", return_value=mock_client), \
+             patch.object(a, "send_telegram", mock_tg):
+            a.send_account_pnl_telegram()
+        msg = mock_tg.call_args_list[0][0][0]
+        self.assertIn("100sh", msg)
+        self.assertIn("2ct", msg)
+
+
 class TestExplainTicker(unittest.TestCase):
     """/why TICKER (explain_ticker) re-runs the scan detection/scoring
     pipeline for one ticker on demand. These tests lock in the headline

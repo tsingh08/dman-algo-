@@ -11177,12 +11177,26 @@ class WinRateTracker:
         slippage/execution risk baked in, and mixing in backtest-era
         records (which dominate by volume, see TradeRecord.is_live) would
         dilute or hide a real live-only problem.
+
+        Earnings-spread setups are grouped into one "Earnings Spread"
+        family here rather than matched by their exact per-trade label
+        (Earnings Call/Put/Double Spread, plus whatever a malformed plan
+        happens to produce, e.g. "Earnings Strangle (untracked)").
+        Confirmed live in the 2026-08-29 two-month review: the real
+        family record was 1W/3L at roughly -63% average -- a serious
+        live problem -- but every individual label sat at 1-2 trades,
+        under min_trades, so this alert had never once fired for it and
+        never could, no matter how badly the underlying strategy did,
+        because each new spread shape resets its own counter to zero.
         """
+        def _drift_key(setup: str) -> str:
+            return "Earnings Spread" if setup.startswith("Earnings ") else setup
+
         live = [r for r in self.records if r.is_live]
-        setups = sorted({r.setup for r in live if r.setup})
+        setups = sorted({_drift_key(r.setup) for r in live if r.setup})
         drifting = []
         for setup in setups:
-            recent = [r for r in live if r.setup == setup][-30:]
+            recent = [r for r in live if _drift_key(r.setup) == setup][-30:]
             if len(recent) < min_trades:
                 continue
             wins   = [r for r in recent if r.outcome == "WIN"]

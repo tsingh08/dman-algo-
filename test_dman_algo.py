@@ -10830,6 +10830,34 @@ class TestSetupPerformanceDrift(unittest.TestCase):
         self.assertEqual(len(drift), 1)
         self.assertEqual(drift[0]["win_rate"], 0.0)
 
+    def test_different_earnings_spread_labels_are_pooled_as_one_family(self):
+        # Regression for the live 2026-08-29 two-month review: the real
+        # earnings-spread record was 1W/3L across three DIFFERENT setup
+        # labels (Call/Put/Double Spread), each with only 1-2 trades --
+        # under min_trades individually, so this alert had never once
+        # fired for a strategy that was actually losing badly live.
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self._record(tracker, "LOSS", setup="Earnings Call Spread", pnl_pct=-60.0)
+        self._record(tracker, "LOSS", setup="Earnings Put Spread", pnl_pct=-100.0)
+        self._record(tracker, "LOSS", setup="Earnings Double Spread", pnl_pct=-95.0)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["setup"], "Earnings Spread")
+        self.assertEqual(drift[0]["total"], 3)
+        self.assertEqual(drift[0]["win_rate"], 0.0)
+
+    def test_non_earnings_setups_still_pool_by_their_own_exact_label(self):
+        # The grouping is earnings-only -- Gap & Hold and Low Float
+        # Catalyst must stay separate from each other and from Earnings
+        # Spread, unaffected by this change.
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        for _ in range(3):
+            self._record(tracker, "LOSS", setup="Gap & Hold", pnl_pct=-10.0)
+        for _ in range(3):
+            self._record(tracker, "LOSS", setup="Low Float Catalyst", pnl_pct=-20.0)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual({d["setup"] for d in drift}, {"Gap & Hold", "Low Float Catalyst"})
+
 
 class TestSetupPerformanceDriftAlert(unittest.TestCase):
     """setup_performance_drift() is only useful if it actually reaches

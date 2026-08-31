@@ -1600,5 +1600,19 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T14:00:14.329495-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "RBLX",
+      "TSLA"
+    ],
+    "headline": "Oil Jumps Near $90 On Iran Risk, California Utilities Crater: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

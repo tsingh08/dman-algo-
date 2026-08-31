@@ -1693,6 +1693,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-31T15:49:20.741151-04:00",
     "symbols": [
       "AAPL"
@@ -2550,6 +2551,35 @@
     "headline": "SLB To Acquire Kelvion From Apollo-Managed Funds For ~$3.4B In Cash And To Assume ~$0.7B Of Debt",
     "source": "scan-prefetch",
     "tag": "watchlist",
+=======
+    "ts": "2026-08-31T15:49:13.420565-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says A Lot Of Oil Coming Out Of Hormuz; Ships Came Through Hormuz Last Night With Navy Assist; Averaging 30 Ships A Night Out Of Hormuz",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:49:56.572962-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Interest Rates Are Too High; Have A Lot Of Respect For Warsh, And He&#39;ll Do What He Has To Do",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:51:31.763321-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "United Steelworkers Announces Negotiations To Continue With U.S. Steel, Cleveland Cliffs Steel",
+    "source": "benzinga",
+    "tag": "macro",
+>>>>>>> Stashed changes
     "sentiment": null
   }
 ]

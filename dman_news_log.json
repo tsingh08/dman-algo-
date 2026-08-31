@@ -1576,5 +1576,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:21:36.235964-04:00",
+    "symbols": [
+      "COIN",
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-linked stocks are trading higher amid a rise in Bitcoin and a weakened dollar.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:24:32.188083-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Watching Amazon; Hearing Investor Business Daily SwingTrader Sells Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1616,16 +1616,26 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-31T14:05:16.934090-04:00",
     "symbols": [
       "AAPL"
     ],
     "headline": "Inside Google\u2019s 260 Million Pound UK App Store Settlement: What It Means for Alphabet Stock",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-08-31T14:06:29.464301-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;FTC to File Lawsuit Alleging Amazon Deceived Advertisers&#39; - Wall Street Journal",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-31T14:05:17.622035-04:00",
     "symbols": [
       "GOOGL"
@@ -2052,6 +2062,14 @@
     ],
     "headline": "Why Webuy Global Shares Are Trading Higher By 13%; Here Are 20 Stocks Moving Premarket",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-08-31T14:08:21.934331-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Goldman Sachs Maintains Buy on Affirm Holdings, Raises Price Target to $115",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": null
   }

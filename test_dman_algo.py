@@ -7793,6 +7793,10 @@ class TestLowFloatCatalystNewsGate(unittest.TestCase):
             # only care about the news-existence gate aren't incidentally
             # blocked by the separate sentiment check added 2026-08-13.
             patch.object(a, "_news_sentiment_verdict", return_value="neutral"),
+            # Default to "nothing found" so existing tests exercise the
+            # Benzinga-only path exactly as before the 2026-08-30 EDGAR
+            # wiring -- the dedicated EDGAR tests below override this.
+            patch.object(a, "_check_edgar_8k", return_value=(False, "")),
         ]
         for p in self._patches:
             p.start()
@@ -7856,6 +7860,47 @@ class TestLowFloatCatalystNewsGate(unittest.TestCase):
         with patch.object(a, "_fetch_massive_benzinga_news", return_value={}):
             sig = a.detect_low_float_catalyst(self._df(), "FGL")
         self.assertIsNone(sig)
+
+    def test_edgar_8k_alone_confirms_catalyst_with_no_benzinga_coverage(self):
+        # Added 2026-08-30: _check_edgar_8k() already existed but only ran
+        # in the once-daily pre-market scan, never in this intraday
+        # detector -- a real 8-K Benzinga hasn't indexed yet (often the
+        # case, since SEC is the primary source) used to block a real
+        # catalyst outright. A real filing alone must now be enough.
+        with patch.object(a, "_fetch_massive_benzinga_news", return_value={"FGL": []}), \
+             patch.object(a, "_check_edgar_8k", return_value=(True, "8-K filed 2026-08-30 — FGL Inc")):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        self.assertIsNotNone(sig)
+        self.assertIn("SEC:", sig.reason)
+
+    def test_edgar_not_queried_when_benzinga_already_confirmed_news(self):
+        # EDGAR is a fallback for when Benzinga hasn't found anything, not
+        # an additional check run on top of real news already in hand --
+        # querying it anyway would be redundant latency with no gating
+        # benefit, since the has-a-catalyst decision is already made.
+        with patch.object(a, "_fetch_massive_benzinga_news",
+                          return_value={"FGL": ["Company misses guidance"]}), \
+             patch.object(a, "_news_sentiment_verdict", return_value="negative"), \
+             patch.object(a, "_check_edgar_8k") as mock_edgar:
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        mock_edgar.assert_not_called()
+        self.assertIsNone(sig)   # negative sentiment still blocks, as before
+
+    def test_no_benzinga_and_no_edgar_still_blocks(self):
+        # Neither source finding anything must still fail closed, same
+        # as the original single-source behavior.
+        with patch.object(a, "_fetch_massive_benzinga_news", return_value={"FGL": []}), \
+             patch.object(a, "_check_edgar_8k", return_value=(False, "")):
+            sig = a.detect_low_float_catalyst(self._df(), "FGL")
+        self.assertIsNone(sig)
+
+    def test_dman_watchlist_ticker_exempt_from_edgar_check_too(self):
+        with patch.object(a, "_fetch_massive_benzinga_news") as mock_news, \
+             patch.object(a, "_check_edgar_8k") as mock_edgar:
+            sig = a.detect_low_float_catalyst(self._df(), "DMANPICK")
+        mock_news.assert_not_called()
+        mock_edgar.assert_not_called()
+        self.assertIsNotNone(sig)
 
 
 class TestSendSignalAlertBatch(unittest.TestCase):

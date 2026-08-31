@@ -13193,10 +13193,27 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         # Fails CLOSED (blocks entry) on no headlines OR an API failure —
         # the safer default for a speculative micro-cap is to skip a trade
         # we can't verify, not force one through.
+        _edgar_found, _edgar_summary = False, ""
         if ticker not in DMAN_SMALLCAP_WATCHLIST:
             _news_map = _fetch_massive_benzinga_news([ticker], hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
-            if not _news_map.get(ticker):
-                return None
+            _has_news = bool(_news_map.get(ticker))
+            # SEC EDGAR full-text search as a second, faster catalyst-
+            # existence source alongside Benzinga -- added 2026-08-30.
+            # _check_edgar_8k() already existed and already ran here, but
+            # only inside run_premarket_early_scan()'s once-daily 8:10 AM
+            # ET pass, never in this intraday detector (the one
+            # run_pro_scanner() actually calls all day). A real 8-K filed
+            # mid-session had to wait for Benzinga to index it -- often
+            # slower than the primary SEC source itself, sometimes never
+            # at all for a name this small. Only queried when Benzinga
+            # hasn't already confirmed a catalyst -- real news already in
+            # hand makes a second source redundant, not additional
+            # confirmation, same reasoning the watchlist exemption above
+            # already uses.
+            if not _has_news:
+                _edgar_found, _edgar_summary = _check_edgar_8k(ticker, hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
+                if not _edgar_found:
+                    return None
             # "There is news" alone doesn't mean the news supports a LONG
             # entry -- confirmed live 2026-08-13 that Massive's separate
             # /v2/reference/news endpoint provides real per-article
@@ -13208,14 +13225,20 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
             # data (None) does NOT block here -- the primary news-existence
             # check above already confirmed a real catalyst exists; this is
             # an additional refinement on top; not finding a sentiment
-            # verdict isn't grounds to override that.
-            _sentiment = _news_sentiment_verdict(ticker, hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
-            if _sentiment == "negative":
-                return None
+            # verdict isn't grounds to override that. Only runs when
+            # Benzinga actually has article text to score -- an EDGAR-only
+            # hit (no Benzinga coverage yet) has no headline to check
+            # sentiment on, so it passes through on the filing's existence
+            # alone, same as it already does in the pre-market scanner.
+            if _has_news:
+                _sentiment = _news_sentiment_verdict(ticker, hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
+                if _sentiment == "negative":
+                    return None
 
+        edgar_note = f" | SEC: {_edgar_summary}" if _edgar_found else ""
         reason = (f"Float {fl_m:.1f}M | RVOL {rvol:.1f}x"
                   f"{ultra_note}{moon_note}{rotation_note}{squeeze_note}{insider_note}"
-                  f"{rs_note}{bot_note}{cash_note} | {pattern_note}")
+                  f"{rs_note}{bot_note}{cash_note}{edgar_note} | {pattern_note}")
 
         sig = ProSignal(
             ticker=ticker, setup="Low Float Catalyst", bias="LONG",

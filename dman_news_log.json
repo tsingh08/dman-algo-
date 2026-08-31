@@ -1400,5 +1400,29 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T14:56:45.156472-04:00",
+    "symbols": [
+      "AMZN",
+      "MSFT"
+    ],
+    "headline": "Amazon Web Services, Microsoft Collaborate On Multicloud Networking",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:00:26.738365-04:00",
+    "symbols": [
+      "ENPH",
+      "FSLR",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "AI Boom Needs Electricity \u2014 These Solar ETFs Could Be the Beneficiaries",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

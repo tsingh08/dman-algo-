@@ -1278,5 +1278,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T13:28:32.902973-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Qualcomm Outperforms Broader Market Slump: Analysts Eye Data Center Growth Ahead of Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:28:36.665686-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Outperforms Broader Market Slump: Analysts Eye Data Center Growth Ahead of Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-31T13:28:41.133717-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Happy 50th, Index Funds: Why Just Owning the S&amp;P 500 May Not Be Enough Anymore",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-31T13:28:41.521150-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Happy 50th, Index Funds: Why Just Owning the S&amp;P 500 May Not Be Enough Anymore",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T13:29:00.849564-04:00",
+    "symbols": [
+      "TENX"
+    ],
+    "headline": "Tenax Therapeutics shares are trading lower after Guggenheim downgraded the stock from Buy to Neutral rating.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

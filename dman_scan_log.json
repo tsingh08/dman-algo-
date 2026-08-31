@@ -120,16 +120,28 @@
     "signal_tickers": []
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-31T12:28:37.658312-04:00",
+=======
+    "ts": "2026-08-31T12:30:41.620960-04:00",
+>>>>>>> Stashed changes
     "regime": "CHOP",
     "regime_score": 17,
     "vix": 15.2,
     "min_score": 85,
+<<<<<<< Updated upstream
     "universe": "all",
     "tickers_total": 105,
     "signals": 0,
     "signal_tickers": [],
     "rejected_no_signal": 105,
+=======
+    "universe": "daemon-curated",
+    "tickers_total": 81,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 81,
+>>>>>>> Stashed changes
     "rejected_hard_gate": 0,
     "rejected_low_score": 0,
     "budget_hit": false,
@@ -137,11 +149,16 @@
     "news_breadth_total": 0
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-08-31T12:31:30.887726-04:00",
+=======
+    "ts": "2026-08-31T12:33:42.283011-04:00",
+>>>>>>> Stashed changes
     "regime": "CHOP",
     "regime_score": 17,
     "vix": 15.2,
     "min_score": 85,
+<<<<<<< Updated upstream
     "universe": "curated",
     "tickers_total": 84,
     "signals": 0,
@@ -152,5 +169,17 @@
     "budget_hit": false,
     "news_breadth_pct": null,
     "news_breadth_total": 0
+=======
+    "universe": "daemon-curated",
+    "tickers_total": 81,
+    "signals": 0,
+    "signal_tickers": [],
+    "rejected_no_signal": 81,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 96.6,
+    "news_breadth_total": 109
+>>>>>>> Stashed changes
   }
 ]

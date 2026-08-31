@@ -1033,6 +1033,116 @@
       "created_at": "2026-08-31T14:08:06.541287-04:00",
       "expires_at": "2026-08-31T14:23:06.541287-04:00",
       "status": "awaiting_approval"
+    },
+    {
+      "ticker": "DCX",
+      "entry_px": 0.6791,
+      "stop_px": 0.6305,
+      "t1": 0.8828,
+      "t2": 1.0187,
+      "signal_str": "volume dry-up (3% of prior avg) + higher lows (demand stepping up)",
+      "created_at": "2026-08-31T15:51:08.316986-04:00",
+      "expires_at": "2026-08-31T16:06:08.316986-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "SGLY",
+      "entry_px": 1.3828,
+      "stop_px": 1.2771,
+      "t1": 1.7976,
+      "t2": 2.0742,
+      "signal_str": "VWAP reclaim (recovery dip (opened -2.0% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-08-31T15:51:10.284524-04:00",
+      "expires_at": "2026-08-31T16:06:10.284524-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "MGN",
+      "entry_px": 0.123,
+      "stop_px": 0.1123,
+      "t1": 0.1599,
+      "t2": 0.1845,
+      "signal_str": "VWAP reclaim bounce ($0.1135) + tight coil (2.4% high range) + volume dry-up (33% of prior avg)",
+      "created_at": "2026-08-31T15:51:10.667404-04:00",
+      "expires_at": "2026-08-31T16:06:10.667404-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "BJDX",
+      "entry_px": 0.876,
+      "stop_px": 0.8569,
+      "t1": 1.1388,
+      "t2": 1.314,
+      "signal_str": "VWAP reclaim bounce ($0.8682) + tight coil (0.7% high range)",
+      "created_at": "2026-08-31T15:51:12.095145-04:00",
+      "expires_at": "2026-08-31T16:06:12.095145-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "GTE",
+      "entry_px": 10.06,
+      "stop_px": 9.8303,
+      "t1": 13.078,
+      "t2": 15.09,
+      "signal_str": "tight coil (0.4% high range) + within 2.5% of first candle high $10.2000 + higher lows (demand stepping up)",
+      "created_at": "2026-08-31T15:51:12.182172-04:00",
+      "expires_at": "2026-08-31T16:06:12.182172-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "GAUZ",
+      "entry_px": 0.382,
+      "stop_px": 0.3707,
+      "t1": 0.4966,
+      "t2": 0.573,
+      "signal_str": "tight coil (1.5% high range) + volume dry-up (5% of prior avg)",
+      "created_at": "2026-08-31T15:51:13.038785-04:00",
+      "expires_at": "2026-08-31T16:06:13.038785-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "MSGY",
+      "entry_px": 1.84,
+      "stop_px": 1.7927,
+      "t1": 2.392,
+      "t2": 2.76,
+      "signal_str": "tight coil (0.5% high range) + volume dry-up (7% of prior avg)",
+      "created_at": "2026-08-31T15:51:14.503693-04:00",
+      "expires_at": "2026-08-31T16:06:14.503693-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "FEED",
+      "entry_px": 0.3594,
+      "stop_px": 0.3416,
+      "t1": 0.4672,
+      "t2": 0.5391,
+      "signal_str": "tight coil (1.5% high range) + higher lows (demand stepping up)",
+      "created_at": "2026-08-31T15:51:15.397225-04:00",
+      "expires_at": "2026-08-31T16:06:15.397225-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "BOXL",
+      "entry_px": 6.1,
+      "stop_px": 5.9099,
+      "t1": 7.93,
+      "t2": 9.15,
+      "signal_str": "tight coil (1.6% high range) + higher lows (demand stepping up)",
+      "created_at": "2026-08-31T15:51:15.871608-04:00",
+      "expires_at": "2026-08-31T16:06:15.871608-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "DFSC",
+      "entry_px": 1.735,
+      "stop_px": 1.6942,
+      "t1": 2.2555,
+      "t2": 2.6025,
+      "signal_str": "volume dry-up (33% of prior avg) + within 2.5% of first candle high $1.7287",
+      "created_at": "2026-08-31T15:51:16.661099-04:00",
+      "expires_at": "2026-08-31T16:06:16.661099-04:00",
+      "status": "awaiting_approval"
     }
   ],
   "consumed": {}

@@ -1514,5 +1514,67 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:15:54.477376-04:00",
+    "symbols": [
+      "MDB",
+      "PANW"
+    ],
+    "headline": "Dell Technologies Could Swing $28.9 Billion After Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:18:22.979379-04:00",
+    "symbols": [
+      "CRWD",
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Q4 Preview: Stock Near Highs, Analysts See Record Revenue and Even Higher Share Price",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:18:39.998095-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Palo Alto Networks Q4 Preview: Stock Near Highs, Analysts See Record Revenue and Even Higher Share Price",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:18:40.215749-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Q4 Preview: Stock Near Highs, Analysts See Record Revenue and Even Higher Share Price",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:18:40.217046-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Dell Technologies Could Swing $28.9 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:18:41.343399-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Dell Technologies Could Swing $28.9 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

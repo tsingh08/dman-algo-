@@ -1388,5 +1388,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:57:54.424142-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump On Venzuela, Says It&#39;s Up To Them What To Do About OPEC",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:59:11.919718-04:00",
+    "symbols": [
+      "LABT"
+    ],
+    "headline": "Lakewood Amedex Has Received A Notice Of Allowance For A U.S. Patent Titled &#34;ANTIMICROBIAL COMPOUNDS, COMPOSITIONS, AND USES THEREOF&#34;.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:02:23.232503-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says One Of The Things I Want To Do With That Oil, I Want To Fill Up Strategic Reserves; We&#39;ll Do That Fairly Quickly",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

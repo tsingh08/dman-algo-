@@ -1494,5 +1494,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:10:39.734005-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EPA Announces Action On 2025 Small Refinery Exemptions And Related Actions; Grants Small Refinery Exemptions From Biofuel Laws Totaling 1.76B Credits For 2025 Compliance Year",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:15:30.255363-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Polymarket Funding Round Led By 1789 Values Firm at $21 Billion&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

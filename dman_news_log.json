@@ -1418,5 +1418,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:04:37.826699-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Planet Labs PBC Announces Arrival Of Tanager-2, 18 SuperDove Satellites Of Flock 4 J At Vandenberg Space Force Base For Launch Aboard Transporter-18 Rideshare With SpaceX",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-31T16:04:38.375612-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "e.l.f. Beauty Stock Climbs Following European Expansion: What Investors Need to Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:05:15.459595-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, Asked If He Is Reviewing Position On Falklands, Says I Always Review Positions And That&#39;s One Of Them",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

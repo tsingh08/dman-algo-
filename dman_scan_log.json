@@ -1,175 +1,10 @@
 [
   {
-    "ts": "2026-08-27T15:29:07.584960-04:00",
-    "regime": "CHOP",
-    "regime_score": 17,
-    "vix": 14.6,
-    "min_score": 85,
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 80,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 94.1,
-    "news_breadth_total": 135
-  },
-  {
-    "ts": "2026-08-27T15:39:41.236573-04:00",
-    "regime": "CHOP",
-    "regime_score": 17,
-    "vix": 14.6,
-    "min_score": 85,
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 80,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 94.3,
-    "news_breadth_total": 133
-  },
-  {
-    "ts": "2026-08-27T15:50:23.241868-04:00",
-    "regime": "CHOP",
-    "regime_score": 17,
-    "vix": 14.5,
-    "min_score": 85,
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 80,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 94.4,
-    "news_breadth_total": 135
-  },
-  {
-    "ts": "2026-08-27T15:56:21.387112-04:00",
-    "regime": "CHOP",
-    "regime_score": 17,
-    "vix": 14.5,
-    "min_score": 85,
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 80,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 94.7,
-    "news_breadth_total": 144
-  },
-  {
-    "ts": "2026-08-27T16:01:23.585863-04:00",
-    "regime": "CHOP",
-    "regime_score": 17,
-    "vix": 14.5,
-    "min_score": 85,
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 80,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 94.7,
-    "news_breadth_total": 144
-  },
-  {
-    "ts": "2026-08-27T16:05:44.741356-04:00",
-    "regime": "CHOP",
-    "regime_score": 17,
-    "vix": 14.5,
-    "min_score": 85,
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 80,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 94.7,
-    "news_breadth_total": 140
-  },
-  {
-    "ts": "2026-08-28T16:21:04.503853-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 93,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-08-28T16:21:40.908609-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 94,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-<<<<<<< Updated upstream
-    "ts": "2026-08-31T12:28:37.658312-04:00",
-=======
-    "ts": "2026-08-31T12:30:41.620960-04:00",
->>>>>>> Stashed changes
+    "ts": "2026-08-31T12:42:06.290249-04:00",
     "regime": "CHOP",
     "regime_score": 17,
     "vix": 15.2,
     "min_score": 85,
-<<<<<<< Updated upstream
-    "universe": "all",
-    "tickers_total": 105,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 105,
-=======
-    "universe": "daemon-curated",
-    "tickers_total": 81,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 81,
->>>>>>> Stashed changes
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": null,
-    "news_breadth_total": 0
-  },
-  {
-<<<<<<< Updated upstream
-    "ts": "2026-08-31T12:31:30.887726-04:00",
-=======
-    "ts": "2026-08-31T12:33:42.283011-04:00",
->>>>>>> Stashed changes
-    "regime": "CHOP",
-    "regime_score": 17,
-    "vix": 15.2,
-    "min_score": 85,
-<<<<<<< Updated upstream
-    "universe": "curated",
-    "tickers_total": 84,
-    "signals": 0,
-    "signal_tickers": [],
-    "rejected_no_signal": 84,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": null,
-    "news_breadth_total": 0
-=======
     "universe": "daemon-curated",
     "tickers_total": 81,
     "signals": 0,
@@ -178,8 +13,7 @@
     "rejected_hard_gate": 0,
     "rejected_low_score": 0,
     "budget_hit": false,
-    "news_breadth_pct": 96.6,
-    "news_breadth_total": 109
->>>>>>> Stashed changes
+    "news_breadth_pct": null,
+    "news_breadth_total": 1
   }
 ]

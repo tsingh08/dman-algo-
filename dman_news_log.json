@@ -1597,5 +1597,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:26:30.352910-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "Nio Stock Hits 52-Week Low Ahead Of Q2 Earnings: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:26:39.927432-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "QUALCOMM shares are trading higher. The company and HUMAIN announced the launch of Horizon Ultra.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

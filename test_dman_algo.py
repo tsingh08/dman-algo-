@@ -3182,6 +3182,27 @@ class TestSharesFallbackPolicy(unittest.TestCase):
         with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
+    def test_low_float_catalyst_setup_allowed_even_off_watchlist(self):
+        # Regression for the live 2026-08-24 PMI incident: a Low Float
+        # Catalyst signal (float 1.1M, score 90) got skipped outright --
+        # no options, no shares -- purely because it wasn't on the
+        # static watchlist, despite being exactly the profile the shares
+        # exception was meant for. Went on to +75.5%, never traded.
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+            self.assertTrue(a._shares_fallback_allowed("PMI", "Low Float Catalyst"))
+
+    def test_other_setups_off_watchlist_still_not_allowed(self):
+        # The exception is specific to Low Float Catalyst -- a Gap & Hold
+        # or Day 2 Continuation signal on a non-watchlist ticker must
+        # still skip rather than fall back to shares (the exact NDSN
+        # incident this policy exists to prevent).
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+            self.assertFalse(a._shares_fallback_allowed("NDSN", "Gap & Hold"))
+
+    def test_watchlist_ticker_still_allowed_regardless_of_setup(self):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+            self.assertTrue(a._shares_fallback_allowed("APVO", "Gap & Hold"))
+
 
 class TestSmallcapScoreThreshold(unittest.TestCase):
     """Added 2026-08-21 (session review finding): SETUP_MIN_CONFLUENCE's

@@ -17740,16 +17740,31 @@ def _submit_manual_options_buy(client, pending: dict) -> tuple[Optional[str], Op
     return str(order.id), None
 
 
-def _shares_fallback_allowed(ticker: str) -> bool:
+def _shares_fallback_allowed(ticker: str, setup: str = "") -> bool:
     """
-    True only for DMan's own curated small-cap watchlist. Policy set
+    True for DMan's own curated small-cap watchlist, OR any live Low
+    Float Catalyst signal regardless of watchlist membership. Policy set
     2026-08-05: grow the account on options, not on buying expensive
     large-cap shares outright when an options fill isn't available —
-    DMan's calls are the deliberate exception, since those are cheap,
-    thin-float gap-ups where "buy a lot of shares" is the actual play,
-    and where listed options usually don't exist or aren't liquid anyway.
+    the exception was always meant to be "cheap, thin-float gap-ups
+    where 'buy a lot of shares' is the actual play, and where listed
+    options usually don't exist or aren't liquid anyway" (the setup
+    Low Float Catalyst names exactly), but the check as written only
+    matched the static 122-ticker watchlist.
+
+    Confirmed live 2026-08-24: PMI scored 90 on this exact setup
+    (float 1.1M — squarely the profile the exception describes) but
+    wasn't on the watchlist, so it got skipped outright with no options
+    and no shares fallback — went on to +75.5%, hitting T1, never
+    traded. Every trade behind this setup's current (weak, now
+    probated) live track record came from the watchlist; a dynamically
+    discovered name like PMI had never actually gotten a chance to
+    trade at all, good or bad. Still has to clear the setup's own
+    (elevated, +10pt under probation) confluence bar to generate a
+    signal in the first place -- this doesn't loosen that, only lets a
+    signal that already cleared it actually reach the market.
     """
-    return ticker in DMAN_SMALLCAP_WATCHLIST
+    return ticker in DMAN_SMALLCAP_WATCHLIST or setup == "Low Float Catalyst"
 
 
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
@@ -18101,12 +18116,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
             # industrial name, nothing like a low-float catalyst play —
             # bought as a single $334 share this exact way when its Gap &
             # Hold options attempt found no fill: shares should only ever
-            # happen for a real low-float catalyst (the watchlist
-            # exception below), everything else skips outright rather than
-            # settle for a consolation equity position.
-            if not _shares_fallback_allowed(sig.ticker):
-                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible "
-                      f"and not a DMan watchlist ticker (shares reserved for DMan picks only)")
+            # happen for a real low-float catalyst (the watchlist OR
+            # setup exception below — see _shares_fallback_allowed()'s
+            # docstring for the PMI incident that added the setup half),
+            # everything else skips outright rather than settle for a
+            # consolation equity position.
+            if not _shares_fallback_allowed(sig.ticker, sig.setup):
+                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
+                      f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
+                      f"for DMan picks and low-float catalysts only)")
                 if _options_was_attempted:
                     send_telegram(
                         f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"

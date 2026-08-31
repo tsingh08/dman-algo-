@@ -1379,5 +1379,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T14:43:47.750026-04:00",
+    "symbols": [
+      "RKLB",
+      "SPCX"
+    ],
+    "headline": "Cathie Wood&#39;s SpaceX Bet Grows as Rocket Lab Stock Flashes a Death Cross",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T14:44:03.689730-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Cathie Wood&#39;s SpaceX Bet Grows as Rocket Lab Stock Flashes a Death Cross",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

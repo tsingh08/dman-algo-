@@ -1570,5 +1570,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T13:59:19.680090-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Inside Google\u2019s 260 Million Pound UK App Store Settlement: What It Means for Alphabet Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:59:20.751124-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Inside Google\u2019s 260 Million Pound UK App Store Settlement: What It Means for Alphabet Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:59:27.191347-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike shares are trading higher after the company unveiled a wave of product and strategic partnerships at the opening of its Fal.Con 2026 user conference in Las Vegas.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

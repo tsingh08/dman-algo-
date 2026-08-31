@@ -3203,6 +3203,18 @@ class TestSharesFallbackPolicy(unittest.TestCase):
         with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
             self.assertTrue(a._shares_fallback_allowed("APVO", "Gap & Hold"))
 
+    def test_momentum_day_only_setup_allowed_even_off_watchlist(self):
+        # Same reasoning as Low Float Catalyst -- a momentum-watch
+        # breakout is individually human-approved, drawn from the same
+        # thin-float universe, and shouldn't dead-end on watchlist
+        # membership any more than a dynamically-discovered Low Float
+        # Catalyst signal does.
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+            self.assertTrue(a._shares_fallback_allowed("XYZ", a.MOMENTUM_DAY_ONLY_SETUP))
+
+    def test_momentum_day_only_setup_is_in_options_setups(self):
+        self.assertIn(a.MOMENTUM_DAY_ONLY_SETUP, a.OPTIONS_SETUPS)
+
 
 class TestSmallcapScoreThreshold(unittest.TestCase):
     """Added 2026-08-21 (session review finding): SETUP_MIN_CONFLUENCE's
@@ -9834,6 +9846,344 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
                             with patch.object(a, "PositionTracker"):
                                 a._handle_earnings_approval_reply("yes")
         mock_client.submit_order.assert_called_once()
+
+
+class TestMomentumBreakoutApprovalFlow(unittest.TestCase):
+    """Direct instruction 2026-08-30: run_momentum_watch()'s BREAKOUT
+    SETUP alerts were purely informational -- no way to act on one
+    without leaving the algo entirely. This mirrors the earnings-spread
+    approval flow's own test suite: ticker disambiguation, expiry,
+    consume-before-act, and the halt/macro/price-drift gates re-checked
+    at the YES step. _submit_signals_to_alpaca() itself is mocked here
+    (it has its own full test coverage) so these tests isolate this
+    handler's own logic: parsing, matching, and what it hands off."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        self._patches = [
+            patch.object(a, "MOMENTUM_PENDING_FILE", self._tmp.name),
+            patch.object(a, "check_macro_safe", return_value=(True, 0)),
+            patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")),
+            patch.object(a, "get_live_price", return_value=10.0),
+        ]
+        for p in self._patches:
+            p.start()
+        a._save_momentum_pending([])
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        os.unlink(self._tmp.name)
+
+    def _add_pending(self, ticker, entry_px=10.0, stop_px=9.0, minutes_until_expiry=10):
+        entry = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                 "t1": entry_px * 1.3, "t2": entry_px * 1.5, "signal_str": "test breakout",
+                 "created_at": datetime.now(a.ET).isoformat(),
+                 "expires_at": (datetime.now(a.ET) + timedelta(minutes=minutes_until_expiry)).isoformat(),
+                 "status": "awaiting_approval"}
+        pending = a._load_momentum_pending()
+        pending.append(entry)
+        a._save_momentum_pending(pending)
+
+    def test_bare_yes_applies_to_the_only_pending_offer(self):
+        self._add_pending("HOOD")
+        fake_sig = a.ProSignal(ticker="HOOD", setup=a.MOMENTUM_DAY_ONLY_SETUP, bias="LONG",
+                                entry=10.0, stop=9.0, target1=13.0, target2=15.0, rr=3.0,
+                                rsi=50.0, rvol=0.0, reason="test", shares=10)
+        with patch.object(a, "_build_momentum_signal", return_value=fake_sig), \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            consumed = a._handle_momentum_approval_reply("yes")
+        self.assertTrue(consumed)
+        mock_submit.assert_called_once_with([fake_sig])
+        self.assertEqual(a._load_momentum_pending(), [])
+
+    def test_no_rejects_without_submitting(self):
+        self._add_pending("HOOD")
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            consumed = a._handle_momentum_approval_reply("no")
+        self.assertTrue(consumed)
+        mock_submit.assert_not_called()
+        self.assertIn("rejected", mock_tg.call_args[0][0])
+
+    def test_ambiguous_bare_yes_with_two_pending_is_not_silently_guessed(self):
+        self._add_pending("HOOD")
+        self._add_pending("APVO")
+        with patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            consumed = a._handle_momentum_approval_reply("yes")
+        self.assertTrue(consumed)   # message shape recognized, just ambiguous
+        mock_submit.assert_not_called()
+        # Both offers survive -- neither one was silently picked.
+        self.assertEqual(len(a._load_momentum_pending()), 2)
+
+    def test_yes_with_ticker_resolves_the_ambiguous_case(self):
+        self._add_pending("HOOD")
+        self._add_pending("APVO")
+        fake_sig = a.ProSignal(ticker="HOOD", setup=a.MOMENTUM_DAY_ONLY_SETUP, bias="LONG",
+                                entry=10.0, stop=9.0, target1=13.0, target2=15.0, rr=3.0,
+                                rsi=50.0, rvol=0.0, reason="test", shares=10)
+        with patch.object(a, "_build_momentum_signal", return_value=fake_sig), \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            a._handle_momentum_approval_reply("yes HOOD")
+        mock_submit.assert_called_once()
+        remaining = a._load_momentum_pending()
+        self.assertEqual(len(remaining), 1)
+        self.assertEqual(remaining[0]["ticker"], "APVO")
+
+    def test_non_yes_no_text_is_not_consumed(self):
+        self._add_pending("HOOD")
+        self.assertFalse(a._handle_momentum_approval_reply("what's the price"))
+        self.assertEqual(len(a._load_momentum_pending()), 1)   # untouched
+
+    def test_no_pending_offers_returns_false(self):
+        self.assertFalse(a._handle_momentum_approval_reply("yes"))
+
+    def test_circuit_breaker_blocks_submission(self):
+        self._add_pending("HOOD")
+        with patch.object(a, "_entry_circuit_breakers_ok", return_value=(False, "daily loss limit active")), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            a._handle_momentum_approval_reply("yes")
+        mock_submit.assert_not_called()
+        self.assertIn("daily loss limit active", mock_tg.call_args[0][0])
+
+    def test_macro_blackout_blocks_submission(self):
+        self._add_pending("HOOD")
+        with patch.object(a, "check_macro_safe", return_value=(False, 0)), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            a._handle_momentum_approval_reply("yes")
+        mock_submit.assert_not_called()
+        self.assertIn("macro blackout", mock_tg.call_args[0][0])
+
+    def test_price_drift_past_limit_aborts_without_submitting(self):
+        self._add_pending("HOOD", entry_px=10.0)
+        with patch.object(a, "get_live_price", return_value=11.0), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            a._handle_momentum_approval_reply("yes")   # +10% drift, past the 5% limit
+        mock_submit.assert_not_called()
+        self.assertIn("NOT submitted", mock_tg.call_args[0][0])
+
+    def test_small_price_drift_still_submits(self):
+        self._add_pending("HOOD", entry_px=10.0)
+        fake_sig = a.ProSignal(ticker="HOOD", setup=a.MOMENTUM_DAY_ONLY_SETUP, bias="LONG",
+                                entry=10.0, stop=9.0, target1=13.0, target2=15.0, rr=3.0,
+                                rsi=50.0, rvol=0.0, reason="test", shares=10)
+        with patch.object(a, "get_live_price", return_value=10.2), \
+             patch.object(a, "_build_momentum_signal", return_value=fake_sig), \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            a._handle_momentum_approval_reply("yes")
+        mock_submit.assert_called_once()
+
+    def test_sizing_failure_does_not_submit(self):
+        self._add_pending("HOOD")
+        fake_sig = a.ProSignal(ticker="HOOD", setup=a.MOMENTUM_DAY_ONLY_SETUP, bias="LONG",
+                                entry=10.0, stop=9.0, target1=13.0, target2=15.0, rr=3.0,
+                                rsi=50.0, rvol=0.0, reason="test", shares=0)   # sizing failed
+        with patch.object(a, "_build_momentum_signal", return_value=fake_sig), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            a._handle_momentum_approval_reply("yes")
+        mock_submit.assert_not_called()
+        self.assertIn("sizing failed", mock_tg.call_args[0][0])
+
+    def test_expired_offer_is_not_approvable(self):
+        # No other offer left pending once the expired one is swept, so
+        # this reply ultimately matches nothing -- same "not our message
+        # to consume" behavior _handle_earnings_approval_reply() already
+        # has for the identical case. The expiry notice still goes out;
+        # only the return value (whether THIS reply itself was consumed)
+        # is False.
+        self._add_pending("HOOD", minutes_until_expiry=-1)
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            consumed = a._handle_momentum_approval_reply("yes")
+        self.assertFalse(consumed)
+        mock_submit.assert_not_called()
+        self.assertIn("expired", mock_tg.call_args[0][0])
+        self.assertEqual(a._load_momentum_pending(), [])
+
+    def test_built_signal_carries_the_day_only_setup_tag(self):
+        # The whole point of this flow: whatever gets submitted must be
+        # tagged so _force_close_day_only_positions() can find it later.
+        self._add_pending("HOOD")
+        stats = {"win_rate": 0.5, "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10,
+                 "wins": 5, "losses": 5, "consec_losses": 0}
+        with patch.object(a.WinRateTracker, "setup_stats", return_value=stats), \
+             patch.object(a, "get_market_regime", return_value={"details": {"VIX": 15.0}}), \
+             patch.object(a, "get_effective_account", return_value=25_000.0), \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
+            a._handle_momentum_approval_reply("yes")
+        submitted_sig = mock_submit.call_args[0][0][0]
+        self.assertEqual(submitted_sig.setup, a.MOMENTUM_DAY_ONLY_SETUP)
+        self.assertEqual(submitted_sig.ticker, "HOOD")
+
+
+class TestForceCloseDayOnlyPositions(unittest.TestCase):
+    """_force_close_day_only_positions() is the other half of the day-only
+    scoping promise -- without it, a momentum-watch entry would just sit
+    open overnight like any other position, silently breaking the "day of
+    only" guarantee the approval message itself states."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]")
+        self._pos_tmp.close()
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        import functools
+        self._patches = [
+            patch.object(a, "PositionTracker", functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)),
+            # _is_alerted_today()/_mark_alerted() (the dedup this function
+            # actually uses) read _ALERT_DEDUP_FILE, not LAST_ALERTS_FILE
+            # (a separate, differently-keyed dedup mechanism) -- isolating
+            # the wrong constant here silently read/wrote the real
+            # production dman_alerts_dedup.json.
+            patch.object(a, "_ALERT_DEDUP_FILE", self._alerts_tmp.name),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        os.unlink(self._pos_tmp.name)
+        os.unlink(self._alerts_tmp.name)
+
+    def _day_only_pos(self, ticker="HOOD"):
+        return a.OpenPosition(
+            ticker=ticker, bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+            entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
+            entry_date=date.today().isoformat(), day_only=True,
+        )
+
+    def _fake_now(self, hour, minute):
+        return datetime(2026, 8, 31, hour, minute, tzinfo=a.ET)
+
+    def test_before_close_window_does_nothing(self):
+        a.PositionTracker().open(self._day_only_pos())
+        with patch.object(a, "_close_position_at_market") as mock_close:
+            closed = a._force_close_day_only_positions(self._fake_now(15, 0))   # before 3:45
+        self.assertEqual(closed, 0)
+        mock_close.assert_not_called()
+
+    def test_at_or_after_close_window_closes_day_only_positions(self):
+        a.PositionTracker().open(self._day_only_pos())
+        with patch.object(a, "_close_position_at_market", return_value=("submitted", "ord1")), \
+             patch.object(a, "send_telegram", return_value=True):
+            closed = a._force_close_day_only_positions(self._fake_now(15, 45))
+        self.assertEqual(closed, 1)
+
+    def test_non_day_only_positions_are_left_alone(self):
+        a.PositionTracker().open(a.OpenPosition(
+            ticker="CELZ", bias="LONG", setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=12.0, target2=14.0, shares=100,
+            entry_date=date.today().isoformat(), day_only=False,
+        ))
+        with patch.object(a, "_close_position_at_market") as mock_close:
+            closed = a._force_close_day_only_positions(self._fake_now(15, 45))
+        self.assertEqual(closed, 0)
+        mock_close.assert_not_called()
+
+    def test_already_attempted_today_is_not_resubmitted(self):
+        # A prior pass this session already tried this close (success or
+        # failure) -- every subsequent momentum-watch pass today must not
+        # keep resubmitting a market order for the same position.
+        a.PositionTracker().open(self._day_only_pos())
+        with patch.object(a, "_close_position_at_market", return_value=("submitted", "ord1")), \
+             patch.object(a, "send_telegram", return_value=True):
+            a._force_close_day_only_positions(self._fake_now(15, 45))
+            with patch.object(a, "_close_position_at_market") as mock_close_2:
+                closed_again = a._force_close_day_only_positions(self._fake_now(15, 46))
+        self.assertEqual(closed_again, 0)
+        mock_close_2.assert_not_called()
+
+    def test_already_closed_status_does_not_alert_or_count(self):
+        a.PositionTracker().open(self._day_only_pos())
+        with patch.object(a, "_close_position_at_market", return_value=("already_closed", None)), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            closed = a._force_close_day_only_positions(self._fake_now(15, 45))
+        self.assertEqual(closed, 0)
+        mock_tg.assert_not_called()
+
+    def test_failed_close_alerts_loudly(self):
+        a.PositionTracker().open(self._day_only_pos())
+        with patch.object(a, "_close_position_at_market", return_value=("failed", None)), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a._force_close_day_only_positions(self._fake_now(15, 45))
+        self.assertIn("FAILED", mock_tg.call_args[0][0])
+
+
+class TestClosePositionAtMarket(unittest.TestCase):
+    """_close_position_at_market() is the actual order-submission half of
+    the day-only close -- a bug here either fails to flatten a real
+    position or (worse) tries to close something already gone."""
+
+    def _pos(self, ticker="HOOD", setup=None):
+        return a.OpenPosition(
+            ticker=ticker, bias="LONG", setup=setup or a.MOMENTUM_DAY_ONLY_SETUP,
+            entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
+            entry_date=date.today().isoformat(), day_only=True,
+        )
+
+    def test_no_client_fails(self):
+        with patch.object(a, "get_alpaca_client", return_value=None):
+            status, oid = a._close_position_at_market(self._pos(), "test")
+        self.assertEqual(status, "failed")
+        self.assertIsNone(oid)
+
+    def test_nothing_held_is_already_closed(self):
+        mock_client = MagicMock()
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            status, oid = a._close_position_at_market(self._pos(), "test")
+        self.assertEqual(status, "already_closed")
+        mock_client.submit_order.assert_not_called()
+
+    def test_real_position_submits_a_market_sell(self):
+        mock_client = MagicMock()
+        mock_client.get_open_position.return_value = MagicMock(qty="10")
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="ord1")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            status, oid = a._close_position_at_market(self._pos(), "test")
+        self.assertEqual(status, "submitted")
+        self.assertEqual(oid, "ord1")
+        mock_client.submit_order.assert_called_once()
+
+    def test_options_position_closes_by_the_occ_symbol_not_the_ticker(self):
+        mock_client = MagicMock()
+        mock_client.get_open_position.return_value = MagicMock(qty="2")
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.return_value = MagicMock(id="ord1")
+        _pos = self._pos(setup="Options Call HOOD260807C00096000 ($96.0C exp 2026-08-07)")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._close_position_at_market(_pos, "test")
+        mock_client.get_open_position.assert_called_once_with("HOOD260807C00096000")
+
+    def test_open_stop_orders_are_cancelled_before_closing(self):
+        mock_client = MagicMock()
+        mock_client.get_open_position.return_value = MagicMock(qty="10")
+        mock_client.get_orders.return_value = [MagicMock(id="stop1")]
+        mock_client.submit_order.return_value = MagicMock(id="ord1")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            a._close_position_at_market(self._pos(), "test")
+        mock_client.cancel_order_by_id.assert_called_once_with("stop1")
+
+    def test_submission_failure_alerts_and_returns_failed(self):
+        mock_client = MagicMock()
+        mock_client.get_open_position.return_value = MagicMock(qty="10")
+        mock_client.get_orders.return_value = []
+        mock_client.submit_order.side_effect = Exception("broker error")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            status, oid = a._close_position_at_market(self._pos(), "test")
+        self.assertEqual(status, "failed")
+        self.assertIsNone(oid)
+        self.assertIn("MARKET CLOSE FAILED", mock_tg.call_args[0][0])
 
 
 class TestExpiredOfferIsTombstoned(unittest.TestCase):

@@ -142,6 +142,9 @@ STATE_FILES = [
                                      # class of bug: a new state file that isn't in this list simply
                                      # resets every fresh daemon checkout, silently undoing the whole
                                      # point of an auto-expiring restriction.
+    "dman_momentum_pending.json",   # awaiting-approval momentum-watch breakout offers — same
+                                      # reasoning as dman_earnings_pending.json above, added alongside
+                                      # that feature (2026-08-30)
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

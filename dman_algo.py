@@ -282,7 +282,10 @@ DMAN_SMALLCAP_WATCHLIST = _load_smallcap_watchlist()
 # _find_best_call_contract / _find_best_put_contract → _submit_options_call/put,
 # monitored + auto-closed by _monitor_option_position (cron hourly, daemon 60s).
 ENABLE_OPTIONS          = True
-OPTIONS_SETUPS          = {"Gap & Hold", "Morning Runner"}  # alert annotation only
+OPTIONS_SETUPS          = {"Gap & Hold", "Morning Runner"}  # alert annotation only;
+                                                              # MOMENTUM_DAY_ONLY_SETUP is added
+                                                              # to this set further down, after
+                                                              # that constant is defined
 OPTIONS_MIN_PRICE       = 10.0          # no options notes on sub-$10 stocks (illiquid chains)
 OPTIONS_TARGET_DTE      = 14            # target 2-week DTE — DMan gap plays resolve in 1-5 days
 OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — documents strike scan intent
@@ -434,6 +437,38 @@ MANUAL_BUY_MAX_PRICE_VS_ASK_MULT  = 2.0    # fat-finger guard — reject a chose
 
 MONTHLY_LOSS_LIMIT = 0.04          # halt for the month when down ≥4% of account
 MONTHLY_PNL_FILE   = "dman_monthly_pnl.json"
+
+# ── DMan Momentum Watch breakout approval ("BREAKOUT SETUP" alert -> YES/NO -> real order) ──
+# Direct instruction 2026-08-30: run_momentum_watch()'s "BREAKOUT SETUP" /
+# "VWAP RECLAIM" alerts already compute real entry/stop/T1/T2 levels but
+# were purely informational -- no way to act on one without leaving the
+# algo entirely and placing it by hand. Mirrors the earnings-spread
+# approval flow (same YES/NO + ticker-disambiguation pattern, same
+# consume-before-submit safety, same halt/macro-blackout gates at the YES
+# step) rather than inventing a new one. A position opened this way is
+# tagged MOMENTUM_DAY_ONLY_SETUP and force-closed near the same day's
+# market close (see _force_close_day_only_positions) -- a fast intraday
+# breakout call, not a multi-day thesis; direct instruction to keep it
+# scoped to the session it was found in.
+MOMENTUM_APPROVAL_TIMEOUT_MIN = 15   # a breakout setup goes stale fast -- unlike an earnings
+                                      # spread's 4h window, this expires quickly on purpose
+MOMENTUM_APPROVAL_MAX_PRICE_DRIFT_PCT = 5.0   # abort a late approval rather than submit off
+                                                # a stale entry_px -- same staleness philosophy
+                                                # as EARNINGS_APPROVAL_MAX_PRICE_DRIFT_PCT, tighter
+                                                # because a breakout's own timeout is already tight
+MOMENTUM_PENDING_FILE   = "dman_momentum_pending.json"
+MOMENTUM_DAY_ONLY_SETUP = "Momentum Watch Breakout (Day)"
+MOMENTUM_EOD_CLOSE_HOUR_ET   = 15    # force-close any open day-only position at/after this ET
+MOMENTUM_EOD_CLOSE_MINUTE_ET = 45    # time -- 3:45 PM ET, ahead of the last momentum-watch cron
+                                      # firing (~3:34 PM ET) so the close order has time to fill
+                                      # before the 4:00 PM close, and ahead of the 4:04 PM EOD
+                                      # summary run (which is outside momentum-watch's own
+                                      # 10 AM-4 PM dispatch window and would never see it).
+OPTIONS_SETUPS.add(MOMENTUM_DAY_ONLY_SETUP)   # same "setup is the real quality gate, not
+                                                # ticker-list membership" reasoning already
+                                                # applied to Gap & Hold/Morning Runner above --
+                                                # a momentum-watch breakout is already a human-
+                                                # approved, individually-vetted entry.
 
 # ── VIX-adjusted position sizing ─────────────────────────────────────────────
 # Scales share count down proportionally when VIX exceeds baseline.
@@ -3110,6 +3145,14 @@ def _has_pending_reply_prompt() -> bool:
                 return True
         except Exception:
             return True   # malformed expiry -- fail toward "still worth a nudge"
+    for entry in _load_momentum_pending():
+        if entry.get("status") != "awaiting_approval":
+            continue
+        try:
+            if now < datetime.fromisoformat(entry["expires_at"]):
+                return True
+        except Exception:
+            return True   # malformed expiry -- fail toward "still worth a nudge"
     return False
 
 
@@ -3175,6 +3218,59 @@ def _consume_earnings_offer_save(pending: list[dict], entry: dict) -> None:
     _, consumed = _load_earnings_state()
     consumed[_earnings_offer_identity(entry)] = time.time()
     _save_earnings_state(pending, consumed)
+
+
+_MOMENTUM_OFFER_TOMBSTONE_S = 3600   # 1h -- shorter than earnings' 6h, matching this
+                                      # offer's own much-shorter MOMENTUM_APPROVAL_TIMEOUT_MIN
+
+def _momentum_offer_identity(entry: dict) -> str:
+    return f"{entry.get('ticker', '')}_{entry.get('created_at', '')}"
+
+
+def _load_momentum_state() -> tuple[list[dict], dict]:
+    try:
+        with open(MOMENTUM_PENDING_FILE) as f:
+            data = json.load(f)
+        return data.get("pending", []), data.get("consumed", {})
+    except Exception:
+        return [], {}
+
+
+def _load_momentum_pending() -> list[dict]:
+    return _load_momentum_state()[0]
+
+
+def _save_momentum_state(pending: list[dict], consumed: dict) -> None:
+    now = time.time()
+    consumed = {k: v for k, v in consumed.items() if now - float(v) < _MOMENTUM_OFFER_TOMBSTONE_S}
+    _write_json_atomic(MOMENTUM_PENDING_FILE,
+                       {"pending": pending, "consumed": consumed}, indent=2, default=str)
+
+
+def _save_momentum_pending(entries: list[dict]) -> None:
+    """
+    Back-compat wrapper for a caller that isn't finalizing (consuming) any
+    specific offer -- preserves whatever consumed-identity tombstones are
+    already on disk. See _save_earnings_pending()'s docstring for the same
+    reasoning; _consume_momentum_offer_save() is the one to use when a
+    YES/NO reply reaches a terminal outcome.
+    """
+    _, consumed = _load_momentum_state()
+    _save_momentum_state(entries, consumed)
+
+
+def _consume_momentum_offer_save(pending: list[dict], entry: dict) -> None:
+    """
+    Persist `pending` (with `entry` already removed by the caller) and
+    tombstone its identity so a later git merge against a stale remote
+    copy of MOMENTUM_PENDING_FILE -- one that still shows this offer as
+    "awaiting_approval" -- can't resurrect it. Same reasoning as
+    _consume_earnings_offer_save(): a resurrected APPROVED offer risks a
+    duplicate real order on a redelivered Telegram update.
+    """
+    _, consumed = _load_momentum_state()
+    consumed[_momentum_offer_identity(entry)] = time.time()
+    _save_momentum_state(pending, consumed)
 
 
 def _earnings_sector_overlap(ticker: str, pending: list[dict]) -> list[str]:
@@ -3495,6 +3591,149 @@ def _handle_earnings_approval_reply(text: str) -> bool:
     return True
 
 
+def format_momentum_breakout_telegram(offer: dict) -> str:
+    """Approval call-to-action appended under a BREAKOUT SETUP / VWAP
+    RECLAIM line in run_momentum_watch()'s digest -- see
+    _handle_momentum_approval_reply()."""
+    return (f"   Reply <b>YES {offer['ticker']}</b> to enter (day-only — auto-closes "
+            f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET) "
+            f"· <b>NO {offer['ticker']}</b> to skip · expires in {MOMENTUM_APPROVAL_TIMEOUT_MIN} min")
+
+
+def _build_momentum_signal(offer: dict) -> ProSignal:
+    """
+    Builds and sizes a ProSignal from an approved momentum-watch breakout
+    offer, through the exact same sizing path run_pro_scanner() uses for
+    its own signals (WinRateTracker.setup_stats() + size_position_kelly())
+    rather than inventing a separate rule for a human-approved one.
+    confluence_score is set to 100 -- _submit_signals_to_alpaca() never
+    gates on it (only records/displays it), so this just documents that a
+    human approval already stood in for a score threshold here.
+    """
+    _risk_per_share = max(offer["entry_px"] - offer["stop_px"], 0.0001)
+    sig = ProSignal(
+        ticker=offer["ticker"], setup=MOMENTUM_DAY_ONLY_SETUP, bias="LONG",
+        entry=offer["entry_px"], stop=offer["stop_px"],
+        target1=offer["t1"], target2=offer["t2"],
+        rr=round((offer["t1"] - offer["entry_px"]) / _risk_per_share, 2),
+        rsi=50.0, rvol=0.0, reason=offer.get("signal_str", "momentum watch breakout"),
+        confluence_score=100,
+    )
+    stats = WinRateTracker().setup_stats(MOMENTUM_DAY_ONLY_SETUP)
+    vix = float(get_market_regime().get("details", {}).get("VIX", VIX_SIZE_BASE))
+    return size_position_kelly(sig, get_effective_account(), stats["win_rate"],
+                               stats["avg_win_r"], stats["avg_loss_r"], vix)
+
+
+def _handle_momentum_approval_reply(text: str) -> bool:
+    """
+    Matches a bare (non-"/"-prefixed) YES/NO reply against pending
+    momentum-watch breakout offers -- same pattern as
+    _handle_earnings_approval_reply() (ticker-disambiguation when 2+
+    offers are pending, consume-before-submit so a redelivered Telegram
+    update can't double-submit, halt/macro-blackout/circuit-breaker gates
+    re-checked at the YES step regardless of what was true when the offer
+    was built). See that function's docstring for the full reasoning,
+    reused here unchanged. Sizing and the actual order go through
+    _submit_signals_to_alpaca() -- the same pipeline run_pro_scanner()
+    uses -- rather than a separate hand-built submission path, so this
+    inherits its options-vs-shares choice, PDT/halt/loss-limit re-checks,
+    and Telegram confirmation messaging for free.
+    """
+    import re
+    m = re.match(r"^(yes|y|no|n)\b\s*([A-Za-z]*)\s*$", text.strip(), re.IGNORECASE)
+    if not m:
+        return False
+    is_yes = m.group(1).lower() in ("yes", "y")
+    ticker_hint = m.group(2).upper().strip()
+
+    pending = _load_momentum_pending()
+    if not pending:
+        return False
+
+    now = datetime.now(ET)
+    still_pending = []
+    _expired = []
+    for entry in pending:
+        if entry.get("status") == "awaiting_approval":
+            try:
+                if now >= datetime.fromisoformat(entry["expires_at"]):
+                    send_telegram(f"⏰ {entry['ticker']} momentum breakout offer expired — "
+                                 f"no reply within {MOMENTUM_APPROVAL_TIMEOUT_MIN} min, no order placed.")
+                    _expired.append(entry)
+                    continue
+            except Exception:
+                pass
+        still_pending.append(entry)
+    pending = still_pending
+    for _exp in _expired:
+        _consume_momentum_offer_save(pending, _exp)
+
+    awaiting = [e for e in pending if e.get("status") == "awaiting_approval"]
+    if not awaiting:
+        _save_momentum_pending(pending)
+        return False   # nothing pending — not our message to consume
+
+    if ticker_hint:
+        matches = [e for e in awaiting if e["ticker"] == ticker_hint]
+    elif len(awaiting) == 1:
+        matches = awaiting
+    else:
+        print(f"  ⚠️  Ambiguous YES/NO reply with {len(awaiting)} pending momentum-watch "
+              f"offers and no ticker given — ignoring (reply 'YES TICKER' explicitly)")
+        _save_momentum_pending(pending)
+        return True
+
+    if not matches:
+        _save_momentum_pending(pending)
+        return False   # ticker given but doesn't match any pending offer
+
+    entry = matches[0]
+    pending = [e for e in pending if e is not entry]
+    _consume_momentum_offer_save(pending, entry)
+
+    if not is_yes:
+        send_telegram(f"👍 {entry['ticker']} momentum breakout rejected — no order placed.")
+        return True
+
+    _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
+    if not _cb_ok:
+        send_telegram(f"🛑 {entry['ticker']} momentum breakout approved but NOT submitted — {_cb_reason}.")
+        return True
+
+    _macro_ok, _ = check_macro_safe()
+    if not _macro_ok:
+        send_telegram(f"⛔ {entry['ticker']} momentum breakout NOT submitted — macro blackout active "
+                       f"(FOMC/CPI/NFP window, stops unreliable right now).")
+        return True
+
+    # Same staleness reasoning as _handle_earnings_approval_reply()'s drift
+    # check, tighter tolerance since a breakout's own approval window is
+    # already only MOMENTUM_APPROVAL_TIMEOUT_MIN long, not hours.
+    _snapshot_px = float(entry.get("entry_px", 0) or 0)
+    if _snapshot_px > 0:
+        _now_px = get_live_price(entry["ticker"])
+        if _now_px is not None:
+            _drift_pct = abs(_now_px - _snapshot_px) / _snapshot_px * 100
+            if _drift_pct > MOMENTUM_APPROVAL_MAX_PRICE_DRIFT_PCT:
+                send_telegram(
+                    f"⚠️ <b>{entry['ticker']} momentum breakout NOT submitted</b> — price moved "
+                    f"{_drift_pct:.1f}% since this offer was built (${_snapshot_px:.4f} → "
+                    f"${_now_px:.4f}), past the {MOMENTUM_APPROVAL_MAX_PRICE_DRIFT_PCT:.0f}% "
+                    f"staleness limit. Wait for the next momentum-watch pass for a fresh offer."
+                )
+                return True
+
+    sig = _build_momentum_signal(entry)
+    if sig.shares <= 0:
+        send_telegram(f"⏭️ {entry['ticker']} momentum breakout approved but sizing failed "
+                       f"(even 1 share exceeds the risk budget for this stop distance) — not submitted.")
+        return True
+
+    _submit_signals_to_alpaca([sig])
+    return True
+
+
 def _process_telegram_commands(timeout: int = 0) -> int:
     """
     Poll Telegram getUpdates and execute pending bot commands.
@@ -3539,6 +3778,8 @@ def _process_telegram_commands(timeout: int = 0) -> int:
                 if _handle_manual_options_buy_reply(_text):
                     _handled += 1
                 elif _handle_earnings_approval_reply(_text):
+                    _handled += 1
+                elif _handle_momentum_approval_reply(_text):
                     _handled += 1
                 elif _has_pending_reply_prompt():
                     # Neither handler recognized this as YES/NO-shaped, but
@@ -6456,6 +6697,114 @@ def _close_earnings_spread(pos: dict, reason: str) -> tuple[str, Optional[str]]:
         return "failed", None
 
 
+def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Optional[str]]:
+    """
+    Flattens ANY tracked position (equity or single-leg option) with a
+    real market order: cancels whatever stop/target orders are open for
+    the symbol, then submits a market SELL_TO_CLOSE for the full held
+    quantity. Built for _force_close_day_only_positions() but general
+    enough for any other "just get out now" need. Does not touch
+    PositionTracker directly -- the normal sync pipeline reconciles the
+    resulting fill into win-rate/history the same way it does for any
+    other real close.
+
+    Returns (status, order_id) -- "submitted"/"already_closed"/"failed",
+    the same vocabulary _submit_options_close()/_close_earnings_spread()
+    already use.
+    """
+    client = get_alpaca_client()
+    if client is None:
+        return "failed", None
+
+    is_option = pos.setup.startswith("Options Call ") or pos.setup.startswith("Options Put ")
+    if is_option:
+        _parts = pos.setup.split()
+        symbol = _parts[2] if len(_parts) >= 3 else ""
+    else:
+        symbol = pos.ticker
+    if not symbol:
+        return "failed", None
+
+    try:
+        _apos = client.get_open_position(symbol)
+        _qty  = abs(int(float(_apos.qty)))
+        if _qty == 0:
+            return "already_closed", None
+    except Exception:
+        return "already_closed", None   # Alpaca shows nothing held -- already gone
+
+    try:
+        _open_orders = client.get_orders(filter=GetOrdersRequest(
+            symbols=[symbol], status=QueryOrderStatus.OPEN, limit=20))
+        for _o in _open_orders:
+            try:
+                client.cancel_order_by_id(_o.id)
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+    try:
+        from alpaca.trading.enums import PositionIntent
+        order = client.submit_order(MarketOrderRequest(
+            symbol=symbol, qty=_qty, side=OrderSide.SELL,
+            time_in_force=TimeInForce.DAY, position_intent=PositionIntent.SELL_TO_CLOSE,
+        ))
+        print(f"  🕓 Market close: {pos.ticker} ({reason})  id={str(order.id)[:8]}…")
+        return "submitted", str(order.id)
+    except Exception as exc:
+        print(f"  ❌ Market close failed for {pos.ticker}: {exc}")
+        send_telegram(f"🚨 <b>MARKET CLOSE FAILED</b> — {pos.ticker} ({reason})\n"
+                     f"{exc}\nClose manually in Alpaca NOW.")
+        return "failed", None
+
+
+def _force_close_day_only_positions(_now_et: Optional[datetime] = None) -> int:
+    """
+    Force-closes every tracked day_only position (see OpenPosition.
+    day_only / MOMENTUM_DAY_ONLY_SETUP) at/after MOMENTUM_EOD_CLOSE_HOUR_
+    ET:MOMENTUM_EOD_CLOSE_MINUTE_ET. Called from run_momentum_watch(),
+    which is already dispatched throughout the 10 AM-4 PM ET session (see
+    dman_scanner.yml) -- no separate schedule needed. Direct instruction
+    2026-08-30: a momentum-watch breakout entry is a fast intraday call,
+    not a multi-day thesis -- scoped to the session it was found in,
+    never carried into overnight gap risk.
+
+    Dedup-guarded per ticker per day (_is_alerted_today) so this doesn't
+    resubmit a close on every subsequent momentum-watch pass once one has
+    already been attempted today -- the position either closed (nothing
+    left to do) or failed loudly (already alerted, don't spam retries
+    silently). Returns the count of closes actually submitted.
+
+    _now_et is a test seam (defaults to the real datetime.now(ET)) --
+    deliberately NOT satisfied by patching the module's `datetime` name
+    directly, which would also silently break every other datetime.*
+    call this function and everything it touches (PositionTracker,
+    _is_alerted_today) makes along the way.
+    """
+    now_et = _now_et if _now_et is not None else datetime.now(ET)
+    if (now_et.hour, now_et.minute) < (MOMENTUM_EOD_CLOSE_HOUR_ET, MOMENTUM_EOD_CLOSE_MINUTE_ET):
+        return 0
+    closed = 0
+    for pos in list(PositionTracker().positions):
+        if not pos.day_only:
+            continue
+        _dedup_key = f"{pos.ticker}_DAYONLY_CLOSE_{now_et.date().isoformat()}"
+        if _is_alerted_today(_dedup_key):
+            continue
+        status, order_id = _close_position_at_market(pos, "day-only momentum entry, EOD close")
+        _mark_alerted(_dedup_key)
+        if status == "submitted":
+            closed += 1
+            send_telegram(f"🕓 <b>{pos.ticker} DAY-ONLY EOD CLOSE</b> — id {order_id[:8]}…\n"
+                          f"Momentum-watch breakout entry closing per session scope.")
+        elif status == "failed":
+            send_telegram(f"🚨 <b>{pos.ticker} DAY-ONLY EOD CLOSE FAILED</b> — check Alpaca manually NOW.")
+        # "already_closed" -- nothing to do, the normal sync pipeline
+        # reconciles it into win-rate history on its own next pass.
+    return closed
+
+
 def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
     """
     Earnings debit spreads are defined-risk by construction (max loss == the
@@ -6930,6 +7279,15 @@ def run_momentum_watch() -> None:
     now_et = datetime.now(ET)
     print(f"\n  📡 MOMENTUM WATCH — {now_et.astimezone(MT).strftime('%I:%M %p MT')}")
 
+    # Day-only positions (momentum-watch breakout entries, see
+    # MOMENTUM_DAY_ONLY_SETUP) force-close near the same day's market
+    # close -- this is the only place in the 10 AM-4 PM ET session where
+    # that check runs, since it's dispatched frequently throughout the
+    # day already (see dman_scanner.yml). Runs first, before anything
+    # else in this function, so it isn't skipped by an early return below
+    # on a day with nothing else active to watch.
+    _force_close_day_only_positions()
+
     # Collect active plays
     active_plays: list[dict] = []
     options_alerts: list[str] = []
@@ -7082,7 +7440,7 @@ def run_momentum_watch() -> None:
                     t2 = round(entry_px * 1.50, 4)
                     t3_str = f"  T3 2x: ${round(entry_px * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
                     _label = "🔥 VWAP RECLAIM" if (not bp["setup"] and _above_vwap) else "BREAKOUT SETUP"
-                    setup_alerts.append(
+                    _breakout_msg = (
                         f"🟡 <b>{ticker}</b>  {_label}  [{source}]{_vwap_tag}\n"
                         f"   {sig_str}\n"
                         f"   Entry: <b>${entry_px:.4f}</b>  Stop: ${stop_px:.4f}  "
@@ -7090,6 +7448,28 @@ def run_momentum_watch() -> None:
                         f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
                         f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
                     )
+                    # Make it actionable, not just informational -- direct
+                    # instruction 2026-08-30. One offer per ticker at a
+                    # time: a fresh alert for a ticker that already has an
+                    # awaiting-approval offer just shows a note instead of
+                    # opening a second, redundant approval.
+                    _mw_pending = _load_momentum_pending()
+                    if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
+                           for e in _mw_pending):
+                        _breakout_msg += f"\n   (approval already pending for {ticker})"
+                    else:
+                        _mw_now = datetime.now(ET)
+                        _mw_offer = {
+                            "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                            "t1": t1, "t2": t2, "signal_str": sig_str,
+                            "created_at": _mw_now.isoformat(),
+                            "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
+                            "status": "awaiting_approval",
+                        }
+                        _mw_pending.append(_mw_offer)
+                        _save_momentum_pending(_mw_pending)
+                        _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
+                    setup_alerts.append(_breakout_msg)
             else:
                 # In position — check fade + trailing stop levels
                 gain_pct = (cur - entry) / entry * 100 if entry > 0 else 0.0
@@ -11458,6 +11838,18 @@ class OpenPosition:
                                # level, silently giving back real, already-locked-in
                                # gain. 0.0 means never progressed to trailing (or a
                                # position tracked before this field existed).
+    day_only: bool = False   # True for a momentum-watch breakout entry (see
+                               # MOMENTUM_DAY_ONLY_SETUP) -- force-closed near the
+                               # same day's market close (_force_close_day_only_
+                               # positions()) regardless of instrument type. Needed
+                               # as its own field because the options branch of
+                               # _submit_signals_to_alpaca() overwrites `setup` with
+                               # the option's own "Options Call SYMBOL (...)" label,
+                               # losing the originating signal's setup name entirely
+                               # -- checking `setup == MOMENTUM_DAY_ONLY_SETUP` alone
+                               # would silently miss every options fill from this
+                               # flow. False (default) for every other position type,
+                               # including one tracked before this field existed.
 
 
 def _position_identity(ticker: str, setup: str) -> str:
@@ -17838,8 +18230,16 @@ def _shares_fallback_allowed(ticker: str, setup: str = "") -> bool:
     (elevated, +10pt under probation) confluence bar to generate a
     signal in the first place -- this doesn't loosen that, only lets a
     signal that already cleared it actually reach the market.
+
+    Extended 2026-08-30 to also cover MOMENTUM_DAY_ONLY_SETUP for the
+    same reason: a momentum-watch breakout is drawn from the same thin-
+    float small-cap universe (DMAN_SMALLCAP_WATCHLIST + dynamically
+    discovered movers) and is individually human-approved before any
+    order goes out -- watchlist membership adds nothing a real YES
+    doesn't already cover.
     """
-    return ticker in DMAN_SMALLCAP_WATCHLIST or setup == "Low Float Catalyst"
+    return (ticker in DMAN_SMALLCAP_WATCHLIST or setup == "Low Float Catalyst"
+            or setup == MOMENTUM_DAY_ONLY_SETUP)
 
 
 def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
@@ -18247,6 +18647,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     entry_date = datetime.today().strftime("%Y-%m-%d"),
                     atr        = _delta,
                     score      = sig.confluence_score,
+                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP),
                 ))
                 if not _tracked:
                     print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} options order {oid[:8]}")
@@ -18301,6 +18702,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
                     entry_date = datetime.today().strftime("%Y-%m-%d"),
                     atr        = sig.atr,
                     score      = sig.confluence_score,
+                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP),
                 ))
                 if not _tracked:
                     print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} order {oid[:8]}")

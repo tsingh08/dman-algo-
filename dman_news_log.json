@@ -1448,5 +1448,103 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:08:48.329152-04:00",
+    "symbols": [
+      "MSFT",
+      "UBER"
+    ],
+    "headline": "OpenAI Bolsters Technical Ranks with Kairos Computer Founders",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T16:14:38.046723-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT"
+    ],
+    "headline": "Apple Alleges Defendant In Trade Secret Case Against OpenAI Accessed Power Converter Circuit Schematic While At OpenAI; Alleges Defendant In Trade Secret Case Against OpenAI Trained AI Agent Using Proprietary Apple Information; Apple Says New Evidence Came To Light From MacBook Computer OpenAI Provided To Apple On August 21 As Part Of Legal Proceedings; Apple Is Asking U.S. Federal Court To Expedite Discovery Proceeding In Trade Secret Case Against OpenAI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T16:18:08.604785-04:00",
+    "symbols": [
+      "GOOGL",
+      "META",
+      "MU",
+      "NVDA",
+      "SNDK",
+      "SPCX"
+    ],
+    "headline": "Trump\u2019s Truth Social ETF Manager Is Betting Big on AI, Crypto and New ETFs",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:19:05.403729-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Just Flagged AI&#39;s Next Bottleneck: This Public Company Offers Direct Exposure",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:20:58.317070-04:00",
+    "symbols": [
+      "LABT"
+    ],
+    "headline": "Lakewood-Amedex Biotherapeutics shares are trading higher after the company received a notice of allowance for a U.S. patent titled  &#34;ANTIMICROBIAL COMPOUNDS, COMPOSITIONS, AND USES THEREOF&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:36:30.459259-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump\u2019s Venezuelan Oil Company Plans Massive Drilling Push; Company Led By Alejandro Betancourt Plans To Dispatch More Than 50 Drilling Rigs To Turbocharge The Country\u2019s Anemic Crude Production&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T16:42:38.230042-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Reveals Its New AI Partner Specialization Within The CrowdStrike Accelerate Partner Program",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T16:42:43.825446-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "AtaiBeckley Says Hart-Scott-Rodino Waiting Period For Merger With Eli Lilly Expired On Aug 28, 2026; UK Competition Authority Has No Further Questions On Merger As Of August 21, 2026",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-31T17:00:03.001992-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL"
+    ],
+    "headline": "MapQuest vs. Trump: OG of Maps Keeps Lake Ontario Name, Sees Download Surge and Stock Boost for Parent",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1628,5 +1628,68 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:43:38.867657-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon.com shares are trading lower following reports suggesting the FTC sued the company, alleging it manipulated ad prices.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:43:54.150815-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Tim Cook Leaves Apple 13 Times Bigger Than He Found It: 5 Milestones From His 15 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:44:31.433903-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Administration Reaches New Drug Pricing Agreement With Nine Pharma Firms",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:44:48.518380-04:00",
+    "symbols": [
+      "BABA",
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "CXMT\u2019s HBM3E Push Challenges Micron: These ETFs Play the AI Memory Boom",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-31T15:45:31.332627-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks shares are trading higher. The stock could be rallying ahead of its scheduled Q4 earnings report, expected after the market closes tomorrow.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:47:22.119651-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Refutes U.S. Federal Trade Commission Lawsuit Over Allegedly Misleading Advertisers About Its Sponsored Ads Pricing, Auction",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

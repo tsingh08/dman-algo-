@@ -1434,5 +1434,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:05:51.074479-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What&#39;s Going On With the Fall in Amazon Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:06:02.796405-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Amazon Web Services, Microsoft Collaborate On Multicloud Networking",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:06:03.834357-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Web Services, Microsoft Collaborate On Multicloud Networking",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:06:04.099396-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "AI Boom Needs Electricity \u2014 These Solar ETFs Could Be the Beneficiaries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T15:06:07.446608-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "AI Boom Needs Electricity \u2014 These Solar ETFs Could Be the Beneficiaries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T15:06:07.671153-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "AI Boom Needs Electricity \u2014 These Solar ETFs Could Be the Beneficiaries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

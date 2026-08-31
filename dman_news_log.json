@@ -1206,5 +1206,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T13:10:47.159319-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "JPMorgan Says Broadcom\u2019s Google Concerns Are Overstated Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:10:48.298673-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "JPMorgan Says Broadcom\u2019s Google Concerns Are Overstated Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:10:49.808423-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "JPMorgan Says Broadcom\u2019s Google Concerns Are Overstated Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

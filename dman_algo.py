@@ -10892,6 +10892,55 @@ Write exactly 4-5 short plain-text sentences (no markdown, no bullets — this g
         return ""
 
 
+def _confirm_directional_with_options_flow(ticker: str, hist_direction: str) -> Optional[str]:
+    """
+    Real-time options-flow confirmation gate before an earnings spread
+    goes single-sided. Direct instruction 2026-08-30, after this
+    session's live review found the earnings-spread family's real record
+    (1W/3L, ~-63% average) all came from double (both-sides) spreads or
+    a malformed one -- default to the hedged double spread; go
+    single-sided only when a SECOND, independent signal agrees with the
+    historical move pattern, not on history alone. "Full confidence"
+    means both a consistent multi-quarter historical direction (already
+    required to reach this function) AND real-time options positioning
+    leaning the same way going into this specific event -- the classic
+    "what is the market pricing in right now" read, not just "what
+    happened last time."
+
+    Reuses the same put/call open-interest flow lean _submit_options_
+    call() already reads for regular directional entries
+    (_get_options_market_context(): pc_ratio < 0.70 = call-heavy/
+    bullish flow, > 1.30 = put-heavy/cautious flow, in between =
+    neutral) rather than inventing a second signal from scratch.
+
+    Returns hist_direction only when live flow agrees; None (falls back
+    to the double spread) when flow disagrees, is neutral, or can't be
+    read at all -- including the "inverse" case, where history points
+    one way but the market is actually positioned the other way into
+    this specific event. Fails toward the safer, hedged structure,
+    never toward a directional bet the live data doesn't actually back.
+    """
+    today = date.today()
+    target_expiry = None
+    for offset in range(EARNINGS_SPREAD_TARGET_DTE, EARNINGS_SPREAD_TARGET_DTE + 8):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == 4:
+            target_expiry = candidate
+            break
+    if not target_expiry:
+        return None
+    flow = _get_options_market_context(ticker, target_expiry.isoformat())
+    flow_direction = ("CALL" if "bullish" in flow["flow_label"]
+                       else "PUT" if "cautious" in flow["flow_label"] else None)
+    if flow_direction == hist_direction:
+        print(f"  📈 {ticker}: historical {hist_direction} pattern confirmed by real-time "
+              f"options flow (P/C {flow['pc_ratio']}, {flow['flow_label']}) — going single-sided")
+        return hist_direction
+    print(f"  🔀 {ticker}: historical {hist_direction} pattern NOT confirmed by real-time "
+          f"options flow (P/C {flow['pc_ratio']}, {flow['flow_label']}) — defaulting to double spread")
+    return None
+
+
 def build_earnings_spread_plan(client, ticker: str, current_price: float,
                                earn_date: date, timing: str) -> Optional[dict]:
     """
@@ -10911,10 +10960,13 @@ def build_earnings_spread_plan(client, ticker: str, current_price: float,
         same_sign_down = sum(1 for m in moves if m < 0)
         avg_mag = sum(abs(m) for m in moves) / len(moves)
         if avg_mag >= EARNINGS_DIRECTIONAL_MIN_AVG_PCT:
+            _hist_direction = None
             if same_sign_up >= EARNINGS_DIRECTIONAL_MIN_MOVES:
-                go_single_sided = "CALL"
+                _hist_direction = "CALL"
             elif same_sign_down >= EARNINGS_DIRECTIONAL_MIN_MOVES:
-                go_single_sided = "PUT"
+                _hist_direction = "PUT"
+            if _hist_direction:
+                go_single_sided = _confirm_directional_with_options_flow(ticker, _hist_direction)
 
     sides = [go_single_sided] if go_single_sided else ["CALL", "PUT"]
     legs: dict[str, dict] = {}

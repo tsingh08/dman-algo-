@@ -8364,6 +8364,84 @@ class TestEarningsSpreadSizing(unittest.TestCase):
         self.assertIsNone(plan)
 
 
+class TestConfirmDirectionalWithOptionsFlow(unittest.TestCase):
+    """Direct instruction 2026-08-30, after this session's review found the
+    earnings-spread family's real record (1W/3L, ~-63% average) all came
+    from double spreads or a malformed one: default to the hedged double
+    spread, single-sided only when real-time options flow agrees with the
+    historical move pattern -- a consistent history alone isn't "full
+    confidence" any more."""
+
+    def test_agreeing_bullish_flow_confirms_call_direction(self):
+        with patch.object(a, "_get_options_market_context", return_value={
+                "pc_ratio": 0.5, "flow_label": "bullish (call-heavy flow)"}):
+            self.assertEqual(a._confirm_directional_with_options_flow("NVDA", "CALL"), "CALL")
+
+    def test_agreeing_cautious_flow_confirms_put_direction(self):
+        with patch.object(a, "_get_options_market_context", return_value={
+                "pc_ratio": 1.5, "flow_label": "cautious (put-heavy hedge flow)"}):
+            self.assertEqual(a._confirm_directional_with_options_flow("XYZ", "PUT"), "PUT")
+
+    def test_disagreeing_flow_falls_back_to_double_spread(self):
+        # The "inverse" case: history says CALL, but the market is
+        # actually positioned bearish going into this specific event.
+        with patch.object(a, "_get_options_market_context", return_value={
+                "pc_ratio": 1.5, "flow_label": "cautious (put-heavy hedge flow)"}):
+            self.assertIsNone(a._confirm_directional_with_options_flow("NVDA", "CALL"))
+
+    def test_neutral_flow_falls_back_to_double_spread(self):
+        with patch.object(a, "_get_options_market_context", return_value={
+                "pc_ratio": 1.0, "flow_label": "neutral"}):
+            self.assertIsNone(a._confirm_directional_with_options_flow("NVDA", "CALL"))
+
+
+class TestBuildEarningsSpreadPlanDirectionalGate(unittest.TestCase):
+    """Integration-level: build_earnings_spread_plan() must actually wire
+    the new confirmation gate in, not just have it exist unused."""
+
+    def _legs(self, side):
+        return {"long_occ": f"{side}1", "short_occ": f"{side}2",
+                "long_strike": 100, "short_strike": 105 if side == "call" else 95,
+                "net_debit": 0.5, "expiry": "2026-09-04", "dte": 7,
+                "long_oi": 500, "short_oi": 500}
+
+    def test_confirmed_direction_produces_a_single_sided_plan(self):
+        # 3 consistent up-moves, all above the min avg magnitude -- clears
+        # the historical bar, and flow agrees.
+        with patch.object(a, "get_effective_account", return_value=25_000.0), \
+             patch.object(a, "_last_n_earnings_moves", return_value=[10.0, 12.0, 9.0]), \
+             patch.object(a, "_confirm_directional_with_options_flow", return_value="CALL"), \
+             patch.object(a, "_find_spread_legs", side_effect=lambda c, t, p, side, b: self._legs(side.lower())):
+            plan = a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a.date.today(), "AMC")
+        self.assertEqual(plan["directional"], "CALL")
+        self.assertIn("call", plan)
+        self.assertNotIn("put", plan)
+
+    def test_unconfirmed_direction_falls_back_to_a_double_spread(self):
+        # Same clean historical pattern, but the confirmation gate says
+        # real-time flow disagrees -- must still get BOTH sides, not just
+        # the historically-favored one.
+        with patch.object(a, "get_effective_account", return_value=25_000.0), \
+             patch.object(a, "_last_n_earnings_moves", return_value=[10.0, 12.0, 9.0]), \
+             patch.object(a, "_confirm_directional_with_options_flow", return_value=None), \
+             patch.object(a, "_find_spread_legs", side_effect=lambda c, t, p, side, b: self._legs(side.lower())):
+            plan = a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a.date.today(), "AMC")
+        self.assertIsNone(plan["directional"])
+        self.assertIn("call", plan)
+        self.assertIn("put", plan)
+
+    def test_no_historical_pattern_never_calls_the_flow_gate(self):
+        # Nothing to confirm if history itself doesn't clear the bar --
+        # the flow check should be skipped entirely, not called with
+        # nothing meaningful to check.
+        with patch.object(a, "get_effective_account", return_value=25_000.0), \
+             patch.object(a, "_last_n_earnings_moves", return_value=[1.0, -1.0, 0.5]), \
+             patch.object(a, "_confirm_directional_with_options_flow") as mock_confirm, \
+             patch.object(a, "_find_spread_legs", side_effect=lambda c, t, p, side, b: self._legs(side.lower())):
+            a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a.date.today(), "AMC")
+        mock_confirm.assert_not_called()
+
+
 class TestBrokerSideStopCoverageCheck(unittest.TestCase):
     """_check_open_position_risk()'s orphan check only asks "do WE know
     about this position" — it never asked whether Alpaca actually has a

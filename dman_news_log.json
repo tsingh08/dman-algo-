@@ -1359,5 +1359,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:35:23.556180-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "B of A Securities Maintains Buy on Rocket Lab, Lowers Price Target to $110",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T13:35:48.221101-04:00",
+    "symbols": [
+      "AVGO",
+      "CRWD",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "SMCI",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:35:48.558308-04:00",
+    "symbols": [
+      "AMZN",
+      "BABA",
+      "GME",
+      "PDD",
+      "TSLA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T13:35:48.783363-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "8 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-31T13:38:10.721667-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "FDA Approves Gilead&#39;s New Single Tablet HIV Regimen",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1617,5 +1617,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-08-31T15:41:06.695635-04:00",
+    "symbols": [
+      "AAPL",
+      "DIA"
+    ],
+    "headline": "Tim Cook Leaves Apple 13 Times Bigger Than He Found It: 5 Milestones From His 15 Years",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1328,5 +1328,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T13:31:26.369939-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going on with ExxonMobil Shares on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-08-31T13:32:53.685967-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "B of A Securities Maintains Underperform on Intuitive Machines, Raises Price Target to $13",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T13:33:02.914787-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Amazon Web Services Accelerates Middle East AI Push with Saudi Cloud Region Launch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

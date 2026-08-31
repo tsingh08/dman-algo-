@@ -1339,5 +1339,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T14:32:37.539097-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "ChatGPT Ads Surge: How OpenAI&#39;s Rapid Expansion Imperils Google and Meta",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T14:32:37.811075-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "ChatGPT Ads Surge: How OpenAI&#39;s Rapid Expansion Imperils Google and Meta",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T14:33:45.753904-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Metaplanet CEO Says Bitcoin&#39;s Next Cycle Could Belong To Asia: &#39;The Bottom Is In&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T14:35:08.018511-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Trump\u2019s Venezuela Oil Pact Won\u2019t Fix Gas Prices Soon Enough",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

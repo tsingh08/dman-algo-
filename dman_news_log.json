@@ -1141,5 +1141,27 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T12:52:34.394169-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Live On CNBC, Bryn Talkington Announces Bought More Tesla",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T12:52:59.553829-04:00",
+    "symbols": [
+      "AVGO",
+      "GOOGL",
+      "MRVL"
+    ],
+    "headline": "JPMorgan Says Broadcom\u2019s Google Concerns Are Overstated Ahead of Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

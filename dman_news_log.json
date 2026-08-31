@@ -1121,5 +1121,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T12:45:55.533745-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Advances $100M STEM Investment In Guyana",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T12:48:01.872246-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Bessent Taunts Druckenmiller Over Bond Bet: &#39;He Doesn&#39;t Like Losing Money&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

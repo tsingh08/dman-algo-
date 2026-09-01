@@ -2139,5 +2139,51 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:35:18.950106-04:00",
+    "symbols": [
+      "AMAT",
+      "MU",
+      "NBIS",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:35:19.254572-04:00",
+    "symbols": [
+      "ABNB",
+      "AMZN",
+      "RIVN",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:35:19.488584-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "9 Financials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:36:01.235906-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Says In Truth Social Post The U.S. Is Striking Iranian Targets Near Strait Of Hormuz; Says Iran Will Be Hit Again At &#39;Much Harder And Higher Level&#39; If It Retaliates",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

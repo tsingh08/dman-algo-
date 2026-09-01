@@ -1539,5 +1539,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T15:27:07.504694-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "EXCLUSIVE: DeepSeek Was Just the Start. New ETF Targets China\u2019s AI Tigers in a &#39;Convergence Trade&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T15:27:07.926371-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "EXCLUSIVE: DeepSeek Was Just the Start. New ETF Targets China\u2019s AI Tigers in a &#39;Convergence Trade&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T15:27:08.004910-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "EXCLUSIVE: DeepSeek Was Just the Start. New ETF Targets China\u2019s AI Tigers in a &#39;Convergence Trade&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

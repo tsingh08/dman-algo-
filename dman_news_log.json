@@ -1609,5 +1609,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T16:05:57.047159-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Announces It Implemented Even Stronger Safeguards For Astra After Hugging Face Incident; Astra&#39;s Advanced Cybersecurity Work Will Initially Be Available To Group Of Testers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T16:06:57.981310-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Q2 Adj. EPS $1.90 Beats $1.61 Estimate, Sales $771.773M Beat $732.908M Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T16:07:28.436681-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Acquires AI-Native Platform Console; Financial Terms Undisclosed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T16:07:38.073913-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Q4 Adj. EPS $1.02 Beats $0.98 Estimate, Sales $3.410B Beat $3.352B Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T16:08:13.653800-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Sees Q1 Adj EPS $0.96-$0.98 vs $0.93 Est; Sees Sales $3.300B-$3.310B vs $3.220B Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T16:08:35.912152-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Sees FY2027 Adj EPS $4.16-$4.19 vs $4.11 Est; Sees Sales $14.100B-$14.200B vs $13.788B Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

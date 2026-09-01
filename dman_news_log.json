@@ -1457,5 +1457,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T14:30:44.559881-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Touts Full Self-Driving as 4.1X Less Likely to Crash as Europe Weighs Wider Approval",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T14:31:17.324009-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bitcoin, Ethereum Fall As Trump Warns Iran Of A Bigger Attack",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

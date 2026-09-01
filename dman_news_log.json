@@ -2218,5 +2218,125 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:43:14.307143-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Morgan Stanley Upgrades HOOD, Cites Prediction Market Boom for $150 Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:43:24.351221-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Broadcom Q3 Preview: Nvidia Record Results Bring Added Pressure \u2014 \u2018Has to Prove\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:43:24.882514-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:43:25.067550-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:43:25.580659-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Q3 Preview: Nvidia Record Results Bring Added Pressure \u2014 \u2018Has to Prove\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:43:25.654160-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:43:25.728531-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:43:25.803906-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:43:26.304544-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:43:28.112868-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:43:28.665172-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Broadcom Q3 Preview: Nvidia Record Results Bring Added Pressure \u2014 \u2018Has to Prove\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:43:28.752532-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Broadcom Q3 Preview: Nvidia Record Results Bring Added Pressure \u2014 \u2018Has to Prove\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1603,5 +1603,33 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:47:31.115921-04:00",
+    "symbols": [
+      "XBI"
+    ],
+    "headline": "What&#39;s Going On With Novavax Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:47:55.925435-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TLT",
+      "TSLA"
+    ],
+    "headline": "Long Bond Again Dips Into Danger Zone\u2014Highest Yield in Japan Since 1996\u2014AI Trade Under Pressure",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

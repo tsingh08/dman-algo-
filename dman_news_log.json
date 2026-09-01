@@ -1513,5 +1513,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:34:26.447505-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk&#39;s X Money Is Taking Aim at Something Bigger Than PayPal",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:34:37.254246-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: This Startup Got AMD Chips to 80% of Nvidia&#39;s Speed at Half the Cost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:34:37.527479-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "QUICK SPARK: This Startup Got AMD Chips to 80% of Nvidia&#39;s Speed at Half the Cost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:34:41.888566-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Next Biotech Boom May Be Cancer Vaccines: Watch These ETFs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

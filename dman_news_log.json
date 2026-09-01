@@ -2733,5 +2733,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T09:51:02.483483-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent On Iran, Sanctions, Says Will Be Looking At Airline Leasing Companies; Have Had Private Discussions With China",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T09:51:17.435552-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Tells G20 Tech Meeting That EU Tech Regulation &#39;Inhibits Progress&#39; Of New Technology; Says That U.S. Companies Need New Energy Sources Outside Of China To Power Data Centers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T09:54:04.492001-04:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "Yext Posts Upbeat Q2 Earnings, Joins Fervo Energy, MiniMed Group And Other Big Stocks Moving Higher On Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T09:54:35.030686-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "NIO Q2 2026 Earnings Call: Complete Transcript",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T09:54:54.557264-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "What Is Going on With SanDisk Stock on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

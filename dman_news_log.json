@@ -1519,5 +1519,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T15:23:19.211097-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "CDT Equity shares are trading lower. The company announced the appointment of James Bligh as its Chief Executive Officer.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T15:24:26.539296-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s IRGC Says U.S. Attacks Will &#39;Tighten The Lock&#39; On The Strait Of Hormuz",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

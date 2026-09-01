@@ -2934,5 +2934,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:40:29.264516-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "QUICK SPARK: 10-Year Treasury Yield Hits 4.8%, Highest Since January 2025",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:40:45.419789-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Stock Edges Lower Ahead of Wednesday&#39;s Electron Launch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

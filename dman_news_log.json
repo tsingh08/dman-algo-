@@ -1391,5 +1391,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:06:26.340858-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "What&#39;s Going On With Salesforce Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:07:31.804486-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google To Launch Google Pics Tool To All Google AI Pro, Ultra Subscribers In Coming Weeks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T12:09:32.011414-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple New CEO John Ternus Creates Official X Account @johnternus",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

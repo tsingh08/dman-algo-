@@ -1579,5 +1579,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T15:45:18.646927-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s FARS News Agency Reports U.S. Missile Attack Near The City Of Ahvaz",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T15:49:40.579014-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "These 7 Energy Stocks Are Rallying as Crude Tops $90 on US Strikes in Iran",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

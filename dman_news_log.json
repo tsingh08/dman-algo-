@@ -2843,5 +2843,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T10:06:27.838182-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "B of A Securities Maintains Buy on Microsoft, Raises Price Target to $600",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T10:08:03.611950-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Waymo To Rolls Out Paid Robotaxis Rides For Public In Denver, San Diego, Tempa",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

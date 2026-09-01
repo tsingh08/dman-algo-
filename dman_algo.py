@@ -9988,6 +9988,46 @@ def expire_earnings_spread_offers() -> None:
         print(f"  ⚠️  earnings expiry sweep error: {exc}", file=sys.stderr)
 
 
+def expire_momentum_offers() -> None:
+    """
+    Sweeps pending momentum-watch breakout offers for expiry independent of
+    any reply arriving — same gap _handle_earnings_approval_reply() had
+    before expire_earnings_spread_offers() was added to close it, and the
+    exact same fix mirrored here. _handle_momentum_approval_reply() only
+    checks expiry as a side effect of a NEW yes/no reply's own regex match
+    succeeding — if that regex never matches (nobody replies, or the
+    Telegram message never arrived at all), the sweep inside it never runs
+    either, so a stale offer just sits as "awaiting_approval" forever.
+    Confirmed live 2026-08-31: 104 momentum-watch offers had accumulated
+    with zero ever swept, going back to the first offer of the day, because
+    this independent sweep didn't exist yet for this offer type. Shared by
+    the daemon loop and the cron scanner dispatch, same as its earnings
+    counterpart.
+    """
+    try:
+        pending = _load_momentum_pending()
+        if not pending:
+            return
+        now = datetime.now(ET)
+        still_pending = []
+        _expired = []
+        for entry in pending:
+            if entry.get("status") == "awaiting_approval":
+                try:
+                    if now >= datetime.fromisoformat(entry["expires_at"]):
+                        send_telegram(f"⏰ {entry['ticker']} momentum breakout offer expired — "
+                                     f"no reply within {MOMENTUM_APPROVAL_TIMEOUT_MIN} min, no order placed.")
+                        _expired.append(entry)
+                        continue
+                except Exception:
+                    pass
+            still_pending.append(entry)
+        for _exp in _expired:
+            _consume_momentum_offer_save(still_pending, _exp)
+    except Exception as exc:
+        print(f"  ⚠️  momentum expiry sweep error: {exc}", file=sys.stderr)
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 9.5 — FILTER: MACRO CALENDAR BLACKOUT (FOMC / NFP)
 # ═══════════════════════════════════════════════════════════════════════════
@@ -19168,6 +19208,7 @@ def main():
 
     elif args.mode == "momentum-watch":
         run_momentum_watch()
+        expire_momentum_offers()
 
     elif args.mode == "watchlist":
         send_daily_watchlist()

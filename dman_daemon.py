@@ -1789,6 +1789,12 @@ def earnings_loop() -> None:
                 last_run_date = today_str
                 algo.run_earnings_spread_scan()
             algo.expire_earnings_spread_offers()
+            # Momentum-watch breakout offers have the same "only swept when a
+            # reply arrives" gap earnings offers used to have — piggybacked on
+            # this same 60s tick rather than a new thread since it's an equally
+            # cheap, independent check. Confirmed live 2026-08-31: 104 offers
+            # had piled up unswept with this call missing.
+            algo.expire_momentum_offers()
         except Exception as exc:
             log(f"earnings loop error: {exc}")
         time.sleep(60)

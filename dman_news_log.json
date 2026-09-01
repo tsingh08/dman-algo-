@@ -1563,5 +1563,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:43:04.611994-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Next Phase Of Talks Regarding Transition In Venezuela To Resume Middle Of Month; We Continue To Push For Private Sector U.s. Investment; Chevron To Announce Expanding Operations In Venezuela",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:44:02.638920-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "NIO shares are trading lower after the company reported mixed Q2 financial results.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:44:18.832335-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "We Want To See Legitimate Oil Industry In Venezuela; Bentancourt Is A Proven Oil Operator Who Can Bring Deals Into Productiove Capacity",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:45:33.902197-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Venezuela Oil Deal Does Not Impede Democratic Transition; Deal Is Not With Venezuela&#39;s Interim Government But With A Private Entity",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

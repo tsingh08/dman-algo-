@@ -1311,5 +1311,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T11:56:18.549576-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Wall Street Is Divided on Oracle Stock: AI Cloud Upside Meets $95 Billion Debt Pressure",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T11:56:28.914561-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Stock Rockets 32% in August: Inside the Turnaround",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:56:29.175511-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "SpaceX Stock Rockets 32% in August: Inside the Turnaround",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:56:29.450997-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SpaceX Stock Rockets 32% in August: Inside the Turnaround",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T11:57:03.437206-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "David Booth Says Picking AI Winners Can Backfire: What About Nvidia?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:58:18.834632-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Truist Securities Maintains Buy on CrowdStrike Holdings, Raises Price Target to $300",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -2350,6 +2350,7 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-01T14:02:20.161062-04:00",
     "symbols": [
       "CRWD"
@@ -2408,5 +2409,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+=======
+    "ts": "2026-09-01T14:01:48.799026-04:00",
+    "symbols": [
+      "CRWD",
+      "PANW"
+    ],
+    "headline": "CrowdStrike Stock Dips as Inflation and Oil Prices Pressure Yields",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T14:04:24.289620-04:00",
+    "symbols": [
+      "HIMS",
+      "LLY"
+    ],
+    "headline": "FDA Says It Has Received 990 Adverse Event Reports Tied To Compounded Semaglutide And More Than 730 Tied To Compounded Tirzepatide; Establishes Import Alert For Compounded GLP-1 Active Pharmaceutical Ingredients",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T14:05:03.805756-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Watching Palantir; Hearing Investor Business Daily SwingTrader Sells Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+>>>>>>> Stashed changes
   }
 ]

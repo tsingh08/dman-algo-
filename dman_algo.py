@@ -4072,6 +4072,23 @@ def run_fallback_guard() -> None:
     affected, so a self-hosted runner would not have helped here — the
     fallback has to not touch GitHub's runner system at all.
 
+    This is layer 2 of 3, and it is itself machine-dependent (Windows Task
+    Scheduler on the account owner's own PC — see
+    scripts/register_fallback_task.ps1) — a real gap if that machine is
+    off, asleep-and-failed-to-wake, or logged out at the exact moment
+    GitHub's scheduler is also down. Layer 3, added 2026-09-01, closes
+    that: a Claude cloud routine ("DMan GitHub Actions Cloud Backstop",
+    trig_01NmVhz68tGiorEdgBwezNA7, hourly 8am-4pm ET weekdays) running
+    entirely in Anthropic's cloud infrastructure — touches nothing on the
+    local machine, checks this repo's workflow health via the GitHub MCP
+    tools (gh CLI is NOT installed in that environment — confirmed live;
+    use mcp__github__* instead), and dispatches a fresh run the same way a
+    human clicking "Run workflow" would if premarket/scanner look dark.
+    Manage it at https://claude.ai/code/routines. Layer 1 is GitHub's own
+    scheduler; layer 2 is this function; layer 3 is that routine — the
+    intent is that no single point of failure (GitHub, this one PC, or
+    Anthropic's cloud individually) can leave the system fully dark.
+
     Designed to run OUTSIDE GitHub Actions entirely (e.g. Windows Task
     Scheduler on the account owner's own machine, see
     scripts/register_fallback_task.ps1) so a GitHub-side outage can't also

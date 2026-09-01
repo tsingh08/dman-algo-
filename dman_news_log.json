@@ -1809,5 +1809,335 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:21.715609-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Apple, SLB, Goldman Sachs Group",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:16:21.925214-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Rolling Out New Electronic Health Record Integration That Brings Authorized Patient Context From Epic Into ChatGPT For Healthcare",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:16:25.025918-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Under the Radar: 5 Stocks Riding Asia&#39;s Next Growth Wave",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:16:28.049167-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Ernst &amp; Young Selects CrowdStrike As Accelerator To Trust Layer Of EY.ai Value Blueprints, Integrating Falcon Platform Into EY&#39;s AI Transformation Framework",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:16:30.406819-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Four Projectiles Struck Areas In Southeastern Chabahar And Konarak; Assessments Of Possible Damage Under Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:16:31.009514-04:00",
+    "symbols": [
+      "ALMS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.011020-04:00",
+    "symbols": [
+      "ALMS"
+    ],
+    "headline": "Crude Oil Surges 3%; ISM Manufacturing PMI Falls In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.012262-04:00",
+    "symbols": [
+      "ALMS"
+    ],
+    "headline": "Why Is Alumis Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.013482-04:00",
+    "symbols": [
+      "ALMS"
+    ],
+    "headline": "Dow Dips Over 300 Points; Medtronic Shares Gain After Upbeat Q1 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.014705-04:00",
+    "symbols": [
+      "ALMS"
+    ],
+    "headline": "Trading Halt: Halt status updated at 8:45:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.199832-04:00",
+    "symbols": [
+      "SSM"
+    ],
+    "headline": "From Bitcoin to Ball Clubs: Sono Group Stock Soars on Sports One Merger Plan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.201307-04:00",
+    "symbols": [
+      "SSM"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.202613-04:00",
+    "symbols": [
+      "SSM"
+    ],
+    "headline": "Why Pyxis Tankers Shares Are Trading Higher By Over 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.203894-04:00",
+    "symbols": [
+      "SSM"
+    ],
+    "headline": "Sono Group And Sports One Enter Into A Non-Binding Letter Of Intent To Combine; Sports One Affiliated Investors Purchase 283,500 Ordinary Shares Representing 19.9% Of Outstanding Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.404314-04:00",
+    "symbols": [
+      "PXS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.405807-04:00",
+    "symbols": [
+      "PXS"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq 100 Futures Drop After Trump Says Iran Is \u2018Totally Defeated\u2019, Brent Tops $92 \u2014 CBRS, PXS, PANW, DELL in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.407110-04:00",
+    "symbols": [
+      "PXS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.408378-04:00",
+    "symbols": [
+      "PXS"
+    ],
+    "headline": "Market-Moving News for September 1st",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.409650-04:00",
+    "symbols": [
+      "PXS"
+    ],
+    "headline": "Why Pyxis Tankers Shares Are Trading Higher By Over 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.587082-04:00",
+    "symbols": [
+      "TXNM"
+    ],
+    "headline": "Reported Earlier, TXNM Energy Prices $400M Underwritten Stock Offering Of 7..08M Shares At $56.50/Share To Repay Debt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.763372-04:00",
+    "symbols": [
+      "YEXT"
+    ],
+    "headline": "Yext Posts Upbeat Q2 Earnings, Joins Fervo Energy, MiniMed Group And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:16:31.764903-04:00",
+    "symbols": [
+      "YEXT"
+    ],
+    "headline": "Yext Expands Agentic Marketing Platform; Launched Early Version Of Corvo AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:16:31.766228-04:00",
+    "symbols": [
+      "YEXT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:16:31.767586-04:00",
+    "symbols": [
+      "YEXT"
+    ],
+    "headline": "Yext Q2 Adj. EPS $0.21 Beats $0.17 Estimate, Sales $111.103M Miss $111.300M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:16:31.951462-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.953039-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Crude Oil Surges 3%; ISM Manufacturing PMI Falls In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.954391-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Transcript: Rezolve AI H1 2026 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.955776-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Rezolve AI Affirms FY2026 Sales Guidance of $360.000M vs $357.146M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:31.957098-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Rezolve AI H1 EPS $(0.35) Misses $(0.12) Estimate, Sales $130.788M Beat $101.500M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:32.134110-04:00",
+    "symbols": [
+      "AIPO"
+    ],
+    "headline": "Elon Musk Noted Natural Gas Will Still Fuel Data Centers, Gene Munster Says &#39;Makes Sense&#39; to Put &#39;New Money to Work in Power&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:16:32.323084-04:00",
+    "symbols": [
+      "SOXQ"
+    ],
+    "headline": "What&#39;s Going On With Marvell Technology Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:16:32.324747-04:00",
+    "symbols": [
+      "SOXQ"
+    ],
+    "headline": "What&#39;s Going On With Broadcom Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T13:16:32.492782-04:00",
+    "symbols": [
+      "STDN"
+    ],
+    "headline": "UBS Maintains Buy on Standard Nuclear, Raises Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

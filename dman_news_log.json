@@ -3036,5 +3036,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T11:06:39.583852-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Microsoft&#39;s AI Spending Pays Off With Azure Growth Set to Reach 45%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

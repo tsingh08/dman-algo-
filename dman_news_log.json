@@ -1371,5 +1371,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:02:38.540954-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple shares are trading higher. Today marks John Ternus&#39; first day as CEO.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:05:11.508156-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "Crude Oil Surges 3%; ISM Manufacturing PMI Falls In August",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

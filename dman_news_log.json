@@ -1553,5 +1553,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T12:37:43.613688-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines shares are trading lower. The company announced it has been awarded a contract to build two IM 300 series platforms for a new, undisclosed customer.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

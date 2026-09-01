@@ -1599,5 +1599,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T15:50:18.237614-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran\u2019s FARS News Agency Reported That Iran Had Begun A Retaliatory Operation, Saying Missiles And Drones Had Been Launched From Iran",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

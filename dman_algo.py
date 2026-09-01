@@ -225,6 +225,16 @@ OPTIONS_MIN_QUOTE_SIZE      = 5      # contracts resting on EACH side of the top
                                        # before committing real capital to it, same spirit as the
                                        # spread% check right above.
 OPTIONS_MIN_UNDERLYING_VOL  = 5_000_000   # underlying must avg ≥5M shares/day (liquid options)
+OPTIONS_MIN_UNDERLYING_DOLLAR_VOL = 200_000_000   # OR ≥$200M/day — confirmed live 2026-08-31:
+                                       # HWM scored a clean 100/100 Bear Gap Hold SHORT (real
+                                       # $661M/day dollar volume at $245/share) but was blocked
+                                       # by the share-count floor alone (2.7M shares < 5M), the
+                                       # exact class of false negative a pure share-count ADV
+                                       # gate produces for higher-priced names. Passing EITHER
+                                       # measure keeps the floor exactly as strict as before for
+                                       # low-priced small-caps (the 5M-share leg is untouched)
+                                       # while fixing the false rejection on liquid high-priced
+                                       # underlyings.
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
 OPTIONS_DATA_FEED           = "opra"        # preferred feed — real OPRA tape. Entitlement has flipped
                                             # on/off before without any code change: 403'd 2026-07-29,
@@ -17434,13 +17444,17 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
     from alpaca.trading.requests import GetOptionContractsRequest
     from alpaca.trading.enums import ContractType
 
-    # Gate: underlying must have ≥5M avg daily volume — ensures liquid options chain.
-    # Fail closed: if volume data unavailable, skip rather than enter illiquid contract.
+    # Gate: underlying must clear EITHER the share-count or dollar-volume floor —
+    # ensures liquid options chain. Fail closed: if volume data unavailable, skip
+    # rather than enter illiquid contract. See OPTIONS_MIN_UNDERLYING_DOLLAR_VOL's
+    # comment for why share-count alone false-negatives on higher-priced names.
     try:
         _fi = yf.Ticker(ticker).fast_info
         _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
-        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
-            print(f"  ⚠️  {ticker} options skipped — ADV {_adv/1e6:.1f}M < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M floor")
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL and _adv * current_price < OPTIONS_MIN_UNDERLYING_DOLLAR_VOL:
+            print(f"  ⚠️  {ticker} options skipped — ADV {_adv/1e6:.1f}M shares "
+                  f"(${_adv*current_price/1e6:.0f}M/day) < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M "
+                  f"shares and < ${OPTIONS_MIN_UNDERLYING_DOLLAR_VOL/1e6:.0f}M/day floor")
             return None
     except Exception:
         print(f"  ⚠️  {ticker} options skipped — ADV check failed (fail-closed)")
@@ -17545,13 +17559,19 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
     from alpaca.trading.requests import GetOptionContractsRequest
     from alpaca.trading.enums import ContractType
 
-    # Same 5M ADV gate — puts on illiquid underlyings are equally worthless.
-    # Fail closed: data failure → skip rather than enter illiquid contract.
+    # Same share-count-OR-dollar-volume gate as _find_best_call_contract —
+    # puts on illiquid underlyings are equally worthless. Fail closed: data
+    # failure → skip rather than enter illiquid contract. Confirmed live
+    # 2026-08-31: HWM Bear Gap Hold SHORT (100/100, real $661M/day dollar
+    # volume at $245/share) was blocked by the share-count floor alone
+    # (2.7M shares < 5M) — see OPTIONS_MIN_UNDERLYING_DOLLAR_VOL's comment.
     try:
         _fi  = yf.Ticker(ticker).fast_info
         _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
-        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
-            print(f"  ⚠️  {ticker} puts skipped — ADV {_adv/1e6:.1f}M < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M floor")
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL and _adv * current_price < OPTIONS_MIN_UNDERLYING_DOLLAR_VOL:
+            print(f"  ⚠️  {ticker} puts skipped — ADV {_adv/1e6:.1f}M shares "
+                  f"(${_adv*current_price/1e6:.0f}M/day) < {OPTIONS_MIN_UNDERLYING_VOL/1e6:.0f}M "
+                  f"shares and < ${OPTIONS_MIN_UNDERLYING_DOLLAR_VOL/1e6:.0f}M/day floor")
             return None
     except Exception:
         print(f"  ⚠️  {ticker} puts skipped — ADV check failed (fail-closed)")
@@ -17707,7 +17727,7 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
     try:
         _fi  = yf.Ticker(ticker).fast_info
         _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
-        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL and _adv * current_price < OPTIONS_MIN_UNDERLYING_DOLLAR_VOL:
             return None
     except Exception:
         return None
@@ -17812,7 +17832,7 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
     try:
         _fi = yf.Ticker(ticker).fast_info
         _adv = float(getattr(_fi, "three_month_average_volume", 0) or 0)
-        if _adv < OPTIONS_MIN_UNDERLYING_VOL:
+        if _adv < OPTIONS_MIN_UNDERLYING_VOL and _adv * current_price < OPTIONS_MIN_UNDERLYING_DOLLAR_VOL:
             return None
     except Exception:
         return None
@@ -18574,8 +18594,21 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
 
         if not _use_options and not _use_puts:
             if sig.bias == "SHORT" and not ALLOW_SHORTS:
-                print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
-                      f"not in WATCHLIST, and not a Bear Gap Hold signal")
+                if _options_was_attempted:
+                    # The WATCHLIST/Bear-Gap-Hold gate passed and a put search
+                    # was actually attempted above but came back empty (e.g.
+                    # ADV/liquidity floor) — say so accurately instead of
+                    # implying the gate itself blocked it. Confirmed live
+                    # 2026-08-31: HWM printed this exact stale message despite
+                    # passing the Bear Gap Hold gate, only to fail the ADV
+                    # check inside _submit_options_put — misleading for
+                    # after-the-fact review of why a play was missed.
+                    print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — no put contract "
+                          f"available (ADV/liquidity) and ALLOW_SHORTS=False, so no shares "
+                          f"fallback either")
+                else:
+                    print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
+                          f"not in WATCHLIST, and not a Bear Gap Hold signal")
                 continue
             # Shares-fallback policy (2026-08-05, tightened 2026-08-21): grow
             # the account on options, not on buying shares outright. DMan's

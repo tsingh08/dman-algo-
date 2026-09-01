@@ -3079,6 +3079,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-01T11:23:35.499623-04:00",
     "symbols": [
       "MSFT"
@@ -3100,15 +3101,23 @@
   },
   {
     "ts": "2026-09-01T11:23:38.363672-04:00",
+=======
+    "ts": "2026-09-01T11:21:10.380300-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "CRWD"
     ],
     "headline": "CrowdStrike And Optiv Surpass $2B In Lifetime Contract Value",
+<<<<<<< Updated upstream
     "source": "scan-prefetch",
+=======
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-01T11:23:39.738756-04:00",
     "symbols": [
       "PXS"
@@ -3186,6 +3195,16 @@
     "headline": "Rezolve AI H1 EPS $(0.35) Misses $(0.12) Estimate, Sales $130.788M Beat $101.500M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
+=======
+    "ts": "2026-09-01T11:25:22.735398-04:00",
+    "symbols": [
+      "CRWD",
+      "QQQ"
+    ],
+    "headline": "Global Bond Rout Sparks Tech Selloff: 5 Nasdaq Stocks Falling 5% On Tuesday",
+    "source": "benzinga",
+    "tag": "macro",
+>>>>>>> Stashed changes
     "sentiment": null
   }
 ]

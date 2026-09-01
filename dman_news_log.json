@@ -1447,5 +1447,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T14:20:49.963134-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Continues to Slide After FTC Lawsuit",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

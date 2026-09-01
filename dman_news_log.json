@@ -1546,5 +1546,40 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T17:54:48.491720-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Army Secretary Resigns After Months of Friction with Hegseth&#39;- WSJ",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-08-31T19:00:35.667491-04:00",
+    "symbols": [
+      "AVGO",
+      "PANW",
+      "SNOW"
+    ],
+    "headline": "Broadcom Could Swing $139 Billion In Value After Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-08-31T19:53:24.910325-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Reuters Reported Anthropic Signed ~$35B Cloud Deal With Lambda",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

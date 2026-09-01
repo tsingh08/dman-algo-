@@ -2863,5 +2863,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T10:17:34.498367-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Official, To Al Jazeera, Says The Iranians Want To Strike A Deal With Us, But Their Positions Are Always Delayed And Fall Short Of What&#39;s Required",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:20:07.705861-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "US to Tell G20: Regulate AI Less, Buy American Chips as Nvidia&#39;s Jensen Huang Joins Talks",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

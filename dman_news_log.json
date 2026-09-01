@@ -1497,5 +1497,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T15:03:42.537138-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Shares Rise Over 3% After Key Trading Signal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

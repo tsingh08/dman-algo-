@@ -2986,5 +2986,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:02:07.703570-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "$1000 Invested In ExxonMobil Holdings 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T11:02:19.223354-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron\u2019s Largest Production Base Faces Strike Over 83 Months\u2019 Pay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:02:21.927984-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron\u2019s Largest Production Base Faces Strike Over 83 Months\u2019 Pay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:02:22.462176-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Micron\u2019s Largest Production Base Faces Strike Over 83 Months\u2019 Pay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T11:02:37.967668-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent Says I Think That Japan Is Taking Right Steps For Economy; G20 Ministers Want More Growth; Unclear Whether G20 Ministers Will Take Steps Necessary To Achieve Higher Growth; Imbalances Created By Some Countries Are Reducing Growth Elsewhere; Rest Of The World Needs To Take Steps To Protect Trade, Factory Jobs From China\u2019s Exports",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

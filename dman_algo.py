@@ -3991,6 +3991,73 @@ def run_watchdog() -> None:
               f"{ALERT_COOLDOWN_MIN} min already)")
 
 
+def _check_premarket_fallback(now_et: datetime) -> None:
+    """
+    Independent premarket-briefing health check, run from the same local
+    task as run_fallback_guard() but on its own 9:00-10:00 AM ET window,
+    well before the scanner-liveness check below even starts. Confirmed
+    necessary live 2026-08-31: the scanner workflow itself DID eventually
+    run every day, so the scanner-liveness check never caught anything —
+    but the premarket cron (meant to fire 8:10 AM ET and build the day's
+    full ~500-ticker universe cache) fired ~7 hours late that day, so
+    every scan in the meantime silently ran on a degraded ~80-230-ticker
+    fallback universe with no alert at all. Premarket only runs once a
+    day, so this checks "did it succeed TODAY" rather than the scanner
+    check's "how long since the last run" — an hours-old successful run
+    from earlier this morning is exactly the healthy case, not stale.
+    """
+    t = now_et.hour * 100 + now_et.minute
+    if not (900 <= t < 1000):
+        return
+    if not GITHUB_TOKEN:
+        return
+
+    _key = "__PREMARKET_FALLBACK_ACTIVATED__"
+    if _is_duplicate_alert(_key):
+        return   # already checked (healthy or handled) within the cooldown
+
+    try:
+        resp = requests.get(
+            f"https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/dman_premarket.yml/runs",
+            headers={"Authorization": f"Bearer {GITHUB_TOKEN}", "Accept": "application/vnd.github+json"},
+            params={"per_page": 1}, timeout=10,
+        )
+        runs = resp.json().get("workflow_runs", [])
+    except Exception as exc:
+        print(f"  🆘 Premarket fallback: health check itself failed ({exc}) — can't verify, skipping to be safe.")
+        return
+
+    healthy = False
+    if runs:
+        latest = runs[0]
+        try:
+            created_et = datetime.fromisoformat(
+                latest["created_at"].replace("Z", "+00:00")).astimezone(ET)
+            healthy = (latest.get("status") == "completed"
+                       and latest.get("conclusion") == "success"
+                       and created_et.date() == now_et.date())
+        except Exception:
+            healthy = False
+
+    if healthy:
+        print("  🆘 Premarket fallback: today's briefing already ran successfully, nothing to do.")
+        _save_last_alert(_key)
+        return
+
+    reason = "no successful premarket briefing run found for today by mid-morning"
+    print(f"  🆘 Premarket fallback: {reason} — building today's universe cache locally.")
+    send_telegram(
+        f"🆘 <b>Local premarket fallback activated</b>\n{reason}.\n"
+        f"Building today's universe cache on your machine instead — coverage continues."
+    )
+    _save_last_alert(_key)
+
+    import subprocess
+    result = subprocess.run([sys.executable, __file__, "--mode", "premarket"], capture_output=False)
+    if result.returncode != 0:
+        send_telegram("🆘 Local premarket fallback itself failed — check your machine directly, this isn't a GitHub problem anymore.")
+
+
 def run_fallback_guard() -> None:
     """
     Local, GitHub-Actions-INDEPENDENT contingency. Confirmed necessary live
@@ -4013,12 +4080,17 @@ def run_fallback_guard() -> None:
     "never acquired a runner" duration signature, is still queued/running
     long past normal, or simply never started in the current window, runs
     the scan locally instead and alerts either way so there's no silent
-    gap in visibility.
+    gap in visibility. Also runs _check_premarket_fallback() first, which
+    covers the once-daily premarket briefing on its own earlier window --
+    a distinct failure mode this function's own scanner check can't see.
     """
     now_et = datetime.now(ET)
     if now_et.weekday() >= 5:
         print("  🆘 Fallback guard: weekend, skipping.")
         return
+
+    _check_premarket_fallback(now_et)
+
     t = now_et.hour * 100 + now_et.minute
     if not (930 <= t <= 1600):
         print("  🆘 Fallback guard: outside market hours, skipping.")
@@ -4062,14 +4134,19 @@ def run_fallback_guard() -> None:
         send_telegram("🆘 Local fallback scan itself failed — check your machine directly, this isn't a GitHub problem anymore.")
 
 
-def _diagnose_github_health(runs: list[dict], now_et: datetime) -> tuple[bool, str]:
+def _diagnose_github_health(runs: list[dict], now_et: datetime, label: str = "scan",
+                             max_age_min: float = 90) -> tuple[bool, str]:
     """
     Pulled out of run_fallback_guard() for direct testability. runs is the
     workflow_runs list from GitHub's API (newest first); returns
-    (is_unhealthy, human_reason).
+    (is_unhealthy, human_reason). `label` customizes the human-readable
+    reason text so this same generic logic can diagnose any workflow, not
+    just the scanner (see _check_premarket_fallback()); `max_age_min` lets
+    a once-daily workflow like the premarket briefing use a tighter window
+    than the scanner's own 90-min default.
     """
     if not runs:
-        return True, "no scanner workflow runs found at all"
+        return True, f"no {label} workflow runs found at all"
 
     latest = runs[0]
     created = datetime.fromisoformat(latest["created_at"].replace("Z", "+00:00"))
@@ -4085,14 +4162,14 @@ def _diagnose_github_health(runs: list[dict], now_et: datetime) -> tuple[bool, s
         # ~15 min mark — that's GitHub's own runner-queue timeout, not
         # ours. A genuine code bug fails in seconds to low minutes.
         if 13 <= duration_min <= 17:
-            return True, f"most recent scan failed after {duration_min:.0f} min — matches GitHub's runner-queue timeout signature, not a code failure"
+            return True, f"most recent {label} failed after {duration_min:.0f} min — matches GitHub's runner-queue timeout signature, not a code failure"
         return False, ""
 
     if status in ("queued", "in_progress") and age_min > 20:
-        return True, f"most recent scan still {status} after {age_min:.0f} min — runner likely never assigned"
+        return True, f"most recent {label} still {status} after {age_min:.0f} min — runner likely never assigned"
 
-    if age_min > 90:
-        return True, f"no scan run started in {age_min:.0f} min during market hours"
+    if age_min > max_age_min:
+        return True, f"no {label} run started in {age_min:.0f} min during market hours"
 
     return False, ""
 
@@ -18912,6 +18989,18 @@ def main():
     if args.mode == "watchdog":
         run_watchdog()
         return
+    if args.mode == "fallback-guard":
+        # Same shape as watchdog above — runs on its own frequent local
+        # schedule (every 30 min, see scripts/register_fallback_task.ps1)
+        # and never touches a ticker universe itself (run_fallback_guard()
+        # dispatches a fresh `--mode scan`/`--mode premarket` subprocess
+        # when it needs to, which loads its own). Was falling through to
+        # the full universe-loading block below on every single invocation
+        # before this early return existed — 30+ wasted Yahoo Finance
+        # round-trips a day for a check that no-ops outside its own
+        # narrow time windows most of the time.
+        run_fallback_guard()
+        return
 
     if args.tickers:
         tickers = args.tickers
@@ -19035,9 +19124,6 @@ def main():
 
     elif args.mode == "watchdog":
         run_watchdog()
-
-    elif args.mode == "fallback-guard":
-        run_fallback_guard()
 
     elif args.mode == "earnings-scan":
         # Cron-dispatched redundancy for the daemon's earnings_loop — the cron

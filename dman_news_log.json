@@ -2185,5 +2185,38 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:36:06.387784-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Is \u2018Just the Beginning\u2019: Rezolve AI Teases More Infrastructure Deals",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-01T13:37:44.954567-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Google Deepmind&#39;s Demis Hassabis Says At G20 Meetings That Countries Should Set Up AI Testing Framework",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T13:38:02.129075-04:00",
+    "symbols": [
+      "AVGO",
+      "NVDA",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Broadcom Q3 Preview: Nvidia Record Results Bring Added Pressure \u2014 \u2018Has to Prove\u2019",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

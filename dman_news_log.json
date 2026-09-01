@@ -2348,5 +2348,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T14:02:20.161062-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Dips as Inflation and Oil Prices Pressure Yields",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T14:02:20.241585-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "CrowdStrike Stock Dips as Inflation and Oil Prices Pressure Yields",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T14:02:24.537991-04:00",
+    "symbols": [
+      "CRK"
+    ],
+    "headline": "Mizuho Maintains Neutral on Comstock Resources, Raises Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T14:02:24.540548-04:00",
+    "symbols": [
+      "CRK"
+    ],
+    "headline": "Yext Posts Upbeat Q2 Earnings, Joins Fervo Energy, MiniMed Group And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T14:02:24.542775-04:00",
+    "symbols": [
+      "CRK"
+    ],
+    "headline": "Comstock Resources Inks Letter Of Intent With State Oil Company Of Azerbaijan To Sell 20% Some Non-Operated Working Stake In Its Legacy Haynesville Upstream Assets, Western Haynesville Upstream Assets, Pinnacle Gas Services For $1.65B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T14:02:24.643203-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Google Is \u2018Just the Beginning\u2019: Rezolve AI Teases More Infrastructure Deals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

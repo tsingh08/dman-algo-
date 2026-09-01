@@ -1264,5 +1264,39 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:47:21.767810-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent Emphasized Importance Of Sound Formulation And Communication Of Monetary Policy To Anchor Inflation Expectations In Meeting With Bank Of Japan Governor; Bessent Also Expressed Strong Support For Japan&#39;s Decisive Market And Monetary Steps To Address The Substantial Undervaluation Of The Yen; Noted The Role Of Yen Weakness In Contributing To Domestic Inflationary Pressures In Japan",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T11:48:18.608336-04:00",
+    "symbols": [
+      "AMD",
+      "GOOGL",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Rockets 32% in August: Inside the Turnaround",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T11:48:50.551318-04:00",
+    "symbols": [
+      "COIN",
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-linked stocks are trading lower amid a decline in Bitcoin after climbing bond yields and August&#39;s economic data raised inflation concerns and interest-rate hike expectations. Rising rates can pressure risk assets as investors become more cautious and shift toward safer investments.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

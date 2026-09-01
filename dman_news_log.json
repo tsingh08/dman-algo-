@@ -2783,5 +2783,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T10:00:15.299860-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ISM Manufacturing Prices For August 71.1 Vs 70.5 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:00:18.973938-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ISM Manufacturing PMI For August 54.6 Vs 55.2 Est,",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:00:34.586356-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA JOLTS Job Openings For July\u00a0 7.271M Vs 7.330M Est",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:00:46.087211-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ISM Manufacturing Employment For August 51.2 Vs 52.8 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:00:57.480671-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Construction Spending (MoM) For July -0.5% Vs 0.0% Est",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T10:02:10.788493-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Stock Rises as Morgan Stanley Upgrades Target to $150",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

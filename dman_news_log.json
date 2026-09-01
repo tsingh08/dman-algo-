@@ -1441,5 +1441,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:20:27.403688-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on AppLovin, Lowers Price Target to $510",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-01T12:20:46.694180-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Watching United States Oil Futures; Volume Spikes To The Upside, Traders Circulate X Posts Reports Of Explosions In Chabahar, Qeshm Island And Bandar Abbas, Iran",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

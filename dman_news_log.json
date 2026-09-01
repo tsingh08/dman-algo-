@@ -1461,5 +1461,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:23:19.160899-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iranian State TV Confirms Reports Of Blasts Across Southern Regions",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-01T12:25:12.780924-04:00",
+    "symbols": [
+      "MRNA",
+      "XBI"
+    ],
+    "headline": "Next Biotech Boom May Be Cancer Vaccines: Watch These ETFs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

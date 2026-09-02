@@ -3108,5 +3108,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:58:55.718144-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Why Is MongoDB Stock Sinking Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T10:59:09.568631-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "BlackRock: AI Boom Still in Phase 1 as Amazon, Google, Microsoft Fuel &#39;Massive Build-Out&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T10:59:09.885702-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "BlackRock: AI Boom Still in Phase 1 as Amazon, Google, Microsoft Fuel &#39;Massive Build-Out&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T10:59:10.780789-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "BlackRock: AI Boom Still in Phase 1 as Amazon, Google, Microsoft Fuel &#39;Massive Build-Out&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:59:11.163236-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "BlackRock: AI Boom Still in Phase 1 as Amazon, Google, Microsoft Fuel &#39;Massive Build-Out&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:59:19.523457-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Official Says President Trump To Meet With Ceasars, Hard Rock Execs Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:00:22.003196-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Recent Filing Shows That Rep. Kevin Hern Sold Over $224K Worth of Home Depot Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

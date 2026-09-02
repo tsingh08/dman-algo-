@@ -3322,5 +3322,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T11:30:57.845684-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "The S&amp;P 500 Got Cheaper While It Rallied. Here&#39;s What Bond Bears Are Missing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:30:58.871764-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "The S&amp;P 500 Got Cheaper While It Rallied. Here&#39;s What Bond Bears Are Missing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:30:59.167144-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "The S&amp;P 500 Got Cheaper While It Rallied. Here&#39;s What Bond Bears Are Missing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:31:01.787745-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "The S&amp;P 500 Got Cheaper While It Rallied. Here&#39;s What Bond Bears Are Missing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:31:08.219300-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The S&amp;P 500 Got Cheaper While It Rallied. Here&#39;s What Bond Bears Are Missing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:32:14.739328-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Nears $14 Billion Hugging Face Deal After Earlier Rejection",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

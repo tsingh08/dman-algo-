@@ -11101,6 +11101,72 @@ class TestBearGapHoldMeasuresRealGap(unittest.TestCase):
                                    "not a stale pre-override value")
 
 
+class TestRsiZoneCreditsFreshCatalystGaps(unittest.TestCase):
+    """Direct instruction 2026-09-02, evidence-backed by reconstructing 2
+    months of real history: ABNB (RSI 79.6), MRNA (93.9), and CRM (80.6)
+    each cleared 75+ on every OTHER technical factor and lost the same 5
+    points here on the exact days a real catalyst gap was most obviously
+    present -- the 45-62 sweet-spot zone was tuned for measured
+    continuation, not a genuine gap-and-go, which pushes RSI into the
+    70s-90s (or teens-20s, short side) by definition. Additive: a high/low
+    RSI reading now ALSO earns the bonus when paired with real gap+volume;
+    a high/low RSI with neither still scores 0, unchanged."""
+
+    def _gapped_df(self, gap_pct):
+        import pandas as pd
+        df = _fake_df()
+        prior_close = float(df["Close"].iloc[-2])
+        gapped_open = prior_close * (1 + gap_pct / 100)
+        df.loc[df.index[-1], "Open"]  = gapped_open
+        df.loc[df.index[-1], "Close"] = gapped_open
+        df.loc[df.index[-1], "High"]  = gapped_open * 1.01
+        df.loc[df.index[-1], "Low"]   = gapped_open * 0.99
+        return df
+
+    def _signal(self, rsi, rvol, bias="LONG"):
+        return a.ProSignal(
+            ticker="TEST", bias=bias, setup="Gap & Hold",
+            entry=10.0, stop=9.0, target1=13.0, target2=16.0,
+            rr=2.0, rsi=rsi, rvol=rvol, reason="test", confluence_score=0,
+        )
+
+    def _score(self, sig, df):
+        with patch.object(a, "check_mtf", return_value=(True, 15)), \
+             patch.object(a, "check_relative_strength", return_value=(True, 10)), \
+             patch.object(a, "check_sector", return_value=(True, 8)), \
+             patch.object(a, "check_earnings_safe", return_value=(True, 1)), \
+             patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
+             patch.object(a, "fetch_df", return_value=None), \
+             patch.object(a, "optimize_stop", return_value=sig.stop):
+            return a.score_signal(sig, df, _fake_regime(), a.WinRateTracker())
+
+    def test_high_rsi_with_fresh_catalyst_gap_gets_full_bonus(self):
+        sig = self._signal(rsi=80.0, rvol=3.0)
+        scored = self._score(sig, self._gapped_df(gap_pct=8.0))
+        self.assertEqual(scored.score_breakdown["RSI Zone"], 5)
+
+    def test_high_rsi_without_a_real_gap_still_scores_zero(self):
+        # Stale, already-extended chase -- no gap behind the high RSI.
+        sig = self._signal(rsi=80.0, rvol=3.0)
+        scored = self._score(sig, _fake_df())
+        self.assertEqual(scored.score_breakdown["RSI Zone"], 0)
+
+    def test_high_rsi_with_gap_but_thin_volume_still_scores_zero(self):
+        sig = self._signal(rsi=80.0, rvol=1.2)
+        scored = self._score(sig, self._gapped_df(gap_pct=8.0))
+        self.assertEqual(scored.score_breakdown["RSI Zone"], 0)
+
+    def test_moderate_sweet_spot_rsi_unaffected_by_the_change(self):
+        sig = self._signal(rsi=50.0, rvol=2.0)
+        scored = self._score(sig, _fake_df())
+        self.assertEqual(scored.score_breakdown["RSI Zone"], 5)
+
+    def test_low_rsi_with_fresh_catalyst_gap_down_gets_full_bonus_short_side(self):
+        sig = self._signal(rsi=18.0, rvol=3.0, bias="SHORT")
+        scored = self._score(sig, self._gapped_df(gap_pct=-8.0))
+        self.assertEqual(scored.score_breakdown["RSI Zone"], 5)
+
+
 class TestScoreSignalPreservesTargets(unittest.TestCase):
     """Found in the 2026-08-16 review: score_signal() used to unconditionally
     overwrite target1/target2 with a flat 2.0x/3.0x multiplier of the

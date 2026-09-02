@@ -1328,5 +1328,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:28:33.102842-04:00",
+    "symbols": [
+      "AVGO",
+      "NVDA"
+    ],
+    "headline": "Broadcom Is Top Pick For AI\u2019s Next Big Shift: Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

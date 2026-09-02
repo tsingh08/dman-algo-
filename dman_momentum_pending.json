@@ -1,17 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "ATOS",
-      "entry_px": 2.4399,
-      "stop_px": 2.3661,
-      "t1": 3.1719,
-      "t2": 3.6599,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.8% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-02T14:08:17.779539-04:00",
-      "expires_at": "2026-09-02T14:23:17.779539-04:00",
-      "status": "awaiting_approval"
-    },
-    {
       "ticker": "INLF",
       "entry_px": 4.0431,
       "stop_px": 3.8115,
@@ -188,5 +177,7 @@
       "status": "awaiting_approval"
     }
   ],
-  "consumed": {}
+  "consumed": {
+    "ATOS_2026-09-02T14:08:17.779539-04:00": 1788373402.4584937
+  }
 }

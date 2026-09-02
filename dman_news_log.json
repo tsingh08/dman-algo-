@@ -1599,5 +1599,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T14:19:46.427200-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Buffett Successor Says Data Centers Help Taxes and Schools: &#39;Significant Opportunity&#39; For Berkshire Hathaway",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T14:21:47.812593-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says U.S. Took Out Iranian Rocket Designed To Drop Mines, Iran Was Trying To Rebuild Radar And Missile Systems; Says Renewed Campaign Won&#39;t Continue For Too Long",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

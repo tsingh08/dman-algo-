@@ -2692,5 +2692,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T09:51:05.135577-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Uber Axes 3,300 Jobs to Build Its Autonomous Future",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T09:51:07.790097-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Axes 3,300 Jobs to Build Its Autonomous Future",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T09:51:19.681017-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Official Says Trump To Meet With CEOs Of Major Travel Companies Including Marriott, American Airlines, Carnival, MGM",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

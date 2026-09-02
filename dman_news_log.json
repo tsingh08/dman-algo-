@@ -3078,5 +3078,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:48:39.269146-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "CDT Equity shares are trading lower after the company announced that, following share issuances and warrant exercises, it had 13.7 million shares outstanding, valuing the firm at about $23 million despite resolving Nasdaq deficiencies.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T10:49:24.141115-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Teamsters Members Authorize One-Day Unfair Labor Practice Strike At DJT6 Site In Riverside, California",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:51:54.710307-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "QUICK SPARK: NIO Says Firefly Will Follow Apple&#39;s iPhone Playbook",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

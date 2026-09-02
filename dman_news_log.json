@@ -2904,5 +2904,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:33:28.592965-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google defeats US bid to force ad tech sale&#39; - Reuters",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:34:54.445418-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Gasoline Inventories 1.173M Barrel Draw Vs 1.900M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T10:37:23.549006-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "MRVL",
+      "MU",
+      "NBIS",
+      "NVDA",
+      "PLTR",
+      "QQQ",
+      "SNDK",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in August on Benzinga Pro \u2013 SpaceX, Nebius Climb, Palantir Returns",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

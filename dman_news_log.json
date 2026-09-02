@@ -3769,6 +3769,7 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:15:04.057924-04:00",
     "symbols": [
       "GOOGL"
@@ -3846,6 +3847,25 @@
     "headline": "Why Is AST SpaceMobile Stock Soaring Wednesday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
+=======
+    "ts": "2026-09-02T13:21:20.442345-04:00",
+    "symbols": [
+      "AVGO",
+      "CRWD",
+      "DDOG",
+      "DIA",
+      "FTNT",
+      "IWM",
+      "MDB",
+      "NVDA",
+      "PANW",
+      "PLTR",
+      "QQQ"
+    ],
+    "headline": "Nvidia Jumps On AI Bid, Software Stocks Dip: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+>>>>>>> Stashed changes
     "sentiment": null
   }
 ]

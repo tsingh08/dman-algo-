@@ -1,30 +1,6 @@
 [
   {
     "ticker": "JD",
-    "date": "2024-09-30",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 31.83,
-    "exit": 39.97,
-    "outcome": "WIN",
-    "pnl_pct": 22.35,
-    "score": 85,
-    "is_live": false
-  },
-  {
-    "ticker": "JD",
-    "date": "2026-04-20",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 31.28,
-    "exit": 31.37,
-    "outcome": "WIN",
-    "pnl_pct": 0.28,
-    "score": 78,
-    "is_live": false
-  },
-  {
-    "ticker": "JD",
     "date": "2026-05-15",
     "bias": "LONG",
     "setup": "Gap & Hold",
@@ -6009,6 +5985,18 @@
     "outcome": "LOSS",
     "pnl_pct": -95.67,
     "score": 0,
+    "is_live": true
+  },
+  {
+    "ticker": "CAST",
+    "date": "2026-09-02",
+    "bias": "LONG",
+    "setup": "Momentum Watch Breakout (Day)",
+    "entry": 1.42,
+    "exit": 1.37,
+    "outcome": "LOSS",
+    "pnl_pct": -3.52,
+    "score": 100,
     "is_live": true
   }
 ]

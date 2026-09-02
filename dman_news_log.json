@@ -3432,5 +3432,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:48:38.964441-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "&#39;New Jersey Seeks High Court Review of Kalshi Sports Markets&#39; - Bloomberg Law",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T11:50:27.021924-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on MongoDB, Raises Price Target to $480",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

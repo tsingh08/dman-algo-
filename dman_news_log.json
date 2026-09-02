@@ -3452,5 +3452,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T11:55:15.958862-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "&#39;Uber Shutting Down Operations in Nigeria After Global Shake-Up&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:55:39.334347-04:00",
+    "symbols": [
+      "NIO",
+      "TSLA"
+    ],
+    "headline": "NIO Says China&#39;s EV Battle Is No Longer About Price\u2014It&#39;s About Brands",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:56:51.103455-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Is Sending MrBeast Into The Wilderness, Armed With AI; Has A New Deal To Promote Gemini And Google Health&#39; - The Verge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T11:57:48.097249-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Posts Strong Q2, Enterprise AI Workloads Drive 30% Revenue Growth",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -2874,5 +2874,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T10:28:15.485474-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Official Says President Trump To Meet With Ceasars, Hard Rock Execs Today\u00a0- Reuters",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T10:29:06.211839-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "NIO shares are trading lower after Bernstein lowered its price target on the stock from $6 to $5.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:31:44.973307-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Avoids Forced Sale Of AdX As Judge In Google Ad Tech Antitrust Case Rejects Divestiture, Seeks Some Behavioral Changes According To Order - Reuters",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

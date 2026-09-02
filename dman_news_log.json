@@ -1338,5 +1338,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:46:28.341436-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Roth Capital Maintains Neutral on Palo Alto Networks, Raises Price Target to $300",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:46:39.704205-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Morgan Stanley Reiterates Overweight on Apple, Maintains $360 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

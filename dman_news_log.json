@@ -1901,5 +1901,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T16:06:29.991918-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Q2 Adj. EPS $0.62 Beats $0.45 Estimate, Sales $1.547B Beat $1.482B Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

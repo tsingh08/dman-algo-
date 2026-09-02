@@ -1358,5 +1358,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T13:54:31.984620-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "What&#39;s Going On With Rocket Lab Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:54:35.405589-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "JP Morgan Downgrades NIO to Neutral, Lowers Price Target to $4.5",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:55:09.015232-04:00",
+    "symbols": [
+      "CRWD",
+      "ZS"
+    ],
+    "headline": "Zscaler And CrowdStrike Expand Strategic Partnership With Integrations To Unify Cross-Domain Security; CrowdStrike Will Expand Project QuiltWorks To Include Zscaler",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

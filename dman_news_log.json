@@ -3727,5 +3727,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:13:32.145098-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Valero Energy, Oracle, Alphabet Class A, iShares Gold Trust Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:13:38.983362-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Palo Alto Networks, Raises Price Target to $450",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:13:39.968845-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-02T13:13:40.688119-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "LivePerson Stockholders Approve Proposed Transaction With SoundHound AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1649,5 +1649,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-02T14:48:38.554959-04:00",
+    "symbols": [
+      "GOOGL",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceX AI Buildout Shows Cracks as Musk Shakes Up Data Center Team",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
   }
 ]

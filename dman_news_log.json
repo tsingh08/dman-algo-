@@ -2722,5 +2722,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T09:53:02.379723-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "What&#39;s Happening With GameStop Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T09:53:47.812763-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Gary Black Says Tesla\u2019s Sky-High Valuation Is a Reason to \u2018Not Own It\u2019 \u2014 But \u2018Not a Reason to Short It\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

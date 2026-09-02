@@ -1701,5 +1701,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T14:59:51.916789-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Scotiabank Initiates Coverage On Robinhood Markets with Sector Outperform Rating, Announces Price Target of $136",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T15:00:52.084286-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Trump&#39;s Crypto Ally Fights to Save His Company After a 99% Crash",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

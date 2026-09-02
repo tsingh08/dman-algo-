@@ -1341,16 +1341,62 @@
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:18.559789-04:00",
     "symbols": [
       "AAPL"
     ],
     "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in August on Benzinga Pro \u2013 SpaceX, Nebius Climb, Palantir Returns",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-09-02T13:35:25.716730-04:00",
+    "symbols": [
+      "AVGO",
+      "CLSK",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
+    "ts": "2026-09-02T13:35:26.032799-04:00",
+    "symbols": [
+      "HIMS",
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:35:26.439155-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "9 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:35:30.081718-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Morgan Stanley Reiterates Overweight on Apple, Maintains $360 Price Target",
+    "source": "benzinga",
+>>>>>>> Stashed changes
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:18.560194-04:00",
     "symbols": [
       "AAPL"
@@ -1396,11 +1442,19 @@
       "MSFT"
     ],
     "headline": "BlackRock: AI Boom Still in Phase 1 as Amazon, Google, Microsoft Fuel &#39;Massive Build-Out&#39;",
+=======
+    "ts": "2026-09-02T13:35:36.681889-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:18.866607-04:00",
     "symbols": [
       "MSFT"
@@ -1442,6 +1496,19 @@
   },
   {
     "ts": "2026-09-02T13:31:19.118079-04:00",
+=======
+    "ts": "2026-09-02T13:35:37.113290-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:35:37.114348-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "NVDA"
     ],
@@ -1451,6 +1518,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:19.118528-04:00",
     "symbols": [
       "NVDA"
@@ -1506,11 +1574,19 @@
       "META"
     ],
     "headline": "If You Invested $100 In Meta Platforms Stock 10 Years Ago, You Would Have This Much Today",
+=======
+    "ts": "2026-09-02T13:35:40.056692-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:19.668919-04:00",
     "symbols": [
       "META"
@@ -1832,6 +1908,9 @@
   },
   {
     "ts": "2026-09-02T13:31:22.198241-04:00",
+=======
+    "ts": "2026-09-02T13:35:40.057687-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "AVGO"
     ],
@@ -1841,6 +1920,7 @@
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:22.199117-04:00",
     "symbols": [
       "AVGO"
@@ -1896,11 +1976,19 @@
       "MU"
     ],
     "headline": "The S&amp;P 500 Got Cheaper While It Rallied. Here&#39;s What Bond Bears Are Missing",
+=======
+    "ts": "2026-09-02T13:35:40.808871-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:22.917907-04:00",
     "symbols": [
       "MU"
@@ -1936,11 +2024,19 @@
       "SNDK"
     ],
     "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in August on Benzinga Pro \u2013 SpaceX, Nebius Climb, Palantir Returns",
+=======
+    "ts": "2026-09-02T13:35:41.267099-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:23.338915-04:00",
     "symbols": [
       "SNDK"
@@ -2126,11 +2222,19 @@
       "MRNA"
     ],
     "headline": "Moderna Stock Moves Lower Wednesday: What&#39;s Going On?",
+=======
+    "ts": "2026-09-02T13:35:43.470116-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:26.516842-04:00",
     "symbols": [
       "LLY"
@@ -2156,11 +2260,19 @@
       "HIMS"
     ],
     "headline": "Fraudulent Weight Loss Drugs: FDA Warns Against Mislabeled GLP-1 Medications",
+=======
+    "ts": "2026-09-02T13:35:44.008353-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:27.238752-04:00",
     "symbols": [
       "DUOL"
@@ -2176,11 +2288,19 @@
       "GME"
     ],
     "headline": "What&#39;s Happening with GameStop Stock?",
+=======
+    "ts": "2026-09-02T13:35:46.261375-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-02T13:31:27.817561-04:00",
     "symbols": [
       "XOM"
@@ -2648,6 +2768,15 @@
     "headline": "Scorpio Gold On Tuesday Began Trading Its ADS&#39;s On The NASDAQ Capital Market Under Ticker Symbol &#34;SGLD&#34;",
     "source": "scan-prefetch",
     "tag": "watchlist",
+=======
+    "ts": "2026-09-02T13:36:56.670672-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia shares are trading higher, possibly following reports that the company is in advanced talks to acquire AI company Hugging Face in a transaction that could be valued at about $14 billion. Separately, CEO Jensen Huang called on G20 nations to accelerate AI adoption to boost economic growth and expand data centers and other infrastructure needed to support the technology.",
+    "source": "benzinga",
+    "tag": "macro",
+>>>>>>> Stashed changes
     "sentiment": null
   }
 ]

@@ -3055,5 +3055,28 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T10:42:36.987066-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "BlackRock: AI Boom Still in Phase 1 as Amazon, Google, Microsoft Fuel &#39;Massive Build-Out&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:43:34.231236-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Customers Are Burning Through AI Credits \u2014 and That\u2019s Great News for Revenue",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

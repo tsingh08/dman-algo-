@@ -3594,5 +3594,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T12:25:18.742961-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: Options Traders Are The Most Bearish On Small-Cap Stocks Since April 2024, With The $IWM Put-Call Ratio Surging To 3.58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T12:25:19.201072-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "BZ Analysis: Options Traders Are The Most Bearish On Small-Cap Stocks Since April 2024, With The $IWM Put-Call Ratio Surging To 3.58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

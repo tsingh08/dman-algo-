@@ -3767,5 +3767,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:15:04.057924-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Valero Energy, Oracle, Alphabet Class A, iShares Gold Trust Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:15:07.360369-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Palo Alto Networks, Raises Price Target to $450",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T13:15:07.798565-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-02T13:15:08.119696-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "LivePerson Stockholders Approve Proposed Transaction With SoundHound AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:15:08.676573-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:15:08.680140-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "BioAffinity Technologies Stock Skyrockets Wednesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:15:08.683759-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "Dow Surges Over 200 Points; Ollie&#39;s Bargain Outlet Shares Gain After Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T13:15:08.777202-04:00",
+    "symbols": [
+      "ASTX"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Soaring Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

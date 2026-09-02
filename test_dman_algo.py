@@ -56,7 +56,7 @@ import tempfile
 import time
 import unittest
 from datetime import date, datetime, timedelta
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, mock_open
 
 # Credentials must be blank BEFORE import — several module-level constants
 # read env vars at import time, and a stray real key in the environment
@@ -9898,6 +9898,60 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
         base = self._run(1.0)
         reduced = self._run(0.35)
         self.assertAlmostEqual(reduced, base * 0.35, places=2)
+
+
+class TestAccountMilestones(unittest.TestCase):
+    """check_account_milestones() — one-time $5K/$10K/$25K crossing alerts."""
+
+    def _run(self, equity, prior_crossed=None, mock_open_target=None):
+        mock_client = MagicMock()
+        mock_client.get_account.return_value.equity = equity
+        read_data = json.dumps({"crossed": prior_crossed or []})
+        m = mock_open(read_data=read_data)
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch("builtins.open", m), \
+             patch.object(a, "_write_json_atomic") as mock_write, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a.check_account_milestones()
+        return mock_tg, mock_write
+
+    def test_first_crossing_of_5k_sends_one_alert(self):
+        mock_tg, mock_write = self._run(equity=5_100.0, prior_crossed=[])
+        mock_tg.assert_called_once()
+        self.assertIn("$5,000", mock_tg.call_args[0][0])
+        mock_write.assert_called_once()
+        saved = mock_write.call_args[0][1]
+        self.assertEqual(saved["crossed"], [5_000])
+
+    def test_already_crossed_milestone_never_refires(self):
+        mock_tg, mock_write = self._run(equity=6_000.0, prior_crossed=[5_000])
+        mock_tg.assert_not_called()
+        mock_write.assert_not_called()
+
+    def test_equity_dip_back_below_does_not_unmark(self):
+        # Crossed 5K once, dipped back to 4.5K -- must stay marked crossed,
+        # never re-announce on a later re-cross of the same line.
+        mock_tg, mock_write = self._run(equity=4_500.0, prior_crossed=[5_000])
+        mock_tg.assert_not_called()
+        mock_write.assert_not_called()
+
+    def test_crossing_two_milestones_at_once_sends_both(self):
+        mock_tg, mock_write = self._run(equity=11_000.0, prior_crossed=[])
+        self.assertEqual(mock_tg.call_count, 2)
+        texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("$5,000" in t for t in texts))
+        self.assertTrue(any("$10,000" in t for t in texts))
+
+    def test_below_first_milestone_sends_nothing(self):
+        mock_tg, mock_write = self._run(equity=3_053.0, prior_crossed=[])
+        mock_tg.assert_not_called()
+        mock_write.assert_not_called()
+
+    def test_no_alpaca_client_fails_safe(self):
+        with patch.object(a, "get_alpaca_client", return_value=None), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a.check_account_milestones()   # must not raise
+        mock_tg.assert_not_called()
 
 
 class TestMomentumWatchAutoExecute(unittest.TestCase):

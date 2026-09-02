@@ -145,6 +145,9 @@ STATE_FILES = [
     "dman_momentum_pending.json",   # awaiting-approval momentum-watch breakout offers — same
                                       # reasoning as dman_earnings_pending.json above, added alongside
                                       # that feature (2026-08-30)
+    "dman_milestones.json",   # one-time $5K/$10K/$25K crossing announcements — see
+                                # algo.check_account_milestones(); same class of bug as
+                                # dman_setup_probation.json above if left out (added 2026-09-02)
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

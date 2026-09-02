@@ -302,6 +302,7 @@ jobs:
             dman_stock_feed_state.json dman_telegram_options_menu.json
             dman_telegram_manual_buy.json dman_news_log.json
             dman_setup_probation.json dman_momentum_pending.json
+            dman_milestones.json
 
       - name: Notify on workflow failure
         if: failure()

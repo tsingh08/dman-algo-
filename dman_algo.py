@@ -494,6 +494,75 @@ OPTIONS_SETUPS.add(MOMENTUM_DAY_ONLY_SETUP)   # same "setup is the real quality 
                                                 # a momentum-watch breakout is already a human-
                                                 # approved, individually-vetted entry.
 
+# ── Account milestones ────────────────────────────────────────────────────────
+# Every risk budget in this file is already a PERCENTAGE of current equity
+# (OPTIONS_MAX_POSITION_PCT, EARNINGS_SPREAD_RISK_PCT, SMALLCAP_RISK_PCT), so
+# dollar sizing already scales up on its own as the account grows -- these
+# milestones don't change any of that math. What they mark is the PDT reality
+# (25_000 is the one genuine mechanism change -- day-trading unlocks) and
+# give a visible "this is working" signal along the way, since nothing else
+# in the system announces progress, only individual trade outcomes.
+MILESTONES_FILE = "dman_milestones.json"
+ACCOUNT_MILESTONES: list[tuple[float, str]] = [
+    (5_000,  "Momentum Watch and Low Float Catalyst are the two setups still "
+             "earning trust -- probation clears on live win rate recovering, "
+             "not a fixed date. Worth checking where each stands."),
+    (10_000, "Position sizes are real money now, not just percentages on "
+             "paper -- 15% of equity in a single options trade is a "
+             "meaningfully different number than it was at $3K."),
+    (25_000, "The PDT day-trade limit is gone. Momentum Watch's day-only "
+             "positions stop being a scarce resource -- the algo can round-"
+             "trip a fast move same-day instead of forcing an overnight "
+             "hold just to protect the 3-trades-per-5-days budget."),
+]
+
+
+def check_account_milestones() -> None:
+    """
+    One-time-per-milestone Telegram announcement when live equity first
+    crosses $5K / $10K / $25K (see ACCOUNT_MILESTONES). Piggybacked onto
+    the --mode earnings-scan dispatch since that already runs
+    unconditionally on every single scanner cron (hourly) regardless of
+    signals -- see its call site -- rather than adding a new dedicated
+    Alpaca account read on its own cadence for something that only
+    meaningfully changes over days or weeks, not minutes.
+
+    State is a simple "already announced" list, never re-fires for a
+    milestone once crossed even if equity later dips back below it --
+    the point is marking real growth reached, not tracking a live
+    threshold.
+    """
+    try:
+        client = get_alpaca_client()
+        if not client:
+            return
+        equity = float(getattr(client.get_account(), "equity", 0) or 0)
+    except Exception as exc:
+        print(f"  ⚠️  milestone check: account read failed ({exc})", file=sys.stderr)
+        return
+
+    try:
+        with open(MILESTONES_FILE) as f:
+            state = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        state = {"crossed": []}
+    crossed = set(state.get("crossed", []))
+
+    for threshold, unlock_note in ACCOUNT_MILESTONES:
+        if threshold in crossed or equity < threshold:
+            continue
+        crossed.add(threshold)
+        send_telegram(
+            f"🎉 <b>Milestone: ${threshold:,.0f}</b>\n"
+            f"Live equity is ${equity:,.2f} — first time crossing this line.\n\n"
+            f"{unlock_note}"
+        )
+        print(f"  🎉 Milestone crossed: ${threshold:,.0f} (equity ${equity:,.2f})")
+
+    if crossed != set(state.get("crossed", [])):
+        _write_json_atomic(MILESTONES_FILE, {"crossed": sorted(crossed)}, indent=2)
+
+
 # ── VIX-adjusted position sizing ─────────────────────────────────────────────
 # Scales share count down proportionally when VIX exceeds baseline.
 # VIX 20 (baseline) → 1.0x  |  VIX 30 → 0.67x  |  VIX 40 → 0.50x
@@ -19194,6 +19263,12 @@ def main():
         # Idempotent: safe to run every hour, only sends a new offer once.
         run_earnings_spread_scan()
         expire_earnings_spread_offers()
+        # Piggybacked here for the same reason: this mode already runs
+        # unconditionally every scanner cron regardless of signals, so it's
+        # the cheapest reliable once-an-hour cadence for a check that only
+        # meaningfully changes over days/weeks, not minutes — see
+        # check_account_milestones()'s own docstring.
+        check_account_milestones()
 
     elif args.mode == "guard":
         # One-shot options guard — the daemon loops this every 60s

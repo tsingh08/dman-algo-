@@ -1619,5 +1619,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T14:25:43.432808-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Anthropic Just Added a Powerful New Voice for AI Policy Around the World",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
   }
 ]

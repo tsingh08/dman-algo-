@@ -468,6 +468,20 @@ MOMENTUM_APPROVAL_MAX_PRICE_DRIFT_PCT = 5.0   # abort a late approval rather tha
                                                 # because a breakout's own timeout is already tight
 MOMENTUM_PENDING_FILE   = "dman_momentum_pending.json"
 MOMENTUM_DAY_ONLY_SETUP = "Momentum Watch Breakout (Day)"
+# Reduced-size auto-execute, no YES/NO reply needed — direct instruction
+# 2026-09-01: the account owner is unavailable to reply during market
+# hours (9-5 job, only free after ~7 PM local) so MOMENTUM_APPROVAL_TIMEOUT_
+# MIN's 15-minute window structurally cannot be met most days, and every
+# breakout alert was expiring unactioned (confirmed live: 104 offers in
+# one session, zero ever approved). Only _detect_pre_breakout()'s real
+# pattern match auto-executes (consolidation/volume/technical criteria
+# already passed, not just "price crossed back above VWAP" — see the
+# is_high_confidence split in run_momentum_watch()); the weaker pure-VWAP-
+# reclaim case keeps requiring an explicit reply. Sized down rather than
+# run at full size specifically because this setup doesn't have earnings
+# spread's kind of live track record yet -- this is how it earns one
+# safely while unsupervised, not a vote of full confidence.
+MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
 MOMENTUM_EOD_CLOSE_HOUR_ET   = 15    # force-close any open day-only position at/after this ET
 MOMENTUM_EOD_CLOSE_MINUTE_ET = 45    # time -- 3:45 PM ET, ahead of the last momentum-watch cron
                                       # firing (~3:34 PM ET) so the close order has time to fill
@@ -7552,27 +7566,45 @@ def run_momentum_watch() -> None:
                         f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
                         f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
                     )
-                    # Make it actionable, not just informational -- direct
-                    # instruction 2026-08-30. One offer per ticker at a
-                    # time: a fresh alert for a ticker that already has an
-                    # awaiting-approval offer just shows a note instead of
-                    # opening a second, redundant approval.
-                    _mw_pending = _load_momentum_pending()
-                    if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
-                           for e in _mw_pending):
-                        _breakout_msg += f"\n   (approval already pending for {ticker})"
+                    # High confidence = _detect_pre_breakout() found a real
+                    # technical pattern (consolidation/volume/etc.), not just
+                    # "price crossed back above VWAP" -- auto-executes at
+                    # reduced size with no reply needed (see
+                    # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
+                    # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
+                    if bp["setup"]:
+                        _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                                      "t1": t1, "t2": t2, "signal_str": sig_str}
+                        try:
+                            _mw_sig = _build_momentum_signal(_mw_offer)
+                            _submit_signals_to_alpaca([_mw_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
+                            _breakout_msg += (f"\n   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x "
+                                              f"size — no reply needed (day-only, auto-closes "
+                                              f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET)")
+                        except Exception as _mw_exc:
+                            _breakout_msg += f"\n   ⚠️ Auto-execute failed ({_mw_exc}) — no order placed"
                     else:
-                        _mw_now = datetime.now(ET)
-                        _mw_offer = {
-                            "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                            "t1": t1, "t2": t2, "signal_str": sig_str,
-                            "created_at": _mw_now.isoformat(),
-                            "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
-                            "status": "awaiting_approval",
-                        }
-                        _mw_pending.append(_mw_offer)
-                        _save_momentum_pending(_mw_pending)
-                        _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
+                        # Make it actionable, not just informational -- direct
+                        # instruction 2026-08-30. One offer per ticker at a
+                        # time: a fresh alert for a ticker that already has an
+                        # awaiting-approval offer just shows a note instead of
+                        # opening a second, redundant approval.
+                        _mw_pending = _load_momentum_pending()
+                        if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
+                               for e in _mw_pending):
+                            _breakout_msg += f"\n   (approval already pending for {ticker})"
+                        else:
+                            _mw_now = datetime.now(ET)
+                            _mw_offer = {
+                                "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                                "t1": t1, "t2": t2, "signal_str": sig_str,
+                                "created_at": _mw_now.isoformat(),
+                                "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
+                                "status": "awaiting_approval",
+                            }
+                            _mw_pending.append(_mw_offer)
+                            _save_momentum_pending(_mw_pending)
+                            _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
                     setup_alerts.append(_breakout_msg)
             else:
                 # In position — check fade + trailing stop levels
@@ -18396,13 +18428,20 @@ def _shares_fallback_allowed(ticker: str, setup: str = "") -> bool:
             or setup == MOMENTUM_DAY_ONLY_SETUP)
 
 
-def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
+def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) -> None:
     """
     Validate entry prices and submit passing signals to Alpaca (paper or live).
     Re-anchors each signal's stop and target to the live price so bracket legs
     are always correct relative to the actual fill price.
     Automatically adds each submitted trade to PositionTracker.
     Called after a scan when --submit flag is set.
+
+    size_mult: extra caller-supplied sizing multiplier, compounds on top of
+    the regime/streak/probation multiplier below (default 1.0 = no change
+    for every existing caller). Added for momentum-watch's reduced-size
+    auto-execute path (see MOMENTUM_AUTO_EXEC_SIZE_MULT) — a setup trusted
+    enough to skip the YES/NO approval gate but without the live track
+    record yet to earn full size while unsupervised.
     """
     if not signals:
         return
@@ -18569,6 +18608,12 @@ def _submit_signals_to_alpaca(signals: list[ProSignal]) -> None:
     if _probation_active and _probation_size_mult != 1.0:
         _risk_off_mult *= _probation_size_mult
         print(f"  🟡 Probation sizing: ×{_probation_size_mult:.2f} → net ×{_risk_off_mult:.2f}")
+
+    # Caller-supplied extra reduction (e.g. momentum-watch auto-exec) —
+    # compounds last, same unconditional pattern as probation above.
+    if size_mult != 1.0:
+        _risk_off_mult *= size_mult
+        print(f"  🔻 Caller size_mult: ×{size_mult:.2f} → net ×{_risk_off_mult:.2f}")
 
     pt        = PositionTracker()
     submitted = 0

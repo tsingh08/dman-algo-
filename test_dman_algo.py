@@ -9848,6 +9848,115 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         mock_client.submit_order.assert_called_once()
 
 
+class TestSubmitSignalsSizeMult(unittest.TestCase):
+    """size_mult param added 2026-09-01 for momentum-watch's reduced-size
+    auto-execute path — verifies it actually compounds into the options
+    budget rather than just being accepted and silently ignored."""
+
+    def _run(self, size_mult):
+        sig = a.ProSignal(
+            ticker="TESTX", bias="LONG", setup="Gap & Hold",   # in OPTIONS_SETUPS
+            entry=10.0, stop=9.95, target1=10.15, target2=10.30,   # tiny risk/share
+            rr=3.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=100,
+            shares=10, cost=100.0,
+        )
+        captured = {}
+        def _fake_submit_options_call(client, ticker, cur, risk_dollars, signal):
+            captured["risk_dollars"] = risk_dollars
+            return None, None   # unfillable -> falls through, nothing else to mock
+        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price", return_value=(True, 100.0)), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "WATCHLIST", ["TESTX"]), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "_submit_options_call", side_effect=_fake_submit_options_call), \
+             patch.object(a, "send_telegram", return_value=True):
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0,
+            }
+            MockPT.return_value.positions = []
+            a._submit_signals_to_alpaca([sig], size_mult=size_mult)
+        return captured.get("risk_dollars")
+
+    def test_default_size_mult_matches_unmultiplied_behavior(self):
+        base = self._run(1.0)
+        self.assertIsNotNone(base)
+
+    def test_reduced_size_mult_shrinks_options_budget_proportionally(self):
+        base = self._run(1.0)
+        reduced = self._run(0.35)
+        self.assertAlmostEqual(reduced, base * 0.35, places=2)
+
+
+class TestMomentumWatchAutoExecute(unittest.TestCase):
+    """Direct instruction 2026-09-01: a real _detect_pre_breakout() pattern
+    match (not just a bare VWAP reclaim) auto-executes at reduced size with
+    no YES/NO reply needed — the account owner can't reply during market
+    hours (9-5 job), and every breakout offer was expiring unactioned as a
+    result (104 in one session, confirmed live, zero ever approved)."""
+
+    def _run_watch(self, breakout_setup: bool):
+        # 2-day history with a real ~-3% opening gap so is_recovery_dip
+        # (source contains "recovery") is genuinely true for the fallback
+        # (non-auto-exec) case's _fire condition, not just cur > vwap alone.
+        import pandas as pd
+        _hist2 = pd.DataFrame({
+            "Open":  [10.60, 9.90],
+            "Close": [10.60, 10.20],
+        })
+        with patch.object(a, "_force_close_day_only_positions", return_value=0), \
+             patch("os.path.exists", return_value=False), \
+             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["TESTX"]), \
+             patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
+             patch("yfinance.Ticker") as MockYfTicker, \
+             patch.object(a, "_fetch_intraday_bars", return_value=object()), \
+             patch.object(a, "_compute_session_levels", return_value={
+                 "cur_price": 10.5, "vwap": 10.0, "session_low": 9.0,
+                 "session_high": 10.6,
+             }), \
+             patch.object(a, "_detect_pre_breakout", return_value={
+                 "setup": breakout_setup, "entry_px": 10.55, "stop_px": 9.9,
+                 "signals": ["tight coil"],
+             }), \
+             patch.object(a, "_build_momentum_signal") as mock_build, \
+             patch.object(a, "_submit_signals_to_alpaca") as mock_submit, \
+             patch.object(a, "_load_momentum_pending", return_value=[]), \
+             patch.object(a, "_save_momentum_pending") as mock_save_pending, \
+             patch.object(a, "send_telegram", return_value=True):
+            MockYfTicker.return_value.history.return_value = _hist2
+            mock_build.return_value = a.ProSignal(
+                ticker="TESTX", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+                entry=10.55, stop=9.9, target1=13.7, target2=15.8,
+                rr=2.0, rsi=50.0, rvol=0.0, reason="test", confluence_score=100,
+            )
+            a.run_momentum_watch()
+        return mock_submit, mock_save_pending
+
+    def test_real_breakout_pattern_auto_executes_no_reply_needed(self):
+        mock_submit, mock_save_pending = self._run_watch(breakout_setup=True)
+        mock_submit.assert_called_once()
+        _, kwargs = mock_submit.call_args
+        self.assertEqual(kwargs.get("size_mult"), a.MOMENTUM_AUTO_EXEC_SIZE_MULT)
+        mock_save_pending.assert_not_called()
+
+    def test_pure_vwap_reclaim_without_pattern_still_requires_approval(self):
+        mock_submit, mock_save_pending = self._run_watch(breakout_setup=False)
+        mock_submit.assert_not_called()
+        mock_save_pending.assert_called_once()
+
+
 class TestMomentumBreakoutApprovalFlow(unittest.TestCase):
     """Direct instruction 2026-08-30: run_momentum_watch()'s BREAKOUT
     SETUP alerts were purely informational -- no way to act on one

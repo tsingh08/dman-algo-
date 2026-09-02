@@ -2793,5 +2793,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:07:44.588977-04:00",
+    "symbols": [
+      "DUOL",
+      "HOOD"
+    ],
+    "headline": "This OGE Energy Analyst Turns Bullish; Here Are Top 4 Upgrades For Wednesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:08:02.135219-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Billionaire David Tepper Exited SanDisk During Its Historic Rally\u2013 The Stock Has Since Fallen Over 30%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:08:02.479804-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Billionaire David Tepper Exited SanDisk During Its Historic Rally\u2013 The Stock Has Since Fallen Over 30%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:08:04.034041-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "This OGE Energy Analyst Turns Bullish; Here Are Top 4 Upgrades For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:08:05.448478-04:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "This OGE Energy Analyst Turns Bullish; Here Are Top 4 Upgrades For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T10:08:05.737982-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "What&#39;s Happening with GameStop Stock?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

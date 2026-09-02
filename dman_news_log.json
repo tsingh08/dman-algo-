@@ -3574,5 +3574,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T12:14:39.803894-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Commerce Secretary Howard Lutnick Says Anthropic Is &#39;Back On The Right Side&#39; With Trump Administration - Axios",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T12:15:43.361442-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Palo Alto Networks, Raises Price Target to $410",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -3553,5 +3553,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T12:10:45.353803-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: The 30-Year Treasury Yield Has Traded Above 5.00% For 56 Trading Days So Far In 2026, Marking The Longest Such Streak In Any Year Since 2006",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T12:12:27.978782-04:00",
+    "symbols": [
+      "IWM",
+      "SPY"
+    ],
+    "headline": "BZ Analysis: Options Traders Are The Most Bearish On Small-Cap Stocks Since April 2024, With The $IWM Put-Call Ratio Surging To 3.58",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

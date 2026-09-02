@@ -1629,5 +1629,25 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-02T14:39:34.498286-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Citigroup Maintains Buy on Palo Alto Networks, Raises Price Target to $410",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T14:41:07.786150-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Citigroup Maintains Buy on MongoDB, Raises Price Target to $565",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

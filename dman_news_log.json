@@ -1868,5 +1868,28 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T15:38:34.189361-04:00",
+    "symbols": [
+      "CRWD",
+      "DDOG",
+      "FTNT",
+      "PLTR"
+    ],
+    "headline": "Shares of software companies are trading lower. The sector may be weighed down by Palo Alto Networks after the company reported its Q4 financial results.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T15:41:45.936957-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Affirm Holdings shares are trading higher after Scotiabank initiated coverage on the stock with an Outperform rating and announced a $95 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -3614,5 +3614,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T12:28:39.988524-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks shares are trading lower after the company reported a year-over-year decrease in its FY26 EPS results.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T12:29:32.769165-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Delivery Hero Board Recommends Shareholders Accept Proposed Uber Takeover",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-02T12:29:35.825291-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Robinhood Markets, Raises Price Target to $145",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

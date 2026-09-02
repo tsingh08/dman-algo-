@@ -3298,5 +3298,29 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-02T11:24:05.772012-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MU",
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "The S&amp;P 500 Got Cheaper While It Rallied. Here&#39;s What Bond Bears Are Missing",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-02T11:24:26.398000-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;NYC Bans AI Use For Students Until They Reach High School; \ufeffThe Policy Also Bans Companion Chatbots Across All Grades&#39; - The Verge",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

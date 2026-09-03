@@ -1306,5 +1306,41 @@
     "pnl_pct": 0.6,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "SPCX",
+    "date": "2026-09-03",
+    "bias": "LONG",
+    "setup": "Momentum Watch Breakout (Day)",
+    "entry": 140.16,
+    "exit": 144.09,
+    "outcome": "WIN",
+    "pnl_pct": 2.8,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "ELAB",
+    "date": "2026-09-03",
+    "bias": "LONG",
+    "setup": "Momentum Watch Breakout (Day)",
+    "entry": 5.14,
+    "exit": 5.26,
+    "outcome": "WIN",
+    "pnl_pct": 2.33,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "IMPP",
+    "date": "2026-09-03",
+    "bias": "LONG",
+    "setup": "Momentum Watch Breakout (Day)",
+    "entry": 5.3,
+    "exit": 5.35,
+    "outcome": "WIN",
+    "pnl_pct": 0.96,
+    "score": 100,
+    "is_live": true
   }
 ]

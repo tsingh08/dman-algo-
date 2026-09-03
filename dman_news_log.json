@@ -3263,5 +3263,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:24:18.944611-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Snowflake, Raises Price Target to $525",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

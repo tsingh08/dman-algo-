@@ -2951,5 +2951,133 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:47:22.209464-04:00",
+    "symbols": [
+      "CRWD",
+      "GOOGL",
+      "MSFT",
+      "NET",
+      "NVDA",
+      "PANW",
+      "ZS"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:48:07.540920-04:00",
+    "symbols": [
+      "QQQ",
+      "SPY",
+      "TLT"
+    ],
+    "headline": "Fed\u2019s Waller Favors Holding Rates in September \u2014 Unless August Inflation Runs Hot",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T09:49:32.162885-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Fed\u2019s Goolsbee Warns AI Data Center Boom Could Overheat US Economy \u2014 \u2018The Bigger The Hype,\u2019 The Bigger The Risk",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T09:49:44.594687-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:49:44.899807-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:49:45.965753-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:49:50.990369-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:49:51.233156-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-03T09:49:51.499815-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T09:49:52.961717-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Earnings Prediction Market Preview: Will Anthropic\u2019s Claude Be a \u2018Tailwind\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:49:54.543015-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed\u2019s Waller Favors Holding Rates in September \u2014 Unless August Inflation Runs Hot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:49:54.784722-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Fed\u2019s Waller Favors Holding Rates in September \u2014 Unless August Inflation Runs Hot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -3273,5 +3273,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:27:18.598805-04:00",
+    "symbols": [
+      "APVO"
+    ],
+    "headline": "Aptevo Therapeutics shares are trading lower. The company reported a 93% clinical benefit rate with its mipletamig triplet in evaluable frontline acute myeloid leukemia patients with TP53 mutations.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:27:39.448603-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Reported Earlier: &#39;Apple facing $2.7 billion UK lawsuit over &#39;unfair&#39; app tracking rules&#39; - Reuters",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:28:25.024821-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on ON Semiconductor, Lowers Price Target to $95",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:28:34.994149-04:00",
+    "symbols": [
+      "DKNG",
+      "HOOD"
+    ],
+    "headline": "Robinhood Prediction Markets Face Supreme Court Test as New Jersey Takes On Kalshi",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

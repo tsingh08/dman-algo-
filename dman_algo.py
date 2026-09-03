@@ -681,7 +681,16 @@ HALT_FILE           = "dman_halt.json"            # exists = /halt active: no ne
 PROBATION_FILE       = "dman_probation.json"      # exists = probation active — see is_on_probation()
 LIVE_SIGNALS_FILE  = "dman_live_signals.json"   # pending live signals awaiting outcome
 LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # ground-truth live trade log
-SCAN_LOG_FILE      = "dman_scan_log.json"        # rolling log of each scan run (last 20)
+SCAN_LOG_FILE      = "dman_scan_log.json"        # rolling log of each scan run
+# Raised 20 -> 120 on 2026-09-03. At the live cadence (daemon ~every 5-10
+# min plus the cron scanner) 20 entries is roughly TWO HOURS of history, so
+# the 4:24 PM session review and any "why did we miss that mover?" question
+# could only ever see the last two hours -- the morning, where the day's
+# real moves happen, had already aged out. Confirmed on this date: the log
+# read back 14:03-15:57 ET only, despite scans running from 9:35 AM. 120
+# entries covers a full session with room to spare; each entry is a small
+# flat dict of counters, so the file stays trivially small.
+SCAN_LOG_MAX_ENTRIES = 120
 NEWS_LOG_FILE      = "dman_news_log.json"        # rolling background news log — see _log_news_event()
 NEWS_LOG_MAX_ENTRIES = 500
 
@@ -12871,8 +12880,11 @@ def sync_scan_log_with_remote() -> None:
     _sync_json_file_via_merge(
         SCAN_LOG_FILE,
         extract=lambda d: (d, None),
+        # Same cap as _append_scan_log's — a hard-coded 20 here would
+        # re-truncate on every merge and silently undo the raised retention.
         rebuild=lambda merged, _le, _re: sorted(
-            merged, key=lambda e: e.get("ts", ""), reverse=True)[:20][::-1],
+            merged, key=lambda e: e.get("ts", ""),
+            reverse=True)[:SCAN_LOG_MAX_ENTRIES][::-1],
         label="dman_scan_log.json",
     )
 
@@ -15008,7 +15020,7 @@ def _check_open_position_risk(regime: dict) -> None:
 #  SECTION 19.5 — SCAN RESULT LOG
 # ═══════════════════════════════════════════════════════════════════════════
 
-def _append_scan_log(entry: dict, max_entries: int = 20) -> None:
+def _append_scan_log(entry: dict, max_entries: int = SCAN_LOG_MAX_ENTRIES) -> None:
     """
     Append one scan result to the rolling scan log (keeps last max_entries
     by actual timestamp, not list position).

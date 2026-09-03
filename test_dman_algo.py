@@ -1233,12 +1233,22 @@ class TestSyncScanLogWithRemote(unittest.TestCase):
         os.unlink(self._tmp.name)
 
     def test_fresh_local_entry_survives_a_diverged_same_size_remote(self):
-        # local: 19 old entries + 1 brand-new one just appended this run.
-        local = [self._entry(f"2026-08-01T{h:02d}:00:00-04:00") for h in range(19)]
+        # Sized off SCAN_LOG_MAX_ENTRIES rather than a literal: the cap was
+        # raised 20 -> 120 on 2026-09-03 so a full session stays reviewable,
+        # and a hard-coded size here would stop exercising EVICTION at all
+        # (the merged total would simply fit under the cap) while still
+        # passing -- the test would quietly stop testing its own bug.
+        cap = a.SCAN_LOG_MAX_ENTRIES
+        # local: cap-1 old entries + 1 brand-new one just appended this run.
+        base = datetime(2026, 8, 1, tzinfo=a.ET)
+        local = [self._entry((base + timedelta(minutes=m)).isoformat())
+                 for m in range(cap - 1)]
         local.append(self._entry("2026-08-11T21:00:00-04:00"))   # the newest entry
         # remote: a fully-diverged, equally-sized, older snapshot (the
         # "frozen a day ago" scenario) — none of it byte-matches local.
-        remote = [self._entry(f"2026-08-10T{h:02d}:30:00-04:00") for h in range(20)]
+        rbase = datetime(2026, 8, 10, tzinfo=a.ET)
+        remote = [self._entry((rbase + timedelta(minutes=m)).isoformat())
+                  for m in range(cap)]
         with open(self._tmp.name, "w") as f:
             json.dump(local, f)
         with patch("subprocess.run") as mock_run:
@@ -1247,7 +1257,7 @@ class TestSyncScanLogWithRemote(unittest.TestCase):
             a.sync_scan_log_with_remote()
         with open(self._tmp.name) as f:
             result = json.load(f)
-        self.assertEqual(len(result), 20)
+        self.assertEqual(len(result), cap)
         self.assertIn("2026-08-11T21:00:00-04:00", [e["ts"] for e in result],
                        "the newest local entry must survive the merge, not be "
                        "evicted by an equally-sized but older remote snapshot")

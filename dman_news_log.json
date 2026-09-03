@@ -3193,5 +3193,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:13:40.960627-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Cathie Wood Trims 40K Shopify Shares After August Rally: Where ARK Is Reinvesting?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:16:27.467336-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Snowflake, Raises Price Target to $440",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:16:32.295449-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Broadcom, Raises Price Target to $505",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

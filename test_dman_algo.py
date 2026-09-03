@@ -10421,11 +10421,27 @@ class TestForceCloseDayOnlyPositions(unittest.TestCase):
 
     def test_already_closed_status_does_not_alert_or_count(self):
         a.PositionTracker().open(self._day_only_pos())
+        # _cancel_stale_day_only_entry() is mocked out here deliberately:
+        # unmocked it reaches for a real Alpaca client (it only passed
+        # before by luck -- no HOOD orders happened to exist).
         with patch.object(a, "_close_position_at_market", return_value=("already_closed", None)), \
+             patch.object(a, "_cancel_stale_day_only_entry", return_value=False), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             closed = a._force_close_day_only_positions(self._fake_now(15, 45))
         self.assertEqual(closed, 0)
         mock_tg.assert_not_called()
+
+    def test_already_closed_still_cancels_a_stale_unfilled_entry_order(self):
+        # The MASK case (confirmed live 2026-09-02): nothing HELD, so
+        # _close_position_at_market() short-circuits to "already_closed"
+        # before its own cancel step -- but an unfilled day-only entry can
+        # still be working at the broker and must not outlive its session.
+        a.PositionTracker().open(self._day_only_pos(ticker="MASK"))
+        with patch.object(a, "_close_position_at_market", return_value=("already_closed", None)), \
+             patch.object(a, "_cancel_stale_day_only_entry", return_value=True) as mock_cancel, \
+             patch.object(a, "send_telegram", return_value=True):
+            a._force_close_day_only_positions(self._fake_now(15, 45))
+        mock_cancel.assert_called_once_with("MASK")
 
     def test_failed_close_alerts_loudly(self):
         a.PositionTracker().open(self._day_only_pos())
@@ -10433,6 +10449,55 @@ class TestForceCloseDayOnlyPositions(unittest.TestCase):
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._force_close_day_only_positions(self._fake_now(15, 45))
         self.assertIn("FAILED", mock_tg.call_args[0][0])
+
+
+class TestCancelStaleDayOnlyEntry(unittest.TestCase):
+    """A day-only breakout entry must not outlive its own session. Confirmed
+    live 2026-09-02: MASK's unfilled GTC entry limit was still working at the
+    broker the next night, ready to open an untracked position on a ~20-hour-
+    dead setup and consume a PDT day-trade slot doing it."""
+
+    def _order(self, side, oid="abc12345"):
+        o = MagicMock()
+        o.side = side
+        o.id = oid
+        return o
+
+    def test_cancels_working_buy_entry_and_alerts(self):
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._order(a.OrderSide.BUY)]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            result = a._cancel_stale_day_only_entry("MASK")
+        self.assertTrue(result)
+        mock_client.cancel_order_by_id.assert_called_once()
+        mock_tg.assert_called_once()
+
+    def test_never_cancels_the_protective_sell_stop(self):
+        # The SELL stop leg is the position's only downside protection --
+        # cancelling it while a position is still held would be strictly worse
+        # than the stale entry this function exists to clean up.
+        mock_client = MagicMock()
+        mock_client.get_orders.return_value = [self._order(a.OrderSide.SELL)]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            result = a._cancel_stale_day_only_entry("ONCO")
+        self.assertFalse(result)
+        mock_client.cancel_order_by_id.assert_not_called()
+        mock_tg.assert_not_called()
+
+    def test_no_client_fails_quietly(self):
+        with patch.object(a, "get_alpaca_client", return_value=None), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            self.assertFalse(a._cancel_stale_day_only_entry("MASK"))
+        mock_tg.assert_not_called()
+
+    def test_lookup_failure_is_not_fatal(self):
+        mock_client = MagicMock()
+        mock_client.get_orders.side_effect = Exception("network")
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "send_telegram", return_value=True):
+            self.assertFalse(a._cancel_stale_day_only_entry("MASK"))   # must not raise
 
 
 class TestClosePositionAtMarket(unittest.TestCase):

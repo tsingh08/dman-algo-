@@ -7002,9 +7002,57 @@ def _force_close_day_only_positions(_now_et: Optional[datetime] = None) -> int:
                           f"Momentum-watch breakout entry closing per session scope.")
         elif status == "failed":
             send_telegram(f"🚨 <b>{pos.ticker} DAY-ONLY EOD CLOSE FAILED</b> — check Alpaca manually NOW.")
-        # "already_closed" -- nothing to do, the normal sync pipeline
-        # reconciles it into win-rate history on its own next pass.
+        elif status == "already_closed":
+            # Nothing HELD -- but an unfilled ENTRY order for this day-only
+            # ticker can still be working at the broker, and
+            # _close_position_at_market() returns here BEFORE reaching its
+            # own cancel step, so it never touches one. Confirmed live
+            # 2026-09-02: MASK's GTC entry limit (179sh @ $1.35, submitted
+            # 11:11 AM) was still working the next night -- a day-only
+            # breakout entry that would have opened a position on a setup
+            # ~20 hours dead, as an untracked orphan (the tracker entry had
+            # already been cleared as "not at Alpaca"), while consuming a
+            # PDT day-trade slot. A day-only entry must not outlive its
+            # own session.
+            _cancel_stale_day_only_entry(pos.ticker)
     return closed
+
+
+def _cancel_stale_day_only_entry(ticker: str) -> bool:
+    """
+    Cancels any working (unfilled) BUY entry order for `ticker` -- used when
+    a day-only position is being flattened but nothing is actually held, so
+    the only thing that can still be live at the broker is an entry that
+    never filled. Returns True if something was cancelled.
+
+    Deliberately narrow: only ever called from _force_close_day_only_
+    positions() for a ticker already known to be a day_only setup, so it
+    can never touch a swing_mode entry (those are GTC by design and are
+    SUPPOSED to sit unfilled overnight -- see submit_alpaca_trade()).
+    """
+    client = get_alpaca_client()
+    if client is None:
+        return False
+    try:
+        _open = client.get_orders(filter=GetOrdersRequest(
+            symbols=[ticker], status=QueryOrderStatus.OPEN, limit=20))
+    except Exception as exc:
+        print(f"  ⚠️  Stale day-only entry lookup failed for {ticker}: {exc}", file=sys.stderr)
+        return False
+    cancelled = False
+    for _o in _open:
+        if getattr(_o, "side", None) != OrderSide.BUY:
+            continue   # never touch the protective SELL stop leg
+        try:
+            client.cancel_order_by_id(_o.id)
+            cancelled = True
+            print(f"  🚫 Cancelled stale day-only entry: {ticker} id={str(_o.id)[:8]}…")
+        except Exception as exc:
+            print(f"  ⚠️  Could not cancel stale {ticker} entry: {exc}", file=sys.stderr)
+    if cancelled:
+        send_telegram(f"🚫 <b>{ticker} stale day-only entry cancelled</b> — unfilled breakout "
+                      f"entry from a prior session, setup no longer valid.")
+    return cancelled
 
 
 def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:

@@ -3223,5 +3223,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:18:03.751031-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "MicroStrategy Launches AI Transformation Forum With Google Cloud, Seven\u2011City U.S. Executive Series Focused On Trusted Data, Governance, And Scaling AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:18:18.771539-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Amazon.com, Raises Price Target to $338",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:18:25.361064-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple Apparently Cancels Plans for Two New MacBooks&#39; - MacRumors",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:19:13.126283-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump administration ratchets up its fight to get more oil flowing from California&#39; - KTLA 5",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

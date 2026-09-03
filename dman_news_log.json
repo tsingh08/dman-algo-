@@ -4177,5 +4177,78 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:23:42.352815-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike shares are trading higher after Baird maintained its Neutral rating on the stock and raised its price target from $230 to $235.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:26:20.895202-04:00",
+    "symbols": [
+      "AVGO",
+      "GOOGL",
+      "META",
+      "NVDA"
+    ],
+    "headline": "Broadcom Q2 AI Revenue Grows Over 200%, Guidance Restricted By Supply Constraints",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:26:32.418965-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Broadcom Q2 AI Revenue Grows Over 200%, Guidance Restricted By Supply Constraints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:26:33.051740-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Broadcom Q2 AI Revenue Grows Over 200%, Guidance Restricted By Supply Constraints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:26:33.307868-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Broadcom Q2 AI Revenue Grows Over 200%, Guidance Restricted By Supply Constraints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:26:34.748513-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Q2 AI Revenue Grows Over 200%, Guidance Restricted By Supply Constraints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:27:04.409334-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "TD Cowen Maintains Buy on Snowflake, Raises Price Target to $450",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

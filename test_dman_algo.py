@@ -10584,6 +10584,59 @@ class TestForceCloseDayOnlyPositions(unittest.TestCase):
             closed = a._force_close_day_only_positions(self._fake_now(9, 40))   # 9:40 AM -- well before 3:45 PM
         self.assertEqual(closed, 1)
 
+    def test_stale_carry_does_not_submit_before_the_open(self):
+        # dman_daemon.market_hours() opens the guard loop at 9:25 ET, five
+        # minutes BEFORE the real open, and a stale_carry position ignores
+        # the time-of-day check by design -- so without this guard the close
+        # is submitted pre-open, where a market order cannot fill. Combined
+        # with the dedup key that would burn the day's only attempt and
+        # carry the position ANOTHER night.
+        stale_pos = a.OpenPosition(
+            ticker="HOOD", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+            entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
+            entry_date="2026-08-28", day_only=True,
+        )
+        a.PositionTracker().open(stale_pos)
+        with patch.object(a, "_close_position_at_market") as mock_close:
+            closed = a._force_close_day_only_positions(self._fake_now(9, 25))
+        mock_close.assert_not_called()
+        self.assertEqual(closed, 0)
+        # and the attempt must NOT have been consumed -- at 9:30 it fires
+        with patch.object(a, "_close_position_at_market",
+                          return_value=("submitted", "ord1")) as mock_close, \
+             patch.object(a, "send_telegram", return_value=True):
+            closed = a._force_close_day_only_positions(self._fake_now(9, 30))
+        mock_close.assert_called_once()
+        self.assertEqual(closed, 1)
+
+    def test_failed_close_is_retried_and_not_burned_on_first_attempt(self):
+        # A transient broker error must not be the reason a day-only
+        # position is still held tomorrow morning: _mark_alerted() used to
+        # fire unconditionally, so attempt #1 failing suppressed every
+        # retry for the rest of the day.
+        a._day_only_close_attempts.clear()
+        stale_pos = a.OpenPosition(
+            ticker="HOOD", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+            entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
+            entry_date="2026-08-28", day_only=True,
+        )
+        a.PositionTracker().open(stale_pos)
+        with patch.object(a, "_close_position_at_market",
+                          return_value=("failed", None)) as mock_close, \
+             patch.object(a, "send_telegram", return_value=True):
+            for _ in range(2):
+                a._force_close_day_only_positions(self._fake_now(9, 40))
+        self.assertEqual(mock_close.call_count, 2)   # retried, not suppressed
+
+        # ...but it is bounded: past the cap the day's key is burned so a
+        # permanently broken close can't hammer the broker every 10s tick.
+        with patch.object(a, "_close_position_at_market",
+                          return_value=("failed", None)) as mock_close, \
+             patch.object(a, "send_telegram", return_value=True):
+            for _ in range(4):
+                a._force_close_day_only_positions(self._fake_now(9, 40))
+        self.assertEqual(mock_close.call_count, 1)   # 3rd attempt, then stop
+
     def test_todays_position_still_waits_for_the_eod_window_not_closed_early(self):
         # The staleness fix must not accidentally make EVERY day-only
         # position close immediately -- only ones from a PRIOR day.

@@ -484,6 +484,12 @@ MOMENTUM_DAY_ONLY_SETUP = "Momentum Watch Breakout (Day)"
 MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
 MOMENTUM_EOD_CLOSE_HOUR_ET   = 15    # force-close any open day-only position at/after this ET
 MOMENTUM_EOD_CLOSE_MINUTE_ET = 45    # time -- 3:45 PM ET, ahead of the last momentum-watch cron
+
+# Retries allowed for a FAILED day-only force-close before the day's dedup
+# key is burned. Process-local (resets with each daemon session, which is
+# the desired behaviour -- a fresh session gets fresh attempts).
+_DAY_ONLY_CLOSE_MAX_ATTEMPTS = 3
+_day_only_close_attempts: dict[str, int] = {}
                                       # firing (~3:34 PM ET) so the close order has time to fill
                                       # before the 4:00 PM close, and ahead of the 4:04 PM EOD
                                       # summary run (which is outside momentum-watch's own
@@ -6991,17 +6997,38 @@ def _force_close_day_only_positions(_now_et: Optional[datetime] = None) -> int:
         stale_carry = pos.entry_date < today_str
         if not stale_carry and not at_or_past_eod:
             continue
+        # Don't spend the attempt before the market can actually fill it.
+        # dman_daemon.market_hours() opens its guard loop at 9:25 ET, five
+        # minutes AHEAD of the real open, so a stale_carry position (which
+        # ignores the time-of-day check by design) would get its close
+        # submitted pre-open. Combined with the unconditional _mark_alerted
+        # below, a single pre-open rejection would suppress every retry for
+        # the rest of the day and carry the position ANOTHER night -- the
+        # exact failure the stale_carry branch was added to end.
+        if (now_et.hour, now_et.minute) < (9, 30):
+            continue
         _dedup_key = f"{pos.ticker}_DAYONLY_CLOSE_{today_str}"
         if _is_alerted_today(_dedup_key):
             continue
         status, order_id = _close_position_at_market(pos, "day-only momentum entry, EOD close")
-        _mark_alerted(_dedup_key)
+        # Only a terminal outcome burns the day's attempt. A "failed" close
+        # is retried on the next guard tick (10s) up to _DAY_ONLY_CLOSE_MAX_
+        # ATTEMPTS -- a transient broker error must not be the reason a
+        # day-only position is still held tomorrow morning. The failure
+        # ALERT keeps its own once-per-day key so retrying stays silent.
+        _attempts = _day_only_close_attempts.get(_dedup_key, 0) + 1
+        _day_only_close_attempts[_dedup_key] = _attempts
+        if status != "failed" or _attempts >= _DAY_ONLY_CLOSE_MAX_ATTEMPTS:
+            _mark_alerted(_dedup_key)
         if status == "submitted":
             closed += 1
             send_telegram(f"🕓 <b>{pos.ticker} DAY-ONLY EOD CLOSE</b> — id {order_id[:8]}…\n"
                           f"Momentum-watch breakout entry closing per session scope.")
         elif status == "failed":
-            send_telegram(f"🚨 <b>{pos.ticker} DAY-ONLY EOD CLOSE FAILED</b> — check Alpaca manually NOW.")
+            if not _is_duplicate_alert(f"__DAYONLY_CLOSE_FAIL_{pos.ticker}_{today_str}__"):
+                send_telegram(f"🚨 <b>{pos.ticker} DAY-ONLY EOD CLOSE FAILED</b> — "
+                              f"attempt {_attempts}/{_DAY_ONLY_CLOSE_MAX_ATTEMPTS}. "
+                              "Check Alpaca manually NOW.")
         elif status == "already_closed":
             # Nothing HELD -- but an unfilled ENTRY order for this day-only
             # ticker can still be working at the broker, and

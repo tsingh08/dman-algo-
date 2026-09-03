@@ -3543,5 +3543,106 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:59:10.401865-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;... we have virtually unlimited amounts of Mid to High Grade Ammunition, far more than we could ever use for this, or for any other War (which is highly unlikely!), that could improbably take place. In addition, we are producing Munitions at levels never seen before. We are stockpiling and preparing for any contingency that could happen...&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T11:00:20.365829-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;... Hundreds of Billions of Dollars was given to Ukraine and NATO, free of charge, that Europe would have paid for \u2014 If they were only asked, but we will be asking for that money, though somewhat belatedly!&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T11:00:27.118108-04:00",
+    "symbols": [
+      "AAPL",
+      "NVDA"
+    ],
+    "headline": "Recent Report Shows That Rep. Cleo Fields Bought Up to $15K Worth of Apple Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:00:27.525382-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Congressional Trading Report: Sen. Sheldon Whitehouse Sold Over $19K In NVIDIA Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:01:42.557106-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Netapp Expands Cloud Migration Capabilities With AWS Transform Integration",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:01:54.325238-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Recent Report Shows That Rep. Cleo Fields Bought Up to $15K Worth of Apple Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:01:54.851202-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Recent Report Shows That Rep. Cleo Fields Bought Up to $15K Worth of Apple Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:01:56.214422-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Michael Burry Comes for Palantir Again \u2014 This Time it&#39;s the Balance Sheet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:01:56.694877-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Michael Burry Comes for Palantir Again \u2014 This Time it&#39;s the Balance Sheet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:02:05.608266-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Consolidates Business Into Two Segments in Sweeping AI-Driven Overhaul",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

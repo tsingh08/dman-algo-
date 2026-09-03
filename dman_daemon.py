@@ -148,6 +148,13 @@ STATE_FILES = [
     "dman_milestones.json",   # one-time $5K/$10K/$25K crossing announcements — see
                                 # algo.check_account_milestones(); same class of bug as
                                 # dman_setup_probation.json above if left out (added 2026-09-02)
+    "dman_day_trades.json",   # completed same-day round trips — the ONLY record of PDT
+                                # budget consumed, because Alpaca's /v2/account omits
+                                # daytrade_count entirely for this account (confirmed live
+                                # 2026-09-03, see algo._record_day_trade). Leaving this out
+                                # is not the usual "state resets" nuisance: every fresh
+                                # checkout would report a full 3-trade budget, which is
+                                # exactly the silent reset the ledger exists to prevent.
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

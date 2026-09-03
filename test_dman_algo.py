@@ -5332,6 +5332,17 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
     budget was already exhausted would let a same-day round-trip trade
     through unblocked, risking a real broker-flagged PDT violation."""
 
+    def setUp(self):
+        # _get_pdt_status() now also reads the local day-trade ledger
+        # (dman_day_trades.json). These cases are about the ACCOUNT-derived
+        # half of the calculation, so pin the ledger empty -- otherwise they
+        # silently inherit whatever real day trades are on disk today and
+        # assert against a moving target. Ledger behaviour has its own class
+        # (TestDayTradeLedger) below.
+        self._ledger_patch = patch.object(a, "_load_day_trades", return_value=[])
+        self._ledger_patch.start()
+        self.addCleanup(self._ledger_patch.stop)
+
     def test_missing_client_fails_closed(self):
         with patch.object(a, "get_alpaca_client", return_value=None):
             status = a._get_pdt_status()
@@ -5438,6 +5449,187 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             status = a._get_pdt_status()
         self.assertFalse(status["swing_mode"])
+
+
+class TestDayTradeLedger(unittest.TestCase):
+    """Confirmed live 2026-09-03 against the real account: Alpaca's
+    /v2/account response for this account contains NEITHER `daytrade_count`
+    NOR `pattern_day_trader` -- the keys are absent from the raw JSON, so
+    _get_pdt_status()'s `int(getattr(_acct, "daytrade_count", 0) or 0)` was
+    permanently 0. The only live signal left was `_committed` (today's
+    still-OPEN day_only positions), which drops back to zero the moment a
+    position closes -- precisely when a day trade has just been consumed.
+
+    Net effect: the PDT budget silently reset to full after every round
+    trip. Open A, stop out, budget reads 3 again; open B, stop out, reads 3
+    again -- nothing stopping a 4th same-day round trip and a real PDT flag
+    (90 days restricted, on a sub-$25k account). CAST proved it was already
+    live: entered AND closed 2026-09-02, a genuine day trade, with
+    _get_pdt_status() still reporting used=0."""
+
+    def _mock_acct(self, equity="10000.0", dt_count=0):
+        acct = MagicMock()
+        acct.equity = equity
+        acct.daytrade_count = dt_count
+        client = MagicMock()
+        client.get_account.return_value = acct
+        return client
+
+    def test_same_day_round_trip_is_recorded(self):
+        with patch.object(a, "_load_day_trades", return_value=[]), \
+             patch.object(a, "_save_day_trades") as mock_save:
+            self.assertTrue(a._record_day_trade("AAA", "2026-09-03", "2026-09-03"))
+        saved = mock_save.call_args[0][0]
+        self.assertEqual(len(saved), 1)
+        self.assertEqual(saved[0]["ticker"], "AAA")
+        self.assertEqual(saved[0]["date"], "2026-09-03")
+
+    def test_overnight_hold_is_not_a_day_trade(self):
+        # Entered yesterday, closed today -- the whole point of swing_mode.
+        with patch.object(a, "_load_day_trades", return_value=[]), \
+             patch.object(a, "_save_day_trades") as mock_save:
+            self.assertFalse(a._record_day_trade("BBB", "2026-09-02", "2026-09-03"))
+        mock_save.assert_not_called()
+
+    def test_missing_entry_date_is_not_recorded(self):
+        with patch.object(a, "_load_day_trades", return_value=[]), \
+             patch.object(a, "_save_day_trades") as mock_save:
+            self.assertFalse(a._record_day_trade("CCC", "", "2026-09-03"))
+        mock_save.assert_not_called()
+
+    def test_redetected_close_does_not_double_count(self):
+        # sync_alpaca_fills can re-detect the same close (see the CLRO
+        # incident) -- one ticker closing once on a day is ONE day trade.
+        existing = [{"ticker": "DDD", "date": "2026-09-03"}]
+        with patch.object(a, "_load_day_trades", return_value=existing), \
+             patch.object(a, "_save_day_trades") as mock_save:
+            self.assertFalse(a._record_day_trade("DDD", "2026-09-03", "2026-09-03"))
+        mock_save.assert_not_called()
+
+    def test_closed_day_trades_consume_the_budget(self):
+        # The core regression: a CLOSED round trip must still count. Before
+        # the ledger this read used=0 because nothing was open any more.
+        today = datetime.now(a.ET).date().isoformat()
+        ledger = [{"ticker": "EEE", "date": today},
+                  {"ticker": "FFF", "date": today}]
+        with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
+             patch.object(a, "_load_day_trades", return_value=ledger), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []          # nothing open now
+            status = a._get_pdt_status()
+        self.assertEqual(status["used"], 2)
+        self.assertEqual(status["remaining"], 1)
+        self.assertTrue(status["swing_mode"])
+
+    def test_fourth_day_trade_is_blocked(self):
+        today = datetime.now(a.ET).date().isoformat()
+        ledger = [{"ticker": t, "date": today} for t in ("EEE", "FFF", "GGG")]
+        with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
+             patch.object(a, "_load_day_trades", return_value=ledger), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []
+            status = a._get_pdt_status()
+        self.assertEqual(status["remaining"], 0)
+        self.assertTrue(status["swing_mode"])
+
+    def test_closed_plus_still_open_are_summed(self):
+        # Two consumed + one committed-but-still-open = 3 used, budget gone.
+        today = datetime.now(a.ET).date().isoformat()
+        ledger = [{"ticker": "EEE", "date": today}, {"ticker": "FFF", "date": today}]
+        positions = [a.OpenPosition(ticker="GGG", bias="LONG",
+                                    setup=a.MOMENTUM_DAY_ONLY_SETUP,
+                                    entry=1.0, stop=0.9, target1=1.3, target2=1.5,
+                                    shares=10, entry_date=today, day_only=True)]
+        with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
+             patch.object(a, "_load_day_trades", return_value=ledger), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = positions
+            status = a._get_pdt_status()
+        self.assertEqual(status["used"], 3)
+        self.assertEqual(status["remaining"], 0)
+
+    def test_reopened_same_ticker_is_not_counted_twice(self):
+        # AAA round-tripped (in the ledger) and was then re-entered the same
+        # day. That's 2 day trades' worth of budget once the second closes,
+        # but only ONE is consumed so far -- the open one must not be added
+        # on top of its own already-recorded close.
+        today = datetime.now(a.ET).date().isoformat()
+        ledger = [{"ticker": "AAA", "date": today}]
+        positions = [a.OpenPosition(ticker="AAA", bias="LONG",
+                                    setup=a.MOMENTUM_DAY_ONLY_SETUP,
+                                    entry=1.0, stop=0.9, target1=1.3, target2=1.5,
+                                    shares=10, entry_date=today, day_only=True)]
+        with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
+             patch.object(a, "_load_day_trades", return_value=ledger), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = positions
+            status = a._get_pdt_status()
+        self.assertEqual(status["used"], 1)
+
+    def test_day_trades_outside_the_rolling_window_are_ignored(self):
+        # PDT is 3 per rolling 5 BUSINESS days -- older trades must age out
+        # or the account would lock itself out permanently.
+        old = "2026-01-05"
+        ledger = [{"ticker": t, "date": old} for t in ("EEE", "FFF", "GGG")]
+        with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
+             patch.object(a, "_load_day_trades", return_value=ledger), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []
+            status = a._get_pdt_status()
+        self.assertEqual(status["used"], 0)
+        self.assertEqual(status["remaining"], 3)
+
+    def test_window_spans_five_trading_days_skipping_weekends(self):
+        # Thursday 2026-09-03 -> back through the weekend to Friday 08-28.
+        thursday = datetime(2026, 9, 3, 12, 0, tzinfo=a.ET)
+        self.assertEqual(
+            sorted(a._pdt_window_dates(thursday)),
+            ["2026-08-28", "2026-08-31", "2026-09-01", "2026-09-02", "2026-09-03"])
+
+    def test_window_skips_market_holidays(self):
+        # Tuesday after Labor Day (2026-09-07) must reach back an extra day
+        # rather than counting the holiday as a trading day -- counting it
+        # would drop a REAL trading day out of the window and under-count.
+        tuesday = datetime(2026, 9, 8, 12, 0, tzinfo=a.ET)
+        window = a._pdt_window_dates(tuesday)
+        self.assertNotIn("2026-09-07", window)          # Labor Day
+        self.assertEqual(len(window), 5)
+        self.assertIn("2026-09-01", window)
+
+    def test_equity_over_25k_ignores_the_ledger_entirely(self):
+        today = datetime.now(a.ET).date().isoformat()
+        ledger = [{"ticker": t, "date": today} for t in ("E", "F", "G", "H")]
+        with patch.object(a, "get_alpaca_client",
+                          return_value=self._mock_acct(equity="30000.0")), \
+             patch.object(a, "_load_day_trades", return_value=ledger), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []
+            status = a._get_pdt_status()
+        self.assertFalse(status["swing_mode"])
+        self.assertEqual(status["remaining"], 99)
+
+    def test_corrupt_ledger_file_does_not_crash_status(self):
+        with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
+             patch.object(a, "_load_day_trades", side_effect=Exception("bad json")), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []
+            status = a._get_pdt_status()
+        self.assertIn("remaining", status)
+
+    def test_alpaca_count_still_wins_when_it_is_higher(self):
+        # If Alpaca ever does start reporting daytrade_count for this
+        # account, the larger of the two signals must win rather than the
+        # ledger masking it.
+        today = datetime.now(a.ET).date().isoformat()
+        with patch.object(a, "get_alpaca_client",
+                          return_value=self._mock_acct(dt_count=3)), \
+             patch.object(a, "_load_day_trades",
+                          return_value=[{"ticker": "EEE", "date": today}]), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []
+            status = a._get_pdt_status()
+        self.assertEqual(status["used"], 3)
+        self.assertEqual(status["remaining"], 0)
 
 
 class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):

@@ -16598,6 +16598,97 @@ def _mark_identity_closed(state: dict, ticker: str, setup: str) -> None:
             del closed[ident]
 
 
+DAY_TRADES_FILE = "dman_day_trades.json"
+
+# PDT is "4+ day trades in 5 rolling BUSINESS days", so the budget is 3.
+_PDT_MAX_DAY_TRADES = 3
+_PDT_WINDOW_TRADING_DAYS = 5
+_DAY_TRADE_LEDGER_KEEP_DAYS = 45   # plenty of history for a 5-day window
+
+
+def _load_day_trades() -> list[dict]:
+    """Local ledger of COMPLETED same-day round trips. See _record_day_trade()."""
+    try:
+        with open(DAY_TRADES_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, list) else []
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return []
+
+
+def _save_day_trades(ledger: list[dict]) -> None:
+    try:
+        with open(DAY_TRADES_FILE, "w", encoding="utf-8") as f:
+            json.dump(ledger, f, indent=1)
+    except OSError as e:
+        print(f"  ⚠️  Could not write {DAY_TRADES_FILE}: {e}")
+
+
+def _record_day_trade(ticker: str, entry_date: str, close_date: str) -> bool:
+    """
+    Append to the local day-trade ledger iff this close was a same-day
+    round trip. Returns True if a new entry was written.
+
+    Why a LOCAL ledger at all: confirmed live 2026-09-03 against the real
+    account, Alpaca's /v2/account response for this account does not
+    contain `daytrade_count` or `pattern_day_trader` AT ALL -- not None
+    from the SDK model, the keys are absent from the raw JSON. So
+    _get_pdt_status()'s `int(getattr(_acct, "daytrade_count", 0) or 0)`
+    was permanently 0, and the only real signal was `_committed` (today's
+    still-OPEN day_only positions). That count drops back to zero the
+    instant a position closes -- which is exactly when a day trade has
+    just been USED. The result was a budget that silently reset after
+    every round trip: open A, stop out, budget reads 3 again; open B,
+    stop out, reads 3 again... with nothing stopping a 4th same-day round
+    trip and a real PDT flag (90 days of restriction on a sub-$25k
+    account). CAST proved it -- entered and closed 2026-09-02, a genuine
+    day trade, and _get_pdt_status() still reported used=0.
+
+    Recording on CLOSE (not on entry) is what makes this correct: a day
+    trade is only consumed when the round trip completes.
+    """
+    if not entry_date or not close_date or entry_date != close_date:
+        return False
+    ledger = _load_day_trades()
+    # A single position can be re-detected by sync (see the CLRO incident
+    # in sync_alpaca_fills) -- one ticker closing once on a given day is
+    # one day trade, never two.
+    if any(e.get("ticker") == ticker and e.get("date") == close_date for e in ledger):
+        return False
+    ledger.append({
+        "ticker": ticker,
+        "date": close_date,
+        "recorded_at": datetime.now(ET).isoformat(timespec="seconds"),
+    })
+    try:
+        _cutoff = (datetime.now(ET).date()
+                   - timedelta(days=_DAY_TRADE_LEDGER_KEEP_DAYS)).isoformat()
+        ledger = [e for e in ledger if str(e.get("date", "")) >= _cutoff]
+    except Exception:
+        pass
+    _save_day_trades(ledger)
+    print(f"  📌 Day trade recorded: {ticker} (same-day round trip {close_date})")
+    return True
+
+
+def _pdt_window_dates(now_et: Optional[datetime] = None) -> set[str]:
+    """
+    The 5 rolling BUSINESS days the PDT count applies over, ending today,
+    as ISO date strings. Skips weekends and _MARKET_HOLIDAYS so a long
+    holiday weekend widens the calendar span correctly instead of
+    silently dropping a real trading day out of the window (which would
+    UNDER-count and let a 4th day trade through).
+    """
+    _today = (now_et or datetime.now(ET)).date()
+    days: set[str] = set()
+    d = _today
+    while len(days) < _PDT_WINDOW_TRADING_DAYS:
+        if d.weekday() < 5 and d not in _MARKET_HOLIDAYS:
+            days.add(d.isoformat())
+        d -= timedelta(days=1)
+    return days
+
+
 def _get_pdt_status() -> dict:
     """
     Query Alpaca for current PDT day-trade count.
@@ -16641,13 +16732,33 @@ def _get_pdt_status() -> dict:
         if _equity >= 25_000:
             return {"used": _dt_count, "remaining": 99, "swing_mode": False, "equity": _equity}
         _today_str = datetime.now(ET).date().isoformat()
+        # Completed same-day round trips inside the rolling 5-business-day
+        # window. This is the piece Alpaca does not give us for this account
+        # (see _record_day_trade) -- without it the budget silently reset to
+        # full after every close.
         try:
+            _window   = _pdt_window_dates()
+            _ledger   = _load_day_trades()
+            _closed   = {(e.get("ticker"), e.get("date")) for e in _ledger
+                         if str(e.get("date", "")) in _window}
+            _closed_n = len(_closed)
+        except Exception:
+            _closed, _closed_n = set(), 0
+        try:
+            # Today's still-open day_only positions are already-committed day
+            # trades: they WILL round-trip today by definition. Exclude any
+            # ticker already counted as closed today so a name that was
+            # opened, closed, and re-opened the same day is not counted twice
+            # for the same consumed trade.
             _committed = sum(1 for p in PositionTracker().positions
-                              if p.day_only and p.entry_date == _today_str)
+                              if p.day_only and p.entry_date == _today_str
+                              and (p.ticker, _today_str) not in _closed)
         except Exception:
             _committed = 0
-        _effective_used = _dt_count + _committed
-        _remaining = max(0, 3 - _effective_used)
+        # _dt_count stays in the sum: if Alpaca ever does start returning it
+        # for this account, the larger of the two signals still wins.
+        _effective_used = max(_dt_count, _closed_n) + _committed
+        _remaining = max(0, _PDT_MAX_DAY_TRADES - _effective_used)
         _swing     = _remaining <= 1   # at 1 or 0 remaining: go swing to protect the budget
         return {"used": _effective_used, "remaining": _remaining, "swing_mode": _swing, "equity": _equity}
     except Exception:
@@ -16978,6 +17089,9 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 score   = getattr(pos, "score", 0),
                 is_live = True,   # a real Alpaca fill, not a simulation
             ))
+            # Consumes a PDT day trade only if this was a same-day round
+            # trip -- the helper enforces that, so call it unconditionally.
+            _record_day_trade(ticker, getattr(pos, "entry_date", ""), fill_date)
             record_daily_pnl(acct_pct)
             record_monthly_pnl(acct_pct)
 
@@ -17207,6 +17321,7 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
             entry=round(debit_paid, 2), exit=round(credit_received, 2),
             outcome=outcome, pnl_pct=round(pnl_pct, 2), score=pos.score, is_live=True,
         ))
+        _record_day_trade(pos.ticker, getattr(pos, "entry_date", ""), fill_date)
         record_daily_pnl(acct_pct)
         record_monthly_pnl(acct_pct)
         pt.close(pos.ticker)
@@ -19421,6 +19536,10 @@ def main():
         ))
         # Close position first so we can read the share count for account-level P&L
         closed = PositionTracker().close(args.ticker)
+        if closed is not None:
+            _record_day_trade(args.ticker.upper(),
+                              getattr(closed, "entry_date", ""),
+                              datetime.today().strftime("%Y-%m-%d"))
         shares_used = closed.shares if closed else (args.shares or 0)
         if shares_used > 0:
             dollar_pnl   = (args.exit_price - args.entry) * shares_used * (1 if bias == "LONG" else -1)

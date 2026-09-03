@@ -3079,5 +3079,29 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T09:54:53.483491-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD",
+      "MSTR",
+      "SNOW",
+      "TSLA"
+    ],
+    "headline": "Summit Therapeutics, HUTCHMED, Tesla And Other Big Stocks Moving Higher On Thursday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T09:56:13.281294-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "RBC Capital Reiterates Sector Perform on Broadcom, Maintains $400 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

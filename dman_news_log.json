@@ -3344,5 +3344,43 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:42:19.700295-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Snowflake, Raises Price Target to $470",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:44:56.923693-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "StoneX Reiterates Buy on Broadcom, Maintains $545 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:46:31.795537-04:00",
+    "symbols": [
+      "AMD",
+      "ANET",
+      "AVGO",
+      "CRM",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

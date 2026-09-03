@@ -274,6 +274,17 @@ jobs:
           PYTHONIOENCODING: utf-8
           BRANCH: ${{ steps.branch.outputs.branch }}
         run: |
+          # GitHub runs `run:` blocks as `bash -e`, so set +e FIRST and keep it
+          # off for the whole step. Anything that exits non-zero here (a pip
+          # mirror blip, a grep with no match) would otherwise kill the step,
+          # and because the PR step carries a plain `if:` its implicit
+          # success() would then skip it -- losing the review branch's PR
+          # entirely over an infrastructure hiccup. A gate that can silently
+          # suppress the PR is worse than no gate. This step always exits 0;
+          # a real problem is reported through `verdict`, never through
+          # the step's status.
+          set +e
+
           COMMIT_COUNT=$(git rev-list --count origin/main.."$BRANCH" 2>/dev/null || echo 0)
           if [ "$COMMIT_COUNT" -eq 0 ]; then
             echo "  No commits on $BRANCH -- nothing to validate."
@@ -284,9 +295,12 @@ jobs:
 
           python -m pip install --upgrade pip >/dev/null 2>&1
           pip install -r requirements.txt >/dev/null 2>&1
+          PIP_STATUS=$?
 
-          set +e
           FAILED=""
+          # Without deps the three python gates below would all fail and read
+          # as "the branch is broken" when nothing is wrong with the branch.
+          [ $PIP_STATUS -eq 0 ] || FAILED="${FAILED}deps "
 
           python -m py_compile dman_algo.py dman_daemon.py test_dman_algo.py
           [ $? -eq 0 ] || FAILED="${FAILED}syntax "
@@ -317,11 +331,13 @@ jobs:
           print(f"All {len(glob.glob('dman_*.json'))} JSON data files valid")
           PYEOF
           [ $? -eq 0 ] || FAILED="${FAILED}json "
-          set -e
 
           # "Ran N tests in Xs" / "OK" / "FAILED (failures=..)" -- the only
-          # lines worth carrying into the PR body and Telegram.
-          RAN=$(grep -E '^(Ran |OK|FAILED)' /tmp/review_tests.log | tr '\n' ' ' | cut -c1-200)
+          # lines worth carrying into the PR body and Telegram. grep exits 1
+          # when the suite died before printing a summary; keep set -e off
+          # (see top of step) and fall back rather than killing the step.
+          RAN=$(grep -E '^(Ran |OK|FAILED)' /tmp/review_tests.log 2>/dev/null | tr '\n' ' ' | cut -c1-200)
+          [ -n "$RAN" ] || RAN="(no test summary -- suite did not complete)"
           echo "  Test result: $RAN"
 
           # The suite writes to the tracked state JSONs (dman_last_alerts.json
@@ -334,12 +350,15 @@ jobs:
             echo "verdict=fail" >> "$GITHUB_OUTPUT"
             echo "detail=failed gate(s): ${FAILED}| $RAN" >> "$GITHUB_OUTPUT"
             echo "  VALIDATION FAILED: $FAILED"
-            tail -30 /tmp/review_tests.log
+            tail -30 /tmp/review_tests.log 2>/dev/null
           else
             echo "verdict=pass" >> "$GITHUB_OUTPUT"
             echo "detail=$RAN" >> "$GITHUB_OUTPUT"
             echo "  Validation passed."
           fi
+
+          # Explicit: the step's status must never be what reports a finding.
+          exit 0
 
       - name: Push review branch and open PR
         # EOD only. Deliberately a plain script, not the agent -- see the
@@ -348,7 +367,12 @@ jobs:
         # since a real commit can still be sitting on the branch even if
         # Claude hit an error after making it; only skip if there's
         # nothing to push.
-        if: steps.kind.outputs.kind == 'eod'
+        # always() so no upstream step failure can silently swallow the PR --
+        # a plain `if:` carries an implicit success(), which would skip this
+        # step (and lose the branch's work) the moment anything above it went
+        # red. Guarded below by COMMIT_COUNT, which exits cleanly when the
+        # branch step never ran.
+        if: always() && steps.kind.outputs.kind == 'eod'
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

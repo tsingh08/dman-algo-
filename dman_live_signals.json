@@ -1,6 +1,18 @@
 {
   "pending": [
     {
+      "ticker": "TCOM",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 41.69,
+      "stop": 42.33,
+      "target1": 39.75,
+      "target2": 38.78,
+      "score": 100,
+      "date": "2026-09-03",
+      "timestamp": "2026-09-03T13:28:27.140438-04:00"
+    },
+    {
       "ticker": "HWM",
       "setup": "Bear Gap Hold",
       "bias": "SHORT",

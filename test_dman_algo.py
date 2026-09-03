@@ -5325,7 +5325,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.daytrade_count = 1
         mock_client = MagicMock()
         mock_client.get_account.return_value = mock_acct
-        today_str = date.today().isoformat()
+        today_str = datetime.now(a.ET).date().isoformat()
         open_today = [
             a.OpenPosition(ticker="AAA", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
                            entry=1.0, stop=0.9, target1=1.3, target2=1.5, shares=10,
@@ -5353,7 +5353,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.daytrade_count = 0
         mock_client = MagicMock()
         mock_client.get_account.return_value = mock_acct
-        today_str = date.today().isoformat()
+        today_str = datetime.now(a.ET).date().isoformat()
         positions = [
             a.OpenPosition(ticker="CCC", bias="LONG", setup="Gap & Hold",
                            entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,

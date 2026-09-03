@@ -11792,8 +11792,28 @@ class WinRateTracker:
     def _save(self):
         # Cap at 500 records — rolling_stats() only needs the last 50.
         # Prevents dman_win_rate.json growing unboundedly and slowing GitHub Actions.
+        # Live records (real Alpaca fills) are exempt from eviction: every
+        # backtest run appends its full simulated trade list here (see
+        # run_backtest's tracker.record() call), and a plain records[-500:]
+        # trim let that spam push the sparse real-fill history — the only
+        # data setup_stats()/setup_performance_drift()/rolling_stats(
+        # live_only=True) can use — out of the file entirely. Found in the
+        # 2026-09-02 review: the live file sat at exactly 500 records with
+        # all 24 live trades in the final 24 slots, a few backtest runs
+        # away from being erased. Oldest BACKTEST records are dropped
+        # instead; live records are only ever capped by their own count.
         if len(self.records) > 500:
-            self.records = self.records[-500:]
+            n_live  = sum(1 for r in self.records if r.is_live)
+            n_bt    = len(self.records) - n_live
+            drop_bt = n_bt - max(0, 500 - n_live)   # oldest backtest records to drop
+            if drop_bt > 0:
+                kept = []
+                for r in self.records:
+                    if not r.is_live and drop_bt > 0:
+                        drop_bt -= 1
+                        continue
+                    kept.append(r)
+                self.records = kept
         _write_json_atomic(self.filepath, [asdict(r) for r in self.records], indent=2)
 
     def record(self, trade: TradeRecord):
@@ -19531,6 +19551,21 @@ def main():
             print(f"  ⚠️  News-keyword freshness check failed (non-fatal): {_kw_exc}")
 
     elif args.mode == "scan":
+        # Day-only EOD close redundancy. run_momentum_watch() owns this
+        # check during the session, but its last intraday cron dispatch is
+        # ~3:34 PM ET and can finish before the 3:45 PM close window even
+        # opens — confirmed live 2026-09-02: plain --mode scan runs DID
+        # execute at 3:52 PM and 4:03 PM ET that day with no way to act,
+        # and five day-only smallcap positions carried overnight (the
+        # daemon's own guard-tick call at dman_daemon.py wasn't running
+        # either). The function is time-gated and dedup-guarded, so on
+        # every scan before 3:45 PM this is a cheap no-op. Never let it
+        # block the actual scan.
+        try:
+            _force_close_day_only_positions()
+        except Exception as _fc_exc:
+            print(f"  ⚠️  Day-only force-close check failed (non-fatal): {_fc_exc}")
+
         # Sync Alpaca fills first so PositionTracker is current before we submit
         if args.submit and ALPACA_API_KEY:
             _sync_tracker = WinRateTracker()

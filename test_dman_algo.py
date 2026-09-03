@@ -3322,6 +3322,66 @@ class TestWinRateLiveOnlyFiltering(unittest.TestCase):
         self.assertEqual(tracker.rolling_stats(live_only=True)["total"], 0)
 
 
+class TestWinRateTrimPreservesLiveRecords(unittest.TestCase):
+    """Found in the 2026-09-02 review: _save()'s 500-record cap was a plain
+    records[-500:] slice, while every backtest run appends its full
+    simulated trade list to the same file — the production file sat at
+    exactly 500 records with all 24 real live fills in the last 24 slots,
+    so a few more backtest runs would have silently erased the entire
+    live trading history that setup_stats()/setup_performance_drift()
+    depend on. The cap must evict oldest BACKTEST records only."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"[]")
+        self._tmp.close()
+
+    def tearDown(self):
+        os.unlink(self._tmp.name)
+
+    @staticmethod
+    def _rec(i, is_live):
+        return a.TradeRecord(
+            ticker=f"T{i}", date="2026-09-02", bias="LONG", setup="Gap & Hold",
+            entry=10.0, exit=11.0, outcome="WIN", pnl_pct=1.0,
+            score=100, is_live=is_live,
+        )
+
+    def test_backtest_flood_cannot_evict_early_live_records(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        # 10 live fills recorded first — the oldest records in the file.
+        tracker.records = [self._rec(i, True) for i in range(10)]
+        # A backtest flood appends 600 simulated trades after them.
+        tracker.records += [self._rec(i, False) for i in range(600)]
+        tracker._save()
+        self.assertEqual(len(tracker.records), 500)
+        self.assertEqual(sum(1 for r in tracker.records if r.is_live), 10,
+                         "live records must survive the cap even when they are the oldest")
+        # Backtest kept = the most recent 490 of the 600.
+        bt = [r for r in tracker.records if not r.is_live]
+        self.assertEqual(bt[0].ticker, "T110")
+
+    def test_order_is_preserved_after_trim(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        tracker.records = ([self._rec(i, False) for i in range(300)]
+                           + [self._rec(999, True)]
+                           + [self._rec(i, False) for i in range(300, 550)])
+        tracker._save()
+        self.assertEqual(len(tracker.records), 500)
+        # The live record keeps its position relative to surviving backtest
+        # records: everything before it that survived is older backtest.
+        live_idx = next(i for i, r in enumerate(tracker.records) if r.is_live)
+        self.assertEqual(tracker.records[live_idx].ticker, "T999")
+        self.assertEqual(tracker.records[live_idx - 1].ticker, "T299")
+        self.assertEqual(tracker.records[live_idx + 1].ticker, "T300")
+
+    def test_under_cap_is_untouched(self):
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        tracker.records = [self._rec(i, i % 2 == 0) for i in range(50)]
+        tracker._save()
+        self.assertEqual(len(tracker.records), 50)
+
+
 class TestSetupStatsIsLiveFiltering(unittest.TestCase):
     """Found in the 2026-08-16 review: setup_stats() -- the one function
     real position sizing (size_position_kelly, via score_signal) reads

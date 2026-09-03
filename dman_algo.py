@@ -10132,6 +10132,34 @@ def run_earnings_spread_scan() -> None:
             print("  ⏸️  Market closed — earnings scan skipped (avoids sending an "
                   "approval offer whose timer would expire before the next session opens)")
             return
+        # Setup-probation gate — found in the 2026-09-03 review:
+        # setup_performance_drift() auto-restricted the canonical
+        # "Earnings Spread" setup on 2026-08-31 (25% WR over the last 4
+        # live trades, avg loss 85%), but _setup_probation_bonus() only
+        # raises the confluence bar in the scanner's score-gated entry
+        # paths — this offer pipeline has NO score gate (a human YES
+        # stands in for one), so the restriction was a complete no-op for
+        # the exact setup it was aimed at while CRWD (-100%), BABA (-59%)
+        # and MRVL (-96%) kept trading through it. While restricted, no
+        # offers are built or sent at all: with nothing to score, pausing
+        # is the only lever that makes probation mean something here.
+        # /endsetupprobation Earnings Spread resumes early, and the
+        # restriction still auto-expires after SETUP_PROBATION_MAX_DAYS
+        # via _setup_probation_bonus()'s existing expiry path.
+        if _setup_probation_bonus("Earnings Spread") > 0:
+            _prob_note = _load_setup_probation().get("Earnings Spread", {}).get("note", "")
+            print(f"  ⏸️  Earnings-spread scan skipped — 'Earnings Spread' is on setup "
+                  f"probation ({_prob_note or 'see dman_setup_probation.json'})")
+            if not _is_alerted_today("__EARNSPREAD_PROBATION_SKIP__"):
+                _mark_alerted("__EARNSPREAD_PROBATION_SKIP__")
+                send_telegram(
+                    "⏸️ <b>Earnings-spread offers paused</b> — the Earnings Spread setup is "
+                    f"on probation ({_prob_note or 'recent live losses'}). No offers will be "
+                    "sent while it's restricted. Send <b>/endsetupprobation Earnings Spread</b> "
+                    f"to resume early; it also auto-expires {SETUP_PROBATION_MAX_DAYS} days "
+                    "after restriction."
+                )
+            return
         client = get_alpaca_client()
         if client is None:
             print("  ⚠️  earnings scan skipped — Alpaca unavailable")

@@ -9643,11 +9643,23 @@ class TestEarningsSpreadScanAggregateRiskCap(unittest.TestCase):
         self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
         self._dedup_patch.start()
 
+        # run_earnings_spread_scan() now consults the setup-probation state
+        # (see TestEarningsSpreadScanSetupProbationGate) — isolate it so the
+        # repo's real dman_setup_probation.json can't pause the scan under test.
+        self._prob_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._prob_tmp.close()
+        os.unlink(self._prob_tmp.name)
+        self._prob_patch = patch.object(a, "SETUP_PROBATION_FILE", self._prob_tmp.name)
+        self._prob_patch.start()
+
     def tearDown(self):
         self._pending_patch.stop()
         os.unlink(self._tmp.name)
         self._dedup_patch.stop()
         os.unlink(self._dedup_tmp.name)
+        self._prob_patch.stop()
+        if os.path.exists(self._prob_tmp.name):
+            os.unlink(self._prob_tmp.name)
 
     def _candidate(self, ticker="NVDA"):
         return {"ticker": ticker, "earn_date": date.today(), "days_away": 0,
@@ -9711,6 +9723,85 @@ class TestEarningsSpreadScanAggregateRiskCap(unittest.TestCase):
                           "once room frees up, a later scan must still be able to offer this ticker")
 
 
+class TestEarningsSpreadScanSetupProbationGate(unittest.TestCase):
+    """Added 2026-09-03 review: setup_performance_drift() auto-restricted
+    the canonical "Earnings Spread" setup on 2026-08-31 (25% WR, avg loss
+    85%), but _setup_probation_bonus() only raises the confluence bar in
+    the scanner's score-gated paths — run_earnings_spread_scan() has no
+    score gate (a human YES stands in for one), so the restriction was a
+    complete no-op for the exact setup it was aimed at. The scan must now
+    pause offers entirely while "Earnings Spread" is on probation, notify
+    once per day (not every scan cycle), and resume normally once the
+    probation is cleared or has expired."""
+
+    def setUp(self):
+        self._pending_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pending_tmp.close()
+        self._pending_patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._pending_tmp.name)
+        self._pending_patch.start()
+        a._save_earnings_pending([])
+
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+        self._prob_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._prob_tmp.close()
+        os.unlink(self._prob_tmp.name)
+        self._prob_patch = patch.object(a, "SETUP_PROBATION_FILE", self._prob_tmp.name)
+        self._prob_patch.start()
+
+    def tearDown(self):
+        self._pending_patch.stop()
+        os.unlink(self._pending_tmp.name)
+        self._dedup_patch.stop()
+        os.unlink(self._dedup_tmp.name)
+        self._prob_patch.stop()
+        if os.path.exists(self._prob_tmp.name):
+            os.unlink(self._prob_tmp.name)
+
+    def _run_scan(self):
+        with patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_earnings_spread_candidates", return_value=[]) as mock_cand, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            a.run_earnings_spread_scan()
+        return mock_cand, mock_tg
+
+    def test_probation_pauses_offers_and_notifies(self):
+        a._enter_setup_probation("Earnings Spread", "25% WR test")
+        mock_cand, mock_tg = self._run_scan()
+        mock_cand.assert_not_called()
+        sent = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("Earnings-spread offers paused" in t for t in sent))
+
+    def test_probation_pause_notification_is_deduped_not_spammed(self):
+        a._enter_setup_probation("Earnings Spread", "25% WR test")
+        self._run_scan()
+        _, mock_tg2 = self._run_scan()
+        sent = [c.args[0] for c in mock_tg2.call_args_list]
+        self.assertFalse(any("Earnings-spread offers paused" in t for t in sent),
+                          "a repeat probation-skip in the same day must not re-notify")
+
+    def test_no_probation_scans_normally(self):
+        mock_cand, _ = self._run_scan()
+        mock_cand.assert_called_once()
+
+    def test_other_setup_on_probation_does_not_pause_earnings(self):
+        a._enter_setup_probation("Low Float Catalyst", "12% WR test")
+        mock_cand, _ = self._run_scan()
+        mock_cand.assert_called_once()
+
+    def test_expired_probation_scans_normally(self):
+        started = (datetime.now(a.ET)
+                   - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat()
+        a._save_setup_probation({"Earnings Spread": {"started": started, "note": "old"}})
+        with patch.object(a, "_is_duplicate_alert", return_value=True):
+            mock_cand, _ = self._run_scan()
+        mock_cand.assert_called_once()
+
+
 class TestFormatEarningsSpreadTelegramSectorWarning(unittest.TestCase):
     """format_earnings_spread_telegram() must surface a sector-overlap
     warning line when given one, and stay silent when not — the approval
@@ -9767,11 +9858,23 @@ class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):
         self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
         self._dedup_patch.start()
 
+        # run_earnings_spread_scan() now consults the setup-probation state
+        # (see TestEarningsSpreadScanSetupProbationGate) — isolate it so the
+        # repo's real dman_setup_probation.json can't pause the scan under test.
+        self._prob_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._prob_tmp.close()
+        os.unlink(self._prob_tmp.name)
+        self._prob_patch = patch.object(a, "SETUP_PROBATION_FILE", self._prob_tmp.name)
+        self._prob_patch.start()
+
     def tearDown(self):
         self._patch.stop()
         os.unlink(self._tmp.name)
         self._dedup_patch.stop()
         os.unlink(self._dedup_tmp.name)
+        self._prob_patch.stop()
+        if os.path.exists(self._prob_tmp.name):
+            os.unlink(self._prob_tmp.name)
 
     def _run_with_candidate(self, timing):
         candidate = {"ticker": "TESTX", "earn_date": date.today(), "days_away": 0,
@@ -9817,11 +9920,23 @@ class TestEarningsSpreadScanSectorOverlapSymmetry(unittest.TestCase):
         self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
         self._dedup_patch.start()
 
+        # run_earnings_spread_scan() now consults the setup-probation state
+        # (see TestEarningsSpreadScanSetupProbationGate) — isolate it so the
+        # repo's real dman_setup_probation.json can't pause the scan under test.
+        self._prob_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._prob_tmp.close()
+        os.unlink(self._prob_tmp.name)
+        self._prob_patch = patch.object(a, "SETUP_PROBATION_FILE", self._prob_tmp.name)
+        self._prob_patch.start()
+
     def tearDown(self):
         self._patch.stop()
         os.unlink(self._tmp.name)
         self._dedup_patch.stop()
         os.unlink(self._dedup_tmp.name)
+        self._prob_patch.stop()
+        if os.path.exists(self._prob_tmp.name):
+            os.unlink(self._prob_tmp.name)
 
     def test_both_same_sector_candidates_see_each_others_overlap(self):
         # NVDA and CRWD are both "Technology" in TICKER_SECTOR.

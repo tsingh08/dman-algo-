@@ -1,0 +1,185 @@
+name: DMan Open Check
+
+# An assertion that the OPEN actually went the way it was supposed to,
+# pushed to Telegram whether it passed or failed.
+#
+# Everything else in this repo reports what it DID (scans, entries, guard
+# alerts). Nothing checked that the things which are supposed to happen at
+# 9:30 actually happened -- a day-only position that silently failed to
+# flatten, a stale entry order that outlived its session, or a position
+# holding with no broker-side stop all look identical to "quiet morning"
+# from the outside. Confirmed live 2026-09-02: five day-only positions
+# carried overnight and the only reason anyone noticed was a manual
+# account inspection the next night.
+#
+# Read-only. Places no orders, cancels nothing, changes no state -- it
+# looks at the account and says whether the invariants hold.
+
+on:
+  schedule:
+    # 13:50 UTC = 9:50 AM ET (EDT) -- 20 minutes after the open, late enough
+    # that the 9:30 force-close and any cancel have had time to settle and
+    # for fills to report, early enough that a problem still has the whole
+    # session left to fix.
+    - cron: '50 13 * * 1-5'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+concurrency:
+  group: dman-open-check
+  cancel-in-progress: false
+
+jobs:
+  open-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Verify the open
+        env:
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONIOENCODING:    utf-8
+        run: |
+          python - <<'EOF'
+          import os, html, json, sys
+          from datetime import datetime
+          import zoneinfo, requests
+
+          ET  = zoneinfo.ZoneInfo("America/New_York")
+          now = datetime.now(ET)
+          if now.weekday() >= 5:
+              print(f"Weekend ({now:%a}) -- nothing to check.")
+              sys.exit(0)
+          today = now.date().isoformat()
+
+          import dman_algo as algo
+          from alpaca.trading.requests import GetOrdersRequest
+          from alpaca.trading.enums import QueryOrderStatus
+
+          problems, notes = [], []
+
+          client = algo.get_alpaca_client()
+          if client is None:
+              problems.append("Alpaca client unavailable -- could not verify anything.")
+              positions, orders = [], []
+          else:
+              positions = client.get_all_positions()
+              orders    = client.get_orders(
+                  filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=100))
+
+          held = {p.symbol: p for p in positions}
+          # --- 1. no day-only position may survive past the open -----------
+          # A day_only entry is scoped to the session it was found in. One
+          # still held from a PRIOR day means the force-close did not fire.
+          try:
+              tracked = algo.PositionTracker().positions
+          except Exception as e:
+              tracked = []
+              notes.append(f"position tracker unreadable: {e}")
+
+          for pos in tracked:
+              if getattr(pos, "day_only", False) and pos.entry_date < today:
+                  if pos.ticker in held:
+                      problems.append(
+                          f"{pos.ticker}: day-only from {pos.entry_date} STILL HELD "
+                          f"({held[pos.ticker].qty} sh) -- force-close did not flatten it")
+
+          # --- 2. every held position needs a broker-side stop -------------
+          # The single most consequential invariant: an unprotected position
+          # is an uncapped loss.
+          stop_syms = {o.symbol for o in orders
+                       if str(getattr(o.side, "value", o.side)).lower() == "sell"
+                       and "stop" in str(getattr(o.order_type, "value", o.order_type)).lower()}
+          for sym in held:
+              if sym not in stop_syms:
+                  problems.append(f"{sym}: HELD with NO broker-side stop order")
+
+          # --- 3. no entry order may outlive its own session ---------------
+          for o in orders:
+              side = str(getattr(o.side, "value", o.side)).lower()
+              if side != "buy":
+                  continue
+              sub = getattr(o, "submitted_at", None)
+              if sub and sub.astimezone(ET).date().isoformat() < today:
+                  problems.append(
+                      f"{o.symbol}: BUY order from {sub.astimezone(ET):%Y-%m-%d} still working "
+                      f"(status {getattr(o.status,'value',o.status)}) -- stale entry")
+
+          # --- 4. PDT budget sanity ----------------------------------------
+          try:
+              pdt = algo._get_pdt_status()
+              notes.append(f"PDT {pdt['used']}/3 used, {pdt['remaining']} left"
+                           + (" (SWING MODE)" if pdt["swing_mode"] else ""))
+              if pdt["remaining"] == 0:
+                  notes.append("PDT budget exhausted -- no new day trades today.")
+          except Exception as e:
+              problems.append(f"PDT status unreadable: {e}")
+
+          try:
+              ledger = algo._load_day_trades()
+              notes.append(f"day-trade ledger: {len([l for l in ledger if l.get('date')==today])} "
+                           f"recorded today, {len(ledger)} total")
+          except Exception as e:
+              notes.append(f"day-trade ledger unreadable: {e}")
+
+          notes.append(f"{len(held)} position(s) held, {len(orders)} open order(s)")
+
+          # --- report -------------------------------------------------------
+          if problems:
+              header = "🚨 <b>DMan OPEN CHECK — PROBLEMS FOUND</b>"
+              body   = "\n".join(f"• {p}" for p in problems)
+              # body is html.escape()d below -- no tags in here, they'd render
+              # as literal &lt;i&gt; text.
+              body  += "\n\nContext:\n" + "\n".join(f"· {n}" for n in notes)
+          else:
+              header = "✅ <b>DMan open check — all clear</b>"
+              body   = "\n".join(f"· {n}" for n in notes)
+              body  += "\n\nNo stale day-only holds, every position has a stop, no stale entry orders."
+
+          # %-I is a glibc extension -- avoid it so this is runnable/testable
+          # off-Linux too.
+          stamp = f"{now:%a %b %d}, {now.strftime('%I').lstrip('0')}:{now:%M %p} ET"
+          text  = f"{header}\n<i>{stamp}</i>\n\n{html.escape(body)}"
+          requests.post(
+              f"https://api.telegram.org/bot{os.environ['TELEGRAM_TOKEN']}/sendMessage",
+              data={"chat_id": os.environ["TELEGRAM_CHAT_ID"], "text": text,
+                    "parse_mode": "HTML"},
+              timeout=20)
+
+          print(header)
+          for line in problems + notes:
+              print("  ", line)
+          # Never fail the job on a finding -- the finding is the OUTPUT, and a
+          # red run would fire the generic failure alert on top of the real,
+          # specific one already sent above.
+          EOF
+
+      - name: Notify on workflow failure
+        if: failure()
+        env:
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            -d "text=⚠️ <b>DMan open check FAILED to run</b> — the 9:50 ET verification job itself errored. Positions are UNVERIFIED this morning. Check GitHub Actions." \
+            -d "parse_mode=HTML" || true

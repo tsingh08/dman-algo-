@@ -2378,5 +2378,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T15:18:09.542221-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "BASF Sues Apple For Allegedly Infringing Its Patents For Face Authentication Technology, Court Filing Shows",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T15:18:27.083669-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Michael Dell&#39;s Wealth Surges Past $100B in 2026 as Dell Stock Hits Record Highs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

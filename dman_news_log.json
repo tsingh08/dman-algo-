@@ -2277,5 +2277,56 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T14:35:12.369648-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Palantir\u2019s Alex Karp: The Real AI Leak Isn&#39;t Data, It&#39;s Your &#39;Alpha&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:35:13.133966-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir\u2019s Alex Karp: The Real AI Leak Isn&#39;t Data, It&#39;s Your &#39;Alpha&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:36:03.499605-04:00",
+    "symbols": [
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Micron, SanDisk Lag Tech Rally as China Grabs Memory Market Share",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:37:47.059875-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Snowflake, Raises Price Target to $440",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:39:39.396267-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock&#39;s Next Move Hinges on Cybercab: Morgan Stanley",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

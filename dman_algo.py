@@ -16499,6 +16499,21 @@ def _get_pdt_status() -> dict:
     nothing but an unnecessary overnight hold in the false-positive case
     (assumed zero budget when real budget existed); it never risks a
     real violation.
+
+    `used` also counts today's still-open day_only positions (see
+    OpenPosition.day_only) as committed day trades, not just Alpaca's own
+    daytrade_count. Confirmed live 2026-09-02: Alpaca only increments that
+    count AFTER a same-day round trip actually completes and gets
+    reported -- it does NOT yet reflect a day-only position opened this
+    morning that's still open, even though that position WILL close
+    today (the entire point of day_only) and WILL become a day trade the
+    moment it does. Counting only Alpaca's lagging number let 5 day-only
+    entries submit back-to-back the same morning, each one seeing a
+    falsely-clean "3 remaining" because none had round-tripped yet --
+    real risk of blowing through the 3-trade limit the moment several
+    close same-day, which stayed hidden only because a separate bug
+    (force-close never firing) happened to prevent any of them from
+    closing that day at all.
     """
     try:
         _client = get_alpaca_client()
@@ -16509,9 +16524,16 @@ def _get_pdt_status() -> dict:
         _dt_count = int(getattr(_acct, "daytrade_count", 0) or 0)
         if _equity >= 25_000:
             return {"used": _dt_count, "remaining": 99, "swing_mode": False, "equity": _equity}
-        _remaining = max(0, 3 - _dt_count)
+        _today_str = datetime.now(ET).date().isoformat()
+        try:
+            _committed = sum(1 for p in PositionTracker().positions
+                              if p.day_only and p.entry_date == _today_str)
+        except Exception:
+            _committed = 0
+        _effective_used = _dt_count + _committed
+        _remaining = max(0, 3 - _effective_used)
         _swing     = _remaining <= 1   # at 1 or 0 remaining: go swing to protect the budget
-        return {"used": _dt_count, "remaining": _remaining, "swing_mode": _swing, "equity": _equity}
+        return {"used": _effective_used, "remaining": _remaining, "swing_mode": _swing, "equity": _equity}
     except Exception:
         return {"used": 0, "remaining": 0, "swing_mode": True, "equity": 0.0}
 

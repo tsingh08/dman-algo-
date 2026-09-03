@@ -5292,7 +5292,9 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.daytrade_count = 0
         mock_client = MagicMock()
         mock_client.get_account.return_value = mock_acct
-        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []
             status = a._get_pdt_status()
         self.assertEqual(status["remaining"], 3)
         self.assertFalse(status["swing_mode"])
@@ -5303,10 +5305,69 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.daytrade_count = 3
         mock_client = MagicMock()
         mock_client.get_account.return_value = mock_acct
-        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = []
             status = a._get_pdt_status()
         self.assertEqual(status["remaining"], 0)
         self.assertTrue(status["swing_mode"])
+
+    def test_todays_open_day_only_positions_count_as_committed_day_trades(self):
+        # Direct instruction 2026-09-02, root-caused live: Alpaca's own
+        # daytrade_count only increments AFTER a same-day round trip
+        # actually completes -- a day-only position opened this morning
+        # and still open doesn't show up there yet, even though it WILL
+        # close today and WILL become a day trade the moment it does.
+        # 2 committed (still-open, entered today) + Alpaca's own 1 already-
+        # completed round trip = 3 used, 0 remaining -- not "1 used, 2 left".
+        mock_acct = MagicMock()
+        mock_acct.equity = "10000.0"
+        mock_acct.daytrade_count = 1
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = mock_acct
+        today_str = date.today().isoformat()
+        open_today = [
+            a.OpenPosition(ticker="AAA", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+                           entry=1.0, stop=0.9, target1=1.3, target2=1.5, shares=10,
+                           entry_date=today_str, day_only=True),
+            a.OpenPosition(ticker="BBB", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+                           entry=1.0, stop=0.9, target1=1.3, target2=1.5, shares=10,
+                           entry_date=today_str, day_only=True),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = open_today
+            status = a._get_pdt_status()
+        self.assertEqual(status["used"], 3)
+        self.assertEqual(status["remaining"], 0)
+        self.assertTrue(status["swing_mode"])
+
+    def test_non_day_only_and_prior_day_positions_are_not_counted_as_committed(self):
+        # Only TODAY's day_only positions are forward-looking commitments --
+        # a swing/overnight position was never going to round-trip same-day
+        # regardless, and a day_only position from a PRIOR day either
+        # already closed (and is reflected in Alpaca's own count by now)
+        # or is the stale-carry case force_close handles on its own.
+        mock_acct = MagicMock()
+        mock_acct.equity = "10000.0"
+        mock_acct.daytrade_count = 0
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = mock_acct
+        today_str = date.today().isoformat()
+        positions = [
+            a.OpenPosition(ticker="CCC", bias="LONG", setup="Gap & Hold",
+                           entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
+                           entry_date=today_str, day_only=False),
+            a.OpenPosition(ticker="DDD", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+                           entry=1.0, stop=0.9, target1=1.3, target2=1.5, shares=10,
+                           entry_date="2026-01-01", day_only=True),
+        ]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = positions
+            status = a._get_pdt_status()
+        self.assertEqual(status["used"], 0)
+        self.assertEqual(status["remaining"], 3)
 
     def test_equity_over_25k_is_never_swing_mode(self):
         mock_acct = MagicMock()

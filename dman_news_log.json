@@ -2440,5 +2440,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T16:06:26.371765-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Q4 Adj. EPS $1.19 Beats $1.08 Estimate, Sales $898.185M Beat $877.364M Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T16:08:20.467241-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Sees FY2027 Adj EPS $4.86-$4.90 vs $4.60 Est; Sees Sales $3.908B-$3.938B vs $3.899B Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T16:08:28.416197-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Sees Q1 Adj EPS $1.15-$1.16 vs $1.08 Est; Sees Sales $935.000M-$939.000M vs $927.024M Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

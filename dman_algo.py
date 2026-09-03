@@ -14698,6 +14698,54 @@ def _check_stop_coverage() -> Optional[dict]:
     except Exception as _se:
         print(f"  ⚠  Live-stop check failed: {_se}")
 
+    # ── Stale unfilled entry-order check ───────────────────────────────────
+    # A working BUY entry with no position behind it, submitted on an EARLIER
+    # calendar day. Confirmed live 2026-09-02: MASK's day-only breakout entry
+    # (GTC limit, 179sh @ $1.35) was still working the next night, ready to
+    # open a position on a ~20-hour-dead setup and burn one of only 3 PDT
+    # day-trade slots. _force_close_day_only_positions() couldn't catch it --
+    # by then the sync had already cleared MASK's PositionTracker entry as
+    # "not open at Alpaca", so there was no tracked position left to iterate.
+    #
+    # ALERTS ONLY, deliberately -- it does NOT cancel. Once the tracker entry
+    # is gone there is no way here to tell a stale day-only entry from a
+    # swing_mode entry, which is GTC precisely so it CAN sit unfilled
+    # overnight waiting to fill (see submit_alpaca_trade()). Auto-cancelling
+    # would eventually kill a legitimate swing entry; a wrong alert costs
+    # nothing. Deduped so it doesn't repeat every 10s daemon tick.
+    try:
+        _today_et = datetime.now(ET).date()
+        _stale_entries = []
+        for _o in (_open_orders or []):
+            if getattr(_o, "side", None) != OrderSide.BUY:
+                continue
+            _sym = getattr(_o, "symbol", "")
+            if not _sym or _sym in _alp_positions:
+                continue   # a fill is in flight / partially filled -- not stale
+            _sub = getattr(_o, "submitted_at", None)
+            if _sub is None:
+                continue
+            try:
+                _sub_date = _sub.astimezone(ET).date()
+            except Exception:
+                continue
+            if _sub_date < _today_et:
+                _stale_entries.append(f"{_sym} (submitted {_sub_date.isoformat()})")
+        if _stale_entries:
+            _se_key = "__STALE_ENTRY_ORDERS__"
+            if not _is_duplicate_alert(_se_key):
+                send_telegram(
+                    "🕰 <b>Stale entry order(s) still working</b>\n"
+                    "Unfilled BUY entries from an earlier session, with no position behind them:\n\n"
+                    + "\n".join(f"• {_s}" for _s in _stale_entries)
+                    + "\n\nIf any is a day-only breakout entry, its setup is long gone — cancel it "
+                      "in Alpaca. A swing-mode entry waiting to fill overnight is expected and fine."
+                )
+                _save_last_alert(_se_key)
+            print(f"  🕰 {len(_stale_entries)} stale entry order(s): {_stale_entries}")
+    except Exception as _stale_exc:
+        print(f"  ⚠  Stale entry-order check failed: {_stale_exc}")
+
     return _alp_positions
 
 

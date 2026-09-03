@@ -10451,6 +10451,60 @@ class TestForceCloseDayOnlyPositions(unittest.TestCase):
         self.assertIn("FAILED", mock_tg.call_args[0][0])
 
 
+class TestStaleEntryOrderDetection(unittest.TestCase):
+    """_check_stop_coverage()'s stale-entry alert. Confirmed live 2026-09-02:
+    MASK's unfilled day-only GTC entry was still working the next night with
+    no position behind it and no PositionTracker entry left (the sync had
+    already cleared it), so nothing that iterates tracked positions could
+    see it. Alerts only -- it must never cancel, because a swing_mode entry
+    is GTC precisely so it CAN sit unfilled overnight."""
+
+    def _order(self, symbol, side, submitted_days_ago):
+        o = MagicMock()
+        o.symbol = symbol
+        o.side = side
+        o.submitted_at = datetime.now(a.ET) - timedelta(days=submitted_days_ago)
+        return o
+
+    def _run(self, orders, positions):
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_orders.return_value = orders
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "_stop_coverage_fetch_cache",
+                          {"ts": time.time(), "positions": positions, "orders": orders}), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            MockPT.return_value.positions = []
+            a._check_stop_coverage()
+        return mock_tg
+
+    def test_prior_day_unfilled_entry_with_no_position_alerts(self):
+        mock_tg = self._run([self._order("MASK", a.OrderSide.BUY, 1)], {})
+        texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertTrue(any("Stale entry order" in t and "MASK" in t for t in texts),
+                        f"expected a stale-entry alert naming MASK, got: {texts}")
+
+    def test_todays_unfilled_entry_is_not_stale(self):
+        mock_tg = self._run([self._order("MASK", a.OrderSide.BUY, 0)], {})
+        texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertFalse(any("Stale entry order" in t for t in texts))
+
+    def test_entry_with_a_real_position_behind_it_is_not_stale(self):
+        # A partial fill / fill-in-flight is not a stale entry.
+        mock_tg = self._run([self._order("ONCO", a.OrderSide.BUY, 1)],
+                            {"ONCO": MagicMock()})
+        texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertFalse(any("Stale entry order" in t for t in texts))
+
+    def test_sell_stop_orders_are_never_flagged(self):
+        mock_tg = self._run([self._order("ONCO", a.OrderSide.SELL, 5)], {})
+        texts = [c.args[0] for c in mock_tg.call_args_list]
+        self.assertFalse(any("Stale entry order" in t for t in texts))
+
+
 class TestCancelStaleDayOnlyEntry(unittest.TestCase):
     """A day-only breakout entry must not outlive its own session. Confirmed
     live 2026-09-02: MASK's unfilled GTC entry limit was still working at the

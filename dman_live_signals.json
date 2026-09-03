@@ -1,32 +1,28 @@
 {
-<<<<<<< Updated upstream
   "pending": [
+    {
+      "ticker": "HOOD",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 123.77,
+      "stop": 112.92,
+      "target1": 153.42,
+      "target2": 171.21,
+      "score": 100,
+      "date": "2026-09-03",
+      "timestamp": "2026-09-03T14:06:50.329312-04:00"
+    },
     {
       "ticker": "TCOM",
       "setup": "Bear Gap Hold",
       "bias": "SHORT",
-      "entry": 41.69,
+      "entry": 41.55,
       "stop": 42.33,
-      "target1": 39.75,
-      "target2": 38.78,
+      "target1": 39.62,
+      "target2": 38.46,
       "score": 100,
       "date": "2026-09-03",
-      "timestamp": "2026-09-03T13:28:27.140438-04:00"
-    },
-    {
-      "ticker": "HWM",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 245.8,
-      "stop": 253.3,
-      "target1": 227.06,
-      "target2": 215.82,
-      "score": 100,
-      "date": "2026-08-31",
-      "timestamp": "2026-08-31T15:50:34.322882-04:00"
+      "timestamp": "2026-09-03T14:06:50.329910-04:00"
     }
   ]
-=======
-  "pending": []
->>>>>>> Stashed changes
 }

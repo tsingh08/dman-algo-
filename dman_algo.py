@@ -372,7 +372,26 @@ STRANGLE_RISK_PCT   = 0.01             # 1% of account per strangle event
 # feature: buy an OTM call debit spread and/or an OTM put debit spread ahead of a
 # WATCHLIST ticker's own earnings, submitted as ONE atomic multi-leg (MLEG) order —
 # never as separate single-leg orders, which would carry leg-imbalance risk.
-ENABLE_EARNINGS_SPREADS        = True
+# DISABLED 2026-09-03 after the Thursday review. Live record is 4 trades:
+# BABA -59.4%, CRWD -100.0%, MRVL -95.7%, NVDA +2.5% -- 25% WR, three of
+# four near-total losses, -252% cumulative. That is the single largest
+# capital destroyer in the live book by a wide margin (next worst, Low
+# Float Catalyst, is -80% across twice as many trades).
+#
+# The shape of the losses is the reason this is a disable and not another
+# threshold bump: a debit spread bought before a binary event either works
+# or expires near-worthless, so the loss side is ~all-or-nothing at -100%
+# by construction. No confluence score, DTE tweak, or width adjustment
+# changes that asymmetry -- at 25% WR the arithmetic cannot recover, and
+# at 5% of equity per event (EARNINGS_SPREAD_RISK_PCT) with a 15%
+# aggregate cap it can take a fifth of the account in a single earnings
+# week. On a $2,973 account trying to reach $25k, that is the opposite of
+# the compounding this strategy needs.
+#
+# Single-leg directional options are NOT affected and stay on (see
+# ENABLE_OPTIONS_TRADING): their live record is 4W/2L, +103% cumulative,
+# and it is the only setup in the book with a clearly positive edge.
+ENABLE_EARNINGS_SPREADS        = False
 EARNINGS_SPREAD_RISK_PCT       = 0.05    # 5% of equity per event (~$150 at $2,997.77)
 EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT = 0.15   # hard cap on TOTAL max_loss committed across every
                                                   # open + pending earnings spread at once, not per

@@ -294,6 +294,26 @@ jobs:
           header = (f"🔎 <b>DMan {label}</b>" if status == "0" else
                      f"⚠️ <b>DMan {label} — the run itself hit an error, showing what it captured</b>")
           body = os.environ.get("REVIEW_OUTPUT", "").strip() or "(no output captured)"
+          # Confirmed live 2026-09-02: a real Anthropic account credit
+          # exhaustion surfaces here as the bare CLI error string with zero
+          # context -- technically "sent to Telegram" but genuinely
+          # confusing (just "Credit balance is too low", no explanation of
+          # what's low on credits or what to do about it). This is a
+          # billing action only the account owner can take (add funds at
+          # console.anthropic.com) -- no code fix restores it -- so the
+          # one thing worth improving here is making the alert say that
+          # plainly instead of relaying the raw error.
+          if "credit balance is too low" in body.lower():
+              header = "💳 <b>DMan session review unavailable — Anthropic API credits exhausted</b>"
+              body = (
+                  "The ANTHROPIC_API_KEY used for session reviews (and the live scanner's "
+                  "AI-scoring step) is out of credits.\n\n"
+                  "Fix: add funds at console.anthropic.com for the account that owns this key, "
+                  "then session reviews resume automatically -- no code change needed.\n\n"
+                  "Does NOT affect live trading: AI-scoring fails OPEN by design (falls back to "
+                  "confluence-only scoring, never blocks a trade) -- confirmed no live scan hit "
+                  "this today."
+              )
           text = f"{header}\n\n{html.escape(body)}"
           if kind == "eod" and pr_url:
               text += f"\n\n📤 <b>PR opened:</b> {html.escape(pr_url)}"

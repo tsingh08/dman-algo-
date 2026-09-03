@@ -2328,5 +2328,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T14:50:37.639435-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Just Lit Up the AI Trade: This ETF Explodes 45%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:50:45.586491-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron, SanDisk Lag Tech Rally as China Grabs Memory Market Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:50:45.665095-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron, SanDisk Lag Tech Rally as China Grabs Memory Market Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:54:26.163671-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Dell COO Jeff Clarke Reveals AI Boom Runs on Endless Scrambling for Scarce Parts: &#39;This Is What We Do&#39; and &#39;We Love It&#39; (CORRECTED)",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

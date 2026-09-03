@@ -2196,5 +2196,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T14:10:23.339764-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Touts Positive Data For Multiple Myeloma Drug",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T14:12:46.860209-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Strategy, Raises Price Target to $175",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

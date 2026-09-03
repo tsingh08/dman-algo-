@@ -4361,5 +4361,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:05:11.118180-04:00",
+    "symbols": [
+      "MIMI",
+      "SNOW"
+    ],
+    "headline": "Gold Jumps 3%; ISM Services PMI Rises In August",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

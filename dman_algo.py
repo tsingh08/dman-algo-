@@ -3520,6 +3520,28 @@ def format_earnings_spread_telegram(plan: dict, sector_overlap: Optional[list[st
                       f"open/pending this week — approving both is one concentrated bet, "
                       f"not two diversified ones.")
 
+    # Setup-probation surfacing — the drift check restricts the grouped
+    # "Earnings Spread" family (see setup_performance_drift()'s _drift_key),
+    # but earnings spreads have no confluence-score gate for the probation
+    # bonus to raise: the ONLY gate is this message and a human's YES. Found
+    # in the 2026-09-03 review: the family sat restricted (1W/3L, avg loss
+    # 85%) while offers kept going out with no mention of it — the
+    # restriction was pure dead state on the one path it was created for.
+    # Read passively (no expiry deletion / no Telegram side effects from a
+    # formatting function) and honor the age window the same way
+    # _setup_probation_bonus() does.
+    try:
+        _prob = _load_setup_probation().get("Earnings Spread")
+        if _prob:
+            _started = datetime.fromisoformat(_prob.get("started", ""))
+            if (datetime.now(_started.tzinfo) - _started).days < SETUP_PROBATION_MAX_DAYS:
+                lines.append("")
+                lines.append(f"🟡 <b>Setup probation</b> — the earnings-spread family is "
+                              f"currently restricted: {_prob.get('note', 'live win rate below floor')}. "
+                              f"Weigh that record before approving.")
+    except Exception:
+        pass
+
     _n_sides = int(bool(plan.get("call"))) + int(bool(plan.get("put")))
     lines.append(f"Reply <b>YES {plan['ticker']}</b> to approve (1 atomic order, {_n_sides} side(s)) "
                  f"· <b>NO {plan['ticker']}</b> to reject · expires in {EARNINGS_APPROVAL_TIMEOUT_MIN} min")
@@ -17130,6 +17152,20 @@ def adopt_orphan_positions() -> int:
         else:
             stop_note = f"broker stop ${stop:.4f}"
 
+        # _orphan_entry_date() needs the FILLED buy that opened this
+        # position, but `orders` above is a status=OPEN query — a filled
+        # order never appears in it, so the lookup always fell back to
+        # "today". entry_date feeds _record_day_trade()'s same-day
+        # comparison, so an adopted swing that closes today would consume
+        # a PDT day trade that never happened. Fetch this symbol's closed
+        # orders (only on the rare adopt path, one symbol at a time); on
+        # failure the today fallback stands, exactly as before.
+        try:
+            closed_orders = client.get_orders(filter=GetOrdersRequest(
+                status=QueryOrderStatus.CLOSED, symbols=[sym], limit=50))
+        except Exception:
+            closed_orders = []
+
         risk = max(entry - stop, 0.01)
         pos = OpenPosition(
             ticker     = sym,
@@ -17140,7 +17176,7 @@ def adopt_orphan_positions() -> int:
             target1    = round(entry + risk * 2.0, 4),
             target2    = round(entry + risk * 3.5, 4),
             shares     = abs(qty),
-            entry_date = _orphan_entry_date(sym, orders),
+            entry_date = _orphan_entry_date(sym, closed_orders),
             day_only   = False,          # never auto-flatten an adopted position
         )
         if pt.open(pos):

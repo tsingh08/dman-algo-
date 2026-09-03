@@ -4500,5 +4500,85 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T12:32:58.287852-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T12:32:58.685645-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:32:58.993076-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:32:59.571976-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T12:33:00.387024-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:33:00.727447-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-03T12:33:01.453687-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:33:02.124978-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

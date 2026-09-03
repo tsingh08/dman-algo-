@@ -6388,6 +6388,73 @@ def _update_option_position_field(occ_symbol: str, **fields) -> None:
         occ_symbol, **fields)
 
 
+def _options_close_would_violate_pdt(occ_symbol: str) -> Optional[str]:
+    """
+    Reason string if selling `occ_symbol` right now would be a PDT-violating
+    day trade, else None (the common case -- callers proceed on None).
+
+    Only blocks when ALL of these hold, so it can never quietly strand a
+    position that was safe to exit:
+      - equity < $25k (above that, PDT does not apply at all)
+      - the day-trade budget is genuinely exhausted (0 remaining)
+      - this contract was OPENED TODAY, so a sale today completes a round
+        trip; a position opened on any earlier day can always be sold
+
+    Fails OPEN (returns None, allowing the exit) on any error. That is the
+    deliberate direction here and the opposite of _get_pdt_status()'s
+    fail-closed stance, because the two functions are protecting against
+    different things: there, failing closed merely skips a new entry, which
+    costs nothing; here, failing closed would REFUSE TO EXIT a live losing
+    position on the strength of a lookup that just errored. Blocking an exit
+    is only ever justified by a positively-confirmed violation.
+    """
+    try:
+        if not occ_symbol:
+            return None
+        pdt = _get_pdt_status()
+        if pdt.get("equity", 0) >= 25_000 or pdt.get("remaining", 3) > 0:
+            return None
+        today = datetime.now(ET).date().isoformat()
+        for pos in PositionTracker().positions:
+            if _position_identity(pos.ticker, pos.setup) != occ_symbol:
+                continue
+            if pos.entry_date == today:
+                return (f"opened today and PDT budget is {pdt['used']}/3 used "
+                        f"with 0 remaining")
+            return None
+        # Not tracked: no entry date to reason from, so no confirmed
+        # violation -- let the exit through rather than strand it.
+        return None
+    except Exception:
+        return None
+
+
+def _signal_can_use_options(sig) -> bool:
+    """
+    True if this signal has an OPTIONS execution path at all -- the same
+    eligibility the submit loop applies, kept as one predicate so the
+    zero-PDT filter can ask the question BEFORE any order is placed.
+
+    Mirrors _use_options / _use_puts in _submit_signals_to_alpaca()
+    deliberately, rather than approximating them: a signal that passes here
+    but has no real options path would fall through to the shares fallback,
+    and shares carry a broker-side stop that can fill the same session --
+    day trade #4, which is exactly what the zero-PDT filter exists to
+    prevent. Contract availability and liquidity are still checked later by
+    the options pipeline itself; this is the cheap structural half.
+    """
+    try:
+        if sig.bias == "LONG":
+            return bool(ENABLE_OPTIONS_TRADING
+                        and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
+        if sig.bias == "SHORT":
+            return bool(OPTIONS_ENABLE_PUTS
+                        and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
+    except Exception:
+        return False
+    return False
+
+
 def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, Optional[str]]:
     """
     Submit a closing SELL for an options position — the enforcement arm of the
@@ -6397,6 +6464,7 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
       "submitted"      — closing order placed
       "pending"        — a SELL is already working for this contract (no double-submit)
       "already_closed" — Alpaca no longer holds the position (sync will record P&L)
+      "pdt_blocked"    — selling today would be a PDT violation; position held
       "failed"         — submission failed; manual action needed
 
     Uses a marketable limit at bid−2% (fills immediately against the bid but
@@ -6406,6 +6474,30 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
     client = get_alpaca_client()
     if client is None:
         return "failed", None
+
+    # PDT guard. Selling a contract that was BOUGHT TODAY is a day trade, and
+    # with the budget already at zero it would be the fourth in the rolling
+    # window -- a real violation, 90 days restricted on a sub-$25k account.
+    # That is a strictly worse outcome than riding an option to expiry: the
+    # downside here is already capped at the premium (options entries submit a
+    # plain limit with NO stop and NO bracket), whereas a PDT flag disables the
+    # account's ability to trade its way back at all.
+    #
+    # This lives at the choke point rather than at each decision site so every
+    # exit path is covered at once -- baseline stop, trail give-back, T1 half,
+    # DTE roll, and the manual /close Telegram command.
+    _blocked = _options_close_would_violate_pdt(occ_symbol)
+    if _blocked:
+        print(f"  🚫 PDT: holding {occ_symbol} — {_blocked}")
+        if not _is_duplicate_alert(f"__PDT_HOLD_{occ_symbol}__"):
+            send_telegram(
+                f"🚫 <b>PDT hold</b> — {occ_symbol}\n"
+                f"{reason}: exit signalled, but selling today would be day trade "
+                f"#4 in the rolling window and flag the account for 90 days.\n"
+                f"Holding overnight instead. Max loss is already capped at the "
+                f"premium paid — there is no stop order on this position."
+            )
+        return "pdt_blocked", None
 
     # Don't double-submit: if a SELL is already open for this contract, report it
     try:
@@ -6732,6 +6824,13 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         elif _st == "already_closed":
             _action = "🔴 STOP — position already closed at Alpaca"
             _msg = "Nothing held — next sync records the P&L"
+        elif _st == "pdt_blocked":
+            # Not a failure — a deliberate hold. Loss stays capped at the
+            # premium; a PDT flag would cap the whole account for 90 days.
+            _action = "🚫 STOP HIT — HELD (PDT budget exhausted)"
+            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                    f"({_pnl_pct:+.0f}%) — selling today would be day trade #4. "
+                    f"Holding overnight; max loss is the premium.")
         else:
             _action = "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED"
             _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
@@ -6758,6 +6857,11 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         elif _st == "already_closed":
             _action = "🚀 TRAIL EXIT — position already closed at Alpaca"
             _msg = "Nothing held — next sync records the P&L"
+        elif _st == "pdt_blocked":
+            _action = "🚫 TRAIL EXIT — HELD (PDT budget exhausted)"
+            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
+                    f"but selling today would be day trade #4. Holding overnight. "
+                    f"Do NOT sell manually today.")
         else:
             _action = "🚀 TRAIL EXIT — ⚠️ AUTO-CLOSE FAILED"
             _msg = f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
@@ -6789,6 +6893,11 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
             elif _st in ("pending", "already_closed"):
                 _action = "🟢 T1 — partial close in progress"
                 _msg = "Half-sell order working or already done"
+            elif _st == "pdt_blocked":
+                _action = "🚫 T1 HIT — HELD (PDT budget exhausted)"
+                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — but "
+                        f"selling today would be day trade #4. Holding overnight. "
+                        f"Do NOT sell manually today.")
             else:
                 _action = "🟢 T1 HIT — ⚠️ auto-sell failed"
                 _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
@@ -19116,13 +19225,47 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
             _remaining = _pdt["remaining"]
             if _equity < 25_000:
                 if _remaining == 0:
-                    msg = ("🚫 <b>DMan LIVE — PDT HALT</b>: account equity "
-                           f"${_equity:,.0f} &lt; $25k — day-trade limit reached "
-                           f"({_dt_count}/3 used). No new orders will be placed. "
-                           "Deposit funds to $25k+ or wait for the rolling window to reset.")
+                    # OPTIONS-ONLY rather than a full stop. Buying a contract
+                    # and holding it overnight is not a day trade, so it costs
+                    # nothing from an exhausted budget -- and an options entry
+                    # here submits a plain limit with NO stop and NO bracket,
+                    # so there is no resting order that could fire the same day
+                    # and turn it into one. _options_close_would_violate_pdt()
+                    # backs that up at the exit choke point by refusing to sell
+                    # a same-day-opened contract while the budget is at zero.
+                    #
+                    # Equity is still halted: shares DO get a broker-side stop,
+                    # and a stop that fills the same session is day trade #4 --
+                    # a real violation, 90 days restricted. Direct instruction
+                    # 2026-09-03, after the review found the budget genuinely
+                    # exhausted for three straight sessions (Fri 09-04, Tue
+                    # 09-08, Wed 09-09): sitting out entirely was the other
+                    # option, and options-only was chosen deliberately since
+                    # single-leg options are also the only setup in the live
+                    # book with a positive edge (4W/2L, +103%).
+                    _opt_ok = [s for s in signals if _signal_can_use_options(s)]
+                    _dropped = len(signals) - len(_opt_ok)
+                    if not _opt_ok:
+                        msg = ("🚫 <b>DMan LIVE — PDT HALT</b>: account equity "
+                               f"${_equity:,.0f} &lt; $25k — day-trade limit reached "
+                               f"({_dt_count}/3 used) and no options-eligible signal "
+                               "this pass. No orders placed.")
+                        send_telegram(msg)
+                        print(f"  🚫 PDT HALT: {_dt_count}/3 used, no options-eligible signals — skipping")
+                        return
+                    signals = _opt_ok
+                    for _s in signals:
+                        _s.swing_mode = True      # never a same-day round trip
+                    msg = (f"🎯 <b>DMan LIVE — PDT ZERO: OPTIONS ONLY</b>\n"
+                           f"{_dt_count}/3 day trades used, 0 remaining. Equity "
+                           f"${_equity:,.0f}.\n"
+                           f"Submitting {len(signals)} options entry(s), held overnight "
+                           f"(not a day trade). Max loss = premium; no stop order is "
+                           f"placed, and same-day exits are blocked."
+                           + (f"\n{_dropped} equity signal(s) skipped — a share stop "
+                              f"could fill today and become day trade #4." if _dropped else ""))
                     send_telegram(msg)
-                    print(f"  🚫 PDT HALT: {_dt_count}/3 day trades used, equity ${_equity:,.0f} — skipping all submissions")
-                    return
+                    print(f"  🎯 PDT ZERO — options-only: {len(signals)} eligible, {_dropped} equity signal(s) skipped")
                 elif _pdt["swing_mode"]:
                     # 1 day trade remaining — switch all new entries to swing mode
                     for _s in signals:

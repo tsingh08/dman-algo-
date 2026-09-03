@@ -5632,6 +5632,115 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestZeroPdtOptionsOnly(unittest.TestCase):
+    """Direct instruction 2026-09-03. With the day-trade budget genuinely
+    exhausted for three straight sessions (Fri 09-04, Tue 09-08, Wed 09-09),
+    _submit_signals_to_alpaca() used to return outright at 0 remaining --
+    no orders at all. Buying an option and holding it overnight is NOT a day
+    trade, and an options entry submits a plain limit with NO stop and NO
+    bracket, so nothing can fire the same session and turn it into one.
+    Equity stays halted because shares DO get a broker-side stop, and a stop
+    that fills the same day is day trade #4 -- a real violation."""
+
+    def test_equity_signal_is_not_options_eligible_offlist(self):
+        sig = MagicMock(); sig.bias = "LONG"; sig.ticker = "ZZZZ"
+        sig.setup = "Low Float Catalyst"
+        self.assertFalse(a._signal_can_use_options(sig))
+
+    def test_watchlist_long_is_options_eligible(self):
+        sig = MagicMock(); sig.bias = "LONG"
+        sig.ticker = a.WATCHLIST[0]; sig.setup = "Gap & Hold"
+        self.assertTrue(a._signal_can_use_options(sig))
+
+    def test_options_setup_long_is_eligible_offlist(self):
+        if not a.OPTIONS_SETUPS:
+            self.skipTest("no OPTIONS_SETUPS configured")
+        sig = MagicMock(); sig.bias = "LONG"; sig.ticker = "ZZZZ"
+        sig.setup = sorted(a.OPTIONS_SETUPS)[0]
+        self.assertTrue(a._signal_can_use_options(sig))
+
+    def test_bear_gap_hold_short_is_put_eligible(self):
+        sig = MagicMock(); sig.bias = "SHORT"; sig.ticker = "ZZZZ"
+        sig.setup = "Bear Gap Hold"
+        self.assertEqual(a._signal_can_use_options(sig), bool(a.OPTIONS_ENABLE_PUTS))
+
+
+class TestOptionsCloseBlockedByPdt(unittest.TestCase):
+    """The exit half of zero-PDT options mode. Selling a contract BOUGHT
+    TODAY while the budget is at zero completes a round trip -- day trade #4
+    and a 90-day restriction on a sub-$25k account. Riding the option
+    instead is bounded by the premium already paid (there is no stop order
+    on an options position), which is strictly the smaller loss."""
+
+    OCC = "PURR260904C00009000"
+
+    def _pos(self, entry_date):
+        return a.OpenPosition(
+            ticker="PURR", bias="LONG",
+            setup=f"Options Call {self.OCC} ($9.0C exp 2026-09-04)",
+            entry=1.0, stop=0.5, target1=1.5, target2=2.5,
+            shares=200, entry_date=entry_date)
+
+    def _check(self, pdt, positions):
+        with patch.object(a, "_get_pdt_status", return_value=pdt), \
+             patch.object(a, "PositionTracker") as MockPT:
+            MockPT.return_value.positions = positions
+            return a._options_close_would_violate_pdt(self.OCC)
+
+    def test_same_day_option_with_zero_budget_is_blocked(self):
+        today = datetime.now(a.ET).date().isoformat()
+        r = self._check({"used": 3, "remaining": 0, "swing_mode": True, "equity": 2973.0},
+                        [self._pos(today)])
+        self.assertIsNotNone(r)
+        self.assertIn("0 remaining", r)
+
+    def test_position_opened_earlier_is_always_sellable(self):
+        # Selling something bought on a previous day is never a day trade.
+        r = self._check({"used": 3, "remaining": 0, "swing_mode": True, "equity": 2973.0},
+                        [self._pos("2026-08-30")])
+        self.assertIsNone(r)
+
+    def test_budget_remaining_does_not_block(self):
+        today = datetime.now(a.ET).date().isoformat()
+        r = self._check({"used": 1, "remaining": 2, "swing_mode": False, "equity": 2973.0},
+                        [self._pos(today)])
+        self.assertIsNone(r)
+
+    def test_equity_over_25k_never_blocks(self):
+        today = datetime.now(a.ET).date().isoformat()
+        r = self._check({"used": 9, "remaining": 0, "swing_mode": False, "equity": 30000.0},
+                        [self._pos(today)])
+        self.assertIsNone(r)
+
+    def test_untracked_contract_is_not_blocked(self):
+        # No entry date to reason from = no CONFIRMED violation. Blocking an
+        # exit needs positive evidence, never an absence of it.
+        r = self._check({"used": 3, "remaining": 0, "swing_mode": True, "equity": 2973.0}, [])
+        self.assertIsNone(r)
+
+    def test_lookup_failure_fails_open_and_allows_the_exit(self):
+        # Opposite of _get_pdt_status()'s fail-CLOSED stance, on purpose:
+        # there, failing closed skips an entry and costs nothing. Here it
+        # would refuse to exit a live losing position on a lookup error.
+        with patch.object(a, "_get_pdt_status", side_effect=Exception("api down")):
+            self.assertIsNone(a._options_close_would_violate_pdt(self.OCC))
+
+    def test_empty_symbol_is_not_blocked(self):
+        self.assertIsNone(a._options_close_would_violate_pdt(""))
+
+    def test_submit_options_close_returns_pdt_blocked_without_ordering(self):
+        client = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_options_close_would_violate_pdt",
+                          return_value="opened today and PDT budget is 3/3 used"), \
+             patch.object(a, "send_telegram", return_value=True), \
+             patch.object(a, "_is_duplicate_alert", return_value=False):
+            status, oid = a._submit_options_close(self.OCC, 2, "test stop")
+        self.assertEqual(status, "pdt_blocked")
+        self.assertIsNone(oid)
+        client.submit_order.assert_not_called()   # nothing reached the broker
+
+
 class TestAdoptOrphanPositions(unittest.TestCase):
     """_check_stop_coverage() has detected orphans for a while, but detection
     only ever produced an alert -- nothing brought the position back under

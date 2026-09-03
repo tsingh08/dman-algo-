@@ -10251,6 +10251,40 @@ class TestForceCloseDayOnlyPositions(unittest.TestCase):
         self.assertEqual(closed, 0)
         mock_close.assert_not_called()
 
+    def test_stale_position_from_a_prior_day_closes_immediately_before_eod_window(self):
+        # Direct instruction 2026-09-02, root-caused live: a scanner gap
+        # spanning the 3:45 PM close window meant run_momentum_watch()
+        # never got dispatched that day, so day-only positions carried
+        # overnight. The OLD bare time-of-day check would then wait for
+        # the SAME 3:45 PM window to roll around on a LATER day instead of
+        # closing at the next opportunity. A position entered on a PRIOR
+        # calendar day must close immediately, well before 3:45 PM, the
+        # very next time this runs -- not wait out another full day.
+        stale_pos = a.OpenPosition(
+            ticker="HOOD", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+            entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
+            entry_date="2026-08-28", day_only=True,   # entered days before "now" below (2026-08-31)
+        )
+        a.PositionTracker().open(stale_pos)
+        with patch.object(a, "_close_position_at_market", return_value=("submitted", "ord1")), \
+             patch.object(a, "send_telegram", return_value=True):
+            closed = a._force_close_day_only_positions(self._fake_now(9, 40))   # 9:40 AM -- well before 3:45 PM
+        self.assertEqual(closed, 1)
+
+    def test_todays_position_still_waits_for_the_eod_window_not_closed_early(self):
+        # The staleness fix must not accidentally make EVERY day-only
+        # position close immediately -- only ones from a PRIOR day.
+        todays_pos = a.OpenPosition(
+            ticker="HOOD", bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+            entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
+            entry_date="2026-08-31", day_only=True,   # same calendar day as "now" below
+        )
+        a.PositionTracker().open(todays_pos)
+        with patch.object(a, "_close_position_at_market") as mock_close:
+            closed = a._force_close_day_only_positions(self._fake_now(9, 40))   # entered today, 9:40 AM -- too early
+        self.assertEqual(closed, 0)
+        mock_close.assert_not_called()
+
     def test_already_attempted_today_is_not_resubmitted(self):
         # A prior pass this session already tried this close (success or
         # failure) -- every subsequent momentum-watch pass today must not

@@ -6970,13 +6970,28 @@ def _force_close_day_only_positions(_now_et: Optional[datetime] = None) -> int:
     _is_alerted_today) makes along the way.
     """
     now_et = _now_et if _now_et is not None else datetime.now(ET)
-    if (now_et.hour, now_et.minute) < (MOMENTUM_EOD_CLOSE_HOUR_ET, MOMENTUM_EOD_CLOSE_MINUTE_ET):
-        return 0
+    today_str = now_et.date().isoformat()
+    at_or_past_eod = (now_et.hour, now_et.minute) >= (MOMENTUM_EOD_CLOSE_HOUR_ET, MOMENTUM_EOD_CLOSE_MINUTE_ET)
     closed = 0
     for pos in list(PositionTracker().positions):
         if not pos.day_only:
             continue
-        _dedup_key = f"{pos.ticker}_DAYONLY_CLOSE_{now_et.date().isoformat()}"
+        # A position entered on a PRIOR calendar day is already overdue --
+        # close it immediately regardless of what time it is right now.
+        # Confirmed live 2026-09-02: the original bare time-of-day check
+        # below (now this stale_carry OR) meant a position that missed its
+        # own EOD window (e.g. run_momentum_watch() didn't get dispatched
+        # again before 4 PM that day -- exactly what happened, a scanner
+        # gap from ~2 PM to ~5 PM ET) just waited for the SAME clock window
+        # to roll around on a LATER day instead of closing at the next
+        # opportunity, silently carrying day-only positions overnight
+        # (repeatedly, if the gap recurred) in a setup explicitly designed
+        # to never do that -- thin, illiquid smallcap names with no
+        # reliable overnight risk management.
+        stale_carry = pos.entry_date < today_str
+        if not stale_carry and not at_or_past_eod:
+            continue
+        _dedup_key = f"{pos.ticker}_DAYONLY_CLOSE_{today_str}"
         if _is_alerted_today(_dedup_key):
             continue
         status, order_id = _close_position_at_market(pos, "day-only momentum entry, EOD close")

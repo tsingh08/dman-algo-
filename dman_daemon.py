@@ -765,6 +765,21 @@ def guard_loop() -> None:
                     algo._check_stop_coverage()
                 except Exception as exc:
                     log(f"stop coverage check error: {exc}")
+                # Independent of run_momentum_watch()'s own dispatch timing --
+                # confirmed live 2026-09-02: that function is only ever called
+                # from run_momentum_watch(), which only runs when the scanner's
+                # own cron happens to dispatch --mode momentum-watch. A scanner
+                # gap spanning the 3:45 PM EOD close window (that day: ~2 PM to
+                # ~5 PM ET, no scanner run at all) meant day-only positions
+                # never got the chance to force-close and carried overnight in
+                # a setup explicitly designed to never do that. This guard tick
+                # already runs every GUARD_EVERY_S during market hours
+                # regardless of the scanner's own schedule, so it's the
+                # correct place for this to not depend on that timing at all.
+                try:
+                    algo._force_close_day_only_positions()
+                except Exception as exc:
+                    log(f"day-only force-close check error: {exc}")
                 if ENABLE_REALTIME_EQUITY_STREAM:
                     try:
                         algo.run_equity_guard(get_price_fn=_get_realtime_price, positions=_guard_positions)

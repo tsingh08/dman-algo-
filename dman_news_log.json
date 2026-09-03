@@ -4424,5 +4424,62 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:18:19.720604-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Stock Surges Thursday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:22:09.951224-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "COIN",
+      "HOOD",
+      "IONQ",
+      "MARA",
+      "MSTR",
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-linked stocks are trading higher as Bitcoin prices hit $80,000 amid lower yields and a weaker dollar. Fed&#39;s Waller&#39;s comments that he is inclined to support holding interest rates steady may have further supported the speculative asset by easing concerns about tighter monetary policy and improving risk appetite.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T12:22:22.039099-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Nvidia\u2019s New RTX Spark Laptops Launch In October With Two Different Configs; Nvidia\u2019s N1X Laptop Will Ship In Two Different Configurations For Laptops And Mini PCs&#39; - The Verge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:22:22.344799-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia\u2019s New RTX Spark Laptops Launch In October With Two Different Configs; Nvidia\u2019s N1X Laptop Will Ship In Two Different Configurations For Laptops And Mini PCs&#39; - The Verge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:22:28.412534-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "&#39;Nvidia\u2019s New RTX Spark Laptops Launch In October With Two Different Configs; Nvidia\u2019s N1X Laptop Will Ship In Two Different Configurations For Laptops And Mini PCs&#39; - The Verge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

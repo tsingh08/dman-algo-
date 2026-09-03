@@ -3512,5 +3512,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:53:42.399202-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna shares are trading lower after Rothschild &amp; Co downgraded the stock from Neutral to Sell.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:54:09.617671-04:00",
+    "symbols": [
+      "CRM",
+      "PLTR"
+    ],
+    "headline": "Michael Burry Comes for Palantir Again \u2014 This Time it&#39;s the Balance Sheet",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:56:25.792277-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Canada PM Carney Says Ready To Sit Down And Strike A Trade Deal With U.S. When Washington Is Ready; There Must Be Stability And Credibility In Any Trade Deal With U.S.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

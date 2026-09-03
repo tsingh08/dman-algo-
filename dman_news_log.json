@@ -3314,5 +3314,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:38:15.849591-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Prediction Markets Face Supreme Court Test as New Jersey Takes On Kalshi",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:38:20.697418-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Robinhood Prediction Markets Face Supreme Court Test as New Jersey Takes On Kalshi",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:39:17.097038-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Stock Overreaction? Gary Black Says Shares Will Recover as Investors Recognize \u2018AI Rev Strength\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

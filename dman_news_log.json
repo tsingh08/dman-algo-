@@ -4331,5 +4331,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T11:58:25.735180-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Official Says Pentagon Is Temporarily Rescinding Recent Guidance On U.S. Troops Testosterone Screening",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T12:00:33.716820-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Auto Industry Group Urges U.S. Lawmakers To Pass Comprehensive Ban On Chinese Vehicles Before End Of Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T12:00:44.737588-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Auto Industry Group Urges U.S. Lawmakers To Pass Comprehensive Ban On Chinese Vehicles Before End Of Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

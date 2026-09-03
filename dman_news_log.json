@@ -4372,5 +4372,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T12:08:15.579595-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Buys Hugging Face, the Heart of Open-Source AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:11:14.588996-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Stock Nears All-Time Highs, Analysts See \u2018AI Product Adoption\u2019 Taking Shares to Those 2020 Levels",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T12:11:27.151141-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Gold Jumps 3%; ISM Services PMI Rises In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

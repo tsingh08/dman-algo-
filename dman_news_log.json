@@ -4250,5 +4250,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:28:31.779388-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "TD Cowen Maintains Buy on Broadcom, Lowers Price Target to $475",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:28:33.095002-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;User Reports Show Possible Problems With Amazon Web Services In U.S.&#39; - DownDetector",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:30:24.061697-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Palantir Technologies 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:32:32.494996-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla-Tied ETF Rallies 11% as TSLA Jumps on Cybercab Hype: Key Levels Traders Need to Watch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

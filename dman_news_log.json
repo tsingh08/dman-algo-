@@ -2420,5 +2420,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T16:05:13.597016-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "August Jobs Report Preview: What Would Make a Fed Hike a Done Deal?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T16:05:13.723843-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "August Jobs Report Preview: What Would Make a Fed Hike a Done Deal?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

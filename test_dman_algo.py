@@ -5839,6 +5839,30 @@ class TestAdoptOrphanPositions(unittest.TestCase):
         self._run([self._remote("ABC", "100", "10.0")], [buy])
         self.assertEqual(self._pt().positions[0].entry_date, "2026-08-27")
 
+    def test_entry_date_lookup_queries_closed_orders_not_the_open_list(self):
+        # Regression: the filled BUY that opened an orphan only ever appears
+        # in a CLOSED-status order query. The OPEN query used for stop
+        # discovery never contains filled orders, so passing it to
+        # _orphan_entry_date() made the lookup silently default to "today"
+        # for every adoption — inventing a PDT day trade if the position
+        # closed the same day it was adopted.
+        buy = MagicMock(); buy.symbol = "ABC"
+        buy.side = MagicMock(); buy.side.value = "buy"
+        buy.order_type = MagicMock(); buy.order_type.value = "limit"
+        buy.stop_price = None
+        buy.filled_at = datetime(2026, 8, 27, 15, 0, tzinfo=a.ET)
+        c = MagicMock()
+        c.get_all_positions.return_value = [self._remote("ABC", "100", "10.0")]
+
+        def _orders(filter=None):
+            if getattr(filter, "status", None) == a.QueryOrderStatus.CLOSED:
+                return [buy]
+            return []   # the OPEN query never returns a filled order
+        c.get_orders.side_effect = _orders
+        with patch.object(a, "get_alpaca_client", return_value=c):
+            self.assertEqual(a.adopt_orphan_positions(), 1)
+        self.assertEqual(self._pt().positions[0].entry_date, "2026-08-27")
+
     def test_api_failure_is_swallowed_and_adopts_nothing(self):
         c = MagicMock()
         c.get_all_positions.side_effect = Exception("network")
@@ -10092,6 +10116,65 @@ class TestFormatEarningsSpreadTelegramSectorWarning(unittest.TestCase):
         self.assertIn("CRWD", msg)
         self.assertIn("MRVL", msg)
         self.assertIn("Technology", msg)
+
+
+class TestFormatEarningsSpreadTelegramProbationWarning(unittest.TestCase):
+    """The drift check auto-restricts the grouped 'Earnings Spread' family,
+    but earnings spreads have no confluence-score gate for the probation
+    bonus to raise — the only gate is the approval message and a human's
+    YES. Found in the 2026-09-03 review: the family sat restricted (1W/3L,
+    avg loss 85%) while offers kept going out with no mention of it. The
+    offer message must surface an active family probation."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"{}"); self._tmp.close()
+        self._patch = patch.object(a, "SETUP_PROBATION_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _plan(self):
+        return {
+            "ticker": "NVDA", "timing": "AMC", "directional": None,
+            "last_moves_pct": [], "call": None, "put": None,
+            "total_cost": 500.0, "sets": 1, "max_loss": 500.0,
+        }
+
+    def _set_probation(self, started):
+        with open(self._tmp.name, "w") as f:
+            json.dump({"Earnings Spread": {
+                "started": started,
+                "note": "25% WR over last 4 live trades (1W/3L, avg loss 85.0%)",
+            }}, f)
+
+    def test_active_family_probation_is_surfaced_in_the_offer(self):
+        self._set_probation(datetime.now(a.ET).isoformat())
+        msg = a.format_earnings_spread_telegram(self._plan(), None)
+        self.assertIn("Setup probation", msg)
+        self.assertIn("25% WR", msg)
+
+    def test_no_probation_state_omits_the_line(self):
+        msg = a.format_earnings_spread_telegram(self._plan(), None)
+        self.assertNotIn("Setup probation", msg)
+
+    def test_expired_probation_is_not_surfaced(self):
+        # Same age window _setup_probation_bonus() honors — a stale entry
+        # that outlived SETUP_PROBATION_MAX_DAYS must not keep warning.
+        _old = (datetime.now(a.ET)
+                - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat()
+        self._set_probation(_old)
+        msg = a.format_earnings_spread_telegram(self._plan(), None)
+        self.assertNotIn("Setup probation", msg)
+
+    def test_unreadable_probation_state_never_blocks_the_offer(self):
+        with open(self._tmp.name, "w") as f:
+            f.write('{"Earnings Spread": {"started": "not-a-date"}}')
+        msg = a.format_earnings_spread_telegram(self._plan(), None)
+        self.assertIn("NVDA", msg)   # message still builds
+        self.assertNotIn("Setup probation", msg)
 
 
 class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):

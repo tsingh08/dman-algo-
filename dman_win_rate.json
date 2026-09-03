@@ -1282,5 +1282,29 @@
     "pnl_pct": -3.52,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "ONCO",
+    "date": "2026-09-03",
+    "bias": "LONG",
+    "setup": "Momentum Watch Breakout (Day)",
+    "entry": 0.66,
+    "exit": 0.68,
+    "outcome": "WIN",
+    "pnl_pct": 3.47,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "CPHI",
+    "date": "2026-09-03",
+    "bias": "LONG",
+    "setup": "Momentum Watch Breakout (Day)",
+    "entry": 0.85,
+    "exit": 0.86,
+    "outcome": "WIN",
+    "pnl_pct": 0.6,
+    "score": 100,
+    "is_live": true
   }
 ]

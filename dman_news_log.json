@@ -2226,5 +2226,46 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T14:21:42.620406-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Raymond James Maintains Outperform on Broadcom, Raises Price Target to $475",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T14:22:29.452941-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Raymond James Maintains Outperform on CrowdStrike Holdings, Raises Price Target to $250",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T14:23:30.952029-04:00",
+    "symbols": [
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "Palantir\u2019s Alex Karp: The Real AI Leak Isn&#39;t Data, It&#39;s Your &#39;Alpha&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T14:24:51.369064-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Raymond James Maintains Outperform on Snowflake, Raises Price Target to $425",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

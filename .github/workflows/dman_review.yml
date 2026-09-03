@@ -84,7 +84,9 @@ concurrency:
 jobs:
   review:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 20 -> 25: the EOD run now also installs deps and runs the full suite
+    # after the review session (which alone has measured up to ~8.5 min).
+    timeout-minutes: 25
     permissions:
       contents: write        # needed to push the review/* branch created below --
                                # see the file header for why this can't reach main
@@ -246,6 +248,99 @@ jobs:
             echo "REVIEW_EOF"
           } >> "$GITHUB_OUTPUT"
 
+      - name: Set up Python for branch validation
+        if: steps.kind.outputs.kind == 'eod'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Validate review branch
+        # A PR opened with GITHUB_TOKEN never dispatches workflow runs --
+        # that's GitHub's Actions loop-prevention rule, not a config error.
+        # Confirmed live 2026-09-03: the CI run for PR #1 (33705075129) was
+        # created the instant the PR opened, sat with ZERO jobs and zero
+        # check-runs for 55 minutes, then flipped to "failure" the moment the
+        # PR merged. So ci.yml does NOT and cannot gate review PRs, and the
+        # review agent's commits were reaching main with no automated check
+        # at all. Switching to a PAT would fix the trigger but needs a new
+        # long-lived secret with write scope; running the same gates here,
+        # on the branch, before the PR exists, needs none and catches a
+        # breakage strictly earlier. Never fails the job -- a broken branch
+        # must still surface as a loudly-labelled PR, not a silent no-PR.
+        if: steps.kind.outputs.kind == 'eod'
+        id: validate
+        env:
+          PYTHONIOENCODING: utf-8
+          BRANCH: ${{ steps.branch.outputs.branch }}
+        run: |
+          COMMIT_COUNT=$(git rev-list --count origin/main.."$BRANCH" 2>/dev/null || echo 0)
+          if [ "$COMMIT_COUNT" -eq 0 ]; then
+            echo "  No commits on $BRANCH -- nothing to validate."
+            echo "verdict=skipped" >> "$GITHUB_OUTPUT"
+            echo "detail=no commits to validate" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          python -m pip install --upgrade pip >/dev/null 2>&1
+          pip install -r requirements.txt >/dev/null 2>&1
+
+          set +e
+          FAILED=""
+
+          python -m py_compile dman_algo.py dman_daemon.py test_dman_algo.py
+          [ $? -eq 0 ] || FAILED="${FAILED}syntax "
+
+          python -c "import dman_algo" >/dev/null
+          [ $? -eq 0 ] || FAILED="${FAILED}import "
+
+          python -m unittest test_dman_algo > /tmp/review_tests.log 2>&1
+          TEST_STATUS=$?
+          [ $TEST_STATUS -eq 0 ] || FAILED="${FAILED}tests "
+
+          # The review agent edits the tracked state JSONs more often than it
+          # edits code, so this mirror of ci.yml's JSON gate is the single
+          # most load-bearing check here: a malformed dman_*.json merged to
+          # main takes down every scheduled trading job at once.
+          python - <<'PYEOF'
+          import json, glob, sys
+          bad = []
+          for p in glob.glob("dman_*.json"):
+              try:
+                  with open(p, encoding="utf-8") as f:
+                      json.load(f)
+              except Exception as e:
+                  bad.append(f"{p}: {e}")
+          if bad:
+              print("INVALID JSON:\n" + "\n".join(bad))
+              sys.exit(1)
+          print(f"All {len(glob.glob('dman_*.json'))} JSON data files valid")
+          PYEOF
+          [ $? -eq 0 ] || FAILED="${FAILED}json "
+          set -e
+
+          # "Ran N tests in Xs" / "OK" / "FAILED (failures=..)" -- the only
+          # lines worth carrying into the PR body and Telegram.
+          RAN=$(grep -E '^(Ran |OK|FAILED)' /tmp/review_tests.log | tr '\n' ' ' | cut -c1-200)
+          echo "  Test result: $RAN"
+
+          # The suite writes to the tracked state JSONs (dman_last_alerts.json
+          # and the feed-state files) as a side effect. Those writes are test
+          # pollution, not review findings -- drop them so nothing downstream
+          # mistakes them for the agent's work.
+          git checkout -- . 2>/dev/null || true
+
+          if [ -n "$FAILED" ]; then
+            echo "verdict=fail" >> "$GITHUB_OUTPUT"
+            echo "detail=failed gate(s): ${FAILED}| $RAN" >> "$GITHUB_OUTPUT"
+            echo "  VALIDATION FAILED: $FAILED"
+            tail -30 /tmp/review_tests.log
+          else
+            echo "verdict=pass" >> "$GITHUB_OUTPUT"
+            echo "detail=$RAN" >> "$GITHUB_OUTPUT"
+            echo "  Validation passed."
+          fi
+
       - name: Push review branch and open PR
         # EOD only. Deliberately a plain script, not the agent -- see the
         # file header. Runs even if the review step's OWN exit code was
@@ -258,6 +353,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: ${{ steps.branch.outputs.branch }}
+          VERDICT: ${{ steps.validate.outputs.verdict }}
+          VDETAIL: ${{ steps.validate.outputs.detail }}
         run: |
           COMMIT_COUNT=$(git rev-list --count origin/main.."$BRANCH" 2>/dev/null || echo 0)
           if [ "$COMMIT_COUNT" -eq 0 ]; then
@@ -265,10 +362,33 @@ jobs:
             echo "pr_url=" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
+          # GITHUB_TOKEN-opened PRs get no CI run (see the validate step), so
+          # this line is the ONLY automated verdict a reviewer will ever see
+          # on this PR. Say it in the title too -- a red-flagged branch must
+          # not look identical to a clean one in the PR list.
+          if [ "$VERDICT" = "pass" ]; then
+            TITLE="DMan review: $(date -u +%Y-%m-%d) findings"
+            CHECK="✅ Branch validation PASSED (syntax + import + full suite): $VDETAIL"
+          elif [ "$VERDICT" = "fail" ]; then
+            TITLE="⛔ NEEDS FIX — DMan review: $(date -u +%Y-%m-%d) findings"
+            CHECK="⛔ Branch validation FAILED — $VDETAIL
+
+          DO NOT MERGE until this is green. These commits were written by the
+          automated review session and have NOT passed the standard gates."
+          else
+            TITLE="DMan review: $(date -u +%Y-%m-%d) findings"
+            CHECK="⚠️ Branch validation did not run ($VERDICT) -- verify manually before merging."
+          fi
+
           git push -u origin HEAD
           PR_URL=$(gh pr create \
-            --title "DMan review: $(date -u +%Y-%m-%d) findings" \
-            --body "Opened automatically by the after-close /review session. $COMMIT_COUNT commit(s) on this branch -- see the Telegram report from the same run for the full writeup, and the commits themselves for what actually changed. Nothing here has been merged; review before merging, same as any other PR." \
+            --title "$TITLE" \
+            --body "Opened automatically by the after-close /review session. $COMMIT_COUNT commit(s) on this branch -- see the Telegram report from the same run for the full writeup, and the commits themselves for what actually changed. Nothing here has been merged; review before merging, same as any other PR.
+
+          $CHECK
+
+          Note: GitHub does not run CI on PRs opened by Actions' own token, so the check above (run on this branch before the PR was opened) replaces it." \
             --base main --head "$BRANCH")
           echo "  PR opened: $PR_URL"
           echo "pr_url=$PR_URL" >> "$GITHUB_OUTPUT"
@@ -280,6 +400,8 @@ jobs:
           REVIEW_STATUS: ${{ steps.review.outputs.exit_status }}
           REVIEW_KIND:   ${{ steps.review.outputs.review_kind }}
           PR_URL:        ${{ steps.pr.outputs.pr_url }}
+          PR_VERDICT:    ${{ steps.validate.outputs.verdict }}
+          PR_VDETAIL:    ${{ steps.validate.outputs.detail }}
           TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
@@ -317,6 +439,17 @@ jobs:
           text = f"{header}\n\n{html.escape(body)}"
           if kind == "eod" and pr_url:
               text += f"\n\n📤 <b>PR opened:</b> {html.escape(pr_url)}"
+              # GitHub runs no CI on an Actions-token PR, so this branch
+              # validation is the only gate -- report it here rather than
+              # leaving it only in the PR body nobody opens on a phone.
+              verdict = os.environ.get("PR_VERDICT", "").strip()
+              detail  = html.escape(os.environ.get("PR_VDETAIL", "").strip())
+              if verdict == "pass":
+                  text += f"\n✅ <b>Branch checks passed</b> — {detail}"
+              elif verdict == "fail":
+                  text += (f"\n⛔ <b>Branch checks FAILED — do not merge</b> — {detail}")
+              elif verdict:
+                  text += f"\n⚠️ <b>Branch checks {html.escape(verdict)}</b> — {detail}"
           requests.post(
               f"https://api.telegram.org/bot{token}/sendMessage",
               data={"chat_id": chat, "text": text, "parse_mode": "HTML"},

@@ -22,29 +22,5 @@
     "peak_premium": 0.0,
     "trail_pct": 0.0,
     "day_only": true
-  },
-  {
-    "ticker": "MASK",
-    "bias": "LONG",
-    "setup": "SWING \u2014 Momentum Watch Breakout (Day)",
-    "entry": 1.33,
-    "stop": 1.3,
-    "target1": 1.73,
-    "target2": 2.0,
-    "shares": 1344,
-    "entry_date": "2026-09-03",
-    "atr": 0.0,
-    "score": 100,
-    "legs": [],
-    "spread_qty": 0,
-    "max_loss": 0.0,
-    "max_gain": 0.0,
-    "earn_date": "",
-    "stop_stage": "initial",
-    "milestone_gain_alerted": 0.0,
-    "milestone_loss_alerted": 0.0,
-    "peak_premium": 0.0,
-    "trail_pct": 0.0,
-    "day_only": true
   }
 ]

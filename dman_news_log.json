@@ -4074,5 +4074,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:08:46.471697-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Truist Securities Maintains Buy on Affirm Holdings, Raises Price Target to $85",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:10:20.278362-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "OpenAI Says It Is Investigating Elevated Errors Across ChatGPT And Codex; Status Page Shows Degraded Performance With 15 ChatGPT Components And 4 Codex Components Affected",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:10:47.657418-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Truist Securities Maintains Buy on Broadcom, Lowers Price Target to $520",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

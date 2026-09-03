@@ -4611,5 +4611,142 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:04:50.654713-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Says Issue Causing Elevated Errors Across ChatGPT And Codex Has Been Resolved",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:04:50.797807-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Nvidia, ServiceNow, Capital One Financial, Spotify Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:04:50.801999-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Confirms $12.9B Hugging Face Deal as Huang Lauds &#39;Growth Driver&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:04:50.955671-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia Confirms $12.9B Hugging Face Deal as Huang Lauds &#39;Growth Driver&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:04:51.357241-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "China\u2019s State Playbook Fuels Humanoid Robot Boom, Resolves Evergrande Crisis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-03T13:04:51.630830-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Snowflake, Raises Price Target to $425",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:04:52.913064-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Nvidia, ServiceNow, Capital One Financial, Spotify Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:06:08.418688-04:00",
+    "symbols": [
+      "FCUV",
+      "SNOW",
+      "WLDS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T13:06:08.679713-04:00",
+    "symbols": [
+      "MIMI",
+      "WETO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T13:06:08.886083-04:00",
+    "symbols": [
+      "APVO"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T13:06:09.567687-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T13:06:44.151764-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Broadcom, Lowers Price Target to $578",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:07:31.074197-04:00",
+    "symbols": [
+      "CRM",
+      "DDOG",
+      "DFNS",
+      "MSFT",
+      "PLTR"
+    ],
+    "headline": "Shares of software companies are trading higher amid sympathy with Snowflake after the company reported better-than-expected Q2 financial results, boosting sentiment across the sector. Falling Treasury yields and Fed&#39;s Waller&#39;s comments that he is inclined to support holding interest rates steady may also be supporting growth stocks by easing concerns about tighter monetary policy and improving risk appetite.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

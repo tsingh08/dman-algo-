@@ -4310,5 +4310,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:53:36.060174-04:00",
+    "symbols": [
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Auto Industry Group Urges U.S. Lawmakers To Pass Comprehensive Ban On Chinese Vehicles Before End Of Year",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T11:54:03.938294-04:00",
+    "symbols": [
+      "UUP"
+    ],
+    "headline": "Dollar Sinks Against Yen: A New Intervention or Bets on BoJ Hikes?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

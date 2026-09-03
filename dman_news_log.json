@@ -4106,5 +4106,76 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:14:32.948911-04:00",
+    "symbols": [
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Analyst Sees a Google-Like AI Moment Brewing for Meta After $18 Billion Settlement",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:14:46.024530-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Says It Is Investigating Elevated Errors Across ChatGPT And Codex; Status Page Shows Degraded Performance With 15 ChatGPT Components And 4 Codex Components Affected",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:14:46.991988-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Analyst Sees a Google-Like AI Moment Brewing for Meta After $18 Billion Settlement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:14:46.996864-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Analyst Sees a Google-Like AI Moment Brewing for Meta After $18 Billion Settlement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:14:47.001239-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "OpenAI Says It Is Investigating Elevated Errors Across ChatGPT And Codex; Status Page Shows Degraded Performance With 15 ChatGPT Components And 4 Codex Components Affected",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T11:14:47.278169-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "OpenAI Says It Is Investigating Elevated Errors Across ChatGPT And Codex; Status Page Shows Degraded Performance With 15 ChatGPT Components And 4 Codex Components Affected",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T11:15:21.860955-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "If You Invested $1000 In Applied Materials Stock 20 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

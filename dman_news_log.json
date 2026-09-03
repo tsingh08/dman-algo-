@@ -3382,5 +3382,135 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:47:20.519784-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "StoneX Maintains Buy on Snowflake, Raises Price Target to $400",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:47:57.012141-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "UBS Maintains Buy on Snowflake, Raises Price Target to $500",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:50:40.851644-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "StoneX Reiterates Buy on Tesla, Maintains $475 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:50:52.609904-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:50:52.918963-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:50:53.195709-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:50:53.458144-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:50:53.821768-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:50:54.539512-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:50:55.146695-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T10:50:55.454627-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T10:50:58.980560-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T10:51:48.872990-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Why Is Robinhood Stock Surging Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -482,6 +482,13 @@ MOMENTUM_DAY_ONLY_SETUP = "Momentum Watch Breakout (Day)"
 # spread's kind of live track record yet -- this is how it earns one
 # safely while unsupervised, not a vote of full confidence.
 MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
+# Orphan adoption — see adopt_orphan_positions(). A position held at the
+# broker but missing from the tracker gets NO P&L recording, NO PDT
+# day-trade counting and NO exit management, so it is brought back under
+# management as a swing rather than left invisible.
+ADOPTED_SETUP = "Adopted (orphan reconciliation)"
+ADOPTED_FALLBACK_STOP_PCT = 0.08   # only used when the broker has no stop at all
+
 MOMENTUM_EOD_CLOSE_HOUR_ET   = 15    # force-close any open day-only position at/after this ET
 MOMENTUM_EOD_CLOSE_MINUTE_ET = 45    # time -- 3:45 PM ET, ahead of the last momentum-watch cron
 
@@ -16896,6 +16903,144 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
         return None, str(exc)
 
 
+def adopt_orphan_positions() -> int:
+    """
+    Bring any EQUITY position held at Alpaca but missing from the tracker
+    under management. Returns the count adopted.
+
+    _check_stop_coverage() has detected orphans for a while, but detection
+    only ever produced an alert -- nothing put the position back under
+    management, so an orphan stayed orphaned until someone acted on the
+    Telegram by hand. Everything downstream keys off the tracker: win-rate
+    recording, daily/monthly P&L (and therefore DAILY_LOSS_LIMIT),
+    _record_day_trade() and the PDT budget, milestone alerts, T1/T2 and
+    breakeven management. An untracked holding silently gets none of it.
+
+    Confirmed live 2026-09-03: YHC filled 14:26 ET from a GTC limit whose
+    tracker entry had already been cleared, and sat held-but-invisible into
+    the overnight. MASK did the same and round-tripped completely unseen --
+    its day trade never reached the ledger, leaving the PDT budget reading
+    one trade better than reality. The clearing bug that created both is
+    fixed in sync_alpaca_fills(), but a fill can still land in a gap
+    (process dies between submit and the next sync, a manual fill, a
+    partial), so this is the net underneath that fix rather than a
+    replacement for it.
+
+    Deliberately conservative about what it does with an adopted position:
+      - day_only=False ALWAYS. The day-only force-close submits market
+        orders; applying that to a position whose origin this function is
+        guessing at is not a call it should make. An adopted position is
+        managed and reported, never auto-flattened on a schedule.
+      - The stop comes from the real working sell-stop order when there is
+        one (ground truth), and only falls back to a percentage when there
+        is none -- in which case the position is unprotected anyway and
+        _check_stop_coverage()'s existing alert is the louder signal.
+      - Options positions (OCC symbols) are skipped: their tracker records
+        carry leg/greek/premium state this cannot reconstruct, and a
+        half-populated options record is worse than a clean orphan alert.
+    """
+    client = get_alpaca_client()
+    if client is None:
+        return 0
+    try:
+        remote = client.get_all_positions()
+        orders = client.get_orders(
+            filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=200))
+    except Exception as exc:
+        print(f"  ⚠️  Orphan adoption: could not fetch account state — {exc}")
+        return 0
+
+    pt = PositionTracker()
+    tracked = {p.ticker.upper() for p in pt.positions}
+    # Working sell stops, by symbol — the position's real protective level.
+    stops: dict[str, float] = {}
+    for o in orders:
+        if str(getattr(o.side, "value", o.side)).lower() != "sell":
+            continue
+        if "stop" not in str(getattr(o.order_type, "value", o.order_type)).lower():
+            continue
+        sp = getattr(o, "stop_price", None)
+        if sp is None:
+            continue
+        try:
+            stops[o.symbol.upper()] = float(sp)
+        except (TypeError, ValueError):
+            continue
+
+    adopted = 0
+    for p in remote:
+        sym = p.symbol.upper()
+        if sym in tracked:
+            continue
+        if len(sym) > 6 or any(ch.isdigit() for ch in sym):
+            continue          # OCC option symbol — see docstring
+        try:
+            qty   = int(float(p.qty))
+            entry = float(p.avg_entry_price)
+        except (TypeError, ValueError):
+            continue
+        if qty <= 0 or entry <= 0:
+            continue
+
+        is_long = qty > 0
+        stop = stops.get(sym)
+        if stop is None:
+            stop = round(entry * (1 - ADOPTED_FALLBACK_STOP_PCT), 4)
+            stop_note = f"no broker stop — fallback {ADOPTED_FALLBACK_STOP_PCT:.0%}"
+        else:
+            stop_note = f"broker stop ${stop:.4f}"
+
+        risk = max(entry - stop, 0.01)
+        pos = OpenPosition(
+            ticker     = sym,
+            bias       = "LONG" if is_long else "SHORT",
+            setup      = ADOPTED_SETUP,
+            entry      = round(entry, 4),
+            stop       = round(stop, 4),
+            target1    = round(entry + risk * 2.0, 4),
+            target2    = round(entry + risk * 3.5, 4),
+            shares     = abs(qty),
+            entry_date = _orphan_entry_date(sym, orders),
+            day_only   = False,          # never auto-flatten an adopted position
+        )
+        if pt.open(pos):
+            adopted += 1
+            print(f"  🩹 Adopted orphan: {sym} {abs(qty)}sh @ ${entry:.4f} ({stop_note})")
+            send_telegram(
+                f"🩹 <b>Orphan position adopted</b> — {sym}\n"
+                f"{abs(qty)} sh @ ${entry:.4f}  |  stop ${stop:.4f}\n"
+                f"Was held at Alpaca but missing from the tracker, so it had no "
+                f"P&L recording, no PDT day-trade counting and no exit management. "
+                f"Now tracked as a swing (never auto-flattened)."
+            )
+    return adopted
+
+
+def _orphan_entry_date(symbol: str, orders: list) -> str:
+    """Best available entry date for an adopted position: the fill date of
+    its most recent filled BUY, falling back to today.
+
+    This matters beyond cosmetics -- _record_day_trade() compares
+    entry_date against the close date to decide whether a round trip
+    consumed a PDT day trade, so guessing "today" for a position actually
+    opened days ago would invent a day trade that never happened."""
+    best = None
+    for o in orders:
+        if str(getattr(o.side, "value", o.side)).lower() != "buy":
+            continue
+        filled_at = getattr(o, "filled_at", None)
+        if not filled_at or o.symbol.upper() != symbol:
+            continue
+        if best is None or filled_at > best:
+            best = filled_at
+    if best is not None:
+        try:
+            return best.astimezone(ET).date().isoformat()
+        except Exception:
+            pass
+    return datetime.now(ET).date().isoformat()
+
+
 def sync_alpaca_fills(tracker: WinRateTracker) -> int:
     """
     Detect positions that closed in Alpaca since the last sync.
@@ -16911,6 +17056,15 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
     client = get_alpaca_client()
     if client is None:
         return 0
+
+    # Adopt first: a position the tracker never knew about cannot have its
+    # close detected, its P&L recorded, or its day trade counted by the loop
+    # below. Runs before PositionTracker() is read so an adoption this cycle
+    # is visible to this same cycle.
+    try:
+        adopt_orphan_positions()
+    except Exception as exc:
+        print(f"  ⚠️  Orphan adoption failed (continuing): {exc}")
 
     pt    = PositionTracker()
     state = _load_sync_state()
@@ -17154,11 +17308,51 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
         #     past it, because removal used to live ONLY inside the
         #     "found a NEW closing fill" branch above, never running for
         #     an already-recorded one.
+        # Options always buy-to-open; equity: BUY for LONG, SELL for SHORT.
+        _entry_side = OrderSide.BUY if (is_lo or _occ_sym) else OrderSide.SELL
+
+        # A tracked position whose ENTRY order is still WORKING is pending a
+        # fill, not gone. It is absent from alp_open for the most ordinary
+        # reason there is -- a GTC limit that hasn't been hit yet -- and
+        # clearing it here is precisely what turns the later fill into an
+        # untracked orphan: no win-rate record, no P&L, no T1/T2 management,
+        # no day-only force close, and no _record_day_trade() call, so the
+        # PDT budget silently under-counts a day trade that really happened.
+        #
+        # Confirmed live 2026-09-03, twice in one session. YHC: pt.open() at
+        # 13:19 ET, cleared here at 13:24 ET with its GTC buy limit still
+        # working, filled 14:26 ET -- held overnight, untracked. MASK: same
+        # shape, filled 12:26 ET and stopped out 12:47 ET, a completed
+        # same-day round trip that reached NEITHER dman_win_rate.json NOR
+        # the day-trade ledger. That miscount left the PDT budget reading
+        # "1 remaining" when the true figure was 0 -- one more day trade
+        # would have been a real violation. (The same shape is already
+        # described for MASK on 2026-09-02 in _force_close_day_only_
+        # positions' already_closed branch; it was the clearing here, not
+        # the cancel path, that actually caused it.)
+        _TERMINAL_STATUSES = (
+            _OrderStatus.FILLED, _OrderStatus.CANCELED, _OrderStatus.EXPIRED,
+            _OrderStatus.REPLACED, _OrderStatus.REJECTED, _OrderStatus.DONE_FOR_DAY,
+            _OrderStatus.STOPPED, _OrderStatus.SUSPENDED,
+        )
+        _working_entry = next(
+            (_eo for _eo in orders
+             if _eo.side == _entry_side and _eo.status not in _TERMINAL_STATUSES),
+            None)
+        if _working_entry is not None and not _any_recorded:
+            # PENDING_CANCEL counts as working on purpose: a cancel in
+            # flight can still fill (MASK's did), and keeping the tracker
+            # entry is the recoverable side of that race. If the cancel
+            # does win, the order goes CANCELED and the ghost branch below
+            # clears it on the next pass.
+            print(f"  ⏳ {ticker}: entry order still working "
+                  f"({getattr(_working_entry.status, 'value', _working_entry.status)}) "
+                  f"— pending fill, keeping tracker entry")
+            continue
+
         pt.close(ticker, occ_symbol=_occ_sym)
         _mark_identity_closed(state, ticker, pos.setup)
         if not _any_recorded:
-            # Options always buy-to-open; equity: BUY for LONG, SELL for SHORT.
-            _entry_side = OrderSide.BUY if (is_lo or _occ_sym) else OrderSide.SELL
             # Same class of bug as the FILLED check above, plus a spelling
             # mismatch on top: Alpaca's real enum value is "canceled" (one
             # L), this compared against "cancelled" (two L) — doubly never

@@ -5632,6 +5632,240 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestAdoptOrphanPositions(unittest.TestCase):
+    """_check_stop_coverage() has detected orphans for a while, but detection
+    only ever produced an alert -- nothing brought the position back under
+    management. Everything downstream keys off the tracker: win-rate
+    recording, daily/monthly P&L (so DAILY_LOSS_LIMIT), _record_day_trade()
+    and the PDT budget, milestone alerts, exit management. Confirmed live
+    2026-09-03: YHC sat held-but-invisible overnight and MASK round-tripped
+    entirely unseen, its day trade never reaching the ledger."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.write(b"[]"); self._tmp.close()
+        import functools
+        self._pt = functools.partial(a.PositionTracker, filepath=self._tmp.name)
+        self._patches = [patch.object(a, "PositionTracker", self._pt),
+                         patch.object(a, "send_telegram", return_value=True)]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        os.unlink(self._tmp.name)
+
+    def _remote(self, symbol, qty="100", avg="10.0"):
+        p = MagicMock(); p.symbol = symbol; p.qty = qty; p.avg_entry_price = avg
+        return p
+
+    def _stop_order(self, symbol, stop_price="9.0"):
+        o = MagicMock(); o.symbol = symbol
+        o.side = MagicMock(); o.side.value = "sell"
+        o.order_type = MagicMock(); o.order_type.value = "stop"
+        o.stop_price = stop_price; o.filled_at = None
+        return o
+
+    def _run(self, remote, orders):
+        c = MagicMock()
+        c.get_all_positions.return_value = remote
+        c.get_orders.return_value = orders
+        with patch.object(a, "get_alpaca_client", return_value=c):
+            return a.adopt_orphan_positions()
+
+    def test_untracked_position_is_adopted_with_the_real_broker_stop(self):
+        n = self._run([self._remote("YHC", "1166", "1.48")],
+                      [self._stop_order("YHC", "1.44")])
+        self.assertEqual(n, 1)
+        pos = self._pt().positions[0]
+        self.assertEqual(pos.ticker, "YHC")
+        self.assertEqual(pos.shares, 1166)
+        self.assertAlmostEqual(pos.entry, 1.48)
+        self.assertAlmostEqual(pos.stop, 1.44)   # broker truth, not a guess
+
+    def test_adopted_position_is_never_day_only(self):
+        # day-only force-close submits MARKET orders; that is not a call to
+        # make about a position whose origin we are inferring.
+        self._run([self._remote("YHC", "1166", "1.48")], [self._stop_order("YHC", "1.44")])
+        self.assertFalse(self._pt().positions[0].day_only)
+
+    def test_already_tracked_position_is_not_duplicated(self):
+        self._pt().open(a.OpenPosition(
+            ticker="YHC", bias="LONG", setup="Gap & Hold", entry=1.48, stop=1.44,
+            target1=2.0, target2=2.5, shares=1166, entry_date="2026-09-03"))
+        n = self._run([self._remote("YHC", "1166", "1.48")], [self._stop_order("YHC")])
+        self.assertEqual(n, 0)
+        self.assertEqual(len(self._pt().positions), 1)
+
+    def test_no_broker_stop_falls_back_to_a_percentage(self):
+        self._run([self._remote("ABC", "100", "10.0")], [])
+        pos = self._pt().positions[0]
+        self.assertAlmostEqual(pos.stop, round(10.0 * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4))
+
+    def test_option_symbols_are_skipped(self):
+        # OCC records carry leg/greek/premium state this cannot rebuild.
+        n = self._run([self._remote("UMAC260828C00025000", "2", "9.22")], [])
+        self.assertEqual(n, 0)
+        self.assertEqual(self._pt().positions, [])
+
+    def test_entry_date_comes_from_the_filling_buy_not_today(self):
+        # _record_day_trade() compares entry_date to the close date, so
+        # defaulting an older position to "today" would invent a day trade.
+        buy = MagicMock(); buy.symbol = "ABC"
+        buy.side = MagicMock(); buy.side.value = "buy"
+        buy.order_type = MagicMock(); buy.order_type.value = "limit"
+        buy.stop_price = None
+        buy.filled_at = datetime(2026, 8, 27, 15, 0, tzinfo=a.ET)
+        self._run([self._remote("ABC", "100", "10.0")], [buy])
+        self.assertEqual(self._pt().positions[0].entry_date, "2026-08-27")
+
+    def test_api_failure_is_swallowed_and_adopts_nothing(self):
+        c = MagicMock()
+        c.get_all_positions.side_effect = Exception("network")
+        with patch.object(a, "get_alpaca_client", return_value=c):
+            self.assertEqual(a.adopt_orphan_positions(), 0)
+
+    def test_no_client_adopts_nothing(self):
+        with patch.object(a, "get_alpaca_client", return_value=None):
+            self.assertEqual(a.adopt_orphan_positions(), 0)
+
+
+class TestSyncKeepsPendingEntryTracked(unittest.TestCase):
+    """Confirmed live 2026-09-03, twice in one session. sync_alpaca_fills()
+    cleared any tracked position absent from get_all_positions() -- but a
+    GTC entry limit that simply hasn't been hit yet is absent for the most
+    ordinary reason there is. YHC: pt.open() 13:19 ET, cleared 13:24 ET with
+    its buy limit still working, filled 14:26 ET and held overnight
+    UNTRACKED. MASK: same shape, filled 12:26 ET and stopped out 12:47 ET --
+    a completed same-day round trip that reached neither dman_win_rate.json
+    nor the day-trade ledger, leaving the PDT budget reading "1 remaining"
+    when the true count was 0. One more day trade would have been a real
+    violation."""
+
+    def setUp(self):
+        self._pos_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._pos_tmp.write(b"[]"); self._pos_tmp.close()
+        self._sync_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._sync_tmp.write(b"{}"); self._sync_tmp.close()
+        self._wr_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._wr_tmp.write(b"[]"); self._wr_tmp.close()
+        # A recorded close calls record_daily_pnl()/record_monthly_pnl(), which
+        # write the REAL production P&L files unless redirected -- test runs
+        # must never land phantom entries in dman_daily_pnl.json.
+        self._daily_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._daily_tmp.write(b"{}"); self._daily_tmp.close()
+        self._monthly_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._monthly_tmp.write(b"{}"); self._monthly_tmp.close()
+        import functools
+        self._isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
+        self._patches = [
+            patch.object(a, "PositionTracker", self._isolated_pt),
+            patch.object(a, "ALPACA_SYNC_FILE", self._sync_tmp.name),
+            patch.object(a, "DAILY_PNL_FILE", self._daily_tmp.name),
+            patch.object(a, "MONTHLY_PNL_FILE", self._monthly_tmp.name),
+            patch.object(a, "send_telegram", return_value=True),
+            patch.object(a, "get_effective_account", return_value=3000.0),
+            patch.object(a, "_record_day_trade", return_value=False),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._pos_tmp, self._sync_tmp, self._wr_tmp,
+                  self._daily_tmp, self._monthly_tmp):
+            os.unlink(f.name)
+
+    def _pos(self, ticker="YHC"):
+        return a.OpenPosition(
+            ticker=ticker, bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
+            entry=1.48, stop=1.44, target1=1.9, target2=2.2, shares=1166,
+            entry_date=datetime.now(a.ET).date().isoformat(), day_only=True)
+
+    def _order(self, side, status, filled_avg_price=None, filled_qty="0"):
+        o = MagicMock()
+        o.id = "ord-1"; o.side = side; o.status = status
+        o.filled_avg_price = filled_avg_price; o.filled_qty = filled_qty
+        o.qty = "1166"; o.filled_at = None
+        return o
+
+    def _run(self, orders):
+        client = MagicMock()
+        client.get_all_positions.return_value = []          # not filled yet
+        client.get_open_position.side_effect = Exception("position does not exist")
+        client.get_orders.return_value = orders
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            a.sync_alpaca_fills(a.WinRateTracker(filepath=self._wr_tmp.name))
+        return self._isolated_pt().positions
+
+    def test_working_entry_limit_keeps_the_position_tracked(self):
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(self._pos())
+        left = self._run([self._order(OrderSide.BUY, OrderStatus.NEW)])
+        self.assertEqual([p.ticker for p in left], ["YHC"])
+
+    def test_accepted_entry_also_keeps_it(self):
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(self._pos())
+        left = self._run([self._order(OrderSide.BUY, OrderStatus.ACCEPTED)])
+        self.assertEqual([p.ticker for p in left], ["YHC"])
+
+    def test_pending_cancel_entry_keeps_it(self):
+        # A cancel in flight can still fill -- MASK's did on 2026-09-02.
+        # Keeping the tracker entry is the recoverable side of that race.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(self._pos())
+        left = self._run([self._order(OrderSide.BUY, OrderStatus.PENDING_CANCEL)])
+        self.assertEqual([p.ticker for p in left], ["YHC"])
+
+    def test_cancelled_entry_is_still_cleared_as_a_ghost(self):
+        # The genuine ghost case must keep working -- this is what stops a
+        # never-filled entry sitting in the tracker forever.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(self._pos())
+        left = self._run([self._order(OrderSide.BUY, OrderStatus.CANCELED)])
+        self.assertEqual(left, [])
+
+    def test_expired_entry_is_still_cleared(self):
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(self._pos())
+        left = self._run([self._order(OrderSide.BUY, OrderStatus.EXPIRED)])
+        self.assertEqual(left, [])
+
+    def test_no_orders_at_all_is_still_cleared(self):
+        self._isolated_pt().open(self._pos())
+        left = self._run([])
+        self.assertEqual(left, [])
+
+    def test_filled_entry_with_a_real_close_still_records_and_clears(self):
+        # The normal close path must not be blocked: entry FILLED (terminal)
+        # plus a filled SELL means the round trip really happened.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(self._pos())
+        orders = [
+            self._order(OrderSide.BUY, OrderStatus.FILLED,
+                        filled_avg_price="1.48", filled_qty="1166"),
+            self._order(OrderSide.SELL, OrderStatus.FILLED,
+                        filled_avg_price="1.30", filled_qty="1166"),
+        ]
+        orders[1].id = "ord-2"
+        left = self._run(orders)
+        self.assertEqual(left, [])
+        with open(self._wr_tmp.name) as f:
+            recs = json.load(f)
+        self.assertEqual([r["ticker"] for r in recs], ["YHC"])
+
+    def test_a_working_sell_stop_does_not_keep_a_closed_position_tracked(self):
+        # Only the ENTRY side counts. A leftover working SELL stop on an
+        # already-gone position must not resurrect it.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        self._isolated_pt().open(self._pos())
+        left = self._run([self._order(OrderSide.SELL, OrderStatus.NEW)])
+        self.assertEqual(left, [])
+
+
 class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
     """Found in the 2026-08-16 review: options P&L recorded into
     dman_daily_pnl.json was missing the *100 contracts multiplier (Alpaca

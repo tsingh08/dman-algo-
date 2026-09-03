@@ -1342,5 +1342,17 @@
     "pnl_pct": 0.96,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "APVO",
+    "date": "2026-09-03",
+    "bias": "LONG",
+    "setup": "Momentum Watch Breakout (Day)",
+    "entry": 2.01,
+    "exit": 1.88,
+    "outcome": "LOSS",
+    "pnl_pct": -6.55,
+    "score": 100,
+    "is_live": true
   }
 ]

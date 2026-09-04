@@ -908,8 +908,22 @@ def scan_loop() -> None:
                     # loop.
                     _daemon_universe = list(dict.fromkeys(
                         list(algo.WATCHLIST) + sorted(algo.DMAN_SMALLCAP_WATCHLIST)))
+                    # Today's live movers and EARNINGS movers, the same two
+                    # injections the cron scanner has always done. They were
+                    # main()-only until 2026-09-03, so the always-on daemon --
+                    # the thing actually watching the market minute to minute
+                    # -- scanned a fixed list and never saw an earnings mover
+                    # at all. Direct instruction the same day: Friday is
+                    # options-on-large-caps across the growing sectors "plus
+                    # earnings too", and with the day-trade budget at zero
+                    # these passes are where that has to happen.
+                    try:
+                        _daemon_universe = algo.augment_universe_with_movers(
+                            _daemon_universe, verbose=False)
+                    except Exception as exc:
+                        log(f"mover augmentation failed (scanning curated only): {exc}")
                     signals = algo.run_pro_scanner(
-                        _daemon_universe, use_ai=False, universe_label="daemon-curated+smallcap",
+                        _daemon_universe, use_ai=False, universe_label="daemon-curated+smallcap+movers",
                         include_dynamic_smallcap=False,   # broad Finviz net still hourly via cron
                     )
                     if signals:

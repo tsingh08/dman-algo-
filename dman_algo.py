@@ -794,6 +794,41 @@ TICKER_SECTOR = {
     "LUNR":"Industrials","ACHR":"Industrials","JOBY":"Industrials",
     # Defense / drone tech
     "RCAT":"Industrials",
+
+    # -- Sector breadth, added 2026-09-03 (direct instruction: options on
+    # large caps across "all most popular/growing sectors"). The list was
+    # 40/81 Technology with Energy and Utilities on ONE ticker each, and
+    # Materials, Consumer Staples and Real Estate absent entirely -- so a
+    # rotation out of tech had almost nothing to rotate into.
+    #
+    # Every name below was checked before being added: listed options on
+    # Alpaca, AND passing the options underlying-liquidity gate (5M share
+    # ADV or $200M dollar volume). AVAV was dropped on exactly that check
+    # ($186M / 1.26M sh) -- adding it would have burned a scan slot on a
+    # name the options path could never fill.
+    #
+    # Sector labels MUST match SECTOR_ETFS keys exactly ("Consumer Stap",
+    # not "Consumer Staples"): a mismatch silently zeroes the 8-point
+    # sector-ETF-momentum score rather than erroring, which is how 28
+    # tickers quietly lost it in the 2026-08-07 incident noted above.
+
+    # AI/datacenter power demand -- the theme VST alone was covering
+    "CEG":"Utilities","NRG":"Utilities","TLN":"Utilities",
+    "OKLO":"Utilities","SMR":"Utilities",
+    # Power equipment, defense, heavy industrial
+    "GEV":"Industrials","LMT":"Industrials","RTX":"Industrials",
+    "GE":"Industrials","CAT":"Industrials","ETN":"Industrials",
+    # Financials -- was AFRM/COIN/HOOD only, i.e. fintech, no actual banks
+    "JPM":"Financials","GS":"Financials","V":"Financials","MA":"Financials",
+    # Energy -- was XOM alone
+    "CVX":"Energy","OXY":"Energy","SLB":"Energy",
+    # Healthcare breadth beyond biotech
+    "UNH":"Healthcare","ISRG":"Healthcare","NVO":"Healthcare",
+    # Materials -- gold/copper, absent entirely before
+    "FCX":"Materials","NEM":"Materials",
+    # Consumer staples -- defensive rotation target, absent entirely before
+    "COST":"Consumer Stap",
+
     # Market regime ETFs
     "SPY":"","QQQ":"","IWM":"",
 }
@@ -15349,6 +15384,54 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
     _send_signal_alert_batch(_alert_batch)
 
 
+def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> list[str]:
+    """
+    Union `tickers` with today's live movers (Yahoo gainers/actives) and
+    today's earnings movers (beat + real gap). Order-preserving, deduped,
+    and never raises -- a mover feed being down must degrade the universe,
+    not kill the scan that was going to run anyway.
+
+    Extracted 2026-09-03 from main()'s --mode scan path, which was the ONLY
+    caller. That meant the two mover injections -- the ones that exist
+    specifically to catch names not on any curated list (see
+    fetch_earnings_mover_tickers' CRWV example: beat EPS +30.9%, gapped
+    +15.7%, never once considered because it was never on WATCHLIST) --
+    ran only on the cron scanner's passes. The always-on daemon, which is
+    the thing actually watching the market minute to minute, scanned a
+    fixed list and never saw an earnings mover at all.
+
+    Direct instruction 2026-09-03: Friday is options-on-large-caps across
+    the growing sectors "plus earnings too", and with the day-trade budget
+    at zero the daemon's passes are where that has to happen.
+    """
+    out = list(dict.fromkeys(list(tickers)))
+    if ENABLE_DYNAMIC_SMALLCAP:
+        try:
+            _live = fetch_dman_dynamic_tickers(max_tickers=30)
+            if _live:
+                _before = len(out)
+                out = list(dict.fromkeys(out + _live))
+                if verbose and len(out) > _before:
+                    print(f"  📈  +{len(out) - _before} live movers added "
+                          f"(Yahoo gainers/actives): {', '.join(_live[:8])}"
+                          f"{'...' if len(out) - _before > 8 else ''}")
+        except Exception:
+            pass
+    if ENABLE_EARNINGS_MOVER_SCAN:
+        try:
+            _earn = fetch_earnings_mover_tickers(max_tickers=15)
+            if _earn:
+                _before = len(out)
+                out = list(dict.fromkeys(out + _earn))
+                if verbose and len(out) > _before:
+                    print(f"  🚀  +{len(out) - _before} earnings movers added "
+                          f"(beat + real gap, off-watchlist): {', '.join(_earn[:8])}"
+                          f"{'...' if len(out) - _before > 8 else ''}")
+        except Exception:
+            pass
+    return out
+
+
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
                     min_score: int = None,
                     use_ai: bool = False,
@@ -19859,38 +19942,12 @@ def main():
             tickers = WATCHLIST
             print(f"  📋 Using curated watchlist: {len(tickers)} tickers "
                   f"(run premarket briefing first to enable full universe)")
-        # Always inject today's live movers so the 9:45 AM scan sees real volume
-        # even when the pre-market briefing cache is stale or missing.
-        if ENABLE_DYNAMIC_SMALLCAP:
-            try:
-                _live_movers = fetch_dman_dynamic_tickers(max_tickers=30)
-                if _live_movers:
-                    _before = len(tickers)
-                    tickers = list(dict.fromkeys(list(tickers) + _live_movers))
-                    _added  = len(tickers) - _before
-                    if _added:
-                        print(f"  📈  +{_added} live movers added (Yahoo gainers/actives): "
-                              f"{', '.join(_live_movers[:8])}{'...' if _added > 8 else ''}")
-            except Exception:
-                pass
-        # Watchlist-independent earnings movers — see fetch_earnings_mover_tickers()
-        # docstring: CRWV beat EPS +30.9% and gapped +15.7% (2026-08-12) and was
-        # never once considered because it was never on WATCHLIST. This closes
-        # that blind spot the same way the live-movers injection above closes it
-        # for pure price/volume movers.
-        if ENABLE_EARNINGS_MOVER_SCAN:
-            try:
-                _earn_movers = fetch_earnings_mover_tickers(max_tickers=15)
-                if _earn_movers:
-                    _before = len(tickers)
-                    tickers = list(dict.fromkeys(list(tickers) + _earn_movers))
-                    _added  = len(tickers) - _before
-                    if _added:
-                        print(f"  🚀  +{_added} earnings movers added (beat + real gap, "
-                              f"off-watchlist): {', '.join(_earn_movers[:8])}"
-                              f"{'...' if _added > 8 else ''}")
-            except Exception:
-                pass
+        # Live movers + earnings movers, so a scan sees real volume even when
+        # the pre-market briefing cache is stale or missing, and so a name
+        # that is on no curated list at all can still be considered. Shared
+        # with the daemon's in-session scan — see
+        # augment_universe_with_movers().
+        tickers = augment_universe_with_movers(tickers)
 
     print("""
   ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗

@@ -5642,6 +5642,54 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestWatchlistSectorIntegrity(unittest.TestCase):
+    """Sector breadth added 2026-09-03 (options on large caps across the
+    popular/growing sectors). These lock the two ways that expansion can
+    silently degrade rather than fail: a sector label that no longer maps
+    to an ETF, and a name added to the options-eligible WATCHLIST that the
+    options path could never actually fill."""
+
+    def test_every_sector_label_maps_to_a_sector_etf(self):
+        # A label that isn't a SECTOR_ETFS key doesn't error -- it silently
+        # zeroes the 8-point sector-ETF-momentum component. That is exactly
+        # how 28 tickers lost it unnoticed in the 2026-08-07 incident
+        # ("Health Care" vs "Healthcare", "Consumer Staples" vs
+        # "Consumer Stap").
+        unmapped = sorted({s for s in a.TICKER_SECTOR.values()
+                           if s and s not in a.SECTOR_ETFS})
+        self.assertEqual(unmapped, [], f"sector labels with no ETF: {unmapped}")
+
+    def test_regime_etfs_are_the_only_blank_sector(self):
+        blank = sorted(t for t, s in a.TICKER_SECTOR.items() if not s)
+        self.assertEqual(blank, ["IWM", "QQQ", "SPY"])
+
+    def test_watchlist_has_no_duplicates(self):
+        self.assertEqual(len(a.WATCHLIST), len(set(a.WATCHLIST)))
+
+    def test_growth_sectors_are_not_single_ticker_deep(self):
+        # The point of the expansion: before it, Energy and Utilities had
+        # exactly one name each and Materials/Consumer Stap did not exist,
+        # so a rotation out of tech had nothing to rotate into.
+        import collections
+        counts = collections.Counter(s for s in a.TICKER_SECTOR.values() if s)
+        for sector in ("Energy", "Utilities", "Financials", "Industrials",
+                       "Healthcare", "Materials"):
+            self.assertGreaterEqual(
+                counts[sector], 2,
+                f"{sector} has {counts[sector]} ticker(s) — too thin to rotate into")
+
+    def test_watchlist_membership_implies_options_eligibility(self):
+        # WATCHLIST membership is one of the two ways _signal_can_use_options
+        # returns True, which is what the zero-PDT options-only mode filters
+        # on. A non-optionable name here would pass the filter and then fall
+        # through to the SHARES path -- which carries a broker stop that can
+        # fill the same session and become day trade #4.
+        sig = MagicMock(); sig.bias = "LONG"; sig.setup = "Gap & Hold"
+        for t in a.WATCHLIST:
+            sig.ticker = t
+            self.assertTrue(a._signal_can_use_options(sig), f"{t} not options-eligible")
+
+
 class TestZeroPdtOptionsOnly(unittest.TestCase):
     """Direct instruction 2026-09-03. With the day-trade budget genuinely
     exhausted for three straight sessions (Fri 09-04, Tue 09-08, Wed 09-09),

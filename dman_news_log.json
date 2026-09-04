@@ -4296,5 +4296,36 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:26:09.092788-04:00",
+    "symbols": [
+      "KLAC",
+      "SNDK"
+    ],
+    "headline": "Quanex Building Products, Concrete Pumping, SanDisk And Other Big Stocks Moving Higher On Friday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:26:28.170656-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Quanex Building Products, Concrete Pumping, SanDisk And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:26:28.358053-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Quanex Building Products, Concrete Pumping, SanDisk And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

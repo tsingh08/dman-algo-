@@ -4469,5 +4469,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T12:06:19.740247-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "&#39;Rivian Rolls Out RivianOS 2, Unifying Software Across R1 And R2&#39; - Electrek",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:06:25.722827-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Samsara, Raises Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

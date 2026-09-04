@@ -829,6 +829,23 @@ TICKER_SECTOR = {
     # Consumer staples -- defensive rotation target, absent entirely before
     "COST":"Consumer Stap",
 
+    # September earnings, added 2026-09-03 for earnings exposure. Checked
+    # the whole 105-name list for reports in the next 12 days and found
+    # exactly ONE (GME, 09-15) -- early September sits in the gap between
+    # Q2 season ending in late August and Q3 starting mid-October, so
+    # "earnings exposure" next week had almost nothing to attach to.
+    # ORCL and ADBE both report Thu 09-10 and were on no list at all;
+    # FDX reports 09-17. All three verified optionable and past the
+    # underlying-liquidity gate (ORCL $3.5B/day, ADBE $1.2B, FDX $499M).
+    #
+    # Note how these actually get traded: EARNINGS_BLACKOUT (5 days) keeps
+    # ordinary setups OUT of a name going into its print, and the earnings
+    # SPREAD path is disabled, so the exposure is the post-earnings gap --
+    # a Gap & Hold / Morning Runner on the session after the report, which
+    # routes to single-leg options. For ORCL and ADBE that lands Fri 09-11,
+    # the same session the PDT budget resets to a full 3.
+    "ORCL":"Technology","ADBE":"Technology","FDX":"Industrials",
+
     # Market regime ETFs
     "SPY":"","QQQ":"","IWM":"",
 }

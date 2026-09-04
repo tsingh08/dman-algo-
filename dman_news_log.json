@@ -1824,5 +1824,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T16:17:17.185145-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Announces GPT-6 Astra Is Now Available To All Pro, Enterprise, And Business Premium Users In ChatGPT Work And Codex",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

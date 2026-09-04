@@ -1632,5 +1632,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T14:25:35.599288-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Taking Action To Help Cattle Ranchers; Giving Ranchers And Farmers The Right To Process Their Own Food; Signing Order Authorizing Ranchers To Protect Cattle Herds From Gray Wolves",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T14:26:49.047959-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Order Will Require Country Of Origin Labeling For Imported Beef",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

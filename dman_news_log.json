@@ -1662,5 +1662,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T14:46:28.124664-04:00",
+    "symbols": [
+      "LLY",
+      "NVDA",
+      "PANW"
+    ],
+    "headline": "Deal Dispatch: Nvidia Buys Hugging Face for $12.9 Billion, Barilla Acquires Goodles, Park Place Partners Bankruptcy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

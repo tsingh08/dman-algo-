@@ -1730,5 +1730,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T15:36:22.405318-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Macquarie Maintains Neutral on Snowflake, Raises Price Target to $350",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -3630,5 +3630,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T09:47:21.945239-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Zscaler, Maintains $200 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T09:47:55.055995-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "TD Cowen Maintains Buy on Samsara, Raises Price Target to $53",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T09:50:24.954121-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "RBC Capital Reiterates Sector Perform on Oracle, Maintains $190 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

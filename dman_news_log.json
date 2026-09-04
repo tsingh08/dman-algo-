@@ -3895,5 +3895,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:00:39.109331-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Vertex Pharmaceuticals 20 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:01:01.596211-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Musk Could Need $1 Trillion to Build Enough Chips for His AI Ambitions, ARK Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:01:02.835567-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Musk Could Need $1 Trillion to Build Enough Chips for His AI Ambitions, ARK Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:01:12.338445-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Musk Could Need $1 Trillion to Build Enough Chips for His AI Ambitions, ARK Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

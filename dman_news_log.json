@@ -4661,5 +4661,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T12:52:14.620128-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: Volatility Index, $VIX, Has Closed In The 14 To 17 Point Range For 25 Consecutive Trading Days, Marking Its Longest Such Streak Since May 1992",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:52:50.604834-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "Truist Securities Maintains Hold on Samsara, Raises Price Target to $48",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

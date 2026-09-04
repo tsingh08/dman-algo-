@@ -184,5 +184,14 @@
     "tickers_total": 234,
     "signals": 0,
     "signal_tickers": []
+  },
+  {
+    "ts": "2026-09-04T16:04:37.056742-04:00",
+    "halted": true,
+    "halt_reason": "monthly_loss_limit",
+    "min_score": 85,
+    "tickers_total": 235,
+    "signals": 0,
+    "signal_tickers": []
   }
 ]

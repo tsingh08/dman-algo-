@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-03T13:35:19.857480-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Reported Earlier: &#39;Apple facing $2.7 billion UK lawsuit over &#39;unfair&#39; app tracking rules&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.857754-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;Apple Apparently Cancels Plans for Two New MacBooks&#39; - MacRumors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.858362-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Stock \u2018Extremely Cheap\u2019 and Could Hit $400 Within 18 Months, Says Analyst \u2014 That\u2019s a 78% Rally From Here",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.858700-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Says Issue Causing Elevated Errors Across ChatGPT And Codex Has Been Resolved",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.858999-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-03T13:35:19.859271-04:00",
     "symbols": [
       "MSFT"
@@ -5044,5 +4994,56 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:32:04.617196-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood&#39;s Offshore AMC Token Setup Is &#39;Shocking and Shameful,&#39; AMC CEO Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:32:26.765703-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "Piper Sandler Reiterates Neutral on Samsara, Raises Price Target to $46",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:32:26.904951-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Robinhood&#39;s Offshore AMC Token Setup Is &#39;Shocking and Shameful,&#39; AMC CEO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:32:31.620898-04:00",
+    "symbols": [
+      "ADBE",
+      "AMAT",
+      "COIN",
+      "DIA",
+      "IWM",
+      "KLAC",
+      "MU",
+      "PLTR",
+      "QQQ",
+      "SMCI",
+      "SNDK",
+      "ZS"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -4449,5 +4449,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:58:04.078562-04:00",
+    "symbols": [
+      "DOO"
+    ],
+    "headline": "BRP Q2 2027 Earnings Call: Complete Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

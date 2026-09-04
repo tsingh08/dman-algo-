@@ -191,7 +191,8 @@ ENABLE_PREMARKET_SUBMIT = True
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
 ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
-OPTIONS_MAX_POSITION_PCT    = 0.15   # target budget per options trade, as a fraction of
+OPTIONS_MAX_POSITION_PCT    = 0.15   # CLAMPED by MAX_TRADE_LOSS_PCT -- see there.
+                                       # Target budget per options trade, as a fraction of
                                        # CURRENT equity (2026-08-21 — was a flat $2,000,
                                        # direct instruction to size up further from $1,250 on
                                        # 2026-08-09, itself already flagged then as ~39.6% of a
@@ -665,6 +666,21 @@ POSITIONS_FILE     = "dman_positions.json"
 _POSITIONS_LOCK = threading.RLock()
 DAILY_PNL_FILE     = "dman_daily_pnl.json"
 PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open positions
+
+# Hard per-trade loss ceiling, as a fraction of CURRENT equity. Direct
+# instruction 2026-09-04: "keep loss max 5-7.5%" -- set at the top of that
+# range. This is the one authoritative expression of that rule; every sizing
+# path is clamped to it rather than each carrying its own idea of "max".
+#
+# It matters most for OPTIONS, where max loss is not a stop distance but the
+# ENTIRE premium: a long option can and does go to zero (live record: SMCI
+# -94.7%, MRVL -95.7%, UMAC -42.5%). OPTIONS_MAX_POSITION_PCT was 0.15, so a
+# single options trade could lose 15% of the account -- twice the stated
+# ceiling, on the exact path now being used for the zero-PDT options-only
+# sessions. The equity paths were already inside it (stop-based risk 2%,
+# moonshot capped at PORTFOLIO_HEAT_LIMIT 6%) and are clamped anyway so the
+# rule holds if those are ever raised.
+MAX_TRADE_LOSS_PCT = 0.075       # ceiling on what ONE trade may lose, % of equity
 ATR_PCT_MIN          = 1.5       # stock must move at least 1.5% avg daily
 AVG_DOLLAR_VOL_MIN   = 50_000_000  # $50M avg daily dollar volume floor
 MACRO_BLACKOUT       = 1         # days before/after FOMC/NFP to avoid
@@ -6069,7 +6085,7 @@ def run_premarket_early_scan() -> None:
             # Capping per-trade risk here is a pure risk reduction, consistent
             # with that fix — it does not touch entry criteria or targets.
             _risk_pct  = min(SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT * _early_ctx["risk_mult"],
-                             PORTFOLIO_HEAT_LIMIT)
+                             PORTFOLIO_HEAT_LIMIT, MAX_TRADE_LOSS_PCT)
             _base_risk = _acct * _risk_pct
             _pm_pt   = PositionTracker()
             for _e in pm_auto_entries[:3]:   # max 3 concurrent pre-market entries
@@ -11646,7 +11662,14 @@ def _options_position_budget() -> float:
     docstring for why this replaced a flat dollar constant. Computed fresh on
     every call (not cached) so it always reflects get_effective_account()'s own
     5-min-cached live equity, not a stale snapshot from whenever this was last read."""
-    return round(get_effective_account() * OPTIONS_MAX_POSITION_PCT, 2)
+    # min() with MAX_TRADE_LOSS_PCT, not a bare multiply: an option's max loss
+    # IS its premium, so the budget and the worst case are the same number.
+    # OPTIONS_MAX_POSITION_PCT stays the strategy target (what you'd want at
+    # scale); MAX_TRADE_LOSS_PCT is the hard ceiling and wins while it is
+    # lower. Raising the target alone will NOT loosen the cap -- raise the
+    # ceiling too, deliberately.
+    return round(get_effective_account()
+                 * min(OPTIONS_MAX_POSITION_PCT, MAX_TRADE_LOSS_PCT), 2)
 
 
 _live_cash_cache: dict = {"cash": None, "ts": 0.0}
@@ -19082,8 +19105,11 @@ def _submit_options_put(
     _limit_px     = round(_put_mid * 1.03, 2)   # mid + 3% buffer for fill
     total_cost    = round(contracts * _put_mid * 100, 2)
 
-    if _put_mid * 100 > risk_dollars * 1.5:
-        print(f"  ⚠️  Too expensive: 1 put contract=${_put_mid*100:.0f}  budget=${risk_dollars:.0f} — skip")
+    # Same hard ceiling as the call side -- see _submit_options_call() for why
+    # `* 1.5` plus max(1, ...) let a contract up to 1.5x the budget through.
+    if _limit_px * 100 > risk_dollars:
+        print(f"  ⚠️  Too expensive: 1 put contract=${_limit_px*100:.0f} "
+              f"(limit px) budget=${risk_dollars:.0f} — skip")
         return None, None
 
     _cash_ok, _cash_msg = _cash_available_for(total_cost)
@@ -19227,8 +19253,20 @@ def _submit_options_call(
     _limit_px     = round(_call_mid * 1.03, 2)   # mid + 3% buffer for fill
     total_cost    = round(contracts * _call_mid * 100, 2)
 
-    if _call_mid * 100 > risk_dollars * 1.5:
-        print(f"  ⚠️  Too expensive: 1 contract=${_call_mid*100:.0f}  budget=${risk_dollars:.0f} — skip")
+    # HARD ceiling, compared against the LIMIT price actually being sent
+    # (mid + 3%), not the mid -- the fill is what determines the loss.
+    #
+    # This was `> risk_dollars * 1.5`, and combined with the max(1, ...) above
+    # that silently allowed up to 1.5x the budget: raw_contracts floors to 0
+    # when one contract costs more than the budget, max(1, 0) forces it back
+    # to 1, and anything under 1.5x sailed past this check. At a $223 budget
+    # that bought contracts up to $334 -- 11.2% of a $2,973 account against a
+    # stated 7.5% ceiling. Direct instruction 2026-09-04 ("keep loss max
+    # 5-7.5%") makes this a hard bound, so a contract that does not fit is
+    # skipped rather than rounded up into.
+    if _limit_px * 100 > risk_dollars:
+        print(f"  ⚠️  Too expensive: 1 contract=${_limit_px*100:.0f} "
+              f"(limit px) budget=${risk_dollars:.0f} — skip")
         return None, None
 
     _cash_ok, _cash_msg = _cash_available_for(total_cost)

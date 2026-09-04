@@ -7549,7 +7549,10 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
             a._handle_buy_command(["/buy", "1", "5"])
         self.assertIn("per-trade cap", mock_tg.call_args[0][0])
-        self.assertIn("1875", mock_tg.call_args[0][0].replace(",", ""))
+        # 2026-09-04 and a literal here tests the number, not the rule.
+        # Derived, not pinned: the per-trade ceiling moved to 7.5% on
+        _cap = a.ACCOUNT_SIZE * min(a.OPTIONS_MAX_POSITION_PCT, a.MAX_TRADE_LOSS_PCT) * 0.5
+        self.assertIn(f"{_cap:.0f}", mock_tg.call_args[0][0].replace(",", ""))
         self.assertEqual(os.path.getsize(self._buy_tmp.name), 0)
 
     def test_buy_command_during_probation_still_allows_a_properly_sized_trade(self):
@@ -7558,12 +7561,14 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         menu["items"][0]["ask"] = 4.00
         with open(self._menu_tmp.name, "w") as f:
             json.dump(menu, f)
+        _cap = a.ACCOUNT_SIZE * min(a.OPTIONS_MAX_POSITION_PCT, a.MAX_TRADE_LOSS_PCT) * 0.5
+        _qty = max(1, int(_cap // (4.00 * 100)))
         with patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
              patch.object(a, "send_telegram", return_value=True):
-            a._handle_buy_command(["/buy", "1", "4"])   # 4 x $400 = $1,600, under the $1,875 halved cap
+            a._handle_buy_command(["/buy", "1", str(_qty)])
         with open(self._buy_tmp.name) as f:
             pending = json.load(f)
-        self.assertEqual(pending["contracts"], 4)
+        self.assertEqual(pending["contracts"], _qty)
 
     # ── YES/NO reply ─────────────────────────────────────────────────
     def _pending(self, expires_in_min=5):
@@ -13240,20 +13245,43 @@ class TestOptionsPositionBudget(unittest.TestCase):
     $2,000 against a $3,273 account post-losing-stretch. A regression here
     means position sizing silently stops tracking real account size again."""
 
+    # Derived from the constants, not literals: the effective rate is
+    # min(OPTIONS_MAX_POSITION_PCT, MAX_TRADE_LOSS_PCT), and pinning a number
+    # here would just have to be rewritten every time either moves -- while
+    # silently passing if the CLAMP itself were removed, which is the thing
+    # actually worth protecting.
+    @property
+    def _rate(self):
+        return min(a.OPTIONS_MAX_POSITION_PCT, a.MAX_TRADE_LOSS_PCT)
+
     def test_budget_scales_with_current_equity(self):
         with patch.object(a, "get_effective_account", return_value=10_000.0):
-            self.assertEqual(a._options_position_budget(), 1_500.0)
+            self.assertEqual(a._options_position_budget(), round(10_000.0 * self._rate, 2))
 
     def test_budget_shrinks_as_account_shrinks(self):
         with patch.object(a, "get_effective_account", return_value=3_273.0):
-            self.assertAlmostEqual(a._options_position_budget(), 490.95, places=2)
+            self.assertAlmostEqual(a._options_position_budget(),
+                                    round(3_273.0 * self._rate, 2), places=2)
 
     def test_not_cached_reflects_a_fresh_get_effective_account_call_each_time(self):
         with patch.object(a, "get_effective_account", side_effect=[5_000.0, 2_000.0]):
             first  = a._options_position_budget()
             second = a._options_position_budget()
-        self.assertEqual(first, 750.0)
-        self.assertEqual(second, 300.0)
+        self.assertEqual(first,  round(5_000.0 * self._rate, 2))
+        self.assertEqual(second, round(2_000.0 * self._rate, 2))
+
+    def test_per_trade_loss_ceiling_actually_binds(self):
+        # The whole point of the clamp: an option's max loss IS its premium,
+        # so the budget cannot exceed MAX_TRADE_LOSS_PCT of equity no matter
+        # what OPTIONS_MAX_POSITION_PCT says.
+        with patch.object(a, "OPTIONS_MAX_POSITION_PCT", 0.90),              patch.object(a, "get_effective_account", return_value=10_000.0):
+            self.assertEqual(a._options_position_budget(),
+                             round(10_000.0 * a.MAX_TRADE_LOSS_PCT, 2))
+
+    def test_ceiling_is_within_the_instructed_band(self):
+        # Direct instruction 2026-09-04: "keep loss max 5-7.5%".
+        self.assertGreaterEqual(a.MAX_TRADE_LOSS_PCT, 0.05)
+        self.assertLessEqual(a.MAX_TRADE_LOSS_PCT, 0.075)
 
 
 def _fake_df():

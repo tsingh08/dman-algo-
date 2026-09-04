@@ -17669,6 +17669,32 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                          if getattr(order, "filled_at", None) else
                          datetime.today().strftime("%Y-%m-%d"))
 
+            # A closing order that FILLED before this position was entered
+            # cannot be this position's exit -- it belongs to an older,
+            # already-recorded round trip in the same symbol that this
+            # get_orders() batch (last 20 closed orders, unbounded in time)
+            # still contains. The ledger dupe-check below can't catch that
+            # case when the setup name has since changed, because it
+            # requires r.setup == pos.setup. Confirmed live 2026-09-04:
+            # ARTL's batch still held its Aug 18/24 pre-reverse-split exits
+            # ($0.72/$0.68, recorded back then under "Low Float Catalyst");
+            # the current post-split position ("SWING -- Momentum Watch
+            # Breakout", entry $6.16, entered Sept) matched neither the
+            # recorded_ids cache nor the setup-scoped ledger check, so both
+            # stale exits were re-recorded against the $6.16 entry: two
+            # phantom -88%/-89% LOSS rows that tripped the consecutive-loss
+            # halt, and (via the old orders' pre-split share counts) phantom
+            # -59.6% and -278% account-level entries in dman_daily_pnl.json
+            # AND dman_monthly_pnl.json -- enough to keep MONTHLY_LOSS_LIMIT
+            # tripped for the entire month on money that was never lost.
+            try:
+                if (getattr(pos, "entry_date", "") and
+                        date.fromisoformat(fill_date) < date.fromisoformat(pos.entry_date)):
+                    recorded_ids.add(oid)
+                    continue
+            except (TypeError, ValueError):
+                pass   # unparsable date on either side -- fall through to the ledger guard
+
             # Independent safety net against duplicate recording, on top of
             # (not instead of) the recorded_ids check above. Confirmed live
             # 2026-08-11: _restore_corrupted_json()'s `git checkout -- file`

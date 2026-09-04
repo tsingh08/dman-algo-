@@ -4755,5 +4755,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:11:22.720024-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Stock Drops After Earnings, But Analysts See More Upside",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:11:31.608665-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Oracle, Nvidia, KLA, FTAI Aviation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:11:33.570452-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Oracle, Nvidia, KLA, FTAI Aviation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

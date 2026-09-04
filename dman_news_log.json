@@ -4489,5 +4489,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T12:08:33.809188-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Stock: Why Satya Nadella&#39;s $44 Million Sale May Not Spook Investors",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:10:53.931017-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Shares of crypto-related companies are trading lower amid a decline in Bitcoin prices following August&#39;s hotter-than-expected payrolls report, which boosted expectations for a potential Federal Reserve rate hike at its next meeting. A stronger U.S. dollar and higher interest-rate expectations are further weighing on crypto and other risk assets by reducing investor appetite for speculative investments.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -17635,6 +17635,31 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             if fill_px <= 0:
                 continue
 
+            # An order that FILLED before this position was even opened
+            # cannot be its close. The get_orders() call above pulls the
+            # last 20 CLOSED orders for the symbol with no time filter, so
+            # for a repeatedly-traded ticker the batch contains sell fills
+            # from prior, long-closed round trips. Confirmed live
+            # 2026-09-04: ARTL's Aug 18 ($0.72) and Aug 24 ($0.68) sells —
+            # manually recorded at the time, so never in recorded_ids —
+            # were matched as closes of the NEW Sep 4 position (entry
+            # $6.16). The ledger dupe-guard below missed them because it
+            # requires r.setup == pos.setup and the old records were "Low
+            # Float Catalyst" while the new position was "SWING — Momentum
+            # Watch Breakout (Day)". Result: two phantom -88%/-89% LOSS
+            # records and -59.6%/-278.0% account-level entries in
+            # daily/monthly P&L, tripping consecutive_losses and then a
+            # monthly_loss_limit halt on data that never happened. String
+            # compare is safe: both sides are YYYY-MM-DD, and filled_at's
+            # UTC date can never be earlier than the ET entry date for a
+            # genuine close. Not added to recorded_ids — the same order id
+            # may legitimately belong to a different tracked position of
+            # this ticker.
+            _fdt = getattr(order, "filled_at", None)
+            if _fdt is not None and pos.entry_date and \
+                    _fdt.strftime("%Y-%m-%d") < pos.entry_date:
+                continue
+
             qty = int(float(getattr(order, "filled_qty", None) or order.qty or pos.shares))
 
             # Options: premium P&L = always (exit - entry) * qty regardless of put/call.

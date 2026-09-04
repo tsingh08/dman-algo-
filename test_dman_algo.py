@@ -5072,6 +5072,45 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self.assertEqual(n, 1, "only the genuinely new tranche should count as newly recorded")
         self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 2)
 
+    def test_a_closing_order_filled_before_the_position_was_entered_is_never_its_exit(self):
+        # Confirmed live 2026-09-04 (ARTL): get_orders() returns the last 20
+        # CLOSED orders for the symbol with no time bound, so the batch for
+        # a just-closed position still contained exits from a round trip
+        # WEEKS earlier -- at pre-reverse-split prices ($0.72/$0.68), and
+        # recorded back then under a different setup name ("Low Float
+        # Catalyst"). Neither guard caught them: recorded_ids because a
+        # different code path recorded the originals, and the ledger dupe
+        # check because it requires r.setup == pos.setup. Both stale exits
+        # were re-recorded against the CURRENT position's post-split $6.16
+        # entry as phantom -88%/-89% losses, tripping the consecutive-loss
+        # halt, and their pre-split share counts pushed phantom -59.6% and
+        # -278% account-level entries into daily AND monthly P&L. An order
+        # that filled before the position's entry_date cannot be its exit.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        stale_exit = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                                  filled_avg_price=0.68, filled_qty="1505")
+        stale_exit.id = "stale-pre-split-exit-never-seen"
+        stale_exit.filled_at = datetime(2026, 6, 24)   # before entry_date 2026-07-08
+        real_exit = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                                 filled_avg_price=3.21, filled_qty="7")
+        real_exit.id = "real-current-exit"
+        real_exit.filled_at = datetime(2026, 7, 9)
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
+        mock_client.get_orders.return_value = [stale_exit, real_exit]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 1, "only the exit that filled after entry may be recorded")
+        self.assertEqual(len(tracker.records), 1)
+        self.assertEqual(tracker.records[0].exit, 3.21,
+                          "the stale pre-entry exit must never be recorded against this position")
+        # The stale order id must be tombstoned so every future cycle skips it cheaply
+        with open(self._sync_tmp.name) as f:
+            self.assertIn("stale-pre-split-exit-never-seen",
+                          json.load(f).get("recorded_ids", []))
+
 
 class TestSyncEarningsSpreadFills(unittest.TestCase):
     """Added 2026-08-22: confirmed live that zero "Earnings " records exist

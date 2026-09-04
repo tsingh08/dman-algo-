@@ -4225,5 +4225,46 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:10:13.220766-04:00",
+    "symbols": [
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Micron, SanDisk Jump 4% Even as Hot Jobs Report Briefly Flips Fed Hike Odds Above 50%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:11:03.189303-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Baird Maintains Outperform on Zscaler, Raises Price Target to $230",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:11:23.672199-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron, SanDisk Jump 4% Even as Hot Jobs Report Briefly Flips Fed Hike Odds Above 50%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:11:23.895601-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron, SanDisk Jump 4% Even as Hot Jobs Report Briefly Flips Fed Hike Odds Above 50%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

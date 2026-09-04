@@ -4357,5 +4357,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:33:41.914593-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;Anthropic\u2019s In-House Payments Tech Push Could Chip Away at Stripe&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:35:28.467312-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Musk Says Autonomy Is Flight&#39;s Next Step \u2014 A Day After Tesla&#39;s Cybercab AI Pitch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:36:10.899287-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Senate Democrats Urge Postal Service To Halt Work On New Mail-In Voting Rules, Saying It Will Undermine Faith In November Elections",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

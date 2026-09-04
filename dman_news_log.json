@@ -1,5 +1,358 @@
 [
   {
+<<<<<<< Updated upstream
+=======
+    "ts": "2026-09-03T13:35:19.872247-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "StoneX Reiterates Buy on Tesla, Maintains $475 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.872803-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Michael Burry Comes for Palantir Again \u2014 This Time it&#39;s the Balance Sheet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.873528-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.874135-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Snowflake, Raises Price Target to $450",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.874697-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Snowflake, Raises Price Target to $430",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.875259-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.876040-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Snowflake, Raises Price Target to $425",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.876724-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.877348-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Palantir Technologies 5 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.877946-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Michael Burry Comes for Palantir Again \u2014 This Time it&#39;s the Balance Sheet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.878526-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.879126-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "What\u2019s Bugging Palantir\u2019s Stock? Analyst Says Google\u2019s New AI Tools for Government",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.879762-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Broadcom, Lowers Price Target to $578",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.880380-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.880997-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "TD Cowen Maintains Buy on Broadcom, Lowers Price Target to $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.881601-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Q2 AI Revenue Grows Over 200%, Guidance Restricted By Supply Constraints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.882245-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Truist Securities Maintains Buy on Broadcom, Lowers Price Target to $520",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.882907-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "If You Invested $1000 In Applied Materials Stock 20 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.883577-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Broadcom\u2019s AI Boom Has A Memory Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.884242-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Why This Analyst Says Memory Stock Valuations \u2018Make a Lot of Sense\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.884959-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Why This Analyst Says Memory Stock Valuations \u2018Make a Lot of Sense\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.885862-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Broadcom\u2019s AI Boom Has A Memory Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.886544-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "NetApp, Hewlett Packard Enterprise And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.887239-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Why This Analyst Says Memory Stock Valuations \u2018Make a Lot of Sense\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.887987-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "What&#39;s Going on With Marvell Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.888788-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on ON Semiconductor, Lowers Price Target to $95",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-03T13:35:19.889520-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Chain Could Force Wall Street To Rethink Arbitrum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.890253-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Why Is Robinhood Stock Surging Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.890994-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Prediction Markets Face Supreme Court Test as New Jersey Takes On Kalshi",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.891707-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Summit Therapeutics, HUTCHMED, Tesla And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.892686-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Coinbase Adds Elon Musk&#39;s Alumni to Board Amid Canada Expansion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.893460-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Truist Securities Maintains Buy on Affirm Holdings, Raises Price Target to $85",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.898028-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "This Sonoco Analyst Is No Longer Bullish; Here Are Top 4 Downgrades For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.900259-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "CrowdStrike To Rally Over 15%? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-03T13:35:19.901057-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Rothschild &amp; Co Downgrades Moderna to Sell, Raises Price Target to $81",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+>>>>>>> Stashed changes
     "ts": "2026-09-03T13:35:19.901884-04:00",
     "symbols": [
       "ABBV"
@@ -4698,6 +5051,7 @@
     "sentiment": "negative"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-04T13:49:50.043582-04:00",
     "symbols": [
       "AAPL"
@@ -5054,6 +5408,16 @@
     ],
     "headline": "Wells Fargo Maintains Overweight on Guidewire Software, Raises Price Target to $195",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-09-04T13:52:59.412425-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "NVDA"
+    ],
+    "headline": "&#39;AI Cloud Firm Nscale Seeking $3.5 Billion In Pre-IPO Financing&#39; - Bloomberg News",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": "neutral"
   }

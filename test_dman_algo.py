@@ -5072,6 +5072,45 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         self.assertEqual(n, 1, "only the genuinely new tranche should count as newly recorded")
         self.assertEqual(len([r for r in tracker.records if r.ticker == "IOTR"]), 2)
 
+    def test_stale_fill_from_before_the_position_opened_is_not_recorded(self):
+        # Confirmed live 2026-09-04: the per-symbol get_orders() batch has
+        # no time filter, so for a repeatedly-traded ticker it contains
+        # sell fills from prior, long-closed round trips. ARTL's Aug 18
+        # ($0.72) and Aug 24 ($0.68) sells -- recorded manually at the
+        # time, so never in recorded_ids -- were matched as closes of the
+        # NEW Sep 4 position (entry $6.16, different setup string, so the
+        # ledger dupe-guard never fired). That wrote two phantom -88%/-89%
+        # LOSS records plus -59.6% and -278.0% account-level entries into
+        # daily/monthly P&L, tripping consecutive_losses and then a
+        # monthly_loss_limit halt on trades that never happened. An order
+        # that FILLED before the position's entry_date cannot be its close.
+        from alpaca.trading.enums import OrderStatus, OrderSide
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = []
+        mock_client.get_open_position.side_effect = Exception("position does not exist")
+        stale = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                            filled_avg_price=0.72, filled_qty="1000")
+        stale.id = "stale-close-from-an-earlier-round-trip"
+        stale.filled_at = datetime(2026, 6, 15, 14, 0)   # weeks BEFORE entry_date 2026-07-08
+        real = self._order(OrderSide.SELL, OrderStatus.FILLED,
+                           filled_avg_price=3.21, filled_qty="7")
+        real.id = "the-genuine-close"
+        real.filled_at = datetime(2026, 7, 9, 15, 0)
+        mock_client.get_orders.return_value = [stale, real]
+        with patch.object(a, "get_alpaca_client", return_value=mock_client):
+            tracker = a.WinRateTracker(filepath=self._wr_tmp.name)
+            n = a.sync_alpaca_fills(tracker)
+        self.assertEqual(n, 1, "the pre-entry stale fill must not be recorded")
+        self.assertEqual(len(tracker.records), 1)
+        self.assertEqual(tracker.records[0].exit, 3.21)
+        # The stale order id must NOT be tombstoned into recorded_ids -- it
+        # may legitimately belong to a different tracked position of the
+        # same ticker that hasn't been synced yet.
+        with open(self._sync_tmp.name) as f:
+            saved = json.load(f)
+        self.assertNotIn("stale-close-from-an-earlier-round-trip",
+                         saved.get("recorded_ids", []))
+
 
 class TestSyncEarningsSpreadFills(unittest.TestCase):
     """Added 2026-08-22: confirmed live that zero "Earnings " records exist

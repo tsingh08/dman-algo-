@@ -1652,5 +1652,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T14:38:56.407855-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Down 29% from All-Time Highs, Analyst Sees 93% More Downside \u2014 \u2018Sell the News\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

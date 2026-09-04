@@ -1366,5 +1366,29 @@
     "pnl_pct": -3.04,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "APVO",
+    "date": "2026-09-04",
+    "bias": "LONG",
+    "setup": "SWING \u2014 Momentum Watch Breakout (Day)",
+    "entry": 1.72,
+    "exit": 1.68,
+    "outcome": "LOSS",
+    "pnl_pct": -2.33,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "APVO",
+    "date": "2026-09-03",
+    "bias": "LONG",
+    "setup": "SWING \u2014 Momentum Watch Breakout (Day)",
+    "entry": 1.72,
+    "exit": 1.88,
+    "outcome": "WIN",
+    "pnl_pct": 9.2,
+    "score": 100,
+    "is_live": true
   }
 ]

@@ -4703,5 +4703,57 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:05:08.779005-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Stifel Maintains Hold on Microsoft, Raises Price Target to $530",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:05:32.374031-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Oracle, Nvidia, KLA, FTAI Aviation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:06:20.901916-04:00",
+    "symbols": [
+      "FCUV"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:06:21.114136-04:00",
+    "symbols": [
+      "FGL",
+      "OFAL",
+      "WETO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:06:21.587414-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

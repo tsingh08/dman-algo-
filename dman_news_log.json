@@ -4611,5 +4611,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T12:29:38.016411-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Live On CNBC, Kevin Simpson Announces Bought More Freeport-McMoRan; Bought More Agnico Eagle Mines",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T12:30:33.974530-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Zscaler, Raises Price Target to $165",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

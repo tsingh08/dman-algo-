@@ -4389,5 +4389,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:40:44.202239-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla shares are trading lower following the company&#39;s Cybercab launch event. Separately, the U.S. National Highway Traffic Safety Administration opened an investigation into whether approximately 1,000 Tesla Cybercab vehicles were properly certified, including the process and technical data the EV maker used to demonstrate compliance with federal motor vehicle safety standards.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:41:10.601322-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Anthropic\u2019s In-House Payments Tech Push Could Chip Away at Stripe&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:41:11.508841-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic\u2019s In-House Payments Tech Push Could Chip Away at Stripe&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:41:11.744152-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic\u2019s In-House Payments Tech Push Could Chip Away at Stripe&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:41:21.285495-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "Samsara Analysts Boost Their Forecasts After Strong Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

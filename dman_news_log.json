@@ -1761,5 +1761,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T15:48:51.368133-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "GS"
+    ],
+    "headline": "&#39;Anthropic Close To Awarding Morgan Stanley And Goldman Sachs Top Roles In $2T IPO; Morgan Stanley In Pole Position To Secure \u201cLead Left\u201d Role In Anthropic IPO&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T15:49:52.708937-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "What&#39;s Going On With Rivian Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

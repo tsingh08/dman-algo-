@@ -4571,5 +4571,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T12:27:14.336332-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "This Ormat Technologies Analyst Is No Longer Bearish; Here Are Top 3 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T12:27:15.248789-04:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "This Ormat Technologies Analyst Is No Longer Bearish; Here Are Top 3 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:27:19.128390-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Expected To Sign A Beef-Related Executive Order On Friday&#39; - Reuters News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:27:21.496703-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Samsara, Raises Price Target to $49",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

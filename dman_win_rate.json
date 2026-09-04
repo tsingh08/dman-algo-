@@ -1354,5 +1354,17 @@
     "pnl_pct": -6.55,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "YHC",
+    "date": "2026-09-04",
+    "bias": "LONG",
+    "setup": "Adopted (orphan reconciliation)",
+    "entry": 1.48,
+    "exit": 1.44,
+    "outcome": "LOSS",
+    "pnl_pct": -3.04,
+    "score": 0,
+    "is_live": true
   }
 ]

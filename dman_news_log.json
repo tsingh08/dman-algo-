@@ -3853,5 +3853,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T10:44:49.507198-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "China&#39;s Xi To Bring Large CEO Delegation On U.S. Visit, Sources Say",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T10:45:38.093947-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "$1000 Invested In Super Micro Computer 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T10:46:06.542134-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Samsara, Raises Price Target to $58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1390,5 +1390,41 @@
     "pnl_pct": 9.2,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "ARTL",
+    "date": "2026-09-04",
+    "bias": "LONG",
+    "setup": "SWING \u2014 Momentum Watch Breakout (Day)",
+    "entry": 6.16,
+    "exit": 5.92,
+    "outcome": "LOSS",
+    "pnl_pct": -3.9,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "ARTL",
+    "date": "2026-08-24",
+    "bias": "LONG",
+    "setup": "SWING \u2014 Momentum Watch Breakout (Day)",
+    "entry": 6.16,
+    "exit": 0.68,
+    "outcome": "LOSS",
+    "pnl_pct": -89.01,
+    "score": 100,
+    "is_live": true
+  },
+  {
+    "ticker": "ARTL",
+    "date": "2026-08-18",
+    "bias": "LONG",
+    "setup": "SWING \u2014 Momentum Watch Breakout (Day)",
+    "entry": 6.16,
+    "exit": 0.72,
+    "outcome": "LOSS",
+    "pnl_pct": -88.29,
+    "score": 100,
+    "is_live": true
   }
 ]

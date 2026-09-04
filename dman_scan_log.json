@@ -49,5 +49,14 @@
     "budget_hit": false,
     "news_breadth_pct": 97.2,
     "news_breadth_total": 146
+  },
+  {
+    "ts": "2026-09-04T14:21:10.549553-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 233,
+    "signals": 0,
+    "signal_tickers": []
   }
 ]

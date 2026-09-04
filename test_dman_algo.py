@@ -5655,6 +5655,94 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestElevatedSizeTier(unittest.TestCase):
+    """Direct instruction 2026-09-04: "$250 at the 7.5% capped loss but
+    increased to $500 only on guaranteed setups with absolute confidence
+    ... like nvda, snow, palo, mongodb".
+
+    "Guaranteed" is not something this system can detect and these tests
+    encode that honestly: UMAC scored 100/100 -- the maximum expressible --
+    and lost 42.5%; SMCI lost 94.7% of premium; score 100 is 2W/1L across
+    the entire live options record. So the tier is bounded by CONCURRENCY
+    (MAX_ELEVATED_POSITIONS) as well as by conviction."""
+
+    def _sig(self, ticker=None, score=100):
+        s = MagicMock()
+        s.ticker = ticker or a.WATCHLIST[0]
+        s.confluence_score = score
+        return s
+
+    def _no_positions(self):
+        return patch.object(a, "PositionTracker", **{"return_value.positions": []})
+
+    def test_high_score_watchlist_name_qualifies(self):
+        with self._no_positions():
+            self.assertIsNotNone(a._elevated_size_reason(self._sig()))
+
+    def test_score_below_floor_does_not_qualify(self):
+        with self._no_positions():
+            self.assertIsNone(
+                a._elevated_size_reason(self._sig(score=a.ELEVATED_MIN_SCORE - 1)))
+
+    def test_offlist_ticker_does_not_qualify(self):
+        # The named examples are all liquid large caps whose options have
+        # two-sided markets; a thin name sized up is a different animal.
+        with self._no_positions():
+            self.assertIsNone(a._elevated_size_reason(self._sig(ticker="ZZZZ")))
+
+    def test_named_examples_are_all_watchlist_members(self):
+        for t in ("NVDA", "SNOW", "PANW", "MDB"):
+            self.assertIn(t, a.WATCHLIST, f"{t} must be options-eligible to size up")
+
+    def test_concurrency_cap_blocks_a_second_elevated_position(self):
+        held = [a.OpenPosition(ticker="NVDA", bias="LONG", setup="Options Call X",
+                               entry=1, stop=1, target1=1, target2=1, shares=100,
+                               entry_date="2026-09-04", elevated_size=True)]
+        with patch.object(a, "PositionTracker", **{"return_value.positions": held}):
+            self.assertIsNone(a._elevated_size_reason(self._sig()))
+
+    def test_base_sized_positions_do_not_consume_an_elevated_slot(self):
+        held = [a.OpenPosition(ticker="NVDA", bias="LONG", setup="Options Call X",
+                               entry=1, stop=1, target1=1, target2=1, shares=100,
+                               entry_date="2026-09-04")]
+        with patch.object(a, "PositionTracker", **{"return_value.positions": held}):
+            self.assertIsNotNone(a._elevated_size_reason(self._sig()))
+
+    def test_budget_without_a_signal_is_always_base(self):
+        # Callers that have not opted in explicitly must not size up.
+        with patch.object(a, "get_effective_account", return_value=10_000.0):
+            base = a._options_position_budget()
+            self.assertEqual(base, round(10_000.0 * min(a.OPTIONS_MAX_POSITION_PCT,
+                                                        a.MAX_TRADE_LOSS_PCT), 2))
+
+    def test_qualifying_signal_gets_the_larger_budget(self):
+        with patch.object(a, "get_effective_account", return_value=10_000.0), \
+             self._no_positions():
+            elev = a._options_position_budget(self._sig())
+            base = a._options_position_budget()          # same patched equity
+        self.assertEqual(elev, round(10_000.0 * a.ELEVATED_TRADE_LOSS_PCT, 2))
+        self.assertGreater(elev, base)
+
+    def test_non_qualifying_signal_falls_back_to_base(self):
+        with patch.object(a, "get_effective_account", return_value=10_000.0), \
+             self._no_positions():
+            got = a._options_position_budget(self._sig(score=10))
+        self.assertEqual(got, round(10_000.0 * min(a.OPTIONS_MAX_POSITION_PCT,
+                                                   a.MAX_TRADE_LOSS_PCT), 2))
+
+    def test_elevated_is_never_smaller_than_base(self):
+        with patch.object(a, "ELEVATED_TRADE_LOSS_PCT", 0.001), \
+             patch.object(a, "get_effective_account", return_value=10_000.0), \
+             self._no_positions():
+            self.assertGreaterEqual(a._options_position_budget(self._sig()),
+                                    a._options_position_budget())
+
+    def test_lookup_failure_falls_back_to_base_not_elevated(self):
+        # Failing OPEN on the larger size would be the unsafe direction.
+        with patch.object(a, "PositionTracker", side_effect=Exception("io")):
+            self.assertIsNone(a._elevated_size_reason(self._sig()))
+
+
 class TestOptionsExpiryBackstop(unittest.TestCase):
     """Found in the 2026-09-03 piece-by-piece review: OPTIONS_CLOSE_DTE was
     referenced in exactly ONE place, a branch that only sends Telegram
@@ -13250,33 +13338,33 @@ class TestOptionsPositionBudget(unittest.TestCase):
     # here would just have to be rewritten every time either moves -- while
     # silently passing if the CLAMP itself were removed, which is the thing
     # actually worth protecting.
-    @property
-    def _rate(self):
-        return min(a.OPTIONS_MAX_POSITION_PCT, a.MAX_TRADE_LOSS_PCT)
+    @staticmethod
+    def _base(eq):
+        """Mirror of the production BASE rule: percentage ceilings AND the
+        absolute dollar cap, whichever is smallest."""
+        return round(eq * min(a.OPTIONS_MAX_POSITION_PCT, a.MAX_TRADE_LOSS_PCT), 2)
 
     def test_budget_scales_with_current_equity(self):
         with patch.object(a, "get_effective_account", return_value=10_000.0):
-            self.assertEqual(a._options_position_budget(), round(10_000.0 * self._rate, 2))
+            self.assertEqual(a._options_position_budget(), self._base(10_000.0))
 
     def test_budget_shrinks_as_account_shrinks(self):
         with patch.object(a, "get_effective_account", return_value=3_273.0):
-            self.assertAlmostEqual(a._options_position_budget(),
-                                    round(3_273.0 * self._rate, 2), places=2)
+            self.assertAlmostEqual(a._options_position_budget(), self._base(3_273.0), places=2)
 
     def test_not_cached_reflects_a_fresh_get_effective_account_call_each_time(self):
         with patch.object(a, "get_effective_account", side_effect=[5_000.0, 2_000.0]):
             first  = a._options_position_budget()
             second = a._options_position_budget()
-        self.assertEqual(first,  round(5_000.0 * self._rate, 2))
-        self.assertEqual(second, round(2_000.0 * self._rate, 2))
+        self.assertEqual(first,  self._base(5_000.0))
+        self.assertEqual(second, self._base(2_000.0))
 
     def test_per_trade_loss_ceiling_actually_binds(self):
         # The whole point of the clamp: an option's max loss IS its premium,
         # so the budget cannot exceed MAX_TRADE_LOSS_PCT of equity no matter
         # what OPTIONS_MAX_POSITION_PCT says.
         with patch.object(a, "OPTIONS_MAX_POSITION_PCT", 0.90),              patch.object(a, "get_effective_account", return_value=10_000.0):
-            self.assertEqual(a._options_position_budget(),
-                             round(10_000.0 * a.MAX_TRADE_LOSS_PCT, 2))
+            self.assertEqual(a._options_position_budget(), self._base(10_000.0))
 
     def test_ceiling_is_within_the_instructed_band(self):
         # Direct instruction 2026-09-04: "keep loss max 5-7.5%".

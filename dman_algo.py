@@ -681,6 +681,28 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # moonshot capped at PORTFOLIO_HEAT_LIMIT 6%) and are clamped anyway so the
 # rule holds if those are ever raised.
 MAX_TRADE_LOSS_PCT = 0.075       # ceiling on what ONE trade may lose, % of equity
+
+# Elevated tier. Direct instruction 2026-09-04: "$250 at the 7.5% capped
+# loss but increased to $500 only on guaranteed setups with absolute
+# confidence ... like nvda, snow, palo, mongodb".
+#
+# Expressed as PERCENTAGES, not the stated dollars, deliberately. A flat
+# dollar cap is what turned a $2,000 options budget into 61% of a $3,273
+# account (see OPTIONS_MAX_POSITION_PCT's history), and it also freezes
+# position size as the account grows -- the opposite of compounding toward
+# $25k. At $2,973 equity these resolve to $223 / $446, within ~10% of the
+# stated $250 / $500, and they reach those figures exactly at ~$3,333.
+#
+# Said plainly, because it is not what the word "guaranteed" implies: no
+# setup here is guaranteed. UMAC scored 100/100 -- the maximum this system
+# can express -- and lost 42.5%. SMCI lost 94.7% of premium. Score 100 is
+# 2W/1L across the whole live options record. The elevated tier is a
+# deliberate risk CHOICE, not a detected certainty, so it is gated on the
+# strongest objective signals available and hard-capped in dollars.
+ELEVATED_TRADE_LOSS_PCT = 0.15   # 2x base -- $446 at current equity, ~$500 at $3,333
+ELEVATED_MIN_SCORE      = 90     # confluence floor to qualify for the larger size
+MAX_ELEVATED_POSITIONS  = 1      # at most ONE oversized position open at a time --
+                                   # two $500 losses is a third of the account
 ATR_PCT_MIN          = 1.5       # stock must move at least 1.5% avg daily
 AVG_DOLLAR_VOL_MIN   = 50_000_000  # $50M avg daily dollar volume floor
 MACRO_BLACKOUT       = 1         # days before/after FOMC/NFP to avoid
@@ -11657,19 +11679,66 @@ def get_effective_account() -> float:
     return max(adjusted, ACCOUNT_SIZE * 0.5)   # floor at 50% of configured size
 
 
-def _options_position_budget() -> float:
+def _elevated_size_reason(sig) -> Optional[str]:
+    """Why `sig` qualifies for the larger ELEVATED budget, or None.
+
+    "Absolute confidence" is not something this system can detect, so this
+    stands in for it with the strongest objective conditions available:
+
+      - confluence score >= ELEVATED_MIN_SCORE (the winners in the live
+        options record came in at 100),
+      - a WATCHLIST large cap -- the named examples (NVDA, SNOW, PANW, MDB)
+        are all liquid names whose options actually have two-sided markets,
+      - fewer than MAX_ELEVATED_POSITIONS oversized positions already open.
+
+    The last one is the real protection. Two $500 losses is a third of a
+    $2,973 account, and the live record says score 100 is 2W/1L (UMAC scored
+    100 and lost 42.5%) -- so the tier has to be bounded by CONCURRENCY, not
+    just by conviction.
+    """
+    try:
+        if getattr(sig, "confluence_score", 0) < ELEVATED_MIN_SCORE:
+            return None
+        if sig.ticker not in WATCHLIST:
+            return None
+        _open = sum(1 for p in PositionTracker().positions
+                    if getattr(p, "elevated_size", False))
+        if _open >= MAX_ELEVATED_POSITIONS:
+            return None
+        return (f"score {sig.confluence_score}/100, WATCHLIST large cap, "
+                f"{_open}/{MAX_ELEVATED_POSITIONS} elevated slots used")
+    except Exception:
+        return None
+
+
+def _options_position_budget(sig=None) -> float:
     """Target dollar budget for one options trade — see OPTIONS_MAX_POSITION_PCT's
     docstring for why this replaced a flat dollar constant. Computed fresh on
     every call (not cached) so it always reflects get_effective_account()'s own
-    5-min-cached live equity, not a stale snapshot from whenever this was last read."""
-    # min() with MAX_TRADE_LOSS_PCT, not a bare multiply: an option's max loss
+    5-min-cached live equity, not a stale snapshot from whenever this was last read.
+
+    Two tiers (see MAX_TRADE_LOSS_PCT). `sig`, when given and qualifying via
+    _elevated_size_reason(), gets the larger one. Omitting `sig` always
+    returns the BASE budget, so any caller that has not opted in explicitly
+    cannot accidentally size up.
+    """
+    _eq = get_effective_account()
+    # min() with the loss ceiling, not a bare multiply: an option's max loss
     # IS its premium, so the budget and the worst case are the same number.
     # OPTIONS_MAX_POSITION_PCT stays the strategy target (what you'd want at
-    # scale); MAX_TRADE_LOSS_PCT is the hard ceiling and wins while it is
-    # lower. Raising the target alone will NOT loosen the cap -- raise the
-    # ceiling too, deliberately.
-    return round(get_effective_account()
-                 * min(OPTIONS_MAX_POSITION_PCT, MAX_TRADE_LOSS_PCT), 2)
+    # scale); the ceilings win while they are lower. Raising the target alone
+    # will NOT loosen the cap -- raise the ceiling too, deliberately.
+    _base = _eq * min(OPTIONS_MAX_POSITION_PCT, MAX_TRADE_LOSS_PCT)
+    if sig is None:
+        return round(_base, 2)
+    _why = _elevated_size_reason(sig)
+    if not _why:
+        return round(_base, 2)
+    _elev = _eq * ELEVATED_TRADE_LOSS_PCT
+    _elev = max(_elev, _base)          # never smaller than base
+    print(f"  ⬆️  Elevated size for {sig.ticker}: ${_elev:,.0f} "
+          f"(base ${_base:,.0f}) — {_why}")
+    return round(_elev, 2)
 
 
 _live_cash_cache: dict = {"cash": None, "ts": 0.0}
@@ -12538,6 +12607,16 @@ class OpenPosition:
                                # would silently miss every options fill from this
                                # flow. False (default) for every other position type,
                                # including one tracked before this field existed.
+    elevated_size: bool = False   # True when this entry was sized at the larger
+                                    # ELEVATED budget (see _elevated_size_reason).
+                                    # Its own field for the same reason day_only
+                                    # above is: the options branch overwrites
+                                    # `setup`, and cost alone can't distinguish an
+                                    # elevated entry from a base-sized one that
+                                    # simply had an expensive contract. Needed so
+                                    # MAX_ELEVATED_POSITIONS can be counted at all.
+                                    # False for anything tracked before this
+                                    # field existed.
 
 
 def _position_identity(ticker: str, setup: str) -> str:
@@ -19762,7 +19841,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if _use_options:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(_options_position_budget() * _risk_off_mult, 2)
+                _opt_risk = round(_options_position_budget(sig) * _risk_off_mult, 2)
                 print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_call(
@@ -19778,7 +19857,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         elif _use_puts:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(_options_position_budget() * _risk_off_mult, 2)
+                _opt_risk = round(_options_position_budget(sig) * _risk_off_mult, 2)
                 print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_put(
@@ -19880,6 +19959,13 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     atr        = _delta,
                     score      = sig.confluence_score,
                     day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP),
+                    # Recomputed rather than threaded down from the budget:
+                    # _elevated_size_reason() is a cheap pure check, so the
+                    # flag can never drift from the rule that actually
+                    # governs the tier. It is what MAX_ELEVATED_
+                    # POSITIONS counts, so this would silently
+                    # un-cap concurrency if it were wrong.
+                    elevated_size = _elevated_size_reason(sig) is not None,
                 ))
                 if not _tracked:
                     print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} options order {oid[:8]}")

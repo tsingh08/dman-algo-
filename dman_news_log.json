@@ -1,365 +1,5 @@
 [
   {
-    "ts": "2026-09-03T13:35:19.871720-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla-Tied ETF Rallies 11% as TSLA Jumps on Cybercab Hype: Key Levels Traders Need to Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.872247-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "StoneX Reiterates Buy on Tesla, Maintains $475 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.872803-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Michael Burry Comes for Palantir Again \u2014 This Time it&#39;s the Balance Sheet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.873528-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.874135-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Piper Sandler Reiterates Overweight on Snowflake, Raises Price Target to $450",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.874697-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Snowflake, Raises Price Target to $430",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.875259-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.876040-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Snowflake, Raises Price Target to $425",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.876724-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.877348-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Here&#39;s How Much $1000 Invested In Palantir Technologies 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.877946-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Michael Burry Comes for Palantir Again \u2014 This Time it&#39;s the Balance Sheet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.878526-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Jensen Huang Says AI Is a &#39;Five-Layer Cake.&#39; Nvidia Is Just One Slice",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.879126-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "What\u2019s Bugging Palantir\u2019s Stock? Analyst Says Google\u2019s New AI Tools for Government",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.879762-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Broadcom, Lowers Price Target to $578",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.880380-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Snowflake Signals Surging AI Data Cloud Demand; Broadcom Sees Strong Chip Demand Through 2028; Yen Strengthens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.880997-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "TD Cowen Maintains Buy on Broadcom, Lowers Price Target to $475",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.881601-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Broadcom Q2 AI Revenue Grows Over 200%, Guidance Restricted By Supply Constraints",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.882245-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Truist Securities Maintains Buy on Broadcom, Lowers Price Target to $520",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.882907-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "If You Invested $1000 In Applied Materials Stock 20 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.883577-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Broadcom\u2019s AI Boom Has A Memory Problem",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.884242-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Why This Analyst Says Memory Stock Valuations \u2018Make a Lot of Sense\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.884959-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Why This Analyst Says Memory Stock Valuations \u2018Make a Lot of Sense\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.885862-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Broadcom\u2019s AI Boom Has A Memory Problem",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.886544-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "NetApp, Hewlett Packard Enterprise And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.887239-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Why This Analyst Says Memory Stock Valuations \u2018Make a Lot of Sense\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.887987-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going on With Marvell Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.888788-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on ON Semiconductor, Lowers Price Target to $95",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-03T13:35:19.889520-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Chain Could Force Wall Street To Rethink Arbitrum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.890253-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Surging Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.890994-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Prediction Markets Face Supreme Court Test as New Jersey Takes On Kalshi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.891707-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Summit Therapeutics, HUTCHMED, Tesla And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.892686-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Coinbase Adds Elon Musk&#39;s Alumni to Board Amid Canada Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.893460-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Truist Securities Maintains Buy on Affirm Holdings, Raises Price Target to $85",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.898028-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "This Sonoco Analyst Is No Longer Bullish; Here Are Top 4 Downgrades For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.900259-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "CrowdStrike To Rally Over 15%? Here Are 10 Top Analyst Forecasts For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-03T13:35:19.901057-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Rothschild &amp; Co Downgrades Moderna to Sell, Raises Price Target to $81",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-03T13:35:19.901884-04:00",
     "symbols": [
       "ABBV"
@@ -5056,5 +4696,365 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-04T13:49:50.043582-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:50.159470-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:50.328564-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:51.011767-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "8 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:51.393598-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:51.499269-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:51.747015-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:51.913519-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:51.917985-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:52.037590-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:52.042017-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:52.203697-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:52.323763-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:52.989423-04:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "8 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:53.097645-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "9 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:53.206346-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Roth Capital Maintains Buy on CrowdStrike Holdings, Raises Price Target to $220",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:53.315183-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:53.658319-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:53.778944-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "8 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:54.376288-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "9 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:55.123720-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:55.338233-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:49:55.447801-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:55.660446-04:00",
+    "symbols": [
+      "FICO"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-04T13:49:55.664942-04:00",
+    "symbols": [
+      "FICO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-04T13:49:55.669210-04:00",
+    "symbols": [
+      "FICO"
+    ],
+    "headline": "FICO Stock Slides Friday: What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-04T13:49:56.249069-04:00",
+    "symbols": [
+      "EFX"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:56.253569-04:00",
+    "symbols": [
+      "EFX"
+    ],
+    "headline": "Equifax Stock Slides Friday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:56.257951-04:00",
+    "symbols": [
+      "EFX"
+    ],
+    "headline": "FICO Stock Falls Pre-Market After Bill Pulte Declares \u2018No More\u2019 to FICO\u2019s Mortgage Scoring Monopoly \u2014 Orders Fannie Mae, Freddie Mac to Open Door to VantageScore",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:56.370931-04:00",
+    "symbols": [
+      "AMBA"
+    ],
+    "headline": "Roth Capital Maintains Neutral on Ambarella, Lowers Price Target to $65",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:56.934422-04:00",
+    "symbols": [
+      "DOMO"
+    ],
+    "headline": "Domo Q2 EPS $(0.21) Beats $(0.31) Estimate, Sales $76.783M Miss $78.056M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:49:57.044966-04:00",
+    "symbols": [
+      "GWRE"
+    ],
+    "headline": "SanDisk Jumps 10%, Lululemon Crashes 17%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:57.049572-04:00",
+    "symbols": [
+      "GWRE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:57.054115-04:00",
+    "symbols": [
+      "GWRE"
+    ],
+    "headline": "Gold Falls Over 1%; American Outdoor Brands Shares Jump After Q1 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:57.058906-04:00",
+    "symbols": [
+      "GWRE"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Guidewire Software, Raises Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:49:57.063485-04:00",
+    "symbols": [
+      "GWRE"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Guidewire Software, Raises Price Target to $195",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

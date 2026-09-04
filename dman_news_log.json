@@ -4509,5 +4509,67 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:13:59.987662-04:00",
+    "symbols": [
+      "DUOL",
+      "HOOD"
+    ],
+    "headline": "This Ormat Technologies Analyst Is No Longer Bearish; Here Are Top 3 Upgrades For Friday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:15:55.828447-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Citigroup Maintains Buy on Broadcom, Raises Price Target to $515",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T12:16:32.588728-04:00",
+    "symbols": [
+      "SPY",
+      "STKH"
+    ],
+    "headline": "&#39;Trump Expected To Sign A Beef-Related Executive Order On Friday&#39; - Reuters News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:16:38.560384-04:00",
+    "symbols": [
+      "STKH"
+    ],
+    "headline": "&#39;Trump Expected To Sign A Beef-Related Executive Order On Friday&#39; - Reuters News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:16:44.947297-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Oracle, Raises Price Target to $210",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T12:17:54.472878-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Reported Earlier: &#34;Apple Poised To Unveil Most Expensive iPhone Yet, Fuelled By Memory Price Surge; TrendForce Says 20 Per Cent Increase Is \u201cModerate\u201d, With Memory Costs For 256-Gigabyte iPhone 18 Pro Model Up Nearly 400 Per Cent In A Year&#34;- SCMP",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

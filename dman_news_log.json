@@ -4631,5 +4631,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T12:33:35.993975-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S., China AI Talks Tentatively Scheduled For Mid-September; China Views AI Talks As Major Deliverable For Upcoming Trump-Xi Summit; U.S. Worried About A Future Mythos-Level Chinese AI Model; U.S., China To Discuss Joint Monitoring Of AI-Directed Cyberattacks, Sources Say&#39; - Reuters Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T12:37:29.492317-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Fed&#39;s Hammack Says Fed Policy Not Restrictive And Inflation Is Too High; Local Contact Views Indicate Now Is Time For Fed To Hike To Control Inflation&#39; - LinkedIn",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

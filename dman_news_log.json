@@ -3610,5 +3610,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T09:45:04.730323-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Analysts Boost Their Forecasts After Better-Than-Expected Q4 Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T09:46:03.246443-04:00",
+    "symbols": [
+      "OFAL"
+    ],
+    "headline": "OFA Group shares are trading higher after the company announced its QikBIM platform logged more than 280,000 views and thousands of new followers in its first 90 days.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

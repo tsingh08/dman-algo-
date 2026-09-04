@@ -1740,5 +1740,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T15:37:01.394970-04:00",
+    "symbols": [
+      "AAPL",
+      "NVDA"
+    ],
+    "headline": "Congressman Sells Apple Two Weeks Before CEO Change, Buys Another Magnificent Seven Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T15:40:22.336019-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Macquarie Maintains Outperform on Zscaler, Raises Price Target to $200",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -3670,5 +3670,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T10:06:14.818574-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Samsara, Raises Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

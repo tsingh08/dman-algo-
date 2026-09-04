@@ -887,9 +887,30 @@ def scan_loop() -> None:
                     # call, commented "force fresh data") — this loop needs
                     # the identical fix for the identical reason.
                     algo._cache.clear()
+                    # Low-PRICED catalyst names are scanned on THIS 10-minute
+                    # cadence, not left to the hourly cron. Direct instruction
+                    # 2026-09-03, clarifying that "low float" here means low
+                    # share PRICE, not share count: these are the plays the
+                    # account is actually trying to compound on, and they are
+                    # exactly the ones that resolve fastest -- a $0.80 name
+                    # that runs 30% does it in minutes, so being looked at
+                    # once an hour means being looked at after the move.
+                    # Confirmed from the scan log the same day: every
+                    # in-session pass logged universe "daemon-curated" with
+                    # 81 tickers -- the 121 curated small-caps were not in
+                    # any of them.
+                    #
+                    # Still the CURATED list, not the broad Finviz net
+                    # (include_dynamic_smallcap stays False): that keeps the
+                    # per-cycle cost bounded and known (81 -> ~202 tickers,
+                    # comparable to the cron's own 161-ticker "all" pass)
+                    # instead of an unbounded screener result on a 10-minute
+                    # loop.
+                    _daemon_universe = list(dict.fromkeys(
+                        list(algo.WATCHLIST) + sorted(algo.DMAN_SMALLCAP_WATCHLIST)))
                     signals = algo.run_pro_scanner(
-                        algo.WATCHLIST, use_ai=False, universe_label="daemon-curated",
-                        include_dynamic_smallcap=False,   # broad Finviz net already covered hourly by cron
+                        _daemon_universe, use_ai=False, universe_label="daemon-curated+smallcap",
+                        include_dynamic_smallcap=False,   # broad Finviz net still hourly via cron
                     )
                     if signals:
                         log(f"{len(signals)} signal(s) found — submitting")

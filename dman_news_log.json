@@ -4165,5 +4165,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:07:04.608252-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "What&#39;s Going On With Strategy Stock on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:07:11.466706-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "AMC Stock Pops on Robinhood Feud, But 892 Million Shares Is the Real Dilution Story",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:07:11.470599-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "What&#39;s Going On With AMC Entertainment Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:07:11.474497-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "AMC Entertainment CEO Adam Aron, In An X Post On Thursday, Said Robinhood Is Apparently Behind Tokenized Stock Tokens For AMC And 190+ Other Companies, Said AMC Has No Connection To Or Endorsement Of It And Will Have Outside Securities Counsel Investigate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:07:11.478371-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Why Samsara Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T11:07:30.698742-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Reacts to Jobs Data: &#39;Lower The Rate or I\u2019ll Stop Trading With Countries&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

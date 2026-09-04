@@ -1783,5 +1783,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T16:00:25.040639-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Justice Dept Says Report DOJ Asked Antitrust Division To Pause Work With Canada Government Is &#34;False&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T16:00:26.156153-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "If You Invested $1000 In Broadcom Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T16:00:28.172897-04:00",
+    "symbols": [
+      "HOOD",
+      "SNDK"
+    ],
+    "headline": "Jobs Blowout Revives Rate-Hike Bets, but Record Earnings Cushion the Blow: This Week on Wall Street",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

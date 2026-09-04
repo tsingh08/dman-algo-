@@ -1674,5 +1674,19 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T14:55:28.258204-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "ARM",
+      "KLAC",
+      "MRVL"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading higher. The broader industry may be rallying alongside memory and storage-related peers.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

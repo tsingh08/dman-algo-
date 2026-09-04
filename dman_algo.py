@@ -616,7 +616,14 @@ VIX_SIZE_BASE = 20.0   # baseline VIX; size is 1.0x at or below this level
 SEASONAL_WEAK_MONTHS = {1, 7, 8, 9, 12}
 SEASONAL_MIN_SCORE   = 92          # raised bar during weak months
 
-# ADX trend-strength gate — skip directionless/choppy stocks before any pattern check
+# ADX trend-strength floor. NOT a hard gate despite what this comment used
+# to claim ("skip directionless/choppy stocks before any pattern check") --
+# no such gate exists or ever did. ADX is used in exactly two places: the
+# 5-point "ADX Trend" component of score_signal(), and detect_regime()'s
+# CHOP determination. Both hard-coded the number 20 and never referenced
+# this constant, so it read as a tuning knob while being completely inert.
+# Both now reference it. Same class of silent-no-op as the SETUP_MIN_
+# CONFLUENCE dead code and the hard-coded scan-log [:20].
 ADX_TREND_MIN = 20                 # <20 = ranging market; patterns fail more often
 
 ALLOW_SHORTS       = False   # all short setups disabled — prevents accidental live short orders
@@ -9286,7 +9293,7 @@ def get_market_regime() -> dict:
         spy_above_50  = float(sr["Close"]) > float(sr["EMA50"])
         spy_above_200 = float(sr["Close"]) > float(sr["SMA200"])
         adx_val       = float(sr["ADX"]) if not pd.isna(sr["ADX"]) else 0
-        adx_strong    = adx_val >= 20
+        adx_strong    = adx_val >= ADX_TREND_MIN
         bull_di       = float(sr["PLUS_DI"]) > float(sr["MINUS_DI"])
 
         # VIX
@@ -11452,10 +11459,69 @@ def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int) -> None
     _write_json_atomic(filepath, {"entries": entries}, indent=2)
 
 
+def _live_equity_no_fallback() -> Optional[float]:
+    """
+    Live Alpaca equity, or None if it can't be read right now.
+
+    Deliberately does NOT route through get_effective_account(): that
+    function's fallback path calls get_todays_loss(), so using it from
+    inside get_todays_loss() would recurse infinitely the moment the live
+    fetch failed -- i.e. exactly when the fallback matters. Shares the same
+    5-minute _live_equity_cache so this adds no extra API traffic.
+    """
+    try:
+        if (_live_equity_cache["equity"] > 0
+                and time.time() - _live_equity_cache["ts"] <= 300):
+            return float(_live_equity_cache["equity"])
+        _c = get_alpaca_client()
+        if _c is None:
+            return None
+        _eq = float(getattr(_c.get_account(), "equity", 0) or 0)
+        if _eq > 0:
+            _live_equity_cache["equity"] = _eq
+            _live_equity_cache["ts"]     = time.time()
+            return _eq
+    except Exception:
+        return None
+    return None
+
+
 def get_todays_loss() -> float:
-    """Return today's realized P&L as a signed percentage of account
-    size. Negative = loss. Returns 0.0 if no trades recorded today."""
-    return _period_pnl_total(DAILY_PNL_FILE, datetime.now(ET).date().isoformat())
+    """Return today's P&L as a signed percentage of account size.
+    Negative = loss. Returns 0.0 if nothing is known.
+
+    Takes the WORSE of two independent measures:
+
+      1. the sum of RECORDED closes in dman_daily_pnl.json, and
+      2. the live account move since today's own baseline
+         (_get_day_start_equity, which excludes overnight deposits).
+
+    Measure 1 alone was the whole circuit breaker, and it is only as
+    complete as the close-recording pipeline. Confirmed live 2026-09-03:
+    MASK round-tripped (bought 12:26 ET, stopped out 12:47 ET) without
+    ever being recorded -- its tracker entry had been cleared while its
+    GTC entry was still working -- so the file summed to -1.70% for a day
+    the broker put at -2.39%. A 0.69pp blind spot against a 3% limit, i.e.
+    the breaker saw about three quarters of the real drawdown. The
+    recording bug itself is fixed, but a circuit breaker should not depend
+    on every upstream path being correct; measure 2 is derived from the
+    account itself and cannot miss a fill.
+
+    min() is what makes this fail-safe: the breaker can only ever trip
+    EARLIER than before, never later. Measure 2 also includes UNREALIZED
+    P&L on open positions, which is a deliberate tightening -- a -5% open
+    drawdown is real risk whether or not it has been crystallised.
+    """
+    _recorded = _period_pnl_total(DAILY_PNL_FILE, datetime.now(ET).date().isoformat())
+    try:
+        _eq = _live_equity_no_fallback()
+        if _eq and _eq > 0:
+            _base = _get_day_start_equity(_eq)
+            if _base and _base > 0:
+                return min(_recorded, (_eq - _base) / _base * 100.0)
+    except Exception:
+        pass
+    return _recorded
 
 
 def record_daily_pnl(pnl_pct: float) -> None:
@@ -13777,9 +13843,9 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     pdi_v = float(r_last["PLUS_DI"])  if ("PLUS_DI"  in r_last.index and not pd.isna(r_last["PLUS_DI"]))  else 0
     mdi_v = float(r_last["MINUS_DI"]) if ("MINUS_DI" in r_last.index and not pd.isna(r_last["MINUS_DI"])) else 0
     if signal.bias == "LONG":
-        adx_score = 5 if adx_v >= 25 and pdi_v > mdi_v else (2 if adx_v >= 20 else 0)
+        adx_score = 5 if adx_v >= 25 and pdi_v > mdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
     else:
-        adx_score = 5 if adx_v >= 25 and mdi_v > pdi_v else (2 if adx_v >= 20 else 0)
+        adx_score = 5 if adx_v >= 25 and mdi_v > pdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
     breakdown["ADX Trend"] = adx_score
 
     # 15. Ichimoku Cloud (10 pts)

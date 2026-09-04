@@ -5642,6 +5642,71 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestTodaysLossCrossChecksLiveEquity(unittest.TestCase):
+    """DAILY_LOSS_LIMIT is the -3% circuit breaker, and get_todays_loss() was
+    its only input: the sum of RECORDED closes in dman_daily_pnl.json. That
+    makes the breaker exactly as complete as the close-recording pipeline.
+
+    Confirmed live 2026-09-03: MASK round-tripped (bought 12:26 ET, stopped
+    out 12:47 ET) and was never recorded -- its tracker entry had been
+    cleared while its GTC entry was still working -- so the file summed to
+    -1.70% on a day the broker put at -2.39%. A 0.69pp blind spot against a
+    3% limit: the breaker saw about three quarters of the real drawdown."""
+
+    def test_live_equity_drawdown_wins_when_recording_missed_a_loss(self):
+        # The actual Thursday numbers.
+        with patch.object(a, "_period_pnl_total", return_value=-1.70), \
+             patch.object(a, "_live_equity_no_fallback", return_value=2973.12), \
+             patch.object(a, "_get_day_start_equity", return_value=3046.06):
+            self.assertAlmostEqual(a.get_todays_loss(), -2.395, places=2)
+
+    def test_recorded_wins_when_it_is_the_worse_number(self):
+        # min(), not "prefer live" -- a realised loss already banked must not
+        # be masked by an intraday bounce in open positions.
+        with patch.object(a, "_period_pnl_total", return_value=-2.5), \
+             patch.object(a, "_live_equity_no_fallback", return_value=3000.0), \
+             patch.object(a, "_get_day_start_equity", return_value=3000.0):
+            self.assertEqual(a.get_todays_loss(), -2.5)
+
+    def test_falls_back_to_recorded_when_equity_unavailable(self):
+        with patch.object(a, "_period_pnl_total", return_value=-1.1), \
+             patch.object(a, "_live_equity_no_fallback", return_value=None):
+            self.assertEqual(a.get_todays_loss(), -1.1)
+
+    def test_zero_baseline_does_not_divide_by_zero(self):
+        with patch.object(a, "_period_pnl_total", return_value=-0.5), \
+             patch.object(a, "_live_equity_no_fallback", return_value=3000.0), \
+             patch.object(a, "_get_day_start_equity", return_value=0.0):
+            self.assertEqual(a.get_todays_loss(), -0.5)
+
+    def test_exception_anywhere_falls_back_to_recorded(self):
+        with patch.object(a, "_period_pnl_total", return_value=-0.9), \
+             patch.object(a, "_live_equity_no_fallback", side_effect=Exception("api")):
+            self.assertEqual(a.get_todays_loss(), -0.9)
+
+    def test_no_infinite_recursion_with_get_effective_account(self):
+        # get_effective_account()'s FALLBACK path calls get_todays_loss().
+        # Routing the equity read through it would recurse forever exactly
+        # when the live fetch fails -- i.e. when the fallback matters.
+        # _live_equity_no_fallback must never call it.
+        with patch.object(a, "get_effective_account",
+                          side_effect=AssertionError("must not be called")), \
+             patch.object(a, "get_alpaca_client", return_value=None):
+            a._live_equity_cache["equity"] = 0.0
+            a._live_equity_cache["ts"] = 0.0
+            self.assertIsNone(a._live_equity_no_fallback())
+
+    def test_live_equity_helper_uses_the_shared_cache(self):
+        import time as _t
+        a._live_equity_cache["equity"] = 4242.0
+        a._live_equity_cache["ts"] = _t.time()
+        with patch.object(a, "get_alpaca_client",
+                          side_effect=AssertionError("should have used cache")):
+            self.assertEqual(a._live_equity_no_fallback(), 4242.0)
+        a._live_equity_cache["equity"] = 0.0
+        a._live_equity_cache["ts"] = 0.0
+
+
 class TestWatchlistSectorIntegrity(unittest.TestCase):
     """Sector breadth added 2026-09-03 (options on large caps across the
     popular/growing sectors). These lock the two ways that expansion can

@@ -3772,5 +3772,36 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T10:29:08.962455-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle shares are trading higher after RBC Capital reiterated its Sector Perform rating on the stock and maintained a $190 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T10:29:15.359301-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk&#39;s SpaceX Is Already Renting AI Compute. Can Meta Catch Up?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T10:30:57.392267-04:00",
+    "symbols": [
+      "AVGO",
+      "NVDA"
+    ],
+    "headline": "AI Exuberance or Opportunity? NVIDIA, Broadcom Growth Keeps This Investor Bullish",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

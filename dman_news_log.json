@@ -4691,5 +4691,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-04T13:01:36.077498-04:00",
+    "symbols": [
+      "KLAC",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Oracle, Nvidia, KLA, FTAI Aviation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

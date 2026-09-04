@@ -300,6 +300,22 @@ OPTIONS_MIN_PRICE       = 10.0          # no options notes on sub-$10 stocks (il
 OPTIONS_TARGET_DTE      = 14            # target 2-week DTE — DMan gap plays resolve in 1-5 days
 OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — documents strike scan intent
 OPTIONS_CLOSE_DTE       = 7             # DTE ≤ 7 → close/roll warning from the monitor
+# Hard backstop: never carry a long option INTO expiry. Distinct from the
+# warning above on purpose -- OPTIONS_CLOSE_DTE stays advisory so a working
+# runner isn't cut a week early, while this one executes.
+#
+# Added 2026-09-03 after a piece-by-piece review found OPTIONS_CLOSE_DTE was
+# referenced exactly once, in a branch that only sends Telegram ("consider
+# close", "Close or roll now"). Nothing ever closed a single-leg option, so
+# a position could ride all the way to expiration on alerts alone -- and
+# the account owner has said plainly they cannot act on their phone during
+# the workday. Two outcomes, both bad: OTM expires worthless at -100%, or
+# ITM ASSIGNS. One ORCL contract assigning is ~$15,400 of stock delivered
+# into a $2,973 account -- a margin call and forced liquidation, a loss
+# with no relation to the premium risked. The zero-PDT options-only mode
+# added the same day deliberately HOLDS positions overnight, which makes
+# reaching expiry materially more likely, so this backstop ships with it.
+OPTIONS_FORCE_CLOSE_DTE = 1             # DTE ≤ 1 → auto-close, no assignment risk
 
 # Trailing exit for options premium — added 2026-08-10, replacing the fixed
 # T2 (+150%) auto-close. Confirmed live: a fixed target ignores how the
@@ -6877,7 +6893,39 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     _t1k, _trailk = f"{t}_{_kp}_T1_{_tod}",   f"{t}_{_kp}_TRAIL_{_tod}"
     _stopk, _dtek = f"{t}_{_kp}_STOP_{_tod}", f"{t}_{_kp}_DTE_{_tod}"
 
-    if not _trail_active and _exit_prem <= _stop_prem:
+    if _dte_now <= OPTIONS_FORCE_CLOSE_DTE:
+        # First in the chain on purpose: assignment avoidance outranks every
+        # strategy exit below it. In particular the T1 branch sells only HALF
+        # a position -- at DTE 1 that would leave the other half to expire.
+        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} expiry backstop")
+        if _st == "submitted":
+            _action = "⏳ EXPIRY BACKSTOP — AUTO-CLOSED"
+            _msg = (f"{_dte_now}d to expiry — closed to avoid assignment. "
+                    f"P&L: {_pnl_pct:+.0f}%. SELL ×{_ctrs} submitted "
+                    f"(id {_coid[:8]}…).")
+        elif _st == "pending":
+            _action = "⏳ EXPIRY BACKSTOP — close order working"
+            _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+        elif _st == "already_closed":
+            _action = "⏳ EXPIRY BACKSTOP — already closed at Alpaca"
+            _msg = "Nothing held — next sync records the P&L"
+        elif _st == "pdt_blocked":
+            # Only reachable for a contract opened TODAY that is already at
+            # DTE<=1 (a same-week expiry bought today). The PDT rule wins --
+            # a violation is 90 days of restriction, worse than this single
+            # position expiring -- but say plainly that it needs a human.
+            _action = "⚠️ EXPIRY — CANNOT AUTO-CLOSE (PDT budget exhausted)"
+            _msg = (f"{_dte_now}d to expiry and selling today would be day trade #4. "
+                    f"Holding. If this is ITM it may ASSIGN — close it manually "
+                    f"tomorrow, or accept assignment risk.")
+        else:
+            _action = "⚠️ EXPIRY BACKSTOP — AUTO-CLOSE FAILED"
+            _msg = (f"{_dte_now}d to expiry, P&L {_pnl_pct:+.0f}% — "
+                    f"SELL MANUALLY NOW to avoid assignment.")
+        if not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
+            send_telegram(f"⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
+            _mark_alerted(f"{t}_{_kp}_EXPIRY_{_tod}")
+    elif not _trail_active and _exit_prem <= _stop_prem:
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.
         _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} stop")

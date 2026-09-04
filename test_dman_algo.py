@@ -48,6 +48,7 @@ mocked so this suite is fast and deterministic regardless of market hours.
 """
 from __future__ import annotations
 
+import inspect
 import json
 import os
 import re
@@ -4241,8 +4242,20 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
         with open(self._pos_tmp.name, "w") as f:
             json.dump(positions, f)
 
+    # Forward-dated, not a pinned literal. The fixture used to hard-code
+    # expiry 2026-08-14, which silently rotted into the PAST -- every test
+    # in this class had been running _monitor_option_position() against an
+    # ALREADY-EXPIRED contract. It went unnoticed because the old DTE branch
+    # sat last in the elif chain and the stop/trail/T1 branches always won
+    # first. The 2026-09-03 expiry backstop runs FIRST (assignment
+    # avoidance outranks strategy exits), so it now legitimately fires on
+    # every one of them. A relative expiry keeps these tests exercising the
+    # trailing/stop/T1 logic they were written for, and cannot rot again.
+    OCC = f"SMCI{(datetime.now(a.ET).date() + timedelta(days=30)):%y%m%d}C00034000"
+
     def _pos(self, **overrides):
-        base = {"ticker": "SMCI", "setup": "Options Call SMCI260814C00034000 ($34C exp 2026-08-14)",
+        _exp = (datetime.now(a.ET).date() + timedelta(days=30)).isoformat()
+        base = {"ticker": "SMCI", "setup": f"Options Call {self.OCC} ($34C exp {_exp})",
                 "entry": 1.00, "stop": 0.50, "target1": 1.50, "target2": 2.50,
                 "atr": 0.45, "shares": 100, "peak_premium": 0.0,
                 "milestone_gain_alerted": 0.0, "milestone_loss_alerted": 0.0}
@@ -4508,7 +4521,7 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
                 with patch.object(a, "send_telegram", return_value=True):
                     with patch.object(a, "_update_option_position_field") as mock_update:
                         a._monitor_option_position(self._pos(peak_premium=1.00), "CALL")
-        mock_update.assert_any_call("SMCI260814C00034000", peak_premium=1.10)
+        mock_update.assert_any_call(self.OCC, peak_premium=1.10)
 
     def test_peak_premium_does_not_regress_on_a_lower_price(self):
         with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.80)):
@@ -4526,7 +4539,7 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
             with patch.object(a, "_submit_options_close", return_value=("submitted", "ord3")) as mock_close:
                 with patch.object(a, "send_telegram", return_value=True) as mock_tg:
                     a._monitor_option_position(pos, "CALL")
-        mock_close.assert_called_once_with("SMCI260814C00034000", 1, "SMCI CALL T1 half")
+        mock_close.assert_called_once_with(self.OCC, 1, "SMCI CALL T1 half")
         self.assertIn("T1 HIT", mock_tg.call_args[0][0])
 
     def test_t1_half_sell_updates_by_occ_symbol_not_ticker(self):
@@ -4543,7 +4556,7 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
                     with patch.object(a, "_update_option_position_field") as mock_opt_update, \
                          patch.object(a, "_update_position_field") as mock_ticker_update:
                         a._monitor_option_position(pos, "CALL")
-        mock_opt_update.assert_any_call("SMCI260814C00034000", shares=100, stop=1.00)
+        mock_opt_update.assert_any_call(self.OCC, shares=100, stop=1.00)
         mock_ticker_update.assert_not_called()
 
     def test_t1_single_contract_breakeven_updates_by_occ_symbol_not_ticker(self):
@@ -4553,7 +4566,7 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
                 with patch.object(a, "_update_option_position_field") as mock_opt_update, \
                      patch.object(a, "_update_position_field") as mock_ticker_update:
                     a._monitor_option_position(pos, "CALL")
-        mock_opt_update.assert_any_call("SMCI260814C00034000", stop=1.00)
+        mock_opt_update.assert_any_call(self.OCC, stop=1.00)
         mock_ticker_update.assert_not_called()
 
     def test_t1_fill_does_not_corrupt_a_sibling_position_on_the_same_ticker(self):
@@ -4562,7 +4575,7 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
         # call's T1 fill must leave the put's stop/shares completely
         # untouched.
         call_leg = self._pos(target1=1.20, shares=200,
-                             setup="Options Call SMCI260814C00034000 ($34C exp 2026-08-14)")
+                             setup=f"Options Call {self.OCC} ($34C exp future)")
         put_leg  = self._pos(target1=0.30, shares=300, stop=0.70, entry=0.50,
                              setup="Options Put SMCI260814P00029500 ($29.5P exp 2026-08-14)")
         self._write_positions([call_leg, put_leg])
@@ -5640,6 +5653,59 @@ class TestDayTradeLedger(unittest.TestCase):
             status = a._get_pdt_status()
         self.assertEqual(status["used"], 3)
         self.assertEqual(status["remaining"], 0)
+
+
+class TestOptionsExpiryBackstop(unittest.TestCase):
+    """Found in the 2026-09-03 piece-by-piece review: OPTIONS_CLOSE_DTE was
+    referenced in exactly ONE place, a branch that only sends Telegram
+    ("consider close", "Close or roll now"). Nothing ever closed a single-leg
+    option, so a position could ride all the way to expiration on alerts
+    alone -- and the account owner cannot act on their phone during the
+    workday. OTM that is -100%; ITM it ASSIGNS, and one ORCL contract is
+    ~$15,400 of stock delivered into a $2,973 account: a margin call and a
+    loss with no relation to the premium risked. The zero-PDT options-only
+    mode shipped the same day deliberately holds overnight, which makes
+    reaching expiry materially more likely."""
+
+    def test_force_close_dte_is_tighter_than_the_warning(self):
+        # The warning stays advisory so a working runner isn't cut a week
+        # early; only the backstop executes.
+        self.assertLess(a.OPTIONS_FORCE_CLOSE_DTE, a.OPTIONS_CLOSE_DTE)
+
+    def test_backstop_branch_runs_before_every_strategy_exit(self):
+        # Ordering is load-bearing: the T1 branch sells only HALF, so if a
+        # strategy branch won at DTE 1 the remainder would still expire.
+        src = inspect.getsource(a._monitor_option_position)
+        i_backstop = src.index("OPTIONS_FORCE_CLOSE_DTE")
+        for marker in ("_exit_prem <= _stop_prem", "_trail_active and _cur_prem",
+                       "_cur_prem >= _t1_prem"):
+            self.assertLess(i_backstop, src.index(marker),
+                            f"backstop must precede {marker!r}")
+
+    def test_backstop_uses_the_shared_close_choke_point(self):
+        # Which means it inherits the PDT guard for free rather than
+        # reimplementing it.
+        src = inspect.getsource(a._monitor_option_position)
+        seg = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
+        seg = seg[:seg.index("elif not _trail_active")]
+        self.assertIn("_submit_options_close(", seg)
+
+    def test_backstop_handles_pdt_blocked_without_telling_user_to_sell(self):
+        # A DTE<=1 contract opened TODAY can't be sold without a violation.
+        # The message must not tell them to sell today -- that is the exact
+        # action being prevented everywhere else.
+        src = inspect.getsource(a._monitor_option_position)
+        seg = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
+        seg = seg[:seg.index("elif not _trail_active")]
+        self.assertIn("pdt_blocked", seg)
+        self.assertIn("tomorrow", seg)
+
+    def test_close_dte_constant_is_still_wired(self):
+        # It was inert-adjacent before (one reference, alert-only). Both
+        # constants must now appear in the monitor.
+        src = inspect.getsource(a._monitor_option_position)
+        self.assertIn("OPTIONS_CLOSE_DTE", src)
+        self.assertIn("OPTIONS_FORCE_CLOSE_DTE", src)
 
 
 class TestTodaysLossCrossChecksLiveEquity(unittest.TestCase):

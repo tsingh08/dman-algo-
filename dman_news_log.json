@@ -1558,5 +1558,79 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T14:10:33.994142-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Jim Cramer Says Buy the Magnificent Seven Again, Traders See Nvidia as Clear Winner",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T14:10:49.238464-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Jim Cramer Says Buy the Magnificent Seven Again, Traders See Nvidia as Clear Winner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T14:10:49.393217-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Jim Cramer Says Buy the Magnificent Seven Again, Traders See Nvidia as Clear Winner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T14:10:49.477112-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jim Cramer Says Buy the Magnificent Seven Again, Traders See Nvidia as Clear Winner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T14:10:49.760379-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Jim Cramer Says Buy the Magnificent Seven Again, Traders See Nvidia as Clear Winner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T14:10:49.865076-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Jim Cramer Says Buy the Magnificent Seven Again, Traders See Nvidia as Clear Winner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T14:10:54.810326-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "BNP Paribas Maintains Outperform on Samsara, Raises Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

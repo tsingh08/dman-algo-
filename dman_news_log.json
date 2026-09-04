@@ -1548,5 +1548,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-04T14:04:45.563992-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia&#39;s Next AI Customer Isn&#39;t Building Chatbots\u2014It&#39;s Building Humanoid Robots",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

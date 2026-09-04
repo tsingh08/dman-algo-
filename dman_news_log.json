@@ -4327,5 +4327,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T11:30:24.341104-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "If You Invested $1000 In Costco Wholesale Stock 20 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:30:31.341797-04:00",
+    "symbols": [
+      "IOT"
+    ],
+    "headline": "B of A Securities Maintains Buy on Samsara, Raises Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T11:30:47.653954-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "DA Davidson Maintains Neutral on Broadcom, Lowers Price Target to $350",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

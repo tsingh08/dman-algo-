@@ -1,17 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "CDT",
-      "entry_px": 0.7014,
-      "stop_px": 0.6663,
-      "t1": 0.9118,
-      "t2": 1.0521,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-04T11:01:51.374511-04:00",
-      "expires_at": "2026-09-04T11:16:51.374511-04:00",
-      "status": "awaiting_approval"
-    },
-    {
       "ticker": "GTE",
       "entry_px": 10.0801,
       "stop_px": 9.7529,
@@ -45,5 +34,7 @@
       "status": "awaiting_approval"
     }
   ],
-  "consumed": {}
+  "consumed": {
+    "CDT_2026-09-04T11:01:51.374511-04:00": 1788535030.6266282
+  }
 }

@@ -5671,6 +5671,87 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestStateMergeListsCannotDrift(unittest.TestCase):
+    """dman_daemon.git_sync() and the cron scanner's --mode merge-positions
+    each kept their OWN list of semantic pre-merges, and the lists drifted:
+    the daemon ran nine, the scanner ran six. The three the scanner lacked
+    were daily P&L, monthly P&L and earnings-pending -- and the scanner
+    COMMITS those files regardless (they are in its workflow persist list),
+    so a scanner run could push its own fresh copy over the daemon's
+    accumulated one. The two P&L files are exactly what DAILY_LOSS_LIMIT and
+    MONTHLY_LOSS_LIMIT read; a dropped loss entry is a circuit breaker that
+    does not fire when it should.
+
+    Confirmed live 2026-09-04: dman_scan_log.json held 42 entries spanning
+    Thursday and Friday morning at 11:37 ET, and by 15:05 ET had restarted
+    from 13:59 with 12 -- the whole morning gone, which is why two separate
+    post-mortems of that session had to be reconstructed from order history
+    rather than from the log kept for that purpose."""
+
+    EXPECTED = (
+        "sync_positions_with_remote",
+        "sync_scan_log_with_remote",
+        "sync_win_rate_with_remote",
+        "sync_live_signals_with_remote",
+        "sync_alpaca_sync_state_with_remote",
+        "sync_news_log_with_remote",
+        "sync_daily_pnl_with_remote",
+        "sync_monthly_pnl_with_remote",
+        "sync_earnings_pending_with_remote",
+    )
+
+    def test_helper_covers_every_multi_writer_state_file(self):
+        src = inspect.getsource(a.sync_all_state_with_remote)
+        for fn in self.EXPECTED:
+            self.assertIn(fn, src, f"{fn} missing from the shared merge list")
+
+    def test_both_pnl_merges_are_present(self):
+        # The specific omission that let a scanner run clobber the files the
+        # loss limits are computed from.
+        src = inspect.getsource(a.sync_all_state_with_remote)
+        self.assertIn("sync_daily_pnl_with_remote", src)
+        self.assertIn("sync_monthly_pnl_with_remote", src)
+
+    def test_scanner_mode_delegates_rather_than_listing_its_own(self):
+        src = inspect.getsource(a.main) if hasattr(a, "main") else ""
+        if not src:
+            import pathlib
+            src = pathlib.Path("dman_algo.py").read_text(encoding="utf-8")
+        i = src.index('args.mode == "merge-positions"')
+        seg = src[i:i + 1400]
+        self.assertIn("sync_all_state_with_remote()", seg)
+        # and must NOT re-enumerate them, which is how it drifted before
+        self.assertNotIn("sync_scan_log_with_remote()", seg)
+
+    def test_daemon_delegates_too(self):
+        import pathlib
+        dm = pathlib.Path("dman_daemon.py").read_text(encoding="utf-8")
+        self.assertIn("algo.sync_all_state_with_remote()", dm)
+        self.assertNotIn("for _sync_fn in (algo.sync_positions_with_remote", dm)
+
+    def test_one_failing_merge_does_not_stop_the_rest(self):
+        calls = []
+        def ok(name):
+            def _f(): calls.append(name)
+            return _f
+        def boom():
+            calls.append("boom"); raise RuntimeError("feed down")
+        with patch.object(a, "sync_positions_with_remote", boom), \
+             patch.object(a, "sync_scan_log_with_remote", ok("scan")), \
+             patch.object(a, "sync_win_rate_with_remote", ok("wr")), \
+             patch.object(a, "sync_live_signals_with_remote", ok("ls")), \
+             patch.object(a, "sync_alpaca_sync_state_with_remote", ok("as")), \
+             patch.object(a, "sync_news_log_with_remote", ok("news")), \
+             patch.object(a, "sync_daily_pnl_with_remote", ok("daily")), \
+             patch.object(a, "sync_monthly_pnl_with_remote", ok("monthly")), \
+             patch.object(a, "sync_earnings_pending_with_remote", ok("earn")):
+            a.sync_all_state_with_remote()
+        self.assertIn("boom", calls)
+        self.assertIn("daily", calls)
+        self.assertIn("monthly", calls)
+        self.assertEqual(len(calls), 9)
+
+
 class TestImpossiblePnlEntriesRejected(unittest.TestCase):
     """The guard that was missing on 2026-09-04, and the most expensive gap
     found so far. The ARTL reverse split produced two fabricated closes which

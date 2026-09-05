@@ -13025,6 +13025,45 @@ def merge_positions_snapshots(local_list: list[dict], remote_list: list[dict],
     return list(by_ident.values())
 
 
+def sync_all_state_with_remote() -> None:
+    """
+    Run every semantic pre-merge, in one place, for every multi-writer state
+    file. Both writers call THIS rather than keeping their own list.
+
+    They had their own lists and the lists drifted. dman_daemon.git_sync()
+    ran nine merges; the cron scanner's `--mode merge-positions` ran six,
+    missing sync_daily_pnl_with_remote, sync_monthly_pnl_with_remote and
+    sync_earnings_pending_with_remote. The scanner still COMMITS those files
+    (they are in the workflow's persist list), so a scanner run could push
+    its own fresh copy over the daemon's accumulated one and silently drop
+    entries -- and the two P&L files are exactly what DAILY_LOSS_LIMIT and
+    MONTHLY_LOSS_LIMIT read. A lost loss entry means a circuit breaker that
+    does not fire when it should.
+
+    Confirmed live 2026-09-04: dman_scan_log.json held 42 entries spanning
+    Thursday and Friday morning at 11:37 ET, and by 15:05 ET had restarted
+    from 13:59 with 12 -- the whole morning gone, which is why two separate
+    post-mortems of that session had to be reconstructed from order history
+    instead of from the log written for exactly that purpose.
+
+    Each merge is independently guarded: one failing feed must not stop the
+    other eight from protecting their files.
+    """
+    for _fn in (sync_positions_with_remote,
+                sync_scan_log_with_remote,
+                sync_win_rate_with_remote,
+                sync_live_signals_with_remote,
+                sync_alpaca_sync_state_with_remote,
+                sync_news_log_with_remote,
+                sync_daily_pnl_with_remote,
+                sync_monthly_pnl_with_remote,
+                sync_earnings_pending_with_remote):
+        try:
+            _fn()
+        except Exception as exc:
+            print(f"  ⚠️  {_fn.__name__} failed (continuing): {exc}")
+
+
 def sync_positions_with_remote() -> None:
     """
     Pre-merge dman_positions.json against origin/main's copy BEFORE staging
@@ -20314,12 +20353,13 @@ def main():
         # often (every cron scan AND every 10-min daemon scan) that a
         # whole-file conflict-resolution silently discarded whichever
         # side's entry lost the race, every single time.
-        sync_positions_with_remote()
-        sync_scan_log_with_remote()
-        sync_win_rate_with_remote()
-        sync_live_signals_with_remote()
-        sync_alpaca_sync_state_with_remote()
-        sync_news_log_with_remote()
+        # Was six explicit calls here while dman_daemon.git_sync() ran nine.
+        # The three missing ones were daily P&L, monthly P&L and earnings
+        # pending -- and the scanner COMMITS those files regardless, so it
+        # could push a fresh copy over the daemon's accumulated one. Both
+        # writers now share sync_all_state_with_remote() so the lists cannot
+        # drift apart again.
+        sync_all_state_with_remote()
         return
     if args.mode == "watchdog":
         run_watchdog()

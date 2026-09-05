@@ -631,15 +631,14 @@ def git_sync() -> None:
         # whole-file conflict resolution was silently discarding
         # whichever side's entry lost the race.
         for _attempt in range(3):
-            for _sync_fn in (algo.sync_positions_with_remote, algo.sync_scan_log_with_remote,
-                            algo.sync_win_rate_with_remote, algo.sync_live_signals_with_remote,
-                            algo.sync_alpaca_sync_state_with_remote, algo.sync_news_log_with_remote,
-                            algo.sync_daily_pnl_with_remote, algo.sync_monthly_pnl_with_remote,
-                            algo.sync_earnings_pending_with_remote):
-                try:
-                    _sync_fn()
-                except Exception as exc:
-                    log(f"{_sync_fn.__name__} error (non-fatal): {exc}")
+            # Shared with the cron scanner (--mode merge-positions) via
+            # algo.sync_all_state_with_remote(). These lists used to be
+            # maintained separately and DRIFTED: this one ran nine merges,
+            # the scanner ran six, and the three it lacked included both
+            # P&L files -- the ones DAILY_LOSS_LIMIT and MONTHLY_LOSS_LIMIT
+            # read. Each merge is guarded inside the helper, so one failing
+            # feed cannot stop the others.
+            algo.sync_all_state_with_remote()
 
             # Re-check existence every attempt — the stash pop, pull, or
             # merge above may have created/removed files.

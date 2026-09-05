@@ -5490,6 +5490,14 @@ class TestDayTradeLedger(unittest.TestCase):
     live: entered AND closed 2026-09-02, a genuine day trade, with
     _get_pdt_status() still reporting used=0."""
 
+    @staticmethod
+    def _a_weekday():
+        """A date guaranteed to be inside _pdt_window_dates(). "Today" is not:
+        _pdt_window_dates() counts the last five TRADING days, so on a weekend
+        today is deliberately absent and any ledger row dated today falls
+        outside the window."""
+        return sorted(a._pdt_window_dates())[-1]
+
     def _mock_acct(self, equity="10000.0", dt_count=0):
         acct = MagicMock()
         acct.equity = equity
@@ -5532,7 +5540,7 @@ class TestDayTradeLedger(unittest.TestCase):
     def test_closed_day_trades_consume_the_budget(self):
         # The core regression: a CLOSED round trip must still count. Before
         # the ledger this read used=0 because nothing was open any more.
-        today = datetime.now(a.ET).date().isoformat()
+        today = self._a_weekday()
         ledger = [{"ticker": "EEE", "date": today},
                   {"ticker": "FFF", "date": today}]
         with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
@@ -5545,7 +5553,7 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertTrue(status["swing_mode"])
 
     def test_fourth_day_trade_is_blocked(self):
-        today = datetime.now(a.ET).date().isoformat()
+        today = self._a_weekday()
         ledger = [{"ticker": t, "date": today} for t in ("EEE", "FFF", "GGG")]
         with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
              patch.object(a, "_load_day_trades", return_value=ledger), \
@@ -5557,6 +5565,13 @@ class TestDayTradeLedger(unittest.TestCase):
 
     def test_closed_plus_still_open_are_summed(self):
         # Two consumed + one committed-but-still-open = 3 used, budget gone.
+        # This one pins the WINDOW rather than picking a weekday:
+        # _get_pdt_status() counts a still-open position as committed
+        # only when its entry_date equals the real calendar today, so the
+        # position must be dated today -- but on a weekend today is correctly
+        # absent from _pdt_window_dates(), which would drop the ledger rows.
+        # Pinning the window keeps this about the SUM of closed+open,
+        # rather than about which day it happens to run on.
         today = datetime.now(a.ET).date().isoformat()
         ledger = [{"ticker": "EEE", "date": today}, {"ticker": "FFF", "date": today}]
         positions = [a.OpenPosition(ticker="GGG", bias="LONG",
@@ -5564,6 +5579,7 @@ class TestDayTradeLedger(unittest.TestCase):
                                     entry=1.0, stop=0.9, target1=1.3, target2=1.5,
                                     shares=10, entry_date=today, day_only=True)]
         with patch.object(a, "get_alpaca_client", return_value=self._mock_acct()), \
+             patch.object(a, "_pdt_window_dates", return_value={today}), \
              patch.object(a, "_load_day_trades", return_value=ledger), \
              patch.object(a, "PositionTracker") as MockPT:
             MockPT.return_value.positions = positions
@@ -5576,7 +5592,7 @@ class TestDayTradeLedger(unittest.TestCase):
         # day. That's 2 day trades' worth of budget once the second closes,
         # but only ONE is consumed so far -- the open one must not be added
         # on top of its own already-recorded close.
-        today = datetime.now(a.ET).date().isoformat()
+        today = self._a_weekday()
         ledger = [{"ticker": "AAA", "date": today}]
         positions = [a.OpenPosition(ticker="AAA", bias="LONG",
                                     setup=a.MOMENTUM_DAY_ONLY_SETUP,
@@ -5620,7 +5636,7 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertIn("2026-09-01", window)
 
     def test_equity_over_25k_ignores_the_ledger_entirely(self):
-        today = datetime.now(a.ET).date().isoformat()
+        today = self._a_weekday()
         ledger = [{"ticker": t, "date": today} for t in ("E", "F", "G", "H")]
         with patch.object(a, "get_alpaca_client",
                           return_value=self._mock_acct(equity="30000.0")), \
@@ -5643,7 +5659,7 @@ class TestDayTradeLedger(unittest.TestCase):
         # If Alpaca ever does start reporting daytrade_count for this
         # account, the larger of the two signals must win rather than the
         # ledger masking it.
-        today = datetime.now(a.ET).date().isoformat()
+        today = self._a_weekday()
         with patch.object(a, "get_alpaca_client",
                           return_value=self._mock_acct(dt_count=3)), \
              patch.object(a, "_load_day_trades",
@@ -5653,6 +5669,115 @@ class TestDayTradeLedger(unittest.TestCase):
             status = a._get_pdt_status()
         self.assertEqual(status["used"], 3)
         self.assertEqual(status["remaining"], 0)
+
+
+class TestSplitContaminationGuard(unittest.TestCase):
+    """ARTL reverse-split ~1:9 between 2026-08-28 ($0.66) and 08-31 ($6.36).
+    Two records entered the live history as entry $6.16 -> exit $0.72 =
+    -88.29% and -89.01%, on dates ARTL actually traded at $0.73. They never
+    happened. The damage was to the FEEDBACK LOOP, not the account: they
+    dragged the SWING momentum setup's recorded average loss to -26.6% when
+    the true figure is -1.8%, a 15x distortion feeding setup_performance_
+    drift() and setup probation."""
+
+    def test_ratio_threshold_is_outside_any_stop_managed_move(self):
+        # SMALLCAP_STOP_PCT is 18%; nothing stop-managed produces 3x.
+        self.assertGreater(a.SPLIT_SUSPECT_RATIO, 1 / (1 - a.SMALLCAP_STOP_PCT))
+
+    def test_threshold_would_have_caught_the_artl_records(self):
+        self.assertGreaterEqual(6.16 / 0.72, a.SPLIT_SUSPECT_RATIO)
+
+    def test_threshold_does_not_flag_a_real_bad_loss(self):
+        # FGL genuinely lost 37.89% ($0.80 -> $0.50) -- must still record.
+        self.assertLess(0.80 / 0.50, a.SPLIT_SUSPECT_RATIO)
+
+    def test_guard_is_wired_into_the_equity_recording_path(self):
+        src = inspect.getsource(a.sync_alpaca_fills)
+        self.assertIn("SPLIT_SUSPECT_RATIO", src)
+        i_guard = src.index("SPLIT_SUSPECT_RATIO")
+        i_rec   = src.index("tracker.record(")
+        self.assertLess(i_guard, i_rec, "guard must precede the record() call")
+
+    def test_history_no_longer_contains_the_phantoms(self):
+        with open("dman_win_rate.json", encoding="utf-8") as f:
+            recs = json.load(f)
+        bad = [x for x in recs
+               if x["ticker"] == "ARTL" and x.get("pnl_pct") in (-88.29, -89.01)]
+        self.assertEqual(bad, [])
+
+
+class TestEarningsTimingUsesMassive(unittest.TestCase):
+    """_fetch_benzinga_earnings_time() called api.benzinga.com with
+    BENZINGA_API_KEY and returned None on essentially every call -- its own
+    docstring described that as expected. It was not: that endpoint answers
+    HTTP 401 for this account, because BENZINGA_API_KEY is a direct
+    Benzinga.com key while the working entitlement is the MASSIVE key. So
+    earnings TIMING -- what decides whether a play can be entered before a
+    print or must wait for the gap after -- was dead behind a comment
+    explaining why the silence was fine."""
+
+    @staticmethod
+    def _body():
+        """Source with the docstring stripped -- the docstring deliberately
+        NAMES the dead benzinga.com endpoint to record why it was replaced,
+        so asserting over the whole source would fail on its own history."""
+        src = inspect.getsource(a._fetch_benzinga_earnings_time)
+        parts = src.split('"""')
+        return parts[0] + ("".join(parts[2:]) if len(parts) > 2 else "")
+
+    def test_calls_the_massive_host_not_benzinga_direct(self):
+        body = self._body()
+        self.assertIn("api.massive.com", body)
+        self.assertNotIn("api.benzinga.com", body)
+
+    def test_uses_the_massive_key_not_the_dead_one(self):
+        body = self._body()
+        self.assertIn("MASSIVE_API_KEY", body)
+        self.assertNotIn("BENZINGA_API_KEY", body)
+
+    def _resp(self, results):
+        r = MagicMock(); r.status_code = 200
+        r.json.return_value = {"results": results}
+        return r
+
+    def setUp(self):
+        # The test module blanks every API key at import (see the top of this
+        # file) so no test can reach a live endpoint. That makes
+        # _fetch_benzinga_earnings_time() return None before it ever builds a
+        # request, which would make these mocks pass vacuously -- the request
+        # assertions below would be testing nothing at all.
+        self._k = patch.object(a, "MASSIVE_API_KEY", "test-key")
+        self._k.start()
+        self.addCleanup(self._k.stop)
+
+    def test_confirmed_amc_is_classified(self):
+        rows = [{"ticker": "ORCL", "date": "2026-09-10", "time": "16:05:00",
+                 "date_status": "confirmed"}]
+        with patch.object(a.requests, "get", return_value=self._resp(rows)):
+            self.assertEqual(
+                a._fetch_benzinga_earnings_time("ORCL", date(2026, 9, 10)), "AMC")
+
+    def test_projected_rows_return_none_rather_than_guessing(self):
+        # Benzinga marks far-out quarters "projected" (ORCL has them out to
+        # 2027-06); those are placeholders, not a schedule.
+        rows = [{"ticker": "ORCL", "date": "2026-12-09", "time": "16:00:00",
+                 "date_status": "projected"}]
+        with patch.object(a.requests, "get", return_value=self._resp(rows)):
+            self.assertIsNone(
+                a._fetch_benzinga_earnings_time("ORCL", date(2026, 12, 9)))
+
+    def test_date_mismatch_returns_none(self):
+        rows = [{"ticker": "ORCL", "date": "2026-09-10", "time": "16:05:00",
+                 "date_status": "confirmed"}]
+        with patch.object(a.requests, "get", return_value=self._resp(rows)):
+            self.assertIsNone(
+                a._fetch_benzinga_earnings_time("ORCL", date(2026, 9, 11)))
+
+    def test_http_error_fails_quietly(self):
+        r = MagicMock(); r.status_code = 401
+        with patch.object(a.requests, "get", return_value=r):
+            self.assertIsNone(
+                a._fetch_benzinga_earnings_time("ORCL", date(2026, 9, 10)))
 
 
 class TestSwingEntriesAreNeverDayOnly(unittest.TestCase):

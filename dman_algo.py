@@ -665,6 +665,13 @@ POSITIONS_FILE     = "dman_positions.json"
 # now holds this lock for its full read-through-write span.
 _POSITIONS_LOCK = threading.RLock()
 DAILY_PNL_FILE     = "dman_daily_pnl.json"
+# Entry/exit price ratio beyond which an EQUITY close is treated as a
+# corporate action (reverse split, etc.) rather than a real move. 3x is far
+# outside anything a stop-managed position can produce -- SMALLCAP_STOP_PCT
+# is 18% -- while being well inside the ~9x ARTL reverse split that put two
+# fabricated -88%/-89% losses into the live history on 2026-09-04.
+SPLIT_SUSPECT_RATIO = 3.0
+
 PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open positions
 
 # Hard per-trade loss ceiling, as a fraction of CURRENT equity. Direct
@@ -10159,45 +10166,61 @@ def _classify_bmo_amc(time_str: str, earn_date: date) -> Optional[str]:
 
 def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]:
     """
-    Best-effort BMO/AMC lookup via Benzinga's calendar endpoint. Returns "BMO",
-    "AMC", or None (unknown/unavailable).
+    BMO/AMC lookup for `ticker` on `earn_date`. Returns "BMO", "AMC", or None.
 
-    NOTE — empirically tested 2026-07-29 against the live BENZINGA_API_KEY on
-    this account: the endpoint's `tickers` filter is NOT applied server-side
-    (a `tickers=META` request still returns an unrelated generic page of
-    future estimated dates), and the bracketed `parameters[tickers]=META`
-    form returns zero results. This function therefore fetches whatever page
-    Benzinga returns and filters for `ticker`+`earn_date` client-side, which
-    only helps if the requested name happens to already be on that page. In
-    practice this currently returns None almost always on this account/plan
-    tier — get_earnings_spread_candidates() is written to treat that as the
-    normal case and fall through to the IV-backwardation heuristic below, not
-    as an error. Revisit if the Benzinga plan/endpoint behavior changes.
+    Rewritten 2026-09-05 onto Massive's Benzinga feed. The previous version
+    called api.benzinga.com/api/v2.1/calendar/earnings with BENZINGA_API_KEY
+    and had been returning None on essentially every call -- its own docstring
+    described that as expected and told callers to treat it as normal. It was
+    not normal: that endpoint answers HTTP 401 ("Access denied for user 0
+    anonymous") for this account, because BENZINGA_API_KEY is a direct
+    Benzinga.com key and this account's working entitlement is the MASSIVE
+    key. So earnings TIMING -- the thing that decides whether a play can be
+    entered before a print or has to wait for the gap after it -- was dead,
+    silently, behind a comment explaining why the silence was fine.
+
+    Massive is Polygon-shaped (the same base already serves
+    _fetch_massive_reference_news at /v2/reference/news with `apiKey`), and
+    it proxies Benzinga's earnings calendar at /benzinga/v1/earnings. That
+    endpoint DOES filter server-side by ticker and returns a real `time`
+    field, so the client-side scan the old version needed is gone. Verified
+    live: ORCL -> date 2026-09-10, time 16:05:00, date_status "confirmed".
+
+    `date_status` is carried into the decision: Benzinga marks far-out
+    quarters "projected" (ORCL has projected dates out to 2027-06) and those
+    are placeholders, not a schedule. Only "confirmed" rows are trusted for
+    timing; a projected row returns None so callers fall through to their
+    existing heuristics rather than acting on a guess.
     """
-    if not BENZINGA_API_KEY:
+    # MASSIVE_API_KEY already folds in BENZINGA_EARNING_API_KEY (see its
+    # definition) -- naming that env var again here referenced an undefined
+    # global that only stayed hidden because `or` short-circuits whenever
+    # MASSIVE_API_KEY is set.
+    _key = MASSIVE_API_KEY
+    if not _key:
         return None
     try:
         resp = requests.get(
-            "https://api.benzinga.com/api/v2.1/calendar/earnings",
-            params={"token": BENZINGA_API_KEY, "tickers": ticker},
+            "https://api.massive.com/benzinga/v1/earnings",
+            params={"apiKey": _key, "ticker": ticker.upper(), "limit": 12},
             headers={"Accept": "application/json"},
             timeout=8,
         )
         if resp.status_code != 200:
             return None
-        data = resp.json()
-        items = data if isinstance(data, list) else data.get("earnings", [])
-        for item in items:
+        for item in (resp.json() or {}).get("results", []) or []:
             if str(item.get("ticker", "")).upper() != ticker.upper():
                 continue
             try:
                 if date.fromisoformat(str(item.get("date", ""))[:10]) != earn_date:
                     continue
-            except Exception:
+            except (TypeError, ValueError):
                 continue
+            if str(item.get("date_status", "")).lower() != "confirmed":
+                return None          # projected placeholder — don't guess
             time_str = str(item.get("time", "")).strip()
             if not time_str:
-                continue
+                return None
             return _classify_bmo_amc(time_str, earn_date)
     except Exception:
         return None
@@ -17675,6 +17698,39 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 pnl_pct    = ((fill_px - pos.entry) / pos.entry * 100 if is_lo
                                else (pos.entry - fill_px) / pos.entry * 100)
                 dollar_pnl = (fill_px - pos.entry) * qty * (1 if is_lo else -1)
+                # Corporate-action sanity check. A tracked EQUITY entry price
+                # that no longer shares a price regime with its own exit is
+                # almost always a reverse split, not a real move: the tracker
+                # keeps the post-split number while the fill reports the
+                # pre-split one (or vice versa), and the subtraction invents a
+                # catastrophic loss out of a corporate action.
+                #
+                # Confirmed live 2026-09-04: ARTL reverse-split ~1:9 between
+                # 08-28 ($0.66) and 08-31 ($6.36). Two records went into the
+                # history as entry $6.16 -> exit $0.72 = -88.29% and -89.01%,
+                # on dates when ARTL actually traded at $0.73. They never
+                # happened. Their damage was to the FEEDBACK LOOP, not the
+                # account: they dragged the SWING momentum setup's recorded
+                # average loss to -26.6% when the true figure is -1.8%, a 15x
+                # distortion feeding setup_performance_drift() and setup
+                # probation. Recording nothing is strictly better than
+                # recording a fabricated -89%.
+                if pos.entry > 0 and fill_px > 0:
+                    _ratio = max(pos.entry, fill_px) / min(pos.entry, fill_px)
+                    if _ratio >= SPLIT_SUSPECT_RATIO:
+                        print(f"  🧬 {ticker}: entry ${pos.entry} vs fill ${fill_px:.4f} "
+                              f"({_ratio:.1f}x) — corporate action suspected, NOT recording")
+                        send_telegram(
+                            f"🧬 <b>{ticker} close not recorded</b> — entry ${pos.entry} vs "
+                            f"fill ${fill_px:.4f} is a {_ratio:.1f}x gap, which is a split or "
+                            f"other corporate action rather than a real move. "
+                            f"Position cleared; P&L left out of the win-rate history so it "
+                            f"cannot poison setup stats. Verify in Alpaca."
+                        )
+                        pt.close(ticker, occ_symbol=_occ_sym)
+                        _mark_identity_closed(state, ticker, pos.setup)
+                        recorded_ids.add(oid)
+                        continue
             outcome    = ("WIN" if pnl_pct > 0.1 else
                           "LOSS" if pnl_pct < -0.1 else "BE")
             # get_effective_account() (live equity), not the static

@@ -1834,5 +1834,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T19:50:00.913191-04:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

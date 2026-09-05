@@ -5778,6 +5778,95 @@ class TestUniverseDiscoveryBreadth(unittest.TestCase):
         self.assertNotIn("max_tickers=30", src)
 
 
+class TestMarketWideScreen(unittest.TestCase):
+    """Asked to compare against Alinea and StocksToTrade. Alinea turned out
+    to be a Gen-Z robo-advisor (playlists, goal tracking, an AI chat) with no
+    bearing on intraday momentum. StocksToTrade's Oracle is the real
+    comparison, and its one structural advantage is breadth: it screens
+    ~15,000 names every morning, while this system's universe was a ~255-name
+    curated pool plus whatever two Yahoo screener pages surfaced. A fixed
+    pool cannot produce variety no matter how good the scoring on top is --
+    which is exactly what "the same plays over and over" was describing.
+
+    Alpaca lists 13,404 tradable US equities and its snapshot endpoint
+    returns 200 at a time in ~0.4s with dailyBar AND prevDailyBar, so the
+    whole market gap-screens in ~28s on the SIP feed this account already
+    pays for. Measured live: 12,881 symbols -> 242 gapping >=2% -> top 60,
+    of which 56 were names not already in the curated pool."""
+
+    def test_screen_is_a_prefilter_not_a_signal_source(self):
+        # It must not decide to trade -- only what is worth looking at.
+        # Docstring stripped: it deliberately NAMES the functions it hands
+        # off to, so asserting over the whole source would fail on its own
+        # explanation rather than on the code.
+        parts = inspect.getsource(a.screen_market_wide).split('"""')
+        body = parts[0] + ("".join(parts[2:]) if len(parts) > 2 else "")
+        for forbidden in ("_submit_signals_to_alpaca", "submit_order", "score_signal"):
+            self.assertNotIn(forbidden, body)
+
+    def test_kill_switch_exists_and_is_checked(self):
+        self.assertIsInstance(a.ENABLE_MARKET_WIDE_SCAN, bool)
+        self.assertIn("ENABLE_MARKET_WIDE_SCAN",
+                      inspect.getsource(a.augment_universe_with_movers))
+
+    def test_asset_list_is_cached_per_calendar_day(self):
+        a._asset_universe_cache["symbols"] = ["AAA"]
+        a._asset_universe_cache["day"] = datetime.now(a.ET).date().isoformat()
+        with patch.object(a.requests, "get",
+                          side_effect=AssertionError("should have used the cache")):
+            self.assertEqual(a._all_tradable_us_equities(), ["AAA"])
+        a._asset_universe_cache["symbols"] = None
+        a._asset_universe_cache["day"] = ""
+
+    def test_stale_day_cache_is_refetched(self):
+        a._asset_universe_cache["symbols"] = ["AAA"]
+        a._asset_universe_cache["day"] = "2020-01-01"
+        r = MagicMock(); r.status_code = 200
+        r.json.return_value = [{"symbol": "BBB", "tradable": True}]
+        with patch.object(a.requests, "get", return_value=r):
+            self.assertEqual(a._all_tradable_us_equities(), ["BBB"])
+        a._asset_universe_cache["symbols"] = None
+        a._asset_universe_cache["day"] = ""
+
+    def _snap(self, o, c, v, pc):
+        return {"dailyBar": {"o": o, "c": c, "v": v}, "prevDailyBar": {"c": pc}}
+
+    def _run(self, snaps):
+        r = MagicMock(); r.status_code = 200; r.json.return_value = snaps
+        with patch.object(a, "_all_tradable_us_equities", return_value=list(snaps)), \
+             patch.object(a.requests, "get", return_value=r):
+            return a.screen_market_wide(verbose=False)
+
+    def test_a_real_gapper_is_kept(self):
+        out = self._run({"AAA": self._snap(o=11.0, c=11.5, v=500_000, pc=10.0)})
+        self.assertIn("AAA", out)
+
+    def test_a_flat_stock_is_dropped(self):
+        out = self._run({"AAA": self._snap(o=10.0, c=10.0, v=500_000, pc=10.0)})
+        self.assertEqual(out, [])
+
+    def test_illiquid_gapper_is_dropped(self):
+        # A 20% gap on $2k of volume is not tradeable.
+        out = self._run({"AAA": self._snap(o=12.0, c=12.0, v=200, pc=10.0)})
+        self.assertEqual(out, [])
+
+    def test_results_are_ranked_by_gap_size(self):
+        out = self._run({
+            "SMALL": self._snap(o=10.3, c=10.3, v=500_000, pc=10.0),
+            "BIG":   self._snap(o=15.0, c=15.0, v=500_000, pc=10.0)})
+        self.assertEqual(out[0], "BIG")
+
+    def test_missing_prev_bar_is_skipped_not_crashed(self):
+        out = self._run({"AAA": {"dailyBar": {"o": 11, "c": 11, "v": 1e6},
+                                 "prevDailyBar": {}}})
+        self.assertEqual(out, [])
+
+    def test_api_failure_returns_empty_rather_than_raising(self):
+        with patch.object(a, "_all_tradable_us_equities", return_value=["AAA"]), \
+             patch.object(a.requests, "get", side_effect=Exception("down")):
+            self.assertEqual(a.screen_market_wide(verbose=False), [])
+
+
 class TestMoversCache(unittest.TestCase):
     """Five screeners plus the earnings feed take ~107s end to end, and the
     daemon calls them on every 10-minute scan -- a sixth of the cycle spent

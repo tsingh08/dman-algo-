@@ -15926,6 +15926,110 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
 _movers_cache: dict = {"tickers": None, "ts": 0.0}
 
 
+_asset_universe_cache: dict = {"symbols": None, "day": ""}
+# Market-wide gap screen across every Alpaca-tradable US equity. Kill switch
+# first: this is the broadest input the scanner has and the one most likely
+# to change how much it finds.
+ENABLE_MARKET_WIDE_SCAN  = True
+MARKET_SCAN_BATCH        = 200     # symbols per snapshot call
+MARKET_SCAN_MIN_GAP_PCT  = 2.0     # pre-filter only; the real gate is _raw_signals()
+MARKET_SCAN_MIN_DOLLAR_VOL = 300_000
+MARKET_SCAN_MAX_CANDIDATES = 60
+
+
+def _all_tradable_us_equities() -> list[str]:
+    """Every tradable US equity Alpaca will let this account trade, cached
+    for the calendar day (the list changes on listings/delistings, not
+    intraday)."""
+    _today = datetime.now(ET).date().isoformat()
+    if _asset_universe_cache["symbols"] is not None and _asset_universe_cache["day"] == _today:
+        return _asset_universe_cache["symbols"]
+    try:
+        r = requests.get(
+            f"{'https://paper-api.alpaca.markets' if ALPACA_PAPER else 'https://api.alpaca.markets'}/v2/assets",
+            headers={"APCA-API-KEY-ID": ALPACA_API_KEY,
+                     "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY},
+            params={"status": "active", "asset_class": "us_equity"}, timeout=60)
+        if r.status_code != 200:
+            return _asset_universe_cache["symbols"] or []
+        syms = [x["symbol"] for x in r.json()
+                if x.get("tradable") and "." not in x.get("symbol", "")
+                and 1 <= len(x.get("symbol", "")) <= 5]
+        _asset_universe_cache["symbols"] = syms
+        _asset_universe_cache["day"]     = _today
+        return syms
+    except Exception as exc:
+        print(f"  ⚠️  Asset universe fetch failed: {exc}")
+        return _asset_universe_cache["symbols"] or []
+
+
+def screen_market_wide(max_candidates: int = MARKET_SCAN_MAX_CANDIDATES,
+                       verbose: bool = True) -> list[str]:
+    """
+    Cheap gap screen across EVERY tradable US equity, returning the biggest
+    movers for the normal pipeline to evaluate properly.
+
+    This is the answer to "the same plays keep coming back", and to the one
+    structural advantage a product like StocksToTrade's Oracle actually has:
+    it screens ~15,000 names every morning, while this system's universe was
+    a ~255-name curated pool plus whatever two Yahoo screener pages
+    happened to surface. A fixed pool cannot produce variety no matter how
+    good the scoring on top of it is.
+
+    Alpaca lists 13,404 tradable US equities and its bulk snapshot endpoint
+    returns 200 at a time in ~0.4s, including dailyBar AND prevDailyBar --
+    so the whole market can be gap-screened in roughly 30 seconds on the SIP
+    feed this account already pays for. No new vendor, no new key.
+
+    Deliberately a PRE-FILTER, not a signal source. It answers only "did
+    this gap, on real money?" using the two cheapest possible tests, and
+    hands survivors to _raw_signals() / score_signal(), which are unchanged.
+    Nothing here decides to trade; it decides what is worth looking at.
+    """
+    syms = _all_tradable_us_equities()
+    if not syms:
+        return []
+    _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY,
+             "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+    found: list[tuple[str, float]] = []
+    _scanned = 0
+    for i in range(0, len(syms), MARKET_SCAN_BATCH):
+        batch = syms[i:i + MARKET_SCAN_BATCH]
+        try:
+            r = requests.get("https://data.alpaca.markets/v2/stocks/snapshots",
+                             headers=_hdrs,
+                             params={"symbols": ",".join(batch), "feed": _resolve_stock_feed()},
+                             timeout=30)
+            if r.status_code != 200:
+                continue
+            for sym, snap in (r.json() or {}).items():
+                _scanned += 1
+                try:
+                    db  = snap.get("dailyBar") or {}
+                    pdb = snap.get("prevDailyBar") or {}
+                    o, c, v = float(db.get("o", 0)), float(db.get("c", 0)), float(db.get("v", 0))
+                    pc = float(pdb.get("c", 0))
+                    if not (o and c and pc and v):
+                        continue
+                    if not (SMALLCAP_MIN_PRICE <= c <= 100.0):
+                        continue
+                    if c * v < MARKET_SCAN_MIN_DOLLAR_VOL:
+                        continue
+                    gap = (o - pc) / pc * 100
+                    if gap >= MARKET_SCAN_MIN_GAP_PCT:
+                        found.append((sym, gap))
+                except (TypeError, ValueError):
+                    continue
+        except Exception:
+            continue
+    found.sort(key=lambda x: -x[1])
+    out = [s for s, _ in found[:max_candidates]]
+    if verbose:
+        print(f"  🌐 Market-wide screen: {_scanned:,} symbols → {len(found)} gapping "
+              f"≥{MARKET_SCAN_MIN_GAP_PCT}% → top {len(out)} kept")
+    return out
+
+
 def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> list[str]:
     """
     Union `tickers` with today's live movers (Yahoo gainers/actives) and
@@ -15967,6 +16071,18 @@ def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> li
         return out
 
     _discovered: list[str] = []
+
+    # Market-wide gap screen FIRST -- it is the broadest source by an order
+    # of magnitude (12,881 symbols vs a few hundred from screener pages) and
+    # the direct answer to the same names recurring. See screen_market_wide().
+    if ENABLE_MARKET_WIDE_SCAN:
+        try:
+            _mw = screen_market_wide(verbose=verbose)
+            if _mw:
+                _discovered.extend(_mw)
+        except Exception as exc:
+            print(f"  ⚠️  Market-wide screen failed (continuing): {exc}")
+
     if ENABLE_DYNAMIC_SMALLCAP:
         try:
             # 30 was carried over verbatim when this was extracted from

@@ -17480,21 +17480,41 @@ def _orphan_entry_date(symbol: str, orders: list) -> str:
     entry_date against the close date to decide whether a round trip
     consumed a PDT day trade, so guessing "today" for a position actually
     opened days ago would invent a day trade that never happened."""
+    # Query CLOSED orders explicitly. The caller's `orders` list is the OPEN
+    # set, and a BUY that actually filled is by definition no longer open --
+    # so this used to find nothing, EVERY time, and fall through to "today".
+    #
+    # That is not a cosmetic default. _record_day_trade() compares entry_date
+    # against the close date to decide whether a round trip consumed a PDT
+    # day trade, so dating an older position to today INVENTS one. Confirmed
+    # live 2026-09-04: YHC filled 14:26 ET on 09-03 and was adopted on 09-04;
+    # dated 09-04 by this fallback, its 09-04 exit was recorded as a same-day
+    # round trip and burned a day trade that never happened.
     best = None
-    for o in orders:
-        if str(getattr(o.side, "value", o.side)).lower() != "buy":
-            continue
-        filled_at = getattr(o, "filled_at", None)
-        if not filled_at or o.symbol.upper() != symbol:
-            continue
-        if best is None or filled_at > best:
-            best = filled_at
+    try:
+        _c = get_alpaca_client()
+        if _c is not None:
+            _closed = _c.get_orders(filter=GetOrdersRequest(
+                status=QueryOrderStatus.CLOSED, symbols=[symbol], limit=50))
+            for o in _closed:
+                if str(getattr(o.side, "value", o.side)).lower() != "buy":
+                    continue
+                filled_at = getattr(o, "filled_at", None)
+                if not filled_at:
+                    continue
+                if best is None or filled_at > best:
+                    best = filled_at
+    except Exception:
+        best = None
     if best is not None:
         try:
             return best.astimezone(ET).date().isoformat()
         except Exception:
             pass
-    return datetime.now(ET).date().isoformat()
+    # Still nothing: assume the position is OLDER than today rather than
+    # newer. Guessing "today" is the direction that fabricates a day trade;
+    # guessing yesterday can only ever under-count, which is recoverable.
+    return (datetime.now(ET).date() - timedelta(days=1)).isoformat()
 
 
 def sync_alpaca_fills(tracker: WinRateTracker) -> int:
@@ -19561,6 +19581,10 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         #                   Position held overnight = NOT a day trade.
         # At 2+ remaining → normal day trade bracket.
         _pdt = {"used": 0, "remaining": 3, "swing_mode": False, "equity": 0.0}
+        # Set only in the 0-remaining branch below. Read much further down at
+        # the shares-fallback decision, which is the point where "options were
+        # attempted and unavailable" is finally known.
+        _zero_pdt_options_only = False
         try:
             _pdt = _get_pdt_status()
             _equity    = _pdt["equity"]
@@ -19586,6 +19610,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     # option, and options-only was chosen deliberately since
                     # single-leg options are also the only setup in the live
                     # book with a positive edge (4W/2L, +103%).
+                    _zero_pdt_options_only = True
                     _opt_ok = [s for s in signals if _signal_can_use_options(s)]
                     _dropped = len(signals) - len(_opt_ok)
                     if not _opt_ok:
@@ -19918,6 +19943,31 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                         f"low-float watchlist picks only. No trade placed."
                     )
                 continue
+            elif _zero_pdt_options_only:
+                # Zero day-trade budget: the SHARES fallback is exactly what
+                # must not happen here. Shares get a broker-side stop that
+                # can fill the same session, and that fill IS the day trade
+                # the options-only mode exists to avoid.
+                #
+                # Confirmed live 2026-09-04. _signal_can_use_options() passed
+                # APVO/ARTL/CAST/TRVI/LABT because their setup is in
+                # OPTIONS_SETUPS -- structurally options-eligible -- but none
+                # of those tickers HAS a listed option chain, so all five
+                # fell straight through to shares and became real day trades
+                # against a 0/3 budget. Structural eligibility is not the
+                # same as an option actually existing, and only the attempt
+                # can tell the difference, so the block belongs here (after
+                # the attempt failed) rather than in the predicate.
+                print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
+                      f"NOT falling back to shares (a same-day stop would be a violation)")
+                if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
+                    send_telegram(
+                        f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
+                        f"day-trade budget is 0.\n"
+                        f"Shares would carry a stop that can fill today and become a "
+                        f"PDT violation, so no trade was placed."
+                    )
+                continue
             else:
                 oid, _submit_err = submit_alpaca_trade(sig)
 
@@ -19958,7 +20008,20 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     entry_date = datetime.today().strftime("%Y-%m-%d"),
                     atr        = _delta,
                     score      = sig.confluence_score,
-                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP),
+                    # NOT day_only when the signal was switched to swing:
+                    # the two are contradictory and day_only used to win.
+                    # Confirmed live 2026-09-04, and it is what actually
+                    # broke the PDT budget that session: five entries were
+                    # deliberately submitted as GTC SWINGS (because the
+                    # budget was already 0/3, so an overnight hold is the
+                    # only safe kind of entry) and then _force_close_day_
+                    # only_positions() flattened three of them at 15:45 ET
+                    # anyway -- CAST, TRVI and LABT all show a market SELL
+                    # at 19:45 UTC. That turned three intended swings into
+                    # three same-day round trips, i.e. exactly the day
+                    # trades swing mode existed to avoid.
+                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
+                                  and not getattr(sig, "swing_mode", False)),
                     # Recomputed rather than threaded down from the budget:
                     # _elevated_size_reason() is a cheap pure check, so the
                     # flag can never drift from the rule that actually
@@ -20020,7 +20083,20 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     entry_date = datetime.today().strftime("%Y-%m-%d"),
                     atr        = sig.atr,
                     score      = sig.confluence_score,
-                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP),
+                    # NOT day_only when the signal was switched to swing:
+                    # the two are contradictory and day_only used to win.
+                    # Confirmed live 2026-09-04, and it is what actually
+                    # broke the PDT budget that session: five entries were
+                    # deliberately submitted as GTC SWINGS (because the
+                    # budget was already 0/3, so an overnight hold is the
+                    # only safe kind of entry) and then _force_close_day_
+                    # only_positions() flattened three of them at 15:45 ET
+                    # anyway -- CAST, TRVI and LABT all show a market SELL
+                    # at 19:45 UTC. That turned three intended swings into
+                    # three same-day round trips, i.e. exactly the day
+                    # trades swing mode existed to avoid.
+                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
+                                  and not getattr(sig, "swing_mode", False)),
                 ))
                 if not _tracked:
                     print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} order {oid[:8]}")

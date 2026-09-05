@@ -5655,6 +5655,109 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestSwingEntriesAreNeverDayOnly(unittest.TestCase):
+    """Confirmed live 2026-09-04 and the direct cause of that session blowing
+    its PDT budget. Five entries were deliberately submitted as GTC SWINGS --
+    the budget was already 0/3, so an overnight hold is the only safe kind of
+    entry -- and _force_close_day_only_positions() then flattened three of
+    them at 15:45 ET anyway. CAST, TRVI and LABT each show a market SELL at
+    19:45 UTC against a buy earlier the same session: three intended swings
+    turned into three same-day round trips, i.e. precisely the day trades
+    swing mode exists to prevent. swing_mode and day_only are contradictory
+    and day_only was silently winning."""
+
+    def test_swing_signal_does_not_produce_a_day_only_position(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        # both entry branches (options and shares) must carry the guard
+        self.assertEqual(
+            src.count('and not getattr(sig, "swing_mode", False)'), 2,
+            "both day_only assignments must exclude swing_mode signals")
+
+    def test_non_swing_momentum_signal_still_day_only(self):
+        # The fix must not disable day-only behaviour generally -- a normal
+        # momentum breakout with budget available is still session-scoped.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("sig.setup == MOMENTUM_DAY_ONLY_SETUP", src)
+
+
+class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
+    """The other half of the 2026-09-04 failure. _signal_can_use_options()
+    passed APVO/ARTL/CAST/TRVI/LABT because their setup is in OPTIONS_SETUPS
+    -- structurally options-eligible -- but none of those tickers has a
+    listed option chain, so all five fell through to the SHARES fallback and
+    became real day trades against a 0/3 budget. Structural eligibility is
+    not the same as an option existing, and only the attempt can tell the
+    difference."""
+
+    def test_zero_pdt_branch_sets_the_flag(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("_zero_pdt_options_only = True", src)
+
+    def test_flag_defaults_to_false(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("_zero_pdt_options_only = False", src)
+
+    def test_shares_fallback_is_guarded_before_submit(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_guard = src.index("elif _zero_pdt_options_only:")
+        i_share = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
+        self.assertLess(i_guard, i_share,
+                        "the zero-PDT guard must precede the shares submit")
+
+    def test_guard_continues_rather_than_trading(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        seg = src[src.index("elif _zero_pdt_options_only:"):]
+        seg = seg[:seg.index("oid, _submit_err = submit_alpaca_trade(sig)")]
+        self.assertIn("continue", seg)
+        self.assertNotIn("submit_alpaca_trade", seg)
+
+
+class TestOrphanEntryDateNeverInventsADayTrade(unittest.TestCase):
+    """_orphan_entry_date() searched the caller's OPEN order list for a filled
+    BUY -- but a BUY that filled is by definition no longer open, so it found
+    nothing every time and fell through to "today". _record_day_trade()
+    compares entry_date to the close date, so dating an older position to
+    today FABRICATES a day trade. Confirmed live 2026-09-04: YHC filled 14:26
+    ET on 09-03, was adopted on 09-04, got dated 09-04, and its 09-04 exit was
+    then recorded as a same-day round trip that never happened."""
+
+    def _order(self, side, filled_at, symbol="YHC"):
+        o = MagicMock(); o.symbol = symbol
+        o.side = MagicMock(); o.side.value = side
+        o.filled_at = filled_at
+        return o
+
+    def test_uses_the_filled_buy_from_closed_orders(self):
+        client = MagicMock()
+        client.get_orders.return_value = [
+            self._order("buy", datetime(2026, 8, 28, 15, 0, tzinfo=a.ET))]
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            self.assertEqual(a._orphan_entry_date("YHC", []), "2026-08-28")
+
+    def test_ignores_sells(self):
+        client = MagicMock()
+        client.get_orders.return_value = [
+            self._order("sell", datetime(2026, 9, 4, 15, 0, tzinfo=a.ET))]
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            self.assertNotEqual(a._orphan_entry_date("YHC", []),
+                                datetime.now(a.ET).date().isoformat())
+
+    def test_unknown_position_assumes_older_not_today(self):
+        # Guessing "today" is the direction that fabricates a day trade;
+        # guessing earlier can only under-count, which is recoverable.
+        client = MagicMock(); client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            got = a._orphan_entry_date("ZZZZ", [])
+        self.assertNotEqual(got, datetime.now(a.ET).date().isoformat())
+        self.assertLess(got, datetime.now(a.ET).date().isoformat())
+
+    def test_api_failure_still_does_not_return_today(self):
+        client = MagicMock(); client.get_orders.side_effect = Exception("api")
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            got = a._orphan_entry_date("ZZZZ", [])
+        self.assertNotEqual(got, datetime.now(a.ET).date().isoformat())
+
+
 class TestElevatedSizeTier(unittest.TestCase):
     """Direct instruction 2026-09-04: "$250 at the 7.5% capped loss but
     increased to $500 only on guaranteed setups with absolute confidence

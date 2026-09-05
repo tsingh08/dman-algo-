@@ -5671,6 +5671,75 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestImpossiblePnlEntriesRejected(unittest.TestCase):
+    """The guard that was missing on 2026-09-04, and the most expensive gap
+    found so far. The ARTL reverse split produced two fabricated closes which
+    were written as ACCOUNT-level P&L of -59.6% and -278.0%. Monthly P&L then
+    read -339% on an account that had actually moved about -4.7%, which
+    tripped MONTHLY_LOSS_LIMIT and HALTED all trading -- a halt that would
+    have persisted every session until October, because the monthly window
+    does not roll until then. The bad data cost nothing directly; the halt it
+    caused would have cost the whole month."""
+
+    def setUp(self):
+        self._t = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._t.write(b"{}"); self._t.close()
+        self._p = [patch.object(a, "send_telegram", return_value=True),
+                   patch.object(a, "_is_duplicate_alert", return_value=False)]
+        for p in self._p: p.start()
+
+    def tearDown(self):
+        for p in self._p: p.stop()
+        os.unlink(self._t.name)
+
+    def _entries(self):
+        if os.path.getsize(self._t.name) == 0:
+            return []
+        with open(self._t.name) as f:
+            return json.load(f).get("entries", [])
+
+    def test_the_actual_artl_values_are_rejected(self):
+        for bad in (-59.6463, -278.0454):
+            a._record_period_pnl(self._t.name, bad, 30)
+        self.assertEqual(self._entries(), [])
+
+    def test_a_normal_loss_is_still_recorded(self):
+        a._record_period_pnl(self._t.name, -2.5, 30)
+        self.assertEqual(len(self._entries()), 1)
+
+    def test_a_large_but_possible_loss_is_recorded(self):
+        # A total loss on the biggest permitted position is
+        # OPTIONS_MAX_POSITION_PCT of equity -- real, and must not be dropped.
+        a._record_period_pnl(self._t.name, -a.OPTIONS_MAX_POSITION_PCT * 100, 30)
+        self.assertEqual(len(self._entries()), 1)
+
+    def test_bound_exceeds_the_largest_possible_real_loss(self):
+        # Otherwise the guard would start rejecting genuine trades.
+        self.assertGreater(a.MAX_SINGLE_TRADE_PNL_PCT,
+                           a.OPTIONS_MAX_POSITION_PCT * 100)
+
+    def test_bound_is_far_below_the_values_that_caused_the_halt(self):
+        self.assertLess(a.MAX_SINGLE_TRADE_PNL_PCT, 59.6)
+
+    def test_gains_are_bounded_too(self):
+        # Symmetric on purpose: a fabricated +300% would mask real losses
+        # and suppress a halt that SHOULD fire.
+        a._record_period_pnl(self._t.name, 300.0, 30)
+        self.assertEqual(self._entries(), [])
+
+    def test_live_pnl_files_contain_no_impossible_entries(self):
+        for f in ("dman_daily_pnl.json", "dman_monthly_pnl.json"):
+            with open(f, encoding="utf-8") as fh:
+                bad = [e for e in json.load(fh).get("entries", [])
+                       if abs(e["pnl_pct"]) > a.MAX_SINGLE_TRADE_PNL_PCT]
+            self.assertEqual(bad, [], f"{f} still holds impossible entries")
+
+    def test_monthly_loss_is_inside_the_limit_again(self):
+        # Regression on the halt itself: -339% vs a -4% limit meant every
+        # session for the rest of September would have been halted.
+        self.assertGreater(a.get_this_month_loss(), -a.MONTHLY_LOSS_LIMIT * 100)
+
+
 class TestSplitContaminationGuard(unittest.TestCase):
     """ARTL reverse-split ~1:9 between 2026-08-28 ($0.66) and 08-31 ($6.36).
     Two records entered the live history as entry $6.16 -> exit $0.72 =

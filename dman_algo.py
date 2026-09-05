@@ -672,6 +672,13 @@ DAILY_PNL_FILE     = "dman_daily_pnl.json"
 # fabricated -88%/-89% losses into the live history on 2026-09-04.
 SPLIT_SUSPECT_RATIO = 3.0
 
+# Ceiling on what ONE trade may contribute to the account-level P&L logs.
+# OPTIONS_MAX_POSITION_PCT (15%) is the largest single exposure the sizing
+# rules permit, so even a 100% loss on the biggest allowed position moves the
+# account 15%. 25% leaves generous headroom while still being far below the
+# -59.6% and -278.0% entries that halted trading on 2026-09-04.
+MAX_SINGLE_TRADE_PNL_PCT = 25.0
+
 PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open positions
 
 # Hard per-trade loss ceiling, as a fraction of CURRENT equity. Direct
@@ -11560,6 +11567,34 @@ def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int) -> None
     runs until 20:05 ET, past midnight UTC, so date.today() on that
     runner reads "tomorrow" for the last ~5 min of every trading day.
     """
+    # Sanity bound on a SINGLE trade's account-level contribution. Position
+    # sizing caps the largest single exposure at OPTIONS_MAX_POSITION_PCT of
+    # equity, so even a total loss cannot move the account more than that --
+    # anything past MAX_SINGLE_TRADE_PNL_PCT is arithmetically impossible and
+    # is therefore corrupt input, not a trade.
+    #
+    # This is the guard that was missing on 2026-09-04. The ARTL reverse
+    # split (see SPLIT_SUSPECT_RATIO) produced two fabricated closes, and
+    # they were written here as account-level P&L of -59.6% and -278.0%.
+    # Monthly P&L then read -339% on an account that had actually moved
+    # about -4.7%, which tripped MONTHLY_LOSS_LIMIT and HALTED all trading --
+    # a halt that would have persisted every session until October, since
+    # the monthly window does not roll until then. The bad data cost nothing
+    # directly; the halt it caused would have cost the entire month.
+    if abs(pnl_pct) > MAX_SINGLE_TRADE_PNL_PCT:
+        print(f"  🚫 Refusing impossible account P&L entry {pnl_pct:+.2f}% "
+              f"(one trade cannot exceed ±{MAX_SINGLE_TRADE_PNL_PCT}% of equity) "
+              f"— {filepath} not written")
+        if not _is_duplicate_alert(f"__BAD_PNL_{filepath}__"):
+            send_telegram(
+                f"🚫 <b>Impossible P&L entry rejected</b> — {pnl_pct:+.2f}% of the "
+                f"account from a single trade is arithmetically impossible "
+                f"(max single exposure is {OPTIONS_MAX_POSITION_PCT*100:.0f}%).\n"
+                f"Not written to {filepath}. This is corrupt input — usually a "
+                f"corporate action — and writing it would trip the loss limits "
+                f"and halt trading on fiction."
+            )
+        return
     entries = _load_pnl_entries(filepath)
     entries.append({"ts": datetime.now(ET).isoformat(), "pnl_pct": round(pnl_pct, 4)})
     _cutoff = (datetime.now(ET) - timedelta(days=max_age_days)).isoformat()

@@ -5671,6 +5671,169 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestUniverseDiscoveryBreadth(unittest.TestCase):
+    """Direct request 2026-09-05: expand the watchlist scope, because the
+    same plays kept recurring. Discovery polled only day_gainers and
+    most_actives, which skew to whatever is already large and liquid -- so it
+    kept re-surfacing the curated pool instead of finding anything new."""
+
+    def test_screener_set_includes_the_low_priced_sources(self):
+        # These are the ones that match how this account actually trades.
+        for s in ("small_cap_gainers", "aggressive_small_caps", "most_shorted_stocks"):
+            self.assertIn(s, a.DYNAMIC_SCREENER_IDS)
+
+    def test_original_two_are_retained(self):
+        for s in ("day_gainers", "most_actives"):
+            self.assertIn(s, a.DYNAMIC_SCREENER_IDS)
+
+    def test_mutual_fund_screener_is_excluded(self):
+        # portfolio_anchors returns VFIAX/FXAIX and friends -- funds, not
+        # tradeable setups for this strategy.
+        self.assertNotIn("portfolio_anchors", a.DYNAMIC_SCREENER_IDS)
+
+    def test_helper_no_longer_caps_below_the_function_default(self):
+        # The 30 here was carried over verbatim from main() and was throwing
+        # away freshly-discovered names before they were ever scanned.
+        src = inspect.getsource(a.augment_universe_with_movers)
+        self.assertNotIn("max_tickers=30", src)
+
+
+class TestMoversCache(unittest.TestCase):
+    """Five screeners plus the earnings feed take ~107s end to end, and the
+    daemon calls them on every 10-minute scan -- a sixth of the cycle spent
+    re-fetching lists that do not turn over that fast."""
+
+    def setUp(self):
+        a._movers_cache["tickers"] = None
+        a._movers_cache["ts"] = 0.0
+        self.addCleanup(lambda: a._movers_cache.update({"tickers": None, "ts": 0.0}))
+
+    def test_second_call_does_not_refetch(self):
+        with patch.object(a, "fetch_dman_dynamic_tickers", return_value=["AAA"]) as m1, \
+             patch.object(a, "fetch_earnings_mover_tickers", return_value=["BBB"]) as m2:
+            a.augment_universe_with_movers(["ZZZ"], verbose=False)
+            a.augment_universe_with_movers(["ZZZ"], verbose=False)
+        self.assertEqual(m1.call_count, 1)
+        self.assertEqual(m2.call_count, 1)
+
+    def test_cache_is_keyed_on_discovery_not_the_merged_result(self):
+        # Callers pass different base universes; caching the merged list
+        # would leak one caller's universe into another's.
+        with patch.object(a, "fetch_dman_dynamic_tickers", return_value=["AAA"]), \
+             patch.object(a, "fetch_earnings_mover_tickers", return_value=[]):
+            first  = a.augment_universe_with_movers(["ZZZ"], verbose=False)
+            second = a.augment_universe_with_movers(["YYY"], verbose=False)
+        self.assertEqual(first,  ["ZZZ", "AAA"])
+        self.assertEqual(second, ["YYY", "AAA"])
+
+    def test_empty_discovery_is_cached_too(self):
+        # A quiet tape or a screener outage must not mean re-polling every
+        # feed on every scan for the rest of the session.
+        with patch.object(a, "fetch_dman_dynamic_tickers", return_value=[]) as m, \
+             patch.object(a, "fetch_earnings_mover_tickers", return_value=[]):
+            a.augment_universe_with_movers(["ZZZ"], verbose=False)
+            a.augment_universe_with_movers(["ZZZ"], verbose=False)
+        self.assertEqual(m.call_count, 1)
+
+    def test_cache_expires(self):
+        with patch.object(a, "fetch_dman_dynamic_tickers", return_value=["AAA"]) as m, \
+             patch.object(a, "fetch_earnings_mover_tickers", return_value=[]):
+            a.augment_universe_with_movers(["ZZZ"], verbose=False)
+            a._movers_cache["ts"] -= (a.MOVERS_CACHE_TTL_S + 1)
+            a.augment_universe_with_movers(["ZZZ"], verbose=False)
+        self.assertEqual(m.call_count, 2)
+
+    def test_ttl_is_shorter_than_a_trading_session(self):
+        self.assertLess(a.MOVERS_CACHE_TTL_S, 6.5 * 3600)
+
+
+class TestPerTickerBench(unittest.TestCase):
+    """Direct observation 2026-09-05: "i see myself getting into same plays
+    over and over again". The live book agreed -- 44% of all trades were five
+    tickers, and the two most-repeated were the two worst: ARTL 1W/4L -9.4%,
+    CAST 0W/4L -6.4%. Nothing stopped either; ALERT_COOLDOWN_MIN only
+    suppresses duplicate TELEGRAM messages, so a name could lose and be
+    re-entered immediately, repeatedly."""
+
+    def _rec(self, ticker, outcome, pnl, day):
+        return a.TradeRecord(ticker=ticker, date=day, bias="LONG",
+                             setup="Gap & Hold", entry=1.0, exit=1.0,
+                             outcome=outcome, pnl_pct=pnl, score=100, is_live=True)
+
+    def _with(self, recs):
+        t = a.WinRateTracker.__new__(a.WinRateTracker)
+        t.records = recs; t.filepath = "x"
+        return patch.object(a, "WinRateTracker", return_value=t)
+
+    def _today(self, back=0):
+        return (datetime.now(a.ET).date() - timedelta(days=back)).isoformat()
+
+    def test_bleeder_with_acceptable_win_rate_is_benched(self):
+        # ARTL's real shape: sits exactly AT the win-rate floor while being
+        # clearly net negative. Win rate alone would have let it through.
+        recs = [self._rec("ARTL", "WIN", 6.06, self._today(20)),
+                self._rec("ARTL", "LOSS", -5.08, self._today(16)),
+                self._rec("ARTL", "LOSS", -6.45, self._today(10)),
+                self._rec("ARTL", "LOSS", -3.90, self._today(1))]
+        with self._with(recs):
+            why = a._ticker_bench_reason("ARTL")
+        self.assertIsNotNone(why)
+        self.assertIn("cumulative P&L", why)
+
+    def test_zero_win_rate_is_benched(self):
+        recs = [self._rec("CAST", "LOSS", -1.0, self._today(i)) for i in (5, 4, 3, 2)]
+        with self._with(recs):
+            why = a._ticker_bench_reason("CAST")
+        self.assertIsNotNone(why)
+        self.assertIn("win rate", why)
+
+    def test_profitable_low_win_rate_ticker_is_kept(self):
+        # APVO: 33% win rate but net positive. Benching it would be the
+        # cure being worse than the disease.
+        recs = [self._rec("APVO", "LOSS", -6.55, self._today(3)),
+                self._rec("APVO", "WIN", 9.20, self._today(2)),
+                self._rec("APVO", "LOSS", -2.33, self._today(1))]
+        with self._with(recs):
+            self.assertIsNone(a._ticker_bench_reason("APVO"))
+
+    def test_small_sample_is_never_benched(self):
+        recs = [self._rec("ZZZZ", "LOSS", -9.0, self._today(1)),
+                self._rec("ZZZZ", "LOSS", -9.0, self._today(2))]
+        with self._with(recs):
+            self.assertIsNone(a._ticker_bench_reason("ZZZZ"))
+
+    def test_bench_expires_as_trades_age_out(self):
+        old = a.TICKER_BENCH_LOOKBACK_DAYS + 5
+        recs = [self._rec("OLDD", "LOSS", -9.0, self._today(old + i)) for i in range(4)]
+        with self._with(recs):
+            self.assertIsNone(a._ticker_bench_reason("OLDD"))
+
+    def test_backtest_records_do_not_bench_a_ticker(self):
+        recs = [self._rec("BTST", "LOSS", -9.0, self._today(1)) for _ in range(4)]
+        for r in recs: r.is_live = False
+        with self._with(recs):
+            self.assertIsNone(a._ticker_bench_reason("BTST"))
+
+    def test_bookkeeping_error_never_blocks_an_entry(self):
+        with patch.object(a, "WinRateTracker", side_effect=Exception("io")):
+            self.assertIsNone(a._ticker_bench_reason("ARTL"))
+
+    def test_bench_is_checked_before_any_order_is_placed(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_bench = src.index("_ticker_bench_reason(sig.ticker)")
+        for marker in ("submit_alpaca_trade(sig)", "_submit_options_call"):
+            self.assertLess(i_bench, src.index(marker),
+                            f"bench must be checked before {marker}")
+
+    def test_benching_only_withholds_the_entry_not_the_alert(self):
+        # The signal should still reach Telegram so a manual /buy stays
+        # possible -- this is a bench, not a blacklist.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        seg = src[src.index("_ticker_bench_reason(sig.ticker)"):]
+        seg = seg[:seg.index("continue")]
+        self.assertIn("send_telegram", seg)
+
+
 class TestStateMergeListsCannotDrift(unittest.TestCase):
     """dman_daemon.git_sync() and the cron scanner's --mode merge-positions
     each kept their OWN list of semantic pre-merges, and the lists drifted:

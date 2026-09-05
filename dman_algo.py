@@ -670,6 +670,43 @@ DAILY_PNL_FILE     = "dman_daily_pnl.json"
 # outside anything a stop-managed position can produce -- SMALLCAP_STOP_PCT
 # is 18% -- while being well inside the ~9x ARTL reverse split that put two
 # fabricated -88%/-89% losses into the live history on 2026-09-04.
+# Per-ticker bench. See _ticker_bench_reason() for the calibration and for
+# why this judges the TICKER's record rather than time-since-last-loss.
+# Yahoo predefined screeners polled for fresh candidates. Widened from
+# ("day_gainers", "most_actives") on 2026-09-05, after the observation that
+# the same names kept coming back: 44% of all live trades were five tickers.
+# Those two screeners skew to whatever is already large and liquid, which is
+# why discovery kept re-surfacing the same curated pool.
+#
+# The three added are the ones that actually match how this account trades:
+# small_cap_gainers and aggressive_small_caps surface LOW-PRICED movers (the
+# stated focus), and most_shorted_stocks surfaces squeeze setups, which is
+# the same structural edge the low-float catalyst play is reaching for.
+# Verified live: each returns 50 quotes and genuinely different names
+# (small_cap_gainers -> GPRO RXRX CHPT WOOF BMEA; most_shorted -> LBGJ AKAN
+# WOLF KPTI ONDS).
+#
+# Deliberately NOT included: portfolio_anchors (returns mutual funds --
+# VFIAX, FXAIX and friends) and the large-cap growth/value screeners, whose
+# output WATCHLIST already covers. Every candidate still passes
+# fetch_dman_dynamic_tickers()'s own price/RVOL/volume filters afterwards,
+# so widening the intake does not widen what actually qualifies.
+# How long a discovered-mover set stays fresh. The five screeners plus the
+# earnings feed take ~107s end to end, and the daemon calls them every
+# 10-minute scan -- without this it would spend a sixth of every cycle
+# re-fetching lists that do not turn over that fast.
+MOVERS_CACHE_TTL_S = 900     # 15 min
+
+DYNAMIC_SCREENER_IDS = (
+    "day_gainers", "most_actives",
+    "small_cap_gainers", "aggressive_small_caps", "most_shorted_stocks",
+)
+
+TICKER_BENCH_MIN_TRADES    = 3      # need a real sample before benching
+TICKER_BENCH_WR_FLOOR      = 0.25   # below this live win rate, stop trading it
+TICKER_BENCH_LOOKBACK_DAYS = 30     # rolling window; a bench expires on its own
+TICKER_BENCH_CUM_PCT_FLOOR = -5.0   # ...or bench a net bleeder regardless of WR
+
 SPLIT_SUSPECT_RATIO = 3.0
 
 # Ceiling on what ONE trade may contribute to the account-level P&L logs.
@@ -1337,7 +1374,7 @@ def fetch_dman_dynamic_tickers(max_tickers: int = 80) -> list[str]:
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Accept": "application/json",
     }
-    for scr_id in ("day_gainers", "most_actives"):
+    for scr_id in DYNAMIC_SCREENER_IDS:
         url = (
             "https://query1.finance.yahoo.com/v1/finance/screener/predefined/saved"
             f"?formatted=false&lang=en-US&region=US&scrIds={scr_id}&count=50"
@@ -6563,6 +6600,65 @@ def _options_close_would_violate_pdt(occ_symbol: str) -> Optional[str]:
         return None
     except Exception:
         return None
+
+
+def _ticker_bench_reason(ticker: str) -> Optional[str]:
+    """
+    Why `ticker` is currently benched from new entries, or None.
+
+    Direct observation 2026-09-05: "i see myself getting into same plays over
+    and over again". The live record agrees -- 44% of all trades were five
+    tickers, and the two most-repeated were the two worst:
+
+        ARTL   5 trades   1W/4L   -9.4% cumulative
+        CAST   4 trades   0W/4L   -6.4% cumulative
+
+    Nothing stopped either. ALERT_COOLDOWN_MIN only suppresses duplicate
+    TELEGRAM messages; there was no cooldown on entries at all, so a name
+    could lose and be re-entered immediately, repeatedly.
+
+    The rule benches on RECORD, not on recency, because the data says
+    recency is the wrong axis. Same-day re-entries were net POSITIVE
+    (-1.81%, -0.72%, +9.20% -> +6.67%): APVO's winner came from exactly the
+    fast re-entry a naive "no re-entry today" cooldown would have blocked.
+    The losses came from returning to a name that had been losing for WEEKS
+    (ARTL 08-18 -> 08-24 -> 09-04, all losses). So: judge the ticker, not
+    the clock.
+
+    Calibrated at TICKER_BENCH_WR_FLOOR = 25%, which on the live book
+    benches ARTL (20%) and CAST (0%) while keeping APVO (33%, +0.3%) and
+    SMCI (67%, +78.8%). A 34% floor would have benched APVO too, and a 20%
+    floor would have let ARTL keep going.
+
+    Self-expiring: it reads a rolling TICKER_BENCH_LOOKBACK_DAYS window of
+    dman_win_rate.json, so a benched name returns on its own once the bad
+    trades age out -- no state file, nothing to reset by hand.
+    """
+    try:
+        _cut = (datetime.now(ET).date()
+                - timedelta(days=TICKER_BENCH_LOOKBACK_DAYS)).isoformat()
+        _rs = [r for r in WinRateTracker().records
+               if r.is_live and r.ticker.upper() == ticker.upper()
+               and str(r.date) >= _cut]
+        if len(_rs) < TICKER_BENCH_MIN_TRADES:
+            return None
+        _w   = sum(1 for r in _rs if r.outcome == "WIN")
+        _wr  = _w / len(_rs)
+        _cum = sum(r.pnl_pct for r in _rs)
+        # Two independent triggers, because win rate alone is not enough.
+        # A ticker can hold an acceptable win rate and still bleed (ARTL sits
+        # at exactly 25% -- 1W/3L in-window -- while being -9.4% cumulative,
+        # the single most-traded name in the book and a net loser), and it
+        # can carry a poor win rate while being clearly worth trading (APVO,
+        # 33%, +0.3%). Judging both catches the bleeder without benching the
+        # profitable name.
+        if _wr >= TICKER_BENCH_WR_FLOOR and _cum > TICKER_BENCH_CUM_PCT_FLOOR:
+            return None
+        _why = ("win rate" if _wr < TICKER_BENCH_WR_FLOOR else "cumulative P&L")
+        return (f"{_w}W/{len(_rs)-_w}L ({_wr:.0%}), {_cum:+.1f}% cumulative over "
+                f"{TICKER_BENCH_LOOKBACK_DAYS}d — benched on {_why}")
+    except Exception:
+        return None          # never block an entry on a bookkeeping error
 
 
 def _signal_can_use_options(sig) -> bool:
@@ -15714,6 +15810,9 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
     _send_signal_alert_batch(_alert_batch)
 
 
+_movers_cache: dict = {"tickers": None, "ts": 0.0}
+
+
 def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> list[str]:
     """
     Union `tickers` with today's live movers (Yahoo gainers/actives) and
@@ -15735,30 +15834,63 @@ def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> li
     at zero the daemon's passes are where that has to happen.
     """
     out = list(dict.fromkeys(list(tickers)))
+
+    # Cache the DISCOVERED set, not the merged result -- callers pass
+    # different base universes. Widening to five screeners on 2026-09-05
+    # took this call from ~40s to ~107s, and the daemon runs it every
+    # 10-minute scan; re-polling five screeners plus the earnings feed that
+    # often is pure overhead, since neither list turns over meaningfully
+    # inside MOVERS_CACHE_TTL_S. Same reasoning as the price/quote caches
+    # elsewhere in this file.
+    _now = time.time()
+    if (_movers_cache["tickers"] is not None
+            and _now - _movers_cache["ts"] < MOVERS_CACHE_TTL_S):
+        _cached = _movers_cache["tickers"]
+        _before = len(out)
+        out = list(dict.fromkeys(out + _cached))
+        if verbose and len(out) > _before:
+            print(f"  ♻️  +{len(out) - _before} movers (cached, "
+                  f"{_now - _movers_cache['ts']:.0f}s old)")
+        return out
+
+    _discovered: list[str] = []
     if ENABLE_DYNAMIC_SMALLCAP:
         try:
-            _live = fetch_dman_dynamic_tickers(max_tickers=30)
+            # 30 was carried over verbatim when this was extracted from
+            # main(); the function's own default is 80 and it now polls five
+            # screeners instead of two, so the low cap was throwing away
+            # freshly-discovered names before they were ever scanned.
+            _live = fetch_dman_dynamic_tickers()
             if _live:
-                _before = len(out)
-                out = list(dict.fromkeys(out + _live))
-                if verbose and len(out) > _before:
-                    print(f"  📈  +{len(out) - _before} live movers added "
-                          f"(Yahoo gainers/actives): {', '.join(_live[:8])}"
-                          f"{'...' if len(out) - _before > 8 else ''}")
+                _discovered.extend(_live)
+                if verbose:
+                    print(f"  📈  {len(_live)} live movers ({len(DYNAMIC_SCREENER_IDS)} "
+                          f"screeners): {', '.join(_live[:8])}"
+                          f"{'...' if len(_live) > 8 else ''}")
         except Exception:
             pass
     if ENABLE_EARNINGS_MOVER_SCAN:
         try:
             _earn = fetch_earnings_mover_tickers(max_tickers=15)
             if _earn:
-                _before = len(out)
-                out = list(dict.fromkeys(out + _earn))
-                if verbose and len(out) > _before:
-                    print(f"  🚀  +{len(out) - _before} earnings movers added "
-                          f"(beat + real gap, off-watchlist): {', '.join(_earn[:8])}"
-                          f"{'...' if len(out) - _before > 8 else ''}")
+                _discovered.extend(_earn)
+                if verbose:
+                    print(f"  🚀  {len(_earn)} earnings movers (beat + real gap): "
+                          f"{', '.join(_earn[:8])}{'...' if len(_earn) > 8 else ''}")
         except Exception:
             pass
+
+    _discovered = list(dict.fromkeys(_discovered))
+    # Cache even an EMPTY result: a quiet tape (or a screener outage) should
+    # not mean re-polling every feed on every 10-minute scan for the rest of
+    # the session.
+    _movers_cache["tickers"] = _discovered
+    _movers_cache["ts"]      = _now
+
+    _before = len(out)
+    out = list(dict.fromkeys(out + _discovered))
+    if verbose and len(out) > _before:
+        print(f"  ➕ {len(out) - _before} new names added to the universe")
     return out
 
 
@@ -19882,6 +20014,24 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     for sig in signals:
         if sig.ticker in already_tracked:
             print(f"  ⏭️  {sig.ticker:<8} already in open positions — skipping duplicate")
+            continue
+
+        # Per-ticker bench: stop returning to names whose own live record
+        # says they do not work. See _ticker_bench_reason() -- 44% of all
+        # trades were five tickers, and the two most-repeated (ARTL, CAST)
+        # were the two worst. Placed here rather than in scoring so the
+        # signal is still ALERTED and still logged; only the automated
+        # entry is withheld, leaving a manual /buy possible.
+        _bench = _ticker_bench_reason(sig.ticker)
+        if _bench:
+            print(f"  🪑 {sig.ticker:<8} BENCHED — {_bench}")
+            if not _is_duplicate_alert(f"__BENCH_{sig.ticker}__"):
+                send_telegram(
+                    f"🪑 <b>{sig.ticker} benched</b> — signal fired but not taken.\n"
+                    f"{_bench}.\n"
+                    f"Auto-clears once those trades age out of the "
+                    f"{TICKER_BENCH_LOOKBACK_DAYS}-day window."
+                )
             continue
 
         # Found in the 2026-08-23 review: MAX_POSITIONS was only ever

@@ -9152,6 +9152,111 @@ def _supertrend_bull(h_arr, l_arr, c_arr, period: int = 10, mult: float = 3.0) -
     return bull
 
 
+# Cumulative share of a regular session's volume that has typically traded by
+# N minutes after the 9:30 ET open. US equity volume is famously U-shaped --
+# heavy at the open, a midday lull, heavy into the close -- so a straight
+# elapsed-time projection badly over-states RVOL in the first hour (15
+# minutes is 3.8% of the clock but roughly 7.5% of the volume).
+_INTRADAY_VOLUME_CURVE = (
+    (0,   0.000), (15,  0.075), (30,  0.130), (60,  0.220),
+    (90,  0.290), (120, 0.350), (180, 0.460), (240, 0.560),
+    (300, 0.660), (330, 0.720), (360, 0.820), (390, 1.000),
+)
+RVOL_PROJECTION_MIN_ELAPSED_MIN = 10   # below this the sample is too thin to scale
+# Kill switch. This changes how often EVERY RVOL-gated setup fires, so it is
+# the first thing to turn off if live behaviour looks wrong -- set False and
+# live RVOL reverts to the raw partial-bar ratio it has always used.
+ENABLE_RVOL_SESSION_PROJECTION = True
+
+
+def _session_volume_fraction(now_et: Optional[datetime] = None) -> float:
+    """
+    Fraction of a typical regular session's volume expected to have traded by
+    `now_et`. 1.0 outside 9:30-16:00 ET, so anything using this is a no-op
+    once the session is complete.
+    """
+    _n = now_et or datetime.now(ET)
+    _mins = (_n.hour - 9) * 60 + (_n.minute - 30)
+    if _mins >= 390:
+        return 1.0
+    if _mins <= 0:
+        return 0.0
+    _prev_m, _prev_f = 0, 0.0
+    for _m, _f in _INTRADAY_VOLUME_CURVE:
+        if _mins <= _m:
+            _span = _m - _prev_m
+            if _span <= 0:
+                return _f
+            return _prev_f + (_f - _prev_f) * (_mins - _prev_m) / _span
+        _prev_m, _prev_f = _m, _f
+    return 1.0
+
+
+def _project_partial_session_rvol(df: "pd.DataFrame",
+                                  now_et: Optional[datetime] = None) -> "pd.DataFrame":
+    """
+    Scale the FINAL bar's RVOL to a full-session equivalent when that bar is
+    today's still-forming daily bar. Mutates and returns `df`.
+
+    This is the single largest live-vs-backtest divergence in the system.
+    RVOL is computed as (bar volume / AvgVol20). In a BACKTEST every bar is a
+    COMPLETE day, so that ratio is full-day over full-day and a >= 2.0
+    threshold means "twice normal volume". LIVE, fetch_df()'s last bar is
+    today's PARTIAL bar (it explicitly guards against yfinance handing back
+    the prior session instead), so the same ratio is
+    (volume-so-far / full-day average). At 9:45 ET that is roughly 0.08
+    against a 2.0 threshold -- unreachable by construction.
+
+    The consequence, measured 2026-09-05: Gap & Hold is 79 of 83 BACKTEST
+    trades (95%) and 3 of 39 LIVE trades (8%). The setup the entire strategy
+    was validated on effectively cannot fire in the morning, which is the
+    only time a gap setup is worth taking. Re-running Friday 09-04's 28
+    genuine gap-ups through the real conditions, RVOL alone blocked 25 of
+    them, and ORCL (+3.52%, held above open, RSI>50, MACD confirmed, prior
+    day green, sector ETF fine) failed on NOTHING ELSE.
+
+    This deliberately does NOT touch any threshold. The Gap & Hold entry
+    conditions are frozen by standing instruction, and they stay frozen --
+    2.0 still means 2.0. What changes is that the number being compared
+    against 2.0 now measures the same thing it measured in the backtest that
+    justified it.
+    """
+    try:
+        if not ENABLE_RVOL_SESSION_PROJECTION:
+            return df
+        if "RVOL" not in df.columns or df.empty:
+            return df
+        # Only ever touches a bar dated TODAY while the session is live, so
+        # backtests and completed sessions are untouched. `now_et` is a test
+        # seam: when supplied, the caller is asserting the session context
+        # itself, so the live clock check is skipped rather than making the
+        # tests depend on when they happen to run.
+        if now_et is None:
+            if not is_market_open():
+                return df
+            _n = datetime.now(ET)
+        else:
+            _n = now_et
+        _last_ts = df.index[-1]
+        try:
+            _last_date = _last_ts.date()
+        except AttributeError:
+            return df
+        if _last_date != _n.date():
+            return df
+        _frac = _session_volume_fraction(_n)
+        _elapsed = (_n.hour - 9) * 60 + (_n.minute - 30)
+        if _frac <= 0 or _elapsed < RVOL_PROJECTION_MIN_ELAPSED_MIN:
+            return df
+        _raw = df["RVOL"].iloc[-1]
+        if _raw is None or (isinstance(_raw, float) and _raw != _raw):
+            return df
+        df.iloc[-1, df.columns.get_loc("RVOL")] = float(_raw) / _frac
+    except Exception:
+        return df
+    return df
+
+
 def compute_indicators(df: pd.DataFrame) -> pd.DataFrame:
     """Full indicator suite on daily OHLCV data."""
     c, h, l, v = df["Close"], df["High"], df["Low"], df["Volume"]
@@ -9216,6 +9321,14 @@ def compute_indicators(df: pd.DataFrame) -> pd.DataFrame:
 
     # Supertrend (period=10, multiplier=3.0)
     df["ST_bull"] = _supertrend_bull(h.values, l.values, c.values)
+
+    # Make the final bar's RVOL comparable to the backtest's, when that bar
+    # is today's still-forming one. See _project_partial_session_rvol() --
+    # without this, live RVOL is (volume-so-far / full-day average) while
+    # backtest RVOL is full-day over full-day, and every RVOL threshold in
+    # the system silently means something far stricter live than it did in
+    # the backtest that set it. No-op outside market hours and in backtests.
+    df = _project_partial_session_rvol(df)
 
     return df
 

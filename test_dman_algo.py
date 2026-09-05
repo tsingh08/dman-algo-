@@ -5671,6 +5671,86 @@ class TestDayTradeLedger(unittest.TestCase):
         self.assertEqual(status["remaining"], 0)
 
 
+class TestIntradayRvolProjection(unittest.TestCase):
+    """The single largest live-vs-backtest divergence found in this system.
+
+    RVOL is (bar volume / AvgVol20). In a BACKTEST every bar is a COMPLETE
+    day, so a >= 2.0 threshold means "twice normal volume". LIVE, fetch_df()'s
+    last bar is today's PARTIAL bar -- it explicitly guards against yfinance
+    handing back the prior session instead -- so the same ratio is
+    (volume-so-far / full-day average), about 0.08 at 9:45 ET against a 2.0
+    threshold. Unreachable by construction.
+
+    Measured 2026-09-05: Gap & Hold is 79 of 83 BACKTEST trades (95%) and 3
+    of 39 LIVE trades (8%). Re-running Friday 09-04's 28 genuine gap-ups
+    through the real conditions, RVOL alone blocked 25, and ORCL (+3.52%,
+    held above open, RSI>50, MACD confirmed, prior day green, sector ETF
+    fine) failed on nothing else.
+
+    No threshold moves. Gap & Hold's conditions are frozen by standing
+    instruction and stay frozen -- 2.0 still means 2.0. What changes is that
+    the number compared against 2.0 finally measures what it measured in the
+    backtest that justified it."""
+
+    ET = None
+
+    def setUp(self):
+        self.ET = a.ET
+
+    def test_curve_is_monotonic_and_ends_at_one(self):
+        prev = -1.0
+        for _m, f in a._INTRADAY_VOLUME_CURVE:
+            self.assertGreaterEqual(f, prev)
+            prev = f
+        self.assertEqual(a._INTRADAY_VOLUME_CURVE[-1][1], 1.0)
+
+    def test_open_is_front_loaded_not_linear(self):
+        # 15 minutes is 3.8% of the clock but far more of the volume; a
+        # straight elapsed-time projection would badly overstate RVOL.
+        f = a._session_volume_fraction(datetime(2026, 9, 4, 9, 45, tzinfo=a.ET))
+        self.assertGreater(f, 15 / 390.0)
+
+    def test_full_session_is_a_no_op(self):
+        self.assertEqual(a._session_volume_fraction(datetime(2026, 9, 4, 16, 0, tzinfo=a.ET)), 1.0)
+        self.assertEqual(a._session_volume_fraction(datetime(2026, 9, 4, 18, 0, tzinfo=a.ET)), 1.0)
+
+    def test_before_the_open_is_zero(self):
+        self.assertEqual(a._session_volume_fraction(datetime(2026, 9, 4, 9, 0, tzinfo=a.ET)), 0.0)
+
+    def _df(self, day, rvol=0.15):
+        import pandas as pd
+        idx = pd.to_datetime([day])
+        return pd.DataFrame({"RVOL": [rvol]}, index=idx)
+
+    def test_todays_partial_bar_is_scaled_up(self):
+        now = datetime(2026, 9, 4, 9, 45, tzinfo=a.ET)
+        out = a._project_partial_session_rvol(self._df("2026-09-04", 0.15), now_et=now)
+        # 0.15 of a full day's average by 9:45, when 7.5% is normal, IS 2x volume
+        self.assertAlmostEqual(out["RVOL"].iloc[-1], 2.0, places=1)
+
+    def test_an_older_bar_is_never_touched(self):
+        now = datetime(2026, 9, 4, 9, 45, tzinfo=a.ET)
+        out = a._project_partial_session_rvol(self._df("2026-09-03", 0.15), now_et=now)
+        self.assertAlmostEqual(out["RVOL"].iloc[-1], 0.15)
+
+    def test_no_scaling_in_the_first_minutes(self):
+        # Too thin a sample to extrapolate from.
+        now = datetime(2026, 9, 4, 9, 33, tzinfo=a.ET)
+        out = a._project_partial_session_rvol(self._df("2026-09-04", 0.02), now_et=now)
+        self.assertAlmostEqual(out["RVOL"].iloc[-1], 0.02)
+
+    def test_kill_switch_reverts_to_raw(self):
+        now = datetime(2026, 9, 4, 9, 45, tzinfo=a.ET)
+        with patch.object(a, "ENABLE_RVOL_SESSION_PROJECTION", False):
+            out = a._project_partial_session_rvol(self._df("2026-09-04", 0.15), now_et=now)
+        self.assertAlmostEqual(out["RVOL"].iloc[-1], 0.15)
+
+    def test_thresholds_are_untouched(self):
+        # The fix must not have quietly relaxed the frozen Gap & Hold gate.
+        src = inspect.getsource(a._raw_signals)
+        self.assertIn('float(r["RVOL"]) >= 2.0', src)
+
+
 class TestUniverseDiscoveryBreadth(unittest.TestCase):
     """Direct request 2026-09-05: expand the watchlist scope, because the
     same plays kept recurring. Discovery polled only day_gainers and

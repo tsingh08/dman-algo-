@@ -5861,6 +5861,31 @@ class TestMarketWideScreen(unittest.TestCase):
                                  "prevDailyBar": {}}})
         self.assertEqual(out, [])
 
+    def test_reverse_split_is_rejected_despite_a_huge_gap(self):
+        # Caught live 2026-09-05: this screen's TOP candidate was CLGN at
+        # "+870%", which was $0.34 -> $3.55 on volume collapsing 2,085,357 ->
+        # 238,302. A ~1:10 reverse split moves price with no trade behind it.
+        snaps = {"CLGN": {"dailyBar": {"o": 3.55, "c": 3.55, "v": 238_302},
+                          "prevDailyBar": {"c": 0.34, "v": 2_085_357}}}
+        self.assertEqual(self._run(snaps), [])
+
+    def test_a_real_gap_with_volume_expansion_survives(self):
+        # AOUT's actual Friday shape: gapped and volume expanded.
+        snaps = {"AOUT": {"dailyBar": {"o": 14.0, "c": 14.5, "v": 4_000_000},
+                          "prevDailyBar": {"c": 11.0, "v": 900_000}}}
+        self.assertIn("AOUT", self._run(snaps))
+
+    def test_absurd_gap_is_rejected_outright(self):
+        snaps = {"XXXX": {"dailyBar": {"o": 50.0, "c": 50.0, "v": 9_000_000},
+                          "prevDailyBar": {"c": 1.0, "v": 1_000_000}}}
+        self.assertEqual(self._run(snaps), [])
+
+    def test_missing_prior_volume_does_not_reject_a_gapper(self):
+        # No prior-volume figure is not evidence of a split.
+        snaps = {"AAA": {"dailyBar": {"o": 11.0, "c": 11.5, "v": 500_000},
+                         "prevDailyBar": {"c": 10.0}}}
+        self.assertIn("AAA", self._run(snaps))
+
     def test_api_failure_returns_empty_rather_than_raising(self):
         with patch.object(a, "_all_tradable_us_equities", return_value=["AAA"]), \
              patch.object(a.requests, "get", side_effect=Exception("down")):

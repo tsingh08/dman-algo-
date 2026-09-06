@@ -15934,6 +15934,9 @@ ENABLE_MARKET_WIDE_SCAN  = True
 MARKET_SCAN_BATCH        = 200     # symbols per snapshot call
 MARKET_SCAN_MIN_GAP_PCT  = 2.0     # pre-filter only; the real gate is _raw_signals()
 MARKET_SCAN_MIN_DOLLAR_VOL = 300_000
+MARKET_SCAN_MIN_VOL_RATIO  = 0.5    # today's volume vs prior day's — a reverse
+                                    # split contracts volume, a real gap expands it
+MARKET_SCAN_MAX_GAP_PCT    = 100.0  # beyond this it is a corporate action
 MARKET_SCAN_MAX_CANDIDATES = 60
 
 
@@ -16016,8 +16019,21 @@ def screen_market_wide(max_candidates: int = MARKET_SCAN_MAX_CANDIDATES,
                     if c * v < MARKET_SCAN_MIN_DOLLAR_VOL:
                         continue
                     gap = (o - pc) / pc * 100
-                    if gap >= MARKET_SCAN_MIN_GAP_PCT:
-                        found.append((sym, gap))
+                    if gap < MARKET_SCAN_MIN_GAP_PCT:
+                        continue
+                    # Corporate-action filter. A real gap comes with volume
+                    # EXPANSION -- buyers showed up. A reverse split moves
+                    # price with no trade behind it and share count shrinks,
+                    # so volume CONTRACTS. Caught live 2026-09-05: this
+                    # screen surfaced CLGN as its top candidate at "+870%",
+                    # which was $0.34 -> $3.55 on volume falling 2,085,357 ->
+                    # 238,302 (0.11x). A ~1:10 reverse split, not a setup.
+                    _pv = float(pdb.get("v", 0) or 0)
+                    if _pv > 0 and v < _pv * MARKET_SCAN_MIN_VOL_RATIO:
+                        continue
+                    if gap > MARKET_SCAN_MAX_GAP_PCT:
+                        continue      # no organic overnight gap is tradeable here
+                    found.append((sym, gap))
                 except (TypeError, ValueError):
                     continue
         except Exception:

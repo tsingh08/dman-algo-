@@ -6420,6 +6420,80 @@ class TestOrphanEntryDateNeverInventsADayTrade(unittest.TestCase):
         self.assertNotEqual(got, datetime.now(a.ET).date().isoformat())
 
 
+class TestOptionsAggregateExposureCap(unittest.TestCase):
+    """MAX_POSITIONS is 5 and the per-trade ceiling is 7.5%, so five
+    concurrent options positions put 37.5% of the account at risk at once --
+    every one of which can go to zero, because a long option has no stop.
+    PORTFOLIO_HEAT_LIMIT (6%) cannot see this: it is computed from stop
+    DISTANCE, and these positions have no stop to measure. With
+    DAILY_LOSS_LIMIT at 3%, leaving a structurally possible 37% session loss
+    underneath it makes that limit decorative.
+
+    Tolerable while options were a side path; not now. As of 2026-09-05 both
+    forced-overnight states (0 and 1 day trades remaining) route to options
+    only, so this is the main path rather than the exception."""
+
+    def _opt(self, entry, shares, tkr="X"):
+        return a.OpenPosition(ticker=tkr, bias="LONG",
+                              setup=f"Options Call {tkr}260918C00010000 (x)",
+                              entry=entry, stop=1.0, target1=3, target2=4,
+                              shares=shares, entry_date="2026-09-04")
+
+    def _eq(self, positions, equity=2904.10):
+        return (patch.object(a, "PositionTracker", **{"return_value.positions": positions}),
+                patch.object(a, "get_effective_account", return_value=equity))
+
+    def test_premium_at_risk_is_entry_times_shares(self):
+        p1, p2 = self._eq([self._opt(2.0, 100)])
+        with p1, p2:
+            self.assertAlmostEqual(a._open_options_premium_at_risk(), 200.0)
+
+    def test_equity_positions_do_not_count(self):
+        eqpos = a.OpenPosition(ticker="Y", bias="LONG", setup="Gap & Hold",
+                               entry=10.0, stop=9.0, target1=12, target2=14,
+                               shares=100, entry_date="2026-09-04")
+        p1, p2 = self._eq([eqpos])
+        with p1, p2:
+            self.assertEqual(a._open_options_premium_at_risk(), 0.0)
+
+    def test_room_allows_a_normal_second_position(self):
+        p1, p2 = self._eq([self._opt(2.0, 100)])
+        with p1, p2:
+            self.assertIsNone(a._options_aggregate_room(218))
+
+    def test_cap_blocks_the_one_that_would_breach_it(self):
+        p1, p2 = self._eq([self._opt(2.0, 100)])
+        with p1, p2:
+            why = a._options_aggregate_room(400)
+        self.assertIsNotNone(why)
+        self.assertIn("aggregate cap", why)
+
+    def test_five_full_size_positions_cannot_all_open(self):
+        # The exact scenario the cap exists for: MAX_POSITIONS x per-trade cap
+        # is 37.5% of the account, all of it able to go to zero at once.
+        full = 2904.10 * a.MAX_TRADE_LOSS_PCT
+        held = [self._opt(full / 100, 100, f"T{i}") for i in range(3)]
+        p1, p2 = self._eq(held)
+        with p1, p2:
+            self.assertIsNotNone(a._options_aggregate_room(full))
+
+    def test_cap_is_below_max_positions_times_per_trade(self):
+        self.assertLess(a.MAX_OPTIONS_AGGREGATE_PCT,
+                        a.MAX_POSITIONS * a.MAX_TRADE_LOSS_PCT)
+
+    def test_cap_allows_at_least_two_full_size_positions(self):
+        # Otherwise it would be stricter than the per-trade rule intends.
+        self.assertGreaterEqual(a.MAX_OPTIONS_AGGREGATE_PCT, 2 * a.MAX_TRADE_LOSS_PCT)
+
+    def test_bookkeeping_error_never_blocks_an_entry(self):
+        with patch.object(a, "get_effective_account", side_effect=Exception("io")):
+            self.assertIsNone(a._options_aggregate_room(999_999))
+
+    def test_cap_is_checked_at_both_options_submit_sites(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertEqual(src.count("_options_aggregate_room(_opt_risk)"), 2)
+
+
 class TestElevatedSizeTier(unittest.TestCase):
     """Direct instruction 2026-09-04: "$250 at the 7.5% capped loss but
     increased to $500 only on guaranteed setups with absolute confidence

@@ -741,6 +741,13 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # moonshot capped at PORTFOLIO_HEAT_LIMIT 6%) and are clamped anyway so the
 # rule holds if those are ever raised.
 MAX_TRADE_LOSS_PCT = 0.075       # ceiling on what ONE trade may lose, % of equity
+# ...and a ceiling on what ALL open options may lose together. Five concurrent
+# positions at the per-trade cap is 37.5% of the account at risk at once, and
+# a long option has no stop -- PORTFOLIO_HEAT_LIMIT is computed from stop
+# DISTANCE and cannot see this. With DAILY_LOSS_LIMIT at 3%, leaving a
+# structurally possible 37% session loss underneath it makes that limit
+# decorative. 20% allows roughly two full-size positions plus room.
+MAX_OPTIONS_AGGREGATE_PCT = 0.20
 
 # Elevated tier. Direct instruction 2026-09-04: "$250 at the 7.5% capped
 # loss but increased to $500 only on guaranteed setups with absolute
@@ -11987,6 +11994,59 @@ def _elevated_size_reason(sig) -> Optional[str]:
         return None
 
 
+def _open_options_premium_at_risk() -> float:
+    """
+    Total dollars of options premium currently at risk across open positions.
+
+    For an options position, `entry` is the premium per share and `shares` is
+    contracts x 100, so entry * shares is the dollar premium paid -- which is
+    also the maximum loss, since a long option has no stop and can expire
+    worthless.
+    """
+    try:
+        _tot = 0.0
+        for p in PositionTracker().positions:
+            _setup = getattr(p, "setup", "") or ""
+            if not (_setup.startswith("Options Call ") or _setup.startswith("Options Put ")):
+                continue
+            _tot += float(p.entry) * float(p.shares)
+        return _tot
+    except Exception:
+        return 0.0
+
+
+def _options_aggregate_room(new_premium: float) -> Optional[str]:
+    """
+    Reason `new_premium` would breach the aggregate options exposure cap, or
+    None if there is room.
+
+    MAX_POSITIONS is 5 and the per-trade ceiling is MAX_TRADE_LOSS_PCT (7.5%),
+    so five concurrent options positions put 37.5% of the account at risk
+    simultaneously -- every one of which can go to zero, because a long option
+    has no stop. PORTFOLIO_HEAT_LIMIT (6%) does not constrain this: it is
+    computed from stop DISTANCE, and these positions have no stop to measure.
+
+    That gap was tolerable while options were a side path. It is not now: as
+    of 2026-09-05 both forced-overnight states (0 and 1 day trades remaining)
+    route to options only, so this is becoming the main path rather than the
+    exception. DAILY_LOSS_LIMIT is 3%; permitting a structurally possible 37%
+    single-session loss underneath it makes that limit decorative.
+    """
+    try:
+        _eq = get_effective_account()
+        if _eq <= 0:
+            return None
+        _cur = _open_options_premium_at_risk()
+        _cap = _eq * MAX_OPTIONS_AGGREGATE_PCT
+        if _cur + new_premium <= _cap:
+            return None
+        return (f"open options premium ${_cur:,.0f} + ${new_premium:,.0f} new "
+                f"exceeds the {MAX_OPTIONS_AGGREGATE_PCT:.0%} aggregate cap "
+                f"(${_cap:,.0f} on ${_eq:,.0f} equity)")
+    except Exception:
+        return None          # never block an entry on a bookkeeping error
+
+
 def _options_position_budget(sig=None) -> float:
     """Target dollar budget for one options trade — see OPTIONS_MAX_POSITION_PCT's
     docstring for why this replaced a flat dollar constant. Computed fresh on
@@ -20438,6 +20498,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
             _opt_client = get_alpaca_client()
             if _opt_client:
                 _opt_risk = round(_options_position_budget(sig) * _risk_off_mult, 2)
+                _agg = _options_aggregate_room(_opt_risk)
+                if _agg:
+                    print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
+                    if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                        send_telegram(
+                            f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
+                            f"A long option has no stop, so concurrent premium is "
+                            f"simultaneous max loss. Waiting for an open position to close.")
+                    continue
                 print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_call(
@@ -20454,6 +20523,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
             _opt_client = get_alpaca_client()
             if _opt_client:
                 _opt_risk = round(_options_position_budget(sig) * _risk_off_mult, 2)
+                _agg = _options_aggregate_room(_opt_risk)
+                if _agg:
+                    print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
+                    if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                        send_telegram(
+                            f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
+                            f"A long option has no stop, so concurrent premium is "
+                            f"simultaneous max loss. Waiting for an open position to close.")
+                    continue
                 print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
                 try:
                     oid, _opt_contract = _submit_options_put(

@@ -6323,22 +6323,52 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
 
     def test_zero_pdt_branch_sets_the_flag(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        self.assertIn("_zero_pdt_options_only = True", src)
+        self.assertIn("_options_only_overnight = True", src)
 
     def test_flag_defaults_to_false(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        self.assertIn("_zero_pdt_options_only = False", src)
+        self.assertIn("_options_only_overnight = False", src)
 
     def test_shares_fallback_is_guarded_before_submit(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        i_guard = src.index("elif _zero_pdt_options_only:")
+        i_guard = src.index("elif _options_only_overnight:")
         i_share = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
         self.assertLess(i_guard, i_share,
                         "the zero-PDT guard must precede the shares submit")
 
+    def test_swing_mode_also_requires_options(self):
+        # Extended 2026-09-05 from "0 remaining" to "1 remaining". Backtested
+        # across two independent samples, varying ONLY the holding period:
+        #   hold <=15 bars  avg loss -8.54% / -8.93%   R:R 0.81 / 0.84
+        #   hold <= 1 bar   avg loss -2.44% / -3.32%   R:R 2.70 / 1.71
+        # Cutting the hold barely moves the wins and more than halves the
+        # losses, because the loss tail is overnight GAP risk -- which no stop
+        # can protect against. CLRO lost 28.1% on $41M average daily volume:
+        # not thinness, a gap straight through the stop. Being forced
+        # overnight is exactly when equity is worst and an option is best.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_sw = src.index('elif _pdt["swing_mode"]:')
+        seg = src[i_sw:i_sw + 2600]
+        self.assertIn("_options_only_overnight = True", seg)
+        self.assertIn("_signal_can_use_options(s)", seg)
+
+    def test_swing_mode_skips_when_nothing_is_options_eligible(self):
+        # Must not fall through to an equity swing -- that is the exact trade
+        # the backtest says not to take.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_sw = src.index('elif _pdt["swing_mode"]:')
+        seg = src[i_sw:i_sw + 2600]
+        self.assertIn("return", seg)
+
+    def test_both_forced_overnight_branches_set_the_same_flag(self):
+        # 0-remaining and 1-remaining are the same situation for instrument
+        # choice: the position is going to be held overnight either way.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertEqual(src.count("_options_only_overnight = True"), 2)
+
     def test_guard_continues_rather_than_trading(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        seg = src[src.index("elif _zero_pdt_options_only:"):]
+        seg = src[src.index("elif _options_only_overnight:"):]
         seg = seg[:seg.index("oid, _submit_err = submit_alpaca_trade(sig)")]
         self.assertIn("continue", seg)
         self.assertNotIn("submit_alpaca_trade", seg)

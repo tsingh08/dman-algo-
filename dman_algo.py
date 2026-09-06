@@ -20100,7 +20100,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         # Set only in the 0-remaining branch below. Read much further down at
         # the shares-fallback decision, which is the point where "options were
         # attempted and unavailable" is finally known.
-        _zero_pdt_options_only = False
+        _options_only_overnight = False
         try:
             _pdt = _get_pdt_status()
             _equity    = _pdt["equity"]
@@ -20126,7 +20126,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     # option, and options-only was chosen deliberately since
                     # single-leg options are also the only setup in the live
                     # book with a positive edge (4W/2L, +103%).
-                    _zero_pdt_options_only = True
+                    _options_only_overnight = True
                     _opt_ok = [s for s in signals if _signal_can_use_options(s)]
                     _dropped = len(signals) - len(_opt_ok)
                     if not _opt_ok:
@@ -20151,14 +20151,51 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     send_telegram(msg)
                     print(f"  🎯 PDT ZERO — options-only: {len(signals)} eligible, {_dropped} equity signal(s) skipped")
                 elif _pdt["swing_mode"]:
-                    # 1 day trade remaining — switch all new entries to swing mode
+                    # 1 day trade remaining — every new entry is forced overnight
+                    # to preserve the last of the budget. Same instrument rule
+                    # as the 0-remaining branch above, and for the same reason:
+                    #
+                    # Backtested 2026-09-05 across two independent samples,
+                    # varying only the holding period:
+                    #
+                    #   hold <=15 bars   avg loss -8.54% / -8.93%   R:R 0.81 / 0.84
+                    #   hold <= 1 bar    avg loss -2.44% / -3.32%   R:R 2.70 / 1.71
+                    #
+                    # Cutting the hold barely touches the wins and more than
+                    # halves the losses, because most of the loss tail is
+                    # OVERNIGHT GAP risk, which a stop cannot protect against.
+                    # Live confirms it: CLRO lost 28.1% carrying $41M of daily
+                    # volume -- not thinness, a gap straight through the stop.
+                    #
+                    # So being forced overnight is precisely when equity is at
+                    # its worst, and precisely when an option is at its best:
+                    # max loss is the premium, fixed at entry, and there is no
+                    # resting stop to gap through. Live books agree -- options
+                    # R:R 0.88 / +17.23% expectancy, equity 0.35 / -4.39%.
+                    #
+                    # Skip rather than fall back to shares: an equity swing here
+                    # is the exact trade the evidence says not to take.
+                    _options_only_overnight = True
+                    _sw_ok = [s for s in signals if _signal_can_use_options(s)]
+                    _sw_dropped = len(signals) - len(_sw_ok)
+                    if not _sw_ok:
+                        send_telegram(
+                            f"🔄 <b>DMan LIVE — SWING MODE, nothing eligible</b>: "
+                            f"{_dt_count}/3 used, 1 remaining. All {_sw_dropped} signal(s) "
+                            f"were equity-only, and an overnight equity hold is where the "
+                            f"loss tail lives. No orders placed.")
+                        print(f"  🔄 SWING MODE: {_sw_dropped} equity-only signal(s) skipped — nothing eligible")
+                        return
+                    signals = _sw_ok
                     for _s in signals:
                         _s.swing_mode = True
                     msg = (f"🔄 <b>DMan LIVE — SWING MODE</b>: {_dt_count}/3 day trades used — "
-                           f"1 remaining. Submitting as GTC swing trades (held overnight) "
-                           "to preserve the last day-trade budget.")
+                           f"1 remaining. Submitting {len(signals)} OPTIONS entry(s) held "
+                           f"overnight to preserve the last day-trade budget."
+                           + (f"\n{_sw_dropped} equity signal(s) skipped — an overnight share "
+                              f"position can gap through its stop." if _sw_dropped else ""))
                     send_telegram(msg)
-                    print(f"  🔄 SWING MODE: {_dt_count}/3 day trades used — all new entries go GTC")
+                    print(f"  🔄 SWING MODE: {len(signals)} options entries, {_sw_dropped} equity skipped")
                 else:
                     msg = (f"⚠️ <b>DMan LIVE — PDT</b>: {_dt_count}/3 used — "
                            f"{_remaining} day trade(s) remaining. Orders proceeding normally.")
@@ -20477,7 +20514,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                         f"low-float watchlist picks only. No trade placed."
                     )
                 continue
-            elif _zero_pdt_options_only:
+            elif _options_only_overnight:
                 # Zero day-trade budget: the SHARES fallback is exactly what
                 # must not happen here. Shares get a broker-side stop that
                 # can fill the same session, and that fill IS the day trade

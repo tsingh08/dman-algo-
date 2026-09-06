@@ -707,6 +707,15 @@ TICKER_BENCH_WR_FLOOR      = 0.25   # below this live win rate, stop trading it
 TICKER_BENCH_LOOKBACK_DAYS = 30     # rolling window; a bench expires on its own
 TICKER_BENCH_CUM_PCT_FLOOR = -5.0   # ...or bench a net bleeder regardless of WR
 
+# How many BARS a simulated trade may be held before a time exit. This is the
+# single biggest structural difference between the backtest and live trading:
+# the backtest holds up to 15 TRADING DAYS with T1/T2/breakeven/stall exits,
+# while a live day_only position is force-closed at 15:45 the SAME session.
+# The 76% backtest win rate that justified this strategy was earned over
+# 15-day holds; live never gets past hour six. Extracted to a constant
+# 2026-09-05 so the two can actually be compared.
+BACKTEST_MAX_HOLD_BARS = 15
+
 SPLIT_SUSPECT_RATIO = 3.0
 
 # Ceiling on what ONE trade may contribute to the account-level P&L logs.
@@ -2291,8 +2300,8 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
                     "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
                     "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
 
-        # Time exit: 15 bars
-        if hold >= 15:
+        # Time exit
+        if hold >= BACKTEST_MAX_HOLD_BARS:
             pnl_pct = ((C - entry) / entry * 100) if is_long else ((entry - C) / entry * 100)
             return {"exit_date": exit_bar_date, "exit_px": round(C, 2),
                     "exit_reason": "TIME",
@@ -16978,7 +16987,7 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                             else float(bar["Low"]) <= sig.target1) and not sig._t1_hit
                 hit_t2   = (float(bar["High"]) >= sig.target2 if is_lo
                             else float(bar["Low"]) <= sig.target2) and sig._t1_hit
-                hit_time = hold >= 15
+                hit_time = hold >= BACKTEST_MAX_HOLD_BARS
 
                 # BE@1R: move stop to entry once price reaches 1R profit (before T1 at 2.5R)
                 be1r_px = (ep + (ep - sig.stop)) if is_lo else (ep - (sig.stop - ep))

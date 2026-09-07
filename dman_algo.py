@@ -2858,7 +2858,11 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
         return False, "bot is halted (/resume first)"
     _on_probation, _ = is_on_probation()
     if not _on_probation:
-        _stats = WinRateTracker().rolling_stats()
+        # live_only: the guard gates REAL orders, so the streak must come
+        # from real fills — run_backtest() appends is_live=False records to
+        # the same file, and a backtest run after live losses would
+        # otherwise sit at the tail and mask (or fabricate) the streak.
+        _stats = WinRateTracker().rolling_stats(live_only=True)
         if _stats["consec_losses"] >= MAX_CONSEC_LOSSES:
             return False, f"consecutive-loss guard active ({_stats['consec_losses']} losses)"
         if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
@@ -16330,13 +16334,18 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # unconditionally below — a genuinely bad new day still halts.
     _on_probation, _probation_mult = is_on_probation()
     if not _on_probation:
-        # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
-        if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
-            print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
+        # Consecutive loss guard — send Telegram once per session (dedup via alert cache).
+        # live_only: this halt gates real trading, so the streak must come from
+        # real fills — run_backtest() appends is_live=False records to the same
+        # file, and a backtest run after live losses would otherwise sit at the
+        # tail of the unfiltered pool and mask (or fabricate) the streak.
+        _stats_live = tracker.rolling_stats(live_only=True)
+        if _stats_live["consec_losses"] >= MAX_CONSEC_LOSSES:
+            print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {_stats_live['consec_losses']} losses in a row.")
             print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
             if not _is_duplicate_alert("__CONSEC_LOSS__"):
                 send_telegram(
-                    f"🛑 <b>DMan halted</b> — {stats['consec_losses']} consecutive losses.\n"
+                    f"🛑 <b>DMan halted</b> — {_stats_live['consec_losses']} consecutive losses.\n"
                     f"Scanner paused for the day. Review your last trades."
                 )
                 _save_last_alert("__CONSEC_LOSS__")
@@ -20213,7 +20222,9 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     _on_probation_sub, _ = is_on_probation()
     if not _on_probation_sub:
         _tracker_cb = WinRateTracker()
-        _stats_cb   = _tracker_cb.rolling_stats()
+        # live_only — see the guard in run_pro_scan(): backtest records
+        # appended after live losses must not mask a real loss streak here.
+        _stats_cb   = _tracker_cb.rolling_stats(live_only=True)
         if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
             print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
             return
@@ -20406,7 +20417,11 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
 
     # Hot streak press — 3+ consecutive wins → 1.25x sizing (compounding the edge)
     # 1 consecutive loss → 0.85x (early caution before the 3-loss halt kicks in)
-    _streak_stats_live = WinRateTracker().rolling_stats()
+    # live_only: sizing presses/cuts on the REAL fill streak — without the
+    # filter, a backtest run appends is_live=False records at the tail and
+    # simulated wins could boost real position sizes 1.25x (or a simulated
+    # loss cut them) off trades that never happened.
+    _streak_stats_live = WinRateTracker().rolling_stats(live_only=True)
     _consec_wins_live  = _streak_stats_live.get("consec_wins", 0)
     _consec_loss_live  = _streak_stats_live.get("consec_losses", 0)
     if _consec_wins_live >= 3:

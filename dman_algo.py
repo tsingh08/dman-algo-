@@ -2143,6 +2143,60 @@ def _write_json_atomic(path: str, data, **dump_kwargs) -> None:
         raise
 
 
+FLAGS_FILE = "dman_flags.json"
+
+# Only these may be toggled from Telegram. A whitelist, not open access to
+# every module constant: /flags is a safety valve for behaviour that has not
+# run live yet, not a remote console for the whole config.
+TOGGLEABLE_FLAGS = {
+    "rvol":    ("ENABLE_RVOL_SESSION_PROJECTION",
+                "intraday RVOL projection — makes live RVOL comparable to the "
+                "backtest's. OFF reverts to the raw partial-bar ratio."),
+    "market":  ("ENABLE_MARKET_WIDE_SCAN",
+                "market-wide gap screen over ~12,900 tickers. OFF falls back "
+                "to the curated universe plus screener pages."),
+    "options": ("ENABLE_OPTIONS_TRADING",
+                "buy options instead of shares on eligible signals."),
+    "smallcap":("ENABLE_DYNAMIC_SMALLCAP",
+                "dynamic small-cap discovery from the Yahoo screeners."),
+}
+
+
+def _load_flags() -> dict:
+    try:
+        with open(FLAGS_FILE, encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return {}
+
+
+def flag(name: str, default: bool) -> bool:
+    """
+    Value of feature flag `name`, honouring a persisted /flags override.
+
+    Module constants cannot be the answer here. The daemon, the cron scanner
+    and every manual run are SEPARATE PROCESSES in separate checkouts, so
+    setting a constant in one has no effect on the others -- and changing the
+    literal means an edit, a commit and a push. Confirmed as a real gap
+    2026-09-07: two kill switches were shipped for behaviour that had never
+    run live, described as "the first thing to flip if it looks wrong", and
+    neither could actually be flipped by someone at work with only a phone.
+
+    Same persisted-file pattern as HALT_FILE, for the same reason: it has to
+    survive a process boundary and be settable from Telegram.
+    """
+    v = _load_flags().get(name)
+    return bool(v) if isinstance(v, bool) else default
+
+
+def set_flag(name: str, value: bool) -> None:
+    d = _load_flags()
+    d[name] = bool(value)
+    d["_updated"] = datetime.now(ET).isoformat(timespec="seconds")
+    _write_json_atomic(FLAGS_FILE, d, indent=1)
+
+
 def _load_last_alerts() -> dict:
     try:
         with open(LAST_ALERTS_FILE) as f:
@@ -2820,7 +2874,39 @@ def _handle_telegram_command(text: str) -> None:
     _cmd   = _parts[0].lower().lstrip("/").split("@")[0]
     _arg   = _parts[1].upper().strip() if len(_parts) > 1 else ""
 
-    if _cmd == "halt":
+    if _cmd == "flags":
+        # Remote toggle for behaviour that has not run live yet. See flag():
+        # the module constants cannot serve this, because the daemon and the
+        # cron scanner are separate processes in separate checkouts and
+        # changing a literal needs an edit, a commit and a push -- none of
+        # which is available to someone at work with only a phone.
+        _key = (_parts[1].lower() if len(_parts) > 1 else "")
+        _val = (_parts[2].lower() if len(_parts) > 2 else "")
+        if not _key:
+            _lines = ["🎛️ <b>Feature flags</b>", ""]
+            for _short, (_const, _desc) in TOGGLEABLE_FLAGS.items():
+                _on = flag(_const, globals().get(_const, True))
+                _lines.append(f"{'✅' if _on else '⛔'} <b>{_short}</b> — {'ON' if _on else 'OFF'}")
+                _lines.append(f"    <i>{_desc}</i>")
+            _lines += ["", "Send <b>/flags rvol off</b> to change one.",
+                       "Takes effect on the next scan — no restart needed."]
+            send_telegram("\n".join(_lines))
+        elif _key not in TOGGLEABLE_FLAGS:
+            send_telegram(f"❓ Unknown flag <b>{_key}</b>. "
+                          f"Known: {', '.join(sorted(TOGGLEABLE_FLAGS))}")
+        elif _val not in ("on", "off"):
+            send_telegram(f"❓ Say <b>/flags {_key} on</b> or <b>/flags {_key} off</b>.")
+        else:
+            _const, _desc = TOGGLEABLE_FLAGS[_key]
+            try:
+                set_flag(_const, _val == "on")
+                send_telegram(f"{'✅' if _val=='on' else '⛔'} <b>{_key} = {_val.upper()}</b>\n"
+                              f"{_desc}\n"
+                              f"Applies from the next scan. Send /flags to review.")
+            except Exception as _e:
+                send_telegram(f"❌ /flags failed: {_e}")
+
+    elif _cmd == "halt":
         _reason = " ".join(_parts[1:]) or "manual"
         try:
             with open(HALT_FILE, "w") as _f:
@@ -9238,7 +9324,7 @@ def _project_partial_session_rvol(df: "pd.DataFrame",
     justified it.
     """
     try:
-        if not ENABLE_RVOL_SESSION_PROJECTION:
+        if not flag("ENABLE_RVOL_SESSION_PROJECTION", ENABLE_RVOL_SESSION_PROJECTION):
             return df
         if "RVOL" not in df.columns or df.empty:
             return df
@@ -16160,7 +16246,7 @@ def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> li
     # Market-wide gap screen FIRST -- it is the broadest source by an order
     # of magnitude (12,881 symbols vs a few hundred from screener pages) and
     # the direct answer to the same names recurring. See screen_market_wide().
-    if ENABLE_MARKET_WIDE_SCAN:
+    if flag("ENABLE_MARKET_WIDE_SCAN", ENABLE_MARKET_WIDE_SCAN):
         try:
             _mw = screen_market_wide(verbose=verbose)
             if _mw:

@@ -148,6 +148,10 @@ STATE_FILES = [
     "dman_milestones.json",   # one-time $5K/$10K/$25K crossing announcements — see
                                 # algo.check_account_milestones(); same class of bug as
                                 # dman_setup_probation.json above if left out (added 2026-09-02)
+    "dman_flags.json",        # /flags remote toggles — see algo.flag(). MUST persist:
+                                # the whole point is that a switch thrown from a phone
+                                # survives into the next scanner/daemon process, which
+                                # is a different checkout entirely.
     "dman_day_trades.json",   # completed same-day round trips — the ONLY record of PDT
                                 # budget consumed, because Alpaca's /v2/account omits
                                 # daytrade_count entirely for this account (confirmed live

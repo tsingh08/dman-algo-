@@ -6420,6 +6420,92 @@ class TestOrphanEntryDateNeverInventsADayTrade(unittest.TestCase):
         self.assertNotEqual(got, datetime.now(a.ET).date().isoformat())
 
 
+class TestRemoteFeatureFlags(unittest.TestCase):
+    """Asked directly on 2026-09-07 whether the RVOL kill switch would flip
+    itself. It would not, and worse, it could not be flipped at all by the
+    person who needs it: ENABLE_RVOL_SESSION_PROJECTION and
+    ENABLE_MARKET_WIDE_SCAN were module constants, so changing one meant an
+    edit, a commit and a push -- none of which is available to someone at
+    work with only a phone. Two kill switches were shipped for behaviour that
+    had never run live, described as "the first thing to flip if it looks
+    wrong", and neither was reachable.
+
+    Module constants also cannot work across the process boundary: the
+    daemon, the cron scanner and every manual run are separate processes in
+    separate checkouts, so setting one in memory changes nothing anywhere
+    else. Same persisted-file pattern as HALT_FILE, for the same reason."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close(); os.unlink(self._tmp.name)
+        self._p = patch.object(a, "FLAGS_FILE", self._tmp.name)
+        self._p.start(); self.addCleanup(self._p.stop)
+        self.addCleanup(lambda: os.path.exists(self._tmp.name) and os.unlink(self._tmp.name))
+
+    def test_missing_file_returns_the_compiled_default(self):
+        self.assertTrue(a.flag("ENABLE_RVOL_SESSION_PROJECTION", True))
+        self.assertFalse(a.flag("SOMETHING_OFF", False))
+
+    def test_override_survives_a_write_and_read(self):
+        a.set_flag("ENABLE_RVOL_SESSION_PROJECTION", False)
+        self.assertFalse(a.flag("ENABLE_RVOL_SESSION_PROJECTION", True))
+
+    def test_override_can_be_turned_back_on(self):
+        a.set_flag("ENABLE_MARKET_WIDE_SCAN", False)
+        a.set_flag("ENABLE_MARKET_WIDE_SCAN", True)
+        self.assertTrue(a.flag("ENABLE_MARKET_WIDE_SCAN", False))
+
+    def test_corrupt_file_falls_back_to_defaults(self):
+        with open(self._tmp.name, "w") as f:
+            f.write("{not json")
+        self.assertTrue(a.flag("ENABLE_RVOL_SESSION_PROJECTION", True))
+
+    def test_the_two_untested_behaviours_actually_read_the_store(self):
+        # The whole point -- a constant read directly would not be reachable.
+        self.assertIn('flag("ENABLE_RVOL_SESSION_PROJECTION"',
+                      inspect.getsource(a._project_partial_session_rvol))
+        self.assertIn('flag("ENABLE_MARKET_WIDE_SCAN"',
+                      inspect.getsource(a.augment_universe_with_movers))
+
+    def test_only_whitelisted_flags_are_toggleable(self):
+        # /flags is a safety valve, not a remote console for the whole config.
+        msgs = []
+        with patch.object(a, "send_telegram", side_effect=lambda m, **k: msgs.append(m)):
+            a._handle_telegram_command("/flags DAILY_LOSS_LIMIT off")
+        self.assertIn("Unknown flag", msgs[-1])
+
+    def test_bad_value_is_rejected_without_changing_anything(self):
+        msgs = []
+        with patch.object(a, "send_telegram", side_effect=lambda m, **k: msgs.append(m)):
+            a._handle_telegram_command("/flags rvol maybe")
+        self.assertIn("on</b> or", msgs[-1])
+        self.assertTrue(a.flag("ENABLE_RVOL_SESSION_PROJECTION", True))
+
+    def test_command_actually_flips_it(self):
+        with patch.object(a, "send_telegram", return_value=True):
+            a._handle_telegram_command("/flags rvol off")
+        self.assertFalse(a.flag("ENABLE_RVOL_SESSION_PROJECTION", True))
+        with patch.object(a, "send_telegram", return_value=True):
+            a._handle_telegram_command("/flags rvol on")
+        self.assertTrue(a.flag("ENABLE_RVOL_SESSION_PROJECTION", True))
+
+    def test_bare_command_lists_every_toggle(self):
+        msgs = []
+        with patch.object(a, "send_telegram", side_effect=lambda m, **k: msgs.append(m)):
+            a._handle_telegram_command("/flags")
+        for short in a.TOGGLEABLE_FLAGS:
+            self.assertIn(short, msgs[-1])
+
+    def test_flags_file_persists_across_processes(self):
+        # A switch thrown from a phone must survive into the next scanner or
+        # daemon run, which is a different checkout entirely.
+        import pathlib
+        wf = pathlib.Path(".github/workflows/dman_scanner.yml").read_text(encoding="utf-8")
+        dm = pathlib.Path("dman_daemon.py").read_text(encoding="utf-8")
+        self.assertIn("dman_flags.json", wf)
+        self.assertIn("dman_flags.json", dm)
+
+
 class TestOptionsAggregateExposureCap(unittest.TestCase):
     """MAX_POSITIONS is 5 and the per-trade ceiling is 7.5%, so five
     concurrent options positions put 37.5% of the account at risk at once --

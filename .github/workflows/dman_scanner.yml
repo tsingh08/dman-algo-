@@ -2,9 +2,12 @@ name: DMan PRO Scanner
 
 on:
   schedule:
-    # Sunday 5 PM ET — weekly readiness check, shows which watchlist tickers
-    # pass all pre-gap filters heading into Monday
-    - cron: '0 21 * * 0'
+    # 5 PM ET nightly slot for the readiness check. Daily rather than Sunday-
+    # only because the step now decides for itself: it runs on the EVE of the
+    # next session, which is Sunday on a normal week and the holiday evening
+    # otherwise. Every other night it exits immediately. See the
+    # _is_session() block in the scanner step for the incident behind this.
+    - cron: '0 21 * * *'
     # ~4:36 AM ET — earliest pre-market scanner pass, added 2026-08-13 to
     # close the overnight coverage gap (nothing ran between ~4:20 PM and
     # ~7:06 AM before this). Alpaca's extended pre-market session opens at
@@ -90,7 +93,7 @@ jobs:
           DISPATCH_MODE:       ${{ github.event.inputs.mode }}
         run: |
           python - <<'EOF'
-          from datetime import datetime, date
+          from datetime import datetime, date, timedelta
           import zoneinfo, sys, subprocess, os, time
           ET = zoneinfo.ZoneInfo("America/New_York")
           now = datetime.now(ET)
@@ -149,14 +152,6 @@ jobs:
               )
               sys.exit(result.returncode)
 
-          # Sunday 5 PM ET — weekly readiness check for Monday gaps
-          if now.weekday() == 6:
-              result = subprocess.run(
-                  [sys.executable, "dman_algo.py", "--mode", "readiness"],
-                  capture_output=False
-              )
-              sys.exit(result.returncode)
-
           # NYSE market holidays — market closed, nothing to scan
           MARKET_HOLIDAYS = {
               date(2025,  1,  1), date(2025,  1, 20), date(2025,  2, 17),
@@ -172,6 +167,29 @@ jobs:
               date(2027,  7,  5), date(2027,  9,  6), date(2027, 11, 25),
               date(2027, 12, 24),
           }
+          def _is_session(d):
+              return d.weekday() < 5 and d not in MARKET_HOLIDAYS
+
+          # Readiness check, on the EVE of the next session rather than blindly
+          # on Sunday. Fires when today is NOT a trading day but tomorrow IS --
+          # which is Sunday evening on a normal week, and the holiday evening
+          # otherwise, with no extra cases to enumerate.
+          #
+          # It used to be `if now.weekday() == 6`, and that branch sat ABOVE
+          # the holiday set below so it could never consult it. Confirmed live
+          # 2026-09-06: the Sunday scan ran and reported readiness for Monday
+          # 09-07 -- Labor Day, a closed market -- while Tuesday 09-08, the
+          # actual next session, got no readiness report at all. Every holiday
+          # weekend had the same shape.
+          if not _is_session(today) and _is_session(today + timedelta(days=1)):
+              print(f"Eve of the next session ({(today + timedelta(days=1)).strftime('%a %b %d')}) "
+                    f"— running readiness check.")
+              result = subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "readiness"],
+                  capture_output=False
+              )
+              sys.exit(result.returncode)
+
           if today in MARKET_HOLIDAYS:
               print(f"NYSE holiday ({now.strftime('%a %b %d')}) — market closed, skipping scan.")
               sys.exit(0)

@@ -3989,5 +3989,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T10:43:05.080587-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple&#39;s Wednesday Event: Pricier iPhone 18 Pros and a $2,099 Foldable Expected",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T10:43:22.326834-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic Reportedly Holds Off On Decart AI Deal While Investing In Compute Ahead Of Anticipated IPO&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T10:43:22.454688-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic Reportedly Holds Off On Decart AI Deal While Investing In Compute Ahead Of Anticipated IPO&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T10:43:29.663038-04:00",
+    "symbols": [
+      "ARBE"
+    ],
+    "headline": "Arbe Robotics Stock Rises After Level 3 Automated Driving Selection",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T10:43:30.393741-04:00",
+    "symbols": [
+      "NUR"
+    ],
+    "headline": "Nuran Wireless Shares Halted On Circuit Breaker To The Downside, Stock Now Up 208.47%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T10:43:37.661105-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Enphase Energy shares are trading higher after the company announced that power modules for its IQ Solid-State Transformer are now being built in the U.S. to assemble and validate full-scale IQ SST racks.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

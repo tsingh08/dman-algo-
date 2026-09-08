@@ -1100,5 +1100,25 @@
     "budget_hit": false,
     "news_breadth_pct": 60.6,
     "news_breadth_total": 180
+  },
+  {
+    "ts": "2026-09-08T13:41:02.115806-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 15.3,
+    "min_score": 85,
+    "universe": "all",
+    "tickers_total": 177,
+    "signals": 2,
+    "signal_tickers": [
+      "CRWV",
+      "BE"
+    ],
+    "rejected_no_signal": 174,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": null,
+    "news_breadth_total": 0
   }
 ]

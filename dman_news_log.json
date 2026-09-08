@@ -2821,5 +2821,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T14:34:47.067426-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Wants to Kill the &#39;Pay-Per-Token&#39; AI Economy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T14:34:52.153927-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Palantir Wants to Kill the &#39;Pay-Per-Token&#39; AI Economy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T14:34:54.613993-04:00",
+    "symbols": [
+      "EOSE"
+    ],
+    "headline": "Roivant Sciences, Pharvaris, IonQ And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

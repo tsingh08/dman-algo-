@@ -4550,5 +4550,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T11:41:07.658208-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Healthcare ETFs Were Left Behind. JPMorgan Sees the Money Coming Back",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T11:41:07.813720-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Healthcare ETFs Were Left Behind. JPMorgan Sees the Money Coming Back",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T11:41:14.509468-04:00",
+    "symbols": [
+      "XBI"
+    ],
+    "headline": "Healthcare ETFs Were Left Behind. JPMorgan Sees the Money Coming Back",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T11:41:17.287621-04:00",
+    "symbols": [
+      "MA",
+      "V"
+    ],
+    "headline": "Can Visa&#39;s Agentic Ready Program Answer The Citrini Bear Case?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

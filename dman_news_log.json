@@ -2912,5 +2912,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T14:50:22.383888-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s Mehr News Agency Says Explosion Sounds Heard In Iran&#39;s Kharg Island, No Official Announcement Yet",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

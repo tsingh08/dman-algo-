@@ -3495,5 +3495,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T09:45:04.802527-04:00",
+    "symbols": [
+      "FCUV",
+      "WYHG"
+    ],
+    "headline": "Dow Tumbles 450 Points; US Small Business Sentiment Declines In August",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T09:45:06.114547-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Guggenheim Reiterates Buy on Oracle, Maintains $400 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

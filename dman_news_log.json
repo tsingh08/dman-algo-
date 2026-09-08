@@ -1,5 +1,178 @@
 [
   {
+<<<<<<< Updated upstream
+=======
+    "ts": "2026-09-04T13:59:25.786762-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic\u2019s In-House Payments Tech Push Could Chip Away at Stripe&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.787191-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tesla&#39;s Cybercab &#39;Storm&#39; Was More of a &#39;Drizzle,&#39; WSJ&#39;s Tim Higgins Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.787595-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tesla&#39;s Ashok Elluswamy Says Intelligence, Not Sensors Are The &#39;Core Issue&#39; For Self-Driving As TSLA Launches Cybercab Without Steering Wheel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.788001-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "South Korea Lands $2 Billion From 4 US Companies as Trump Turns Up Pressure on Foreign Chipmakers: GLW, APD, ACLS Among Stocks in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.881491-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;AI Cloud Firm Nscale Seeking $3.5 Billion In Pre-IPO Financing&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.882091-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic\u2019s In-House Payments Tech Push Could Chip Away at Stripe&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.882576-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Understanding Amazon.com&#39;s Position In Broadline Retail Industry Compared To Competitors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.883281-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "After Meta Went &#39;AI Native,&#39; Outages Rose 40% and Firefighting Time Jumped 70%: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.883739-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "South Korea Lands $2 Billion From 4 US Companies as Trump Turns Up Pressure on Foreign Chipmakers: GLW, APD, ACLS Among Stocks in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.978237-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "8 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.978888-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Musk Says Autonomy Is Flight&#39;s Next Step \u2014 A Day After Tesla&#39;s Cybercab AI Pitch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.979400-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Musk Could Need $1 Trillion to Build Enough Chips for His AI Ambitions, ARK Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.979884-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "GLJ Research Reiterates Sell on Tesla, Maintains $24.86 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:25.980394-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk\u2019s Vision of Cybercab Fleets Being Airbnb Meets Uber Has Chamath Palihapitiya Ready: \u2018Put Me In Coach\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-04T13:59:26.067045-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "ADBE Stock Declines Nearly 3% in Friday Pre-Market: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:59:26.154231-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Goldman Sachs Maintains Buy on Snowflake, Raises Price Target to $436",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-04T13:59:26.154946-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "AI\u2019s Next Winners? Investor Bets on Snowflake, CrowdStrike and Palantir",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+>>>>>>> Stashed changes
     "ts": "2026-09-04T13:59:26.155507-04:00",
     "symbols": [
       "SNOW"
@@ -5045,6 +5218,21 @@
     ],
     "headline": "Nokia Announced Mobile Core Early Access, A Live Hosted Environment That Provides An Up-close Look At The Software Driving Advanced Network Connectivity In The AI Era",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T13:27:03.608897-04:00",
+    "symbols": [
+      "AMZN",
+      "BIDU",
+      "GOOGL",
+      "NBIS",
+      "TSLA",
+      "UBER"
+    ],
+    "headline": "Tesla Cybercab vs. Uber: Who Wins the Robotaxi Race?",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

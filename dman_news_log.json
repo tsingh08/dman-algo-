@@ -2290,5 +2290,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T13:39:10.978387-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Cyber, Law Enforcement Officials Accuse Chinese AI Companies Of &#39;Aggressive, Industrial-Scale Distillation Activities&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

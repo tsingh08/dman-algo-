@@ -4508,5 +4508,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T11:27:35.682541-04:00",
+    "symbols": [
+      "ABBV",
+      "LLY",
+      "XBI"
+    ],
+    "headline": "Healthcare ETFs Were Left Behind. JPMorgan Sees the Money Coming Back",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T11:27:39.295989-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent Says We Must Keep Moving Forward With AI, As China Will Not Slow Down",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T11:27:46.176846-04:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "Roivant Sciences, Pharvaris, IonQ And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

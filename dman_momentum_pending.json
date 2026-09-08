@@ -1,50 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "CDT",
-      "entry_px": 0.6343,
-      "stop_px": 0.5758,
-      "t1": 0.8246,
-      "t2": 0.9514,
-      "signal_str": "VWAP reclaim (recovery dip (opened -4.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:18:34.599377-04:00",
-      "expires_at": "2026-09-08T13:33:34.599377-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "ZCMD",
-      "entry_px": 0.8703,
-      "stop_px": 0.8218,
-      "t1": 1.1314,
-      "t2": 1.3054,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:18:57.571987-04:00",
-      "expires_at": "2026-09-08T13:33:57.571987-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "NEXR",
-      "entry_px": 1.7335,
-      "stop_px": 1.6038,
-      "t1": 2.2536,
-      "t2": 2.6002,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.2% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:20:19.886426-04:00",
-      "expires_at": "2026-09-08T13:35:19.886426-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "FMFC",
-      "entry_px": 0.1984,
-      "stop_px": 0.188,
-      "t1": 0.2579,
-      "t2": 0.2976,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:20:31.243516-04:00",
-      "expires_at": "2026-09-08T13:35:31.243516-04:00",
-      "status": "awaiting_approval"
-    },
-    {
       "ticker": "VMAR",
       "entry_px": 9.0481,
       "stop_px": 8.3565,
@@ -133,5 +89,10 @@
       "status": "awaiting_approval"
     }
   ],
-  "consumed": {}
+  "consumed": {
+    "CDT_2026-09-08T13:18:34.599377-04:00": 1788888872.9441504,
+    "ZCMD_2026-09-08T13:18:57.571987-04:00": 1788888872.944639,
+    "NEXR_2026-09-08T13:20:19.886426-04:00": 1788888934.0593948,
+    "FMFC_2026-09-08T13:20:31.243516-04:00": 1788888934.0600872
+  }
 }

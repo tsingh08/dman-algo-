@@ -3125,5 +3125,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:46:34.242260-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla shares are trading higher after the company launched its Cybercab.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-08T15:47:19.140743-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Space Exploration Technologies shares are trading higher, possibly amid sympathy with Tesla. There has been speculation that Elon Musk could merge the two companies.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:47:27.506096-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom CEO At The Goldman Sachs Communacopia + Technology Conference Says Can Lock In Chip Supply For 2027, In Process Of Locking In 2028 Supply",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -4828,5 +4828,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T12:32:53.646366-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "American Eagle Q2 Preview: Sydney Sweeney, Ella Langley, \u2018Off Campus\u2019 Partnerships Could Help Stock Rebound",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T12:33:07.648755-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Breaks Out Azure Sales at $100 Billion Annualized Pace, Reorganizes AI Segments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T12:33:08.081612-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Microsoft Breaks Out Azure Sales at $100 Billion Annualized Pace, Reorganizes AI Segments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-08T12:33:08.309109-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Microsoft Breaks Out Azure Sales at $100 Billion Annualized Pace, Reorganizes AI Segments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T12:33:08.318203-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Microsoft Breaks Out Azure Sales at $100 Billion Annualized Pace, Reorganizes AI Segments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T12:33:08.322957-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Qualcomm CFO Says Co. Has Strong Engagement With Another Hyperscaler Beyond Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T12:33:09.997587-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm CFO Says Co. Has Strong Engagement With Another Hyperscaler Beyond Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T12:33:14.300325-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Microsoft Breaks Out Azure Sales at $100 Billion Annualized Pace, Reorganizes AI Segments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T12:33:17.376896-04:00",
+    "symbols": [
+      "MOBX"
+    ],
+    "headline": "Mobix Labs Stock Soars on Initial F-16 Order Win From a Veteran Contractor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

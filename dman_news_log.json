@@ -4621,5 +4621,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T11:47:02.497846-04:00",
+    "symbols": [
+      "KWM"
+    ],
+    "headline": "K Wave Media Announces Name Change To Nexus Advanced Technologies And Nasdaq Ticker Change From KWM To NXAT, Effective At Market Open September 9",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T11:49:02.890494-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on FedEx, Lowers Price Target to $400",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T11:49:14.515399-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "HSBC Reiterates Buy on Apple, Maintains $366 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,50 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "HUBC",
-      "entry_px": 0.6336,
-      "stop_px": 0.5951,
-      "t1": 0.8237,
-      "t2": 0.9504,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T11:10:37.899769-04:00",
-      "expires_at": "2026-09-08T11:25:37.899769-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "DFNS",
-      "entry_px": 10.8416,
-      "stop_px": 9.9099,
-      "t1": 14.0941,
-      "t2": 16.2624,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.2% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T11:10:48.578993-04:00",
-      "expires_at": "2026-09-08T11:25:48.578993-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "WETO",
-      "entry_px": 2.5551,
-      "stop_px": 2.2275,
-      "t1": 3.3216,
-      "t2": 3.8327,
-      "signal_str": "VWAP reclaim (recovery dip (opened -7.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T11:10:56.265458-04:00",
-      "expires_at": "2026-09-08T11:25:56.265458-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "IPW",
-      "entry_px": 1.8737,
-      "stop_px": 1.8315,
-      "t1": 2.4358,
-      "t2": 2.8106,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T11:10:58.701896-04:00",
-      "expires_at": "2026-09-08T11:25:58.701896-04:00",
-      "status": "awaiting_approval"
-    },
-    {
       "ticker": "QNME",
       "entry_px": 0.3372,
       "stop_px": 0.3221,
@@ -134,6 +90,10 @@
     }
   ],
   "consumed": {
-    "ATOS_2026-09-08T11:10:11.962520-04:00": 1788881118.6602676
+    "ATOS_2026-09-08T11:10:11.962520-04:00": 1788881118.6602676,
+    "HUBC_2026-09-08T11:10:37.899769-04:00": 1788881180.5531673,
+    "DFNS_2026-09-08T11:10:48.578993-04:00": 1788881180.5536387,
+    "WETO_2026-09-08T11:10:56.265458-04:00": 1788881180.553962,
+    "IPW_2026-09-08T11:10:58.701896-04:00": 1788881180.554296
   }
 }

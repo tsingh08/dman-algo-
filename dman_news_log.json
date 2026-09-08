@@ -4928,5 +4928,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T12:47:09.312983-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Seoul eyes $22.3b Texas gas project as first under $350b US investment pact&#39; - Korea Herald",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T12:49:14.124400-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron CFO Eimear Bonner Says Co. Will Double The Number Of Rigs In Venezuela As Part Of Five-Year Plan To Grow Production",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

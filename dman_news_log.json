@@ -4743,5 +4743,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-08T12:10:34.582062-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Shares of medical device-related companies are trading lower amid possible sympathy with Boston Scientific after that company announced it was likely to miss its FY26 and Q3 adjusted EPS and net sales growth guidance following a previously announced cybersecurity incident that affected operations.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T12:10:46.375737-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Netflix Faces South Africa Price Probe, Putting Stock Under Pressure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-08T12:10:46.972389-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Faces South Africa Price Probe, Putting Stock Under Pressure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-08T12:10:56.040748-04:00",
+    "symbols": [
+      "PHVS"
+    ],
+    "headline": "Crude Oil Gains 1.5%; ABM Posts Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T12:10:56.277510-04:00",
+    "symbols": [
+      "ROIV"
+    ],
+    "headline": "Crude Oil Gains 1.5%; ABM Posts Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -3226,5 +3226,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:59:45.963695-04:00",
+    "symbols": [
+      "FEED"
+    ],
+    "headline": "ENvue Medical&#39;s NanoVibronix Has Been Granted U.S. Patent Number 12,728,102 Titled &#34;Transdermal patch of a portable ultrasound-generating system for improved delivery of therapeutic agents and associated methods of treatment&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T16:01:11.099728-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s IRGC Navy Warns All Crew Of Oil Tankers In Vicinity Of Kuwaiti And Bahraini Ports That Host Americans To Evacuate",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T16:01:48.922626-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Assembly Biosciences Announces Exercise Of Option To Share 40% Of U.S. Development Costs And Profits For Gilead-Partnered HSV Helicase-Primase Inhibitor Program In Recurrent Genital Herpes",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

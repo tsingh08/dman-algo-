@@ -2871,5 +2871,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T14:45:01.601142-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Federal Communications Commission Proposing To Open More Wireless Spectrum That Can Be Used For Faster Broadband Service From Space",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T14:46:49.457111-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic Is Severing Ties With Information Technology Industry Council Over Legislation That Would Curb Foreign Access To U.S. Chips&#39; - Axios",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T14:47:05.510624-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic Is Severing Ties With Information Technology Industry Council Over Legislation That Would Curb Foreign Access To U.S. Chips&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T14:47:05.516195-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic Is Severing Ties With Information Technology Industry Council Over Legislation That Would Curb Foreign Access To U.S. Chips&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

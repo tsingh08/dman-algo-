@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-04T13:59:25.500917-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Stifel Maintains Hold on Microsoft, Raises Price Target to $530",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-04T13:59:25.501252-04:00",
     "symbols": [
       "MSFT"
@@ -5040,5 +5030,22 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T13:13:17.057113-04:00",
+    "symbols": [
+      "AAPL",
+      "DIA",
+      "IWM",
+      "NVDA",
+      "ORCL",
+      "QCOM",
+      "QQQ",
+      "TSLA"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Slip as $98 Brent Reignites Inflation Fears: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

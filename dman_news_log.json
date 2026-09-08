@@ -2851,5 +2851,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T14:36:46.770121-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Introduces ChatGPT Images 2.5",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

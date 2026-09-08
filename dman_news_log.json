@@ -2302,6 +2302,7 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:54.183652-04:00",
     "symbols": [
       "AAPL"
@@ -2397,11 +2398,30 @@
       "NVDA"
     ],
     "headline": "What&#39;s Going On With NVIDIA Stock Tuesday?",
+=======
+    "ts": "2026-09-08T13:46:49.595721-04:00",
+    "symbols": [
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "Why Oracle Stock is the Trade to Watch After OpenAI&#39;s AGI Claim",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T13:47:06.647405-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Oracle Stock is the Trade to Watch After OpenAI&#39;s AGI Claim",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:54.724884-04:00",
     "symbols": [
       "NVDA"
@@ -2453,6 +2473,9 @@
   },
   {
     "ts": "2026-09-08T13:39:55.231784-04:00",
+=======
+    "ts": "2026-09-08T13:47:06.835198-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "META"
     ],
@@ -2462,6 +2485,7 @@
     "sentiment": "negative"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:55.232209-04:00",
     "symbols": [
       "META"
@@ -2503,6 +2527,9 @@
   },
   {
     "ts": "2026-09-08T13:39:55.520703-04:00",
+=======
+    "ts": "2026-09-08T13:47:06.968579-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "GOOGL"
     ],
@@ -2512,7 +2539,11 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:55.521149-04:00",
+=======
+    "ts": "2026-09-08T13:47:06.971166-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "GOOGL"
     ],
@@ -2522,6 +2553,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:55.521572-04:00",
     "symbols": [
       "GOOGL"
@@ -2553,6 +2585,9 @@
   },
   {
     "ts": "2026-09-08T13:39:55.816507-04:00",
+=======
+    "ts": "2026-09-08T13:47:07.130400-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "AMZN"
     ],
@@ -2562,6 +2597,7 @@
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:55.816964-04:00",
     "symbols": [
       "AMZN"
@@ -2653,6 +2689,9 @@
   },
   {
     "ts": "2026-09-08T13:39:56.336180-04:00",
+=======
+    "ts": "2026-09-08T13:47:07.291533-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "NFLX"
     ],
@@ -2662,6 +2701,7 @@
     "sentiment": "negative"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:56.336743-04:00",
     "symbols": [
       "NFLX"
@@ -2673,6 +2713,9 @@
   },
   {
     "ts": "2026-09-08T13:39:56.576008-04:00",
+=======
+    "ts": "2026-09-08T13:47:07.385716-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "SNOW"
     ],
@@ -2682,6 +2725,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:56.576597-04:00",
     "symbols": [
       "SNOW"
@@ -2693,6 +2737,9 @@
   },
   {
     "ts": "2026-09-08T13:39:56.818486-04:00",
+=======
+    "ts": "2026-09-08T13:47:07.459608-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "PLTR"
     ],
@@ -2702,6 +2749,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:56.819065-04:00",
     "symbols": [
       "PLTR"
@@ -2723,6 +2771,9 @@
   },
   {
     "ts": "2026-09-08T13:39:57.060046-04:00",
+=======
+    "ts": "2026-09-08T13:47:07.548729-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "SMCI"
     ],
@@ -2732,6 +2783,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:57.060646-04:00",
     "symbols": [
       "SMCI"
@@ -2803,6 +2855,9 @@
   },
   {
     "ts": "2026-09-08T13:39:58.051341-04:00",
+=======
+    "ts": "2026-09-08T13:47:08.024107-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "SKHY"
     ],
@@ -2812,6 +2867,7 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:39:58.052023-04:00",
     "symbols": [
       "SKHY"
@@ -3053,6 +3109,9 @@
   },
   {
     "ts": "2026-09-08T13:40:00.723395-04:00",
+=======
+    "ts": "2026-09-08T13:47:09.248186-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "APP"
     ],
@@ -3062,6 +3121,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:40:00.724242-04:00",
     "symbols": [
       "APP"
@@ -3353,6 +3413,9 @@
   },
   {
     "ts": "2026-09-08T13:40:04.279644-04:00",
+=======
+    "ts": "2026-09-08T13:47:10.316886-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "IONQ"
     ],
@@ -3362,6 +3425,7 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:40:04.280712-04:00",
     "symbols": [
       "IONQ"
@@ -3403,6 +3467,9 @@
   },
   {
     "ts": "2026-09-08T13:40:04.545067-04:00",
+=======
+    "ts": "2026-09-08T13:47:10.395194-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "LMT"
     ],
@@ -3412,6 +3479,7 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:40:04.546218-04:00",
     "symbols": [
       "LMT"
@@ -3463,6 +3531,9 @@
   },
   {
     "ts": "2026-09-08T13:40:05.591995-04:00",
+=======
+    "ts": "2026-09-08T13:47:10.713932-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "ETN"
     ],
@@ -3472,6 +3543,7 @@
     "sentiment": "negative"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:40:05.593225-04:00",
     "symbols": [
       "ETN"
@@ -3607,11 +3679,19 @@
       "ORCL"
     ],
     "headline": "S&amp;P 500, Nasdaq Slip as $98 Brent Reignites Inflation Fears: Stock Market Today",
+=======
+    "ts": "2026-09-08T13:47:11.449625-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Why Oracle Stock is the Trade to Watch After OpenAI&#39;s AGI Claim",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:40:07.715403-04:00",
     "symbols": [
       "ORCL"
@@ -4290,5 +4370,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+=======
+    "ts": "2026-09-08T13:47:13.210138-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "9 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+>>>>>>> Stashed changes
   }
 ]

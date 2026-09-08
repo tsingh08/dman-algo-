@@ -1102,11 +1102,16 @@
     "news_breadth_total": 180
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-08T13:41:02.115806-04:00",
+=======
+    "ts": "2026-09-08T13:47:20.367801-04:00",
+>>>>>>> Stashed changes
     "regime": "BULL",
     "regime_score": 15,
     "vix": 15.3,
     "min_score": 85,
+<<<<<<< Updated upstream
     "universe": "all",
     "tickers_total": 177,
     "signals": 2,
@@ -1120,5 +1125,20 @@
     "budget_hit": false,
     "news_breadth_pct": null,
     "news_breadth_total": 0
+=======
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 293,
+    "signals": 2,
+    "signal_tickers": [
+      "ROIV",
+      "BEX"
+    ],
+    "rejected_no_signal": 291,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 61.1,
+    "news_breadth_total": 182
+>>>>>>> Stashed changes
   }
 ]

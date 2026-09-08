@@ -2837,6 +2837,47 @@ def _setup_probation_bonus(setup: str) -> int:
         return 0
 
 
+def _enforce_setup_drift_restrictions(tracker: "WinRateTracker") -> None:
+    """
+    Re-check setup_performance_drift() and (re-)restrict every drifting
+    setup. Added 2026-09-08 (session review finding): the only automatic
+    caller of _enter_setup_probation() was send_account_pnl_telegram()'s
+    EOD block, which only runs if a scan happens to land inside a ~35-min
+    window (15:25-16:00 hourly-cron path, GitHub cron delays routinely
+    push a run past it) or the daemon's 4 PM quiet-heartbeat branch (which
+    is skipped entirely whenever there IS an active signal). Confirmed
+    live: Low Float Catalyst's restriction expired 2026-09-04 and
+    Gap & Hold's expired 2026-09-08 while both still sat far below
+    SETUP_PERFORMANCE_ALERT_WR_FLOOR (1/8 and 1/3 live WR), and neither
+    was ever re-restricted -- the very next Low Float signal (AKAN,
+    2026-09-04) was evaluated with no restriction the same day the old
+    one expired, and stopped out -20%. The account milestone note states
+    the intended semantics outright: "probation clears on live win rate
+    recovering, not a fixed date."
+
+    Enforcement now rides every scan. _enter_setup_probation() keeping
+    the original clock for an already-restricted setup makes this a no-op
+    on repeat calls, so the Telegram alert fires at most once per
+    restriction cycle (not per scan). send_account_pnl_telegram()'s EOD
+    drift block stays as-is for its richer daily summary; its own
+    _enter_setup_probation() calls simply become no-ops.
+    """
+    try:
+        for _d in tracker.setup_performance_drift():
+            _note = (f"{_d['win_rate']*100:.0f}% WR over last {_d['total']} live trades "
+                     f"({_d['wins']}W/{_d['losses']}L, avg loss {_d['avg_loss_pct']:.1f}%)")
+            if _enter_setup_probation(_d["setup"], _note):
+                send_telegram(
+                    f"📉 <b>Setup auto-restricted</b> — <b>{_d['setup']}</b>: {_note}. "
+                    f"Needs +{SETUP_PROBATION_SCORE_BONUS} extra confluence pts for "
+                    f"{SETUP_PROBATION_MAX_DAYS}d; re-restricts on expiry while its live "
+                    f"win rate stays below {SETUP_PERFORMANCE_ALERT_WR_FLOOR*100:.0f}%."
+                )
+                print(f"  📉 Setup auto-restricted: {_d['setup']} ({_note})")
+    except Exception as exc:
+        print(f"  ⚠️  Setup drift enforcement failed (non-fatal): {exc}")
+
+
 def _entry_circuit_breakers_ok() -> tuple[bool, str]:
     """
     Checks the same four entry-blocking conditions _submit_signals_to_alpaca()
@@ -16321,6 +16362,10 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     resolved = resolve_live_outcomes(verbose=False)
     if resolved:
         print(f"  📊 {resolved} live trade(s) resolved — run --mode live-perf to see stats")
+
+    # Restrict drifting setups on every scan, not just when a run happens to
+    # land in the EOD window — see _enforce_setup_drift_restrictions().
+    _enforce_setup_drift_restrictions(tracker)
 
     # Consecutive loss guard / monthly loss limit — bypassed during a
     # declared probation period (see is_on_probation()); both would

@@ -4273,11 +4273,23 @@ def run_watchdog() -> None:
     issues: list[str] = []
 
     # 1. Hard failures — most recent run of each critical workflow.
+    # Authenticated like every other GitHub API call in this file (fixed
+    # 2026-09-08): this was the ONE unauthenticated requests.get() against
+    # api.github.com. Unauthenticated calls are rate-limited per IP (60/hr,
+    # shared across every tenant on a GitHub-hosted runner's egress IP) and
+    # 404 outright on a private repo — either way the response body has no
+    # "workflow_runs" key, `runs` silently became [], and this check could
+    # never report a hard failure. The freshness checks below were doing
+    # all the real work.
+    _gh_headers = {"Accept": "application/vnd.github+json"}
+    if GITHUB_TOKEN:
+        _gh_headers["Authorization"] = f"Bearer {GITHUB_TOKEN}"
     for _wf_name, _wf_file in [("DMan PRO Scanner", "dman_scanner.yml"),
                                 ("DMan Cloud Daemon", "dman_daemon.yml")]:
         try:
             resp = requests.get(
-                f"https://api.github.com/repos/tsingh08/dman-algo-/actions/workflows/{_wf_file}/runs",
+                f"https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/{_wf_file}/runs",
+                headers=_gh_headers,
                 params={"per_page": 1}, timeout=10,
             )
             runs = resp.json().get("workflow_runs", [])

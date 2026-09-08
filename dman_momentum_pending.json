@@ -1,61 +1,5 @@
 {
-  "pending": [
-    {
-      "ticker": "VMAR",
-      "entry_px": 9.4088,
-      "stop_px": 8.3565,
-      "t1": 12.2314,
-      "t2": 14.1132,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.2% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T14:13:33.988925-04:00",
-      "expires_at": "2026-09-08T14:28:33.988925-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "GAUZ",
-      "entry_px": 0.3805,
-      "stop_px": 0.3646,
-      "t1": 0.4947,
-      "t2": 0.5707,
-      "signal_str": "VWAP reclaim (recovery dip (opened -4.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T14:14:07.168436-04:00",
-      "expires_at": "2026-09-08T14:29:07.168436-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "ZENA",
-      "entry_px": 1.7485,
-      "stop_px": 1.6533,
-      "t1": 2.2731,
-      "t2": 2.6227,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.6% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T14:14:19.573575-04:00",
-      "expires_at": "2026-09-08T14:29:19.573575-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "PLAG",
-      "entry_px": 0.7259,
-      "stop_px": 0.6237,
-      "t1": 0.9437,
-      "t2": 1.0888,
-      "signal_str": "VWAP reclaim (recovery dip (opened -10.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T14:14:34.176322-04:00",
-      "expires_at": "2026-09-08T14:29:34.176322-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "CHOW",
-      "entry_px": 0.4731,
-      "stop_px": 0.4573,
-      "t1": 0.615,
-      "t2": 0.7097,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T14:14:53.671264-04:00",
-      "expires_at": "2026-09-08T14:29:53.671264-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
+  "pending": [],
   "consumed": {
     "CDT_2026-09-08T13:18:34.599377-04:00": 1788889562.5032732,
     "ZCMD_2026-09-08T13:18:57.571987-04:00": 1788889562.5036986,
@@ -78,6 +22,11 @@
     "CELZ_2026-09-08T13:44:43.206818-04:00": 1788891357.82848,
     "KPLT_2026-09-08T13:45:20.683282-04:00": 1788891357.8286748,
     "HUBC_2026-09-08T14:11:51.338143-04:00": 1788892062.1338575,
-    "FGL_2026-09-08T14:12:24.337843-04:00": 1788892062.134608
+    "FGL_2026-09-08T14:12:24.337843-04:00": 1788892062.134608,
+    "VMAR_2026-09-08T14:13:33.988925-04:00": 1788892122.5818014,
+    "GAUZ_2026-09-08T14:14:07.168436-04:00": 1788892183.8949666,
+    "ZENA_2026-09-08T14:14:19.573575-04:00": 1788892183.8953698,
+    "PLAG_2026-09-08T14:14:34.176322-04:00": 1788892183.8956742,
+    "CHOW_2026-09-08T14:14:53.671264-04:00": 1788892244.3548775
   }
 }

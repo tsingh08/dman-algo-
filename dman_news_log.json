@@ -2810,5 +2810,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T14:24:07.655637-04:00",
+    "symbols": [
+      "NBIS",
+      "PLTR"
+    ],
+    "headline": "Palantir Wants to Kill the &#39;Pay-Per-Token&#39; AI Economy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

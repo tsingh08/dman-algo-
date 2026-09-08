@@ -3155,5 +3155,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T15:48:19.954623-04:00",
+    "symbols": [
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "SK Hynix Has Rallied 50% Since July Lows: It&#39;s Now Near Post-IPO Highs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T15:51:47.746008-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Iran Launched Undisclosed Second Wave Of Attacks On U.S. Navy Ships; The Second Strike In Three Days Missed Its Targets, As Concerns Grow That Tehran\u2019s Missiles Are Becoming More Sophisticated&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -3176,5 +3176,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:58:11.108413-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SK Hynix Has Rallied 50% Since July Lows: It&#39;s Now Near Post-IPO Highs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T15:58:13.858721-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Has Rallied 50% Since July Lows: It&#39;s Now Near Post-IPO Highs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:58:30.646198-04:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Slip as $98 Brent Reignites Inflation Fears: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:58:30.817547-04:00",
+    "symbols": [
+      "CMPS"
+    ],
+    "headline": "Compass Pathways To Participate In Psych Congress 2026 With New Educational Campaign Regarding Treatment-Resistant Depression",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:58:30.996482-04:00",
+    "symbols": [
+      "XE"
+    ],
+    "headline": "Guggenheim Reiterates Buy on X-Energy, Maintains $57 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

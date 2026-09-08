@@ -1,94 +1,5 @@
 {
-  "pending": [
-    {
-      "ticker": "LCID",
-      "entry_px": 4.7344,
-      "stop_px": 4.5441,
-      "t1": 6.1547,
-      "t2": 7.1016,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:42:43.986306-04:00",
-      "expires_at": "2026-09-08T13:57:43.986306-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "INM",
-      "entry_px": 1.3727,
-      "stop_px": 1.3464,
-      "t1": 1.7845,
-      "t2": 2.0591,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:42:44.181941-04:00",
-      "expires_at": "2026-09-08T13:57:44.181941-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "CYCU",
-      "entry_px": 3.4619,
-      "stop_px": 3.267,
-      "t1": 4.5005,
-      "t2": 5.1928,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.8% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:43:17.084284-04:00",
-      "expires_at": "2026-09-08T13:58:17.084284-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "MGRX",
-      "entry_px": 0.4158,
-      "stop_px": 0.3883,
-      "t1": 0.5405,
-      "t2": 0.6237,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:43:25.527321-04:00",
-      "expires_at": "2026-09-08T13:58:25.527321-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "AMIX",
-      "entry_px": 4.6292,
-      "stop_px": 4.4253,
-      "t1": 6.018,
-      "t2": 6.9438,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.6% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:44:06.121317-04:00",
-      "expires_at": "2026-09-08T13:59:06.121317-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "MIMI",
-      "entry_px": 0.959,
-      "stop_px": 0.8631,
-      "t1": 1.2467,
-      "t2": 1.4385,
-      "signal_str": "VWAP reclaim (recovery dip (opened -5.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:44:37.738735-04:00",
-      "expires_at": "2026-09-08T13:59:37.738735-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "CELZ",
-      "entry_px": 1.1022,
-      "stop_px": 1.0593,
-      "t1": 1.4329,
-      "t2": 1.6533,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:44:43.206818-04:00",
-      "expires_at": "2026-09-08T13:59:43.206818-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "KPLT",
-      "entry_px": 9.038,
-      "stop_px": 7.2225,
-      "t1": 11.7494,
-      "t2": 13.557,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-08T13:45:20.683282-04:00",
-      "expires_at": "2026-09-08T14:00:20.683282-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
+  "pending": [],
   "consumed": {
     "CDT_2026-09-08T13:18:34.599377-04:00": 1788889562.5032732,
     "ZCMD_2026-09-08T13:18:57.571987-04:00": 1788889562.5036986,
@@ -101,6 +12,14 @@
     "ZENA_2026-09-08T13:22:03.161713-04:00": 1788889562.5059447,
     "YJ_2026-09-08T13:22:08.901088-04:00": 1788889562.5062761,
     "OFAL_2026-09-08T13:22:49.622868-04:00": 1788889562.506586,
-    "SION_2026-09-08T13:22:55.677387-04:00": 1788889562.5069017
+    "SION_2026-09-08T13:22:55.677387-04:00": 1788889562.5069017,
+    "LCID_2026-09-08T13:42:43.986306-04:00": 1788890319.2762918,
+    "INM_2026-09-08T13:42:44.181941-04:00": 1788890319.2776873,
+    "CYCU_2026-09-08T13:43:17.084284-04:00": 1788890319.2780354,
+    "MGRX_2026-09-08T13:43:25.527321-04:00": 1788890319.2783387,
+    "AMIX_2026-09-08T13:44:06.121317-04:00": 1788890380.1465201,
+    "MIMI_2026-09-08T13:44:37.738735-04:00": 1788890380.146916,
+    "CELZ_2026-09-08T13:44:43.206818-04:00": 1788890441.1895108,
+    "KPLT_2026-09-08T13:45:20.683282-04:00": 1788890441.189868
   }
 }

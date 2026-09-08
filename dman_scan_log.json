@@ -701,5 +701,25 @@
     "budget_hit": false,
     "news_breadth_pct": 60.5,
     "news_breadth_total": 201
+  },
+  {
+    "ts": "2026-09-08T11:43:42.385562-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 15.4,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 289,
+    "signals": 2,
+    "signal_tickers": [
+      "ROIV",
+      "BEX"
+    ],
+    "rejected_no_signal": 286,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 61.0,
+    "news_breadth_total": 202
   }
 ]

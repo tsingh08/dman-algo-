@@ -3052,5 +3052,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:14:14.850209-04:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "This SpaceX Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:14:14.853239-04:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "Needham Initiates Coverage On Securitize Holdings with Buy Rating, Announces Price Target of $11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

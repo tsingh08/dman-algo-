@@ -2279,5 +2279,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T13:38:44.797519-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Tenable Integrates Anthropic\u2019s Claude Mythos 5 Into Tenable One For AI-Powered Exposure Management",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

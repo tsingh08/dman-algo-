@@ -3948,5 +3948,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T10:34:19.368670-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle shares are trading higher. Guggenheim maintained its Buy rating and $400 price target on the stock ahead of Q1 financial results scheduled for September 10.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -3095,5 +3095,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T15:35:35.496979-04:00",
+    "symbols": [
+      "NKTX"
+    ],
+    "headline": "Nkarta Announces Three NKX019 Presentations At ACR Convergence 2026 On November 6-11, Including Two Oral Presentations On Ntrust Phase 1/2 Safety And Idiopathic Inflammatory Myopathy Activity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

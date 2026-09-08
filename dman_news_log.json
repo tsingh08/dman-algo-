@@ -4468,5 +4468,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T11:25:04.014325-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent Says Iron Dome And U.S. Defense Would Be Useless If China Succeeds In",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T11:25:20.558566-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Big Tech&#39;s AI Buildout Comes With A Bill Taxpayers Are Paying",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-08T11:25:20.775314-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Big Tech&#39;s AI Buildout Comes With A Bill Taxpayers Are Paying",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T11:25:20.908450-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Big Tech&#39;s AI Buildout Comes With A Bill Taxpayers Are Paying",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

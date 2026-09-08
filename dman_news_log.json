@@ -2359,5 +2359,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T14:04:29.784225-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Does Michael Burry Have It Wrong? Nvidia Chips Retain Value, Data Shows",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-08T14:04:30.060304-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Does Michael Burry Have It Wrong? Nvidia Chips Retain Value, Data Shows",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-08T14:04:37.165106-04:00",
+    "symbols": [
+      "ROIV"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on Roivant Sciences, Raises Price Target to $47",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

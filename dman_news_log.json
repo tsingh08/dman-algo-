@@ -3727,5 +3727,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T10:00:26.022954-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CB Employment Trends Index For August 108.53 Vs 107.71 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

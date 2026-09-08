@@ -4436,5 +4436,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-08T11:18:01.640751-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent Says China&#39;s Manufacturing Jobs Are Decreasing; Says He Wants To Collaborate With G-7 And Other Nations On Trade With China",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-08T11:18:05.572528-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Big Tech&#39;s AI Buildout Comes With A Bill Taxpayers Are Paying",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

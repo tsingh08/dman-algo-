@@ -1,18 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "CRWV",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 103.01,
-      "stop": 95.2,
-      "target1": 131.65,
-      "target2": 148.83,
-      "score": 100,
-      "date": "2026-09-08",
-      "timestamp": "2026-09-08T13:41:01.383686-04:00"
-    },
-    {
       "ticker": "BE",
       "setup": "Gap & Hold",
       "bias": "LONG",
@@ -95,6 +83,18 @@
       "score": 100,
       "date": "2026-09-09",
       "timestamp": "2026-09-09T11:12:38.681002-04:00"
+    },
+    {
+      "ticker": "CRWV",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 103.01,
+      "stop": 95.2,
+      "target1": 131.65,
+      "target2": 148.83,
+      "score": 100,
+      "date": "2026-09-08",
+      "timestamp": "2026-09-08T13:41:01.383686-04:00"
     }
   ]
 }

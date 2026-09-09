@@ -4862,5 +4862,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-09T14:27:38.308654-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple AirPods 5, Watch Ultra 4 and Watch Series 12 Are Here: Price, Features and Pre-Order Details",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

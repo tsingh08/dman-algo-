@@ -2536,5 +2536,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T12:30:14.589581-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Why Is GameStop Stock Surging on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T12:32:15.584468-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Live On CNBC, Joe Terranova Announces Sold Costco Wholesale",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

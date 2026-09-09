@@ -4997,5 +4997,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T14:50:47.354033-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple iPhone Duo Starts at $1,999 With 7.6-Inch Foldable Display: AAPL CEO John Ternus Says No More \u2018Two Phones Awkwardly Stuck Together\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:51:59.924597-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Shares of travel-related companies are trading lower as oil prices rise amid growing concerns over further U.S.-Iran military escalation. Rising fuel prices and elevated interest-rate expectations could weigh on the sector by increasing operating and financing costs, while potentially reducing consumer demand for travel.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

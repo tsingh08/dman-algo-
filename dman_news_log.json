@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.012171-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Qualcomm CFO Says Deal With Amazon Positions Qualcomm To Deliver Strong YoY Rev Growth From FY27 To FY28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.012428-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "HSBC Reiterates Buy on Apple, Maintains $366 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-08T13:54:03.012704-04:00",
     "symbols": [
       "AAPL"
@@ -5007,6 +4987,27 @@
     "headline": "Sunbelt Rentals Holdings Q1 Adj. EPS $1.18 Beats $1.04 Estimate, Sales $3.115B Beat $2.996B Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T09:42:12.832587-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Qualcomm, Raises Price Target to $180",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T09:42:46.199607-04:00",
+    "symbols": [
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "China Commerce Ministry, On US Issuing Cybersecurity Announcements Related To Chinese AI Companies., Says China Firmly Opposes This; US Allegations Are Baseless; Distillation Is A Common Practice Among AI Models Globally, Including By US Firms; Heads Of State Of The Two Countries Have Agreed To Launch An Intergovernmental Dialogue On Artificial Intelligence;\u00a0If U.S. Side Takes Action To Suppress Chinese AI Companies Under The Pretext Of Cracking Down On Distillation, China Will Take Resolute Countermeasures",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

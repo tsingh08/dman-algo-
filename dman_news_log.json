@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.027797-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-08T13:54:03.028324-04:00",
     "symbols": [
       "PLTR"
@@ -5009,5 +4999,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T10:20:31.543224-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple&#39;s &#39;Surprise and Shine&#39; Moment Belongs to John Ternus",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

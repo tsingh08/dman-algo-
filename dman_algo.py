@@ -746,6 +746,33 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # cap into 61% of a $3,273 account, and it freezes position size as equity
 # grows. 10% lands at $290 on the current $2,904, inside the requested band,
 # and scales with the account instead of drifting out of it.
+# ── PDT-ZERO SHARES FALLBACK ─────────────────────────────────────────────
+# At 0 day trades a share entry is normally refused outright, because shares
+# get a broker-side stop and a stop that fills the SAME session is day trade
+# #4 -- a real violation, 90 days restricted. That refusal is correct as a
+# default and stays the default.
+#
+# It also has a cost, seen live on 2026-09-08: ROIV, BEX, IMPP, BFRI, TRVI
+# and YHC all scored 100 on genuine catalysts and every one was untradeable,
+# because none of them has a listed options chain and options were the only
+# permitted instrument. The blocker was never the read, it was the
+# instrument. Direct instruction 2026-09-09: allow shares, but only where
+# there is a genuine case for the play.
+#
+# The only way a share entry is PDT-safe at zero budget is to place NO
+# sell-side order at all on entry day -- no stop, no bracket. You cannot
+# round-trip what you cannot sell. That trades a PDT risk for a gap risk:
+# the position is genuinely unprotected overnight, so it is sized off an
+# assumed severe gap instead of a stop distance, and _auto_restore_missing_stop
+# is taught not to "fix" it the same session (which would re-create the exact
+# violation this avoids). The next session it is no longer a same-day
+# position, so normal stop protection resumes.
+ENABLE_PDT_ZERO_SHARES        = True
+PDT_ZERO_SHARES_ASSUMED_GAP   = 0.35  # sizing basis: severe overnight gap
+PDT_ZERO_SHARES_MAX_NOTIONAL  = 0.30  # hard cap, % of equity, one position
+PDT_ZERO_SHARES_MAX_ENTRY_GAP = 15.0  # already run this much => it is a chase
+PDT_ZERO_SHARES_MIN_DOLLAR_VOL = 1_000_000  # must be exitable by hand
+
 MAX_TRADE_LOSS_PCT = 0.10        # ceiling on what ONE trade may lose, % of equity
 # ...and a ceiling on what ALL open options may lose together. Five concurrent
 # positions at the per-trade cap is 37.5% of the account at risk at once, and
@@ -6249,6 +6276,20 @@ def run_premarket_early_scan() -> None:
     # tail off.
     _news_rows  = scan_news_catalysts()
     _news_early = [_r for _r in _news_rows if not _r["reacted"]]
+
+    # Whether the name is actually TRADEABLE right now, not just interesting.
+    # While the PDT budget is exhausted the only instrument available is an
+    # option, so a pre-gap catalyst on a name with no listed chain is a good
+    # catch that cannot be acted on -- which is the same wall Tuesday's
+    # ROIV/BEX/TRVI hit. Sorting those to the back keeps attention on names
+    # where the read can actually be expressed.
+    for _r in _news_early:
+        try:
+            _r["has_chain"] = _has_liquid_option_chain(_r["ticker"])
+        except Exception:
+            _r["has_chain"] = False
+    _news_early.sort(key=lambda r: (not r["has_chain"], r["tier"] != "A",
+                                    -abs(r["gap_pct"])))
     _news_syms  = [_r["ticker"] for _r in _news_early]
 
     scan_universe = list(dict.fromkeys(
@@ -6265,12 +6306,15 @@ def run_premarket_early_scan() -> None:
         _k = "__NEWS_FIRST_" + ",".join(sorted(_r["ticker"] for _r in _a_early)) + "__"
         if not _is_duplicate_alert(_k, 240):
             _lines = "\n".join(
-                f"• <b>{_r['ticker']}</b> ${_r['price']} ({_r['gap_pct']:+.1f}%)\n"
-                f"  <i>{html.escape(_r['headline'][:110])}</i>"
+                f"• <b>{_r['ticker']}</b> ${_r['price']} ({_r['gap_pct']:+.1f}%) "
+                + ("⚡ options" if _r.get("has_chain") else "🚫 no chain")
+                + f"\n  <i>{html.escape(_r['headline'][:110])}</i>"
                 for _r in _a_early[:6])
+            _n_tradeable = sum(1 for _r in _a_early if _r.get("has_chain"))
             send_telegram(
                 "🗞 <b>PRE-GAP CATALYST</b> — news landed, price has not moved\n"
                 f"<i>{now_et.strftime('%I:%M %p ET')}</i>\n\n{_lines}\n\n"
+                f"{_n_tradeable}/{len(_a_early)} have an options chain. "
                 "Catalyst is fresh and the move has not happened yet. "
                 "Full scoring follows in the scan below.")
             _mark_alerted(_k)
@@ -7020,6 +7064,94 @@ def _ticker_bench_reason(ticker: str) -> Optional[str]:
                 f"{TICKER_BENCH_LOOKBACK_DAYS}d — benched on {_why}")
     except Exception:
         return None          # never block an entry on a bookkeeping error
+
+
+def _pdt_zero_gap_and_liquidity(ticker: str) -> tuple[float, float]:
+    """(gap_pct_today, dollar_volume) from a single snapshot. (0.0, 0.0) on failure,
+    which the caller treats as disqualifying rather than as "fine"."""
+    try:
+        _r = requests.get("https://data.alpaca.markets/v2/stocks/snapshots",
+                          headers={"APCA-API-KEY-ID": ALPACA_API_KEY,
+                                   "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY},
+                          params={"symbols": ticker, "feed": _resolve_stock_feed()},
+                          timeout=15)
+        if _r.status_code != 200:
+            return 0.0, 0.0
+        _snap = (_r.json() or {}).get(ticker) or {}
+        _db = _snap.get("dailyBar") or {}
+        _pdb = _snap.get("prevDailyBar") or {}
+        _px = float((_snap.get("latestTrade") or {}).get("p") or _db.get("c") or 0)
+        _pc = float(_pdb.get("c") or 0)
+        _vol = max(float(_db.get("v") or 0), float(_pdb.get("v") or 0))
+        if not (_px and _pc):
+            return 0.0, 0.0
+        return (_px - _pc) / _pc * 100, _px * _vol
+    except Exception:
+        return 0.0, 0.0
+
+
+def _has_tier_a_catalyst(ticker: str) -> bool:
+    """True if a Tier-A headline for `ticker` landed in the recent window.
+
+    Scored with the same _news_catalyst_tier() used by the news-first scan, so
+    the law-firm spam and the retrospective explainers that fooled the raw
+    keyword tiers are excluded here too -- which matters more here than
+    anywhere else, since this decision ends in an unprotected position.
+    """
+    try:
+        _heads = _fetch_alpaca_news([ticker], hours_back=18).get(ticker) or []
+    except Exception:
+        return False
+    return any(_news_catalyst_tier(_h, "") == "A" for _h in _heads)
+
+
+def _genuine_shares_case(sig) -> tuple[bool, str]:
+    """Is this signal worth an UNPROTECTED overnight share position?
+
+    Deliberately narrow. "No shares at zero PDT budget" remains the default;
+    this is a documented exception to it, not a loosening of it. Every clause
+    answers one question: if this gaps against me overnight with no stop in
+    place, was the reason for being in it good enough to have taken that risk?
+    """
+    if not ENABLE_PDT_ZERO_SHARES:
+        return False, "PDT-zero shares fallback disabled"
+    if sig.bias != "LONG":
+        return False, "short — unprotected overnight borrow/squeeze risk"
+    # If a chain exists an option expresses the same read more safely: its max
+    # loss is the premium, and it needs no stop at all.
+    if _has_liquid_option_chain(sig.ticker):
+        return False, "has an options chain — use the option, not naked shares"
+    if getattr(sig, "confluence_score", 0) < ELEVATED_MIN_SCORE:
+        return False, (f"score {getattr(sig, 'confluence_score', 0)} < {ELEVATED_MIN_SCORE}")
+    if not getattr(sig, "not_chasing_extended_highs", True):
+        return False, "extended into highs — worst thing to hold without a stop"
+    if not _has_tier_a_catalyst(sig.ticker):
+        return False, "no Tier-A catalyst — not a genuine case"
+    _gap, _dvol = _pdt_zero_gap_and_liquidity(sig.ticker)
+    # Being early is the entire premise of the news-first work; a name that has
+    # already run is the continuation trade, which is exactly what this is
+    # meant to stop buying.
+    if abs(_gap) > PDT_ZERO_SHARES_MAX_ENTRY_GAP:
+        return False, f"already moved {_gap:+.1f}% — chasing, not entering early"
+    if _dvol < PDT_ZERO_SHARES_MIN_DOLLAR_VOL:
+        return False, f"too thin (${_dvol:,.0f}/day) to exit by hand"
+    return True, f"Tier-A catalyst, no chain, {_gap:+.1f}% (not extended), liquid"
+
+
+def _pdt_zero_share_size(entry_px: float, equity: float) -> int:
+    """Shares to buy when the position will carry NO stop.
+
+    Size cannot come from stop distance, because there is no stop. It comes
+    from what a severe overnight gap would cost: hold the loss from a
+    PDT_ZERO_SHARES_ASSUMED_GAP move at the same per-trade ceiling every other
+    trade answers to, then cap notional outright so one unprotected position
+    can never dominate the account regardless of that arithmetic.
+    """
+    if entry_px <= 0 or equity <= 0:
+        return 0
+    _notional = min(equity * MAX_TRADE_LOSS_PCT / PDT_ZERO_SHARES_ASSUMED_GAP,
+                    equity * PDT_ZERO_SHARES_MAX_NOTIONAL)
+    return max(0, int(_notional // entry_px))
 
 
 def _signal_can_use_options(sig) -> bool:
@@ -9872,6 +10004,7 @@ class ProSignal:
     float_rotation: float = 0.0   # small-cap only: today_vol / float_shares
     target3:        float = 0.0   # Moon Shot T3 at +100% (2x entry) — ultra-low float only
     is_moonshot:    bool  = False  # True when Moon Shot tier conditions are met
+    no_stop_entry:  bool  = False  # PDT-zero shares: entry only, no sell-side order
     swing_mode:     bool  = False  # True when PDT budget ≤ 1 → GTC entry + stop only, no T1 TP
     news_boost:     bool  = False  # True when ticker has a news headline in the last 4 hours
 
@@ -15543,6 +15676,31 @@ def generate_strangle_advisory(event: str) -> None:
 
 _STOP_RESTORE_COOLDOWN_KEY_FMT = "{ticker}_STOP_RESTORE_ATTEMPT"
 
+def _pdt_zero_no_stop_today(ticker: str) -> bool:
+    """True if placing a stop on `ticker` right now would risk day trade #4.
+
+    A PDT-zero shares entry is deliberately unprotected on entry day -- that
+    is the only thing making it PDT-safe. The unprotected-position watchdog
+    would otherwise see it, helpfully place a stop, and hand back the exact
+    same-session round-trip risk the no-stop entry was built to avoid. So the
+    watchdog has to know the difference between "a stop went missing" and "a
+    stop is absent on purpose, until tomorrow".
+    """
+    try:
+        if _get_pdt_status()["remaining"] > 0:
+            return False          # budget exists; a same-day stop is fine
+    except Exception:
+        return False              # cannot verify -> do not suppress protection
+    _today = datetime.now(ET).date().isoformat()
+    try:
+        for _p in PositionTracker().positions:
+            if _p.ticker == ticker:
+                return _p.entry_date >= _today
+    except Exception:
+        pass
+    return False
+
+
 def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, str]:
     """
     Attempts to restore live stop protection for `ticker`, which
@@ -15598,6 +15756,11 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
     auto-attempts on the FIRST pass), it just stops retrying faster than a
     human or a fixed underlying issue could plausibly resolve.
     """
+    if _pdt_zero_no_stop_today(ticker):
+        return False, ("unprotected ON PURPOSE — PDT-zero shares entry opened today; "
+                       "a stop placed now could fill today and become day trade #4. "
+                       "It will be placed next session, when a fill is no longer a "
+                       "same-day round trip.")
     _cd_key = _STOP_RESTORE_COOLDOWN_KEY_FMT.format(ticker=ticker)
     if _is_duplicate_alert(_cd_key):
         return False, (f"restore attempted recently (within {ALERT_COOLDOWN_MIN}m) — "
@@ -18243,7 +18406,25 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
     label     = "PAPER" if ALPACA_PAPER else "LIVE"
 
     try:
-        if signal.swing_mode:
+        if getattr(signal, "no_stop_entry", False):
+            # PDT-ZERO SHARES: entry order ONLY. No stop, no bracket, no OTO.
+            # This is the whole safety property -- with no resting sell order
+            # there is no way for this to round-trip today, so it cannot
+            # become day trade #4 no matter what the price does. The position
+            # is unprotected until the next session, which is priced into its
+            # size (see PDT_ZERO_SHARES_ASSUMED_GAP), not hedged by an order.
+            order = client.submit_order(LimitOrderRequest(
+                symbol        = signal.ticker,
+                qty           = signal.shares,
+                side          = side,
+                limit_price   = limit_px,
+                time_in_force = TimeInForce.GTC,
+            ))
+            oid = str(order.id)
+            print(f"  📤 [{label}] 🩹 PDT-ZERO SHARES {signal.ticker} {signal.bias} "
+                  f"{signal.shares}sh  GTC limit=${limit_px}  NO STOP TODAY "
+                  f"(unprotected overnight by design)  id={oid[:8]}…")
+        elif signal.swing_mode:
             # PDT budget ≤ 1 — GTC entry + stop only (no T1 TP).
             # Position held overnight = not a day trade. Momentum-watch manages the exit.
             order = client.submit_order(LimitOrderRequest(
@@ -20579,7 +20760,58 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     _options_only_overnight = True
                     _opt_ok = [s for s in signals if _signal_can_use_options(s)]
                     _dropped = len(signals) - len(_opt_ok)
-                    if not _opt_ok:
+
+                    # SHARES FALLBACK. Only the signals options already
+                    # refused are considered, and only one of them, entered
+                    # with no sell-side order at all -- see the block comment
+                    # on ENABLE_PDT_ZERO_SHARES. This exists because on
+                    # 2026-09-08 six signals scored 100 on real catalysts and
+                    # every one was untradeable purely for lack of a chain.
+                    _share_ok = []
+                    if ENABLE_PDT_ZERO_SHARES:
+                        _already_naked = False
+                        try:
+                            _already_naked = any(
+                                _pdt_zero_no_stop_today(_p.ticker)
+                                for _p in PositionTracker().positions)
+                        except Exception:
+                            _already_naked = True   # cannot verify -> do not stack
+                        if _already_naked:
+                            print("  🩹 PDT-zero shares: an unprotected position is "
+                                  "already open today — not stacking another")
+                        else:
+                            for _s in (x for x in signals if x not in _opt_ok):
+                                _ok, _why = _genuine_shares_case(_s)
+                                print(f"  🩹 PDT-zero shares {_s.ticker}: "
+                                      f"{'YES' if _ok else 'no'} — {_why}")
+                                if _ok:
+                                    _qty = _pdt_zero_share_size(_s.entry, _equity)
+                                    if _qty <= 0:
+                                        print(f"     ↳ {_s.ticker}: size rounds to 0 "
+                                              f"at ${_s.entry:.2f} — skipping")
+                                        continue
+                                    _s.shares        = _qty
+                                    _s.cost          = _qty * _s.entry
+                                    _s.no_stop_entry = True
+                                    _s.swing_mode    = True
+                                    _share_ok.append(_s)
+                                    break        # at most ONE per session
+                    if _share_ok:
+                        _dropped -= len(_share_ok)
+                        _sh = _share_ok[0]
+                        send_telegram(
+                            "🩹 <b>PDT-ZERO SHARES</b> — genuine case, entered "
+                            "WITHOUT a stop\n"
+                            f"<b>{_sh.ticker}</b> {_sh.shares}sh @ ${_sh.entry:.2f} "
+                            f"(${_sh.cost:,.0f})\n\n"
+                            "No options chain exists, so this could not be expressed "
+                            "as an option. No stop is placed today: a same-day stop "
+                            "fill would be day trade #4. Sized so a "
+                            f"-{PDT_ZERO_SHARES_ASSUMED_GAP*100:.0f}% overnight gap "
+                            f"costs about ${_equity*MAX_TRADE_LOSS_PCT:,.0f}.\n"
+                            "<b>It is unprotected until a stop goes on next session.</b>")
+
+                    if not _opt_ok and not _share_ok:
                         _k = f"__PDT_HALT_NOELIGIBLE_{_dt_count}__"
                         if not _is_duplicate_alert(_k, PDT_STATUS_ALERT_COOLDOWN_MIN):
                             msg = ("🚫 <b>DMan LIVE — PDT HALT</b>: account equity "
@@ -20590,7 +20822,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                             _mark_alerted(_k)
                         print(f"  🚫 PDT HALT: {_dt_count}/3 used, no options-eligible signals — skipping")
                         return
-                    signals = _opt_ok
+                    signals = _opt_ok + _share_ok
                     for _s in signals:
                         _s.swing_mode = True      # never a same-day round trip
                     _k = f"__PDT_ZERO_STATUS_{_dt_count}__"
@@ -20989,7 +21221,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
             # docstring for the PMI incident that added the setup half),
             # everything else skips outright rather than settle for a
             # consolation equity position.
-            if not _shares_fallback_allowed(sig.ticker, sig.setup):
+            if (not _shares_fallback_allowed(sig.ticker, sig.setup)
+                    and not getattr(sig, "no_stop_entry", False)):
                 print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
                       f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
                       f"for DMan picks and low-float catalysts only)")
@@ -21000,7 +21233,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                         f"low-float watchlist picks only. No trade placed."
                     )
                 continue
-            elif _options_only_overnight:
+            elif _options_only_overnight and not getattr(sig, "no_stop_entry", False):
                 # Zero day-trade budget: the SHARES fallback is exactly what
                 # must not happen here. Shares get a broker-side stop that
                 # can fill the same session, and that fill IS the day trade
@@ -21015,6 +21248,12 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                 # same as an option actually existing, and only the attempt
                 # can tell the difference, so the block belongs here (after
                 # the attempt failed) rather than in the predicate.
+                #
+                # The one exception is a signal carrying no_stop_entry, set
+                # only by _genuine_shares_case() in the zero-PDT branch above.
+                # That path places NO sell-side order whatsoever, so it cannot
+                # round-trip today and the reasoning here does not apply to
+                # it -- it pays for that with an unprotected overnight instead.
                 print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
                       f"NOT falling back to shares (a same-day stop would be a violation)")
                 if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):

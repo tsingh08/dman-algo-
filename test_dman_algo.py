@@ -56,6 +56,7 @@ import sys
 import tempfile
 import time
 import unittest
+from types import SimpleNamespace
 from datetime import date, datetime, timedelta
 from unittest.mock import patch, MagicMock, mock_open
 
@@ -6331,7 +6332,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
 
     def test_shares_fallback_is_guarded_before_submit(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        i_guard = src.index("elif _options_only_overnight:")
+        i_guard = src.index('elif _options_only_overnight and not getattr(sig, "no_stop_entry", False):')
         i_share = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
         self.assertLess(i_guard, i_share,
                         "the zero-PDT guard must precede the shares submit")
@@ -6366,9 +6367,40 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         src = inspect.getsource(a._submit_signals_to_alpaca)
         self.assertEqual(src.count("_options_only_overnight = True"), 2)
 
+    def test_only_a_vetted_no_stop_entry_may_bypass_the_guard(self):
+        # The guard blocks the shares fallback at zero PDT budget. Exactly one
+        # thing may pass it: a signal flagged no_stop_entry, which is set only
+        # by _genuine_shares_case() and submits with NO sell-side order, so it
+        # cannot round-trip the same day. Any OTHER way through reopens the
+        # 2026-09-04 hole where five signals became real day trades.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("no_stop_entry", src)
+        self.assertEqual(
+            src.count("elif _options_only_overnight"), 1,
+            "the zero-PDT shares guard must exist exactly once")
+
+    def test_no_stop_entry_is_only_set_after_vetting(self):
+        # The flag is what bypasses the guard, so nothing may set it without
+        # _genuine_shares_case() having returned True first.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_vet = src.index("_genuine_shares_case(")
+        i_set = src.index("_s.no_stop_entry = True")
+        self.assertLess(i_vet, i_set,
+                        "no_stop_entry must only be set after the genuine-case check")
+
+    def test_naked_share_entry_places_no_sell_side_order(self):
+        # The entire PDT-safety property: no resting sell order means no
+        # possible same-day round trip.
+        src = inspect.getsource(a.submit_alpaca_trade)
+        i = src.index('if getattr(signal, "no_stop_entry", False):')
+        seg = src[i:src.index("elif signal.swing_mode:")]
+        self.assertNotIn("StopLossRequest", seg)
+        self.assertNotIn("TakeProfitRequest", seg)
+        self.assertNotIn("OrderClass", seg)
+
     def test_guard_continues_rather_than_trading(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        seg = src[src.index("elif _options_only_overnight:"):]
+        seg = src[src.index('elif _options_only_overnight and not getattr(sig, "no_stop_entry", False):'):]
         seg = seg[:seg.index("oid, _submit_err = submit_alpaca_trade(sig)")]
         self.assertIn("continue", seg)
         self.assertNotIn("submit_alpaca_trade", seg)
@@ -6578,6 +6610,140 @@ class TestOptionsAggregateExposureCap(unittest.TestCase):
     def test_cap_is_checked_at_both_options_submit_sites(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
         self.assertEqual(src.count("_options_aggregate_room(_opt_risk)"), 2)
+
+
+class TestPdtZeroSharesFallback(unittest.TestCase):
+    """The narrow exception to "no shares at zero PDT budget". It buys an
+    unprotected overnight position, so the gate has to stay tight -- these
+    tests exist to make a future loosening of it visible."""
+
+    def _sig(self, **kw):
+        s = SimpleNamespace(ticker="ROIV", bias="LONG", entry=10.0,
+                            confluence_score=100,
+                            not_chasing_extended_highs=True)
+        for k, v in kw.items():
+            setattr(s, k, v)
+        return s
+
+    def _allow(self, gap=2.0, dvol=5_000_000, chain=False, tier_a=True):
+        return (patch.object(a, "_has_liquid_option_chain", return_value=chain),
+                patch.object(a, "_has_tier_a_catalyst", return_value=tier_a),
+                patch.object(a, "_pdt_zero_gap_and_liquidity",
+                             return_value=(gap, dvol)))
+
+    def test_genuine_case_passes(self):
+        c1, c2, c3 = self._allow()
+        with c1, c2, c3:
+            ok, why = a._genuine_shares_case(self._sig())
+        self.assertTrue(ok, why)
+
+    def test_name_with_an_options_chain_is_refused(self):
+        # An option expresses the same read with a capped max loss and needs
+        # no stop -- strictly safer, so shares must not be chosen over it.
+        c1, c2, c3 = self._allow(chain=True)
+        with c1, c2, c3:
+            ok, why = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+        self.assertIn("options chain", why)
+
+    def test_no_tier_a_catalyst_is_refused(self):
+        c1, c2, c3 = self._allow(tier_a=False)
+        with c1, c2, c3:
+            ok, _ = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+
+    def test_already_gapped_name_is_refused(self):
+        # The BEX/TRVI complaint: entering after the move is the continuation
+        # trade, and it is the worst thing to hold with no stop.
+        c1, c2, c3 = self._allow(gap=42.0)
+        with c1, c2, c3:
+            ok, why = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+        self.assertIn("chasing", why)
+
+    def test_illiquid_name_is_refused(self):
+        c1, c2, c3 = self._allow(dvol=50_000)
+        with c1, c2, c3:
+            ok, why = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+        self.assertIn("thin", why)
+
+    def test_low_score_is_refused(self):
+        c1, c2, c3 = self._allow()
+        with c1, c2, c3:
+            ok, _ = a._genuine_shares_case(self._sig(confluence_score=70))
+        self.assertFalse(ok)
+
+    def test_short_is_refused(self):
+        c1, c2, c3 = self._allow()
+        with c1, c2, c3:
+            ok, _ = a._genuine_shares_case(self._sig(bias="SHORT"))
+        self.assertFalse(ok)
+
+    def test_flag_off_refuses_everything(self):
+        c1, c2, c3 = self._allow()
+        with c1, c2, c3, patch.object(a, "ENABLE_PDT_ZERO_SHARES", False):
+            ok, _ = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+
+    def test_snapshot_failure_disqualifies_rather_than_permits(self):
+        # (0.0, 0.0) is the failure signal from _pdt_zero_gap_and_liquidity;
+        # it must read as "unknown, so no", not as "0% gap, looks great".
+        c1, c2, _ = self._allow()
+        with c1, c2, patch.object(a, "_pdt_zero_gap_and_liquidity",
+                                  return_value=(0.0, 0.0)):
+            ok, _ = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+
+    # ---- sizing ----------------------------------------------------------
+    def test_size_holds_an_assumed_gap_at_the_per_trade_ceiling(self):
+        eq = 2_904.0
+        qty = a._pdt_zero_share_size(10.0, eq)
+        loss = qty * 10.0 * a.PDT_ZERO_SHARES_ASSUMED_GAP
+        self.assertLessEqual(loss, eq * a.MAX_TRADE_LOSS_PCT + 10.0)
+
+    def test_notional_cap_binds_on_a_cheap_stock(self):
+        # Without the hard cap, a low assumed-gap divisor on a $1 stock would
+        # size into a position far larger than the account should hold in one
+        # unprotected name.
+        eq = 2_904.0
+        qty = a._pdt_zero_share_size(1.0, eq)
+        self.assertLessEqual(qty * 1.0, eq * a.PDT_ZERO_SHARES_MAX_NOTIONAL + 1.0)
+
+    def test_zero_price_is_safe(self):
+        self.assertEqual(a._pdt_zero_share_size(0.0, 2_904.0), 0)
+
+    # ---- the watchdog must not "fix" the missing stop ---------------------
+    def test_watchdog_leaves_a_same_day_naked_position_alone(self):
+        # Placing a stop on it today would create exactly the same-day
+        # round-trip risk the no-stop entry exists to avoid.
+        pos = SimpleNamespace(ticker="ROIV",
+                              entry_date=a.datetime.now(a.ET).date().isoformat())
+        with patch.object(a, "_get_pdt_status", return_value={"remaining": 0}), \
+             patch.object(a, "PositionTracker") as _pt:
+            _pt.return_value.positions = [pos]
+            self.assertTrue(a._pdt_zero_no_stop_today("ROIV"))
+
+    def test_watchdog_still_protects_when_budget_exists(self):
+        pos = SimpleNamespace(ticker="ROIV",
+                              entry_date=a.datetime.now(a.ET).date().isoformat())
+        with patch.object(a, "_get_pdt_status", return_value={"remaining": 2}), \
+             patch.object(a, "PositionTracker") as _pt:
+            _pt.return_value.positions = [pos]
+            self.assertFalse(a._pdt_zero_no_stop_today("ROIV"))
+
+    def test_watchdog_still_protects_an_older_position(self):
+        # Bought yesterday: selling today is not a day trade, so the stop
+        # belongs back on it.
+        pos = SimpleNamespace(ticker="ROIV", entry_date="2020-01-01")
+        with patch.object(a, "_get_pdt_status", return_value={"remaining": 0}), \
+             patch.object(a, "PositionTracker") as _pt:
+            _pt.return_value.positions = [pos]
+            self.assertFalse(a._pdt_zero_no_stop_today("ROIV"))
+
+    def test_unverifiable_pdt_status_does_not_suppress_protection(self):
+        with patch.object(a, "_get_pdt_status", side_effect=RuntimeError("api down")):
+            self.assertFalse(a._pdt_zero_no_stop_today("ROIV"))
 
 
 class TestNewsFirstCatalyst(unittest.TestCase):

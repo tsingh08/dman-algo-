@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.030046-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "What&#39;s Going On With Super Micro Computer Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-08T13:54:03.031187-04:00",
     "symbols": [
       "AVGO"
@@ -5009,5 +4999,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T10:34:43.037152-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Why Is Strategy Stock Surging on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

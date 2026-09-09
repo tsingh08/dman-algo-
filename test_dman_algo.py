@@ -14123,6 +14123,37 @@ class TestSetupPerformanceDrift(unittest.TestCase):
         self.assertEqual(drift[0]["total"], 3)
         self.assertEqual(drift[0]["win_rate"], 0.0)
 
+    def test_swing_tagged_fills_pool_with_their_base_setup(self):
+        # Regression for the 2026-09-09 session review: swing-mode fills
+        # record their setup as "SWING — <base>" (an execution-time PDT
+        # tag, not a strategy), so drift flagged and auto-probated that
+        # exact prefixed string — which no future signal can ever match,
+        # because every enforcement site passes the raw sig.setup to
+        # _setup_probation_bonus(). Swing and day fills of the same setup
+        # must pool under the base name so any probation it triggers
+        # actually binds.
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self._record(tracker, "LOSS", setup="SWING — Momentum Watch Breakout (Day)")
+        self._record(tracker, "LOSS", setup="Momentum Watch Breakout (Day)")
+        self._record(tracker, "LOSS", setup="SWING — Momentum Watch Breakout (Day)")
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["setup"], "Momentum Watch Breakout (Day)")
+        self.assertEqual(drift[0]["total"], 3)
+
+    def test_swing_tagged_earnings_fills_join_the_earnings_family(self):
+        # Both normalizations at once: the SWING tag strips first, then the
+        # earnings-family grouping applies, so a swing-tagged spread can't
+        # start its own one-trade counter either.
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self._record(tracker, "LOSS", setup="SWING — Earnings Call Spread", pnl_pct=-60.0)
+        self._record(tracker, "LOSS", setup="Earnings Put Spread", pnl_pct=-100.0)
+        self._record(tracker, "LOSS", setup="Earnings Double Spread", pnl_pct=-95.0)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["setup"], "Earnings Spread")
+        self.assertEqual(drift[0]["total"], 3)
+
     def test_non_earnings_setups_still_pool_by_their_own_exact_label(self):
         # The grouping is earnings-only -- Gap & Hold and Low Float
         # Catalyst must stay separate from each other and from Earnings

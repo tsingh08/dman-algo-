@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.031796-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Insights Into Broadcom&#39;s Performance Versus Peers In Semiconductors &amp; Semiconductor Equipment Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.032431-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "5 Stock Picks Last Week From Wall Street&#39;s Most Accurate Analysts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.033209-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.033837-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With SK Hynix Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.034517-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.035186-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-08T13:54:03.035853-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "What&#39;s Going On With SK Hynix Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-08T13:54:03.036523-04:00",
     "symbols": [
       "QCOM"
@@ -5010,5 +4940,76 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T10:42:34.415345-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Memory Is the New \u2018King\u2019 of Chips, Taking Over 50% of Semiconductor Revenue, Susquehanna Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T10:42:35.531205-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Memory Is the New \u2018King\u2019 of Chips, Taking Over 50% of Semiconductor Revenue, Susquehanna Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T10:42:40.770087-04:00",
+    "symbols": [
+      "SIG"
+    ],
+    "headline": "Signet CEO Says \u2018Value\u2019 Will Rule Holiday Shopping As Consumers Feel the Squeeze",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:42:41.599709-04:00",
+    "symbols": [
+      "KZIA"
+    ],
+    "headline": "Kazia Therapeutics Doses First Participant In Its Arm A Of PNOC035 Platform To Evaluate Paxalisib In Combination With Gemcitabine Toi Treat Atypical Teratoid/Rhabdoid Tumor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:42:41.706853-04:00",
+    "symbols": [
+      "GILT"
+    ],
+    "headline": "Gilat Satellite Networks Unit Datapath Receives $32M+ Pentagon Order For Its DKET Systems; Deliveries Expected Over Next 12 Months",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:42:41.951333-04:00",
+    "symbols": [
+      "AYA"
+    ],
+    "headline": "Aya Gold &amp; Silver Updates Its Preliminary Economic Assessment For Boumadine Project In Morocco; Sees After-Tax NPV Of $3.5B With IRR At 93%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:43:21.893416-04:00",
+    "symbols": [
+      "GE",
+      "SPCX"
+    ],
+    "headline": "Elon Musk Spooked Howmet. GE Just Validated the Bull Case",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

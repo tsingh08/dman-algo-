@@ -1,94 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "CAST",
-      "entry_px": 1.2876,
-      "stop_px": 1.2375,
-      "t1": 1.6739,
-      "t2": 1.9314,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:34:07.192956-04:00",
-      "expires_at": "2026-09-09T13:49:07.192956-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "INM",
-      "entry_px": 1.3146,
-      "stop_px": 1.2672,
-      "t1": 1.709,
-      "t2": 1.9719,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:34:42.680202-04:00",
-      "expires_at": "2026-09-09T13:49:42.680202-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "SLXN",
-      "entry_px": 0.3407,
-      "stop_px": 0.3317,
-      "t1": 0.4429,
-      "t2": 0.5111,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:35:16.251914-04:00",
-      "expires_at": "2026-09-09T13:50:16.251914-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "FCUV",
-      "entry_px": 5.7615,
-      "stop_px": 5.2569,
-      "t1": 7.49,
-      "t2": 8.6423,
-      "signal_str": "VWAP reclaim (recovery dip (opened -6.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:35:27.740129-04:00",
-      "expires_at": "2026-09-09T13:50:27.740129-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "IPW",
-      "entry_px": 1.6934,
-      "stop_px": 1.5147,
-      "t1": 2.2014,
-      "t2": 2.5401,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.6% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:35:31.959414-04:00",
-      "expires_at": "2026-09-09T13:50:31.959414-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "NEXR",
-      "entry_px": 1.6834,
-      "stop_px": 1.6038,
-      "t1": 2.1884,
-      "t2": 2.5251,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.2% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:35:32.186237-04:00",
-      "expires_at": "2026-09-09T13:50:32.186237-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "REPL",
-      "entry_px": 14.6593,
-      "stop_px": 14.157,
-      "t1": 19.0571,
-      "t2": 21.9889,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:35:36.263685-04:00",
-      "expires_at": "2026-09-09T13:50:36.263685-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "CLRO",
-      "entry_px": 4.9499,
-      "stop_px": 4.8312,
-      "t1": 6.4349,
-      "t2": 7.4249,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-09T13:36:32.228914-04:00",
-      "expires_at": "2026-09-09T13:51:32.228914-04:00",
-      "status": "awaiting_approval"
-    },
-    {
       "ticker": "XHG",
       "entry_px": 3.3467,
       "stop_px": 2.97,
@@ -100,5 +12,14 @@
       "status": "awaiting_approval"
     }
   ],
-  "consumed": {}
+  "consumed": {
+    "CAST_2026-09-09T13:34:07.192956-04:00": 1788976178.8958316,
+    "INM_2026-09-09T13:34:42.680202-04:00": 1788976242.572118,
+    "SLXN_2026-09-09T13:35:16.251914-04:00": 1788976242.5726795,
+    "FCUV_2026-09-09T13:35:27.740129-04:00": 1788976242.5729237,
+    "IPW_2026-09-09T13:35:31.959414-04:00": 1788976242.5731554,
+    "NEXR_2026-09-09T13:35:32.186237-04:00": 1788976242.573802,
+    "REPL_2026-09-09T13:35:36.263685-04:00": 1788976242.5740535,
+    "CLRO_2026-09-09T13:36:32.228914-04:00": 1788976303.246658
+  }
 }

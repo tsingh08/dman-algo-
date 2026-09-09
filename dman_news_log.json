@@ -4542,5 +4542,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:52:11.200065-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Watch Series 12 Starts At The Same Price Of $399, And Apple Watch Ultra 4 Remains At $799; Says Apple Watch Series 12 And Apple Watch Ultra 4 Can Be Pre-Ordered Starting Today, Available On September 18th",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:52:33.474739-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Global Access or Regulatory Risk? Robinhood Accelerates Crypto-Linked Strategy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:52:36.263994-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Global Access or Regulatory Risk? Robinhood Accelerates Crypto-Linked Strategy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

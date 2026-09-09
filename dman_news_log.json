@@ -2776,5 +2776,396 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:08.983999-04:00",
+    "symbols": [
+      "FEED"
+    ],
+    "headline": "ENvue Medical shares are trading lower. The company announced it has resumed commercial shipments of PainShield, manufactured in US, and has begun fulfilling open orders from Ultra Pain Products.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:17.290479-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announces iPhone 18 Pro And iPhone 18 Pro Max",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:13:17.293497-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "LIVE: Apple Event Begins; New Product Announcements, Prices, Release Dates And The Company&#39;s First Launch Under CEO John Ternus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:13:18.338503-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:13:20.201324-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:13:20.454493-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:21.929509-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Piper Sandler Initiates Coverage On First Solar with Overweight Rating, Announces Price Target of $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:23.738908-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:24.046608-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:24.859848-04:00",
+    "symbols": [
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "Nvidia Blackwell Demand Sent Nebius Auction Prices 20% Higher",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:13:25.515213-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:13:26.978765-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Piper Sandler Initiates Coverage On Oklo with Overweight Rating, Announces Price Target of $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:29.664118-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Q1 Preview: Stock Down 53% From Record High, Analyst Says Buy and Hold \u2014 &#39;A Decade Stock&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:13:30.707340-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:13:30.958083-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:31.434093-04:00",
+    "symbols": [
+      "FGL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:31.675388-04:00",
+    "symbols": [
+      "MGN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-09T13:13:32.418368-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:32.669222-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Falls More Than 4% as 319 Million Shares Unlock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:13:33.159602-04:00",
+    "symbols": [
+      "XHLD"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:33.403311-04:00",
+    "symbols": [
+      "AGRZ"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:33.877567-04:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:34.119170-04:00",
+    "symbols": [
+      "ODD"
+    ],
+    "headline": "Short Squeeze And Earnings: Why ODDITY Tech Stock Spiked Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-09T13:13:34.355261-04:00",
+    "symbols": [
+      "SUNE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:34.607181-04:00",
+    "symbols": [
+      "IRD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:34.846673-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:35.081252-04:00",
+    "symbols": [
+      "SIG"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:37.382322-04:00",
+    "symbols": [
+      "ASO"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:39.102486-04:00",
+    "symbols": [
+      "YQ"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:13:39.583426-04:00",
+    "symbols": [
+      "AVO"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Fall, Brent Jumps Over $100 Amid Middle East Tensions\u2014 Casey\u2019s, ServiceTitan, American Eagle in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:39.587054-04:00",
+    "symbols": [
+      "AVO"
+    ],
+    "headline": "Why Mission Produce Shares Are Trading Higher By Over 5%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:39.590545-04:00",
+    "symbols": [
+      "AVO"
+    ],
+    "headline": "Signet Jewelers, Casey&#39;s General Stores and 3 Stocks to Watch Heading Into Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:39.593887-04:00",
+    "symbols": [
+      "AVO"
+    ],
+    "headline": "Full Transcript: Mission Produce Q3 2026 Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:39.838012-04:00",
+    "symbols": [
+      "AMBA"
+    ],
+    "headline": "Caleres Posts Upbeat Q2 Earnings, Joins Opus Genetics, Flotek Industries And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:13:40.094773-04:00",
+    "symbols": [
+      "SUNB"
+    ],
+    "headline": "Oil Tops $100, Meta and Cloudflare Jump On AI Breakthroughs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:14:35.313241-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Says Apple Intelligence Is Not Available In China; Updated Siri Will Not Be Available In EU And China",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:14:58.063598-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announces A20 Pro Chip Based On 2nm Technology",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:16:17.542406-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Says Apple A20 Pro Will Have Six Core CPU With Two &#39;Desktop Class&#39; Super Cores And Four Efficiency Cores",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:16:45.731132-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Bond ETF Investors Are Split. SGOV and TLT Draw Billions as Rate Bets Diverge",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

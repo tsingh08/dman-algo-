@@ -4592,5 +4592,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:00:03.996255-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Says iPhone Duo When Open Is Thinnest iPhone Ever; iPhone Duo Opens To A 7.6-Inch Super Retina XDR Display That Is 50% Larger Than iPhone 18 Pro Max",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:00:10.204839-04:00",
+    "symbols": [
+      "IRD"
+    ],
+    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Opus Genetics, Maintains $8 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

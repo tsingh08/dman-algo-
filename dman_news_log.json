@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:19.899507-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Bernie Sanders Slams Big Tech as AI Industry Spends $300 Million to Crush Tougher Regulation \u2014 \u201881% of Americans\u2019 Say Congress Isn\u2019t Doing Enough",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-09T11:28:19.899851-04:00",
     "symbols": [
       "AMD"
@@ -5043,5 +5033,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T15:41:46.374500-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL"
+    ],
+    "headline": "South Park Vs. Trump (And Google &amp; Apple): Hit Animated Show Switches Name in Nod to President\u2019s Map Changes",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

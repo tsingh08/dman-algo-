@@ -4917,5 +4917,85 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:46:19.734931-04:00",
+    "symbols": [
+      "WYHG"
+    ],
+    "headline": "Shares of consumer staples companies are trading lower as elevated energy prices increase the chances of a Fed rate hike in September, which may slow consumer demand, boost borrowing costs and crimp margins.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:47:15.811459-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Barclays Sees S&amp;P 500 at 7,950 in 2026: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:47:16.125805-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Barclays Sees S&amp;P 500 at 7,950 in 2026: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T14:47:16.941103-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Barclays Sees S&amp;P 500 at 7,950 in 2026: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:47:17.199913-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Barclays Sees S&amp;P 500 at 7,950 in 2026: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T14:47:18.680995-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Barclays Sees S&amp;P 500 at 7,950 in 2026: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T14:47:30.151835-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Barclays Sees S&amp;P 500 at 7,950 in 2026: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:47:40.612960-04:00",
+    "symbols": [
+      "SEI"
+    ],
+    "headline": "Raymond James Maintains Outperform on Solaris Energy Infr, Raises Price Target to $96",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -13325,6 +13325,19 @@ class WinRateTracker:
         because each new spread shape resets its own counter to zero.
         """
         def _drift_key(setup: str) -> str:
+            # "SWING — " is an execution-time tag (PDT budget forced a GTC
+            # overnight entry — see the _setup_tag assignment where positions
+            # open), not a distinct strategy: strip it so swing and day fills
+            # of the same setup pool into one live record. Found in the
+            # 2026-09-09 session review: drift flagged "SWING — Momentum
+            # Watch Breakout (Day)" and auto-probated that exact string, but
+            # every enforcement site passes the raw, never-prefixed sig.setup
+            # to _setup_probation_bonus(), so that restriction could never
+            # match a future signal (and, never being looked up, never even
+            # expired) — same per-label dilution failure as the Earnings
+            # family below, plus a silently dead restriction.
+            if setup.startswith("SWING — "):
+                setup = setup[len("SWING — "):]
             return "Earnings Spread" if setup.startswith("Earnings ") else setup
 
         live = [r for r in self.records if r.is_live]

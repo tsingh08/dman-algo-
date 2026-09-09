@@ -3167,5 +3167,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:18:38.992145-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Says A20 Chip Will Have Two Neural Engines With 32 Cores Total, Increasing On-Device AI Performance; Apple Says A20 Pro Chip Will Use Custom Packaging Similar To Mac Chips To Improve Thermal Performance; A20 Pro Chip Has Seven GPU Cores; A20 Chip Uses Improved Vapor Chamber Cooling",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:20:01.291533-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Says iPhone 18 Pro Max Has The Largest Increase In Battery Life Ever On iPhone",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

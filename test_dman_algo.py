@@ -6617,10 +6617,35 @@ class TestPdtZeroSharesArmingDate(unittest.TestCase):
     start date in setUp so it can test the gate, which would mask the real
     value here."""
 
-    def test_start_date_is_thursday_not_wednesday(self):
-        # Pins the instruction itself: Wednesday 2026-09-09 is options-only,
-        # shares from Thursday 2026-09-10.
-        self.assertGreaterEqual(a.PDT_ZERO_SHARES_START_DATE, "2026-09-10")
+    def test_fallback_is_armed(self):
+        # Instruction 2026-09-09 held this to Thursday, then reversed to the
+        # Wednesday session the same day. What keeps it rare is the GATE, not
+        # the calendar -- see the quality clauses in TestPdtZeroSharesFallback.
+        self.assertLessEqual(a.PDT_ZERO_SHARES_START_DATE, "2026-09-09")
+
+    def test_arming_early_did_not_relax_the_quality_gate(self):
+        # The reason arming early is acceptable at all. If any of these
+        # loosens, the fallback stops being "only a good quality setup with a
+        # catalyst" and becomes a general shares path at zero PDT budget.
+        self.assertEqual(a.ELEVATED_MIN_SCORE, 90)
+        self.assertLessEqual(a.PDT_ZERO_SHARES_MAX_ENTRY_GAP, 15.0)
+        self.assertGreaterEqual(a.PDT_ZERO_SHARES_MIN_DOLLAR_VOL, 1_000_000)
+        self.assertLessEqual(a.PDT_ZERO_SHARES_MAX_NOTIONAL, 0.30)
+        src = inspect.getsource(a._genuine_shares_case)
+        self.assertIn("_has_tier_a_catalyst", src)
+        self.assertIn("_has_liquid_option_chain", src)
+
+    def test_size_is_recomputed_against_the_live_entry(self):
+        # Sizing in the PDT branch runs against the signal's original entry,
+        # which the submit loop then re-anchors to the live quote. Without a
+        # re-derive, a name that moved since the signal would breach the
+        # notional cap in exactly the case the cap exists for.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_anchor = src.index("_live_entry = round(cur * 1.001, 2)")
+        i_resize = src.index("sig.shares = _pdt_zero_share_size(sig.entry")
+        i_submit = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
+        self.assertLess(i_anchor, i_resize)
+        self.assertLess(i_resize, i_submit)
 
 
 class TestPdtZeroSharesFallback(unittest.TestCase):

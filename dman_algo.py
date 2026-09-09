@@ -768,11 +768,15 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # violation this avoids). The next session it is no longer a same-day
 # position, so normal stop protection resumes.
 ENABLE_PDT_ZERO_SHARES        = True
-# Held until Thursday by direct instruction 2026-09-09: options only for the
-# Wednesday session, shares from Thursday. A date rather than a bool someone
-# has to remember to flip -- it arms itself, and /flags shares still works as
+# Armed for the Wednesday session. Instruction 2026-09-09 first held this to
+# Thursday, then same-day: "do shares for wednesday session only if theres a
+# good quality setup with catalyst and everything" -- so it is the GATE, not
+# the calendar, that keeps this rare. _genuine_shares_case() is that gate and
+# is deliberately strict; nothing about it was relaxed to arm this early.
+# Kept as a date rather than a bare bool so the switch stays self-documenting
+# and can be pushed out again without touching logic. /flags shares remains
 # the kill switch in both directions.
-PDT_ZERO_SHARES_START_DATE    = "2026-09-10"
+PDT_ZERO_SHARES_START_DATE    = "2026-09-09"
 PDT_ZERO_SHARES_ASSUMED_GAP   = 0.35  # sizing basis: severe overnight gap
 PDT_ZERO_SHARES_MAX_NOTIONAL  = 0.30  # hard cap, % of equity, one position
 PDT_ZERO_SHARES_MAX_ENTRY_GAP = 15.0  # already run this much => it is a chase
@@ -21127,6 +21131,22 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                 sig.stop    = round(_live_entry + _orig_risk, 2)
                 sig.target1 = round(_live_entry - _t1_mult * _orig_risk, 2)
                 sig.target2 = round(_live_entry - _t2_mult * _orig_risk, 2)
+
+        # A naked share position is sized off assumed-gap loss against its
+        # ENTRY price, and the block above just re-anchored that entry to the
+        # live quote. Sizing computed back in the PDT branch was against the
+        # signal's original entry, which can be stale by hours -- on a name
+        # that moved since, the notional cap would silently be exceeded in
+        # exactly the situation it exists for. Re-derive it from the price
+        # actually being submitted.
+        if getattr(sig, "no_stop_entry", False):
+            _eq_now = get_effective_account()
+            sig.shares = _pdt_zero_share_size(sig.entry, _eq_now)
+            sig.cost   = round(sig.shares * sig.entry, 2)
+            if sig.shares <= 0:
+                print(f"  ⏭️  {sig.ticker}: naked-share size rounds to 0 at "
+                      f"${sig.entry:.2f} — skipping")
+                continue
 
         # ── Options branch: calls (LONG) or puts (SHORT) ──────────────────────
         # Calls: WATCHLIST membership OR a setup already trusted for options

@@ -2352,5 +2352,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T12:08:06.333633-04:00",
+    "symbols": [
+      "AMD",
+      "CRM"
+    ],
+    "headline": "Why Is AMD Stock Surging on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T12:08:09.793490-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Keynote Prediction Market Preview: What Will Ternus Say as His Reign Begins?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

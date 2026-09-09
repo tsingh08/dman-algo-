@@ -4491,5 +4491,56 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:46:44.793692-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "Global Access or Regulatory Risk? Robinhood Accelerates Crypto-Linked Strategy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:47:12.245565-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Introduces Audio Intelligence; Introduces Live Rewind Feature To Transcribe 15 Seconds Of Recent Audio; Apple Introduces Siri Recap To Summarize Conversations; Apple Says Audio Intelligence Features Do Not Create Or Store Audio Files; Introducing Audio Intelligence To Bring Sound Recognition To Apple Watch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:47:15.124763-04:00",
+    "symbols": [
+      "CHYM"
+    ],
+    "headline": "UBS Maintains Neutral on Chime Financial, Raises Price Target to $31",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:47:15.385697-04:00",
+    "symbols": [
+      "SUPX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:47:15.390247-04:00",
+    "symbols": [
+      "SUPX"
+    ],
+    "headline": "SuperX AI Technology Issues Buyback Update; Repurchased 119,360 Shares At An Average Price Of $7.7691 Per Share On September 8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

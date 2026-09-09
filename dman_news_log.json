@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:18.181212-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Hunter Biden Promised &#39;Fair Launch&#39; but LAPTOP Meme Coin Crashed 98% in 1 Hour",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.895367-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s &#39;Surprise and Shine&#39; Moment Belongs to John Ternus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.895832-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s New CEO Faces His First Product Launch Today \u2014 Here&#39;s What&#39;s Expected",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.896095-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Is Apple Finally About to Become an AI Stock? Does That Make AAPL A Buy?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.896377-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Is Chasing Elon Musk&#39;s Neuralink Vision\u2014Differently",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.896659-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Amazon Gives Qualcomm a Major AI Boost With $60B Custom Chip Deal \u2014 Analyst Calls It a \u2018Huge $QCOM Win\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.897185-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "AI Will Transform the World, but Legendary Investor Warns Its Arms Race Has a Familiar Trap",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.897497-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Insights Into Microsoft&#39;s Performance Versus Peers In Software Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-09T11:28:19.897844-04:00",
     "symbols": [
       "NVDA"
@@ -5015,6 +4935,112 @@
     ],
     "headline": "Shares of travel-related companies are trading lower as oil prices rise amid growing concerns over further U.S.-Iran military escalation. Rising fuel prices and elevated interest-rate expectations could weigh on the sector by increasing operating and financing costs, while potentially reducing consumer demand for travel.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T15:11:39.967239-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "META",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:12:24.276410-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T15:12:24.578158-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:12:24.586809-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:12:24.841709-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T15:12:26.700960-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:12:26.957673-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:12:27.450857-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Nvidia and Meta Are Hungry for HBM. SK Hynix Is on the Menu \u2014 These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T15:12:31.145647-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Hunter Biden Promised &#39;Fair Launch&#39; but LAPTOP Meme Coin Crashed 98% in 1 Hour",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:12:48.605957-04:00",
+    "symbols": [
+      "TNGX"
+    ],
+    "headline": "Caleres Posts Upbeat Q2 Earnings, Joins Opus Genetics, Flotek Industries And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

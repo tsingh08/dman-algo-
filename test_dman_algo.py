@@ -9304,6 +9304,38 @@ class TestSetupProbation(unittest.TestCase):
         self.assertEqual(a._smallcap_score_threshold("ARTL", "Low Float Catalyst"),
                           base + a.SETUP_PROBATION_SCORE_BONUS)
 
+    def test_family_key_restriction_applies_to_per_trade_earnings_labels(self):
+        # setup_performance_drift() auto-restricts the whole earnings family
+        # under the single "Earnings Spread" key (its per-shape labels never
+        # individually reach min_trades — see its docstring), but trades carry
+        # per-shape labels. Found in the 2026-09-09 review: the exact-match
+        # lookup meant a live "Earnings Spread" probation entry (on disk since
+        # 2026-08-31) could never match — or expire.
+        a._enter_setup_probation("Earnings Spread", "25% WR family test")
+        for label in ("Earnings Double Spread", "Earnings Put Spread",
+                      "Earnings Call Spread", "Earnings Strangle (untracked)"):
+            self.assertEqual(a._setup_probation_bonus(label),
+                             a.SETUP_PROBATION_SCORE_BONUS,
+                             f"family probation must cover {label!r}")
+
+    def test_exact_label_entry_still_wins_over_family_key(self):
+        a._enter_setup_probation("Earnings Double Spread", "manual exact entry")
+        self.assertEqual(a._setup_probation_bonus("Earnings Double Spread"),
+                          a.SETUP_PROBATION_SCORE_BONUS)
+        # A different family member has no exact entry and no family entry.
+        self.assertEqual(a._setup_probation_bonus("Earnings Put Spread"), 0)
+
+    def test_family_key_entry_expires_via_per_trade_label_lookup(self):
+        state = {"Earnings Spread": {
+            "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
+            "note": "x"}}
+        a._save_setup_probation(state)
+        with patch.object(a, "send_telegram", return_value=True):
+            self.assertEqual(a._setup_probation_bonus("Earnings Double Spread"), 0)
+        self.assertNotIn("Earnings Spread", a._load_setup_probation(),
+                          "expiry must delete the family key it matched, not KeyError "
+                          "on the per-trade label")
+
 
 class TestSetupProbationTelegramCommands(unittest.TestCase):
     """/setupprobation and /endsetupprobation -- the manual override for
@@ -11617,6 +11649,22 @@ class TestFormatEarningsSpreadTelegramSectorWarning(unittest.TestCase):
     goes out, so a silently-dropped warning is as bad as never computing
     it in the first place."""
 
+    def setUp(self):
+        # format_earnings_spread_telegram() now also reads setup-probation
+        # state (see TestFormatEarningsSpreadTelegramProbationWarning) —
+        # point it at an empty temp file so these assertions never depend
+        # on whatever dman_setup_probation.json happens to hold.
+        self._prob_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._prob_tmp.close()
+        os.unlink(self._prob_tmp.name)
+        self._prob_patch = patch.object(a, "SETUP_PROBATION_FILE", self._prob_tmp.name)
+        self._prob_patch.start()
+
+    def tearDown(self):
+        self._prob_patch.stop()
+        if os.path.exists(self._prob_tmp.name):
+            os.unlink(self._prob_tmp.name)
+
     def _plan(self):
         return {
             "ticker": "NVDA", "timing": "AMC", "directional": None,
@@ -11638,6 +11686,60 @@ class TestFormatEarningsSpreadTelegramSectorWarning(unittest.TestCase):
         self.assertIn("CRWD", msg)
         self.assertIn("MRVL", msg)
         self.assertIn("Technology", msg)
+
+
+class TestFormatEarningsSpreadTelegramProbationWarning(unittest.TestCase):
+    """The earnings-spread family only ever trades on an explicit human YES
+    — it never passes the score gates where _setup_probation_bonus() has
+    any effect — so a drift-triggered "Earnings Spread" restriction is
+    invisible to the one decision-maker unless the approval message itself
+    says so. Found in the 2026-09-09 review: the family had been on
+    probation since 2026-08-31 (1W/3L, avg loss 85%) and nothing about any
+    offer sent since then mentioned it."""
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._tmp.close()
+        os.unlink(self._tmp.name)
+        self._patch = patch.object(a, "SETUP_PROBATION_FILE", self._tmp.name)
+        self._patch.start()
+        self._alerts_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._alerts_tmp.write(b"{}")
+        self._alerts_tmp.close()
+        self._alerts_patch = patch.object(a, "LAST_ALERTS_FILE", self._alerts_tmp.name)
+        self._alerts_patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        if os.path.exists(self._tmp.name):
+            os.unlink(self._tmp.name)
+        self._alerts_patch.stop()
+        os.unlink(self._alerts_tmp.name)
+
+    def _plan(self):
+        return {
+            "ticker": "NVDA", "timing": "AMC", "directional": None,
+            "last_moves_pct": [], "call": None, "put": None,
+            "total_cost": 500.0, "sets": 1, "max_loss": 500.0,
+        }
+
+    def test_no_probation_omits_warning(self):
+        msg = a.format_earnings_spread_telegram(self._plan())
+        self.assertNotIn("probation", msg.lower())
+
+    def test_active_family_probation_is_surfaced_with_its_note(self):
+        a._enter_setup_probation("Earnings Spread", "25% WR over last 4 live trades")
+        msg = a.format_earnings_spread_telegram(self._plan())
+        self.assertIn("probation", msg.lower())
+        self.assertIn("25% WR over last 4 live trades", msg)
+
+    def test_expired_family_probation_does_not_warn(self):
+        a._save_setup_probation({"Earnings Spread": {
+            "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
+            "note": "x"}})
+        with patch.object(a, "send_telegram", return_value=True):
+            msg = a.format_earnings_spread_telegram(self._plan())
+        self.assertNotIn("probation", msg.lower())
 
 
 class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):

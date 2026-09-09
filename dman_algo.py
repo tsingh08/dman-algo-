@@ -2841,6 +2841,23 @@ def _save_setup_probation(state: dict) -> None:
     _write_json_atomic(SETUP_PROBATION_FILE, state, indent=2)
 
 
+def _setup_probation_key(setup: str) -> str:
+    """
+    Family key a setup's probation state is stored under. Earnings-spread
+    setups are grouped into one "Earnings Spread" family — this is the same
+    grouping setup_performance_drift() uses (see its docstring for why:
+    per-shape labels each sit at 1-2 trades and individually never cross
+    min_trades), shared here because the two sides MUST agree: the drift
+    check auto-restricts under the family key, so a consumer looking up an
+    exact per-trade label ("Earnings Double Spread") has to fall back to
+    the family key or the restriction never matches anything. Found in the
+    2026-09-09 review: "Earnings Spread" had been sitting in
+    dman_setup_probation.json since 2026-08-31 and no lookup could ever
+    hit it — or expire it.
+    """
+    return "Earnings Spread" if setup.startswith("Earnings ") else setup
+
+
 def _enter_setup_probation(setup: str, note: str) -> bool:
     """
     Marks `setup` as restricted, starting the auto-expiry clock now.
@@ -2868,7 +2885,11 @@ def _setup_probation_bonus(setup: str) -> int:
     """
     try:
         state = _load_setup_probation()
-        entry = state.get(setup)
+        # Exact label first (manual /setupprobation entries), then the
+        # family key the drift check auto-restricts under — see
+        # _setup_probation_key().
+        key = setup if setup in state else _setup_probation_key(setup)
+        entry = state.get(key)
         if not entry:
             return 0
         started_str = entry.get("started", "")
@@ -2878,15 +2899,15 @@ def _setup_probation_bonus(setup: str) -> int:
         except (ValueError, TypeError):
             age_days = 0
         if age_days >= SETUP_PROBATION_MAX_DAYS:
-            del state[setup]
+            del state[key]
             _save_setup_probation(state)
-            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}"):
+            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{key}"):
                 send_telegram(
-                    f"🟡 <b>Setup probation expired</b> — {setup}, {age_days} days since "
+                    f"🟡 <b>Setup probation expired</b> — {key}, {age_days} days since "
                     f"restricted. Back to its normal SETUP_MIN_CONFLUENCE bar. Send "
-                    f"<b>/setupprobation {setup}</b> to restrict it again if it's still weak."
+                    f"<b>/setupprobation {key}</b> to restrict it again if it's still weak."
                 )
-                _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}")
+                _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{key}")
             return 0
         return SETUP_PROBATION_SCORE_BONUS
     except Exception:
@@ -3834,6 +3855,23 @@ def format_earnings_spread_telegram(plan: dict, sector_overlap: Optional[list[st
     if plan.get("ai_analysis"):
         lines.append("")
         lines.append(f"🧠 <i>{plan['ai_analysis']}</i>")
+
+    # Earnings spreads only ever submit on an explicit human YES — they never
+    # pass through the score gates where _setup_probation_bonus() bites — so
+    # a drift-triggered restriction on the family is invisible unless it's
+    # surfaced right here, in the one message the human reads before
+    # approving. _setup_probation_bonus() (not a raw state read) so an
+    # entry past SETUP_PROBATION_MAX_DAYS expires instead of warning stale.
+    try:
+        if _setup_probation_bonus("Earnings Spread"):
+            _prob_note = _load_setup_probation().get(
+                "Earnings Spread", {}).get("note", "weak recent live record")
+            lines.append("")
+            lines.append(f"🟡 Earnings-spread setups are on probation: {_prob_note}. "
+                         f"This human-approved path has no automatic gate — weigh that "
+                         f"record before replying YES.")
+    except Exception:
+        pass
 
     if sector_overlap:
         sector = TICKER_SECTOR.get(plan["ticker"], "?")
@@ -13323,9 +13361,11 @@ class WinRateTracker:
         under min_trades, so this alert had never once fired for it and
         never could, no matter how badly the underlying strategy did,
         because each new spread shape resets its own counter to zero.
+        The grouping itself lives in _setup_probation_key() so the
+        probation state this writes and the lookups that consume it can
+        never disagree on the key again.
         """
-        def _drift_key(setup: str) -> str:
-            return "Earnings Spread" if setup.startswith("Earnings ") else setup
+        _drift_key = _setup_probation_key
 
         live = [r for r in self.records if r.is_live]
         setups = sorted({_drift_key(r.setup) for r in live if r.setup})

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.017564-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Big Tech&#39;s AI Buildout Comes With A Bill Taxpayers Are Paying",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.017931-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "How To Trade SPY, QQQ, AAPL, MSFT, NVDA, GOOGL, META, And TSLA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-08T13:54:03.018364-04:00",
     "symbols": [
       "GOOGL"
@@ -5009,5 +4989,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T09:57:36.608950-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Kura Oncology Pivots Diabetes Strategy Into $50 Million Subsidiary",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T10:01:27.341060-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Mizuho Maintains Outperform on IonQ, Lowers Price Target to $52",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

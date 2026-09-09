@@ -2238,5 +2238,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:53:47.037221-04:00",
+    "symbols": [
+      "MU",
+      "SKHY"
+    ],
+    "headline": "Why Is SK Hynix Stock Surging on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T11:54:19.688807-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX shares are trading lower after the company reached a 90-day early-release milestone, unlocking approximately 319 million shares for sale.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

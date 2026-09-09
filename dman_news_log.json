@@ -2178,5 +2178,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:37:01.920929-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop shares are trading higher. Yesterday the company reported better-than-expected Q2 sales results.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:37:29.395619-04:00",
+    "symbols": [
+      "IRD"
+    ],
+    "headline": "BTIG Reiterates Buy on Opus Genetics, Maintains $12 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:37:29.640871-04:00",
+    "symbols": [
+      "JILL"
+    ],
+    "headline": "BTIG Maintains Buy on J.Jill, Raises Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:37:30.611711-04:00",
+    "symbols": [
+      "CAN"
+    ],
+    "headline": "Imax To Rally More Than 23%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:37:30.613965-04:00",
+    "symbols": [
+      "CAN"
+    ],
+    "headline": "BTIG Maintains Buy on Canaan, Lowers Price Target to $2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

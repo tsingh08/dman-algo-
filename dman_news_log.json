@@ -3804,5 +3804,62 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:34:14.718435-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare shares are trading higher. The company&#39;s recent partnership with OpenAI to to deploy Daybreak models to identify and address cybersecurity vulnerabilities may be gaining more traction with investors.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:35:19.544455-04:00",
+    "symbols": [
+      "AAPL",
+      "MRVL",
+      "MSFT",
+      "SNDK",
+      "SNOW",
+      "ZS"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:35:20.139163-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:35:20.406544-04:00",
+    "symbols": [
+      "CAT",
+      "JOBY",
+      "LMT"
+    ],
+    "headline": "9 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:35:34.017090-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple AirPods 5 Base Model Start At $129; AirPods 5 With Wireless Charging Case Add Longer Battery Life And On-Stem Volume Control For $149",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

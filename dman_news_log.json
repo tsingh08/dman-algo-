@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.025656-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "9 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.026162-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Faces South Africa Price Probe, Putting Stock Under Pressure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.026716-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.027229-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Robinhood To Rally Around 23%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-08T13:54:03.027797-04:00",
     "symbols": [
       "PLTR"
@@ -5009,5 +4969,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:13:43.922617-04:00",
+    "symbols": [
+      "MIMI"
+    ],
+    "headline": "Mint shares are trading higher after the company announced its Rice Robotics AGI has entered into a Memorandum of Understanding with Edvance to establish a distribution partnership for the Middle East and North Africa education robotics market.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:14:17.041173-04:00",
+    "symbols": [
+      "EZRA"
+    ],
+    "headline": "Reliance Global Group Announces Purchase Agreement With Scali Insurance Group Effective September 1 To Sell 100% Of Southwestern Montana Insurance Center Membership Interests And Assets For $2.63M Cash, Plus Contingent Consideration",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:14:46.104011-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Bernstein Maintains Outperform on Newmont, Lowers Price Target to $144",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T10:15:14.530772-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Mizuho Maintains Outperform on Robinhood Markets, Raises Price Target to $140",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

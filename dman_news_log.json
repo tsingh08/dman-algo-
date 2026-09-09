@@ -4612,5 +4612,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:04:01.856527-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple iPhone Duo Outer Display Will Be 5.4 Inches; Apple Says iPhone Duo Will Work With Apple Pencil; Apple Says iPhone Duo Will Support Multiple Apps At Once In Separate Windows For Productivity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:05:07.272723-04:00",
+    "symbols": [
+      "PLSE"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:05:07.276882-04:00",
+    "symbols": [
+      "PLSE"
+    ],
+    "headline": "Freedom Capital Markets Initiates Coverage On Pulse Biosciences with Buy Rating, Announces Price Target of $73",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:06:51.598320-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announced AirPods 5, Watch Ultra 4, and Watch Series 12",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:07:06.168996-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron CFO Says Oil Giant Is \u2018Bigger, Better and Stronger Than We\u2019ve Ever Been\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

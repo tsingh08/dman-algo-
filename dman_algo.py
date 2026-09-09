@@ -768,6 +768,11 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # violation this avoids). The next session it is no longer a same-day
 # position, so normal stop protection resumes.
 ENABLE_PDT_ZERO_SHARES        = True
+# Held until Thursday by direct instruction 2026-09-09: options only for the
+# Wednesday session, shares from Thursday. A date rather than a bool someone
+# has to remember to flip -- it arms itself, and /flags shares still works as
+# the kill switch in both directions.
+PDT_ZERO_SHARES_START_DATE    = "2026-09-10"
 PDT_ZERO_SHARES_ASSUMED_GAP   = 0.35  # sizing basis: severe overnight gap
 PDT_ZERO_SHARES_MAX_NOTIONAL  = 0.30  # hard cap, % of equity, one position
 PDT_ZERO_SHARES_MAX_ENTRY_GAP = 15.0  # already run this much => it is a chase
@@ -2200,6 +2205,10 @@ TOGGLEABLE_FLAGS = {
                 "to the curated universe plus screener pages."),
     "options": ("ENABLE_OPTIONS_TRADING",
                 "buy options instead of shares on eligible signals."),
+    "shares":  ("ENABLE_PDT_ZERO_SHARES",
+                "at 0 day trades, allow ONE share entry with no stop on a "
+                "Tier-A catalyst that has no options chain. OFF = options only. "
+                "The position is unprotected overnight by design."),
     "smallcap":("ENABLE_DYNAMIC_SMALLCAP",
                 "dynamic small-cap discovery from the Yahoo screeners."),
 }
@@ -7066,6 +7075,22 @@ def _ticker_bench_reason(ticker: str) -> Optional[str]:
         return None          # never block an entry on a bookkeeping error
 
 
+def _pdt_zero_shares_active() -> tuple[bool, str]:
+    """Is the unprotected-shares fallback armed right now?
+
+    Read through flag() rather than the module constant, because the daemon,
+    the cron scanner and manual runs are separate processes -- a constant set
+    in one says nothing about the others, and this is exactly the kind of
+    not-yet-proven behaviour /flags exists to kill from a phone.
+    """
+    if not flag("ENABLE_PDT_ZERO_SHARES", ENABLE_PDT_ZERO_SHARES):
+        return False, "PDT-zero shares fallback disabled (/flags shares)"
+    _today = datetime.now(ET).date().isoformat()
+    if _today < PDT_ZERO_SHARES_START_DATE:
+        return False, f"shares held until {PDT_ZERO_SHARES_START_DATE} — options only"
+    return True, "armed"
+
+
 def _pdt_zero_gap_and_liquidity(ticker: str) -> tuple[float, float]:
     """(gap_pct_today, dollar_volume) from a single snapshot. (0.0, 0.0) on failure,
     which the caller treats as disqualifying rather than as "fine"."""
@@ -7113,8 +7138,9 @@ def _genuine_shares_case(sig) -> tuple[bool, str]:
     answers one question: if this gaps against me overnight with no stop in
     place, was the reason for being in it good enough to have taken that risk?
     """
-    if not ENABLE_PDT_ZERO_SHARES:
-        return False, "PDT-zero shares fallback disabled"
+    _armed, _why_not = _pdt_zero_shares_active()
+    if not _armed:
+        return False, _why_not
     if sig.bias != "LONG":
         return False, "short — unprotected overnight borrow/squeeze risk"
     # If a chain exists an option expresses the same read more safely: its max
@@ -20768,7 +20794,10 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     # 2026-09-08 six signals scored 100 on real catalysts and
                     # every one was untradeable purely for lack of a chain.
                     _share_ok = []
-                    if ENABLE_PDT_ZERO_SHARES:
+                    _shares_armed, _shares_why = _pdt_zero_shares_active()
+                    if not _shares_armed:
+                        print(f"  🩹 PDT-zero shares: {_shares_why}")
+                    if _shares_armed:
                         _already_naked = False
                         try:
                             _already_naked = any(

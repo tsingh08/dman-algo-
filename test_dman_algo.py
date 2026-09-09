@@ -6612,10 +6612,53 @@ class TestOptionsAggregateExposureCap(unittest.TestCase):
         self.assertEqual(src.count("_options_aggregate_room(_opt_risk)"), 2)
 
 
+class TestPdtZeroSharesArmingDate(unittest.TestCase):
+    """Separate class deliberately: TestPdtZeroSharesFallback patches the
+    start date in setUp so it can test the gate, which would mask the real
+    value here."""
+
+    def test_start_date_is_thursday_not_wednesday(self):
+        # Pins the instruction itself: Wednesday 2026-09-09 is options-only,
+        # shares from Thursday 2026-09-10.
+        self.assertGreaterEqual(a.PDT_ZERO_SHARES_START_DATE, "2026-09-10")
+
+
 class TestPdtZeroSharesFallback(unittest.TestCase):
     """The narrow exception to "no shares at zero PDT budget". It buys an
     unprotected overnight position, so the gate has to stay tight -- these
     tests exist to make a future loosening of it visible."""
+
+    def setUp(self):
+        # The fallback is date-armed (options-only until 2026-09-10). These
+        # tests are about the GATE, not the arming date, so arm it here and
+        # let test_held_until_the_start_date cover the date on its own.
+        _p = patch.object(a, "PDT_ZERO_SHARES_START_DATE", "2000-01-01")
+        _p.start()
+        self.addCleanup(_p.stop)
+
+    def test_held_until_the_start_date(self):
+        # Direct instruction 2026-09-09: options only on Wednesday, shares
+        # from Thursday. Before the start date nothing qualifies, however
+        # good the setup looks.
+        c1, c2, c3 = self._allow()
+        with c1, c2, c3, \
+             patch.object(a, "PDT_ZERO_SHARES_START_DATE", "2099-01-01"):
+            ok, why = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+        self.assertIn("held until", why)
+
+    def test_armed_on_and_after_the_start_date(self):
+        c1, c2, c3 = self._allow()
+        with c1, c2, c3, \
+             patch.object(a, "PDT_ZERO_SHARES_START_DATE", "2000-01-01"):
+            ok, _ = a._genuine_shares_case(self._sig())
+        self.assertTrue(ok)
+
+    def test_kill_switch_is_reachable_from_a_phone(self):
+        # A constant cannot be flipped across process boundaries; this has to
+        # be in the /flags whitelist to be killable from Telegram.
+        self.assertIn("ENABLE_PDT_ZERO_SHARES",
+                      [v[0] for v in a.TOGGLEABLE_FLAGS.values()])
 
     def _sig(self, **kw):
         s = SimpleNamespace(ticker="ROIV", bias="LONG", entry=10.0,

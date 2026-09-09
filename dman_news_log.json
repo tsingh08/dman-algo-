@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.012704-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "How To Trade SPY, QQQ, AAPL, MSFT, NVDA, GOOGL, META, And TSLA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.012950-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s Wednesday Event: Pricier iPhone 18 Pros and a $2,099 Foldable Expected",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.013244-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Breaks Out Azure Sales at $100 Billion Annualized Pace, Reorganizes AI Segments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.013529-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "How To Trade SPY, QQQ, AAPL, MSFT, NVDA, GOOGL, META, And TSLA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.013840-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Performance Comparison: Microsoft And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.014112-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "We Can\u2019t Allow a Handful of Greedy People to Play God\u2019: Bernie Sanders Takes Aim at Big Tech Billionaires Over AI Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.014444-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Oracle Stock is the Trade to Watch After OpenAI&#39;s AGI Claim",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.014760-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With NVIDIA Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.015058-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "S&amp;P 500, Nasdaq Slip as $98 Brent Reignites Inflation Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-08T13:54:03.015369-04:00",
     "symbols": [
       "NVDA"
@@ -5009,5 +4919,95 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T09:49:40.766132-04:00",
+    "symbols": [
+      "MGN"
+    ],
+    "headline": "Dow Tumbles 350 Points; Signet Jewelers Shares Jump Following Upbeat Q2 Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-09T09:49:52.688381-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Gives a 20-Year Lifeline to Nordic Nuclear Power Plant&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T09:50:13.014171-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "China Commerce Ministry, On US Issuing Cybersecurity Announcements Related To Chinese AI Companies., Says China Firmly Opposes This; US Allegations Are Baseless; Distillation Is A Common Practice Among AI Models Globally, Including By US Firms; Heads Of State Of The Two Countries Have Agreed To Launch An Intergovernmental Dialogue On Artificial Intelligence;\u00a0If U.S. Side Takes Action To Suppress Chinese AI Companies Under The Pretext Of Cracking Down On Distillation, China Will Take Resolute Countermeasures",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T09:50:17.349362-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "China Commerce Ministry, On US Issuing Cybersecurity Announcements Related To Chinese AI Companies., Says China Firmly Opposes This; US Allegations Are Baseless; Distillation Is A Common Practice Among AI Models Globally, Including By US Firms; Heads Of State Of The Two Countries Have Agreed To Launch An Intergovernmental Dialogue On Artificial Intelligence;\u00a0If U.S. Side Takes Action To Suppress Chinese AI Companies Under The Pretext Of Cracking Down On Distillation, China Will Take Resolute Countermeasures",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T09:50:18.925888-04:00",
+    "symbols": [
+      "AGRZ"
+    ],
+    "headline": "Dow Tumbles 350 Points; Signet Jewelers Shares Jump Following Upbeat Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T09:50:19.743276-04:00",
+    "symbols": [
+      "IRD"
+    ],
+    "headline": "Dow Tumbles 350 Points; Signet Jewelers Shares Jump Following Upbeat Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T09:50:20.838800-04:00",
+    "symbols": [
+      "SIG"
+    ],
+    "headline": "Dow Tumbles 350 Points; Signet Jewelers Shares Jump Following Upbeat Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T09:50:20.844172-04:00",
+    "symbols": [
+      "SIG"
+    ],
+    "headline": "Signet Jewelers Q2 2027 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T09:50:28.964490-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Is Apple Finally About to Become an AI Stock? Does That Make AAPL A Buy?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -411,6 +411,25 @@
     "news_breadth_total": 247
   },
   {
+    "ts": "2026-09-09T13:32:47.891376-04:00",
+    "regime": "CHOP",
+    "regime_score": 11,
+    "vix": 16.2,
+    "min_score": 85,
+    "universe": "all",
+    "tickers_total": 175,
+    "signals": 1,
+    "signal_tickers": [
+      "GRAB"
+    ],
+    "rejected_no_signal": 173,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 77.6,
+    "news_breadth_total": 214
+  },
+  {
     "ts": "2026-09-09T13:34:25.279183-04:00",
     "regime": "CHOP",
     "regime_score": 11,

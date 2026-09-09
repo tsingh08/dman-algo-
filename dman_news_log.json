@@ -2476,5 +2476,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T12:28:27.862655-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on FedEx, Raises Price Target to $350",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T12:28:43.251460-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T12:28:43.400500-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T12:28:44.296489-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T12:28:44.380457-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T12:28:50.066806-04:00",
+    "symbols": [
+      "CHYM"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Chime Financial, Raises Price Target to $42",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

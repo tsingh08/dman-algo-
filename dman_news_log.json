@@ -4572,5 +4572,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:55:36.759471-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "- Apple: Announces Foldable Design Of iPhone; Apple Says Foldable Design Will Have Two Cameras; Announces Foldable iPhone Named iPhone Duo",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:57:27.869945-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "UBS Maintains Buy on SLB, Raises Price Target to $72",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

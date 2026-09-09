@@ -6615,6 +6615,23 @@ class TestElevatedSizeTier(unittest.TestCase):
         with self._no_positions():
             self.assertIsNone(a._elevated_size_reason(self._sig(ticker="ZZZZ")))
 
+    def test_offlist_ticker_with_a_liquid_chain_qualifies(self):
+        # Confirmed live 2026-09-08: CRWV scored 100/100 via the market-wide
+        # screen with a genuinely liquid chain (delta 0.69, 3% spread, OI
+        # 541) and was denied elevated size purely for not being pre-curated.
+        # WATCHLIST membership was a proxy for "has a real options market",
+        # not the actual requirement.
+        with self._no_positions(), \
+             patch.object(a, "_has_liquid_option_chain", return_value=True):
+            self.assertIsNotNone(a._elevated_size_reason(self._sig(ticker="CRWV")))
+
+    def test_liquid_chain_check_failure_denies_elevated_size(self):
+        # Fails closed on the LARGER tier -- an API hiccup must not be the
+        # reason a signal sizes up.
+        with self._no_positions(), \
+             patch.object(a, "_has_liquid_option_chain", return_value=False):
+            self.assertIsNone(a._elevated_size_reason(self._sig(ticker="CRWV")))
+
     def test_named_examples_are_all_watchlist_members(self):
         for t in ("NVDA", "SNOW", "PANW", "MDB"):
             self.assertIn(t, a.WATCHLIST, f"{t} must be options-eligible to size up")

@@ -12056,8 +12056,15 @@ def _elevated_size_reason(sig) -> Optional[str]:
 
       - confluence score >= ELEVATED_MIN_SCORE (the winners in the live
         options record came in at 100),
-      - a WATCHLIST large cap -- the named examples (NVDA, SNOW, PANW, MDB)
-        are all liquid names whose options actually have two-sided markets,
+      - a WATCHLIST large cap OR a market-wide discovery with a genuinely
+        liquid chain (see _has_liquid_option_chain) -- WATCHLIST membership
+        was a proxy for "real two-sided options market", not the actual
+        requirement. Confirmed live 2026-09-08: CRWV scored 100/100 via the
+        market-wide screen with a tight, liquid chain (delta 0.69, 3% spread,
+        OI 541) and was denied elevated size purely for not being
+        pre-curated, then correctly skipped as "too expensive" at the $185
+        base budget (a $1,164 contract). The WATCHLIST-only gate was
+        rejecting exactly the kind of signal this tier exists for.
       - fewer than MAX_ELEVATED_POSITIONS oversized positions already open.
 
     The last one is the real protection. Two $500 losses is a third of a
@@ -12068,16 +12075,54 @@ def _elevated_size_reason(sig) -> Optional[str]:
     try:
         if getattr(sig, "confluence_score", 0) < ELEVATED_MIN_SCORE:
             return None
-        if sig.ticker not in WATCHLIST:
+        _watchlisted = sig.ticker in WATCHLIST
+        if not _watchlisted and not _has_liquid_option_chain(sig.ticker):
             return None
         _open = sum(1 for p in PositionTracker().positions
                     if getattr(p, "elevated_size", False))
         if _open >= MAX_ELEVATED_POSITIONS:
             return None
-        return (f"score {sig.confluence_score}/100, WATCHLIST large cap, "
+        _why = "WATCHLIST large cap" if _watchlisted else "liquid options chain"
+        return (f"score {sig.confluence_score}/100, {_why}, "
                 f"{_open}/{MAX_ELEVATED_POSITIONS} elevated slots used")
     except Exception:
         return None
+
+
+_liquid_chain_cache: dict[str, bool] = {}
+
+
+def _has_liquid_option_chain(ticker: str) -> bool:
+    """
+    Cheap proxy for "this underlying has a real, two-sided options market",
+    for tickers found outside WATCHLIST (market-wide screen, dynamic
+    small-cap discovery). One contracts-list call, no snapshot/quote pulls.
+
+    Calibrated live 2026-09-08 against that day's actual signals: a real
+    chain (CRWV, BE, NVDA) returns 100 contracts at limit=100 -- multiple
+    strikes and expiries. A non-optionable name (ROIV, BEX -- both scored
+    100 and were skipped for exactly this reason) returns 0. The >=20
+    threshold sits far inside that gap; it is a presence check, not a
+    liquidity-quality check -- the real spread/OI/delta filtering already
+    happens in _submit_options_call() once a contract is actually selected.
+
+    Cached per ticker per process (chains don't change intraday) so this
+    never repeats the same lookup across a scan's retry loop.
+    """
+    if ticker in _liquid_chain_cache:
+        return _liquid_chain_cache[ticker]
+    try:
+        _client = get_alpaca_client()
+        if _client is None:
+            return False
+        from alpaca.trading.requests import GetOptionContractsRequest as _GOCReq
+        _r = _client.get_option_contracts(
+            _GOCReq(underlying_symbols=[ticker], limit=20))
+        _ok = len(_r.option_contracts or []) >= 20
+    except Exception:
+        _ok = False
+    _liquid_chain_cache[ticker] = _ok
+    return _ok
 
 
 def _open_options_premium_at_risk() -> float:

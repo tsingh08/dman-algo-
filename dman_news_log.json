@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:19.899851-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cathie Wood Sells Palantir and AMD, Buys Robinhood and Cerebras Stock: Here&#39;s What Else Ark Traded",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.900250-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Trending After Unveiling Muse, Its First Personal AI Agent",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.900622-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AI Will Transform the World, but Legendary Investor Warns Its Arms Race Has a Familiar Trap",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.900984-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Stop Demanding Taxpayer Subsidies:&#39; GOP Senator Slams AI Data Centers Over Water, Power and Tax",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.901377-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Apple and Google Face UK Mandate to Block Explicit Content on Children\u2019s Phones as Talks Stall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-09T11:28:19.901753-04:00",
     "symbols": [
       "META"
@@ -5044,5 +4994,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T15:52:15.166639-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "South Park Vs. Trump (And Google &amp; Apple): Hit Animated Show Switches Name in Nod to President\u2019s Map Changes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T15:52:15.837179-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "South Park Vs. Trump (And Google &amp; Apple): Hit Animated Show Switches Name in Nod to President\u2019s Map Changes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T15:52:27.812033-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Scotiabank Initiates Coverage On Uber Technologies with Sector Outperform Rating, Announces Price Target of $100",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:54:34.696396-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "TPG Working With JPMorgan Chase Bankers To Explore Potential $5B Sale Of Healthcare Payments Software Firm Lyric, Sources Said",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T15:54:44.382112-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "&#39;TPG Working With JPMorgan Chase Bankers To Explore Potential $5 Billion Sale Of Healthcare Payments Software Firm Lyric, Sources Said&#39; - Reuters Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

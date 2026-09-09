@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.046728-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Healthcare ETFs Were Left Behind. JPMorgan Sees the Money Coming Back",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-08T13:54:03.047463-04:00",
     "symbols": [
       "LLY"
@@ -5010,6 +5000,16 @@
     "headline": "Trump&#39;s White House Endorsement &#39;Extremely Positive,&#39; Says Hyperion DeFi CEO: Executive Explains Why HYPE Ownership Is &#39;Beneficial&#39;",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:07:02.329644-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500 Up 13% Six Months Into Iran War, and History Says That&#39;s Normal",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

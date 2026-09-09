@@ -6580,6 +6580,104 @@ class TestOptionsAggregateExposureCap(unittest.TestCase):
         self.assertEqual(src.count("_options_aggregate_room(_opt_risk)"), 2)
 
 
+class TestNewsFirstCatalyst(unittest.TestCase):
+    """The news-first path exists to fire BEFORE a gap, so every test here is
+    really about precision: a false 'catalyst' sends you into a name that has
+    no reason to move, which is worse than missing it."""
+
+    def test_real_corporate_announcement_passes(self):
+        self.assertEqual(
+            a._news_catalyst_tier(
+                "PACS Expands Florida Footprint With 32-Facility Acquisition", ""),
+            "A")
+
+    def test_law_firm_spam_rejected(self):
+        # By raw volume this is the largest class on the wire -- 4 of the
+        # first 5 articles pulled on 2026-09-09.
+        for _t in ("ROSEN, A LEADING LAW FIRM, Encourages ACME Investors",
+                   "Levi & Korsinsky Notifies Shareholders of a Class Action",
+                   "Pomerantz Law Firm Investigates Claims On Behalf of ACME"):
+            self.assertIsNone(a._news_catalyst_tier(_t, ""), _t)
+
+    def test_retrospective_explainer_rejected(self):
+        # The trap this whole feature exists to avoid: an article explaining a
+        # move that is already over trips the Tier-A vocabulary on words like
+        # "surged", and would route an entry straight into the continuation.
+        for _t in ("Why SSR Mining Stock Surged 45% in August",
+                   "Why Pfizer Stock Was so Healthy in August",
+                   "6 Massive Reasons Standard Lithium Stock Popped 33% in August"):
+            self.assertIsNone(a._news_catalyst_tier(_t, ""), _t)
+
+    def test_listicle_and_routine_filings_rejected(self):
+        for _t in ("2 Instruments Stocks Set to Profit From Automation Push",
+                   "Seres Therapeutics Reports Inducement Grants Under Nasdaq Listing Rule",
+                   "ACME Corp to Present at the Investor Day Conference"):
+            self.assertIsNone(a._news_catalyst_tier(_t, ""), _t)
+
+    def test_dilution_still_beats_a_bullish_word(self):
+        # Tier-D is checked before Tier-A on purpose: an offering is not a
+        # long no matter how much upbeat language surrounds it.
+        _t = "ACME Announces Pricing of Public Offering of Common Stock"
+        self.assertIsNone(a._news_catalyst_tier(_t, ""))
+
+    def test_sector_roundup_dropped_by_ticker_count(self):
+        # A headline naming many tickers is a theme piece; the catalyst does
+        # not belong to any one of them.
+        _art = {"title": "PACS Expands Florida Footprint With Acquisition",
+                "description": "", "tickers": ["A", "B", "C", "D"],
+                "published_utc": "2026-09-09T10:00:00Z"}
+        with patch.object(a, "fetch_market_news_firehose", return_value=[_art]):
+            self.assertEqual(a.scan_news_catalysts(verbose=False), [])
+
+    def test_unreacted_name_is_flagged_early(self):
+        _art = {"title": "PACS Expands Florida Footprint With 32-Facility Acquisition",
+                "description": "", "tickers": ["PACS"],
+                "published_utc": "2026-09-09T10:00:00Z"}
+        _snap = {"PACS": {"latestTrade": {"p": 43.67},
+                          "dailyBar": {"c": 43.67, "v": 900_000},
+                          "prevDailyBar": {"c": 43.20, "v": 900_000}}}
+
+        class _R:
+            status_code = 200
+
+            def json(self):
+                return _snap
+
+        with patch.object(a, "fetch_market_news_firehose", return_value=[_art]), \
+             patch.object(a, "_resolve_stock_feed", return_value="iex"), \
+             patch.object(a.requests, "get", return_value=_R()):
+            rows = a.scan_news_catalysts(verbose=False)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["ticker"], "PACS")
+        self.assertFalse(rows[0]["reacted"])   # ~+1.1% -- catalyst is fresh
+
+    def test_already_gapped_name_is_marked_reacted(self):
+        # Same catalyst, but price has already run. This is the BEX/TRVI case:
+        # still worth scanning, but it must NOT be presented as an early entry.
+        _art = {"title": "PACS Expands Florida Footprint With 32-Facility Acquisition",
+                "description": "", "tickers": ["PACS"],
+                "published_utc": "2026-09-09T10:00:00Z"}
+        _snap = {"PACS": {"latestTrade": {"p": 52.00},
+                          "dailyBar": {"c": 52.00, "v": 900_000},
+                          "prevDailyBar": {"c": 43.20, "v": 900_000}}}
+
+        class _R:
+            status_code = 200
+
+            def json(self):
+                return _snap
+
+        with patch.object(a, "fetch_market_news_firehose", return_value=[_art]), \
+             patch.object(a, "_resolve_stock_feed", return_value="iex"), \
+             patch.object(a.requests, "get", return_value=_R()):
+            rows = a.scan_news_catalysts(verbose=False)
+        self.assertTrue(rows[0]["reacted"])
+
+    def test_no_api_key_is_quiet(self):
+        with patch.object(a, "MASSIVE_API_KEY", ""):
+            self.assertEqual(a.fetch_market_news_firehose(), [])
+
+
 class TestElevatedSizeTier(unittest.TestCase):
     """Direct instruction 2026-09-04: "$250 at the 7.5% capped loss but
     increased to $500 only on guaranteed setups with absolute confidence
@@ -14309,9 +14407,16 @@ class TestOptionsPositionBudget(unittest.TestCase):
             self.assertEqual(a._options_position_budget(), self._base(10_000.0))
 
     def test_ceiling_is_within_the_instructed_band(self):
-        # Direct instruction 2026-09-04: "keep loss max 5-7.5%".
-        self.assertGreaterEqual(a.MAX_TRADE_LOSS_PCT, 0.05)
-        self.assertLessEqual(a.MAX_TRADE_LOSS_PCT, 0.075)
+        # Direct instruction 2026-09-08: "lets work with $250-$300",
+        # superseding the earlier 5-7.5% band. The instruction was given in
+        # dollars against the account as it stood that day, so that is the
+        # equity the band is checked at -- the setting itself stays a
+        # percentage so it scales as the account grows instead of freezing
+        # position size at a stale dollar figure.
+        REF_EQUITY = 2_904.0
+        ceiling = a.MAX_TRADE_LOSS_PCT * REF_EQUITY
+        self.assertGreaterEqual(ceiling, 250.0)
+        self.assertLessEqual(ceiling, 300.0)
 
 
 def _fake_df():

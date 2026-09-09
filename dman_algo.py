@@ -33,7 +33,7 @@
 
 from __future__ import annotations
 
-import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile, threading
+import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile, threading, html
 from datetime import datetime, timedelta, date
 from dataclasses import dataclass, field, asdict
 from typing import Optional
@@ -740,7 +740,13 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # sessions. The equity paths were already inside it (stop-based risk 2%,
 # moonshot capped at PORTFOLIO_HEAT_LIMIT 6%) and are clamped anyway so the
 # rule holds if those are ever raised.
-MAX_TRADE_LOSS_PCT = 0.075       # ceiling on what ONE trade may lose, % of equity
+# Direct instruction 2026-09-08: "lets work with $250-$300", superseding the
+# earlier 5-7.5% band. Kept as a PERCENTAGE rather than a dollar literal for
+# the same reason as before -- a flat figure is what turned a $2,000 options
+# cap into 61% of a $3,273 account, and it freezes position size as equity
+# grows. 10% lands at $290 on the current $2,904, inside the requested band,
+# and scales with the account instead of drifting out of it.
+MAX_TRADE_LOSS_PCT = 0.10        # ceiling on what ONE trade may lose, % of equity
 # ...and a ceiling on what ALL open options may lose together. Five concurrent
 # positions at the per-trade cap is 37.5% of the account at risk at once, and
 # a long option has no stop -- PORTFOLIO_HEAT_LIMIT is computed from stop
@@ -804,6 +810,16 @@ ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
 LAST_ALERTS_FILE   = "dman_last_alerts.json"
 ALERT_COOLDOWN_MIN = 30          # suppress duplicate Telegram alert for same ticker within N min
+# PDT status messages (PDT ZERO / SWING MODE / normal) used to fire on EVERY
+# _submit_signals_to_alpaca() call with no dedup at all -- confirmed live
+# 2026-09-08: ROIV kept re-scoring 100 every ~10 min daemon cycle for hours,
+# and the "PDT ZERO — options-only" message re-sent EVERY time even though
+# the state (0/3 used) never changed. Direct instruction 2026-09-08 to cut
+# Telegram volume. Keyed on the day-trade COUNT, not the specific ticker
+# set, so the same day's unchanged state announces once and only re-alerts
+# if the count itself moves (a real event worth knowing about) or this
+# window elapses as a safety net.
+PDT_STATUS_ALERT_COOLDOWN_MIN = 240   # 4 hours -- effectively once per session per state
 TELEGRAM_STATE_FILE = "dman_telegram_state.json"  # getUpdates offset for two-way bot commands
 HALT_FILE           = "dman_halt.json"            # exists = /halt active: no new entries (exits still run)
 PROBATION_FILE       = "dman_probation.json"      # exists = probation active — see is_on_probation()
@@ -2212,13 +2228,13 @@ def _save_last_alert(ticker: str) -> None:
     except Exception:
         pass
 
-def _is_duplicate_alert(ticker: str) -> bool:
+def _is_duplicate_alert(ticker: str, cooldown_min: int = ALERT_COOLDOWN_MIN) -> bool:
     alerts = _load_last_alerts()
     if ticker not in alerts:
         return False
     try:
         last = datetime.fromisoformat(alerts[ticker])
-        return (datetime.now(ET) - last).total_seconds() < ALERT_COOLDOWN_MIN * 60
+        return (datetime.now(ET) - last).total_seconds() < cooldown_min * 60
     except Exception:
         return False
 
@@ -5833,6 +5849,216 @@ _TIER_D_KW = {"dilut", "offering", "placement", "warrant", "clinical hold",
                "fda reject", "complete response", "investigation", "fraud", "delisting"}
 
 
+# ── News-FIRST catalyst scan ──────────────────────────────────────────────
+# Every other discovery path in this file is price-first: find something that
+# already moved, then look up why. That is structurally too late. Direct
+# observation 2026-09-08 on BEX/TRVI: the gap happened, THEN the signal
+# notification arrived, so the entry was buying the continuation of a move
+# that was already mostly spent. No amount of confirmation filtering fixes
+# that ordering -- by the time a gap is confirmed, the gap is what you are
+# paying for.
+#
+# This inverts it. The Massive /v2/reference/news firehose returns market-wide
+# articles with NO ticker filter (verified live 2026-09-09), each already
+# carrying its own `tickers` list. So the order becomes: read the catalyst,
+# then ask whether price has reacted yet. A fresh Tier-A headline on a name
+# that has not moved is an entry the price-first path can never produce.
+NEWS_FIRST_LOOKBACK_H      = 14      # prior close -> this morning
+NEWS_FIRST_MAX_PAGES       = 4       # 50 articles per page
+NEWS_FIRST_UNREACTED_PCT   = 3.0     # still early if price moved less than this
+NEWS_FIRST_MAX_PRICE       = 100.0
+NEWS_FIRST_MIN_DOLLAR_VOL  = 200_000
+NEWS_FIRST_MAX_TICKERS     = 2       # more than this = sector roundup, not a catalyst
+
+# Law-firm / shareholder-suit wire spam dominates the raw firehose by volume
+# -- of the first five articles pulled on 2026-09-09, four were class-action
+# notices. They are never tradeable catalysts, and they would otherwise slip
+# through the keyword tiers on words like "investigation" or "deadline".
+_NEWS_NOISE_KW = {
+    "class action", "investor counsel", "law firm", "lawsuit", "rosen",
+    "deadline:", "encourages", "securities fraud", "shareholder alert",
+    "investigate", "levi & korsinsky", "pomerantz", "bronstein",
+    "gross law", "kessler", "shareholder rights", "reminds investors",
+}
+
+
+# The single largest noise class once the law firms are gone. A headline that
+# EXPLAINS a move is the exact inverse of the signal wanted here: "Why SSR
+# Mining Stock Surged 45% in August" is a report on a move that is already
+# over, yet it trips the Tier-A keywords because it contains the word
+# "surged". Matched on the opening words, where commentary announces itself.
+_NEWS_COMMENTARY_RE = re.compile(
+    r"^\s*(why|what|how|should|is|are|do|does|did|can|could|will|would|here"
+    r"|meet|this|these|those|better buy|best|top \d|\d+\s+(reasons?|things|"
+    r"stocks?|massive)|prediction|forecast|opinion|analysis)\b", re.I)
+
+# Backward-looking time reference paired with a move verb — the retrospective
+# tell even when the headline does not open like commentary.
+# A headline opening with a bare number is a listicle essentially every time
+# ("2 Instruments Stocks Set to Profit From..."), and a listicle is commentary
+# about a theme, not an announcement about a company.
+_NEWS_LISTICLE_RE = re.compile(r"^\s*\d+\s")
+
+_NEWS_RETRO_RE = re.compile(
+    r"\b(surged|soared|popped|jumped|plunged|tumbled|rallied|sank|slid|slipped"
+    r"|climbed|rocked|crashed|dropped|gained|lost|fell|rose)\b[^.]{0,60}"
+    r"\b(last (month|week|quarter|year)|in (january|february|march|april|may"
+    r"|june|july|august|september|october|november|december)|in q[1-4]"
+    r"|year to date|ytd|so far this)", re.I)
+
+# Mandatory-disclosure and calendar filler. Real wire items, zero edge:
+# "Seres Therapeutics Reports Inducement Grants Under Nasdaq Listing Rule"
+# is a compensation filing, not a catalyst.
+_NEWS_ROUTINE_KW = {
+    "inducement grant", "listing rule", "to present at", "will present",
+    "investor day", "webcast", "conference call", "annual meeting",
+    "market today", "market wrap", "stocks to watch", "what to watch",
+    "movers", "recap", "closing bell", "opening bell", "largest individual",
+    "analyst ratings", "price target", "insider sell", "13f",
+}
+
+def _news_catalyst_tier(title: str, desc: str) -> Optional[str]:
+    """Tier for one raw headline, or None if it is noise or not a catalyst.
+
+    Reuses the same _TIER_A_KW / _TIER_B_KW / _TIER_D_KW vocabulary the
+    pre-market scan already scores with, so "catalyst" means one thing across
+    both paths instead of drifting into two competing definitions.
+    """
+    _t = f"{title} {desc}".lower()
+    if any(_k in _t for _k in _NEWS_NOISE_KW):
+        return None
+    if any(_k in _t for _k in _NEWS_ROUTINE_KW):
+        return None
+    if (_NEWS_COMMENTARY_RE.match(title) or _NEWS_RETRO_RE.search(_t)
+            or _NEWS_LISTICLE_RE.match(title)):
+        return None
+    if any(_k in _t for _k in _TIER_D_KW):
+        return None                      # dilution / fraud — never a long
+    if any(_k in _t for _k in _TIER_A_KW):
+        return "A"
+    if any(_k in _t for _k in _TIER_B_KW):
+        return "B"
+    return None
+
+
+def fetch_market_news_firehose(hours_back: int = NEWS_FIRST_LOOKBACK_H,
+                               max_pages: int = NEWS_FIRST_MAX_PAGES) -> list[dict]:
+    """Recent market-wide news, newest first. No ticker filter — that is the point."""
+    if not MASSIVE_API_KEY:
+        return []
+    from datetime import timezone as _tz
+    _cut = (datetime.now(_tz.utc)
+            - timedelta(hours=hours_back)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    _out: list[dict] = []
+    _url = "https://api.massive.com/v2/reference/news"
+    _params = {"apiKey": MASSIVE_API_KEY, "published_utc.gte": _cut,
+               "limit": 50, "order": "desc"}
+    try:
+        for _ in range(max_pages):
+            _r = requests.get(_url, params=_params, timeout=20)
+            if _r.status_code != 200:
+                break
+            _d = _r.json() or {}
+            _out.extend(_d.get("results") or [])
+            _next = _d.get("next_url")
+            if not _next:
+                break
+            _url, _params = _next, {"apiKey": MASSIVE_API_KEY}
+    except Exception as _e:
+        print(f"  WARN news firehose failed: {_e}")
+    return _out
+
+
+def scan_news_catalysts(verbose: bool = True) -> list[dict]:
+    """Tickers carrying a fresh Tier-A/B catalyst, split by whether price reacted.
+
+    Returns dicts of ticker / tier / gap_pct / headline / reacted. The rows
+    that matter are reacted=False: a real catalyst on a name still sitting at
+    its prior close. That is the entry window the price-first scanners cannot
+    see by construction, since they only ever look at what already moved.
+    """
+    _arts = fetch_market_news_firehose()
+    if not _arts:
+        return []
+
+    _best: dict[str, dict] = {}
+    for _a in _arts:
+        _tier = _news_catalyst_tier(str(_a.get("title") or ""),
+                                    str(_a.get("description") or ""))
+        if not _tier:
+            continue
+        _tk = _a.get("tickers") or []
+        if not _tk or len(_tk) > NEWS_FIRST_MAX_TICKERS:
+            continue
+        for _sym in _tk:
+            _sym = str(_sym).upper()
+            if not _sym.isalpha() or len(_sym) > 5:
+                continue
+            _prev = _best.get(_sym)
+            if _prev is None or (_prev["tier"] == "B" and _tier == "A"):
+                _best[_sym] = {"ticker": _sym, "tier": _tier,
+                               "headline": str(_a.get("title") or "")[:130],
+                               "published": str(_a.get("published_utc") or "")}
+    if not _best:
+        if verbose:
+            print(f"  News-first: {len(_arts)} articles, no tradeable catalyst")
+        return []
+
+    # Price-reaction check, in bulk — one snapshot call per batch, not per name.
+    _out: list[dict] = []
+    _syms = list(_best)
+    _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY,
+             "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+    try:
+        for _i in range(0, len(_syms), MARKET_SCAN_BATCH):
+            _batch = _syms[_i:_i + MARKET_SCAN_BATCH]
+            _r = requests.get("https://data.alpaca.markets/v2/stocks/snapshots",
+                              headers=_hdrs,
+                              params={"symbols": ",".join(_batch),
+                                      "feed": _resolve_stock_feed()}, timeout=30)
+            if _r.status_code != 200:
+                continue
+            for _sym, _snap in (_r.json() or {}).items():
+                _rec = _best.get(_sym)
+                if not _rec or not isinstance(_snap, dict):
+                    continue
+                try:
+                    _db = _snap.get("dailyBar") or {}
+                    _pdb = _snap.get("prevDailyBar") or {}
+                    _lt = _snap.get("latestTrade") or {}
+                    _px = float(_lt.get("p") or _db.get("c") or 0)
+                    _pc = float(_pdb.get("c") or 0)
+                    _vol = max(float(_db.get("v") or 0), float(_pdb.get("v") or 0))
+                except (TypeError, ValueError):
+                    continue
+                if not (_px and _pc):
+                    continue
+                if not (SMALLCAP_MIN_PRICE <= _px <= NEWS_FIRST_MAX_PRICE):
+                    continue
+                if _px * _vol < NEWS_FIRST_MIN_DOLLAR_VOL:
+                    continue
+                _gap = (_px - _pc) / _pc * 100
+                _rec["price"] = round(_px, 2)
+                _rec["gap_pct"] = round(_gap, 2)
+                _rec["reacted"] = abs(_gap) >= NEWS_FIRST_UNREACTED_PCT
+                _out.append(_rec)
+    except Exception as _e:
+        print(f"  WARN news-first price check failed: {_e}")
+        return []
+
+    # Un-reacted first, Tier A before B — the front of this list is the whole
+    # point of the function.
+    _out.sort(key=lambda r: (r["reacted"], r["tier"] != "A", -abs(r["gap_pct"])))
+    if verbose:
+        _early = [_r for _r in _out if not _r["reacted"]]
+        print(f"  News-first: {len(_arts)} articles -> {len(_best)} catalyst tickers "
+              f"-> {len(_out)} tradeable, {len(_early)} NOT yet reacted")
+        for _r in _early[:8]:
+            print(f"    EARLY {_r['ticker']:<6} {_r['tier']}  {_r['gap_pct']:+.1f}%  "
+                  f"{_r['headline'][:70]}")
+    return _out
+
+
 def _score_catalyst_tier(bull_news: list[tuple[str, str]],
                           bear_news: list[tuple[str, str]],
                           edgar_found: bool) -> str:
@@ -6012,9 +6238,42 @@ def run_premarket_early_scan() -> None:
     # tiering, EDGAR check, PDT guard, auto-submit thresholds — is unchanged and
     # applies identically to curated and dynamically-discovered tickers alike.
     _dynamic_movers = fetch_premarket_gap_universe()
-    scan_universe   = list(dict.fromkeys(DMAN_SMALLCAP_WATCHLIST + _dynamic_movers))
+
+    # News-FIRST pass. Everything above finds price and then explains it, which
+    # by construction cannot fire before a gap. This reads the overnight wire
+    # market-wide and surfaces names whose catalyst has landed but whose price
+    # has NOT moved yet -- the entry that was missed on BEX/TRVI, where the
+    # signal arrived only after the gap was already paid for. These go to the
+    # FRONT of the universe: they are the most time-sensitive names in it, and
+    # the per-ticker loop below runs under a wall-clock budget that can cut the
+    # tail off.
+    _news_rows  = scan_news_catalysts()
+    _news_early = [_r for _r in _news_rows if not _r["reacted"]]
+    _news_syms  = [_r["ticker"] for _r in _news_early]
+
+    scan_universe = list(dict.fromkeys(
+        _news_syms + DMAN_SMALLCAP_WATCHLIST + _dynamic_movers))
     print(f"  Scanning {len(scan_universe)} small-cap names "
-          f"({len(DMAN_SMALLCAP_WATCHLIST)} curated + {len(_dynamic_movers)} dynamic)...\n")
+          f"({len(DMAN_SMALLCAP_WATCHLIST)} curated + {len(_dynamic_movers)} dynamic "
+          f"+ {len(_news_syms)} pre-gap news)...\n")
+
+    # Alert only the un-reacted TIER-A names. Tier B and already-reacted rows
+    # still get scanned and scored below; they just do not each earn their own
+    # push notification, which is what made the feed unreadable on 2026-09-08.
+    _a_early = [_r for _r in _news_early if _r["tier"] == "A"]
+    if _a_early:
+        _k = "__NEWS_FIRST_" + ",".join(sorted(_r["ticker"] for _r in _a_early)) + "__"
+        if not _is_duplicate_alert(_k, 240):
+            _lines = "\n".join(
+                f"• <b>{_r['ticker']}</b> ${_r['price']} ({_r['gap_pct']:+.1f}%)\n"
+                f"  <i>{html.escape(_r['headline'][:110])}</i>"
+                for _r in _a_early[:6])
+            send_telegram(
+                "🗞 <b>PRE-GAP CATALYST</b> — news landed, price has not moved\n"
+                f"<i>{now_et.strftime('%I:%M %p ET')}</i>\n\n{_lines}\n\n"
+                "Catalyst is fresh and the move has not happened yet. "
+                "Full scoring follows in the scan below.")
+            _mark_alerted(_k)
 
     # Pull global context first — drives pre-market sizing and aggression
     print("  🌍 Global context...", flush=True)
@@ -20321,25 +20580,31 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     _opt_ok = [s for s in signals if _signal_can_use_options(s)]
                     _dropped = len(signals) - len(_opt_ok)
                     if not _opt_ok:
-                        msg = ("🚫 <b>DMan LIVE — PDT HALT</b>: account equity "
-                               f"${_equity:,.0f} &lt; $25k — day-trade limit reached "
-                               f"({_dt_count}/3 used) and no options-eligible signal "
-                               "this pass. No orders placed.")
-                        send_telegram(msg)
+                        _k = f"__PDT_HALT_NOELIGIBLE_{_dt_count}__"
+                        if not _is_duplicate_alert(_k, PDT_STATUS_ALERT_COOLDOWN_MIN):
+                            msg = ("🚫 <b>DMan LIVE — PDT HALT</b>: account equity "
+                                   f"${_equity:,.0f} &lt; $25k — day-trade limit reached "
+                                   f"({_dt_count}/3 used) and no options-eligible signal "
+                                   "this pass. No orders placed.")
+                            send_telegram(msg)
+                            _mark_alerted(_k)
                         print(f"  🚫 PDT HALT: {_dt_count}/3 used, no options-eligible signals — skipping")
                         return
                     signals = _opt_ok
                     for _s in signals:
                         _s.swing_mode = True      # never a same-day round trip
-                    msg = (f"🎯 <b>DMan LIVE — PDT ZERO: OPTIONS ONLY</b>\n"
-                           f"{_dt_count}/3 day trades used, 0 remaining. Equity "
-                           f"${_equity:,.0f}.\n"
-                           f"Submitting {len(signals)} options entry(s), held overnight "
-                           f"(not a day trade). Max loss = premium; no stop order is "
-                           f"placed, and same-day exits are blocked."
-                           + (f"\n{_dropped} equity signal(s) skipped — a share stop "
-                              f"could fill today and become day trade #4." if _dropped else ""))
-                    send_telegram(msg)
+                    _k = f"__PDT_ZERO_STATUS_{_dt_count}__"
+                    if not _is_duplicate_alert(_k, PDT_STATUS_ALERT_COOLDOWN_MIN):
+                        msg = (f"🎯 <b>DMan LIVE — PDT ZERO: OPTIONS ONLY</b>\n"
+                               f"{_dt_count}/3 day trades used, 0 remaining. Equity "
+                               f"${_equity:,.0f}.\n"
+                               f"Submitting {len(signals)} options entry(s), held overnight "
+                               f"(not a day trade). Max loss = premium; no stop order is "
+                               f"placed, and same-day exits are blocked."
+                               + (f"\n{_dropped} equity signal(s) skipped — a share stop "
+                                  f"could fill today and become day trade #4." if _dropped else ""))
+                        send_telegram(msg)
+                        _mark_alerted(_k)
                     print(f"  🎯 PDT ZERO — options-only: {len(signals)} eligible, {_dropped} equity signal(s) skipped")
                 elif _pdt["swing_mode"]:
                     # 1 day trade remaining — every new entry is forced overnight
@@ -20370,32 +20635,44 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     _sw_ok = [s for s in signals if _signal_can_use_options(s)]
                     _sw_dropped = len(signals) - len(_sw_ok)
                     if not _sw_ok:
-                        send_telegram(
-                            f"🔄 <b>DMan LIVE — SWING MODE, nothing eligible</b>: "
-                            f"{_dt_count}/3 used, 1 remaining. All {_sw_dropped} signal(s) "
-                            f"were equity-only, and an overnight equity hold is where the "
-                            f"loss tail lives. No orders placed.")
+                        _k = f"__PDT_SWING_NOELIGIBLE_{_dt_count}__"
+                        if not _is_duplicate_alert(_k, PDT_STATUS_ALERT_COOLDOWN_MIN):
+                            send_telegram(
+                                f"🔄 <b>DMan LIVE — SWING MODE, nothing eligible</b>: "
+                                f"{_dt_count}/3 used, 1 remaining. All {_sw_dropped} signal(s) "
+                                f"were equity-only, and an overnight equity hold is where the "
+                                f"loss tail lives. No orders placed.")
+                            _mark_alerted(_k)
                         print(f"  🔄 SWING MODE: {_sw_dropped} equity-only signal(s) skipped — nothing eligible")
                         return
                     signals = _sw_ok
                     for _s in signals:
                         _s.swing_mode = True
-                    msg = (f"🔄 <b>DMan LIVE — SWING MODE</b>: {_dt_count}/3 day trades used — "
-                           f"1 remaining. Submitting {len(signals)} OPTIONS entry(s) held "
-                           f"overnight to preserve the last day-trade budget."
-                           + (f"\n{_sw_dropped} equity signal(s) skipped — an overnight share "
-                              f"position can gap through its stop." if _sw_dropped else ""))
-                    send_telegram(msg)
+                    _k = f"__PDT_SWING_STATUS_{_dt_count}__"
+                    if not _is_duplicate_alert(_k, PDT_STATUS_ALERT_COOLDOWN_MIN):
+                        msg = (f"🔄 <b>DMan LIVE — SWING MODE</b>: {_dt_count}/3 day trades used — "
+                               f"1 remaining. Submitting {len(signals)} OPTIONS entry(s) held "
+                               f"overnight to preserve the last day-trade budget."
+                               + (f"\n{_sw_dropped} equity signal(s) skipped — an overnight share "
+                                  f"position can gap through its stop." if _sw_dropped else ""))
+                        send_telegram(msg)
+                        _mark_alerted(_k)
                     print(f"  🔄 SWING MODE: {len(signals)} options entries, {_sw_dropped} equity skipped")
                 else:
-                    msg = (f"⚠️ <b>DMan LIVE — PDT</b>: {_dt_count}/3 used — "
-                           f"{_remaining} day trade(s) remaining. Orders proceeding normally.")
-                    send_telegram(msg)
+                    _k = f"__PDT_NORMAL_STATUS_{_dt_count}__"
+                    if not _is_duplicate_alert(_k, PDT_STATUS_ALERT_COOLDOWN_MIN):
+                        msg = (f"⚠️ <b>DMan LIVE — PDT</b>: {_dt_count}/3 used — "
+                               f"{_remaining} day trade(s) remaining. Orders proceeding normally.")
+                        send_telegram(msg)
+                        _mark_alerted(_k)
                     print(f"  ⚠️  PDT: {_remaining} day trade(s) remaining (equity ${_equity:,.0f})")
         except Exception as _pdt_exc:
-            _pdt_msg = (f"🚫 <b>DMan LIVE — PDT CHECK FAILED</b>: Cannot verify day-trade "
-                        f"count ({_pdt_exc}). No orders submitted to prevent ghost positions.")
-            send_telegram(_pdt_msg)
+            _k = "__PDT_CHECK_FAILED__"
+            if not _is_duplicate_alert(_k, PDT_STATUS_ALERT_COOLDOWN_MIN):
+                _pdt_msg = (f"🚫 <b>DMan LIVE — PDT CHECK FAILED</b>: Cannot verify day-trade "
+                            f"count ({_pdt_exc}). No orders submitted to prevent ghost positions.")
+                send_telegram(_pdt_msg)
+                _mark_alerted(_k)
             print(f"  🚫 PDT check failed — halting to prevent ghost positions: {_pdt_exc}")
             return
 

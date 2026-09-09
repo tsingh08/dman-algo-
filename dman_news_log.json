@@ -3617,5 +3617,172 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:22:49.195144-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Says iPhone 18 Pro Has 48 MP Fusion Main Camera With Variable Aperture",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:23:39.828403-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Goldman Sachs Maintains Buy on Coinbase Global, Raises Price Target to $219",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:24:53.111175-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:26:52.112154-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Introduces &#39;Apple Reference Image&#39; Standard To Prove Authenticity Of Photos At Time Of Capture; Apple Says It Will Support Synth ID Standard For Identifying AI Generated Or Edited Images; Says Reference Image Not Available In EU Or China",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:27:11.683976-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:27:11.942950-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:27:12.236319-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:27:12.239248-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Blackwell Demand Sent Nebius Auction Prices 20% Higher",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:27:12.735159-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:27:13.321882-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:27:13.572758-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-09T13:27:24.244798-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T13:27:24.487345-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Oil Surge and Carry Trade Weigh On Stocks; Apple Bets Big On $2K Foldable iPhone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T13:27:26.176141-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nvidia Blackwell Demand Sent Nebius Auction Prices 20% Higher",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:27:30.963128-04:00",
+    "symbols": [
+      "CHYM"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Chime Financial, Raises Price Target to $40",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T13:27:33.774985-04:00",
+    "symbols": [
+      "CMPS"
+    ],
+    "headline": "Compass Pathways\u2019 Psilocybin Treatment Shows Lasting Benefits in Treatment-Resistant Depression",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

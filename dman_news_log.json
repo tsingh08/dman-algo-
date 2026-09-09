@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:19.902198-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Google Gives a 20-Year Lifeline to Nordic Nuclear Power Plant&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T11:28:19.902609-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Raises Its Investments in Finland to Support AI Infrastructure Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-09T11:28:19.903005-04:00",
     "symbols": [
       "GOOGL"
@@ -5044,5 +5024,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-09T16:02:11.050915-04:00",
+    "symbols": [
+      "CPOP"
+    ],
+    "headline": "Pop Culture Group Announces 15-For-1 Stock Split, Effective Sept. 14",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T16:02:45.825730-04:00",
+    "symbols": [
+      "NBIS",
+      "NVDA",
+      "PLTR",
+      "QQQ"
+    ],
+    "headline": "QUICK SPARK: Michael Burry Sells All Nvidia, Palantir December 2026-Dated Puts",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

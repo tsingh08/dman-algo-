@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.036523-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "S&amp;P 500, Nasdaq Slip as $98 Brent Reignites Inflation Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-08T13:54:03.037159-04:00",
     "symbols": [
       "QCOM"
@@ -5011,5 +5001,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T10:51:42.847434-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group shares are trading lower. A report suggested the company sold its interest in Florida WellMed clinics to TPG.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

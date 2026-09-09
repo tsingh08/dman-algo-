@@ -59,6 +59,42 @@
       "score": 100,
       "date": "2026-09-09",
       "timestamp": "2026-09-09T10:02:08.840114-04:00"
+    },
+    {
+      "ticker": "IONQ",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 38.51,
+      "stop": 40.31,
+      "target1": 34.0,
+      "target2": 31.29,
+      "score": 100,
+      "date": "2026-09-09",
+      "timestamp": "2026-09-09T11:12:38.679353-04:00"
+    },
+    {
+      "ticker": "CASY",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 621.14,
+      "stop": 636.89,
+      "target1": 531.36,
+      "target2": 486.48,
+      "score": 100,
+      "date": "2026-09-09",
+      "timestamp": "2026-09-09T11:12:38.680255-04:00"
+    },
+    {
+      "ticker": "GRAB",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 3.09,
+      "stop": 3.24,
+      "target1": 2.71,
+      "target2": 2.48,
+      "score": 100,
+      "date": "2026-09-09",
+      "timestamp": "2026-09-09T11:12:38.681002-04:00"
     }
   ]
 }

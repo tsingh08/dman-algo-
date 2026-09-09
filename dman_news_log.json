@@ -4872,5 +4872,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:34:10.290727-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe Q3 Preview: Stock Down 10 of Last 12 Earnings Reports \u2014 \u2018They Need to Change the Narrative\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T14:36:03.823619-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Oil Prices Will Tumble After Election; Had Great Conversation With Russia&#39;s Putin; Bilateral Meeting Could Happen",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T14:36:22.046789-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Will Be Speaking To Israel About Sanctions Imposed On West Bank Settlements; War In Iran Will End Immediately After Election;: I&#39;m Doing Much More Than A Nuclear Deal; We&#39;re Not Looking For A Deal; Negotiation Could Happen",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

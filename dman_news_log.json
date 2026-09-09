@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.028324-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Nebius Just Became Palantir\u2019s Preferred Sovereign AI Infrastructure Partner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-08T13:54:03.028882-04:00",
     "symbols": [
       "PLTR"
@@ -5009,5 +4999,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-09T10:26:51.149762-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "From Burritos to Bulk Groceries: Uber Scales Delivery Reach with ShopRite Partner",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

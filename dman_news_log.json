@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-08T13:54:03.047463-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Why Is Eli Lilly Stock Falling Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-08T13:54:03.048241-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Options Remember Earnings Shocks, And The Repricing Is The Tell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-08T13:54:03.049015-04:00",
     "symbols": [
       "GME"
@@ -5011,5 +4991,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:13:32.073316-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Treasury Announces $6B Maximum Par Amount For September 10 Debt Buyback Operation In 10-To-20-Year Sector",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-09T11:16:24.003442-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "QUICK SPARK: SpaceX Lockup Alert \u2014 319 Million SPCX Shares Unlock Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

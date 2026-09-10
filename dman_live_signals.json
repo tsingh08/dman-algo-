@@ -49,6 +49,18 @@
       "timestamp": "2026-09-09T11:12:38.681002-04:00"
     },
     {
+      "ticker": "AEO",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 14.26,
+      "stop": 15.27,
+      "target1": 11.73,
+      "target2": 10.22,
+      "score": 100,
+      "date": "2026-09-10",
+      "timestamp": "2026-09-10T13:16:05.469940-04:00"
+    },
+    {
       "ticker": "BE",
       "setup": "Gap & Hold",
       "bias": "LONG",

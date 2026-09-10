@@ -4292,5 +4292,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T15:59:25.478452-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "House Democrat Calls for Action Against Tesla After 43 Videos Show Drivers Apparently Asleep",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T16:00:23.735059-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "$1000 Invested In Advanced Micro Devices 20 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

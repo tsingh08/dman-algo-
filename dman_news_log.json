@@ -4121,5 +4121,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:53:42.062684-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SolarEdge Stock Is Trending Higher: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T14:57:41.594855-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Pete Wexler, At Stablecon, Says We\u2019re Agnostic To What Stables And Chains Are Used; We Support 5 Stablecoins, 1 Is Euro-Backed, The REST Are USD-Backed",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

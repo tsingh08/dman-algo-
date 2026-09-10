@@ -3984,5 +3984,22 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:26:59.497709-04:00",
+    "symbols": [
+      "AAPL",
+      "ADBE",
+      "DIA",
+      "FCX",
+      "IWM",
+      "MDB",
+      "ORCL",
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Tumbles as Oil Spikes 6%, Yields Hit 19-Year High",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

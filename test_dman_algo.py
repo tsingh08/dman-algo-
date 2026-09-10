@@ -1001,11 +1001,19 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
     is defeated if a guard forgets to call it."""
 
     def setUp(self):
+        # Isolated dedup file: the daily-loss guard now READS the
+        # day-scoped halt latch and WRITES it when tripped (2026-09-10
+        # fix) — without this, a tripping test would latch the REAL
+        # dman_alerts_dedup.json and every later test that expects to get
+        # past the daily guard would halt on stale test state.
+        self._dedup_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._dedup_tmp.close()
         self._patches = [
             patch.object(a, "send_telegram", return_value=True),
             patch.object(a, "_is_duplicate_alert", return_value=False),
             patch.object(a, "_save_last_alert", return_value=None),
             patch.object(a, "resolve_live_outcomes", return_value=0),
+            patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name),
         ]
         for p in self._patches:
             p.start()
@@ -1013,6 +1021,7 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
     def tearDown(self):
         for p in self._patches:
             p.stop()
+        os.unlink(self._dedup_tmp.name)
 
     def test_consecutive_loss_guard_logs_a_halt(self):
         with patch.object(a.WinRateTracker, "rolling_stats",
@@ -1148,6 +1157,109 @@ class TestSectorConcentrationCap(unittest.TestCase):
         result = a._apply_sector_concentration_cap(sigs)
         tickers = [s.ticker for s in result]
         self.assertEqual(tickers, ["AAPL", "MSFT", "ZZZQ1", "ZZZQ2"])
+
+
+class _IsolatedDedupFileMixin:
+    """Isolates dman_alerts_dedup.json behind a per-test temp file.
+
+    Needed by every test that executes _submit_signals_to_alpaca() or
+    _entry_circuit_breakers_ok(): the daily-loss guard's day-scoped halt
+    latch (2026-09-10 fix, see _is_daily_halt_latched) READS the dedup
+    file — so a genuinely latched halt in the real file would fail these
+    tests on any live bad day (the exact ambient-state fragility already
+    fixed for the win-rate file and macro calendar) — and WRITES it when
+    a test trips the limit, which would poison every later test in the run.
+    """
+    def setUp(self):
+        super().setUp()
+        self._dedup_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._dedup_tmp.close()
+        self._dedup_patch = patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name)
+        self._dedup_patch.start()
+
+    def tearDown(self):
+        self._dedup_patch.stop()
+        os.unlink(self._dedup_tmp.name)
+        super().tearDown()
+
+
+class TestDailyLossHaltLatch(unittest.TestCase):
+    """Confirmed live 2026-09-10: the 3% daily breaker tripped at 15:12 ET
+    on unrealized drawdown, the account ticked back above the line, and the
+    15:20/15:24 scans ran fully un-halted — get_todays_loss() is a live
+    measure, so a recovery un-tripped a halt every message had promised
+    lasted the rest of the day. The latch (_is_daily_halt_latched /
+    _latch_daily_halt) makes a trip stick until the next ET day."""
+
+    def setUp(self):
+        self._dedup_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._dedup_tmp.close()
+        self._patches = [
+            patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name),
+            patch.object(a, "send_telegram", return_value=True),
+            patch.object(a, "_is_duplicate_alert", return_value=True),
+            patch.object(a, "resolve_live_outcomes", return_value=0),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        os.unlink(self._dedup_tmp.name)
+
+    def _scan(self, todays_loss, mock_halt):
+        # VIX-crisis regime so a scan that clears every loss guard halts
+        # right after them instead of falling through into a real live
+        # scan of "AAPL" — same trick as
+        # test_probation_bypasses_consec_and_monthly_guards above.
+        clean_stats = {"consec_losses": 0, "consec_wins": 0,
+                       "win_rate": 0.5, "total": 10, "wins": 5, "losses": 5}
+        regime = {"regime": "CRISIS", "score": 0, "vix_ok": False, "details": {"VIX": 45.0}}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "get_todays_loss", return_value=todays_loss), \
+             patch.object(a, "get_market_regime", return_value=regime), \
+             patch.object(a, "get_top_sectors", return_value=[]), \
+             patch.object(a, "_log_scan_halt", mock_halt):
+            return a.run_pro_scanner(["AAPL"], universe_label="test")
+
+    def test_scanner_stays_halted_after_intraday_recovery(self):
+        trip_halt, recovered_halt = MagicMock(), MagicMock()
+        self._scan(-(a.DAILY_LOSS_LIMIT * 100) - 1, trip_halt)      # trips + latches
+        self.assertEqual(trip_halt.call_args[0][0], "daily_loss_limit")
+        result = self._scan(0.0, recovered_halt)                    # recovered — must STAY halted
+        self.assertEqual(result, [])
+        recovered_halt.assert_called_once()
+        self.assertEqual(recovered_halt.call_args[0][0], "daily_loss_limit")
+
+    def test_no_trip_means_no_latch(self):
+        self._scan(0.0, MagicMock())   # halts on nothing daily-related
+        self.assertFalse(a._is_daily_halt_latched())
+
+    def test_latch_is_scoped_to_the_et_day(self):
+        # A latch written YESTERDAY must not halt today — the breaker is
+        # daily, and a stuck halt leaking across days would be its own bug.
+        _yesterday = (datetime.now(a.ET) - timedelta(days=1)).isoformat()
+        with open(a._ALERT_DEDUP_FILE, "w") as f:
+            json.dump({a._DAILY_HALT_LATCH_KEY: _yesterday}, f)
+        self.assertFalse(a._is_daily_halt_latched())
+
+    def test_entry_circuit_breakers_respect_the_latch(self):
+        # The human-approval order paths (manual /buy YES, earnings YES)
+        # share _entry_circuit_breakers_ok() — a latched halt must block
+        # them too, even with the live measure showing a recovery.
+        a._latch_daily_halt()
+        clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
+                       "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
+        with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0):
+            ok, reason = a._entry_circuit_breakers_ok()
+        self.assertFalse(ok)
+        self.assertIn("daily loss", reason)
 
 
 class TestFinalizeAndAlertSignalsLogsDedupSuppressed(unittest.TestCase):
@@ -8798,11 +8910,19 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         self._pos_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
         self._pos_tmp.write("[]")
         self._pos_tmp.close()
+        # Isolated dedup file: _entry_circuit_breakers_ok() now reads and
+        # writes the day-scoped daily-halt latch (2026-09-10 fix). The
+        # daily-loss test here trips it — unpatched, that write would land
+        # in the real dman_alerts_dedup.json and block every later test
+        # in this class that expects a clean pass through the guards.
+        self._dedup_tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._dedup_tmp.close()
         import functools
         _isolated_pt = functools.partial(a.PositionTracker, filepath=self._pos_tmp.name)
         self._patches = [
             patch.object(a, "TELEGRAM_OPTIONS_MENU_FILE", self._menu_tmp.name),
             patch.object(a, "TELEGRAM_MANUAL_BUY_FILE", self._buy_tmp.name),
+            patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name),
             patch.object(a, "PositionTracker", _isolated_pt),
             patch.object(a, "send_telegram", return_value=True),
             patch.object(a, "is_halted", return_value=False),
@@ -8830,7 +8950,7 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
     def tearDown(self):
         for p in self._patches:
             p.stop()
-        for f in (self._menu_tmp, self._buy_tmp, self._pos_tmp):
+        for f in (self._menu_tmp, self._buy_tmp, self._pos_tmp, self._dedup_tmp):
             try:
                 os.unlink(f.name)
             except FileNotFoundError:
@@ -9256,7 +9376,7 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         self.assertIn("Submitted", mock_tg.call_args[0][0])
 
 
-class TestEntryCircuitBreakersOk(unittest.TestCase):
+class TestEntryCircuitBreakersOk(_IsolatedDedupFileMixin, unittest.TestCase):
     """Direct unit coverage of the shared helper both approval paths above
     now use, isolated from the Telegram-flow scaffolding."""
 
@@ -11949,8 +12069,14 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._tmp.close()
+        # Isolated dedup file — the daily-loss guard's day-scoped halt
+        # latch (2026-09-10 fix) reads/writes it via
+        # _entry_circuit_breakers_ok(); see TestTelegramOptionsBrowseAndBuy.
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.close()
         self._patches = [
             patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name),
+            patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name),
             # Isolate from the real macro-event calendar (FOMC/CPI/NFP) --
             # check_macro_safe() reads date.today() against real event
             # dates, so an unmocked test here silently drifts into "blocked"
@@ -11966,6 +12092,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         for p in self._patches:
             p.stop()
         os.unlink(self._tmp.name)
+        os.unlink(self._dedup_tmp.name)
 
     def _plan(self):
         return {"ticker": "HOOD", "earn_date": "2026-07-29", "sets": 1,
@@ -12251,7 +12378,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         mock_client.submit_order.assert_called_once()
 
 
-class TestSubmitSignalsSizeMult(unittest.TestCase):
+class TestSubmitSignalsSizeMult(_IsolatedDedupFileMixin, unittest.TestCase):
     """size_mult param added 2026-09-01 for momentum-watch's reduced-size
     auto-execute path — verifies it actually compounds into the options
     budget rather than just being accepted and silently ignored."""
@@ -13843,7 +13970,7 @@ class TestScoreSignalPreservesTargets(unittest.TestCase):
         self.assertEqual(scored.target2, 3.0)
 
 
-class TestReanchorPreservesTargetRatio(unittest.TestCase):
+class TestReanchorPreservesTargetRatio(_IsolatedDedupFileMixin, unittest.TestCase):
     """Companion to TestScoreSignalPreservesTargets: _submit_signals_to_alpaca()'s
     live-price re-anchor step used to hardcode ITS OWN 2.5x/4.0x multiplier
     -- a THIRD number, different from score_signal()'s (then also
@@ -13892,7 +14019,7 @@ class TestReanchorPreservesTargetRatio(unittest.TestCase):
         self.assertAlmostEqual(sig.target2, new_entry + 6.0 * 1.0, places=2)
 
 
-class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
+class TestSubmitSignalsSkipsZeroShareSizing(_IsolatedDedupFileMixin, unittest.TestCase):
     """Found in the 2026-08-16 review: size_position_kelly() now reports
     shares=0 when even 1 share would overshoot the sized risk budget by
     more than a reasonable margin (see TestKellyFloorDoesNotOvershootRisk)
@@ -13931,7 +14058,7 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
         mock_submit.assert_not_called()
 
 
-class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
+class TestOptionsUnavailableSkipsInsteadOfSharesFallback(_IsolatedDedupFileMixin, unittest.TestCase):
     """Removed 2026-08-21: the budget-capped shares fallback (added
     2026-08-08) that used to fire when an options-eligible signal
     (WATCHLIST/OPTIONS_SETUPS) found no real options fill and the ticker
@@ -13979,7 +14106,7 @@ class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
         self.assertTrue(any("not executed" in t for t in sent_texts))
 
 
-class TestSubmitSignalsRespectsMaxPositionsBeforeSubmission(unittest.TestCase):
+class TestSubmitSignalsRespectsMaxPositionsBeforeSubmission(_IsolatedDedupFileMixin, unittest.TestCase):
     """Found in the 2026-08-23 review: MAX_POSITIONS was only ever enforced
     AFTER an order was already live at the broker (inside pt.open(), which
     cancels the just-submitted order on a full tracker) -- a fill landing
@@ -14056,7 +14183,7 @@ class TestSubmitSignalsRespectsMaxPositionsBeforeSubmission(unittest.TestCase):
         mock_submit.assert_called_once()
 
 
-class TestSubmitSignalsProbationSizing(unittest.TestCase):
+class TestSubmitSignalsProbationSizing(_IsolatedDedupFileMixin, unittest.TestCase):
     """Added 2026-08-18 alongside is_on_probation(): the belt-and-suspenders
     circuit-breaker recheck in _submit_signals_to_alpaca() must bypass the
     consec-loss/monthly-loss checks during probation (mirroring the

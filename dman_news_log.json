@@ -2501,5 +2501,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T12:43:01.134889-04:00",
+    "symbols": [
+      "MARA",
+      "NBIS",
+      "RIOT"
+    ],
+    "headline": "Shares of AI cloud services companies are trading lower as concerns over elevated rates expectations and bond yields dampen investor appetite for high-growth stocks that are exposed to customer capex funded through borrowing.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:45:47.411656-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Form4 Filing Shows CEO Dara Khosrowshahi Buys 141,000 Shares At An Average Price Of $70.96/Share",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

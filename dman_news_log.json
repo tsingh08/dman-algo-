@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:20.123365-04:00",
-    "symbols": [
-      "LAC"
-    ],
-    "headline": "JP Morgan Assumes Lithium Americas at Overweight, Announces Price Target of $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-09T11:28:20.125196-04:00",
     "symbols": [
       "ASO"
@@ -5048,6 +5038,16 @@
       "GILD"
     ],
     "headline": "HSBC Maintains Buy on Gilead Sciences, Raises Price Target to $175",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T09:57:30.749794-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "HSBC Maintains Reduce on Eli Lilly, Raises Price Target to $940",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

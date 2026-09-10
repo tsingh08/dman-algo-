@@ -68,7 +68,7 @@
     "earn_date": "",
     "stop_stage": "initial",
     "milestone_gain_alerted": 0.0,
-    "milestone_loss_alerted": 0.0,
+    "milestone_loss_alerted": 20.0,
     "peak_premium": 2.29,
     "trail_pct": 0.0,
     "day_only": false,

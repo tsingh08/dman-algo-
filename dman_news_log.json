@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:20.163109-04:00",
-    "symbols": [
-      "YQ"
-    ],
-    "headline": "17 Education &amp; Technology Q2 Adj. EPS $0.06 Up From $(0.29) YoY, Sales $13.278M Up From $3.547M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T11:28:20.165486-04:00",
-    "symbols": [
-      "SUNB"
-    ],
-    "headline": "Caleres Posts Upbeat Q2 Earnings, Joins Opus Genetics, Flotek Industries And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.167457-04:00",
-    "symbols": [
-      "SUNB"
-    ],
-    "headline": "Transcript: Sunbelt Rentals Holdings Q1 2027 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.169430-04:00",
-    "symbols": [
-      "SUNB"
-    ],
-    "headline": "Sunbelt Rentals Holdings Raises FY2027 Sales Guidance from $11.652B-$11.986B to $11.819B-$12.154B vs $11.906B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-09T11:28:20.171375-04:00",
     "symbols": [
       "SUNB"
@@ -5062,5 +5022,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:12:05.718659-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Piper Sandler Initiates Coverage On Advanced Micro Devices with Overweight Rating, Announces Price Target of $600",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:12:26.614601-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Administration Announces It Will Return $500 Per Person Under Obamacare Refunds To ~1M Americans In 30 U.S. States",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:14:26.181980-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Sam Altman pitches utilities on AI grid defense&#39; - Politico",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:15:14.373819-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FT Partners CEO Steve McLaughlin, At Stablecon, Says We\u2019re Seeing Non-Crypto Investors Entering The Space",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

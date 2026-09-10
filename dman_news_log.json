@@ -2523,5 +2523,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T12:52:18.475733-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:52:19.317876-04:00",
+    "symbols": [
+      "OBIO"
+    ],
+    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:52:19.825793-04:00",
+    "symbols": [
+      "AVAV"
+    ],
+    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

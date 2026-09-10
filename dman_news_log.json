@@ -2141,5 +2141,83 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T12:00:31.232346-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T12:00:32.577112-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T12:00:32.807303-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T12:00:32.985391-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:00:33.780025-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "META",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Micron, SK Hynix Are Top Bets in New NRAM ETF as AI Memory Demand Surges",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T12:00:43.258397-04:00",
+    "symbols": [
+      "SAIL"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on SailPoint, Raises Price Target to $22",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:01:33.773827-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Saudis Weigh Merging EA With Savvy to Create Global Gaming Giant&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

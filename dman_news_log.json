@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-09T12:28:44.296489-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-09T12:28:44.380457-04:00",
     "symbols": [
       "SKHY"
@@ -5058,6 +5048,17 @@
       "MARA"
     ],
     "headline": "Why Is MARA Stock Falling on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:52:03.346921-04:00",
+    "symbols": [
+      "APLD",
+      "NBIS"
+    ],
+    "headline": "Fast-Tracking AI Infrastructure: CoreWeave Partners Deliver Data Center Power Early",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

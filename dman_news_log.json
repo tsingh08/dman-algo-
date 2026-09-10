@@ -2471,5 +2471,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:33:55.672627-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Duo Foldable iPhone a \u2018Must Have Product,\u2019 Gary Black Says \u2018Don\u2019t Underestimate the Power of the $AAPL Marketing Machine\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T12:36:13.726437-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Iran Is Producing Ballistic Missiles Again; Intelligence Findings Say Tehran Is Assembling Stockpiled Components Into Weapons In Underground Facilities&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

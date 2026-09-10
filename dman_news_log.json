@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:20.145311-04:00",
-    "symbols": [
-      "JMKE"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Jersey Mike&#39;s Subs, Maintains $26 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.147655-04:00",
-    "symbols": [
-      "JMKE"
-    ],
-    "headline": "Jersey Mike\u2019s Subs Q2 Sales $208.000M Miss $208.794M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.150032-04:00",
-    "symbols": [
-      "PURR"
-    ],
-    "headline": "Trump&#39;s White House Endorsement &#39;Extremely Positive,&#39; Says Hyperion DeFi CEO: Executive Explains Why HYPE Ownership Is &#39;Beneficial&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.151961-04:00",
-    "symbols": [
-      "FSLY"
-    ],
-    "headline": "Caleres Posts Upbeat Q2 Earnings, Joins Opus Genetics, Flotek Industries And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.154389-04:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Barclays Upgrades Sagimet Biosciences to Overweight, Raises Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.156725-04:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Cantor Fitzgerald Initiates Coverage On Sagimet Biosciences with Overweight Rating, Announces Price Target of $10.71",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.159077-04:00",
-    "symbols": [
-      "PPIH"
-    ],
-    "headline": "Transcript: Perma-Pipe International Q2 2026 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.161110-04:00",
-    "symbols": [
-      "PPIH"
-    ],
-    "headline": "Perma-Pipe Inlt Hldgs Q2 EPS $0.31 Misses $0.55 Estimate, Sales $59.567M Beat $51.000M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-09T11:28:20.163109-04:00",
     "symbols": [
       "YQ"
@@ -5062,5 +4982,85 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:09:18.572593-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Piper Sandler Initiates Coverage On Qualcomm with Neutral Rating, Announces Price Target of $190",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:09:28.457613-04:00",
+    "symbols": [
+      "DBI"
+    ],
+    "headline": "Designer Brands Reports Q2 2026 Results: Full Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:09:28.462186-04:00",
+    "symbols": [
+      "DBI"
+    ],
+    "headline": "Designer Brands Raises FY2026 GAAP EPS Guidance from $0.28-$0.38 to $0.47-$0.52 vs $0.39 Est; Raises FY2026 Sales Guidance from $2.868B-$2.926B to $2.897B-$2.926B vs $2.909B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:09:28.466759-04:00",
+    "symbols": [
+      "DBI"
+    ],
+    "headline": "Designer Brands Q2 Adj. EPS $0.34 Beats $0.26 Estimate, Sales $730.631M Miss $744.660M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:09:28.571201-04:00",
+    "symbols": [
+      "PRTH"
+    ],
+    "headline": "Wealthfront, Orchestra Biomed, AeroVironment And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:09:39.450471-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "HSBC Maintains Reduce on Biogen, Raises Price Target to $175",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:09:51.038838-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX shares are trading higher amid multiple catalysts including a potential larger weighting on the Nasdaq 100 index, an upcoming FCC vote to open more of the broadband spectrum, and reports suggesting that the UK government has purchased roughly $40 million of Starlink and Starshield services, which may bode well for the company&#39;s international growth.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:10:44.054378-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "HSBC Maintains Buy on AbbVie, Raises Price Target to $315",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

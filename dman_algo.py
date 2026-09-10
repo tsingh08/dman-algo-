@@ -2943,7 +2943,10 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
             return False, f"consecutive-loss guard active ({_stats['consec_losses']} losses)"
         if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
             return False, "monthly loss limit active"
+    if _is_daily_halt_latched():
+        return False, "daily loss limit active (tripped earlier today)"
     if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+        _latch_daily_halt()
         return False, "daily loss limit active"
     return True, ""
 
@@ -12492,6 +12495,39 @@ def get_todays_loss() -> float:
     return _recorded
 
 
+_DAILY_HALT_LATCH_KEY = "__DAILY_HALT_LATCHED__"
+
+
+def _is_daily_halt_latched() -> bool:
+    """True if the daily loss limit already tripped earlier this ET day.
+
+    get_todays_loss() is a LIVE measure — its equity leg includes
+    unrealized P&L, so it can drift back above the -DAILY_LOSS_LIMIT line
+    after tripping it. Confirmed live 2026-09-10: the 3% breaker tripped
+    at 15:12 ET on open-position drawdown, the account ticked back above
+    the line, and the 15:20 and 15:24 scans ran fully un-halted — two
+    windows where a fresh signal could have opened a NEW position on a
+    day the bot had already told its human "Halted. Come back tomorrow"
+    (and the __DAILY_LIMIT__ alert dedup meant no second Telegram would
+    have said otherwise). Every breaker message promises the halt lasts
+    the rest of the day; this latch makes that true.
+
+    Rides the existing _is_alerted_today() machinery on purpose: it is
+    ET-day-scoped (the latch self-expires at the next ET midnight, so a
+    tripped halt can never leak into tomorrow's session) and lives in the
+    git-synced alert-dedup file both the daemon and the cron scanner
+    already share, so one process tripping latches them all. Fails open
+    (unlatched) on a missing/corrupt dedup file — same failure posture as
+    every other reader of that file.
+    """
+    return _is_alerted_today(_DAILY_HALT_LATCH_KEY)
+
+
+def _latch_daily_halt() -> None:
+    """Mark the daily-loss halt as tripped for the rest of the ET day."""
+    _mark_alerted(_DAILY_HALT_LATCH_KEY)
+
+
 def record_daily_pnl(pnl_pct: float) -> None:
     """Append pnl_pct (signed %) as a new entry to today's P&L log.
     See _record_period_pnl()'s docstring for the merge-safety reasoning."""
@@ -16969,9 +17005,14 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                       f"(consec-loss/monthly-loss guards bypassed; daily limit still applies).")
         _save_last_alert("__PROBATION_ACTIVE__")
 
-    # Daily loss circuit breaker — dedup
+    # Daily loss circuit breaker — dedup. Checked against BOTH the live
+    # measure and the day-scoped latch: the live measure includes
+    # unrealized P&L and can recover back above the line intraday (see
+    # _is_daily_halt_latched() for the 2026-09-10 incident), but "halted
+    # for the day" has to mean the whole day.
     todays_loss = get_todays_loss()
-    if todays_loss <= -(DAILY_LOSS_LIMIT * 100):
+    if _is_daily_halt_latched() or todays_loss <= -(DAILY_LOSS_LIMIT * 100):
+        _latch_daily_halt()
         print(f"\n  🛑 DAILY LOSS LIMIT HIT: Down {todays_loss:.1f}% today "
               f"(limit: {DAILY_LOSS_LIMIT*100:.0f}%).")
         print(f"     Stop trading. Protect your capital. Come back tomorrow.\n")
@@ -20846,7 +20887,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
             print(f"  🛑 Monthly loss limit active — no orders.")
             return
-    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+    if _is_daily_halt_latched() or get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+        _latch_daily_halt()
         print(f"  🛑 Daily loss limit active — no orders.")
         return
 

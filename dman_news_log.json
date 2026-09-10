@@ -2219,5 +2219,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:02:51.890662-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going on With Exxon Mobil Shares on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T12:04:34.197790-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Joby Aviation Carrying Out Flight Campaign Across Dallas-Fort Worth Region Under White House-Backed eVTOL Integration Pilot Plan",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:05:46.486618-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Truist Securities Maintains Hold on Airbnb, Raises Price Target to $161",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

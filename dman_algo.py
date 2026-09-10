@@ -8734,7 +8734,27 @@ def run_momentum_watch() -> None:
                     # reduced size with no reply needed (see
                     # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
                     # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
-                    if bp["setup"]:
+                    #
+                    # Setup probation revokes the auto-exec privilege (found in
+                    # the 2026-09-10 review: "SWING — Momentum Watch Breakout
+                    # (Day)" went on probation 09-09 at 38% WR, and this path
+                    # kept entering it unsupervised the very next session).
+                    # Probation elsewhere raises the confluence bar, but an
+                    # auto-exec has no real score to raise the bar against --
+                    # _build_momentum_signal() hardcodes 100 on the reasoning
+                    # that "a human approval stood in for a score threshold,"
+                    # which is exactly the trust probation suspends. So while
+                    # restricted, a pattern match falls back to the YES/NO
+                    # offer: a human can still take the trade, it just no
+                    # longer takes itself. Both recorded name variants are
+                    # checked because swing_mode conversion (PDT-zero) bakes a
+                    # "SWING — " prefix into the recorded setup name, and the
+                    # drift check probates whichever variant it saw.
+                    _mw_probation = (
+                        _setup_probation_bonus(MOMENTUM_DAY_ONLY_SETUP) > 0
+                        or _setup_probation_bonus("SWING — " + MOMENTUM_DAY_ONLY_SETUP) > 0
+                    )
+                    if bp["setup"] and not _mw_probation:
                         _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
                                       "t1": t1, "t2": t2, "signal_str": sig_str}
                         try:
@@ -8766,6 +8786,10 @@ def run_momentum_watch() -> None:
                             }
                             _mw_pending.append(_mw_offer)
                             _save_momentum_pending(_mw_pending)
+                            if bp["setup"] and _mw_probation:
+                                _breakout_msg += ("\n   🟡 Setup on probation (weak recent live "
+                                                  "record) — auto-execute suspended, explicit "
+                                                  "YES required")
                             _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
                     setup_alerts.append(_breakout_msg)
             else:

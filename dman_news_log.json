@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:20.086049-04:00",
-    "symbols": [
-      "JILL"
-    ],
-    "headline": "J.Jill Q2 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:28:20.088063-04:00",
-    "symbols": [
-      "JILL"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-09T11:28:20.089746-04:00",
     "symbols": [
       "JILL"
@@ -5049,5 +5029,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T09:42:11.666803-04:00",
+    "symbols": [
+      "MSTR",
+      "NRG"
+    ],
+    "headline": "Hot PPI Sinks Gold, Freight Stocks: 10 Names To Watch Thursday",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T09:46:01.965815-04:00",
+    "symbols": [
+      "CDT",
+      "MGN"
+    ],
+    "headline": "Nasdaq Down Over 200 Points; US Producer Inflation Rises to 5.4% In August",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

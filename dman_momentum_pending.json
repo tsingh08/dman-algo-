@@ -1,94 +1,5 @@
 {
-  "pending": [
-    {
-      "ticker": "ONFO",
-      "entry_px": 0.9242,
-      "stop_px": 0.8841,
-      "t1": 1.2015,
-      "t2": 1.3863,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.3% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:57:43.370825-04:00",
-      "expires_at": "2026-09-10T14:12:43.370825-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "MGRX",
-      "entry_px": 0.393,
-      "stop_px": 0.3762,
-      "t1": 0.5109,
-      "t2": 0.5895,
-      "signal_str": "VWAP reclaim (recovery dip (opened -3.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:57:43.428933-04:00",
-      "expires_at": "2026-09-10T14:12:43.428933-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "IPW",
-      "entry_px": 1.7435,
-      "stop_px": 1.5548,
-      "t1": 2.2666,
-      "t2": 2.6153,
-      "signal_str": "VWAP reclaim (recovery dip (opened -3.6% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:57:43.477083-04:00",
-      "expires_at": "2026-09-10T14:12:43.477083-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "FMFC",
-      "entry_px": 0.2004,
-      "stop_px": 0.1939,
-      "t1": 0.2605,
-      "t2": 0.3006,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.3% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:57:53.128033-04:00",
-      "expires_at": "2026-09-10T14:12:53.128033-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "CISS",
-      "entry_px": 1.483,
-      "stop_px": 1.3464,
-      "t1": 1.9279,
-      "t2": 2.2245,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:58:13.239980-04:00",
-      "expires_at": "2026-09-10T14:13:13.239980-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "BJDX",
-      "entry_px": 0.9834,
-      "stop_px": 0.9525,
-      "t1": 1.2784,
-      "t2": 1.4751,
-      "signal_str": "VWAP reclaim (recovery dip (opened -4.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:58:18.989038-04:00",
-      "expires_at": "2026-09-10T14:13:18.989038-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "MSC",
-      "entry_px": 1.7034,
-      "stop_px": 1.584,
-      "t1": 2.2144,
-      "t2": 2.5551,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:58:32.357005-04:00",
-      "expires_at": "2026-09-10T14:13:32.357005-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "HTZ",
-      "entry_px": 2.0892,
-      "stop_px": 2.0097,
-      "t1": 2.716,
-      "t2": 3.1338,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-10T13:58:46.054485-04:00",
-      "expires_at": "2026-09-10T14:13:46.054485-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
+  "pending": [],
   "consumed": {
     "CAST_2026-09-10T13:33:50.968219-04:00": 1789063174.893766,
     "LABT_2026-09-10T13:34:03.188658-04:00": 1789063174.894307,
@@ -105,6 +16,14 @@
     "YJ_2026-09-10T13:36:43.577904-04:00": 1789063174.8985722,
     "QMCO_2026-09-10T13:36:59.358263-04:00": 1789063174.898943,
     "MASK_2026-09-10T13:56:40.382200-04:00": 1789063950.5633304,
-    "IMPP_2026-09-10T13:56:54.653770-04:00": 1789063950.5644898
+    "IMPP_2026-09-10T13:56:54.653770-04:00": 1789063950.5644898,
+    "ONFO_2026-09-10T13:57:43.370825-04:00": 1789064013.174413,
+    "MGRX_2026-09-10T13:57:43.428933-04:00": 1789064013.1750293,
+    "IPW_2026-09-10T13:57:43.477083-04:00": 1789064013.1753316,
+    "FMFC_2026-09-10T13:57:53.128033-04:00": 1789064013.175607,
+    "CISS_2026-09-10T13:58:13.239980-04:00": 1789064013.1758626,
+    "BJDX_2026-09-10T13:58:18.989038-04:00": 1789064013.176141,
+    "MSC_2026-09-10T13:58:32.357005-04:00": 1789064074.0545723,
+    "HTZ_2026-09-10T13:58:46.054485-04:00": 1789064074.0549824
   }
 }

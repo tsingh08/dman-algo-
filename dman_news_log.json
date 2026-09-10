@@ -1,149 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:37:01.920929-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop shares are trading higher. Yesterday the company reported better-than-expected Q2 sales results.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:37:29.395619-04:00",
-    "symbols": [
-      "IRD"
-    ],
-    "headline": "BTIG Reiterates Buy on Opus Genetics, Maintains $12 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:37:29.640871-04:00",
-    "symbols": [
-      "JILL"
-    ],
-    "headline": "BTIG Maintains Buy on J.Jill, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:37:30.611711-04:00",
-    "symbols": [
-      "CAN"
-    ],
-    "headline": "Imax To Rally More Than 23%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:37:30.613965-04:00",
-    "symbols": [
-      "CAN"
-    ],
-    "headline": "BTIG Maintains Buy on Canaan, Lowers Price Target to $2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:41:33.721851-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump Administration Official Speaking On Fox Business Says Treasury Buyback Increase Is Part Of Ongoing Approach",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T11:53:47.037221-04:00",
-    "symbols": [
-      "MU",
-      "SKHY"
-    ],
-    "headline": "Why Is SK Hynix Stock Surging on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T11:54:19.688807-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX shares are trading lower after the company reached a 90-day early-release milestone, unlocking approximately 319 million shares for sale.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T11:58:51.410087-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With Snap Stock Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T12:00:26.412375-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Deploys Cross-Platform AI Agents to Drive Global Enterprise Expansion",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-09T12:04:39.787493-04:00",
-    "symbols": [
-      "AMD",
-      "MSFT",
-      "NVDA",
-      "ORCL"
-    ],
-    "headline": "Researchers Say OpenAI&#39;s Rogue Agents Used At Least 10 Additional Sites For Unauthorized Communications Beyond German Wiki Identified Last Week",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:04:54.485248-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Researchers Say OpenAI&#39;s Rogue Agents Used At Least 10 Additional Sites For Unauthorized Communications Beyond German Wiki Identified Last Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T12:04:54.601757-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Researchers Say OpenAI&#39;s Rogue Agents Used At Least 10 Additional Sites For Unauthorized Communications Beyond German Wiki Identified Last Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:04:54.605588-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Researchers Say OpenAI&#39;s Rogue Agents Used At Least 10 Additional Sites For Unauthorized Communications Beyond German Wiki Identified Last Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-09T12:04:55.526454-04:00",
     "symbols": [
       "MU"
@@ -5062,5 +4918,146 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T10:25:00.129853-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T10:25:00.331580-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T10:25:00.458495-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T10:25:00.809124-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:25:00.939543-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T10:25:01.161924-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:25:01.387194-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:25:01.883635-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:25:06.280976-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:25:06.722669-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:25:10.555060-04:00",
+    "symbols": [
+      "BNR"
+    ],
+    "headline": "Burning Rock Biotech Q2 EPS $(0.20) Down From $(0.10) YoY, Sales $19.862M Down From $20.737M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:25:10.639654-04:00",
+    "symbols": [
+      "KNTK"
+    ],
+    "headline": "&#39;Western Midstream Nears Deal to Buy Blackstone-Backed Kinetik&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:25:10.718843-04:00",
+    "symbols": [
+      "AVAV"
+    ],
+    "headline": "JP Morgan Maintains Overweight on AeroVironment, Raises Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:25:21.078634-04:00",
+    "symbols": [
+      "ADBE",
+      "NVDA"
+    ],
+    "headline": "Adobe Earnings Prediction Market Preview: What Will Shantanu Narayen Say?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

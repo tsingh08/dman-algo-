@@ -2098,5 +2098,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T11:37:44.306066-04:00",
+    "symbols": [
+      "AVAV"
+    ],
+    "headline": "Citizens Reiterates Market Outperform on AeroVironment, Maintains $230 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T11:37:44.382008-04:00",
+    "symbols": [
+      "SAIL"
+    ],
+    "headline": "Barclays Maintains Overweight on SailPoint, Raises Price Target to $22",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -6694,6 +6694,57 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
                         a.OPTIONS_MIN_VIABLE_BUDGET)
 
 
+class TestEarningsSafeForNakedHold(unittest.TestCase):
+    """A naked overnight has no stop, so unlike check_earnings_safe() this one
+    must fail CLOSED — an unreadable calendar is itself the risk."""
+
+    def test_upcoming_earnings_block(self):
+        _d = a.date.today() + a.timedelta(days=2)
+        with patch.object(a, "_extract_earnings_dates", return_value=[_d]):
+            ok, why = a._earnings_safe_for_naked_hold("X")
+        self.assertFalse(ok)
+        self.assertIn("2d", why)
+
+    def test_unreadable_calendar_fails_closed(self):
+        # check_earnings_safe() returns (True, 5) here on purpose; a stop
+        # covers it there. Nothing covers it here.
+        with patch.object(a, "_extract_earnings_dates",
+                          side_effect=RuntimeError("api down")):
+            ok, why = a._earnings_safe_for_naked_hold("X")
+        self.assertFalse(ok)
+        self.assertIn("unreadable", why)
+
+    def test_empty_calendar_is_safe(self):
+        # The Massive window is -3d..+30d, so "no dates" is the normal answer
+        # for most names. Failing closed here would disable the path entirely.
+        with patch.object(a, "_extract_earnings_dates", return_value=[]):
+            self.assertTrue(a._earnings_safe_for_naked_hold("X")[0])
+
+    def test_already_reported_today_is_safe(self):
+        # A BMO report already out is a KNOWN reaction — that is the setup
+        # this whole path is hunting, not a hazard.
+        _d = a.date.today()
+        with patch.object(a, "_extract_earnings_dates", return_value=[_d]),              patch.object(a, "_check_earnings_already_reported", return_value=True):
+            self.assertTrue(a._earnings_safe_for_naked_hold("X")[0])
+
+    def test_unconfirmed_today_fails_closed(self):
+        _d = a.date.today()
+        with patch.object(a, "_extract_earnings_dates", return_value=[_d]),              patch.object(a, "_check_earnings_already_reported", return_value=False):
+            ok, why = a._earnings_safe_for_naked_hold("X")
+        self.assertFalse(ok)
+        self.assertIn("AMC", why)
+
+    def test_past_earnings_do_not_block(self):
+        _d = a.date.today() - a.timedelta(days=1)
+        with patch.object(a, "_extract_earnings_dates", return_value=[_d]):
+            self.assertTrue(a._earnings_safe_for_naked_hold("X")[0])
+
+    def test_gate_checks_earnings_before_spending_network_calls(self):
+        src = inspect.getsource(a._genuine_shares_case)
+        self.assertLess(src.index("_earnings_safe_for_naked_hold"),
+                        src.index("_has_tier_a_catalyst"))
+
+
 class TestOptionsContractBudgetBand(unittest.TestCase):
     """Instruction 2026-09-10: "$300-400 per contract"."""
 
@@ -6784,6 +6835,11 @@ class TestPdtZeroSharesFallback(unittest.TestCase):
         _p = patch.object(a, "PDT_ZERO_SHARES_START_DATE", "2000-01-01")
         _p.start()
         self.addCleanup(_p.stop)
+        # Pinned so these gate tests do not depend on a live earnings lookup.
+        # test_earnings_* below exercise the real predicate directly.
+        _e = patch.object(a, "_earnings_safe_for_naked_hold", return_value=(True, ""))
+        _e.start()
+        self.addCleanup(_e.stop)
 
     def test_held_until_the_start_date(self):
         # Direct instruction 2026-09-09: options only on Wednesday, shares
@@ -6865,6 +6921,17 @@ class TestPdtZeroSharesFallback(unittest.TestCase):
         with c1, c2, c3:
             ok, _ = a._genuine_shares_case(self._sig(confluence_score=70))
         self.assertFalse(ok)
+
+    def test_earnings_before_the_next_open_are_refused(self):
+        # The disaster case for a stopless overnight: an unknown earnings
+        # reaction with nothing capping the downside.
+        c1, c2, c3 = self._allow()
+        with c1, c2, c3, patch.object(
+                a, "_earnings_safe_for_naked_hold",
+                return_value=(False, "earnings in 1d — will not hold unprotected")):
+            ok, why = a._genuine_shares_case(self._sig())
+        self.assertFalse(ok)
+        self.assertIn("earnings", why)
 
     def test_short_is_refused(self):
         c1, c2, c3 = self._allow()

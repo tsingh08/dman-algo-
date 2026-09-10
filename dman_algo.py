@@ -7172,6 +7172,43 @@ def _has_tier_a_catalyst(ticker: str) -> bool:
     return any(_news_catalyst_tier(_h, "") == "A" for _h in _heads)
 
 
+def _earnings_safe_for_naked_hold(ticker: str) -> tuple[bool, str]:
+    """Earnings check for a position that will sit OVERNIGHT with no stop.
+
+    check_earnings_safe() fails OPEN on error, which is right for a normal
+    signal: if the calendar is wrong, the broker-side stop still caps the
+    damage. A naked position has no such backstop, so the same failure mode
+    would put an unhedged account through an unknown earnings reaction -- the
+    single worst thing that can happen to a stopless overnight hold, and the
+    one risk that is entirely foreseeable. Here an unreadable calendar is
+    itself disqualifying.
+
+    An empty calendar still reads as safe. The Massive window runs -3d to
+    +30d, so "no dates" is the normal answer for most names on most days;
+    treating it as a failure would refuse everything and quietly disable the
+    path instead of protecting it.
+    """
+    try:
+        _dates = _extract_earnings_dates(ticker)
+    except Exception as _exc:
+        return False, f"earnings calendar unreadable ({_exc}) — not holding unprotected"
+    _today = date.today()
+    for _ed in _dates:
+        _away = (_ed - _today).days
+        if _away == 0:
+            # Ambiguous: a BMO report already out is a KNOWN reaction and fine;
+            # an AMC report still pending is the exact trap. Fails closed.
+            try:
+                if _check_earnings_already_reported(ticker):
+                    continue
+            except Exception:
+                pass
+            return False, "earnings today, not confirmed reported — could still be AMC"
+        if 1 <= _away <= EARNINGS_BLACKOUT:
+            return False, f"earnings in {_away}d — will not hold unprotected through it"
+    return True, ""
+
+
 def _genuine_shares_case(sig) -> tuple[bool, str]:
     """Is this signal worth an UNPROTECTED overnight share position?
 
@@ -7193,6 +7230,12 @@ def _genuine_shares_case(sig) -> tuple[bool, str]:
         return False, (f"score {getattr(sig, 'confluence_score', 0)} < {ELEVATED_MIN_SCORE}")
     if not getattr(sig, "not_chasing_extended_highs", True):
         return False, "extended into highs — worst thing to hold without a stop"
+    # Before anything else expensive: this position is going to sit overnight
+    # with no stop, so an unreported earnings report is the one hazard that is
+    # both foreseeable and unsurvivable at this size.
+    _earn_ok, _earn_why = _earnings_safe_for_naked_hold(sig.ticker)
+    if not _earn_ok:
+        return False, _earn_why
     if not _has_tier_a_catalyst(sig.ticker):
         return False, "no Tier-A catalyst — not a genuine case"
     _gap, _dvol = _pdt_zero_gap_and_liquidity(sig.ticker)

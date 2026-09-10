@@ -3712,5 +3712,56 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:46:19.675797-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Intapp Launches DealCloud\u2013Celeste Plug-In, Bringing Governed Firm Data Into ChatGPT For Financial Services",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T13:46:28.053681-04:00",
+    "symbols": [
+      "BSP"
+    ],
+    "headline": "Bending Spoons Confirms It Will Acquire Miro At EV Of $1.355B In Cash; Certain Miro Shareholders Have Agreed To Invest $295M Of Their Proceeds Into Newly Issued BSP Equity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:46:28.058631-04:00",
+    "symbols": [
+      "BSP"
+    ],
+    "headline": "Bending Spoons To Acquire Collaborative Workspace Software Startup Miro At An EV Of $1.355B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:47:04.637138-04:00",
+    "symbols": [
+      "MA",
+      "V"
+    ],
+    "headline": "What&#39;s Going On With Visa Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:47:27.771718-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Morningstar&#39;s PitchBook Partners With ChatGPT For Financial Services To Bring Expanded Private Market Data",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

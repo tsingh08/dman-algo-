@@ -47,69 +47,30 @@
       "score": 100,
       "date": "2026-09-09",
       "timestamp": "2026-09-09T11:12:38.681002-04:00"
-<<<<<<< Updated upstream
+    },
+    {
+      "ticker": "NAVN",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 20.39,
+      "stop": 21.71,
+      "target1": 16.84,
+      "target2": 15.07,
+      "score": 100,
+      "date": "2026-09-10",
+      "timestamp": "2026-09-10T13:32:59.482032-04:00"
     },
     {
       "ticker": "AEO",
       "setup": "Bear Gap Hold",
       "bias": "SHORT",
-      "entry": 14.26,
+      "entry": 14.21,
       "stop": 15.27,
-      "target1": 11.73,
-      "target2": 10.22,
+      "target1": 11.54,
+      "target2": 9.94,
       "score": 100,
       "date": "2026-09-10",
-      "timestamp": "2026-09-10T13:16:05.469940-04:00"
-    },
-    {
-      "ticker": "BE",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 282.99,
-      "stop": 261.66,
-      "target1": 336.32,
-      "target2": 368.32,
-      "score": 100,
-      "date": "2026-09-08",
-      "timestamp": "2026-09-08T13:41:01.384167-04:00"
-    },
-    {
-      "ticker": "BEX",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 39.7,
-      "stop": 34.94,
-      "target1": 51.61,
-      "target2": 58.75,
-      "score": 100,
-      "date": "2026-09-08",
-      "timestamp": "2026-09-08T13:32:16.217641-04:00"
-    },
-    {
-      "ticker": "CASY",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 621.14,
-      "stop": 636.89,
-      "target1": 531.36,
-      "target2": 486.48,
-      "score": 100,
-      "date": "2026-09-09",
-      "timestamp": "2026-09-09T11:12:38.680255-04:00"
-    },
-    {
-      "ticker": "CRWV",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 103.01,
-      "stop": 95.2,
-      "target1": 131.65,
-      "target2": 148.83,
-      "score": 100,
-      "date": "2026-09-08",
-      "timestamp": "2026-09-08T13:41:01.383686-04:00"
-=======
->>>>>>> Stashed changes
+      "timestamp": "2026-09-10T13:32:59.482848-04:00"
     }
   ]
 }

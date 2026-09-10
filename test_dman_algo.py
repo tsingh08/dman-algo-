@@ -6332,7 +6332,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
 
     def test_shares_fallback_is_guarded_before_submit(self):
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        i_guard = src.index('elif _options_only_overnight and not getattr(sig, "no_stop_entry", False):')
+        i_guard = src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):')
         i_share = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
         self.assertLess(i_guard, i_share,
                         "the zero-PDT guard must precede the shares submit")
@@ -6376,7 +6376,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         src = inspect.getsource(a._submit_signals_to_alpaca)
         self.assertIn("no_stop_entry", src)
         self.assertEqual(
-            src.count("elif _options_only_overnight"), 1,
+            src.count("if _options_only_overnight and not getattr"), 1,
             "the zero-PDT shares guard must exist exactly once")
 
     def test_no_stop_entry_is_only_set_after_vetting(self):
@@ -6398,12 +6398,29 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         self.assertNotIn("TakeProfitRequest", seg)
         self.assertNotIn("OrderClass", seg)
 
-    def test_guard_continues_rather_than_trading(self):
+    def test_guard_refusal_path_continues_rather_than_trading(self):
+        # Premise changed 2026-09-10: the guard block can now submit, but ONLY
+        # down the naked-shares path, and only after _genuine_shares_case()
+        # approved. The refusal path must still refuse.
         src = inspect.getsource(a._submit_signals_to_alpaca)
-        seg = src[src.index('elif _options_only_overnight and not getattr(sig, "no_stop_entry", False):'):]
-        seg = seg[:seg.index("oid, _submit_err = submit_alpaca_trade(sig)")]
+        seg = src[src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):'):]
+        seg = seg[:seg.index("elif (not _shares_fallback_allowed")]
         self.assertIn("continue", seg)
-        self.assertNotIn("submit_alpaca_trade", seg)
+        # Every submit inside the guard is gated by the genuine-case check.
+        self.assertLess(seg.index("_genuine_shares_case(sig)"),
+                        seg.index("submit_alpaca_trade(sig)"))
+
+    def test_options_only_gate_is_reached_before_the_watchlist_guard(self):
+        # THE 2026-09-09 miss. _shares_fallback_allowed() reserves shares for
+        # DMan watchlist picks and low-float catalysts. A market-wide pre-gap
+        # discovery is neither by definition, so ordered first it hit
+        # `continue` and the naked-shares gate never ran -- and it could never
+        # set no_stop_entry to exempt itself, because that flag is only set
+        # inside the gate it could not reach.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertLess(src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):'),
+                        src.index("elif (not _shares_fallback_allowed"),
+                        "the zero-PDT gate must be reachable by non-watchlist names")
 
 
 class TestOrphanEntryDateNeverInventsADayTrade(unittest.TestCase):

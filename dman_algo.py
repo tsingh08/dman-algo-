@@ -21322,19 +21322,14 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
             # docstring for the PMI incident that added the setup half),
             # everything else skips outright rather than settle for a
             # consolation equity position.
-            if (not _shares_fallback_allowed(sig.ticker, sig.setup)
-                    and not getattr(sig, "no_stop_entry", False)):
-                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
-                      f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
-                      f"for DMan picks and low-float catalysts only)")
-                if _options_was_attempted:
-                    send_telegram(
-                        f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
-                        f"Options attempted and unavailable, and shares are reserved for DMan's "
-                        f"low-float watchlist picks only. No trade placed."
-                    )
-                continue
-            elif _options_only_overnight and not getattr(sig, "no_stop_entry", False):
+            # Checked BEFORE _shares_fallback_allowed below, deliberately.
+            # That guard reserves shares for DMan watchlist picks and low-float
+            # catalysts during normal operation. At a zero PDT budget the
+            # naked-shares gate is both stricter and better informed, so it
+            # decides -- and it has to be reachable to do so. Ordered the other
+            # way, a market-wide discovery (never on the watchlist by
+            # definition) was refused above and the gate never ran.
+            if _options_only_overnight and not getattr(sig, "no_stop_entry", False):
                 # Zero day-trade budget: the SHARES fallback is exactly what
                 # must not happen here. Shares get a broker-side stop that
                 # can fill the same session, and that fill IS the day trade
@@ -21399,6 +21394,18 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                             f"day-trade budget is 0.\n{html.escape(_naked_why)}."
                         )
                     continue
+            elif (not _shares_fallback_allowed(sig.ticker, sig.setup)
+                    and not getattr(sig, "no_stop_entry", False)):
+                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
+                      f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
+                      f"for DMan picks and low-float catalysts only)")
+                if _options_was_attempted:
+                    send_telegram(
+                        f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
+                        f"Options attempted and unavailable, and shares are reserved for DMan's "
+                        f"low-float watchlist picks only. No trade placed."
+                    )
+                continue
             else:
                 oid, _submit_err = submit_alpaca_trade(sig)
 

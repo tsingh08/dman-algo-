@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-09T12:28:44.380457-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:28:50.066806-04:00",
-    "symbols": [
-      "CHYM"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Chime Financial, Raises Price Target to $42",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:30:14.589581-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Why Is GameStop Stock Surging on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:32:15.584468-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Live On CNBC, Joe Terranova Announces Sold Costco Wholesale",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:33:36.263540-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Meta acquires Swedish AI startup Stilla.ai&#39; - Axios",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-09T12:35:28.945919-04:00",
-    "symbols": [
-      "AMD",
-      "META",
-      "MRVL",
-      "MSFT",
-      "MU",
-      "NVDA",
-      "PLTR",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Forget 5X ETFs. Nvidia, Tesla, SpaceX and Palantir Could Soon Get Hourly 2X Bets",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:36:42.650019-04:00",
-    "symbols": [
-      "AMZN",
-      "BABA",
-      "GOOGL"
-    ],
-    "headline": "&#39;Alibaba takes on Anthropic with 50% cheaper e-commerce AI agent&#39; - Nikkei Asia",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-09T12:44:24.908861-04:00",
     "symbols": [
       "HOOD"
@@ -5061,6 +4981,76 @@
     "headline": "Fast-Tracking AI Infrastructure: CoreWeave Partners Deliver Data Center Power Early",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:53:01.741900-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "JP Morgan Maintains Neutral on PDD Holdings, Lowers Price Target to $95",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:53:19.725050-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Forget the Magnificent Seven Stocks, Gary Black Says This Tech Giant Is Cheaper",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T10:53:20.241486-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Forget the Magnificent Seven Stocks, Gary Black Says This Tech Giant Is Cheaper",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T10:53:20.669518-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Forget the Magnificent Seven Stocks, Gary Black Says This Tech Giant Is Cheaper",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:53:24.091693-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Fast-Tracking AI Infrastructure: CoreWeave Partners Deliver Data Center Power Early",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:53:25.036445-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Fast-Tracking AI Infrastructure: CoreWeave Partners Deliver Data Center Power Early",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:53:32.937053-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Blockchain Association CEO Summer Mersinger, At Stablecon, On Ftx Says If It Was Registered With CFTC There Would Have Been Examinations And Regulators Working Within That Entity",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

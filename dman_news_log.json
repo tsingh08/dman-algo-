@@ -2553,5 +2553,137 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:02:44.612728-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Snowflake, Tempus AI, Chubb, NVIDIA",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T13:02:45.454696-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Snowflake, Tempus AI, Chubb, NVIDIA",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:02:50.010870-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Appeals Court Rejects Trump Administration&#39;s Bid To Implement Rule Restricting Mail-In Voting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:02:53.640940-04:00",
+    "symbols": [
+      "ASO"
+    ],
+    "headline": "Truist Securities Maintains Hold on Academy Sports, Raises Price Target to $54",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:02:53.643457-04:00",
+    "symbols": [
+      "ASO"
+    ],
+    "headline": "Academy Sports Analysts Boost Their Forecasts After Upbeat Q2 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:02:53.645768-04:00",
+    "symbols": [
+      "ASO"
+    ],
+    "headline": "UBS Maintains Neutral on Academy Sports, Raises Price Target to $58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:02:53.648093-04:00",
+    "symbols": [
+      "ASO"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Academy Sports, Raises Price Target to $53",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:04:15.436457-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Shares of foundry, fabricator and IDM chip companies are trading lower as investor concerns over Fed rate hikes and higher bond yields affect growth-oriented stocks that rely on demand from highly leveraged customers.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:05:49.645482-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "CPI Data Prediction Market Preview: Traders Brace for a Razor-Thin Call",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:06:14.255833-04:00",
+    "symbols": [
+      "FGL",
+      "MGN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:06:14.661850-04:00",
+    "symbols": [
+      "CDT",
+      "SLXN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:06:14.912272-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:06:41.529459-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Launches GPT-Live-1 In API; GPT\u2011Live\u20111 Available In API Today\u2060 At $0.05 Per Minute For Front-End Voice Layer",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

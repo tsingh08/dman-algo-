@@ -767,15 +767,29 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # is taught not to "fix" it the same session (which would re-create the exact
 # violation this avoids). The next session it is no longer a same-day
 # position, so normal stop protection resumes.
-# Below this, an options budget cannot buy anything real and the attempt is
-# pure waste. Sizing multipliers COMPOUND -- confirmed live 2026-09-09, a
-# RISK-OFF regime (0.35x) under momentum auto-exec (MOMENTUM_AUTO_EXEC_SIZE_MULT,
-# also 0.35x) netted 0.12x, turning a $290 budget into $36 and scanning
-# contracts for ONCO/ELAB/ATOS/APVO that no $36 could ever buy. Every one
-# failed, every one burned an options API round trip, and the session ended
-# with zero trades. Failing fast here also hands the name to the naked-shares
-# branch while there is still a decision left to make about it.
-OPTIONS_MIN_VIABLE_BUDGET     = 75.0
+# Premium to spend on ONE contract. Direct instruction 2026-09-10: "$300-400
+# per contract".
+#
+# This deliberately overrides MAX_TRADE_LOSS_PCT for options, and that is the
+# point rather than an oversight: an option's max loss IS its premium, so a
+# $400 contract can lose $400 -- about 13.8% of a $2,904 account, above the
+# $250-$300 per-trade band that still governs everything else. The reason to
+# accept that is arithmetic, not appetite. Sizing multipliers compound, and
+# on 2026-09-09 a RISK-OFF regime (0.35x) under momentum auto-exec (0.35x)
+# netted 0.12x, turning $290 into $36; contracts were then scanned for
+# ONCO/ELAB/ATOS/APVO that no $36 could ever buy. You cannot buy a third of a
+# contract, so below a real floor the honest choice is a proper position or
+# none at all -- not a worthless one.
+#
+# The regime multiplier still scales sizing, but only WITHIN the band: a
+# risk-off session lands at the $300 floor, a risk-on one at the $400 cap.
+OPTIONS_CONTRACT_BUDGET_MIN   = 300.0
+OPTIONS_CONTRACT_BUDGET_MAX   = 400.0
+
+# Below the floor the account cannot fund the instructed contract size at all.
+# Skipping beats buying junk, and it hands the name to the naked-shares branch
+# while there is still a decision left to make about it.
+OPTIONS_MIN_VIABLE_BUDGET     = OPTIONS_CONTRACT_BUDGET_MIN
 
 ENABLE_PDT_ZERO_SHARES        = True
 # Armed for the Wednesday session. Instruction 2026-09-09 first held this to
@@ -12602,6 +12616,26 @@ def _open_options_premium_at_risk() -> float:
         return 0.0
 
 
+def _clamp_option_budget(raw: float) -> float:
+    """Per-contract premium, clamped into the instructed $300-$400 band.
+
+    `raw` arrives already multiplied by regime/streak/caller sizing. Clamping
+    AFTER those keeps them meaningful inside the band while refusing to let
+    them compound the budget down to something no contract can be bought with.
+
+    Returns `raw` untouched when the account cannot fund the floor -- the
+    caller's OPTIONS_MIN_VIABLE_BUDGET check then skips options entirely
+    rather than this quietly sizing up into money that is not there.
+    """
+    try:
+        if get_effective_account() < OPTIONS_CONTRACT_BUDGET_MIN:
+            return raw
+    except Exception:
+        return raw
+    return round(min(max(raw, OPTIONS_CONTRACT_BUDGET_MIN),
+                     OPTIONS_CONTRACT_BUDGET_MAX), 2)
+
+
 def _options_aggregate_room(new_premium: float) -> Optional[str]:
     """
     Reason `new_premium` would breach the aggregate options exposure cap, or
@@ -21232,7 +21266,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if _use_options:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(_options_position_budget(sig) * _risk_off_mult, 2)
+                _opt_risk = _clamp_option_budget(
+                    _options_position_budget(sig) * _risk_off_mult)
                 _agg = _options_aggregate_room(_opt_risk)
                 if _agg:
                     print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
@@ -21263,7 +21298,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         elif _use_puts:
             _opt_client = get_alpaca_client()
             if _opt_client:
-                _opt_risk = round(_options_position_budget(sig) * _risk_off_mult, 2)
+                _opt_risk = _clamp_option_budget(
+                    _options_position_budget(sig) * _risk_off_mult)
                 _agg = _options_aggregate_room(_opt_risk)
                 if _agg:
                     print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")

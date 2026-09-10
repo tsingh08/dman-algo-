@@ -6694,6 +6694,48 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
                         a.OPTIONS_MIN_VIABLE_BUDGET)
 
 
+class TestOptionsContractBudgetBand(unittest.TestCase):
+    """Instruction 2026-09-10: "$300-400 per contract"."""
+
+    def test_band_matches_the_instruction(self):
+        self.assertEqual(a.OPTIONS_CONTRACT_BUDGET_MIN, 300.0)
+        self.assertEqual(a.OPTIONS_CONTRACT_BUDGET_MAX, 400.0)
+
+    def test_compounded_multipliers_can_no_longer_starve_the_budget(self):
+        # The 2026-09-09 failure: 0.35x regime under 0.35x auto-exec netted
+        # 0.12x and a $36 budget.
+        with patch.object(a, "get_effective_account", return_value=2_904.10):
+            self.assertEqual(a._clamp_option_budget(36.0), 300.0)
+
+    def test_budget_is_capped_at_the_top_of_the_band(self):
+        with patch.object(a, "get_effective_account", return_value=2_904.10):
+            self.assertEqual(a._clamp_option_budget(5_000.0), 400.0)
+
+    def test_no_sizing_up_into_money_that_is_not_there(self):
+        # Below the floor the clamp must NOT lift the budget; the caller's
+        # viability check then skips options rather than ordering on credit.
+        with patch.object(a, "get_effective_account", return_value=120.0):
+            self.assertEqual(a._clamp_option_budget(40.0), 40.0)
+
+    def test_band_deliberately_exceeds_the_per_trade_ceiling(self):
+        # Documented override, not drift: an option's max loss IS its premium,
+        # so $400 can lose $400 -- above the $250-$300 band that still governs
+        # every other trade. Pinned so it stays a decision someone made.
+        _ceiling = 2_904.10 * a.MAX_TRADE_LOSS_PCT
+        self.assertGreater(a.OPTIONS_CONTRACT_BUDGET_MAX, _ceiling)
+
+    def test_viability_floor_tracks_the_band(self):
+        self.assertEqual(a.OPTIONS_MIN_VIABLE_BUDGET,
+                         a.OPTIONS_CONTRACT_BUDGET_MIN)
+
+    def test_aggregate_cap_still_binds_above_the_band(self):
+        # At $300+ per contract the 20% aggregate cap (~$581 on this account)
+        # permits ONE options position at a time, where $102 budgets allowed
+        # several. Fewer, real positions is the intended trade.
+        _agg = 2_904.10 * a.MAX_OPTIONS_AGGREGATE_PCT
+        self.assertLess(_agg, 2 * a.OPTIONS_CONTRACT_BUDGET_MIN)
+
+
 class TestPdtZeroSharesArmingDate(unittest.TestCase):
     """Separate class deliberately: TestPdtZeroSharesFallback patches the
     start date in setUp so it can test the gate, which would mask the real
@@ -12189,14 +12231,28 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
         base = self._run(1.0)
         self.assertIsNotNone(base)
 
-    def test_reduced_size_mult_shrinks_options_budget_proportionally(self):
+    def test_reduced_size_mult_never_increases_the_budget(self):
+        # Strict proportionality stopped being true on 2026-09-10, when the
+        # per-contract budget gained a $300-$400 band: you cannot buy a
+        # fraction of a contract, so multipliers scale the RAW figure and the
+        # band decides the final one. What must still hold is the direction --
+        # cutting size never buys more -- and that the result stays inside the
+        # instructed band.
         base = self._run(1.0)
         reduced = self._run(0.35)
-        # Guard the guard: without a real equity patched in, both budgets were
-        # $0 and this assertion held as 0 == 0 * 0.35 no matter what the
-        # multiplier did.
-        self.assertGreater(base, a.OPTIONS_MIN_VIABLE_BUDGET)
-        self.assertAlmostEqual(reduced, base * 0.35, places=2)
+        self.assertLessEqual(reduced, base)
+        for _v in (base, reduced):
+            self.assertGreaterEqual(_v, a.OPTIONS_CONTRACT_BUDGET_MIN)
+            self.assertLessEqual(_v, a.OPTIONS_CONTRACT_BUDGET_MAX)
+
+    def test_multiplier_still_scales_inside_the_band(self):
+        # The band must not make sizing inert where it has room to act.
+        with patch.object(a, "get_effective_account", return_value=2_904.10):
+            hi = a._clamp_option_budget(390.0)
+            lo = a._clamp_option_budget(320.0)
+        self.assertEqual(hi, 390.0)
+        self.assertEqual(lo, 320.0)
+        self.assertGreater(hi, lo)
 
 
 class TestAccountMilestones(unittest.TestCase):

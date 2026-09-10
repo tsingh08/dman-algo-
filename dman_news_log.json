@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-09T11:28:20.171375-04:00",
-    "symbols": [
-      "SUNB"
-    ],
-    "headline": "Sunbelt Rentals Holdings Q1 Adj. EPS $1.18 Beats $1.04 Estimate, Sales $3.115B Beat $2.996B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-09T11:37:01.920929-04:00",
     "symbols": [
       "GME"
@@ -5062,5 +5052,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:20:25.335578-04:00",
+    "symbols": [
+      "CELH"
+    ],
+    "headline": "Celsius Stock Edges Lower: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -2249,5 +2249,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:08:03.470371-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Secures $114M U.S. Space Force Contracts To Upgrade GPS Ground Segment",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T12:10:52.133612-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Billionaire Investor Added SpaceX to His Portfolio Right After the IPO",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -2379,5 +2379,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:24:49.885782-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber, WeRide Move Closer to Driverless Rides in Spain",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T12:27:19.808469-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory and storage-related companies are trading lower amid elevated energy prices and U.S. Fed rate hike expectations. Higher borrowing costs may lessen demand for capacity should the sector&#39;s customers cut back their respective buildout campaigns due to expensive financing.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

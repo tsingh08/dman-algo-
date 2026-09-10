@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-09T12:44:24.908861-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood CEO Defends Tokenized Stocks, Says Companies Can&#39;t Control Products Built on Shares",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-09T12:44:39.893585-04:00",
     "symbols": [
       "MSFT"
@@ -5052,5 +5042,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T11:00:31.037373-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Recent Filing Shows That Sen. Cory A Booker Sold Over $183K Worth of Amazon.com Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

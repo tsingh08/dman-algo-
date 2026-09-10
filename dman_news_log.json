@@ -3187,5 +3187,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:29:43.325337-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Launches ChatGPT For Financial Services With GPT-6 Astra Reasoning; ChatGPT For Financial Services Developed With Morgan Stanley &amp; Evercore Partnership; Working With Factset, S&amp;P Global, Preqin &amp; Datasite On Shared Sign-In &amp; Entitlement Integrations For ChatGPT For Financial Services",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T13:31:27.290880-04:00",
+    "symbols": [
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "Nvidia, Palantir and Rackspace Just Built an AI Trifecta \u2014 Here&#39;s the Trade",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

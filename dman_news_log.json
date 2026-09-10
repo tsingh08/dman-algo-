@@ -1,128 +1,5 @@
 [
   {
-    "ts": "2026-09-09T12:16:18.748486-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is AMD Stock Surging on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:16:19.285050-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Why Is AMD Stock Surging on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:16:25.854846-04:00",
-    "symbols": [
-      "CAL"
-    ],
-    "headline": "Caleres Posts Upbeat Q2 Earnings, Joins Opus Genetics, Flotek Industries And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:16:25.857508-04:00",
-    "symbols": [
-      "CAL"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:16:25.859968-04:00",
-    "symbols": [
-      "CAL"
-    ],
-    "headline": "Caleres Sees Q3 Adj EPS $0.62-$0.70 vs $0.83 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:16:25.862209-04:00",
-    "symbols": [
-      "CAL"
-    ],
-    "headline": "Caleres Raises FY2026 Adj EPS Guidance from $1.40-$1.65 to $1.50-$1.65 vs $1.62 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:16:25.864446-04:00",
-    "symbols": [
-      "CAL"
-    ],
-    "headline": "Caleres Raises FY2026 GAAP EPS Guidance from $1.44-$1.69 to $2.80-$2.95",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:21:19.939175-04:00",
-    "symbols": [
-      "AMD",
-      "MU",
-      "NVDA",
-      "SKHY"
-    ],
-    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:22:20.702664-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Senator Elissa Slotkin Says Trump Is Rumored To Be Planning To Allow Chinese Cars To Be Sold In US As Part Of Larger Deal Ahead Of Xi Jinping&#39;s Washington Visit, Calls It A Strategic Mistake",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:28:27.862655-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on FedEx, Raises Price Target to $350",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-09T12:28:43.251460-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-09T12:28:43.400500-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "SK Hynix Could Rally 88% More, And Micron Investors Are Paying Attention",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-09T12:28:44.296489-04:00",
     "symbols": [
       "MU"
@@ -5059,6 +4936,128 @@
       "IMPP"
     ],
     "headline": "Transcript: Imperial Ptrl Q2 2026 Earnings Conference Call",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:42:59.562838-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Adobe Earnings Prediction Market Preview: What Will Shantanu Narayen Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T10:43:00.541407-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "House Democrat Asks U.S. Auto Safety Regulators To Take Action To Address Misuse Of Tesla Autopilot, Full Self Driving Citing Videos Of Sleeping Drivers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T10:43:05.179367-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe Earnings Prediction Market Preview: What Will Shantanu Narayen Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:43:05.303048-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Paul Krugman Warns Why the AI Boom\u2014Not the Trump Administration\u2014Is Driving Surging Bond Rates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:43:05.307579-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "House Democrat Asks U.S. Auto Safety Regulators To Take Action To Address Misuse Of Tesla Autopilot, Full Self Driving Citing Videos Of Sleeping Drivers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:43:05.384711-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Paul Krugman Warns Why the AI Boom\u2014Not the Trump Administration\u2014Is Driving Surging Bond Rates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:43:08.323731-04:00",
+    "symbols": [
+      "CULP"
+    ],
+    "headline": "Culp Reports Q1 2027 Results: Full Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:43:10.725874-04:00",
+    "symbols": [
+      "AVAV"
+    ],
+    "headline": "These Analysts Boost Their Forecasts On AeroVironment Following Upbeat Q1 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:43:29.929306-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "PayPal&#39;s Head Of Global Crypto Policy Amy Kim, At Stablecon, Says This Is A Natural Progression For Us; Oversight For Stablecoin Still Needed",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:43:40.092688-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "EXCLUSIVE: Kevin Warsh\u2019s Hawkishness Is a \u2018Distraction From His Dovishness,\u2019 Truflation CEO Says",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T10:44:33.982024-04:00",
+    "symbols": [
+      "AVGO",
+      "NVDA",
+      "TSLA"
+    ],
+    "headline": "Forget the Magnificent Seven Stocks, Gary Black Says This Tech Giant Is Cheaper",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T10:46:52.108684-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Why Is MARA Stock Falling on Thursday?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

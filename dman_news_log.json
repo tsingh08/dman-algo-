@@ -2685,5 +2685,47 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-10T13:07:29.585471-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Announces It Is Investing More Than $230M In Higher Pay And Expanded Benefits For Whole Foods Market Team Members",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:09:39.208413-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase CEO Says CLARITY Act Nears &#39;Finish Line&#39; and Bitcoin Has &#39;Seen The Bottom&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:09:56.071806-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "QCOM"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading lower as energy prices, rate expectations and bond yields converge to weigh on the demand outlook for sectors that are exposed to highly leveraged capex cycles.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:12:18.607495-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Stock Drops on Copper Tariff Uncertainty",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

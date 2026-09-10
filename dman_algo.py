@@ -767,6 +767,16 @@ PORTFOLIO_HEAT_LIMIT = 0.06      # max total account % at risk across all open p
 # is taught not to "fix" it the same session (which would re-create the exact
 # violation this avoids). The next session it is no longer a same-day
 # position, so normal stop protection resumes.
+# Below this, an options budget cannot buy anything real and the attempt is
+# pure waste. Sizing multipliers COMPOUND -- confirmed live 2026-09-09, a
+# RISK-OFF regime (0.35x) under momentum auto-exec (MOMENTUM_AUTO_EXEC_SIZE_MULT,
+# also 0.35x) netted 0.12x, turning a $290 budget into $36 and scanning
+# contracts for ONCO/ELAB/ATOS/APVO that no $36 could ever buy. Every one
+# failed, every one burned an options API round trip, and the session ended
+# with zero trades. Failing fast here also hands the name to the naked-shares
+# branch while there is still a decision left to make about it.
+OPTIONS_MIN_VIABLE_BUDGET     = 75.0
+
 ENABLE_PDT_ZERO_SHARES        = True
 # Armed for the Wednesday session. Instruction 2026-09-09 first held this to
 # Thursday, then same-day: "do shares for wednesday session only if theres a
@@ -6009,6 +6019,57 @@ def fetch_market_news_firehose(hours_back: int = NEWS_FIRST_LOOKBACK_H,
     return _out
 
 
+def pre_gap_catalyst_pass() -> list[str]:
+    """Run the news-first scan, alert un-reacted Tier-A names, return the
+    early symbols so the caller can put them at the front of its universe.
+
+    Lives on its own so more than one job can run it. It has to: on
+    2026-09-09 GitHub silently dropped BOTH premarket-early schedule events
+    (4:36 and 7:06 AM ET), so the only job wired to this never started and the
+    entire news-first path sat dead for the session while the 8:10 briefing
+    ran fine. Depending on a single cron for the highest-value scan of the day
+    is the actual fault; the alert dedup key below makes running it from
+    several jobs cost nothing, since whichever fires first claims the key and
+    the rest go quiet.
+    """
+    _rows  = scan_news_catalysts()
+    _early = [_r for _r in _rows if not _r["reacted"]]
+
+    # Whether the name is actually TRADEABLE right now, not just interesting.
+    # While the PDT budget is exhausted the only instrument available is an
+    # option, so a pre-gap catalyst on a name with no listed chain is a good
+    # catch that cannot be acted on -- the same wall ROIV/BEX/TRVI hit.
+    # Sorting those back keeps attention where the read can be expressed.
+    for _r in _early:
+        try:
+            _r["has_chain"] = _has_liquid_option_chain(_r["ticker"])
+        except Exception:
+            _r["has_chain"] = False
+    _early.sort(key=lambda r: (not r["has_chain"], r["tier"] != "A",
+                               -abs(r["gap_pct"])))
+
+    # Alert only the un-reacted TIER-A names. Tier B and already-reacted rows
+    # are still returned and scored; they just do not each earn their own push
+    # notification, which is what made the feed unreadable on 2026-09-08.
+    _a_early = [_r for _r in _early if _r["tier"] == "A"]
+    if _a_early:
+        _k = "__NEWS_FIRST_" + ",".join(sorted(_r["ticker"] for _r in _a_early)) + "__"
+        if not _is_duplicate_alert(_k, 240):
+            _lines = "\n".join(
+                f"• <b>{_r['ticker']}</b> ${_r['price']} ({_r['gap_pct']:+.1f}%) "
+                + ("⚡ options" if _r.get("has_chain") else "🚫 no chain")
+                + f"\n  <i>{html.escape(_r['headline'][:110])}</i>"
+                for _r in _a_early[:6])
+            _n_tradeable = sum(1 for _r in _a_early if _r.get("has_chain"))
+            send_telegram(
+                "🗞 <b>PRE-GAP CATALYST</b> — news landed, price has not moved\n"
+                f"<i>{datetime.now(ET).strftime('%I:%M %p ET')}</i>\n\n{_lines}\n\n"
+                f"{_n_tradeable}/{len(_a_early)} have an options chain. "
+                "Catalyst is fresh and the move has not happened yet.")
+            _mark_alerted(_k)
+    return [_r["ticker"] for _r in _early]
+
+
 def scan_news_catalysts(verbose: bool = True) -> list[dict]:
     """Tickers carrying a fresh Tier-A/B catalyst, split by whether price reacted.
 
@@ -6287,50 +6348,13 @@ def run_premarket_early_scan() -> None:
     # FRONT of the universe: they are the most time-sensitive names in it, and
     # the per-ticker loop below runs under a wall-clock budget that can cut the
     # tail off.
-    _news_rows  = scan_news_catalysts()
-    _news_early = [_r for _r in _news_rows if not _r["reacted"]]
-
-    # Whether the name is actually TRADEABLE right now, not just interesting.
-    # While the PDT budget is exhausted the only instrument available is an
-    # option, so a pre-gap catalyst on a name with no listed chain is a good
-    # catch that cannot be acted on -- which is the same wall Tuesday's
-    # ROIV/BEX/TRVI hit. Sorting those to the back keeps attention on names
-    # where the read can actually be expressed.
-    for _r in _news_early:
-        try:
-            _r["has_chain"] = _has_liquid_option_chain(_r["ticker"])
-        except Exception:
-            _r["has_chain"] = False
-    _news_early.sort(key=lambda r: (not r["has_chain"], r["tier"] != "A",
-                                    -abs(r["gap_pct"])))
-    _news_syms  = [_r["ticker"] for _r in _news_early]
+    _news_syms = pre_gap_catalyst_pass()
 
     scan_universe = list(dict.fromkeys(
         _news_syms + DMAN_SMALLCAP_WATCHLIST + _dynamic_movers))
     print(f"  Scanning {len(scan_universe)} small-cap names "
           f"({len(DMAN_SMALLCAP_WATCHLIST)} curated + {len(_dynamic_movers)} dynamic "
           f"+ {len(_news_syms)} pre-gap news)...\n")
-
-    # Alert only the un-reacted TIER-A names. Tier B and already-reacted rows
-    # still get scanned and scored below; they just do not each earn their own
-    # push notification, which is what made the feed unreadable on 2026-09-08.
-    _a_early = [_r for _r in _news_early if _r["tier"] == "A"]
-    if _a_early:
-        _k = "__NEWS_FIRST_" + ",".join(sorted(_r["ticker"] for _r in _a_early)) + "__"
-        if not _is_duplicate_alert(_k, 240):
-            _lines = "\n".join(
-                f"• <b>{_r['ticker']}</b> ${_r['price']} ({_r['gap_pct']:+.1f}%) "
-                + ("⚡ options" if _r.get("has_chain") else "🚫 no chain")
-                + f"\n  <i>{html.escape(_r['headline'][:110])}</i>"
-                for _r in _a_early[:6])
-            _n_tradeable = sum(1 for _r in _a_early if _r.get("has_chain"))
-            send_telegram(
-                "🗞 <b>PRE-GAP CATALYST</b> — news landed, price has not moved\n"
-                f"<i>{now_et.strftime('%I:%M %p ET')}</i>\n\n{_lines}\n\n"
-                f"{_n_tradeable}/{len(_a_early)} have an options chain. "
-                "Catalyst is fresh and the move has not happened yet. "
-                "Full scoring follows in the scan below.")
-            _mark_alerted(_k)
 
     # Pull global context first — drives pre-market sizing and aggression
     print("  🌍 Global context...", flush=True)
@@ -8774,6 +8798,16 @@ def run_premarket_briefing() -> None:
     """
     now_et = datetime.now(ET)
     date_str = now_et.strftime("%A %b %d, %Y")
+
+    # Second home for the news-first pass. The premarket-early job owns it,
+    # but GitHub dropped both of that job's schedule events on 2026-09-09
+    # while this briefing ran on time -- so the highest-value scan of the day
+    # rode on a single cron and simply did not happen. Dedup makes the overlap
+    # free: whichever job gets there first claims the alert key.
+    try:
+        pre_gap_catalyst_pass()
+    except Exception as _pg_exc:
+        print(f"  ⚠️  Pre-gap catalyst pass failed: {_pg_exc}")
 
     # ── 0a. GTC swing fill reconciliation ─────────────────────────────
     # If a GTC entry filled overnight, update PositionTracker entry price to the
@@ -20762,6 +20796,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         # the shares-fallback decision, which is the point where "options were
         # attempted and unavailable" is finally known.
         _options_only_overnight = False
+        _share_ok: list = []
         try:
             _pdt = _get_pdt_status()
             _equity    = _pdt["equity"]
@@ -20797,7 +20832,6 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     # on ENABLE_PDT_ZERO_SHARES. This exists because on
                     # 2026-09-08 six signals scored 100 on real catalysts and
                     # every one was untradeable purely for lack of a chain.
-                    _share_ok = []
                     _shares_armed, _shares_why = _pdt_zero_shares_active()
                     if not _shares_armed:
                         print(f"  🩹 PDT-zero shares: {_shares_why}")
@@ -21025,6 +21059,18 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         _risk_off_mult *= size_mult
         print(f"  🔻 Caller size_mult: ×{size_mult:.2f} → net ×{_risk_off_mult:.2f}")
 
+    # At most ONE unprotected share position at a time, shared by both places
+    # that can open one: the pre-attempt branch (options structurally
+    # impossible) and the post-attempt branch below (options attempted and
+    # genuinely unavailable). Seeded from the book so a later pass cannot
+    # stack a second naked position on top of one already held.
+    _naked_open = bool(_share_ok)
+    try:
+        _naked_open = _naked_open or any(
+            _pdt_zero_no_stop_today(_p.ticker) for _p in PositionTracker().positions)
+    except Exception:
+        _naked_open = True          # cannot verify -> do not open another
+
     pt        = PositionTracker()
     submitted = 0
 
@@ -21196,17 +21242,23 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                             f"A long option has no stop, so concurrent premium is "
                             f"simultaneous max loss. Waiting for an open position to close.")
                     continue
-                print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
-                try:
-                    oid, _opt_contract = _submit_options_call(
-                        _opt_client, sig.ticker, cur, _opt_risk, sig
-                    )
-                except Exception as _opt_exc:
-                    print(f"  ⚠️  Options error ({sig.ticker}): {_opt_exc} — falling back to shares")
-                    oid = None
-                if oid is None:
-                    print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
+                if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:
+                    print(f"  💸 {sig.ticker}: options budget ${_opt_risk:.0f} < "
+                          f"${OPTIONS_MIN_VIABLE_BUDGET:.0f} — too small to buy a real "
+                          f"contract, not attempting")
                     _use_options = False
+                else:
+                    print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
+                    try:
+                        oid, _opt_contract = _submit_options_call(
+                            _opt_client, sig.ticker, cur, _opt_risk, sig
+                        )
+                    except Exception as _opt_exc:
+                        print(f"  ⚠️  Options error ({sig.ticker}): {_opt_exc} — falling back to shares")
+                        oid = None
+                    if oid is None:
+                        print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
+                        _use_options = False
 
         elif _use_puts:
             _opt_client = get_alpaca_client()
@@ -21303,16 +21355,50 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                 # That path places NO sell-side order whatsoever, so it cannot
                 # round-trip today and the reasoning here does not apply to
                 # it -- it pays for that with an unprotected overnight instead.
-                print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
-                      f"NOT falling back to shares (a same-day stop would be a violation)")
-                if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
+                #
+                # This is also the ONLY point in the pipeline that knows an
+                # option does not really exist for this name. The pre-attempt
+                # branch cannot know it -- _signal_can_use_options() answers
+                # the STRUCTURAL question, and the names that need shares most
+                # (no listed chain at all) pass it and fail here instead.
+                # Confirmed live 2026-09-09: ONCO, ELAB, ATOS and APVO all
+                # reached this block, so a genuine-case check that ran only
+                # upstream never saw a single one of them.
+                _naked_ok, _naked_why = False, "an unprotected position is already open"
+                if not _naked_open:
+                    _naked_ok, _naked_why = _genuine_shares_case(sig)
+                if _naked_ok:
+                    sig.no_stop_entry = True
+                    sig.swing_mode    = True
+                    sig.shares = _pdt_zero_share_size(sig.entry, get_effective_account())
+                    sig.cost   = round(sig.shares * sig.entry, 2)
+                    if sig.shares <= 0:
+                        print(f"  \u23ed\ufe0f  {sig.ticker}: naked-share size rounds to 0 "
+                              f"at ${sig.entry:.2f} — skipping")
+                        continue
+                    _naked_open = True
+                    print(f"  \U0001fa79 {sig.ticker}: no option exists, but genuine case "
+                          f"({_naked_why}) — {sig.shares}sh, NO stop today")
                     send_telegram(
-                        f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
-                        f"day-trade budget is 0.\n"
-                        f"Shares would carry a stop that can fill today and become a "
-                        f"PDT violation, so no trade was placed."
-                    )
-                continue
+                        "\U0001fa79 <b>PDT-ZERO SHARES</b> — genuine case, entered "
+                        "WITHOUT a stop\n"
+                        f"<b>{sig.ticker}</b> {sig.shares}sh @ ${sig.entry:.2f} "
+                        f"(${sig.cost:,.0f})\n<i>{html.escape(_naked_why)}</i>\n\n"
+                        "No options chain exists, so this could not be an option. No "
+                        "stop today: a same-day stop fill would be day trade #4. Sized "
+                        f"so a -{PDT_ZERO_SHARES_ASSUMED_GAP*100:.0f}% overnight gap "
+                        f"costs about ${get_effective_account()*MAX_TRADE_LOSS_PCT:,.0f}.\n"
+                        "<b>Unprotected until a stop goes on next session.</b>")
+                    oid, _submit_err = submit_alpaca_trade(sig)
+                else:
+                    print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
+                          f"no shares ({_naked_why})")
+                    if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
+                        send_telegram(
+                            f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
+                            f"day-trade budget is 0.\n{html.escape(_naked_why)}."
+                        )
+                    continue
             else:
                 oid, _submit_err = submit_alpaca_trade(sig)
 

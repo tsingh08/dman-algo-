@@ -6612,6 +6612,71 @@ class TestOptionsAggregateExposureCap(unittest.TestCase):
         self.assertEqual(src.count("_options_aggregate_room(_opt_risk)"), 2)
 
 
+class TestWednesdayPostMortemFixes(unittest.TestCase):
+    """Both findings from the 2026-09-09 session, which placed zero trades
+    despite signals firing all day."""
+
+    def test_genuine_case_runs_where_options_actually_failed(self):
+        # THE bug: the shares fallback was evaluated only BEFORE the options
+        # attempt, against _signal_can_use_options(), which answers the
+        # structural question. Names with no listed chain pass it and fail at
+        # the attempt instead -- so ONCO, ELAB, ATOS and APVO all reached the
+        # post-attempt block on 2026-09-09 and the gate never saw one of them.
+        # It must be consulted where the failure is actually known.
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_fail = src.index("Options unavailable for {sig.ticker}")
+        i_gate = src.index("_naked_ok, _naked_why = _genuine_shares_case(sig)")
+        self.assertLess(i_fail, i_gate,
+                        "the genuine-case gate must be consulted after the "
+                        "options attempt has actually failed")
+
+    def test_only_one_naked_position_across_both_branches(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("_naked_open", src)
+        # The latch must be consulted before the gate, not after.
+        self.assertLess(src.index("if not _naked_open:"),
+                        src.index("_naked_ok, _naked_why = _genuine_shares_case(sig)"))
+
+    def test_unbuyable_options_budget_is_not_attempted(self):
+        # Sizing multipliers compound: RISK-OFF 0.35x under momentum
+        # auto-exec 0.35x netted 0.12x on 2026-09-09, turning $290 into $36
+        # and scanning contracts nothing could buy.
+        self.assertGreaterEqual(a.OPTIONS_MIN_VIABLE_BUDGET, 50.0)
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_check = src.index("if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:")
+        i_call = src.index("oid, _opt_contract = _submit_options_call(")
+        self.assertLess(i_check, i_call,
+                        "the viability check must precede the options attempt")
+
+    def test_news_first_does_not_ride_on_one_cron(self):
+        # 2026-09-09: GitHub dropped BOTH premarket-early schedule events, so
+        # the only job wired to the news-first scan never ran and the whole
+        # path sat dead while the 8:10 briefing ran fine.
+        import inspect as _i
+        self.assertIn("pre_gap_catalyst_pass",
+                      _i.getsource(a.run_premarket_briefing))
+        self.assertIn("pre_gap_catalyst_pass",
+                      _i.getsource(a.run_premarket_early_scan))
+
+    def test_pre_gap_pass_dedups_so_overlap_is_free(self):
+        # Two jobs running it must not mean two push notifications.
+        src = inspect.getsource(a.pre_gap_catalyst_pass)
+        self.assertIn("_is_duplicate_alert", src)
+        self.assertIn("_mark_alerted", src)
+
+    def test_briefing_failure_in_pre_gap_does_not_kill_the_briefing(self):
+        src = inspect.getsource(a.run_premarket_briefing)
+        i = src.index("pre_gap_catalyst_pass()")
+        self.assertIn("except Exception", src[i:i + 260])
+
+    def test_compounding_that_caused_it_is_still_real(self):
+        # Documents the actual arithmetic, so if either input changes the
+        # reason for OPTIONS_MIN_VIABLE_BUDGET stays legible.
+        self.assertAlmostEqual(a.MOMENTUM_AUTO_EXEC_SIZE_MULT * 0.35, 0.1225, places=4)
+        self.assertLess(2_904.10 * a.MAX_TRADE_LOSS_PCT * 0.1225,
+                        a.OPTIONS_MIN_VIABLE_BUDGET)
+
+
 class TestPdtZeroSharesArmingDate(unittest.TestCase):
     """Separate class deliberately: TestPdtZeroSharesFallback patches the
     start date in setUp so it can test the gate, which would mask the real
@@ -12089,6 +12154,7 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
                  "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
              patch.object(a, "_get_pdt_status", return_value={
                  "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "get_effective_account", return_value=30_000.0), \
              patch.object(a, "WATCHLIST", ["TESTX"]), \
              patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
              patch.object(a, "_submit_options_call", side_effect=_fake_submit_options_call), \
@@ -12109,6 +12175,10 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
     def test_reduced_size_mult_shrinks_options_budget_proportionally(self):
         base = self._run(1.0)
         reduced = self._run(0.35)
+        # Guard the guard: without a real equity patched in, both budgets were
+        # $0 and this assertion held as 0 == 0 * 0.35 no matter what the
+        # multiplier did.
+        self.assertGreater(base, a.OPTIONS_MIN_VIABLE_BUDGET)
         self.assertAlmostEqual(reduced, base * 0.35, places=2)
 
 

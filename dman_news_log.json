@@ -2491,5 +2491,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T12:41:18.798468-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Drug Shows Significant Reductions in Menstrual Migraine Days",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

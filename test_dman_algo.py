@@ -12383,16 +12383,22 @@ class TestMomentumWatchAutoExecute(unittest.TestCase):
     hours (9-5 job), and every breakout offer was expiring unactioned as a
     result (104 in one session, confirmed live, zero ever approved)."""
 
-    def _run_watch(self, breakout_setup: bool):
+    def _run_watch(self, breakout_setup: bool, probation_bonus: int = 0):
         # 2-day history with a real ~-3% opening gap so is_recovery_dip
         # (source contains "recovery") is genuinely true for the fallback
         # (non-auto-exec) case's _fire condition, not just cur > vwap alone.
+        # _setup_probation_bonus is patched (default: not restricted) because
+        # these tests run from the repo checkout, where the REAL
+        # dman_setup_probation.json may currently restrict this very setup —
+        # auto-exec suppression under probation has its own explicit test
+        # below, driven by the probation_bonus parameter.
         import pandas as pd
         _hist2 = pd.DataFrame({
             "Open":  [10.60, 9.90],
             "Close": [10.60, 10.20],
         })
         with patch.object(a, "_force_close_day_only_positions", return_value=0), \
+             patch.object(a, "_setup_probation_bonus", return_value=probation_bonus), \
              patch("os.path.exists", return_value=False), \
              patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["TESTX"]), \
              patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
@@ -12429,6 +12435,20 @@ class TestMomentumWatchAutoExecute(unittest.TestCase):
 
     def test_pure_vwap_reclaim_without_pattern_still_requires_approval(self):
         mock_submit, mock_save_pending = self._run_watch(breakout_setup=False)
+        mock_submit.assert_not_called()
+        mock_save_pending.assert_called_once()
+
+    def test_setup_probation_suspends_auto_exec_falls_back_to_approval(self):
+        # 2026-09-10 review: "SWING — Momentum Watch Breakout (Day)" went on
+        # probation 2026-09-09 (38% WR over its last 8 live trades) and the
+        # auto-execute path kept entering it unsupervised the next session —
+        # probation raises a confluence bar this path never consults, since
+        # _build_momentum_signal() hardcodes score 100 on the reasoning that
+        # a human approval stands in for the score. While restricted, a real
+        # pattern match must degrade to the YES/NO offer (human can still
+        # take it) instead of submitting on its own.
+        mock_submit, mock_save_pending = self._run_watch(
+            breakout_setup=True, probation_bonus=a.SETUP_PROBATION_SCORE_BONUS)
         mock_submit.assert_not_called()
         mock_save_pending.assert_called_once()
 

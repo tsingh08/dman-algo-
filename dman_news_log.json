@@ -3913,5 +3913,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:03:08.222217-04:00",
+    "symbols": [
+      "ASO"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Academy Sports, Raises Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:04:13.549725-04:00",
+    "symbols": [
+      "OKLO",
+      "SMR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading lower as surging energy prices lead to higher bond yields and rate expectations, which may dampen the outlook for newbuild projects that will require billions of dollars in public and private investments.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:07:26.246061-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Federal officials poised to declare end of U.S.\u2019s largest known cyclosporiasis outbreak&#39; - The Washington Post",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

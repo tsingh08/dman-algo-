@@ -1,18 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "BE",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 282.99,
-      "stop": 261.66,
-      "target1": 336.32,
-      "target2": 368.32,
-      "score": 100,
-      "date": "2026-09-08",
-      "timestamp": "2026-09-08T13:41:01.384167-04:00"
-    },
-    {
       "ticker": "ROIV",
       "setup": "Gap & Hold",
       "bias": "LONG",
@@ -23,18 +11,6 @@
       "score": 100,
       "date": "2026-09-08",
       "timestamp": "2026-09-08T13:32:16.216874-04:00"
-    },
-    {
-      "ticker": "BEX",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 39.7,
-      "stop": 34.94,
-      "target1": 51.61,
-      "target2": 58.75,
-      "score": 100,
-      "date": "2026-09-08",
-      "timestamp": "2026-09-08T13:32:16.217641-04:00"
     },
     {
       "ticker": "SIG",
@@ -61,18 +37,6 @@
       "timestamp": "2026-09-09T11:12:38.679353-04:00"
     },
     {
-      "ticker": "CASY",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 621.14,
-      "stop": 636.89,
-      "target1": 531.36,
-      "target2": 486.48,
-      "score": 100,
-      "date": "2026-09-09",
-      "timestamp": "2026-09-09T11:12:38.680255-04:00"
-    },
-    {
       "ticker": "GRAB",
       "setup": "Bear Gap Hold",
       "bias": "SHORT",
@@ -83,6 +47,42 @@
       "score": 100,
       "date": "2026-09-09",
       "timestamp": "2026-09-09T11:12:38.681002-04:00"
+    },
+    {
+      "ticker": "BE",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 282.99,
+      "stop": 261.66,
+      "target1": 336.32,
+      "target2": 368.32,
+      "score": 100,
+      "date": "2026-09-08",
+      "timestamp": "2026-09-08T13:41:01.384167-04:00"
+    },
+    {
+      "ticker": "BEX",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 39.7,
+      "stop": 34.94,
+      "target1": 51.61,
+      "target2": 58.75,
+      "score": 100,
+      "date": "2026-09-08",
+      "timestamp": "2026-09-08T13:32:16.217641-04:00"
+    },
+    {
+      "ticker": "CASY",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 621.14,
+      "stop": 636.89,
+      "target1": 531.36,
+      "target2": 486.48,
+      "score": 100,
+      "date": "2026-09-09",
+      "timestamp": "2026-09-09T11:12:38.680255-04:00"
     },
     {
       "ticker": "CRWV",

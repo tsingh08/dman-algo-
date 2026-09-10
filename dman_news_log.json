@@ -3954,5 +3954,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:20:46.656880-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Head Of Issuance at Bridge Aadil Mamujee At Stablecon Says We Need To Find Partners Like Shopify To Implement These Things",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:21:44.466480-04:00",
+    "symbols": [
+      "ADAG"
+    ],
+    "headline": "Third Arc Bio Selects First Lead Candidate Upon 2025 Amended Strategic License Deal With Adagene",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T14:21:44.470482-04:00",
+    "symbols": [
+      "ADAG"
+    ],
+    "headline": "Chardan Capital Initiates Coverage On Adagene with Buy Rating, Announces Price Target of $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -4909,7 +4909,21 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:43.408274-04:00",
+=======
+    "ts": "2026-09-11T13:33:52.433558-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth CFO Says \u2018We Didn\u2019t Need the Dollars\u2019 As TPG Joins Optum Overhaul",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:34:12.569751-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "AAPL"
     ],
@@ -4919,7 +4933,11 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:43.506239-04:00",
+=======
+    "ts": "2026-09-11T13:34:12.820468-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "MSFT"
     ],
@@ -4929,7 +4947,11 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:43.653521-04:00",
+=======
+    "ts": "2026-09-11T13:34:13.092522-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "NVDA"
     ],
@@ -4939,7 +4961,11 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:43.904490-04:00",
+=======
+    "ts": "2026-09-11T13:34:13.722289-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "META"
     ],
@@ -4949,7 +4975,11 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:44.094749-04:00",
+=======
+    "ts": "2026-09-11T13:34:14.250711-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "AMZN"
     ],
@@ -4959,7 +4989,11 @@
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:44.195508-04:00",
+=======
+    "ts": "2026-09-11T13:34:14.472137-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "TSLA"
     ],
@@ -4969,6 +5003,7 @@
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:46.133792-04:00",
     "symbols": [
       "LLY"
@@ -4985,11 +5020,23 @@
     ],
     "headline": "Deal Dispatch: Bending Spoons Acquires Miro For $1.35B, Kinetik Up For Sale, LIV Golf Bankruptcy",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-09-11T13:34:16.849265-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "Crude Oil Down 3%; Kroger Shares Gain After Upbeat Q2 Earnings",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:50.739428-04:00",
+=======
+    "ts": "2026-09-11T13:34:24.657963-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "ORCL"
     ],
@@ -4999,7 +5046,11 @@
     "sentiment": "neutral"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:50.945231-04:00",
+=======
+    "ts": "2026-09-11T13:34:25.129685-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "SPY"
     ],
@@ -5009,7 +5060,11 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:51.040046-04:00",
+=======
+    "ts": "2026-09-11T13:34:25.381716-04:00",
+>>>>>>> Stashed changes
     "symbols": [
       "QQQ"
     ],
@@ -5019,16 +5074,25 @@
     "sentiment": "positive"
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:51.385799-04:00",
     "symbols": [
       "ZUMZ"
     ],
     "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+=======
+    "ts": "2026-09-11T13:34:30.484862-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Tenon Medical To Exercise 572,179 Existing Warrants For $2.87M, Issuing New Warrants For 858,269 Shares At $5.02 Each",
+>>>>>>> Stashed changes
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:31:51.475228-04:00",
     "symbols": [
       "IYE"
@@ -5037,5 +5101,46 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+=======
+    "ts": "2026-09-11T13:35:11.968703-04:00",
+    "symbols": [
+      "AAPL",
+      "AMAT",
+      "AMD",
+      "ARM",
+      "AVGO",
+      "ORCL",
+      "PLTR",
+      "RIOT"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:35:12.579836-04:00",
+    "symbols": [
+      "ISRG",
+      "LLY",
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:35:12.582132-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD",
+      "JPM"
+    ],
+    "headline": "9 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+>>>>>>> Stashed changes
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:16:12.829708-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia CEO Says Share At Anthropic Growing Very Quickly",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:16:34.646023-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Micron, SK Hynix Are Top Bets in New NRAM ETF as AI Memory Demand Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T12:16:34.745456-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Micron, SK Hynix Are Top Bets in New NRAM ETF as AI Memory Demand Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-10T12:16:34.870205-04:00",
     "symbols": [
       "NVDA"
@@ -5051,5 +5021,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T12:18:44.273621-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Meta Courts European Bond Investors to Help Bankroll AI Boom",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T12:21:19.031628-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Exec Says Expect Compute, Enterprise AI To Be 50% Of Total Immediate Market For Server CPUs As Co. Grows",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T12:21:22.446351-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Passes Less Inflation to iPhone Buyers Than Trump Mobile&#39;s 50% Price Jump",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

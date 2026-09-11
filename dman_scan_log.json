@@ -52,5 +52,23 @@
     "budget_hit": false,
     "news_breadth_pct": 84.6,
     "news_breadth_total": 187
+  },
+  {
+    "ts": "2026-09-11T13:58:06.315689-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 15.6,
+    "min_score": 85,
+    "universe": "all",
+    "tickers_total": 165,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 164,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 84.6,
+    "news_breadth_total": 186
   }
 ]

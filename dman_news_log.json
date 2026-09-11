@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.609862-04:00",
-    "symbols": [
-      "RXT"
-    ],
-    "headline": "RXT Stock Pops as Rackspace Lands Nvidia Cloud Partner Status, Unveils Palantir-Powered AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-10T11:13:37.612019-04:00",
-    "symbols": [
-      "OBIO"
-    ],
-    "headline": "Wealthfront, Orchestra Biomed, AeroVironment And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.613745-04:00",
     "symbols": [
       "OBIO"
@@ -5048,5 +5028,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T11:10:06.863628-04:00",
+    "symbols": [
+      "LASE"
+    ],
+    "headline": "Reported Earlier, Laser Photonics Prices $7.9M Public Offering Of 10,500,000 Shares At $0.75 Per Share With B-1 And B-2 Warrants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T11:10:07.879322-04:00",
+    "symbols": [
+      "TEN"
+    ],
+    "headline": "Full Transcript: Tsakos Energy Navigation Q2 2026 Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

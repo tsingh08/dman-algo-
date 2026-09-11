@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:37:44.306066-04:00",
-    "symbols": [
-      "AVAV"
-    ],
-    "headline": "Citizens Reiterates Market Outperform on AeroVironment, Maintains $230 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:37:44.382008-04:00",
-    "symbols": [
-      "SAIL"
-    ],
-    "headline": "Barclays Maintains Overweight on SailPoint, Raises Price Target to $22",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:43:37.956064-04:00",
     "symbols": [
       "TLT"
@@ -5054,6 +5034,26 @@
       "SMCI"
     ],
     "headline": "What Is Going On With SMCI Stock on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T11:38:50.718358-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "House Republicans Will Vote Next Week On The Russia Sanctions Bill",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T11:42:40.411546-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft\u2019s AI Crunch Forced It to Turn Away Business, Now It Wants to Triple Computing Power",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

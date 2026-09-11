@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:00:43.258397-04:00",
-    "symbols": [
-      "SAIL"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on SailPoint, Raises Price Target to $22",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:01:33.773827-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Saudis Weigh Merging EA With Savvy to Create Global Gaming Giant&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T12:02:51.890662-04:00",
     "symbols": [
       "XOM"
@@ -5051,5 +5031,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T11:58:50.502589-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Utilizes Weight-Loss Drug Profits To Fund Women&#39;s Health Initiatives: Report",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T11:59:16.682114-04:00",
+    "symbols": [
+      "BOC"
+    ],
+    "headline": "Boston Omaha Board Authorizes New $30M Share Repurchase Program, Effective November 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

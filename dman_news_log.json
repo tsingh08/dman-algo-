@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.535047-04:00",
-    "symbols": [
-      "LFS"
-    ],
-    "headline": "LEIFRAS Plans To Enter The Non-Life Insurance Agency Business By Leveraging Its Sports School And Social Business Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.536495-04:00",
-    "symbols": [
-      "MGN"
-    ],
-    "headline": "Nasdaq Down Over 200 Points; US Producer Inflation Rises to 5.4% In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-10T11:13:37.537929-04:00",
-    "symbols": [
-      "MGN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-10T11:13:37.539345-04:00",
-    "symbols": [
-      "MGN"
-    ],
-    "headline": "Why AeroVironment Shares Are Trading Higher By Around 6%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-10T11:13:37.541835-04:00",
-    "symbols": [
-      "MGN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-10T11:13:37.543869-04:00",
     "symbols": [
       "MIMI"
@@ -5044,5 +4994,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T10:00:04.434173-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "UBS Maintains Neutral on Adobe, Raises Price Target to $255",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T10:00:16.104184-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michigan Consumer Expectations For September 45.8 Vs 50.5 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:00:23.377596-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michigan Consumer Sentiment For September 47.8 Vs 51.0 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:00:46.118972-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Adviser Hassett Speaking On Bloomberg TV Says Trump Will Have An Opinion If Fed Hikes; Stresses Fed Independence, High Respect For Chair Kevin Warsh",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:00:52.583814-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "These Analysts Revise Their Forecasts On Adobe Following Q3 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

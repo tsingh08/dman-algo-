@@ -2408,5 +2408,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T14:25:40.769754-04:00",
+    "symbols": [
+      "DSGX"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Descartes Systems Group, Raises Price Target to $98",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T14:25:40.771773-04:00",
+    "symbols": [
+      "DSGX"
+    ],
+    "headline": "Full Transcript: Descartes Systems Gr Q2 2027 Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

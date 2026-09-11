@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.557910-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Ted Cruz Warns \u2018Whole World Is in Trouble\u2019 if China Leads AI, Says \u2018We Need Guardrails\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T11:13:37.559409-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says Autopilot Wasn\u2019t in Use During Tesla Crash, Slams \u2018Legacy Media\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T11:13:37.561409-04:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Reports August Business Insider Taiwan Website Page Views Of 1.2M+, Up From %00K In June; Plans Two New Original Flagship Video And Podcast Programs For Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.563516-04:00",
-    "symbols": [
-      "VSA"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.565057-04:00",
-    "symbols": [
-      "XHG"
-    ],
-    "headline": "11 Financials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.566601-04:00",
     "symbols": [
       "ZENA"
@@ -5044,6 +4994,56 @@
       "NVDA"
     ],
     "headline": "Jensen Huang Mocks Nvidia \u2018Circular Financing\u2019 Fears: \u2018If That Is, Let\u2019s Do More of That\u2019",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:25:04.613054-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "NuScale Power shares are trading lower after UBS downgraded its rating on the stock from Neutral to Sell and lowered its price target from $10 to $6.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:25:07.532663-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Joby Aviation Files Resale Prospectus for 2.4 Million Earn-Out Shares Tied to Blade Acquisition",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:25:18.613838-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta Meets With European Credit Investors in Non-Deal Roadshow&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T10:25:45.683042-04:00",
+    "symbols": [
+      "BENF"
+    ],
+    "headline": "Beneficient Shares Halted On Circuit Breaker To The Upside, Stock Now Up 54.33%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:25:57.570851-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "Dow Jumps Over 1%; US Inflation Holds at 3.4% In August",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

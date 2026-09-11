@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:24:49.885782-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber, WeRide Move Closer to Driverless Rides in Spain",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-10T12:27:19.808469-04:00",
     "symbols": [
       "MU",
@@ -5056,6 +5046,16 @@
     "headline": "&#34;Lutnick Says Trump\u2019s $5,000 Checks For Americans Wouldn\u2019t Rely On Taxpayer Funds; Claims That The Administration Could &#39;Earn The Money That Donald Trump Wants To Pay Out, Not From The Deficit, And Not From Taxpayers.&#39;&#34; - NBC News",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T12:38:08.621975-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Watching Salesforce; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

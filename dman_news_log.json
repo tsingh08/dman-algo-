@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.577611-04:00",
-    "symbols": [
-      "IPDN"
-    ],
-    "headline": "Nasdaq Down Over 200 Points; US Producer Inflation Rises to 5.4% In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.579235-04:00",
-    "symbols": [
-      "IPDN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.581564-04:00",
-    "symbols": [
-      "AEON"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.583186-04:00",
     "symbols": [
       "AEON"
@@ -5045,6 +5015,36 @@
     ],
     "headline": "Oklo shares are trading lower after the company announced an at-the-market equity offering of up to $1 billion of stock.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:35:23.483687-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is Snap Stock Surging on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T10:36:26.943543-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Adobe, Raises Price Target to $270",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T10:37:09.786734-04:00",
+    "symbols": [
+      "PCLA"
+    ],
+    "headline": "Dow Jumps Over 1%; US Inflation Holds at 3.4% In August",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

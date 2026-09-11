@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.504923-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "PayPal&#39;s Head Of Global Crypto Policy Amy Kim, At Stablecon, Says This Is A Natural Progression For Us; Oversight For Stablecoin Still Needed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.506155-04:00",
     "symbols": [
       "SPY"
@@ -5044,5 +5034,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T09:44:19.259022-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Watching Microsoft; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

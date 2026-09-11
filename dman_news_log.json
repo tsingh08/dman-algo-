@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:26:56.501804-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Trump\u2019s $5K Free Money Could Be A Market Bonanza; China, Russia, Iran Leaders Meet In India; PPI Pushes Fed Rate-Hike Odds To 70%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-10T11:26:56.580425-04:00",
     "symbols": [
       "TSLA"
@@ -5056,5 +5046,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T11:25:57.237079-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Exec Says Starship Will Generate Revenue for First Time \u2018Later This Month\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

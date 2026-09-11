@@ -2593,5 +2593,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T16:12:02.670242-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Leveraged Funds Turn Bearish on Nasdaq-100 as Short Bets Hit $75 Billion",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T16:24:12.852748-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "&#39;Goldman, BofA Vie to Manage Anthropic Staffers\u2019 IPO Millions&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T16:49:22.486187-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Government Becomes ~10% Shareholder oF Trilogy Metals With $35.6M Strategic Investment To Advance Exploration And Development Of Alaska\u2019s Ambler Mining District Copper Projects",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T16:56:27.232896-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "&#39;JPMorgan Cut Off Situational Awareness Lending After AI Losses&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

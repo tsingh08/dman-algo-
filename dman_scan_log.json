@@ -1969,5 +1969,27 @@
     "tickers_total": 293,
     "signals": 0,
     "signal_tickers": []
+  },
+  {
+    "ts": "2026-09-11T09:39:00.832357-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 16.2,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 256,
+    "signals": 1,
+    "signal_tickers": [
+      "BDRX"
+    ],
+    "signal_scores": [
+      100
+    ],
+    "rejected_no_signal": 256,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 80.0,
+    "news_breadth_total": 313
   }
 ]

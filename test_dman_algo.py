@@ -7554,11 +7554,39 @@ class TestAdoptOrphanPositions(unittest.TestCase):
         pos = self._pt().positions[0]
         self.assertAlmostEqual(pos.stop, round(10.0 * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4))
 
-    def test_option_symbols_are_skipped(self):
-        # OCC records carry leg/greek/premium state this cannot rebuild.
+    def test_single_leg_long_options_are_adopted(self):
+        # Revised 2026-09-11. The old rule skipped every OCC symbol because
+        # "leg/greek state cannot be rebuilt" -- true of spreads, not of a
+        # single long call. _monitor_option_position() reads only entry,
+        # setup, shares, stop, target1 and ticker, all of which come off the
+        # broker position. Confirmed live 2026-09-10: APLD and TE sat
+        # untracked and therefore had NO exit management at all, APLD at -51%.
         n = self._run([self._remote("UMAC260828C00025000", "2", "9.22")], [])
+        self.assertEqual(n, 1)
+        _p = self._pt().positions[0]
+        self.assertEqual(_p.ticker, "UMAC")
+        self.assertEqual(_p.setup, "Options Call UMAC260828C00025000")
+        self.assertEqual(_p.entry, 9.22)
+        self.assertEqual(_p.shares, 200)          # contracts x 100
+        self.assertAlmostEqual(_p.stop, 4.61, places=2)     # -50% premium
+        self.assertAlmostEqual(_p.target1, 13.83, places=2) # +50% premium
+        self.assertFalse(getattr(_p, "day_only", False))
+
+    def test_short_option_legs_are_not_adopted(self):
+        # A short leg is a different risk object, and is usually half of a
+        # spread whose other leg this cannot see.
+        n = self._run([self._remote("UMAC260828C00025000", "-2", "9.22")], [])
         self.assertEqual(n, 0)
         self.assertEqual(self._pt().positions, [])
+
+    def test_adopted_option_restores_the_aggregate_exposure_cap(self):
+        # _open_options_premium_at_risk() reads the tracker, so an untracked
+        # option reports $0 premium at risk and the aggregate cap silently
+        # stops binding -- which is how $726 of premium was opened against a
+        # $539 cap on 2026-09-10.
+        self._run([self._remote("UMAC260828C00025000", "2", "9.22")], [])
+        with patch.object(a, "PositionTracker", self._pt):
+            self.assertAlmostEqual(a._open_options_premium_at_risk(), 1844.0, places=2)
 
     def test_entry_date_comes_from_the_filling_buy_not_today(self):
         # _record_day_trade() compares entry_date to the close date, so

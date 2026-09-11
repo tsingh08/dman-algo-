@@ -18614,6 +18614,58 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
         return None, str(exc)
 
 
+_OCC_RE = re.compile(r"^([A-Z]{1,6})(\d{6})([CP])(\d{8})$")
+
+
+def _parse_occ_symbol(sym: str) -> Optional[dict]:
+    """{underlying, expiry, right, strike} for an OCC symbol, else None."""
+    _m = _OCC_RE.match(sym.upper())
+    if not _m:
+        return None
+    _u, _d, _r, _k = _m.groups()
+    return {"underlying": _u, "expiry": f"20{_d[:2]}-{_d[2:4]}-{_d[4:]}",
+            "right": "CALL" if _r == "C" else "PUT",
+            "strike": int(_k) / 1000.0}
+
+
+def _adopt_single_leg_option(pos, occ: dict, pt) -> int:
+    """Bring one untracked long single-leg option under management.
+
+    Stop and target use the same premium multiples the submit path writes
+    (-50% / +50%), so an adopted contract is managed on exactly the terms it
+    would have had if its record had never been lost.
+    """
+    try:
+        _qty = float(pos.qty)
+        if _qty <= 0:
+            return 0                      # short leg — not ours to manage
+        _prem = float(pos.avg_entry_price)
+        if _prem <= 0:
+            return 0
+    except (TypeError, ValueError):
+        return 0
+    _setup = f"Options {occ['right'].title()} {pos.symbol.upper()}"
+    try:
+        pt.open(OpenPosition(
+            ticker     = occ["underlying"],
+            setup      = _setup,
+            bias       = "LONG",
+            entry      = round(_prem, 2),
+            stop       = round(_prem * 0.50, 2),
+            target1    = round(_prem * 1.50, 2),
+            target2    = round(_prem * 2.50, 2),
+            shares     = int(_qty * 100),
+            entry_date = _orphan_entry_date(pos.symbol.upper(), []),
+            day_only   = False,
+        ))
+    except Exception as _exc:
+        print(f"  ⚠️  Could not adopt option {pos.symbol}: {_exc}")
+        return 0
+    print(f"  🩹 Adopted orphan option: {pos.symbol} {int(_qty)}x @ ${_prem:.2f} "
+          f"(stop ${_prem*0.50:.2f}, T1 ${_prem*1.50:.2f})")
+    return 1
+
+
 def adopt_orphan_positions() -> int:
     """
     Bring any EQUITY position held at Alpaca but missing from the tracker
@@ -18646,9 +18698,20 @@ def adopt_orphan_positions() -> int:
         one (ground truth), and only falls back to a percentage when there
         is none -- in which case the position is unprotected anyway and
         _check_stop_coverage()'s existing alert is the louder signal.
-      - Options positions (OCC symbols) are skipped: their tracker records
-        carry leg/greek/premium state this cannot reconstruct, and a
-        half-populated options record is worse than a clean orphan alert.
+      - SINGLE-LEG long options ARE adopted (revised 2026-09-11). The
+        original reasoning -- that an options record carries leg/greek state
+        this cannot reconstruct -- turned out to be true only of spreads.
+        _monitor_option_position() reads exactly entry, setup, shares, stop,
+        target1 and ticker; the greeks are display detail, all six of those
+        come straight off the broker position, and the stop/target multiples
+        are the same ones the submit path applies (-50% / +50% premium).
+        Confirmed live 2026-09-10: APLD and TE were both held untracked, and
+        because options monitoring reads POSITIONS_FILE they had NO exit
+        management at all -- APLD sat at -51% with nothing able to close it.
+        A reconstructed record is emphatically better than that.
+      - SHORT options and multi-leg spreads are still skipped: a spread's
+        legs only make sense together, and a short leg is a different risk
+        object than anything this function is equipped to manage.
     """
     client = get_alpaca_client()
     if client is None:
@@ -18683,8 +18746,14 @@ def adopt_orphan_positions() -> int:
         sym = p.symbol.upper()
         if sym in tracked:
             continue
+        _occ = _parse_occ_symbol(sym)
+        if _occ:
+            _n = _adopt_single_leg_option(p, _occ, pt)
+            if _n:
+                adopted += _n
+            continue
         if len(sym) > 6 or any(ch.isdigit() for ch in sym):
-            continue          # OCC option symbol — see docstring
+            continue          # unrecognised non-equity symbol
         try:
             qty   = int(float(p.qty))
             entry = float(p.avg_entry_price)

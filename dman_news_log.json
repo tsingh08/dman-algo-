@@ -1,17 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:27:19.808469-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Shares of memory and storage-related companies are trading lower amid elevated energy prices and U.S. Fed rate hike expectations. Higher borrowing costs may lessen demand for capacity should the sector&#39;s customers cut back their respective buildout campaigns due to expensive financing.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T12:31:46.053701-04:00",
     "symbols": [
       "NVDA"
@@ -5057,5 +5045,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T12:50:48.868487-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Shares of memory and storage-related companies are trading lower. DeepSeek released its V4.1 Flash model that needs just a quarter of the HBM capacity of the Flash V4 model and just one-eighth of the SSD storage, which may bode for lower memory demand if duplicated across global LLMs.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

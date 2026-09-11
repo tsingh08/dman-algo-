@@ -2462,5 +2462,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T15:05:13.491022-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Stock Drops Friday Afternoon: What&#39;s Driving the Action?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T15:05:33.304645-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Marvell Stock Is Up 180% This Year: BofA Says the Real AI Opportunity Is 5 Times Bigger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T15:05:34.315391-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Marvell Stock Is Up 180% This Year: BofA Says the Real AI Opportunity Is 5 Times Bigger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T15:05:34.575898-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Marvell Stock Is Up 180% This Year: BofA Says the Real AI Opportunity Is 5 Times Bigger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T15:05:37.091466-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Marvell Stock Is Up 180% This Year: BofA Says the Real AI Opportunity Is 5 Times Bigger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-11T15:05:37.317225-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Is Up 180% This Year: BofA Says the Real AI Opportunity Is 5 Times Bigger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:00:31.232346-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T12:00:32.577112-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-10T12:00:32.807303-04:00",
     "symbols": [
       "SNDK"
@@ -5054,5 +5034,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T11:50:36.451955-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "From September 10, Wyoming Senator Cynthia Lummis Posted About Updated Save Act On X, &#34;Overall, this text contains over 100 changes requested by Democrats. Let\u2019s get this done!",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T11:51:50.239101-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Says Its AI Buildout Will Pay for Itself. Can It?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

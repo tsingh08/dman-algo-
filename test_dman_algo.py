@@ -3297,7 +3297,12 @@ class TestWinRateLiveOnlyFiltering(unittest.TestCase):
     def tearDown(self):
         os.unlink(self._tmp.name)
 
-    def _record(self, tracker, outcome, is_live, pnl_pct=1.0):
+    def _record(self, tracker, outcome, is_live, pnl_pct=None):
+        # pnl must agree with the label: win rate is derived from realised
+        # P&L now (see _classify_outcome), not read back off the label, so a
+        # record tagged LOSS with a +1.0% P&L is not a valid fixture.
+        if pnl_pct is None:
+            pnl_pct = {"WIN": 2.0, "LOSS": -2.0}.get(outcome, 0.0)
         tracker.record(a.TradeRecord(
             ticker="TESTX", date="2026-08-07", bias="LONG", setup="Gap & Hold",
             entry=10.0, exit=11.0, outcome=outcome, pnl_pct=pnl_pct,
@@ -6743,6 +6748,52 @@ class TestEarningsSafeForNakedHold(unittest.TestCase):
         src = inspect.getsource(a._genuine_shares_case)
         self.assertLess(src.index("_earnings_safe_for_naked_hold"),
                         src.index("_has_tier_a_catalyst"))
+
+
+class TestScratchIsNotAWin(unittest.TestCase):
+    """`"WIN" if pnl_pct >= 0 else "LOSS"` counted every breakeven stop --
+    exit price EQUAL to entry, 0.00% -- as a win. Of 31 live trades, 10
+    exited at exactly 0.00%, reporting 48% WR against -3.46% real expectancy.
+    adaptive_min_score() targets win rate, so the system was tuning toward a
+    number scratches satisfy."""
+
+    def test_breakeven_stop_is_not_a_win(self):
+        self.assertEqual(a._classify_outcome(0.0), "SCRATCH")
+
+    def test_real_gain_and_real_loss_still_classify(self):
+        self.assertEqual(a._classify_outcome(39.68), "WIN")
+        self.assertEqual(a._classify_outcome(-20.0), "LOSS")
+
+    def test_band_is_symmetric(self):
+        self.assertEqual(a._classify_outcome(a.SCRATCH_BAND_PCT), "SCRATCH")
+        self.assertEqual(a._classify_outcome(-a.SCRATCH_BAND_PCT), "SCRATCH")
+        self.assertEqual(a._classify_outcome(a.SCRATCH_BAND_PCT + 0.01), "WIN")
+        self.assertEqual(a._classify_outcome(-a.SCRATCH_BAND_PCT - 0.01), "LOSS")
+
+    def test_scratches_stay_in_the_denominator(self):
+        # A scratch consumes a slot, a day trade and attention. Dropping it
+        # from the denominator would flatter the win rate all over again.
+        import tempfile, os
+        _f = tempfile.NamedTemporaryFile(suffix=".json", delete=False); _f.close()
+        self.addCleanup(os.unlink, _f.name)
+        t = a.WinRateTracker(filepath=_f.name)
+        for _p in (5.0, 0.0, 0.0, -5.0):
+            t.record(a.TradeRecord(ticker="T", date="2026-09-01", bias="LONG",
+                                   setup="Gap & Hold", entry=10.0, exit=10.0,
+                                   outcome=a._classify_outcome(_p), pnl_pct=_p,
+                                   score=100, is_live=True))
+        st = t.rolling_stats()
+        self.assertEqual(st["total"], 4)
+        self.assertEqual(st["wins"], 1)
+        self.assertEqual(st["losses"], 1)
+        self.assertAlmostEqual(st["win_rate"], 0.25)   # not 0.50
+
+    def test_win_rate_is_derived_from_pnl_not_the_stored_label(self):
+        # Historical rows carry "WIN" on 0.00% scratches; reading the label
+        # back would keep reporting the inflated number forever.
+        src = inspect.getsource(a.WinRateTracker.rolling_stats)
+        self.assertIn("_classify_outcome(r.pnl_pct)", src)
+        self.assertNotIn('r.outcome == "WIN"', src)
 
 
 class TestSetupKill(unittest.TestCase):

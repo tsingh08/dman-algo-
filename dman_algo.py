@@ -714,6 +714,38 @@ TICKER_BENCH_CUM_PCT_FLOOR = -5.0   # ...or bench a net bleeder regardless of WR
 # The 76% backtest win rate that justified this strategy was earned over
 # 15-day holds; live never gets past hour six. Extracted to a constant
 # 2026-09-05 so the two can actually be compared.
+# A trade that ends flat is not a win. It sounds obvious written down, but
+# the outcome test was `"WIN" if pnl_pct >= 0 else "LOSS"`, so every
+# breakeven stop -- exit price EQUAL to entry, 0.00% -- was recorded as a win.
+#
+# That one comparison is why a "76% win rate" strategy lost money for two
+# months. Of 31 live trades, 10 exited at exactly 0.00%; counting them as
+# wins reports 48% while real expectancy is -3.46% per trade. Win rate was
+# never measuring profitability, and worse, adaptive_min_score() TARGETS win
+# rate (0.80) -- so the system was tuning its own score threshold toward a
+# number that scratches satisfy, with no pressure at all toward trades that
+# actually make money.
+#
+# A scratch is its own outcome. It is not a win (no money made) and not a
+# loss (no money lost), but it DOES consume a slot, a day-trade and
+# attention, so it stays in the win-rate denominator rather than being
+# quietly dropped.
+SCRATCH_BAND_PCT = 0.5     # |pnl| <= this is a scratch, not a win or a loss
+
+
+def _classify_outcome(pnl_pct: float) -> str:
+    """WIN / SCRATCH / LOSS for a realised P&L percentage."""
+    try:
+        _p = float(pnl_pct)
+    except (TypeError, ValueError):
+        return "LOSS"
+    if _p > SCRATCH_BAND_PCT:
+        return "WIN"
+    if _p < -SCRATCH_BAND_PCT:
+        return "LOSS"
+    return "SCRATCH"
+
+
 BACKTEST_MAX_HOLD_BARS = 15
 
 SPLIT_SUSPECT_RATIO = 3.0
@@ -2410,7 +2442,7 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
             pnl_pct     = ((exit_px - entry) / entry * 100) if is_long else ((entry - exit_px) / entry * 100)
             return {"exit_date": exit_bar_date, "exit_px": round(exit_px, 2),
                     "exit_reason": exit_reason,
-                    "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
+                    "outcome": _classify_outcome(pnl_pct),
                     "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
 
         # BE@1R: move stop to entry once 1R profit is reached (before T1) --
@@ -2441,7 +2473,7 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
             pnl_pct = ((C - entry) / entry * 100) if is_long else ((entry - C) / entry * 100)
             return {"exit_date": exit_bar_date, "exit_px": round(C, 2),
                     "exit_reason": "STALL",
-                    "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
+                    "outcome": _classify_outcome(pnl_pct),
                     "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
 
         # Time exit
@@ -2449,7 +2481,7 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
             pnl_pct = ((C - entry) / entry * 100) if is_long else ((entry - C) / entry * 100)
             return {"exit_date": exit_bar_date, "exit_px": round(C, 2),
                     "exit_reason": "TIME",
-                    "outcome": "WIN" if pnl_pct >= 0 else "LOSS",
+                    "outcome": _classify_outcome(pnl_pct),
                     "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
 
     return None  # still open
@@ -13402,8 +13434,13 @@ class WinRateTracker:
                     "avg_loss_r": 1.0, "consec_losses": 0,
                     "total": 0, "wins": 0, "losses": 0}
 
-        wins   = [r for r in recent if r.outcome == "WIN"]
-        losses = [r for r in recent if r.outcome == "LOSS"]
+        # Classified from realised P&L, not the stored label. Records written
+        # before 2026-09-11 carry "WIN" for 0.00% breakeven stops (see
+        # _classify_outcome), so reading the label back would keep reporting a
+        # win rate that scratches inflate. Deriving it here corrects every
+        # historical record at once instead of only new ones.
+        wins   = [r for r in recent if _classify_outcome(r.pnl_pct) == "WIN"]
+        losses = [r for r in recent if _classify_outcome(r.pnl_pct) == "LOSS"]
 
         win_rate  = len(wins) / len(recent)
         avg_win_r = (sum(r.pnl_pct for r in wins) / len(wins)
@@ -13414,7 +13451,7 @@ class WinRateTracker:
         # Consecutive losses (from end)
         consec = 0
         for r in reversed(recent):
-            if r.outcome == "LOSS":
+            if _classify_outcome(r.pnl_pct) == "LOSS":
                 consec += 1
             else:
                 break
@@ -13422,7 +13459,7 @@ class WinRateTracker:
         # Consecutive wins (from end)
         consec_wins = 0
         for r in reversed(recent):
-            if r.outcome == "WIN":
+            if _classify_outcome(r.pnl_pct) == "WIN":
                 consec_wins += 1
             else:
                 break
@@ -13459,8 +13496,8 @@ class WinRateTracker:
         recent = [r for r in self.records[-200:] if r.setup == setup and r.is_live][-n:]
         if len(recent) < 5:
             return self.rolling_stats(live_only=True)   # not enough data — use live-only aggregate
-        wins   = [r for r in recent if r.outcome == "WIN"]
-        losses = [r for r in recent if r.outcome == "LOSS"]
+        wins   = [r for r in recent if _classify_outcome(r.pnl_pct) == "WIN"]
+        losses = [r for r in recent if _classify_outcome(r.pnl_pct) == "LOSS"]
         wr     = len(wins) / len(recent)
         avg_win_r  = sum(r.pnl_pct for r in wins)   / len(wins)   if wins   else 2.2
         avg_loss_r = abs(sum(r.pnl_pct for r in losses)) / len(losses) if losses else 1.0
@@ -13536,8 +13573,8 @@ class WinRateTracker:
             recent = [r for r in live if _drift_key(r.setup) == setup][-30:]
             if len(recent) < min_trades:
                 continue
-            wins   = [r for r in recent if r.outcome == "WIN"]
-            losses = [r for r in recent if r.outcome == "LOSS"]
+            wins   = [r for r in recent if _classify_outcome(r.pnl_pct) == "WIN"]
+            losses = [r for r in recent if _classify_outcome(r.pnl_pct) == "LOSS"]
             wr = len(wins) / len(recent)
             if wr < wr_floor:
                 avg_loss_r = (abs(sum(r.pnl_pct for r in losses)) / len(losses)

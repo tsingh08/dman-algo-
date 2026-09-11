@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.516114-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T11:13:37.517827-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Fast-Tracking AI Infrastructure: CoreWeave Partners Deliver Data Center Power Early",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.519129-04:00",
     "symbols": [
       "APLD"
@@ -5044,5 +5024,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T09:51:08.294256-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Barclays Maintains Overweight on Oracle, Raises Price Target to $252",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T09:51:13.423103-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

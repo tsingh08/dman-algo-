@@ -6745,6 +6745,57 @@ class TestEarningsSafeForNakedHold(unittest.TestCase):
                         src.index("_has_tier_a_catalyst"))
 
 
+class TestSetupKill(unittest.TestCase):
+    """Live record through 2026-09-10: 31 trades, 16% WR, -107.3%. Low Float
+    Catalyst alone was 0W/10L for -78.3% -- 73% of all losses -- while setup
+    probation, which only raises the score bar, let every one through because
+    those signals scored 100."""
+
+    def _rec(self, n, wins, cum):
+        return {"Bad Setup": {"n": n, "wins": wins, "cum_pct": cum}}
+
+    def test_the_setup_that_broke_the_account_is_killed(self):
+        with patch.object(a, "_setup_live_record", return_value=self._rec(10, 0, -78.3)):
+            off, why = a._setup_is_disabled("Bad Setup")
+        self.assertTrue(off)
+        self.assertIn("0W/10L", why)
+
+    def test_small_sample_is_never_judged(self):
+        with patch.object(a, "_setup_live_record", return_value=self._rec(4, 1, -17.9)):
+            self.assertFalse(a._setup_is_disabled("Bad Setup")[0])
+
+    def test_the_core_edge_survives(self):
+        # Gap & Hold: 15 trades, 27% WR, -5.8%. Losing, but not decisively,
+        # and it is the setup the whole strategy rests on. A rule that killed
+        # it would be miscalibrated.
+        with patch.object(a, "_setup_live_record",
+                          return_value={"Gap & Hold": {"n": 15, "wins": 4, "cum_pct": -5.8}}):
+            self.assertFalse(a._setup_is_disabled("Gap & Hold")[0])
+
+    def test_bad_win_rate_alone_is_not_enough(self):
+        # Low WR but little damage means small losses -- not a kill.
+        with patch.object(a, "_setup_live_record", return_value=self._rec(12, 1, -3.0)):
+            self.assertFalse(a._setup_is_disabled("Bad Setup")[0])
+
+    def test_flag_off_re_enables(self):
+        with patch.object(a, "_setup_live_record", return_value=self._rec(10, 0, -78.3)),              patch.object(a, "ENABLE_SETUP_KILL", False):
+            self.assertFalse(a._setup_is_disabled("Bad Setup")[0])
+
+    def test_unknown_setup_is_not_blocked(self):
+        with patch.object(a, "_setup_live_record", return_value={}):
+            self.assertFalse(a._setup_is_disabled("Anything")[0])
+
+    def test_submit_refuses_a_killed_setup(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_kill = src.index("_setup_is_disabled(sig.setup)")
+        i_sub = src.index("submit_alpaca_trade(sig)")
+        self.assertLess(i_kill, i_sub)
+
+    def test_kill_switch_is_reachable_from_a_phone(self):
+        self.assertIn("ENABLE_SETUP_KILL",
+                      [v[0] for v in a.TOGGLEABLE_FLAGS.values()])
+
+
 class TestVixTermStructure(unittest.TestCase):
     """The term-structure signal read "N/A" for ~2 months because a
     long-period ^VIX3M request returns a series frozen at 2026-07-17."""

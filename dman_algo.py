@@ -2237,6 +2237,9 @@ TOGGLEABLE_FLAGS = {
                 "at 0 day trades, allow ONE share entry with no stop on a "
                 "Tier-A catalyst that has no options chain. OFF = options only. "
                 "The position is unprotected overnight by design."),
+    "setupkill":("ENABLE_SETUP_KILL",
+                "stop trading a setup whose live record is decisively losing "
+                "(>=8 trades, <=20% WR, <=-20% cumulative). OFF re-enables it."),
     "smallcap":("ENABLE_DYNAMIC_SMALLCAP",
                 "dynamic small-cap discovery from the Yahoo screeners."),
 }
@@ -2836,6 +2839,25 @@ def is_on_probation() -> tuple[bool, float]:
 
 SETUP_PROBATION_FILE        = "dman_setup_probation.json"
 SETUP_PROBATION_MAX_DAYS    = 10    # same auto-expiry window as account-level probation
+# HARD KILL for a setup the live record has already answered on.
+#
+# Probation (below) only raises the score bar by SETUP_PROBATION_SCORE_BONUS,
+# which is no obstacle at all to a setup whose signals score 100 -- and that
+# is exactly what happened. Low Float Catalyst went 0 wins in 10 live trades
+# for -78.3%, five of those losers scoring a perfect 100, and probation
+# flagged it on 2026-09-09 without preventing a single entry. Those ten
+# trades are 73% of every dollar this account has lost. Removing that one
+# setup takes the live record from -107.3% to -29.0%.
+#
+# A score penalty answers "is this signal good enough". After a sample this
+# one-sided the question is no longer about the signal, it is about the
+# setup, and the only honest answer is to stop trading it until a human says
+# otherwise. ENABLE_SETUP_KILL is the override; /flags setupkill turns it off.
+ENABLE_SETUP_KILL      = True
+SETUP_KILL_MIN_TRADES  = 8       # never judge a setup on a small sample
+SETUP_KILL_MAX_WR      = 0.20    # at or below this win rate, with...
+SETUP_KILL_MAX_CUM_PCT = -20.0   # ...this much cumulative damage, it stops
+
 SETUP_PROBATION_SCORE_BONUS = 10    # extra confluence points required for a restricted
                                       # setup, on top of whatever SETUP_MIN_CONFLUENCE
                                       # already demands
@@ -2915,6 +2937,51 @@ def _setup_probation_bonus(setup: str) -> int:
         return SETUP_PROBATION_SCORE_BONUS
     except Exception:
         return 0
+
+
+def _setup_live_record() -> dict:
+    """{setup: {n, wins, cum_pct}} from the ground-truth live outcomes log.
+
+    Reads LIVE_OUTCOMES_FILE rather than the win-rate tracker on purpose:
+    this decides whether to stop trading something, so it should rest on the
+    realised trade log, not on a derived rolling statistic.
+    """
+    _rec: dict = {}
+    try:
+        import csv as _csv
+        with open(LIVE_OUTCOMES_FILE, newline="") as _f:
+            for _row in _csv.DictReader(_f):
+                _setup = (_row.get("setup") or "").strip()
+                if not _setup:
+                    continue
+                try:
+                    _pnl = float(_row.get("pnl_pct"))
+                except (TypeError, ValueError):
+                    continue
+                _e = _rec.setdefault(_setup, {"n": 0, "wins": 0, "cum_pct": 0.0})
+                _e["n"] += 1
+                _e["cum_pct"] += _pnl
+                if _pnl > 0:
+                    _e["wins"] += 1
+    except FileNotFoundError:
+        return {}
+    except Exception:
+        return {}
+    return _rec
+
+
+def _setup_is_disabled(setup: str) -> tuple[bool, str]:
+    """(True, reason) if the live record says stop trading this setup."""
+    if not flag("ENABLE_SETUP_KILL", ENABLE_SETUP_KILL):
+        return False, ""
+    _e = _setup_live_record().get((setup or "").strip())
+    if not _e or _e["n"] < SETUP_KILL_MIN_TRADES:
+        return False, ""
+    _wr = _e["wins"] / _e["n"]
+    if _wr <= SETUP_KILL_MAX_WR and _e["cum_pct"] <= SETUP_KILL_MAX_CUM_PCT:
+        return True, (f"{_e['wins']}W/{_e['n'] - _e['wins']}L over {_e['n']} live "
+                      f"trades ({_wr*100:.0f}% WR, {_e['cum_pct']:+.1f}% cumulative)")
+    return False, ""
 
 
 def _entry_circuit_breakers_ok() -> tuple[bool, str]:
@@ -21254,6 +21321,23 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     for sig in signals:
         if sig.ticker in already_tracked:
             print(f"  ⏭️  {sig.ticker:<8} already in open positions — skipping duplicate")
+            continue
+
+        # Per-SETUP kill, the sibling of the per-ticker bench below. Setup
+        # probation only raises the score bar, which stopped nothing when the
+        # losing signals were scoring 100 -- Low Float Catalyst went 0-for-10
+        # for -78.3% with probation active. Past a sample that one-sided the
+        # question is about the setup, not the signal.
+        _kill, _kill_why = _setup_is_disabled(sig.setup)
+        if _kill:
+            print(f"  🛑 {sig.ticker:<8} {sig.setup} DISABLED — {_kill_why}")
+            _kk = f"__SETUP_KILLED__:{sig.setup}"
+            if not _is_duplicate_alert(_kk, 1440):
+                send_telegram(
+                    f"🛑 <b>Setup disabled</b> — {html.escape(sig.setup)}\n"
+                    f"{html.escape(_kill_why)}.\n\nNo further entries on this setup. "
+                    f"Send <b>/flags setupkill off</b> to override.")
+                _mark_alerted(_kk)
             continue
 
         # Per-ticker bench: stop returning to names whose own live record

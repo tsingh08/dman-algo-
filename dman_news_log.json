@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:04:34.197790-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Joby Aviation Carrying Out Flight Campaign Across Dallas-Fort Worth Region Under White House-Backed eVTOL Integration Pilot Plan",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:05:46.486618-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Truist Securities Maintains Hold on Airbnb, Raises Price Target to $161",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T12:08:03.470371-04:00",
     "symbols": [
       "LMT"
@@ -5051,5 +5031,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T12:05:16.605313-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Adobe, Lowers Price Target to $315",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T12:06:49.395989-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Stifel Maintains Buy on Oracle, Lowers Price Target to $200",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

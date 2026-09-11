@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:02:51.890662-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "What&#39;s Going on With Exxon Mobil Shares on Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-10T12:04:34.197790-04:00",
     "symbols": [
       "JOBY"
@@ -5049,6 +5039,16 @@
     ],
     "headline": "Boston Omaha Board Authorizes New $30M Share Repurchase Program, Effective November 1",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T12:03:47.095635-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "What&#39;s Going On With CleanSpark Stock Friday?",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

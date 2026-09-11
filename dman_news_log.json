@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:10:52.133612-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Billionaire Investor Added SpaceX to His Portfolio Right After the IPO",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-10T12:16:12.829708-04:00",
     "symbols": [
       "NVDA"
@@ -5051,5 +5041,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T12:10:43.465977-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announces Customers Can Pre-Order iPhone 18 Pro, Pro Max, Effective 5 AM PT Sept. 12 On Web, Apple Store App",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

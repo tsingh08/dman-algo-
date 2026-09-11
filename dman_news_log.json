@@ -1,391 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:31:54.524693-04:00",
-    "symbols": [
-      "TPET"
-    ],
-    "headline": "Trio Petroleum Stock Rallies: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:31:54.620563-04:00",
-    "symbols": [
-      "WLTH"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Wealthfront, Lowers Price Target to $11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:31:54.622950-04:00",
-    "symbols": [
-      "WLTH"
-    ],
-    "headline": "Wealthfront, Orchestra Biomed, AeroVironment And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:31:54.625220-04:00",
-    "symbols": [
-      "WLTH"
-    ],
-    "headline": "Full Transcript: Wealthfront Q2 2026 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:31:54.627423-04:00",
-    "symbols": [
-      "WLTH"
-    ],
-    "headline": "12 Financials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:32:16.306731-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop Posts On X &#34;Your local GameStop is back. Select closed stores are now reopening nationwide starting September 11.&#34;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:33:55.672627-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Duo Foldable iPhone a \u2018Must Have Product,\u2019 Gary Black Says \u2018Don\u2019t Underestimate the Power of the $AAPL Marketing Machine\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T12:36:13.726437-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Iran Is Producing Ballistic Missiles Again; Intelligence Findings Say Tehran Is Assembling Stockpiled Components Into Weapons In Underground Facilities&#39; - WSJ Exclusive",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:41:18.798468-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Drug Shows Significant Reductions in Menstrual Migraine Days",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T12:43:01.134889-04:00",
-    "symbols": [
-      "MARA",
-      "NBIS",
-      "RIOT"
-    ],
-    "headline": "Shares of AI cloud services companies are trading lower as concerns over elevated rates expectations and bond yields dampen investor appetite for high-growth stocks that are exposed to customer capex funded through borrowing.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:45:47.411656-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Form4 Filing Shows CEO Dara Khosrowshahi Buys 141,000 Shares At An Average Price Of $70.96/Share",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-10T12:52:18.475733-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:52:19.317876-04:00",
-    "symbols": [
-      "OBIO"
-    ],
-    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:52:19.825793-04:00",
-    "symbols": [
-      "AVAV"
-    ],
-    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:02:44.612728-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Snowflake, Tempus AI, Chubb, NVIDIA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T13:02:45.454696-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Snowflake, Tempus AI, Chubb, NVIDIA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:02:50.010870-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Appeals Court Rejects Trump Administration&#39;s Bid To Implement Rule Restricting Mail-In Voting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:02:53.640940-04:00",
-    "symbols": [
-      "ASO"
-    ],
-    "headline": "Truist Securities Maintains Hold on Academy Sports, Raises Price Target to $54",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:02:53.643457-04:00",
-    "symbols": [
-      "ASO"
-    ],
-    "headline": "Academy Sports Analysts Boost Their Forecasts After Upbeat Q2 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:02:53.645768-04:00",
-    "symbols": [
-      "ASO"
-    ],
-    "headline": "UBS Maintains Neutral on Academy Sports, Raises Price Target to $58",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:02:53.648093-04:00",
-    "symbols": [
-      "ASO"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Academy Sports, Raises Price Target to $53",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:04:15.436457-04:00",
-    "symbols": [
-      "WOLF"
-    ],
-    "headline": "Shares of foundry, fabricator and IDM chip companies are trading lower as investor concerns over Fed rate hikes and higher bond yields affect growth-oriented stocks that rely on demand from highly leveraged customers.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:05:49.645482-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "CPI Data Prediction Market Preview: Traders Brace for a Razor-Thin Call",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:06:14.255833-04:00",
-    "symbols": [
-      "FGL",
-      "MGN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:06:14.661850-04:00",
-    "symbols": [
-      "CDT",
-      "SLXN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:06:14.912272-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:06:41.529459-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Launches GPT-Live-1 In API; GPT\u2011Live\u20111 Available In API Today\u2060 At $0.05 Per Minute For Front-End Voice Layer",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T13:07:29.585471-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Announces It Is Investing More Than $230M In Higher Pay And Expanded Benefits For Whole Foods Market Team Members",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:09:39.208413-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase CEO Says CLARITY Act Nears &#39;Finish Line&#39; and Bitcoin Has &#39;Seen The Bottom&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:09:56.071806-04:00",
-    "symbols": [
-      "AMD",
-      "ARM",
-      "QCOM"
-    ],
-    "headline": "Shares of semiconductor and chip companies are trading lower as energy prices, rate expectations and bond yields converge to weigh on the demand outlook for sectors that are exposed to highly leveraged capex cycles.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:12:18.607495-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Stock Drops on Copper Tariff Uncertainty",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:12:35.608937-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "What&#39;s Going On With Oracle Stock Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:14:58.896044-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Launches GPT-Live-1 In API; GPT\u2011Live\u20111 Available In API Today\u2060 At $0.05 Per Minute For Front-End Voice Layer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T13:14:59.205249-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Snowflake, Tempus AI, Chubb, NVIDIA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:15:00.328151-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Announces It Is Investing More Than $230M In Higher Pay And Expanded Benefits For Whole Foods Market Team Members",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:15:01.179884-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Snowflake, Tempus AI, Chubb, NVIDIA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:15:06.446054-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase CEO Says CLARITY Act Nears &#39;Finish Line&#39; and Bitcoin Has &#39;Seen The Bottom&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T13:15:11.720013-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Stock Drops on Copper Tariff Uncertainty",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T13:15:11.964406-04:00",
     "symbols": [
       "ORCL"
@@ -5060,6 +4674,393 @@
     "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:03:25.067328-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Baker Hughes Oil Rig Count +1 To 450; U.S. Baker Hughes NatGas Rig Count +2 To 132; U.S. Baker Hughes Total Rig Count 591 Vs 588 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:05:43.713277-04:00",
+    "symbols": [
+      "AMD",
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:06:41.198767-04:00",
+    "symbols": [
+      "LBGJ",
+      "MGN",
+      "SGLY",
+      "SMR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:06:41.453737-04:00",
+    "symbols": [
+      "CDT",
+      "GCTK",
+      "SLXN",
+      "SXTC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:06:41.709102-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:36.380014-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Sam Altman Weighs AI Slowdown as Bridgewater Co-CIO Warns AI Will Kill People Before Anyone Acts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:07:36.654066-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:07:36.657715-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Sam Altman Weighs AI Slowdown as Bridgewater Co-CIO Warns AI Will Kill People Before Anyone Acts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:07:36.663650-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:07:38.939636-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:07:45.895861-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:45.900659-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:47.698503-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Live On CNBC, Kevin Simpson Announces Bought UnitedHealth Group",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:07:48.389866-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Freeport-McMoRan, iShares U.S. Energy ETF, Delta Air Lines, Kimberly-Clark",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:48.947871-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T13:07:49.199504-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T13:07:49.452313-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;White House Weighing How To Use Defense Production Act To Expand U.S. Refining Capacity To Help With Fuel Price Spikes&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:49.692978-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:07:49.938445-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:50.174790-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:50.639172-04:00",
+    "symbols": [
+      "GCTK"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:50.643049-04:00",
+    "symbols": [
+      "LBGJ"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:51.289979-04:00",
+    "symbols": [
+      "MGN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:51.753485-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:51.999731-04:00",
+    "symbols": [
+      "SLXN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:52.702091-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:53.428500-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:53.923446-04:00",
+    "symbols": [
+      "FEIM"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:53.927289-04:00",
+    "symbols": [
+      "FEIM"
+    ],
+    "headline": "QUICK SPARK: Skyworks Stock Poised to Be S&amp;P 500\u2019s Best Stock This Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:54.165827-04:00",
+    "symbols": [
+      "AENT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:54.403232-04:00",
+    "symbols": [
+      "NCRA"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:55.416790-04:00",
+    "symbols": [
+      "DPRO"
+    ],
+    "headline": "Draganfly Receives Five-Year, C$24.25M Contract From Canada Government To Supply Additional 4,900 Uncrewed Aircraft Systems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:55.648969-04:00",
+    "symbols": [
+      "RENT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:55.905680-04:00",
+    "symbols": [
+      "CRMT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:56.362942-04:00",
+    "symbols": [
+      "MKDW"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:56.864301-04:00",
+    "symbols": [
+      "ACVA"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:56.867966-04:00",
+    "symbols": [
+      "ACVA"
+    ],
+    "headline": "Needham Downgrades ACV Auctions to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:07:57.153090-04:00",
+    "symbols": [
+      "BTCT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

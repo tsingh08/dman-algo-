@@ -1,50 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "STKH",
-      "entry_px": 2.2846,
-      "stop_px": 2.2473,
-      "t1": 2.97,
-      "t2": 3.4269,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-11T11:06:21.836834-04:00",
-      "expires_at": "2026-09-11T11:21:21.836834-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "PN",
-      "entry_px": 2.4048,
-      "stop_px": 2.3463,
-      "t1": 3.1262,
-      "t2": 3.6072,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-11T11:06:29.857709-04:00",
-      "expires_at": "2026-09-11T11:21:29.857709-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "FGL",
-      "entry_px": 5.4409,
-      "stop_px": 4.1283,
-      "t1": 7.0732,
-      "t2": 8.1614,
-      "signal_str": "VWAP reclaim (recovery dip (opened -12.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-11T11:06:33.804412-04:00",
-      "expires_at": "2026-09-11T11:21:33.804412-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "MGRX",
-      "entry_px": 0.3972,
-      "stop_px": 0.3722,
-      "t1": 0.5164,
-      "t2": 0.5958,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.3% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-11T11:06:37.795682-04:00",
-      "expires_at": "2026-09-11T11:21:37.795682-04:00",
-      "status": "awaiting_approval"
-    },
-    {
       "ticker": "CISS",
       "entry_px": 1.513,
       "stop_px": 1.4058,
@@ -67,5 +23,10 @@
       "status": "awaiting_approval"
     }
   ],
-  "consumed": {}
+  "consumed": {
+    "STKH_2026-09-11T11:06:21.836834-04:00": 1789140122.602584,
+    "PN_2026-09-11T11:06:29.857709-04:00": 1789140122.602905,
+    "FGL_2026-09-11T11:06:33.804412-04:00": 1789140122.603112,
+    "MGRX_2026-09-11T11:06:37.795682-04:00": 1789140122.6032917
+  }
 }

@@ -1991,5 +1991,27 @@
     "budget_hit": false,
     "news_breadth_pct": 80.0,
     "news_breadth_total": 313
+  },
+  {
+    "ts": "2026-09-11T09:39:16.819587-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 16.1,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 256,
+    "signals": 1,
+    "signal_tickers": [
+      "BDRX"
+    ],
+    "signal_scores": [
+      100
+    ],
+    "rejected_no_signal": 256,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 76.4,
+    "news_breadth_total": 330
   }
 ]

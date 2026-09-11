@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:26:56.580425-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Trump\u2019s $5K Free Money Could Be A Market Bonanza; China, Russia, Iran Leaders Meet In India; PPI Pushes Fed Rate-Hike Odds To 70%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T11:27:02.258546-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump\u2019s $5K Free Money Could Be A Market Bonanza; China, Russia, Iran Leaders Meet In India; PPI Pushes Fed Rate-Hike Odds To 70%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:27:02.376501-04:00",
     "symbols": [
       "QQQ"
@@ -5056,5 +5036,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-11T11:28:20.812333-04:00",
+    "symbols": [
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Iran War, Inflation Fears Trigger $40 Billion Large-Cap Exodus \u2014 But VOO, QQQ Buck the Trend",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T11:28:45.287954-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "DA Davidson Maintains Buy on Palantir Technologies, Raises Price Target to $250",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

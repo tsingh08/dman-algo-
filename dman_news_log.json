@@ -2582,5 +2582,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T16:00:17.276820-04:00",
+    "symbols": [
+      "AAPL",
+      "ORCL"
+    ],
+    "headline": "Rate Hike Odds Jump to 90% as Record Diesel Lifts Inflation: This Week on Wall Street",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-10T13:15:12.562843-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Appeals Court Rejects Trump Administration&#39;s Bid To Implement Rule Restricting Mail-In Voting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:15:13.104529-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:15:13.355386-04:00",
-    "symbols": [
-      "BKV"
-    ],
-    "headline": "Reported Earlier, BKV Prices Upsized $500M Convertible Senior Notes Due 2031 At 1.625% Interest, Initial Conversion Price Of $31.93 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:15:13.986979-04:00",
-    "symbols": [
-      "BBOT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:15:13.988998-04:00",
-    "symbols": [
-      "BBOT"
-    ],
-    "headline": "Leerink Partners Maintains Outperform on BridgeBio Oncology, Lowers Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T13:15:14.267524-04:00",
-    "symbols": [
-      "AXGN"
-    ],
-    "headline": "Axogen Raises $200 Million to Fund BioCircuit Buyout Focused on Sutureless Nerve Repair",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-10T13:15:14.269606-04:00",
     "symbols": [
       "AXGN"
@@ -5061,6 +5001,67 @@
     ],
     "headline": "Deal Dispatch: Bending Spoons Acquires Miro For $1.35B, Kinetik Up For Sale, LIV Golf Bankruptcy",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:19:41.088961-04:00",
+    "symbols": [
+      "ETN",
+      "GEV"
+    ],
+    "headline": "Shares of data center infrastructure-related companies are trading higher as stabilizing bond yields, oil price retracement and Fed rate hike clarity after today&#39;s CPI data help assuage concerns over customer borrowing needed to fund substantial capex plans.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:21:19.951539-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Deal Dispatch: Bending Spoons Acquires Miro For $1.35B, Kinetik Up For Sale, LIV Golf Bankruptcy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T13:21:24.603345-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Deal Dispatch: Bending Spoons Acquires Miro For $1.35B, Kinetik Up For Sale, LIV Golf Bankruptcy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:21:33.580193-04:00",
+    "symbols": [
+      "BDRX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:21:36.695186-04:00",
+    "symbols": [
+      "GTBP"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:21:36.922508-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

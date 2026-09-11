@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:43:37.956064-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "QUICK SPARK: iShares 20+ Year Treasury ETF TLT Hits Lowest Levels Since 2004",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:49:53.376440-04:00",
-    "symbols": [
-      "AMD",
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-10T12:00:31.232346-04:00",
     "symbols": [
       "AMD"
@@ -5055,6 +5032,26 @@
     ],
     "headline": "Microsoft\u2019s AI Crunch Forced It to Turn Away Business, Now It Wants to Triple Computing Power",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T11:43:30.350063-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran War, Inflation Fears Trigger $40 Billion Large-Cap Exodus \u2014 But VOO, QQQ Buck the Trend",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T11:43:30.609890-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Iran War, Inflation Fears Trigger $40 Billion Large-Cap Exodus \u2014 But VOO, QQQ Buck the Trend",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

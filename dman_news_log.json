@@ -2412,16 +2412,26 @@
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:57:25.386874-04:00",
     "symbols": [
       "ZUMZ"
     ],
     "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
     "source": "scan-prefetch",
+=======
+    "ts": "2026-09-11T14:00:24.957300-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading lower amid catalysts for the sector including UBS&#39;s downgrade of NuScale Power to Sell over concerns about project timelines and cash burn, as well as Oklo&#39;s $1 billion at-the-market equity offering.",
+    "source": "benzinga",
+>>>>>>> Stashed changes
     "tag": "watchlist",
     "sentiment": null
   },
   {
+<<<<<<< Updated upstream
     "ts": "2026-09-11T13:57:25.389246-04:00",
     "symbols": [
       "ZUMZ"
@@ -2560,5 +2570,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+=======
+    "ts": "2026-09-11T14:03:05.193155-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Morgan Stanley Sees $80 Billion Tesla Semi Opportunity as Diesel Hits Record $6.06",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+>>>>>>> Stashed changes
   }
 ]

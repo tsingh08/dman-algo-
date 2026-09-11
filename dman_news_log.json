@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.531066-04:00",
-    "symbols": [
-      "IMPP"
-    ],
-    "headline": "Transcript: Imperial Ptrl Q2 2026 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.532489-04:00",
-    "symbols": [
-      "IMPP"
-    ],
-    "headline": "Imperial Ptrl Q2 Adj. EPS $0.76 Beats $0.73 Estimate, Sales $87.073M Beat $72.100M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.535047-04:00",
     "symbols": [
       "LFS"
@@ -5044,5 +5024,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T09:55:47.021046-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Adviser Hassett Speaking On Bloomberg TV Says Trump Is Very Serious About $5,000 Payment Proposal; Says Reconciliation Is One Path, Payments Can Be Done In A Fiscally Responsible Way",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T09:55:57.308836-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "These Analysts Revise Their Forecasts On Oracle After Q1 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

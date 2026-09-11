@@ -1,5 +1,228 @@
 [
   {
+<<<<<<< Updated upstream
+=======
+    "ts": "2026-09-10T13:15:14.271503-04:00",
+    "symbols": [
+      "AXGN"
+    ],
+    "headline": "Axogen To Acquire NerveTape Maker BioCircuit Technologies For $200M In Cash; Sees Deal As Accretive To FY27 Gross And Adjusted EBITDA Margins",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:15:14.800504-04:00",
+    "symbols": [
+      "CMRC"
+    ],
+    "headline": "11 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:15:15.152549-04:00",
+    "symbols": [
+      "COO"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.154629-04:00",
+    "symbols": [
+      "COO"
+    ],
+    "headline": "Why Cooper Stock Plunges After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.156538-04:00",
+    "symbols": [
+      "COO"
+    ],
+    "headline": "Citigroup Maintains Neutral on Cooper Companies, Lowers Price Target to $60",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.158432-04:00",
+    "symbols": [
+      "COO"
+    ],
+    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.160386-04:00",
+    "symbols": [
+      "COO"
+    ],
+    "headline": "Piper Sandler Downgrades Cooper Companies to Neutral, Lowers Price Target to $59",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.700324-04:00",
+    "symbols": [
+      "BHVN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:15:15.702558-04:00",
+    "symbols": [
+      "BHVN"
+    ],
+    "headline": "FDA Pauses New Enrollment for Biohaven Epilepsy Drug Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:15:15.704534-04:00",
+    "symbols": [
+      "BHVN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:15:15.706463-04:00",
+    "symbols": [
+      "BHVN"
+    ],
+    "headline": "Biohaven Discloses That FDA Demanded Pause In BHV7000-303 Enrolment; Dosing Continues And Topline Data Readout Remains On Timeline For H2 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:15:15.955941-04:00",
+    "symbols": [
+      "AEO"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.958100-04:00",
+    "symbols": [
+      "AEO"
+    ],
+    "headline": "Crude Oil Surges 6%; Macy\u2019s Shares Fall After Q2 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.960071-04:00",
+    "symbols": [
+      "AEO"
+    ],
+    "headline": "American Eagle Stock Hits 11-Month Lows, Analyst Praises Aerie But Remains In \u2018Wait-And-See Mode\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.962380-04:00",
+    "symbols": [
+      "AEO"
+    ],
+    "headline": "UBS Maintains Buy on American Eagle Outfitters, Lowers Price Target to $27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:15:15.964344-04:00",
+    "symbols": [
+      "AEO"
+    ],
+    "headline": "Tariff Windfall Masks American Eagle\u2019s Margin Pressure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T13:20:30.783317-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Chinese AI Startup Moonshot Secretly Routed User Queries To Anthropic&#39;s Claude AI Assistant Rather Than Using Its Own Kimi Tool, With Almost 300K Requests Sent Primarily To Opus - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:22:53.947138-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:22:54.197377-04:00",
+    "symbols": [
+      "FGL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:22:54.585167-04:00",
+    "symbols": [
+      "MGN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-10T13:22:54.854434-04:00",
+    "symbols": [
+      "SLXN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T13:22:55.276943-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+>>>>>>> Stashed changes
     "ts": "2026-09-10T13:22:55.474552-04:00",
     "symbols": [
       "IPDN"
@@ -5063,6 +5286,17 @@
     "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T13:27:55.523163-04:00",
+    "symbols": [
+      "MSFT",
+      "SPY"
+    ],
+    "headline": "Houthi Victory Raises Risks; Hotter CPI Pushes Fed Rate-Hike Odds To 88%",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

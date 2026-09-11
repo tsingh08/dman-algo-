@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.519129-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Jim Cramer: This Tech Stock Is \u2018Terrific\u2019, Home Depot Takes Beating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.520466-04:00",
     "symbols": [
       "CDT"
@@ -5044,5 +5034,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T09:51:56.190728-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Adviser Hassett Says Trump Will Have An Opinion If Fed Hikes; Stresses Fed Independence, High Respect For Chair Kevin Warsh",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.594582-04:00",
-    "symbols": [
-      "CULP"
-    ],
-    "headline": "Culp Stock Jumps Over 18% After-Hours: Why is it Moving?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.596710-04:00",
-    "symbols": [
-      "CULP"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.598985-04:00",
-    "symbols": [
-      "TPET"
-    ],
-    "headline": "Trio Petroleum Q3 EPS $(0.39) Up From $(1.57) YoY, Sales $348.581K Up From $192.395K YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.601232-04:00",
-    "symbols": [
-      "CMRC"
-    ],
-    "headline": "Commerce.com Announces Strategic Plan To Generate ~$60M-$80M Of Annualized Cost Savings; Authorizes $50M Stock Buyback; Guides FY26 Sales $336.5M-$344.5M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.603372-04:00",
-    "symbols": [
-      "EHGO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.605058-04:00",
     "symbols": [
       "IMNN"
@@ -5048,5 +4998,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T10:48:59.482373-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple CEO John Ternus Enters Role More Like Steve Jobs Than Tim Cook: Here&#39;s How",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:49:26.500815-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-11T10:49:29.670259-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:49:44.265785-04:00",
+    "symbols": [
+      "ACVA"
+    ],
+    "headline": "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:49:45.103847-04:00",
+    "symbols": [
+      "FEIM"
+    ],
+    "headline": "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

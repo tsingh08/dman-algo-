@@ -10183,6 +10183,31 @@ class ProSignal:
 #  SECTION 5 — FILTER 01: MARKET REGIME
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _latest_vix3m() -> Optional[float]:
+    """Latest 3-month VIX, or None.
+
+    Deliberately NOT fetch_df(). Confirmed 2026-09-11: a long-period request
+    for ^VIX3M comes back frozen at 2026-07-17 (392 rows, all stale), while a
+    short window returns the current bar -- so the term-structure signal had
+    been silently reading "N/A" for roughly two months. It is one of the
+    better early warnings of a volatility event (backwardation = acute fear),
+    which makes failing quiet exactly the wrong failure mode.
+
+    Only the latest value is ever compared against spot VIX, so a short
+    window is all this needs.
+    """
+    try:
+        import yfinance as _yf
+        _d = _yf.download("^VIX3M", period="10d", interval="1d",
+                          progress=False, auto_adjust=True)
+        if _d is None or len(_d) == 0:
+            return None
+        _v = float(_d["Close"].iloc[-1])
+        return _v if _v > 0 else None
+    except Exception:
+        return None
+
+
 def get_market_regime() -> dict:
     """
     Classify the overall market as BULL, BEAR, or CHOP using:
@@ -10334,9 +10359,8 @@ def get_market_regime() -> dict:
         vix_term_note = "N/A"
         vix_complacency_warn = ""
         try:
-            vix3m_df = fetch_df("^VIX3M")
-            if vix3m_df is not None and len(vix3m_df) >= 1:
-                vix3m_val = float(vix3m_df["Close"].iloc[-1])
+            vix3m_val = _latest_vix3m()
+            if vix3m_val:
                 ts_ratio  = vix_val / vix3m_val if vix3m_val > 0 else 1.0
                 if ts_ratio >= 1.10:
                     vix_term_note = (f"⚠️ INVERTED {ts_ratio:.2f}x "

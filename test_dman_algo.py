@@ -6745,6 +6745,25 @@ class TestEarningsSafeForNakedHold(unittest.TestCase):
                         src.index("_has_tier_a_catalyst"))
 
 
+class TestVixTermStructure(unittest.TestCase):
+    """The term-structure signal read "N/A" for ~2 months because a
+    long-period ^VIX3M request returns a series frozen at 2026-07-17."""
+
+    def test_does_not_use_the_long_period_fetcher(self):
+        src = inspect.getsource(a._latest_vix3m)
+        body = src.split('"""')[-1]          # skip the docstring, which names it
+        self.assertNotIn("fetch_df(", body)
+        self.assertIn("10d", body)
+
+    def test_returns_none_rather_than_guessing(self):
+        with patch.object(a, "_latest_vix3m", return_value=None):
+            self.assertIsNone(a._latest_vix3m())
+
+    def test_regime_consumes_it(self):
+        src = inspect.getsource(a.get_market_regime)
+        self.assertIn("_latest_vix3m()", src)
+
+
 class TestOptionsContractBudgetBand(unittest.TestCase):
     """Instruction 2026-09-10: "$300-400 per contract"."""
 

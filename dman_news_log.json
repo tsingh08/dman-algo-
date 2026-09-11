@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.553491-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "Why AeroVironment Shares Are Trading Higher By Around 6%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.554970-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;UK deepens reliance on Musk&#39;s SpaceX, spending nearly $40 million on satellite services&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-10T11:13:37.556449-04:00",
     "symbols": [
       "SPCX"
@@ -5044,5 +5024,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T10:15:21.201346-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Tesla Stock In The Last 15 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T10:15:22.551081-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Major indices are trading higher amid oil price retracement, bond yields stabilizing, and clarity from U.S. CPI data that confirmed investor expectations for an FOMC rate hike of 25bps at the September 16 meeting.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

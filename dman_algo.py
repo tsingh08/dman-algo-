@@ -17565,6 +17565,15 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             "tickers_total":       len(tickers),
             "signals":             len(signals),
             "signal_tickers":      [s.ticker for s in signals],
+            # Recorded so score SATURATION stays visible. Measured 2026-09-11
+            # over 118 scans: rejected_low_score was 0 every single time --
+            # the score threshold has never rejected anything -- while 26 of
+            # 31 taken trades scored exactly 100. The binding filter is the
+            # setup logic (31,078 "no signal" rejects); the score is a label
+            # applied after it, saturated at the ceiling. Any attempt to tune
+            # min_score is tuning a knob that is not connected to anything,
+            # and without this field there is no way to notice that.
+            "signal_scores":       [getattr(s, "confluence_score", 0) for s in signals],
             "rejected_no_signal":  rejected_counts["no_signal"],
             "rejected_hard_gate":  rejected_counts["hard_gate"],
             "rejected_low_score":  rejected_counts["low_score"],

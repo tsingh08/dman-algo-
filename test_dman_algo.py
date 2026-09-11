@@ -6750,6 +6750,24 @@ class TestEarningsSafeForNakedHold(unittest.TestCase):
                         src.index("_has_tier_a_catalyst"))
 
 
+class TestScoreThresholdIsNotBinding(unittest.TestCase):
+    """Measured 2026-09-11 over 118 scans: rejected_low_score was 0 every
+    time, while 26 of 31 taken trades scored exactly 100. The score threshold
+    has never rejected a signal -- the binding filter is the setup logic
+    (31,078 "no signal" rejects). Tuning min_score tunes a disconnected knob."""
+
+    def test_scan_log_records_signal_scores(self):
+        # Without this field there is no way to see saturation, which is how
+        # a dead threshold went unnoticed for two months.
+        src = inspect.getsource(a.run_pro_scanner)
+        self.assertIn('"signal_scores"', src)
+
+    def test_recorded_alongside_the_reject_counter_it_explains(self):
+        src = inspect.getsource(a.run_pro_scanner)
+        self.assertLess(src.index('"signal_scores"'),
+                        src.index('"rejected_low_score"'))
+
+
 class TestSplitUnadjust(unittest.TestCase):
     """THE backtest-vs-live divergence. yfinance always back-adjusts OHLC for
     splits (auto_adjust only governs dividends), but entry/stop/target are

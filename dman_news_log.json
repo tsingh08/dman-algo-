@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.556449-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk&#39;s SpaceX Just Gave Starlink a Major Wi-Fi Upgrade With Its New 4th-Gen Router",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-10T11:13:37.557910-04:00",
     "symbols": [
       "SPCX"
@@ -5044,6 +5034,16 @@
       "SPY"
     ],
     "headline": "Major indices are trading higher amid oil price retracement, bond yields stabilizing, and clarity from U.S. CPI data that confirmed investor expectations for an FOMC rate hike of 25bps at the September 16 meeting.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:19:58.917955-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Mocks Nvidia \u2018Circular Financing\u2019 Fears: \u2018If That Is, Let\u2019s Do More of That\u2019",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.552018-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.553491-04:00",
     "symbols": [
       "SLXN"
@@ -5044,5 +5034,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:13:49.351283-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "UBS Maintains Buy on Oracle, Raises Price Target to $250",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -9728,6 +9728,75 @@ class TestSetupProbation(unittest.TestCase):
         self.assertEqual(a._smallcap_score_threshold("ARTL", "Low Float Catalyst"),
                           base + a.SETUP_PROBATION_SCORE_BONUS)
 
+    # ── family-key matching (2026-09-11 review finding) ─────────────────────
+    # Positions are recorded with decorated labels ("SWING — <setup>",
+    # "Earnings Call/Put/Double Spread") while entry gates look up the raw
+    # signal label. The drift check restricts using the RECORDED labels, so
+    # two of the four restrictions live on 2026-09-11 could never match any
+    # lookup. _probation_key() collapses both spellings to one family.
+
+    def test_probation_key_strips_swing_decoration(self):
+        self.assertEqual(a._probation_key("SWING — Gap & Hold"), "Gap & Hold")
+
+    def test_probation_key_folds_earnings_shapes_into_one_family(self):
+        for label in ("Earnings Call Spread", "Earnings Put Spread",
+                      "Earnings Double Spread", "Earnings Spread"):
+            self.assertEqual(a._probation_key(label), "Earnings Spread")
+
+    def test_swing_decorated_state_key_restricts_the_raw_label(self):
+        a._save_setup_probation({"SWING — Momentum Watch Breakout (Day)": {
+            "started": datetime.now(a.ET).isoformat(), "note": "x"}})
+        self.assertEqual(a._setup_probation_bonus("Momentum Watch Breakout (Day)"),
+                          a.SETUP_PROBATION_SCORE_BONUS)
+
+    def test_earnings_family_state_key_restricts_per_shape_labels(self):
+        a._enter_setup_probation("Earnings Spread", "25% WR test")
+        self.assertEqual(a._setup_probation_bonus("Earnings Call Spread"),
+                          a.SETUP_PROBATION_SCORE_BONUS)
+
+    def test_enter_does_not_duplicate_a_decorated_existing_key(self):
+        a._save_setup_probation({"SWING — Momentum Watch Breakout (Day)": {
+            "started": datetime.now(a.ET).isoformat(), "note": "x"}})
+        newly = a._enter_setup_probation("Momentum Watch Breakout (Day)", "second")
+        self.assertFalse(newly, "a decorated key for the same family must keep its clock")
+        self.assertEqual(len(a._load_setup_probation()), 1)
+
+    def test_expired_decorated_key_is_removed_by_raw_label_lookup(self):
+        a._save_setup_probation({"SWING — Momentum Watch Breakout (Day)": {
+            "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
+            "note": "x"}})
+        with patch.object(a, "send_telegram", return_value=True):
+            self.assertEqual(a._setup_probation_bonus("Momentum Watch Breakout (Day)"), 0)
+        self.assertEqual(a._load_setup_probation(), {})
+
+    def test_probation_note_returns_active_note_and_none_when_clear(self):
+        self.assertIsNone(a._setup_probation_note("Momentum Watch Breakout (Day)"))
+        a._save_setup_probation({"SWING — Momentum Watch Breakout (Day)": {
+            "started": datetime.now(a.ET).isoformat(), "note": "38% WR over last 8"}})
+        self.assertEqual(a._setup_probation_note("Momentum Watch Breakout (Day)"),
+                          "38% WR over last 8")
+
+    def test_momentum_offer_message_surfaces_probation(self):
+        # The human-approval path never passes through the score gates, so
+        # the offer text is the only place probation can reach the decision.
+        _offer = {"ticker": "DFNS"}
+        self.assertNotIn("probation", a.format_momentum_breakout_telegram(_offer).lower())
+        a._save_setup_probation({"SWING — Momentum Watch Breakout (Day)": {
+            "started": datetime.now(a.ET).isoformat(), "note": "38% WR over last 8"}})
+        msg = a.format_momentum_breakout_telegram(_offer)
+        self.assertIn("probation", msg.lower())
+        self.assertIn("38% WR over last 8", msg)
+        self.assertIn("Reply <b>YES DFNS</b>", msg)
+
+    def test_endsetupprobation_matches_decorated_key_by_family(self):
+        a._save_setup_probation({"SWING — Momentum Watch Breakout (Day)": {
+            "started": datetime.now(a.ET).isoformat(), "note": "x"}})
+        state = a._load_setup_probation()
+        _match = next((k for k in state
+                       if a._probation_key(k) == a._probation_key("Momentum Watch Breakout (Day)")),
+                      None)
+        self.assertEqual(_match, "SWING — Momentum Watch Breakout (Day)")
+
 
 class TestSetupProbationTelegramCommands(unittest.TestCase):
     """/setupprobation and /endsetupprobation -- the manual override for

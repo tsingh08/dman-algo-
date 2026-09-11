@@ -1,43 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:00:32.807303-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T12:00:32.985391-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T12:00:33.780025-04:00",
-    "symbols": [
-      "AAPL",
-      "AMD",
-      "AVGO",
-      "META",
-      "MSFT",
-      "MU",
-      "NVDA",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Micron, SK Hynix Are Top Bets in New NRAM ETF as AI Memory Demand Surges",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-10T12:00:43.258397-04:00",
     "symbols": [
       "SAIL"
@@ -5054,5 +5016,40 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T11:53:10.579676-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Launching Semi Truck In Europe",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T11:54:32.206111-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "COIN",
+      "MARA",
+      "MSTR",
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-linked companies are trading higher ahead of an upcoming Senate vote on the Clarity Act. Senator Lummis shared on social media that the updated text reflects &#34;bipartisan hard work over August,&#34; which may raise investor optimism that it will pass a key procedural vote.",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T11:56:35.092711-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Jefferies Maintains Hold on Adobe, Lowers Price Target to $275",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

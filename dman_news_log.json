@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-10T11:13:37.566601-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "ZenaTech\u2019s Drone As A Service Subsidiary To Expand Its Precision Agriculture Drone-Based Services To Farmers In Ireland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.568619-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Tenon Medical Stock Surges Thursday: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.570193-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Nasdaq Down Over 200 Points; US Producer Inflation Rises to 5.4% In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.572150-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-10T11:13:37.574146-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Why AeroVironment Shares Are Trading Higher By Around 6%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T11:13:37.575725-04:00",
     "symbols": [
       "TNON"
@@ -5046,6 +4996,56 @@
     "headline": "Dow Jumps Over 1%; US Inflation Holds at 3.4% In August",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:28:31.489665-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "What&#39;s Going On With AbbVie Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T10:28:55.265827-04:00",
+    "symbols": [
+      "BENF"
+    ],
+    "headline": "Dow Jumps Over 1%; US Inflation Holds at 3.4% In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:28:55.504631-04:00",
+    "symbols": [
+      "CRMT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:28:55.744141-04:00",
+    "symbols": [
+      "MKDW"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T10:28:55.976720-04:00",
+    "symbols": [
+      "BGSI"
+    ],
+    "headline": "Boyd Group Services To Buy Back And Cancel Up To ~2.78M Shares, 10% Of Float, Through September 15, 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

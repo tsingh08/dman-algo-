@@ -7745,6 +7745,20 @@ class TestAdoptOrphanPositions(unittest.TestCase):
         pos = self._pt().positions[0]
         self.assertAlmostEqual(pos.stop, round(10.0 * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4))
 
+    def test_adoption_is_idempotent_for_options(self):
+        # An options position is tracked under its UNDERLYING with the OCC
+        # symbol in `setup`, so a tracked-set of tickers alone never matched
+        # p.symbol and every pass re-adopted it, doubling the recorded size.
+        # Caught 2026-09-11 before the open: one run took APLD 100 -> 200 and
+        # TE 600 -> 900, which would have mis-sized every exit.
+        remote = [self._remote("UMAC260828C00025000", "2", "9.22")]
+        n1 = self._run(remote, [])
+        self.assertEqual(n1, 1)
+        first = [(p.ticker, p.shares) for p in self._pt().positions]
+        n2 = self._run(remote, [])
+        self.assertEqual(n2, 0, "second pass must adopt nothing")
+        self.assertEqual([(p.ticker, p.shares) for p in self._pt().positions], first)
+
     def test_single_leg_long_options_are_adopted(self):
         # Revised 2026-09-11. The old rule skipped every OCC symbol because
         # "leg/greek state cannot be rebuilt" -- true of spreads, not of a

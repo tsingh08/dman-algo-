@@ -18860,6 +18860,54 @@ def _adopt_single_leg_option(pos, occ: dict, pt) -> int:
     return 1
 
 
+def _reconcile_tracked_quantity(pos, sym: str) -> int:
+    """Correct a tracked position whose size has drifted from the broker's.
+
+    Adoption only ever looked at positions MISSING from the tracker, so a
+    position that was tracked but recorded at the wrong size stayed wrong
+    forever. Confirmed live 2026-09-11: TE was bought twice on 09-10 (3
+    contracts at 13:37, 3 more at 14:23) because the already-tracked dedup
+    had nothing to check against while the tracker was empty. Only the first
+    buy ever reached the record, so the tracker held 300 shares against the
+    broker's 600 -- exit management would have sold half the position and
+    left the rest unmanaged, and premium-at-risk under-reported by $255,
+    loosening the aggregate cap by the same amount.
+
+    Returns 1 if it changed something, else 0.
+    """
+    try:
+        _want = abs(float(pos.qty))
+        if _want <= 0:
+            return 0
+        if _is_occ_symbol(sym):
+            _want *= 100          # tracker stores contracts x 100
+        _avg = float(pos.avg_entry_price)
+    except (TypeError, ValueError):
+        return 0
+    try:
+        _pt = PositionTracker()
+        for _p in _pt.positions:
+            if _position_identity(_p.ticker, _p.setup) != sym and _p.ticker != sym:
+                continue
+            if abs(float(_p.shares or 0) - _want) < 1:
+                return 0                      # already agrees
+            _was = _p.shares
+            _p.shares = int(_want)
+            if _avg > 0:
+                _p.entry = round(_avg, 2)     # broker's weighted average
+            _pt._save()
+            print(f"  🔧 Reconciled {sym}: tracker had {_was}, broker has "
+                  f"{int(_want)} — corrected (entry ${_avg:.2f})")
+            return 1
+    except Exception as _exc:
+        print(f"  ⚠️  Could not reconcile {sym}: {_exc}")
+    return 0
+
+
+def _is_occ_symbol(sym: str) -> bool:
+    return _parse_occ_symbol(sym) is not None
+
+
 def adopt_orphan_positions() -> int:
     """
     Bring any EQUITY position held at Alpaca but missing from the tracker
@@ -18919,7 +18967,21 @@ def adopt_orphan_positions() -> int:
         return 0
 
     pt = PositionTracker()
+    # Must include OCC symbols, not just underlyings. An options position is
+    # tracked under ticker "APLD" with the OCC symbol living in `setup`, so a
+    # set of tickers alone never matches p.symbol ("APLD260925C00025000") and
+    # every options position looked untracked on every pass -- adoption then
+    # added a SECOND record each time and PositionTracker merged the shares,
+    # silently doubling the recorded size. Caught 2026-09-11 before the open:
+    # one reconciliation run turned APLD 100 into 200 and TE 600 into 900.
     tracked = {p.ticker.upper() for p in pt.positions}
+    for _p in pt.positions:
+        _su = getattr(_p, "setup", "") or ""
+        if _su.startswith("Options Call ") or _su.startswith("Options Put "):
+            try:
+                tracked.add(str(_position_identity(_p.ticker, _su)).upper())
+            except Exception:
+                pass
     # Working sell stops, by symbol — the position's real protective level.
     stops: dict[str, float] = {}
     for o in orders:
@@ -18939,6 +19001,7 @@ def adopt_orphan_positions() -> int:
     for p in remote:
         sym = p.symbol.upper()
         if sym in tracked:
+            adopted += _reconcile_tracked_quantity(p, sym)
             continue
         _occ = _parse_occ_symbol(sym)
         if _occ:

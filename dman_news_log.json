@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:16:36.185199-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron, SK Hynix Are Top Bets in New NRAM ETF as AI Memory Demand Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-10T12:16:36.373343-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Micron, SK Hynix Are Top Bets in New NRAM ETF as AI Memory Demand Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-10T12:16:36.488562-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron, SK Hynix Are Top Bets in New NRAM ETF as AI Memory Demand Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T12:16:42.331749-04:00",
     "symbols": [
       "SNYR"
@@ -5052,6 +5022,40 @@
     "headline": "QUICK SPARK: Skyworks Stock Poised to Be S&amp;P 500\u2019s Best Stock This Week",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T12:28:42.671086-04:00",
+    "symbols": [
+      "ARM",
+      "MRVL",
+      "ON",
+      "QCOM"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading higher amid a broader market rally as oil prices retreat, bond yields stabilize and U.S. CPI data confirms investor expectations that the Fed will hike rates at its September meeting.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-11T12:29:59.222016-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Citigroup Maintains Neutral on Adobe, Lowers Price Target to $250",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T12:32:54.264438-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Sam Altman Weighs AI Slowdown as Bridgewater Co-CIO Warns AI Will Kill People Before Anyone Acts",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

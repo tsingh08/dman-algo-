@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-10T12:31:46.053701-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Watching Nokia; Shares See A Small Pop In Volume, Hearing NVIDIA&#39;s Jensen Huang Mentions Co At Goldman Sachs Communacopia + Technology Conference",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-10T12:31:54.524693-04:00",
     "symbols": [
       "TPET"
@@ -5055,5 +5045,21 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-11T12:53:39.449117-04:00",
+    "symbols": [
+      "ADBE",
+      "DIA",
+      "IWM",
+      "OKLO",
+      "ORCL",
+      "QQQ",
+      "SMCI"
+    ],
+    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

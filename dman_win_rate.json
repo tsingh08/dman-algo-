@@ -1474,5 +1474,17 @@
     "pnl_pct": -3.61,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "TE",
+    "date": "2026-09-11",
+    "bias": "LONG",
+    "setup": "Options Call TE260925C00004000 ($4.0C exp 2026-09-25)",
+    "entry": 0.82,
+    "exit": 0.7,
+    "outcome": "LOSS",
+    "pnl_pct": -14.43,
+    "score": 100,
+    "is_live": true
   }
 ]

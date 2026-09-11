@@ -4522,5 +4522,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-10T19:03:54.271542-04:00",
+    "symbols": [
+      "MRNA",
+      "SPCX"
+    ],
+    "headline": "Congresswoman Bets on Elon Musk, Warren Buffett: Here\u2019s the Latest Stock Transactions",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-10T19:15:20.066432-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Amazon.com 15 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

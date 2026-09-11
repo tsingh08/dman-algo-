@@ -2964,6 +2964,32 @@ SETUP_PROBATION_SCORE_BONUS = 10    # extra confluence points required for a res
 # of its existing bar, the same "prove it out before resuming full trust"
 # principle account-level probation already uses, just scoped to the one
 # setup that's actually underperforming instead of the whole account.
+def _probation_key(setup: str) -> str:
+    """
+    Canonical family key for setup-probation state, shared by everything
+    that writes OR reads it. Two label decorations broke the exact-string
+    matching this state used to rely on (2026-09-11 review finding):
+
+      - positions entered in swing mode are RECORDED as "SWING — <setup>"
+        (see the _setup_tag decoration at position-open), so the drift
+        check restricted "SWING — Momentum Watch Breakout (Day)" while
+        entry gates looked up the raw signal label and found nothing;
+      - earnings spreads are recorded per-shape ("Earnings Call/Put/Double
+        Spread") but drift-grouped into one "Earnings Spread" family, so
+        the restriction entered 2026-08-31 (25% WR, avg loss 85%) could
+        never match any actual trade label.
+
+    Both directions collapse here: strip the SWING decoration, then fold
+    every "Earnings *" label into the one family.
+    """
+    s = (setup or "").strip()
+    if s.startswith("SWING — "):
+        s = s[len("SWING — "):]
+    if s.startswith("Earnings "):
+        return "Earnings Spread"
+    return s
+
+
 def _load_setup_probation() -> dict:
     try:
         with open(SETUP_PROBATION_FILE) as f:
@@ -2986,9 +3012,13 @@ def _enter_setup_probation(setup: str, note: str) -> bool:
     it, False if it was already restricted.
     """
     state = _load_setup_probation()
-    if setup in state:
+    _key = _probation_key(setup)
+    # Match by family, not exact string — state written before the
+    # _probation_key normalization can still hold decorated keys
+    # (e.g. "SWING — <setup>"), and those must keep their original clock.
+    if any(_probation_key(k) == _key for k in state):
         return False
-    state[setup] = {"started": datetime.now(ET).isoformat(), "note": note}
+    state[_key] = {"started": datetime.now(ET).isoformat(), "note": note}
     _save_setup_probation(state)
     return True
 
@@ -3003,9 +3033,11 @@ def _setup_probation_bonus(setup: str) -> int:
     """
     try:
         state = _load_setup_probation()
-        entry = state.get(setup)
-        if not entry:
+        _want = _probation_key(setup)
+        _key = next((k for k in state if _probation_key(k) == _want), None)
+        if _key is None:
             return 0
+        entry = state[_key]
         started_str = entry.get("started", "")
         try:
             started = datetime.fromisoformat(started_str)
@@ -3013,19 +3045,45 @@ def _setup_probation_bonus(setup: str) -> int:
         except (ValueError, TypeError):
             age_days = 0
         if age_days >= SETUP_PROBATION_MAX_DAYS:
-            del state[setup]
+            del state[_key]
             _save_setup_probation(state)
-            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}"):
+            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{_want}"):
                 send_telegram(
-                    f"🟡 <b>Setup probation expired</b> — {setup}, {age_days} days since "
+                    f"🟡 <b>Setup probation expired</b> — {_want}, {age_days} days since "
                     f"restricted. Back to its normal SETUP_MIN_CONFLUENCE bar. Send "
-                    f"<b>/setupprobation {setup}</b> to restrict it again if it's still weak."
+                    f"<b>/setupprobation {_want}</b> to restrict it again if it's still weak."
                 )
-                _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}")
+                _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{_want}")
             return 0
         return SETUP_PROBATION_SCORE_BONUS
     except Exception:
         return 0
+
+
+def _setup_probation_note(setup: str) -> Optional[str]:
+    """
+    The active probation note for `setup`'s family, or None when it isn't
+    restricted. Delegates the age/expiry decision to _setup_probation_bonus()
+    so an expired entry can never come back as an active-looking note.
+
+    Exists for the human-approval paths (momentum breakout, earnings
+    spread): those never pass through the score gates that apply the
+    probation bonus — a human YES stands in for the score bar — which
+    made probation invisible exactly where a human most needs it. The
+    2026-09-11 session closed a Momentum Watch Breakout loss (DFNS,
+    -3.61%) approved two days into that setup's probation, with nothing
+    in the offer saying so. The offer messages now surface this note.
+    """
+    try:
+        if _setup_probation_bonus(setup) <= 0:
+            return None
+        _want = _probation_key(setup)
+        for k, v in _load_setup_probation().items():
+            if _probation_key(k) == _want:
+                return v.get("note") or "recent live record below floor"
+    except Exception:
+        return None
+    return None
 
 
 def _setup_live_record() -> dict:
@@ -3212,8 +3270,10 @@ def _handle_telegram_command(text: str) -> None:
         else:
             try:
                 state = _load_setup_probation()
-                if _setup_name in state:
-                    del state[_setup_name]
+                _match = next((k for k in state
+                               if _probation_key(k) == _probation_key(_setup_name)), None)
+                if _match is not None:
+                    del state[_match]
                     _save_setup_probation(state)
                     send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_setup_name} back to its normal bar.")
                 else:
@@ -4022,6 +4082,11 @@ def format_earnings_spread_telegram(plan: dict, sector_overlap: Optional[list[st
                       f"open/pending this week — approving both is one concentrated bet, "
                       f"not two diversified ones.")
 
+    _prob_note = _setup_probation_note("Earnings Spread")
+    if _prob_note:
+        lines.append("")
+        lines.append(f"🟡 <b>Setup family on probation</b> — {_prob_note}")
+
     _n_sides = int(bool(plan.get("call"))) + int(bool(plan.get("put")))
     lines.append(f"Reply <b>YES {plan['ticker']}</b> to approve (1 atomic order, {_n_sides} side(s)) "
                  f"· <b>NO {plan['ticker']}</b> to reject · expires in {EARNINGS_APPROVAL_TIMEOUT_MIN} min")
@@ -4231,9 +4296,15 @@ def format_momentum_breakout_telegram(offer: dict) -> str:
     """Approval call-to-action appended under a BREAKOUT SETUP / VWAP
     RECLAIM line in run_momentum_watch()'s digest -- see
     _handle_momentum_approval_reply()."""
-    return (f"   Reply <b>YES {offer['ticker']}</b> to enter (day-only — auto-closes "
-            f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET) "
-            f"· <b>NO {offer['ticker']}</b> to skip · expires in {MOMENTUM_APPROVAL_TIMEOUT_MIN} min")
+    _lines = []
+    _prob_note = _setup_probation_note(MOMENTUM_DAY_ONLY_SETUP)
+    if _prob_note:
+        _lines.append(f"   🟡 <b>Setup on probation</b> — {_prob_note}")
+    _lines.append(
+        f"   Reply <b>YES {offer['ticker']}</b> to enter (day-only — auto-closes "
+        f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET) "
+        f"· <b>NO {offer['ticker']}</b> to skip · expires in {MOMENTUM_APPROVAL_TIMEOUT_MIN} min")
+    return "\n".join(_lines)
 
 
 def _build_momentum_signal(offer: dict) -> ProSignal:
@@ -13621,7 +13692,10 @@ class WinRateTracker:
         because each new spread shape resets its own counter to zero.
         """
         def _drift_key(setup: str) -> str:
-            return "Earnings Spread" if setup.startswith("Earnings ") else setup
+            # Canonical probation family — also folds "SWING — X" records
+            # into X, so a setup can't dodge (or split) its own drift stats
+            # based on how a given entry happened to be decorated at open.
+            return _probation_key(setup)
 
         live = [r for r in self.records if r.is_live]
         setups = sorted({_drift_key(r.setup) for r in live if r.setup})

@@ -2372,9 +2372,40 @@ def _log_live_signal(sig: "ProSignal") -> None:
         pass
 
 
+def _split_unadjust_factor(ticker: str, since: date) -> float:
+    """Factor that converts yfinance's split-adjusted prices back to the raw
+    prices that actually traded on or after `since`.
+
+    yfinance ALWAYS back-adjusts the OHLC series for splits -- auto_adjust
+    only governs dividends -- so there is no download flag that returns the
+    prices a trade was actually entered at. For every split after `since`,
+    historical bars have been divided by its ratio, so multiplying by the
+    product of those ratios undoes it.
+
+    Returns 1.0 when there is no split (the overwhelmingly common case) or
+    when the split history cannot be read, in which case the caller is no
+    worse off than before.
+    """
+    try:
+        _sp = yf.Ticker(ticker).splits
+        if _sp is None or len(_sp) == 0:
+            return 1.0
+        _f = 1.0
+        for _ts, _ratio in _sp.items():
+            try:
+                _d = _ts.date()
+            except Exception:
+                continue
+            if _d > since and float(_ratio) > 0:
+                _f *= float(_ratio)
+        return _f if _f > 0 else 1.0
+    except Exception:
+        return 1.0
+
+
 def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
                              target1: float, target2: float, bias: str,
-                             start_date: str) -> dict:
+                             start_date: str, be_at_1r: bool = True) -> dict:
     """
     Simulate trade outcome using daily bars from start_date onward.
     Returns dict with exit_date, exit_px, exit_reason, outcome, pnl_pct, hold_bars.
@@ -2384,9 +2415,35 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
         start = date.fromisoformat(start_date)
         # Fetch enough bars (add buffer for weekends/holidays)
         end = datetime.now(ET).date() + timedelta(days=1)
-        df = yf.download(ticker, start=start, end=end, progress=False, auto_adjust=True)
+        # auto_adjust=False is load-bearing, not a preference. Adjusted bars
+        # are back-scaled for splits, but entry/stop/target1/target2 are raw
+        # prices recorded at entry time -- so comparing one against the other
+        # is only valid while no split intervenes, and on microcaps it
+        # constantly does.
+        #
+        # This single flag is the whole backtest-vs-live divergence. Measured
+        # 2026-09-11 by re-simulating all 31 live trades from their real
+        # entry levels: the simulator reported +668.5% where the broker
+        # reported -107.3%, an overstatement of +775.8% concentrated entirely
+        # in low-float names. FGL reverse-split 1:100 on 2026-09-01, ARTL 1:9
+        # on 2026-08-31, LGHL 1:20 on 2026-09-10 -- all AFTER their entries,
+        # so back-adjustment lifted the historical highs far above the real
+        # targets and every one recorded a phantom T2 at +75% or +150%.
+        # FGL's true result was -20.00%; the simulator scored it +149.75%.
+        #
+        # That is why Low Float Catalyst looked like the best setup in every
+        # backtest (+727%) while going 0-for-10 for -78.3% live, and why it
+        # kept being traded.
+        df = yf.download(ticker, start=start, end=end, progress=False, auto_adjust=False)
         if df is None or len(df) < 2:
             return None
+        # Undo yfinance's split back-adjustment so the bars are in the same
+        # units as entry/stop/target1/target2, which were recorded raw.
+        _unadj = _split_unadjust_factor(ticker, start)
+        if _unadj != 1.0:
+            for _c in ("Open", "High", "Low", "Close"):
+                if _c in df.columns:
+                    df[_c] = df[_c] * _unadj
         # Newer yfinance versions return MultiIndex columns even for a single
         # ticker (e.g. ('High', 'AAPL') instead of 'High') — without this,
         # bar["High"] on a row returns a Series instead of a scalar, and
@@ -2447,7 +2504,7 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
 
         # BE@1R: move stop to entry once 1R profit is reached (before T1) --
         # applies only to FUTURE bars now, same as T1's own trail_stop move.
-        if not be1r_set and not t1_hit:
+        if be_at_1r and not be1r_set and not t1_hit:
             if (is_long and H >= be1r_px) or (not is_long and L <= be1r_px):
                 trail_stop = entry
                 be1r_set   = True

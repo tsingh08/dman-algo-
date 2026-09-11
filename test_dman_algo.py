@@ -6750,6 +6750,58 @@ class TestEarningsSafeForNakedHold(unittest.TestCase):
                         src.index("_has_tier_a_catalyst"))
 
 
+class TestSplitUnadjust(unittest.TestCase):
+    """THE backtest-vs-live divergence. yfinance always back-adjusts OHLC for
+    splits (auto_adjust only governs dividends), but entry/stop/target are
+    recorded raw -- so on any name that later split, the simulator compared
+    two different unit systems. Measured 2026-09-11 over all 31 live trades:
+    +668.5% simulated against -107.3% actual. FGL reverse-split 1:100, ARTL
+    1:9, LGHL 1:20, all after entry, each producing a phantom T2."""
+
+    def _splits(self, pairs):
+        import pandas as pd
+        if not pairs:
+            return pd.Series(dtype=float)
+        idx = pd.to_datetime([p[0] for p in pairs])
+        return pd.Series([p[1] for p in pairs], index=idx)
+
+    def test_reverse_split_after_entry_is_undone(self):
+        with patch.object(a.yf, "Ticker") as T:
+            T.return_value.splits = self._splits([("2026-09-01", 0.01)])
+            f = a._split_unadjust_factor("FGL", a.date(2026, 7, 31))
+        self.assertAlmostEqual(f, 0.01)
+
+    def test_split_before_entry_is_ignored(self):
+        # Only splits AFTER entry distort bars relative to a raw entry price.
+        with patch.object(a.yf, "Ticker") as T:
+            T.return_value.splits = self._splits([("2026-01-05", 0.01)])
+            f = a._split_unadjust_factor("FGL", a.date(2026, 7, 31))
+        self.assertEqual(f, 1.0)
+
+    def test_multiple_splits_compound(self):
+        with patch.object(a.yf, "Ticker") as T:
+            T.return_value.splits = self._splits([("2026-08-01", 0.1),
+                                                  ("2026-09-01", 0.5)])
+            f = a._split_unadjust_factor("X", a.date(2026, 7, 1))
+        self.assertAlmostEqual(f, 0.05)
+
+    def test_no_splits_is_identity(self):
+        with patch.object(a.yf, "Ticker") as T:
+            T.return_value.splits = self._splits([])
+            self.assertEqual(a._split_unadjust_factor("SNOW", a.date(2026, 5, 28)), 1.0)
+
+    def test_unreadable_split_history_is_identity_not_a_crash(self):
+        with patch.object(a.yf, "Ticker", side_effect=RuntimeError("api down")):
+            self.assertEqual(a._split_unadjust_factor("X", a.date(2026, 5, 28)), 1.0)
+
+    def test_simulator_applies_the_factor(self):
+        src = inspect.getsource(a._simulate_trade_outcome)
+        self.assertIn("_split_unadjust_factor(ticker, start)", src)
+        i_fix = src.index("_split_unadjust_factor(ticker, start)")
+        i_use = src.index("trail_stop = stop")
+        self.assertLess(i_fix, i_use, "bars must be un-adjusted before simulating")
+
+
 class TestScratchIsNotAWin(unittest.TestCase):
     """`"WIN" if pnl_pct >= 0 else "LOSS"` counted every breakeven stop --
     exit price EQUAL to entry, 0.00% -- as a win. Of 31 live trades, 10

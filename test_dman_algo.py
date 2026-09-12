@@ -6178,10 +6178,20 @@ class TestImpossiblePnlEntriesRejected(unittest.TestCase):
                        if abs(e["pnl_pct"]) > a.MAX_SINGLE_TRADE_PNL_PCT]
             self.assertEqual(bad, [], f"{f} still holds impossible entries")
 
-    def test_monthly_loss_is_inside_the_limit_again(self):
-        # Regression on the halt itself: -339% vs a -4% limit meant every
-        # session for the rest of September would have been halted.
-        self.assertGreater(a.get_this_month_loss(), -a.MONTHLY_LOSS_LIMIT * 100)
+    def test_monthly_loss_is_not_contaminated(self):
+        # Was: assert the month is inside MONTHLY_LOSS_LIMIT. That conflated
+        # two different things -- corrupt data and a genuine losing month --
+        # and broke on 2026-09-12 when September legitimately reached -4.97%
+        # against the -4% limit. A real drawdown must not fail CI; it is the
+        # circuit breaker doing its job, and a red build there only pressures
+        # someone into raising the limit to make the test pass.
+        #
+        # The bug this guards is contamination: a reverse-split artifact once
+        # put the month at -339%. So assert the figure is PLAUSIBLE, and let
+        # the breaker own the trading decision.
+        _m = a.get_this_month_loss()
+        self.assertGreater(_m, -50.0, "monthly P&L implausible — likely split contamination")
+        self.assertLess(_m, 100.0)
 
 
 class TestSplitContaminationGuard(unittest.TestCase):

@@ -6768,6 +6768,41 @@ class TestScoreThresholdIsNotBinding(unittest.TestCase):
                         src.index('"rejected_low_score"'))
 
 
+class TestStopNotTriggeredByStaleBid(unittest.TestCase):
+    """An option cannot be worth less than intrinsic, so a bid below it is a
+    stale quote, not a price. Confirmed live 2026-09-11: TE $4 calls sat bid
+    $0.60 for hours while TE traded $4.68 ($0.68 intrinsic) -- the contract
+    had not traded all day. The stop compares against the bid, so a stop in
+    that gap would have auto-sold a position that was not actually down."""
+
+    def test_stop_floors_at_intrinsic_for_a_call(self):
+        src = inspect.getsource(a._monitor_option_position)
+        self.assertIn("_stop_ref", src)
+        # the stop branch must compare _stop_ref, never the raw bid
+        self.assertIn("_stop_ref <= _stop_prem", src)
+        self.assertNotIn("_exit_prem <= _stop_prem", src)
+
+    def test_display_still_uses_the_real_bid(self):
+        # The floor must not flatter reported P&L -- an exit really would
+        # fetch the bid; the point is only to refuse a bogus stop trigger.
+        src = inspect.getsource(a._monitor_option_position)
+        i_ref = src.index("_stop_ref = _exit_prem")
+        self.assertIn('_cur_prem  = _snap["mid"]', src[:i_ref])
+
+    def test_intrinsic_math_matches_the_te_incident(self):
+        occ = a._parse_occ_symbol("TE260925C00004000")
+        self.assertEqual(occ["right"], "CALL")
+        self.assertAlmostEqual(occ["strike"], 4.0)
+        intrinsic = max(0.0, 4.68 - occ["strike"])
+        self.assertGreater(intrinsic, 0.60)   # bid was below intrinsic
+
+    def test_guard_is_inert_without_an_underlying_price(self):
+        # get_price_fn is optional; with no price there is no intrinsic to
+        # floor at and behaviour must fall back to the bid unchanged.
+        src = inspect.getsource(a._monitor_option_position)
+        self.assertIn("get_price_fn(t) if get_price_fn else None", src)
+
+
 class TestSplitUnadjust(unittest.TestCase):
     """THE backtest-vs-live divergence. yfinance always back-adjusts OHLC for
     splits (auto_adjust only governs dividends), but entry/stop/target are
@@ -7421,7 +7456,7 @@ class TestOptionsExpiryBackstop(unittest.TestCase):
         # strategy branch won at DTE 1 the remainder would still expire.
         src = inspect.getsource(a._monitor_option_position)
         i_backstop = src.index("OPTIONS_FORCE_CLOSE_DTE")
-        for marker in ("_exit_prem <= _stop_prem", "_trail_active and _cur_prem",
+        for marker in ("_stop_ref <= _stop_prem", "_trail_active and _cur_prem",
                        "_cur_prem >= _t1_prem"):
             self.assertLess(i_backstop, src.index(marker),
                             f"backstop must precede {marker!r}")

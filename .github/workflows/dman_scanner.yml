@@ -25,6 +25,16 @@ on:
     # repo's own :00/:30 triggers were consistently the most delayed that
     # day (watchdog's 30-min :00/:30 cadence only fired 4/~14 times).
     - cron: '6 11 * * 1-5'
+    # Extra pre-market slots, all inside the 4:30-8:30 AM ET routing window
+    # below. GitHub silently DROPPED both scheduled events above on three
+    # consecutive sessions (2026-09-09, 09-10, 09-11), so the news-first scan
+    # -- the highest-value run of the day -- only happened when triggered by
+    # hand. Scheduled events are best-effort, and the answer to a best-effort
+    # trigger is more than one of them. The marker check in the routing step
+    # means the extra slots cost nothing on a day the first one lands.
+    - cron: '41 9 * * 1-5'
+    - cron: '23 10 * * 1-5'
+    - cron: '47 11 * * 1-5'
     # NOTE: the 8:00 AM ET full pre-market briefing (regime, macro calendar,
     # fade-risk, sector health) is owned by dman_premarket.yml — do not add
     # a second "0 13 * * 1-5" cron here, it duplicated every briefing message
@@ -201,10 +211,29 @@ jobs:
           # old 6:50 AM floor. Still absorbs runner queue drift and stops
           # before the 9 AM briefing either way.
           if now.weekday() < 5 and 430 <= t <= 830:
+              # Run at most once per day across all the pre-market cron slots.
+              # The extra slots exist because GitHub drops scheduled events;
+              # the marker exists so that redundancy never costs a duplicate
+              # scan or a second movers alert.
+              import json as _json
+              _marker = "dman_premarket_marker.json"
+              try:
+                  with open(_marker) as _mf:
+                      if _json.load(_mf).get("date") == str(today):
+                          print(f"premarket-early already ran today ({today}) — skipping duplicate.")
+                          sys.exit(0)
+              except Exception:
+                  pass
               result = subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", "premarket-early"],
                   capture_output=False
               )
+              if result.returncode == 0:
+                  try:
+                      with open(_marker, "w") as _mf:
+                          _json.dump({"date": str(today)}, _mf)
+                  except Exception:
+                      pass   # a missing marker only risks a duplicate, never a miss
               sys.exit(result.returncode)
 
           # Fallback only — dman_premarket.yml owns the 8 AM briefing on its own
@@ -321,6 +350,7 @@ jobs:
             dman_telegram_manual_buy.json dman_news_log.json
             dman_setup_probation.json dman_momentum_pending.json
             dman_milestones.json dman_day_trades.json dman_flags.json
+            dman_premarket_marker.json
 
       - name: Notify on workflow failure
         if: failure()

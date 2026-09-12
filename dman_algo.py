@@ -7716,7 +7716,8 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     GUARD_EVERY_S dropped to 10s: get_live_price() is an uncached REST
     call, and calling it unconditionally every 10s per options position
     would have quietly 6x'd that call volume for zero benefit (the
-    underlying price here is purely cosmetic — it's not used in any
+    underlying price here is cosmetic for display, and since 2026-09-11
+    also floors the stop comparison at intrinsic value (see _stop_ref) — it's not used in any
     stop/trail/T1 decision). Falls back to get_live_price() on a miss,
     same as every other injection point in this file.
     """
@@ -7744,6 +7745,31 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
 
     _cur_prem  = _snap["mid"]                       # display P&L at mid
     _exit_prem = _snap.get("bid", _cur_prem)        # exits fill at bid
+
+    # An option can never rationally be worth less than its intrinsic value,
+    # so a BID below intrinsic is a stale or lowball quote rather than a real
+    # price -- and the stop below triggers on the bid. Confirmed live
+    # 2026-09-11: TE $4 calls sat bid $0.60 for hours while TE traded $4.68,
+    # i.e. $0.68 of intrinsic. The contract had not traded all day; the bid
+    # was simply stale. A stop anywhere in that gap would have auto-sold a
+    # position that was not actually down, at a price nobody should accept.
+    #
+    # Only the STOP comparison uses this floor. Displayed P&L stays on the
+    # real bid/mid, because that IS what an exit would fetch -- the point is
+    # not to pretend the quote is better, it is to refuse to be stopped out
+    # by a quote that cannot be right.
+    _stop_ref = _exit_prem
+    try:
+        _und_px = get_price_fn(t) if get_price_fn else None
+        _occ_info = _parse_occ_symbol(_occ)
+        if _und_px and _occ_info:
+            _intrinsic = (max(0.0, float(_und_px) - _occ_info["strike"])
+                          if _occ_info["right"] == "CALL"
+                          else max(0.0, _occ_info["strike"] - float(_und_px)))
+            if _intrinsic > _stop_ref:
+                _stop_ref = round(_intrinsic, 2)
+    except Exception:
+        pass
     _pnl_pct   = (_cur_prem - _entry_prem) / _entry_prem * 100
     # A stream-fed snapshot has no Greeks keys at all (not even a 0
     # default) — fall back to the periodically REST-refreshed cache so
@@ -7833,7 +7859,7 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         if not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
             send_telegram(f"⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
             _mark_alerted(f"{t}_{_kp}_EXPIRY_{_tod}")
-    elif not _trail_active and _exit_prem <= _stop_prem:
+    elif not _trail_active and _stop_ref <= _stop_prem:
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.
         _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} stop")

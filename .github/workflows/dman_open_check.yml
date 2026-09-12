@@ -109,7 +109,19 @@ jobs:
           stop_syms = {o.symbol for o in orders
                        if str(getattr(o.side, "value", o.side)).lower() == "sell"
                        and "stop" in str(getattr(o.order_type, "value", o.order_type)).lower()}
+          # Options are EXCLUDED: they never carry a broker-side stop by
+          # design (the daemon's own loop manages their exits), so flagging
+          # them here fired a red "PROBLEMS FOUND" alert every single day an
+          # option was held -- 2026-09-10 and 09-11 both. This alert exists
+          # to catch a genuinely unprotected SHARE position, and a daily
+          # false alarm is the fastest way to train someone to ignore it.
+          def _is_option(sym):
+              return len(sym) > 6 and any(ch.isdigit() for ch in sym)
+
           for sym in held:
+              if _is_option(sym):
+                  notes.append(f"{sym}: option — no broker stop by design, daemon manages exit")
+                  continue
               if sym not in stop_syms:
                   problems.append(f"{sym}: HELD with NO broker-side stop order")
 

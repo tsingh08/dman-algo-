@@ -6813,6 +6813,52 @@ class TestStopNotTriggeredByStaleBid(unittest.TestCase):
         self.assertIn("get_price_fn(t) if get_price_fn else None", src)
 
 
+class TestMonthlyHaltLift(unittest.TestCase):
+    """Lifted by instruction 2026-09-13. Must be month-scoped so the breaker
+    re-arms by itself on the 1st instead of staying off forever."""
+
+    def test_flag_name_is_scoped_to_the_month(self):
+        self.assertEqual(a._monthly_halt_flag_name(a.datetime(2026, 9, 13, tzinfo=a.ET)),
+                         "MONTHLY_HALT_LIFTED_2026-09")
+        self.assertEqual(a._monthly_halt_flag_name(a.datetime(2026, 10, 1, tzinfo=a.ET)),
+                         "MONTHLY_HALT_LIFTED_2026-10")
+
+    def test_lifting_september_does_not_lift_october(self):
+        stored = {"MONTHLY_HALT_LIFTED_2026-09": True}
+        with patch.object(a, "_load_flags", return_value=stored), \
+             patch.object(a, "_monthly_halt_flag_name", return_value="MONTHLY_HALT_LIFTED_2026-10"):
+            self.assertFalse(a._monthly_halt_lifted())
+
+    def test_breaker_blocks_when_not_lifted(self):
+        with patch.object(a, "get_this_month_loss", return_value=-4.97), \
+             patch.object(a, "_monthly_halt_lifted", return_value=False), \
+             patch.object(a, "get_todays_loss", return_value=0.0):
+            ok, why = a._entry_circuit_breakers_ok()
+        self.assertFalse(ok)
+        self.assertIn("monthly", why)
+
+    def test_breaker_allows_when_lifted(self):
+        with patch.object(a, "get_this_month_loss", return_value=-4.97), \
+             patch.object(a, "_monthly_halt_lifted", return_value=True), \
+             patch.object(a, "get_todays_loss", return_value=0.0):
+            ok, why = a._entry_circuit_breakers_ok()
+        self.assertNotIn("monthly", why)
+
+    def test_daily_limit_is_not_bypassed_by_the_monthly_lift(self):
+        with patch.object(a, "get_this_month_loss", return_value=-4.97), \
+             patch.object(a, "_monthly_halt_lifted", return_value=True), \
+             patch.object(a, "get_todays_loss", return_value=-3.5):
+            ok, why = a._entry_circuit_breakers_ok()
+        self.assertFalse(ok)
+        self.assertIn("daily", why)
+
+    def test_every_enforcement_site_honours_the_lift(self):
+        for fn in (a._entry_circuit_breakers_ok, a.run_pro_scanner, a._submit_signals_to_alpaca):
+            src = inspect.getsource(fn)
+            if "MONTHLY_LOSS_LIMIT * 100" in src:
+                self.assertIn("_monthly_halt_lifted()", src, fn.__name__)
+
+
 class TestSplitUnadjust(unittest.TestCase):
     """THE backtest-vs-live divergence. yfinance always back-adjusts OHLC for
     splits (auto_adjust only governs dividends), but entry/stop/target are

@@ -2305,6 +2305,27 @@ def flag(name: str, default: bool) -> bool:
     return bool(v) if isinstance(v, bool) else default
 
 
+def _monthly_halt_flag_name(when: Optional[datetime] = None) -> str:
+    return f"MONTHLY_HALT_LIFTED_{(when or datetime.now(ET)).strftime('%Y-%m')}"
+
+
+def _monthly_halt_lifted() -> bool:
+    """True if the MONTHLY_LOSS_LIMIT halt was deliberately lifted for the
+    CURRENT calendar month.
+
+    Scoped by month in the flag NAME, on purpose. Lifted by direct instruction
+    2026-09-13 ("lift the halt") with September at -4.97% against the -4%
+    limit. A plain on/off switch would have stayed off in October and every
+    month after, silently deleting the breaker; keying it to "2026-09" means
+    October reads a different flag that defaults to False, so the protection
+    re-arms itself on the 1st without anyone having to remember.
+
+    Persisted through flag()/dman_flags.json, which the daemon and the cron
+    scanner both carry, so the decision reaches every process.
+    """
+    return flag(_monthly_halt_flag_name(), False)
+
+
 def set_flag(name: str, value: bool) -> None:
     d = _load_flags()
     d[name] = bool(value)
@@ -3097,7 +3118,8 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
         _stats = WinRateTracker().rolling_stats()
         if _stats["consec_losses"] >= MAX_CONSEC_LOSSES:
             return False, f"consecutive-loss guard active ({_stats['consec_losses']} losses)"
-        if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
+        if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
+                and not _monthly_halt_lifted()):
             return False, "monthly loss limit active"
     if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
         return False, "daily loss limit active"
@@ -9461,7 +9483,10 @@ def run_premarket_briefing() -> None:
     try:
         month_loss = get_this_month_loss()
         limit_pct  = MONTHLY_LOSS_LIMIT * 100
-        if month_loss <= -limit_pct:
+        if month_loss <= -limit_pct and _monthly_halt_lifted():
+            monthly_line = (f"⚠️ MONTHLY LIMIT PAST ({month_loss:.1f}%) — halt LIFTED "
+                            f"manually for this month; re-arms on the 1st")
+        elif month_loss <= -limit_pct:
             monthly_line = f"🛑 MONTHLY LIMIT HIT: {month_loss:.1f}% — trading halted"
         elif month_loss < -(limit_pct * 0.6):
             monthly_line = f"⚠️ Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
@@ -17183,7 +17208,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
         # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
         month_loss = get_this_month_loss()
-        if month_loss <= -(MONTHLY_LOSS_LIMIT * 100):
+        if month_loss <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
             print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
                   f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
             print(f"     Stop trading for the month. Review setups. Reset.\n")
@@ -21214,7 +21239,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
             print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
             return
-        if get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100):
+        if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
+                and not _monthly_halt_lifted()):
             print(f"  🛑 Monthly loss limit active — no orders.")
             return
     if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):

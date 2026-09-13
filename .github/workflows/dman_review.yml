@@ -430,7 +430,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python - <<'EOF'
-          import os, html, requests
+          import os, html, urllib.parse, urllib.request
           token  = os.environ["TELEGRAM_TOKEN"]
           chat   = os.environ["TELEGRAM_CHAT_ID"]
           status = os.environ.get("REVIEW_STATUS", "1")
@@ -474,11 +474,19 @@ jobs:
                   text += (f"\n⛔ <b>Branch checks FAILED — do not merge</b> — {detail}")
               elif verdict:
                   text += f"\n⚠️ <b>Branch checks {html.escape(verdict)}</b> — {detail}"
-          requests.post(
+          # Standard library only. This step runs `if: always()`, but the only
+          # `pip install` in the job lives inside the conditional validation
+          # step, with its output sent to /dev/null -- so on 2026-09-11 the
+          # step died with "No module named 'requests'" and the review never
+          # reached Telegram, replaced by a generic "pre-run step failed"
+          # alert that pointed at the wrong step. A report step that can only
+          # run when some other step happened to install a package is not a
+          # report step you can rely on.
+          urllib.request.urlopen(urllib.request.Request(
               f"https://api.telegram.org/bot{token}/sendMessage",
-              data={"chat_id": chat, "text": text, "parse_mode": "HTML"},
-              timeout=15,
-          )
+              data=urllib.parse.urlencode(
+                  {"chat_id": chat, "text": text, "parse_mode": "HTML"}).encode()),
+              timeout=15)
           EOF
 
       - name: Notify on workflow failure

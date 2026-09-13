@@ -77,6 +77,29 @@ with open(_SRC_PATH, encoding="utf-8") as _f:
     _SOURCE = _f.read()
 
 
+
+_flags_isolation = None
+
+
+def setUpModule():
+    # The suite must not read the repo's real dman_flags.json. It is live,
+    # committed state -- on 2026-09-13 it gained MONTHLY_HALT_LIFTED_2026-09,
+    # and because CI runs in September, three tests that assert the monthly
+    # loss limit BLOCKS an order started failing: the real flag said the halt
+    # was lifted. Tests passed locally only because they were run before the
+    # flag was set. Point FLAGS_FILE at a path that does not exist, so every
+    # flag reads its coded default; tests that exercise the flag store
+    # already patch FLAGS_FILE to their own temp file, which overrides this.
+    global _flags_isolation
+    _flags_isolation = patch.object(
+        a, "FLAGS_FILE", os.path.join(tempfile.gettempdir(), "dman_flags_test_isolation_absent.json"))
+    _flags_isolation.start()
+
+
+def tearDownModule():
+    if _flags_isolation is not None:
+        _flags_isolation.stop()
+
 class TestArgparseDispatchConsistency(unittest.TestCase):
     """Prevents the exact StockTwits incident from ever recurring: a mode
     dispatched in main() but missing from argparse's choices list errors

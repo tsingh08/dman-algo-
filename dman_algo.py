@@ -6110,7 +6110,22 @@ _NEWS_NOISE_KW = {
 _NEWS_COMMENTARY_RE = re.compile(
     r"^\s*(why|what|how|should|is|are|do|does|did|can|could|will|would|here"
     r"|meet|this|these|those|better buy|best|top \d|\d+\s+(reasons?|things|"
-    r"stocks?|massive)|prediction|forecast|opinion|analysis)\b", re.I)
+    r"stocks?|massive)|prediction|forecast|opinion|analysis|i)\b", re.I)
+
+# Commentary that announces itself mid-headline rather than in the opening
+# word. Every one of these passed the weekend news-first scan of 2026-09-13 as
+# a "Tier A catalyst": "C3.ai vs. UiPath: What Revenue Trends...", "URBN or
+# ZGN: Which Is the Better Value Stock", "I Almost Didn't Buy This 6%+
+# Yielder", "Implied Volatility Surging for BRT", "SABK Surges 5.2%: Is This
+# an Indication of Further Gains?". None of those TITLES contains a catalyst
+# keyword -- the tier came from the article DESCRIPTION, which for a
+# comparison or column naturally mentions acquisitions, FDA, earnings and so
+# on. So the tell has to be caught on the title, before the description's
+# vocabulary gets a chance to promote a read ABOUT a stock into news FROM one.
+# The real catalyst in the same batch (SRRK's FDA approval) has none of these.
+_NEWS_COMMENTARY_ANYWHERE_RE = re.compile(
+    r"\b(vs\.?|versus)\s|which is (the )?better|:\s*is (this|it|now)\b"
+    r"|implied volatility|is it time|should you (buy|sell)|here'?s why|\?\s*$", re.I)
 
 # Backward-looking time reference paired with a move verb — the retrospective
 # tell even when the headline does not open like commentary.
@@ -6135,6 +6150,9 @@ _NEWS_ROUTINE_KW = {
     "market today", "market wrap", "stocks to watch", "what to watch",
     "movers", "recap", "closing bell", "opening bell", "largest individual",
     "analyst ratings", "price target", "insider sell", "13f",
+    # Capital-structure housekeeping, not catalysts for the common stock.
+    # Both surfaced as "Tier A" in the 2026-09-13 weekend scan (IMPP, GTE).
+    "preferred shares", "consent solicitation",
 }
 
 def _news_catalyst_tier(title: str, desc: str) -> Optional[str]:
@@ -6150,6 +6168,7 @@ def _news_catalyst_tier(title: str, desc: str) -> Optional[str]:
     if any(_k in _t for _k in _NEWS_ROUTINE_KW):
         return None
     if (_NEWS_COMMENTARY_RE.match(title) or _NEWS_RETRO_RE.search(_t)
+            or _NEWS_COMMENTARY_ANYWHERE_RE.search(title)
             or _NEWS_LISTICLE_RE.match(title)):
         return None
     if any(_k in _t for _k in _TIER_D_KW):

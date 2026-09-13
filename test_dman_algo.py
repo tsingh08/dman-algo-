@@ -7275,6 +7275,28 @@ class TestNewsFirstCatalyst(unittest.TestCase):
                    "ACME Corp to Present at the Investor Day Conference"):
             self.assertIsNone(a._news_catalyst_tier(_t, ""), _t)
 
+    def test_commentary_mid_headline_is_rejected(self):
+        # All passed the 2026-09-13 weekend scan as "Tier A". Their TITLES had
+        # no catalyst keyword -- the article DESCRIPTION supplied it -- so the
+        # commentary tell must be caught on the title before that happens.
+        desc = "The company announced an acquisition and FDA approval."
+        for _t in ("C3.ai vs. UiPath: What Revenue Trends Between These Companies",
+                   "URBN or ZGN: Which Is the Better Value Stock Right Now?",
+                   "I Almost Didn't Buy This 6%+ Yielder Because of Headwinds",
+                   "Implied Volatility Surging for BRT Apartments Stock Options",
+                   "SABK Surges 5.2%: Is This an Indication of Further Gains?",
+                   "Coinbase Is Pushing Stablecoins to Banks. Here's Why Everyone Cares"):
+            self.assertIsNone(a._news_catalyst_tier(_t, desc), _t)
+
+    def test_capital_structure_housekeeping_is_not_a_catalyst(self):
+        for _t in ("Imperial Petroleum Declares Dividend on Series A Preferred Shares",
+                   "Gran Tierra Energy Announces Consent Solicitation for Senior Notes"):
+            self.assertIsNone(a._news_catalyst_tier(_t, "acquisition deal"), _t)
+
+    def test_real_catalysts_from_the_same_batch_survive(self):
+        self.assertEqual(a._news_catalyst_tier(
+            "FDA Approves Isembyld (apitegromab-mstn), the First Muscle-Targeted Therapy", ""), "A")
+
     def test_dilution_still_beats_a_bullish_word(self):
         # Tier-D is checked before Tier-A on purpose: an offering is not a
         # long no matter how much upbeat language surrounds it.

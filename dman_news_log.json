@@ -2754,5 +2754,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T10:07:34.749870-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq Down Over 200 Points; Cellectis Shares Plunge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T10:08:24.888100-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Larry Ellison Cancels Massive $7.5 Billion Oracle Stock Sale Plan",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

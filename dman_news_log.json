@@ -3301,5 +3301,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T13:22:40.934768-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Shares of oil and gas engineering and services companies are trading lower. Saudi Arabia&#39;s reported oil production decline and a drone strike on its East-West oil pipeline, along with continued vessel strikes in the ongoing Strait of Hormuz conflict, may lead to lucrative Middle East contracts being delayed or canceled.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T13:23:57.565657-04:00",
+    "symbols": [
+      "ONCO"
+    ],
+    "headline": "Onconetix shares are trading lower. The company announced a strategic bridge financing facility of up to $5 million to Realbotix.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T13:25:10.728801-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "Elon Musk Says Orbital Nvidia Computers Launch Next Year \u2014 Can SpaceX Actually Pull It Off?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

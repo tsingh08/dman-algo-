@@ -7354,7 +7354,8 @@ class TestNewsFirstCatalyst(unittest.TestCase):
                    "I Almost Didn't Buy This 6%+ Yielder Because of Headwinds",
                    "Implied Volatility Surging for BRT Apartments Stock Options",
                    "SABK Surges 5.2%: Is This an Indication of Further Gains?",
-                   "Coinbase Is Pushing Stablecoins to Banks. Here's Why Everyone Cares"):
+                   "Coinbase Is Pushing Stablecoins to Banks. Here's Why Everyone Cares",
+                   "Most Investors Think Netflix (NFLX) Is Too Expensive. I Think They're Wrong"):
             self.assertIsNone(a._news_catalyst_tier(_t, desc), _t)
 
     def test_capital_structure_housekeeping_is_not_a_catalyst(self):

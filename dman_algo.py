@@ -6147,7 +6147,7 @@ _NEWS_COMMENTARY_RE = re.compile(
 # The real catalyst in the same batch (SRRK's FDA approval) has none of these.
 _NEWS_COMMENTARY_ANYWHERE_RE = re.compile(
     r"\b(vs\.?|versus)\s|which is (the )?better|:\s*is (this|it|now)\b"
-    r"|implied volatility|is it time|should you (buy|sell)|here'?s why|\?\s*$", re.I)
+    r"|implied volatility|is it time|should you (buy|sell)|here'?s why|\bi (think|believe)\b|\?\s*$", re.I)
 
 # Backward-looking time reference paired with a move verb — the retrospective
 # tell even when the headline does not open like commentary.

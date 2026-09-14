@@ -71,33 +71,6 @@
       "score": 100,
       "date": "2026-09-11",
       "timestamp": "2026-09-11T10:12:44.301412-04:00"
-<<<<<<< Updated upstream
-    },
-    {
-      "ticker": "AEO",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 14.21,
-      "stop": 15.27,
-      "target1": 11.54,
-      "target2": 9.94,
-      "score": 100,
-      "date": "2026-09-10",
-      "timestamp": "2026-09-10T13:32:59.482848-04:00"
-    },
-    {
-      "ticker": "SIG",
-      "setup": "Morning Runner",
-      "bias": "LONG",
-      "entry": 99.22,
-      "stop": 93.17,
-      "target1": 119.26,
-      "target2": 131.29,
-      "score": 100,
-      "date": "2026-09-09",
-      "timestamp": "2026-09-09T10:02:08.840114-04:00"
-=======
->>>>>>> Stashed changes
     }
   ]
 }

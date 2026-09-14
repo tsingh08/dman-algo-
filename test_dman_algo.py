@@ -15530,3 +15530,15 @@ def _fake_regime():
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TestJsonAtomicNumpyScalars(unittest.TestCase):
+    """A sub-100 confluence score summed from numpy check results is np.int64;
+    stdlib json rejected it and aborted the whole save (found 2026-09-14 when
+    a backtest tracker save crashed mid-run)."""
+
+    def test_numpy_scalars_serialize(self):
+        import numpy as np, tempfile, os, json
+        p = os.path.join(tempfile.mkdtemp(), "t.json")
+        a._write_json_atomic(p, [{"score": np.int64(87), "px": np.float64(1.25), "ok": np.bool_(True)}])
+        self.assertEqual(json.load(open(p)), [{"score": 87, "px": 1.25, "ok": True}])

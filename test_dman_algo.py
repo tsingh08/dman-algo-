@@ -1899,7 +1899,7 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
     EARNINGS_BLACKOUT never actually blocked a signal in production."""
 
     def test_dict_shaped_calendar_blocks_unconfirmed_earnings_today(self):
-        fake_cal = {"Earnings Date": [date.today()], "Earnings High": 5.0}
+        fake_cal = {"Earnings Date": [a._et_today()], "Earnings High": 5.0}
         with patch.object(a.yf, "Ticker") as mock_tk, \
              patch.object(a, "_check_earnings_already_reported", return_value=False):
             mock_tk.return_value.calendar = fake_cal
@@ -1908,7 +1908,7 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
         self.assertEqual(score, 0)
 
     def test_dict_shaped_calendar_allows_earnings_far_out(self):
-        far_date = date.today() + timedelta(days=a.EARNINGS_BLACKOUT + 10)
+        far_date = a._et_today() + timedelta(days=a.EARNINGS_BLACKOUT + 10)
         fake_cal = {"Earnings Date": [far_date]}
         with patch.object(a.yf, "Ticker") as mock_tk:
             mock_tk.return_value.calendar = fake_cal
@@ -1930,7 +1930,7 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
         self.assertTrue(safe)
 
     def test_get_upcoming_earnings_returns_dict_shaped_dates(self):
-        near_date = date.today() + timedelta(days=2)
+        near_date = a._et_today() + timedelta(days=2)
         fake_cal = {"Earnings Date": [near_date]}
         with patch.object(a.yf, "Ticker") as mock_tk:
             mock_tk.return_value.calendar = fake_cal
@@ -1941,7 +1941,7 @@ class TestEarningsCalendarDictParsing(unittest.TestCase):
         self.assertEqual(result[0]["days_away"], 2)
 
     def test_get_upcoming_earnings_excludes_dates_beyond_window(self):
-        far_date = date.today() + timedelta(days=30)
+        far_date = a._et_today() + timedelta(days=30)
         fake_cal = {"Earnings Date": [far_date]}
         with patch.object(a.yf, "Ticker") as mock_tk:
             mock_tk.return_value.calendar = fake_cal
@@ -2304,34 +2304,34 @@ class TestEarningsBlackoutAllowsKnownReactions(unittest.TestCase):
         return patch.object(a, "_extract_earnings_dates", return_value=[earn_date])
 
     def test_earnings_yesterday_no_longer_blocks(self):
-        yesterday = date.today() - timedelta(days=1)
+        yesterday = a._et_today() - timedelta(days=1)
         with self._mock_calendar(yesterday):
             safe, score = a.check_earnings_safe("TESTX")
         self.assertTrue(safe, "a real post-earnings gap from yesterday must be tradeable")
         self.assertEqual(score, 5)
 
     def test_same_day_confirmed_reported_does_not_block(self):
-        today = date.today()
+        today = a._et_today()
         with self._mock_calendar(today), \
              patch.object(a, "_check_earnings_already_reported", return_value=True):
             safe, score = a.check_earnings_safe("TESTX")
         self.assertTrue(safe, "a same-day BMO report already confirmed released is a known reaction")
 
     def test_same_day_unconfirmed_still_blocks(self):
-        today = date.today()
+        today = a._et_today()
         with self._mock_calendar(today), \
              patch.object(a, "_check_earnings_already_reported", return_value=False):
             safe, score = a.check_earnings_safe("TESTX")
         self.assertFalse(safe, "an unconfirmed same-day report could still be AMC-pending later today")
 
     def test_upcoming_earnings_within_blackout_still_blocks(self):
-        upcoming = date.today() + timedelta(days=2)
+        upcoming = a._et_today() + timedelta(days=2)
         with self._mock_calendar(upcoming):
             safe, score = a.check_earnings_safe("TESTX")
         self.assertFalse(safe, "an upcoming, unreported earnings date must still block entries")
 
     def test_two_days_ago_no_longer_relevant_stays_safe(self):
-        two_days_ago = date.today() - timedelta(days=2)
+        two_days_ago = a._et_today() - timedelta(days=2)
         with self._mock_calendar(two_days_ago):
             safe, score = a.check_earnings_safe("TESTX")
         self.assertTrue(safe)
@@ -8762,7 +8762,7 @@ class TestFetchEarningsMoverTickers(unittest.TestCase):
         # for the tests that actually exercise the distinction.
         import pandas as pd
         n = 10
-        idx = pd.date_range(end=pd.Timestamp.today().normalize(), periods=n, freq="D")
+        idx = pd.date_range(end=pd.Timestamp(a._et_today()), periods=n, freq="D")
         closes = [prev_close] * n
         if today_close is not None:
             closes[-1] = today_close
@@ -12193,7 +12193,7 @@ class TestEarningsSpreadScanAggregateRiskCap(unittest.TestCase):
         os.unlink(self._dedup_tmp.name)
 
     def _candidate(self, ticker="NVDA"):
-        return {"ticker": ticker, "earn_date": date.today(), "days_away": 0,
+        return {"ticker": ticker, "earn_date": a._et_today(), "days_away": 0,
                 "timing": "AMC", "current_price": 200.0}
 
     def _run(self, equity, existing_committed, plan_max_loss, mock_build=None):
@@ -12317,7 +12317,7 @@ class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):
         os.unlink(self._dedup_tmp.name)
 
     def _run_with_candidate(self, timing):
-        candidate = {"ticker": "TESTX", "earn_date": date.today(), "days_away": 0,
+        candidate = {"ticker": "TESTX", "earn_date": a._et_today(), "days_away": 0,
                     "timing": timing, "current_price": 100.0}
         with patch.object(a, "is_market_open", return_value=True):
             with patch.object(a, "get_alpaca_client", return_value=MagicMock()):
@@ -12369,9 +12369,9 @@ class TestEarningsSpreadScanSectorOverlapSymmetry(unittest.TestCase):
     def test_both_same_sector_candidates_see_each_others_overlap(self):
         # NVDA and CRWD are both "Technology" in TICKER_SECTOR.
         candidates = [
-            {"ticker": "NVDA", "earn_date": date.today(), "days_away": 0,
+            {"ticker": "NVDA", "earn_date": a._et_today(), "days_away": 0,
              "timing": "AMC", "current_price": 200.0},
-            {"ticker": "CRWD", "earn_date": date.today(), "days_away": 0,
+            {"ticker": "CRWD", "earn_date": a._et_today(), "days_away": 0,
              "timing": "AMC", "current_price": 400.0},
         ]
         seen_overlaps = {}
@@ -13095,7 +13095,7 @@ class TestForceCloseDayOnlyPositions(unittest.TestCase):
         return a.OpenPosition(
             ticker=ticker, bias="LONG", setup=a.MOMENTUM_DAY_ONLY_SETUP,
             entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
-            entry_date=date.today().isoformat(), day_only=True,
+            entry_date=a._et_today().isoformat(), day_only=True,
         )
 
     def _fake_now(self, hour, minute):
@@ -13119,7 +13119,7 @@ class TestForceCloseDayOnlyPositions(unittest.TestCase):
         a.PositionTracker().open(a.OpenPosition(
             ticker="CELZ", bias="LONG", setup="Gap & Hold",
             entry=10.0, stop=9.0, target1=12.0, target2=14.0, shares=100,
-            entry_date=date.today().isoformat(), day_only=False,
+            entry_date=a._et_today().isoformat(), day_only=False,
         ))
         with patch.object(a, "_close_position_at_market") as mock_close:
             closed = a._force_close_day_only_positions(self._fake_now(15, 45))
@@ -13370,7 +13370,7 @@ class TestClosePositionAtMarket(unittest.TestCase):
         return a.OpenPosition(
             ticker=ticker, bias="LONG", setup=setup or a.MOMENTUM_DAY_ONLY_SETUP,
             entry=10.0, stop=9.0, target1=13.0, target2=15.0, shares=10,
-            entry_date=date.today().isoformat(), day_only=True,
+            entry_date=a._et_today().isoformat(), day_only=True,
         )
 
     def test_no_client_fails(self):

@@ -6729,7 +6729,7 @@ class TestEarningsSafeForNakedHold(unittest.TestCase):
     must fail CLOSED — an unreadable calendar is itself the risk."""
 
     def test_upcoming_earnings_block(self):
-        _d = a.date.today() + a.timedelta(days=2)
+        _d = a._et_today() + a.timedelta(days=2)
         with patch.object(a, "_extract_earnings_dates", return_value=[_d]):
             ok, why = a._earnings_safe_for_naked_hold("X")
         self.assertFalse(ok)
@@ -6753,19 +6753,19 @@ class TestEarningsSafeForNakedHold(unittest.TestCase):
     def test_already_reported_today_is_safe(self):
         # A BMO report already out is a KNOWN reaction — that is the setup
         # this whole path is hunting, not a hazard.
-        _d = a.date.today()
+        _d = a._et_today()
         with patch.object(a, "_extract_earnings_dates", return_value=[_d]),              patch.object(a, "_check_earnings_already_reported", return_value=True):
             self.assertTrue(a._earnings_safe_for_naked_hold("X")[0])
 
     def test_unconfirmed_today_fails_closed(self):
-        _d = a.date.today()
+        _d = a._et_today()
         with patch.object(a, "_extract_earnings_dates", return_value=[_d]),              patch.object(a, "_check_earnings_already_reported", return_value=False):
             ok, why = a._earnings_safe_for_naked_hold("X")
         self.assertFalse(ok)
         self.assertIn("AMC", why)
 
     def test_past_earnings_do_not_block(self):
-        _d = a.date.today() - a.timedelta(days=1)
+        _d = a._et_today() - a.timedelta(days=1)
         with patch.object(a, "_extract_earnings_dates", return_value=[_d]):
             self.assertTrue(a._earnings_safe_for_naked_hold("X")[0])
 
@@ -8882,7 +8882,7 @@ class TestFetchEarningsMoverTickers(unittest.TestCase):
         # completed day -- iloc[-2] would wrongly skip back an extra day.
         import pandas as pd
         n = 10
-        idx = pd.date_range(end=pd.Timestamp.today().normalize() - pd.Timedelta(days=1), periods=n, freq="D")
+        idx = pd.date_range(end=pd.Timestamp(a._et_today()) - pd.Timedelta(days=1), periods=n, freq="D")
         hist = pd.DataFrame({"Close": [90.32] * n, "Volume": [24_000_000] * n}, index=idx)
         with patch.object(a, "requests") as mock_requests, \
              patch.object(a, "get_live_price", return_value=104.51), \
@@ -11273,7 +11273,7 @@ class TestEarningsSpreadSizing(unittest.TestCase):
                         "short_strike": 110, "net_debit": 50.0,  # $5000/contract — absurdly expensive
                         "expiry": "2026-08-07", "dte": 9, "long_oi": 0, "short_oi": 0}):
                     plan = a.build_earnings_spread_plan(
-                        MagicMock(), "TESTX", 500.0, a.date.today(), "AMC")
+                        MagicMock(), "TESTX", 500.0, a._et_today(), "AMC")
         self.assertIsNone(plan)
 
 
@@ -11325,7 +11325,7 @@ class TestBuildEarningsSpreadPlanDirectionalGate(unittest.TestCase):
              patch.object(a, "_last_n_earnings_moves", return_value=[10.0, 12.0, 9.0]), \
              patch.object(a, "_confirm_directional_with_options_flow", return_value="CALL"), \
              patch.object(a, "_find_spread_legs", side_effect=lambda c, t, p, side, b: self._legs(side.lower())):
-            plan = a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a.date.today(), "AMC")
+            plan = a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a._et_today(), "AMC")
         self.assertEqual(plan["directional"], "CALL")
         self.assertIn("call", plan)
         self.assertNotIn("put", plan)
@@ -11338,7 +11338,7 @@ class TestBuildEarningsSpreadPlanDirectionalGate(unittest.TestCase):
              patch.object(a, "_last_n_earnings_moves", return_value=[10.0, 12.0, 9.0]), \
              patch.object(a, "_confirm_directional_with_options_flow", return_value=None), \
              patch.object(a, "_find_spread_legs", side_effect=lambda c, t, p, side, b: self._legs(side.lower())):
-            plan = a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a.date.today(), "AMC")
+            plan = a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a._et_today(), "AMC")
         self.assertIsNone(plan["directional"])
         self.assertIn("call", plan)
         self.assertIn("put", plan)
@@ -11351,7 +11351,7 @@ class TestBuildEarningsSpreadPlanDirectionalGate(unittest.TestCase):
              patch.object(a, "_last_n_earnings_moves", return_value=[1.0, -1.0, 0.5]), \
              patch.object(a, "_confirm_directional_with_options_flow") as mock_confirm, \
              patch.object(a, "_find_spread_legs", side_effect=lambda c, t, p, side, b: self._legs(side.lower())):
-            a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a.date.today(), "AMC")
+            a.build_earnings_spread_plan(MagicMock(), "NVDA", 100.0, a._et_today(), "AMC")
         mock_confirm.assert_not_called()
 
 
@@ -13932,7 +13932,7 @@ class TestInsiderBuyingSignal(unittest.TestCase):
         return resp
 
     def test_filters_to_p_and_s_codes_only(self):
-        today = a.date.today().isoformat()
+        today = a._et_today().isoformat()
         sub_resp = self._submissions_response(["4"], [today])
         xml_resp = self._form4_xml(["M", "F", "P"])
         with patch.object(a.requests, "get", side_effect=[sub_resp, xml_resp]):
@@ -13940,7 +13940,7 @@ class TestInsiderBuyingSignal(unittest.TestCase):
         self.assertEqual([t["code"] for t in txns], ["P"])
 
     def test_filing_older_than_days_back_is_excluded_without_a_fetch(self):
-        old_date = (a.date.today() - a.timedelta(days=30)).isoformat()
+        old_date = (a._et_today() - a.timedelta(days=30)).isoformat()
         sub_resp = self._submissions_response(["4"], [old_date])
         with patch.object(a.requests, "get", return_value=sub_resp) as mock_get:
             txns = a._fetch_recent_insider_transactions("TEST", days_back=14)
@@ -13948,7 +13948,7 @@ class TestInsiderBuyingSignal(unittest.TestCase):
         mock_get.assert_called_once()   # only the submissions call -- no wasted XML fetch
 
     def test_non_form4_filings_are_skipped_without_a_fetch(self):
-        today = a.date.today().isoformat()
+        today = a._et_today().isoformat()
         sub_resp = self._submissions_response(["10-K", "8-K"], [today, today])
         with patch.object(a.requests, "get", return_value=sub_resp) as mock_get:
             txns = a._fetch_recent_insider_transactions("TEST")
@@ -13962,7 +13962,7 @@ class TestInsiderBuyingSignal(unittest.TestCase):
         mock_get.assert_not_called()
 
     def test_result_is_cached_second_call_makes_no_extra_network_request(self):
-        today = a.date.today().isoformat()
+        today = a._et_today().isoformat()
         sub_resp = self._submissions_response(["4"], [today])
         xml_resp = self._form4_xml(["P"])
         with patch.object(a.requests, "get", side_effect=[sub_resp, xml_resp]) as mock_get:

@@ -6883,7 +6883,7 @@ def run_premarket_early_scan() -> None:
                     _pm_pt.open(OpenPosition(
                         ticker=_e["ticker"], bias="LONG", setup=_setup_label,
                         entry=_ep, stop=_stop_px, target1=_t1, target2=_t2,
-                        shares=_shares, entry_date=datetime.today().strftime("%Y-%m-%d"),
+                        shares=_shares, entry_date=_et_today().isoformat(),
                     ))
                     _size_note = "" if _sm == 1.0 else f"  <i>(half-size — {_gap_pct:.0f}% gap, Tier {_e['tier']})</i>"
                     _pm_msg = (
@@ -9870,7 +9870,7 @@ def run_premarket_briefing() -> None:
     try:
         _prebuilt = build_scan_universe()
         _cache_payload = {
-            "date": datetime.today().strftime("%Y-%m-%d"),
+            "date": _et_today().isoformat(),
             "tickers": _prebuilt,
         }
         with open("dman_universe_cache.json", "w") as _ucf:
@@ -10354,7 +10354,7 @@ class ProSignal:
     rsi:        float
     rvol:       float
     reason:     str
-    date:       str = field(default_factory=lambda: datetime.today().strftime("%Y-%m-%d"))
+    date:       str = field(default_factory=lambda: _et_today().isoformat())
 
     # Position sizing
     shares:         int   = 0
@@ -19463,7 +19463,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
 
             fill_date = (order.filled_at.strftime("%Y-%m-%d")
                          if getattr(order, "filled_at", None) else
-                         datetime.today().strftime("%Y-%m-%d"))
+                         _et_today().isoformat())
 
             # Independent safety net against duplicate recording, on top of
             # (not instead of) the recorded_ids check above. Confirmed live
@@ -19759,13 +19759,13 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
                 credit_received += (px if was_long else -px) * 100 * qty
             _fill_dts = [o.filled_at for o in _matched if getattr(o, "filled_at", None)]
             fill_date = (max(_fill_dts).strftime("%Y-%m-%d") if _fill_dts
-                         else datetime.today().strftime("%Y-%m-%d"))
+                         else _et_today().isoformat())
         else:
             oids = [str(_matched.id)]
             fill_px = float(_matched.filled_avg_price or 0)
             credit_received = -fill_px * 100 * qty
             fill_date = (_matched.filled_at.strftime("%Y-%m-%d")
-                         if getattr(_matched, "filled_at", None) else datetime.today().strftime("%Y-%m-%d"))
+                         if getattr(_matched, "filled_at", None) else _et_today().isoformat())
         debit_paid = float(pos.entry)
         dollar_pnl = credit_received - debit_paid
         pnl_pct = (dollar_pnl / debit_paid * 100) if debit_paid > 0 else 0.0
@@ -21242,7 +21242,7 @@ def _submit_manual_options_buy(client, pending: dict) -> tuple[Optional[str], Op
         setup      = (f"Options {pending['option_type'].title()} {occ} "
                       f"(${pending['strike']:g}{strike_dir} exp {pending['expiry']})"),
         entry      = limit_px, stop = sl, target1 = t1, target2 = t2,
-        shares     = contracts * 100, entry_date = datetime.today().strftime("%Y-%m-%d"),
+        shares     = contracts * 100, entry_date = _et_today().isoformat(),
         atr        = float(snap.get("delta", 0)), score = 0,
     ))
     if not tracked:
@@ -22028,7 +22028,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     target1    = _t1_prem,
                     target2    = _t2_prem,
                     shares     = _ctrs * 100,
-                    entry_date = datetime.today().strftime("%Y-%m-%d"),
+                    entry_date = _et_today().isoformat(),
                     atr        = _delta,
                     score      = sig.confluence_score,
                     # NOT day_only when the signal was switched to swing:
@@ -22103,7 +22103,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     target1    = sig.target1,
                     target2    = sig.target2,
                     shares     = sig.shares,
-                    entry_date = datetime.today().strftime("%Y-%m-%d"),
+                    entry_date = _et_today().isoformat(),
                     atr        = sig.atr,
                     score      = sig.confluence_score,
                     # NOT day_only when the signal was switched to swing:
@@ -22285,7 +22285,7 @@ def main():
                 with open("dman_universe_cache.json") as _ucf:
                     _cached = json.load(_ucf)
                 _cache_date = _cached.get("date", "")
-                _today_str  = datetime.today().strftime("%Y-%m-%d")
+                _today_str  = _et_today().isoformat()
                 if _cache_date == _today_str and _cached.get("tickers"):
                     tickers = _cached["tickers"]
                     print(f"  📦 Loaded pre-built universe: {len(tickers)} tickers "
@@ -22331,7 +22331,7 @@ def main():
         tracker = WinRateTracker()
         tracker.record(TradeRecord(
             ticker=args.ticker.upper(),
-            date=datetime.today().strftime("%Y-%m-%d"),
+            date=_et_today().isoformat(),
             bias=bias,
             setup=args.setup_name,
             entry=args.entry,
@@ -22346,7 +22346,7 @@ def main():
         if closed is not None:
             _record_day_trade(args.ticker.upper(),
                               getattr(closed, "entry_date", ""),
-                              datetime.today().strftime("%Y-%m-%d"))
+                              _et_today().isoformat())
         shares_used = closed.shares if closed else (args.shares or 0)
         if shares_used > 0:
             dollar_pnl   = (args.exit_price - args.entry) * shares_used * (1 if bias == "LONG" else -1)
@@ -22427,7 +22427,7 @@ def main():
             target1    = args.target1    or 0.0,
             target2    = args.target2    or 0.0,
             shares     = args.shares     or 1,
-            entry_date = datetime.today().strftime("%Y-%m-%d"),
+            entry_date = _et_today().isoformat(),
         )
         if pt.open(pos):
             print(f"\n  ✅ Position logged: {pos.ticker} {pos.bias} "

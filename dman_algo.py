@@ -17981,6 +17981,25 @@ def print_pro_signal(s: ProSignal):
 #  SECTION 21 — PRO BACKTESTER (walk-forward with all filters)
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _bt_stop_fill(stop: float, bar, is_long: bool) -> float:
+    """Where a stop actually fills on a daily bar: at the stop, or worse.
+
+    The backtest filled every stop at stop * 1.005 -- half a percent BETTER
+    than the stop for a long. That is backwards twice over: a sell stop
+    becomes a market order once touched, so it fills at the stop or lower,
+    and if the bar OPENS below the stop the fill is the open, not the stop
+    (CLRO lost 28.1% live on exactly that kind of gap). The optimism also
+    compounded with the outcome test: a breakeven stop filled at +0.5% was
+    booked as a WIN, which is a large part of how a strategy that lost money
+    live reported a 76% backtest win rate.
+    """
+    try:
+        _open = float(bar["Open"])
+    except (TypeError, ValueError, KeyError):
+        return stop
+    return min(stop, _open) if is_long else max(stop, _open)
+
+
 def run_pro_backtest(tickers: list[str] = WATCHLIST,
                      years: int = 2, min_score: int = 85) -> dict:
     """
@@ -18186,21 +18205,21 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
 
                 if sig._t1_hit:
                     if hit_t2:     exit_px, exit_reason = sig.target2*0.999,  "T2"
-                    elif hit_stop: exit_px, exit_reason = cur_stop*1.005, "STOP(BE)"
+                    elif hit_stop: exit_px, exit_reason = _bt_stop_fill(cur_stop, bar, is_lo), "STOP(BE)"
                     elif hit_time: exit_px, exit_reason = float(bar["Close"]), "TIME"
                 else:
                     be_set = getattr(sig, "_be1r_set", False)
                     if hit_stop:
                         lbl = "STOP(BE)" if be_set else "STOP"
-                        exit_px, exit_reason = cur_stop*1.005, lbl
+                        exit_px, exit_reason = _bt_stop_fill(cur_stop, bar, is_lo), lbl
                     elif hit_stall: exit_px, exit_reason = float(bar["Close"]), "STALL"
                     elif hit_time:  exit_px, exit_reason = float(bar["Close"]), "TIME"
 
                 if exit_px is not None:
                     raw_pnl = ((exit_px-ep)*active if is_lo else (ep-exit_px)*active) + partial_pnl
                     equity += raw_pnl
-                    outcome = "WIN" if raw_pnl > 0 else ("BE" if raw_pnl == 0 else "LOSS")
                     pnl_pct = raw_pnl / (ep * sig.shares) * 100
+                    outcome = _classify_outcome(pnl_pct)
 
                     tracker.record(TradeRecord(
                         ticker=ticker, date=str(raw.index[i].date()),

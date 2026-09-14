@@ -6967,6 +6967,30 @@ class TestLineByLineAuditFixes(unittest.TestCase):
                         src.index("merged = merge_positions_snapshots("))
 
 
+class TestBacktestStopFill(unittest.TestCase):
+    """The backtest filled every stop at stop*1.005 -- better than the stop for
+    a long -- and scored raw_pnl > 0 as a WIN, so every breakeven stop was a
+    +0.5% "win". Stops fill at the stop or worse, and at the open on a gap."""
+
+    def test_long_stop_fills_at_the_stop_not_above_it(self):
+        self.assertEqual(a._bt_stop_fill(9.50, {"Open": 10.00}, True), 9.50)
+
+    def test_long_gap_through_fills_at_the_open(self):
+        self.assertEqual(a._bt_stop_fill(9.50, {"Open": 7.20}, True), 7.20)
+
+    def test_short_gap_through_fills_at_the_open(self):
+        self.assertEqual(a._bt_stop_fill(10.50, {"Open": 11.40}, False), 11.40)
+
+    def test_no_more_optimistic_stop_fill_or_raw_pnl_win_label(self):
+        src = inspect.getsource(a.run_pro_backtest)
+        self.assertNotIn("cur_stop*1.005", src)
+        self.assertNotIn('"WIN" if raw_pnl > 0', src)
+        self.assertIn("_classify_outcome(pnl_pct)", src)
+
+    def test_breakeven_stop_is_a_scratch_not_a_win(self):
+        self.assertEqual(a._classify_outcome(0.0), "SCRATCH")
+
+
 class TestAuditFollowUps(unittest.TestCase):
     OCC = "TE260925C00004000"
 

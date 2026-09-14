@@ -532,7 +532,15 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
             except Exception as exc:
                 log(f"  ⚠️  {p} failed JSON validation ({exc}) — restoring last "
                     f"good commit, skipping this cycle's update to that file")
-                _git("checkout", "--", p)
+                # HEAD explicitly: after a conflicted stash pop the path is
+                # unmerged, and a bare `git checkout -- <p>` FAILS on an
+                # unmerged path ("error: path ... is unmerged") — _git()
+                # ignores the nonzero exit, so the marker-laden file survived
+                # to `git add -A` below and was committed/pushed as-is
+                # (confirmed live 2026-09-14: dman_live_signals.json).
+                # `checkout HEAD --` restores the file AND clears the
+                # unmerged index entry in one step.
+                _git("checkout", "HEAD", "--", p)
             continue
         if p.endswith(".csv"):
             try:
@@ -544,7 +552,9 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
             except Exception as exc:
                 log(f"  ⚠️  {p} failed CSV validation ({exc}) — restoring last "
                     f"good commit, skipping this cycle's update to that file")
-                _git("checkout", "--", p)
+                # HEAD explicitly — same unmerged-path reason as the .json
+                # branch above.
+                _git("checkout", "HEAD", "--", p)
             continue
         ok.append(p)
     return ok

@@ -61,7 +61,12 @@ runs:
               *.json)
                 if ! python -c "import json,sys; json.load(open(sys.argv[1]))" "$f" 2>/dev/null; then
                   echo "  ⚠️  $f failed JSON validation — restoring last good commit"
-                  git checkout -- "$f" 2>/dev/null || true
+                  # HEAD explicitly: a bare `git checkout -- <f>` fails on an
+                  # unmerged path (conflicted merge/stash state) and reads from
+                  # the index, not the last commit. Confirmed live 2026-09-14 in
+                  # dman_daemon.py's copy of this guard: the silent failure let
+                  # conflict markers get committed to main.
+                  git checkout HEAD -- "$f" 2>/dev/null || true
                 fi
                 ;;
             esac

@@ -18411,6 +18411,118 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST, years: int = 2,
     return res
 
 
+def _bt_score_live(_pit, current_date, hist_regime, i, min_score, raw, sig, tracker, window):
+    """Extracted verbatim from _run_pro_backtest_impl() on 2026-09-14 (refx).
+    Returns (escape, value, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND)); escape is None or the original
+    return/continue/break of the block.
+    """
+    _pit.set_asof(current_date)
+    _regime_pit = dict(hist_regime)
+    _regime_pit.setdefault("details", {"VIX": _pit.vix_asof()})
+    _pre_shares = sig.shares
+    sig.news_boost = False
+    try:
+        sig = score_signal(sig, window, _regime_pit, tracker)
+    except Exception:
+        _pit.score_errors += 1
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+    if not sig.shares:
+        sig.shares = _pre_shares or 1   # sizing only; P&L is a percentage
+    if not (sig.regime_ok and sig.mtf_ok and sig.earnings_ok and sig.macro_ok
+            and sig.divergence_free and sig.not_chasing_extended_highs):
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+    _eff_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
+    if sig.ticker in VOLATILE_TICKERS:
+        _eff_min = max(_eff_min, VOLATILE_MIN_CONFLUENCE)
+    if (raw.index[i].month in SEASONAL_WEAK_MONTHS
+            and sig.setup not in {"Gap & Hold", "Morning Runner"}):
+        _eff_min = max(_eff_min, SEASONAL_MIN_SCORE)
+    if sig.confluence_score < _eff_min:
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+    bt_score = sig.confluence_score
+    return (None, None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+
+
+def _bt_score_legacy(bt_score, hist_regime, i, min_score, raw, sig, window):
+    """Extracted verbatim from _run_pro_backtest_impl() on 2026-09-14 (refx).
+    Returns (escape, value, locals().get("bt_score", _REFX_UNBOUND)); escape is None or the original
+    return/continue/break of the block.
+    """
+    if bt_score is _REFX_UNBOUND:
+        del bt_score   # unassigned on this path in the caller
+    if sig.bias == "LONG"  and hist_regime["regime"] == "BEAR":
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    if sig.bias == "SHORT" and hist_regime["regime"] == "BULL":
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+
+    r = window.iloc[-1]
+    # RS: use 20-day price change as proxy
+    pct20 = float(r["Chg20d"]) if "Chg20d" in r.index else 0
+    if sig.bias == "LONG"  and pct20 < -5: return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    if sig.bias == "SHORT" and pct20 >  5: return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    # Divergence
+    div_free, _ = check_divergence_free(window, sig.bias)
+    if not div_free:
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    # Fibonacci, VWAP, POC, candlestick, 52wk prox
+    _, fib_pts  = check_fibonacci(window, sig.entry)
+    _, vwap_pts = check_vwap(window, sig.bias)
+    _, poc_pts  = check_poc_alignment(window, sig.entry, sig.bias)
+    _, candle_pts = detect_candle_pattern(window.iloc[-1], window.iloc[-2], sig.bias)
+    try:
+        hi52 = float(window["High"].iloc[-252:].max()) if len(window) >= 252 else float(window["High"].max())
+        off_hi = (hi52 - sig.entry) / hi52 * 100
+        prox_pts = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
+    except Exception:
+        prox_pts = 0
+
+    # Backtest score using historical regime score instead of hardcoded 15
+    regime_pts = min(15, hist_regime.get("score", 7))
+    # Supertrend alignment
+    try:
+        st_bull = bool(window["ST_bull"].iloc[-1])
+        st_pts  = 8 if (sig.bias == "LONG" and st_bull) or \
+                       (sig.bias == "SHORT" and not st_bull) else 0
+    except Exception:
+        st_pts = 4
+    # ADX strength
+    try:
+        adx_val = float(window["ADX"].iloc[-1])
+        adx_pts = 5 if adx_val > 25 else (2 if adx_val > 20 else 0)
+    except Exception:
+        adx_pts = 2
+    # Divergence-free bonus
+    div_pts = 5 if div_free else 0
+    # ATR percentile score
+    atr_pts = check_atr_percentile(window, sig.setup)
+    # Regime-setup-type bonus (BULL→momentum, CHOP→reversal)
+    momentum_setups = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
+    reversal_setups = {"OS Bounce", "OB Reversal", "MACD Cross", "MACD Bear",
+                       "Gap & Short", "EMA Breakdown", "Vol Breakdown"}
+    cur_regime = hist_regime.get("regime", "CHOP")
+    if cur_regime == "BULL" and sig.setup in momentum_setups:
+        regime_setup_pts = 8
+    elif cur_regime in ("BEAR", "CHOP") and sig.setup in reversal_setups:
+        regime_setup_pts = 8
+    else:
+        regime_setup_pts = 0
+    bt_score = (
+        (10 if sig.rvol >= 2.0 else 5 if sig.rvol >= 1.5 else 0) +
+        (8 if sig.rr >= 2.5 else 5) +
+        fib_pts + vwap_pts + poc_pts + candle_pts + prox_pts +
+        (5 if 45 <= sig.rsi <= 62 else 0) +
+        regime_pts + st_pts + adx_pts + div_pts + atr_pts + regime_setup_pts
+    )
+    bt_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
+    if sig.ticker in VOLATILE_TICKERS:
+        bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
+    if raw.index[i].month in SEASONAL_WEAK_MONTHS:
+        bt_min = max(bt_min, SEASONAL_MIN_SCORE)
+    if bt_score < bt_min * 0.95:
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    return (None, None, locals().get("bt_score", _REFX_UNBOUND))
+
+
 def _run_pro_backtest_impl(tickers: list[str] = WATCHLIST,
                           years: int = 2, min_score: int = 85,
                           live_scoring: bool = True, _pit=None) -> dict:
@@ -18488,100 +18600,18 @@ def _run_pro_backtest_impl(tickers: list[str] = WATCHLIST,
                 if live_scoring:
                     # The SAME scoring and gates the live scanner applies
                     # (run_pro_scanner), evaluated as of this bar.
-                    _pit.set_asof(current_date)
-                    _regime_pit = dict(hist_regime)
-                    _regime_pit.setdefault("details", {"VIX": _pit.vix_asof()})
-                    _pre_shares = sig.shares
-                    sig.news_boost = False
-                    try:
-                        sig = score_signal(sig, window, _regime_pit, tracker)
-                    except Exception:
-                        _pit.score_errors += 1
+                    _esc, _escv, _o_bt_score, _o_sig = _bt_score_live(_pit, current_date, hist_regime, i, min_score, raw, sig, tracker, window)
+                    if _o_bt_score is not _REFX_UNBOUND:
+                        bt_score = _o_bt_score
+                    if _o_sig is not _REFX_UNBOUND:
+                        sig = _o_sig
+                    if _esc == 'continue':
                         continue
-                    if not sig.shares:
-                        sig.shares = _pre_shares or 1   # sizing only; P&L is a percentage
-                    if not (sig.regime_ok and sig.mtf_ok and sig.earnings_ok and sig.macro_ok
-                            and sig.divergence_free and sig.not_chasing_extended_highs):
-                        continue
-                    _eff_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
-                    if sig.ticker in VOLATILE_TICKERS:
-                        _eff_min = max(_eff_min, VOLATILE_MIN_CONFLUENCE)
-                    if (raw.index[i].month in SEASONAL_WEAK_MONTHS
-                            and sig.setup not in {"Gap & Hold", "Morning Runner"}):
-                        _eff_min = max(_eff_min, SEASONAL_MIN_SCORE)
-                    if sig.confluence_score < _eff_min:
-                        continue
-                    bt_score = sig.confluence_score
                 else:
-                    if sig.bias == "LONG"  and hist_regime["regime"] == "BEAR":
-                        continue
-                    if sig.bias == "SHORT" and hist_regime["regime"] == "BULL":
-                        continue
-
-                    r = window.iloc[-1]
-                    # RS: use 20-day price change as proxy
-                    pct20 = float(r["Chg20d"]) if "Chg20d" in r.index else 0
-                    if sig.bias == "LONG"  and pct20 < -5: continue
-                    if sig.bias == "SHORT" and pct20 >  5: continue
-                    # Divergence
-                    div_free, _ = check_divergence_free(window, sig.bias)
-                    if not div_free:
-                        continue
-                    # Fibonacci, VWAP, POC, candlestick, 52wk prox
-                    _, fib_pts  = check_fibonacci(window, sig.entry)
-                    _, vwap_pts = check_vwap(window, sig.bias)
-                    _, poc_pts  = check_poc_alignment(window, sig.entry, sig.bias)
-                    _, candle_pts = detect_candle_pattern(window.iloc[-1], window.iloc[-2], sig.bias)
-                    try:
-                        hi52 = float(window["High"].iloc[-252:].max()) if len(window) >= 252 else float(window["High"].max())
-                        off_hi = (hi52 - sig.entry) / hi52 * 100
-                        prox_pts = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
-                    except Exception:
-                        prox_pts = 0
-
-                    # Backtest score using historical regime score instead of hardcoded 15
-                    regime_pts = min(15, hist_regime.get("score", 7))
-                    # Supertrend alignment
-                    try:
-                        st_bull = bool(window["ST_bull"].iloc[-1])
-                        st_pts  = 8 if (sig.bias == "LONG" and st_bull) or \
-                                       (sig.bias == "SHORT" and not st_bull) else 0
-                    except Exception:
-                        st_pts = 4
-                    # ADX strength
-                    try:
-                        adx_val = float(window["ADX"].iloc[-1])
-                        adx_pts = 5 if adx_val > 25 else (2 if adx_val > 20 else 0)
-                    except Exception:
-                        adx_pts = 2
-                    # Divergence-free bonus
-                    div_pts = 5 if div_free else 0
-                    # ATR percentile score
-                    atr_pts = check_atr_percentile(window, sig.setup)
-                    # Regime-setup-type bonus (BULL→momentum, CHOP→reversal)
-                    momentum_setups = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
-                    reversal_setups = {"OS Bounce", "OB Reversal", "MACD Cross", "MACD Bear",
-                                       "Gap & Short", "EMA Breakdown", "Vol Breakdown"}
-                    cur_regime = hist_regime.get("regime", "CHOP")
-                    if cur_regime == "BULL" and sig.setup in momentum_setups:
-                        regime_setup_pts = 8
-                    elif cur_regime in ("BEAR", "CHOP") and sig.setup in reversal_setups:
-                        regime_setup_pts = 8
-                    else:
-                        regime_setup_pts = 0
-                    bt_score = (
-                        (10 if sig.rvol >= 2.0 else 5 if sig.rvol >= 1.5 else 0) +
-                        (8 if sig.rr >= 2.5 else 5) +
-                        fib_pts + vwap_pts + poc_pts + candle_pts + prox_pts +
-                        (5 if 45 <= sig.rsi <= 62 else 0) +
-                        regime_pts + st_pts + adx_pts + div_pts + atr_pts + regime_setup_pts
-                    )
-                    bt_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
-                    if sig.ticker in VOLATILE_TICKERS:
-                        bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
-                    if raw.index[i].month in SEASONAL_WEAK_MONTHS:
-                        bt_min = max(bt_min, SEASONAL_MIN_SCORE)
-                    if bt_score < bt_min * 0.95:
+                    _esc, _escv, _o_bt_score = _bt_score_legacy(locals().get("bt_score", _REFX_UNBOUND), hist_regime, i, min_score, raw, sig, window)
+                    if _o_bt_score is not _REFX_UNBOUND:
+                        bt_score = _o_bt_score
+                    if _esc == 'continue':
                         continue
 
                 entry_px = sig.entry * 1.001   # 0.1% slippage

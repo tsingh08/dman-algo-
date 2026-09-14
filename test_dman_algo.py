@@ -7063,7 +7063,8 @@ class TestPointInTimeBacktest(unittest.TestCase):
     def test_live_scoring_uses_live_gates(self):
         src = inspect.getsource(a._run_pro_backtest_impl)
         i = src.index("if live_scoring:")
-        seg = src[i:src.index("else:", i)]
+        self.assertIn("_bt_score_live(", src[i:src.index("else:", i)])
+        seg = inspect.getsource(a._bt_score_live)
         self.assertIn("score_signal(sig, window", seg)
         for gate in ("regime_ok", "mtf_ok", "earnings_ok", "macro_ok",
                      "divergence_free", "not_chasing_extended_highs"):

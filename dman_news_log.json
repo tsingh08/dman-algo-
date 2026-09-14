@@ -3630,5 +3630,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T15:24:46.779494-04:00",
+    "symbols": [
+      "IWM",
+      "RIOT"
+    ],
+    "headline": "Billionaire Investor Adds To ASML, Exits Rivals KLA and Lam \u2014 Plus Nvidia, Broadcom",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T15:29:20.346827-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Fed Hikes This Week: Stocks Have a 30-Year Playbook for This Moment",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

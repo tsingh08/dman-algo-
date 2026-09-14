@@ -6810,11 +6810,11 @@ class TestScoreThresholdIsNotBinding(unittest.TestCase):
     def test_scan_log_records_signal_scores(self):
         # Without this field there is no way to see saturation, which is how
         # a dead threshold went unnoticed for two months.
-        src = inspect.getsource(a.run_pro_scanner)
+        src = inspect.getsource(a._scan_persist_log)   # extracted from run_pro_scanner
         self.assertIn('"signal_scores"', src)
 
     def test_recorded_alongside_the_reject_counter_it_explains(self):
-        src = inspect.getsource(a.run_pro_scanner)
+        src = inspect.getsource(a._scan_persist_log)
         self.assertLess(src.index('"signal_scores"'),
                         src.index('"rejected_low_score"'))
 
@@ -6931,7 +6931,7 @@ class TestLineByLineAuditFixes(unittest.TestCase):
     def test_heat_budget_imports_assetclass_before_using_it(self):
         # NameError here was swallowed by `except Exception: pass`, so the 6%
         # PORTFOLIO_HEAT_LIMIT silently stopped counting existing exposure.
-        src = inspect.getsource(a.run_pro_scanner)
+        src = inspect.getsource(a._scan_portfolio_heat)   # extracted from run_pro_scanner
         i_imp = src.index("from alpaca.trading.enums import AssetClass")
         i_use = src.index("AssetClass.US_EQUITY")
         self.assertLess(i_imp, i_use)

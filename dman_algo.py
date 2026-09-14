@@ -17653,6 +17653,342 @@ def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> li
     return out
 
 
+def _scan_consecutive_loss_gate(min_score, stats, tickers):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns (escape, value, ); escape is None or the original
+    return/continue/break of the block.
+    """
+    if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
+        print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
+        print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
+        if not _is_duplicate_alert("__CONSEC_LOSS__"):
+            send_telegram(
+                f"🛑 <b>DMan halted</b> — {stats['consec_losses']} consecutive losses.\n"
+                f"Scanner paused for the day. Review your last trades."
+            )
+            _save_last_alert("__CONSEC_LOSS__")
+        _log_scan_halt("consecutive_losses", tickers, min_score or 0)
+        return ('return', [])
+
+    # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
+    month_loss = get_this_month_loss()
+    if month_loss <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
+        print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
+              f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
+        print(f"     Stop trading for the month. Review setups. Reset.\n")
+        if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
+            send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
+            _save_last_alert("__MONTHLY_LIMIT__")
+        _log_scan_halt("monthly_loss_limit", tickers, min_score or 0)
+        return ('return', [])
+    return (None, None)
+
+
+def _scan_prefetch_news(_scan_news_map, tickers):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns: _scan_news_map.
+    """
+    try:
+        _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=20)
+        _news_count = sum(1 for v in _scan_news_map.values() if v)
+        print(f"{_news_count}/{len(tickers)} tickers have recent news")
+        # Background knowledge-base log (2026-08-15) — this REST pre-fetch
+        # is the only news pathway that runs during the cron scanner's own
+        # windows (including premarket-early, before the daemon's
+        # continuous news stream is even running for the day), so logging
+        # here alongside the stream's own logging is what actually makes
+        # coverage continuous across the full 4 AM-8 PM trading window
+        # rather than just the hours the daemon happens to be up.
+        # _log_news_event's own (symbols, headline) dedup keeps the same
+        # story from re-logging every time this 20h-lookback fetch runs.
+        # Sentiment looked up once per TICKER (not per headline) — it's
+        # already a majority vote across that ticker's recent articles,
+        # not headline-specific — and reused for every headline logged
+        # for it this pass; _news_sentiment_verdict's own 10-min cache
+        # keeps repeat cross-cycle lookups cheap.
+        for _nt, _heads in _scan_news_map.items():
+            if not _heads:
+                continue
+            _nt_sentiment = _news_sentiment_verdict(_nt)
+            for _h in _heads:
+                _log_news_event([_nt], _h, source="scan-prefetch", tag="watchlist",
+                               sentiment=_nt_sentiment)
+    except Exception as _ne:
+        print(f"error ({str(_ne)[:60]})")
+    return _scan_news_map
+
+
+def _scan_smallcap_pass(_smallcap_extra, include_dynamic_smallcap, signals, tickers):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    """
+    sc_rejected = 0
+    sc_found    = 0
+    # Dynamic Finviz discovery: low-float (<5M), price <$20, vol >500k
+    _finviz_tickers: list[str] = []
+    if ENABLE_DYNAMIC_SMALLCAP and include_dynamic_smallcap:
+        print("  🔍  Fetching today's movers (Yahoo Finance day gainers + most actives)...", flush=True)
+        _finviz_tickers = fetch_dman_dynamic_tickers()
+        if _finviz_tickers:
+            print(f"  🔍  Live movers: {len(_finviz_tickers)} candidates with RVOL ≥1.5x: "
+                  f"{', '.join(_finviz_tickers[:10])}{'...' if len(_finviz_tickers) > 10 else ''}",
+                  flush=True)
+        else:
+            print("  🔍  No live movers found (market closed or pre-market)", flush=True)
+    # Merge: large-cap tickers (already cached) + curated watchlist + live movers
+    sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST + _finviz_tickers))
+    for ticker in sc_universe:
+        df = fetch_df(ticker)   # already cached from the large-cap pass
+        if df is None or len(df) < 30:
+            continue
+        df = _compute_indicators_cached(ticker, df)
+        sc_sig = detect_low_float_catalyst(df, ticker)
+        if sc_sig is None:
+            sc_rejected += 1
+            continue
+        # Simple hard gates for small-cap (skip MTF/RS/Sector — meaningless)
+        macro_ok, _ = check_macro_safe()
+        if not macro_ok:
+            sc_rejected += 1
+            continue
+        earn_ok, _ = check_earnings_safe(ticker)
+        if not earn_ok:
+            sc_rejected += 1
+            continue
+        # Score with small-cap specific scorer — see
+        # _smallcap_score_threshold()'s docstring for why this can't
+        # just use the watchlist floor on its own.
+        sc_sig.confluence_score = score_smallcap_signal(sc_sig)
+        _sc_threshold = _smallcap_score_threshold(ticker, sc_sig.setup)
+        if sc_sig.confluence_score < _sc_threshold:
+            sc_rejected += 1
+            continue
+        # Skip if same ticker already fired as large-cap signal
+        if any(s.ticker == ticker for s in signals):
+            continue
+        fl_m, sh_pct, insider_pct, _cash_mc = _get_short_float_data(ticker)
+        post_rs = _is_recent_reverse_split(ticker)
+        sc_found += 1
+        signals.append(sc_sig)
+        sys.stdout.write(f"\r  🔥 SMALLCAP {ticker:<8} "
+                         f"float={fl_m:.1f}M SI={sh_pct:.0f}%"
+                         f"{' POST-RS' if post_rs else ''} "
+                         f"score={sc_sig.confluence_score}\n")
+        _smallcap_extra[ticker] = (fl_m, sh_pct, insider_pct, post_rs)
+        # NOTE: alerting deferred to after heat-cap/sector-cap — see below.
+    if sc_found or sc_rejected:
+        print(f"  🔥  Small-cap pass: {sc_found} signal(s), {sc_rejected} rejected")
+
+
+
+def _scan_portfolio_heat(eff_account, total_risk_pct):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns: total_risk_pct.
+    """
+    try:
+        # Imported here because AssetClass is not in module scope. Without it
+        # the comparison below raised NameError on the first held position of
+        # any kind, the bare `except Exception: pass` swallowed it, and
+        # total_risk_pct stayed 0 -- PORTFOLIO_HEAT_LIMIT silently stopped
+        # counting existing exposure at all. It demonstrably worked on
+        # 2026-08-11 (the comment below records it hitting 8% against the 6%
+        # cap), so this was a regression, not a feature that never shipped.
+        from alpaca.trading.enums import AssetClass
+        if eff_account > 0:
+            _heat_positions = _check_stop_coverage()
+            if _heat_positions:
+                for _hp in _heat_positions.values():
+                    # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
+                    # Alpaca doesn't expose stop_price on positions, so we approximate risk as
+                    # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
+                    # Options legs are excluded here — confirmed live 2026-08-11: with 2
+                    # equity swings (CELZ, CLRO) + 2 SMCI option legs open, this loop hit
+                    # 8% against the 6% cap and would have silently heat-capped out ANY
+                    # new equity signal, however good, regardless of the options' actual
+                    # (much smaller, already-defined) premium risk. Options are already
+                    # risk-managed separately — trailing stop, milestone alerts — so they
+                    # shouldn't also consume the equity heat budget.
+                    if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
+                        total_risk_pct += SMALLCAP_RISK_PCT
+    except Exception:
+        pass   # if Alpaca unavailable, proceed without existing-position offset
+    return total_risk_pct
+
+
+def _scan_persist_log(_budget_hit, min_score, regime, rejected_counts, signals, tickers, universe_label):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    """
+    try:
+        # News sentiment breadth snapshot (2026-08-15) — observation-only
+        # per get_market_regime()'s own docstring; recorded here purely so
+        # there's a reviewable per-scan trend to look back on before ever
+        # deciding whether to wire it into scoring. None-safe: regime's
+        # own news_breadth is None if that lookup itself failed.
+        _nb = regime.get("news_breadth") or {}
+        _append_scan_log({
+            "ts":                  datetime.now(ET).isoformat(),
+            "regime":              regime.get("regime", "?"),
+            "regime_score":        regime.get("score", 0),
+            "vix":                 round(float(regime["details"].get("VIX", 0)), 1),
+            "min_score":           min_score,
+            "universe":            universe_label,
+            "tickers_total":       len(tickers),
+            "signals":             len(signals),
+            "signal_tickers":      [s.ticker for s in signals],
+            # Recorded so score SATURATION stays visible. Measured 2026-09-11
+            # over 118 scans: rejected_low_score was 0 every single time --
+            # the score threshold has never rejected anything -- while 26 of
+            # 31 taken trades scored exactly 100. The binding filter is the
+            # setup logic (31,078 "no signal" rejects); the score is a label
+            # applied after it, saturated at the ceiling. Any attempt to tune
+            # min_score is tuning a knob that is not connected to anything,
+            # and without this field there is no way to notice that.
+            "signal_scores":       [getattr(s, "confluence_score", 0) for s in signals],
+            "rejected_no_signal":  rejected_counts["no_signal"],
+            "rejected_hard_gate":  rejected_counts["hard_gate"],
+            "rejected_low_score":  rejected_counts["low_score"],
+            "budget_hit":          _budget_hit,
+            "news_breadth_pct":    _nb.get("breadth_pct"),
+            "news_breadth_total":  _nb.get("total", 0),
+        })
+    except Exception:
+        pass  # never let logging block the scan return
+
+
+
+def _scan_near_miss_tier(_b_tier, _near_misses, min_score, regime, tickers, tracker):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns: _b_tier, _near_misses.
+    """
+    _nm_universe = list(dict.fromkeys(list(tickers)[:120] + list(WATCHLIST)))
+    for _nm_t in _nm_universe:
+        try:
+            _nm_raw = fetch_df(_nm_t)
+            if _nm_raw is None or len(_nm_raw) < 30:
+                continue
+            _nm_df  = compute_indicators(_nm_raw.copy())
+            _nm_r   = _nm_df.iloc[-1]
+            _nm_p   = _nm_df.iloc[-2]
+            _nm_gap = (float(_nm_r["Open"]) - float(_nm_p["Close"])) / float(_nm_p["Close"]) * 100
+            if _nm_gap < 1.0:
+                continue
+            _nm_macd     = float(_nm_r.get("MACD", 0) or 0)
+            _nm_prn_grn  = float(_nm_p["Close"]) > float(_nm_p["Open"])
+            _nm_sec_ok   = _sector_etf_above_ema50(_nm_t)
+            # Hold% vs open: appended to MACD/prior-red blockers so the user
+            # can see whether the price was above or below the gap open at scan time.
+            try:
+                _nm_c_now = float(_nm_r["Close"].iloc[0]) if hasattr(_nm_r["Close"], "iloc") else float(_nm_r["Close"])
+                _nm_o_day = float(_nm_r["Open"].iloc[0])  if hasattr(_nm_r["Open"],  "iloc") else float(_nm_r["Open"])
+                _nm_hold_tag = f" ({(_nm_c_now - _nm_o_day) / _nm_o_day * 100:+.1f}%)"
+            except Exception:
+                _nm_hold_tag = ""
+            if not _nm_sec_ok:
+                _nm_blocker = "sector⚠️"
+            elif _nm_macd <= 0:
+                _nm_blocker = f"MACD {_nm_macd:+.1f}{_nm_hold_tag}"
+            elif not _nm_prn_grn:
+                _nm_blocker = f"prior red{_nm_hold_tag}"
+            else:
+                # Primary filters all pass — run full pipeline to get exact blocker
+                try:
+                    _nm_raw_sig = _raw_signals(_nm_df, _nm_t)
+                    if _nm_raw_sig is None:
+                        # Identify the specific _raw_signals sub-check that failed
+                        _nm_rvol = float(_nm_r.get("RVOL", 0) or 0)
+                        _nm_rsi  = float(_nm_r.get("RSI", 0) or 0)
+                        _nm_c    = float(_nm_r["Close"])
+                        _nm_o    = float(_nm_r["Open"])
+                        if _nm_rvol < 1.5:
+                            _nm_blocker = f"RVOL {_nm_rvol:.1f}x"
+                        elif _nm_rsi <= 50:
+                            _nm_blocker = f"RSI {_nm_rsi:.0f}"
+                        elif _nm_c < _nm_o * 0.995:
+                            _nm_blocker = f"not holding ({(_nm_c/_nm_o-1)*100:.1f}%)"
+                        else:
+                            _nm_blocker = "no setup pattern"
+                    else:
+                        _nm_scored = score_signal(_nm_raw_sig, _nm_df, regime, tracker)
+                        _nm_sc     = _nm_scored.confluence_score
+                        _nm_blocker = f"score {_nm_sc}/{min_score}"
+                except Exception:
+                    _nm_blocker = "score short"
+            # Collect actionable entry levels for near-miss Telegram
+            try:
+                _nm_c_px  = float(_nm_r.get("Close", 0) or 0)
+                _nm_o_px  = float(_nm_r.get("Open",  0) or 0)
+                _nm_lo_px = float(_nm_r.get("Low",   0) or 0)
+                _nm_stop  = round(min(_nm_lo_px * 0.99, _nm_o_px * 0.985), 2) if _nm_lo_px > 0 else 0
+                _nm_risk  = (_nm_c_px - _nm_stop) if _nm_stop > 0 and _nm_c_px > _nm_stop else 0
+                _nm_t1    = round(_nm_c_px + 2.5 * _nm_risk, 2) if _nm_risk > 0 else 0
+                _nm_rvol  = float(_nm_r.get("RVOL", 0) or 0)
+                _nm_score_val = 0
+                if "score" in _nm_blocker:
+                    try:
+                        _nm_score_val = int(_nm_blocker.split()[1].split("/")[0])
+                    except Exception:
+                        pass
+                _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
+                # B-tier: setup almost qualified (score within 15 of threshold, or
+                # only blocked by RVOL/RSI which could change intraday)
+                _b_tier_reason = ""
+                if _nm_score_val >= min_score - 15 and _nm_score_val > 0:
+                    _b_tier_reason = f"score {_nm_score_val}/{min_score}"
+                elif "RVOL" in _nm_blocker and _nm_rvol >= 1.0:
+                    _b_tier_reason = f"RVOL {_nm_rvol:.1f}x (needs ≥2.0x)"
+                if _b_tier_reason and _nm_c_px > 0 and _nm_stop > 0 and _nm_t1 > 0:
+                    _b_tier.append({
+                        "ticker": _nm_t, "gap": _nm_gap, "entry": _nm_c_px,
+                        "stop": _nm_stop, "t1": _nm_t1, "rvol": _nm_rvol,
+                        "reason": _b_tier_reason,
+                    })
+            except Exception:
+                _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
+        except Exception:
+            continue
+    _near_misses.sort(key=lambda x: x[1], reverse=True)
+    _near_misses = _near_misses[:3]
+    _b_tier.sort(key=lambda x: x["gap"], reverse=True)
+    _b_tier = _b_tier[:2]
+    return _b_tier, _near_misses
+
+
+def _scan_friday_closeout():
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    """
+    try:
+        _now_co = datetime.now(ET)
+        if _now_co.weekday() == 4:  # Friday
+            _hhmm_co = _now_co.hour * 100 + _now_co.minute
+            if 1530 <= _hhmm_co <= 1559:
+                _pending_co = []
+                if os.path.exists(LIVE_SIGNALS_FILE):
+                    with open(LIVE_SIGNALS_FILE) as _fco:
+                        _pending_co = json.load(_fco).get("pending", [])
+                _mins_left = (16 * 60) - (_now_co.hour * 60 + _now_co.minute)
+                # Find upcoming FOMC within 7 days
+                _td_co = _now_co.date()
+                _fomc_co = ""
+                for _ev_co in sorted(_FOMC_DATES):
+                    _d_co = (_ev_co - _td_co).days
+                    if 1 <= _d_co <= 7:
+                        _fomc_co = f" FOMC {_ev_co.strftime('%a %b %d')} in {_d_co}d."
+                        break
+                    if _d_co > 7:
+                        break
+                _pos_co = ""
+                if _pending_co:
+                    _pos_co = "\nOpen: " + ", ".join(p.get("ticker","?") for p in _pending_co)
+                send_telegram(
+                    f"⚠️ <b>FRIDAY — {_mins_left} min to close</b>\n"
+                    f"Exit positions not at T1 to avoid weekend risk.{_fomc_co}"
+                    f"{_pos_co}"
+                )
+                print(f"\n  ⚠️  Friday close-out advisory sent ({_mins_left} min to bell)")
+    except Exception:
+        pass
+
+
+
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
                     min_score: int = None,
                     use_ai: bool = False,
@@ -17690,29 +18026,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     _on_probation, _probation_mult = is_on_probation()
     if not _on_probation:
         # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
-        if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
-            print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
-            print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
-            if not _is_duplicate_alert("__CONSEC_LOSS__"):
-                send_telegram(
-                    f"🛑 <b>DMan halted</b> — {stats['consec_losses']} consecutive losses.\n"
-                    f"Scanner paused for the day. Review your last trades."
-                )
-                _save_last_alert("__CONSEC_LOSS__")
-            _log_scan_halt("consecutive_losses", tickers, min_score or 0)
-            return []
-
-        # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
-        month_loss = get_this_month_loss()
-        if month_loss <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
-            print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
-                  f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
-            print(f"     Stop trading for the month. Review setups. Reset.\n")
-            if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
-                send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
-                _save_last_alert("__MONTHLY_LIMIT__")
-            _log_scan_halt("monthly_loss_limit", tickers, min_score or 0)
-            return []
+        _esc, _escv = _scan_consecutive_loss_gate(min_score, stats, tickers)
+        if _esc == 'return':
+            return _escv
     elif not _is_duplicate_alert("__PROBATION_ACTIVE__"):
         print(f"\n  🟡 PROBATION ACTIVE — consec-loss/monthly-loss guards bypassed, "
               f"sizing ×{_probation_mult:.2f}\n")
@@ -17815,33 +18131,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # been False under the old window despite the catalyst being obvious.
     print(f"  [1.5/2] Pre-fetching news catalysts (last 20h)...", end=" ", flush=True)
     _scan_news_map: dict[str, list] = {}
-    try:
-        _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=20)
-        _news_count = sum(1 for v in _scan_news_map.values() if v)
-        print(f"{_news_count}/{len(tickers)} tickers have recent news")
-        # Background knowledge-base log (2026-08-15) — this REST pre-fetch
-        # is the only news pathway that runs during the cron scanner's own
-        # windows (including premarket-early, before the daemon's
-        # continuous news stream is even running for the day), so logging
-        # here alongside the stream's own logging is what actually makes
-        # coverage continuous across the full 4 AM-8 PM trading window
-        # rather than just the hours the daemon happens to be up.
-        # _log_news_event's own (symbols, headline) dedup keeps the same
-        # story from re-logging every time this 20h-lookback fetch runs.
-        # Sentiment looked up once per TICKER (not per headline) — it's
-        # already a majority vote across that ticker's recent articles,
-        # not headline-specific — and reused for every headline logged
-        # for it this pass; _news_sentiment_verdict's own 10-min cache
-        # keeps repeat cross-cycle lookups cheap.
-        for _nt, _heads in _scan_news_map.items():
-            if not _heads:
-                continue
-            _nt_sentiment = _news_sentiment_verdict(_nt)
-            for _h in _heads:
-                _log_news_event([_nt], _h, source="scan-prefetch", tag="watchlist",
-                               sentiment=_nt_sentiment)
-    except Exception as _ne:
-        print(f"error ({str(_ne)[:60]})")
+    _scan_news_map = _scan_prefetch_news(_scan_news_map, tickers)
 
     # Batch-fetch daily bars via Alpaca SIP (Algo Trader Plus real-time feed)
     # before the ticker loop — a handful of chunked calls instead of one
@@ -17998,62 +18288,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # Second pass over the same universe using Dman's micro-cap criteria.
     # Separate risk rules: 0.5% per trade, max $2,500 cost, lower score bar.
     if ENABLE_SMALLCAP:
-        sc_rejected = 0
-        sc_found    = 0
-        # Dynamic Finviz discovery: low-float (<5M), price <$20, vol >500k
-        _finviz_tickers: list[str] = []
-        if ENABLE_DYNAMIC_SMALLCAP and include_dynamic_smallcap:
-            print("  🔍  Fetching today's movers (Yahoo Finance day gainers + most actives)...", flush=True)
-            _finviz_tickers = fetch_dman_dynamic_tickers()
-            if _finviz_tickers:
-                print(f"  🔍  Live movers: {len(_finviz_tickers)} candidates with RVOL ≥1.5x: "
-                      f"{', '.join(_finviz_tickers[:10])}{'...' if len(_finviz_tickers) > 10 else ''}",
-                      flush=True)
-            else:
-                print("  🔍  No live movers found (market closed or pre-market)", flush=True)
-        # Merge: large-cap tickers (already cached) + curated watchlist + live movers
-        sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST + _finviz_tickers))
-        for ticker in sc_universe:
-            df = fetch_df(ticker)   # already cached from the large-cap pass
-            if df is None or len(df) < 30:
-                continue
-            df = _compute_indicators_cached(ticker, df)
-            sc_sig = detect_low_float_catalyst(df, ticker)
-            if sc_sig is None:
-                sc_rejected += 1
-                continue
-            # Simple hard gates for small-cap (skip MTF/RS/Sector — meaningless)
-            macro_ok, _ = check_macro_safe()
-            if not macro_ok:
-                sc_rejected += 1
-                continue
-            earn_ok, _ = check_earnings_safe(ticker)
-            if not earn_ok:
-                sc_rejected += 1
-                continue
-            # Score with small-cap specific scorer — see
-            # _smallcap_score_threshold()'s docstring for why this can't
-            # just use the watchlist floor on its own.
-            sc_sig.confluence_score = score_smallcap_signal(sc_sig)
-            _sc_threshold = _smallcap_score_threshold(ticker, sc_sig.setup)
-            if sc_sig.confluence_score < _sc_threshold:
-                sc_rejected += 1
-                continue
-            # Skip if same ticker already fired as large-cap signal
-            if any(s.ticker == ticker for s in signals):
-                continue
-            fl_m, sh_pct, insider_pct, _cash_mc = _get_short_float_data(ticker)
-            post_rs = _is_recent_reverse_split(ticker)
-            sc_found += 1
-            signals.append(sc_sig)
-            sys.stdout.write(f"\r  🔥 SMALLCAP {ticker:<8} "
-                             f"float={fl_m:.1f}M SI={sh_pct:.0f}%"
-                             f"{' POST-RS' if post_rs else ''} "
-                             f"score={sc_sig.confluence_score}\n")
-            _smallcap_extra[ticker] = (fl_m, sh_pct, insider_pct, post_rs)
-            # NOTE: alerting deferred to after heat-cap/sector-cap — see below.
-        if sc_found or sc_rejected:
-            print(f"  🔥  Small-cap pass: {sc_found} signal(s), {sc_rejected} rejected")
+        _scan_smallcap_pass(_smallcap_extra, include_dynamic_smallcap, signals, tickers)
 
     signals.sort(key=lambda s: s.confluence_score, reverse=True)
 
@@ -18068,33 +18303,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     heat_capped: list[ProSignal] = []
     eff_account = get_effective_account()
     total_risk_pct = 0.0
-    try:
-        # Imported here because AssetClass is not in module scope. Without it
-        # the comparison below raised NameError on the first held position of
-        # any kind, the bare `except Exception: pass` swallowed it, and
-        # total_risk_pct stayed 0 -- PORTFOLIO_HEAT_LIMIT silently stopped
-        # counting existing exposure at all. It demonstrably worked on
-        # 2026-08-11 (the comment below records it hitting 8% against the 6%
-        # cap), so this was a regression, not a feature that never shipped.
-        from alpaca.trading.enums import AssetClass
-        if eff_account > 0:
-            _heat_positions = _check_stop_coverage()
-            if _heat_positions:
-                for _hp in _heat_positions.values():
-                    # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
-                    # Alpaca doesn't expose stop_price on positions, so we approximate risk as
-                    # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
-                    # Options legs are excluded here — confirmed live 2026-08-11: with 2
-                    # equity swings (CELZ, CLRO) + 2 SMCI option legs open, this loop hit
-                    # 8% against the 6% cap and would have silently heat-capped out ANY
-                    # new equity signal, however good, regardless of the options' actual
-                    # (much smaller, already-defined) premium risk. Options are already
-                    # risk-managed separately — trailing stop, milestone alerts — so they
-                    # shouldn't also consume the equity heat budget.
-                    if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
-                        total_risk_pct += SMALLCAP_RISK_PCT
-    except Exception:
-        pass   # if Alpaca unavailable, proceed without existing-position offset
+    total_risk_pct = _scan_portfolio_heat(eff_account, total_risk_pct)
     if total_risk_pct > 0:
         print(f"  🌡  Existing position heat: {total_risk_pct*100:.1f}% of account")
     for sig in signals:
@@ -18122,137 +18331,14 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print(f"{'─'*68}\n")
 
     # Persist scan result to rolling log
-    try:
-        # News sentiment breadth snapshot (2026-08-15) — observation-only
-        # per get_market_regime()'s own docstring; recorded here purely so
-        # there's a reviewable per-scan trend to look back on before ever
-        # deciding whether to wire it into scoring. None-safe: regime's
-        # own news_breadth is None if that lookup itself failed.
-        _nb = regime.get("news_breadth") or {}
-        _append_scan_log({
-            "ts":                  datetime.now(ET).isoformat(),
-            "regime":              regime.get("regime", "?"),
-            "regime_score":        regime.get("score", 0),
-            "vix":                 round(float(regime["details"].get("VIX", 0)), 1),
-            "min_score":           min_score,
-            "universe":            universe_label,
-            "tickers_total":       len(tickers),
-            "signals":             len(signals),
-            "signal_tickers":      [s.ticker for s in signals],
-            # Recorded so score SATURATION stays visible. Measured 2026-09-11
-            # over 118 scans: rejected_low_score was 0 every single time --
-            # the score threshold has never rejected anything -- while 26 of
-            # 31 taken trades scored exactly 100. The binding filter is the
-            # setup logic (31,078 "no signal" rejects); the score is a label
-            # applied after it, saturated at the ceiling. Any attempt to tune
-            # min_score is tuning a knob that is not connected to anything,
-            # and without this field there is no way to notice that.
-            "signal_scores":       [getattr(s, "confluence_score", 0) for s in signals],
-            "rejected_no_signal":  rejected_counts["no_signal"],
-            "rejected_hard_gate":  rejected_counts["hard_gate"],
-            "rejected_low_score":  rejected_counts["low_score"],
-            "budget_hit":          _budget_hit,
-            "news_breadth_pct":    _nb.get("breadth_pct"),
-            "news_breadth_total":  _nb.get("total", 0),
-        })
-    except Exception:
-        pass  # never let logging block the scan return
+    _scan_persist_log(_budget_hit, min_score, regime, rejected_counts, signals, tickers, universe_label)
 
     # Near-miss collection — only when no signals fired; uses cached fetch_df() data (fast)
     # Covers the full scan universe (not just WATCHLIST) so Yahoo gainers are included.
     _near_misses: list[tuple[str, float, str]] = []
     _b_tier: list[dict] = []   # below-threshold setups for manual consideration
     if not signals:
-        _nm_universe = list(dict.fromkeys(list(tickers)[:120] + list(WATCHLIST)))
-        for _nm_t in _nm_universe:
-            try:
-                _nm_raw = fetch_df(_nm_t)
-                if _nm_raw is None or len(_nm_raw) < 30:
-                    continue
-                _nm_df  = compute_indicators(_nm_raw.copy())
-                _nm_r   = _nm_df.iloc[-1]
-                _nm_p   = _nm_df.iloc[-2]
-                _nm_gap = (float(_nm_r["Open"]) - float(_nm_p["Close"])) / float(_nm_p["Close"]) * 100
-                if _nm_gap < 1.0:
-                    continue
-                _nm_macd     = float(_nm_r.get("MACD", 0) or 0)
-                _nm_prn_grn  = float(_nm_p["Close"]) > float(_nm_p["Open"])
-                _nm_sec_ok   = _sector_etf_above_ema50(_nm_t)
-                # Hold% vs open: appended to MACD/prior-red blockers so the user
-                # can see whether the price was above or below the gap open at scan time.
-                try:
-                    _nm_c_now = float(_nm_r["Close"].iloc[0]) if hasattr(_nm_r["Close"], "iloc") else float(_nm_r["Close"])
-                    _nm_o_day = float(_nm_r["Open"].iloc[0])  if hasattr(_nm_r["Open"],  "iloc") else float(_nm_r["Open"])
-                    _nm_hold_tag = f" ({(_nm_c_now - _nm_o_day) / _nm_o_day * 100:+.1f}%)"
-                except Exception:
-                    _nm_hold_tag = ""
-                if not _nm_sec_ok:
-                    _nm_blocker = "sector⚠️"
-                elif _nm_macd <= 0:
-                    _nm_blocker = f"MACD {_nm_macd:+.1f}{_nm_hold_tag}"
-                elif not _nm_prn_grn:
-                    _nm_blocker = f"prior red{_nm_hold_tag}"
-                else:
-                    # Primary filters all pass — run full pipeline to get exact blocker
-                    try:
-                        _nm_raw_sig = _raw_signals(_nm_df, _nm_t)
-                        if _nm_raw_sig is None:
-                            # Identify the specific _raw_signals sub-check that failed
-                            _nm_rvol = float(_nm_r.get("RVOL", 0) or 0)
-                            _nm_rsi  = float(_nm_r.get("RSI", 0) or 0)
-                            _nm_c    = float(_nm_r["Close"])
-                            _nm_o    = float(_nm_r["Open"])
-                            if _nm_rvol < 1.5:
-                                _nm_blocker = f"RVOL {_nm_rvol:.1f}x"
-                            elif _nm_rsi <= 50:
-                                _nm_blocker = f"RSI {_nm_rsi:.0f}"
-                            elif _nm_c < _nm_o * 0.995:
-                                _nm_blocker = f"not holding ({(_nm_c/_nm_o-1)*100:.1f}%)"
-                            else:
-                                _nm_blocker = "no setup pattern"
-                        else:
-                            _nm_scored = score_signal(_nm_raw_sig, _nm_df, regime, tracker)
-                            _nm_sc     = _nm_scored.confluence_score
-                            _nm_blocker = f"score {_nm_sc}/{min_score}"
-                    except Exception:
-                        _nm_blocker = "score short"
-                # Collect actionable entry levels for near-miss Telegram
-                try:
-                    _nm_c_px  = float(_nm_r.get("Close", 0) or 0)
-                    _nm_o_px  = float(_nm_r.get("Open",  0) or 0)
-                    _nm_lo_px = float(_nm_r.get("Low",   0) or 0)
-                    _nm_stop  = round(min(_nm_lo_px * 0.99, _nm_o_px * 0.985), 2) if _nm_lo_px > 0 else 0
-                    _nm_risk  = (_nm_c_px - _nm_stop) if _nm_stop > 0 and _nm_c_px > _nm_stop else 0
-                    _nm_t1    = round(_nm_c_px + 2.5 * _nm_risk, 2) if _nm_risk > 0 else 0
-                    _nm_rvol  = float(_nm_r.get("RVOL", 0) or 0)
-                    _nm_score_val = 0
-                    if "score" in _nm_blocker:
-                        try:
-                            _nm_score_val = int(_nm_blocker.split()[1].split("/")[0])
-                        except Exception:
-                            pass
-                    _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
-                    # B-tier: setup almost qualified (score within 15 of threshold, or
-                    # only blocked by RVOL/RSI which could change intraday)
-                    _b_tier_reason = ""
-                    if _nm_score_val >= min_score - 15 and _nm_score_val > 0:
-                        _b_tier_reason = f"score {_nm_score_val}/{min_score}"
-                    elif "RVOL" in _nm_blocker and _nm_rvol >= 1.0:
-                        _b_tier_reason = f"RVOL {_nm_rvol:.1f}x (needs ≥2.0x)"
-                    if _b_tier_reason and _nm_c_px > 0 and _nm_stop > 0 and _nm_t1 > 0:
-                        _b_tier.append({
-                            "ticker": _nm_t, "gap": _nm_gap, "entry": _nm_c_px,
-                            "stop": _nm_stop, "t1": _nm_t1, "rvol": _nm_rvol,
-                            "reason": _b_tier_reason,
-                        })
-                except Exception:
-                    _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
-            except Exception:
-                continue
-        _near_misses.sort(key=lambda x: x[1], reverse=True)
-        _near_misses = _near_misses[:3]
-        _b_tier.sort(key=lambda x: x["gap"], reverse=True)
-        _b_tier = _b_tier[:2]
+        _b_tier, _near_misses = _scan_near_miss_tier(_b_tier, _near_misses, min_score, regime, tickers, tracker)
 
     # Expose scan metadata for the heartbeat in main()
     _last_scan_meta.update({
@@ -18263,37 +18349,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     })
 
     # Friday close-out advisory — fires on the 3:30 PM scan (30 min before bell)
-    try:
-        _now_co = datetime.now(ET)
-        if _now_co.weekday() == 4:  # Friday
-            _hhmm_co = _now_co.hour * 100 + _now_co.minute
-            if 1530 <= _hhmm_co <= 1559:
-                _pending_co = []
-                if os.path.exists(LIVE_SIGNALS_FILE):
-                    with open(LIVE_SIGNALS_FILE) as _fco:
-                        _pending_co = json.load(_fco).get("pending", [])
-                _mins_left = (16 * 60) - (_now_co.hour * 60 + _now_co.minute)
-                # Find upcoming FOMC within 7 days
-                _td_co = _now_co.date()
-                _fomc_co = ""
-                for _ev_co in sorted(_FOMC_DATES):
-                    _d_co = (_ev_co - _td_co).days
-                    if 1 <= _d_co <= 7:
-                        _fomc_co = f" FOMC {_ev_co.strftime('%a %b %d')} in {_d_co}d."
-                        break
-                    if _d_co > 7:
-                        break
-                _pos_co = ""
-                if _pending_co:
-                    _pos_co = "\nOpen: " + ", ".join(p.get("ticker","?") for p in _pending_co)
-                send_telegram(
-                    f"⚠️ <b>FRIDAY — {_mins_left} min to close</b>\n"
-                    f"Exit positions not at T1 to avoid weekend risk.{_fomc_co}"
-                    f"{_pos_co}"
-                )
-                print(f"\n  ⚠️  Friday close-out advisory sent ({_mins_left} min to bell)")
-    except Exception:
-        pass
+    _scan_friday_closeout()
 
     return signals
 

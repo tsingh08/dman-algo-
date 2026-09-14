@@ -36,6 +36,25 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: python -c "import dman_algo; print('dman_algo imports cleanly')"
 
+      - name: Static check — undefined names inside functions
+        # The import check above only catches NAMES EVALUATED AT IMPORT.
+        # A NameError inside a function body only fires when that line runs,
+        # and if the line sits in a try/except it never surfaces at all.
+        # Found 2026-09-13: an undefined AssetClass had silently switched
+        # PORTFOLIO_HEAT_LIMIT off (the NameError was swallowed every scan),
+        # and an undefined size_strangle_trade killed every strangle advisory.
+        # pyflakes reads every line without running it, so both would have
+        # failed this build the day they were introduced.
+        run: |
+          pip install pyflakes >/dev/null
+          OUT=$(python -m pyflakes dman_algo.py dman_daemon.py 2>&1 | grep -E "undefined name|is used before assignment" || true)
+          if [ -n "$OUT" ]; then
+            echo "$OUT"
+            echo "::error::undefined names found — these are latent NameErrors"
+            exit 1
+          fi
+          echo "no undefined names"
+
       - name: Regression suite (test_dman_algo.py)
         env:
           PYTHONIOENCODING: utf-8

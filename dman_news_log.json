@@ -3342,5 +3342,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T13:35:20.787357-04:00",
+    "symbols": [
+      "CRWD",
+      "MU",
+      "NVDA",
+      "ORCL",
+      "PANW",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T13:35:21.018380-04:00",
+    "symbols": [
+      "APP",
+      "GOOGL",
+      "NFLX"
+    ],
+    "headline": "10 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T13:35:21.233868-04:00",
+    "symbols": [
+      "CAT",
+      "FDX",
+      "GEV",
+      "UBER"
+    ],
+    "headline": "10 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T13:36:03.159737-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Says AI Doom Warnings Are A &#39;Hoax&#39;, Says AI And Data Centers Will Be Biggest Economic Engine In History; Says He Is Not Happy Google Wants To Build Finland Plant Over U.S. Permitting Difficulties",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T13:37:06.776630-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Roblox Stock Surges As Analysts Lift Targets",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

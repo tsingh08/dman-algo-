@@ -2976,5 +2976,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T11:17:44.626673-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Stock Falls Monday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:19:12.830475-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Muse Monetization \u2018Somewhat Limited\u2019 In Near Term: Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

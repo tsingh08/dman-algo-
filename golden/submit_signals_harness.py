@@ -16,6 +16,10 @@ with contextlib.redirect_stdout(io.StringIO()):
 
 OUT = os.path.join(HERE, "submit_signals.golden.json")
 
+# The live preflight warns when ACCOUNT_SIZE is unset, so the recording would
+# depend on the machine running it (22 differences with it set). Pin it.
+os.environ.pop("ACCOUNT_SIZE", None)
+
 
 def sig(ticker="NVDA", setup="Gap & Hold", score=100, entry=10.0):
     return a.ProSignal(ticker=ticker, setup=setup, bias="LONG", entry=entry, stop=entry * 0.9,

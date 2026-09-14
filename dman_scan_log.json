@@ -1,81 +1,10 @@
 [
   {
-    "ts": "2026-09-14T11:34:26.158112-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 290,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T11:39:49.172584-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 290,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T11:43:06.393016-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 290,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T11:47:05.149376-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 290,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T11:50:43.284173-04:00",
+    "ts": "2026-09-14T12:20:00.805171-04:00",
     "halted": true,
     "halt_reason": "consecutive_losses",
     "min_score": 85,
     "tickers_total": 291,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T12:00:09.860309-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 291,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T12:04:30.440663-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 291,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-<<<<<<< Updated upstream
-    "ts": "2026-09-14T12:06:49.217623-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 137,
-=======
-    "ts": "2026-09-14T12:10:00.801058-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 291,
->>>>>>> Stashed changes
     "signals": 0,
     "signal_tickers": []
   }

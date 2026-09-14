@@ -48,6 +48,12 @@ warnings.filterwarnings("ignore")
 ET = zoneinfo.ZoneInfo("America/New_York")
 
 
+
+# Sentinel for refx-extracted helpers: a caller variable unassigned on the
+# current path is passed as this and deleted inside the helper, so reading it
+# raises UnboundLocalError at the same point the original code would.
+_REFX_UNBOUND = object()
+
 def _et_today() -> date:
     """Today's TRADING date, in New York -- not the host machine's date.
 
@@ -22637,6 +22643,432 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
 #  SECTION 22 — CLI ENTRY POINT
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _main_mode_record(args):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    Returns: missing, tracker.
+    """
+    missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
+                               ("--exit-price", args.exit_price), ("--bias", args.bias),
+                               ("--outcome", args.outcome)] if v is None]
+    if missing:
+        print(f"  --mode record requires: {', '.join(missing)}")
+        sys.exit(1)
+    outcome = args.outcome.upper()
+    if outcome not in ("WIN", "LOSS", "BE"):
+        print("  --outcome must be WIN, LOSS, or BE")
+        sys.exit(1)
+    bias = args.bias.upper()
+    pnl_pct = ((args.exit_price - args.entry) / args.entry * 100
+               if bias == "LONG"
+               else (args.entry - args.exit_price) / args.entry * 100)
+    tracker = WinRateTracker()
+    tracker.record(TradeRecord(
+        ticker=args.ticker.upper(),
+        date=_et_today().isoformat(),
+        bias=bias,
+        setup=args.setup_name,
+        entry=args.entry,
+        exit=args.exit_price,
+        outcome=outcome,
+        pnl_pct=round(pnl_pct, 2),
+        score=0,
+        is_live=True,   # --mode record is for logging real executed trades
+    ))
+    # Close position first so we can read the share count for account-level P&L
+    closed = PositionTracker().close(args.ticker)
+    if closed is not None:
+        _record_day_trade(args.ticker.upper(),
+                          getattr(closed, "entry_date", ""),
+                          _et_today().isoformat())
+    shares_used = closed.shares if closed else (args.shares or 0)
+    if shares_used > 0:
+        dollar_pnl   = (args.exit_price - args.entry) * shares_used * (1 if bias == "LONG" else -1)
+        acct_pnl_pct = dollar_pnl / ACCOUNT_SIZE * 100
+        record_daily_pnl(acct_pnl_pct)   # account-level %, not stock price %
+    print(f"\n  ✅ Recorded: {args.ticker.upper()} {bias} "
+          f"${args.entry} → ${args.exit_price} | {outcome} ({pnl_pct:+.2f}%)\n")
+    tracker.print_report()
+    return missing, tracker
+
+
+def _main_mode_open(args):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    """
+    missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
+                               ("--bias", args.bias)] if v is None]
+    if missing:
+        print(f"  --mode open requires: {', '.join(missing)}")
+        sys.exit(1)
+    pt  = PositionTracker()
+    pos = OpenPosition(
+        ticker     = args.ticker.upper(),
+        bias       = args.bias.upper(),
+        setup      = args.setup_name or "Manual",
+        entry      = args.entry,
+        stop       = args.stop_price or 0.0,
+        target1    = args.target1    or 0.0,
+        target2    = args.target2    or 0.0,
+        shares     = args.shares     or 1,
+        entry_date = _et_today().isoformat(),
+    )
+    if pt.open(pos):
+        print(f"\n  ✅ Position logged: {pos.ticker} {pos.bias} "
+              f"{pos.shares}sh @ ${pos.entry}  stop ${pos.stop}\n")
+
+
+
+def _main_mode_watch(args, s, tickers):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    Returns: locals().get("n_fills", _REFX_UNBOUND), locals().get("s", _REFX_UNBOUND), locals().get("signals", _REFX_UNBOUND).
+    """
+    if s is _REFX_UNBOUND:
+        del s   # unassigned on this path in the caller
+    if tickers is _REFX_UNBOUND:
+        del tickers   # unassigned on this path in the caller
+    interval = args.interval
+    print(f"\n  👁  Watch mode — scanning every {interval} min during ET market hours\n"
+          f"       Press Ctrl+C to stop.\n")
+    try:
+        while True:
+            now          = datetime.now(ET)
+            market_open  = now.replace(hour=9,  minute=30, second=0, microsecond=0)
+            market_close = now.replace(hour=16, minute=0,  second=0, microsecond=0)
+
+            if now.weekday() >= 5:          # weekend
+                print(f"  Weekend — sleeping 1h...")
+                time.sleep(3600)
+                continue
+
+            if now < market_open:
+                wait = int((market_open - now).total_seconds())
+                print(f"  Pre-market — {now.strftime('%H:%M ET')} — "
+                      f"waiting {wait//60}m for open...")
+                time.sleep(min(wait, 600))
+                continue
+
+            if now > market_close:
+                print(f"  Market closed for today. Exiting watch mode.\n")
+                break
+
+            print(f"\n  ── Scan at {now.strftime('%H:%M ET')} ──")
+            _cache.clear()             # force fresh data
+            _indicator_cache.clear()   # stale indicators computed off the old raw data must not survive the clear
+            # Sync any fills that came in since last cycle
+            n_fills = sync_alpaca_fills(WinRateTracker())
+            if n_fills:
+                print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
+            signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
+            if not signals:
+                print("  No new A+ setups this scan.")
+            else:
+                print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
+                for s in signals:
+                    print_pro_signal(s)
+                if args.submit:
+                    _submit_signals_to_alpaca(signals)
+
+            next_scan = now + timedelta(minutes=interval)
+            if next_scan > market_close:
+                print("  Next scan would be after close — done for today.\n")
+                break
+            wait_sec = max(0, int((next_scan - datetime.now(ET)).total_seconds()))
+            print(f"  Next scan: {next_scan.strftime('%H:%M ET')}  "
+                  f"(sleeping {interval}m)\n")
+            time.sleep(wait_sec)
+    except KeyboardInterrupt:
+        print("\n  Watch mode stopped.\n")
+    return locals().get("n_fills", _REFX_UNBOUND), locals().get("s", _REFX_UNBOUND), locals().get("signals", _REFX_UNBOUND)
+
+
+def _main_mode_alpaca(args, n_fills, s, signals, tickers):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    Returns: locals().get("fname", _REFX_UNBOUND), n_fills, locals().get("s", _REFX_UNBOUND), signals.
+    """
+    if n_fills is _REFX_UNBOUND:
+        del n_fills   # unassigned on this path in the caller
+    if s is _REFX_UNBOUND:
+        del s   # unassigned on this path in the caller
+    if signals is _REFX_UNBOUND:
+        del signals   # unassigned on this path in the caller
+    if tickers is _REFX_UNBOUND:
+        del tickers   # unassigned on this path in the caller
+    show_alpaca_account()
+    # 2. Sync pending fills
+    tracker = WinRateTracker()
+    n_fills = sync_alpaca_fills(tracker)
+    if n_fills:
+        print(f"  📋 {n_fills} trade(s) auto-recorded\n")
+        tracker.print_report()
+    # 3. Scan + validate + submit
+    signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
+    if not signals:
+        print("  No A+ setups — nothing to submit.\n")
+    else:
+        print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
+        for s in signals:
+            print_pro_signal(s)
+        if args.submit:
+            _submit_signals_to_alpaca(signals)
+        else:
+            print("  [dry-run] Pass --submit to place live orders.\n")
+        if args.export:
+            fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
+            _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
+            print(f"  💾 Signals exported to {fname}\n")
+    return locals().get("fname", _REFX_UNBOUND), n_fills, locals().get("s", _REFX_UNBOUND), signals
+
+
+def _main_mode_readiness():
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    """
+    run_readiness_scan()
+    # Weekly news-keyword freshness check (2026-08-21) — runs alongside
+    # the existing Sunday readiness scan rather than its own separate
+    # cron, same "get ready for the week ahead" moment. Never blocks or
+    # fails the readiness scan itself — see the function's own
+    # fail-open contract.
+    try:
+        _kw_suggestion = check_news_keyword_freshness()
+        if _kw_suggestion and _kw_suggestion.strip().lower() != "no gaps found.":
+            send_telegram(
+                "🔎 <b>Weekly news-keyword review</b>\n"
+                f"{_kw_suggestion}\n\n"
+                "Suggestions only — nothing was changed automatically."
+            )
+    except Exception as _kw_exc:
+        print(f"  ⚠️  News-keyword freshness check failed (non-fatal): {_kw_exc}")
+
+
+
+def _main_mode_scan(args, tickers):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    """
+    if tickers is _REFX_UNBOUND:
+        del tickers   # unassigned on this path in the caller
+    try:
+        _force_close_day_only_positions()
+    except Exception as _fc_exc:
+        print(f"  ⚠️  Day-only force-close check failed (non-fatal): {_fc_exc}")
+
+    # Sync Alpaca fills first so PositionTracker is current before we submit
+    if args.submit and ALPACA_API_KEY:
+        _sync_tracker = WinRateTracker()
+        n_fills = sync_alpaca_fills(_sync_tracker)
+        if n_fills:
+            print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
+
+    signals = run_pro_scanner(tickers,
+                               min_score=args.score,
+                               use_ai=args.ai,
+                               universe_label=args.universe)
+    if not signals:
+        print("  No A+ setups today. The filters are working —")
+        print("  D🔥man waits for the PERFECT setup, not just any setup.\n")
+    else:
+        print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
+        for s in signals:
+            print_pro_signal(s)
+        if args.submit:
+            _submit_signals_to_alpaca(signals)
+        if args.export:
+            fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
+            _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
+            print(f"  💾 Signals exported to {fname}\n")
+
+    # Safety EOD P&L — fires on the 3:30 PM scan as a belt-and-suspenders backup
+    # in case the dedicated 4 PM cron is delayed past the market-hours gate.
+    _eod_t = datetime.now(ET).hour * 100 + datetime.now(ET).minute
+    if 1525 <= _eod_t <= 1600:
+        print("\n  [EOD] Final scan window — sending P&L summary...")
+        send_account_pnl_telegram("EOD")
+
+    # Meta-watchdog belt-and-suspenders — see _check_and_heal_watchdog()'s
+    # docstring for the 2026-08-17 incident this closes. Never let this
+    # block or fail the actual scan.
+    try:
+        _check_and_heal_watchdog()
+    except Exception:
+        pass
+
+    # Scan heartbeat — include regime context so user knows why it's quiet
+    # get_market_regime() is cheap here because fetch_df() hits the in-memory cache
+    t_str = datetime.now(ET).strftime("%I:%M %p")
+    _hb_regime = get_market_regime()
+    _hb_r  = _hb_regime.get("regime", "?")
+    _hb_rs = _hb_regime.get("score", "?")
+    _hb_meta  = _last_scan_meta
+    _hb_rej   = _hb_meta.get("rejected", {})
+    _hb_total = _hb_meta.get("tickers_total", 0)
+    _hb_gate  = _hb_rej.get("hard_gate", 0)
+    _hb_score = _hb_rej.get("low_score", 0)
+    _hb_nm_list = _hb_meta.get("near_misses", [])
+    _hb_bt_list = _hb_meta.get("b_tier", [])
+    _hb_counts = (f"{_hb_total} scanned"
+                  + (f" | {_hb_gate} gate-blocked" if _hb_gate else "")
+                  + (f" | {_hb_score} score-short" if _hb_score else ""))
+    _hb_nm_str = ""
+    if _hb_nm_list:
+        _hb_nm_str = "\nNear-miss: " + " | ".join(
+            f"<b>{_t}</b> +{_g:.1f}% → {_b}" for _t, _g, _b in _hb_nm_list
+        )
+    _hb_bt_str = ""
+    if _hb_bt_list:
+        _bt_lines = []
+        for _bt in _hb_bt_list:
+            _bt_lines.append(
+                f"📋 <b>{_bt['ticker']}</b> +{_bt['gap']:.1f}%  RVOL {_bt['rvol']:.1f}x  "
+                f"({_bt['reason']})\n"
+                f"   Manual: entry ~${_bt['entry']}  stop ${_bt['stop']}  T1 ${_bt['t1']}"
+            )
+        _hb_bt_str = "\n\n<b>WATCH — manual entries available:</b>\n" + "\n".join(_bt_lines)
+    if signals:
+        send_telegram(
+            f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
+            f"Regime: {_hb_r} ({_hb_rs}/19)"
+        )
+    else:
+        _fomc_bkout = any(abs((ev - _et_today()).days) <= MACRO_BLACKOUT
+                          for ev in _FOMC_DATES)
+        _hb_hhmm = datetime.now(ET).hour * 100 + datetime.now(ET).minute
+        if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
+            # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
+            # after the 2 PM ET announcement when initial reaction has settled
+            _lift_day2 = "soon"
+            for _doff2 in range(1, 8):
+                _ck2 = _et_today() + timedelta(days=_doff2)
+                if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
+                    continue
+                if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
+                    _lift_day2 = _ck2.strftime("%a %b %d")
+                    break
+            _rs_summary = ""
+            try:
+                _spy_df2 = fetch_df("SPY")
+                if _spy_df2 is not None and len(_spy_df2) >= 1:
+                    _spy_row2 = _spy_df2.iloc[-1]
+                    _spy_day_chg = (float(_spy_row2["Close"]) - float(_spy_row2["Open"])) / float(_spy_row2["Open"]) * 100
+                else:
+                    _spy_day_chg = 0.0
+                _rs_all2: list[tuple[str, float, float]] = []
+                for _rs_t2 in WATCHLIST[:35]:
+                    try:
+                        _rs_df2 = fetch_df(_rs_t2)
+                        if _rs_df2 is None or len(_rs_df2) < 1:
+                            continue
+                        _rs_row3 = _rs_df2.iloc[-1]
+                        _rs_chg2 = (float(_rs_row3["Close"]) - float(_rs_row3["Open"])) / float(_rs_row3["Open"]) * 100
+                        _rs_all2.append((_rs_t2, _rs_chg2, _rs_chg2 - _spy_day_chg))
+                    except Exception:
+                        continue
+                _rs_all2.sort(key=lambda x: x[2], reverse=True)
+                _ldr = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[:3]) or "—"
+                _lag = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[-3:][::-1]) if len(_rs_all2) >= 3 else "—"
+                _rs_summary = (
+                    f"\nSPY: {_spy_day_chg:+.1f}% today"
+                    f"\nRS leaders → watch {_lift_day2}: {_ldr}"
+                    f"\nRS laggards: {_lag}"
+                )
+            except Exception:
+                pass
+            send_telegram(
+                f"📊 <b>DMan</b> {t_str} — FOMC reaction wrap 🔒\n"
+                f"Blackout lifts: <b>{_lift_day2}</b>"
+                f"{_rs_summary}"
+            )
+        elif _fomc_bkout:
+            send_telegram(
+                f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
+                f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
+                f"{_hb_nm_str}"
+            )
+        else:
+            # Down-day context — warn when market is selling off so user
+            # knows silence is intentional, not a scanner issue
+            _spy_ctx = ""
+            try:
+                _spy_hb = fetch_df("SPY")
+                if _spy_hb is not None and len(_spy_hb) >= 2:
+                    _spy_c2  = float(_spy_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-1]["Close"], "iloc") else float(_spy_hb.iloc[-1]["Close"])
+                    _spy_pc2 = float(_spy_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-2]["Close"], "iloc") else float(_spy_hb.iloc[-2]["Close"])
+                    _spy_net2 = (_spy_c2 - _spy_pc2) / _spy_pc2 * 100
+                    if _spy_net2 <= -1.0:
+                        _xlk_net2 = 0.0
+                        try:
+                            _xlk_hb = fetch_df("XLK")
+                            if _xlk_hb is not None and len(_xlk_hb) >= 2:
+                                _xlk_c2  = float(_xlk_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-1]["Close"], "iloc") else float(_xlk_hb.iloc[-1]["Close"])
+                                _xlk_pc2 = float(_xlk_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-2]["Close"], "iloc") else float(_xlk_hb.iloc[-2]["Close"])
+                                _xlk_net2 = (_xlk_c2 - _xlk_pc2) / _xlk_pc2 * 100
+                        except Exception:
+                            pass
+                        _spy_ctx = f"\n📉 SPY {_spy_net2:+.1f}%"
+                        if _xlk_net2 <= -1.5:
+                            _spy_ctx += f" | XLK {_xlk_net2:+.1f}% — sector selloff, standing down on longs"
+                        else:
+                            _spy_ctx += " — market weak, no long setups"
+            except Exception:
+                pass
+
+            # End-of-day scan — 4 PM close only
+            # • Recovery watch: names down >5% today → potential bounce candidates tomorrow
+            # • Intraday momentum: names up >5% intraday AND held into close → watch for
+            #   follow-through gap next morning (captures TSLA-style no-gap run days)
+            _eod_watch = ""
+            if 1550 <= _hb_hhmm <= 1615:
+                try:
+                    _eod_losers:  list[tuple[str, float]] = []
+                    _eod_runners: list[tuple[str, float]] = []
+                    for _eod_t in WATCHLIST[:35]:
+                        try:
+                            _eod_df = fetch_df(_eod_t)
+                            if _eod_df is None or len(_eod_df) < 2:
+                                continue
+                            _eod_row = _eod_df.iloc[-1]
+                            _eod_prv = _eod_df.iloc[-2]
+                            _eod_c   = float(_eod_row["Close"].iloc[0]) if hasattr(_eod_row["Close"], "iloc") else float(_eod_row["Close"])
+                            _eod_o   = float(_eod_row["Open"].iloc[0])  if hasattr(_eod_row["Open"],  "iloc") else float(_eod_row["Open"])
+                            _eod_pc  = float(_eod_prv["Close"].iloc[0]) if hasattr(_eod_prv["Close"], "iloc") else float(_eod_prv["Close"])
+                            _eod_net   = (_eod_c - _eod_pc) / _eod_pc * 100
+                            _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
+                            if _eod_net <= -5.0:
+                                _eod_losers.append((_eod_t, _eod_net))
+                            if _eod_intra >= 4.0 and _eod_net >= 3.0:
+                                _eod_runners.append((_eod_t, _eod_intra))
+                        except Exception:
+                            continue
+                    _eod_losers.sort(key=lambda x: x[1])
+                    _eod_runners.sort(key=lambda x: x[1], reverse=True)
+                    if len(_eod_losers) >= 3:
+                        _eod_watch += (
+                            f"\n⚠️ <b>Sector flush</b> — {len(_eod_losers)} names down 5%+: "
+                            f"watch for gap-down continuation or reversal bounce tomorrow"
+                        )
+                    if _eod_losers:
+                        _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
+                            f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
+                        )
+                    if _eod_runners:
+                        _eod_watch += "\n🔥 Intraday momentum — watch for gap tomorrow: " + " | ".join(
+                            f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_runners[:3]
+                        )
+                except Exception:
+                    pass
+
+            send_telegram(
+                f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
+                f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
+                f"{_hb_nm_str}"
+                f"{_hb_bt_str}"
+                f"{_spy_ctx}"
+                f"{_eod_watch}"
+            )
+
+            # 4 PM only: send live account P&L summary to Telegram
+            if 1550 <= _hb_hhmm <= 1615 and not ALPACA_PAPER:
+                send_account_pnl_telegram(label="EOD")
+
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -22793,47 +23225,7 @@ def main():
     """)
 
     if args.mode == "record":
-        missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
-                                   ("--exit-price", args.exit_price), ("--bias", args.bias),
-                                   ("--outcome", args.outcome)] if v is None]
-        if missing:
-            print(f"  --mode record requires: {', '.join(missing)}")
-            sys.exit(1)
-        outcome = args.outcome.upper()
-        if outcome not in ("WIN", "LOSS", "BE"):
-            print("  --outcome must be WIN, LOSS, or BE")
-            sys.exit(1)
-        bias = args.bias.upper()
-        pnl_pct = ((args.exit_price - args.entry) / args.entry * 100
-                   if bias == "LONG"
-                   else (args.entry - args.exit_price) / args.entry * 100)
-        tracker = WinRateTracker()
-        tracker.record(TradeRecord(
-            ticker=args.ticker.upper(),
-            date=_et_today().isoformat(),
-            bias=bias,
-            setup=args.setup_name,
-            entry=args.entry,
-            exit=args.exit_price,
-            outcome=outcome,
-            pnl_pct=round(pnl_pct, 2),
-            score=0,
-            is_live=True,   # --mode record is for logging real executed trades
-        ))
-        # Close position first so we can read the share count for account-level P&L
-        closed = PositionTracker().close(args.ticker)
-        if closed is not None:
-            _record_day_trade(args.ticker.upper(),
-                              getattr(closed, "entry_date", ""),
-                              _et_today().isoformat())
-        shares_used = closed.shares if closed else (args.shares or 0)
-        if shares_used > 0:
-            dollar_pnl   = (args.exit_price - args.entry) * shares_used * (1 if bias == "LONG" else -1)
-            acct_pnl_pct = dollar_pnl / ACCOUNT_SIZE * 100
-            record_daily_pnl(acct_pnl_pct)   # account-level %, not stock price %
-        print(f"\n  ✅ Recorded: {args.ticker.upper()} {bias} "
-              f"${args.entry} → ${args.exit_price} | {outcome} ({pnl_pct:+.2f}%)\n")
-        tracker.print_report()
+        missing, tracker = _main_mode_record(args)
 
     elif args.mode == "stocktwits":
         run_stocktwits_monitor()
@@ -22891,83 +23283,19 @@ def main():
         PositionTracker().show()
 
     elif args.mode == "open":
-        missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
-                                   ("--bias", args.bias)] if v is None]
-        if missing:
-            print(f"  --mode open requires: {', '.join(missing)}")
-            sys.exit(1)
-        pt  = PositionTracker()
-        pos = OpenPosition(
-            ticker     = args.ticker.upper(),
-            bias       = args.bias.upper(),
-            setup      = args.setup_name or "Manual",
-            entry      = args.entry,
-            stop       = args.stop_price or 0.0,
-            target1    = args.target1    or 0.0,
-            target2    = args.target2    or 0.0,
-            shares     = args.shares     or 1,
-            entry_date = _et_today().isoformat(),
-        )
-        if pt.open(pos):
-            print(f"\n  ✅ Position logged: {pos.ticker} {pos.bias} "
-                  f"{pos.shares}sh @ ${pos.entry}  stop ${pos.stop}\n")
+        _main_mode_open(args)
 
     elif args.mode == "rank":
         run_ranking(tickers, min_score=args.score)
 
     elif args.mode == "watch":
-        interval = args.interval
-        print(f"\n  👁  Watch mode — scanning every {interval} min during ET market hours\n"
-              f"       Press Ctrl+C to stop.\n")
-        try:
-            while True:
-                now          = datetime.now(ET)
-                market_open  = now.replace(hour=9,  minute=30, second=0, microsecond=0)
-                market_close = now.replace(hour=16, minute=0,  second=0, microsecond=0)
-
-                if now.weekday() >= 5:          # weekend
-                    print(f"  Weekend — sleeping 1h...")
-                    time.sleep(3600)
-                    continue
-
-                if now < market_open:
-                    wait = int((market_open - now).total_seconds())
-                    print(f"  Pre-market — {now.strftime('%H:%M ET')} — "
-                          f"waiting {wait//60}m for open...")
-                    time.sleep(min(wait, 600))
-                    continue
-
-                if now > market_close:
-                    print(f"  Market closed for today. Exiting watch mode.\n")
-                    break
-
-                print(f"\n  ── Scan at {now.strftime('%H:%M ET')} ──")
-                _cache.clear()             # force fresh data
-                _indicator_cache.clear()   # stale indicators computed off the old raw data must not survive the clear
-                # Sync any fills that came in since last cycle
-                n_fills = sync_alpaca_fills(WinRateTracker())
-                if n_fills:
-                    print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
-                signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
-                if not signals:
-                    print("  No new A+ setups this scan.")
-                else:
-                    print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
-                    for s in signals:
-                        print_pro_signal(s)
-                    if args.submit:
-                        _submit_signals_to_alpaca(signals)
-
-                next_scan = now + timedelta(minutes=interval)
-                if next_scan > market_close:
-                    print("  Next scan would be after close — done for today.\n")
-                    break
-                wait_sec = max(0, int((next_scan - datetime.now(ET)).total_seconds()))
-                print(f"  Next scan: {next_scan.strftime('%H:%M ET')}  "
-                      f"(sleeping {interval}m)\n")
-                time.sleep(wait_sec)
-        except KeyboardInterrupt:
-            print("\n  Watch mode stopped.\n")
+        _o_n_fills, _o_s, _o_signals = _main_mode_watch(args, locals().get("s", _REFX_UNBOUND), locals().get("tickers", _REFX_UNBOUND))
+        if _o_n_fills is not _REFX_UNBOUND:
+            n_fills = _o_n_fills
+        if _o_s is not _REFX_UNBOUND:
+            s = _o_s
+        if _o_signals is not _REFX_UNBOUND:
+            signals = _o_signals
 
     elif args.mode == "sync":
         tracker  = WinRateTracker()
@@ -22978,29 +23306,11 @@ def main():
 
     elif args.mode == "alpaca":
         # 1. Show account dashboard
-        show_alpaca_account()
-        # 2. Sync pending fills
-        tracker = WinRateTracker()
-        n_fills = sync_alpaca_fills(tracker)
-        if n_fills:
-            print(f"  📋 {n_fills} trade(s) auto-recorded\n")
-            tracker.print_report()
-        # 3. Scan + validate + submit
-        signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
-        if not signals:
-            print("  No A+ setups — nothing to submit.\n")
-        else:
-            print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
-            for s in signals:
-                print_pro_signal(s)
-            if args.submit:
-                _submit_signals_to_alpaca(signals)
-            else:
-                print("  [dry-run] Pass --submit to place live orders.\n")
-            if args.export:
-                fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
-                _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
-                print(f"  💾 Signals exported to {fname}\n")
+        _o_fname, n_fills, _o_s, signals = _main_mode_alpaca(args, locals().get("n_fills", _REFX_UNBOUND), locals().get("s", _REFX_UNBOUND), locals().get("signals", _REFX_UNBOUND), locals().get("tickers", _REFX_UNBOUND))
+        if _o_fname is not _REFX_UNBOUND:
+            fname = _o_fname
+        if _o_s is not _REFX_UNBOUND:
+            s = _o_s
 
     elif args.mode == "live-outcomes":
         print(f"\n{'═'*60}")
@@ -23034,22 +23344,7 @@ def main():
         print_scan_log()
 
     elif args.mode == "readiness":
-        run_readiness_scan()
-        # Weekly news-keyword freshness check (2026-08-21) — runs alongside
-        # the existing Sunday readiness scan rather than its own separate
-        # cron, same "get ready for the week ahead" moment. Never blocks or
-        # fails the readiness scan itself — see the function's own
-        # fail-open contract.
-        try:
-            _kw_suggestion = check_news_keyword_freshness()
-            if _kw_suggestion and _kw_suggestion.strip().lower() != "no gaps found.":
-                send_telegram(
-                    "🔎 <b>Weekly news-keyword review</b>\n"
-                    f"{_kw_suggestion}\n\n"
-                    "Suggestions only — nothing was changed automatically."
-                )
-        except Exception as _kw_exc:
-            print(f"  ⚠️  News-keyword freshness check failed (non-fatal): {_kw_exc}")
+        _main_mode_readiness()
 
     elif args.mode == "scan":
         # Day-only EOD close redundancy. run_momentum_watch() owns this
@@ -23062,227 +23357,7 @@ def main():
         # either). The function is time-gated and dedup-guarded, so on
         # every scan before 3:45 PM this is a cheap no-op. Never let it
         # block the actual scan.
-        try:
-            _force_close_day_only_positions()
-        except Exception as _fc_exc:
-            print(f"  ⚠️  Day-only force-close check failed (non-fatal): {_fc_exc}")
-
-        # Sync Alpaca fills first so PositionTracker is current before we submit
-        if args.submit and ALPACA_API_KEY:
-            _sync_tracker = WinRateTracker()
-            n_fills = sync_alpaca_fills(_sync_tracker)
-            if n_fills:
-                print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
-
-        signals = run_pro_scanner(tickers,
-                                   min_score=args.score,
-                                   use_ai=args.ai,
-                                   universe_label=args.universe)
-        if not signals:
-            print("  No A+ setups today. The filters are working —")
-            print("  D🔥man waits for the PERFECT setup, not just any setup.\n")
-        else:
-            print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
-            for s in signals:
-                print_pro_signal(s)
-            if args.submit:
-                _submit_signals_to_alpaca(signals)
-            if args.export:
-                fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
-                _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
-                print(f"  💾 Signals exported to {fname}\n")
-
-        # Safety EOD P&L — fires on the 3:30 PM scan as a belt-and-suspenders backup
-        # in case the dedicated 4 PM cron is delayed past the market-hours gate.
-        _eod_t = datetime.now(ET).hour * 100 + datetime.now(ET).minute
-        if 1525 <= _eod_t <= 1600:
-            print("\n  [EOD] Final scan window — sending P&L summary...")
-            send_account_pnl_telegram("EOD")
-
-        # Meta-watchdog belt-and-suspenders — see _check_and_heal_watchdog()'s
-        # docstring for the 2026-08-17 incident this closes. Never let this
-        # block or fail the actual scan.
-        try:
-            _check_and_heal_watchdog()
-        except Exception:
-            pass
-
-        # Scan heartbeat — include regime context so user knows why it's quiet
-        # get_market_regime() is cheap here because fetch_df() hits the in-memory cache
-        t_str = datetime.now(ET).strftime("%I:%M %p")
-        _hb_regime = get_market_regime()
-        _hb_r  = _hb_regime.get("regime", "?")
-        _hb_rs = _hb_regime.get("score", "?")
-        _hb_meta  = _last_scan_meta
-        _hb_rej   = _hb_meta.get("rejected", {})
-        _hb_total = _hb_meta.get("tickers_total", 0)
-        _hb_gate  = _hb_rej.get("hard_gate", 0)
-        _hb_score = _hb_rej.get("low_score", 0)
-        _hb_nm_list = _hb_meta.get("near_misses", [])
-        _hb_bt_list = _hb_meta.get("b_tier", [])
-        _hb_counts = (f"{_hb_total} scanned"
-                      + (f" | {_hb_gate} gate-blocked" if _hb_gate else "")
-                      + (f" | {_hb_score} score-short" if _hb_score else ""))
-        _hb_nm_str = ""
-        if _hb_nm_list:
-            _hb_nm_str = "\nNear-miss: " + " | ".join(
-                f"<b>{_t}</b> +{_g:.1f}% → {_b}" for _t, _g, _b in _hb_nm_list
-            )
-        _hb_bt_str = ""
-        if _hb_bt_list:
-            _bt_lines = []
-            for _bt in _hb_bt_list:
-                _bt_lines.append(
-                    f"📋 <b>{_bt['ticker']}</b> +{_bt['gap']:.1f}%  RVOL {_bt['rvol']:.1f}x  "
-                    f"({_bt['reason']})\n"
-                    f"   Manual: entry ~${_bt['entry']}  stop ${_bt['stop']}  T1 ${_bt['t1']}"
-                )
-            _hb_bt_str = "\n\n<b>WATCH — manual entries available:</b>\n" + "\n".join(_bt_lines)
-        if signals:
-            send_telegram(
-                f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
-                f"Regime: {_hb_r} ({_hb_rs}/19)"
-            )
-        else:
-            _fomc_bkout = any(abs((ev - _et_today()).days) <= MACRO_BLACKOUT
-                              for ev in _FOMC_DATES)
-            _hb_hhmm = datetime.now(ET).hour * 100 + datetime.now(ET).minute
-            if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
-                # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
-                # after the 2 PM ET announcement when initial reaction has settled
-                _lift_day2 = "soon"
-                for _doff2 in range(1, 8):
-                    _ck2 = _et_today() + timedelta(days=_doff2)
-                    if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
-                        continue
-                    if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
-                        _lift_day2 = _ck2.strftime("%a %b %d")
-                        break
-                _rs_summary = ""
-                try:
-                    _spy_df2 = fetch_df("SPY")
-                    if _spy_df2 is not None and len(_spy_df2) >= 1:
-                        _spy_row2 = _spy_df2.iloc[-1]
-                        _spy_day_chg = (float(_spy_row2["Close"]) - float(_spy_row2["Open"])) / float(_spy_row2["Open"]) * 100
-                    else:
-                        _spy_day_chg = 0.0
-                    _rs_all2: list[tuple[str, float, float]] = []
-                    for _rs_t2 in WATCHLIST[:35]:
-                        try:
-                            _rs_df2 = fetch_df(_rs_t2)
-                            if _rs_df2 is None or len(_rs_df2) < 1:
-                                continue
-                            _rs_row3 = _rs_df2.iloc[-1]
-                            _rs_chg2 = (float(_rs_row3["Close"]) - float(_rs_row3["Open"])) / float(_rs_row3["Open"]) * 100
-                            _rs_all2.append((_rs_t2, _rs_chg2, _rs_chg2 - _spy_day_chg))
-                        except Exception:
-                            continue
-                    _rs_all2.sort(key=lambda x: x[2], reverse=True)
-                    _ldr = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[:3]) or "—"
-                    _lag = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[-3:][::-1]) if len(_rs_all2) >= 3 else "—"
-                    _rs_summary = (
-                        f"\nSPY: {_spy_day_chg:+.1f}% today"
-                        f"\nRS leaders → watch {_lift_day2}: {_ldr}"
-                        f"\nRS laggards: {_lag}"
-                    )
-                except Exception:
-                    pass
-                send_telegram(
-                    f"📊 <b>DMan</b> {t_str} — FOMC reaction wrap 🔒\n"
-                    f"Blackout lifts: <b>{_lift_day2}</b>"
-                    f"{_rs_summary}"
-                )
-            elif _fomc_bkout:
-                send_telegram(
-                    f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
-                    f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
-                    f"{_hb_nm_str}"
-                )
-            else:
-                # Down-day context — warn when market is selling off so user
-                # knows silence is intentional, not a scanner issue
-                _spy_ctx = ""
-                try:
-                    _spy_hb = fetch_df("SPY")
-                    if _spy_hb is not None and len(_spy_hb) >= 2:
-                        _spy_c2  = float(_spy_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-1]["Close"], "iloc") else float(_spy_hb.iloc[-1]["Close"])
-                        _spy_pc2 = float(_spy_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-2]["Close"], "iloc") else float(_spy_hb.iloc[-2]["Close"])
-                        _spy_net2 = (_spy_c2 - _spy_pc2) / _spy_pc2 * 100
-                        if _spy_net2 <= -1.0:
-                            _xlk_net2 = 0.0
-                            try:
-                                _xlk_hb = fetch_df("XLK")
-                                if _xlk_hb is not None and len(_xlk_hb) >= 2:
-                                    _xlk_c2  = float(_xlk_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-1]["Close"], "iloc") else float(_xlk_hb.iloc[-1]["Close"])
-                                    _xlk_pc2 = float(_xlk_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-2]["Close"], "iloc") else float(_xlk_hb.iloc[-2]["Close"])
-                                    _xlk_net2 = (_xlk_c2 - _xlk_pc2) / _xlk_pc2 * 100
-                            except Exception:
-                                pass
-                            _spy_ctx = f"\n📉 SPY {_spy_net2:+.1f}%"
-                            if _xlk_net2 <= -1.5:
-                                _spy_ctx += f" | XLK {_xlk_net2:+.1f}% — sector selloff, standing down on longs"
-                            else:
-                                _spy_ctx += " — market weak, no long setups"
-                except Exception:
-                    pass
-
-                # End-of-day scan — 4 PM close only
-                # • Recovery watch: names down >5% today → potential bounce candidates tomorrow
-                # • Intraday momentum: names up >5% intraday AND held into close → watch for
-                #   follow-through gap next morning (captures TSLA-style no-gap run days)
-                _eod_watch = ""
-                if 1550 <= _hb_hhmm <= 1615:
-                    try:
-                        _eod_losers:  list[tuple[str, float]] = []
-                        _eod_runners: list[tuple[str, float]] = []
-                        for _eod_t in WATCHLIST[:35]:
-                            try:
-                                _eod_df = fetch_df(_eod_t)
-                                if _eod_df is None or len(_eod_df) < 2:
-                                    continue
-                                _eod_row = _eod_df.iloc[-1]
-                                _eod_prv = _eod_df.iloc[-2]
-                                _eod_c   = float(_eod_row["Close"].iloc[0]) if hasattr(_eod_row["Close"], "iloc") else float(_eod_row["Close"])
-                                _eod_o   = float(_eod_row["Open"].iloc[0])  if hasattr(_eod_row["Open"],  "iloc") else float(_eod_row["Open"])
-                                _eod_pc  = float(_eod_prv["Close"].iloc[0]) if hasattr(_eod_prv["Close"], "iloc") else float(_eod_prv["Close"])
-                                _eod_net   = (_eod_c - _eod_pc) / _eod_pc * 100
-                                _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
-                                if _eod_net <= -5.0:
-                                    _eod_losers.append((_eod_t, _eod_net))
-                                if _eod_intra >= 4.0 and _eod_net >= 3.0:
-                                    _eod_runners.append((_eod_t, _eod_intra))
-                            except Exception:
-                                continue
-                        _eod_losers.sort(key=lambda x: x[1])
-                        _eod_runners.sort(key=lambda x: x[1], reverse=True)
-                        if len(_eod_losers) >= 3:
-                            _eod_watch += (
-                                f"\n⚠️ <b>Sector flush</b> — {len(_eod_losers)} names down 5%+: "
-                                f"watch for gap-down continuation or reversal bounce tomorrow"
-                            )
-                        if _eod_losers:
-                            _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
-                                f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
-                            )
-                        if _eod_runners:
-                            _eod_watch += "\n🔥 Intraday momentum — watch for gap tomorrow: " + " | ".join(
-                                f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_runners[:3]
-                            )
-                    except Exception:
-                        pass
-
-                send_telegram(
-                    f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
-                    f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
-                    f"{_hb_nm_str}"
-                    f"{_hb_bt_str}"
-                    f"{_spy_ctx}"
-                    f"{_eod_watch}"
-                )
-
-                # 4 PM only: send live account P&L summary to Telegram
-                if 1550 <= _hb_hhmm <= 1615 and not ALPACA_PAPER:
-                    send_account_pnl_telegram(label="EOD")
+        _main_mode_scan(args, locals().get("tickers", _REFX_UNBOUND))
 
 
 if __name__ == "__main__":

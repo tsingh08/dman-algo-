@@ -3476,5 +3476,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T14:18:28.042764-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "DA Davidson Maintains Buy on Adobe, Raises Price Target to $290",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T14:18:41.529604-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Exec Speaking At Morgan Stanley Conference Says Company Now Has More Than 30% Share Of New Starts In Oral Obesity Treatment Market,",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

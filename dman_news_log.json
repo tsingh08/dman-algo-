@@ -2784,5 +2784,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T10:30:18.131073-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. 10-Year Treasury Yield Reaches 5% For First Time Since 2023",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T10:30:47.913663-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Technology Stock Slips Monday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T10:31:04.479091-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Global Healthtech Proximie, In Collaboration With AWS, Deloitte And The NHS, Launches Largest NHS AI Theatre Evaluation To Unlock Hidden Operating Theatre Capacity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

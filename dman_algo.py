@@ -9021,6 +9021,218 @@ def run_equity_guard(get_price_fn=None, positions: Optional[list] = None) -> Non
         _check_equity_position_target(pos, cur_price=cur_price)
 
 
+def _mw_monitor_open_positions(active_plays, options_alerts):
+    """Extracted verbatim from run_momentum_watch() on 2026-09-14 (refx).
+    """
+    try:
+        if os.path.exists("dman_positions.json"):
+            with open("dman_positions.json") as _pf:
+                for pos in json.load(_pf):
+                    t     = pos.get("ticker", "")
+                    e     = float(pos.get("entry", 0))
+                    fl    = float(pos.get("float_m", 0))
+                    setup = pos.get("setup", "")
+                    if not t:
+                        continue
+                    # Options positions — shared monitor enforces stop/T1/T2/DTE
+                    # (same engine the always-on daemon runs every 60s)
+                    if setup.startswith("Options Call "):
+                        _oa = _monitor_option_position(pos, "CALL")
+                        if _oa:
+                            options_alerts.append(_oa)
+                        continue
+                    elif setup.startswith("Options Put "):
+                        _oa = _monitor_option_position(pos, "PUT")
+                        if _oa:
+                            options_alerts.append(_oa)
+                        continue
+                    elif setup.startswith("Earnings "):
+                        _oa = _monitor_earnings_spread_position(pos)
+                        if _oa:
+                            options_alerts.append(_oa)
+                        continue
+
+                    if e > 0:
+                        # T1/T2 exit alerts + stop progression — see
+                        # _check_equity_position_target() (also reused by the
+                        # daemon's run_equity_guard() for continuous checking).
+                        _check_equity_position_target(pos)
+                        active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
+    except Exception:
+        pass
+
+
+
+def _mw_collect_watchlist_plays(active_plays, already):
+    """Extracted verbatim from run_momentum_watch() on 2026-09-14 (refx).
+    """
+    for ticker in DMAN_SMALLCAP_WATCHLIST:
+        if ticker in already:
+            continue
+        try:
+            # Use 2-day daily history to get TRUE opening gap (open vs prev close)
+            _hist2 = yf.Ticker(ticker).history(period="2d", interval="1d")
+            if len(_hist2) < 2:
+                continue
+            _today_open = float(_hist2["Open"].iloc[-1])
+            _prev_close = float(_hist2["Close"].iloc[-2])
+            if _today_open <= 0 or _prev_close <= 0:
+                continue
+            opening_gap = (_today_open - _prev_close) / _prev_close * 100
+            is_gap_up       = opening_gap >= 3.0
+            is_recovery_dip = -15.0 <= opening_gap < 0
+            # Always include watchlist tickers during market hours regardless of gap.
+            # A flat-gap ticker like TRVI (+0.2%) can still run +8% intraday.
+            fl_m, _, _, _ = _get_short_float_data(ticker)
+            if is_gap_up:
+                _src = f"gap {opening_gap:+.1f}% at open"
+            elif is_recovery_dip:
+                _src = f"recovery dip (opened {opening_gap:+.1f}% → VWAP reclaim watch)"
+            else:
+                _src = f"watchlist (flat gap {opening_gap:+.1f}%)"
+            active_plays.append({"ticker": ticker, "entry": 0.0,
+                                 "float_m": fl_m, "source": _src})
+        except Exception:
+            continue
+
+
+
+def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
+    """Extracted verbatim from run_momentum_watch() on 2026-09-14 (refx).
+    Returns (escape, value, ); escape is None or the original
+    return/continue/break of the block.
+    """
+    try:
+        df_5m  = _fetch_intraday_bars(ticker, interval="5m", period="1d")
+        levels = _compute_session_levels(df_5m)
+        if levels["cur_price"] == 0.0:
+            return ('continue', None)
+
+        cur = levels["cur_price"]
+        vwap = levels["vwap"]
+
+        if entry == 0.0:
+            # Not in position — check VWAP reclaim first, then breakout setup
+            _above_vwap = vwap > 0 and cur > vwap
+            _vwap_tag   = ""
+            if _above_vwap and "recovery" in source:
+                _vwap_dist = (cur - vwap) / vwap * 100
+                _vwap_tag  = f"  🔥 VWAP RECLAIMED (+{_vwap_dist:.1f}% above)"
+            elif not _above_vwap and vwap > 0 and "recovery" in source:
+                _vwap_dist = (vwap - cur) / vwap * 100
+                _vwap_tag  = f"  ⏳ below VWAP ({_vwap_dist:.1f}% away — watching)"
+
+            bp = _detect_pre_breakout(levels)
+            # Fire alert on breakout setup OR on VWAP reclaim from recovery dip
+            _fire = bp["setup"] or (_above_vwap and "recovery" in source)
+            if _fire:
+                if bp["setup"]:
+                    entry_px = bp["entry_px"]
+                    stop_px  = bp["stop_px"]
+                    sig_str  = " + ".join(bp["signals"][:3])
+                else:
+                    # Pure VWAP reclaim: entry at current price, stop at session low
+                    entry_px = round(cur * 1.002, 4)   # slight limit above current
+                    _sl_base = levels.get("session_low") or 0
+                    stop_px  = round((_sl_base if _sl_base > 0 else cur * 0.92) * 0.99, 4)
+                    sig_str  = f"VWAP reclaim ({source})"
+                risk_px = round(max(entry_px - stop_px, 0.001), 4)
+                t1 = round(entry_px * 1.30, 4)
+                t2 = round(entry_px * 1.50, 4)
+                t3_str = f"  T3 2x: ${round(entry_px * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
+                _label = "🔥 VWAP RECLAIM" if (not bp["setup"] and _above_vwap) else "BREAKOUT SETUP"
+                _breakout_msg = (
+                    f"🟡 <b>{ticker}</b>  {_label}  [{source}]{_vwap_tag}\n"
+                    f"   {sig_str}\n"
+                    f"   Entry: <b>${entry_px:.4f}</b>  Stop: ${stop_px:.4f}  "
+                    f"(risk ${risk_px:.4f}/sh)\n"
+                    f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
+                    f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
+                )
+                # High confidence = _detect_pre_breakout() found a real
+                # technical pattern (consolidation/volume/etc.), not just
+                # "price crossed back above VWAP" -- auto-executes at
+                # reduced size with no reply needed (see
+                # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
+                # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
+                if bp["setup"]:
+                    _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                                  "t1": t1, "t2": t2, "signal_str": sig_str}
+                    try:
+                        _mw_sig = _build_momentum_signal(_mw_offer)
+                        _submit_signals_to_alpaca([_mw_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
+                        _breakout_msg += (f"\n   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x "
+                                          f"size — no reply needed (day-only, auto-closes "
+                                          f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET)")
+                    except Exception as _mw_exc:
+                        _breakout_msg += f"\n   ⚠️ Auto-execute failed ({_mw_exc}) — no order placed"
+                else:
+                    # Make it actionable, not just informational -- direct
+                    # instruction 2026-08-30. One offer per ticker at a
+                    # time: a fresh alert for a ticker that already has an
+                    # awaiting-approval offer just shows a note instead of
+                    # opening a second, redundant approval.
+                    _mw_pending = _load_momentum_pending()
+                    if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
+                           for e in _mw_pending):
+                        _breakout_msg += f"\n   (approval already pending for {ticker})"
+                    else:
+                        _mw_now = datetime.now(ET)
+                        _mw_offer = {
+                            "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                            "t1": t1, "t2": t2, "signal_str": sig_str,
+                            "created_at": _mw_now.isoformat(),
+                            "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
+                            "status": "awaiting_approval",
+                        }
+                        _mw_pending.append(_mw_offer)
+                        _save_momentum_pending(_mw_pending)
+                        _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
+                setup_alerts.append(_breakout_msg)
+        else:
+            # In position — check fade + trailing stop levels
+            gain_pct = (cur - entry) / entry * 100 if entry > 0 else 0.0
+            fd = _detect_momentum_fade(levels, entry, fl_m)
+
+            # Always compute dynamic trailing levels regardless of fade signal
+            # T1 hit (+30%): stop moves to break-even
+            # T2 hit (+50%): stop trails to 2-bar low
+            be_stop   = round(entry * 1.002, 4)   # break-even + 0.2% buffer
+            trail_now = fd["trail_stop"]
+            if gain_pct >= 50.0:
+                stop_rec = f"${trail_now:.4f} (2-bar low trail — T2 reached)"
+            elif gain_pct >= 30.0:
+                stop_rec = f"${be_stop:.4f} (move to break-even — T1 reached)"
+            else:
+                stop_rec = f"${be_stop:.4f} (original stop — below entry)"
+
+            if fd["action"] in ("exit", "trail"):
+                emoji = "🔴" if fd["action"] == "exit" else "🟡"
+                action_label = "EXIT NOW" if fd["action"] == "exit" else "TRAIL STOP"
+                fade_alerts.append(
+                    f"{emoji} <b>{ticker}</b>  {action_label}  [{source}]\n"
+                    f"   {fd['reason']}\n"
+                    f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
+                    f"P&L: <b>{gain_pct:+.1f}%</b>\n"
+                    f"   Recommended stop → {stop_rec}\n"
+                    f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
+                )
+            else:
+                # Momentum intact — still report trailing levels so you know where your stop is
+                if gain_pct >= 10.0:   # Only report if we have meaningful gains
+                    fade_alerts.append(
+                        f"✅ <b>{ticker}</b>  MOMENTUM INTACT  [{source}]\n"
+                        f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
+                        f"P&L: <b>{gain_pct:+.1f}%</b>\n"
+                        f"   Active stop → {stop_rec}\n"
+                        f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
+                    )
+
+    except Exception:
+        return ('continue', None)
+    return (None, None)
+
+
 def run_momentum_watch() -> None:
     """
     Intraday momentum watch — runs at 10:30 AM and 11:30 AM alongside the main scan.
@@ -9059,42 +9271,7 @@ def run_momentum_watch() -> None:
     options_alerts: list[str] = []
 
     # 1a. Open equity positions from position log
-    try:
-        if os.path.exists("dman_positions.json"):
-            with open("dman_positions.json") as _pf:
-                for pos in json.load(_pf):
-                    t     = pos.get("ticker", "")
-                    e     = float(pos.get("entry", 0))
-                    fl    = float(pos.get("float_m", 0))
-                    setup = pos.get("setup", "")
-                    if not t:
-                        continue
-                    # Options positions — shared monitor enforces stop/T1/T2/DTE
-                    # (same engine the always-on daemon runs every 60s)
-                    if setup.startswith("Options Call "):
-                        _oa = _monitor_option_position(pos, "CALL")
-                        if _oa:
-                            options_alerts.append(_oa)
-                        continue
-                    elif setup.startswith("Options Put "):
-                        _oa = _monitor_option_position(pos, "PUT")
-                        if _oa:
-                            options_alerts.append(_oa)
-                        continue
-                    elif setup.startswith("Earnings "):
-                        _oa = _monitor_earnings_spread_position(pos)
-                        if _oa:
-                            options_alerts.append(_oa)
-                        continue
-
-                    if e > 0:
-                        # T1/T2 exit alerts + stop progression — see
-                        # _check_equity_position_target() (also reused by the
-                        # daemon's run_equity_guard() for continuous checking).
-                        _check_equity_position_target(pos)
-                        active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
-    except Exception:
-        pass
+    _mw_monitor_open_positions(active_plays, options_alerts)
 
     # 2. DMAN_SMALLCAP_WATCHLIST — monitor ALL tickers during market hours.
     # Use today's actual open vs prev close for gap, NOT real-time price, because by
@@ -9102,34 +9279,7 @@ def run_momentum_watch() -> None:
     # close and the real-time gap would show +1%, missing the recovery signal entirely.
     # TRVI-type plays: flat/tiny gap but still run +8% intraday — always include watchlist.
     already = {p["ticker"] for p in active_plays}
-    for ticker in DMAN_SMALLCAP_WATCHLIST:
-        if ticker in already:
-            continue
-        try:
-            # Use 2-day daily history to get TRUE opening gap (open vs prev close)
-            _hist2 = yf.Ticker(ticker).history(period="2d", interval="1d")
-            if len(_hist2) < 2:
-                continue
-            _today_open = float(_hist2["Open"].iloc[-1])
-            _prev_close = float(_hist2["Close"].iloc[-2])
-            if _today_open <= 0 or _prev_close <= 0:
-                continue
-            opening_gap = (_today_open - _prev_close) / _prev_close * 100
-            is_gap_up       = opening_gap >= 3.0
-            is_recovery_dip = -15.0 <= opening_gap < 0
-            # Always include watchlist tickers during market hours regardless of gap.
-            # A flat-gap ticker like TRVI (+0.2%) can still run +8% intraday.
-            fl_m, _, _, _ = _get_short_float_data(ticker)
-            if is_gap_up:
-                _src = f"gap {opening_gap:+.1f}% at open"
-            elif is_recovery_dip:
-                _src = f"recovery dip (opened {opening_gap:+.1f}% → VWAP reclaim watch)"
-            else:
-                _src = f"watchlist (flat gap {opening_gap:+.1f}%)"
-            active_plays.append({"ticker": ticker, "entry": 0.0,
-                                 "float_m": fl_m, "source": _src})
-        except Exception:
-            continue
+    _mw_collect_watchlist_plays(active_plays, already)
 
     if not active_plays:
         print("  No active small-cap plays — nothing to watch.")
@@ -9167,133 +9317,8 @@ def run_momentum_watch() -> None:
         fl_m    = play["float_m"]
         source  = play["source"]
 
-        try:
-            df_5m  = _fetch_intraday_bars(ticker, interval="5m", period="1d")
-            levels = _compute_session_levels(df_5m)
-            if levels["cur_price"] == 0.0:
-                continue
-
-            cur = levels["cur_price"]
-            vwap = levels["vwap"]
-
-            if entry == 0.0:
-                # Not in position — check VWAP reclaim first, then breakout setup
-                _above_vwap = vwap > 0 and cur > vwap
-                _vwap_tag   = ""
-                if _above_vwap and "recovery" in source:
-                    _vwap_dist = (cur - vwap) / vwap * 100
-                    _vwap_tag  = f"  🔥 VWAP RECLAIMED (+{_vwap_dist:.1f}% above)"
-                elif not _above_vwap and vwap > 0 and "recovery" in source:
-                    _vwap_dist = (vwap - cur) / vwap * 100
-                    _vwap_tag  = f"  ⏳ below VWAP ({_vwap_dist:.1f}% away — watching)"
-
-                bp = _detect_pre_breakout(levels)
-                # Fire alert on breakout setup OR on VWAP reclaim from recovery dip
-                _fire = bp["setup"] or (_above_vwap and "recovery" in source)
-                if _fire:
-                    if bp["setup"]:
-                        entry_px = bp["entry_px"]
-                        stop_px  = bp["stop_px"]
-                        sig_str  = " + ".join(bp["signals"][:3])
-                    else:
-                        # Pure VWAP reclaim: entry at current price, stop at session low
-                        entry_px = round(cur * 1.002, 4)   # slight limit above current
-                        _sl_base = levels.get("session_low") or 0
-                        stop_px  = round((_sl_base if _sl_base > 0 else cur * 0.92) * 0.99, 4)
-                        sig_str  = f"VWAP reclaim ({source})"
-                    risk_px = round(max(entry_px - stop_px, 0.001), 4)
-                    t1 = round(entry_px * 1.30, 4)
-                    t2 = round(entry_px * 1.50, 4)
-                    t3_str = f"  T3 2x: ${round(entry_px * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
-                    _label = "🔥 VWAP RECLAIM" if (not bp["setup"] and _above_vwap) else "BREAKOUT SETUP"
-                    _breakout_msg = (
-                        f"🟡 <b>{ticker}</b>  {_label}  [{source}]{_vwap_tag}\n"
-                        f"   {sig_str}\n"
-                        f"   Entry: <b>${entry_px:.4f}</b>  Stop: ${stop_px:.4f}  "
-                        f"(risk ${risk_px:.4f}/sh)\n"
-                        f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
-                        f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
-                    )
-                    # High confidence = _detect_pre_breakout() found a real
-                    # technical pattern (consolidation/volume/etc.), not just
-                    # "price crossed back above VWAP" -- auto-executes at
-                    # reduced size with no reply needed (see
-                    # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
-                    # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
-                    if bp["setup"]:
-                        _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                                      "t1": t1, "t2": t2, "signal_str": sig_str}
-                        try:
-                            _mw_sig = _build_momentum_signal(_mw_offer)
-                            _submit_signals_to_alpaca([_mw_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
-                            _breakout_msg += (f"\n   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x "
-                                              f"size — no reply needed (day-only, auto-closes "
-                                              f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET)")
-                        except Exception as _mw_exc:
-                            _breakout_msg += f"\n   ⚠️ Auto-execute failed ({_mw_exc}) — no order placed"
-                    else:
-                        # Make it actionable, not just informational -- direct
-                        # instruction 2026-08-30. One offer per ticker at a
-                        # time: a fresh alert for a ticker that already has an
-                        # awaiting-approval offer just shows a note instead of
-                        # opening a second, redundant approval.
-                        _mw_pending = _load_momentum_pending()
-                        if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
-                               for e in _mw_pending):
-                            _breakout_msg += f"\n   (approval already pending for {ticker})"
-                        else:
-                            _mw_now = datetime.now(ET)
-                            _mw_offer = {
-                                "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                                "t1": t1, "t2": t2, "signal_str": sig_str,
-                                "created_at": _mw_now.isoformat(),
-                                "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
-                                "status": "awaiting_approval",
-                            }
-                            _mw_pending.append(_mw_offer)
-                            _save_momentum_pending(_mw_pending)
-                            _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
-                    setup_alerts.append(_breakout_msg)
-            else:
-                # In position — check fade + trailing stop levels
-                gain_pct = (cur - entry) / entry * 100 if entry > 0 else 0.0
-                fd = _detect_momentum_fade(levels, entry, fl_m)
-
-                # Always compute dynamic trailing levels regardless of fade signal
-                # T1 hit (+30%): stop moves to break-even
-                # T2 hit (+50%): stop trails to 2-bar low
-                be_stop   = round(entry * 1.002, 4)   # break-even + 0.2% buffer
-                trail_now = fd["trail_stop"]
-                if gain_pct >= 50.0:
-                    stop_rec = f"${trail_now:.4f} (2-bar low trail — T2 reached)"
-                elif gain_pct >= 30.0:
-                    stop_rec = f"${be_stop:.4f} (move to break-even — T1 reached)"
-                else:
-                    stop_rec = f"${be_stop:.4f} (original stop — below entry)"
-
-                if fd["action"] in ("exit", "trail"):
-                    emoji = "🔴" if fd["action"] == "exit" else "🟡"
-                    action_label = "EXIT NOW" if fd["action"] == "exit" else "TRAIL STOP"
-                    fade_alerts.append(
-                        f"{emoji} <b>{ticker}</b>  {action_label}  [{source}]\n"
-                        f"   {fd['reason']}\n"
-                        f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
-                        f"P&L: <b>{gain_pct:+.1f}%</b>\n"
-                        f"   Recommended stop → {stop_rec}\n"
-                        f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
-                    )
-                else:
-                    # Momentum intact — still report trailing levels so you know where your stop is
-                    if gain_pct >= 10.0:   # Only report if we have meaningful gains
-                        fade_alerts.append(
-                            f"✅ <b>{ticker}</b>  MOMENTUM INTACT  [{source}]\n"
-                            f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
-                            f"P&L: <b>{gain_pct:+.1f}%</b>\n"
-                            f"   Active stop → {stop_rec}\n"
-                            f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
-                        )
-
-        except Exception:
+        _esc, _escv = _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker)
+        if _esc == 'continue':
             continue
 
     if not setup_alerts and not fade_alerts and not options_alerts and not age_alerts:
@@ -9333,114 +9358,10 @@ def run_momentum_watch() -> None:
     send_telegram(msg)
 
 
-def run_premarket_briefing() -> None:
+def _pmb_market_snapshot(macro_env_section, regime_line, regime_line2, warnings_section):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: macro_env_section, regime_line, regime_line2, vix, warnings_section.
     """
-    Daily 9:10 AM ET pre-market briefing.
-    Sends a Telegram summary covering regime, macro env, seasonal, live WR,
-    monthly P&L, and filter suggestions. Never modifies code autonomously.
-    """
-    now_et = datetime.now(ET)
-    date_str = now_et.strftime("%A %b %d, %Y")
-
-    # Second home for the news-first pass. The premarket-early job owns it,
-    # but GitHub dropped both of that job's schedule events on 2026-09-09
-    # while this briefing ran on time -- so the highest-value scan of the day
-    # rode on a single cron and simply did not happen. Dedup makes the overlap
-    # free: whichever job gets there first claims the alert key.
-    try:
-        pre_gap_catalyst_pass()
-    except Exception as _pg_exc:
-        print(f"  ⚠️  Pre-gap catalyst pass failed: {_pg_exc}")
-
-    # ── 0a. GTC swing fill reconciliation ─────────────────────────────
-    # If a GTC entry filled overnight, update PositionTracker entry price to the
-    # actual avg fill so stop/target math is anchored to the real fill, not the limit.
-    try:
-        _rc = get_alpaca_client()
-        _pt_r = PositionTracker()
-        if _rc and _pt_r.positions:
-            _alp_positions = {p.symbol: p for p in _rc.get_all_positions()}
-            _updated = []
-            for _rp in _pt_r.positions:
-                if _rp.setup.startswith("SWING") and _rp.ticker in _alp_positions:
-                    _ap = _alp_positions[_rp.ticker]
-                    _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
-                    if _actual_entry > 0 and abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) > 0.005:
-                        # Fill price differs from limit by > 0.5% — re-anchor stop and target
-                        _risk = abs(_rp.entry - _rp.stop)
-                        _rp.entry   = _actual_entry
-                        _rp.stop    = round(_actual_entry - _risk, 2)
-                        _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
-                        _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
-                        _updated.append(_rp.ticker)
-            if _updated:
-                _pt_r._save()
-                print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} to actual fill prices")
-    except Exception as _rc_exc:
-        print(f"  [swing reconcile] {_rc_exc}")
-
-    # ── 0. Scanner health watchdog ────────────────────────────────────
-    scanner_health_line = ""
-    try:
-        if os.path.exists(SCAN_LOG_FILE):
-            with open(SCAN_LOG_FILE) as _swf:
-                _sw_log = json.load(_swf)
-            if _sw_log:
-                _sw_ts  = _sw_log[-1].get("ts", "")
-                _sw_dt  = datetime.fromisoformat(_sw_ts).astimezone(ET)
-                _sw_hrs = (now_et - _sw_dt).total_seconds() / 3600
-                if _sw_hrs < 2:
-                    scanner_health_line = f"✅ Scanner healthy — last run {int(_sw_hrs * 60)}min ago"
-                elif _sw_hrs < 27:   # within a trading day + overnight gap
-                    scanner_health_line = f"✅ Scanner ran {int(_sw_hrs)}h ago"
-                else:
-                    _sw_days = int(_sw_hrs / 24)
-                    scanner_health_line = (
-                        f"⚠️ <b>SCANNER DOWN</b> — last run {_sw_days}d ago "
-                        f"({_sw_dt.strftime('%b %d')}). Check GitHub Actions → Actions tab."
-                    )
-            else:
-                scanner_health_line = "⚠️ Scan log empty — scanner may not have run yet"
-        else:
-            scanner_health_line = "⚠️ No scan log found — scanner may not be running"
-    except Exception:
-        pass
-
-    # ── 0.5. Global market context + breaking news ───────────────────
-    print("  [0.5/7] Fetching global market context + breaking news...")
-    _global_ctx_section = ""
-    try:
-        _briefing_ctx  = _fetch_global_context()
-        _briefing_news = _fetch_breaking_news_rss(hours_back=12)
-        _tone_icons = {
-            "strong bull": "🟢🟢", "bull": "🟢", "neutral": "🟡",
-            "caution": "🟠", "risk-off": "🔴",
-        }
-        _g_icon = _tone_icons.get(_briefing_ctx.get("tone", "neutral"), "⚪")
-        _ctx_msg_lines = [f"{_g_icon} {_briefing_ctx.get('summary', '')}"]
-        _ctx_comps = _briefing_ctx.get("components", {})
-        if _ctx_comps:
-            _comp_parts = []
-            for _ck, _cv in list(_ctx_comps.items())[:6]:
-                _comp_parts.append(f"{_ck}: {_cv:+d}" if isinstance(_cv, int) else f"{_ck}: {_cv}")
-            _ctx_msg_lines.append("  " + " | ".join(_comp_parts))
-        if _briefing_news:
-            _ctx_msg_lines.append("📰 <b>Breaking</b>")
-            for _hl, _src, _ts, _imp in _briefing_news[:4]:
-                _em = "🔴 " if _imp <= -1 else ("🟢 " if _imp >= 1 else "")
-                _ctx_msg_lines.append(f"   {_em}{_hl[:100]}  <i>[{_src} {_ts}]</i>")
-        _global_ctx_section = "\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: {:.2f}x)\n".format(
-            _briefing_ctx.get("risk_mult", 1.0)
-        ) + "\n".join(_ctx_msg_lines)
-    except Exception as _gce:
-        print(f"  ⚠️  Global context fetch failed: {_gce}")
-
-    # ── 1. Market regime + macro context ─────────────────────────────
-    print("  [1/7] Checking market regime + macro context...")
-    regime_line  = "Unable to fetch regime"
-    regime_line2 = ""
-    macro_env_section = ""
-    warnings_section  = ""
     vix = "?"
     try:
         regime   = get_market_regime()
@@ -9517,8 +9438,13 @@ def run_premarket_briefing() -> None:
     except Exception as e:
         regime_line2 = f"⚠️ regime fetch error: {str(e)[:60]}"
         send_telegram(f"⚠️ <b>DMan pre-market</b>: regime fetch failed\n<code>{str(e)[:120]}</code>")
+    return macro_env_section, regime_line, regime_line2, vix, warnings_section
 
-    # ── 2. Macro calendar ─────────────────────────────────────────────
+
+def _pmb_macro_calendar(now_et):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: locals().get("macro_line", _REFX_UNBOUND).
+    """
     print("  [2/6] Checking macro calendar...")
     try:
         today_d = now_et.date()
@@ -9637,24 +9563,13 @@ def run_premarket_briefing() -> None:
                       else "✅ No macro events in next 7 days — clean tape")
     except Exception:
         macro_line = "✅ Macro check OK"
+    return locals().get("macro_line", _REFX_UNBOUND)
 
-    # ── 3. Seasonal filter ────────────────────────────────────────────
-    print("  [3/6] Checking seasonal status...")
-    curr_month  = now_et.month
-    month_name  = now_et.strftime("%B")
-    if curr_month in SEASONAL_WEAK_MONTHS:
-        seasonal_line = f"⚠️ {month_name} — weak month (min score raised to {SEASONAL_MIN_SCORE})"
-    else:
-        seasonal_line = f"✅ {month_name} — normal conditions (min score: {MIN_CONFLUENCE})"
-    try:
-        vix_f = float(vix)
-        if vix_f > 25:
-            seasonal_line += f"\n⚡ VIX {vix_f:.1f} > 25 — score also raised to 90"
-    except Exception:
-        pass
 
-    # ── 3.5. Sector ETF health ────────────────────────────────────────
-    print("  [3.5/7] Checking sector ETF health...")
+def _pmb_sector_health():
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: sector_health_section.
+    """
     sector_health_section = ""
     try:
         _etf_rows = []
@@ -9690,10 +9605,13 @@ def run_premarket_briefing() -> None:
             )
     except Exception:
         pass
+    return sector_health_section
 
-    # ── 4. Live outcomes ──────────────────────────────────────────────
-    print("  [4/7] Reading live outcomes...")
-    live_line = "No live outcome data yet — logger active, accumulating."
+
+def _pmb_live_suggestion():
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: suggestion_line.
+    """
     suggestion_line = ""
     try:
         if os.path.exists(LIVE_OUTCOMES_FILE):
@@ -9740,27 +9658,13 @@ def run_premarket_briefing() -> None:
                                    if suggestions else "\n\n💡 <b>CODE SUGGESTIONS</b>: None — filters on track.")
     except Exception as e:
         live_line = f"Error reading live outcomes: {e}"
+    return suggestion_line
 
-    # ── 5. Monthly P&L ────────────────────────────────────────────────
-    print("  [5/7] Checking monthly P&L...")
-    try:
-        month_loss = get_this_month_loss()
-        limit_pct  = MONTHLY_LOSS_LIMIT * 100
-        if month_loss <= -limit_pct and _monthly_halt_lifted():
-            monthly_line = (f"⚠️ MONTHLY LIMIT PAST ({month_loss:.1f}%) — halt LIFTED "
-                            f"manually for this month; re-arms on the 1st")
-        elif month_loss <= -limit_pct:
-            monthly_line = f"🛑 MONTHLY LIMIT HIT: {month_loss:.1f}% — trading halted"
-        elif month_loss < -(limit_pct * 0.6):
-            monthly_line = f"⚠️ Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
-        elif month_loss < 0:
-            monthly_line = f"📉 Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
-        else:
-            monthly_line = f"📈 Up {month_loss:.1f}% this month"
-    except Exception:
-        monthly_line = "Monthly P&L: unavailable"
 
-    # ── 5.5. Weekend open-position risk (Fridays only) ───────────────
+def _pmb_weekend_section(now_et):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: weekend_section.
+    """
     weekend_section = ""
     if now_et.weekday() == 4:  # Friday
         try:
@@ -9793,10 +9697,13 @@ def run_premarket_briefing() -> None:
                 )
         except Exception:
             pass
+    return weekend_section
 
-    # ── 6. Pre-market gap scanner ─────────────────────────────────────
-    print("  [6/7] Scanning pre-market gaps...")
-    gap_lines      = []
+
+def _pmb_gap_watch(gap_lines):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: near_gap_lines.
+    """
     near_gap_lines: list[tuple[float, str]] = []  # 1.0–1.5% READY — near-threshold watch
     try:
         for ticker in WATCHLIST:
@@ -9894,6 +9801,269 @@ def run_premarket_briefing() -> None:
         near_gap_lines.sort(key=lambda x: x[0], reverse=True)
     except Exception:
         pass
+    return near_gap_lines
+
+
+def _pmb_milestones(_pdt_section):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: _milestone_section, _pdt_section.
+    """
+    _milestone_section = ""
+    try:
+        _pdt_live = _get_pdt_status()
+        _live_eq  = _pdt_live["equity"]
+        _dt_used  = _pdt_live["used"]
+        _dt_rem   = _pdt_live["remaining"]
+        _sw_on    = _pdt_live["swing_mode"]
+
+        if _live_eq > 0:
+            # PDT budget line
+            if _live_eq >= 25_000:
+                _pdt_section = "\n\n🔓 <b>PDT</b>: Unlimited day trades (equity ≥ $25k)"
+            elif _dt_rem == 0:
+                _pdt_section = (f"\n\n🚫 <b>PDT HALT</b>: {_dt_used}/3 day trades used — "
+                                "window resets Monday. No new day trades until reset.")
+            elif _sw_on:
+                _pdt_section = (f"\n\n🔄 <b>PDT — SWING MODE</b>: {_dt_used}/3 used · "
+                                f"1 remaining · New entries will be GTC swings (overnight)")
+            else:
+                _pdt_section = (f"\n\n🎯 <b>PDT</b>: {_dt_used}/3 day trades used · "
+                                f"{_dt_rem} remaining this window")
+
+            # Growth milestone tracker
+            _MILESTONES = [2_000, 5_000, 10_000, 25_000]
+            _next_ms = next((m for m in _MILESTONES if m > _live_eq), None)
+            if _next_ms:
+                _ms_pct   = _live_eq / _next_ms * 100
+                _ms_gap   = _next_ms - _live_eq
+                _bar_fill = int(_ms_pct / 10)   # 0-10 blocks
+                _bar      = "█" * _bar_fill + "░" * (10 - _bar_fill)
+                _pdt_flag = "  ← PDT UNLOCK 🔓" if _next_ms == 25_000 else ""
+                _milestone_section = (
+                    f"\n\n📈 <b>ACCOUNT GROWTH</b>\n"
+                    f"${_live_eq:,.2f}  →  ${_next_ms:,.0f}{_pdt_flag}\n"
+                    f"[{_bar}] {_ms_pct:.1f}%  (${_ms_gap:,.0f} to go)"
+                )
+            else:
+                _milestone_section = (
+                    f"\n\n📈 <b>ACCOUNT</b>: ${_live_eq:,.2f} — all milestones cleared 🏆"
+                )
+    except Exception:
+        pass
+    return _milestone_section, _pdt_section
+
+
+def _pmb_strangle_advisory(now_et):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    """
+    print("  [7/7] Checking for pre-event strangle opportunities...")
+    try:
+        _today    = now_et.date()
+        _tomorrow = _today + timedelta(days=1)
+        _nfp      = _nfp_dates()
+        strangle_events = []
+
+        # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
+        if _today in _FOMC_DATES:
+            strangle_events.append("FOMC today 12 PM MT")
+        if _tomorrow in _FOMC_DATES:
+            strangle_events.append("FOMC tomorrow 12 PM MT")
+        else:
+            for _off in range(2, 4):  # 2 or 3 days out
+                _fd = _today + timedelta(days=_off)
+                if _fd in _FOMC_DATES:
+                    strangle_events.append(
+                        f"FOMC in {_off}d ({_fd.strftime('%a %b %d')}) — enter strangle early")
+                    break
+
+        # Data releases the next morning
+        if _tomorrow in _CPI_DATES:
+            strangle_events.append("CPI tomorrow 6:30 AM MT")
+        if _tomorrow in _PPI_DATES:
+            strangle_events.append("PPI tomorrow 6:30 AM MT")
+        if _tomorrow in _PCE_DATES:
+            strangle_events.append("PCE tomorrow 6:30 AM MT")
+        if _tomorrow in _nfp:
+            strangle_events.append("NFP tomorrow 6:30 AM MT")
+
+        # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
+        if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):
+            strangle_events.append("OPEX tomorrow (3rd Friday) — gamma event; SPY/QQQ strangle")
+
+        if strangle_events:
+            generate_strangle_advisory(" | ".join(strangle_events))
+        else:
+            print("  No catalyst tomorrow — skipping strangle advisory.")
+    except Exception as _e:
+        print(f"  [strangle] advisory error: {_e}", file=sys.stderr)
+
+
+
+def run_premarket_briefing() -> None:
+    """
+    Daily 9:10 AM ET pre-market briefing.
+    Sends a Telegram summary covering regime, macro env, seasonal, live WR,
+    monthly P&L, and filter suggestions. Never modifies code autonomously.
+    """
+    now_et = datetime.now(ET)
+    date_str = now_et.strftime("%A %b %d, %Y")
+
+    # Second home for the news-first pass. The premarket-early job owns it,
+    # but GitHub dropped both of that job's schedule events on 2026-09-09
+    # while this briefing ran on time -- so the highest-value scan of the day
+    # rode on a single cron and simply did not happen. Dedup makes the overlap
+    # free: whichever job gets there first claims the alert key.
+    try:
+        pre_gap_catalyst_pass()
+    except Exception as _pg_exc:
+        print(f"  ⚠️  Pre-gap catalyst pass failed: {_pg_exc}")
+
+    # ── 0a. GTC swing fill reconciliation ─────────────────────────────
+    # If a GTC entry filled overnight, update PositionTracker entry price to the
+    # actual avg fill so stop/target math is anchored to the real fill, not the limit.
+    try:
+        _rc = get_alpaca_client()
+        _pt_r = PositionTracker()
+        if _rc and _pt_r.positions:
+            _alp_positions = {p.symbol: p for p in _rc.get_all_positions()}
+            _updated = []
+            for _rp in _pt_r.positions:
+                if _rp.setup.startswith("SWING") and _rp.ticker in _alp_positions:
+                    _ap = _alp_positions[_rp.ticker]
+                    _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
+                    if _actual_entry > 0 and abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) > 0.005:
+                        # Fill price differs from limit by > 0.5% — re-anchor stop and target
+                        _risk = abs(_rp.entry - _rp.stop)
+                        _rp.entry   = _actual_entry
+                        _rp.stop    = round(_actual_entry - _risk, 2)
+                        _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
+                        _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
+                        _updated.append(_rp.ticker)
+            if _updated:
+                _pt_r._save()
+                print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} to actual fill prices")
+    except Exception as _rc_exc:
+        print(f"  [swing reconcile] {_rc_exc}")
+
+    # ── 0. Scanner health watchdog ────────────────────────────────────
+    scanner_health_line = ""
+    try:
+        if os.path.exists(SCAN_LOG_FILE):
+            with open(SCAN_LOG_FILE) as _swf:
+                _sw_log = json.load(_swf)
+            if _sw_log:
+                _sw_ts  = _sw_log[-1].get("ts", "")
+                _sw_dt  = datetime.fromisoformat(_sw_ts).astimezone(ET)
+                _sw_hrs = (now_et - _sw_dt).total_seconds() / 3600
+                if _sw_hrs < 2:
+                    scanner_health_line = f"✅ Scanner healthy — last run {int(_sw_hrs * 60)}min ago"
+                elif _sw_hrs < 27:   # within a trading day + overnight gap
+                    scanner_health_line = f"✅ Scanner ran {int(_sw_hrs)}h ago"
+                else:
+                    _sw_days = int(_sw_hrs / 24)
+                    scanner_health_line = (
+                        f"⚠️ <b>SCANNER DOWN</b> — last run {_sw_days}d ago "
+                        f"({_sw_dt.strftime('%b %d')}). Check GitHub Actions → Actions tab."
+                    )
+            else:
+                scanner_health_line = "⚠️ Scan log empty — scanner may not have run yet"
+        else:
+            scanner_health_line = "⚠️ No scan log found — scanner may not be running"
+    except Exception:
+        pass
+
+    # ── 0.5. Global market context + breaking news ───────────────────
+    print("  [0.5/7] Fetching global market context + breaking news...")
+    _global_ctx_section = ""
+    try:
+        _briefing_ctx  = _fetch_global_context()
+        _briefing_news = _fetch_breaking_news_rss(hours_back=12)
+        _tone_icons = {
+            "strong bull": "🟢🟢", "bull": "🟢", "neutral": "🟡",
+            "caution": "🟠", "risk-off": "🔴",
+        }
+        _g_icon = _tone_icons.get(_briefing_ctx.get("tone", "neutral"), "⚪")
+        _ctx_msg_lines = [f"{_g_icon} {_briefing_ctx.get('summary', '')}"]
+        _ctx_comps = _briefing_ctx.get("components", {})
+        if _ctx_comps:
+            _comp_parts = []
+            for _ck, _cv in list(_ctx_comps.items())[:6]:
+                _comp_parts.append(f"{_ck}: {_cv:+d}" if isinstance(_cv, int) else f"{_ck}: {_cv}")
+            _ctx_msg_lines.append("  " + " | ".join(_comp_parts))
+        if _briefing_news:
+            _ctx_msg_lines.append("📰 <b>Breaking</b>")
+            for _hl, _src, _ts, _imp in _briefing_news[:4]:
+                _em = "🔴 " if _imp <= -1 else ("🟢 " if _imp >= 1 else "")
+                _ctx_msg_lines.append(f"   {_em}{_hl[:100]}  <i>[{_src} {_ts}]</i>")
+        _global_ctx_section = "\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: {:.2f}x)\n".format(
+            _briefing_ctx.get("risk_mult", 1.0)
+        ) + "\n".join(_ctx_msg_lines)
+    except Exception as _gce:
+        print(f"  ⚠️  Global context fetch failed: {_gce}")
+
+    # ── 1. Market regime + macro context ─────────────────────────────
+    print("  [1/7] Checking market regime + macro context...")
+    regime_line  = "Unable to fetch regime"
+    regime_line2 = ""
+    macro_env_section = ""
+    warnings_section  = ""
+    macro_env_section, regime_line, regime_line2, vix, warnings_section = _pmb_market_snapshot(macro_env_section, regime_line, regime_line2, warnings_section)
+
+    # ── 2. Macro calendar ─────────────────────────────────────────────
+    _o_macro_line = _pmb_macro_calendar(now_et)
+    if _o_macro_line is not _REFX_UNBOUND:
+        macro_line = _o_macro_line
+
+    # ── 3. Seasonal filter ────────────────────────────────────────────
+    print("  [3/6] Checking seasonal status...")
+    curr_month  = now_et.month
+    month_name  = now_et.strftime("%B")
+    if curr_month in SEASONAL_WEAK_MONTHS:
+        seasonal_line = f"⚠️ {month_name} — weak month (min score raised to {SEASONAL_MIN_SCORE})"
+    else:
+        seasonal_line = f"✅ {month_name} — normal conditions (min score: {MIN_CONFLUENCE})"
+    try:
+        vix_f = float(vix)
+        if vix_f > 25:
+            seasonal_line += f"\n⚡ VIX {vix_f:.1f} > 25 — score also raised to 90"
+    except Exception:
+        pass
+
+    # ── 3.5. Sector ETF health ────────────────────────────────────────
+    print("  [3.5/7] Checking sector ETF health...")
+    sector_health_section = _pmb_sector_health()
+
+    # ── 4. Live outcomes ──────────────────────────────────────────────
+    print("  [4/7] Reading live outcomes...")
+    live_line = "No live outcome data yet — logger active, accumulating."
+    suggestion_line = _pmb_live_suggestion()
+
+    # ── 5. Monthly P&L ────────────────────────────────────────────────
+    print("  [5/7] Checking monthly P&L...")
+    try:
+        month_loss = get_this_month_loss()
+        limit_pct  = MONTHLY_LOSS_LIMIT * 100
+        if month_loss <= -limit_pct and _monthly_halt_lifted():
+            monthly_line = (f"⚠️ MONTHLY LIMIT PAST ({month_loss:.1f}%) — halt LIFTED "
+                            f"manually for this month; re-arms on the 1st")
+        elif month_loss <= -limit_pct:
+            monthly_line = f"🛑 MONTHLY LIMIT HIT: {month_loss:.1f}% — trading halted"
+        elif month_loss < -(limit_pct * 0.6):
+            monthly_line = f"⚠️ Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
+        elif month_loss < 0:
+            monthly_line = f"📉 Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
+        else:
+            monthly_line = f"📈 Up {month_loss:.1f}% this month"
+    except Exception:
+        monthly_line = "Monthly P&L: unavailable"
+
+    # ── 5.5. Weekend open-position risk (Fridays only) ───────────────
+    weekend_section = _pmb_weekend_section(now_et)
+
+    # ── 6. Pre-market gap scanner ─────────────────────────────────────
+    print("  [6/7] Scanning pre-market gaps...")
+    gap_lines      = []
+    near_gap_lines = _pmb_gap_watch(gap_lines)
 
     # ── 6b. Small-cap pre-market movers ──────────────────────────────────
     # Scan DMAN_SMALLCAP_WATCHLIST for pre-market moves ≥5%.
@@ -9984,48 +10154,7 @@ def run_premarket_briefing() -> None:
 
     # ── PDT budget + account milestone tracker ────────────────────────
     _pdt_section     = ""
-    _milestone_section = ""
-    try:
-        _pdt_live = _get_pdt_status()
-        _live_eq  = _pdt_live["equity"]
-        _dt_used  = _pdt_live["used"]
-        _dt_rem   = _pdt_live["remaining"]
-        _sw_on    = _pdt_live["swing_mode"]
-
-        if _live_eq > 0:
-            # PDT budget line
-            if _live_eq >= 25_000:
-                _pdt_section = "\n\n🔓 <b>PDT</b>: Unlimited day trades (equity ≥ $25k)"
-            elif _dt_rem == 0:
-                _pdt_section = (f"\n\n🚫 <b>PDT HALT</b>: {_dt_used}/3 day trades used — "
-                                "window resets Monday. No new day trades until reset.")
-            elif _sw_on:
-                _pdt_section = (f"\n\n🔄 <b>PDT — SWING MODE</b>: {_dt_used}/3 used · "
-                                f"1 remaining · New entries will be GTC swings (overnight)")
-            else:
-                _pdt_section = (f"\n\n🎯 <b>PDT</b>: {_dt_used}/3 day trades used · "
-                                f"{_dt_rem} remaining this window")
-
-            # Growth milestone tracker
-            _MILESTONES = [2_000, 5_000, 10_000, 25_000]
-            _next_ms = next((m for m in _MILESTONES if m > _live_eq), None)
-            if _next_ms:
-                _ms_pct   = _live_eq / _next_ms * 100
-                _ms_gap   = _next_ms - _live_eq
-                _bar_fill = int(_ms_pct / 10)   # 0-10 blocks
-                _bar      = "█" * _bar_fill + "░" * (10 - _bar_fill)
-                _pdt_flag = "  ← PDT UNLOCK 🔓" if _next_ms == 25_000 else ""
-                _milestone_section = (
-                    f"\n\n📈 <b>ACCOUNT GROWTH</b>\n"
-                    f"${_live_eq:,.2f}  →  ${_next_ms:,.0f}{_pdt_flag}\n"
-                    f"[{_bar}] {_ms_pct:.1f}%  (${_ms_gap:,.0f} to go)"
-                )
-            else:
-                _milestone_section = (
-                    f"\n\n📈 <b>ACCOUNT</b>: ${_live_eq:,.2f} — all milestones cleared 🏆"
-                )
-    except Exception:
-        pass
+    _milestone_section, _pdt_section = _pmb_milestones(_pdt_section)
 
     # ── Format & send ─────────────────────────────────────────────────
     msg = (
@@ -10069,46 +10198,7 @@ def run_premarket_briefing() -> None:
     #   FOMC tomorrow or within 3 days — strangle while premium is still building
     #   CPI / NFP / PPI tomorrow (8:30 AM releases)
     #   OPEX tomorrow (3rd Friday) — gamma explosion event
-    print("  [7/7] Checking for pre-event strangle opportunities...")
-    try:
-        _today    = now_et.date()
-        _tomorrow = _today + timedelta(days=1)
-        _nfp      = _nfp_dates()
-        strangle_events = []
-
-        # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
-        if _today in _FOMC_DATES:
-            strangle_events.append("FOMC today 12 PM MT")
-        if _tomorrow in _FOMC_DATES:
-            strangle_events.append("FOMC tomorrow 12 PM MT")
-        else:
-            for _off in range(2, 4):  # 2 or 3 days out
-                _fd = _today + timedelta(days=_off)
-                if _fd in _FOMC_DATES:
-                    strangle_events.append(
-                        f"FOMC in {_off}d ({_fd.strftime('%a %b %d')}) — enter strangle early")
-                    break
-
-        # Data releases the next morning
-        if _tomorrow in _CPI_DATES:
-            strangle_events.append("CPI tomorrow 6:30 AM MT")
-        if _tomorrow in _PPI_DATES:
-            strangle_events.append("PPI tomorrow 6:30 AM MT")
-        if _tomorrow in _PCE_DATES:
-            strangle_events.append("PCE tomorrow 6:30 AM MT")
-        if _tomorrow in _nfp:
-            strangle_events.append("NFP tomorrow 6:30 AM MT")
-
-        # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
-        if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):
-            strangle_events.append("OPEX tomorrow (3rd Friday) — gamma event; SPY/QQQ strangle")
-
-        if strangle_events:
-            generate_strangle_advisory(" | ".join(strangle_events))
-        else:
-            print("  No catalyst tomorrow — skipping strangle advisory.")
-    except Exception as _e:
-        print(f"  [strangle] advisory error: {_e}", file=sys.stderr)
+    _pmb_strangle_advisory(now_et)
 
     # ── Pre-build dynamic universe for 9:45 AM Gap & Hold scan ────────────
     # The 9:45 scan runs --universe curated (fast), which normally limits it

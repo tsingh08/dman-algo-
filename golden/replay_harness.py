@@ -28,9 +28,12 @@ _FIXED = _dt.datetime(2026, 9, 11, 11, 0, tzinfo=_ET)   # Friday, mid-session
 
 TARGETS = {
     "scanner": ("run_pro_scanner", (), {}),
-    "premarket_briefing": ("run_premarket_briefing", (), {}),
-    "premarket_early": ("run_premarket_early_scan", (), {}),
-    "momentum_watch": ("run_momentum_watch", (), {}),
+    "premarket_briefing": ("run_premarket_briefing", (), {}, (8, 45)),
+    "premarket_early": ("run_premarket_early_scan", (), {}, (6, 0)),
+    "momentum_watch": ("run_momentum_watch", (), {}, (10, 30)),
+    # scan mode at 3:55 PM Friday: EOD P&L + Friday close-out branches run too
+    "main_scan": ("_main_mode_scan", (__import__("types").SimpleNamespace(
+        ai=False, export=False, score=None, submit=True, universe="curated"), list(a.WATCHLIST)), {}, (15, 55)),
 }
 
 # Never run for real during capture: orders, alerts, broker-side stops, state
@@ -91,13 +94,80 @@ def norm(x):
     return s
 
 
+_DEPTH = [0]   # >0 while inside a taped callee (its internals are not taped)
+
+
+class _Rec:
+    """Records (capture) or replays (record/check) every call chain made on a
+    module object such as yfinance, keyed by the chain text, e.g.
+    yf.Ticker('APLD').history(period='2d'). Picklable results are taped;
+    anything else (a Ticker object) stays a proxy so its own calls are taped."""
+    PROXY = "__proxy__"
+
+    def __init__(self, obj, path, tape, mode, pos):
+        self._o, self._p, self._t, self._m, self._pos = obj, path, tape, mode, pos
+
+    def __getattr__(self, name):
+        if name.startswith("__"):
+            raise AttributeError(name)
+        obj = getattr(self._o, name) if self._m == "capture" else None
+        return _Rec(obj, f"{self._p}.{name}", self._t, self._m, self._pos)
+
+    def _step(self, key, thunk):
+        if self._m == "capture" and _DEPTH[0] > 0:
+            val = thunk()
+            try:
+                pickle.dumps(val)
+                return val
+            except Exception:
+                return _Rec(val, key, self._t, self._m, self._pos)
+        seq = self._t.setdefault("chains", {}).setdefault(key, []) if self._m == "capture" else None
+        if self._m == "capture":
+            try:
+                val, kind = thunk(), "ok"
+            except Exception as e:
+                val, kind = e, "err"
+            try:
+                blob = pickle.dumps(val)
+            except Exception:
+                blob = None
+            seq.append((kind, blob if blob is not None else self.PROXY))
+            if kind == "err":
+                raise val
+            return val if blob is not None else _Rec(val, key, self._t, self._m, self._pos)
+        i = self._pos.get(key, 0)
+        self._pos[key] = i + 1
+        chain = self._t.get("chains", {}).get(key, [])
+        if i >= len(chain):
+            raise OSError(f"harness: tape exhausted for {key[:80]}")
+        kind, blob = chain[i]
+        if blob == self.PROXY:
+            return _Rec(None, key, self._t, self._m, self._pos)
+        val = pickle.loads(blob)
+        if kind == "err":
+            raise val
+        return val
+
+    def __call__(self, *ar, **kw):
+        key = f"{self._p}({norm(ar)[:120]}, {norm(sorted(kw.items()))[:120]})"
+        return self._step(key, lambda: self._o(*ar, **kw))
+
+    def __getitem__(self, k):
+        key = f"{self._p}[{norm(k)[:80]}]"
+        return self._step(key, lambda: self._o[k])
+
+
 def file_consts():
     return [k for k, v in vars(a).items()
             if isinstance(v, str) and re.search(r"_(FILE|PATH|LOG)$", k) and v.endswith((".json", ".csv", ".txt", ".log"))]
 
 
 def run(target, mode, tape=None):
-    func, args, kwargs = TARGETS[target]
+    global _FIXED
+    func, args, kwargs = TARGETS[target][:3]
+    if len(TARGETS[target]) > 3:
+        hh, mm = TARGETS[target][3]
+        _FIXED = _FIXED.replace(hour=hh, minute=mm)
     names = [n for n in (direct_callees(func) if mode == "capture" else tape["names"]) if n not in REAL]
     tmp = tempfile.mkdtemp(prefix="dman_replay_")
     consts = file_consts()
@@ -112,7 +182,8 @@ def run(target, mode, tape=None):
     for fname, data in tape["files"].items():
         open(os.path.join(tmp, fname), "wb").write(data)
 
-    calls, pos, depth = [], {}, [0]
+    calls, pos, depth = [], {}, _DEPTH
+    depth[0] = 0
 
     def wrap(name, real):
         def _w(*ar, **kw):
@@ -169,12 +240,12 @@ def run(target, mode, tape=None):
                "close_all_positions", "close_position", "exercise_options_position",
                "replace_order_by_id", "submit_order")]
     ps += [patch.object(a, n, wrap(n, getattr(a, n))) for n in names if hasattr(a, n)]
+    ps += [patch.object(a, "yf", _Rec(a.yf, "yf", tape, "capture" if mode == "capture" else "replay", {}))]
     ps += [patch.object(a, "datetime", _FixedDatetime), patch.object(a, "date", _FixedDate),
            patch.object(a.time, "sleep", lambda *_: None)]
     if mode != "capture":
         ps += [patch.object(a.time, "time", lambda: _FIXED.timestamp()),
                patch.object(a, "requests", MagicMock(name="requests")),
-               patch.object(a, "yf", MagicMock(name="yf")),
                patch.object(socket.socket, "connect", _no_net)]
     cwd = os.getcwd()
     for p in ps:

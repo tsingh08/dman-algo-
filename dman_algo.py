@@ -46,6 +46,20 @@ import yfinance as yf
 warnings.filterwarnings("ignore")
 
 ET = zoneinfo.ZoneInfo("America/New_York")
+
+
+def _et_today() -> date:
+    """Today's TRADING date, in New York -- not the host machine's date.
+
+    GitHub runners run in UTC, so a bare date.today() returns TOMORROW from
+    8 PM ET onward, and the evening daemon session runs straight through that
+    window. Every date-keyed decision in this file inherited the off-by-one:
+    option DTE (so the expiry force-close could fire a day early), P&L
+    bucketing (a Sept 30 evening fill booked into October, which feeds the
+    monthly loss halt), and earnings day counts. check_macro_safe() had
+    already been fixed this way on its own; this makes it the single rule.
+    """
+    return datetime.now(ET).date()
 MT = zoneinfo.ZoneInfo("America/Denver")   # display timezone — Denver, CO (MST/MDT)
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -1315,7 +1329,7 @@ def build_scan_universe(min_price: float = 2.0,
     # DIFFERENT slice that cycles through the full universe over a few days,
     # instead of leaving coverage to chance every run.
     if batches:
-        _rotate = date.today().toordinal() % len(batches)
+        _rotate = _et_today().toordinal() % len(batches)
         batches = batches[_rotate:] + batches[:_rotate]
     _univ_start = time.monotonic()
     _univ_budget = 7 * 60  # 7-min cap so universe build never blows the 25-min job timeout
@@ -1559,7 +1573,7 @@ def _alert_massive_api_failure(source: str, detail: str) -> None:
     dedup naturally rate-limits this to one ping per source per day even
     if the underlying call fails on every single invocation.
     """
-    key = f"MASSIVE_API_FAIL_{source}_{date.today().isoformat()}"
+    key = f"MASSIVE_API_FAIL_{source}_{_et_today().isoformat()}"
     if _is_alerted_today(key):
         return
     try:
@@ -1608,12 +1622,12 @@ def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
     if not ENABLE_EARNINGS_MOVER_SCAN or not MASSIVE_API_KEY:
         return []
     try:
-        yesterday = date.today() - timedelta(days=1)
+        yesterday = _et_today() - timedelta(days=1)
         resp = requests.get(
             "https://api.massive.com/benzinga/v1/earnings",
             params={
                 "date.gte": yesterday.isoformat(),
-                "date.lte": date.today().isoformat(),
+                "date.lte": _et_today().isoformat(),
                 "limit":    200,
                 "apiKey":   MASSIVE_API_KEY,
             },
@@ -1663,7 +1677,7 @@ def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
             # history; fall back to the last bar itself on the rare
             # pre-market call where today's bar doesn't exist yet.
             try:
-                _last_bar_is_today = hist.index[-1].date() == date.today()
+                _last_bar_is_today = hist.index[-1].date() == _et_today()
             except Exception:
                 _last_bar_is_today = True   # safest assumption during market hours
             prev_close = float(hist["Close"].iloc[-2] if _last_bar_is_today else hist["Close"].iloc[-1])
@@ -1706,7 +1720,7 @@ def _bars_to_df(bars: list, min_bars: int = 20) -> Optional[pd.DataFrame]:
         df = pd.DataFrame(_records).set_index("Date")
         df.index = pd.to_datetime(df.index, utc=True).tz_convert(None)
         _last_bar_date = df.index[-1].date()
-        if (date.today() - _last_bar_date).days > 3:
+        if (_et_today() - _last_bar_date).days > 3:
             return None
         return df
     except Exception:
@@ -1970,7 +1984,7 @@ def fetch_df(ticker: str, period_days: int = 430,
             # Staleness check — last bar must be within 3 calendar days (handles weekends/holidays)
             # Protects against yfinance returning cached prior-session data as "today"
             _last_bar_date = raw.index[-1].date() if hasattr(raw.index[-1], "date") else raw.index[-1]
-            if (date.today() - _last_bar_date).days > 3:
+            if (_et_today() - _last_bar_date).days > 3:
                 print(f"  [fetch_df] {ticker} data stale (last bar {_last_bar_date}) — skipping", file=sys.stderr)
                 return None
             _cache[key] = raw
@@ -2002,7 +2016,7 @@ def get_current_price(ticker: str) -> Optional[float]:
 
 def is_opex_week() -> bool:
     """True if this week contains the third Friday of the month (monthly options expiration)."""
-    today = date.today()
+    today = _et_today()
     first = today.replace(day=1)
     first_friday = first + timedelta(days=(4 - first.weekday()) % 7)
     third_friday = first_friday + timedelta(weeks=2)
@@ -2019,13 +2033,13 @@ def _get_third_friday(yr: int, mo: int) -> date:
 
 def is_opex_day() -> bool:
     """True only on the actual OPEX Friday (3rd Friday of the month)."""
-    today = date.today()
+    today = _et_today()
     return today.weekday() == 4 and today == _get_third_friday(today.year, today.month)
 
 
 def is_opex_eve() -> bool:
     """True on the Thursday immediately before OPEX Friday."""
-    tomorrow = date.today() + timedelta(days=1)
+    tomorrow = _et_today() + timedelta(days=1)
     return tomorrow.weekday() == 4 and tomorrow == _get_third_friday(tomorrow.year, tomorrow.month)
 
 
@@ -2172,7 +2186,7 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
         trade_note = ""
 
     # FOMC proximity warning — if FOMC is within 5 calendar days, flag it in the alert
-    _today_sig = date.today()
+    _today_sig = _et_today()
     _fomc_note = ""
     for _ev in sorted(_FOMC_DATES):
         _d = (_ev - _today_sig).days
@@ -3579,7 +3593,7 @@ def _handle_options_command(parts: list[str]) -> None:
     _lines = [f"📊 <b>{ticker}</b>  ${px:.2f}   exp {chain['expiry']} ({chain['dte']}d)"]
     _lines.append(_render_options_chain_table(calls, puts, px))
     if _expiries:
-        _today = date.today()
+        _today = _et_today()
         _exp_bits = [f"{_n}) {_e.strftime('%a %b %d')} ({(_e-_today).days}d)"
                      for _n, _e in enumerate(_expiries, start=1)]
         _lines.append("\n<b>Other expiries</b>  (/options " + ticker + " E, or next/prev)")
@@ -4074,7 +4088,7 @@ def _open_earnings_spread_position(plan: dict) -> OpenPosition:
         ticker=plan["ticker"],
         bias=(plan["directional"] if plan.get("directional") else "NEUTRAL"),
         setup=setup_tag, entry=plan["total_cost"], stop=0.0, target1=0.0, target2=0.0,
-        shares=0, entry_date=date.today().isoformat(),
+        shares=0, entry_date=_et_today().isoformat(),
         legs=legs, spread_qty=plan["sets"], max_loss=plan["max_loss"],
         max_gain=max_gain, earn_date=plan["earn_date"],
     )
@@ -5768,7 +5782,7 @@ def _days_to_next_macro_print(today: Optional[date] = None) -> Optional[int]:
     Pulled out of _fetch_global_context() as its own function so the
     real-condition-adaptive sizing logic is testable without mocking yfinance.
     """
-    today = today or date.today()
+    today = today or _et_today()
     days_away = [
         (ev - today).days
         for ev in (_nfp_dates() | _CPI_DATES | _PPI_DATES | _PCE_DATES)
@@ -7389,7 +7403,7 @@ def _earnings_safe_for_naked_hold(ticker: str) -> tuple[bool, str]:
         _dates = _extract_earnings_dates(ticker)
     except Exception as _exc:
         return False, f"earnings calendar unreadable ({_exc}) — not holding unprotected"
-    _today = date.today()
+    _today = _et_today()
     for _ed in _dates:
         _away = (_ed - _today).days
         if _away == 0:
@@ -7824,7 +7838,7 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     try:
         _occ_exp = _occ[-15:-9] if len(_occ) >= 15 else ""
         _exp_dt  = datetime.strptime(_occ_exp, "%y%m%d").date() if _occ_exp else None
-        _dte_now = (_exp_dt - date.today()).days if _exp_dt else 99
+        _dte_now = (_exp_dt - _et_today()).days if _exp_dt else 99
     except Exception:
         _dte_now = 99
 
@@ -7864,7 +7878,7 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         print(f"  ⚠️  {t} {kind}: milestone check failed — {_me}")
 
     _kp    = "OPT" if kind == "CALL" else "PUT"     # legacy dedup-key prefix
-    _tod   = date.today().isoformat()
+    _tod   = _et_today().isoformat()
     _t1k, _trailk = f"{t}_{_kp}_T1_{_tod}",   f"{t}_{_kp}_TRAIL_{_tod}"
     _stopk, _dtek = f"{t}_{_kp}_STOP_{_tod}", f"{t}_{_kp}_DTE_{_tod}"
 
@@ -8326,7 +8340,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
     try:
         _occ_exp = legs_syms[0][-15:-9] if len(legs_syms[0]) >= 15 else ""
         _exp_dt  = datetime.strptime(_occ_exp, "%y%m%d").date() if _occ_exp else None
-        dte_now  = (_exp_dt - date.today()).days if _exp_dt else 99
+        dte_now  = (_exp_dt - _et_today()).days if _exp_dt else 99
     except Exception:
         dte_now = 99
 
@@ -8341,7 +8355,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
         cur_value += snap.get("bid", 0) if was_long else -snap.get("ask", 0)
     cur_value *= 100 * max(1, int(pos.get("spread_qty", 1)))
 
-    _tod  = date.today().isoformat()
+    _tod  = _et_today().isoformat()
     _dtek = f"{t}_EARNSPREAD_DTE_{_tod}"
     _tpk  = f"{t}_EARNSPREAD_TP_{_tod}"
 
@@ -8388,7 +8402,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
             _earn_date = date.fromisoformat(_earn_date_str)
         except ValueError:
             _earn_date = None
-        if _earn_date and date.today() > _earn_date and cur_value < _debit_paid * EARNINGS_SPREAD_POST_EVENT_EXIT_PCT:
+        if _earn_date and _et_today() > _earn_date and cur_value < _debit_paid * EARNINGS_SPREAD_POST_EVENT_EXIT_PCT:
             st, oid = _close_earnings_spread(pos, f"{t} earnings spread post-event decay")
             _pek = f"{t}_EARNSPREAD_POSTEVENT_{_tod}"
             if st == "submitted":
@@ -8619,8 +8633,8 @@ def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) 
     _t1e = float(pos.get("target1", 0))
     _t2e = float(pos.get("target2", 0))
     _pnle = round((_cur_eq - e) / e * 100, 1) if e > 0 else 0
-    _t2k = f"{t}_T2_{date.today().isoformat()}"
-    _t1k = f"{t}_T1_{date.today().isoformat()}"
+    _t2k = f"{t}_T2_{_et_today().isoformat()}"
+    _t1k = f"{t}_T1_{_et_today().isoformat()}"
     if _t2e > 0 and _cur_eq >= _t2e and not _is_alerted_today(_t2k):
         send_telegram(
             f"🎯 <b>T2 HIT</b> — {t} LONG\n"
@@ -8661,7 +8675,7 @@ def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) 
         # price keeps rising, so this doesn't need to re-fire to keep
         # tightening — only once per day (dedup) to avoid alert spam while
         # already-trailing positions keep clearing this same threshold.
-        _lockk = f"{t}_EARLYLOCK_{date.today().isoformat()}"
+        _lockk = f"{t}_EARLYLOCK_{_et_today().isoformat()}"
         if not _is_alerted_today(_lockk):
             _trigger_px = round(e * (1 + EARLY_PROFIT_LOCK_GAIN_PCT / 100), 4)
             try:
@@ -8698,7 +8712,7 @@ def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) 
         _flow_lean_eq = (_quote_size_imbalance(_quote["bid_size"], _quote["ask_size"])
                           if _quote else 0.0)
         if _flow_lean_eq <= ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD:
-            _flowk = f"{t}_FLOWLOCK_{date.today().isoformat()}"
+            _flowk = f"{t}_FLOWLOCK_{_et_today().isoformat()}"
             if not _is_alerted_today(_flowk):
                 try:
                     _prog = _progress_equity_stop_to_trailing(
@@ -8883,9 +8897,9 @@ def run_momentum_watch() -> None:
         _pt_age = PositionTracker()
         for _pos in _pt_age.positions:
             try:
-                _days_in = (date.today() - date.fromisoformat(_pos.entry_date)).days
+                _days_in = (_et_today() - date.fromisoformat(_pos.entry_date)).days
                 if _days_in >= _SWING_AGE_LIMIT:
-                    _age_key = f"{_pos.ticker}_SWING_AGE_{date.today().isoformat()}"
+                    _age_key = f"{_pos.ticker}_SWING_AGE_{_et_today().isoformat()}"
                     if not _is_alerted_today(_age_key):
                         age_alerts.append(
                             f"⏳ <b>{_pos.ticker}</b>  SWING STALE — {_days_in}d held\n"
@@ -11012,7 +11026,7 @@ def _recent_earnings_surprise(ticker: str, days_back: int = 2) -> Optional[dict]
     Returns None if nothing reported in the window, or actual_eps is
     still null (estimate-only / not yet confirmed).
     """
-    today = date.today()
+    today = _et_today()
     items = _fetch_massive_earnings(ticker, today - timedelta(days=days_back), today)
     best = None
     for item in items:
@@ -11107,7 +11121,7 @@ def _extract_earnings_dates(ticker: str) -> list[date]:
     returned "safe" and get_upcoming_earnings() always returned [], in production,
     confirmed empirically. EARNINGS_BLACKOUT never actually blocked anything.
     """
-    today = date.today()
+    today = _et_today()
     massive = _fetch_massive_earnings(ticker, today - timedelta(days=3), today + timedelta(days=30))
     if massive:
         out = []
@@ -11169,7 +11183,7 @@ def check_earnings_safe(ticker: str) -> tuple[bool, int]:
     Returns (safe, score 0-5).
     """
     try:
-        today = date.today()
+        today = _et_today()
         for ed in _extract_earnings_dates(ticker):
             days_away = (ed - today).days
             if 1 <= days_away <= EARNINGS_BLACKOUT:
@@ -11188,7 +11202,7 @@ def get_upcoming_earnings(tickers: list, days_ahead: int = 5) -> list[dict]:
     Skips silently on API failure so it never blocks the briefing.
     """
     results = []
-    today = date.today()
+    today = _et_today()
     for ticker in tickers:
         try:
             for ed in _extract_earnings_dates(ticker):
@@ -11317,7 +11331,7 @@ def _get_atm_iv(client, ticker: str, current_price: float, target_dte: int) -> O
     from alpaca.trading.requests import GetOptionContractsRequest
     from alpaca.trading.enums import ContractType
 
-    today = date.today()
+    today = _et_today()
     target_expiry = None
     best_diff = float("inf")
     for offset in range(1, target_dte + 21):
@@ -11467,7 +11481,7 @@ def get_earnings_spread_candidates(client) -> list[dict]:
     Skips tickers whose current price can't be fetched (fail-closed).
     """
     out = []
-    today = date.today()
+    today = _et_today()
     for ticker in WATCHLIST:
         if not TICKER_SECTOR.get(ticker):
             continue
@@ -11868,7 +11882,7 @@ _MAJOR_MACRO_EVENT_DATES: set[date] = {
 
 def _nfp_dates(years: int = 2) -> set[date]:
     """Generate NFP dates (first Friday of each month) for the next `years` years."""
-    today = date.today()
+    today = _et_today()
     result: set[date] = set()
     for yr in range(today.year, today.year + years + 1):
         for mo in range(1, 13):
@@ -12062,7 +12076,7 @@ def _fetch_recent_insider_transactions(ticker: str, days_back: int = 14, max_fil
         forms        = recent.get("form", [])
         accessions   = recent.get("accessionNumber", [])
         filing_dates = recent.get("filingDate", [])
-        cutoff       = date.today() - timedelta(days=days_back)
+        cutoff       = _et_today() - timedelta(days=days_back)
         cik_int      = int(cik)
 
         checked = 0
@@ -13131,7 +13145,7 @@ def _last_n_earnings_moves(ticker: str, n: int = EARNINGS_DIRECTIONAL_LOOKBACK) 
         gaps.append((df.index[i], (o - prev_close) / prev_close * 100))
 
     window_days = 91
-    today_ts = pd.Timestamp(date.today())
+    today_ts = pd.Timestamp(_et_today())
     buckets: dict[int, tuple] = {}   # window index (0 = most recent) -> (abs_gap, signed_gap)
     for ts, g in gaps:
         age_days = (today_ts - ts).days
@@ -13287,7 +13301,7 @@ def _confirm_directional_with_options_flow(ticker: str, hist_direction: str) -> 
     this specific event. Fails toward the safer, hedged structure,
     never toward a directional bet the live data doesn't actually back.
     """
-    today = date.today()
+    today = _et_today()
     target_expiry = None
     for offset in range(EARNINGS_SPREAD_TARGET_DTE, EARNINGS_SPREAD_TARGET_DTE + 8):
         candidate = today + timedelta(days=offset)
@@ -13911,9 +13925,50 @@ class PositionTracker:
             self.positions = [OpenPosition(**p) for p in data]
         except (FileNotFoundError, json.JSONDecodeError, TypeError):
             self.positions = []
+        # What this instance saw on disk -- the merge base for _save().
+        self._base_idents = {_position_identity(p.ticker, p.setup) for p in self.positions}
 
     def _save(self):
-        _write_json_atomic(self.filepath, [asdict(p) for p in self.positions], indent=2)
+        """Write back as a 3-way merge against the file as it is NOW.
+
+        open() and close() re-read under _POSITIONS_LOCK before they mutate,
+        but two callers edit fields on an instance loaded earlier and then call
+        _save() directly (the briefing's GTC fill reconciliation and
+        _reconcile_tracked_quantity()). A plain full-list write from a stale
+        instance erases any position another thread opened in between, and
+        resurrects any position another thread closed in between.
+
+        base   = identities this instance loaded
+        ours   = this instance's list now
+        theirs = the file right now
+          in ours                          -> write ours (our field edits win)
+          on disk, not in ours, in base    -> we removed it: drop
+          on disk, not in ours, not base   -> someone else added it: keep
+          in ours, not on disk, in base    -> someone else closed it: do NOT resurrect
+          in ours, not on disk, not base   -> we added it: keep
+        """
+        with _POSITIONS_LOCK:
+            try:
+                with open(self.filepath) as f:
+                    _disk = [OpenPosition(**p) for p in json.load(f)]
+            except (FileNotFoundError, json.JSONDecodeError, TypeError):
+                _disk = []
+            _base = getattr(self, "_base_idents", set())
+            _ours = {_position_identity(p.ticker, p.setup): p for p in self.positions}
+            _merged, _seen = [], set()
+            for _d in _disk:
+                _i = _position_identity(_d.ticker, _d.setup)
+                if _i in _ours:
+                    _merged.append(_ours[_i])
+                    _seen.add(_i)
+                elif _i not in _base:
+                    _merged.append(_d)
+            for _i, _p in _ours.items():
+                if _i not in _seen and _i not in _base:
+                    _merged.append(_p)
+            _write_json_atomic(self.filepath, [asdict(p) for p in _merged], indent=2)
+            self.positions = _merged
+            self._base_idents = {_position_identity(p.ticker, p.setup) for p in _merged}
 
     def open(self, pos: OpenPosition) -> bool:
         """
@@ -14024,7 +14079,7 @@ class PositionTracker:
                 # single-leg options positions too, but a spread's P&L isn't
                 # even directionally related to the stock price the same way).
                 # Cost/max-loss/max-gain are the real, defined-risk numbers.
-                days_in = (date.today() - date.fromisoformat(p.entry_date)).days
+                days_in = (_et_today() - date.fromisoformat(p.entry_date)).days
                 print(f"\n  ◆ {p.ticker}  {p.setup}")
                 print(f"    Cost ${p.entry:.0f}  |  Max loss ${p.max_loss:.0f}  |  "
                       f"Max gain ${p.max_gain:.0f}  |  {days_in}d held  |  "
@@ -14054,7 +14109,7 @@ class PositionTracker:
                 _unreal   = (_cur_prem - p.entry) * _ctrs * 100
                 _pnl_pct  = (_cur_prem - p.entry) / p.entry * 100 if p.entry > 0 else 0
                 total_unreal += _unreal
-                _days_in = (date.today() - date.fromisoformat(p.entry_date)).days
+                _days_in = (_et_today() - date.fromisoformat(p.entry_date)).days
                 print(f"\n  ◆ {p.ticker}  {p.setup}")
                 print(f"    Premium ${p.entry:.2f}  →  ${_cur_prem:.2f}  "
                       f"({'+' if _pnl_pct >= 0 else ''}{_pnl_pct:.1f}%)  "
@@ -14079,7 +14134,7 @@ class PositionTracker:
 
             if t2_hit:
                 status = "🎯 T2 HIT — take remaining profits"
-                _k = f"{p.ticker}_T2_{date.today().isoformat()}"
+                _k = f"{p.ticker}_T2_{_et_today().isoformat()}"
                 if not _is_alerted_today(_k):
                     send_telegram(
                         f"🎯 <b>T2 HIT</b> — {p.ticker} {p.bias}\n"
@@ -14089,7 +14144,7 @@ class PositionTracker:
                     _mark_alerted(_k)
             elif t1_hit:
                 status = f"✅ T1 HIT — sell 50% now, move stop to ${p.entry}"
-                _k = f"{p.ticker}_T1_{date.today().isoformat()}"
+                _k = f"{p.ticker}_T1_{_et_today().isoformat()}"
                 if not _is_alerted_today(_k):
                     send_telegram(
                         f"✅ <b>T1 HIT</b> — {p.ticker} {p.bias}\n"
@@ -14108,7 +14163,7 @@ class PositionTracker:
             else:
                 status = "⏳ Active"
 
-            days_in = (date.today() - date.fromisoformat(p.entry_date)).days
+            days_in = (_et_today() - date.fromisoformat(p.entry_date)).days
             arrow   = "▲" if is_lo else "▼"
             sign    = "+" if unreal >= 0 else ""
 
@@ -14282,20 +14337,31 @@ def sync_positions_with_remote() -> None:
     except Exception:
         return
 
-    try:
-        with open(POSITIONS_FILE) as f:
-            local_list = json.load(f)
-    except Exception:
-        local_list = []
+    # The remote fetch above runs WITHOUT the lock (it is network I/O and must
+    # not stall the guard thread). The local read -> merge -> write below must
+    # run WITH it. Without the lock this was a textbook lost update, and the
+    # only unlocked writer of this file: sync_loop reads local [X], scan_loop
+    # opens Y and writes [X, Y], then this writes merge([X], remote) = [X] and
+    # Y is gone -- still held at the broker, invisible to the tracker. That is
+    # the shape of 2026-09-10, when TE's second buy (3 contracts at 14:23)
+    # never reached the record and every guard keyed off the tracker went
+    # blind. open(), close() and _update_positions_matching() already held
+    # _POSITIONS_LOCK; this was the gap.
+    with _POSITIONS_LOCK:
+        try:
+            with open(POSITIONS_FILE) as f:
+                local_list = json.load(f)
+        except Exception:
+            local_list = []
 
-    if not remote_list and not local_list:
-        return
-    merged = merge_positions_snapshots(local_list, remote_list,
-                                       closed_identities=_recent_closed_identities())
-    if merged != local_list:
-        _write_json_atomic(POSITIONS_FILE, merged, indent=2)
-        print(f"  🔀 Merged dman_positions.json with origin/main "
-              f"({len(local_list)} local + {len(remote_list)} remote → {len(merged)} merged)")
+        if not remote_list and not local_list:
+            return
+        merged = merge_positions_snapshots(local_list, remote_list,
+                                           closed_identities=_recent_closed_identities())
+        if merged != local_list:
+            _write_json_atomic(POSITIONS_FILE, merged, indent=2)
+            print(f"  🔀 Merged dman_positions.json with origin/main "
+                  f"({len(local_list)} local + {len(remote_list)} remote → {len(merged)} merged)")
 
 
 def merge_json_lists(local_list: list, remote_list: list, key_fn=None,
@@ -15934,7 +16000,7 @@ def select_strangle_legs(ticker: str, current_price: float) -> Optional[dict]:
         expirations = tk.options
         if not expirations:
             return None
-        today = date.today()
+        today = _et_today()
         def _dte(e): return (date.fromisoformat(e) - today).days
         candidates = [(e, _dte(e)) for e in expirations
                       if STRANGLE_MIN_DTE <= _dte(e) <= STRANGLE_MAX_DTE]
@@ -16009,6 +16075,24 @@ def select_strangle_legs(ticker: str, current_price: float) -> Optional[dict]:
         }
     except Exception:
         return None
+
+
+def size_strangle_trade(total_premium: float) -> int:
+    """How many strangles fit the per-position options budget. Advisory only.
+
+    Called by format_strangle_telegram() but never defined, so every strangle
+    advisory died with NameError inside the briefing's try/except and was
+    never sent -- including the ones triggered by FOMC and third-Friday OPEX.
+    Sized against OPTIONS_CONTRACT_BUDGET_MAX, the same ceiling every other
+    options position answers to. 0 means one strangle already exceeds it.
+    """
+    try:
+        _cost = float(total_premium) * 100
+    except (TypeError, ValueError):
+        return 0
+    if _cost <= 0:
+        return 0
+    return int(OPTIONS_CONTRACT_BUDGET_MAX // _cost)
 
 
 def format_strangle_telegram(result: dict, event: str) -> str:
@@ -17573,6 +17657,14 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     eff_account = get_effective_account()
     total_risk_pct = 0.0
     try:
+        # Imported here because AssetClass is not in module scope. Without it
+        # the comparison below raised NameError on the first held position of
+        # any kind, the bare `except Exception: pass` swallowed it, and
+        # total_risk_pct stayed 0 -- PORTFOLIO_HEAT_LIMIT silently stopped
+        # counting existing exposure at all. It demonstrably worked on
+        # 2026-08-11 (the comment below records it hitting 8% against the 6%
+        # cap), so this was a regression, not a feature that never shipped.
+        from alpaca.trading.enums import AssetClass
         if eff_account > 0:
             _heat_positions = _check_stop_coverage()
             if _heat_positions:
@@ -18259,7 +18351,7 @@ def get_pending_health() -> list[dict]:
         data = json.load(open(LIVE_SIGNALS_FILE))
     except Exception:
         return []
-    today = date.today()
+    today = _et_today()
     results = []
     for p in data.get("pending", []):
         try:
@@ -19991,7 +20083,7 @@ def _record_alpaca_429(source: str) -> None:
                 _d = json.load(_f)
         except Exception:
             _d = {}
-        _today = date.today().isoformat()
+        _today = _et_today().isoformat()
         _day = _d.get(_today, {})
         _day[source] = _day.get(source, 0) + 1
         _d = {_today: _day}   # only keep today — this is a same-day signal, not history
@@ -20380,7 +20472,7 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
         print(f"  ⚠️  {ticker} options skipped — ADV check failed (fail-closed)")
         return None
 
-    today = date.today()
+    today = _et_today()
     # Pick the Friday nearest to OPTIONS_TARGET_DTE — not just the first available Friday.
     target_expiry = None
     _best_diff = float("inf")
@@ -20497,7 +20589,7 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
         print(f"  ⚠️  {ticker} puts skipped — ADV check failed (fail-closed)")
         return None
 
-    today = date.today()
+    today = _et_today()
     target_expiry = None
     _best_diff = float("inf")
     for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
@@ -20599,8 +20691,8 @@ def _fetch_available_expiries(client, ticker: str, max_days: int = 90) -> list[d
     try:
         raw = client.get_option_contracts(GetOptionContractsRequest(
             underlying_symbols=[ticker], type=ContractType.CALL,
-            expiration_date_gte=date.today(),
-            expiration_date_lte=date.today() + timedelta(days=max_days),
+            expiration_date_gte=_et_today(),
+            expiration_date_lte=_et_today() + timedelta(days=max_days),
             limit=1000,
         ))
         items = getattr(raw, "option_contracts", None) or (raw if isinstance(raw, list) else [])
@@ -20652,7 +20744,7 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
     except Exception:
         return None
 
-    today = date.today()
+    today = _et_today()
     target_expiry = expiry
     if target_expiry is None:
         _best_diff = float("inf")
@@ -20757,7 +20849,7 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
     except Exception:
         return None
 
-    today = date.today()
+    today = _et_today()
     target_expiry = None
     best_diff = float("inf")
     for offset in range(EARNINGS_SPREAD_MIN_DTE, EARNINGS_SPREAD_MAX_DTE + 8):
@@ -21451,7 +21543,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
 
         # Warn (but do not block) if FOMC is within 7 days — 12h dedup so it fires
         # at most twice per day, not on every signal submission.
-        _today_live = date.today()
+        _today_live = _et_today()
         for _ev_live in sorted(_FOMC_DATES):
             _d_live = (_ev_live - _today_live).days
             if 0 <= _d_live <= 7:
@@ -22573,7 +22665,7 @@ def main():
                 f"Regime: {_hb_r} ({_hb_rs}/19)"
             )
         else:
-            _fomc_bkout = any(abs((ev - date.today()).days) <= MACRO_BLACKOUT
+            _fomc_bkout = any(abs((ev - _et_today()).days) <= MACRO_BLACKOUT
                               for ev in _FOMC_DATES)
             _hb_hhmm = datetime.now(ET).hour * 100 + datetime.now(ET).minute
             if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
@@ -22581,7 +22673,7 @@ def main():
                 # after the 2 PM ET announcement when initial reaction has settled
                 _lift_day2 = "soon"
                 for _doff2 in range(1, 8):
-                    _ck2 = date.today() + timedelta(days=_doff2)
+                    _ck2 = _et_today() + timedelta(days=_doff2)
                     if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
                         continue
                     if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):

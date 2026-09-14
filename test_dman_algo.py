@@ -3026,9 +3026,7 @@ class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
             "BABA260828P00120000": self._snap(0.30, 0.34),
             "BABA260828P00116000": self._snap(0.53, 0.57),
         }
-        with patch.object(a, "date") as mock_date:
-            mock_date.today.return_value = date(2026, 8, 21)   # 1 day after earn_date
-            mock_date.fromisoformat = date.fromisoformat
+        with patch.object(a, "_et_today", return_value=date(2026, 8, 21)):   # 1 day after earn_date
             with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
                  patch.object(a, "_close_earnings_spread", return_value=("submitted", "order123")) as mock_close, \
                  patch.object(a, "_is_alerted_today", return_value=False), \
@@ -3049,9 +3047,7 @@ class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
             "BABA260828P00120000": self._snap(0.30, 0.34),
             "BABA260828P00116000": self._snap(0.53, 0.57),
         }
-        with patch.object(a, "date") as mock_date:
-            mock_date.today.return_value = date(2026, 8, 20)   # == earn_date
-            mock_date.fromisoformat = date.fromisoformat
+        with patch.object(a, "_et_today", return_value=date(2026, 8, 20)):   # == earn_date
             with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
                  patch.object(a, "_close_earnings_spread") as mock_close:
                 result = a._monitor_earnings_spread_position(self._pos())
@@ -3067,9 +3063,7 @@ class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
             "BABA260828P00120000": self._snap(0.10, 0.14),
             "BABA260828P00116000": self._snap(0.05, 0.09),
         }
-        with patch.object(a, "date") as mock_date:
-            mock_date.today.return_value = date(2026, 8, 21)
-            mock_date.fromisoformat = date.fromisoformat
+        with patch.object(a, "_et_today", return_value=date(2026, 8, 21)):
             with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
                  patch.object(a, "_close_earnings_spread") as mock_close:
                 result = a._monitor_earnings_spread_position(self._pos())
@@ -3093,9 +3087,7 @@ class TestEarningsSpreadPostEventDecayExit(unittest.TestCase):
             "BABA260828P00120000": self._snap(0.05, 0.09),
             "BABA260828P00116000": self._snap(0.05, 0.09),
         }
-        with patch.object(a, "date") as mock_date:
-            mock_date.today.return_value = date(2026, 8, 21)   # comfortably before the 8/28 leg expiry
-            mock_date.fromisoformat = date.fromisoformat
+        with patch.object(a, "_et_today", return_value=date(2026, 8, 21)):   # comfortably before the 8/28 leg expiry
             with patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
                  patch.object(a, "_close_earnings_spread") as mock_close:
                 result = a._monitor_earnings_spread_position(pos)
@@ -6880,6 +6872,97 @@ class TestMonthlyHaltLift(unittest.TestCase):
             src = inspect.getsource(fn)
             if "MONTHLY_LOSS_LIMIT * 100" in src:
                 self.assertIn("_monthly_halt_lifted()", src, fn.__name__)
+
+
+class TestLineByLineAuditFixes(unittest.TestCase):
+    """Fixes from the 2026-09-13 full-system audit."""
+
+    # ── ET trading date ────────────────────────────────────────────────────
+    def test_no_bare_date_today_remains_in_the_algo(self):
+        # On a UTC runner date.today() is TOMORROW from 8 PM ET, and the
+        # evening daemon session runs through that window.
+        import ast as _ast
+        tree = _ast.parse(open(a.__file__, encoding="utf-8").read())
+        bare = [n.lineno for n in _ast.walk(tree)
+                if isinstance(n, _ast.Call) and isinstance(n.func, _ast.Attribute)
+                and n.func.attr == "today" and isinstance(n.func.value, _ast.Name)
+                and n.func.value.id == "date"]
+        self.assertEqual(bare, [], f"bare date.today() at lines {bare}")
+
+    def test_et_today_is_new_york_date_not_utc(self):
+        # 00:30 UTC on 09-15 is still 20:30 ET on 09-14.
+        fake = a.datetime(2026, 9, 15, 0, 30, tzinfo=a.timezone.utc) if hasattr(a, "timezone") else None
+        from datetime import timezone as _tz
+        fake = a.datetime(2026, 9, 15, 0, 30, tzinfo=_tz.utc)
+        class _DT(a.datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return fake.astimezone(tz) if tz else fake
+        with patch.object(a, "datetime", _DT):
+            self.assertEqual(a._et_today(), a.date(2026, 9, 14))
+
+    # ── heat budget ────────────────────────────────────────────────────────
+    def test_heat_budget_imports_assetclass_before_using_it(self):
+        # NameError here was swallowed by `except Exception: pass`, so the 6%
+        # PORTFOLIO_HEAT_LIMIT silently stopped counting existing exposure.
+        src = inspect.getsource(a.run_pro_scanner)
+        i_imp = src.index("from alpaca.trading.enums import AssetClass")
+        i_use = src.index("AssetClass.US_EQUITY")
+        self.assertLess(i_imp, i_use)
+
+    # ── strangle advisory ──────────────────────────────────────────────────
+    def test_strangle_sizer_exists_and_fits_the_budget(self):
+        self.assertTrue(callable(getattr(a, "size_strangle_trade", None)))
+        n = a.size_strangle_trade(1.50)            # $150 per strangle
+        self.assertEqual(n, int(a.OPTIONS_CONTRACT_BUDGET_MAX // 150))
+        self.assertEqual(a.size_strangle_trade(0), 0)
+        self.assertEqual(a.size_strangle_trade(99.0), 0)   # one exceeds budget
+
+    # ── tracker race ───────────────────────────────────────────────────────
+    def _tracker_file(self):
+        f = tempfile.NamedTemporaryFile(suffix=".json", delete=False, mode="w")
+        f.write("[]"); f.close()
+        self.addCleanup(os.unlink, f.name)
+        return f.name
+
+    def _pos(self, ticker):
+        return a.OpenPosition(ticker=ticker, setup="Gap & Hold", bias="LONG",
+                              entry=10.0, stop=9.0, target1=12.0, target2=13.0,
+                              shares=10, entry_date="2026-09-14")
+
+    def test_stale_save_does_not_erase_a_concurrent_open(self):
+        # The 2026-09-10 shape: another thread opens a position between this
+        # instance's load and its save.
+        fn = self._tracker_file()
+        with patch.object(a, "MAX_POSITIONS", 99):
+            stale = a.PositionTracker(filepath=fn)          # loads []
+            other = a.PositionTracker(filepath=fn)
+            other.open(self._pos("TE"))                     # disk: [TE]
+            stale._save()                                   # stale view: []
+            self.assertEqual([p.ticker for p in a.PositionTracker(filepath=fn).positions], ["TE"])
+
+    def test_stale_save_does_not_resurrect_a_concurrent_close(self):
+        fn = self._tracker_file()
+        with patch.object(a, "MAX_POSITIONS", 99):
+            a.PositionTracker(filepath=fn).open(self._pos("DFNS"))
+            stale = a.PositionTracker(filepath=fn)          # loads [DFNS]
+            a.PositionTracker(filepath=fn).close("DFNS")    # disk: []
+            stale._save()
+            self.assertEqual(a.PositionTracker(filepath=fn).positions, [])
+
+    def test_field_edit_on_a_tracked_position_still_persists(self):
+        fn = self._tracker_file()
+        with patch.object(a, "MAX_POSITIONS", 99):
+            a.PositionTracker(filepath=fn).open(self._pos("APLD"))
+            pt = a.PositionTracker(filepath=fn)
+            pt.positions[0].stop = 9.5
+            pt._save()
+            self.assertEqual(a.PositionTracker(filepath=fn).positions[0].stop, 9.5)
+
+    def test_sync_with_remote_holds_the_positions_lock(self):
+        src = inspect.getsource(a.sync_positions_with_remote)
+        self.assertLess(src.index("with _POSITIONS_LOCK:"),
+                        src.index("merged = merge_positions_snapshots("))
 
 
 class TestSplitUnadjust(unittest.TestCase):

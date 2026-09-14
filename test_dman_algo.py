@@ -6355,6 +6355,14 @@ class TestSwingEntriesAreNeverDayOnly(unittest.TestCase):
         self.assertIn("sig.setup == MOMENTUM_DAY_ONLY_SETUP", src)
 
 
+def _submit_path_source():
+    # The PDT-zero / options-only routing was extracted from
+    # _submit_signals_to_alpaca() into _live_mode_preflight() on 2026-09-14.
+    # Concatenated in EXECUTION order (preflight runs first), so the ordering
+    # assertions below keep meaning what they meant.
+    return inspect.getsource(a._live_mode_preflight) + inspect.getsource(a._submit_signals_to_alpaca)
+
+
 class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     """The other half of the 2026-09-04 failure. _signal_can_use_options()
     passed APVO/ARTL/CAST/TRVI/LABT because their setup is in OPTIONS_SETUPS
@@ -6365,15 +6373,15 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     difference."""
 
     def test_zero_pdt_branch_sets_the_flag(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("_options_only_overnight = True", src)
 
     def test_flag_defaults_to_false(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("_options_only_overnight = False", src)
 
     def test_shares_fallback_is_guarded_before_submit(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_guard = src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):')
         i_share = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
         self.assertLess(i_guard, i_share,
@@ -6389,7 +6397,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # can protect against. CLRO lost 28.1% on $41M average daily volume:
         # not thinness, a gap straight through the stop. Being forced
         # overnight is exactly when equity is worst and an option is best.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_sw = src.index('elif _pdt["swing_mode"]:')
         seg = src[i_sw:i_sw + 2600]
         self.assertIn("_options_only_overnight = True", seg)
@@ -6398,7 +6406,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     def test_swing_mode_skips_when_nothing_is_options_eligible(self):
         # Must not fall through to an equity swing -- that is the exact trade
         # the backtest says not to take.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_sw = src.index('elif _pdt["swing_mode"]:')
         seg = src[i_sw:i_sw + 2600]
         self.assertIn("return", seg)
@@ -6406,7 +6414,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     def test_both_forced_overnight_branches_set_the_same_flag(self):
         # 0-remaining and 1-remaining are the same situation for instrument
         # choice: the position is going to be held overnight either way.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertEqual(src.count("_options_only_overnight = True"), 2)
 
     def test_only_a_vetted_no_stop_entry_may_bypass_the_guard(self):
@@ -6415,7 +6423,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # by _genuine_shares_case() and submits with NO sell-side order, so it
         # cannot round-trip the same day. Any OTHER way through reopens the
         # 2026-09-04 hole where five signals became real day trades.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("no_stop_entry", src)
         self.assertEqual(
             src.count("if _options_only_overnight and not getattr"), 1,
@@ -6424,7 +6432,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     def test_no_stop_entry_is_only_set_after_vetting(self):
         # The flag is what bypasses the guard, so nothing may set it without
         # _genuine_shares_case() having returned True first.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_vet = src.index("_genuine_shares_case(")
         i_set = src.index("_s.no_stop_entry = True")
         self.assertLess(i_vet, i_set,
@@ -6444,7 +6452,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # Premise changed 2026-09-10: the guard block can now submit, but ONLY
         # down the naked-shares path, and only after _genuine_shares_case()
         # approved. The refusal path must still refuse.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         seg = src[src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):'):]
         seg = seg[:seg.index("elif (not _shares_fallback_allowed")]
         self.assertIn("continue", seg)
@@ -6459,7 +6467,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # `continue` and the naked-shares gate never ran -- and it could never
         # set no_stop_entry to exempt itself, because that flag is only set
         # inside the gate it could not reach.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertLess(src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):'),
                         src.index("elif (not _shares_fallback_allowed"),
                         "the zero-PDT gate must be reachable by non-watchlist names")

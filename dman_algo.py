@@ -21400,59 +21400,23 @@ def _shares_fallback_allowed(ticker: str, setup: str = "") -> bool:
             or setup == MOMENTUM_DAY_ONLY_SETUP)
 
 
-def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) -> None:
+def _live_mode_preflight(signals: list) -> Optional[tuple]:
+    """Live-account preflight: ACCOUNT_SIZE sanity, PDT budget / options-only /
+    swing-mode routing (including the PDT-zero shares fallback), and the
+    FOMC / major-macro entry guards.
+
+    Returns (signals, options_only_overnight, share_ok), or None when the
+    submission must stop -- every early `return` in this block is a hard stop
+    for the whole submit. Extracted verbatim from _submit_signals_to_alpaca()
+    on 2026-09-14 (behaviour pinned by a characterization harness).
+
+    options_only_overnight / share_ok are initialised here as well as inside
+    the live branch: they were previously only assigned INSIDE
+    `if not ALPACA_PAPER:`, so in paper mode the submit function referenced
+    them unbound and would have raised. Live behaviour is unchanged.
     """
-    Validate entry prices and submit passing signals to Alpaca (paper or live).
-    Re-anchors each signal's stop and target to the live price so bracket legs
-    are always correct relative to the actual fill price.
-    Automatically adds each submitted trade to PositionTracker.
-    Called after a scan when --submit flag is set.
-
-    size_mult: extra caller-supplied sizing multiplier, compounds on top of
-    the regime/streak/probation multiplier below (default 1.0 = no change
-    for every existing caller). Added for momentum-watch's reduced-size
-    auto-execute path (see MOMENTUM_AUTO_EXEC_SIZE_MULT) — a setup trusted
-    enough to skip the YES/NO approval gate but without the live track
-    record yet to earn full size while unsupervised.
-    """
-    if not signals:
-        return
-    if not ALPACA_API_KEY:
-        print("  ⚠️  --submit requires ALPACA_API_KEY to be set.")
-        return
-
-    # Belt-and-suspenders: re-check circuit breakers here in case this function
-    # is called directly (e.g. --mode alpaca, manual workflow_dispatch after close).
-    if not is_market_open():
-        print("  ⏸️  Market is closed — no orders submitted.")
-        return
-    if is_halted():
-        _hr = ""
-        try:
-            with open(HALT_FILE) as _hf:
-                _hr = json.load(_hf).get("reason", "")
-        except Exception:
-            pass
-        print(f"  🛑 Manual halt active{(' — ' + _hr) if _hr else ''} — no orders submitted (/resume to re-enable).")
-        return
-    _on_probation_sub, _ = is_on_probation()
-    if not _on_probation_sub:
-        _tracker_cb = WinRateTracker()
-        _stats_cb   = _tracker_cb.rolling_stats()
-        if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
-            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
-            return
-        if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
-                and not _monthly_halt_lifted()):
-            print(f"  🛑 Monthly loss limit active — no orders.")
-            return
-    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
-        print(f"  🛑 Daily loss limit active — no orders.")
-        return
-
-    mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
-
-    # ── Live-mode safety warnings ──────────────────────────────────────────
+    _options_only_overnight = False
+    _share_ok: list = []
     if not ALPACA_PAPER:
         # Warn if ACCOUNT_SIZE was not explicitly configured
         if not os.getenv("ACCOUNT_SIZE"):
@@ -21692,10 +21656,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     _save_last_alert("__MACRO_EVENT_WARN__")
                     print(f"  🚫 LIVE: major macro event {_ev_mm} — entries blocked, alert sent")
                 break
+    return signals, _options_only_overnight, _share_ok
 
-    # Adaptive risk multiplier — full global context (replaces SPY-only check).
-    # Reads futures, VIX, DXY, BTC, Asia overnight, IWM/SPY ratio.
-    # Score -4 → 0.35x sizing  |  Score +4 → 1.30x sizing.
+
+def _submission_risk_multiplier(size_mult: float) -> float:
+    """Net position-size multiplier for this submit pass: global-context risk
+    tone, win/loss streak, account probation, then the caller's size_mult,
+    compounded in that order. Extracted verbatim from
+    _submit_signals_to_alpaca() on 2026-09-14.
+    """
     print("  🌍 Fetching global context for adaptive sizing...", flush=True)
     _ctx = _fetch_global_context()
     _risk_off_mult = _ctx["risk_mult"]
@@ -21742,6 +21711,71 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     if size_mult != 1.0:
         _risk_off_mult *= size_mult
         print(f"  🔻 Caller size_mult: ×{size_mult:.2f} → net ×{_risk_off_mult:.2f}")
+    return _risk_off_mult
+
+
+def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) -> None:
+    """
+    Validate entry prices and submit passing signals to Alpaca (paper or live).
+    Re-anchors each signal's stop and target to the live price so bracket legs
+    are always correct relative to the actual fill price.
+    Automatically adds each submitted trade to PositionTracker.
+    Called after a scan when --submit flag is set.
+
+    size_mult: extra caller-supplied sizing multiplier, compounds on top of
+    the regime/streak/probation multiplier below (default 1.0 = no change
+    for every existing caller). Added for momentum-watch's reduced-size
+    auto-execute path (see MOMENTUM_AUTO_EXEC_SIZE_MULT) — a setup trusted
+    enough to skip the YES/NO approval gate but without the live track
+    record yet to earn full size while unsupervised.
+    """
+    if not signals:
+        return
+    if not ALPACA_API_KEY:
+        print("  ⚠️  --submit requires ALPACA_API_KEY to be set.")
+        return
+
+    # Belt-and-suspenders: re-check circuit breakers here in case this function
+    # is called directly (e.g. --mode alpaca, manual workflow_dispatch after close).
+    if not is_market_open():
+        print("  ⏸️  Market is closed — no orders submitted.")
+        return
+    if is_halted():
+        _hr = ""
+        try:
+            with open(HALT_FILE) as _hf:
+                _hr = json.load(_hf).get("reason", "")
+        except Exception:
+            pass
+        print(f"  🛑 Manual halt active{(' — ' + _hr) if _hr else ''} — no orders submitted (/resume to re-enable).")
+        return
+    _on_probation_sub, _ = is_on_probation()
+    if not _on_probation_sub:
+        _tracker_cb = WinRateTracker()
+        _stats_cb   = _tracker_cb.rolling_stats()
+        if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
+            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
+            return
+        if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
+                and not _monthly_halt_lifted()):
+            print(f"  🛑 Monthly loss limit active — no orders.")
+            return
+    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+        print(f"  🛑 Daily loss limit active — no orders.")
+        return
+
+    mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
+
+    # ── Live-mode safety warnings ──────────────────────────────────────────
+    _pre = _live_mode_preflight(signals)
+    if _pre is None:
+        return
+    signals, _options_only_overnight, _share_ok = _pre
+
+    # Adaptive risk multiplier — full global context (replaces SPY-only check).
+    # Reads futures, VIX, DXY, BTC, Asia overnight, IWM/SPY ratio.
+    # Score -4 → 0.35x sizing  |  Score +4 → 1.30x sizing.
+    _risk_off_mult = _submission_risk_multiplier(size_mult)
 
     # At most ONE unprotected share position at a time, shared by both places
     # that can open one: the pre-attempt branch (options structurally

@@ -3016,5 +3016,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T11:34:19.733497-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;The failing Nation of Iran wants to make a deal, quickly and badly. I will determine whether or not the U.S.A. will choose to engage - The concept of which we are open to.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:35:31.661240-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Pinterest Announces Expanded Partnership With Nvidia To Build Multimodal AI Infrastructure On Blackwell GPUs And Dynamo For Visual Search, Content Understanding, And Safety Systems",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T11:35:42.981130-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "EXCLUSIVE: CLARITY Act &#39;Can Get There,&#39; Tim Ryan Says: Do Prediction Markets Agree?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -2924,5 +2924,57 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:12:10.890476-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "SPY"
+    ],
+    "headline": "Senate Spokesperson Says Anthropic&#39;s Amodei, OpenAI&#39;s Altman Spoke With U.S. Senator Mark Warner Over The Weekend About AI Risks",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:13:28.374945-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Tech Bosses Call For AI Slowdown\u2014Should Investors Worry\u2014Key Saudi Pipeline Hit",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:13:57.777893-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "MoffettNathanson Maintains Neutral on SpaceX, Raises Price Target to $142",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:14:52.284143-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Perplexity Portable Computer Is Now Available On Windows, Powered By NVIDIA RTX",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

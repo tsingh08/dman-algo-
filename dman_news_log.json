@@ -3426,5 +3426,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T14:03:15.687564-04:00",
+    "symbols": [
+      "AMD",
+      "NVDA"
+    ],
+    "headline": "Musk Biographer Says AI Giants May Face Liability After Admitting Risks as Nvidia, AMD Slide",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T14:03:36.210996-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Stock Pops After Revised Clarity Act Draft Released",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T14:04:49.370047-04:00",
+    "symbols": [
+      "ETN",
+      "GEV"
+    ],
+    "headline": "Shares of data center infrastructure-related companies are trading lower after AI executives from firms including Anthropic, OpenAI and SpaceXAI signaled that the industry&#39;s growth may have to be slowed, which may lead to curtailed demand for providers of electrical equipment and services, HVAC systems, and power generation capacity.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T14:06:41.551990-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "CRWD",
+      "DIA",
+      "IWM",
+      "MU",
+      "PANW",
+      "QQQ",
+      "ZS"
+    ],
+    "headline": "Nasdaq 100 Slips as AI Leaders Urge a Slowdown, 10-Year Yield Touches 5%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

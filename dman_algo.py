@@ -2309,6 +2309,10 @@ TOGGLEABLE_FLAGS = {
                 "at 0 day trades, allow ONE share entry with no stop on a "
                 "Tier-A catalyst that has no options chain. OFF = options only. "
                 "The position is unprotected overnight by design."),
+    "watchlistonly":("ENABLE_WATCHLIST_ONLY_AUTO",
+                "auto-trade only WATCHLIST names (the backtest-validated "
+                "universe). OFF lets market-wide/small-cap discoveries "
+                "auto-execute again."),
     "setupkill":("ENABLE_SETUP_KILL",
                 "stop trading a setup whose live record is decisively losing "
                 "(>=8 trades, <=20% WR, <=-20% cumulative). OFF re-enables it."),
@@ -3003,6 +3007,20 @@ SETUP_PROBATION_MAX_DAYS    = 10    # same auto-expiry window as account-level p
 # one-sided the question is no longer about the signal, it is about the
 # setup, and the only honest answer is to stop trading it until a human says
 # otherwise. ENABLE_SETUP_KILL is the override; /flags setupkill turns it off.
+# AUTO-EXECUTION IS WATCHLIST-ONLY. Decided 2026-09-14 on this evidence:
+#   - corrected backtest, WATCHLIST, 4 years: Gap & Hold +3.10%/trade over 64
+#     trades (+2.73%/trade, 83 trades, all setups)
+#   - live record: 25 of 31 trades (81%) were on names OUTSIDE the watchlist,
+#     at -3.87%/trade, producing -96.7% of the -107.3% total loss
+#   - those names cannot even be validated: the backtest engine produced ONE
+#     signal across 121 curated small caps in 2 years, because live found
+#     them through discovery paths (market-wide screen, low-float detector,
+#     news-first, momentum-watch) that have no backtest at all
+# So a signal on a watchlist name trades as before, and a signal anywhere else
+# still reaches Telegram -- nothing is hidden -- but only a human can take it
+# (/options TICKER -> /buy). Kill switch: /flags watchlistonly off.
+ENABLE_WATCHLIST_ONLY_AUTO = True
+
 ENABLE_SETUP_KILL      = True
 SETUP_KILL_MIN_TRADES  = 8       # never judge a setup on a small sample
 SETUP_KILL_MAX_WR      = 0.20    # at or below this win rate, with...
@@ -3132,6 +3150,19 @@ def _setup_is_disabled(setup: str) -> tuple[bool, str]:
         return True, (f"{_e['wins']}W/{_e['n'] - _e['wins']}L over {_e['n']} live "
                       f"trades ({_wr*100:.0f}% WR, {_e['cum_pct']:+.1f}% cumulative)")
     return False, ""
+
+
+def _auto_trade_allowed(ticker: str) -> tuple[bool, str]:
+    """(True, "") if this ticker may be auto-executed, else (False, reason).
+
+    Only gates AUTOMATIC entries. Manual trades (/options -> /buy) and
+    human-approved earnings spreads never pass through here.
+    """
+    if not flag("ENABLE_WATCHLIST_ONLY_AUTO", ENABLE_WATCHLIST_ONLY_AUTO):
+        return True, ""
+    if (ticker or "").upper() in {str(t).upper() for t in WATCHLIST}:
+        return True, ""
+    return False, "outside the backtest-validated WATCHLIST — alert only"
 
 
 def _entry_circuit_breakers_ok() -> tuple[bool, str]:
@@ -6854,7 +6885,13 @@ def run_premarket_early_scan() -> None:
                              PORTFOLIO_HEAT_LIMIT, MAX_TRADE_LOSS_PCT)
             _base_risk = _acct * _risk_pct
             _pm_pt   = PositionTracker()
-            for _e in pm_auto_entries[:3]:   # max 3 concurrent pre-market entries
+            # Filter BEFORE slicing, so non-watchlist names cannot use up the
+            # three slots. This path calls submit_order() directly and never
+            # reaches _submit_signals_to_alpaca(), so it needs its own gate.
+            for _e in [x for x in pm_auto_entries if not _auto_trade_allowed(x["ticker"])[0]]:
+                print(f"  📋 {_e['ticker']} pre-market: {_auto_trade_allowed(_e['ticker'])[1]}")
+            for _e in [x for x in pm_auto_entries
+                       if _auto_trade_allowed(x["ticker"])[0]][:3]:   # max 3 concurrent pre-market entries
                 try:
                     _ep        = round(_e["entry_px"], 2)
                     _fl_m      = _e["fl_m"]
@@ -21488,6 +21525,13 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                                   "already open today — not stacking another")
                         else:
                             for _s in (x for x in signals if x not in _opt_ok):
+                                # Runs BEFORE the per-signal loop's watchlist
+                                # gate, so it needs its own: otherwise a
+                                # non-watchlist name announces "entered WITHOUT
+                                # a stop" on Telegram and takes the single
+                                # naked slot, then gets blocked a few lines later.
+                                if not _auto_trade_allowed(_s.ticker)[0]:
+                                    continue
                                 _ok, _why = _genuine_shares_case(_s)
                                 print(f"  🩹 PDT-zero shares {_s.ticker}: "
                                       f"{'YES' if _ok else 'no'} — {_why}")
@@ -21741,6 +21785,23 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     f"{html.escape(_kill_why)}.\n\nNo further entries on this setup. "
                     f"Send <b>/flags setupkill off</b> to override.")
                 _mark_alerted(_kk)
+            continue
+
+        # Watchlist-only auto-execution -- see ENABLE_WATCHLIST_ONLY_AUTO for
+        # the evidence. Placed before ANY order path (calls, puts, shares, the
+        # PDT-zero naked-shares gate), all of which live below this point.
+        _wl_ok, _wl_why = _auto_trade_allowed(sig.ticker)
+        if not _wl_ok:
+            print(f"  📋 {sig.ticker:<8} {sig.setup} — {_wl_why}")
+            _wk = f"__NONWL_SIGNAL__:{sig.ticker}"
+            if not _is_duplicate_alert(_wk, 1440):
+                send_telegram(
+                    f"📋 <b>Signal — not auto-traded</b>: {sig.ticker} "
+                    f"{html.escape(sig.setup)} (score {getattr(sig, 'confluence_score', 0)})\n"
+                    f"entry ${sig.entry:.2f}  stop ${sig.stop:.2f}  T1 ${sig.target1:.2f}\n"
+                    f"Outside the backtest-validated watchlist. "
+                    f"To take it yourself: /options {sig.ticker}")
+                _mark_alerted(_wk)
             continue
 
         # Per-ticker bench: stop returning to names whose own live record

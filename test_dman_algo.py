@@ -81,6 +81,7 @@ with open(_SRC_PATH, encoding="utf-8") as _f:
 
 
 _flags_isolation = None
+_wl_isolation = None
 
 
 def setUpModule():
@@ -96,11 +97,20 @@ def setUpModule():
     _flags_isolation = patch.object(
         a, "FLAGS_FILE", os.path.join(tempfile.gettempdir(), "dman_flags_test_isolation_absent.json"))
     _flags_isolation.start()
+    # Watchlist-only routing (2026-09-14) is a universe decision, not the
+    # behaviour most of this suite exercises -- hundreds of tests submit
+    # signals on synthetic tickers like TESTX. Off by default here; the tests
+    # that cover the gate itself turn it back on explicitly.
+    global _wl_isolation
+    _wl_isolation = patch.object(a, "ENABLE_WATCHLIST_ONLY_AUTO", False)
+    _wl_isolation.start()
 
 
 def tearDownModule():
     if _flags_isolation is not None:
         _flags_isolation.stop()
+    if _wl_isolation is not None:
+        _wl_isolation.stop()
 
 class TestArgparseDispatchConsistency(unittest.TestCase):
     """Prevents the exact StockTwits incident from ever recurring: a mode
@@ -6989,6 +6999,68 @@ class TestBacktestStopFill(unittest.TestCase):
 
     def test_breakeven_stop_is_a_scratch_not_a_win(self):
         self.assertEqual(a._classify_outcome(0.0), "SCRATCH")
+
+
+class TestWatchlistOnlyAutoExecution(unittest.TestCase):
+    """Decided 2026-09-14: 81% of live trades were outside the watchlist and
+    lost -3.87%/trade; watchlist Gap & Hold backtests +3.10%/trade over 64."""
+
+    def setUp(self):
+        _p = patch.object(a, "ENABLE_WATCHLIST_ONLY_AUTO", True)
+        _p.start()
+        self.addCleanup(_p.stop)
+
+    def test_watchlist_name_is_allowed(self):
+        with patch.object(a, "WATCHLIST", ["NVDA", "PLTR"]):
+            self.assertTrue(a._auto_trade_allowed("NVDA")[0])
+            self.assertTrue(a._auto_trade_allowed("pltr")[0])
+
+    def test_non_watchlist_name_is_alert_only(self):
+        with patch.object(a, "WATCHLIST", ["NVDA"]):
+            ok, why = a._auto_trade_allowed("BEX")
+        self.assertFalse(ok)
+        self.assertIn("alert only", why)
+
+    def test_flag_off_restores_market_wide_auto_trading(self):
+        with patch.object(a, "WATCHLIST", ["NVDA"]), \
+             patch.object(a, "ENABLE_WATCHLIST_ONLY_AUTO", False):
+            self.assertTrue(a._auto_trade_allowed("BEX")[0])
+
+    def test_gate_precedes_every_order_path_in_submit(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i_gate = src.index("_auto_trade_allowed(sig.ticker)")
+        for call in ("_submit_options_call(", "_submit_options_put(",
+                     "submit_alpaca_trade(sig)"):
+            self.assertLess(i_gate, src.index(call), call)
+        # The PDT-zero pre-attempt shares branch runs BEFORE that loop gate,
+        # so every _genuine_shares_case() call must sit behind its own check.
+        import re as _re
+        for m in _re.finditer(r"_genuine_shares_case\(", src):
+            line = src[src.rfind(chr(10), 0, m.start()) + 1:m.start()]
+            if line.lstrip().startswith("#"):
+                continue                      # a comment mentioning it
+            if m.start() > i_gate:
+                continue                      # inside the per-signal loop, behind the gate
+            before = src[max(0, m.start() - 700):m.start()]
+            self.assertIn("_auto_trade_allowed(", before,
+                          f"unguarded _genuine_shares_case at offset {m.start()}")
+
+    def test_premarket_path_filters_before_taking_its_three_slots(self):
+        src = inspect.getsource(a.run_premarket_early_scan)
+        i_filter = src.index('if _auto_trade_allowed(x["ticker"])[0]][:3]')
+        i_order = src.index("_client.submit_order(")
+        self.assertLess(i_filter, i_order)
+
+    def test_kill_switch_is_reachable_from_a_phone(self):
+        self.assertIn("ENABLE_WATCHLIST_ONLY_AUTO",
+                      [v[0] for v in a.TOGGLEABLE_FLAGS.values()])
+
+    def test_blocked_signal_still_reaches_telegram(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        seg = src[src.index("_auto_trade_allowed(sig.ticker)"):]
+        seg = seg[:seg.index("continue")]
+        self.assertIn("send_telegram(", seg)
+        self.assertIn("/options", seg)
 
 
 class TestAuditFollowUps(unittest.TestCase):

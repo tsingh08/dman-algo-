@@ -532,7 +532,14 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
             except Exception as exc:
                 log(f"  ⚠️  {p} failed JSON validation ({exc}) — restoring last "
                     f"good commit, skipping this cycle's update to that file")
-                _git("checkout", "--", p)
+                # `checkout HEAD --`, not `checkout --`: after a conflicted
+                # stash pop the path is UNMERGED in the index, and a bare
+                # `git checkout -- file` refuses with "path is unmerged" —
+                # leaving the conflict markers in place to be staged and
+                # pushed (confirmed live 2026-09-14, dman_live_signals.json
+                # published to origin/main with raw markers). HEAD-form
+                # resets index + worktree even for unmerged paths.
+                _git("checkout", "HEAD", "--", p)
             continue
         if p.endswith(".csv"):
             try:
@@ -544,7 +551,9 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
             except Exception as exc:
                 log(f"  ⚠️  {p} failed CSV validation ({exc}) — restoring last "
                     f"good commit, skipping this cycle's update to that file")
-                _git("checkout", "--", p)
+                # HEAD-form for the same unmerged-path reason as the JSON
+                # branch above.
+                _git("checkout", "HEAD", "--", p)
             continue
         ok.append(p)
     return ok
@@ -651,7 +660,11 @@ def git_sync() -> None:
             # just a flagged stash conflict (e.g. a process killed
             # mid-write leaving a truncated file).
             _present = _existing(STATE_FILES)
-            _present = _restore_corrupted_state_files(_present)
+            _valid   = _restore_corrupted_state_files(_present)
+            # Files that failed validation this cycle (now reset to HEAD, or
+            # still corrupt if even that failed) — must stay OUT of the add
+            # list below, or the _tracked() union quietly re-adds them.
+            _bad     = set(_present) - set(_valid)
             # Union with _tracked(): a STATE_FILES entry that's been deleted
             # locally (still tracked in git, absent from _present) must still
             # reach `git add -A` so its deletion gets staged — see _tracked()'s
@@ -660,7 +673,12 @@ def git_sync() -> None:
             # about; a path that's neither existing nor tracked is deliberately
             # excluded from the pathspec (git add -A errors atomically — stages
             # NOTHING — if any single pathspec element matches nothing at all).
-            _stage_paths = sorted(set(_present) | set(_tracked(STATE_FILES)))
+            # _bad is subtracted AFTER the union — every corrupted file is by
+            # definition tracked, so without this the union defeats
+            # _restore_corrupted_state_files()'s exclusion and stages the
+            # corrupt content anyway (the second half of the 2026-09-14
+            # conflict-markers-pushed-to-main incident).
+            _stage_paths = sorted((set(_valid) | set(_tracked(STATE_FILES))) - _bad)
             if _stage_paths:
                 _git("add", "-A", "--", *_stage_paths)
             staged = _git("diff", "--staged", "--quiet")

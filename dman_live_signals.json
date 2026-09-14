@@ -49,18 +49,6 @@
       "timestamp": "2026-09-10T13:32:59.482032-04:00"
     },
     {
-      "ticker": "AEO",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 14.21,
-      "stop": 15.27,
-      "target1": 11.54,
-      "target2": 9.94,
-      "score": 100,
-      "date": "2026-09-10",
-      "timestamp": "2026-09-10T13:32:59.482848-04:00"
-    },
-    {
       "ticker": "BDRX",
       "setup": "Low Float Catalyst",
       "bias": "LONG",
@@ -83,6 +71,18 @@
       "score": 100,
       "date": "2026-09-11",
       "timestamp": "2026-09-11T10:12:44.301412-04:00"
+    },
+    {
+      "ticker": "AEO",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 14.21,
+      "stop": 15.27,
+      "target1": 11.54,
+      "target2": 9.94,
+      "score": 100,
+      "date": "2026-09-10",
+      "timestamp": "2026-09-10T13:32:59.482848-04:00"
     },
     {
       "ticker": "SIG",

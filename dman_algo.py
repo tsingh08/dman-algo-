@@ -15418,6 +15418,174 @@ def _is_chasing_extended_highs(df: pd.DataFrame) -> bool:
 #  SECTION 19 — MASTER CONFLUENCE SCORER
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _ss_sector_etf(signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: _etf_score.
+    """
+    _sector_name = TICKER_SECTOR.get(signal.ticker, "")
+    _sector_etf  = SECTOR_ETFS.get(_sector_name, "")
+    _etf_score   = 0
+    if _sector_etf:
+        try:
+            _etf_df = fetch_df(_sector_etf)
+            if _etf_df is not None and len(_etf_df) >= 2:
+                _etf_chg = (float(_etf_df["Close"].iloc[-1]) /
+                            float(_etf_df["Close"].iloc[-2]) - 1) * 100
+                if signal.bias == "LONG":
+                    _etf_score = 8 if _etf_chg >= 1.0 else (4 if _etf_chg > 0 else 0)
+                else:
+                    _etf_score = 8 if _etf_chg <= -1.0 else (4 if _etf_chg < 0 else 0)
+        except Exception:
+            pass
+    return _etf_score
+
+
+def _ss_ai_theme(signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: _ai_score.
+    """
+    _ai_score = 0
+    if signal.ticker in AI_THEME_TICKERS:
+        try:
+            _ai_df = fetch_df(AI_THEME_ETF)
+            if _ai_df is not None and len(_ai_df) >= 2:
+                _ai_chg = (float(_ai_df["Close"].iloc[-1]) /
+                           float(_ai_df["Close"].iloc[-2]) - 1) * 100
+                if signal.bias == "LONG":
+                    _ai_score = 3 if _ai_chg >= 1.0 else 0
+                else:
+                    _ai_score = 3 if _ai_chg <= -1.0 else 0
+        except Exception:
+            pass
+    return _ai_score
+
+
+def _ss_rsi_zone(df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: rsi_bonus.
+    """
+    rsi = signal.rsi
+    _gap_pct_for_rsi = 0.0
+    try:
+        if len(df) >= 2:
+            _gap_pct_for_rsi = ((float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2]))
+                                / float(df["Close"].iloc[-2]) * 100)
+    except Exception:
+        pass
+    _fresh_catalyst_gap = abs(_gap_pct_for_rsi) >= 5.0 and signal.rvol >= 2.0
+    if signal.bias == "LONG":
+        if 45 <= rsi <= 62:
+            rsi_bonus = 5
+        elif 38 <= rsi < 45:
+            rsi_bonus = 2
+        elif 70 <= rsi <= 90 and _fresh_catalyst_gap:
+            rsi_bonus = 5
+        else:
+            rsi_bonus = 0
+    else:
+        if 38 <= rsi <= 55:
+            rsi_bonus = 5
+        elif 55 < rsi <= 62:
+            rsi_bonus = 2
+        elif 10 <= rsi <= 30 and _fresh_catalyst_gap:
+            rsi_bonus = 5
+        else:
+            rsi_bonus = 0
+    return rsi_bonus
+
+
+def _ss_52wk_proximity(df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: prox_score.
+    """
+    try:
+        if signal.bias == "LONG":
+            hi52    = float(df["High"].iloc[-252:].max()) if len(df) >= 252 else float(df["High"].max())
+            off_hi  = (hi52 - signal.entry) / hi52 * 100
+            prox_score = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
+        else:
+            lo52    = float(df["Low"].iloc[-252:].min()) if len(df) >= 252 else float(df["Low"].min())
+            off_lo  = (signal.entry - lo52) / lo52 * 100
+            prox_score = 10 if off_lo <= 5 else (7 if off_lo <= 15 else 0)
+    except Exception:
+        prox_score = 0
+    return prox_score
+
+
+def _ss_adx_trend(df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: adx_score, r_last.
+    """
+    r_last = df.iloc[-1]
+    adx_v = float(r_last["ADX"])      if ("ADX"      in r_last.index and not pd.isna(r_last["ADX"]))      else 0
+    pdi_v = float(r_last["PLUS_DI"])  if ("PLUS_DI"  in r_last.index and not pd.isna(r_last["PLUS_DI"]))  else 0
+    mdi_v = float(r_last["MINUS_DI"]) if ("MINUS_DI" in r_last.index and not pd.isna(r_last["MINUS_DI"])) else 0
+    if signal.bias == "LONG":
+        adx_score = 5 if adx_v >= 25 and pdi_v > mdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
+    else:
+        adx_score = 5 if adx_v >= 25 and mdi_v > pdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
+    return adx_score, r_last
+
+
+def _ss_regime_setup_bonus(regime, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: _rs_bonus.
+    """
+    _rtype = regime.get("regime", "CHOP")
+    _mom_long  = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
+    _mom_short = {"Vol Breakdown", "Gap & Short", "EMA Breakdown"}
+    _rev_long  = {"OS Bounce", "MACD Cross"}
+    _rev_short = {"OB Reversal", "MACD Bear"}
+    if _rtype == "BULL" and signal.bias == "LONG":
+        _rs_bonus = 8 if signal.setup in _mom_long  else 4
+    elif _rtype == "BEAR" and signal.bias == "SHORT":
+        _rs_bonus = 8 if signal.setup in _mom_short else 4
+    elif _rtype == "CHOP":
+        _pref = _rev_long if signal.bias == "LONG" else _rev_short
+        _rs_bonus = 8 if signal.setup in _pref else 3
+    else:
+        _rs_bonus = 4
+    return _rs_bonus
+
+
+def _ss_short_float_squeeze(breakdown, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    """
+    if signal.setup in {"Morning Runner", "Gap & Hold"}:
+        fl_m, sh_pct, _, _cash = _get_short_float_data(signal.ticker)
+        if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
+            float_score = 10
+        elif fl_m > 0 and fl_m < 50 and sh_pct >= 15:   # low float + high short → squeeze
+            float_score = 10
+        elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:   # low float + moderate short
+            float_score = 7
+        elif fl_m > 0 and fl_m < 50:                     # low float alone
+            float_score = 4
+        elif sh_pct >= 20:                               # high short interest regardless of float
+            float_score = 5
+        else:
+            float_score = 0
+        breakdown["Float/Short"] = float_score
+    else:
+        breakdown["Float/Short"] = 0
+
+
+
+def _ss_gap_size_bonus(breakdown, df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    """
+    if signal.setup == "Gap & Hold" and len(df) >= 2:
+        try:
+            _gap_pct = (float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2])) / float(df["Close"].iloc[-2]) * 100
+            gap_bonus = 5 if _gap_pct >= 5.0 else (3 if _gap_pct >= 3.0 else 0)
+        except Exception:
+            gap_bonus = 0
+        breakdown["Gap Size"] = gap_bonus
+    else:
+        breakdown["Gap Size"] = 0
+
+
+
 def score_signal(signal: ProSignal, df: pd.DataFrame,
                  regime: dict, tracker: WinRateTracker) -> ProSignal:
     """
@@ -15463,21 +15631,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # 4.5 Sector ETF momentum confirmation (8 pts)
     # If the stock's sector ETF is green on the day, money flows are aligned —
     # adds conviction that this isn't an idiosyncratic pop against a falling sector.
-    _sector_name = TICKER_SECTOR.get(signal.ticker, "")
-    _sector_etf  = SECTOR_ETFS.get(_sector_name, "")
-    _etf_score   = 0
-    if _sector_etf:
-        try:
-            _etf_df = fetch_df(_sector_etf)
-            if _etf_df is not None and len(_etf_df) >= 2:
-                _etf_chg = (float(_etf_df["Close"].iloc[-1]) /
-                            float(_etf_df["Close"].iloc[-2]) - 1) * 100
-                if signal.bias == "LONG":
-                    _etf_score = 8 if _etf_chg >= 1.0 else (4 if _etf_chg > 0 else 0)
-                else:
-                    _etf_score = 8 if _etf_chg <= -1.0 else (4 if _etf_chg < 0 else 0)
-        except Exception:
-            pass
+    _etf_score = _ss_sector_etf(signal)
     breakdown["Sector ETF"] = _etf_score
 
     # 4.6 AI theme momentum bonus (+3 pts) — additive on top of the sector
@@ -15485,19 +15639,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # AI-specific move (e.g. NVDA rallying on a chip headline) only ever
     # showed up as generic Technology/XLK momentum otherwise, which can
     # mute a real AI-specific signal against a flat broader tech tape.
-    _ai_score = 0
-    if signal.ticker in AI_THEME_TICKERS:
-        try:
-            _ai_df = fetch_df(AI_THEME_ETF)
-            if _ai_df is not None and len(_ai_df) >= 2:
-                _ai_chg = (float(_ai_df["Close"].iloc[-1]) /
-                           float(_ai_df["Close"].iloc[-2]) - 1) * 100
-                if signal.bias == "LONG":
-                    _ai_score = 3 if _ai_chg >= 1.0 else 0
-                else:
-                    _ai_score = 3 if _ai_chg <= -1.0 else 0
-        except Exception:
-            pass
+    _ai_score = _ss_ai_theme(signal)
     breakdown["AI Theme"] = _ai_score
 
     # 4.7 Insider buying confirmation (+4 pts, free SEC Form 4 data) —
@@ -15568,47 +15710,11 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # now earns the same bonus a measured reading already does; a high
     # RSI with NEITHER a real gap nor real volume behind it — a stale,
     # already-extended chase — still scores 0, unchanged.
-    rsi = signal.rsi
-    _gap_pct_for_rsi = 0.0
-    try:
-        if len(df) >= 2:
-            _gap_pct_for_rsi = ((float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2]))
-                                / float(df["Close"].iloc[-2]) * 100)
-    except Exception:
-        pass
-    _fresh_catalyst_gap = abs(_gap_pct_for_rsi) >= 5.0 and signal.rvol >= 2.0
-    if signal.bias == "LONG":
-        if 45 <= rsi <= 62:
-            rsi_bonus = 5
-        elif 38 <= rsi < 45:
-            rsi_bonus = 2
-        elif 70 <= rsi <= 90 and _fresh_catalyst_gap:
-            rsi_bonus = 5
-        else:
-            rsi_bonus = 0
-    else:
-        if 38 <= rsi <= 55:
-            rsi_bonus = 5
-        elif 55 < rsi <= 62:
-            rsi_bonus = 2
-        elif 10 <= rsi <= 30 and _fresh_catalyst_gap:
-            rsi_bonus = 5
-        else:
-            rsi_bonus = 0
+    rsi_bonus = _ss_rsi_zone(df, signal)
     breakdown["RSI Zone"] = rsi_bonus
 
     # 11. 52-week high proximity (10 pts for longs; 52wk low proximity for shorts)
-    try:
-        if signal.bias == "LONG":
-            hi52    = float(df["High"].iloc[-252:].max()) if len(df) >= 252 else float(df["High"].max())
-            off_hi  = (hi52 - signal.entry) / hi52 * 100
-            prox_score = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
-        else:
-            lo52    = float(df["Low"].iloc[-252:].min()) if len(df) >= 252 else float(df["Low"].min())
-            off_lo  = (signal.entry - lo52) / lo52 * 100
-            prox_score = 10 if off_lo <= 5 else (7 if off_lo <= 15 else 0)
-    except Exception:
-        prox_score = 0
+    prox_score = _ss_52wk_proximity(df, signal)
     breakdown["52wk Prox"] = prox_score
 
     # 11.5 Not chasing an already-extended move into highs — hard gate,
@@ -15632,14 +15738,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     breakdown["Supertrend"] = st_score
 
     # 14. Per-stock ADX trend strength (5 pts) — uses already-computed ADX/DI columns
-    r_last = df.iloc[-1]
-    adx_v = float(r_last["ADX"])      if ("ADX"      in r_last.index and not pd.isna(r_last["ADX"]))      else 0
-    pdi_v = float(r_last["PLUS_DI"])  if ("PLUS_DI"  in r_last.index and not pd.isna(r_last["PLUS_DI"]))  else 0
-    mdi_v = float(r_last["MINUS_DI"]) if ("MINUS_DI" in r_last.index and not pd.isna(r_last["MINUS_DI"])) else 0
-    if signal.bias == "LONG":
-        adx_score = 5 if adx_v >= 25 and pdi_v > mdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
-    else:
-        adx_score = 5 if adx_v >= 25 and mdi_v > pdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
+    adx_score, r_last = _ss_adx_trend(df, signal)
     breakdown["ADX Trend"] = adx_score
 
     # 15. Ichimoku Cloud (10 pts)
@@ -15654,55 +15753,18 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     breakdown["ATR Pctile"] = check_atr_percentile(df, signal.setup)
 
     # 18. Regime-adaptive setup bonus (0-8 pts)
-    _rtype = regime.get("regime", "CHOP")
-    _mom_long  = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
-    _mom_short = {"Vol Breakdown", "Gap & Short", "EMA Breakdown"}
-    _rev_long  = {"OS Bounce", "MACD Cross"}
-    _rev_short = {"OB Reversal", "MACD Bear"}
-    if _rtype == "BULL" and signal.bias == "LONG":
-        _rs_bonus = 8 if signal.setup in _mom_long  else 4
-    elif _rtype == "BEAR" and signal.bias == "SHORT":
-        _rs_bonus = 8 if signal.setup in _mom_short else 4
-    elif _rtype == "CHOP":
-        _pref = _rev_long if signal.bias == "LONG" else _rev_short
-        _rs_bonus = 8 if signal.setup in _pref else 3
-    else:
-        _rs_bonus = 4
+    _rs_bonus = _ss_regime_setup_bonus(regime, signal)
     breakdown["RegimeSetup"] = _rs_bonus
 
     # 19. Short float / squeeze potential (0-10 pts) — Gap & Hold and Morning Runner
-    if signal.setup in {"Morning Runner", "Gap & Hold"}:
-        fl_m, sh_pct, _, _cash = _get_short_float_data(signal.ticker)
-        if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
-            float_score = 10
-        elif fl_m > 0 and fl_m < 50 and sh_pct >= 15:   # low float + high short → squeeze
-            float_score = 10
-        elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:   # low float + moderate short
-            float_score = 7
-        elif fl_m > 0 and fl_m < 50:                     # low float alone
-            float_score = 4
-        elif sh_pct >= 20:                               # high short interest regardless of float
-            float_score = 5
-        else:
-            float_score = 0
-        breakdown["Float/Short"] = float_score
-    else:
-        breakdown["Float/Short"] = 0
+    _ss_short_float_squeeze(breakdown, signal)
 
     # 20. RVOL tier bonus (0-6 pts) — live scorer was missing this; backtest already has it
     rvol_bonus = 6 if signal.rvol >= 3.0 else (3 if signal.rvol >= 2.0 else 0)
     breakdown["RVOL Tier"] = rvol_bonus
 
     # 21. Gap size bonus (0-5 pts) — Gap & Hold only; larger gaps = stronger institutional conviction
-    if signal.setup == "Gap & Hold" and len(df) >= 2:
-        try:
-            _gap_pct = (float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2])) / float(df["Close"].iloc[-2]) * 100
-            gap_bonus = 5 if _gap_pct >= 5.0 else (3 if _gap_pct >= 3.0 else 0)
-        except Exception:
-            gap_bonus = 0
-        breakdown["Gap Size"] = gap_bonus
-    else:
-        breakdown["Gap Size"] = 0
+    _ss_gap_size_bonus(breakdown, df, signal)
 
     # 22. News catalyst recency (0-5 pts) — confirmed headline in last 4 hours
     breakdown["News Catalyst"] = 5 if getattr(signal, "news_boost", False) else 0

@@ -6990,6 +6990,85 @@ class TestLineByLineAuditFixes(unittest.TestCase):
                         src.index("merged = merge_positions_snapshots("))
 
 
+class TestPointInTimeBacktest(unittest.TestCase):
+    """The backtest now scores with live's score_signal(); these pin that it
+    cannot see the future while doing so."""
+
+    def _frame(self, days=900):
+        import pandas as pd
+        idx = pd.date_range(end="2026-09-11", periods=days, freq="B")
+        return pd.DataFrame({"Open": 10.0, "High": 11.0, "Low": 9.0, "Close": 10.5,
+                             "Volume": 1_000_000}, index=idx)
+
+    def _pit(self):
+        pit = a._PointInTimeData()
+        full = self._frame()
+        pit._daily_full = lambda ticker: full
+        return pit
+
+    def test_daily_history_is_truncated_at_asof(self):
+        pit = self._pit()
+        with pit:
+            pit.set_asof(a.date(2025, 3, 14))
+            df = a.fetch_df("NVDA")
+        self.assertLessEqual(df.index.max().date(), a.date(2025, 3, 14))
+
+    def test_weekly_bars_never_include_days_after_asof(self):
+        # Resampled from TRUNCATED daily -- a Wednesday asof must not pull in
+        # Thursday/Friday of that week via a precomputed weekly bar.
+        pit = self._pit()
+        full = self._frame()
+        full.loc[full.index > "2025-03-12", "High"] = 999.0     # the future spikes
+        pit._daily_full = lambda ticker: full
+        with pit:
+            pit.set_asof(a.date(2025, 3, 12))
+            wk = a.fetch_weekly("NVDA")
+        self.assertLess(float(wk["High"].max()), 999.0)
+
+    def test_clock_reads_asof_after_the_close(self):
+        pit = self._pit()
+        with pit:
+            pit.set_asof(a.date(2025, 3, 14))
+            now = a.datetime.now(a.ET)
+            self.assertEqual(now.date(), a.date(2025, 3, 14))
+            self.assertGreaterEqual(now.hour, 16)   # no partial-session RVOL projection
+            self.assertEqual(a._et_today(), a.date(2025, 3, 14))
+            self.assertFalse(a.is_market_open())     # never the real Alpaca clock
+
+    def test_globals_are_restored_even_on_error(self):
+        orig = (a.fetch_df, a.datetime, a._et_today, a.is_market_open)
+        try:
+            with self._pit():
+                raise RuntimeError("boom")
+        except RuntimeError:
+            pass
+        self.assertEqual((a.fetch_df, a.datetime, a._et_today, a.is_market_open), orig)
+
+    def test_sector_cache_is_dropped_when_asof_moves(self):
+        pit = self._pit()
+        with pit:
+            pit.set_asof(a.date(2026, 1, 5))
+            a._sector_cache, a._sector_cache_ts = ["XLK"], a.datetime.now()
+            pit.set_asof(a.date(2025, 1, 6))
+            self.assertIsNone(a._sector_cache)
+
+    def test_earnings_are_windowed_by_the_callers_dates(self):
+        pit = self._pit()
+        pit._earn["NVDA"] = [{"date": "2025-02-26"}, {"date": "2025-05-28"}, {"date": "2026-08-27"}]
+        with pit:
+            got = a._fetch_massive_earnings("NVDA", a.date(2025, 2, 1), a.date(2025, 3, 31))
+        self.assertEqual([r["date"] for r in got], ["2025-02-26"])
+
+    def test_live_scoring_uses_live_gates(self):
+        src = inspect.getsource(a._run_pro_backtest_impl)
+        i = src.index("if live_scoring:")
+        seg = src[i:src.index("else:", i)]
+        self.assertIn("score_signal(sig, window", seg)
+        for gate in ("regime_ok", "mtf_ok", "earnings_ok", "macro_ok",
+                     "divergence_free", "not_chasing_extended_highs"):
+            self.assertIn(gate, seg)
+
+
 class TestBacktestStopFill(unittest.TestCase):
     """The backtest filled every stop at stop*1.005 -- better than the stop for
     a long -- and scored raw_pnl > 0 as a WIN, so every breakeven stop was a
@@ -7005,7 +7084,7 @@ class TestBacktestStopFill(unittest.TestCase):
         self.assertEqual(a._bt_stop_fill(10.50, {"Open": 11.40}, False), 11.40)
 
     def test_no_more_optimistic_stop_fill_or_raw_pnl_win_label(self):
-        src = inspect.getsource(a.run_pro_backtest)
+        src = inspect.getsource(a._run_pro_backtest_impl)
         self.assertNotIn("cur_stop*1.005", src)
         self.assertNotIn('"WIN" if raw_pnl > 0', src)
         self.assertIn("_classify_outcome(pnl_pct)", src)

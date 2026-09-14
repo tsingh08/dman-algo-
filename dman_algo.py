@@ -18081,8 +18081,191 @@ def _bt_stop_fill(stop: float, bar, is_long: bool) -> float:
     return min(stop, _open) if is_long else max(stop, _open)
 
 
-def run_pro_backtest(tickers: list[str] = WATCHLIST,
-                     years: int = 2, min_score: int = 85) -> dict:
+class _PointInTimeData:
+    """Make the LIVE scoring pipeline safe to run inside a historical backtest.
+
+    run_pro_backtest used to score candidates with its own hand-rolled formula
+    and 6 checks, so it validated a different, looser pipeline than the one
+    that trades: live signals go through score_signal()'s ~20 checks and six
+    hard gates (regime, weekly MTF, earnings, macro, divergence, not-chasing).
+    Calling score_signal() from a backtest naively would be worse, because
+    several of its checks fetch CURRENT data internally -- that is lookahead.
+
+    Inside this context every data source score_signal can reach answers as of
+    `asof` instead of now:
+      price history (fetch_df / fetch_weekly)  truncated to asof; weekly bars
+                                               are resampled from truncated
+                                               daily, so no partial week leaks
+      earnings (_fetch_massive_earnings)       historical records, windowed by
+                                               the caller relative to asof
+      clock (datetime, _et_today)              asof at 16:30 ET -- AFTER the
+                                               close, so the partial-session
+                                               RVOL projection cannot treat a
+                                               complete historical bar as a
+                                               forming one
+      is_market_open()                         False; it queries the REAL
+                                               Alpaca clock, which would make
+                                               results depend on when the
+                                               backtest happens to be run
+      beta                                     computed from truncated history
+      account equity                           fixed
+    and the sector-ranking cache is dropped whenever asof changes, since it is
+    keyed on wall-clock age and would otherwise serve a later date's ranking.
+
+    Neutralised because no point-in-time source exists (reported in output):
+    insider activity, short float, news sentiment, setup probation, the
+    defensive-rotation penalty, AI scoring.
+    """
+    NEUTRALISED = ("insider activity", "short float", "news sentiment",
+                   "setup probation", "defensive-rotation penalty", "AI score")
+    _PATCH = ("fetch_df", "fetch_weekly", "get_beta", "check_insider_activity",
+              "_get_short_float_data", "_check_earnings_already_reported",
+              "_fetch_massive_earnings", "get_effective_account", "_et_today",
+              "datetime", "is_market_open")
+
+    def __init__(self, equity: float = 10_000.0):
+        self.asof = None
+        self.equity = equity
+        self.score_errors = 0
+        self._full: dict = {}
+        self._earn: dict = {}
+        self._saved: dict = {}
+        self._vix = None
+
+    def __enter__(self):
+        g = globals()
+        for n in self._PATCH:
+            self._saved[n] = g[n]
+        real_dt, pit = self._saved["datetime"], self
+        from datetime import time as _clock
+
+        class _PitDatetime(real_dt):
+            @classmethod
+            def now(cls, tz=None):
+                d = pit.asof or real_dt.now(ET).date()
+                base = real_dt.combine(d, _clock(16, 30), tzinfo=ET)
+                return base.astimezone(tz) if tz else base.replace(tzinfo=None)
+
+        g["datetime"] = _PitDatetime
+        g["fetch_df"] = self._fetch_df
+        g["fetch_weekly"] = lambda ticker: self._fetch_df(ticker, 730, "1wk")
+        g["get_beta"] = self._beta
+        g["check_insider_activity"] = lambda ticker, bias: (True, 0)
+        g["_get_short_float_data"] = lambda ticker: (0.0, 0.0, 0.0, 0.0)
+        g["_check_earnings_already_reported"] = lambda ticker, hours_back=14: False
+        g["_fetch_massive_earnings"] = self._earnings
+        g["get_effective_account"] = lambda: self.equity
+        g["_et_today"] = lambda: self.asof or self._saved["_et_today"]()
+        g["is_market_open"] = lambda: False
+        return self
+
+    def __exit__(self, *exc):
+        g = globals()
+        for n, v in self._saved.items():
+            g[n] = v
+        self._drop_time_keyed_caches()
+        return False
+
+    @staticmethod
+    def _drop_time_keyed_caches():
+        global _sector_cache, _sector_cache_ts
+        _sector_cache, _sector_cache_ts = None, None
+
+    def set_asof(self, ts) -> None:
+        d = ts.date() if hasattr(ts, "date") else ts
+        if d != self.asof:
+            self.asof = d
+            self._drop_time_keyed_caches()
+
+    def _daily_full(self, ticker):
+        if ticker not in self._full:
+            try:
+                self._full[ticker] = self._saved["fetch_df"](ticker, period_days=2200, interval="1d")
+            except Exception:
+                self._full[ticker] = None
+        return self._full[ticker]
+
+    def _cut(self, df, period_days: int):
+        if df is None or self.asof is None or len(df) == 0:
+            return df
+        idx = df.index
+        if getattr(idx, "tz", None) is not None:
+            idx = idx.tz_convert(None)
+        idx = idx.normalize()
+        end = pd.Timestamp(self.asof)
+        start = end - pd.Timedelta(days=period_days)
+        return df[(idx <= end) & (idx >= start)].copy()
+
+    def _fetch_df(self, ticker, period_days=430, interval="1d"):
+        if interval in ("1wk", "1w"):
+            daily = self._cut(self._daily_full(ticker), period_days)
+            if daily is None or len(daily) == 0:
+                return None
+            wk = daily.resample("W-FRI").agg({"Open": "first", "High": "max", "Low": "min",
+                                              "Close": "last", "Volume": "sum"})
+            return wk.dropna(subset=["Close"])
+        daily = self._cut(self._daily_full(ticker), period_days)
+        return daily if daily is not None and len(daily) else None
+
+    def _beta(self, ticker):
+        try:
+            t = self._fetch_df(ticker, 400)
+            m = self._fetch_df("SPY", 400)
+            r = pd.concat([t["Close"].pct_change(), m["Close"].pct_change()], axis=1).dropna().tail(252)
+            var = float(r.iloc[:, 1].var())
+            return round(float(r.iloc[:, 0].cov(r.iloc[:, 1])) / var, 2) if var > 0 else 1.0
+        except Exception:
+            return 1.0
+
+    def _earnings(self, ticker, date_from, date_to):
+        if ticker not in self._earn:
+            try:
+                self._earn[ticker] = self._saved["_fetch_massive_earnings"](
+                    ticker, date(2019, 1, 1), self._saved["_et_today"]() + timedelta(days=90)) or []
+            except Exception:
+                self._earn[ticker] = []
+        lo, hi = str(date_from), str(date_to)
+        return [r for r in self._earn[ticker] if lo <= str(r.get("date", ""))[:10] <= hi]
+
+    def vix_asof(self) -> float:
+        if self._vix is None:
+            try:
+                import yfinance as _yf
+                v = _yf.download("^VIX", period="10y", interval="1d", progress=False, auto_adjust=False)
+                if hasattr(v.columns, "levels"):
+                    v.columns = v.columns.get_level_values(0)
+                self._vix = v["Close"]
+            except Exception:
+                self._vix = pd.Series(dtype=float)
+        try:
+            idx = self._vix.index.tz_localize(None) if getattr(self._vix.index, "tz", None) else self._vix.index
+            sub = self._vix[idx.normalize() <= pd.Timestamp(self.asof)]
+            return float(sub.iloc[-1]) if len(sub) else 20.0
+        except Exception:
+            return 20.0
+
+
+def run_pro_backtest(tickers: list[str] = WATCHLIST, years: int = 2,
+                     min_score: int = 85, live_scoring: bool = True) -> dict:
+    """Walk-forward backtest.
+
+    live_scoring=True (default) scores candidates with the SAME score_signal()
+    and hard gates the live scanner uses, point-in-time (see _PointInTimeData).
+    live_scoring=False runs the legacy backtest-only formula, kept so the two
+    can be compared.
+    """
+    if not live_scoring:
+        return _run_pro_backtest_impl(tickers, years, min_score, False, None)
+    with _PointInTimeData() as _pit:
+        res = _run_pro_backtest_impl(tickers, years, min_score, True, _pit)
+    print(f"  Live scoring: point-in-time; neutralised (no historical source): "
+          f"{', '.join(_PointInTimeData.NEUTRALISED)}; score errors skipped: {_pit.score_errors}")
+    return res
+
+
+def _run_pro_backtest_impl(tickers: list[str] = WATCHLIST,
+                          years: int = 2, min_score: int = 85,
+                          live_scoring: bool = True, _pit=None) -> dict:
     """
     Walk-forward backtest applying all pro filters on each historical window.
     More accurate than raw backtesting because regime/sector/RS are computed
@@ -18154,76 +18337,104 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                     hist_regime = {"regime": "CHOP", "score": 7}
 
                 # Hard regime gate
-                if sig.bias == "LONG"  and hist_regime["regime"] == "BEAR":
-                    continue
-                if sig.bias == "SHORT" and hist_regime["regime"] == "BULL":
-                    continue
-
-                r = window.iloc[-1]
-                # RS: use 20-day price change as proxy
-                pct20 = float(r["Chg20d"]) if "Chg20d" in r.index else 0
-                if sig.bias == "LONG"  and pct20 < -5: continue
-                if sig.bias == "SHORT" and pct20 >  5: continue
-                # Divergence
-                div_free, _ = check_divergence_free(window, sig.bias)
-                if not div_free:
-                    continue
-                # Fibonacci, VWAP, POC, candlestick, 52wk prox
-                _, fib_pts  = check_fibonacci(window, sig.entry)
-                _, vwap_pts = check_vwap(window, sig.bias)
-                _, poc_pts  = check_poc_alignment(window, sig.entry, sig.bias)
-                _, candle_pts = detect_candle_pattern(window.iloc[-1], window.iloc[-2], sig.bias)
-                try:
-                    hi52 = float(window["High"].iloc[-252:].max()) if len(window) >= 252 else float(window["High"].max())
-                    off_hi = (hi52 - sig.entry) / hi52 * 100
-                    prox_pts = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
-                except Exception:
-                    prox_pts = 0
-
-                # Backtest score using historical regime score instead of hardcoded 15
-                regime_pts = min(15, hist_regime.get("score", 7))
-                # Supertrend alignment
-                try:
-                    st_bull = bool(window["ST_bull"].iloc[-1])
-                    st_pts  = 8 if (sig.bias == "LONG" and st_bull) or \
-                                   (sig.bias == "SHORT" and not st_bull) else 0
-                except Exception:
-                    st_pts = 4
-                # ADX strength
-                try:
-                    adx_val = float(window["ADX"].iloc[-1])
-                    adx_pts = 5 if adx_val > 25 else (2 if adx_val > 20 else 0)
-                except Exception:
-                    adx_pts = 2
-                # Divergence-free bonus
-                div_pts = 5 if div_free else 0
-                # ATR percentile score
-                atr_pts = check_atr_percentile(window, sig.setup)
-                # Regime-setup-type bonus (BULL→momentum, CHOP→reversal)
-                momentum_setups = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
-                reversal_setups = {"OS Bounce", "OB Reversal", "MACD Cross", "MACD Bear",
-                                   "Gap & Short", "EMA Breakdown", "Vol Breakdown"}
-                cur_regime = hist_regime.get("regime", "CHOP")
-                if cur_regime == "BULL" and sig.setup in momentum_setups:
-                    regime_setup_pts = 8
-                elif cur_regime in ("BEAR", "CHOP") and sig.setup in reversal_setups:
-                    regime_setup_pts = 8
+                if live_scoring:
+                    # The SAME scoring and gates the live scanner applies
+                    # (run_pro_scanner), evaluated as of this bar.
+                    _pit.set_asof(current_date)
+                    _regime_pit = dict(hist_regime)
+                    _regime_pit.setdefault("details", {"VIX": _pit.vix_asof()})
+                    _pre_shares = sig.shares
+                    sig.news_boost = False
+                    try:
+                        sig = score_signal(sig, window, _regime_pit, tracker)
+                    except Exception:
+                        _pit.score_errors += 1
+                        continue
+                    if not sig.shares:
+                        sig.shares = _pre_shares or 1   # sizing only; P&L is a percentage
+                    if not (sig.regime_ok and sig.mtf_ok and sig.earnings_ok and sig.macro_ok
+                            and sig.divergence_free and sig.not_chasing_extended_highs):
+                        continue
+                    _eff_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
+                    if sig.ticker in VOLATILE_TICKERS:
+                        _eff_min = max(_eff_min, VOLATILE_MIN_CONFLUENCE)
+                    if (raw.index[i].month in SEASONAL_WEAK_MONTHS
+                            and sig.setup not in {"Gap & Hold", "Morning Runner"}):
+                        _eff_min = max(_eff_min, SEASONAL_MIN_SCORE)
+                    if sig.confluence_score < _eff_min:
+                        continue
+                    bt_score = sig.confluence_score
                 else:
-                    regime_setup_pts = 0
-                bt_score = (
-                    (10 if sig.rvol >= 2.0 else 5 if sig.rvol >= 1.5 else 0) +
-                    (8 if sig.rr >= 2.5 else 5) +
-                    fib_pts + vwap_pts + poc_pts + candle_pts + prox_pts +
-                    (5 if 45 <= sig.rsi <= 62 else 0) +
-                    regime_pts + st_pts + adx_pts + div_pts + atr_pts + regime_setup_pts
-                )
-                bt_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
-                if sig.ticker in VOLATILE_TICKERS:
-                    bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
-                if raw.index[i].month in SEASONAL_WEAK_MONTHS:
-                    bt_min = max(bt_min, SEASONAL_MIN_SCORE)
-                if bt_score < bt_min * 0.95:
-                    continue
+                    if sig.bias == "LONG"  and hist_regime["regime"] == "BEAR":
+                        continue
+                    if sig.bias == "SHORT" and hist_regime["regime"] == "BULL":
+                        continue
+
+                    r = window.iloc[-1]
+                    # RS: use 20-day price change as proxy
+                    pct20 = float(r["Chg20d"]) if "Chg20d" in r.index else 0
+                    if sig.bias == "LONG"  and pct20 < -5: continue
+                    if sig.bias == "SHORT" and pct20 >  5: continue
+                    # Divergence
+                    div_free, _ = check_divergence_free(window, sig.bias)
+                    if not div_free:
+                        continue
+                    # Fibonacci, VWAP, POC, candlestick, 52wk prox
+                    _, fib_pts  = check_fibonacci(window, sig.entry)
+                    _, vwap_pts = check_vwap(window, sig.bias)
+                    _, poc_pts  = check_poc_alignment(window, sig.entry, sig.bias)
+                    _, candle_pts = detect_candle_pattern(window.iloc[-1], window.iloc[-2], sig.bias)
+                    try:
+                        hi52 = float(window["High"].iloc[-252:].max()) if len(window) >= 252 else float(window["High"].max())
+                        off_hi = (hi52 - sig.entry) / hi52 * 100
+                        prox_pts = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
+                    except Exception:
+                        prox_pts = 0
+
+                    # Backtest score using historical regime score instead of hardcoded 15
+                    regime_pts = min(15, hist_regime.get("score", 7))
+                    # Supertrend alignment
+                    try:
+                        st_bull = bool(window["ST_bull"].iloc[-1])
+                        st_pts  = 8 if (sig.bias == "LONG" and st_bull) or \
+                                       (sig.bias == "SHORT" and not st_bull) else 0
+                    except Exception:
+                        st_pts = 4
+                    # ADX strength
+                    try:
+                        adx_val = float(window["ADX"].iloc[-1])
+                        adx_pts = 5 if adx_val > 25 else (2 if adx_val > 20 else 0)
+                    except Exception:
+                        adx_pts = 2
+                    # Divergence-free bonus
+                    div_pts = 5 if div_free else 0
+                    # ATR percentile score
+                    atr_pts = check_atr_percentile(window, sig.setup)
+                    # Regime-setup-type bonus (BULL→momentum, CHOP→reversal)
+                    momentum_setups = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
+                    reversal_setups = {"OS Bounce", "OB Reversal", "MACD Cross", "MACD Bear",
+                                       "Gap & Short", "EMA Breakdown", "Vol Breakdown"}
+                    cur_regime = hist_regime.get("regime", "CHOP")
+                    if cur_regime == "BULL" and sig.setup in momentum_setups:
+                        regime_setup_pts = 8
+                    elif cur_regime in ("BEAR", "CHOP") and sig.setup in reversal_setups:
+                        regime_setup_pts = 8
+                    else:
+                        regime_setup_pts = 0
+                    bt_score = (
+                        (10 if sig.rvol >= 2.0 else 5 if sig.rvol >= 1.5 else 0) +
+                        (8 if sig.rr >= 2.5 else 5) +
+                        fib_pts + vwap_pts + poc_pts + candle_pts + prox_pts +
+                        (5 if 45 <= sig.rsi <= 62 else 0) +
+                        regime_pts + st_pts + adx_pts + div_pts + atr_pts + regime_setup_pts
+                    )
+                    bt_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
+                    if sig.ticker in VOLATILE_TICKERS:
+                        bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
+                    if raw.index[i].month in SEASONAL_WEAK_MONTHS:
+                        bt_min = max(bt_min, SEASONAL_MIN_SCORE)
+                    if bt_score < bt_min * 0.95:
+                        continue
 
                 entry_px = sig.entry * 1.001   # 0.1% slippage
                 entry_i  = i

@@ -23270,6 +23270,142 @@ def _main_mode_readiness():
 
 
 
+def _scan_mode_fomc_breakout_window(t_str):
+    """Extracted verbatim from _main_mode_scan() on 2026-09-14 (refx).
+    """
+    _lift_day2 = "soon"
+    for _doff2 in range(1, 8):
+        _ck2 = _et_today() + timedelta(days=_doff2)
+        if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
+            continue
+        if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
+            _lift_day2 = _ck2.strftime("%a %b %d")
+            break
+    _rs_summary = ""
+    try:
+        _spy_df2 = fetch_df("SPY")
+        if _spy_df2 is not None and len(_spy_df2) >= 1:
+            _spy_row2 = _spy_df2.iloc[-1]
+            _spy_day_chg = (float(_spy_row2["Close"]) - float(_spy_row2["Open"])) / float(_spy_row2["Open"]) * 100
+        else:
+            _spy_day_chg = 0.0
+        _rs_all2: list[tuple[str, float, float]] = []
+        for _rs_t2 in WATCHLIST[:35]:
+            try:
+                _rs_df2 = fetch_df(_rs_t2)
+                if _rs_df2 is None or len(_rs_df2) < 1:
+                    continue
+                _rs_row3 = _rs_df2.iloc[-1]
+                _rs_chg2 = (float(_rs_row3["Close"]) - float(_rs_row3["Open"])) / float(_rs_row3["Open"]) * 100
+                _rs_all2.append((_rs_t2, _rs_chg2, _rs_chg2 - _spy_day_chg))
+            except Exception:
+                continue
+        _rs_all2.sort(key=lambda x: x[2], reverse=True)
+        _ldr = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[:3]) or "—"
+        _lag = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[-3:][::-1]) if len(_rs_all2) >= 3 else "—"
+        _rs_summary = (
+            f"\nSPY: {_spy_day_chg:+.1f}% today"
+            f"\nRS leaders → watch {_lift_day2}: {_ldr}"
+            f"\nRS laggards: {_lag}"
+        )
+    except Exception:
+        pass
+    send_telegram(
+        f"📊 <b>DMan</b> {t_str} — FOMC reaction wrap 🔒\n"
+        f"Blackout lifts: <b>{_lift_day2}</b>"
+        f"{_rs_summary}"
+    )
+
+
+
+def _scan_mode_quiet_heartbeat(_hb_bt_str, _hb_counts, _hb_hhmm, _hb_nm_str, _hb_r, _hb_rs, t_str):
+    """Extracted verbatim from _main_mode_scan() on 2026-09-14 (refx).
+    """
+    _spy_ctx = ""
+    try:
+        _spy_hb = fetch_df("SPY")
+        if _spy_hb is not None and len(_spy_hb) >= 2:
+            _spy_c2  = float(_spy_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-1]["Close"], "iloc") else float(_spy_hb.iloc[-1]["Close"])
+            _spy_pc2 = float(_spy_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-2]["Close"], "iloc") else float(_spy_hb.iloc[-2]["Close"])
+            _spy_net2 = (_spy_c2 - _spy_pc2) / _spy_pc2 * 100
+            if _spy_net2 <= -1.0:
+                _xlk_net2 = 0.0
+                try:
+                    _xlk_hb = fetch_df("XLK")
+                    if _xlk_hb is not None and len(_xlk_hb) >= 2:
+                        _xlk_c2  = float(_xlk_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-1]["Close"], "iloc") else float(_xlk_hb.iloc[-1]["Close"])
+                        _xlk_pc2 = float(_xlk_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-2]["Close"], "iloc") else float(_xlk_hb.iloc[-2]["Close"])
+                        _xlk_net2 = (_xlk_c2 - _xlk_pc2) / _xlk_pc2 * 100
+                except Exception:
+                    pass
+                _spy_ctx = f"\n📉 SPY {_spy_net2:+.1f}%"
+                if _xlk_net2 <= -1.5:
+                    _spy_ctx += f" | XLK {_xlk_net2:+.1f}% — sector selloff, standing down on longs"
+                else:
+                    _spy_ctx += " — market weak, no long setups"
+    except Exception:
+        pass
+
+    # End-of-day scan — 4 PM close only
+    # • Recovery watch: names down >5% today → potential bounce candidates tomorrow
+    # • Intraday momentum: names up >5% intraday AND held into close → watch for
+    #   follow-through gap next morning (captures TSLA-style no-gap run days)
+    _eod_watch = ""
+    if 1550 <= _hb_hhmm <= 1615:
+        try:
+            _eod_losers:  list[tuple[str, float]] = []
+            _eod_runners: list[tuple[str, float]] = []
+            for _eod_t in WATCHLIST[:35]:
+                try:
+                    _eod_df = fetch_df(_eod_t)
+                    if _eod_df is None or len(_eod_df) < 2:
+                        continue
+                    _eod_row = _eod_df.iloc[-1]
+                    _eod_prv = _eod_df.iloc[-2]
+                    _eod_c   = float(_eod_row["Close"].iloc[0]) if hasattr(_eod_row["Close"], "iloc") else float(_eod_row["Close"])
+                    _eod_o   = float(_eod_row["Open"].iloc[0])  if hasattr(_eod_row["Open"],  "iloc") else float(_eod_row["Open"])
+                    _eod_pc  = float(_eod_prv["Close"].iloc[0]) if hasattr(_eod_prv["Close"], "iloc") else float(_eod_prv["Close"])
+                    _eod_net   = (_eod_c - _eod_pc) / _eod_pc * 100
+                    _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
+                    if _eod_net <= -5.0:
+                        _eod_losers.append((_eod_t, _eod_net))
+                    if _eod_intra >= 4.0 and _eod_net >= 3.0:
+                        _eod_runners.append((_eod_t, _eod_intra))
+                except Exception:
+                    continue
+            _eod_losers.sort(key=lambda x: x[1])
+            _eod_runners.sort(key=lambda x: x[1], reverse=True)
+            if len(_eod_losers) >= 3:
+                _eod_watch += (
+                    f"\n⚠️ <b>Sector flush</b> — {len(_eod_losers)} names down 5%+: "
+                    f"watch for gap-down continuation or reversal bounce tomorrow"
+                )
+            if _eod_losers:
+                _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
+                    f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
+                )
+            if _eod_runners:
+                _eod_watch += "\n🔥 Intraday momentum — watch for gap tomorrow: " + " | ".join(
+                    f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_runners[:3]
+                )
+        except Exception:
+            pass
+
+    send_telegram(
+        f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
+        f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
+        f"{_hb_nm_str}"
+        f"{_hb_bt_str}"
+        f"{_spy_ctx}"
+        f"{_eod_watch}"
+    )
+
+    # 4 PM only: send live account P&L summary to Telegram
+    if 1550 <= _hb_hhmm <= 1615 and not ALPACA_PAPER:
+        send_account_pnl_telegram(label="EOD")
+
+
+
 def _main_mode_scan(args, tickers):
     """Extracted verbatim from main() on 2026-09-14 (refx).
     """
@@ -23363,48 +23499,7 @@ def _main_mode_scan(args, tickers):
         if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
             # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
             # after the 2 PM ET announcement when initial reaction has settled
-            _lift_day2 = "soon"
-            for _doff2 in range(1, 8):
-                _ck2 = _et_today() + timedelta(days=_doff2)
-                if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
-                    continue
-                if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
-                    _lift_day2 = _ck2.strftime("%a %b %d")
-                    break
-            _rs_summary = ""
-            try:
-                _spy_df2 = fetch_df("SPY")
-                if _spy_df2 is not None and len(_spy_df2) >= 1:
-                    _spy_row2 = _spy_df2.iloc[-1]
-                    _spy_day_chg = (float(_spy_row2["Close"]) - float(_spy_row2["Open"])) / float(_spy_row2["Open"]) * 100
-                else:
-                    _spy_day_chg = 0.0
-                _rs_all2: list[tuple[str, float, float]] = []
-                for _rs_t2 in WATCHLIST[:35]:
-                    try:
-                        _rs_df2 = fetch_df(_rs_t2)
-                        if _rs_df2 is None or len(_rs_df2) < 1:
-                            continue
-                        _rs_row3 = _rs_df2.iloc[-1]
-                        _rs_chg2 = (float(_rs_row3["Close"]) - float(_rs_row3["Open"])) / float(_rs_row3["Open"]) * 100
-                        _rs_all2.append((_rs_t2, _rs_chg2, _rs_chg2 - _spy_day_chg))
-                    except Exception:
-                        continue
-                _rs_all2.sort(key=lambda x: x[2], reverse=True)
-                _ldr = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[:3]) or "—"
-                _lag = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[-3:][::-1]) if len(_rs_all2) >= 3 else "—"
-                _rs_summary = (
-                    f"\nSPY: {_spy_day_chg:+.1f}% today"
-                    f"\nRS leaders → watch {_lift_day2}: {_ldr}"
-                    f"\nRS laggards: {_lag}"
-                )
-            except Exception:
-                pass
-            send_telegram(
-                f"📊 <b>DMan</b> {t_str} — FOMC reaction wrap 🔒\n"
-                f"Blackout lifts: <b>{_lift_day2}</b>"
-                f"{_rs_summary}"
-            )
+            _scan_mode_fomc_breakout_window(t_str)
         elif _fomc_bkout:
             send_telegram(
                 f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
@@ -23414,88 +23509,7 @@ def _main_mode_scan(args, tickers):
         else:
             # Down-day context — warn when market is selling off so user
             # knows silence is intentional, not a scanner issue
-            _spy_ctx = ""
-            try:
-                _spy_hb = fetch_df("SPY")
-                if _spy_hb is not None and len(_spy_hb) >= 2:
-                    _spy_c2  = float(_spy_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-1]["Close"], "iloc") else float(_spy_hb.iloc[-1]["Close"])
-                    _spy_pc2 = float(_spy_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-2]["Close"], "iloc") else float(_spy_hb.iloc[-2]["Close"])
-                    _spy_net2 = (_spy_c2 - _spy_pc2) / _spy_pc2 * 100
-                    if _spy_net2 <= -1.0:
-                        _xlk_net2 = 0.0
-                        try:
-                            _xlk_hb = fetch_df("XLK")
-                            if _xlk_hb is not None and len(_xlk_hb) >= 2:
-                                _xlk_c2  = float(_xlk_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-1]["Close"], "iloc") else float(_xlk_hb.iloc[-1]["Close"])
-                                _xlk_pc2 = float(_xlk_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-2]["Close"], "iloc") else float(_xlk_hb.iloc[-2]["Close"])
-                                _xlk_net2 = (_xlk_c2 - _xlk_pc2) / _xlk_pc2 * 100
-                        except Exception:
-                            pass
-                        _spy_ctx = f"\n📉 SPY {_spy_net2:+.1f}%"
-                        if _xlk_net2 <= -1.5:
-                            _spy_ctx += f" | XLK {_xlk_net2:+.1f}% — sector selloff, standing down on longs"
-                        else:
-                            _spy_ctx += " — market weak, no long setups"
-            except Exception:
-                pass
-
-            # End-of-day scan — 4 PM close only
-            # • Recovery watch: names down >5% today → potential bounce candidates tomorrow
-            # • Intraday momentum: names up >5% intraday AND held into close → watch for
-            #   follow-through gap next morning (captures TSLA-style no-gap run days)
-            _eod_watch = ""
-            if 1550 <= _hb_hhmm <= 1615:
-                try:
-                    _eod_losers:  list[tuple[str, float]] = []
-                    _eod_runners: list[tuple[str, float]] = []
-                    for _eod_t in WATCHLIST[:35]:
-                        try:
-                            _eod_df = fetch_df(_eod_t)
-                            if _eod_df is None or len(_eod_df) < 2:
-                                continue
-                            _eod_row = _eod_df.iloc[-1]
-                            _eod_prv = _eod_df.iloc[-2]
-                            _eod_c   = float(_eod_row["Close"].iloc[0]) if hasattr(_eod_row["Close"], "iloc") else float(_eod_row["Close"])
-                            _eod_o   = float(_eod_row["Open"].iloc[0])  if hasattr(_eod_row["Open"],  "iloc") else float(_eod_row["Open"])
-                            _eod_pc  = float(_eod_prv["Close"].iloc[0]) if hasattr(_eod_prv["Close"], "iloc") else float(_eod_prv["Close"])
-                            _eod_net   = (_eod_c - _eod_pc) / _eod_pc * 100
-                            _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
-                            if _eod_net <= -5.0:
-                                _eod_losers.append((_eod_t, _eod_net))
-                            if _eod_intra >= 4.0 and _eod_net >= 3.0:
-                                _eod_runners.append((_eod_t, _eod_intra))
-                        except Exception:
-                            continue
-                    _eod_losers.sort(key=lambda x: x[1])
-                    _eod_runners.sort(key=lambda x: x[1], reverse=True)
-                    if len(_eod_losers) >= 3:
-                        _eod_watch += (
-                            f"\n⚠️ <b>Sector flush</b> — {len(_eod_losers)} names down 5%+: "
-                            f"watch for gap-down continuation or reversal bounce tomorrow"
-                        )
-                    if _eod_losers:
-                        _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
-                            f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
-                        )
-                    if _eod_runners:
-                        _eod_watch += "\n🔥 Intraday momentum — watch for gap tomorrow: " + " | ".join(
-                            f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_runners[:3]
-                        )
-                except Exception:
-                    pass
-
-            send_telegram(
-                f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
-                f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
-                f"{_hb_nm_str}"
-                f"{_hb_bt_str}"
-                f"{_spy_ctx}"
-                f"{_eod_watch}"
-            )
-
-            # 4 PM only: send live account P&L summary to Telegram
-            if 1550 <= _hb_hhmm <= 1615 and not ALPACA_PAPER:
-                send_account_pnl_telegram(label="EOD")
+            _scan_mode_quiet_heartbeat(_hb_bt_str, _hb_counts, _hb_hhmm, _hb_nm_str, _hb_r, _hb_rs, t_str)
 
 
 

@@ -34,6 +34,9 @@ TARGETS = {
     # scan mode at 3:55 PM Friday: EOD P&L + Friday close-out branches run too
     "main_scan": ("_main_mode_scan", (__import__("types").SimpleNamespace(
         ai=False, export=False, score=None, submit=True, universe="curated"), list(a.WATCHLIST)), {}, (15, 55)),
+    # same, with the scanner's own (empty) result: the no-signal heartbeat path
+    "main_scan_quiet": ("_main_mode_scan", (__import__("types").SimpleNamespace(
+        ai=False, export=False, score=None, submit=True, universe="curated"), list(a.WATCHLIST)), {}, (15, 55)),
 }
 
 # Never run for real during capture: orders, alerts, broker-side stops, state
@@ -53,6 +56,17 @@ SIDE = {
 # Capture-time return overrides, to steer past account-state halts into the
 # code worth characterizing (taped like any other return).
 OVERRIDE = {"get_todays_loss": 0.0, "get_this_month_loss": 0.0}
+
+def _scanner_signals():
+    """Real signals: the scanner target's own replayed return value."""
+    global _FIXED
+    saved = _FIXED
+    run("scanner", "record", pickle.load(open(os.path.join(HERE, "fixtures", "scanner.tape.pkl"), "rb")))
+    _FIXED = saved
+    return {"run_pro_scanner": _LAST_RET[0]}
+
+
+TARGET_OVERRIDES = {"main_scan": _scanner_signals}
 
 # Local-state classes that run for real in replay too (read temp copies only).
 REAL = {"WinRateTracker", "PositionTracker", "ProSignal", "OpenPosition", "TradeRecord"}
@@ -94,6 +108,7 @@ def norm(x):
     return s
 
 
+_LAST_RET = [None]
 _DEPTH = [0]   # >0 while inside a taped callee (its internals are not taped)
 
 
@@ -168,6 +183,8 @@ def run(target, mode, tape=None):
     if len(TARGETS[target]) > 3:
         hh, mm = TARGETS[target][3]
         _FIXED = _FIXED.replace(hour=hh, minute=mm)
+    if mode == "capture" and target in TARGET_OVERRIDES:
+        OVERRIDE.update(TARGET_OVERRIDES[target]())
     names = [n for n in (direct_callees(func) if mode == "capture" else tape["names"]) if n not in REAL]
     tmp = tempfile.mkdtemp(prefix="dman_replay_")
     consts = file_consts()
@@ -192,6 +209,8 @@ def run(target, mode, tape=None):
                 # never reaches it), but side-effect stubs still apply
                 if name in SIDE:
                     return SIDE[name]
+                if name in OVERRIDE:
+                    return OVERRIDE[name]
                 return real(*ar, **kw)
             calls.append([name, norm(ar)[:200], norm(sorted(kw.items()))[:200]])
             if mode == "capture":
@@ -232,6 +251,9 @@ def run(target, mode, tape=None):
     ps += [patch.object(a, n, (lambda _v: (lambda *_x, **_k: _v))(v)) for n, v in SIDE.items()
            if hasattr(a, n) and n not in names]
     if mode == "capture":
+        ps += [patch.object(a, n, (lambda _v: (lambda *_x, **_k: _v))(v)) for n, v in OVERRIDE.items()
+               if hasattr(a, n) and n not in names]
+    if mode == "capture":
         from alpaca.trading.client import TradingClient as _TC
 
         def _refuse(*_x, **_k):
@@ -256,6 +278,7 @@ def run(target, mode, tape=None):
         with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(io.StringIO()):
             try:
                 r = getattr(a, func)(*args, **kwargs)
+                _LAST_RET[0] = r
                 how = "returned " + norm(r)[:300]
             except BaseException as e:
                 how = f"{type(e).__name__}: {norm(str(e))[:200]}"

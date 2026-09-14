@@ -7823,6 +7823,181 @@ def _cached_option_greeks(occ_symbol: str) -> dict:
     return greeks
 
 
+def _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t):
+    """Expiry backstop: DTE at or under OPTIONS_FORCE_CLOSE_DTE.
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} expiry backstop")
+    if _st == "submitted":
+        _action = "⏳ EXPIRY BACKSTOP — AUTO-CLOSED"
+        _msg = (f"{_dte_now}d to expiry — closed to avoid assignment. "
+                f"P&L: {_pnl_pct:+.0f}%. SELL ×{_ctrs} submitted "
+                f"(id {_coid[:8]}…).")
+    elif _st == "pending":
+        _action = "⏳ EXPIRY BACKSTOP — close order working"
+        _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+    elif _st == "already_closed":
+        _action = "⏳ EXPIRY BACKSTOP — already closed at Alpaca"
+        _msg = "Nothing held — next sync records the P&L"
+    elif _st == "no_quote":
+        _action = "⏳ EXIT DEFERRED — no live option quote"
+        _msg = ("Quote unavailable, so not selling blind at market. "
+                "Retrying next guard cycle.")
+    elif _st == "pdt_blocked":
+        # Only reachable for a contract opened TODAY that is already at
+        # DTE<=1 (a same-week expiry bought today). The PDT rule wins --
+        # a violation is 90 days of restriction, worse than this single
+        # position expiring -- but say plainly that it needs a human.
+        _action = "⚠️ EXPIRY — CANNOT AUTO-CLOSE (PDT budget exhausted)"
+        _msg = (f"{_dte_now}d to expiry and selling today would be day trade #4. "
+                f"Holding. If this is ITM it may ASSIGN — close it manually "
+                f"tomorrow, or accept assignment risk.")
+    else:
+        _action = "⚠️ EXPIRY BACKSTOP — AUTO-CLOSE FAILED"
+        _msg = (f"{_dte_now}d to expiry, P&L {_pnl_pct:+.0f}% — "
+                f"SELL MANUALLY NOW to avoid assignment.")
+    if not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
+        send_telegram(f"⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(f"{t}_{_kp}_EXPIRY_{_tod}")
+    return _action, _msg
+
+
+def _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t):
+    """Premium stop (floored at intrinsic value, see _stop_ref).
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} stop")
+    if _st == "submitted":
+        _action = "🔴 STOP HIT — AUTO-CLOSED"
+        _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
+                f"(id {_coid[:8]}…). Sync will record P&L.")
+    elif _st == "pending":
+        _action = "🔴 STOP HIT — close order working"
+        _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+    elif _st == "already_closed":
+        _action = "🔴 STOP — position already closed at Alpaca"
+        _msg = "Nothing held — next sync records the P&L"
+    elif _st == "no_quote":
+        _action = "⏳ EXIT DEFERRED — no live option quote"
+        _msg = ("Quote unavailable, so not selling blind at market. "
+                "Retrying next guard cycle.")
+    elif _st == "pdt_blocked":
+        # Not a failure — a deliberate hold. Loss stays capped at the
+        # premium; a PDT flag would cap the whole account for 90 days.
+        _action = "🚫 STOP HIT — HELD (PDT budget exhausted)"
+        _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                f"({_pnl_pct:+.0f}%) — selling today would be day trade #4. "
+                f"Holding overnight; max loss is the premium.")
+    else:
+        _action = "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED"
+        _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                f"({_pnl_pct:+.0f}%) — SELL MANUALLY NOW")
+    if not _is_alerted_today(_stopk):
+        send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(_stopk)
+    return _action, _msg
+
+
+def _opt_exit_trailing(_ctrs, _cur_prem, _flow_lean, _flow_tightened, _giveback_pct, _occ, _peak_prem, _pnl_pct, _trailk, kind, t):
+    """Trailing giveback exit once the trail is armed.
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} trail")
+    _giveback_desc = f"peak ${_peak_prem:.2f} → now ${_cur_prem:.2f} ({_pnl_pct:+.0f}% from entry)"
+    _flow_note = (f" — tightened by order flow (bid/ask size lean {_flow_lean:+.2f})"
+                  if _flow_tightened else "")
+    if _st == "submitted":
+        _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
+        _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak{_flow_note} — {_giveback_desc} — "
+                f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
+    elif _st == "pending":
+        _action = "🚀 TRAIL EXIT — close order working"
+        _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+    elif _st == "already_closed":
+        _action = "🚀 TRAIL EXIT — position already closed at Alpaca"
+        _msg = "Nothing held — next sync records the P&L"
+    elif _st == "no_quote":
+        _action = "⏳ EXIT DEFERRED — no live option quote"
+        _msg = ("Quote unavailable, so not selling blind at market. "
+                "Retrying next guard cycle.")
+    elif _st == "pdt_blocked":
+        _action = "🚫 TRAIL EXIT — HELD (PDT budget exhausted)"
+        _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
+                f"but selling today would be day trade #4. Holding overnight. "
+                f"Do NOT sell manually today.")
+    else:
+        _action = "🚀 TRAIL EXIT — ⚠️ AUTO-CLOSE FAILED"
+        _msg = f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
+    if not _is_alerted_today(_trailk):
+        send_telegram(f"🚀 <b>OPTIONS TRAIL EXIT</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(_trailk)
+    return _action, _msg
+
+
+def _opt_exit_t1_half(_ctrs, _cur_prem, _entry_prem, _occ, _pnl_pct, _t1_prem, _t1k, kind, t):
+    """T1 reached: sell half, stop to breakeven.
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    if _ctrs >= 2:
+        _half = _ctrs // 2
+        _st, _coid = _submit_options_close(_occ, _half, f"{t} {kind} T1 half")
+        if _st == "submitted":
+            # OCC-keyed, not ticker-keyed — found 2026-08-16 review:
+            # _update_option_position_field() exists specifically
+            # because a ticker-keyed update silently modifies every
+            # position sharing this underlying (a call+put strangle,
+            # or an options leg alongside an unrelated equity position
+            # on the same ticker — see that function's docstring for
+            # the confirmed SMCI incident). This T1 branch was never
+            # migrated to it, so a real T1 fill could overwrite an
+            # unrelated position's stop/shares.
+            _update_option_position_field(_occ, shares=(_ctrs - _half) * 100,
+                                          stop=round(_entry_prem, 2))
+            _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
+            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
+                    f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
+                    f"(id {_coid[:8]}…), stop raised to ${_entry_prem:.2f}")
+        elif _st in ("pending", "already_closed"):
+            _action = "🟢 T1 — partial close in progress"
+            _msg = "Half-sell order working or already done"
+        elif _st == "no_quote":
+            _action = "⏳ EXIT DEFERRED — no live option quote"
+            _msg = ("Quote unavailable, so not selling blind at market. "
+                    "Retrying next guard cycle.")
+        elif _st == "pdt_blocked":
+            _action = "🚫 T1 HIT — HELD (PDT budget exhausted)"
+            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — but "
+                    f"selling today would be day trade #4. Holding overnight. "
+                    f"Do NOT sell manually today.")
+        else:
+            _action = "🟢 T1 HIT — ⚠️ auto-sell failed"
+            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
+                    "— sell ½ manually, raise stop to breakeven")
+    else:
+        _update_option_position_field(_occ, stop=round(_entry_prem, 2))
+        _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
+        _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
+                f"single contract: riding the trailing exit, stop raised to "
+                f"breakeven ${_entry_prem:.2f} (risk-free runner)")
+    if not _is_alerted_today(_t1k):
+        send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(_t1k)
+    return _action, _msg
+
+
 def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_price_fn=None) -> Optional[str]:
     """
     Enforce stop / trailing-exit / T1 / DTE rules on one tracked options
@@ -7962,152 +8137,21 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         # First in the chain on purpose: assignment avoidance outranks every
         # strategy exit below it. In particular the T1 branch sells only HALF
         # a position -- at DTE 1 that would leave the other half to expire.
-        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} expiry backstop")
-        if _st == "submitted":
-            _action = "⏳ EXPIRY BACKSTOP — AUTO-CLOSED"
-            _msg = (f"{_dte_now}d to expiry — closed to avoid assignment. "
-                    f"P&L: {_pnl_pct:+.0f}%. SELL ×{_ctrs} submitted "
-                    f"(id {_coid[:8]}…).")
-        elif _st == "pending":
-            _action = "⏳ EXPIRY BACKSTOP — close order working"
-            _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
-        elif _st == "already_closed":
-            _action = "⏳ EXPIRY BACKSTOP — already closed at Alpaca"
-            _msg = "Nothing held — next sync records the P&L"
-        elif _st == "no_quote":
-            _action = "⏳ EXIT DEFERRED — no live option quote"
-            _msg = ("Quote unavailable, so not selling blind at market. "
-                    "Retrying next guard cycle.")
-        elif _st == "pdt_blocked":
-            # Only reachable for a contract opened TODAY that is already at
-            # DTE<=1 (a same-week expiry bought today). The PDT rule wins --
-            # a violation is 90 days of restriction, worse than this single
-            # position expiring -- but say plainly that it needs a human.
-            _action = "⚠️ EXPIRY — CANNOT AUTO-CLOSE (PDT budget exhausted)"
-            _msg = (f"{_dte_now}d to expiry and selling today would be day trade #4. "
-                    f"Holding. If this is ITM it may ASSIGN — close it manually "
-                    f"tomorrow, or accept assignment risk.")
-        else:
-            _action = "⚠️ EXPIRY BACKSTOP — AUTO-CLOSE FAILED"
-            _msg = (f"{_dte_now}d to expiry, P&L {_pnl_pct:+.0f}% — "
-                    f"SELL MANUALLY NOW to avoid assignment.")
-        if not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
-            send_telegram(f"⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(f"{t}_{_kp}_EXPIRY_{_tod}")
+        _action, _msg = _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t)
     elif not _trail_active and _stop_ref <= _stop_prem:
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.
-        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} stop")
-        if _st == "submitted":
-            _action = "🔴 STOP HIT — AUTO-CLOSED"
-            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                    f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
-                    f"(id {_coid[:8]}…). Sync will record P&L.")
-        elif _st == "pending":
-            _action = "🔴 STOP HIT — close order working"
-            _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
-        elif _st == "already_closed":
-            _action = "🔴 STOP — position already closed at Alpaca"
-            _msg = "Nothing held — next sync records the P&L"
-        elif _st == "no_quote":
-            _action = "⏳ EXIT DEFERRED — no live option quote"
-            _msg = ("Quote unavailable, so not selling blind at market. "
-                    "Retrying next guard cycle.")
-        elif _st == "pdt_blocked":
-            # Not a failure — a deliberate hold. Loss stays capped at the
-            # premium; a PDT flag would cap the whole account for 90 days.
-            _action = "🚫 STOP HIT — HELD (PDT budget exhausted)"
-            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                    f"({_pnl_pct:+.0f}%) — selling today would be day trade #4. "
-                    f"Holding overnight; max loss is the premium.")
-        else:
-            _action = "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED"
-            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                    f"({_pnl_pct:+.0f}%) — SELL MANUALLY NOW")
-        if not _is_alerted_today(_stopk):
-            send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(_stopk)
+        _action, _msg = _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t)
     elif _trail_active and _cur_prem <= _peak_prem * (1 - _giveback_pct / 100):
         # Replaces the old fixed T2 (+150%) auto-close (2026-08-10) — reacts
         # to how the trade actually moved (peak, then a real give-back)
         # instead of one static number that could be missed on a fast
         # reversal or fire too early on a slow, healthy grind.
-        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} trail")
-        _giveback_desc = f"peak ${_peak_prem:.2f} → now ${_cur_prem:.2f} ({_pnl_pct:+.0f}% from entry)"
-        _flow_note = (f" — tightened by order flow (bid/ask size lean {_flow_lean:+.2f})"
-                      if _flow_tightened else "")
-        if _st == "submitted":
-            _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
-            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak{_flow_note} — {_giveback_desc} — "
-                    f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
-        elif _st == "pending":
-            _action = "🚀 TRAIL EXIT — close order working"
-            _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
-        elif _st == "already_closed":
-            _action = "🚀 TRAIL EXIT — position already closed at Alpaca"
-            _msg = "Nothing held — next sync records the P&L"
-        elif _st == "no_quote":
-            _action = "⏳ EXIT DEFERRED — no live option quote"
-            _msg = ("Quote unavailable, so not selling blind at market. "
-                    "Retrying next guard cycle.")
-        elif _st == "pdt_blocked":
-            _action = "🚫 TRAIL EXIT — HELD (PDT budget exhausted)"
-            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
-                    f"but selling today would be day trade #4. Holding overnight. "
-                    f"Do NOT sell manually today.")
-        else:
-            _action = "🚀 TRAIL EXIT — ⚠️ AUTO-CLOSE FAILED"
-            _msg = f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
-        if not _is_alerted_today(_trailk):
-            send_telegram(f"🚀 <b>OPTIONS TRAIL EXIT</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(_trailk)
+        _action, _msg = _opt_exit_trailing(_ctrs, _cur_prem, _flow_lean, _flow_tightened, _giveback_pct, _occ, _peak_prem, _pnl_pct, _trailk, kind, t)
     elif _cur_prem >= _t1_prem and _stop_prem < _entry_prem:
         # T1: sell half if ≥2 contracts, raise stop to breakeven either way.
         # (_stop_prem < entry guard = T1 not yet taken)
-        if _ctrs >= 2:
-            _half = _ctrs // 2
-            _st, _coid = _submit_options_close(_occ, _half, f"{t} {kind} T1 half")
-            if _st == "submitted":
-                # OCC-keyed, not ticker-keyed — found 2026-08-16 review:
-                # _update_option_position_field() exists specifically
-                # because a ticker-keyed update silently modifies every
-                # position sharing this underlying (a call+put strangle,
-                # or an options leg alongside an unrelated equity position
-                # on the same ticker — see that function's docstring for
-                # the confirmed SMCI incident). This T1 branch was never
-                # migrated to it, so a real T1 fill could overwrite an
-                # unrelated position's stop/shares.
-                _update_option_position_field(_occ, shares=(_ctrs - _half) * 100,
-                                              stop=round(_entry_prem, 2))
-                _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
-                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
-                        f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
-                        f"(id {_coid[:8]}…), stop raised to ${_entry_prem:.2f}")
-            elif _st in ("pending", "already_closed"):
-                _action = "🟢 T1 — partial close in progress"
-                _msg = "Half-sell order working or already done"
-            elif _st == "no_quote":
-                _action = "⏳ EXIT DEFERRED — no live option quote"
-                _msg = ("Quote unavailable, so not selling blind at market. "
-                        "Retrying next guard cycle.")
-            elif _st == "pdt_blocked":
-                _action = "🚫 T1 HIT — HELD (PDT budget exhausted)"
-                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — but "
-                        f"selling today would be day trade #4. Holding overnight. "
-                        f"Do NOT sell manually today.")
-            else:
-                _action = "🟢 T1 HIT — ⚠️ auto-sell failed"
-                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
-                        "— sell ½ manually, raise stop to breakeven")
-        else:
-            _update_option_position_field(_occ, stop=round(_entry_prem, 2))
-            _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
-            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
-                    f"single contract: riding the trailing exit, stop raised to "
-                    f"breakeven ${_entry_prem:.2f} (risk-free runner)")
-        if not _is_alerted_today(_t1k):
-            send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(_t1k)
+        _action, _msg = _opt_exit_t1_half(_ctrs, _cur_prem, _entry_prem, _occ, _pnl_pct, _t1_prem, _t1k, kind, t)
     elif _dte_now <= OPTIONS_CLOSE_DTE:
         _action = f"⏳ DTE ALERT — {_dte_now}d left, consider close"
         _msg = (f"Only {_dte_now}d to expiry — theta burning fast. "

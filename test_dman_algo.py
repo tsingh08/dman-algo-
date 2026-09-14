@@ -7108,8 +7108,10 @@ class TestAuditFollowUps(unittest.TestCase):
         self.assertEqual(type(req).__name__, "MarketOrderRequest")
 
     def test_every_close_caller_handles_no_quote(self):
-        src = inspect.getsource(a._monitor_option_position)
-        # expiry backstop, stop, trail, and the T1 half-close
+        # expiry backstop, stop, trail, and the T1 half-close -- each its own
+        # function since 2026-09-14
+        src = "".join(inspect.getsource(fn) for fn in (
+            a._opt_exit_expiry_backstop, a._opt_exit_stop, a._opt_exit_trailing, a._opt_exit_t1_half))
         self.assertEqual(src.count('_st == "no_quote"'), 4)
 
     def test_swallow_logging_is_rate_limited(self):
@@ -7820,18 +7822,26 @@ class TestOptionsExpiryBackstop(unittest.TestCase):
     def test_backstop_uses_the_shared_close_choke_point(self):
         # Which means it inherits the PDT guard for free rather than
         # reimplementing it.
+        # The backstop branch body lives in _opt_exit_expiry_backstop() since
+        # 2026-09-14; the monitor keeps the elif ORDER and calls it.
         src = inspect.getsource(a._monitor_option_position)
-        seg = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
-        seg = seg[:seg.index("elif not _trail_active")]
+        head = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
+        head = head[:head.index("elif not _trail_active")]
+        self.assertIn("_opt_exit_expiry_backstop(", head)
+        seg = inspect.getsource(a._opt_exit_expiry_backstop)
         self.assertIn("_submit_options_close(", seg)
 
     def test_backstop_handles_pdt_blocked_without_telling_user_to_sell(self):
         # A DTE<=1 contract opened TODAY can't be sold without a violation.
         # The message must not tell them to sell today -- that is the exact
         # action being prevented everywhere else.
+        # The backstop branch body lives in _opt_exit_expiry_backstop() since
+        # 2026-09-14; the monitor keeps the elif ORDER and calls it.
         src = inspect.getsource(a._monitor_option_position)
-        seg = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
-        seg = seg[:seg.index("elif not _trail_active")]
+        head = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
+        head = head[:head.index("elif not _trail_active")]
+        self.assertIn("_opt_exit_expiry_backstop(", head)
+        seg = inspect.getsource(a._opt_exit_expiry_backstop)
         self.assertIn("pdt_blocked", seg)
         self.assertIn("tomorrow", seg)
 

@@ -277,6 +277,11 @@ OPTIONS_MIN_UNDERLYING_DOLLAR_VOL = 200_000_000   # OR ≥$200M/day — confirme
                                        # while fixing the false rejection on liquid high-priced
                                        # underlyings.
 OPTIONS_ENABLE_PUTS         = True   # buy ITM puts on bearish/Bear Gap Hold signals
+# Bear Gap Hold was the worst setup in every gate-ablation config of the live-
+# scored, point-in-time backtest (WATCHLIST 4y, 2026-09-14): PF 0.34-0.50 and
+# -1.9% to -2.5% per trade across all nine; dropping it moved the whole book
+# from -0.96% to -0.34% per trade. Off by default; `/flags beargap on` restores it.
+ENABLE_BEAR_GAP_HOLD        = False
 OPTIONS_DATA_FEED           = "opra"        # preferred feed — real OPRA tape. Entitlement has flipped
                                             # on/off before without any code change: 403'd 2026-07-29,
                                             # fixed by switching to "indicative", confirmed "opra" working
@@ -2334,6 +2339,9 @@ TOGGLEABLE_FLAGS = {
                 "(>=8 trades, <=20% WR, <=-20% cumulative). OFF re-enables it."),
     "smallcap":("ENABLE_DYNAMIC_SMALLCAP",
                 "dynamic small-cap discovery from the Yahoo screeners."),
+    "beargap": ("ENABLE_BEAR_GAP_HOLD",
+                "Bear Gap Hold put signals (worst setup in the 2026-09-14 "
+                "ablation). OFF by default."),
 }
 
 
@@ -15107,7 +15115,7 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     # prior day red, MACD bearish, sector ETF weak.
     # Signal bias = SHORT but ALLOW_SHORTS is False for shares —
     # execution layer routes to _submit_options_put() instead.
-    if OPTIONS_ENABLE_PUTS:
+    if OPTIONS_ENABLE_PUTS and flag("ENABLE_BEAR_GAP_HOLD", ENABLE_BEAR_GAP_HOLD):
         try:
             # Gap % from today's OPEN vs prior close — not today's current/
             # close price. Found 2026-08-16 review: this used `c` (current

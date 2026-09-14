@@ -14296,6 +14296,13 @@ class TestBearGapHoldMeasuresRealGap(unittest.TestCase):
     gap-down and fire a signal that, in the live options branch, buys a
     real ITM put on ordinary noise, not an actual gap."""
 
+    def setUp(self):
+        # The detector is off by default since the 2026-09-14 ablation; these
+        # tests characterize it, so run with it on.
+        p = patch.object(a, "ENABLE_BEAR_GAP_HOLD", True)
+        p.start()
+        self.addCleanup(p.stop)
+
     def test_flat_open_with_intraday_drift_does_not_trigger(self):
         # Opened at 20.95 vs prior close 21.00 (0.24% gap -- not a real
         # gap), then drifted down to 20.30 intraday (3.1% intraday drop).
@@ -15542,3 +15549,16 @@ class TestJsonAtomicNumpyScalars(unittest.TestCase):
         p = os.path.join(tempfile.mkdtemp(), "t.json")
         a._write_json_atomic(p, [{"score": np.int64(87), "px": np.float64(1.25), "ok": np.bool_(True)}])
         self.assertEqual(json.load(open(p)), [{"score": 87, "px": 1.25, "ok": True}])
+
+
+class TestBearGapHoldToggle(unittest.TestCase):
+    """Bear Gap Hold is off by default after the 2026-09-14 gate ablation and
+    can be restored from Telegram with /flags beargap on."""
+
+    def test_off_by_default_and_remotely_toggleable(self):
+        self.assertFalse(a.ENABLE_BEAR_GAP_HOLD)
+        self.assertEqual(a.TOGGLEABLE_FLAGS["beargap"][0], "ENABLE_BEAR_GAP_HOLD")
+
+    def test_detector_is_gated_by_the_flag(self):
+        src = inspect.getsource(a._raw_signals)
+        self.assertIn('OPTIONS_ENABLE_PUTS and flag("ENABLE_BEAR_GAP_HOLD", ENABLE_BEAR_GAP_HOLD)', src)

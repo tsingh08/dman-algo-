@@ -1486,5 +1486,17 @@
     "pnl_pct": -14.43,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "APLD",
+    "date": "2026-09-14",
+    "bias": "LONG",
+    "setup": "Options Call APLD260925C00025000 ($25.0C exp 2026-09-25)",
+    "entry": 2.34,
+    "exit": 1.12,
+    "outcome": "LOSS",
+    "pnl_pct": -52.14,
+    "score": 100,
+    "is_live": true
   }
 ]

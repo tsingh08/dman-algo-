@@ -1,45 +1,10 @@
 [
   {
-    "ts": "2026-09-14T12:20:00.805171-04:00",
+    "ts": "2026-09-14T12:43:21.416351-04:00",
     "halted": true,
     "halt_reason": "consecutive_losses",
     "min_score": 85,
-    "tickers_total": 291,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T12:28:05.712214-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 291,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-    "ts": "2026-09-14T12:30:15.740018-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 291,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
-<<<<<<< Updated upstream
-    "ts": "2026-09-14T12:31:03.890800-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 134,
-=======
-    "ts": "2026-09-14T12:32:42.528078-04:00",
-    "halted": true,
-    "halt_reason": "consecutive_losses",
-    "min_score": 85,
-    "tickers_total": 291,
->>>>>>> Stashed changes
+    "tickers_total": 182,
     "signals": 0,
     "signal_tickers": []
   }

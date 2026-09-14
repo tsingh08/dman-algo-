@@ -2719,5 +2719,40 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T10:02:37.430009-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "PLTR",
+      "SPY"
+    ],
+    "headline": "President Trump Posts On X &#34;... We already have tremendous CRIMINAL and REGULATORY power over these companies! There is a SICK conspiracy going on against AI and Data Centers, and the only one that is happy about it is China. WHOEVER WINS AI, WINS! We are leading China, and all others, and will continue to do so. Conspiracy Theorists, Treasonists, Traitors, and Leakers, BEWARE!&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T10:03:44.961467-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Is Exploring A New Data Center Project In Lea County, New Mexico",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T10:05:37.982821-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce&#39;s AI Business Is Booming, Why Isn&#39;t CRM Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

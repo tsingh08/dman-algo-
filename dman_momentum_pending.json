@@ -1,115 +1,15 @@
 {
-  "pending": [
-    {
-      "ticker": "ADTX",
-      "entry_px": 0.0074,
-      "stop_px": 0.0067,
-      "t1": 0.0096,
-      "t2": 0.0111,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.4% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:37.056365-04:00",
-      "expires_at": "2026-09-14T11:43:37.056365-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "OMH",
-      "entry_px": 2.1543,
-      "stop_px": 2.0519,
-      "t1": 2.8006,
-      "t2": 3.2315,
-      "signal_str": "VWAP reclaim (recovery dip (opened -3.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:37.624145-04:00",
-      "expires_at": "2026-09-14T11:43:37.624145-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "SLXN",
-      "entry_px": 0.385,
-      "stop_px": 0.3406,
-      "t1": 0.5005,
-      "t2": 0.5775,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:40.586398-04:00",
-      "expires_at": "2026-09-14T11:43:40.586398-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "FGL",
-      "entry_px": 5.4208,
-      "stop_px": 5.0657,
-      "t1": 7.047,
-      "t2": 8.1312,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.2% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:42.561903-04:00",
-      "expires_at": "2026-09-14T11:43:42.561903-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "MSS",
-      "entry_px": 1.7635,
-      "stop_px": 1.6435,
-      "t1": 2.2926,
-      "t2": 2.6452,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.8% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:44.159652-04:00",
-      "expires_at": "2026-09-14T11:43:44.159652-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "FMFC",
-      "entry_px": 0.1993,
-      "stop_px": 0.193,
-      "t1": 0.2591,
-      "t2": 0.2989,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:45.868029-04:00",
-      "expires_at": "2026-09-14T11:43:45.868029-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "CCHH",
-      "entry_px": 1.1523,
-      "stop_px": 1.089,
-      "t1": 1.498,
-      "t2": 1.7285,
-      "signal_str": "VWAP reclaim (recovery dip (opened -5.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:47.769213-04:00",
-      "expires_at": "2026-09-14T11:43:47.769213-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "HYFM",
-      "entry_px": 0.9779,
-      "stop_px": 0.9419,
-      "t1": 1.2713,
-      "t2": 1.4668,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:48.151779-04:00",
-      "expires_at": "2026-09-14T11:43:48.151779-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "WOK",
-      "entry_px": 1.8938,
-      "stop_px": 1.8414,
-      "t1": 2.4619,
-      "t2": 2.8407,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:28:58.752610-04:00",
-      "expires_at": "2026-09-14T11:43:58.752610-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "XHG",
-      "entry_px": 3.0165,
-      "stop_px": 2.8116,
-      "t1": 3.9215,
-      "t2": 4.5248,
-      "signal_str": "VWAP reclaim (recovery dip (opened -6.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-14T11:29:04.088899-04:00",
-      "expires_at": "2026-09-14T11:44:04.088899-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
-  "consumed": {}
+  "pending": [],
+  "consumed": {
+    "ADTX_2026-09-14T11:28:37.056365-04:00": 1789400676.2696605,
+    "OMH_2026-09-14T11:28:37.624145-04:00": 1789400676.2704074,
+    "SLXN_2026-09-14T11:28:40.586398-04:00": 1789400676.2706275,
+    "FGL_2026-09-14T11:28:42.561903-04:00": 1789400676.270826,
+    "MSS_2026-09-14T11:28:44.159652-04:00": 1789400676.2710376,
+    "FMFC_2026-09-14T11:28:45.868029-04:00": 1789400676.2713156,
+    "CCHH_2026-09-14T11:28:47.769213-04:00": 1789400676.2715266,
+    "HYFM_2026-09-14T11:28:48.151779-04:00": 1789400676.2717338,
+    "WOK_2026-09-14T11:28:58.752610-04:00": 1789400676.2719328,
+    "XHG_2026-09-14T11:29:04.088899-04:00": 1789400676.2721305
+  }
 }

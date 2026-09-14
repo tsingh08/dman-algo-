@@ -3056,5 +3056,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T11:43:05.086682-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Trades Near 52-Week High as Analyst Tracks iPhone 18 Demand Signals",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T11:45:35.688361-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "QUICK SPARK: iShares 20+ Year Treasury Bond ETF Marks All-Time Low",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:47:03.776512-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Called One AI Company the \u2018TSMC of AI Factories.\u2019 Its CTO Sees What Comes Next",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

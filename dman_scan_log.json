@@ -16,5 +16,23 @@
     "tickers_total": 290,
     "signals": 0,
     "signal_tickers": []
+  },
+  {
+    "ts": "2026-09-14T11:43:06.393016-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 290,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-09-14T11:47:05.149376-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 290,
+    "signals": 0,
+    "signal_tickers": []
   }
 ]

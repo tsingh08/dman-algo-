@@ -2868,5 +2868,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T11:02:23.048548-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Exxon Sees the US Supplying Nearly a Third of the World&#39;s LNG by 2030",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:03:52.951138-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;EPA Plans To Scrap Biden-Era Rules That Limit Power-Plant Climate Emissions&#39; - Washington Post",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T11:05:34.832959-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Expands Into Vietnam as Competition Intensifies in China",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

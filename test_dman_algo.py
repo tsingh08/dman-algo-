@@ -5780,7 +5780,8 @@ class TestIntradayRvolProjection(unittest.TestCase):
 
     def test_thresholds_are_untouched(self):
         # The fix must not have quietly relaxed the frozen Gap & Hold gate.
-        src = inspect.getsource(a._raw_signals)
+        # (The Gap & Hold detector lives in _rs_gap_and_hold since the refactor.)
+        src = inspect.getsource(a._rs_gap_and_hold)
         self.assertIn('float(r["RVOL"]) >= 2.0', src)
 
 

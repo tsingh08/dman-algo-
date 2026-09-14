@@ -14982,6 +14982,226 @@ def _day2_continuation_not_overextended(entry_price: float, pre_gap_close: float
     return total_move_pct <= DAY2_MAX_CUMULATIVE_MOVE_PCT
 
 
+def _rs_gap_and_hold(_long, c, candidates, p, r, ticker):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    try:
+        gap_pct = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
+        _gh_dollar_vol = c * float(r.get("AvgVol20", 0))
+        if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
+                and float(r["RVOL"]) >= 2.0               # raised from 1.5 — real institutional volume
+                and float(r["RSI"]) > 50
+                and float(r["MACD"]) > float(r["MACD_sig"])
+                and float(r["MACD"]) > 0                   # confirmed uptrend, not just recovering
+                and float(p["Close"]) > float(p["Open"])   # prior day green — continuation not reversal
+                and _gh_dollar_vol >= 500_000              # min $500K avg daily dollar volume
+                and _sector_etf_above_ema50(ticker)):
+            gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
+            sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
+                        reason=f"Gap up +{gap_pct:.1f}% from prior close, holding, RVOL {float(r['RVOL']):.1f}x")
+            # Targets: take the larger of R-multiple or gap-echo. For small gaps
+            # (1.5-4%) the R-multiple is bigger; for large gaps (8%+) the echo wins.
+            _echo_t1 = round(c * (1 + gap_pct / 100), 2)
+            _echo_t2 = round(c * (1 + gap_pct / 100 * 1.5), 2)
+            sig.target1 = max(sig.target1, _echo_t1)
+            sig.target2 = max(sig.target2, _echo_t2)
+            _gap_risk   = c - gap_stop
+            sig.rr = round((sig.target1 - c) / _gap_risk, 2) if _gap_risk > 0 else 0
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
+    except Exception:
+        pass
+
+
+
+def _rs_morning_runner(_long, c, candidates, p, r, ticker):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    try:
+        gap_up = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
+        if (gap_up >= 5.0 and c >= float(r["Open"]) * 0.97
+                and float(r["RVOL"]) >= 3.0
+                and 50 <= float(r["RSI"]) <= 72
+                and float(r["MACD"]) > float(r["MACD_sig"])):
+            mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
+            fl_m, sh_pct, _, _cash = _get_short_float_data(ticker)
+            float_tag = ""
+            if fl_m > 0 and fl_m < 10:
+                float_tag = f" | ULTRA-LOW FLOAT {fl_m:.1f}M"
+            elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:
+                float_tag = f" | Float {fl_m:.0f}M, Short {sh_pct:.0f}%"
+            elif fl_m > 0 and fl_m < 50:
+                float_tag = f" | Float {fl_m:.0f}M"
+            sig = _long("Morning Runner", mr_stop, 2.5, 4.0,
+                        reason=f"News gap +{gap_up:.1f}% on {float(r['RVOL']):.1f}x vol, holding open{float_tag}")
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
+    except Exception:
+        pass
+
+
+
+def _rs_day2_continuation(_long, c, candidates, df, p, r):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    try:
+        if len(df) >= 3:
+            p3 = df.iloc[-3]   # two days ago (the day BEFORE the original gap)
+            d1_gap     = (float(p["Open"]) - float(p3["Close"])) / float(p3["Close"]) * 100
+            d1_range   = float(p["High"]) - float(p["Open"])
+            d1_held    = (float(p["Close"]) - float(p["Open"])) / d1_range if d1_range > 0 else 0
+            d2_above   = c >= float(p["Close"]) * 0.98   # today still above Day 1 close
+            d2_rvol    = float(r["RVOL"]) >= 1.5
+            d2_rsi     = 45 < float(r["RSI"]) < 75
+            _d2_dollar = c * float(r.get("AvgVol20", 0))
+            d2_not_overextended = _day2_continuation_not_overextended(c, float(p3["Close"]))
+            if (d1_gap >= 4.0 and d1_held >= 0.6 and d2_above
+                    and d2_rvol and d2_rsi and d2_not_overextended
+                    and float(r["MACD"]) > float(r["MACD_sig"])
+                    and _d2_dollar >= 500_000):
+                d2_stop = round(float(p["Close"]) * 0.97, 2)   # stop below Day 1 close
+                sig = _long("Day 2 Continuation", d2_stop, 2.0, 3.5,
+                            reason=f"Day 1 gapped +{d1_gap:.1f}%, held {d1_held*100:.0f}% of range; Day 2 holding")
+                # T1 = Day 1 gap echoed from entry
+                sig.target1 = max(sig.target1, round(c * (1 + d1_gap / 100), 2))
+                sig.target2 = max(sig.target2, round(c * (1 + d1_gap / 100 * 1.5), 2))
+                _d2_risk = c - d2_stop
+                sig.rr = round((sig.target1 - c) / _d2_risk, 2) if _d2_risk > 0 else 0
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+    except Exception:
+        pass
+
+
+
+def _rs_shorts(_short, c, candidates, p, p2, r, rec):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    if ALLOW_SHORTS:
+        sup2 = float(rec["Low"].quantile(0.10))
+
+        # S1: EMA Breakdown — disabled (backtest: 39.5% WR, avg -0.14%, no edge)
+        if ENABLE_EMA_BREAKDOWN:
+            if (float(r["EMA20"]) < float(r["EMA50"])
+                    and max(float(p["High"]), float(p2["High"])) >= float(p["EMA20"]) * 0.995
+                    and c < float(r["EMA20"]) and 35 < float(r["RSI"]) < 65
+                    and float(r["RVOL"]) >= RVOL_MIN_SHORT
+                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                sig = _short("EMA Breakdown", float(r["EMA20"]) * 1.015,
+                             reason=f"EMA20 rejection, {float(r['RVOL']):.1f}x volume")
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+
+        # S2: Volume Breakdown — disabled alongside all other short setups.
+        # Backtest: insufficient sample size in current bull-dominant setup mix.
+        # Also: ALLOW_SHORTS = False prevents live short order submission.
+        if ALLOW_SHORTS and False:   # explicit double-guard until shorts are re-evaluated
+            try:
+                _range = float(r["High"]) - float(r["Low"])
+                _atr   = float(r["ATR"]) if not pd.isna(r["ATR"]) else _range
+                _news_candle = _range >= _atr * 1.5
+            except Exception:
+                _news_candle = True
+            if (c < sup2 * 0.988 and float(r["RVOL"]) >= 3.5 and float(r["RSI"]) < 32
+                    and _news_candle
+                    and float(r["MACD"]) < float(r["MACD_sig"])
+                    and float(r["EMA20"]) < float(r["EMA50"])
+                    and float(r["EMA50"]) < float(p["EMA50"])
+                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                sig = _short("Vol Breakdown", sup2 * 1.015, 2.5, 4.0,
+                             reason=f"Broke ${sup2:.2f} on {float(r['RVOL']):.1f}x vol, range {_range/(_atr or 1):.1f}x ATR")
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+
+        # S3: Overbought Reversal — disabled (backtest: 41% WR, avg -4.77%, consistent loser)
+        if ENABLE_OB_REVERSAL:
+            if (float(p2["RSI"]) > 65 and float(r["RSI"]) < float(p["RSI"]) < float(p2["RSI"])
+                    and c < float(r["EMA9"]) and c < float(r["Open"])
+                    and float(r["RVOL"]) >= 1.0):
+                sig = _short("OB Reversal", max(float(p["High"]), float(p2["High"])) * 1.01,
+                             reason=f"RSI curling from {float(p2['RSI']):.0f}, EMA9 broken")
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+
+        # S4: MACD Bear Cross — disabled (0% WR / 1 trade; short in BULL-dominant algo)
+        if ENABLE_MACD_BEAR and (float(p["MACD"]) > float(p["MACD_sig"]) and float(r["MACD"]) < float(r["MACD_sig"])
+                and float(r["MACD"]) < 0
+                and float(r["EMA20"]) < float(r["EMA50"])
+                and float(r["EMA50"]) < float(p["EMA50"])
+                and 42 <= float(r["RSI"]) <= 58
+                and float(r["RVOL"]) >= 1.8
+                and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+            sig = _short("MACD Bear", float(r["EMA50"]) * 1.02, 2.0, 3.5,
+                         reason="Fresh MACD bear cross below zero, EMA20<EMA50 declining")
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
+
+        # S5: Gap & Short — disabled (40% WR / avg +1.51% in backtest, consistent drag)
+        if ENABLE_GAP_SHORT:
+            try:
+                gap_dn = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
+                gap_unfilled = float(r["High"]) < float(p["Close"]) * 0.998
+                if (gap_dn >= 3.0 and gap_unfilled and c <= float(r["Open"]) * 1.005
+                        and float(r["RVOL"]) >= 3.0 and float(r["RSI"]) < 45
+                        and float(r["MACD"]) < float(r["MACD_sig"])
+                        and float(r["EMA20"]) < float(r["EMA50"])
+                        and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                    gap_stop = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
+                    sig = _short("Gap & Short", gap_stop, 2.5, 4.0,
+                                 reason=f"Gap down -{gap_dn:.1f}% unfilled, RVOL {float(r['RVOL']):.1f}x")
+                    if sig.rr >= MIN_RR:
+                        candidates.append(sig)
+            except Exception:
+                pass
+
+
+
+def _rs_bear_gap_hold(_short, c, candidates, p, r):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    if OPTIONS_ENABLE_PUTS:
+        try:
+            # Gap % from today's OPEN vs prior close — not today's current/
+            # close price. Found 2026-08-16 review: this used `c` (current
+            # price) as the gap endpoint, so a stock that opened FLAT and
+            # simply drifted down 2% intraday read as a "gap down 2%" and
+            # could trigger a real ITM put purchase on ordinary noise, not
+            # an actual gap. Matches L6 Gap & Hold's (correct) convention.
+            _bg_gap_pct  = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
+            _bg_dv       = c * float(r.get("AvgVol20", 0))
+            if (_bg_gap_pct >= 1.5
+                    and c <= float(r["Open"]) * 1.005          # holding at/below open
+                    and float(r["RVOL"]) >= 2.0
+                    and float(r["RSI"]) < 50
+                    and float(r["MACD"]) < float(r["MACD_sig"])
+                    and float(r["MACD"]) < 0
+                    and float(p["Close"]) < float(p["Open"])    # prior day red
+                    and _bg_dv >= 500_000):
+                _bg_stop   = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
+                sig = _short("Bear Gap Hold", _bg_stop, 2.5, 4.0,
+                             reason=f"Gap down -{_bg_gap_pct:.1f}%  holding below open  "
+                                    f"RVOL {float(r['RVOL']):.1f}x  bearish MACD")
+                # Echo targets: T1 = entry × (1 - gap_pct/100), T2 = 1.5× echo
+                _bg_echo_t1 = round(c * (1 - _bg_gap_pct / 100), 2)
+                _bg_echo_t2 = round(c * (1 - _bg_gap_pct / 100 * 1.5), 2)
+                sig.target1 = min(sig.target1, _bg_echo_t1)   # more aggressive of the two
+                sig.target2 = min(sig.target2, _bg_echo_t2)
+                # Recompute rr against the (possibly echo-overridden) target1 —
+                # matches L6 Gap & Hold's pattern. Found 2026-08-16 review:
+                # this was missing here, so both the MIN_RR gate just below
+                # and the single-pattern-per-ticker selector at the bottom
+                # of this function (max(candidates, key=lambda s: s.rr))
+                # were comparing a stale rr that no longer matched the
+                # signal's real target whenever the echo target won.
+                _bg_risk = _bg_stop - c
+                sig.rr = round((c - sig.target1) / _bg_risk, 2) if _bg_risk > 0 else 0
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+        except Exception:
+            pass
+
+
+
 def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     """
     Evaluate all long and short patterns; return the highest-RR qualifying signal.
@@ -15081,213 +15301,28 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 candidates.append(sig)
 
     # L6: Gap & Hold — gap up ≥1.5% from prior close, holding above the open
-    try:
-        gap_pct = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
-        _gh_dollar_vol = c * float(r.get("AvgVol20", 0))
-        if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
-                and float(r["RVOL"]) >= 2.0               # raised from 1.5 — real institutional volume
-                and float(r["RSI"]) > 50
-                and float(r["MACD"]) > float(r["MACD_sig"])
-                and float(r["MACD"]) > 0                   # confirmed uptrend, not just recovering
-                and float(p["Close"]) > float(p["Open"])   # prior day green — continuation not reversal
-                and _gh_dollar_vol >= 500_000              # min $500K avg daily dollar volume
-                and _sector_etf_above_ema50(ticker)):
-            gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
-            sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
-                        reason=f"Gap up +{gap_pct:.1f}% from prior close, holding, RVOL {float(r['RVOL']):.1f}x")
-            # Targets: take the larger of R-multiple or gap-echo. For small gaps
-            # (1.5-4%) the R-multiple is bigger; for large gaps (8%+) the echo wins.
-            _echo_t1 = round(c * (1 + gap_pct / 100), 2)
-            _echo_t2 = round(c * (1 + gap_pct / 100 * 1.5), 2)
-            sig.target1 = max(sig.target1, _echo_t1)
-            sig.target2 = max(sig.target2, _echo_t2)
-            _gap_risk   = c - gap_stop
-            sig.rr = round((sig.target1 - c) / _gap_risk, 2) if _gap_risk > 0 else 0
-            if sig.rr >= MIN_RR:
-                candidates.append(sig)
-    except Exception:
-        pass
+    _rs_gap_and_hold(_long, c, candidates, p, r, ticker)
 
     # L7: Morning Runner — news-catalyst gap ≥5%, holding above open.
     # RVOL lowered from 5x to 3x: mega-cap names (NVDA, META) legitimately move
     # with 3-4x RVOL on catalyst days; the 5x bar excluded them with no edge benefit.
-    try:
-        gap_up = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
-        if (gap_up >= 5.0 and c >= float(r["Open"]) * 0.97
-                and float(r["RVOL"]) >= 3.0
-                and 50 <= float(r["RSI"]) <= 72
-                and float(r["MACD"]) > float(r["MACD_sig"])):
-            mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
-            fl_m, sh_pct, _, _cash = _get_short_float_data(ticker)
-            float_tag = ""
-            if fl_m > 0 and fl_m < 10:
-                float_tag = f" | ULTRA-LOW FLOAT {fl_m:.1f}M"
-            elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:
-                float_tag = f" | Float {fl_m:.0f}M, Short {sh_pct:.0f}%"
-            elif fl_m > 0 and fl_m < 50:
-                float_tag = f" | Float {fl_m:.0f}M"
-            sig = _long("Morning Runner", mr_stop, 2.5, 4.0,
-                        reason=f"News gap +{gap_up:.1f}% on {float(r['RVOL']):.1f}x vol, holding open{float_tag}")
-            if sig.rr >= MIN_RR:
-                candidates.append(sig)
-    except Exception:
-        pass
+    _rs_morning_runner(_long, c, candidates, p, r, ticker)
 
     # L8: Day 2 Continuation — yesterday's gap-and-hold follows through today.
     # Pattern: Day 1 gapped ≥4% and closed strong (held ≥ 80% of gap range).
     #          Day 2 opens near or above Day 1 close, RVOL still elevated ≥ 1.5x.
     # Institutional flow is continuous — they don't finish buying in one day.
-    try:
-        if len(df) >= 3:
-            p3 = df.iloc[-3]   # two days ago (the day BEFORE the original gap)
-            d1_gap     = (float(p["Open"]) - float(p3["Close"])) / float(p3["Close"]) * 100
-            d1_range   = float(p["High"]) - float(p["Open"])
-            d1_held    = (float(p["Close"]) - float(p["Open"])) / d1_range if d1_range > 0 else 0
-            d2_above   = c >= float(p["Close"]) * 0.98   # today still above Day 1 close
-            d2_rvol    = float(r["RVOL"]) >= 1.5
-            d2_rsi     = 45 < float(r["RSI"]) < 75
-            _d2_dollar = c * float(r.get("AvgVol20", 0))
-            d2_not_overextended = _day2_continuation_not_overextended(c, float(p3["Close"]))
-            if (d1_gap >= 4.0 and d1_held >= 0.6 and d2_above
-                    and d2_rvol and d2_rsi and d2_not_overextended
-                    and float(r["MACD"]) > float(r["MACD_sig"])
-                    and _d2_dollar >= 500_000):
-                d2_stop = round(float(p["Close"]) * 0.97, 2)   # stop below Day 1 close
-                sig = _long("Day 2 Continuation", d2_stop, 2.0, 3.5,
-                            reason=f"Day 1 gapped +{d1_gap:.1f}%, held {d1_held*100:.0f}% of range; Day 2 holding")
-                # T1 = Day 1 gap echoed from entry
-                sig.target1 = max(sig.target1, round(c * (1 + d1_gap / 100), 2))
-                sig.target2 = max(sig.target2, round(c * (1 + d1_gap / 100 * 1.5), 2))
-                _d2_risk = c - d2_stop
-                sig.rr = round((sig.target1 - c) / _d2_risk, 2) if _d2_risk > 0 else 0
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-    except Exception:
-        pass
+    _rs_day2_continuation(_long, c, candidates, df, p, r)
 
     # ── SHORT patterns ────────────────────────────────────────────────────
-    if ALLOW_SHORTS:
-        sup2 = float(rec["Low"].quantile(0.10))
-
-        # S1: EMA Breakdown — disabled (backtest: 39.5% WR, avg -0.14%, no edge)
-        if ENABLE_EMA_BREAKDOWN:
-            if (float(r["EMA20"]) < float(r["EMA50"])
-                    and max(float(p["High"]), float(p2["High"])) >= float(p["EMA20"]) * 0.995
-                    and c < float(r["EMA20"]) and 35 < float(r["RSI"]) < 65
-                    and float(r["RVOL"]) >= RVOL_MIN_SHORT
-                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-                sig = _short("EMA Breakdown", float(r["EMA20"]) * 1.015,
-                             reason=f"EMA20 rejection, {float(r['RVOL']):.1f}x volume")
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-
-        # S2: Volume Breakdown — disabled alongside all other short setups.
-        # Backtest: insufficient sample size in current bull-dominant setup mix.
-        # Also: ALLOW_SHORTS = False prevents live short order submission.
-        if ALLOW_SHORTS and False:   # explicit double-guard until shorts are re-evaluated
-            try:
-                _range = float(r["High"]) - float(r["Low"])
-                _atr   = float(r["ATR"]) if not pd.isna(r["ATR"]) else _range
-                _news_candle = _range >= _atr * 1.5
-            except Exception:
-                _news_candle = True
-            if (c < sup2 * 0.988 and float(r["RVOL"]) >= 3.5 and float(r["RSI"]) < 32
-                    and _news_candle
-                    and float(r["MACD"]) < float(r["MACD_sig"])
-                    and float(r["EMA20"]) < float(r["EMA50"])
-                    and float(r["EMA50"]) < float(p["EMA50"])
-                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-                sig = _short("Vol Breakdown", sup2 * 1.015, 2.5, 4.0,
-                             reason=f"Broke ${sup2:.2f} on {float(r['RVOL']):.1f}x vol, range {_range/(_atr or 1):.1f}x ATR")
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-
-        # S3: Overbought Reversal — disabled (backtest: 41% WR, avg -4.77%, consistent loser)
-        if ENABLE_OB_REVERSAL:
-            if (float(p2["RSI"]) > 65 and float(r["RSI"]) < float(p["RSI"]) < float(p2["RSI"])
-                    and c < float(r["EMA9"]) and c < float(r["Open"])
-                    and float(r["RVOL"]) >= 1.0):
-                sig = _short("OB Reversal", max(float(p["High"]), float(p2["High"])) * 1.01,
-                             reason=f"RSI curling from {float(p2['RSI']):.0f}, EMA9 broken")
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-
-        # S4: MACD Bear Cross — disabled (0% WR / 1 trade; short in BULL-dominant algo)
-        if ENABLE_MACD_BEAR and (float(p["MACD"]) > float(p["MACD_sig"]) and float(r["MACD"]) < float(r["MACD_sig"])
-                and float(r["MACD"]) < 0
-                and float(r["EMA20"]) < float(r["EMA50"])
-                and float(r["EMA50"]) < float(p["EMA50"])
-                and 42 <= float(r["RSI"]) <= 58
-                and float(r["RVOL"]) >= 1.8
-                and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-            sig = _short("MACD Bear", float(r["EMA50"]) * 1.02, 2.0, 3.5,
-                         reason="Fresh MACD bear cross below zero, EMA20<EMA50 declining")
-            if sig.rr >= MIN_RR:
-                candidates.append(sig)
-
-        # S5: Gap & Short — disabled (40% WR / avg +1.51% in backtest, consistent drag)
-        if ENABLE_GAP_SHORT:
-            try:
-                gap_dn = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
-                gap_unfilled = float(r["High"]) < float(p["Close"]) * 0.998
-                if (gap_dn >= 3.0 and gap_unfilled and c <= float(r["Open"]) * 1.005
-                        and float(r["RVOL"]) >= 3.0 and float(r["RSI"]) < 45
-                        and float(r["MACD"]) < float(r["MACD_sig"])
-                        and float(r["EMA20"]) < float(r["EMA50"])
-                        and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-                    gap_stop = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
-                    sig = _short("Gap & Short", gap_stop, 2.5, 4.0,
-                                 reason=f"Gap down -{gap_dn:.1f}% unfilled, RVOL {float(r['RVOL']):.1f}x")
-                    if sig.rr >= MIN_RR:
-                        candidates.append(sig)
-            except Exception:
-                pass
+    _rs_shorts(_short, c, candidates, p, p2, r, rec)
 
     # L9: Bear Gap Hold — bearish mirror of L6.
     # Gap DOWN ≥1.5%, holding BELOW open (failed recovery), RVOL ≥2x,
     # prior day red, MACD bearish, sector ETF weak.
     # Signal bias = SHORT but ALLOW_SHORTS is False for shares —
     # execution layer routes to _submit_options_put() instead.
-    if OPTIONS_ENABLE_PUTS:
-        try:
-            # Gap % from today's OPEN vs prior close — not today's current/
-            # close price. Found 2026-08-16 review: this used `c` (current
-            # price) as the gap endpoint, so a stock that opened FLAT and
-            # simply drifted down 2% intraday read as a "gap down 2%" and
-            # could trigger a real ITM put purchase on ordinary noise, not
-            # an actual gap. Matches L6 Gap & Hold's (correct) convention.
-            _bg_gap_pct  = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
-            _bg_dv       = c * float(r.get("AvgVol20", 0))
-            if (_bg_gap_pct >= 1.5
-                    and c <= float(r["Open"]) * 1.005          # holding at/below open
-                    and float(r["RVOL"]) >= 2.0
-                    and float(r["RSI"]) < 50
-                    and float(r["MACD"]) < float(r["MACD_sig"])
-                    and float(r["MACD"]) < 0
-                    and float(p["Close"]) < float(p["Open"])    # prior day red
-                    and _bg_dv >= 500_000):
-                _bg_stop   = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
-                sig = _short("Bear Gap Hold", _bg_stop, 2.5, 4.0,
-                             reason=f"Gap down -{_bg_gap_pct:.1f}%  holding below open  "
-                                    f"RVOL {float(r['RVOL']):.1f}x  bearish MACD")
-                # Echo targets: T1 = entry × (1 - gap_pct/100), T2 = 1.5× echo
-                _bg_echo_t1 = round(c * (1 - _bg_gap_pct / 100), 2)
-                _bg_echo_t2 = round(c * (1 - _bg_gap_pct / 100 * 1.5), 2)
-                sig.target1 = min(sig.target1, _bg_echo_t1)   # more aggressive of the two
-                sig.target2 = min(sig.target2, _bg_echo_t2)
-                # Recompute rr against the (possibly echo-overridden) target1 —
-                # matches L6 Gap & Hold's pattern. Found 2026-08-16 review:
-                # this was missing here, so both the MIN_RR gate just below
-                # and the single-pattern-per-ticker selector at the bottom
-                # of this function (max(candidates, key=lambda s: s.rr))
-                # were comparing a stale rr that no longer matched the
-                # signal's real target whenever the echo target won.
-                _bg_risk = _bg_stop - c
-                sig.rr = round((c - sig.target1) / _bg_risk, 2) if _bg_risk > 0 else 0
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-        except Exception:
-            pass
+    _rs_bear_gap_hold(_short, c, candidates, p, r)
 
     if not candidates:
         return None

@@ -2260,6 +2260,21 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     )
 
 
+def _json_default(o):
+    """numpy scalars/arrays (int64 scores, float64 prices) leak out of pandas math;
+    stdlib json rejects them, which used to abort a whole tracker save."""
+    if hasattr(o, "item") and callable(o.item):
+        try:
+            return o.item()
+        except (ValueError, TypeError):
+            pass
+    if hasattr(o, "tolist"):
+        return o.tolist()
+    if hasattr(o, "isoformat"):
+        return o.isoformat()
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+
+
 def _write_json_atomic(path: str, data, **dump_kwargs) -> None:
     """
     Write JSON to `path` crash-safely: serialize to a temp file in the same
@@ -2281,6 +2296,7 @@ def _write_json_atomic(path: str, data, **dump_kwargs) -> None:
     _fd, _tmp_path = tempfile.mkstemp(prefix=".tmp_", dir=_dir)
     try:
         with os.fdopen(_fd, "w") as f:
+            dump_kwargs.setdefault("default", _json_default)
             json.dump(data, f, **dump_kwargs)
         os.replace(_tmp_path, path)
     except Exception:

@@ -7383,8 +7383,8 @@ class TestVixTermStructure(unittest.TestCase):
             self.assertIsNone(a._latest_vix3m())
 
     def test_regime_consumes_it(self):
-        src = inspect.getsource(a.get_market_regime)
-        self.assertIn("_latest_vix3m()", src)
+        self.assertIn("_regime_vix_term(", inspect.getsource(a.get_market_regime))
+        self.assertIn("_latest_vix3m()", inspect.getsource(a._regime_vix_term))
 
 
 class TestOptionsContractBudgetBand(unittest.TestCase):

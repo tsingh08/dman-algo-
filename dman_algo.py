@@ -10697,6 +10697,187 @@ def _latest_vix3m() -> Optional[float]:
         return None
 
 
+def _regime_qqq(qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, score):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, qqq_note, score.
+    """
+    qqq_note = "N/A"
+    try:
+        qqq_df = fetch_df("QQQ")
+        if qqq_df is not None and len(qqq_df) >= 55:
+            qqq_ind = compute_indicators(qqq_df.copy())
+            qqq_ind = qqq_ind.dropna(subset=["Close"])
+            qr = qqq_ind.iloc[-1]
+            qqq_above_ema20 = float(qr["Close"]) > float(qr["EMA20"])
+            qqq_above_ema50 = float(qr["Close"]) > float(qr["EMA50"])
+            qqq_ema20_dist  = (float(qr["Close"]) - float(qr["EMA20"])) / float(qr["EMA20"]) * 100
+            _qqq_clean = qqq_df.dropna(subset=["Close"])
+            qqq_chg5 = (float(_qqq_clean["Close"].iloc[-1]) / float(_qqq_clean["Close"].iloc[-6]) - 1) * 100
+            if qqq_above_ema20:
+                score += 1   # tech leading = bull confirmation
+            qqq_note = f"{'✓' if qqq_above_ema20 else '✗'} EMA20  {'✓' if qqq_above_ema50 else '✗'} EMA50  5d {qqq_chg5:+.1f}%"
+    except Exception:
+        pass
+    return qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, qqq_note, score
+
+
+def _regime_tlt(score, tlt_trend):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: score, tlt_note, tlt_trend.
+    """
+    tlt_note = "N/A"
+    try:
+        tlt_df = fetch_df("TLT")
+        if tlt_df is not None and len(tlt_df) >= 22:
+            _tlt_clean = tlt_df.dropna(subset=["Close"])
+            tlt_now  = float(_tlt_clean["Close"].iloc[-1])
+            tlt_20d  = float(_tlt_clean["Close"].iloc[-21]) if len(_tlt_clean) >= 22 else tlt_now
+            tlt_chg  = (tlt_now - tlt_20d) / tlt_20d * 100
+            tlt_trend = "rising" if tlt_chg > 1.5 else ("falling" if tlt_chg < -1.5 else "flat")
+            if tlt_trend == "rising":
+                score += 1   # falling rates = growth tailwind
+            tlt_note = f"${tlt_now:.1f}  20d {tlt_chg:+.1f}%  ({tlt_trend})"
+    except Exception:
+        pass
+    return score, tlt_note, tlt_trend
+
+
+def _regime_dxy(dxy_trend, score):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: dxy_note, dxy_trend, score.
+    """
+    dxy_note = "N/A"
+    try:
+        uup_df = fetch_df("UUP")
+        if uup_df is not None and len(uup_df) >= 22:
+            _uup_clean = uup_df.dropna(subset=["Close"])
+            uup_now = float(_uup_clean["Close"].iloc[-1])
+            uup_20d = float(_uup_clean["Close"].iloc[-21]) if len(_uup_clean) >= 22 else uup_now
+            uup_chg = (uup_now - uup_20d) / uup_20d * 100
+            dxy_trend = "strong" if uup_chg > 1 else ("weak" if uup_chg < -1 else "flat")
+            if dxy_trend == "weak":
+                score += 1   # weak dollar = risk-on tailwind
+            dxy_note = f"${uup_now:.2f}  20d {uup_chg:+.1f}%  ({dxy_trend})"
+    except Exception:
+        pass
+    return dxy_note, dxy_trend, score
+
+
+def _regime_vix_shock(vix_df, vix_shock, vix_val):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: vix_shock, vix_shock_note.
+    """
+    vix_shock_note = ""
+    try:
+        if vix_df is not None and len(vix_df) >= 6:
+            vix_prev   = float(vix_df["Close"].iloc[-2])
+            vix_5d_avg = float(vix_df["Close"].iloc[-6:-1].mean())
+            vix_1d_chg = (vix_val - vix_prev) / vix_prev * 100
+            vix_vs_avg = vix_val / vix_5d_avg if vix_5d_avg > 0 else 1.0
+            if vix_1d_chg >= 20 or vix_vs_avg >= 1.30:
+                vix_shock = True
+                vix_shock_note = (
+                    f"SHOCK — 1d +{vix_1d_chg:.0f}%  "
+                    f"(vs 5d avg {vix_5d_avg:.1f}, ratio {vix_vs_avg:.2f}x)"
+                )
+    except Exception:
+        pass
+    return vix_shock, vix_shock_note
+
+
+def _regime_vix_term(vix_term_note, vix_val):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: vix_complacency_warn, vix_term_note.
+    """
+    vix_complacency_warn = ""
+    try:
+        vix3m_val = _latest_vix3m()
+        if vix3m_val:
+            ts_ratio  = vix_val / vix3m_val if vix3m_val > 0 else 1.0
+            if ts_ratio >= 1.10:
+                vix_term_note = (f"⚠️ INVERTED {ts_ratio:.2f}x "
+                                 f"(VIX {vix_val:.1f} > VIX3M {vix3m_val:.1f}) "
+                                 f"— acute fear spike, reduce size further")
+            elif ts_ratio >= 1.0:
+                vix_term_note = (f"flat {ts_ratio:.2f}x "
+                                 f"(VIX {vix_val:.1f} ≈ VIX3M {vix3m_val:.1f})")
+            else:
+                vix_term_note = (f"normal {ts_ratio:.2f}x "
+                                 f"(VIX {vix_val:.1f} < VIX3M {vix3m_val:.1f})")
+    except Exception:
+        pass
+    return vix_complacency_warn, vix_term_note
+
+
+def _regime_vix_ema(vix_complacency_warn, vix_val):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: vix_complacency_warn.
+    """
+    try:
+        _vix_df_ema = fetch_df("^VIX")
+        if _vix_df_ema is not None and len(_vix_df_ema) >= 20:
+            _vix_closes = [float(_vix_df_ema["Close"].iloc[i])
+                           for i in range(len(_vix_df_ema))]
+            _vix_ema20  = sum(_vix_closes[-20:]) / 20   # simple avg as proxy
+            _vix_vs_ema = (vix_val - _vix_ema20) / _vix_ema20 * 100
+            if _vix_vs_ema <= -10.0:
+                vix_complacency_warn = (
+                    f"⚠️ VIX COMPLACENCY: {vix_val:.1f} is {abs(_vix_vs_ema):.0f}% "
+                    f"below its 20d avg ({_vix_ema20:.1f}) — market pricing near-zero risk. "
+                    f"Surprises hit harder in this environment; size conservatively."
+                )
+    except Exception:
+        pass
+    return vix_complacency_warn
+
+
+def _regime_defensive_rotation(defensive_rotation):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: def_rotation_note, defensive_rotation.
+    """
+    def_rotation_note  = ""
+    try:
+        def_tickers = ["XLK","XLP","XLU","XLV"]
+        def_data    = yf.download(def_tickers, period="3d", progress=False,
+                                  auto_adjust=True)["Close"]
+        if isinstance(def_data.columns, pd.MultiIndex):
+            def_data.columns = def_data.columns.droplevel(1)
+        if len(def_data) >= 2:
+            xlk_chg  = (float(def_data["XLK"].iloc[-1])  / float(def_data["XLK"].iloc[-2])  - 1) * 100
+            xlp_chg  = (float(def_data["XLP"].iloc[-1])  / float(def_data["XLP"].iloc[-2])  - 1) * 100
+            xlu_chg  = (float(def_data["XLU"].iloc[-1])  / float(def_data["XLU"].iloc[-2])  - 1) * 100
+            xlv_chg  = (float(def_data["XLV"].iloc[-1])  / float(def_data["XLV"].iloc[-2])  - 1) * 100
+            def_avg  = (xlp_chg + xlu_chg + xlv_chg) / 3
+            spread   = def_avg - xlk_chg  # positive = defensives winning
+            if spread > 5.0:
+                defensive_rotation = True
+                def_rotation_note = (
+                    f"ACTIVE — XLK {xlk_chg:+.1f}%  "
+                    f"DEF avg {def_avg:+.1f}%  spread {spread:+.1f}%"
+                )
+    except Exception:
+        pass
+    return def_rotation_note, defensive_rotation
+
+
+def _regime_news_breadth():
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: _nb, locals().get("news_breadth_note", _REFX_UNBOUND).
+    """
+    _nb = None
+    try:
+        _nb = _news_sentiment_breadth(hours_back=24.0)
+        if _nb["breadth_pct"] is None:
+            news_breadth_note = f"no scored sentiment in last 24h ({_nb['total']} logged, {_nb['unknown']} unscored)"
+        else:
+            news_breadth_note = (f"{_nb['breadth_pct']:+.0f}% "
+                                 f"({_nb['positive']}pos/{_nb['negative']}neg/{_nb['neutral']}neu, "
+                                 f"{_nb['unknown']} unscored, 24h)")
+    except Exception:
+        news_breadth_note = "N/A"
+    return _nb, locals().get("news_breadth_note", _REFX_UNBOUND)
+
+
 def get_market_regime() -> dict:
     """
     Classify the overall market as BULL, BEAR, or CHOP using:
@@ -10765,58 +10946,16 @@ def get_market_regime() -> dict:
         qqq_above_ema20 = False
         qqq_above_ema50 = False
         qqq_ema20_dist  = 0.0
-        qqq_note = "N/A"
-        try:
-            qqq_df = fetch_df("QQQ")
-            if qqq_df is not None and len(qqq_df) >= 55:
-                qqq_ind = compute_indicators(qqq_df.copy())
-                qqq_ind = qqq_ind.dropna(subset=["Close"])
-                qr = qqq_ind.iloc[-1]
-                qqq_above_ema20 = float(qr["Close"]) > float(qr["EMA20"])
-                qqq_above_ema50 = float(qr["Close"]) > float(qr["EMA50"])
-                qqq_ema20_dist  = (float(qr["Close"]) - float(qr["EMA20"])) / float(qr["EMA20"]) * 100
-                _qqq_clean = qqq_df.dropna(subset=["Close"])
-                qqq_chg5 = (float(_qqq_clean["Close"].iloc[-1]) / float(_qqq_clean["Close"].iloc[-6]) - 1) * 100
-                if qqq_above_ema20:
-                    score += 1   # tech leading = bull confirmation
-                qqq_note = f"{'✓' if qqq_above_ema20 else '✗'} EMA20  {'✓' if qqq_above_ema50 else '✗'} EMA50  5d {qqq_chg5:+.1f}%"
-        except Exception:
-            pass
+        qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, qqq_note, score = _regime_qqq(qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, score)
 
         # TLT (20Y bond ETF) — proxy for rate environment
         # Rising TLT = falling yields = tailwind for growth stocks
         tlt_trend = "flat"
-        tlt_note = "N/A"
-        try:
-            tlt_df = fetch_df("TLT")
-            if tlt_df is not None and len(tlt_df) >= 22:
-                _tlt_clean = tlt_df.dropna(subset=["Close"])
-                tlt_now  = float(_tlt_clean["Close"].iloc[-1])
-                tlt_20d  = float(_tlt_clean["Close"].iloc[-21]) if len(_tlt_clean) >= 22 else tlt_now
-                tlt_chg  = (tlt_now - tlt_20d) / tlt_20d * 100
-                tlt_trend = "rising" if tlt_chg > 1.5 else ("falling" if tlt_chg < -1.5 else "flat")
-                if tlt_trend == "rising":
-                    score += 1   # falling rates = growth tailwind
-                tlt_note = f"${tlt_now:.1f}  20d {tlt_chg:+.1f}%  ({tlt_trend})"
-        except Exception:
-            pass
+        score, tlt_note, tlt_trend = _regime_tlt(score, tlt_trend)
 
         # DXY proxy via UUP (DB USD Bull ETF) — strong dollar = headwind for risk assets
         dxy_trend = "flat"
-        dxy_note = "N/A"
-        try:
-            uup_df = fetch_df("UUP")
-            if uup_df is not None and len(uup_df) >= 22:
-                _uup_clean = uup_df.dropna(subset=["Close"])
-                uup_now = float(_uup_clean["Close"].iloc[-1])
-                uup_20d = float(_uup_clean["Close"].iloc[-21]) if len(_uup_clean) >= 22 else uup_now
-                uup_chg = (uup_now - uup_20d) / uup_20d * 100
-                dxy_trend = "strong" if uup_chg > 1 else ("weak" if uup_chg < -1 else "flat")
-                if dxy_trend == "weak":
-                    score += 1   # weak dollar = risk-on tailwind
-                dxy_note = f"${uup_now:.2f}  20d {uup_chg:+.1f}%  ({dxy_trend})"
-        except Exception:
-            pass
+        dxy_note, dxy_trend, score = _regime_dxy(dxy_trend, score)
 
         # VIX shock detector — fires when EITHER:
         #   • 1-day VIX change ≥ 20% (sudden fear spike, e.g. +39.7% on a single session)
@@ -10824,21 +10963,7 @@ def get_market_regime() -> dict:
         # The session AFTER a shock is historically a "digestion" period: vol stays elevated,
         # momentum longs swim against the current. Raises the min-score floor in the scanner.
         vix_shock = False
-        vix_shock_note = ""
-        try:
-            if vix_df is not None and len(vix_df) >= 6:
-                vix_prev   = float(vix_df["Close"].iloc[-2])
-                vix_5d_avg = float(vix_df["Close"].iloc[-6:-1].mean())
-                vix_1d_chg = (vix_val - vix_prev) / vix_prev * 100
-                vix_vs_avg = vix_val / vix_5d_avg if vix_5d_avg > 0 else 1.0
-                if vix_1d_chg >= 20 or vix_vs_avg >= 1.30:
-                    vix_shock = True
-                    vix_shock_note = (
-                        f"SHOCK — 1d +{vix_1d_chg:.0f}%  "
-                        f"(vs 5d avg {vix_5d_avg:.1f}, ratio {vix_vs_avg:.2f}x)"
-                    )
-        except Exception:
-            pass
+        vix_shock, vix_shock_note = _regime_vix_shock(vix_df, vix_shock, vix_val)
 
         # VIX term structure — VIX/VIX3M ratio reveals whether fear is acute or structural.
         # Normal (contango): VIX < VIX3M — near-term calm relative to future uncertainty.
@@ -10846,70 +10971,19 @@ def get_market_regime() -> dict:
         # marks a volatility spike event. VIX sizing already handles this via raw VIX level;
         # term structure shows HOW the market is pricing that fear (spike vs regime shift).
         vix_term_note = "N/A"
-        vix_complacency_warn = ""
-        try:
-            vix3m_val = _latest_vix3m()
-            if vix3m_val:
-                ts_ratio  = vix_val / vix3m_val if vix3m_val > 0 else 1.0
-                if ts_ratio >= 1.10:
-                    vix_term_note = (f"⚠️ INVERTED {ts_ratio:.2f}x "
-                                     f"(VIX {vix_val:.1f} > VIX3M {vix3m_val:.1f}) "
-                                     f"— acute fear spike, reduce size further")
-                elif ts_ratio >= 1.0:
-                    vix_term_note = (f"flat {ts_ratio:.2f}x "
-                                     f"(VIX {vix_val:.1f} ≈ VIX3M {vix3m_val:.1f})")
-                else:
-                    vix_term_note = (f"normal {ts_ratio:.2f}x "
-                                     f"(VIX {vix_val:.1f} < VIX3M {vix3m_val:.1f})")
-        except Exception:
-            pass
+        vix_complacency_warn, vix_term_note = _regime_vix_term(vix_term_note, vix_val)
 
         # VIX complacency warning — when VIX is 10%+ below its own 20-day EMA,
         # the market is pricing in near-zero risk. This often precedes sharp
         # reversals because any surprise triggers outsized moves.
         # VIX Fri Jul 10 2026: 15.0 vs EMA20=17.1 = -12% → complacency alert.
-        try:
-            _vix_df_ema = fetch_df("^VIX")
-            if _vix_df_ema is not None and len(_vix_df_ema) >= 20:
-                _vix_closes = [float(_vix_df_ema["Close"].iloc[i])
-                               for i in range(len(_vix_df_ema))]
-                _vix_ema20  = sum(_vix_closes[-20:]) / 20   # simple avg as proxy
-                _vix_vs_ema = (vix_val - _vix_ema20) / _vix_ema20 * 100
-                if _vix_vs_ema <= -10.0:
-                    vix_complacency_warn = (
-                        f"⚠️ VIX COMPLACENCY: {vix_val:.1f} is {abs(_vix_vs_ema):.0f}% "
-                        f"below its 20d avg ({_vix_ema20:.1f}) — market pricing near-zero risk. "
-                        f"Surprises hit harder in this environment; size conservatively."
-                    )
-        except Exception:
-            pass
+        vix_complacency_warn = _regime_vix_ema(vix_complacency_warn, vix_val)
 
         # Defensive rotation detector — when XLP/XLU/XLV outperform XLK by >5%
         # on a single day, institutional money is rotating out of growth into safety.
         # A "defensive rotation" day invalidates most Gap & Hold tech long setups.
         defensive_rotation = False
-        def_rotation_note  = ""
-        try:
-            def_tickers = ["XLK","XLP","XLU","XLV"]
-            def_data    = yf.download(def_tickers, period="3d", progress=False,
-                                      auto_adjust=True)["Close"]
-            if isinstance(def_data.columns, pd.MultiIndex):
-                def_data.columns = def_data.columns.droplevel(1)
-            if len(def_data) >= 2:
-                xlk_chg  = (float(def_data["XLK"].iloc[-1])  / float(def_data["XLK"].iloc[-2])  - 1) * 100
-                xlp_chg  = (float(def_data["XLP"].iloc[-1])  / float(def_data["XLP"].iloc[-2])  - 1) * 100
-                xlu_chg  = (float(def_data["XLU"].iloc[-1])  / float(def_data["XLU"].iloc[-2])  - 1) * 100
-                xlv_chg  = (float(def_data["XLV"].iloc[-1])  / float(def_data["XLV"].iloc[-2])  - 1) * 100
-                def_avg  = (xlp_chg + xlu_chg + xlv_chg) / 3
-                spread   = def_avg - xlk_chg  # positive = defensives winning
-                if spread > 5.0:
-                    defensive_rotation = True
-                    def_rotation_note = (
-                        f"ACTIVE — XLK {xlk_chg:+.1f}%  "
-                        f"DEF avg {def_avg:+.1f}%  spread {spread:+.1f}%"
-                    )
-        except Exception:
-            pass
+        def_rotation_note, defensive_rotation = _regime_defensive_rotation(defensive_rotation)
 
         # Regime classification
         # BULL_TECH: SPY in CHOP but QQQ clearly above EMA20 + XLK leading + VIX calm.
@@ -10940,17 +11014,9 @@ def get_market_regime() -> dict:
         # business influencing real entries yet. Purely a display note for
         # now, same visibility tier as the VIX complacency/term-structure
         # notes above before those were ever considered for scoring either.
-        _nb = None
-        try:
-            _nb = _news_sentiment_breadth(hours_back=24.0)
-            if _nb["breadth_pct"] is None:
-                news_breadth_note = f"no scored sentiment in last 24h ({_nb['total']} logged, {_nb['unknown']} unscored)"
-            else:
-                news_breadth_note = (f"{_nb['breadth_pct']:+.0f}% "
-                                     f"({_nb['positive']}pos/{_nb['negative']}neg/{_nb['neutral']}neu, "
-                                     f"{_nb['unknown']} unscored, 24h)")
-        except Exception:
-            news_breadth_note = "N/A"
+        _nb, _o_news_breadth_note = _regime_news_breadth()
+        if _o_news_breadth_note is not _REFX_UNBOUND:
+            news_breadth_note = _o_news_breadth_note
 
         result.update({
             "regime":     regime,

@@ -3219,6 +3219,262 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
     return True, ""
 
 
+def _tg_cmd_flags(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _key = (_parts[1].lower() if len(_parts) > 1 else "")
+    _val = (_parts[2].lower() if len(_parts) > 2 else "")
+    if not _key:
+        _lines = ["🎛️ <b>Feature flags</b>", ""]
+        for _short, (_const, _desc) in TOGGLEABLE_FLAGS.items():
+            _on = flag(_const, globals().get(_const, True))
+            _lines.append(f"{'✅' if _on else '⛔'} <b>{_short}</b> — {'ON' if _on else 'OFF'}")
+            _lines.append(f"    <i>{_desc}</i>")
+        _lines += ["", "Send <b>/flags rvol off</b> to change one.",
+                   "Takes effect on the next scan — no restart needed."]
+        send_telegram("\n".join(_lines))
+    elif _key not in TOGGLEABLE_FLAGS:
+        send_telegram(f"❓ Unknown flag <b>{_key}</b>. "
+                      f"Known: {', '.join(sorted(TOGGLEABLE_FLAGS))}")
+    elif _val not in ("on", "off"):
+        send_telegram(f"❓ Say <b>/flags {_key} on</b> or <b>/flags {_key} off</b>.")
+    else:
+        _const, _desc = TOGGLEABLE_FLAGS[_key]
+        try:
+            set_flag(_const, _val == "on")
+            send_telegram(f"{'✅' if _val=='on' else '⛔'} <b>{_key} = {_val.upper()}</b>\n"
+                          f"{_desc}\n"
+                          f"Applies from the next scan. Send /flags to review.")
+        except Exception as _e:
+            send_telegram(f"❌ /flags failed: {_e}")
+
+
+
+def _tg_cmd_halt(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _reason = " ".join(_parts[1:]) or "manual"
+    try:
+        with open(HALT_FILE, "w") as _f:
+            json.dump({"halted_at": datetime.now(ET).isoformat(),
+                       "reason": _reason}, _f)
+        send_telegram(f"🛑 <b>HALTED</b> — no new entries will be submitted "
+                      f"(reason: {_reason}). Exits/stops still enforced. "
+                      f"Send /resume to re-enable.")
+    except Exception as _e:
+        send_telegram(f"❌ /halt failed: {_e}")
+
+
+
+def _tg_cmd_resume():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    try:
+        if os.path.exists(HALT_FILE):
+            os.remove(HALT_FILE)
+            send_telegram("🟢 <b>RESUMED</b> — entries re-enabled.")
+        else:
+            send_telegram("🟢 Not halted — nothing to resume.")
+    except Exception as _e:
+        send_telegram(f"❌ /resume failed: {_e}")
+
+
+
+def _tg_cmd_probation(_arg, _parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    try:
+        _mult = float(_arg) if _arg else 0.5
+        with open(PROBATION_FILE, "w") as _f:
+            json.dump({"active": True, "size_mult": _mult,
+                       "started": datetime.now(ET).isoformat(),
+                       "note": " ".join(_parts[2:]) or "manual"}, _f)
+        send_telegram(f"🟡 <b>PROBATION ON</b> — sizing ×{_mult:.2f}. Bypasses the "
+                      f"consecutive-loss and monthly-loss guards only; daily loss "
+                      f"limit and /halt still apply. Send /endprobation to clear.")
+    except Exception as _e:
+        send_telegram(f"❌ /probation failed: {_e}")
+
+
+
+def _tg_cmd_endprobation():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    try:
+        if os.path.exists(PROBATION_FILE):
+            os.remove(PROBATION_FILE)
+            send_telegram("🟢 <b>PROBATION ENDED</b> — normal circuit breakers restored.")
+        else:
+            send_telegram("🟢 Not on probation — nothing to end.")
+    except Exception as _e:
+        send_telegram(f"❌ /endprobation failed: {_e}")
+
+
+
+def _tg_cmd_setupprobation(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _setup_name = " ".join(_parts[1:]).strip()
+    if not _setup_name:
+        send_telegram("⚠️ Usage: /setupprobation SETUP NAME (e.g. /setupprobation Low Float Catalyst)")
+    else:
+        try:
+            _newly = _enter_setup_probation(_setup_name, "manual")
+            if _newly:
+                send_telegram(
+                    f"🟡 <b>SETUP PROBATION ON</b> — {_setup_name}\n"
+                    f"+{SETUP_PROBATION_SCORE_BONUS}pts required on top of its normal bar "
+                    f"for {SETUP_PROBATION_MAX_DAYS}d. Send /endsetupprobation {_setup_name} to clear early."
+                )
+            else:
+                send_telegram(f"🟡 {_setup_name} is already restricted.")
+        except Exception as _e:
+            send_telegram(f"❌ /setupprobation failed: {_e}")
+
+
+
+def _tg_cmd_endsetupprobation(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _setup_name = " ".join(_parts[1:]).strip()
+    if not _setup_name:
+        send_telegram("⚠️ Usage: /endsetupprobation SETUP NAME")
+    else:
+        try:
+            state = _load_setup_probation()
+            if _setup_name in state:
+                del state[_setup_name]
+                _save_setup_probation(state)
+                send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_setup_name} back to its normal bar.")
+            else:
+                send_telegram(f"🟢 {_setup_name} isn't restricted — nothing to end.")
+        except Exception as _e:
+            send_telegram(f"❌ /endsetupprobation failed: {_e}")
+
+
+
+def _tg_cmd_status():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _h = "🛑 HALTED" if is_halted() else "🟢 active"
+    _prob_on, _prob_mult = is_on_probation()
+    if _prob_on:
+        _h += f"  |  🟡 PROBATION ×{_prob_mult:.2f}"
+    _setup_prob = _load_setup_probation()
+    if _setup_prob:
+        _h += f"  |  🟡 {len(_setup_prob)} setup(s) restricted: {', '.join(_setup_prob.keys())}"
+    try:
+        _acct = get_alpaca_client().get_account()
+        _eq   = float(_acct.equity)
+        _dt   = int(getattr(_acct, "daytrade_count", 0) or 0)
+        _acct_line = (f"Equity <b>${_eq:,.2f}</b>  "
+                      f"BP ${float(_acct.buying_power):,.2f}  "
+                      f"Day trades {_dt}/3")
+    except Exception:
+        _acct_line = "Alpaca unreachable"
+    _n_pos = len(PositionTracker().positions)
+    send_telegram(f"📊 <b>DMan status</b> — {_h}\n{_acct_line}\n"
+                  f"Tracked positions: {_n_pos}\n"
+                  f"Today P&L: {get_todays_loss():+.2f}%  "
+                  f"Month: {get_this_month_loss():+.2f}%")
+
+
+
+def _tg_cmd_positions():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _pt = PositionTracker()
+    if not _pt.positions:
+        send_telegram("📭 No tracked positions.")
+    else:
+        _lines = []
+        for _p in _pt.positions:
+            if _p.setup.startswith("Earnings "):
+                _lines.append(f"<b>{_p.ticker}</b> [SPREAD] {_p.setup}  "
+                              f"cost ${_p.entry:.0f}  max loss ${_p.max_loss:.0f}  "
+                              f"max gain ${_p.max_gain:.0f}")
+                continue
+            _tag = "OPT" if _p.setup.startswith("Options ") else _p.bias
+            _lines.append(f"<b>{_p.ticker}</b> [{_tag}] entry ${_p.entry}  "
+                          f"stop ${_p.stop}  T1 ${_p.target1}")
+        send_telegram("📋 <b>Open positions</b>\n" + "\n".join(_lines))
+
+
+
+def _tg_cmd_restart():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    send_telegram("🔄 <b>Restart requested</b> — dispatching a fresh daemon session "
+                  "(automatically cancels any stuck/hung session first, same "
+                  "concurrency group). This works even if the current daemon is "
+                  "completely frozen.")
+    _ok, _msg = _trigger_workflow_restart("dman_daemon.yml")
+    if _ok:
+        send_telegram("✅ Fresh daemon session dispatched — should be live within a "
+                      "few minutes. You'll get the usual \"daemon ONLINE\" message "
+                      "once it starts.")
+    else:
+        send_telegram(f"❌ Restart dispatch failed: {_msg}\n"
+                      f"Fallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.")
+
+
+
+def _tg_cmd_scan():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    send_telegram("🔍 <b>Scan requested</b> — dispatching an immediate scanner run "
+                  "(curated universe, real submission if the market's open). "
+                  "Results post the same way a scheduled scan would.")
+    _ok, _msg = _trigger_workflow_restart("dman_scanner.yml", inputs={"mode": "scan"})
+    if _ok:
+        send_telegram("✅ Scan dispatched — should start within a minute or two.")
+    else:
+        send_telegram(f"❌ Scan dispatch failed: {_msg}\n"
+                      f"Fallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.")
+
+
+
+def _tg_cmd_review():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    send_telegram("🔎 <b>Review requested</b> — dispatching a session review now "
+                  "(report only, nothing gets pushed or traded automatically). "
+                  "Takes a few minutes — the report posts here when it's done.")
+    _ok, _msg = _trigger_workflow_restart("dman_review.yml")
+    if _ok:
+        send_telegram("✅ Review dispatched.")
+    else:
+        send_telegram(f"❌ Review dispatch failed: {_msg}\n"
+                      f"Fallback: GitHub app → Actions → DMan Session Review → Run workflow.")
+
+
+
+def _tg_cmd_close(_arg):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _pt  = PositionTracker()
+    _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
+    if _pos is None:
+        send_telegram(f"❓ /close: no tracked position for {_arg}")
+    elif _pos.setup.startswith("Earnings "):
+        _st, _oid = _close_earnings_spread(asdict(_pos), f"manual /close {_arg}")
+        send_telegram(f"📤 /close {_arg}: {_st}"
+                      + (f" (id {_oid[:8]}…)" if _oid else ""))
+    elif _pos.setup.startswith("Options "):
+        _occ_c  = _pos.setup.split()[2]
+        _ctrs_c = max(1, int(_pos.shares) // 100)
+        _st, _oid = _submit_options_close(_occ_c, _ctrs_c, f"manual /close {_arg}")
+        send_telegram(f"📤 /close {_arg}: {_st}"
+                      + (f" (id {_oid[:8]}…)" if _oid else ""))
+    else:
+        try:
+            get_alpaca_client().close_position(_arg)
+            send_telegram(f"📤 /close {_arg}: equity close submitted")
+        except Exception as _e:
+            send_telegram(f"❌ /close {_arg} failed: {_e}")
+
+
+
 def _handle_telegram_command(text: str) -> None:
     """Execute one bot command and reply via Telegram."""
     _parts = text.split()
@@ -3231,168 +3487,38 @@ def _handle_telegram_command(text: str) -> None:
         # cron scanner are separate processes in separate checkouts and
         # changing a literal needs an edit, a commit and a push -- none of
         # which is available to someone at work with only a phone.
-        _key = (_parts[1].lower() if len(_parts) > 1 else "")
-        _val = (_parts[2].lower() if len(_parts) > 2 else "")
-        if not _key:
-            _lines = ["🎛️ <b>Feature flags</b>", ""]
-            for _short, (_const, _desc) in TOGGLEABLE_FLAGS.items():
-                _on = flag(_const, globals().get(_const, True))
-                _lines.append(f"{'✅' if _on else '⛔'} <b>{_short}</b> — {'ON' if _on else 'OFF'}")
-                _lines.append(f"    <i>{_desc}</i>")
-            _lines += ["", "Send <b>/flags rvol off</b> to change one.",
-                       "Takes effect on the next scan — no restart needed."]
-            send_telegram("\n".join(_lines))
-        elif _key not in TOGGLEABLE_FLAGS:
-            send_telegram(f"❓ Unknown flag <b>{_key}</b>. "
-                          f"Known: {', '.join(sorted(TOGGLEABLE_FLAGS))}")
-        elif _val not in ("on", "off"):
-            send_telegram(f"❓ Say <b>/flags {_key} on</b> or <b>/flags {_key} off</b>.")
-        else:
-            _const, _desc = TOGGLEABLE_FLAGS[_key]
-            try:
-                set_flag(_const, _val == "on")
-                send_telegram(f"{'✅' if _val=='on' else '⛔'} <b>{_key} = {_val.upper()}</b>\n"
-                              f"{_desc}\n"
-                              f"Applies from the next scan. Send /flags to review.")
-            except Exception as _e:
-                send_telegram(f"❌ /flags failed: {_e}")
+        _tg_cmd_flags(_parts)
 
     elif _cmd == "halt":
-        _reason = " ".join(_parts[1:]) or "manual"
-        try:
-            with open(HALT_FILE, "w") as _f:
-                json.dump({"halted_at": datetime.now(ET).isoformat(),
-                           "reason": _reason}, _f)
-            send_telegram(f"🛑 <b>HALTED</b> — no new entries will be submitted "
-                          f"(reason: {_reason}). Exits/stops still enforced. "
-                          f"Send /resume to re-enable.")
-        except Exception as _e:
-            send_telegram(f"❌ /halt failed: {_e}")
+        _tg_cmd_halt(_parts)
 
     elif _cmd == "resume":
-        try:
-            if os.path.exists(HALT_FILE):
-                os.remove(HALT_FILE)
-                send_telegram("🟢 <b>RESUMED</b> — entries re-enabled.")
-            else:
-                send_telegram("🟢 Not halted — nothing to resume.")
-        except Exception as _e:
-            send_telegram(f"❌ /resume failed: {_e}")
+        _tg_cmd_resume()
 
     elif _cmd == "probation":
-        try:
-            _mult = float(_arg) if _arg else 0.5
-            with open(PROBATION_FILE, "w") as _f:
-                json.dump({"active": True, "size_mult": _mult,
-                           "started": datetime.now(ET).isoformat(),
-                           "note": " ".join(_parts[2:]) or "manual"}, _f)
-            send_telegram(f"🟡 <b>PROBATION ON</b> — sizing ×{_mult:.2f}. Bypasses the "
-                          f"consecutive-loss and monthly-loss guards only; daily loss "
-                          f"limit and /halt still apply. Send /endprobation to clear.")
-        except Exception as _e:
-            send_telegram(f"❌ /probation failed: {_e}")
+        _tg_cmd_probation(_arg, _parts)
 
     elif _cmd == "endprobation":
-        try:
-            if os.path.exists(PROBATION_FILE):
-                os.remove(PROBATION_FILE)
-                send_telegram("🟢 <b>PROBATION ENDED</b> — normal circuit breakers restored.")
-            else:
-                send_telegram("🟢 Not on probation — nothing to end.")
-        except Exception as _e:
-            send_telegram(f"❌ /endprobation failed: {_e}")
+        _tg_cmd_endprobation()
 
     elif _cmd == "setupprobation":
-        _setup_name = " ".join(_parts[1:]).strip()
-        if not _setup_name:
-            send_telegram("⚠️ Usage: /setupprobation SETUP NAME (e.g. /setupprobation Low Float Catalyst)")
-        else:
-            try:
-                _newly = _enter_setup_probation(_setup_name, "manual")
-                if _newly:
-                    send_telegram(
-                        f"🟡 <b>SETUP PROBATION ON</b> — {_setup_name}\n"
-                        f"+{SETUP_PROBATION_SCORE_BONUS}pts required on top of its normal bar "
-                        f"for {SETUP_PROBATION_MAX_DAYS}d. Send /endsetupprobation {_setup_name} to clear early."
-                    )
-                else:
-                    send_telegram(f"🟡 {_setup_name} is already restricted.")
-            except Exception as _e:
-                send_telegram(f"❌ /setupprobation failed: {_e}")
+        _tg_cmd_setupprobation(_parts)
 
     elif _cmd == "endsetupprobation":
-        _setup_name = " ".join(_parts[1:]).strip()
-        if not _setup_name:
-            send_telegram("⚠️ Usage: /endsetupprobation SETUP NAME")
-        else:
-            try:
-                state = _load_setup_probation()
-                if _setup_name in state:
-                    del state[_setup_name]
-                    _save_setup_probation(state)
-                    send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_setup_name} back to its normal bar.")
-                else:
-                    send_telegram(f"🟢 {_setup_name} isn't restricted — nothing to end.")
-            except Exception as _e:
-                send_telegram(f"❌ /endsetupprobation failed: {_e}")
+        _tg_cmd_endsetupprobation(_parts)
 
     elif _cmd == "status":
-        _h = "🛑 HALTED" if is_halted() else "🟢 active"
-        _prob_on, _prob_mult = is_on_probation()
-        if _prob_on:
-            _h += f"  |  🟡 PROBATION ×{_prob_mult:.2f}"
-        _setup_prob = _load_setup_probation()
-        if _setup_prob:
-            _h += f"  |  🟡 {len(_setup_prob)} setup(s) restricted: {', '.join(_setup_prob.keys())}"
-        try:
-            _acct = get_alpaca_client().get_account()
-            _eq   = float(_acct.equity)
-            _dt   = int(getattr(_acct, "daytrade_count", 0) or 0)
-            _acct_line = (f"Equity <b>${_eq:,.2f}</b>  "
-                          f"BP ${float(_acct.buying_power):,.2f}  "
-                          f"Day trades {_dt}/3")
-        except Exception:
-            _acct_line = "Alpaca unreachable"
-        _n_pos = len(PositionTracker().positions)
-        send_telegram(f"📊 <b>DMan status</b> — {_h}\n{_acct_line}\n"
-                      f"Tracked positions: {_n_pos}\n"
-                      f"Today P&L: {get_todays_loss():+.2f}%  "
-                      f"Month: {get_this_month_loss():+.2f}%")
+        _tg_cmd_status()
 
     elif _cmd == "positions":
-        _pt = PositionTracker()
-        if not _pt.positions:
-            send_telegram("📭 No tracked positions.")
-        else:
-            _lines = []
-            for _p in _pt.positions:
-                if _p.setup.startswith("Earnings "):
-                    _lines.append(f"<b>{_p.ticker}</b> [SPREAD] {_p.setup}  "
-                                  f"cost ${_p.entry:.0f}  max loss ${_p.max_loss:.0f}  "
-                                  f"max gain ${_p.max_gain:.0f}")
-                    continue
-                _tag = "OPT" if _p.setup.startswith("Options ") else _p.bias
-                _lines.append(f"<b>{_p.ticker}</b> [{_tag}] entry ${_p.entry}  "
-                              f"stop ${_p.stop}  T1 ${_p.target1}")
-            send_telegram("📋 <b>Open positions</b>\n" + "\n".join(_lines))
+        _tg_cmd_positions()
 
     elif _cmd == "pnl":
         send_telegram(f"💰 <b>P&L</b>\nToday: {get_todays_loss():+.2f}%\n"
                       f"Month: {get_this_month_loss():+.2f}%")
 
     elif _cmd in ("restart", "reboot"):
-        send_telegram("🔄 <b>Restart requested</b> — dispatching a fresh daemon session "
-                      "(automatically cancels any stuck/hung session first, same "
-                      "concurrency group). This works even if the current daemon is "
-                      "completely frozen.")
-        _ok, _msg = _trigger_workflow_restart("dman_daemon.yml")
-        if _ok:
-            send_telegram("✅ Fresh daemon session dispatched — should be live within a "
-                          "few minutes. You'll get the usual \"daemon ONLINE\" message "
-                          "once it starts.")
-        else:
-            send_telegram(f"❌ Restart dispatch failed: {_msg}\n"
-                          f"Fallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.")
+        _tg_cmd_restart()
 
     elif _cmd == "scan":
         # Dispatches dman_scanner.yml's own manual-trigger handler with
@@ -3407,15 +3533,7 @@ def _handle_telegram_command(text: str) -> None:
         # _submit_signals_to_alpaca() itself refuses to place real orders
         # (same guard every scheduled scan already relies on) -- fails
         # safe rather than needing a duplicate time check here.
-        send_telegram("🔍 <b>Scan requested</b> — dispatching an immediate scanner run "
-                      "(curated universe, real submission if the market's open). "
-                      "Results post the same way a scheduled scan would.")
-        _ok, _msg = _trigger_workflow_restart("dman_scanner.yml", inputs={"mode": "scan"})
-        if _ok:
-            send_telegram("✅ Scan dispatched — should start within a minute or two.")
-        else:
-            send_telegram(f"❌ Scan dispatch failed: {_msg}\n"
-                          f"Fallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.")
+        _tg_cmd_scan()
 
     elif _cmd == "review":
         # Dispatches dman_review.yml -- added 2026-08-21, direct instruction
@@ -3426,37 +3544,10 @@ def _handle_telegram_command(text: str) -> None:
         # construction: that workflow has contents:read (no write) and no
         # Alpaca credentials, so it's structurally unable to push code or
         # place a real trade regardless of what it decides to do.
-        send_telegram("🔎 <b>Review requested</b> — dispatching a session review now "
-                      "(report only, nothing gets pushed or traded automatically). "
-                      "Takes a few minutes — the report posts here when it's done.")
-        _ok, _msg = _trigger_workflow_restart("dman_review.yml")
-        if _ok:
-            send_telegram("✅ Review dispatched.")
-        else:
-            send_telegram(f"❌ Review dispatch failed: {_msg}\n"
-                          f"Fallback: GitHub app → Actions → DMan Session Review → Run workflow.")
+        _tg_cmd_review()
 
     elif _cmd == "close" and _arg:
-        _pt  = PositionTracker()
-        _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
-        if _pos is None:
-            send_telegram(f"❓ /close: no tracked position for {_arg}")
-        elif _pos.setup.startswith("Earnings "):
-            _st, _oid = _close_earnings_spread(asdict(_pos), f"manual /close {_arg}")
-            send_telegram(f"📤 /close {_arg}: {_st}"
-                          + (f" (id {_oid[:8]}…)" if _oid else ""))
-        elif _pos.setup.startswith("Options "):
-            _occ_c  = _pos.setup.split()[2]
-            _ctrs_c = max(1, int(_pos.shares) // 100)
-            _st, _oid = _submit_options_close(_occ_c, _ctrs_c, f"manual /close {_arg}")
-            send_telegram(f"📤 /close {_arg}: {_st}"
-                          + (f" (id {_oid[:8]}…)" if _oid else ""))
-        else:
-            try:
-                get_alpaca_client().close_position(_arg)
-                send_telegram(f"📤 /close {_arg}: equity close submitted")
-            except Exception as _e:
-                send_telegram(f"❌ /close {_arg} failed: {_e}")
+        _tg_cmd_close(_arg)
 
     elif _cmd == "why" and _arg:
         try:

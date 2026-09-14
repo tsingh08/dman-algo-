@@ -66,7 +66,8 @@ jobs:
         run: |
           python golden/submit_signals_harness.py check | tee /tmp/g1.txt
           python golden/monitor_option_harness.py check | tee /tmp/g2.txt
-          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt
+          python golden/callee_harness.py telegram check | tee /tmp/g3.txt
+          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt
 
       - name: Regression suite (test_dman_algo.py)
         env:

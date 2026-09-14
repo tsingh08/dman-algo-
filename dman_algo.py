@@ -21714,6 +21714,372 @@ def _submission_risk_multiplier(size_mult: float) -> float:
     return _risk_off_mult
 
 
+def _submit_path_options_attempt(_opt_contract, _risk_off_mult, _use_options, _use_puts, cur, oid, sig):
+    """Try to express the signal as a long call: budget clamp, aggregate cap, viability floor, contract selection and submit.
+
+    Extracted verbatim from _submit_signals_to_alpaca()'s per-signal loop on
+    2026-09-14. Returns (skip, *state): skip=True is the original
+    `continue`. State passed in and handed back: _opt_contract, _use_options, _use_puts, oid.
+    """
+    if _use_options:
+        _opt_client = get_alpaca_client()
+        if _opt_client:
+            _opt_risk = _clamp_option_budget(
+                _options_position_budget(sig) * _risk_off_mult)
+            _agg = _options_aggregate_room(_opt_risk)
+            if _agg:
+                print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
+                if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                    send_telegram(
+                        f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
+                        f"A long option has no stop, so concurrent premium is "
+                        f"simultaneous max loss. Waiting for an open position to close.")
+                return True, _opt_contract, _use_options, _use_puts, oid
+            if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:
+                print(f"  💸 {sig.ticker}: options budget ${_opt_risk:.0f} < "
+                      f"${OPTIONS_MIN_VIABLE_BUDGET:.0f} — too small to buy a real "
+                      f"contract, not attempting")
+                _use_options = False
+            else:
+                print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
+                try:
+                    oid, _opt_contract = _submit_options_call(
+                        _opt_client, sig.ticker, cur, _opt_risk, sig
+                    )
+                except Exception as _opt_exc:
+                    print(f"  ⚠️  Options error ({sig.ticker}): {_opt_exc} — falling back to shares")
+                    oid = None
+                if oid is None:
+                    print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
+                    _use_options = False
+
+    elif _use_puts:
+        _opt_client = get_alpaca_client()
+        if _opt_client:
+            _opt_risk = _clamp_option_budget(
+                _options_position_budget(sig) * _risk_off_mult)
+            _agg = _options_aggregate_room(_opt_risk)
+            if _agg:
+                print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
+                if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                    send_telegram(
+                        f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
+                        f"A long option has no stop, so concurrent premium is "
+                        f"simultaneous max loss. Waiting for an open position to close.")
+                return True, _opt_contract, _use_options, _use_puts, oid
+            print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
+            try:
+                oid, _opt_contract = _submit_options_put(
+                    _opt_client, sig.ticker, cur, _opt_risk, sig
+                )
+            except Exception as _opt_exc:
+                print(f"  ⚠️  Put options error ({sig.ticker}): {_opt_exc} — skipping")
+                oid = None
+            if oid is None:
+                print(f"  ↩️  Put options unavailable for {sig.ticker} — SHORT signal skipped (ALLOW_SHORTS=False)")
+                _use_puts = False
+    return False, _opt_contract, _use_options, _use_puts, oid
+
+
+def _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attempted, _submit_err, _use_options, _use_puts, oid, sig):
+    """Shares path once options are not in play: watchlist/low-float fallback guard, PDT-zero naked-shares gate, and the equity submit.
+
+    Extracted verbatim from _submit_signals_to_alpaca()'s per-signal loop on
+    2026-09-14. Returns (skip, *state): skip=True is the original
+    `continue`. State passed in and handed back: _naked_open, _submit_err, oid.
+    """
+    if not _use_options and not _use_puts:
+        if sig.bias == "SHORT" and not ALLOW_SHORTS:
+            if _options_was_attempted:
+                # The WATCHLIST/Bear-Gap-Hold gate passed and a put search
+                # was actually attempted above but came back empty (e.g.
+                # ADV/liquidity floor) — say so accurately instead of
+                # implying the gate itself blocked it. Confirmed live
+                # 2026-08-31: HWM printed this exact stale message despite
+                # passing the Bear Gap Hold gate, only to fail the ADV
+                # check inside _submit_options_put — misleading for
+                # after-the-fact review of why a play was missed.
+                print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — no put contract "
+                      f"available (ADV/liquidity) and ALLOW_SHORTS=False, so no shares "
+                      f"fallback either")
+            else:
+                print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
+                      f"not in WATCHLIST, and not a Bear Gap Hold signal")
+            return True, _naked_open, _submit_err, oid
+        # Shares-fallback policy (2026-08-05, tightened 2026-08-21): grow
+        # the account on options, not on buying shares outright. DMan's
+        # own curated small-cap watchlist is the one deliberate
+        # exception — those are exactly the cheap, thin-float gap-ups
+        # where "buy a lot of shares" IS the play (and where options
+        # usually aren't liquid enough to exist anyway).
+        #
+        # Removed 2026-08-21: a budget-capped shares fallback for
+        # options-eligible-but-unfillable signals on NON-watchlist
+        # tickers (added 2026-08-08 so a valid signal never produced
+        # zero trade). Direct instruction after NDSN — a large
+        # industrial name, nothing like a low-float catalyst play —
+        # bought as a single $334 share this exact way when its Gap &
+        # Hold options attempt found no fill: shares should only ever
+        # happen for a real low-float catalyst (the watchlist OR
+        # setup exception below — see _shares_fallback_allowed()'s
+        # docstring for the PMI incident that added the setup half),
+        # everything else skips outright rather than settle for a
+        # consolation equity position.
+        # Checked BEFORE _shares_fallback_allowed below, deliberately.
+        # That guard reserves shares for DMan watchlist picks and low-float
+        # catalysts during normal operation. At a zero PDT budget the
+        # naked-shares gate is both stricter and better informed, so it
+        # decides -- and it has to be reachable to do so. Ordered the other
+        # way, a market-wide discovery (never on the watchlist by
+        # definition) was refused above and the gate never ran.
+        if _options_only_overnight and not getattr(sig, "no_stop_entry", False):
+            # Zero day-trade budget: the SHARES fallback is exactly what
+            # must not happen here. Shares get a broker-side stop that
+            # can fill the same session, and that fill IS the day trade
+            # the options-only mode exists to avoid.
+            #
+            # Confirmed live 2026-09-04. _signal_can_use_options() passed
+            # APVO/ARTL/CAST/TRVI/LABT because their setup is in
+            # OPTIONS_SETUPS -- structurally options-eligible -- but none
+            # of those tickers HAS a listed option chain, so all five
+            # fell straight through to shares and became real day trades
+            # against a 0/3 budget. Structural eligibility is not the
+            # same as an option actually existing, and only the attempt
+            # can tell the difference, so the block belongs here (after
+            # the attempt failed) rather than in the predicate.
+            #
+            # The one exception is a signal carrying no_stop_entry, set
+            # only by _genuine_shares_case() in the zero-PDT branch above.
+            # That path places NO sell-side order whatsoever, so it cannot
+            # round-trip today and the reasoning here does not apply to
+            # it -- it pays for that with an unprotected overnight instead.
+            #
+            # This is also the ONLY point in the pipeline that knows an
+            # option does not really exist for this name. The pre-attempt
+            # branch cannot know it -- _signal_can_use_options() answers
+            # the STRUCTURAL question, and the names that need shares most
+            # (no listed chain at all) pass it and fail here instead.
+            # Confirmed live 2026-09-09: ONCO, ELAB, ATOS and APVO all
+            # reached this block, so a genuine-case check that ran only
+            # upstream never saw a single one of them.
+            _naked_ok, _naked_why = False, "an unprotected position is already open"
+            if not _naked_open:
+                _naked_ok, _naked_why = _genuine_shares_case(sig)
+            if _naked_ok:
+                sig.no_stop_entry = True
+                sig.swing_mode    = True
+                sig.shares = _pdt_zero_share_size(sig.entry, get_effective_account())
+                sig.cost   = round(sig.shares * sig.entry, 2)
+                if sig.shares <= 0:
+                    print(f"  \u23ed\ufe0f  {sig.ticker}: naked-share size rounds to 0 "
+                          f"at ${sig.entry:.2f} — skipping")
+                    return True, _naked_open, _submit_err, oid
+                _naked_open = True
+                print(f"  \U0001fa79 {sig.ticker}: no option exists, but genuine case "
+                      f"({_naked_why}) — {sig.shares}sh, NO stop today")
+                send_telegram(
+                    "\U0001fa79 <b>PDT-ZERO SHARES</b> — genuine case, entered "
+                    "WITHOUT a stop\n"
+                    f"<b>{sig.ticker}</b> {sig.shares}sh @ ${sig.entry:.2f} "
+                    f"(${sig.cost:,.0f})\n<i>{html.escape(_naked_why)}</i>\n\n"
+                    "No options chain exists, so this could not be an option. No "
+                    "stop today: a same-day stop fill would be day trade #4. Sized "
+                    f"so a -{PDT_ZERO_SHARES_ASSUMED_GAP*100:.0f}% overnight gap "
+                    f"costs about ${get_effective_account()*MAX_TRADE_LOSS_PCT:,.0f}.\n"
+                    "<b>Unprotected until a stop goes on next session.</b>")
+                oid, _submit_err = submit_alpaca_trade(sig)
+            else:
+                print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
+                      f"no shares ({_naked_why})")
+                if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
+                    send_telegram(
+                        f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
+                        f"day-trade budget is 0.\n{html.escape(_naked_why)}."
+                    )
+                return True, _naked_open, _submit_err, oid
+        elif (not _shares_fallback_allowed(sig.ticker, sig.setup)
+                and not getattr(sig, "no_stop_entry", False)):
+            print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
+                  f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
+                  f"for DMan picks and low-float catalysts only)")
+            if _options_was_attempted:
+                send_telegram(
+                    f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
+                    f"Options attempted and unavailable, and shares are reserved for DMan's "
+                    f"low-float watchlist picks only. No trade placed."
+                )
+            return True, _naked_open, _submit_err, oid
+        else:
+            oid, _submit_err = submit_alpaca_trade(sig)
+    return False, _naked_open, _submit_err, oid
+
+
+def _submit_path_record_fill(_opt_contract, _submit_err, _use_options, _use_puts, cur, mode_label, oid, pt, sig, submitted):
+    """After a successful submit: open the tracker record (options or shares), persist it, and send the entry Telegram.
+
+    Extracted verbatim from _submit_signals_to_alpaca()'s per-signal loop on
+    2026-09-14. Returns (skip, *state): skip=True is the original
+    `continue`. State passed in and handed back: submitted.
+    """
+    if oid:
+        if (_use_options or _use_puts) and _opt_contract:
+            _occ     = _opt_contract.get("occ_symbol", "")
+            _exp_str = _opt_contract.get("expiry", "?")
+            _strike  = _opt_contract.get("strike", 0)
+            _ask     = _opt_contract.get("ask", 0)
+            _ctrs    = _opt_contract.get("contracts", 1)
+            _delta   = _opt_contract.get("delta", 0)
+            _theta   = _opt_contract.get("theta", 0)
+            _gamma   = _opt_contract.get("gamma", 0)
+            _vega    = _opt_contract.get("vega", 0)
+            _iv      = _opt_contract.get("iv", 0)
+            _oi      = _opt_contract.get("oi", 0)
+            _bsz     = _opt_contract.get("bid_size", 0)
+            _asz     = _opt_contract.get("ask_size", 0)
+            _pc      = _opt_contract.get("pc_ratio", 1.0)
+            _flow    = _opt_contract.get("flow_label", "")
+            _dom_k   = _opt_contract.get("dominant_call_strike", 0)
+            _opt_type = _opt_contract.get("option_type", "CALL")   # CALL or PUT
+            _t1_prem = round(_ask * 1.5, 2)   # +50% premium = T1 (realistic for ITM delta 0.70)
+            _t2_prem = round(_ask * 2.5, 2)   # +150% premium = T2 (full runner)
+            _sl_prem = round(_ask * 0.50, 2)  # -50% stop
+            _theta_pct_day = abs(_theta / _ask * 100) if _ask > 0 else 0
+            _strike_dir = "P" if _opt_type == "PUT" else "C"
+
+            _tracked = pt.open(OpenPosition(
+                ticker     = sig.ticker,
+                bias       = "LONG" if _use_options else "SHORT",
+                setup      = f"Options {_opt_type.title()} {_occ} (${_strike}{_strike_dir} exp {_exp_str})",
+                entry      = _ask,
+                stop       = _sl_prem,
+                target1    = _t1_prem,
+                target2    = _t2_prem,
+                shares     = _ctrs * 100,
+                entry_date = _et_today().isoformat(),
+                atr        = _delta,
+                score      = sig.confluence_score,
+                # NOT day_only when the signal was switched to swing:
+                # the two are contradictory and day_only used to win.
+                # Confirmed live 2026-09-04, and it is what actually
+                # broke the PDT budget that session: five entries were
+                # deliberately submitted as GTC SWINGS (because the
+                # budget was already 0/3, so an overnight hold is the
+                # only safe kind of entry) and then _force_close_day_
+                # only_positions() flattened three of them at 15:45 ET
+                # anyway -- CAST, TRVI and LABT all show a market SELL
+                # at 19:45 UTC. That turned three intended swings into
+                # three same-day round trips, i.e. exactly the day
+                # trades swing mode existed to avoid.
+                day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
+                              and not getattr(sig, "swing_mode", False)),
+                # Recomputed rather than threaded down from the budget:
+                # _elevated_size_reason() is a cheap pure check, so the
+                # flag can never drift from the rule that actually
+                # governs the tier. It is what MAX_ELEVATED_
+                # POSITIONS counts, so this would silently
+                # un-cap concurrency if it were wrong.
+                elevated_size = _elevated_size_reason(sig) is not None,
+            ))
+            if not _tracked:
+                print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} options order {oid[:8]}")
+                send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} options order {oid[:8]} cancelled (portfolio full, no tracking slot available)")
+                try:
+                    _cc = get_alpaca_client()
+                    if _cc:
+                        _cc.cancel_order_by_id(oid)
+                except Exception as _ce:
+                    send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
+                return True, submitted
+            submitted += 1
+            # OPRA data subscription not entitled on this account (confirmed
+            # live 2026-08-08) -- when the broker can't supply real Greeks,
+            # _find_best_call/put_contract fills delta from a Black-Scholes
+            # estimate instead of blocking the trade. Flagged here so this
+            # never reads as a real broker-quoted delta.
+            _delta_note = " (Δ est. — OPRA not entitled)" if _opt_contract.get("delta_estimated") else ""
+            _greek_str = (
+                f"Δ {_delta:.2f}  Γ {_gamma:.4f}  θ {_theta:.3f}/d  "
+                f"ν {_vega:.3f}  IV {_iv*100:.0f}%  OI {_oi:,}{_delta_note}"
+            )
+            _l2_str = (
+                f"L2: bid {_bsz}×{_opt_contract.get('bid',0):.2f}  "
+                f"ask {_asz}×{_ask:.2f}  "
+                f"P/C {_pc:.2f} ({_flow})"
+                + (f"  Dominant strike ${_dom_k}" if _dom_k else "")
+            )
+            _icon = "🐻" if _opt_type == "PUT" else "🎯"
+            send_telegram(
+                f"{_icon} <b>Options order placed</b> [{mode_label}] — {sig.ticker} {_opt_type}\n"
+                f"Contract: <b>{_occ}</b>\n"
+                f"Strike ${_strike}  Exp {_exp_str}  ({_opt_contract.get('dte','?')}d)\n"
+                f"Premium: ${_ask}/sh × {_ctrs}ct = <b>${_opt_contract['total_cost']:.0f}</b>  "
+                f"(θ decay {_theta_pct_day:.1f}%/day)\n"
+                f"T1 (+50%): ${_t1_prem}  T2 (+150%): ${_t2_prem}  Stop (-50%): ${_sl_prem}\n"
+                f"{_greek_str}\n"
+                f"{_l2_str}\n"
+                f"Underlying: ${cur:.2f}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+            )
+        else:
+            _setup_tag = ("SWING — " + sig.setup) if sig.swing_mode else sig.setup
+            _tracked = pt.open(OpenPosition(
+                ticker     = sig.ticker,
+                bias       = sig.bias,
+                setup      = _setup_tag,
+                entry      = sig.entry,
+                stop       = sig.stop,
+                target1    = sig.target1,
+                target2    = sig.target2,
+                shares     = sig.shares,
+                entry_date = _et_today().isoformat(),
+                atr        = sig.atr,
+                score      = sig.confluence_score,
+                # NOT day_only when the signal was switched to swing:
+                # the two are contradictory and day_only used to win.
+                # Confirmed live 2026-09-04, and it is what actually
+                # broke the PDT budget that session: five entries were
+                # deliberately submitted as GTC SWINGS (because the
+                # budget was already 0/3, so an overnight hold is the
+                # only safe kind of entry) and then _force_close_day_
+                # only_positions() flattened three of them at 15:45 ET
+                # anyway -- CAST, TRVI and LABT all show a market SELL
+                # at 19:45 UTC. That turned three intended swings into
+                # three same-day round trips, i.e. exactly the day
+                # trades swing mode existed to avoid.
+                day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
+                              and not getattr(sig, "swing_mode", False)),
+            ))
+            if not _tracked:
+                print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} order {oid[:8]}")
+                send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} order {oid[:8]} cancelled (portfolio full)")
+                try:
+                    _cc = get_alpaca_client()
+                    if _cc:
+                        _cc.cancel_order_by_id(oid)
+                except Exception as _ce:
+                    send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
+                return True, submitted
+            submitted += 1
+            if sig.swing_mode:
+                send_telegram(
+                    f"🔄 <b>SWING Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                    f"GTC Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1} (monitor tomorrow)\n"
+                    f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…\n"
+                    f"<i>PDT budget preserved — position held overnight, managed by momentum-watch</i>"
+                )
+            else:
+                send_telegram(
+                    f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                    f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
+                    f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+                )
+    else:
+        send_telegram(
+            f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+            f"{_submit_err or 'Alpaca rejected the order — check GitHub Actions logs immediately.'}"
+        )
+    return False, submitted
+
+
 def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) -> None:
     """
     Validate entry prices and submit passing signals to Alpaca (paper or live).
@@ -21981,344 +22347,17 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         _submit_err: str | None = None
         _options_was_attempted = _use_options or _use_puts
 
-        if _use_options:
-            _opt_client = get_alpaca_client()
-            if _opt_client:
-                _opt_risk = _clamp_option_budget(
-                    _options_position_budget(sig) * _risk_off_mult)
-                _agg = _options_aggregate_room(_opt_risk)
-                if _agg:
-                    print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
-                    if not _is_duplicate_alert("__OPT_AGG_CAP__"):
-                        send_telegram(
-                            f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
-                            f"A long option has no stop, so concurrent premium is "
-                            f"simultaneous max loss. Waiting for an open position to close.")
-                    continue
-                if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:
-                    print(f"  💸 {sig.ticker}: options budget ${_opt_risk:.0f} < "
-                          f"${OPTIONS_MIN_VIABLE_BUDGET:.0f} — too small to buy a real "
-                          f"contract, not attempting")
-                    _use_options = False
-                else:
-                    print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
-                    try:
-                        oid, _opt_contract = _submit_options_call(
-                            _opt_client, sig.ticker, cur, _opt_risk, sig
-                        )
-                    except Exception as _opt_exc:
-                        print(f"  ⚠️  Options error ({sig.ticker}): {_opt_exc} — falling back to shares")
-                        oid = None
-                    if oid is None:
-                        print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
-                        _use_options = False
+        _skip_options_attempt, _opt_contract, _use_options, _use_puts, oid = _submit_path_options_attempt(_opt_contract, _risk_off_mult, _use_options, _use_puts, cur, oid, sig)
+        if _skip_options_attempt:
+            continue
 
-        elif _use_puts:
-            _opt_client = get_alpaca_client()
-            if _opt_client:
-                _opt_risk = _clamp_option_budget(
-                    _options_position_budget(sig) * _risk_off_mult)
-                _agg = _options_aggregate_room(_opt_risk)
-                if _agg:
-                    print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
-                    if not _is_duplicate_alert("__OPT_AGG_CAP__"):
-                        send_telegram(
-                            f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
-                            f"A long option has no stop, so concurrent premium is "
-                            f"simultaneous max loss. Waiting for an open position to close.")
-                    continue
-                print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
-                try:
-                    oid, _opt_contract = _submit_options_put(
-                        _opt_client, sig.ticker, cur, _opt_risk, sig
-                    )
-                except Exception as _opt_exc:
-                    print(f"  ⚠️  Put options error ({sig.ticker}): {_opt_exc} — skipping")
-                    oid = None
-                if oid is None:
-                    print(f"  ↩️  Put options unavailable for {sig.ticker} — SHORT signal skipped (ALLOW_SHORTS=False)")
-                    _use_puts = False
+        _skip_shares, _naked_open, _submit_err, oid = _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attempted, _submit_err, _use_options, _use_puts, oid, sig)
+        if _skip_shares:
+            continue
 
-        if not _use_options and not _use_puts:
-            if sig.bias == "SHORT" and not ALLOW_SHORTS:
-                if _options_was_attempted:
-                    # The WATCHLIST/Bear-Gap-Hold gate passed and a put search
-                    # was actually attempted above but came back empty (e.g.
-                    # ADV/liquidity floor) — say so accurately instead of
-                    # implying the gate itself blocked it. Confirmed live
-                    # 2026-08-31: HWM printed this exact stale message despite
-                    # passing the Bear Gap Hold gate, only to fail the ADV
-                    # check inside _submit_options_put — misleading for
-                    # after-the-fact review of why a play was missed.
-                    print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — no put contract "
-                          f"available (ADV/liquidity) and ALLOW_SHORTS=False, so no shares "
-                          f"fallback either")
-                else:
-                    print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
-                          f"not in WATCHLIST, and not a Bear Gap Hold signal")
-                continue
-            # Shares-fallback policy (2026-08-05, tightened 2026-08-21): grow
-            # the account on options, not on buying shares outright. DMan's
-            # own curated small-cap watchlist is the one deliberate
-            # exception — those are exactly the cheap, thin-float gap-ups
-            # where "buy a lot of shares" IS the play (and where options
-            # usually aren't liquid enough to exist anyway).
-            #
-            # Removed 2026-08-21: a budget-capped shares fallback for
-            # options-eligible-but-unfillable signals on NON-watchlist
-            # tickers (added 2026-08-08 so a valid signal never produced
-            # zero trade). Direct instruction after NDSN — a large
-            # industrial name, nothing like a low-float catalyst play —
-            # bought as a single $334 share this exact way when its Gap &
-            # Hold options attempt found no fill: shares should only ever
-            # happen for a real low-float catalyst (the watchlist OR
-            # setup exception below — see _shares_fallback_allowed()'s
-            # docstring for the PMI incident that added the setup half),
-            # everything else skips outright rather than settle for a
-            # consolation equity position.
-            # Checked BEFORE _shares_fallback_allowed below, deliberately.
-            # That guard reserves shares for DMan watchlist picks and low-float
-            # catalysts during normal operation. At a zero PDT budget the
-            # naked-shares gate is both stricter and better informed, so it
-            # decides -- and it has to be reachable to do so. Ordered the other
-            # way, a market-wide discovery (never on the watchlist by
-            # definition) was refused above and the gate never ran.
-            if _options_only_overnight and not getattr(sig, "no_stop_entry", False):
-                # Zero day-trade budget: the SHARES fallback is exactly what
-                # must not happen here. Shares get a broker-side stop that
-                # can fill the same session, and that fill IS the day trade
-                # the options-only mode exists to avoid.
-                #
-                # Confirmed live 2026-09-04. _signal_can_use_options() passed
-                # APVO/ARTL/CAST/TRVI/LABT because their setup is in
-                # OPTIONS_SETUPS -- structurally options-eligible -- but none
-                # of those tickers HAS a listed option chain, so all five
-                # fell straight through to shares and became real day trades
-                # against a 0/3 budget. Structural eligibility is not the
-                # same as an option actually existing, and only the attempt
-                # can tell the difference, so the block belongs here (after
-                # the attempt failed) rather than in the predicate.
-                #
-                # The one exception is a signal carrying no_stop_entry, set
-                # only by _genuine_shares_case() in the zero-PDT branch above.
-                # That path places NO sell-side order whatsoever, so it cannot
-                # round-trip today and the reasoning here does not apply to
-                # it -- it pays for that with an unprotected overnight instead.
-                #
-                # This is also the ONLY point in the pipeline that knows an
-                # option does not really exist for this name. The pre-attempt
-                # branch cannot know it -- _signal_can_use_options() answers
-                # the STRUCTURAL question, and the names that need shares most
-                # (no listed chain at all) pass it and fail here instead.
-                # Confirmed live 2026-09-09: ONCO, ELAB, ATOS and APVO all
-                # reached this block, so a genuine-case check that ran only
-                # upstream never saw a single one of them.
-                _naked_ok, _naked_why = False, "an unprotected position is already open"
-                if not _naked_open:
-                    _naked_ok, _naked_why = _genuine_shares_case(sig)
-                if _naked_ok:
-                    sig.no_stop_entry = True
-                    sig.swing_mode    = True
-                    sig.shares = _pdt_zero_share_size(sig.entry, get_effective_account())
-                    sig.cost   = round(sig.shares * sig.entry, 2)
-                    if sig.shares <= 0:
-                        print(f"  \u23ed\ufe0f  {sig.ticker}: naked-share size rounds to 0 "
-                              f"at ${sig.entry:.2f} — skipping")
-                        continue
-                    _naked_open = True
-                    print(f"  \U0001fa79 {sig.ticker}: no option exists, but genuine case "
-                          f"({_naked_why}) — {sig.shares}sh, NO stop today")
-                    send_telegram(
-                        "\U0001fa79 <b>PDT-ZERO SHARES</b> — genuine case, entered "
-                        "WITHOUT a stop\n"
-                        f"<b>{sig.ticker}</b> {sig.shares}sh @ ${sig.entry:.2f} "
-                        f"(${sig.cost:,.0f})\n<i>{html.escape(_naked_why)}</i>\n\n"
-                        "No options chain exists, so this could not be an option. No "
-                        "stop today: a same-day stop fill would be day trade #4. Sized "
-                        f"so a -{PDT_ZERO_SHARES_ASSUMED_GAP*100:.0f}% overnight gap "
-                        f"costs about ${get_effective_account()*MAX_TRADE_LOSS_PCT:,.0f}.\n"
-                        "<b>Unprotected until a stop goes on next session.</b>")
-                    oid, _submit_err = submit_alpaca_trade(sig)
-                else:
-                    print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
-                          f"no shares ({_naked_why})")
-                    if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
-                        send_telegram(
-                            f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
-                            f"day-trade budget is 0.\n{html.escape(_naked_why)}."
-                        )
-                    continue
-            elif (not _shares_fallback_allowed(sig.ticker, sig.setup)
-                    and not getattr(sig, "no_stop_entry", False)):
-                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
-                      f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
-                      f"for DMan picks and low-float catalysts only)")
-                if _options_was_attempted:
-                    send_telegram(
-                        f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
-                        f"Options attempted and unavailable, and shares are reserved for DMan's "
-                        f"low-float watchlist picks only. No trade placed."
-                    )
-                continue
-            else:
-                oid, _submit_err = submit_alpaca_trade(sig)
-
-        if oid:
-            if (_use_options or _use_puts) and _opt_contract:
-                _occ     = _opt_contract.get("occ_symbol", "")
-                _exp_str = _opt_contract.get("expiry", "?")
-                _strike  = _opt_contract.get("strike", 0)
-                _ask     = _opt_contract.get("ask", 0)
-                _ctrs    = _opt_contract.get("contracts", 1)
-                _delta   = _opt_contract.get("delta", 0)
-                _theta   = _opt_contract.get("theta", 0)
-                _gamma   = _opt_contract.get("gamma", 0)
-                _vega    = _opt_contract.get("vega", 0)
-                _iv      = _opt_contract.get("iv", 0)
-                _oi      = _opt_contract.get("oi", 0)
-                _bsz     = _opt_contract.get("bid_size", 0)
-                _asz     = _opt_contract.get("ask_size", 0)
-                _pc      = _opt_contract.get("pc_ratio", 1.0)
-                _flow    = _opt_contract.get("flow_label", "")
-                _dom_k   = _opt_contract.get("dominant_call_strike", 0)
-                _opt_type = _opt_contract.get("option_type", "CALL")   # CALL or PUT
-                _t1_prem = round(_ask * 1.5, 2)   # +50% premium = T1 (realistic for ITM delta 0.70)
-                _t2_prem = round(_ask * 2.5, 2)   # +150% premium = T2 (full runner)
-                _sl_prem = round(_ask * 0.50, 2)  # -50% stop
-                _theta_pct_day = abs(_theta / _ask * 100) if _ask > 0 else 0
-                _strike_dir = "P" if _opt_type == "PUT" else "C"
-
-                _tracked = pt.open(OpenPosition(
-                    ticker     = sig.ticker,
-                    bias       = "LONG" if _use_options else "SHORT",
-                    setup      = f"Options {_opt_type.title()} {_occ} (${_strike}{_strike_dir} exp {_exp_str})",
-                    entry      = _ask,
-                    stop       = _sl_prem,
-                    target1    = _t1_prem,
-                    target2    = _t2_prem,
-                    shares     = _ctrs * 100,
-                    entry_date = _et_today().isoformat(),
-                    atr        = _delta,
-                    score      = sig.confluence_score,
-                    # NOT day_only when the signal was switched to swing:
-                    # the two are contradictory and day_only used to win.
-                    # Confirmed live 2026-09-04, and it is what actually
-                    # broke the PDT budget that session: five entries were
-                    # deliberately submitted as GTC SWINGS (because the
-                    # budget was already 0/3, so an overnight hold is the
-                    # only safe kind of entry) and then _force_close_day_
-                    # only_positions() flattened three of them at 15:45 ET
-                    # anyway -- CAST, TRVI and LABT all show a market SELL
-                    # at 19:45 UTC. That turned three intended swings into
-                    # three same-day round trips, i.e. exactly the day
-                    # trades swing mode existed to avoid.
-                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
-                                  and not getattr(sig, "swing_mode", False)),
-                    # Recomputed rather than threaded down from the budget:
-                    # _elevated_size_reason() is a cheap pure check, so the
-                    # flag can never drift from the rule that actually
-                    # governs the tier. It is what MAX_ELEVATED_
-                    # POSITIONS counts, so this would silently
-                    # un-cap concurrency if it were wrong.
-                    elevated_size = _elevated_size_reason(sig) is not None,
-                ))
-                if not _tracked:
-                    print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} options order {oid[:8]}")
-                    send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} options order {oid[:8]} cancelled (portfolio full, no tracking slot available)")
-                    try:
-                        _cc = get_alpaca_client()
-                        if _cc:
-                            _cc.cancel_order_by_id(oid)
-                    except Exception as _ce:
-                        send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
-                    continue
-                submitted += 1
-                # OPRA data subscription not entitled on this account (confirmed
-                # live 2026-08-08) -- when the broker can't supply real Greeks,
-                # _find_best_call/put_contract fills delta from a Black-Scholes
-                # estimate instead of blocking the trade. Flagged here so this
-                # never reads as a real broker-quoted delta.
-                _delta_note = " (Δ est. — OPRA not entitled)" if _opt_contract.get("delta_estimated") else ""
-                _greek_str = (
-                    f"Δ {_delta:.2f}  Γ {_gamma:.4f}  θ {_theta:.3f}/d  "
-                    f"ν {_vega:.3f}  IV {_iv*100:.0f}%  OI {_oi:,}{_delta_note}"
-                )
-                _l2_str = (
-                    f"L2: bid {_bsz}×{_opt_contract.get('bid',0):.2f}  "
-                    f"ask {_asz}×{_ask:.2f}  "
-                    f"P/C {_pc:.2f} ({_flow})"
-                    + (f"  Dominant strike ${_dom_k}" if _dom_k else "")
-                )
-                _icon = "🐻" if _opt_type == "PUT" else "🎯"
-                send_telegram(
-                    f"{_icon} <b>Options order placed</b> [{mode_label}] — {sig.ticker} {_opt_type}\n"
-                    f"Contract: <b>{_occ}</b>\n"
-                    f"Strike ${_strike}  Exp {_exp_str}  ({_opt_contract.get('dte','?')}d)\n"
-                    f"Premium: ${_ask}/sh × {_ctrs}ct = <b>${_opt_contract['total_cost']:.0f}</b>  "
-                    f"(θ decay {_theta_pct_day:.1f}%/day)\n"
-                    f"T1 (+50%): ${_t1_prem}  T2 (+150%): ${_t2_prem}  Stop (-50%): ${_sl_prem}\n"
-                    f"{_greek_str}\n"
-                    f"{_l2_str}\n"
-                    f"Underlying: ${cur:.2f}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
-                )
-            else:
-                _setup_tag = ("SWING — " + sig.setup) if sig.swing_mode else sig.setup
-                _tracked = pt.open(OpenPosition(
-                    ticker     = sig.ticker,
-                    bias       = sig.bias,
-                    setup      = _setup_tag,
-                    entry      = sig.entry,
-                    stop       = sig.stop,
-                    target1    = sig.target1,
-                    target2    = sig.target2,
-                    shares     = sig.shares,
-                    entry_date = _et_today().isoformat(),
-                    atr        = sig.atr,
-                    score      = sig.confluence_score,
-                    # NOT day_only when the signal was switched to swing:
-                    # the two are contradictory and day_only used to win.
-                    # Confirmed live 2026-09-04, and it is what actually
-                    # broke the PDT budget that session: five entries were
-                    # deliberately submitted as GTC SWINGS (because the
-                    # budget was already 0/3, so an overnight hold is the
-                    # only safe kind of entry) and then _force_close_day_
-                    # only_positions() flattened three of them at 15:45 ET
-                    # anyway -- CAST, TRVI and LABT all show a market SELL
-                    # at 19:45 UTC. That turned three intended swings into
-                    # three same-day round trips, i.e. exactly the day
-                    # trades swing mode existed to avoid.
-                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
-                                  and not getattr(sig, "swing_mode", False)),
-                ))
-                if not _tracked:
-                    print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} order {oid[:8]}")
-                    send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} order {oid[:8]} cancelled (portfolio full)")
-                    try:
-                        _cc = get_alpaca_client()
-                        if _cc:
-                            _cc.cancel_order_by_id(oid)
-                    except Exception as _ce:
-                        send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
-                    continue
-                submitted += 1
-                if sig.swing_mode:
-                    send_telegram(
-                        f"🔄 <b>SWING Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                        f"GTC Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1} (monitor tomorrow)\n"
-                        f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…\n"
-                        f"<i>PDT budget preserved — position held overnight, managed by momentum-watch</i>"
-                    )
-                else:
-                    send_telegram(
-                        f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                        f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
-                        f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
-                    )
-        else:
-            send_telegram(
-                f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                f"{_submit_err or 'Alpaca rejected the order — check GitHub Actions logs immediately.'}"
-            )
+        _skip_record_fill, submitted = _submit_path_record_fill(_opt_contract, _submit_err, _use_options, _use_puts, cur, mode_label, oid, pt, sig, submitted)
+        if _skip_record_fill:
+            continue
 
     print(f"  📤 {submitted}/{len(signals)} signal(s) submitted [{mode_label}]\n")
 

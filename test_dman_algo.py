@@ -6046,7 +6046,7 @@ class TestPerTickerBench(unittest.TestCase):
             self.assertIsNone(a._ticker_bench_reason("ARTL"))
 
     def test_bench_is_checked_before_any_order_is_placed(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_bench = src.index("_ticker_bench_reason(sig.ticker)")
         for marker in ("submit_alpaca_trade(sig)", "_submit_options_call"):
             self.assertLess(i_bench, src.index(marker),
@@ -6055,7 +6055,7 @@ class TestPerTickerBench(unittest.TestCase):
     def test_benching_only_withholds_the_entry_not_the_alert(self):
         # The signal should still reach Telegram so a manual /buy stays
         # possible -- this is a bench, not a blacklist.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         seg = src[src.index("_ticker_bench_reason(sig.ticker)"):]
         seg = seg[:seg.index("continue")]
         self.assertIn("send_telegram", seg)
@@ -6342,7 +6342,7 @@ class TestSwingEntriesAreNeverDayOnly(unittest.TestCase):
     and day_only was silently winning."""
 
     def test_swing_signal_does_not_produce_a_day_only_position(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         # both entry branches (options and shares) must carry the guard
         self.assertEqual(
             src.count('and not getattr(sig, "swing_mode", False)'), 2,
@@ -6351,16 +6351,19 @@ class TestSwingEntriesAreNeverDayOnly(unittest.TestCase):
     def test_non_swing_momentum_signal_still_day_only(self):
         # The fix must not disable day-only behaviour generally -- a normal
         # momentum breakout with budget available is still session-scoped.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("sig.setup == MOMENTUM_DAY_ONLY_SETUP", src)
 
 
 def _submit_path_source():
     # The PDT-zero / options-only routing was extracted from
-    # _submit_signals_to_alpaca() into _live_mode_preflight() on 2026-09-14.
+    # _submit_signals_to_alpaca() into five helpers on 2026-09-14 (preflight,
+    # sizing, then the options / shares / record-fill loop bodies).
     # Concatenated in EXECUTION order (preflight runs first), so the ordering
     # assertions below keep meaning what they meant.
-    return inspect.getsource(a._live_mode_preflight) + inspect.getsource(a._submit_signals_to_alpaca)
+    return "".join(inspect.getsource(fn) for fn in (
+        a._live_mode_preflight, a._submission_risk_multiplier, a._submit_signals_to_alpaca,
+        a._submit_path_options_attempt, a._submit_path_shares, a._submit_path_record_fill))
 
 
 class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
@@ -6455,7 +6458,9 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         src = _submit_path_source()
         seg = src[src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):'):]
         seg = seg[:seg.index("elif (not _shares_fallback_allowed")]
-        self.assertIn("continue", seg)
+        # the loop body now lives in _submit_path_shares(), where the original
+        # `continue` is `return True, ...` -- the same skip
+        self.assertTrue("continue" in seg or "return True" in seg)
         # Every submit inside the guard is gated by the genuine-case check.
         self.assertLess(seg.index("_genuine_shares_case(sig)"),
                         seg.index("submit_alpaca_trade(sig)"))
@@ -6675,7 +6680,7 @@ class TestOptionsAggregateExposureCap(unittest.TestCase):
             self.assertIsNone(a._options_aggregate_room(999_999))
 
     def test_cap_is_checked_at_both_options_submit_sites(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertEqual(src.count("_options_aggregate_room(_opt_risk)"), 2)
 
 
@@ -6690,7 +6695,7 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
         # the attempt instead -- so ONCO, ELAB, ATOS and APVO all reached the
         # post-attempt block on 2026-09-09 and the gate never saw one of them.
         # It must be consulted where the failure is actually known.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_fail = src.index("Options unavailable for {sig.ticker}")
         i_gate = src.index("_naked_ok, _naked_why = _genuine_shares_case(sig)")
         self.assertLess(i_fail, i_gate,
@@ -6698,7 +6703,7 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
                         "options attempt has actually failed")
 
     def test_only_one_naked_position_across_both_branches(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("_naked_open", src)
         # The latch must be consulted before the gate, not after.
         self.assertLess(src.index("if not _naked_open:"),
@@ -6709,7 +6714,7 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
         # auto-exec 0.35x netted 0.12x on 2026-09-09, turning $290 into $36
         # and scanning contracts nothing could buy.
         self.assertGreaterEqual(a.OPTIONS_MIN_VIABLE_BUDGET, 50.0)
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_check = src.index("if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:")
         i_call = src.index("oid, _opt_contract = _submit_options_call(")
         self.assertLess(i_check, i_call,
@@ -7035,7 +7040,7 @@ class TestWatchlistOnlyAutoExecution(unittest.TestCase):
             self.assertTrue(a._auto_trade_allowed("BEX")[0])
 
     def test_gate_precedes_every_order_path_in_submit(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_gate = src.index("_auto_trade_allowed(sig.ticker)")
         for call in ("_submit_options_call(", "_submit_options_put(",
                      "submit_alpaca_trade(sig)"):
@@ -7064,7 +7069,7 @@ class TestWatchlistOnlyAutoExecution(unittest.TestCase):
                       [v[0] for v in a.TOGGLEABLE_FLAGS.values()])
 
     def test_blocked_signal_still_reaches_telegram(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         seg = src[src.index("_auto_trade_allowed(sig.ticker)"):]
         seg = seg[:seg.index("continue")]
         self.assertIn("send_telegram(", seg)
@@ -7270,7 +7275,7 @@ class TestSetupKill(unittest.TestCase):
             self.assertFalse(a._setup_is_disabled("Anything")[0])
 
     def test_submit_refuses_a_killed_setup(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_kill = src.index("_setup_is_disabled(sig.setup)")
         i_sub = src.index("submit_alpaca_trade(sig)")
         self.assertLess(i_kill, i_sub)
@@ -7369,7 +7374,7 @@ class TestPdtZeroSharesArmingDate(unittest.TestCase):
         # which the submit loop then re-anchors to the live quote. Without a
         # re-derive, a name that moved since the signal would breach the
         # notional cap in exactly the case the cap exists for.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_anchor = src.index("_live_entry = round(cur * 1.001, 2)")
         i_resize = src.index("sig.shares = _pdt_zero_share_size(sig.entry")
         i_submit = src.index("oid, _submit_err = submit_alpaca_trade(sig)")

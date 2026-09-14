@@ -3107,5 +3107,48 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T12:03:15.159241-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "ARM",
+      "AVGO",
+      "KLAC",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "ON",
+      "SKHY"
+    ],
+    "headline": "Shares of semiconductor and chip-related companies are trading lower after AI executives signaled that the industry&#39;s growth may need to be slowed. The industry is also facing pressure as oil prices spike in reaction to the escalating conflict in the Middle East which can lead to inflation, tighter lending and reduced demand.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T12:04:29.254502-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iranian State-Linked Tasnim News Rejected Trump\u2019s Claim That Tehran Wants A Quick Deal With Washington; Says Iran Has Repeatedly Stated It Does Not Seek Negotiations With The U.S. Government, Accusing Trump Of Making False Claims About Tehran\u2019s Willingness To Reach An Agreement.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T12:05:29.447349-04:00",
+    "symbols": [
+      "AMD",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "ON"
+    ],
+    "headline": "Anthropic&#39;s AI Warning Is &#39;Noise&#39; in a &#39;Secular Bull Market:&#39; Bank of America Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

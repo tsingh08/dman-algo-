@@ -3506,5 +3506,18 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T14:33:13.815082-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "&#39;OpenAI Buys Startup Developing Smartphone Camera&#39; - Wall Street Journal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -60,6 +60,32 @@ def _et_today() -> date:
     already been fixed this way on its own; this makes it the single rule.
     """
     return datetime.now(ET).date()
+
+
+_swallow_last_logged: dict = {}
+
+
+def _log_swallowed(where: str, exc: BaseException) -> None:
+    """Make a deliberately tolerated failure visible, without changing behaviour.
+
+    A full audit on 2026-09-13 found 114 `except Exception: pass` blocks, 16
+    in functions that place, close, reconcile or count positions. One of them
+    had been hiding a NameError that switched PORTFOLIO_HEAT_LIMIT off
+    entirely. Most of the rest are genuinely safe to tolerate -- Alpaca's
+    held_for_orders accounting rejects a duplicate sell -- but "safe to
+    tolerate" and "safe to never see" are different claims. These now leave a
+    line in the Actions log, rate-limited per call site so a 10-second guard
+    loop cannot flood it.
+    """
+    try:
+        _now = time.time()
+        if _now - _swallow_last_logged.get(where, 0.0) < 600:
+            return
+        _swallow_last_logged[where] = _now
+        print(f"  ⚠️  tolerated error in {where}: {type(exc).__name__}: {str(exc)[:160]}",
+              file=sys.stderr)
+    except Exception:
+        pass
 MT = zoneinfo.ZoneInfo("America/Denver")   # display timezone — Denver, CO (MST/MDT)
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -7553,8 +7579,8 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
         for _o in _open_orders:
             if _o.side == OrderSide.SELL:
                 return "pending", str(_o.id)
-    except Exception:
-        pass
+    except Exception as _swallowed:
+        _log_swallowed("_submit_options_close", _swallowed)
 
     # Clamp qty to what Alpaca actually holds (may differ after manual sells)
     try:
@@ -7574,8 +7600,21 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
         return "already_closed", None
 
     snap = _get_option_snapshot(occ_symbol)
+    # No quote is not the same as a worthless contract. The market-order branch
+    # below used to fire for BOTH -- including whenever the snapshot call itself
+    # failed, which is exactly what happens in a data outage (Alpaca returned
+    # 504s for ~6 minutes at 13:01 ET on 2026-09-11). On an illiquid contract
+    # that is a blind sale at whatever the book holds; TE sat bid $0.60 under
+    # $0.68 intrinsic that same day. Defer instead: the guard loop retries in
+    # seconds, and a missed cycle costs far less than a blind fill.
+    if not snap:
+        print(f"  ⏳ {occ_symbol}: no live quote — deferring close ({reason}), "
+              f"not selling blind at market")
+        return "no_quote", None
     try:
-        if snap and snap.get("bid", 0) > 0.02:
+        # A real quote with bid <= $0.02 is a contract that is effectively
+        # worthless; a market order there is the correct way out.
+        if snap.get("bid", 0) > 0.02:
             order = client.submit_order(LimitOrderRequest(
                 symbol        = occ_symbol,
                 qty           = qty,
@@ -7898,6 +7937,10 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         elif _st == "already_closed":
             _action = "⏳ EXPIRY BACKSTOP — already closed at Alpaca"
             _msg = "Nothing held — next sync records the P&L"
+        elif _st == "no_quote":
+            _action = "⏳ EXIT DEFERRED — no live option quote"
+            _msg = ("Quote unavailable, so not selling blind at market. "
+                    "Retrying next guard cycle.")
         elif _st == "pdt_blocked":
             # Only reachable for a contract opened TODAY that is already at
             # DTE<=1 (a same-week expiry bought today). The PDT rule wins --
@@ -7929,6 +7972,10 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         elif _st == "already_closed":
             _action = "🔴 STOP — position already closed at Alpaca"
             _msg = "Nothing held — next sync records the P&L"
+        elif _st == "no_quote":
+            _action = "⏳ EXIT DEFERRED — no live option quote"
+            _msg = ("Quote unavailable, so not selling blind at market. "
+                    "Retrying next guard cycle.")
         elif _st == "pdt_blocked":
             # Not a failure — a deliberate hold. Loss stays capped at the
             # premium; a PDT flag would cap the whole account for 90 days.
@@ -7962,6 +8009,10 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         elif _st == "already_closed":
             _action = "🚀 TRAIL EXIT — position already closed at Alpaca"
             _msg = "Nothing held — next sync records the P&L"
+        elif _st == "no_quote":
+            _action = "⏳ EXIT DEFERRED — no live option quote"
+            _msg = ("Quote unavailable, so not selling blind at market. "
+                    "Retrying next guard cycle.")
         elif _st == "pdt_blocked":
             _action = "🚫 TRAIL EXIT — HELD (PDT budget exhausted)"
             _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
@@ -7998,6 +8049,10 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
             elif _st in ("pending", "already_closed"):
                 _action = "🟢 T1 — partial close in progress"
                 _msg = "Half-sell order working or already done"
+            elif _st == "no_quote":
+                _action = "⏳ EXIT DEFERRED — no live option quote"
+                _msg = ("Quote unavailable, so not selling blind at market. "
+                        "Retrying next guard cycle.")
             elif _st == "pdt_blocked":
                 _action = "🚫 T1 HIT — HELD (PDT budget exhausted)"
                 _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — but "
@@ -8092,8 +8147,8 @@ def _close_earnings_spread(pos: dict, reason: str) -> tuple[str, Optional[str]]:
             _o_syms = {getattr(_l, "symbol", None) for _l in (getattr(_o, "legs", None) or [])}
             if _o_syms and _o_syms == set(legs_syms):
                 return "pending", str(_o.id)
-    except Exception:
-        pass
+    except Exception as _swallowed:
+        _log_swallowed("_close_earnings_spread", _swallowed)
 
     close_legs = []
     net_credit = 0.0
@@ -8172,10 +8227,10 @@ def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Op
         for _o in _open_orders:
             try:
                 client.cancel_order_by_id(_o.id)
-            except Exception:
-                pass
-    except Exception:
-        pass
+            except Exception as _swallowed:
+                _log_swallowed("_close_position_at_market", _swallowed)
+    except Exception as _swallowed:
+        _log_swallowed("_close_position_at_market", _swallowed)
 
     try:
         from alpaca.trading.enums import PositionIntent
@@ -16421,8 +16476,8 @@ def _check_stop_coverage() -> Optional[dict]:
             with open(LIVE_SIGNALS_FILE) as _f:
                 _pf = json.load(_f)
             _tracked_tickers |= {p.get("ticker") for p in _pf.get("pending", [])}
-        except Exception:
-            pass
+        except Exception as _swallowed:
+            _log_swallowed("_check_stop_coverage", _swallowed)
         try:
             _pt_pos = PositionTracker().positions
             for _p in _pt_pos:
@@ -16439,8 +16494,8 @@ def _check_stop_coverage() -> Optional[dict]:
                     _tracked_occ.add(_position_identity(_p.ticker, _p.setup))
                 else:
                     _tracked_tickers.add(_position_identity(_p.ticker, _p.setup))
-        except Exception:
-            pass
+        except Exception as _swallowed:
+            _log_swallowed("_check_stop_coverage", _swallowed)
         _orphans = [sym for sym in _alp_positions
                     if sym not in _tracked_tickers and sym not in _tracked_occ]
         if _orphans:
@@ -18747,8 +18802,8 @@ def _record_day_trade(ticker: str, entry_date: str, close_date: str) -> bool:
         _cutoff = (datetime.now(ET).date()
                    - timedelta(days=_DAY_TRADE_LEDGER_KEEP_DAYS)).isoformat()
         ledger = [e for e in ledger if str(e.get("date", "")) >= _cutoff]
-    except Exception:
-        pass
+    except Exception as _swallowed:
+        _log_swallowed("_record_day_trade", _swallowed)
     _save_day_trades(ledger)
     print(f"  📌 Day trade recorded: {ticker} (same-day round trip {close_date})")
     return True
@@ -19142,8 +19197,8 @@ def adopt_orphan_positions() -> int:
         if _su.startswith("Options Call ") or _su.startswith("Options Put "):
             try:
                 tracked.add(str(_position_identity(_p.ticker, _su)).upper())
-            except Exception:
-                pass
+            except Exception as _swallowed:
+                _log_swallowed("adopt_orphan_positions", _swallowed)
     # Working sell stops, by symbol — the position's real protective level.
     stops: dict[str, float] = {}
     for o in orders:
@@ -19346,8 +19401,8 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             _recheck = client.get_open_position(_alp_sym)
             if _recheck is not None and abs(float(_recheck.qty)) > 0:
                 continue   # false negative — genuinely still open, leave tracking untouched
-        except Exception:
-            pass   # genuinely not found (404) — proceed below
+        except Exception as _swallowed:
+            _log_swallowed("sync_alpaca_fills", _swallowed)   # genuinely not found (404) — proceed below
 
         # Position is gone from Alpaca — find the exit fill(s)
         try:
@@ -21248,8 +21303,8 @@ def _submit_manual_options_buy(client, pending: dict) -> tuple[Optional[str], Op
     if not tracked:
         try:
             client.cancel_order_by_id(str(order.id))
-        except Exception:
-            pass
+        except Exception as _swallowed:
+            _log_swallowed("_submit_manual_options_buy", _swallowed)
         return None, f"{occ}: MAX_POSITIONS reached — order cancelled, no tracking slot available."
     return str(order.id), None
 

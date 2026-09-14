@@ -56,6 +56,8 @@ import sys
 import tempfile
 import time
 import unittest
+import io
+import contextlib
 from types import SimpleNamespace
 from datetime import date, datetime, timedelta
 from unittest.mock import patch, MagicMock, mock_open
@@ -6963,6 +6965,66 @@ class TestLineByLineAuditFixes(unittest.TestCase):
         src = inspect.getsource(a.sync_positions_with_remote)
         self.assertLess(src.index("with _POSITIONS_LOCK:"),
                         src.index("merged = merge_positions_snapshots("))
+
+
+class TestAuditFollowUps(unittest.TestCase):
+    OCC = "TE260925C00004000"
+
+    def _close(self, snap):
+        client = MagicMock()
+        client.get_orders.return_value = []
+        client.get_open_position.return_value = MagicMock(qty="6")
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_options_close_would_violate_pdt", return_value=None), \
+             patch.object(a, "_get_option_snapshot", return_value=snap), \
+             patch.object(a, "send_telegram", return_value=True):
+            return a._submit_options_close(self.OCC, 6, "test stop"), client
+
+    def test_missing_quote_defers_instead_of_selling_blind(self):
+        (status, oid), client = self._close(None)
+        self.assertEqual(status, "no_quote")
+        self.assertIsNone(oid)
+        client.submit_order.assert_not_called()
+
+    def test_real_quote_uses_a_limit_at_the_bid(self):
+        (status, _), client = self._close({"bid": 0.70, "ask": 0.75, "mid": 0.725})
+        self.assertEqual(status, "submitted")
+        req = client.submit_order.call_args[0][0]
+        self.assertEqual(type(req).__name__, "LimitOrderRequest")
+
+    def test_worthless_contract_with_a_real_quote_may_use_market(self):
+        (status, _), client = self._close({"bid": 0.01, "ask": 0.05, "mid": 0.03})
+        self.assertEqual(status, "submitted")
+        req = client.submit_order.call_args[0][0]
+        self.assertEqual(type(req).__name__, "MarketOrderRequest")
+
+    def test_every_close_caller_handles_no_quote(self):
+        src = inspect.getsource(a._monitor_option_position)
+        # expiry backstop, stop, trail, and the T1 half-close
+        self.assertEqual(src.count('_st == "no_quote"'), 4)
+
+    def test_swallow_logging_is_rate_limited(self):
+        a._swallow_last_logged.pop("unit-test-site", None)
+        buf = io.StringIO()
+        with contextlib.redirect_stderr(buf):
+            a._log_swallowed("unit-test-site", RuntimeError("boom"))
+            a._log_swallowed("unit-test-site", RuntimeError("boom again"))
+        self.assertEqual(buf.getvalue().count("tolerated error in unit-test-site"), 1)
+
+    def test_money_path_swallows_are_no_longer_silent(self):
+        import ast as _ast
+        funcs = {"_submit_options_close", "_close_earnings_spread", "_close_position_at_market",
+                 "_check_stop_coverage", "sync_alpaca_fills", "_submit_manual_options_buy",
+                 "_record_day_trade", "adopt_orphan_positions"}
+        tree = _ast.parse(open(a.__file__, encoding="utf-8").read())
+        silent = []
+        for fn in _ast.walk(tree):
+            if isinstance(fn, _ast.FunctionDef) and fn.name in funcs:
+                for h in _ast.walk(fn):
+                    if (isinstance(h, _ast.ExceptHandler) and len(h.body) == 1
+                            and isinstance(h.body[0], _ast.Pass)):
+                        silent.append(f"{fn.name}:L{h.lineno}")
+        self.assertEqual(silent, [])
 
 
 class TestSplitUnadjust(unittest.TestCase):

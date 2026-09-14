@@ -3250,5 +3250,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T12:47:37.219086-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "What&#39;s Happening With Zscaler Stock Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T12:47:55.205937-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;I hope everyone realizes that price increases throughout America were caused by Sleepy Joe Biden and the Biden Administration, not by \u201cTRUMP.\u201d Even Oil was higher under Biden than it is right now, and we prevented Iran from having a Nuclear Weapon! With the temporary exception of Oil, prices are coming down sharply, and Oil will drop like a rock as soon as the Military Conflict with Iran is over, and that will not be long.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T12:48:23.037007-04:00",
+    "symbols": [
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "Nvidia, Palantir Pull Back From Anthropic Models Over Fears AI Could Expose Corporate Secrets",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

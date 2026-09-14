@@ -2643,5 +2643,60 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T09:48:15.600628-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Citigroup Maintains Buy on e.l.f. Beauty, Raises Price Target to $118",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-14T09:49:08.488950-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "MRVL",
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T09:50:31.837588-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "CRWD",
+      "ETN",
+      "GEV",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "PANW",
+      "SKHY"
+    ],
+    "headline": "OpenAI, Anthropic Call for AI Slowdown: Chips Sink, Cybersecurity Stocks Jump",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T09:51:13.220034-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "Reported Earlier, &#39;Anthropic Data Fears Prompt Nvidia, Palantir and Booz Allen to Restrict Model Use&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

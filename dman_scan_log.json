@@ -250,5 +250,32 @@
     "tickers_total": 277,
     "signals": 0,
     "signal_tickers": []
+  },
+  {
+    "ts": "2026-09-14T09:46:41.450765-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 277,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-09-14T09:48:17.417355-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 277,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-09-14T09:50:33.654386-04:00",
+    "halted": true,
+    "halt_reason": "consecutive_losses",
+    "min_score": 85,
+    "tickers_total": 277,
+    "signals": 0,
+    "signal_tickers": []
   }
 ]

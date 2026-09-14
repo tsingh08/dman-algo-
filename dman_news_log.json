@@ -3402,5 +3402,19 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T13:41:56.956202-04:00",
+    "symbols": [
+      "APP",
+      "GOOGL",
+      "META",
+      "RBLX",
+      "SPOT"
+    ],
+    "headline": "Shares of communications services are trading higher after AI executives from firms including Anthropic, OpenAI and SpaceXAI signaled that the industry&#39;s growth may have to be slowed, which may limit competition in content creation, advertising sales and other areas. The sector&#39;s cash flow from ads and subscription revenue may also be attractive to investors amid elevated bond yields, inflation fears and interest rate expectations.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

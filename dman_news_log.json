@@ -2898,5 +2898,31 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-14T11:07:48.189767-04:00",
+    "symbols": [
+      "CRWD",
+      "DDOG",
+      "FTNT",
+      "NET",
+      "PANW",
+      "SNOW",
+      "ZS"
+    ],
+    "headline": "Shares of cybersecurity-related companies are trading higher after AI executives signaled that the industry&#39;s growth may have to be slowed.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-14T11:08:43.081134-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Says Ukraine And Russia Have Agreed Not To Hit Each Other&#39;s Energy Targets; Says Global Diesel Price Rise Mostly Caused By Russia-Ukraine War, Not Iran",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

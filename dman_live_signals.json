@@ -25,18 +25,6 @@
       "timestamp": "2026-09-09T11:12:38.681002-04:00"
     },
     {
-      "ticker": "NAVN",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 20.39,
-      "stop": 21.71,
-      "target1": 16.84,
-      "target2": 15.07,
-      "score": 100,
-      "date": "2026-09-10",
-      "timestamp": "2026-09-10T13:32:59.482032-04:00"
-    },
-    {
       "ticker": "BDRX",
       "setup": "Low Float Catalyst",
       "bias": "LONG",
@@ -59,6 +47,18 @@
       "score": 100,
       "date": "2026-09-11",
       "timestamp": "2026-09-11T10:12:44.301412-04:00"
+    },
+    {
+      "ticker": "NAVN",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 20.39,
+      "stop": 21.71,
+      "target1": 16.84,
+      "target2": 15.07,
+      "score": 100,
+      "date": "2026-09-10",
+      "timestamp": "2026-09-10T13:32:59.482032-04:00"
     },
     {
       "ticker": "IONQ",

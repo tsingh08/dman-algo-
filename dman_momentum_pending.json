@@ -1,5 +1,83 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "ticker": "ADTX",
+      "entry_px": 0.0062,
+      "stop_px": 0.0046,
+      "t1": 0.0081,
+      "t2": 0.0093,
+      "signal_str": "VWAP reclaim (recovery dip (opened -7.1% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T11:14:44.049954-04:00",
+      "expires_at": "2026-09-15T11:29:44.049954-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "PAVS",
+      "entry_px": 4.3988,
+      "stop_px": 4.3065,
+      "t1": 5.7184,
+      "t2": 6.5982,
+      "signal_str": "VWAP reclaim (recovery dip (opened -0.5% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T11:14:44.121267-04:00",
+      "expires_at": "2026-09-15T11:29:44.121267-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "WLDS",
+      "entry_px": 1.6032,
+      "stop_px": 1.485,
+      "t1": 2.0842,
+      "t2": 2.4048,
+      "signal_str": "VWAP reclaim (recovery dip (opened -1.9% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T11:14:44.201054-04:00",
+      "expires_at": "2026-09-15T11:29:44.201054-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "QNME",
+      "entry_px": 0.3069,
+      "stop_px": 0.2783,
+      "t1": 0.399,
+      "t2": 0.4604,
+      "signal_str": "VWAP reclaim (recovery dip (opened -6.0% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T11:16:22.008713-04:00",
+      "expires_at": "2026-09-15T11:31:22.008713-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "GTE",
+      "entry_px": 10.8517,
+      "stop_px": 10.4148,
+      "t1": 14.1072,
+      "t2": 16.2775,
+      "signal_str": "VWAP reclaim (recovery dip (opened -0.1% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T11:16:40.580332-04:00",
+      "expires_at": "2026-09-15T11:31:40.580332-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "GAUZ",
+      "entry_px": 7.5751,
+      "stop_px": 6.5792,
+      "t1": 9.8476,
+      "t2": 11.3627,
+      "signal_str": "VWAP reclaim (recovery dip (opened -8.1% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T11:16:57.698121-04:00",
+      "expires_at": "2026-09-15T11:31:57.698121-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "XHLD",
+      "entry_px": 9.5691,
+      "stop_px": 8.2665,
+      "t1": 12.4398,
+      "t2": 14.3537,
+      "signal_str": "VWAP reclaim (recovery dip (opened -4.6% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T11:17:02.482811-04:00",
+      "expires_at": "2026-09-15T11:32:02.482811-04:00",
+      "status": "awaiting_approval"
+    }
+  ],
   "consumed": {
     "ADTX_2026-09-15T10:39:02.600033-04:00": 1789484104.4483209,
     "PAVS_2026-09-15T10:39:02.743399-04:00": 1789484104.4487538,

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:50.276646-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Says Elon Musk\u2019s Terafab May Look Audacious, But \u2018If Anybody Could Do It, He Can\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.280281-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Salesforce And Nvidia Announce Koa CRM Reasoning Model For Agentforce, Built On Nvidia Nemotron 3 Super; In Customer Pilots Now, General Availability Expected Winter 2026 In US Regions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.283609-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Crusoe Signs Perplexity AI Deal to Provide Cloud Capacity&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T09:37:50.536616-04:00",
     "symbols": [
       "AMD"
@@ -5046,5 +5016,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:48:59.436669-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Co-President Doug Petno At Barclays Global Financial Services Conference, Says Jamie Dimon Is Not Stepping Back; We Dont See Anything Flashing Red Or Very Little Flashing Yellow In The Economy For The U.S. Consumer And Corporates; We Dont See Anything Systemic That Is Concerning Us At The Moment; Deal Activity Is Quite Robust",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:49:38.081958-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Red Cat Stock Rises, Long-Term Slide Persists: What&#39;s Going On Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:52:44.612633-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Co-President Doug Petno Says We Are Seeing Broad Based Strength Across Investment Banking And Across All Geographies; We Would Expect Investment Banking Fees In Third Quarter To Be Up Mid To High Teens; We Would Expect Trading Fees In Third Quarter To Be Up Mid To High Teens",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

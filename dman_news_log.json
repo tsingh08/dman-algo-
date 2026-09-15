@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:49.706463-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Reuters Reported India Consumer Regulator Investigates Apple Software Warranty Terms, Says Apple Charged \u201cExorbitant Amounts\u201d For Repairs Prompted By Its Own Software Updates; Apple Says No-Warranty Terms Are Global Industry Practice",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:49.710127-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Gene Munster Says iPhone 18 Pre-Order Wait Times Are Climbing, Calls It a &#39;Favorable Sign for Demand&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T09:37:50.001219-04:00",
     "symbols": [
       "MSFT"
@@ -5046,5 +5026,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:38:54.661221-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Watching Hims &amp; Hers Health; Hearing Zacks Healthcare Innovators Newsletter Mentions Stock As A Buy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:42:28.796473-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Lines Up Starship&#39;s First Commercial Mission for 2028",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

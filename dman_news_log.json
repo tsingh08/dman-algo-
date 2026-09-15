@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-11T15:12:41.986160-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Roblox Posts On X &#34;Coming soon: Roblox Everywhere. Your favorite Roblox games as their own apps on PC, mobile, and console.\nCross-play is on by default, so you can play with friends who are already on the Roblox app.&#34;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T15:21:14.664990-04:00",
     "symbols": [
       "M"
@@ -5127,5 +5117,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:16:35.692797-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Announces Five-Service Streaming Bundle On Prime Video In US For $29.99/Month, Combining AMC+, BritBox, MGM+, PBS Masterpiece, And Starz, Available September 15",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

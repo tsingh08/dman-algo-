@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:50.842756-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Cathie Wood Keeps Buying Meta on Mark Zuckerberg&#39;s Muse Push, Dumps Amazon, AMD, Alphabet, Palantir Amid AI Slowdown Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.180778-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Tesla\u2019s Cybercab \u2018Held Me Hostage for an Hour,\u2019 Rider Says \u2014 This Cybercab Limitation Just Turned a Short Austin Trip Into 70-Minute Detour",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T09:37:51.184925-04:00",
     "symbols": [
       "GOOGL"
@@ -5046,5 +5026,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:08:57.258917-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Co-President Doug Petno Says Private Equity Activity Is Back To Normal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:08:58.514957-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Senate Blocks Crypto-Friendly Clarity Act; Clarity Act Voted Down Amid Concerns About President Trump&#39;s Crypto Ties",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

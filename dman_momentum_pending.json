@@ -1,61 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "TRVI",
-      "entry_px": 15.1052,
-      "stop_px": 14.6322,
-      "t1": 19.6368,
-      "t2": 22.6578,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T13:56:47.243468-04:00",
-      "expires_at": "2026-09-15T14:11:47.243468-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "LBGJ",
-      "entry_px": 2.1844,
-      "stop_px": 2.0196,
-      "t1": 2.8397,
-      "t2": 3.2766,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T13:57:09.535711-04:00",
-      "expires_at": "2026-09-15T14:12:09.535711-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "SXTC",
-      "entry_px": 2.495,
-      "stop_px": 2.3661,
-      "t1": 3.2435,
-      "t2": 3.7425,
-      "signal_str": "VWAP reclaim (recovery dip (opened -4.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T13:57:14.201502-04:00",
-      "expires_at": "2026-09-15T14:12:14.201502-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "SLXN",
-      "entry_px": 0.3457,
-      "stop_px": 0.3209,
-      "t1": 0.4494,
-      "t2": 0.5186,
-      "signal_str": "VWAP reclaim (recovery dip (opened -13.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T13:57:19.484006-04:00",
-      "expires_at": "2026-09-15T14:12:19.484006-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "NEXR",
-      "entry_px": 1.8337,
-      "stop_px": 1.4157,
-      "t1": 2.3838,
-      "t2": 2.7506,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T13:57:28.961852-04:00",
-      "expires_at": "2026-09-15T14:12:28.961852-04:00",
-      "status": "awaiting_approval"
-    },
-    {
       "ticker": "FMFC",
       "entry_px": 0.1974,
       "stop_px": 0.1906,
@@ -144,5 +89,11 @@
       "status": "awaiting_approval"
     }
   ],
-  "consumed": {}
+  "consumed": {
+    "TRVI_2026-09-15T13:56:47.243468-04:00": 1789495955.4670775,
+    "LBGJ_2026-09-15T13:57:09.535711-04:00": 1789495955.4675066,
+    "SXTC_2026-09-15T13:57:14.201502-04:00": 1789495955.4677224,
+    "SLXN_2026-09-15T13:57:19.484006-04:00": 1789495955.467903,
+    "NEXR_2026-09-15T13:57:28.961852-04:00": 1789495955.4681313
+  }
 }

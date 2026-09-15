@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-14T14:45:52.569305-04:00",
-    "symbols": [
-      "FTFT"
-    ],
-    "headline": "Future FinTech Shares Halted On Circuit Breaker To The Upside, Stock Now Up 139.24%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T14:48:46.240814-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "&#39;Cornelis Mounts Scale-Up Challenge To Nvidia, Teases Potential Qualcomm Tie-Up&#39; - CRN",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-14T14:55:36.413159-04:00",
     "symbols": [
       "NEM"
@@ -5053,5 +5033,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:08:19.352698-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "U.S. Auto Safety Agency Says Tesla Must Answer Questions On Certification Of Cybercab By Sept 30, 2026",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:10:54.845974-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla, XPeng Build Humanoid Robotics, While New ETF Bets on What Makes Them Move",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

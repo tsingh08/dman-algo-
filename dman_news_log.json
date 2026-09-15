@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:07.705276-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Gains as August CPI Meets Expectations at 0.4% MoM and 3.4% YoY \u2014 ORCL, ADBE, RH in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:07.705972-04:00",
     "symbols": [
       "RKLB"
@@ -5111,5 +5101,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T10:14:31.839892-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta Touts the Cost-Saving Benefits of Latest In-House AI Chips&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

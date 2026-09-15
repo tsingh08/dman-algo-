@@ -532,7 +532,7 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
             except Exception as exc:
                 log(f"  ⚠️  {p} failed JSON validation ({exc}) — restoring last "
                     f"good commit, skipping this cycle's update to that file")
-                _git("checkout", "--", p)
+                _git("checkout", "HEAD", "--", p)
             continue
         if p.endswith(".csv"):
             try:
@@ -544,7 +544,7 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
             except Exception as exc:
                 log(f"  ⚠️  {p} failed CSV validation ({exc}) — restoring last "
                     f"good commit, skipping this cycle's update to that file")
-                _git("checkout", "--", p)
+                _git("checkout", "HEAD", "--", p)
             continue
         ok.append(p)
     return ok
@@ -660,7 +660,12 @@ def git_sync() -> None:
             # about; a path that's neither existing nor tracked is deliberately
             # excluded from the pathspec (git add -A errors atomically — stages
             # NOTHING — if any single pathspec element matches nothing at all).
-            _stage_paths = sorted(set(_present) | set(_tracked(STATE_FILES)))
+            # Stage only files that passed validation, plus tracked files that
+            # were deleted. Staging every tracked path re-added the very file
+            # validation had just rejected -- how stash-pop conflict markers
+            # reached main in dman_live_signals.json (2026-09-10, 2026-09-14).
+            _stage_paths = sorted(set(_present) | {t for t in _tracked(STATE_FILES)
+                                                   if not os.path.exists(t)})
             if _stage_paths:
                 _git("add", "-A", "--", *_stage_paths)
             staged = _git("diff", "--staged", "--quiet")

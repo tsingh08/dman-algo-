@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:09.111507-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Fall as Hot PPI Raises Rate Hike Bets: Analyst Says BTC Not the &#39;Biggest Runner,&#39; Expects This Coin to Break Out",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:09.340499-04:00",
     "symbols": [
       "MARA"
@@ -5114,5 +5104,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T10:25:59.735887-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Faces a Risk That Keeps Coming Back in Waves",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

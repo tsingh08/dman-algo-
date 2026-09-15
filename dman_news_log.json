@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:52.987540-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "NVIDIA Isn\u2019t \u2018so Expensive,\u2019 but Crowded AI Trade Could Unwind Quickly, Fund Manager Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.991843-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nasdaq 100 Slips as AI Leaders Urge a Slowdown, 10-Year Yield Touches 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T09:37:53.291877-04:00",
     "symbols": [
       "MU"
@@ -5047,5 +5027,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T16:00:28.509242-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "Mark Cuban Asked Grok Whether AI Or Climate Change Will End Humanity. It Didn&#39;t Hesitate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T16:01:32.780549-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Netflix 10 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

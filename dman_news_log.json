@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:09.340499-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "HC Wainwright &amp; Co. Assumes MARA Holdings at Buy, Announces Price Target of $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:09.564393-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "What&#39;s Going On With CleanSpark Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:09.804204-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Jensen Huang Calls NVIDIA the \u2018World\u2019s First and Only Growth Value Stock\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:09.805171-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Why Is Uber Technologies Stock Gaining Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:10.094174-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "What&#39;s Going On With Vistra Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:10.095601-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Reported Earlier, Vistra Prices $1.5B Registered Offering Of Junior Subordinated Notes, Split Between $850M Series A And $650M Series B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:10.332958-04:00",
     "symbols": [
       "FTNT"
@@ -5114,5 +5054,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T10:30:25.352165-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "If You Invested $1000 In ON Semiconductor Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:30:30.276286-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Exec Says Plans To Start Enrolling Apogee&#39;s Zumilokibart This Year, Targets Launch In Early 2030; Says Will Present Late-stage Data For Blood Cancer Drug Etentamig At International Myeloma Society Meeting Later In September",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T10:30:53.145828-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T10:30:56.166053-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T10:30:56.465522-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T10:30:56.708951-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

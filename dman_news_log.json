@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:20.699969-04:00",
-    "symbols": [
-      "ACVA"
-    ],
-    "headline": "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.977391-04:00",
-    "symbols": [
-      "TRUG"
-    ],
-    "headline": "TruGolf Stock Surges Friday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.979315-04:00",
-    "symbols": [
-      "TRUG"
-    ],
-    "headline": "TruGolf Merger Partner Polymath Research Partners With Institutional Digital Asset U.S. Trust Company High Ridge Trust",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.214189-04:00",
-    "symbols": [
-      "BDRX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.215895-04:00",
-    "symbols": [
-      "BDRX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.217385-04:00",
-    "symbols": [
-      "BDRX"
-    ],
-    "headline": "Why RH Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.444204-04:00",
-    "symbols": [
-      "FEIM"
-    ],
-    "headline": "Crude Oil Down 3%; Kroger Shares Gain After Upbeat Q2 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.445763-04:00",
-    "symbols": [
-      "FEIM"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.447102-04:00",
-    "symbols": [
-      "FEIM"
-    ],
-    "headline": "QUICK SPARK: Skyworks Stock Poised to Be S&amp;P 500\u2019s Best Stock This Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.448514-04:00",
-    "symbols": [
-      "FEIM"
-    ],
-    "headline": "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:21.449979-04:00",
     "symbols": [
       "FEIM"
@@ -5125,5 +5025,108 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:25:52.186259-04:00",
+    "symbols": [
+      "AAPL",
+      "SPCX"
+    ],
+    "headline": "Elon Musk Makes Nice with Apple, Dismisses Antitrust Lawsuit: Not Ready to Make Nice With OpenAI Yet",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:26:34.639664-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Elon Musk Makes Nice with Apple, Dismisses Antitrust Lawsuit: Not Ready to Make Nice With OpenAI Yet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:26:35.201181-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Salesforce Launches Koa AI Model Built On NVIDIA Nemotron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:26:37.264499-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Launches Koa AI Model Built On NVIDIA Nemotron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:26:41.463900-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What&#39;s Going On With Arm Holdings Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:26:50.901882-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Makes Nice with Apple, Dismisses Antitrust Lawsuit: Not Ready to Make Nice With OpenAI Yet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:26:55.287266-04:00",
+    "symbols": [
+      "OESX"
+    ],
+    "headline": "Orion Energy Systems Raises FY27 Sales Guidance From $95M-$97M To $100M-$102M After Follow-On Commitment For An LED Lighting Project With Estimated Sales Contribution Of $10M-$15M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:26:57.228320-04:00",
+    "symbols": [
+      "OSTX"
+    ],
+    "headline": "OS Therapies Achieves Full Alignment With UK MHRA On Its Pending Conditional Marketing Authorization Application",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:26:58.463372-04:00",
+    "symbols": [
+      "PBF"
+    ],
+    "headline": "Reported Earlier, PBF Holding Prices $500M Of 0% Exchangeable Notes Due 2032 At $96.80 Exchange Price, 37.5% Premium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T12:28:05.466868-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD",
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-related companies are trading lower as Bitcoin declines after reports suggesting that Senate Republicans rejected a Clarity Act counteroffer from Democrats ahead of a key vote scheduled for today.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

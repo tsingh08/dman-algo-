@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:52.646576-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "UBS Maintains Buy on Palantir Technologies, Raises Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.651456-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Top 3 Stocks Dan Ives Says Will Lead the Next Tech Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.656547-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Nebius Stock Is a &#39;Pounding the Table&#39; Buy Under $150, Says Top Market Strategist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.660764-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Keeps Buying Meta on Mark Zuckerberg&#39;s Muse Push, Dumps Amazon, AMD, Alphabet, Palantir Amid AI Slowdown Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.973822-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Sam Altman\u2019s AI Nightmare Splits ETF Trade: Build Vs. Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.978293-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "AI Fears Hammer Chip Stocks, but Broadcom CEO Says Demand Isn\u2019t Cracking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.982976-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Exploring The Competitive Space: Broadcom Versus Industry Peers In Semiconductors &amp; Semiconductor Equipment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T09:37:52.987540-04:00",
     "symbols": [
       "AVGO"
@@ -5046,5 +4976,76 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:52:43.754469-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce And Nvidia Announce Koa CRM Reasoning Model For Agentforce, Built On Nvidia Nemotron 3 Super; In Customer Pilots Now, General Availability Expected Winter 2026 In US Regions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:52:43.878915-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir CTO Warns AI Safety \u2018Effective Altruists\u2019 Are Attempting a \u2018Coup\u2019 \u2014 Says \u2018Tiny Group of Technocrats\u2019 Shouldn\u2019t Decide for Everyone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:52:43.883621-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "UBS Maintains Buy on Palantir Technologies, Raises Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:53:38.831509-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce CEO Marc Benioff On AI Safety, Says We Must Hold Companies And Technology Executives Responsible For The Technology They Build",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:55:52.491236-04:00",
+    "symbols": [
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Trump Administration Appeals Ruling Blocking Environmental Protection Agency From Sending Landmark California Vehicle Emissions To Congress For Potential Repeal",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:55:54.213805-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Sam Altman\u2019s AI Nightmare Splits ETF Trade: Build Vs. Control",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:55:54.218690-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "AI Fears Hammer Chip Stocks, but Broadcom CEO Says Demand Isn\u2019t Cracking",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

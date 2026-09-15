@@ -511,5 +511,23 @@
     "budget_hit": false,
     "news_breadth_pct": 41.3,
     "news_breadth_total": 291
+  },
+  {
+    "ts": "2026-09-15T11:38:21.051593-04:00",
+    "regime": "CHOP",
+    "regime_score": 6,
+    "vix": 17.8,
+    "min_score": 85,
+    "universe": "all",
+    "tickers_total": 120,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 120,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 42.2,
+    "news_breadth_total": 285
   }
 ]

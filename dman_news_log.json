@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:17.069224-04:00",
-    "symbols": [
-      "GAUZ"
-    ],
-    "headline": "Trading Halt: Halt status updated at 8:55:00 AM ET: Quotation Resumption: News and Resumption Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:17.306629-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:17.308025-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "Glucotrack Secures $11.5M Convertible Note Financing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:17.572666-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Hertz Global Holdings, Lowers Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:17.824514-04:00",
-    "symbols": [
-      "LBGJ"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:17.826177-04:00",
-    "symbols": [
-      "LBGJ"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:17.827299-04:00",
     "symbols": [
       "LBGJ"
@@ -5122,5 +5062,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:37:18.372587-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:37:18.582767-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Says Hyperscalers Get This \u2018Almost Always Wrong\u2019 \u2014 Nvidia Has a Workaround",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:37:18.586349-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:37:18.969623-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T11:37:20.196191-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:37:26.052568-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury&#39;s Bessent Says Treasury&#39;s Bond Buyback Intervention Was Successful; We&#39;ve Had Two Of The Most Successful Treasury Auctions In 20 Years Recently",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

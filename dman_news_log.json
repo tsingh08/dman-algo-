@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:51.782871-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Says Elon Musk\u2019s Terafab May Look Audacious, But \u2018If Anybody Could Do It, He Can\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.787000-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says &#39;Excitement\u2019 is Guaranteed at Tesla Roadster Reveal in October: Audience Would Need to \u2018Vouch\u2019 That &#39;This Is Not AI&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T09:37:51.792219-04:00",
     "symbols": [
       "TSLA"
@@ -5044,6 +5024,26 @@
     ],
     "headline": "JPMorgan Co-President Doug Petno Says We Still Worry About Private Credit But The Asset Class Is In A Decent Place Compared To Earlier In The Year",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:23:35.101161-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Shares Up 3.5% After Key Trading Signal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:26:03.587550-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Co-President Doug Petno Says Do Not Really Expect Inorganic Growth To Be A Growth Opportunity For The CIB Business As The Bar Is Very, Very High",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

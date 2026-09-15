@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:50.536616-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Sam Altman\u2019s AI Nightmare Splits ETF Trade: Build Vs. Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.540284-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "NVIDIA Isn\u2019t \u2018so Expensive,\u2019 but Crowded AI Trade Could Unwind Quickly, Fund Manager Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.543968-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.547338-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Steve Bannon Breaks With Trump on AI, Teams Up With Bernie Sanders to Demand Restrictions As Warnings Grow Over the Technology\u2019s Threats",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T09:37:50.551464-04:00",
     "symbols": [
       "AMD"
@@ -5046,5 +5006,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:01:45.114240-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Stock Slides as Bitcoin Falls After Senate Rejection",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:02:02.267121-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Sam Altman\u2019s AI Nightmare Splits ETF Trade: Build Vs. Control",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T15:02:02.270446-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "NVIDIA Isn\u2019t \u2018so Expensive,\u2019 but Crowded AI Trade Could Unwind Quickly, Fund Manager Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T15:02:02.273516-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

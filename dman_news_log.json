@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:14.754313-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Kroger Exec Says SNAP Benefit Cuts, Higher Fuel Prices Are Pressuring Household Budgets; Customers Buying More On Need",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:14.755469-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Kroger CEO Says Cyclospora Outbreak Hit Q2 Identical Sales By About 35 Basis Points; Says Customers Remain Under Pressure, Unit Growth Has Slowed Since Start Of Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:14.996796-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:14.997990-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Houthi Victory Raises Risks; Hotter CPI Pushes Fed Rate-Hike Odds To 88%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-11T14:14:14.999008-04:00",
     "symbols": [
       "ORCL"
@@ -5119,5 +5079,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:03:24.413937-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Introduces Meta One; Meta One Plans Now Available Globally; Meta One Pricing Starts At $2.99/Month For Single Products, $7.99/Month For Individual Bundles, $14.99/Month For Creator &amp; Business Bundles; Core Experience Across Meta Apps &amp; Meta AI Will Stay Free",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:03:55.749393-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Cognition And AWS Sign Multi-Year Strategic Collaboration Agreement",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:06:14.134511-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Why Is Coinbase Stock Falling on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:06:23.869992-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences Exec Says Weekly Oral HIV Prevention Drug Expected To Launch In Q1 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

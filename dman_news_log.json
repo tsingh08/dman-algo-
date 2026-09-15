@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:07.704480-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Launches 16th Electron Mission Amid Tight Global Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:07.705276-04:00",
     "symbols": [
       "RKLB"
@@ -5111,5 +5101,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T10:07:56.213143-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;July 2026 Was The Worst Month On Record For Tesla Driver-Assist Crashes; Tesla Reported 236 Of Them To Federal Regulators, The Most It Has Ever Filed In A Single Month&#39; - Electrek",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

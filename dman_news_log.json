@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:17.827299-04:00",
-    "symbols": [
-      "LBGJ"
-    ],
-    "headline": "Why RH Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:18.069827-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:18.071269-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "3 E Network Technology Group Launches Core Engineering Blueprint For Its AI Data Center In Finland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:18.312926-04:00",
     "symbols": [
       "MGN"
@@ -5122,5 +5092,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:51:32.971325-04:00",
+    "symbols": [
+      "AAPL",
+      "NFLX"
+    ],
+    "headline": "Apple Enjoys Record-Breaking Emmy Night After Raising Streaming Prices",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:51:33.449974-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Energy Secretary Chris Wright Speaking To CNBC Says He Thinks Saudi Arabia&#39;s Pipeline Will Be Running Again Very Soon",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:51:36.357692-04:00",
+    "symbols": [
+      "AGPU"
+    ],
+    "headline": "Axe Compute Announces Sale Of Helomics Cancer Diagnostics Unit To DataMEDS AI For Common Shares And Share Equivalents; Share Count Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

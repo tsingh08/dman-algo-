@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-11T15:21:14.664990-04:00",
-    "symbols": [
-      "M"
-    ],
-    "headline": "Macy\u2019s Q2 Sales Beat Estimates, But Tariff Refunds Mask Margin Pressure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T15:21:14.667559-04:00",
     "symbols": [
       "M"
@@ -5127,5 +5117,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T13:19:34.159272-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Announces Gemini 3.8 Live And Gemini 3.8 Live Extended Thinking Via Live API; Partners Include Salesforce, Genspark, And Lumeris",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

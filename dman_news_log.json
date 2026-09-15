@@ -1,153 +1,5 @@
 [
   {
-    "ts": "2026-09-14T15:24:46.779494-04:00",
-    "symbols": [
-      "IWM",
-      "RIOT"
-    ],
-    "headline": "Billionaire Investor Adds To ASML, Exits Rivals KLA and Lam \u2014 Plus Nvidia, Broadcom",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T15:29:20.346827-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Fed Hikes This Week: Stocks Have a 30-Year Playbook for This Moment",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T15:32:58.488545-04:00",
-    "symbols": [
-      "CRWD",
-      "PANW",
-      "ZS"
-    ],
-    "headline": "QUICK SPARK: SentinelOne Stock Rallies 16%, Battles For Best Day Ever",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-14T15:42:47.947264-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Shares of IT Services companies are trading higher. The sector may be rallying in response to AI executives from firms including Anthropic, OpenAI and SpaceXAI signaling that the industry&#39;s growth may have to be slowed, which may limit threats to IT Service vendors.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T15:46:08.556418-04:00",
-    "symbols": [
-      "CLSK",
-      "SOUN"
-    ],
-    "headline": "These 10 Stocks Are Squeeze Candidates Waiting to Happen",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T15:49:08.125338-04:00",
-    "symbols": [
-      "AAPL",
-      "COIN",
-      "NVDA"
-    ],
-    "headline": "Coinbase Says Its Tokenized Stocks Set the Standard \u2014 But Nasdaq Is Backing a Rival",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T15:51:53.212701-04:00",
-    "symbols": [
-      "PN"
-    ],
-    "headline": "Shares of electronic equipment-related companies are trading lower, possibly in reaction to rising oil prices.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T15:58:50.262074-04:00",
-    "symbols": [
-      "AMD",
-      "MRVL",
-      "NVDA"
-    ],
-    "headline": "Trump Calls AI Backlash a \u2018Sick Conspiracy.\u2019 China Is the Only One Happy, He Says",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T16:00:20.626683-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;OpenAI\u2019s top lobbyist on Capitol Hill to meet with lawmakers&#39; - Politico",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T16:02:32.392728-04:00",
-    "symbols": [
-      "BIVI"
-    ],
-    "headline": "BioVie Says Phase 2 ADDRESS-LC Trial Of Bezisterim In Long COVID Did Not Achieve Statistical Significance On Any Endpoint In Overall Population, With Significant Results Only In Pre-Specified Subgroups; To Discuss Topline Results On September 15 Call",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T16:03:39.055312-04:00",
-    "symbols": [
-      "SION"
-    ],
-    "headline": "Sionna Therapeutics To Advance SION-451/SION-2222 CF Combo Into Phase 2a; Cuts Workforce By 46% To Extend Cash Runway Into The Second Half Of 2029",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T09:37:49.695357-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Performance Comparison: Apple And Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:49.699249-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s iOS 27 Is Here: 8 New Features You Should Know About in This Major Software Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:49.702449-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Gives Siri AI Makeover With iOS 27, Caps Usage; Gene Munster Flags &#39;Way to Long, 5-15 Seconds&#39; Response Time",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T09:37:49.706463-04:00",
     "symbols": [
       "AAPL"
@@ -5054,5 +4906,145 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:30:45.699583-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SK Hynix Is Shipping 16-Layer HBM4 for Nvidia Rubin: Where Do Micron And Samsung Stand?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:30:47.320697-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SK Hynix Is Shipping 16-Layer HBM4 for Nvidia Rubin: Where Do Micron And Samsung Stand?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:30:47.553938-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Is Shipping 16-Layer HBM4 for Nvidia Rubin: Where Do Micron And Samsung Stand?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:30:52.652640-04:00",
+    "symbols": [
+      "RETO"
+    ],
+    "headline": "ReTo Eco-Solutions Shared Halted On Circuit Breaker To The Upside; Stock Now Up 271.69%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:30:52.657085-04:00",
+    "symbols": [
+      "RETO"
+    ],
+    "headline": "ReTo Eco-Solutions Shared Halted On Circuit Breaker To The Upside; Stock Now Up 155.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:30:53.451141-04:00",
+    "symbols": [
+      "PLAY"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:30:53.609280-04:00",
+    "symbols": [
+      "ASND"
+    ],
+    "headline": "Why Is Ascendis Pharma Stock Trading Lower on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:30:54.674364-04:00",
+    "symbols": [
+      "PSIG"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:30:54.902980-04:00",
+    "symbols": [
+      "GH"
+    ],
+    "headline": "Watching Guardant Health; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:30:55.020161-04:00",
+    "symbols": [
+      "KMTS"
+    ],
+    "headline": "Kestra Medical Technologies Posts Mixed Q1 Results, Joins Enova International, Dave and Buster&#39;s And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:30:55.024613-04:00",
+    "symbols": [
+      "KMTS"
+    ],
+    "headline": "BTIG Reiterates Buy on Kestra Medical Techs, Maintains $32 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:30:55.028939-04:00",
+    "symbols": [
+      "KMTS"
+    ],
+    "headline": "Why Veea Shares Are Trading Higher By 58%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:30:55.143440-04:00",
+    "symbols": [
+      "KBWB"
+    ],
+    "headline": "Why Is Bank of America Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:30:55.259674-04:00",
+    "symbols": [
+      "RDN"
+    ],
+    "headline": "FHFA Director Bill Pulte Says In X Post That Fannie Mae Will Follow Freddie Mac&#39;s Rule Allowing Loan Servicers To Contact Borrowers Who May Qualify To Cancel Private Mortgage Insurance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

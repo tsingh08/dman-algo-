@@ -1,5 +1,127 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "ticker": "TRVI",
+      "entry_px": 15.1252,
+      "stop_px": 14.6322,
+      "t1": 19.6628,
+      "t2": 22.6878,
+      "signal_str": "VWAP reclaim (recovery dip (opened -0.1% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:32:54.916682-04:00",
+      "expires_at": "2026-09-15T14:47:54.916682-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "LIMN",
+      "entry_px": 3.512,
+      "stop_px": 3.3806,
+      "t1": 4.5656,
+      "t2": 5.268,
+      "signal_str": "VWAP reclaim (recovery dip (opened -0.6% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:32:55.042719-04:00",
+      "expires_at": "2026-09-15T14:47:55.042719-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "ZCMD",
+      "entry_px": 0.7501,
+      "stop_px": 0.7323,
+      "t1": 0.9751,
+      "t2": 1.1252,
+      "signal_str": "VWAP reclaim (recovery dip (opened -1.5% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:32:55.083463-04:00",
+      "expires_at": "2026-09-15T14:47:55.083463-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "LBGJ",
+      "entry_px": 2.1493,
+      "stop_px": 2.0196,
+      "t1": 2.7941,
+      "t2": 3.224,
+      "signal_str": "VWAP reclaim (recovery dip (opened -1.9% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:33:02.645639-04:00",
+      "expires_at": "2026-09-15T14:48:02.645639-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "ADTX",
+      "entry_px": 0.0058,
+      "stop_px": 0.0046,
+      "t1": 0.0075,
+      "t2": 0.0087,
+      "signal_str": "VWAP reclaim (recovery dip (opened -7.1% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:33:02.797521-04:00",
+      "expires_at": "2026-09-15T14:48:02.797521-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "NEXR",
+      "entry_px": 1.7886,
+      "stop_px": 1.4157,
+      "t1": 2.3252,
+      "t2": 2.6829,
+      "signal_str": "VWAP reclaim (recovery dip (opened -0.7% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:33:16.777419-04:00",
+      "expires_at": "2026-09-15T14:48:16.777419-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "UPC",
+      "entry_px": 4.6292,
+      "stop_px": 4.4055,
+      "t1": 6.018,
+      "t2": 6.9438,
+      "signal_str": "VWAP reclaim (recovery dip (opened -4.4% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:33:24.437110-04:00",
+      "expires_at": "2026-09-15T14:48:24.437110-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "CCHH",
+      "entry_px": 1.1323,
+      "stop_px": 1.0548,
+      "t1": 1.472,
+      "t2": 1.6985,
+      "signal_str": "VWAP reclaim (recovery dip (opened -6.1% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:33:43.362364-04:00",
+      "expires_at": "2026-09-15T14:48:43.362364-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "GTE",
+      "entry_px": 10.8717,
+      "stop_px": 10.4148,
+      "t1": 14.1332,
+      "t2": 16.3075,
+      "signal_str": "VWAP reclaim (recovery dip (opened -0.1% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:34:13.098967-04:00",
+      "expires_at": "2026-09-15T14:49:13.098967-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "WYHG",
+      "entry_px": 4.3387,
+      "stop_px": 3.8808,
+      "t1": 5.6403,
+      "t2": 6.5081,
+      "signal_str": "VWAP reclaim (recovery dip (opened -0.7% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:34:25.733050-04:00",
+      "expires_at": "2026-09-15T14:49:25.733050-04:00",
+      "status": "awaiting_approval"
+    },
+    {
+      "ticker": "KPLT",
+      "entry_px": 9.2785,
+      "stop_px": 8.806,
+      "t1": 12.062,
+      "t2": 13.9177,
+      "signal_str": "VWAP reclaim (recovery dip (opened -2.3% \u2192 VWAP reclaim watch))",
+      "created_at": "2026-09-15T14:35:04.230087-04:00",
+      "expires_at": "2026-09-15T14:50:04.230087-04:00",
+      "status": "awaiting_approval"
+    }
+  ],
   "consumed": {
     "TRVI_2026-09-15T13:56:47.243468-04:00": 1789495955.4670775,
     "LBGJ_2026-09-15T13:57:09.535711-04:00": 1789495955.4675066,

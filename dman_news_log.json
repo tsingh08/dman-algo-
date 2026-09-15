@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:16.382192-04:00",
-    "symbols": [
-      "BFRI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:16.606572-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:16.608070-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "Dow Jumps Over 1%; US Inflation Holds at 3.4% In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:16.609253-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:16.841592-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:16.843237-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "What&#39;s Going On With Digital Brands Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:17.069224-04:00",
     "symbols": [
       "GAUZ"
@@ -5119,6 +5059,66 @@
       "SPY"
     ],
     "headline": "U.S. Treasury&#39;s Bessent Says If Congressional Approval Is Needed For Trump&#39;s Proposed $5,000 Payment To Individuals, Will Work With Speaker Johnson On That Authority",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:33:40.245012-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Says Hyperscalers Get This \u2018Almost Always Wrong\u2019 \u2014 Nvidia Has a Workaround",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:34:00.318064-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:34:00.609506-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T11:34:00.871810-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T11:34:02.757295-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What Is Going on With AMD Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:35:47.260363-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury&#39;s Bessent Says Treasury&#39;s Bond Buyback Intervention Was Successful; We&#39;ve Had Two Of The Most Successful Treasury Auctions In 20 Years Recently",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,0 +1,418 @@
+{
+ "M01_no_quote": {
+  "ret": "⚠️ <b>TE</b> CALL TE260925C00004000\n   Cannot fetch live quote — check position manually",
+  "error": null,
+  "closes": [],
+  "fields": [],
+  "telegram": [],
+  "marks": [],
+  "stdout": []
+ },
+ "M02_quiet_hold": {
+  "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   P&L: <b>+4%</b>  θ decay 0.6%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [],
+  "marks": [],
+  "stdout": []
+ },
+ "M04_stale_bid_below_intrinsic": {
+  "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.70 (bid $0.60)  (-15%)  6ct × 100 = $420 mkt val\n   P&L: <b>-15%</b>  θ decay 0.7%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.65  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [],
+  "fields": [],
+  "telegram": [],
+  "marks": [],
+  "stdout": []
+ },
+ "M05_trailing_giveback_exit": {
+  "ret": "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.70 (bid $0.68)  (-15%)  6ct × 100 = $420 mkt val\n   Gave back 38%+ off the peak — peak $1.43 → now $0.70 (-15% from entry) — SELL ×6 submitted (id close-12…). Runner banked.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: trailing active, peak $1.43 (exits below $0.89)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL trail"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🚀 <b>OPTIONS TRAIL EXIT</b> — TE CALL TE260925C00004000\nGave back 38%+ off the peak — peak $1.43 → now $0.70 (-15% from entry) — SELL ×6 submitted (id close-12…). Runner banked."
+  ],
+  "marks": [
+   "TE_OPT_TRAIL_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M06_t1_half_close": {
+  "ret": "🟢 T1 HIT — ½ SOLD, stop → breakeven  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.30 (bid $1.28)  (+59%)  6ct × 100 = $780 mkt val\n   Premium $1.30 ≥ T1 $1.23 (+59%) — sold 3/6 (id close-12…), stop raised to $0.82\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: trailing active, peak $1.30 (exits below $0.84)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    3,
+    "TE CALL T1 half"
+   ]
+  ],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=1.3"
+   ],
+   [
+    "TE260925C00004000",
+    "shares=300",
+    "stop=0.82"
+   ]
+  ],
+  "telegram": [
+   "🟢 <b>OPTIONS T1 HIT</b> — TE CALL TE260925C00004000\nPremium $1.30 ≥ T1 $1.23 (+59%) — sold 3/6 (id close-12…), stop raised to $0.82"
+  ],
+  "marks": [
+   "TE_OPT_T1_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M08_dte_warning": {
+  "ret": "⏳ DTE ALERT — 7d left, consider close  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   Only 7d to expiry — theta burning fast. P&L: +4%. Close or roll now.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 7d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [
+   "⏳ <b>DTE WARNING</b> — TE CALL TE260925C00004000\nOnly 7d to expiry — theta burning fast. P&L: +4%. Close or roll now."
+  ],
+  "marks": [
+   "TE_OPT_DTE_2026-09-18"
+  ],
+  "stdout": []
+ },
+ "M09_theta_warning": {
+  "ret": "⏰ THETA ALERT — consider exit  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.60 (bid $0.58)  (-27%)  6ct × 100 = $360 mkt val\n   Decaying 13.3%/day with only -27% gain — time is working against you\n   Δ 0.60  θ -0.080/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [],
+  "fields": [],
+  "telegram": [],
+  "marks": [],
+  "stdout": []
+ },
+ "M10_milestone": {
+  "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   P&L: <b>+4%</b>  θ decay 0.6%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [],
+  "marks": [],
+  "stdout": []
+ },
+ "M11_order_flow_lean_ask_heavy": {
+  "ret": "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.20 (bid $1.18)  (+46%)  6ct × 100 = $720 mkt val\n   Gave back 15%+ off the peak — tightened by order flow (bid/ask size lean -0.95) — peak $1.43 → now $1.20 (+46% from entry) — SELL ×6 submitted (id close-12…). Runner banked.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.82  DTE 11d\n   Trail: trailing active, peak $1.43 (exits below $1.22, tightened by order flow)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL trail"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🚀 <b>OPTIONS TRAIL EXIT</b> — TE CALL TE260925C00004000\nGave back 15%+ off the peak — tightened by order flow (bid/ask size lean -0.95) — peak $1.43 → now $1.20 (+46% from entry) — SELL ×6 submitted (id close-12…). Runner banked."
+  ],
+  "marks": [
+   "TE_OPT_TRAIL_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M12_order_flow_lean_bid_heavy": {
+  "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.20 (bid $1.18)  (+46%)  6ct × 100 = $720 mkt val\n   P&L: <b>+46%</b>  θ decay 0.4%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.82  DTE 11d\n   Trail: trailing active, peak $1.43 (exits below $0.89)",
+  "error": null,
+  "closes": [],
+  "fields": [],
+  "telegram": [],
+  "marks": [],
+  "stdout": []
+ },
+ "M13_trailing_no_lean_hold": {
+  "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.20 (bid $1.18)  (+46%)  6ct × 100 = $720 mkt val\n   P&L: <b>+46%</b>  θ decay 0.4%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.82  DTE 11d\n   Trail: trailing active, peak $1.43 (exits below $0.89)",
+  "error": null,
+  "closes": [],
+  "fields": [],
+  "telegram": [],
+  "marks": [],
+  "stdout": []
+ },
+ "M03_stop_submitted": {
+  "ret": "🔴 STOP HIT — AUTO-CLOSED  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Bid $0.30 ≤ stop $0.41 (-61%) — SELL ×6 submitted (id close-12…). Sync will record P&L.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL stop"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🔴 <b>OPTIONS STOP</b> — TE CALL TE260925C00004000\nBid $0.30 ≤ stop $0.41 (-61%) — SELL ×6 submitted (id close-12…). Sync will record P&L."
+  ],
+  "marks": [
+   "TE_OPT_STOP_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M07_expiry_backstop_submitted": {
+  "ret": "⏳ EXPIRY BACKSTOP — AUTO-CLOSED  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   1d to expiry — closed to avoid assignment. P&L: +4%. SELL ×6 submitted (id close-12…).\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL expiry backstop"
+   ]
+  ],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [
+   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry — closed to avoid assignment. P&L: +4%. SELL ×6 submitted (id close-12…)."
+  ],
+  "marks": [
+   "TE_OPT_EXPIRY_2026-09-24"
+  ],
+  "stdout": []
+ },
+ "M03_stop_pending": {
+  "ret": "🔴 STOP HIT — close order working  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   SELL already open (id close-12…) — awaiting fill\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL stop"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🔴 <b>OPTIONS STOP</b> — TE CALL TE260925C00004000\nSELL already open (id close-12…) — awaiting fill"
+  ],
+  "marks": [
+   "TE_OPT_STOP_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M07_expiry_backstop_pending": {
+  "ret": "⏳ EXPIRY BACKSTOP — close order working  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   SELL already open (id close-12…) — awaiting fill\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL expiry backstop"
+   ]
+  ],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [
+   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\nSELL already open (id close-12…) — awaiting fill"
+  ],
+  "marks": [
+   "TE_OPT_EXPIRY_2026-09-24"
+  ],
+  "stdout": []
+ },
+ "M03_stop_already_closed": {
+  "ret": "🔴 STOP — position already closed at Alpaca  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Nothing held — next sync records the P&L\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL stop"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🔴 <b>OPTIONS STOP</b> — TE CALL TE260925C00004000\nNothing held — next sync records the P&L"
+  ],
+  "marks": [
+   "TE_OPT_STOP_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M07_expiry_backstop_already_closed": {
+  "ret": "⏳ EXPIRY BACKSTOP — already closed at Alpaca  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   Nothing held — next sync records the P&L\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL expiry backstop"
+   ]
+  ],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [
+   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\nNothing held — next sync records the P&L"
+  ],
+  "marks": [
+   "TE_OPT_EXPIRY_2026-09-24"
+  ],
+  "stdout": []
+ },
+ "M03_stop_pdt_blocked": {
+  "ret": "🚫 STOP HIT — HELD (PDT budget exhausted)  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Bid $0.30 ≤ stop $0.41 (-61%) — selling today would be day trade #4. Holding overnight; max loss is the premium.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL stop"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🔴 <b>OPTIONS STOP</b> — TE CALL TE260925C00004000\nBid $0.30 ≤ stop $0.41 (-61%) — selling today would be day trade #4. Holding overnight; max loss is the premium."
+  ],
+  "marks": [
+   "TE_OPT_STOP_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M07_expiry_backstop_pdt_blocked": {
+  "ret": "⚠️ EXPIRY — CANNOT AUTO-CLOSE (PDT budget exhausted)  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   1d to expiry and selling today would be day trade #4. Holding. If this is ITM it may ASSIGN — close it manually tomorrow, or accept assignment risk.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL expiry backstop"
+   ]
+  ],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [
+   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry and selling today would be day trade #4. Holding. If this is ITM it may ASSIGN — close it manually tomorrow, or accept assignment risk."
+  ],
+  "marks": [
+   "TE_OPT_EXPIRY_2026-09-24"
+  ],
+  "stdout": []
+ },
+ "M03_stop_no_quote": {
+  "ret": "⏳ EXIT DEFERRED — no live option quote  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Quote unavailable, so not selling blind at market. Retrying next guard cycle.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL stop"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🔴 <b>OPTIONS STOP</b> — TE CALL TE260925C00004000\nQuote unavailable, so not selling blind at market. Retrying next guard cycle."
+  ],
+  "marks": [
+   "TE_OPT_STOP_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M07_expiry_backstop_no_quote": {
+  "ret": "⏳ EXIT DEFERRED — no live option quote  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   Quote unavailable, so not selling blind at market. Retrying next guard cycle.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL expiry backstop"
+   ]
+  ],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [
+   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\nQuote unavailable, so not selling blind at market. Retrying next guard cycle."
+  ],
+  "marks": [
+   "TE_OPT_EXPIRY_2026-09-24"
+  ],
+  "stdout": []
+ },
+ "M03_stop_failed": {
+  "ret": "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Bid $0.30 ≤ stop $0.41 (-61%) — SELL MANUALLY NOW\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL stop"
+   ]
+  ],
+  "fields": [],
+  "telegram": [
+   "🔴 <b>OPTIONS STOP</b> — TE CALL TE260925C00004000\nBid $0.30 ≤ stop $0.41 (-61%) — SELL MANUALLY NOW"
+  ],
+  "marks": [
+   "TE_OPT_STOP_2026-09-14"
+  ],
+  "stdout": []
+ },
+ "M07_expiry_backstop_failed": {
+  "ret": "⚠️ EXPIRY BACKSTOP — AUTO-CLOSE FAILED  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   1d to expiry, P&L +4% — SELL MANUALLY NOW to avoid assignment.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
+  "error": null,
+  "closes": [
+   [
+    "TE260925C00004000",
+    6,
+    "TE CALL expiry backstop"
+   ]
+  ],
+  "fields": [
+   [
+    "TE260925C00004000",
+    "peak_premium=0.85"
+   ]
+  ],
+  "telegram": [
+   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry, P&L +4% — SELL MANUALLY NOW to avoid assignment."
+  ],
+  "marks": [
+   "TE_OPT_EXPIRY_2026-09-24"
+  ],
+  "stdout": []
+ }
+}

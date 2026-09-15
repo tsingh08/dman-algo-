@@ -55,6 +55,20 @@ jobs:
           fi
           echo "no undefined names"
 
+      - name: Golden characterization harnesses (order + exit logic)
+        # Replays the order function and the options exit logic through fixed,
+        # hermetic scenarios and compares every order, Telegram message,
+        # tracker write and printed line to a committed baseline. Built for the
+        # 2026-09-14 refactor of the two most complex money paths. A DIFF here
+        # means behaviour changed: if that was intended, re-record with
+        #   python golden/<harness>.py record
+        # and commit the new .golden.json alongside the change.
+        run: |
+          python golden/submit_signals_harness.py check | tee /tmp/g1.txt
+          python golden/monitor_option_harness.py check | tee /tmp/g2.txt
+          python golden/callee_harness.py telegram check | tee /tmp/g3.txt
+          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt
+
       - name: Regression suite (test_dman_algo.py)
         env:
           PYTHONIOENCODING: utf-8

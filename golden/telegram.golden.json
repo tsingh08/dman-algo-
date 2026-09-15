@@ -1,0 +1,803 @@
+{
+ "patch_names": [
+  "_handle_buy_command",
+  "_handle_options_command",
+  "_tg_cmd_close",
+  "_tg_cmd_endprobation",
+  "_tg_cmd_endsetupprobation",
+  "_tg_cmd_flags",
+  "_tg_cmd_halt",
+  "_tg_cmd_positions",
+  "_tg_cmd_probation",
+  "_tg_cmd_restart",
+  "_tg_cmd_resume",
+  "_tg_cmd_review",
+  "_tg_cmd_scan",
+  "_tg_cmd_setupprobation",
+  "_tg_cmd_status",
+  "explain_ticker",
+  "get_this_month_loss",
+  "get_todays_loss",
+  "send_telegram"
+ ],
+ "results": {
+  "mock|flags": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|flags": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|flags shares": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'shares'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|flags shares": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'shares'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|flags shares on": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'shares', 'on'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|flags shares on": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'shares', 'on'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|flags shares off": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'shares', 'off'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|flags shares off": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'shares', 'off'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|flags bogus on": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'bogus', 'on'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|flags bogus on": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_flags",
+     "(['flags', 'bogus', 'on'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|halt": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_halt",
+     "(['halt'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|halt": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_halt",
+     "(['halt'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|resume": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_resume",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|resume": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_resume",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|probation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_probation",
+     "('', ['probation'])",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|probation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_probation",
+     "('', ['probation'])",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|probation NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_probation",
+     "('NVDA', ['probation', 'NVDA'])",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|probation NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_probation",
+     "('NVDA', ['probation', 'NVDA'])",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|endprobation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endprobation",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|endprobation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endprobation",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|endprobation NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endprobation",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|endprobation NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endprobation",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|setupprobation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_setupprobation",
+     "(['setupprobation'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|setupprobation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_setupprobation",
+     "(['setupprobation'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|setupprobation Gap": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_setupprobation",
+     "(['setupprobation', 'Gap'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|setupprobation Gap": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_setupprobation",
+     "(['setupprobation', 'Gap'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|endsetupprobation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endsetupprobation",
+     "(['endsetupprobation'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|endsetupprobation": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endsetupprobation",
+     "(['endsetupprobation'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|endsetupprobation Gap": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endsetupprobation",
+     "(['endsetupprobation', 'Gap'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|endsetupprobation Gap": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_endsetupprobation",
+     "(['endsetupprobation', 'Gap'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|status": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_status",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|status": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_status",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|positions": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_positions",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|positions": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_positions",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|pnl": {
+   "how": "returned None",
+   "calls": [
+    [
+     "get_todays_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "get_this_month_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('💰 <b>P&L</b>\\nToday: +123.45%\\nMonth: -2.50%',)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|pnl": {
+   "how": "returned None",
+   "calls": [
+    [
+     "get_todays_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "get_this_month_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('💰 <b>P&L</b>\\nToday: +0.00%\\nMonth: +0.00%',)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|restart": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_restart",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|restart": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_restart",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|reboot": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_restart",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|reboot": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_restart",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|scan": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_scan",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|scan": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_scan",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|scan NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_scan",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|scan NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_scan",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|review": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_review",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|review": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_review",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|close": {
+   "how": "returned None",
+   "calls": [
+    [
+     "send_telegram",
+     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|close": {
+   "how": "returned None",
+   "calls": [
+    [
+     "send_telegram",
+     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|close NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_close",
+     "('NVDA',)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|close NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_close",
+     "('NVDA',)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|why": {
+   "how": "returned None",
+   "calls": [
+    [
+     "send_telegram",
+     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|why": {
+   "how": "returned None",
+   "calls": [
+    [
+     "send_telegram",
+     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|why NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "explain_ticker",
+     "('NVDA',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "(<MagicMock name='explain_ticker' id=ID>,)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|why NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "explain_ticker",
+     "('NVDA',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "(None,)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|options": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_options_command",
+     "(['options'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|options": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_options_command",
+     "(['options'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|buy": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_buy_command",
+     "(['buy'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|buy": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_buy_command",
+     "(['buy'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|buy NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_buy_command",
+     "(['buy', 'NVDA'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|buy NVDA": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_buy_command",
+     "(['buy', 'NVDA'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|buy NVDA 2": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_buy_command",
+     "(['buy', 'NVDA', '2'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|buy NVDA 2": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_handle_buy_command",
+     "(['buy', 'NVDA', '2'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|/status@DManBot": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_status",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|/status@DManBot": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_status",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|nonsense": {
+   "how": "returned None",
+   "calls": [
+    [
+     "send_telegram",
+     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|nonsense": {
+   "how": "returned None",
+   "calls": [
+    [
+     "send_telegram",
+     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "mock|HALT": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_halt",
+     "(['HALT'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  },
+  "none|HALT": {
+   "how": "returned None",
+   "calls": [
+    [
+     "_tg_cmd_halt",
+     "(['HALT'],)",
+     "[]"
+    ]
+   ],
+   "stdout": []
+  }
+ }
+}

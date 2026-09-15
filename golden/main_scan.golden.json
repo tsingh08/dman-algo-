@@ -1,0 +1,56 @@
+{
+ "how": "returned None",
+ "calls": [
+  [
+   "_force_close_day_only_positions",
+   "()",
+   "[]"
+  ],
+  [
+   "sync_alpaca_fills",
+   "(<dman_algo.WinRateTracker object at 0xADDR>,)",
+   "[]"
+  ],
+  [
+   "run_pro_scanner",
+   "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', 'KLAC', 'ON', 'RIOT', 'HOOD', 'AFRM', 'RI",
+   "[('min_score', None), ('universe_label', 'curated'), ('use_ai', False)]"
+  ],
+  [
+   "print_pro_signal",
+   "(ProSignal(ticker='MSTR', setup='Gap & Hold', bias='LONG', entry=130.97, stop=127.99, target1=138.43, target2=142.9, rr=2.5, rsi=56.4, rvol=2.35, reason='Gap up +1.6% from prior close, holding, RVOL 2",
+   "[]"
+  ],
+  [
+   "_submit_signals_to_alpaca",
+   "([ProSignal(ticker='MSTR', setup='Gap & Hold', bias='LONG', entry=130.97, stop=127.99, target1=138.43, target2=142.9, rr=2.5, rsi=56.4, rvol=2.35, reason='Gap up +1.6% from prior close, holding, RVOL ",
+   "[]"
+  ],
+  [
+   "send_account_pnl_telegram",
+   "('EOD',)",
+   "[]"
+  ],
+  [
+   "_check_and_heal_watchdog",
+   "()",
+   "[]"
+  ],
+  [
+   "get_market_regime",
+   "()",
+   "[]"
+  ],
+  [
+   "send_telegram",
+   "('🔍 <b>DMan</b> 03:55 PM — 1 signal(s) fired\\nRegime: BULL (11/19)',)",
+   "[]"
+  ]
+ ],
+ "stdout": [
+  "────────────────────────────────────────────────────────────────────",
+  "  A+ SIGNALS",
+  "────────────────────────────────────────────────────────────────────",
+  "  [EOD] Final scan window — sending P&L summary..."
+ ]
+}

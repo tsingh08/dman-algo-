@@ -1,0 +1,383 @@
+{
+ "S01_market_closed": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [],
+  "opens": [],
+  "stdout": [
+   "  ⏸️  Market is closed — no orders submitted."
+  ]
+ },
+ "S02_halted": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [],
+  "opens": [],
+  "stdout": [
+   "  🛑 Manual halt active — no orders submitted (/resume to re-enable)."
+  ]
+ },
+ "S03_daily_loss": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [],
+  "opens": [],
+  "stdout": [
+   "  🛑 Daily loss limit active — no orders."
+  ]
+ },
+ "S04_normal_options_ok": {
+  "ret": "None",
+  "error": null,
+  "orders": [
+   {
+    "type": "options_call",
+    "symbol": "NVDA",
+    "risk": "400.0"
+   }
+  ],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🎯 <b>Options order placed</b> [LIVE] — NVDA CALL\nContract: <b>NVDA260925C00010000</b>\nStrike $10.0  Exp 2026-09-25  (11d)\nPremium: $1.0/sh × 3ct = <b>$300</b>  (θ decay 2.0%/day)\nT1 (+50%): $1.5  T2 (+150%): $2.5  Stop (-50%): $0.5\nΔ 0.60  Γ 0.1000  θ -0.020/d  ν 0.050  IV 50%  OI 500\nL2: bid 5×0.95  ask 5×1.00  P/C 1.00 ()  Dominant strike $10\nUnderlying: $10.00  Score: 100/100  ID: opt-1…"
+  ],
+  "opens": [
+   {
+    "ticker": "NVDA",
+    "setup": "Options Call NVDA260925C00010000 ($10.0C exp 2026-09-25)",
+    "entry": "1.0",
+    "stop": "0.5",
+    "target1": "1.5",
+    "shares": "300",
+    "day_only": "False"
+   }
+  ],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
+   "  📤 1/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S05_normal_options_fail_shares": {
+  "ret": "None",
+  "error": null,
+  "orders": [
+   {
+    "type": "options_call",
+    "symbol": "NVDA",
+    "risk": "400.0"
+   },
+   {
+    "type": "submit_alpaca_trade",
+    "symbol": "NVDA",
+    "qty": "10",
+    "no_stop_entry": "False",
+    "swing": "False"
+   }
+  ],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "✅ <b>Order placed</b> [LIVE] — NVDA LONG\nLimit $10.01  Stop $9.01  T1 $12.01\nShares: 10  Score: 100/100  ID: alp-1…"
+  ],
+  "opens": [
+   {
+    "ticker": "NVDA",
+    "setup": "Gap & Hold",
+    "entry": "10.01",
+    "stop": "9.01",
+    "target1": "12.01",
+    "shares": "10",
+    "day_only": "False"
+   }
+  ],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
+   "  ↩️  Options unavailable for NVDA — falling back to shares",
+   "  📤 1/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S06_pdt_zero_options_ok": {
+  "ret": "None",
+  "error": null,
+  "orders": [
+   {
+    "type": "options_call",
+    "symbol": "NVDA",
+    "risk": "400.0"
+   }
+  ],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🎯 <b>DMan LIVE — PDT ZERO: OPTIONS ONLY</b>\n3/3 day trades used, 0 remaining. Equity $2,800.\nSubmitting 1 options entry(s), held overnight (not a day trade). Max loss = premium; no stop order is placed, and same-day exits are blocked.",
+   "🎯 <b>Options order placed</b> [LIVE] — NVDA CALL\nContract: <b>NVDA260925C00010000</b>\nStrike $10.0  Exp 2026-09-25  (11d)\nPremium: $1.0/sh × 3ct = <b>$300</b>  (θ decay 2.0%/day)\nT1 (+50%): $1.5  T2 (+150%): $2.5  Stop (-50%): $0.5\nΔ 0.60  Γ 0.1000  θ -0.020/d  ν 0.050  IV 50%  OI 500\nL2: bid 5×0.95  ask 5×1.00  P/C 1.00 ()  Dominant strike $10\nUnderlying: $10.00  Score: 100/100  ID: opt-1…"
+  ],
+  "opens": [
+   {
+    "ticker": "NVDA",
+    "setup": "Options Call NVDA260925C00010000 ($10.0C exp 2026-09-25)",
+    "entry": "1.0",
+    "stop": "0.5",
+    "target1": "1.5",
+    "shares": "300",
+    "day_only": "False"
+   }
+  ],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🎯 PDT ZERO — options-only: 1 eligible, 0 equity signal(s) skipped",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
+   "  📤 1/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S07_pdt_zero_naked_shares": {
+  "ret": "None",
+  "error": null,
+  "orders": [
+   {
+    "type": "options_call",
+    "symbol": "NVDA",
+    "risk": "400.0"
+   },
+   {
+    "type": "submit_alpaca_trade",
+    "symbol": "NVDA",
+    "qty": "79",
+    "no_stop_entry": "True",
+    "swing": "True"
+   }
+  ],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🎯 <b>DMan LIVE — PDT ZERO: OPTIONS ONLY</b>\n3/3 day trades used, 0 remaining. Equity $2,800.\nSubmitting 1 options entry(s), held overnight (not a day trade). Max loss = premium; no stop order is placed, and same-day exits are blocked.",
+   "🩹 <b>PDT-ZERO SHARES</b> — genuine case, entered WITHOUT a stop\n<b>NVDA</b> 79sh @ $10.01 ($791)\n<i>Tier-A catalyst, no chain, +2.0% (not extended), liquid</i>\n\nNo options chain exists, so this could not be an option. No stop today: a same-day stop fill would be day trade #4. Sized so a -35% overnight gap costs about $280.\n<b>Unprotected until a stop goes on next session.</b>",
+   "🔄 <b>SWING Order placed</b> [LIVE] — NVDA LONG\nGTC Limit $10.01  Stop $9.01  T1 $12.01 (monitor tomorrow)\nShares: 79  Score: 100/100  ID: alp-1…\n<i>PDT budget preserved — position held overnight, managed by momentum-watch</i>"
+  ],
+  "opens": [
+   {
+    "ticker": "NVDA",
+    "setup": "SWING — Gap & Hold",
+    "entry": "10.01",
+    "stop": "9.01",
+    "target1": "12.01",
+    "shares": "79",
+    "day_only": "False"
+   }
+  ],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🎯 PDT ZERO — options-only: 1 eligible, 0 equity signal(s) skipped",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $420 (base $280) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
+   "  ↩️  Options unavailable for NVDA — falling back to shares",
+   "  🩹 NVDA: no option exists, but genuine case (Tier-A catalyst, no chain, +2.0% (not extended), liquid) — 79sh, NO stop today",
+   "  📤 1/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S08_pdt_zero_not_genuine": {
+  "ret": "None",
+  "error": null,
+  "orders": [
+   {
+    "type": "options_call",
+    "symbol": "NVDA",
+    "risk": "400.0"
+   }
+  ],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🎯 <b>DMan LIVE — PDT ZERO: OPTIONS ONLY</b>\n3/3 day trades used, 0 remaining. Equity $2,800.\nSubmitting 1 options entry(s), held overnight (not a day trade). Max loss = premium; no stop order is placed, and same-day exits are blocked.",
+   "🚫 <b>NVDA skipped</b> — no options available and the day-trade budget is 0.\nno Tier-A catalyst — not a genuine case."
+  ],
+  "opens": [],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🎯 PDT ZERO — options-only: 1 eligible, 0 equity signal(s) skipped",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $420 (base $280) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
+   "  ↩️  Options unavailable for NVDA — falling back to shares",
+   "  🚫 NVDA: options unavailable and PDT budget is 0 — no shares (no Tier-A catalyst — not a genuine case)",
+   "  📤 0/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S09_swing_mode_one_left": {
+  "ret": "None",
+  "error": null,
+  "orders": [
+   {
+    "type": "options_call",
+    "symbol": "NVDA",
+    "risk": "400.0"
+   }
+  ],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🔄 <b>DMan LIVE — SWING MODE</b>: 2/3 day trades used — 1 remaining. Submitting 1 OPTIONS entry(s) held overnight to preserve the last day-trade budget.",
+   "🎯 <b>Options order placed</b> [LIVE] — NVDA CALL\nContract: <b>NVDA260925C00010000</b>\nStrike $10.0  Exp 2026-09-25  (11d)\nPremium: $1.0/sh × 3ct = <b>$300</b>  (θ decay 2.0%/day)\nT1 (+50%): $1.5  T2 (+150%): $2.5  Stop (-50%): $0.5\nΔ 0.60  Γ 0.1000  θ -0.020/d  ν 0.050  IV 50%  OI 500\nL2: bid 5×0.95  ask 5×1.00  P/C 1.00 ()  Dominant strike $10\nUnderlying: $10.00  Score: 100/100  ID: opt-1…"
+  ],
+  "opens": [
+   {
+    "ticker": "NVDA",
+    "setup": "Options Call NVDA260925C00010000 ($10.0C exp 2026-09-25)",
+    "entry": "1.0",
+    "stop": "0.5",
+    "target1": "1.5",
+    "shares": "300",
+    "day_only": "False"
+   }
+  ],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🔄 SWING MODE: 1 options entries, 0 equity skipped",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
+   "  📤 1/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S10_setup_killed": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🛑 <b>Setup disabled</b> — Gap &amp; Hold\n0W/10L over 10 live trades.\n\nNo further entries on this setup. Send <b>/flags setupkill off</b> to override."
+  ],
+  "opens": [],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  🛑 NVDA     Gap & Hold DISABLED — 0W/10L over 10 live trades",
+   "  📤 0/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S11_not_watchlist": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "📋 <b>Signal — not auto-traded</b>: NVDA Gap &amp; Hold (score 100)\nentry $10.00  stop $9.00  T1 $12.00\nOutside the backtest-validated watchlist. To take it yourself: /options NVDA"
+  ],
+  "opens": [],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  📋 NVDA     Gap & Hold — outside the backtest-validated WATCHLIST — alert only",
+   "  📤 0/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S12_riskoff_hotstreak_probation": {
+  "ret": "None",
+  "error": null,
+  "orders": [
+   {
+    "type": "options_call",
+    "symbol": "NVDA",
+    "risk": "400.0"
+   }
+  ],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "\nPosition sizes <b>reduced 65%</b> (mult 0.35x)",
+   "🔥 <b>DMan HOT STREAK</b> — 4 consecutive wins\nSizing boosted to 0.44× to press the edge.",
+   "🎯 <b>Options order placed</b> [LIVE] — NVDA CALL\nContract: <b>NVDA260925C00010000</b>\nStrike $10.0  Exp 2026-09-25  (11d)\nPremium: $1.0/sh × 3ct = <b>$300</b>  (θ decay 2.0%/day)\nT1 (+50%): $1.5  T2 (+150%): $2.5  Stop (-50%): $0.5\nΔ 0.60  Γ 0.1000  θ -0.020/d  ν 0.050  IV 50%  OI 500\nL2: bid 5×0.95  ask 5×1.00  P/C 1.00 ()  Dominant strike $10\nUnderlying: $10.00  Score: 100/100  ID: opt-1…"
+  ],
+  "opens": [
+   {
+    "ticker": "NVDA",
+    "setup": "Options Call NVDA260925C00010000 ($10.0C exp 2026-09-25)",
+    "entry": "1.0",
+    "stop": "0.5",
+    "target1": "1.5",
+    "shares": "300",
+    "day_only": "False"
+   }
+  ],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  🌍 RISK-OFF  score=-4  → sizing 0.35x",
+   "  🔥 HOT STREAK: 4 wins in a row — sizing ×0.44",
+   "  🟡 Probation sizing: ×0.50 → net ×0.22",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
+   "  📤 1/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S13_monthly_loss": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [],
+  "opens": [],
+  "stdout": [
+   "  🛑 Monthly loss limit active — no orders."
+  ]
+ },
+ "S14_aggregate_cap": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🧯 <b>NVDA skipped — options exposure cap</b>\npremium at risk $600 > cap $560.\nA long option has no stop, so concurrent premium is simultaneous max loss. Waiting for an open position to close."
+  ],
+  "opens": [],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🧯 NVDA: options aggregate cap — premium at risk $600 > cap $560",
+   "  📤 0/1 signal(s) submitted [LIVE]"
+  ]
+ },
+ "S15_benched_ticker": {
+  "ret": "None",
+  "error": null,
+  "orders": [],
+  "telegram": [
+   "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
+   "🪑 <b>NVDA benched</b> — signal fired but not taken.\n3 losses in a row on this ticker.\nAuto-clears once those trades age out of the 30-day window."
+  ],
+  "opens": [],
+  "stdout": [
+   "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
+   "  🌍 Fetching global context for adaptive sizing...",
+   "  ────────────────────────────────────────────────────────────────────",
+   "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  🪑 NVDA     BENCHED — 3 losses in a row on this ticker",
+   "  📤 0/1 signal(s) submitted [LIVE]"
+  ]
+ }
+}

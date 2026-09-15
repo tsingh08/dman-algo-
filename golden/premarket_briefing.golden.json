@@ -1,0 +1,226 @@
+{
+ "how": "returned None",
+ "calls": [
+  [
+   "pre_gap_catalyst_pass",
+   "()",
+   "[]"
+  ],
+  [
+   "get_alpaca_client",
+   "()",
+   "[]"
+  ],
+  [
+   "_fetch_global_context",
+   "()",
+   "[]"
+  ],
+  [
+   "_fetch_breaking_news_rss",
+   "()",
+   "[('hours_back', 12)]"
+  ],
+  [
+   "get_market_regime",
+   "()",
+   "[]"
+  ],
+  [
+   "get_top_sectors",
+   "()",
+   "[]"
+  ],
+  [
+   "_nfp_dates",
+   "()",
+   "[]"
+  ],
+  [
+   "_get_third_friday",
+   "(2026, 9)",
+   "[]"
+  ],
+  [
+   "_get_third_friday",
+   "(2026, 9)",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLK',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                       Open    High      Low   Close     Volume\nDate                                                           \n2025-07-07 04:00:00  255.97  256.64  253.780  254.92  5780415.0\n2025-07",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLF',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                       Open    High      Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  53.130  53.250  52.4150  52.68  34048977.0\n2025-07",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLV',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                       Open      High      Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  135.45  135.4500  133.650  134.36  14052702.",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLE',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                      Open    High     Low  Close      Volume\nDate                                                         \n2025-07-07 04:00:00  86.50  86.960  85.300  86.19  17836602.0\n2025-07-08 04",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLY',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                       Open     High      Low   Close     Volume\nDate                                                            \n2025-07-07 04:00:00  218.19  219.300  217.020  218.40  5040790.0\n2025",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLI',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                        Open      High      Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  149.395  149.8200  147.870  148.90  106877",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLB',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                      Open    High     Low  Close      Volume\nDate                                                         \n2025-07-07 04:00:00  90.90  91.215  90.010  90.49   5881108.0\n2025-07-08 04",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLU',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                      Open     High     Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  81.66  82.0650  81.490  82.01  10107823.0\n2025-07-08",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLRE',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                       Open     High      Low  Close     Volume\nDate                                                           \n2025-07-07 04:00:00  41.710  42.0500  41.2300  41.48  6417908.0\n2025-07",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLC',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                        Open     High      Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  107.840  107.940  106.790  107.00  5533911.0\n2",
+   "[]"
+  ],
+  [
+   "fetch_df",
+   "('XLP',)",
+   "[]"
+  ],
+  [
+   "compute_indicators",
+   "(                      Open     High     Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  82.10  82.1568  81.675  82.11  14365327.0\n2025-07-08",
+   "[]"
+  ],
+  [
+   "get_this_month_loss",
+   "()",
+   "[]"
+  ],
+  [
+   "get_upcoming_earnings",
+   "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', 'KLAC', 'ON', 'RIOT', 'HOOD', 'AFRM', 'RI",
+   "[('days_ahead', 5)]"
+  ],
+  [
+   "get_upcoming_earnings",
+   "(['APVO', 'MASK', 'ONCO', 'ARTL', 'ELAB', 'CDT', 'CAST', 'ATOS', 'IMPP', 'GFAI', 'BFRI', 'TRVI', 'LABT', 'YHC', 'LIMN', 'ZCMD', 'CPHI', 'LCID', 'INLF', 'INM', 'KUST', 'SPCX', 'LBGJ', 'LGHL', 'ADTX', '",
+   "[('days_ahead', 5)]"
+  ],
+  [
+   "_get_pdt_status",
+   "()",
+   "[]"
+  ],
+  [
+   "send_telegram",
+   "('🌅 <b>DMan PRO Pre-Market Briefing</b>\\nFriday Sep 11, 2026 — 7:10 AM MT\\n✅ Scanner healthy — last run -440min ago\\n\\n📊 <b>MARKET REGIME</b>\\n<b>BULL</b> (11/19)  VIX: 15.8\\nSPY ⚠️ -0.1% below EMA20 ",
+   "[]"
+  ],
+  [
+   "_nfp_dates",
+   "()",
+   "[]"
+  ],
+  [
+   "build_scan_universe",
+   "()",
+   "[]"
+  ],
+  [
+   "_et_today",
+   "()",
+   "[]"
+  ]
+ ],
+ "stdout": [
+  "  [swing reconcile] HTTPSConnectionPool(host='api.alpaca.markets', port=443): Max retries exceeded with url: /v2/positions (Caused by NewConnectionError(\"HTTPSConnection(host='api.alpaca.markets', port=443): Failed to establish a new connec",
+  "  [0.5/7] Fetching global market context + breaking news...",
+  "  [1/7] Checking market regime + macro context...",
+  "  [2/6] Checking macro calendar...",
+  "  [3/6] Checking seasonal status...",
+  "  [3.5/7] Checking sector ETF health...",
+  "  [4/7] Reading live outcomes...",
+  "  [5/7] Checking monthly P&L...",
+  "  [6/7] Scanning pre-market gaps...",
+  "  [6.5/7] Scanning earnings calendar...",
+  "════════════════════════════════════════════════════════════",
+  "  PRE-MARKET BRIEFING  —  Friday Sep 11, 2026",
+  "────────────────────────────────────────────────────────────",
+  "  Regime   : <b>BULL</b> (11/19)  VIX: 15.8",
+  "  Macro    : ⛔ FOMC in 5d (Wed Sep 16) — approaching; consider strangle / reduce size",
+  "⚡ OPEX in 7d (Fri Sep 18) — monthly options expiration approaching",
+  "  Seasonal : ⚠️ September — weak month (min score raised to 92)",
+  "  Monthly  : 📈 Up 0.0% this month",
+  "════════════════════════════════════════════════════════════",
+  "  ⚠️  Telegram not configured — briefing printed above only.",
+  "  [7/7] Checking for pre-event strangle opportunities...",
+  "  No catalyst tomorrow — skipping strangle advisory.",
+  "  [8/8] Pre-building dynamic scan universe for 9:45 AM gate...",
+  "  ✅ Universe cached: 160 tickers → dman_universe_cache.json (9:45 AM scan will use this instead of 108-name list)"
+ ]
+}

@@ -5780,7 +5780,8 @@ class TestIntradayRvolProjection(unittest.TestCase):
 
     def test_thresholds_are_untouched(self):
         # The fix must not have quietly relaxed the frozen Gap & Hold gate.
-        src = inspect.getsource(a._raw_signals)
+        # (The Gap & Hold detector lives in _rs_gap_and_hold since the refactor.)
+        src = inspect.getsource(a._rs_gap_and_hold)
         self.assertIn('float(r["RVOL"]) >= 2.0', src)
 
 
@@ -6046,7 +6047,7 @@ class TestPerTickerBench(unittest.TestCase):
             self.assertIsNone(a._ticker_bench_reason("ARTL"))
 
     def test_bench_is_checked_before_any_order_is_placed(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_bench = src.index("_ticker_bench_reason(sig.ticker)")
         for marker in ("submit_alpaca_trade(sig)", "_submit_options_call"):
             self.assertLess(i_bench, src.index(marker),
@@ -6055,7 +6056,7 @@ class TestPerTickerBench(unittest.TestCase):
     def test_benching_only_withholds_the_entry_not_the_alert(self):
         # The signal should still reach Telegram so a manual /buy stays
         # possible -- this is a bench, not a blacklist.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         seg = src[src.index("_ticker_bench_reason(sig.ticker)"):]
         seg = seg[:seg.index("continue")]
         self.assertIn("send_telegram", seg)
@@ -6342,7 +6343,7 @@ class TestSwingEntriesAreNeverDayOnly(unittest.TestCase):
     and day_only was silently winning."""
 
     def test_swing_signal_does_not_produce_a_day_only_position(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         # both entry branches (options and shares) must carry the guard
         self.assertEqual(
             src.count('and not getattr(sig, "swing_mode", False)'), 2,
@@ -6351,8 +6352,19 @@ class TestSwingEntriesAreNeverDayOnly(unittest.TestCase):
     def test_non_swing_momentum_signal_still_day_only(self):
         # The fix must not disable day-only behaviour generally -- a normal
         # momentum breakout with budget available is still session-scoped.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("sig.setup == MOMENTUM_DAY_ONLY_SETUP", src)
+
+
+def _submit_path_source():
+    # The PDT-zero / options-only routing was extracted from
+    # _submit_signals_to_alpaca() into five helpers on 2026-09-14 (preflight,
+    # sizing, then the options / shares / record-fill loop bodies).
+    # Concatenated in EXECUTION order (preflight runs first), so the ordering
+    # assertions below keep meaning what they meant.
+    return "".join(inspect.getsource(fn) for fn in (
+        a._live_mode_preflight, a._submission_risk_multiplier, a._submit_signals_to_alpaca,
+        a._submit_path_options_attempt, a._submit_path_shares, a._submit_path_record_fill))
 
 
 class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
@@ -6365,15 +6377,15 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     difference."""
 
     def test_zero_pdt_branch_sets_the_flag(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("_options_only_overnight = True", src)
 
     def test_flag_defaults_to_false(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("_options_only_overnight = False", src)
 
     def test_shares_fallback_is_guarded_before_submit(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_guard = src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):')
         i_share = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
         self.assertLess(i_guard, i_share,
@@ -6389,7 +6401,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # can protect against. CLRO lost 28.1% on $41M average daily volume:
         # not thinness, a gap straight through the stop. Being forced
         # overnight is exactly when equity is worst and an option is best.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_sw = src.index('elif _pdt["swing_mode"]:')
         seg = src[i_sw:i_sw + 2600]
         self.assertIn("_options_only_overnight = True", seg)
@@ -6398,7 +6410,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     def test_swing_mode_skips_when_nothing_is_options_eligible(self):
         # Must not fall through to an equity swing -- that is the exact trade
         # the backtest says not to take.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_sw = src.index('elif _pdt["swing_mode"]:')
         seg = src[i_sw:i_sw + 2600]
         self.assertIn("return", seg)
@@ -6406,7 +6418,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     def test_both_forced_overnight_branches_set_the_same_flag(self):
         # 0-remaining and 1-remaining are the same situation for instrument
         # choice: the position is going to be held overnight either way.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertEqual(src.count("_options_only_overnight = True"), 2)
 
     def test_only_a_vetted_no_stop_entry_may_bypass_the_guard(self):
@@ -6415,7 +6427,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # by _genuine_shares_case() and submits with NO sell-side order, so it
         # cannot round-trip the same day. Any OTHER way through reopens the
         # 2026-09-04 hole where five signals became real day trades.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("no_stop_entry", src)
         self.assertEqual(
             src.count("if _options_only_overnight and not getattr"), 1,
@@ -6424,7 +6436,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
     def test_no_stop_entry_is_only_set_after_vetting(self):
         # The flag is what bypasses the guard, so nothing may set it without
         # _genuine_shares_case() having returned True first.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_vet = src.index("_genuine_shares_case(")
         i_set = src.index("_s.no_stop_entry = True")
         self.assertLess(i_vet, i_set,
@@ -6444,10 +6456,12 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # Premise changed 2026-09-10: the guard block can now submit, but ONLY
         # down the naked-shares path, and only after _genuine_shares_case()
         # approved. The refusal path must still refuse.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         seg = src[src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):'):]
         seg = seg[:seg.index("elif (not _shares_fallback_allowed")]
-        self.assertIn("continue", seg)
+        # the loop body now lives in _submit_path_shares(), where the original
+        # `continue` is `return True, ...` -- the same skip
+        self.assertTrue("continue" in seg or "return True" in seg)
         # Every submit inside the guard is gated by the genuine-case check.
         self.assertLess(seg.index("_genuine_shares_case(sig)"),
                         seg.index("submit_alpaca_trade(sig)"))
@@ -6459,7 +6473,7 @@ class TestZeroPdtBlocksSharesFallback(unittest.TestCase):
         # `continue` and the naked-shares gate never ran -- and it could never
         # set no_stop_entry to exempt itself, because that flag is only set
         # inside the gate it could not reach.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertLess(src.index('if _options_only_overnight and not getattr(sig, "no_stop_entry", False):'),
                         src.index("elif (not _shares_fallback_allowed"),
                         "the zero-PDT gate must be reachable by non-watchlist names")
@@ -6667,7 +6681,7 @@ class TestOptionsAggregateExposureCap(unittest.TestCase):
             self.assertIsNone(a._options_aggregate_room(999_999))
 
     def test_cap_is_checked_at_both_options_submit_sites(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertEqual(src.count("_options_aggregate_room(_opt_risk)"), 2)
 
 
@@ -6682,7 +6696,7 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
         # the attempt instead -- so ONCO, ELAB, ATOS and APVO all reached the
         # post-attempt block on 2026-09-09 and the gate never saw one of them.
         # It must be consulted where the failure is actually known.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_fail = src.index("Options unavailable for {sig.ticker}")
         i_gate = src.index("_naked_ok, _naked_why = _genuine_shares_case(sig)")
         self.assertLess(i_fail, i_gate,
@@ -6690,7 +6704,7 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
                         "options attempt has actually failed")
 
     def test_only_one_naked_position_across_both_branches(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         self.assertIn("_naked_open", src)
         # The latch must be consulted before the gate, not after.
         self.assertLess(src.index("if not _naked_open:"),
@@ -6701,7 +6715,7 @@ class TestWednesdayPostMortemFixes(unittest.TestCase):
         # auto-exec 0.35x netted 0.12x on 2026-09-09, turning $290 into $36
         # and scanning contracts nothing could buy.
         self.assertGreaterEqual(a.OPTIONS_MIN_VIABLE_BUDGET, 50.0)
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_check = src.index("if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:")
         i_call = src.index("oid, _opt_contract = _submit_options_call(")
         self.assertLess(i_check, i_call,
@@ -6796,11 +6810,11 @@ class TestScoreThresholdIsNotBinding(unittest.TestCase):
     def test_scan_log_records_signal_scores(self):
         # Without this field there is no way to see saturation, which is how
         # a dead threshold went unnoticed for two months.
-        src = inspect.getsource(a.run_pro_scanner)
+        src = inspect.getsource(a._scan_persist_log)   # extracted from run_pro_scanner
         self.assertIn('"signal_scores"', src)
 
     def test_recorded_alongside_the_reject_counter_it_explains(self):
-        src = inspect.getsource(a.run_pro_scanner)
+        src = inspect.getsource(a._scan_persist_log)
         self.assertLess(src.index('"signal_scores"'),
                         src.index('"rejected_low_score"'))
 
@@ -6917,7 +6931,7 @@ class TestLineByLineAuditFixes(unittest.TestCase):
     def test_heat_budget_imports_assetclass_before_using_it(self):
         # NameError here was swallowed by `except Exception: pass`, so the 6%
         # PORTFOLIO_HEAT_LIMIT silently stopped counting existing exposure.
-        src = inspect.getsource(a.run_pro_scanner)
+        src = inspect.getsource(a._scan_portfolio_heat)   # extracted from run_pro_scanner
         i_imp = src.index("from alpaca.trading.enums import AssetClass")
         i_use = src.index("AssetClass.US_EQUITY")
         self.assertLess(i_imp, i_use)
@@ -6977,6 +6991,86 @@ class TestLineByLineAuditFixes(unittest.TestCase):
                         src.index("merged = merge_positions_snapshots("))
 
 
+class TestPointInTimeBacktest(unittest.TestCase):
+    """The backtest now scores with live's score_signal(); these pin that it
+    cannot see the future while doing so."""
+
+    def _frame(self, days=900):
+        import pandas as pd
+        idx = pd.date_range(end="2026-09-11", periods=days, freq="B")
+        return pd.DataFrame({"Open": 10.0, "High": 11.0, "Low": 9.0, "Close": 10.5,
+                             "Volume": 1_000_000}, index=idx)
+
+    def _pit(self):
+        pit = a._PointInTimeData()
+        full = self._frame()
+        pit._daily_full = lambda ticker: full
+        return pit
+
+    def test_daily_history_is_truncated_at_asof(self):
+        pit = self._pit()
+        with pit:
+            pit.set_asof(a.date(2025, 3, 14))
+            df = a.fetch_df("NVDA")
+        self.assertLessEqual(df.index.max().date(), a.date(2025, 3, 14))
+
+    def test_weekly_bars_never_include_days_after_asof(self):
+        # Resampled from TRUNCATED daily -- a Wednesday asof must not pull in
+        # Thursday/Friday of that week via a precomputed weekly bar.
+        pit = self._pit()
+        full = self._frame()
+        full.loc[full.index > "2025-03-12", "High"] = 999.0     # the future spikes
+        pit._daily_full = lambda ticker: full
+        with pit:
+            pit.set_asof(a.date(2025, 3, 12))
+            wk = a.fetch_weekly("NVDA")
+        self.assertLess(float(wk["High"].max()), 999.0)
+
+    def test_clock_reads_asof_after_the_close(self):
+        pit = self._pit()
+        with pit:
+            pit.set_asof(a.date(2025, 3, 14))
+            now = a.datetime.now(a.ET)
+            self.assertEqual(now.date(), a.date(2025, 3, 14))
+            self.assertGreaterEqual(now.hour, 16)   # no partial-session RVOL projection
+            self.assertEqual(a._et_today(), a.date(2025, 3, 14))
+            self.assertFalse(a.is_market_open())     # never the real Alpaca clock
+
+    def test_globals_are_restored_even_on_error(self):
+        orig = (a.fetch_df, a.datetime, a._et_today, a.is_market_open)
+        try:
+            with self._pit():
+                raise RuntimeError("boom")
+        except RuntimeError:
+            pass
+        self.assertEqual((a.fetch_df, a.datetime, a._et_today, a.is_market_open), orig)
+
+    def test_sector_cache_is_dropped_when_asof_moves(self):
+        pit = self._pit()
+        with pit:
+            pit.set_asof(a.date(2026, 1, 5))
+            a._sector_cache, a._sector_cache_ts = ["XLK"], a.datetime.now()
+            pit.set_asof(a.date(2025, 1, 6))
+            self.assertIsNone(a._sector_cache)
+
+    def test_earnings_are_windowed_by_the_callers_dates(self):
+        pit = self._pit()
+        pit._earn["NVDA"] = [{"date": "2025-02-26"}, {"date": "2025-05-28"}, {"date": "2026-08-27"}]
+        with pit:
+            got = a._fetch_massive_earnings("NVDA", a.date(2025, 2, 1), a.date(2025, 3, 31))
+        self.assertEqual([r["date"] for r in got], ["2025-02-26"])
+
+    def test_live_scoring_uses_live_gates(self):
+        src = inspect.getsource(a._run_pro_backtest_impl)
+        i = src.index("if live_scoring:")
+        self.assertIn("_bt_score_live(", src[i:src.index("else:", i)])
+        seg = inspect.getsource(a._bt_score_live)
+        self.assertIn("score_signal(sig, window", seg)
+        for gate in ("regime_ok", "mtf_ok", "earnings_ok", "macro_ok",
+                     "divergence_free", "not_chasing_extended_highs"):
+            self.assertIn(gate, seg)
+
+
 class TestBacktestStopFill(unittest.TestCase):
     """The backtest filled every stop at stop*1.005 -- better than the stop for
     a long -- and scored raw_pnl > 0 as a WIN, so every breakeven stop was a
@@ -6992,7 +7086,7 @@ class TestBacktestStopFill(unittest.TestCase):
         self.assertEqual(a._bt_stop_fill(10.50, {"Open": 11.40}, False), 11.40)
 
     def test_no_more_optimistic_stop_fill_or_raw_pnl_win_label(self):
-        src = inspect.getsource(a.run_pro_backtest)
+        src = inspect.getsource(a._run_pro_backtest_impl)
         self.assertNotIn("cur_stop*1.005", src)
         self.assertNotIn('"WIN" if raw_pnl > 0', src)
         self.assertIn("_classify_outcome(pnl_pct)", src)
@@ -7027,7 +7121,7 @@ class TestWatchlistOnlyAutoExecution(unittest.TestCase):
             self.assertTrue(a._auto_trade_allowed("BEX")[0])
 
     def test_gate_precedes_every_order_path_in_submit(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_gate = src.index("_auto_trade_allowed(sig.ticker)")
         for call in ("_submit_options_call(", "_submit_options_put(",
                      "submit_alpaca_trade(sig)"):
@@ -7056,7 +7150,7 @@ class TestWatchlistOnlyAutoExecution(unittest.TestCase):
                       [v[0] for v in a.TOGGLEABLE_FLAGS.values()])
 
     def test_blocked_signal_still_reaches_telegram(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         seg = src[src.index("_auto_trade_allowed(sig.ticker)"):]
         seg = seg[:seg.index("continue")]
         self.assertIn("send_telegram(", seg)
@@ -7095,8 +7189,10 @@ class TestAuditFollowUps(unittest.TestCase):
         self.assertEqual(type(req).__name__, "MarketOrderRequest")
 
     def test_every_close_caller_handles_no_quote(self):
-        src = inspect.getsource(a._monitor_option_position)
-        # expiry backstop, stop, trail, and the T1 half-close
+        # expiry backstop, stop, trail, and the T1 half-close -- each its own
+        # function since 2026-09-14
+        src = "".join(inspect.getsource(fn) for fn in (
+            a._opt_exit_expiry_backstop, a._opt_exit_stop, a._opt_exit_trailing, a._opt_exit_t1_half))
         self.assertEqual(src.count('_st == "no_quote"'), 4)
 
     def test_swallow_logging_is_rate_limited(self):
@@ -7262,7 +7358,7 @@ class TestSetupKill(unittest.TestCase):
             self.assertFalse(a._setup_is_disabled("Anything")[0])
 
     def test_submit_refuses_a_killed_setup(self):
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_kill = src.index("_setup_is_disabled(sig.setup)")
         i_sub = src.index("submit_alpaca_trade(sig)")
         self.assertLess(i_kill, i_sub)
@@ -7287,8 +7383,8 @@ class TestVixTermStructure(unittest.TestCase):
             self.assertIsNone(a._latest_vix3m())
 
     def test_regime_consumes_it(self):
-        src = inspect.getsource(a.get_market_regime)
-        self.assertIn("_latest_vix3m()", src)
+        self.assertIn("_regime_vix_term(", inspect.getsource(a.get_market_regime))
+        self.assertIn("_latest_vix3m()", inspect.getsource(a._regime_vix_term))
 
 
 class TestOptionsContractBudgetBand(unittest.TestCase):
@@ -7361,7 +7457,7 @@ class TestPdtZeroSharesArmingDate(unittest.TestCase):
         # which the submit loop then re-anchors to the live quote. Without a
         # re-derive, a name that moved since the signal would breach the
         # notional cap in exactly the case the cap exists for.
-        src = inspect.getsource(a._submit_signals_to_alpaca)
+        src = _submit_path_source()
         i_anchor = src.index("_live_entry = round(cur * 1.001, 2)")
         i_resize = src.index("sig.shares = _pdt_zero_share_size(sig.entry")
         i_submit = src.index("oid, _submit_err = submit_alpaca_trade(sig)")
@@ -7807,18 +7903,26 @@ class TestOptionsExpiryBackstop(unittest.TestCase):
     def test_backstop_uses_the_shared_close_choke_point(self):
         # Which means it inherits the PDT guard for free rather than
         # reimplementing it.
+        # The backstop branch body lives in _opt_exit_expiry_backstop() since
+        # 2026-09-14; the monitor keeps the elif ORDER and calls it.
         src = inspect.getsource(a._monitor_option_position)
-        seg = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
-        seg = seg[:seg.index("elif not _trail_active")]
+        head = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
+        head = head[:head.index("elif not _trail_active")]
+        self.assertIn("_opt_exit_expiry_backstop(", head)
+        seg = inspect.getsource(a._opt_exit_expiry_backstop)
         self.assertIn("_submit_options_close(", seg)
 
     def test_backstop_handles_pdt_blocked_without_telling_user_to_sell(self):
         # A DTE<=1 contract opened TODAY can't be sold without a violation.
         # The message must not tell them to sell today -- that is the exact
         # action being prevented everywhere else.
+        # The backstop branch body lives in _opt_exit_expiry_backstop() since
+        # 2026-09-14; the monitor keeps the elif ORDER and calls it.
         src = inspect.getsource(a._monitor_option_position)
-        seg = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
-        seg = seg[:seg.index("elif not _trail_active")]
+        head = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
+        head = head[:head.index("elif not _trail_active")]
+        self.assertIn("_opt_exit_expiry_backstop(", head)
+        seg = inspect.getsource(a._opt_exit_expiry_backstop)
         self.assertIn("pdt_blocked", seg)
         self.assertIn("tomorrow", seg)
 
@@ -15560,7 +15664,7 @@ class TestBearGapHoldToggle(unittest.TestCase):
         self.assertEqual(a.TOGGLEABLE_FLAGS["beargap"][0], "ENABLE_BEAR_GAP_HOLD")
 
     def test_detector_is_gated_by_the_flag(self):
-        src = inspect.getsource(a._raw_signals)
+        src = inspect.getsource(a._rs_bear_gap_hold)
         self.assertIn('OPTIONS_ENABLE_PUTS and flag("ENABLE_BEAR_GAP_HOLD", ENABLE_BEAR_GAP_HOLD)', src)
 
 

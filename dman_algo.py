@@ -48,6 +48,12 @@ warnings.filterwarnings("ignore")
 ET = zoneinfo.ZoneInfo("America/New_York")
 
 
+
+# Sentinel for refx-extracted helpers: a caller variable unassigned on the
+# current path is passed as this and deleted inside the helper, so reading it
+# raises UnboundLocalError at the same point the original code would.
+_REFX_UNBOUND = object()
+
 def _et_today() -> date:
     """Today's TRADING date, in New York -- not the host machine's date.
 
@@ -3221,6 +3227,262 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
     return True, ""
 
 
+def _tg_cmd_flags(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _key = (_parts[1].lower() if len(_parts) > 1 else "")
+    _val = (_parts[2].lower() if len(_parts) > 2 else "")
+    if not _key:
+        _lines = ["🎛️ <b>Feature flags</b>", ""]
+        for _short, (_const, _desc) in TOGGLEABLE_FLAGS.items():
+            _on = flag(_const, globals().get(_const, True))
+            _lines.append(f"{'✅' if _on else '⛔'} <b>{_short}</b> — {'ON' if _on else 'OFF'}")
+            _lines.append(f"    <i>{_desc}</i>")
+        _lines += ["", "Send <b>/flags rvol off</b> to change one.",
+                   "Takes effect on the next scan — no restart needed."]
+        send_telegram("\n".join(_lines))
+    elif _key not in TOGGLEABLE_FLAGS:
+        send_telegram(f"❓ Unknown flag <b>{_key}</b>. "
+                      f"Known: {', '.join(sorted(TOGGLEABLE_FLAGS))}")
+    elif _val not in ("on", "off"):
+        send_telegram(f"❓ Say <b>/flags {_key} on</b> or <b>/flags {_key} off</b>.")
+    else:
+        _const, _desc = TOGGLEABLE_FLAGS[_key]
+        try:
+            set_flag(_const, _val == "on")
+            send_telegram(f"{'✅' if _val=='on' else '⛔'} <b>{_key} = {_val.upper()}</b>\n"
+                          f"{_desc}\n"
+                          f"Applies from the next scan. Send /flags to review.")
+        except Exception as _e:
+            send_telegram(f"❌ /flags failed: {_e}")
+
+
+
+def _tg_cmd_halt(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _reason = " ".join(_parts[1:]) or "manual"
+    try:
+        with open(HALT_FILE, "w") as _f:
+            json.dump({"halted_at": datetime.now(ET).isoformat(),
+                       "reason": _reason}, _f)
+        send_telegram(f"🛑 <b>HALTED</b> — no new entries will be submitted "
+                      f"(reason: {_reason}). Exits/stops still enforced. "
+                      f"Send /resume to re-enable.")
+    except Exception as _e:
+        send_telegram(f"❌ /halt failed: {_e}")
+
+
+
+def _tg_cmd_resume():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    try:
+        if os.path.exists(HALT_FILE):
+            os.remove(HALT_FILE)
+            send_telegram("🟢 <b>RESUMED</b> — entries re-enabled.")
+        else:
+            send_telegram("🟢 Not halted — nothing to resume.")
+    except Exception as _e:
+        send_telegram(f"❌ /resume failed: {_e}")
+
+
+
+def _tg_cmd_probation(_arg, _parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    try:
+        _mult = float(_arg) if _arg else 0.5
+        with open(PROBATION_FILE, "w") as _f:
+            json.dump({"active": True, "size_mult": _mult,
+                       "started": datetime.now(ET).isoformat(),
+                       "note": " ".join(_parts[2:]) or "manual"}, _f)
+        send_telegram(f"🟡 <b>PROBATION ON</b> — sizing ×{_mult:.2f}. Bypasses the "
+                      f"consecutive-loss and monthly-loss guards only; daily loss "
+                      f"limit and /halt still apply. Send /endprobation to clear.")
+    except Exception as _e:
+        send_telegram(f"❌ /probation failed: {_e}")
+
+
+
+def _tg_cmd_endprobation():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    try:
+        if os.path.exists(PROBATION_FILE):
+            os.remove(PROBATION_FILE)
+            send_telegram("🟢 <b>PROBATION ENDED</b> — normal circuit breakers restored.")
+        else:
+            send_telegram("🟢 Not on probation — nothing to end.")
+    except Exception as _e:
+        send_telegram(f"❌ /endprobation failed: {_e}")
+
+
+
+def _tg_cmd_setupprobation(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _setup_name = " ".join(_parts[1:]).strip()
+    if not _setup_name:
+        send_telegram("⚠️ Usage: /setupprobation SETUP NAME (e.g. /setupprobation Low Float Catalyst)")
+    else:
+        try:
+            _newly = _enter_setup_probation(_setup_name, "manual")
+            if _newly:
+                send_telegram(
+                    f"🟡 <b>SETUP PROBATION ON</b> — {_setup_name}\n"
+                    f"+{SETUP_PROBATION_SCORE_BONUS}pts required on top of its normal bar "
+                    f"for {SETUP_PROBATION_MAX_DAYS}d. Send /endsetupprobation {_setup_name} to clear early."
+                )
+            else:
+                send_telegram(f"🟡 {_setup_name} is already restricted.")
+        except Exception as _e:
+            send_telegram(f"❌ /setupprobation failed: {_e}")
+
+
+
+def _tg_cmd_endsetupprobation(_parts):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _setup_name = " ".join(_parts[1:]).strip()
+    if not _setup_name:
+        send_telegram("⚠️ Usage: /endsetupprobation SETUP NAME")
+    else:
+        try:
+            state = _load_setup_probation()
+            if _setup_name in state:
+                del state[_setup_name]
+                _save_setup_probation(state)
+                send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_setup_name} back to its normal bar.")
+            else:
+                send_telegram(f"🟢 {_setup_name} isn't restricted — nothing to end.")
+        except Exception as _e:
+            send_telegram(f"❌ /endsetupprobation failed: {_e}")
+
+
+
+def _tg_cmd_status():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _h = "🛑 HALTED" if is_halted() else "🟢 active"
+    _prob_on, _prob_mult = is_on_probation()
+    if _prob_on:
+        _h += f"  |  🟡 PROBATION ×{_prob_mult:.2f}"
+    _setup_prob = _load_setup_probation()
+    if _setup_prob:
+        _h += f"  |  🟡 {len(_setup_prob)} setup(s) restricted: {', '.join(_setup_prob.keys())}"
+    try:
+        _acct = get_alpaca_client().get_account()
+        _eq   = float(_acct.equity)
+        _dt   = int(getattr(_acct, "daytrade_count", 0) or 0)
+        _acct_line = (f"Equity <b>${_eq:,.2f}</b>  "
+                      f"BP ${float(_acct.buying_power):,.2f}  "
+                      f"Day trades {_dt}/3")
+    except Exception:
+        _acct_line = "Alpaca unreachable"
+    _n_pos = len(PositionTracker().positions)
+    send_telegram(f"📊 <b>DMan status</b> — {_h}\n{_acct_line}\n"
+                  f"Tracked positions: {_n_pos}\n"
+                  f"Today P&L: {get_todays_loss():+.2f}%  "
+                  f"Month: {get_this_month_loss():+.2f}%")
+
+
+
+def _tg_cmd_positions():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _pt = PositionTracker()
+    if not _pt.positions:
+        send_telegram("📭 No tracked positions.")
+    else:
+        _lines = []
+        for _p in _pt.positions:
+            if _p.setup.startswith("Earnings "):
+                _lines.append(f"<b>{_p.ticker}</b> [SPREAD] {_p.setup}  "
+                              f"cost ${_p.entry:.0f}  max loss ${_p.max_loss:.0f}  "
+                              f"max gain ${_p.max_gain:.0f}")
+                continue
+            _tag = "OPT" if _p.setup.startswith("Options ") else _p.bias
+            _lines.append(f"<b>{_p.ticker}</b> [{_tag}] entry ${_p.entry}  "
+                          f"stop ${_p.stop}  T1 ${_p.target1}")
+        send_telegram("📋 <b>Open positions</b>\n" + "\n".join(_lines))
+
+
+
+def _tg_cmd_restart():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    send_telegram("🔄 <b>Restart requested</b> — dispatching a fresh daemon session "
+                  "(automatically cancels any stuck/hung session first, same "
+                  "concurrency group). This works even if the current daemon is "
+                  "completely frozen.")
+    _ok, _msg = _trigger_workflow_restart("dman_daemon.yml")
+    if _ok:
+        send_telegram("✅ Fresh daemon session dispatched — should be live within a "
+                      "few minutes. You'll get the usual \"daemon ONLINE\" message "
+                      "once it starts.")
+    else:
+        send_telegram(f"❌ Restart dispatch failed: {_msg}\n"
+                      f"Fallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.")
+
+
+
+def _tg_cmd_scan():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    send_telegram("🔍 <b>Scan requested</b> — dispatching an immediate scanner run "
+                  "(curated universe, real submission if the market's open). "
+                  "Results post the same way a scheduled scan would.")
+    _ok, _msg = _trigger_workflow_restart("dman_scanner.yml", inputs={"mode": "scan"})
+    if _ok:
+        send_telegram("✅ Scan dispatched — should start within a minute or two.")
+    else:
+        send_telegram(f"❌ Scan dispatch failed: {_msg}\n"
+                      f"Fallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.")
+
+
+
+def _tg_cmd_review():
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    send_telegram("🔎 <b>Review requested</b> — dispatching a session review now "
+                  "(report only, nothing gets pushed or traded automatically). "
+                  "Takes a few minutes — the report posts here when it's done.")
+    _ok, _msg = _trigger_workflow_restart("dman_review.yml")
+    if _ok:
+        send_telegram("✅ Review dispatched.")
+    else:
+        send_telegram(f"❌ Review dispatch failed: {_msg}\n"
+                      f"Fallback: GitHub app → Actions → DMan Session Review → Run workflow.")
+
+
+
+def _tg_cmd_close(_arg):
+    """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
+    """
+    _pt  = PositionTracker()
+    _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
+    if _pos is None:
+        send_telegram(f"❓ /close: no tracked position for {_arg}")
+    elif _pos.setup.startswith("Earnings "):
+        _st, _oid = _close_earnings_spread(asdict(_pos), f"manual /close {_arg}")
+        send_telegram(f"📤 /close {_arg}: {_st}"
+                      + (f" (id {_oid[:8]}…)" if _oid else ""))
+    elif _pos.setup.startswith("Options "):
+        _occ_c  = _pos.setup.split()[2]
+        _ctrs_c = max(1, int(_pos.shares) // 100)
+        _st, _oid = _submit_options_close(_occ_c, _ctrs_c, f"manual /close {_arg}")
+        send_telegram(f"📤 /close {_arg}: {_st}"
+                      + (f" (id {_oid[:8]}…)" if _oid else ""))
+    else:
+        try:
+            get_alpaca_client().close_position(_arg)
+            send_telegram(f"📤 /close {_arg}: equity close submitted")
+        except Exception as _e:
+            send_telegram(f"❌ /close {_arg} failed: {_e}")
+
+
+
 def _handle_telegram_command(text: str) -> None:
     """Execute one bot command and reply via Telegram."""
     _parts = text.split()
@@ -3233,168 +3495,38 @@ def _handle_telegram_command(text: str) -> None:
         # cron scanner are separate processes in separate checkouts and
         # changing a literal needs an edit, a commit and a push -- none of
         # which is available to someone at work with only a phone.
-        _key = (_parts[1].lower() if len(_parts) > 1 else "")
-        _val = (_parts[2].lower() if len(_parts) > 2 else "")
-        if not _key:
-            _lines = ["🎛️ <b>Feature flags</b>", ""]
-            for _short, (_const, _desc) in TOGGLEABLE_FLAGS.items():
-                _on = flag(_const, globals().get(_const, True))
-                _lines.append(f"{'✅' if _on else '⛔'} <b>{_short}</b> — {'ON' if _on else 'OFF'}")
-                _lines.append(f"    <i>{_desc}</i>")
-            _lines += ["", "Send <b>/flags rvol off</b> to change one.",
-                       "Takes effect on the next scan — no restart needed."]
-            send_telegram("\n".join(_lines))
-        elif _key not in TOGGLEABLE_FLAGS:
-            send_telegram(f"❓ Unknown flag <b>{_key}</b>. "
-                          f"Known: {', '.join(sorted(TOGGLEABLE_FLAGS))}")
-        elif _val not in ("on", "off"):
-            send_telegram(f"❓ Say <b>/flags {_key} on</b> or <b>/flags {_key} off</b>.")
-        else:
-            _const, _desc = TOGGLEABLE_FLAGS[_key]
-            try:
-                set_flag(_const, _val == "on")
-                send_telegram(f"{'✅' if _val=='on' else '⛔'} <b>{_key} = {_val.upper()}</b>\n"
-                              f"{_desc}\n"
-                              f"Applies from the next scan. Send /flags to review.")
-            except Exception as _e:
-                send_telegram(f"❌ /flags failed: {_e}")
+        _tg_cmd_flags(_parts)
 
     elif _cmd == "halt":
-        _reason = " ".join(_parts[1:]) or "manual"
-        try:
-            with open(HALT_FILE, "w") as _f:
-                json.dump({"halted_at": datetime.now(ET).isoformat(),
-                           "reason": _reason}, _f)
-            send_telegram(f"🛑 <b>HALTED</b> — no new entries will be submitted "
-                          f"(reason: {_reason}). Exits/stops still enforced. "
-                          f"Send /resume to re-enable.")
-        except Exception as _e:
-            send_telegram(f"❌ /halt failed: {_e}")
+        _tg_cmd_halt(_parts)
 
     elif _cmd == "resume":
-        try:
-            if os.path.exists(HALT_FILE):
-                os.remove(HALT_FILE)
-                send_telegram("🟢 <b>RESUMED</b> — entries re-enabled.")
-            else:
-                send_telegram("🟢 Not halted — nothing to resume.")
-        except Exception as _e:
-            send_telegram(f"❌ /resume failed: {_e}")
+        _tg_cmd_resume()
 
     elif _cmd == "probation":
-        try:
-            _mult = float(_arg) if _arg else 0.5
-            with open(PROBATION_FILE, "w") as _f:
-                json.dump({"active": True, "size_mult": _mult,
-                           "started": datetime.now(ET).isoformat(),
-                           "note": " ".join(_parts[2:]) or "manual"}, _f)
-            send_telegram(f"🟡 <b>PROBATION ON</b> — sizing ×{_mult:.2f}. Bypasses the "
-                          f"consecutive-loss and monthly-loss guards only; daily loss "
-                          f"limit and /halt still apply. Send /endprobation to clear.")
-        except Exception as _e:
-            send_telegram(f"❌ /probation failed: {_e}")
+        _tg_cmd_probation(_arg, _parts)
 
     elif _cmd == "endprobation":
-        try:
-            if os.path.exists(PROBATION_FILE):
-                os.remove(PROBATION_FILE)
-                send_telegram("🟢 <b>PROBATION ENDED</b> — normal circuit breakers restored.")
-            else:
-                send_telegram("🟢 Not on probation — nothing to end.")
-        except Exception as _e:
-            send_telegram(f"❌ /endprobation failed: {_e}")
+        _tg_cmd_endprobation()
 
     elif _cmd == "setupprobation":
-        _setup_name = " ".join(_parts[1:]).strip()
-        if not _setup_name:
-            send_telegram("⚠️ Usage: /setupprobation SETUP NAME (e.g. /setupprobation Low Float Catalyst)")
-        else:
-            try:
-                _newly = _enter_setup_probation(_setup_name, "manual")
-                if _newly:
-                    send_telegram(
-                        f"🟡 <b>SETUP PROBATION ON</b> — {_setup_name}\n"
-                        f"+{SETUP_PROBATION_SCORE_BONUS}pts required on top of its normal bar "
-                        f"for {SETUP_PROBATION_MAX_DAYS}d. Send /endsetupprobation {_setup_name} to clear early."
-                    )
-                else:
-                    send_telegram(f"🟡 {_setup_name} is already restricted.")
-            except Exception as _e:
-                send_telegram(f"❌ /setupprobation failed: {_e}")
+        _tg_cmd_setupprobation(_parts)
 
     elif _cmd == "endsetupprobation":
-        _setup_name = " ".join(_parts[1:]).strip()
-        if not _setup_name:
-            send_telegram("⚠️ Usage: /endsetupprobation SETUP NAME")
-        else:
-            try:
-                state = _load_setup_probation()
-                if _setup_name in state:
-                    del state[_setup_name]
-                    _save_setup_probation(state)
-                    send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_setup_name} back to its normal bar.")
-                else:
-                    send_telegram(f"🟢 {_setup_name} isn't restricted — nothing to end.")
-            except Exception as _e:
-                send_telegram(f"❌ /endsetupprobation failed: {_e}")
+        _tg_cmd_endsetupprobation(_parts)
 
     elif _cmd == "status":
-        _h = "🛑 HALTED" if is_halted() else "🟢 active"
-        _prob_on, _prob_mult = is_on_probation()
-        if _prob_on:
-            _h += f"  |  🟡 PROBATION ×{_prob_mult:.2f}"
-        _setup_prob = _load_setup_probation()
-        if _setup_prob:
-            _h += f"  |  🟡 {len(_setup_prob)} setup(s) restricted: {', '.join(_setup_prob.keys())}"
-        try:
-            _acct = get_alpaca_client().get_account()
-            _eq   = float(_acct.equity)
-            _dt   = int(getattr(_acct, "daytrade_count", 0) or 0)
-            _acct_line = (f"Equity <b>${_eq:,.2f}</b>  "
-                          f"BP ${float(_acct.buying_power):,.2f}  "
-                          f"Day trades {_dt}/3")
-        except Exception:
-            _acct_line = "Alpaca unreachable"
-        _n_pos = len(PositionTracker().positions)
-        send_telegram(f"📊 <b>DMan status</b> — {_h}\n{_acct_line}\n"
-                      f"Tracked positions: {_n_pos}\n"
-                      f"Today P&L: {get_todays_loss():+.2f}%  "
-                      f"Month: {get_this_month_loss():+.2f}%")
+        _tg_cmd_status()
 
     elif _cmd == "positions":
-        _pt = PositionTracker()
-        if not _pt.positions:
-            send_telegram("📭 No tracked positions.")
-        else:
-            _lines = []
-            for _p in _pt.positions:
-                if _p.setup.startswith("Earnings "):
-                    _lines.append(f"<b>{_p.ticker}</b> [SPREAD] {_p.setup}  "
-                                  f"cost ${_p.entry:.0f}  max loss ${_p.max_loss:.0f}  "
-                                  f"max gain ${_p.max_gain:.0f}")
-                    continue
-                _tag = "OPT" if _p.setup.startswith("Options ") else _p.bias
-                _lines.append(f"<b>{_p.ticker}</b> [{_tag}] entry ${_p.entry}  "
-                              f"stop ${_p.stop}  T1 ${_p.target1}")
-            send_telegram("📋 <b>Open positions</b>\n" + "\n".join(_lines))
+        _tg_cmd_positions()
 
     elif _cmd == "pnl":
         send_telegram(f"💰 <b>P&L</b>\nToday: {get_todays_loss():+.2f}%\n"
                       f"Month: {get_this_month_loss():+.2f}%")
 
     elif _cmd in ("restart", "reboot"):
-        send_telegram("🔄 <b>Restart requested</b> — dispatching a fresh daemon session "
-                      "(automatically cancels any stuck/hung session first, same "
-                      "concurrency group). This works even if the current daemon is "
-                      "completely frozen.")
-        _ok, _msg = _trigger_workflow_restart("dman_daemon.yml")
-        if _ok:
-            send_telegram("✅ Fresh daemon session dispatched — should be live within a "
-                          "few minutes. You'll get the usual \"daemon ONLINE\" message "
-                          "once it starts.")
-        else:
-            send_telegram(f"❌ Restart dispatch failed: {_msg}\n"
-                          f"Fallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.")
+        _tg_cmd_restart()
 
     elif _cmd == "scan":
         # Dispatches dman_scanner.yml's own manual-trigger handler with
@@ -3409,15 +3541,7 @@ def _handle_telegram_command(text: str) -> None:
         # _submit_signals_to_alpaca() itself refuses to place real orders
         # (same guard every scheduled scan already relies on) -- fails
         # safe rather than needing a duplicate time check here.
-        send_telegram("🔍 <b>Scan requested</b> — dispatching an immediate scanner run "
-                      "(curated universe, real submission if the market's open). "
-                      "Results post the same way a scheduled scan would.")
-        _ok, _msg = _trigger_workflow_restart("dman_scanner.yml", inputs={"mode": "scan"})
-        if _ok:
-            send_telegram("✅ Scan dispatched — should start within a minute or two.")
-        else:
-            send_telegram(f"❌ Scan dispatch failed: {_msg}\n"
-                          f"Fallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.")
+        _tg_cmd_scan()
 
     elif _cmd == "review":
         # Dispatches dman_review.yml -- added 2026-08-21, direct instruction
@@ -3428,37 +3552,10 @@ def _handle_telegram_command(text: str) -> None:
         # construction: that workflow has contents:read (no write) and no
         # Alpaca credentials, so it's structurally unable to push code or
         # place a real trade regardless of what it decides to do.
-        send_telegram("🔎 <b>Review requested</b> — dispatching a session review now "
-                      "(report only, nothing gets pushed or traded automatically). "
-                      "Takes a few minutes — the report posts here when it's done.")
-        _ok, _msg = _trigger_workflow_restart("dman_review.yml")
-        if _ok:
-            send_telegram("✅ Review dispatched.")
-        else:
-            send_telegram(f"❌ Review dispatch failed: {_msg}\n"
-                          f"Fallback: GitHub app → Actions → DMan Session Review → Run workflow.")
+        _tg_cmd_review()
 
     elif _cmd == "close" and _arg:
-        _pt  = PositionTracker()
-        _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
-        if _pos is None:
-            send_telegram(f"❓ /close: no tracked position for {_arg}")
-        elif _pos.setup.startswith("Earnings "):
-            _st, _oid = _close_earnings_spread(asdict(_pos), f"manual /close {_arg}")
-            send_telegram(f"📤 /close {_arg}: {_st}"
-                          + (f" (id {_oid[:8]}…)" if _oid else ""))
-        elif _pos.setup.startswith("Options "):
-            _occ_c  = _pos.setup.split()[2]
-            _ctrs_c = max(1, int(_pos.shares) // 100)
-            _st, _oid = _submit_options_close(_occ_c, _ctrs_c, f"manual /close {_arg}")
-            send_telegram(f"📤 /close {_arg}: {_st}"
-                          + (f" (id {_oid[:8]}…)" if _oid else ""))
-        else:
-            try:
-                get_alpaca_client().close_position(_arg)
-                send_telegram(f"📤 /close {_arg}: equity close submitted")
-            except Exception as _e:
-                send_telegram(f"❌ /close {_arg} failed: {_e}")
+        _tg_cmd_close(_arg)
 
     elif _cmd == "why" and _arg:
         try:
@@ -7847,6 +7944,181 @@ def _cached_option_greeks(occ_symbol: str) -> dict:
     return greeks
 
 
+def _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t):
+    """Expiry backstop: DTE at or under OPTIONS_FORCE_CLOSE_DTE.
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} expiry backstop")
+    if _st == "submitted":
+        _action = "⏳ EXPIRY BACKSTOP — AUTO-CLOSED"
+        _msg = (f"{_dte_now}d to expiry — closed to avoid assignment. "
+                f"P&L: {_pnl_pct:+.0f}%. SELL ×{_ctrs} submitted "
+                f"(id {_coid[:8]}…).")
+    elif _st == "pending":
+        _action = "⏳ EXPIRY BACKSTOP — close order working"
+        _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+    elif _st == "already_closed":
+        _action = "⏳ EXPIRY BACKSTOP — already closed at Alpaca"
+        _msg = "Nothing held — next sync records the P&L"
+    elif _st == "no_quote":
+        _action = "⏳ EXIT DEFERRED — no live option quote"
+        _msg = ("Quote unavailable, so not selling blind at market. "
+                "Retrying next guard cycle.")
+    elif _st == "pdt_blocked":
+        # Only reachable for a contract opened TODAY that is already at
+        # DTE<=1 (a same-week expiry bought today). The PDT rule wins --
+        # a violation is 90 days of restriction, worse than this single
+        # position expiring -- but say plainly that it needs a human.
+        _action = "⚠️ EXPIRY — CANNOT AUTO-CLOSE (PDT budget exhausted)"
+        _msg = (f"{_dte_now}d to expiry and selling today would be day trade #4. "
+                f"Holding. If this is ITM it may ASSIGN — close it manually "
+                f"tomorrow, or accept assignment risk.")
+    else:
+        _action = "⚠️ EXPIRY BACKSTOP — AUTO-CLOSE FAILED"
+        _msg = (f"{_dte_now}d to expiry, P&L {_pnl_pct:+.0f}% — "
+                f"SELL MANUALLY NOW to avoid assignment.")
+    if not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
+        send_telegram(f"⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(f"{t}_{_kp}_EXPIRY_{_tod}")
+    return _action, _msg
+
+
+def _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t):
+    """Premium stop (floored at intrinsic value, see _stop_ref).
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} stop")
+    if _st == "submitted":
+        _action = "🔴 STOP HIT — AUTO-CLOSED"
+        _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
+                f"(id {_coid[:8]}…). Sync will record P&L.")
+    elif _st == "pending":
+        _action = "🔴 STOP HIT — close order working"
+        _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+    elif _st == "already_closed":
+        _action = "🔴 STOP — position already closed at Alpaca"
+        _msg = "Nothing held — next sync records the P&L"
+    elif _st == "no_quote":
+        _action = "⏳ EXIT DEFERRED — no live option quote"
+        _msg = ("Quote unavailable, so not selling blind at market. "
+                "Retrying next guard cycle.")
+    elif _st == "pdt_blocked":
+        # Not a failure — a deliberate hold. Loss stays capped at the
+        # premium; a PDT flag would cap the whole account for 90 days.
+        _action = "🚫 STOP HIT — HELD (PDT budget exhausted)"
+        _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                f"({_pnl_pct:+.0f}%) — selling today would be day trade #4. "
+                f"Holding overnight; max loss is the premium.")
+    else:
+        _action = "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED"
+        _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
+                f"({_pnl_pct:+.0f}%) — SELL MANUALLY NOW")
+    if not _is_alerted_today(_stopk):
+        send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(_stopk)
+    return _action, _msg
+
+
+def _opt_exit_trailing(_ctrs, _cur_prem, _flow_lean, _flow_tightened, _giveback_pct, _occ, _peak_prem, _pnl_pct, _trailk, kind, t):
+    """Trailing giveback exit once the trail is armed.
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} trail")
+    _giveback_desc = f"peak ${_peak_prem:.2f} → now ${_cur_prem:.2f} ({_pnl_pct:+.0f}% from entry)"
+    _flow_note = (f" — tightened by order flow (bid/ask size lean {_flow_lean:+.2f})"
+                  if _flow_tightened else "")
+    if _st == "submitted":
+        _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
+        _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak{_flow_note} — {_giveback_desc} — "
+                f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
+    elif _st == "pending":
+        _action = "🚀 TRAIL EXIT — close order working"
+        _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
+    elif _st == "already_closed":
+        _action = "🚀 TRAIL EXIT — position already closed at Alpaca"
+        _msg = "Nothing held — next sync records the P&L"
+    elif _st == "no_quote":
+        _action = "⏳ EXIT DEFERRED — no live option quote"
+        _msg = ("Quote unavailable, so not selling blind at market. "
+                "Retrying next guard cycle.")
+    elif _st == "pdt_blocked":
+        _action = "🚫 TRAIL EXIT — HELD (PDT budget exhausted)"
+        _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
+                f"but selling today would be day trade #4. Holding overnight. "
+                f"Do NOT sell manually today.")
+    else:
+        _action = "🚀 TRAIL EXIT — ⚠️ AUTO-CLOSE FAILED"
+        _msg = f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
+    if not _is_alerted_today(_trailk):
+        send_telegram(f"🚀 <b>OPTIONS TRAIL EXIT</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(_trailk)
+    return _action, _msg
+
+
+def _opt_exit_t1_half(_ctrs, _cur_prem, _entry_prem, _occ, _pnl_pct, _t1_prem, _t1k, kind, t):
+    """T1 reached: sell half, stop to breakeven.
+
+    Branch body extracted verbatim from _monitor_option_position() on 2026-09-14; the
+    elif ORDER that decides which exit wins stays in the caller.
+    Returns: _action, _msg.
+    """
+    if _ctrs >= 2:
+        _half = _ctrs // 2
+        _st, _coid = _submit_options_close(_occ, _half, f"{t} {kind} T1 half")
+        if _st == "submitted":
+            # OCC-keyed, not ticker-keyed — found 2026-08-16 review:
+            # _update_option_position_field() exists specifically
+            # because a ticker-keyed update silently modifies every
+            # position sharing this underlying (a call+put strangle,
+            # or an options leg alongside an unrelated equity position
+            # on the same ticker — see that function's docstring for
+            # the confirmed SMCI incident). This T1 branch was never
+            # migrated to it, so a real T1 fill could overwrite an
+            # unrelated position's stop/shares.
+            _update_option_position_field(_occ, shares=(_ctrs - _half) * 100,
+                                          stop=round(_entry_prem, 2))
+            _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
+            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
+                    f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
+                    f"(id {_coid[:8]}…), stop raised to ${_entry_prem:.2f}")
+        elif _st in ("pending", "already_closed"):
+            _action = "🟢 T1 — partial close in progress"
+            _msg = "Half-sell order working or already done"
+        elif _st == "no_quote":
+            _action = "⏳ EXIT DEFERRED — no live option quote"
+            _msg = ("Quote unavailable, so not selling blind at market. "
+                    "Retrying next guard cycle.")
+        elif _st == "pdt_blocked":
+            _action = "🚫 T1 HIT — HELD (PDT budget exhausted)"
+            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — but "
+                    f"selling today would be day trade #4. Holding overnight. "
+                    f"Do NOT sell manually today.")
+        else:
+            _action = "🟢 T1 HIT — ⚠️ auto-sell failed"
+            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
+                    "— sell ½ manually, raise stop to breakeven")
+    else:
+        _update_option_position_field(_occ, stop=round(_entry_prem, 2))
+        _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
+        _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
+                f"single contract: riding the trailing exit, stop raised to "
+                f"breakeven ${_entry_prem:.2f} (risk-free runner)")
+    if not _is_alerted_today(_t1k):
+        send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(_t1k)
+    return _action, _msg
+
+
 def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_price_fn=None) -> Optional[str]:
     """
     Enforce stop / trailing-exit / T1 / DTE rules on one tracked options
@@ -7986,152 +8258,21 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         # First in the chain on purpose: assignment avoidance outranks every
         # strategy exit below it. In particular the T1 branch sells only HALF
         # a position -- at DTE 1 that would leave the other half to expire.
-        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} expiry backstop")
-        if _st == "submitted":
-            _action = "⏳ EXPIRY BACKSTOP — AUTO-CLOSED"
-            _msg = (f"{_dte_now}d to expiry — closed to avoid assignment. "
-                    f"P&L: {_pnl_pct:+.0f}%. SELL ×{_ctrs} submitted "
-                    f"(id {_coid[:8]}…).")
-        elif _st == "pending":
-            _action = "⏳ EXPIRY BACKSTOP — close order working"
-            _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
-        elif _st == "already_closed":
-            _action = "⏳ EXPIRY BACKSTOP — already closed at Alpaca"
-            _msg = "Nothing held — next sync records the P&L"
-        elif _st == "no_quote":
-            _action = "⏳ EXIT DEFERRED — no live option quote"
-            _msg = ("Quote unavailable, so not selling blind at market. "
-                    "Retrying next guard cycle.")
-        elif _st == "pdt_blocked":
-            # Only reachable for a contract opened TODAY that is already at
-            # DTE<=1 (a same-week expiry bought today). The PDT rule wins --
-            # a violation is 90 days of restriction, worse than this single
-            # position expiring -- but say plainly that it needs a human.
-            _action = "⚠️ EXPIRY — CANNOT AUTO-CLOSE (PDT budget exhausted)"
-            _msg = (f"{_dte_now}d to expiry and selling today would be day trade #4. "
-                    f"Holding. If this is ITM it may ASSIGN — close it manually "
-                    f"tomorrow, or accept assignment risk.")
-        else:
-            _action = "⚠️ EXPIRY BACKSTOP — AUTO-CLOSE FAILED"
-            _msg = (f"{_dte_now}d to expiry, P&L {_pnl_pct:+.0f}% — "
-                    f"SELL MANUALLY NOW to avoid assignment.")
-        if not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
-            send_telegram(f"⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(f"{t}_{_kp}_EXPIRY_{_tod}")
+        _action, _msg = _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t)
     elif not _trail_active and _stop_ref <= _stop_prem:
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.
-        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} stop")
-        if _st == "submitted":
-            _action = "🔴 STOP HIT — AUTO-CLOSED"
-            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                    f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
-                    f"(id {_coid[:8]}…). Sync will record P&L.")
-        elif _st == "pending":
-            _action = "🔴 STOP HIT — close order working"
-            _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
-        elif _st == "already_closed":
-            _action = "🔴 STOP — position already closed at Alpaca"
-            _msg = "Nothing held — next sync records the P&L"
-        elif _st == "no_quote":
-            _action = "⏳ EXIT DEFERRED — no live option quote"
-            _msg = ("Quote unavailable, so not selling blind at market. "
-                    "Retrying next guard cycle.")
-        elif _st == "pdt_blocked":
-            # Not a failure — a deliberate hold. Loss stays capped at the
-            # premium; a PDT flag would cap the whole account for 90 days.
-            _action = "🚫 STOP HIT — HELD (PDT budget exhausted)"
-            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                    f"({_pnl_pct:+.0f}%) — selling today would be day trade #4. "
-                    f"Holding overnight; max loss is the premium.")
-        else:
-            _action = "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED"
-            _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
-                    f"({_pnl_pct:+.0f}%) — SELL MANUALLY NOW")
-        if not _is_alerted_today(_stopk):
-            send_telegram(f"🔴 <b>OPTIONS STOP</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(_stopk)
+        _action, _msg = _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t)
     elif _trail_active and _cur_prem <= _peak_prem * (1 - _giveback_pct / 100):
         # Replaces the old fixed T2 (+150%) auto-close (2026-08-10) — reacts
         # to how the trade actually moved (peak, then a real give-back)
         # instead of one static number that could be missed on a fast
         # reversal or fire too early on a slow, healthy grind.
-        _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} trail")
-        _giveback_desc = f"peak ${_peak_prem:.2f} → now ${_cur_prem:.2f} ({_pnl_pct:+.0f}% from entry)"
-        _flow_note = (f" — tightened by order flow (bid/ask size lean {_flow_lean:+.2f})"
-                      if _flow_tightened else "")
-        if _st == "submitted":
-            _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
-            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak{_flow_note} — {_giveback_desc} — "
-                    f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
-        elif _st == "pending":
-            _action = "🚀 TRAIL EXIT — close order working"
-            _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
-        elif _st == "already_closed":
-            _action = "🚀 TRAIL EXIT — position already closed at Alpaca"
-            _msg = "Nothing held — next sync records the P&L"
-        elif _st == "no_quote":
-            _action = "⏳ EXIT DEFERRED — no live option quote"
-            _msg = ("Quote unavailable, so not selling blind at market. "
-                    "Retrying next guard cycle.")
-        elif _st == "pdt_blocked":
-            _action = "🚫 TRAIL EXIT — HELD (PDT budget exhausted)"
-            _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — "
-                    f"but selling today would be day trade #4. Holding overnight. "
-                    f"Do NOT sell manually today.")
-        else:
-            _action = "🚀 TRAIL EXIT — ⚠️ AUTO-CLOSE FAILED"
-            _msg = f"Gave back {_giveback_pct:.0f}%+ off the peak — {_giveback_desc} — SELL MANUALLY"
-        if not _is_alerted_today(_trailk):
-            send_telegram(f"🚀 <b>OPTIONS TRAIL EXIT</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(_trailk)
+        _action, _msg = _opt_exit_trailing(_ctrs, _cur_prem, _flow_lean, _flow_tightened, _giveback_pct, _occ, _peak_prem, _pnl_pct, _trailk, kind, t)
     elif _cur_prem >= _t1_prem and _stop_prem < _entry_prem:
         # T1: sell half if ≥2 contracts, raise stop to breakeven either way.
         # (_stop_prem < entry guard = T1 not yet taken)
-        if _ctrs >= 2:
-            _half = _ctrs // 2
-            _st, _coid = _submit_options_close(_occ, _half, f"{t} {kind} T1 half")
-            if _st == "submitted":
-                # OCC-keyed, not ticker-keyed — found 2026-08-16 review:
-                # _update_option_position_field() exists specifically
-                # because a ticker-keyed update silently modifies every
-                # position sharing this underlying (a call+put strangle,
-                # or an options leg alongside an unrelated equity position
-                # on the same ticker — see that function's docstring for
-                # the confirmed SMCI incident). This T1 branch was never
-                # migrated to it, so a real T1 fill could overwrite an
-                # unrelated position's stop/shares.
-                _update_option_position_field(_occ, shares=(_ctrs - _half) * 100,
-                                              stop=round(_entry_prem, 2))
-                _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
-                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
-                        f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
-                        f"(id {_coid[:8]}…), stop raised to ${_entry_prem:.2f}")
-            elif _st in ("pending", "already_closed"):
-                _action = "🟢 T1 — partial close in progress"
-                _msg = "Half-sell order working or already done"
-            elif _st == "no_quote":
-                _action = "⏳ EXIT DEFERRED — no live option quote"
-                _msg = ("Quote unavailable, so not selling blind at market. "
-                        "Retrying next guard cycle.")
-            elif _st == "pdt_blocked":
-                _action = "🚫 T1 HIT — HELD (PDT budget exhausted)"
-                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — but "
-                        f"selling today would be day trade #4. Holding overnight. "
-                        f"Do NOT sell manually today.")
-            else:
-                _action = "🟢 T1 HIT — ⚠️ auto-sell failed"
-                _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) "
-                        "— sell ½ manually, raise stop to breakeven")
-        else:
-            _update_option_position_field(_occ, stop=round(_entry_prem, 2))
-            _action = "🟢 T1 HIT — stop → breakeven (1ct runner)"
-            _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ({_pnl_pct:+.0f}%) — "
-                    f"single contract: riding the trailing exit, stop raised to "
-                    f"breakeven ${_entry_prem:.2f} (risk-free runner)")
-        if not _is_alerted_today(_t1k):
-            send_telegram(f"🟢 <b>OPTIONS T1 HIT</b> — {t} {kind} {_occ}\n{_msg}")
-            _mark_alerted(_t1k)
+        _action, _msg = _opt_exit_t1_half(_ctrs, _cur_prem, _entry_prem, _occ, _pnl_pct, _t1_prem, _t1k, kind, t)
     elif _dte_now <= OPTIONS_CLOSE_DTE:
         _action = f"⏳ DTE ALERT — {_dte_now}d left, consider close"
         _msg = (f"Only {_dte_now}d to expiry — theta burning fast. "
@@ -8888,6 +9029,218 @@ def run_equity_guard(get_price_fn=None, positions: Optional[list] = None) -> Non
         _check_equity_position_target(pos, cur_price=cur_price)
 
 
+def _mw_monitor_open_positions(active_plays, options_alerts):
+    """Extracted verbatim from run_momentum_watch() on 2026-09-14 (refx).
+    """
+    try:
+        if os.path.exists("dman_positions.json"):
+            with open("dman_positions.json") as _pf:
+                for pos in json.load(_pf):
+                    t     = pos.get("ticker", "")
+                    e     = float(pos.get("entry", 0))
+                    fl    = float(pos.get("float_m", 0))
+                    setup = pos.get("setup", "")
+                    if not t:
+                        continue
+                    # Options positions — shared monitor enforces stop/T1/T2/DTE
+                    # (same engine the always-on daemon runs every 60s)
+                    if setup.startswith("Options Call "):
+                        _oa = _monitor_option_position(pos, "CALL")
+                        if _oa:
+                            options_alerts.append(_oa)
+                        continue
+                    elif setup.startswith("Options Put "):
+                        _oa = _monitor_option_position(pos, "PUT")
+                        if _oa:
+                            options_alerts.append(_oa)
+                        continue
+                    elif setup.startswith("Earnings "):
+                        _oa = _monitor_earnings_spread_position(pos)
+                        if _oa:
+                            options_alerts.append(_oa)
+                        continue
+
+                    if e > 0:
+                        # T1/T2 exit alerts + stop progression — see
+                        # _check_equity_position_target() (also reused by the
+                        # daemon's run_equity_guard() for continuous checking).
+                        _check_equity_position_target(pos)
+                        active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
+    except Exception:
+        pass
+
+
+
+def _mw_collect_watchlist_plays(active_plays, already):
+    """Extracted verbatim from run_momentum_watch() on 2026-09-14 (refx).
+    """
+    for ticker in DMAN_SMALLCAP_WATCHLIST:
+        if ticker in already:
+            continue
+        try:
+            # Use 2-day daily history to get TRUE opening gap (open vs prev close)
+            _hist2 = yf.Ticker(ticker).history(period="2d", interval="1d")
+            if len(_hist2) < 2:
+                continue
+            _today_open = float(_hist2["Open"].iloc[-1])
+            _prev_close = float(_hist2["Close"].iloc[-2])
+            if _today_open <= 0 or _prev_close <= 0:
+                continue
+            opening_gap = (_today_open - _prev_close) / _prev_close * 100
+            is_gap_up       = opening_gap >= 3.0
+            is_recovery_dip = -15.0 <= opening_gap < 0
+            # Always include watchlist tickers during market hours regardless of gap.
+            # A flat-gap ticker like TRVI (+0.2%) can still run +8% intraday.
+            fl_m, _, _, _ = _get_short_float_data(ticker)
+            if is_gap_up:
+                _src = f"gap {opening_gap:+.1f}% at open"
+            elif is_recovery_dip:
+                _src = f"recovery dip (opened {opening_gap:+.1f}% → VWAP reclaim watch)"
+            else:
+                _src = f"watchlist (flat gap {opening_gap:+.1f}%)"
+            active_plays.append({"ticker": ticker, "entry": 0.0,
+                                 "float_m": fl_m, "source": _src})
+        except Exception:
+            continue
+
+
+
+def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
+    """Extracted verbatim from run_momentum_watch() on 2026-09-14 (refx).
+    Returns (escape, value, ); escape is None or the original
+    return/continue/break of the block.
+    """
+    try:
+        df_5m  = _fetch_intraday_bars(ticker, interval="5m", period="1d")
+        levels = _compute_session_levels(df_5m)
+        if levels["cur_price"] == 0.0:
+            return ('continue', None)
+
+        cur = levels["cur_price"]
+        vwap = levels["vwap"]
+
+        if entry == 0.0:
+            # Not in position — check VWAP reclaim first, then breakout setup
+            _above_vwap = vwap > 0 and cur > vwap
+            _vwap_tag   = ""
+            if _above_vwap and "recovery" in source:
+                _vwap_dist = (cur - vwap) / vwap * 100
+                _vwap_tag  = f"  🔥 VWAP RECLAIMED (+{_vwap_dist:.1f}% above)"
+            elif not _above_vwap and vwap > 0 and "recovery" in source:
+                _vwap_dist = (vwap - cur) / vwap * 100
+                _vwap_tag  = f"  ⏳ below VWAP ({_vwap_dist:.1f}% away — watching)"
+
+            bp = _detect_pre_breakout(levels)
+            # Fire alert on breakout setup OR on VWAP reclaim from recovery dip
+            _fire = bp["setup"] or (_above_vwap and "recovery" in source)
+            if _fire:
+                if bp["setup"]:
+                    entry_px = bp["entry_px"]
+                    stop_px  = bp["stop_px"]
+                    sig_str  = " + ".join(bp["signals"][:3])
+                else:
+                    # Pure VWAP reclaim: entry at current price, stop at session low
+                    entry_px = round(cur * 1.002, 4)   # slight limit above current
+                    _sl_base = levels.get("session_low") or 0
+                    stop_px  = round((_sl_base if _sl_base > 0 else cur * 0.92) * 0.99, 4)
+                    sig_str  = f"VWAP reclaim ({source})"
+                risk_px = round(max(entry_px - stop_px, 0.001), 4)
+                t1 = round(entry_px * 1.30, 4)
+                t2 = round(entry_px * 1.50, 4)
+                t3_str = f"  T3 2x: ${round(entry_px * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
+                _label = "🔥 VWAP RECLAIM" if (not bp["setup"] and _above_vwap) else "BREAKOUT SETUP"
+                _breakout_msg = (
+                    f"🟡 <b>{ticker}</b>  {_label}  [{source}]{_vwap_tag}\n"
+                    f"   {sig_str}\n"
+                    f"   Entry: <b>${entry_px:.4f}</b>  Stop: ${stop_px:.4f}  "
+                    f"(risk ${risk_px:.4f}/sh)\n"
+                    f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
+                    f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
+                )
+                # High confidence = _detect_pre_breakout() found a real
+                # technical pattern (consolidation/volume/etc.), not just
+                # "price crossed back above VWAP" -- auto-executes at
+                # reduced size with no reply needed (see
+                # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
+                # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
+                if bp["setup"]:
+                    _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                                  "t1": t1, "t2": t2, "signal_str": sig_str}
+                    try:
+                        _mw_sig = _build_momentum_signal(_mw_offer)
+                        _submit_signals_to_alpaca([_mw_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
+                        _breakout_msg += (f"\n   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x "
+                                          f"size — no reply needed (day-only, auto-closes "
+                                          f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET)")
+                    except Exception as _mw_exc:
+                        _breakout_msg += f"\n   ⚠️ Auto-execute failed ({_mw_exc}) — no order placed"
+                else:
+                    # Make it actionable, not just informational -- direct
+                    # instruction 2026-08-30. One offer per ticker at a
+                    # time: a fresh alert for a ticker that already has an
+                    # awaiting-approval offer just shows a note instead of
+                    # opening a second, redundant approval.
+                    _mw_pending = _load_momentum_pending()
+                    if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
+                           for e in _mw_pending):
+                        _breakout_msg += f"\n   (approval already pending for {ticker})"
+                    else:
+                        _mw_now = datetime.now(ET)
+                        _mw_offer = {
+                            "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                            "t1": t1, "t2": t2, "signal_str": sig_str,
+                            "created_at": _mw_now.isoformat(),
+                            "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
+                            "status": "awaiting_approval",
+                        }
+                        _mw_pending.append(_mw_offer)
+                        _save_momentum_pending(_mw_pending)
+                        _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
+                setup_alerts.append(_breakout_msg)
+        else:
+            # In position — check fade + trailing stop levels
+            gain_pct = (cur - entry) / entry * 100 if entry > 0 else 0.0
+            fd = _detect_momentum_fade(levels, entry, fl_m)
+
+            # Always compute dynamic trailing levels regardless of fade signal
+            # T1 hit (+30%): stop moves to break-even
+            # T2 hit (+50%): stop trails to 2-bar low
+            be_stop   = round(entry * 1.002, 4)   # break-even + 0.2% buffer
+            trail_now = fd["trail_stop"]
+            if gain_pct >= 50.0:
+                stop_rec = f"${trail_now:.4f} (2-bar low trail — T2 reached)"
+            elif gain_pct >= 30.0:
+                stop_rec = f"${be_stop:.4f} (move to break-even — T1 reached)"
+            else:
+                stop_rec = f"${be_stop:.4f} (original stop — below entry)"
+
+            if fd["action"] in ("exit", "trail"):
+                emoji = "🔴" if fd["action"] == "exit" else "🟡"
+                action_label = "EXIT NOW" if fd["action"] == "exit" else "TRAIL STOP"
+                fade_alerts.append(
+                    f"{emoji} <b>{ticker}</b>  {action_label}  [{source}]\n"
+                    f"   {fd['reason']}\n"
+                    f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
+                    f"P&L: <b>{gain_pct:+.1f}%</b>\n"
+                    f"   Recommended stop → {stop_rec}\n"
+                    f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
+                )
+            else:
+                # Momentum intact — still report trailing levels so you know where your stop is
+                if gain_pct >= 10.0:   # Only report if we have meaningful gains
+                    fade_alerts.append(
+                        f"✅ <b>{ticker}</b>  MOMENTUM INTACT  [{source}]\n"
+                        f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
+                        f"P&L: <b>{gain_pct:+.1f}%</b>\n"
+                        f"   Active stop → {stop_rec}\n"
+                        f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
+                    )
+
+    except Exception:
+        return ('continue', None)
+    return (None, None)
+
+
 def run_momentum_watch() -> None:
     """
     Intraday momentum watch — runs at 10:30 AM and 11:30 AM alongside the main scan.
@@ -8926,42 +9279,7 @@ def run_momentum_watch() -> None:
     options_alerts: list[str] = []
 
     # 1a. Open equity positions from position log
-    try:
-        if os.path.exists("dman_positions.json"):
-            with open("dman_positions.json") as _pf:
-                for pos in json.load(_pf):
-                    t     = pos.get("ticker", "")
-                    e     = float(pos.get("entry", 0))
-                    fl    = float(pos.get("float_m", 0))
-                    setup = pos.get("setup", "")
-                    if not t:
-                        continue
-                    # Options positions — shared monitor enforces stop/T1/T2/DTE
-                    # (same engine the always-on daemon runs every 60s)
-                    if setup.startswith("Options Call "):
-                        _oa = _monitor_option_position(pos, "CALL")
-                        if _oa:
-                            options_alerts.append(_oa)
-                        continue
-                    elif setup.startswith("Options Put "):
-                        _oa = _monitor_option_position(pos, "PUT")
-                        if _oa:
-                            options_alerts.append(_oa)
-                        continue
-                    elif setup.startswith("Earnings "):
-                        _oa = _monitor_earnings_spread_position(pos)
-                        if _oa:
-                            options_alerts.append(_oa)
-                        continue
-
-                    if e > 0:
-                        # T1/T2 exit alerts + stop progression — see
-                        # _check_equity_position_target() (also reused by the
-                        # daemon's run_equity_guard() for continuous checking).
-                        _check_equity_position_target(pos)
-                        active_plays.append({"ticker": t, "entry": e, "float_m": fl, "source": "position"})
-    except Exception:
-        pass
+    _mw_monitor_open_positions(active_plays, options_alerts)
 
     # 2. DMAN_SMALLCAP_WATCHLIST — monitor ALL tickers during market hours.
     # Use today's actual open vs prev close for gap, NOT real-time price, because by
@@ -8969,34 +9287,7 @@ def run_momentum_watch() -> None:
     # close and the real-time gap would show +1%, missing the recovery signal entirely.
     # TRVI-type plays: flat/tiny gap but still run +8% intraday — always include watchlist.
     already = {p["ticker"] for p in active_plays}
-    for ticker in DMAN_SMALLCAP_WATCHLIST:
-        if ticker in already:
-            continue
-        try:
-            # Use 2-day daily history to get TRUE opening gap (open vs prev close)
-            _hist2 = yf.Ticker(ticker).history(period="2d", interval="1d")
-            if len(_hist2) < 2:
-                continue
-            _today_open = float(_hist2["Open"].iloc[-1])
-            _prev_close = float(_hist2["Close"].iloc[-2])
-            if _today_open <= 0 or _prev_close <= 0:
-                continue
-            opening_gap = (_today_open - _prev_close) / _prev_close * 100
-            is_gap_up       = opening_gap >= 3.0
-            is_recovery_dip = -15.0 <= opening_gap < 0
-            # Always include watchlist tickers during market hours regardless of gap.
-            # A flat-gap ticker like TRVI (+0.2%) can still run +8% intraday.
-            fl_m, _, _, _ = _get_short_float_data(ticker)
-            if is_gap_up:
-                _src = f"gap {opening_gap:+.1f}% at open"
-            elif is_recovery_dip:
-                _src = f"recovery dip (opened {opening_gap:+.1f}% → VWAP reclaim watch)"
-            else:
-                _src = f"watchlist (flat gap {opening_gap:+.1f}%)"
-            active_plays.append({"ticker": ticker, "entry": 0.0,
-                                 "float_m": fl_m, "source": _src})
-        except Exception:
-            continue
+    _mw_collect_watchlist_plays(active_plays, already)
 
     if not active_plays:
         print("  No active small-cap plays — nothing to watch.")
@@ -9034,133 +9325,8 @@ def run_momentum_watch() -> None:
         fl_m    = play["float_m"]
         source  = play["source"]
 
-        try:
-            df_5m  = _fetch_intraday_bars(ticker, interval="5m", period="1d")
-            levels = _compute_session_levels(df_5m)
-            if levels["cur_price"] == 0.0:
-                continue
-
-            cur = levels["cur_price"]
-            vwap = levels["vwap"]
-
-            if entry == 0.0:
-                # Not in position — check VWAP reclaim first, then breakout setup
-                _above_vwap = vwap > 0 and cur > vwap
-                _vwap_tag   = ""
-                if _above_vwap and "recovery" in source:
-                    _vwap_dist = (cur - vwap) / vwap * 100
-                    _vwap_tag  = f"  🔥 VWAP RECLAIMED (+{_vwap_dist:.1f}% above)"
-                elif not _above_vwap and vwap > 0 and "recovery" in source:
-                    _vwap_dist = (vwap - cur) / vwap * 100
-                    _vwap_tag  = f"  ⏳ below VWAP ({_vwap_dist:.1f}% away — watching)"
-
-                bp = _detect_pre_breakout(levels)
-                # Fire alert on breakout setup OR on VWAP reclaim from recovery dip
-                _fire = bp["setup"] or (_above_vwap and "recovery" in source)
-                if _fire:
-                    if bp["setup"]:
-                        entry_px = bp["entry_px"]
-                        stop_px  = bp["stop_px"]
-                        sig_str  = " + ".join(bp["signals"][:3])
-                    else:
-                        # Pure VWAP reclaim: entry at current price, stop at session low
-                        entry_px = round(cur * 1.002, 4)   # slight limit above current
-                        _sl_base = levels.get("session_low") or 0
-                        stop_px  = round((_sl_base if _sl_base > 0 else cur * 0.92) * 0.99, 4)
-                        sig_str  = f"VWAP reclaim ({source})"
-                    risk_px = round(max(entry_px - stop_px, 0.001), 4)
-                    t1 = round(entry_px * 1.30, 4)
-                    t2 = round(entry_px * 1.50, 4)
-                    t3_str = f"  T3 2x: ${round(entry_px * 2.0, 4):.4f}" if fl_m > 0 and fl_m < 2.0 else ""
-                    _label = "🔥 VWAP RECLAIM" if (not bp["setup"] and _above_vwap) else "BREAKOUT SETUP"
-                    _breakout_msg = (
-                        f"🟡 <b>{ticker}</b>  {_label}  [{source}]{_vwap_tag}\n"
-                        f"   {sig_str}\n"
-                        f"   Entry: <b>${entry_px:.4f}</b>  Stop: ${stop_px:.4f}  "
-                        f"(risk ${risk_px:.4f}/sh)\n"
-                        f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
-                        f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
-                    )
-                    # High confidence = _detect_pre_breakout() found a real
-                    # technical pattern (consolidation/volume/etc.), not just
-                    # "price crossed back above VWAP" -- auto-executes at
-                    # reduced size with no reply needed (see
-                    # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
-                    # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
-                    if bp["setup"]:
-                        _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                                      "t1": t1, "t2": t2, "signal_str": sig_str}
-                        try:
-                            _mw_sig = _build_momentum_signal(_mw_offer)
-                            _submit_signals_to_alpaca([_mw_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
-                            _breakout_msg += (f"\n   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x "
-                                              f"size — no reply needed (day-only, auto-closes "
-                                              f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET)")
-                        except Exception as _mw_exc:
-                            _breakout_msg += f"\n   ⚠️ Auto-execute failed ({_mw_exc}) — no order placed"
-                    else:
-                        # Make it actionable, not just informational -- direct
-                        # instruction 2026-08-30. One offer per ticker at a
-                        # time: a fresh alert for a ticker that already has an
-                        # awaiting-approval offer just shows a note instead of
-                        # opening a second, redundant approval.
-                        _mw_pending = _load_momentum_pending()
-                        if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
-                               for e in _mw_pending):
-                            _breakout_msg += f"\n   (approval already pending for {ticker})"
-                        else:
-                            _mw_now = datetime.now(ET)
-                            _mw_offer = {
-                                "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                                "t1": t1, "t2": t2, "signal_str": sig_str,
-                                "created_at": _mw_now.isoformat(),
-                                "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
-                                "status": "awaiting_approval",
-                            }
-                            _mw_pending.append(_mw_offer)
-                            _save_momentum_pending(_mw_pending)
-                            _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
-                    setup_alerts.append(_breakout_msg)
-            else:
-                # In position — check fade + trailing stop levels
-                gain_pct = (cur - entry) / entry * 100 if entry > 0 else 0.0
-                fd = _detect_momentum_fade(levels, entry, fl_m)
-
-                # Always compute dynamic trailing levels regardless of fade signal
-                # T1 hit (+30%): stop moves to break-even
-                # T2 hit (+50%): stop trails to 2-bar low
-                be_stop   = round(entry * 1.002, 4)   # break-even + 0.2% buffer
-                trail_now = fd["trail_stop"]
-                if gain_pct >= 50.0:
-                    stop_rec = f"${trail_now:.4f} (2-bar low trail — T2 reached)"
-                elif gain_pct >= 30.0:
-                    stop_rec = f"${be_stop:.4f} (move to break-even — T1 reached)"
-                else:
-                    stop_rec = f"${be_stop:.4f} (original stop — below entry)"
-
-                if fd["action"] in ("exit", "trail"):
-                    emoji = "🔴" if fd["action"] == "exit" else "🟡"
-                    action_label = "EXIT NOW" if fd["action"] == "exit" else "TRAIL STOP"
-                    fade_alerts.append(
-                        f"{emoji} <b>{ticker}</b>  {action_label}  [{source}]\n"
-                        f"   {fd['reason']}\n"
-                        f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
-                        f"P&L: <b>{gain_pct:+.1f}%</b>\n"
-                        f"   Recommended stop → {stop_rec}\n"
-                        f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
-                    )
-                else:
-                    # Momentum intact — still report trailing levels so you know where your stop is
-                    if gain_pct >= 10.0:   # Only report if we have meaningful gains
-                        fade_alerts.append(
-                            f"✅ <b>{ticker}</b>  MOMENTUM INTACT  [{source}]\n"
-                            f"   Entry: ${entry:.4f}  Curr: ${cur:.4f}  "
-                            f"P&L: <b>{gain_pct:+.1f}%</b>\n"
-                            f"   Active stop → {stop_rec}\n"
-                            f"   Session high: ${levels['session_high']:.4f}  VWAP: ${vwap:.4f}"
-                        )
-
-        except Exception:
+        _esc, _escv = _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker)
+        if _esc == 'continue':
             continue
 
     if not setup_alerts and not fade_alerts and not options_alerts and not age_alerts:
@@ -9200,114 +9366,10 @@ def run_momentum_watch() -> None:
     send_telegram(msg)
 
 
-def run_premarket_briefing() -> None:
+def _pmb_market_snapshot(macro_env_section, regime_line, regime_line2, warnings_section):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: macro_env_section, regime_line, regime_line2, vix, warnings_section.
     """
-    Daily 9:10 AM ET pre-market briefing.
-    Sends a Telegram summary covering regime, macro env, seasonal, live WR,
-    monthly P&L, and filter suggestions. Never modifies code autonomously.
-    """
-    now_et = datetime.now(ET)
-    date_str = now_et.strftime("%A %b %d, %Y")
-
-    # Second home for the news-first pass. The premarket-early job owns it,
-    # but GitHub dropped both of that job's schedule events on 2026-09-09
-    # while this briefing ran on time -- so the highest-value scan of the day
-    # rode on a single cron and simply did not happen. Dedup makes the overlap
-    # free: whichever job gets there first claims the alert key.
-    try:
-        pre_gap_catalyst_pass()
-    except Exception as _pg_exc:
-        print(f"  ⚠️  Pre-gap catalyst pass failed: {_pg_exc}")
-
-    # ── 0a. GTC swing fill reconciliation ─────────────────────────────
-    # If a GTC entry filled overnight, update PositionTracker entry price to the
-    # actual avg fill so stop/target math is anchored to the real fill, not the limit.
-    try:
-        _rc = get_alpaca_client()
-        _pt_r = PositionTracker()
-        if _rc and _pt_r.positions:
-            _alp_positions = {p.symbol: p for p in _rc.get_all_positions()}
-            _updated = []
-            for _rp in _pt_r.positions:
-                if _rp.setup.startswith("SWING") and _rp.ticker in _alp_positions:
-                    _ap = _alp_positions[_rp.ticker]
-                    _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
-                    if _actual_entry > 0 and abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) > 0.005:
-                        # Fill price differs from limit by > 0.5% — re-anchor stop and target
-                        _risk = abs(_rp.entry - _rp.stop)
-                        _rp.entry   = _actual_entry
-                        _rp.stop    = round(_actual_entry - _risk, 2)
-                        _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
-                        _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
-                        _updated.append(_rp.ticker)
-            if _updated:
-                _pt_r._save()
-                print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} to actual fill prices")
-    except Exception as _rc_exc:
-        print(f"  [swing reconcile] {_rc_exc}")
-
-    # ── 0. Scanner health watchdog ────────────────────────────────────
-    scanner_health_line = ""
-    try:
-        if os.path.exists(SCAN_LOG_FILE):
-            with open(SCAN_LOG_FILE) as _swf:
-                _sw_log = json.load(_swf)
-            if _sw_log:
-                _sw_ts  = _sw_log[-1].get("ts", "")
-                _sw_dt  = datetime.fromisoformat(_sw_ts).astimezone(ET)
-                _sw_hrs = (now_et - _sw_dt).total_seconds() / 3600
-                if _sw_hrs < 2:
-                    scanner_health_line = f"✅ Scanner healthy — last run {int(_sw_hrs * 60)}min ago"
-                elif _sw_hrs < 27:   # within a trading day + overnight gap
-                    scanner_health_line = f"✅ Scanner ran {int(_sw_hrs)}h ago"
-                else:
-                    _sw_days = int(_sw_hrs / 24)
-                    scanner_health_line = (
-                        f"⚠️ <b>SCANNER DOWN</b> — last run {_sw_days}d ago "
-                        f"({_sw_dt.strftime('%b %d')}). Check GitHub Actions → Actions tab."
-                    )
-            else:
-                scanner_health_line = "⚠️ Scan log empty — scanner may not have run yet"
-        else:
-            scanner_health_line = "⚠️ No scan log found — scanner may not be running"
-    except Exception:
-        pass
-
-    # ── 0.5. Global market context + breaking news ───────────────────
-    print("  [0.5/7] Fetching global market context + breaking news...")
-    _global_ctx_section = ""
-    try:
-        _briefing_ctx  = _fetch_global_context()
-        _briefing_news = _fetch_breaking_news_rss(hours_back=12)
-        _tone_icons = {
-            "strong bull": "🟢🟢", "bull": "🟢", "neutral": "🟡",
-            "caution": "🟠", "risk-off": "🔴",
-        }
-        _g_icon = _tone_icons.get(_briefing_ctx.get("tone", "neutral"), "⚪")
-        _ctx_msg_lines = [f"{_g_icon} {_briefing_ctx.get('summary', '')}"]
-        _ctx_comps = _briefing_ctx.get("components", {})
-        if _ctx_comps:
-            _comp_parts = []
-            for _ck, _cv in list(_ctx_comps.items())[:6]:
-                _comp_parts.append(f"{_ck}: {_cv:+d}" if isinstance(_cv, int) else f"{_ck}: {_cv}")
-            _ctx_msg_lines.append("  " + " | ".join(_comp_parts))
-        if _briefing_news:
-            _ctx_msg_lines.append("📰 <b>Breaking</b>")
-            for _hl, _src, _ts, _imp in _briefing_news[:4]:
-                _em = "🔴 " if _imp <= -1 else ("🟢 " if _imp >= 1 else "")
-                _ctx_msg_lines.append(f"   {_em}{_hl[:100]}  <i>[{_src} {_ts}]</i>")
-        _global_ctx_section = "\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: {:.2f}x)\n".format(
-            _briefing_ctx.get("risk_mult", 1.0)
-        ) + "\n".join(_ctx_msg_lines)
-    except Exception as _gce:
-        print(f"  ⚠️  Global context fetch failed: {_gce}")
-
-    # ── 1. Market regime + macro context ─────────────────────────────
-    print("  [1/7] Checking market regime + macro context...")
-    regime_line  = "Unable to fetch regime"
-    regime_line2 = ""
-    macro_env_section = ""
-    warnings_section  = ""
     vix = "?"
     try:
         regime   = get_market_regime()
@@ -9384,8 +9446,13 @@ def run_premarket_briefing() -> None:
     except Exception as e:
         regime_line2 = f"⚠️ regime fetch error: {str(e)[:60]}"
         send_telegram(f"⚠️ <b>DMan pre-market</b>: regime fetch failed\n<code>{str(e)[:120]}</code>")
+    return macro_env_section, regime_line, regime_line2, vix, warnings_section
 
-    # ── 2. Macro calendar ─────────────────────────────────────────────
+
+def _pmb_macro_calendar(now_et):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: locals().get("macro_line", _REFX_UNBOUND).
+    """
     print("  [2/6] Checking macro calendar...")
     try:
         today_d = now_et.date()
@@ -9504,24 +9571,13 @@ def run_premarket_briefing() -> None:
                       else "✅ No macro events in next 7 days — clean tape")
     except Exception:
         macro_line = "✅ Macro check OK"
+    return locals().get("macro_line", _REFX_UNBOUND)
 
-    # ── 3. Seasonal filter ────────────────────────────────────────────
-    print("  [3/6] Checking seasonal status...")
-    curr_month  = now_et.month
-    month_name  = now_et.strftime("%B")
-    if curr_month in SEASONAL_WEAK_MONTHS:
-        seasonal_line = f"⚠️ {month_name} — weak month (min score raised to {SEASONAL_MIN_SCORE})"
-    else:
-        seasonal_line = f"✅ {month_name} — normal conditions (min score: {MIN_CONFLUENCE})"
-    try:
-        vix_f = float(vix)
-        if vix_f > 25:
-            seasonal_line += f"\n⚡ VIX {vix_f:.1f} > 25 — score also raised to 90"
-    except Exception:
-        pass
 
-    # ── 3.5. Sector ETF health ────────────────────────────────────────
-    print("  [3.5/7] Checking sector ETF health...")
+def _pmb_sector_health():
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: sector_health_section.
+    """
     sector_health_section = ""
     try:
         _etf_rows = []
@@ -9557,10 +9613,13 @@ def run_premarket_briefing() -> None:
             )
     except Exception:
         pass
+    return sector_health_section
 
-    # ── 4. Live outcomes ──────────────────────────────────────────────
-    print("  [4/7] Reading live outcomes...")
-    live_line = "No live outcome data yet — logger active, accumulating."
+
+def _pmb_live_suggestion():
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: suggestion_line.
+    """
     suggestion_line = ""
     try:
         if os.path.exists(LIVE_OUTCOMES_FILE):
@@ -9607,27 +9666,13 @@ def run_premarket_briefing() -> None:
                                    if suggestions else "\n\n💡 <b>CODE SUGGESTIONS</b>: None — filters on track.")
     except Exception as e:
         live_line = f"Error reading live outcomes: {e}"
+    return suggestion_line
 
-    # ── 5. Monthly P&L ────────────────────────────────────────────────
-    print("  [5/7] Checking monthly P&L...")
-    try:
-        month_loss = get_this_month_loss()
-        limit_pct  = MONTHLY_LOSS_LIMIT * 100
-        if month_loss <= -limit_pct and _monthly_halt_lifted():
-            monthly_line = (f"⚠️ MONTHLY LIMIT PAST ({month_loss:.1f}%) — halt LIFTED "
-                            f"manually for this month; re-arms on the 1st")
-        elif month_loss <= -limit_pct:
-            monthly_line = f"🛑 MONTHLY LIMIT HIT: {month_loss:.1f}% — trading halted"
-        elif month_loss < -(limit_pct * 0.6):
-            monthly_line = f"⚠️ Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
-        elif month_loss < 0:
-            monthly_line = f"📉 Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
-        else:
-            monthly_line = f"📈 Up {month_loss:.1f}% this month"
-    except Exception:
-        monthly_line = "Monthly P&L: unavailable"
 
-    # ── 5.5. Weekend open-position risk (Fridays only) ───────────────
+def _pmb_weekend_section(now_et):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: weekend_section.
+    """
     weekend_section = ""
     if now_et.weekday() == 4:  # Friday
         try:
@@ -9660,10 +9705,13 @@ def run_premarket_briefing() -> None:
                 )
         except Exception:
             pass
+    return weekend_section
 
-    # ── 6. Pre-market gap scanner ─────────────────────────────────────
-    print("  [6/7] Scanning pre-market gaps...")
-    gap_lines      = []
+
+def _pmb_gap_watch(gap_lines):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: near_gap_lines.
+    """
     near_gap_lines: list[tuple[float, str]] = []  # 1.0–1.5% READY — near-threshold watch
     try:
         for ticker in WATCHLIST:
@@ -9761,6 +9809,269 @@ def run_premarket_briefing() -> None:
         near_gap_lines.sort(key=lambda x: x[0], reverse=True)
     except Exception:
         pass
+    return near_gap_lines
+
+
+def _pmb_milestones(_pdt_section):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    Returns: _milestone_section, _pdt_section.
+    """
+    _milestone_section = ""
+    try:
+        _pdt_live = _get_pdt_status()
+        _live_eq  = _pdt_live["equity"]
+        _dt_used  = _pdt_live["used"]
+        _dt_rem   = _pdt_live["remaining"]
+        _sw_on    = _pdt_live["swing_mode"]
+
+        if _live_eq > 0:
+            # PDT budget line
+            if _live_eq >= 25_000:
+                _pdt_section = "\n\n🔓 <b>PDT</b>: Unlimited day trades (equity ≥ $25k)"
+            elif _dt_rem == 0:
+                _pdt_section = (f"\n\n🚫 <b>PDT HALT</b>: {_dt_used}/3 day trades used — "
+                                "window resets Monday. No new day trades until reset.")
+            elif _sw_on:
+                _pdt_section = (f"\n\n🔄 <b>PDT — SWING MODE</b>: {_dt_used}/3 used · "
+                                f"1 remaining · New entries will be GTC swings (overnight)")
+            else:
+                _pdt_section = (f"\n\n🎯 <b>PDT</b>: {_dt_used}/3 day trades used · "
+                                f"{_dt_rem} remaining this window")
+
+            # Growth milestone tracker
+            _MILESTONES = [2_000, 5_000, 10_000, 25_000]
+            _next_ms = next((m for m in _MILESTONES if m > _live_eq), None)
+            if _next_ms:
+                _ms_pct   = _live_eq / _next_ms * 100
+                _ms_gap   = _next_ms - _live_eq
+                _bar_fill = int(_ms_pct / 10)   # 0-10 blocks
+                _bar      = "█" * _bar_fill + "░" * (10 - _bar_fill)
+                _pdt_flag = "  ← PDT UNLOCK 🔓" if _next_ms == 25_000 else ""
+                _milestone_section = (
+                    f"\n\n📈 <b>ACCOUNT GROWTH</b>\n"
+                    f"${_live_eq:,.2f}  →  ${_next_ms:,.0f}{_pdt_flag}\n"
+                    f"[{_bar}] {_ms_pct:.1f}%  (${_ms_gap:,.0f} to go)"
+                )
+            else:
+                _milestone_section = (
+                    f"\n\n📈 <b>ACCOUNT</b>: ${_live_eq:,.2f} — all milestones cleared 🏆"
+                )
+    except Exception:
+        pass
+    return _milestone_section, _pdt_section
+
+
+def _pmb_strangle_advisory(now_et):
+    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    """
+    print("  [7/7] Checking for pre-event strangle opportunities...")
+    try:
+        _today    = now_et.date()
+        _tomorrow = _today + timedelta(days=1)
+        _nfp      = _nfp_dates()
+        strangle_events = []
+
+        # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
+        if _today in _FOMC_DATES:
+            strangle_events.append("FOMC today 12 PM MT")
+        if _tomorrow in _FOMC_DATES:
+            strangle_events.append("FOMC tomorrow 12 PM MT")
+        else:
+            for _off in range(2, 4):  # 2 or 3 days out
+                _fd = _today + timedelta(days=_off)
+                if _fd in _FOMC_DATES:
+                    strangle_events.append(
+                        f"FOMC in {_off}d ({_fd.strftime('%a %b %d')}) — enter strangle early")
+                    break
+
+        # Data releases the next morning
+        if _tomorrow in _CPI_DATES:
+            strangle_events.append("CPI tomorrow 6:30 AM MT")
+        if _tomorrow in _PPI_DATES:
+            strangle_events.append("PPI tomorrow 6:30 AM MT")
+        if _tomorrow in _PCE_DATES:
+            strangle_events.append("PCE tomorrow 6:30 AM MT")
+        if _tomorrow in _nfp:
+            strangle_events.append("NFP tomorrow 6:30 AM MT")
+
+        # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
+        if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):
+            strangle_events.append("OPEX tomorrow (3rd Friday) — gamma event; SPY/QQQ strangle")
+
+        if strangle_events:
+            generate_strangle_advisory(" | ".join(strangle_events))
+        else:
+            print("  No catalyst tomorrow — skipping strangle advisory.")
+    except Exception as _e:
+        print(f"  [strangle] advisory error: {_e}", file=sys.stderr)
+
+
+
+def run_premarket_briefing() -> None:
+    """
+    Daily 9:10 AM ET pre-market briefing.
+    Sends a Telegram summary covering regime, macro env, seasonal, live WR,
+    monthly P&L, and filter suggestions. Never modifies code autonomously.
+    """
+    now_et = datetime.now(ET)
+    date_str = now_et.strftime("%A %b %d, %Y")
+
+    # Second home for the news-first pass. The premarket-early job owns it,
+    # but GitHub dropped both of that job's schedule events on 2026-09-09
+    # while this briefing ran on time -- so the highest-value scan of the day
+    # rode on a single cron and simply did not happen. Dedup makes the overlap
+    # free: whichever job gets there first claims the alert key.
+    try:
+        pre_gap_catalyst_pass()
+    except Exception as _pg_exc:
+        print(f"  ⚠️  Pre-gap catalyst pass failed: {_pg_exc}")
+
+    # ── 0a. GTC swing fill reconciliation ─────────────────────────────
+    # If a GTC entry filled overnight, update PositionTracker entry price to the
+    # actual avg fill so stop/target math is anchored to the real fill, not the limit.
+    try:
+        _rc = get_alpaca_client()
+        _pt_r = PositionTracker()
+        if _rc and _pt_r.positions:
+            _alp_positions = {p.symbol: p for p in _rc.get_all_positions()}
+            _updated = []
+            for _rp in _pt_r.positions:
+                if _rp.setup.startswith("SWING") and _rp.ticker in _alp_positions:
+                    _ap = _alp_positions[_rp.ticker]
+                    _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
+                    if _actual_entry > 0 and abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) > 0.005:
+                        # Fill price differs from limit by > 0.5% — re-anchor stop and target
+                        _risk = abs(_rp.entry - _rp.stop)
+                        _rp.entry   = _actual_entry
+                        _rp.stop    = round(_actual_entry - _risk, 2)
+                        _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
+                        _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
+                        _updated.append(_rp.ticker)
+            if _updated:
+                _pt_r._save()
+                print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} to actual fill prices")
+    except Exception as _rc_exc:
+        print(f"  [swing reconcile] {_rc_exc}")
+
+    # ── 0. Scanner health watchdog ────────────────────────────────────
+    scanner_health_line = ""
+    try:
+        if os.path.exists(SCAN_LOG_FILE):
+            with open(SCAN_LOG_FILE) as _swf:
+                _sw_log = json.load(_swf)
+            if _sw_log:
+                _sw_ts  = _sw_log[-1].get("ts", "")
+                _sw_dt  = datetime.fromisoformat(_sw_ts).astimezone(ET)
+                _sw_hrs = (now_et - _sw_dt).total_seconds() / 3600
+                if _sw_hrs < 2:
+                    scanner_health_line = f"✅ Scanner healthy — last run {int(_sw_hrs * 60)}min ago"
+                elif _sw_hrs < 27:   # within a trading day + overnight gap
+                    scanner_health_line = f"✅ Scanner ran {int(_sw_hrs)}h ago"
+                else:
+                    _sw_days = int(_sw_hrs / 24)
+                    scanner_health_line = (
+                        f"⚠️ <b>SCANNER DOWN</b> — last run {_sw_days}d ago "
+                        f"({_sw_dt.strftime('%b %d')}). Check GitHub Actions → Actions tab."
+                    )
+            else:
+                scanner_health_line = "⚠️ Scan log empty — scanner may not have run yet"
+        else:
+            scanner_health_line = "⚠️ No scan log found — scanner may not be running"
+    except Exception:
+        pass
+
+    # ── 0.5. Global market context + breaking news ───────────────────
+    print("  [0.5/7] Fetching global market context + breaking news...")
+    _global_ctx_section = ""
+    try:
+        _briefing_ctx  = _fetch_global_context()
+        _briefing_news = _fetch_breaking_news_rss(hours_back=12)
+        _tone_icons = {
+            "strong bull": "🟢🟢", "bull": "🟢", "neutral": "🟡",
+            "caution": "🟠", "risk-off": "🔴",
+        }
+        _g_icon = _tone_icons.get(_briefing_ctx.get("tone", "neutral"), "⚪")
+        _ctx_msg_lines = [f"{_g_icon} {_briefing_ctx.get('summary', '')}"]
+        _ctx_comps = _briefing_ctx.get("components", {})
+        if _ctx_comps:
+            _comp_parts = []
+            for _ck, _cv in list(_ctx_comps.items())[:6]:
+                _comp_parts.append(f"{_ck}: {_cv:+d}" if isinstance(_cv, int) else f"{_ck}: {_cv}")
+            _ctx_msg_lines.append("  " + " | ".join(_comp_parts))
+        if _briefing_news:
+            _ctx_msg_lines.append("📰 <b>Breaking</b>")
+            for _hl, _src, _ts, _imp in _briefing_news[:4]:
+                _em = "🔴 " if _imp <= -1 else ("🟢 " if _imp >= 1 else "")
+                _ctx_msg_lines.append(f"   {_em}{_hl[:100]}  <i>[{_src} {_ts}]</i>")
+        _global_ctx_section = "\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: {:.2f}x)\n".format(
+            _briefing_ctx.get("risk_mult", 1.0)
+        ) + "\n".join(_ctx_msg_lines)
+    except Exception as _gce:
+        print(f"  ⚠️  Global context fetch failed: {_gce}")
+
+    # ── 1. Market regime + macro context ─────────────────────────────
+    print("  [1/7] Checking market regime + macro context...")
+    regime_line  = "Unable to fetch regime"
+    regime_line2 = ""
+    macro_env_section = ""
+    warnings_section  = ""
+    macro_env_section, regime_line, regime_line2, vix, warnings_section = _pmb_market_snapshot(macro_env_section, regime_line, regime_line2, warnings_section)
+
+    # ── 2. Macro calendar ─────────────────────────────────────────────
+    _o_macro_line = _pmb_macro_calendar(now_et)
+    if _o_macro_line is not _REFX_UNBOUND:
+        macro_line = _o_macro_line
+
+    # ── 3. Seasonal filter ────────────────────────────────────────────
+    print("  [3/6] Checking seasonal status...")
+    curr_month  = now_et.month
+    month_name  = now_et.strftime("%B")
+    if curr_month in SEASONAL_WEAK_MONTHS:
+        seasonal_line = f"⚠️ {month_name} — weak month (min score raised to {SEASONAL_MIN_SCORE})"
+    else:
+        seasonal_line = f"✅ {month_name} — normal conditions (min score: {MIN_CONFLUENCE})"
+    try:
+        vix_f = float(vix)
+        if vix_f > 25:
+            seasonal_line += f"\n⚡ VIX {vix_f:.1f} > 25 — score also raised to 90"
+    except Exception:
+        pass
+
+    # ── 3.5. Sector ETF health ────────────────────────────────────────
+    print("  [3.5/7] Checking sector ETF health...")
+    sector_health_section = _pmb_sector_health()
+
+    # ── 4. Live outcomes ──────────────────────────────────────────────
+    print("  [4/7] Reading live outcomes...")
+    live_line = "No live outcome data yet — logger active, accumulating."
+    suggestion_line = _pmb_live_suggestion()
+
+    # ── 5. Monthly P&L ────────────────────────────────────────────────
+    print("  [5/7] Checking monthly P&L...")
+    try:
+        month_loss = get_this_month_loss()
+        limit_pct  = MONTHLY_LOSS_LIMIT * 100
+        if month_loss <= -limit_pct and _monthly_halt_lifted():
+            monthly_line = (f"⚠️ MONTHLY LIMIT PAST ({month_loss:.1f}%) — halt LIFTED "
+                            f"manually for this month; re-arms on the 1st")
+        elif month_loss <= -limit_pct:
+            monthly_line = f"🛑 MONTHLY LIMIT HIT: {month_loss:.1f}% — trading halted"
+        elif month_loss < -(limit_pct * 0.6):
+            monthly_line = f"⚠️ Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
+        elif month_loss < 0:
+            monthly_line = f"📉 Down {abs(month_loss):.1f}% this month (limit: {limit_pct:.0f}%)"
+        else:
+            monthly_line = f"📈 Up {month_loss:.1f}% this month"
+    except Exception:
+        monthly_line = "Monthly P&L: unavailable"
+
+    # ── 5.5. Weekend open-position risk (Fridays only) ───────────────
+    weekend_section = _pmb_weekend_section(now_et)
+
+    # ── 6. Pre-market gap scanner ─────────────────────────────────────
+    print("  [6/7] Scanning pre-market gaps...")
+    gap_lines      = []
+    near_gap_lines = _pmb_gap_watch(gap_lines)
 
     # ── 6b. Small-cap pre-market movers ──────────────────────────────────
     # Scan DMAN_SMALLCAP_WATCHLIST for pre-market moves ≥5%.
@@ -9851,48 +10162,7 @@ def run_premarket_briefing() -> None:
 
     # ── PDT budget + account milestone tracker ────────────────────────
     _pdt_section     = ""
-    _milestone_section = ""
-    try:
-        _pdt_live = _get_pdt_status()
-        _live_eq  = _pdt_live["equity"]
-        _dt_used  = _pdt_live["used"]
-        _dt_rem   = _pdt_live["remaining"]
-        _sw_on    = _pdt_live["swing_mode"]
-
-        if _live_eq > 0:
-            # PDT budget line
-            if _live_eq >= 25_000:
-                _pdt_section = "\n\n🔓 <b>PDT</b>: Unlimited day trades (equity ≥ $25k)"
-            elif _dt_rem == 0:
-                _pdt_section = (f"\n\n🚫 <b>PDT HALT</b>: {_dt_used}/3 day trades used — "
-                                "window resets Monday. No new day trades until reset.")
-            elif _sw_on:
-                _pdt_section = (f"\n\n🔄 <b>PDT — SWING MODE</b>: {_dt_used}/3 used · "
-                                f"1 remaining · New entries will be GTC swings (overnight)")
-            else:
-                _pdt_section = (f"\n\n🎯 <b>PDT</b>: {_dt_used}/3 day trades used · "
-                                f"{_dt_rem} remaining this window")
-
-            # Growth milestone tracker
-            _MILESTONES = [2_000, 5_000, 10_000, 25_000]
-            _next_ms = next((m for m in _MILESTONES if m > _live_eq), None)
-            if _next_ms:
-                _ms_pct   = _live_eq / _next_ms * 100
-                _ms_gap   = _next_ms - _live_eq
-                _bar_fill = int(_ms_pct / 10)   # 0-10 blocks
-                _bar      = "█" * _bar_fill + "░" * (10 - _bar_fill)
-                _pdt_flag = "  ← PDT UNLOCK 🔓" if _next_ms == 25_000 else ""
-                _milestone_section = (
-                    f"\n\n📈 <b>ACCOUNT GROWTH</b>\n"
-                    f"${_live_eq:,.2f}  →  ${_next_ms:,.0f}{_pdt_flag}\n"
-                    f"[{_bar}] {_ms_pct:.1f}%  (${_ms_gap:,.0f} to go)"
-                )
-            else:
-                _milestone_section = (
-                    f"\n\n📈 <b>ACCOUNT</b>: ${_live_eq:,.2f} — all milestones cleared 🏆"
-                )
-    except Exception:
-        pass
+    _milestone_section, _pdt_section = _pmb_milestones(_pdt_section)
 
     # ── Format & send ─────────────────────────────────────────────────
     msg = (
@@ -9936,46 +10206,7 @@ def run_premarket_briefing() -> None:
     #   FOMC tomorrow or within 3 days — strangle while premium is still building
     #   CPI / NFP / PPI tomorrow (8:30 AM releases)
     #   OPEX tomorrow (3rd Friday) — gamma explosion event
-    print("  [7/7] Checking for pre-event strangle opportunities...")
-    try:
-        _today    = now_et.date()
-        _tomorrow = _today + timedelta(days=1)
-        _nfp      = _nfp_dates()
-        strangle_events = []
-
-        # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
-        if _today in _FOMC_DATES:
-            strangle_events.append("FOMC today 12 PM MT")
-        if _tomorrow in _FOMC_DATES:
-            strangle_events.append("FOMC tomorrow 12 PM MT")
-        else:
-            for _off in range(2, 4):  # 2 or 3 days out
-                _fd = _today + timedelta(days=_off)
-                if _fd in _FOMC_DATES:
-                    strangle_events.append(
-                        f"FOMC in {_off}d ({_fd.strftime('%a %b %d')}) — enter strangle early")
-                    break
-
-        # Data releases the next morning
-        if _tomorrow in _CPI_DATES:
-            strangle_events.append("CPI tomorrow 6:30 AM MT")
-        if _tomorrow in _PPI_DATES:
-            strangle_events.append("PPI tomorrow 6:30 AM MT")
-        if _tomorrow in _PCE_DATES:
-            strangle_events.append("PCE tomorrow 6:30 AM MT")
-        if _tomorrow in _nfp:
-            strangle_events.append("NFP tomorrow 6:30 AM MT")
-
-        # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
-        if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):
-            strangle_events.append("OPEX tomorrow (3rd Friday) — gamma event; SPY/QQQ strangle")
-
-        if strangle_events:
-            generate_strangle_advisory(" | ".join(strangle_events))
-        else:
-            print("  No catalyst tomorrow — skipping strangle advisory.")
-    except Exception as _e:
-        print(f"  [strangle] advisory error: {_e}", file=sys.stderr)
+    _pmb_strangle_advisory(now_et)
 
     # ── Pre-build dynamic universe for 9:45 AM Gap & Hold scan ────────────
     # The 9:45 scan runs --universe curated (fast), which normally limits it
@@ -10564,6 +10795,187 @@ def _latest_vix3m() -> Optional[float]:
         return None
 
 
+def _regime_qqq(qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, score):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, qqq_note, score.
+    """
+    qqq_note = "N/A"
+    try:
+        qqq_df = fetch_df("QQQ")
+        if qqq_df is not None and len(qqq_df) >= 55:
+            qqq_ind = compute_indicators(qqq_df.copy())
+            qqq_ind = qqq_ind.dropna(subset=["Close"])
+            qr = qqq_ind.iloc[-1]
+            qqq_above_ema20 = float(qr["Close"]) > float(qr["EMA20"])
+            qqq_above_ema50 = float(qr["Close"]) > float(qr["EMA50"])
+            qqq_ema20_dist  = (float(qr["Close"]) - float(qr["EMA20"])) / float(qr["EMA20"]) * 100
+            _qqq_clean = qqq_df.dropna(subset=["Close"])
+            qqq_chg5 = (float(_qqq_clean["Close"].iloc[-1]) / float(_qqq_clean["Close"].iloc[-6]) - 1) * 100
+            if qqq_above_ema20:
+                score += 1   # tech leading = bull confirmation
+            qqq_note = f"{'✓' if qqq_above_ema20 else '✗'} EMA20  {'✓' if qqq_above_ema50 else '✗'} EMA50  5d {qqq_chg5:+.1f}%"
+    except Exception:
+        pass
+    return qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, qqq_note, score
+
+
+def _regime_tlt(score, tlt_trend):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: score, tlt_note, tlt_trend.
+    """
+    tlt_note = "N/A"
+    try:
+        tlt_df = fetch_df("TLT")
+        if tlt_df is not None and len(tlt_df) >= 22:
+            _tlt_clean = tlt_df.dropna(subset=["Close"])
+            tlt_now  = float(_tlt_clean["Close"].iloc[-1])
+            tlt_20d  = float(_tlt_clean["Close"].iloc[-21]) if len(_tlt_clean) >= 22 else tlt_now
+            tlt_chg  = (tlt_now - tlt_20d) / tlt_20d * 100
+            tlt_trend = "rising" if tlt_chg > 1.5 else ("falling" if tlt_chg < -1.5 else "flat")
+            if tlt_trend == "rising":
+                score += 1   # falling rates = growth tailwind
+            tlt_note = f"${tlt_now:.1f}  20d {tlt_chg:+.1f}%  ({tlt_trend})"
+    except Exception:
+        pass
+    return score, tlt_note, tlt_trend
+
+
+def _regime_dxy(dxy_trend, score):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: dxy_note, dxy_trend, score.
+    """
+    dxy_note = "N/A"
+    try:
+        uup_df = fetch_df("UUP")
+        if uup_df is not None and len(uup_df) >= 22:
+            _uup_clean = uup_df.dropna(subset=["Close"])
+            uup_now = float(_uup_clean["Close"].iloc[-1])
+            uup_20d = float(_uup_clean["Close"].iloc[-21]) if len(_uup_clean) >= 22 else uup_now
+            uup_chg = (uup_now - uup_20d) / uup_20d * 100
+            dxy_trend = "strong" if uup_chg > 1 else ("weak" if uup_chg < -1 else "flat")
+            if dxy_trend == "weak":
+                score += 1   # weak dollar = risk-on tailwind
+            dxy_note = f"${uup_now:.2f}  20d {uup_chg:+.1f}%  ({dxy_trend})"
+    except Exception:
+        pass
+    return dxy_note, dxy_trend, score
+
+
+def _regime_vix_shock(vix_df, vix_shock, vix_val):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: vix_shock, vix_shock_note.
+    """
+    vix_shock_note = ""
+    try:
+        if vix_df is not None and len(vix_df) >= 6:
+            vix_prev   = float(vix_df["Close"].iloc[-2])
+            vix_5d_avg = float(vix_df["Close"].iloc[-6:-1].mean())
+            vix_1d_chg = (vix_val - vix_prev) / vix_prev * 100
+            vix_vs_avg = vix_val / vix_5d_avg if vix_5d_avg > 0 else 1.0
+            if vix_1d_chg >= 20 or vix_vs_avg >= 1.30:
+                vix_shock = True
+                vix_shock_note = (
+                    f"SHOCK — 1d +{vix_1d_chg:.0f}%  "
+                    f"(vs 5d avg {vix_5d_avg:.1f}, ratio {vix_vs_avg:.2f}x)"
+                )
+    except Exception:
+        pass
+    return vix_shock, vix_shock_note
+
+
+def _regime_vix_term(vix_term_note, vix_val):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: vix_complacency_warn, vix_term_note.
+    """
+    vix_complacency_warn = ""
+    try:
+        vix3m_val = _latest_vix3m()
+        if vix3m_val:
+            ts_ratio  = vix_val / vix3m_val if vix3m_val > 0 else 1.0
+            if ts_ratio >= 1.10:
+                vix_term_note = (f"⚠️ INVERTED {ts_ratio:.2f}x "
+                                 f"(VIX {vix_val:.1f} > VIX3M {vix3m_val:.1f}) "
+                                 f"— acute fear spike, reduce size further")
+            elif ts_ratio >= 1.0:
+                vix_term_note = (f"flat {ts_ratio:.2f}x "
+                                 f"(VIX {vix_val:.1f} ≈ VIX3M {vix3m_val:.1f})")
+            else:
+                vix_term_note = (f"normal {ts_ratio:.2f}x "
+                                 f"(VIX {vix_val:.1f} < VIX3M {vix3m_val:.1f})")
+    except Exception:
+        pass
+    return vix_complacency_warn, vix_term_note
+
+
+def _regime_vix_ema(vix_complacency_warn, vix_val):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: vix_complacency_warn.
+    """
+    try:
+        _vix_df_ema = fetch_df("^VIX")
+        if _vix_df_ema is not None and len(_vix_df_ema) >= 20:
+            _vix_closes = [float(_vix_df_ema["Close"].iloc[i])
+                           for i in range(len(_vix_df_ema))]
+            _vix_ema20  = sum(_vix_closes[-20:]) / 20   # simple avg as proxy
+            _vix_vs_ema = (vix_val - _vix_ema20) / _vix_ema20 * 100
+            if _vix_vs_ema <= -10.0:
+                vix_complacency_warn = (
+                    f"⚠️ VIX COMPLACENCY: {vix_val:.1f} is {abs(_vix_vs_ema):.0f}% "
+                    f"below its 20d avg ({_vix_ema20:.1f}) — market pricing near-zero risk. "
+                    f"Surprises hit harder in this environment; size conservatively."
+                )
+    except Exception:
+        pass
+    return vix_complacency_warn
+
+
+def _regime_defensive_rotation(defensive_rotation):
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: def_rotation_note, defensive_rotation.
+    """
+    def_rotation_note  = ""
+    try:
+        def_tickers = ["XLK","XLP","XLU","XLV"]
+        def_data    = yf.download(def_tickers, period="3d", progress=False,
+                                  auto_adjust=True)["Close"]
+        if isinstance(def_data.columns, pd.MultiIndex):
+            def_data.columns = def_data.columns.droplevel(1)
+        if len(def_data) >= 2:
+            xlk_chg  = (float(def_data["XLK"].iloc[-1])  / float(def_data["XLK"].iloc[-2])  - 1) * 100
+            xlp_chg  = (float(def_data["XLP"].iloc[-1])  / float(def_data["XLP"].iloc[-2])  - 1) * 100
+            xlu_chg  = (float(def_data["XLU"].iloc[-1])  / float(def_data["XLU"].iloc[-2])  - 1) * 100
+            xlv_chg  = (float(def_data["XLV"].iloc[-1])  / float(def_data["XLV"].iloc[-2])  - 1) * 100
+            def_avg  = (xlp_chg + xlu_chg + xlv_chg) / 3
+            spread   = def_avg - xlk_chg  # positive = defensives winning
+            if spread > 5.0:
+                defensive_rotation = True
+                def_rotation_note = (
+                    f"ACTIVE — XLK {xlk_chg:+.1f}%  "
+                    f"DEF avg {def_avg:+.1f}%  spread {spread:+.1f}%"
+                )
+    except Exception:
+        pass
+    return def_rotation_note, defensive_rotation
+
+
+def _regime_news_breadth():
+    """Extracted verbatim from get_market_regime() on 2026-09-14 (refx).
+    Returns: _nb, locals().get("news_breadth_note", _REFX_UNBOUND).
+    """
+    _nb = None
+    try:
+        _nb = _news_sentiment_breadth(hours_back=24.0)
+        if _nb["breadth_pct"] is None:
+            news_breadth_note = f"no scored sentiment in last 24h ({_nb['total']} logged, {_nb['unknown']} unscored)"
+        else:
+            news_breadth_note = (f"{_nb['breadth_pct']:+.0f}% "
+                                 f"({_nb['positive']}pos/{_nb['negative']}neg/{_nb['neutral']}neu, "
+                                 f"{_nb['unknown']} unscored, 24h)")
+    except Exception:
+        news_breadth_note = "N/A"
+    return _nb, locals().get("news_breadth_note", _REFX_UNBOUND)
+
+
 def get_market_regime() -> dict:
     """
     Classify the overall market as BULL, BEAR, or CHOP using:
@@ -10632,58 +11044,16 @@ def get_market_regime() -> dict:
         qqq_above_ema20 = False
         qqq_above_ema50 = False
         qqq_ema20_dist  = 0.0
-        qqq_note = "N/A"
-        try:
-            qqq_df = fetch_df("QQQ")
-            if qqq_df is not None and len(qqq_df) >= 55:
-                qqq_ind = compute_indicators(qqq_df.copy())
-                qqq_ind = qqq_ind.dropna(subset=["Close"])
-                qr = qqq_ind.iloc[-1]
-                qqq_above_ema20 = float(qr["Close"]) > float(qr["EMA20"])
-                qqq_above_ema50 = float(qr["Close"]) > float(qr["EMA50"])
-                qqq_ema20_dist  = (float(qr["Close"]) - float(qr["EMA20"])) / float(qr["EMA20"]) * 100
-                _qqq_clean = qqq_df.dropna(subset=["Close"])
-                qqq_chg5 = (float(_qqq_clean["Close"].iloc[-1]) / float(_qqq_clean["Close"].iloc[-6]) - 1) * 100
-                if qqq_above_ema20:
-                    score += 1   # tech leading = bull confirmation
-                qqq_note = f"{'✓' if qqq_above_ema20 else '✗'} EMA20  {'✓' if qqq_above_ema50 else '✗'} EMA50  5d {qqq_chg5:+.1f}%"
-        except Exception:
-            pass
+        qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, qqq_note, score = _regime_qqq(qqq_above_ema20, qqq_above_ema50, qqq_ema20_dist, score)
 
         # TLT (20Y bond ETF) — proxy for rate environment
         # Rising TLT = falling yields = tailwind for growth stocks
         tlt_trend = "flat"
-        tlt_note = "N/A"
-        try:
-            tlt_df = fetch_df("TLT")
-            if tlt_df is not None and len(tlt_df) >= 22:
-                _tlt_clean = tlt_df.dropna(subset=["Close"])
-                tlt_now  = float(_tlt_clean["Close"].iloc[-1])
-                tlt_20d  = float(_tlt_clean["Close"].iloc[-21]) if len(_tlt_clean) >= 22 else tlt_now
-                tlt_chg  = (tlt_now - tlt_20d) / tlt_20d * 100
-                tlt_trend = "rising" if tlt_chg > 1.5 else ("falling" if tlt_chg < -1.5 else "flat")
-                if tlt_trend == "rising":
-                    score += 1   # falling rates = growth tailwind
-                tlt_note = f"${tlt_now:.1f}  20d {tlt_chg:+.1f}%  ({tlt_trend})"
-        except Exception:
-            pass
+        score, tlt_note, tlt_trend = _regime_tlt(score, tlt_trend)
 
         # DXY proxy via UUP (DB USD Bull ETF) — strong dollar = headwind for risk assets
         dxy_trend = "flat"
-        dxy_note = "N/A"
-        try:
-            uup_df = fetch_df("UUP")
-            if uup_df is not None and len(uup_df) >= 22:
-                _uup_clean = uup_df.dropna(subset=["Close"])
-                uup_now = float(_uup_clean["Close"].iloc[-1])
-                uup_20d = float(_uup_clean["Close"].iloc[-21]) if len(_uup_clean) >= 22 else uup_now
-                uup_chg = (uup_now - uup_20d) / uup_20d * 100
-                dxy_trend = "strong" if uup_chg > 1 else ("weak" if uup_chg < -1 else "flat")
-                if dxy_trend == "weak":
-                    score += 1   # weak dollar = risk-on tailwind
-                dxy_note = f"${uup_now:.2f}  20d {uup_chg:+.1f}%  ({dxy_trend})"
-        except Exception:
-            pass
+        dxy_note, dxy_trend, score = _regime_dxy(dxy_trend, score)
 
         # VIX shock detector — fires when EITHER:
         #   • 1-day VIX change ≥ 20% (sudden fear spike, e.g. +39.7% on a single session)
@@ -10691,21 +11061,7 @@ def get_market_regime() -> dict:
         # The session AFTER a shock is historically a "digestion" period: vol stays elevated,
         # momentum longs swim against the current. Raises the min-score floor in the scanner.
         vix_shock = False
-        vix_shock_note = ""
-        try:
-            if vix_df is not None and len(vix_df) >= 6:
-                vix_prev   = float(vix_df["Close"].iloc[-2])
-                vix_5d_avg = float(vix_df["Close"].iloc[-6:-1].mean())
-                vix_1d_chg = (vix_val - vix_prev) / vix_prev * 100
-                vix_vs_avg = vix_val / vix_5d_avg if vix_5d_avg > 0 else 1.0
-                if vix_1d_chg >= 20 or vix_vs_avg >= 1.30:
-                    vix_shock = True
-                    vix_shock_note = (
-                        f"SHOCK — 1d +{vix_1d_chg:.0f}%  "
-                        f"(vs 5d avg {vix_5d_avg:.1f}, ratio {vix_vs_avg:.2f}x)"
-                    )
-        except Exception:
-            pass
+        vix_shock, vix_shock_note = _regime_vix_shock(vix_df, vix_shock, vix_val)
 
         # VIX term structure — VIX/VIX3M ratio reveals whether fear is acute or structural.
         # Normal (contango): VIX < VIX3M — near-term calm relative to future uncertainty.
@@ -10713,70 +11069,19 @@ def get_market_regime() -> dict:
         # marks a volatility spike event. VIX sizing already handles this via raw VIX level;
         # term structure shows HOW the market is pricing that fear (spike vs regime shift).
         vix_term_note = "N/A"
-        vix_complacency_warn = ""
-        try:
-            vix3m_val = _latest_vix3m()
-            if vix3m_val:
-                ts_ratio  = vix_val / vix3m_val if vix3m_val > 0 else 1.0
-                if ts_ratio >= 1.10:
-                    vix_term_note = (f"⚠️ INVERTED {ts_ratio:.2f}x "
-                                     f"(VIX {vix_val:.1f} > VIX3M {vix3m_val:.1f}) "
-                                     f"— acute fear spike, reduce size further")
-                elif ts_ratio >= 1.0:
-                    vix_term_note = (f"flat {ts_ratio:.2f}x "
-                                     f"(VIX {vix_val:.1f} ≈ VIX3M {vix3m_val:.1f})")
-                else:
-                    vix_term_note = (f"normal {ts_ratio:.2f}x "
-                                     f"(VIX {vix_val:.1f} < VIX3M {vix3m_val:.1f})")
-        except Exception:
-            pass
+        vix_complacency_warn, vix_term_note = _regime_vix_term(vix_term_note, vix_val)
 
         # VIX complacency warning — when VIX is 10%+ below its own 20-day EMA,
         # the market is pricing in near-zero risk. This often precedes sharp
         # reversals because any surprise triggers outsized moves.
         # VIX Fri Jul 10 2026: 15.0 vs EMA20=17.1 = -12% → complacency alert.
-        try:
-            _vix_df_ema = fetch_df("^VIX")
-            if _vix_df_ema is not None and len(_vix_df_ema) >= 20:
-                _vix_closes = [float(_vix_df_ema["Close"].iloc[i])
-                               for i in range(len(_vix_df_ema))]
-                _vix_ema20  = sum(_vix_closes[-20:]) / 20   # simple avg as proxy
-                _vix_vs_ema = (vix_val - _vix_ema20) / _vix_ema20 * 100
-                if _vix_vs_ema <= -10.0:
-                    vix_complacency_warn = (
-                        f"⚠️ VIX COMPLACENCY: {vix_val:.1f} is {abs(_vix_vs_ema):.0f}% "
-                        f"below its 20d avg ({_vix_ema20:.1f}) — market pricing near-zero risk. "
-                        f"Surprises hit harder in this environment; size conservatively."
-                    )
-        except Exception:
-            pass
+        vix_complacency_warn = _regime_vix_ema(vix_complacency_warn, vix_val)
 
         # Defensive rotation detector — when XLP/XLU/XLV outperform XLK by >5%
         # on a single day, institutional money is rotating out of growth into safety.
         # A "defensive rotation" day invalidates most Gap & Hold tech long setups.
         defensive_rotation = False
-        def_rotation_note  = ""
-        try:
-            def_tickers = ["XLK","XLP","XLU","XLV"]
-            def_data    = yf.download(def_tickers, period="3d", progress=False,
-                                      auto_adjust=True)["Close"]
-            if isinstance(def_data.columns, pd.MultiIndex):
-                def_data.columns = def_data.columns.droplevel(1)
-            if len(def_data) >= 2:
-                xlk_chg  = (float(def_data["XLK"].iloc[-1])  / float(def_data["XLK"].iloc[-2])  - 1) * 100
-                xlp_chg  = (float(def_data["XLP"].iloc[-1])  / float(def_data["XLP"].iloc[-2])  - 1) * 100
-                xlu_chg  = (float(def_data["XLU"].iloc[-1])  / float(def_data["XLU"].iloc[-2])  - 1) * 100
-                xlv_chg  = (float(def_data["XLV"].iloc[-1])  / float(def_data["XLV"].iloc[-2])  - 1) * 100
-                def_avg  = (xlp_chg + xlu_chg + xlv_chg) / 3
-                spread   = def_avg - xlk_chg  # positive = defensives winning
-                if spread > 5.0:
-                    defensive_rotation = True
-                    def_rotation_note = (
-                        f"ACTIVE — XLK {xlk_chg:+.1f}%  "
-                        f"DEF avg {def_avg:+.1f}%  spread {spread:+.1f}%"
-                    )
-        except Exception:
-            pass
+        def_rotation_note, defensive_rotation = _regime_defensive_rotation(defensive_rotation)
 
         # Regime classification
         # BULL_TECH: SPY in CHOP but QQQ clearly above EMA20 + XLK leading + VIX calm.
@@ -10807,17 +11112,9 @@ def get_market_regime() -> dict:
         # business influencing real entries yet. Purely a display note for
         # now, same visibility tier as the VIX complacency/term-structure
         # notes above before those were ever considered for scoring either.
-        _nb = None
-        try:
-            _nb = _news_sentiment_breadth(hours_back=24.0)
-            if _nb["breadth_pct"] is None:
-                news_breadth_note = f"no scored sentiment in last 24h ({_nb['total']} logged, {_nb['unknown']} unscored)"
-            else:
-                news_breadth_note = (f"{_nb['breadth_pct']:+.0f}% "
-                                     f"({_nb['positive']}pos/{_nb['negative']}neg/{_nb['neutral']}neu, "
-                                     f"{_nb['unknown']} unscored, 24h)")
-        except Exception:
-            news_breadth_note = "N/A"
+        _nb, _o_news_breadth_note = _regime_news_breadth()
+        if _o_news_breadth_note is not _REFX_UNBOUND:
+            news_breadth_note = _o_news_breadth_note
 
         result.update({
             "regime":     regime,
@@ -14861,6 +15158,226 @@ def _day2_continuation_not_overextended(entry_price: float, pre_gap_close: float
     return total_move_pct <= DAY2_MAX_CUMULATIVE_MOVE_PCT
 
 
+def _rs_gap_and_hold(_long, c, candidates, p, r, ticker):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    try:
+        gap_pct = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
+        _gh_dollar_vol = c * float(r.get("AvgVol20", 0))
+        if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
+                and float(r["RVOL"]) >= 2.0               # raised from 1.5 — real institutional volume
+                and float(r["RSI"]) > 50
+                and float(r["MACD"]) > float(r["MACD_sig"])
+                and float(r["MACD"]) > 0                   # confirmed uptrend, not just recovering
+                and float(p["Close"]) > float(p["Open"])   # prior day green — continuation not reversal
+                and _gh_dollar_vol >= 500_000              # min $500K avg daily dollar volume
+                and _sector_etf_above_ema50(ticker)):
+            gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
+            sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
+                        reason=f"Gap up +{gap_pct:.1f}% from prior close, holding, RVOL {float(r['RVOL']):.1f}x")
+            # Targets: take the larger of R-multiple or gap-echo. For small gaps
+            # (1.5-4%) the R-multiple is bigger; for large gaps (8%+) the echo wins.
+            _echo_t1 = round(c * (1 + gap_pct / 100), 2)
+            _echo_t2 = round(c * (1 + gap_pct / 100 * 1.5), 2)
+            sig.target1 = max(sig.target1, _echo_t1)
+            sig.target2 = max(sig.target2, _echo_t2)
+            _gap_risk   = c - gap_stop
+            sig.rr = round((sig.target1 - c) / _gap_risk, 2) if _gap_risk > 0 else 0
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
+    except Exception:
+        pass
+
+
+
+def _rs_morning_runner(_long, c, candidates, p, r, ticker):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    try:
+        gap_up = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
+        if (gap_up >= 5.0 and c >= float(r["Open"]) * 0.97
+                and float(r["RVOL"]) >= 3.0
+                and 50 <= float(r["RSI"]) <= 72
+                and float(r["MACD"]) > float(r["MACD_sig"])):
+            mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
+            fl_m, sh_pct, _, _cash = _get_short_float_data(ticker)
+            float_tag = ""
+            if fl_m > 0 and fl_m < 10:
+                float_tag = f" | ULTRA-LOW FLOAT {fl_m:.1f}M"
+            elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:
+                float_tag = f" | Float {fl_m:.0f}M, Short {sh_pct:.0f}%"
+            elif fl_m > 0 and fl_m < 50:
+                float_tag = f" | Float {fl_m:.0f}M"
+            sig = _long("Morning Runner", mr_stop, 2.5, 4.0,
+                        reason=f"News gap +{gap_up:.1f}% on {float(r['RVOL']):.1f}x vol, holding open{float_tag}")
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
+    except Exception:
+        pass
+
+
+
+def _rs_day2_continuation(_long, c, candidates, df, p, r):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    try:
+        if len(df) >= 3:
+            p3 = df.iloc[-3]   # two days ago (the day BEFORE the original gap)
+            d1_gap     = (float(p["Open"]) - float(p3["Close"])) / float(p3["Close"]) * 100
+            d1_range   = float(p["High"]) - float(p["Open"])
+            d1_held    = (float(p["Close"]) - float(p["Open"])) / d1_range if d1_range > 0 else 0
+            d2_above   = c >= float(p["Close"]) * 0.98   # today still above Day 1 close
+            d2_rvol    = float(r["RVOL"]) >= 1.5
+            d2_rsi     = 45 < float(r["RSI"]) < 75
+            _d2_dollar = c * float(r.get("AvgVol20", 0))
+            d2_not_overextended = _day2_continuation_not_overextended(c, float(p3["Close"]))
+            if (d1_gap >= 4.0 and d1_held >= 0.6 and d2_above
+                    and d2_rvol and d2_rsi and d2_not_overextended
+                    and float(r["MACD"]) > float(r["MACD_sig"])
+                    and _d2_dollar >= 500_000):
+                d2_stop = round(float(p["Close"]) * 0.97, 2)   # stop below Day 1 close
+                sig = _long("Day 2 Continuation", d2_stop, 2.0, 3.5,
+                            reason=f"Day 1 gapped +{d1_gap:.1f}%, held {d1_held*100:.0f}% of range; Day 2 holding")
+                # T1 = Day 1 gap echoed from entry
+                sig.target1 = max(sig.target1, round(c * (1 + d1_gap / 100), 2))
+                sig.target2 = max(sig.target2, round(c * (1 + d1_gap / 100 * 1.5), 2))
+                _d2_risk = c - d2_stop
+                sig.rr = round((sig.target1 - c) / _d2_risk, 2) if _d2_risk > 0 else 0
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+    except Exception:
+        pass
+
+
+
+def _rs_shorts(_short, c, candidates, p, p2, r, rec):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    if ALLOW_SHORTS:
+        sup2 = float(rec["Low"].quantile(0.10))
+
+        # S1: EMA Breakdown — disabled (backtest: 39.5% WR, avg -0.14%, no edge)
+        if ENABLE_EMA_BREAKDOWN:
+            if (float(r["EMA20"]) < float(r["EMA50"])
+                    and max(float(p["High"]), float(p2["High"])) >= float(p["EMA20"]) * 0.995
+                    and c < float(r["EMA20"]) and 35 < float(r["RSI"]) < 65
+                    and float(r["RVOL"]) >= RVOL_MIN_SHORT
+                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                sig = _short("EMA Breakdown", float(r["EMA20"]) * 1.015,
+                             reason=f"EMA20 rejection, {float(r['RVOL']):.1f}x volume")
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+
+        # S2: Volume Breakdown — disabled alongside all other short setups.
+        # Backtest: insufficient sample size in current bull-dominant setup mix.
+        # Also: ALLOW_SHORTS = False prevents live short order submission.
+        if ALLOW_SHORTS and False:   # explicit double-guard until shorts are re-evaluated
+            try:
+                _range = float(r["High"]) - float(r["Low"])
+                _atr   = float(r["ATR"]) if not pd.isna(r["ATR"]) else _range
+                _news_candle = _range >= _atr * 1.5
+            except Exception:
+                _news_candle = True
+            if (c < sup2 * 0.988 and float(r["RVOL"]) >= 3.5 and float(r["RSI"]) < 32
+                    and _news_candle
+                    and float(r["MACD"]) < float(r["MACD_sig"])
+                    and float(r["EMA20"]) < float(r["EMA50"])
+                    and float(r["EMA50"]) < float(p["EMA50"])
+                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                sig = _short("Vol Breakdown", sup2 * 1.015, 2.5, 4.0,
+                             reason=f"Broke ${sup2:.2f} on {float(r['RVOL']):.1f}x vol, range {_range/(_atr or 1):.1f}x ATR")
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+
+        # S3: Overbought Reversal — disabled (backtest: 41% WR, avg -4.77%, consistent loser)
+        if ENABLE_OB_REVERSAL:
+            if (float(p2["RSI"]) > 65 and float(r["RSI"]) < float(p["RSI"]) < float(p2["RSI"])
+                    and c < float(r["EMA9"]) and c < float(r["Open"])
+                    and float(r["RVOL"]) >= 1.0):
+                sig = _short("OB Reversal", max(float(p["High"]), float(p2["High"])) * 1.01,
+                             reason=f"RSI curling from {float(p2['RSI']):.0f}, EMA9 broken")
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+
+        # S4: MACD Bear Cross — disabled (0% WR / 1 trade; short in BULL-dominant algo)
+        if ENABLE_MACD_BEAR and (float(p["MACD"]) > float(p["MACD_sig"]) and float(r["MACD"]) < float(r["MACD_sig"])
+                and float(r["MACD"]) < 0
+                and float(r["EMA20"]) < float(r["EMA50"])
+                and float(r["EMA50"]) < float(p["EMA50"])
+                and 42 <= float(r["RSI"]) <= 58
+                and float(r["RVOL"]) >= 1.8
+                and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+            sig = _short("MACD Bear", float(r["EMA50"]) * 1.02, 2.0, 3.5,
+                         reason="Fresh MACD bear cross below zero, EMA20<EMA50 declining")
+            if sig.rr >= MIN_RR:
+                candidates.append(sig)
+
+        # S5: Gap & Short — disabled (40% WR / avg +1.51% in backtest, consistent drag)
+        if ENABLE_GAP_SHORT:
+            try:
+                gap_dn = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
+                gap_unfilled = float(r["High"]) < float(p["Close"]) * 0.998
+                if (gap_dn >= 3.0 and gap_unfilled and c <= float(r["Open"]) * 1.005
+                        and float(r["RVOL"]) >= 3.0 and float(r["RSI"]) < 45
+                        and float(r["MACD"]) < float(r["MACD_sig"])
+                        and float(r["EMA20"]) < float(r["EMA50"])
+                        and float(r["MACD_hist"]) < float(p["MACD_hist"])):
+                    gap_stop = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
+                    sig = _short("Gap & Short", gap_stop, 2.5, 4.0,
+                                 reason=f"Gap down -{gap_dn:.1f}% unfilled, RVOL {float(r['RVOL']):.1f}x")
+                    if sig.rr >= MIN_RR:
+                        candidates.append(sig)
+            except Exception:
+                pass
+
+
+
+def _rs_bear_gap_hold(_short, c, candidates, p, r):
+    """Extracted verbatim from _raw_signals() on 2026-09-14 (refx).
+    """
+    if OPTIONS_ENABLE_PUTS and flag("ENABLE_BEAR_GAP_HOLD", ENABLE_BEAR_GAP_HOLD):
+        try:
+            # Gap % from today's OPEN vs prior close — not today's current/
+            # close price. Found 2026-08-16 review: this used `c` (current
+            # price) as the gap endpoint, so a stock that opened FLAT and
+            # simply drifted down 2% intraday read as a "gap down 2%" and
+            # could trigger a real ITM put purchase on ordinary noise, not
+            # an actual gap. Matches L6 Gap & Hold's (correct) convention.
+            _bg_gap_pct  = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
+            _bg_dv       = c * float(r.get("AvgVol20", 0))
+            if (_bg_gap_pct >= 1.5
+                    and c <= float(r["Open"]) * 1.005          # holding at/below open
+                    and float(r["RVOL"]) >= 2.0
+                    and float(r["RSI"]) < 50
+                    and float(r["MACD"]) < float(r["MACD_sig"])
+                    and float(r["MACD"]) < 0
+                    and float(p["Close"]) < float(p["Open"])    # prior day red
+                    and _bg_dv >= 500_000):
+                _bg_stop   = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
+                sig = _short("Bear Gap Hold", _bg_stop, 2.5, 4.0,
+                             reason=f"Gap down -{_bg_gap_pct:.1f}%  holding below open  "
+                                    f"RVOL {float(r['RVOL']):.1f}x  bearish MACD")
+                # Echo targets: T1 = entry × (1 - gap_pct/100), T2 = 1.5× echo
+                _bg_echo_t1 = round(c * (1 - _bg_gap_pct / 100), 2)
+                _bg_echo_t2 = round(c * (1 - _bg_gap_pct / 100 * 1.5), 2)
+                sig.target1 = min(sig.target1, _bg_echo_t1)   # more aggressive of the two
+                sig.target2 = min(sig.target2, _bg_echo_t2)
+                # Recompute rr against the (possibly echo-overridden) target1 —
+                # matches L6 Gap & Hold's pattern. Found 2026-08-16 review:
+                # this was missing here, so both the MIN_RR gate just below
+                # and the single-pattern-per-ticker selector at the bottom
+                # of this function (max(candidates, key=lambda s: s.rr))
+                # were comparing a stale rr that no longer matched the
+                # signal's real target whenever the echo target won.
+                _bg_risk = _bg_stop - c
+                sig.rr = round((c - sig.target1) / _bg_risk, 2) if _bg_risk > 0 else 0
+                if sig.rr >= MIN_RR:
+                    candidates.append(sig)
+        except Exception:
+            pass
+
+
+
 def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
     """
     Evaluate all long and short patterns; return the highest-RR qualifying signal.
@@ -14960,213 +15477,28 @@ def _raw_signals(df: pd.DataFrame, ticker: str) -> Optional[ProSignal]:
                 candidates.append(sig)
 
     # L6: Gap & Hold — gap up ≥1.5% from prior close, holding above the open
-    try:
-        gap_pct = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
-        _gh_dollar_vol = c * float(r.get("AvgVol20", 0))
-        if (gap_pct >= 1.5 and c >= float(r["Open"]) * 0.995
-                and float(r["RVOL"]) >= 2.0               # raised from 1.5 — real institutional volume
-                and float(r["RSI"]) > 50
-                and float(r["MACD"]) > float(r["MACD_sig"])
-                and float(r["MACD"]) > 0                   # confirmed uptrend, not just recovering
-                and float(p["Close"]) > float(p["Open"])   # prior day green — continuation not reversal
-                and _gh_dollar_vol >= 500_000              # min $500K avg daily dollar volume
-                and _sector_etf_above_ema50(ticker)):
-            gap_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.985)
-            sig = _long("Gap & Hold", gap_stop, 2.5, 4.0,
-                        reason=f"Gap up +{gap_pct:.1f}% from prior close, holding, RVOL {float(r['RVOL']):.1f}x")
-            # Targets: take the larger of R-multiple or gap-echo. For small gaps
-            # (1.5-4%) the R-multiple is bigger; for large gaps (8%+) the echo wins.
-            _echo_t1 = round(c * (1 + gap_pct / 100), 2)
-            _echo_t2 = round(c * (1 + gap_pct / 100 * 1.5), 2)
-            sig.target1 = max(sig.target1, _echo_t1)
-            sig.target2 = max(sig.target2, _echo_t2)
-            _gap_risk   = c - gap_stop
-            sig.rr = round((sig.target1 - c) / _gap_risk, 2) if _gap_risk > 0 else 0
-            if sig.rr >= MIN_RR:
-                candidates.append(sig)
-    except Exception:
-        pass
+    _rs_gap_and_hold(_long, c, candidates, p, r, ticker)
 
     # L7: Morning Runner — news-catalyst gap ≥5%, holding above open.
     # RVOL lowered from 5x to 3x: mega-cap names (NVDA, META) legitimately move
     # with 3-4x RVOL on catalyst days; the 5x bar excluded them with no edge benefit.
-    try:
-        gap_up = (float(r["Open"]) - float(p["Close"])) / float(p["Close"]) * 100
-        if (gap_up >= 5.0 and c >= float(r["Open"]) * 0.97
-                and float(r["RVOL"]) >= 3.0
-                and 50 <= float(r["RSI"]) <= 72
-                and float(r["MACD"]) > float(r["MACD_sig"])):
-            mr_stop = min(float(r["Low"]) * 0.99, float(r["Open"]) * 0.96)
-            fl_m, sh_pct, _, _cash = _get_short_float_data(ticker)
-            float_tag = ""
-            if fl_m > 0 and fl_m < 10:
-                float_tag = f" | ULTRA-LOW FLOAT {fl_m:.1f}M"
-            elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:
-                float_tag = f" | Float {fl_m:.0f}M, Short {sh_pct:.0f}%"
-            elif fl_m > 0 and fl_m < 50:
-                float_tag = f" | Float {fl_m:.0f}M"
-            sig = _long("Morning Runner", mr_stop, 2.5, 4.0,
-                        reason=f"News gap +{gap_up:.1f}% on {float(r['RVOL']):.1f}x vol, holding open{float_tag}")
-            if sig.rr >= MIN_RR:
-                candidates.append(sig)
-    except Exception:
-        pass
+    _rs_morning_runner(_long, c, candidates, p, r, ticker)
 
     # L8: Day 2 Continuation — yesterday's gap-and-hold follows through today.
     # Pattern: Day 1 gapped ≥4% and closed strong (held ≥ 80% of gap range).
     #          Day 2 opens near or above Day 1 close, RVOL still elevated ≥ 1.5x.
     # Institutional flow is continuous — they don't finish buying in one day.
-    try:
-        if len(df) >= 3:
-            p3 = df.iloc[-3]   # two days ago (the day BEFORE the original gap)
-            d1_gap     = (float(p["Open"]) - float(p3["Close"])) / float(p3["Close"]) * 100
-            d1_range   = float(p["High"]) - float(p["Open"])
-            d1_held    = (float(p["Close"]) - float(p["Open"])) / d1_range if d1_range > 0 else 0
-            d2_above   = c >= float(p["Close"]) * 0.98   # today still above Day 1 close
-            d2_rvol    = float(r["RVOL"]) >= 1.5
-            d2_rsi     = 45 < float(r["RSI"]) < 75
-            _d2_dollar = c * float(r.get("AvgVol20", 0))
-            d2_not_overextended = _day2_continuation_not_overextended(c, float(p3["Close"]))
-            if (d1_gap >= 4.0 and d1_held >= 0.6 and d2_above
-                    and d2_rvol and d2_rsi and d2_not_overextended
-                    and float(r["MACD"]) > float(r["MACD_sig"])
-                    and _d2_dollar >= 500_000):
-                d2_stop = round(float(p["Close"]) * 0.97, 2)   # stop below Day 1 close
-                sig = _long("Day 2 Continuation", d2_stop, 2.0, 3.5,
-                            reason=f"Day 1 gapped +{d1_gap:.1f}%, held {d1_held*100:.0f}% of range; Day 2 holding")
-                # T1 = Day 1 gap echoed from entry
-                sig.target1 = max(sig.target1, round(c * (1 + d1_gap / 100), 2))
-                sig.target2 = max(sig.target2, round(c * (1 + d1_gap / 100 * 1.5), 2))
-                _d2_risk = c - d2_stop
-                sig.rr = round((sig.target1 - c) / _d2_risk, 2) if _d2_risk > 0 else 0
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-    except Exception:
-        pass
+    _rs_day2_continuation(_long, c, candidates, df, p, r)
 
     # ── SHORT patterns ────────────────────────────────────────────────────
-    if ALLOW_SHORTS:
-        sup2 = float(rec["Low"].quantile(0.10))
-
-        # S1: EMA Breakdown — disabled (backtest: 39.5% WR, avg -0.14%, no edge)
-        if ENABLE_EMA_BREAKDOWN:
-            if (float(r["EMA20"]) < float(r["EMA50"])
-                    and max(float(p["High"]), float(p2["High"])) >= float(p["EMA20"]) * 0.995
-                    and c < float(r["EMA20"]) and 35 < float(r["RSI"]) < 65
-                    and float(r["RVOL"]) >= RVOL_MIN_SHORT
-                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-                sig = _short("EMA Breakdown", float(r["EMA20"]) * 1.015,
-                             reason=f"EMA20 rejection, {float(r['RVOL']):.1f}x volume")
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-
-        # S2: Volume Breakdown — disabled alongside all other short setups.
-        # Backtest: insufficient sample size in current bull-dominant setup mix.
-        # Also: ALLOW_SHORTS = False prevents live short order submission.
-        if ALLOW_SHORTS and False:   # explicit double-guard until shorts are re-evaluated
-            try:
-                _range = float(r["High"]) - float(r["Low"])
-                _atr   = float(r["ATR"]) if not pd.isna(r["ATR"]) else _range
-                _news_candle = _range >= _atr * 1.5
-            except Exception:
-                _news_candle = True
-            if (c < sup2 * 0.988 and float(r["RVOL"]) >= 3.5 and float(r["RSI"]) < 32
-                    and _news_candle
-                    and float(r["MACD"]) < float(r["MACD_sig"])
-                    and float(r["EMA20"]) < float(r["EMA50"])
-                    and float(r["EMA50"]) < float(p["EMA50"])
-                    and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-                sig = _short("Vol Breakdown", sup2 * 1.015, 2.5, 4.0,
-                             reason=f"Broke ${sup2:.2f} on {float(r['RVOL']):.1f}x vol, range {_range/(_atr or 1):.1f}x ATR")
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-
-        # S3: Overbought Reversal — disabled (backtest: 41% WR, avg -4.77%, consistent loser)
-        if ENABLE_OB_REVERSAL:
-            if (float(p2["RSI"]) > 65 and float(r["RSI"]) < float(p["RSI"]) < float(p2["RSI"])
-                    and c < float(r["EMA9"]) and c < float(r["Open"])
-                    and float(r["RVOL"]) >= 1.0):
-                sig = _short("OB Reversal", max(float(p["High"]), float(p2["High"])) * 1.01,
-                             reason=f"RSI curling from {float(p2['RSI']):.0f}, EMA9 broken")
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-
-        # S4: MACD Bear Cross — disabled (0% WR / 1 trade; short in BULL-dominant algo)
-        if ENABLE_MACD_BEAR and (float(p["MACD"]) > float(p["MACD_sig"]) and float(r["MACD"]) < float(r["MACD_sig"])
-                and float(r["MACD"]) < 0
-                and float(r["EMA20"]) < float(r["EMA50"])
-                and float(r["EMA50"]) < float(p["EMA50"])
-                and 42 <= float(r["RSI"]) <= 58
-                and float(r["RVOL"]) >= 1.8
-                and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-            sig = _short("MACD Bear", float(r["EMA50"]) * 1.02, 2.0, 3.5,
-                         reason="Fresh MACD bear cross below zero, EMA20<EMA50 declining")
-            if sig.rr >= MIN_RR:
-                candidates.append(sig)
-
-        # S5: Gap & Short — disabled (40% WR / avg +1.51% in backtest, consistent drag)
-        if ENABLE_GAP_SHORT:
-            try:
-                gap_dn = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
-                gap_unfilled = float(r["High"]) < float(p["Close"]) * 0.998
-                if (gap_dn >= 3.0 and gap_unfilled and c <= float(r["Open"]) * 1.005
-                        and float(r["RVOL"]) >= 3.0 and float(r["RSI"]) < 45
-                        and float(r["MACD"]) < float(r["MACD_sig"])
-                        and float(r["EMA20"]) < float(r["EMA50"])
-                        and float(r["MACD_hist"]) < float(p["MACD_hist"])):
-                    gap_stop = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
-                    sig = _short("Gap & Short", gap_stop, 2.5, 4.0,
-                                 reason=f"Gap down -{gap_dn:.1f}% unfilled, RVOL {float(r['RVOL']):.1f}x")
-                    if sig.rr >= MIN_RR:
-                        candidates.append(sig)
-            except Exception:
-                pass
+    _rs_shorts(_short, c, candidates, p, p2, r, rec)
 
     # L9: Bear Gap Hold — bearish mirror of L6.
     # Gap DOWN ≥1.5%, holding BELOW open (failed recovery), RVOL ≥2x,
     # prior day red, MACD bearish, sector ETF weak.
     # Signal bias = SHORT but ALLOW_SHORTS is False for shares —
     # execution layer routes to _submit_options_put() instead.
-    if OPTIONS_ENABLE_PUTS and flag("ENABLE_BEAR_GAP_HOLD", ENABLE_BEAR_GAP_HOLD):
-        try:
-            # Gap % from today's OPEN vs prior close — not today's current/
-            # close price. Found 2026-08-16 review: this used `c` (current
-            # price) as the gap endpoint, so a stock that opened FLAT and
-            # simply drifted down 2% intraday read as a "gap down 2%" and
-            # could trigger a real ITM put purchase on ordinary noise, not
-            # an actual gap. Matches L6 Gap & Hold's (correct) convention.
-            _bg_gap_pct  = (float(p["Close"]) - float(r["Open"])) / float(p["Close"]) * 100
-            _bg_dv       = c * float(r.get("AvgVol20", 0))
-            if (_bg_gap_pct >= 1.5
-                    and c <= float(r["Open"]) * 1.005          # holding at/below open
-                    and float(r["RVOL"]) >= 2.0
-                    and float(r["RSI"]) < 50
-                    and float(r["MACD"]) < float(r["MACD_sig"])
-                    and float(r["MACD"]) < 0
-                    and float(p["Close"]) < float(p["Open"])    # prior day red
-                    and _bg_dv >= 500_000):
-                _bg_stop   = max(float(r["High"]) * 1.01, float(r["Open"]) * 1.015)
-                sig = _short("Bear Gap Hold", _bg_stop, 2.5, 4.0,
-                             reason=f"Gap down -{_bg_gap_pct:.1f}%  holding below open  "
-                                    f"RVOL {float(r['RVOL']):.1f}x  bearish MACD")
-                # Echo targets: T1 = entry × (1 - gap_pct/100), T2 = 1.5× echo
-                _bg_echo_t1 = round(c * (1 - _bg_gap_pct / 100), 2)
-                _bg_echo_t2 = round(c * (1 - _bg_gap_pct / 100 * 1.5), 2)
-                sig.target1 = min(sig.target1, _bg_echo_t1)   # more aggressive of the two
-                sig.target2 = min(sig.target2, _bg_echo_t2)
-                # Recompute rr against the (possibly echo-overridden) target1 —
-                # matches L6 Gap & Hold's pattern. Found 2026-08-16 review:
-                # this was missing here, so both the MIN_RR gate just below
-                # and the single-pattern-per-ticker selector at the bottom
-                # of this function (max(candidates, key=lambda s: s.rr))
-                # were comparing a stale rr that no longer matched the
-                # signal's real target whenever the echo target won.
-                _bg_risk = _bg_stop - c
-                sig.rr = round((c - sig.target1) / _bg_risk, 2) if _bg_risk > 0 else 0
-                if sig.rr >= MIN_RR:
-                    candidates.append(sig)
-        except Exception:
-            pass
+    _rs_bear_gap_hold(_short, c, candidates, p, r)
 
     if not candidates:
         return None
@@ -15262,6 +15594,174 @@ def _is_chasing_extended_highs(df: pd.DataFrame) -> bool:
 #  SECTION 19 — MASTER CONFLUENCE SCORER
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _ss_sector_etf(signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: _etf_score.
+    """
+    _sector_name = TICKER_SECTOR.get(signal.ticker, "")
+    _sector_etf  = SECTOR_ETFS.get(_sector_name, "")
+    _etf_score   = 0
+    if _sector_etf:
+        try:
+            _etf_df = fetch_df(_sector_etf)
+            if _etf_df is not None and len(_etf_df) >= 2:
+                _etf_chg = (float(_etf_df["Close"].iloc[-1]) /
+                            float(_etf_df["Close"].iloc[-2]) - 1) * 100
+                if signal.bias == "LONG":
+                    _etf_score = 8 if _etf_chg >= 1.0 else (4 if _etf_chg > 0 else 0)
+                else:
+                    _etf_score = 8 if _etf_chg <= -1.0 else (4 if _etf_chg < 0 else 0)
+        except Exception:
+            pass
+    return _etf_score
+
+
+def _ss_ai_theme(signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: _ai_score.
+    """
+    _ai_score = 0
+    if signal.ticker in AI_THEME_TICKERS:
+        try:
+            _ai_df = fetch_df(AI_THEME_ETF)
+            if _ai_df is not None and len(_ai_df) >= 2:
+                _ai_chg = (float(_ai_df["Close"].iloc[-1]) /
+                           float(_ai_df["Close"].iloc[-2]) - 1) * 100
+                if signal.bias == "LONG":
+                    _ai_score = 3 if _ai_chg >= 1.0 else 0
+                else:
+                    _ai_score = 3 if _ai_chg <= -1.0 else 0
+        except Exception:
+            pass
+    return _ai_score
+
+
+def _ss_rsi_zone(df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: rsi_bonus.
+    """
+    rsi = signal.rsi
+    _gap_pct_for_rsi = 0.0
+    try:
+        if len(df) >= 2:
+            _gap_pct_for_rsi = ((float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2]))
+                                / float(df["Close"].iloc[-2]) * 100)
+    except Exception:
+        pass
+    _fresh_catalyst_gap = abs(_gap_pct_for_rsi) >= 5.0 and signal.rvol >= 2.0
+    if signal.bias == "LONG":
+        if 45 <= rsi <= 62:
+            rsi_bonus = 5
+        elif 38 <= rsi < 45:
+            rsi_bonus = 2
+        elif 70 <= rsi <= 90 and _fresh_catalyst_gap:
+            rsi_bonus = 5
+        else:
+            rsi_bonus = 0
+    else:
+        if 38 <= rsi <= 55:
+            rsi_bonus = 5
+        elif 55 < rsi <= 62:
+            rsi_bonus = 2
+        elif 10 <= rsi <= 30 and _fresh_catalyst_gap:
+            rsi_bonus = 5
+        else:
+            rsi_bonus = 0
+    return rsi_bonus
+
+
+def _ss_52wk_proximity(df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: prox_score.
+    """
+    try:
+        if signal.bias == "LONG":
+            hi52    = float(df["High"].iloc[-252:].max()) if len(df) >= 252 else float(df["High"].max())
+            off_hi  = (hi52 - signal.entry) / hi52 * 100
+            prox_score = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
+        else:
+            lo52    = float(df["Low"].iloc[-252:].min()) if len(df) >= 252 else float(df["Low"].min())
+            off_lo  = (signal.entry - lo52) / lo52 * 100
+            prox_score = 10 if off_lo <= 5 else (7 if off_lo <= 15 else 0)
+    except Exception:
+        prox_score = 0
+    return prox_score
+
+
+def _ss_adx_trend(df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: adx_score, r_last.
+    """
+    r_last = df.iloc[-1]
+    adx_v = float(r_last["ADX"])      if ("ADX"      in r_last.index and not pd.isna(r_last["ADX"]))      else 0
+    pdi_v = float(r_last["PLUS_DI"])  if ("PLUS_DI"  in r_last.index and not pd.isna(r_last["PLUS_DI"]))  else 0
+    mdi_v = float(r_last["MINUS_DI"]) if ("MINUS_DI" in r_last.index and not pd.isna(r_last["MINUS_DI"])) else 0
+    if signal.bias == "LONG":
+        adx_score = 5 if adx_v >= 25 and pdi_v > mdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
+    else:
+        adx_score = 5 if adx_v >= 25 and mdi_v > pdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
+    return adx_score, r_last
+
+
+def _ss_regime_setup_bonus(regime, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    Returns: _rs_bonus.
+    """
+    _rtype = regime.get("regime", "CHOP")
+    _mom_long  = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
+    _mom_short = {"Vol Breakdown", "Gap & Short", "EMA Breakdown"}
+    _rev_long  = {"OS Bounce", "MACD Cross"}
+    _rev_short = {"OB Reversal", "MACD Bear"}
+    if _rtype == "BULL" and signal.bias == "LONG":
+        _rs_bonus = 8 if signal.setup in _mom_long  else 4
+    elif _rtype == "BEAR" and signal.bias == "SHORT":
+        _rs_bonus = 8 if signal.setup in _mom_short else 4
+    elif _rtype == "CHOP":
+        _pref = _rev_long if signal.bias == "LONG" else _rev_short
+        _rs_bonus = 8 if signal.setup in _pref else 3
+    else:
+        _rs_bonus = 4
+    return _rs_bonus
+
+
+def _ss_short_float_squeeze(breakdown, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    """
+    if signal.setup in {"Morning Runner", "Gap & Hold"}:
+        fl_m, sh_pct, _, _cash = _get_short_float_data(signal.ticker)
+        if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
+            float_score = 10
+        elif fl_m > 0 and fl_m < 50 and sh_pct >= 15:   # low float + high short → squeeze
+            float_score = 10
+        elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:   # low float + moderate short
+            float_score = 7
+        elif fl_m > 0 and fl_m < 50:                     # low float alone
+            float_score = 4
+        elif sh_pct >= 20:                               # high short interest regardless of float
+            float_score = 5
+        else:
+            float_score = 0
+        breakdown["Float/Short"] = float_score
+    else:
+        breakdown["Float/Short"] = 0
+
+
+
+def _ss_gap_size_bonus(breakdown, df, signal):
+    """Extracted verbatim from score_signal() on 2026-09-14 (refx).
+    """
+    if signal.setup == "Gap & Hold" and len(df) >= 2:
+        try:
+            _gap_pct = (float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2])) / float(df["Close"].iloc[-2]) * 100
+            gap_bonus = 5 if _gap_pct >= 5.0 else (3 if _gap_pct >= 3.0 else 0)
+        except Exception:
+            gap_bonus = 0
+        breakdown["Gap Size"] = gap_bonus
+    else:
+        breakdown["Gap Size"] = 0
+
+
+
 def score_signal(signal: ProSignal, df: pd.DataFrame,
                  regime: dict, tracker: WinRateTracker) -> ProSignal:
     """
@@ -15307,21 +15807,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # 4.5 Sector ETF momentum confirmation (8 pts)
     # If the stock's sector ETF is green on the day, money flows are aligned —
     # adds conviction that this isn't an idiosyncratic pop against a falling sector.
-    _sector_name = TICKER_SECTOR.get(signal.ticker, "")
-    _sector_etf  = SECTOR_ETFS.get(_sector_name, "")
-    _etf_score   = 0
-    if _sector_etf:
-        try:
-            _etf_df = fetch_df(_sector_etf)
-            if _etf_df is not None and len(_etf_df) >= 2:
-                _etf_chg = (float(_etf_df["Close"].iloc[-1]) /
-                            float(_etf_df["Close"].iloc[-2]) - 1) * 100
-                if signal.bias == "LONG":
-                    _etf_score = 8 if _etf_chg >= 1.0 else (4 if _etf_chg > 0 else 0)
-                else:
-                    _etf_score = 8 if _etf_chg <= -1.0 else (4 if _etf_chg < 0 else 0)
-        except Exception:
-            pass
+    _etf_score = _ss_sector_etf(signal)
     breakdown["Sector ETF"] = _etf_score
 
     # 4.6 AI theme momentum bonus (+3 pts) — additive on top of the sector
@@ -15329,19 +15815,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # AI-specific move (e.g. NVDA rallying on a chip headline) only ever
     # showed up as generic Technology/XLK momentum otherwise, which can
     # mute a real AI-specific signal against a flat broader tech tape.
-    _ai_score = 0
-    if signal.ticker in AI_THEME_TICKERS:
-        try:
-            _ai_df = fetch_df(AI_THEME_ETF)
-            if _ai_df is not None and len(_ai_df) >= 2:
-                _ai_chg = (float(_ai_df["Close"].iloc[-1]) /
-                           float(_ai_df["Close"].iloc[-2]) - 1) * 100
-                if signal.bias == "LONG":
-                    _ai_score = 3 if _ai_chg >= 1.0 else 0
-                else:
-                    _ai_score = 3 if _ai_chg <= -1.0 else 0
-        except Exception:
-            pass
+    _ai_score = _ss_ai_theme(signal)
     breakdown["AI Theme"] = _ai_score
 
     # 4.7 Insider buying confirmation (+4 pts, free SEC Form 4 data) —
@@ -15412,47 +15886,11 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     # now earns the same bonus a measured reading already does; a high
     # RSI with NEITHER a real gap nor real volume behind it — a stale,
     # already-extended chase — still scores 0, unchanged.
-    rsi = signal.rsi
-    _gap_pct_for_rsi = 0.0
-    try:
-        if len(df) >= 2:
-            _gap_pct_for_rsi = ((float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2]))
-                                / float(df["Close"].iloc[-2]) * 100)
-    except Exception:
-        pass
-    _fresh_catalyst_gap = abs(_gap_pct_for_rsi) >= 5.0 and signal.rvol >= 2.0
-    if signal.bias == "LONG":
-        if 45 <= rsi <= 62:
-            rsi_bonus = 5
-        elif 38 <= rsi < 45:
-            rsi_bonus = 2
-        elif 70 <= rsi <= 90 and _fresh_catalyst_gap:
-            rsi_bonus = 5
-        else:
-            rsi_bonus = 0
-    else:
-        if 38 <= rsi <= 55:
-            rsi_bonus = 5
-        elif 55 < rsi <= 62:
-            rsi_bonus = 2
-        elif 10 <= rsi <= 30 and _fresh_catalyst_gap:
-            rsi_bonus = 5
-        else:
-            rsi_bonus = 0
+    rsi_bonus = _ss_rsi_zone(df, signal)
     breakdown["RSI Zone"] = rsi_bonus
 
     # 11. 52-week high proximity (10 pts for longs; 52wk low proximity for shorts)
-    try:
-        if signal.bias == "LONG":
-            hi52    = float(df["High"].iloc[-252:].max()) if len(df) >= 252 else float(df["High"].max())
-            off_hi  = (hi52 - signal.entry) / hi52 * 100
-            prox_score = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
-        else:
-            lo52    = float(df["Low"].iloc[-252:].min()) if len(df) >= 252 else float(df["Low"].min())
-            off_lo  = (signal.entry - lo52) / lo52 * 100
-            prox_score = 10 if off_lo <= 5 else (7 if off_lo <= 15 else 0)
-    except Exception:
-        prox_score = 0
+    prox_score = _ss_52wk_proximity(df, signal)
     breakdown["52wk Prox"] = prox_score
 
     # 11.5 Not chasing an already-extended move into highs — hard gate,
@@ -15476,14 +15914,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     breakdown["Supertrend"] = st_score
 
     # 14. Per-stock ADX trend strength (5 pts) — uses already-computed ADX/DI columns
-    r_last = df.iloc[-1]
-    adx_v = float(r_last["ADX"])      if ("ADX"      in r_last.index and not pd.isna(r_last["ADX"]))      else 0
-    pdi_v = float(r_last["PLUS_DI"])  if ("PLUS_DI"  in r_last.index and not pd.isna(r_last["PLUS_DI"]))  else 0
-    mdi_v = float(r_last["MINUS_DI"]) if ("MINUS_DI" in r_last.index and not pd.isna(r_last["MINUS_DI"])) else 0
-    if signal.bias == "LONG":
-        adx_score = 5 if adx_v >= 25 and pdi_v > mdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
-    else:
-        adx_score = 5 if adx_v >= 25 and mdi_v > pdi_v else (2 if adx_v >= ADX_TREND_MIN else 0)
+    adx_score, r_last = _ss_adx_trend(df, signal)
     breakdown["ADX Trend"] = adx_score
 
     # 15. Ichimoku Cloud (10 pts)
@@ -15498,55 +15929,18 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     breakdown["ATR Pctile"] = check_atr_percentile(df, signal.setup)
 
     # 18. Regime-adaptive setup bonus (0-8 pts)
-    _rtype = regime.get("regime", "CHOP")
-    _mom_long  = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
-    _mom_short = {"Vol Breakdown", "Gap & Short", "EMA Breakdown"}
-    _rev_long  = {"OS Bounce", "MACD Cross"}
-    _rev_short = {"OB Reversal", "MACD Bear"}
-    if _rtype == "BULL" and signal.bias == "LONG":
-        _rs_bonus = 8 if signal.setup in _mom_long  else 4
-    elif _rtype == "BEAR" and signal.bias == "SHORT":
-        _rs_bonus = 8 if signal.setup in _mom_short else 4
-    elif _rtype == "CHOP":
-        _pref = _rev_long if signal.bias == "LONG" else _rev_short
-        _rs_bonus = 8 if signal.setup in _pref else 3
-    else:
-        _rs_bonus = 4
+    _rs_bonus = _ss_regime_setup_bonus(regime, signal)
     breakdown["RegimeSetup"] = _rs_bonus
 
     # 19. Short float / squeeze potential (0-10 pts) — Gap & Hold and Morning Runner
-    if signal.setup in {"Morning Runner", "Gap & Hold"}:
-        fl_m, sh_pct, _, _cash = _get_short_float_data(signal.ticker)
-        if fl_m > 0 and fl_m < 10:            # ultra-low float (<10M) — wildfire move potential
-            float_score = 10
-        elif fl_m > 0 and fl_m < 50 and sh_pct >= 15:   # low float + high short → squeeze
-            float_score = 10
-        elif fl_m > 0 and fl_m < 50 and sh_pct >= 10:   # low float + moderate short
-            float_score = 7
-        elif fl_m > 0 and fl_m < 50:                     # low float alone
-            float_score = 4
-        elif sh_pct >= 20:                               # high short interest regardless of float
-            float_score = 5
-        else:
-            float_score = 0
-        breakdown["Float/Short"] = float_score
-    else:
-        breakdown["Float/Short"] = 0
+    _ss_short_float_squeeze(breakdown, signal)
 
     # 20. RVOL tier bonus (0-6 pts) — live scorer was missing this; backtest already has it
     rvol_bonus = 6 if signal.rvol >= 3.0 else (3 if signal.rvol >= 2.0 else 0)
     breakdown["RVOL Tier"] = rvol_bonus
 
     # 21. Gap size bonus (0-5 pts) — Gap & Hold only; larger gaps = stronger institutional conviction
-    if signal.setup == "Gap & Hold" and len(df) >= 2:
-        try:
-            _gap_pct = (float(df["Open"].iloc[-1]) - float(df["Close"].iloc[-2])) / float(df["Close"].iloc[-2]) * 100
-            gap_bonus = 5 if _gap_pct >= 5.0 else (3 if _gap_pct >= 3.0 else 0)
-        except Exception:
-            gap_bonus = 0
-        breakdown["Gap Size"] = gap_bonus
-    else:
-        breakdown["Gap Size"] = 0
+    _ss_gap_size_bonus(breakdown, df, signal)
 
     # 22. News catalyst recency (0-5 pts) — confirmed headline in last 4 hours
     breakdown["News Catalyst"] = 5 if getattr(signal, "news_boost", False) else 0
@@ -17369,6 +17763,342 @@ def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> li
     return out
 
 
+def _scan_consecutive_loss_gate(min_score, stats, tickers):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns (escape, value, ); escape is None or the original
+    return/continue/break of the block.
+    """
+    if stats.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
+        print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses_today']} losses in a row today.")
+        print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
+        if not _is_duplicate_alert("__CONSEC_LOSS__"):
+            send_telegram(
+                f"🛑 <b>DMan halted</b> — {stats['consec_losses_today']} consecutive losses today.\n"
+                f"Scanner paused for the day. Review your last trades."
+            )
+            _save_last_alert("__CONSEC_LOSS__")
+        _log_scan_halt("consecutive_losses", tickers, min_score or 0)
+        return ('return', [])
+
+    # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
+    month_loss = get_this_month_loss()
+    if month_loss <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
+        print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
+              f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
+        print(f"     Stop trading for the month. Review setups. Reset.\n")
+        if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
+            send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
+            _save_last_alert("__MONTHLY_LIMIT__")
+        _log_scan_halt("monthly_loss_limit", tickers, min_score or 0)
+        return ('return', [])
+    return (None, None)
+
+
+def _scan_prefetch_news(_scan_news_map, tickers):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns: _scan_news_map.
+    """
+    try:
+        _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=20)
+        _news_count = sum(1 for v in _scan_news_map.values() if v)
+        print(f"{_news_count}/{len(tickers)} tickers have recent news")
+        # Background knowledge-base log (2026-08-15) — this REST pre-fetch
+        # is the only news pathway that runs during the cron scanner's own
+        # windows (including premarket-early, before the daemon's
+        # continuous news stream is even running for the day), so logging
+        # here alongside the stream's own logging is what actually makes
+        # coverage continuous across the full 4 AM-8 PM trading window
+        # rather than just the hours the daemon happens to be up.
+        # _log_news_event's own (symbols, headline) dedup keeps the same
+        # story from re-logging every time this 20h-lookback fetch runs.
+        # Sentiment looked up once per TICKER (not per headline) — it's
+        # already a majority vote across that ticker's recent articles,
+        # not headline-specific — and reused for every headline logged
+        # for it this pass; _news_sentiment_verdict's own 10-min cache
+        # keeps repeat cross-cycle lookups cheap.
+        for _nt, _heads in _scan_news_map.items():
+            if not _heads:
+                continue
+            _nt_sentiment = _news_sentiment_verdict(_nt)
+            for _h in _heads:
+                _log_news_event([_nt], _h, source="scan-prefetch", tag="watchlist",
+                               sentiment=_nt_sentiment)
+    except Exception as _ne:
+        print(f"error ({str(_ne)[:60]})")
+    return _scan_news_map
+
+
+def _scan_smallcap_pass(_smallcap_extra, include_dynamic_smallcap, signals, tickers):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    """
+    sc_rejected = 0
+    sc_found    = 0
+    # Dynamic Finviz discovery: low-float (<5M), price <$20, vol >500k
+    _finviz_tickers: list[str] = []
+    if ENABLE_DYNAMIC_SMALLCAP and include_dynamic_smallcap:
+        print("  🔍  Fetching today's movers (Yahoo Finance day gainers + most actives)...", flush=True)
+        _finviz_tickers = fetch_dman_dynamic_tickers()
+        if _finviz_tickers:
+            print(f"  🔍  Live movers: {len(_finviz_tickers)} candidates with RVOL ≥1.5x: "
+                  f"{', '.join(_finviz_tickers[:10])}{'...' if len(_finviz_tickers) > 10 else ''}",
+                  flush=True)
+        else:
+            print("  🔍  No live movers found (market closed or pre-market)", flush=True)
+    # Merge: large-cap tickers (already cached) + curated watchlist + live movers
+    sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST + _finviz_tickers))
+    for ticker in sc_universe:
+        df = fetch_df(ticker)   # already cached from the large-cap pass
+        if df is None or len(df) < 30:
+            continue
+        df = _compute_indicators_cached(ticker, df)
+        sc_sig = detect_low_float_catalyst(df, ticker)
+        if sc_sig is None:
+            sc_rejected += 1
+            continue
+        # Simple hard gates for small-cap (skip MTF/RS/Sector — meaningless)
+        macro_ok, _ = check_macro_safe()
+        if not macro_ok:
+            sc_rejected += 1
+            continue
+        earn_ok, _ = check_earnings_safe(ticker)
+        if not earn_ok:
+            sc_rejected += 1
+            continue
+        # Score with small-cap specific scorer — see
+        # _smallcap_score_threshold()'s docstring for why this can't
+        # just use the watchlist floor on its own.
+        sc_sig.confluence_score = score_smallcap_signal(sc_sig)
+        _sc_threshold = _smallcap_score_threshold(ticker, sc_sig.setup)
+        if sc_sig.confluence_score < _sc_threshold:
+            sc_rejected += 1
+            continue
+        # Skip if same ticker already fired as large-cap signal
+        if any(s.ticker == ticker for s in signals):
+            continue
+        fl_m, sh_pct, insider_pct, _cash_mc = _get_short_float_data(ticker)
+        post_rs = _is_recent_reverse_split(ticker)
+        sc_found += 1
+        signals.append(sc_sig)
+        sys.stdout.write(f"\r  🔥 SMALLCAP {ticker:<8} "
+                         f"float={fl_m:.1f}M SI={sh_pct:.0f}%"
+                         f"{' POST-RS' if post_rs else ''} "
+                         f"score={sc_sig.confluence_score}\n")
+        _smallcap_extra[ticker] = (fl_m, sh_pct, insider_pct, post_rs)
+        # NOTE: alerting deferred to after heat-cap/sector-cap — see below.
+    if sc_found or sc_rejected:
+        print(f"  🔥  Small-cap pass: {sc_found} signal(s), {sc_rejected} rejected")
+
+
+
+def _scan_portfolio_heat(eff_account, total_risk_pct):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns: total_risk_pct.
+    """
+    try:
+        # Imported here because AssetClass is not in module scope. Without it
+        # the comparison below raised NameError on the first held position of
+        # any kind, the bare `except Exception: pass` swallowed it, and
+        # total_risk_pct stayed 0 -- PORTFOLIO_HEAT_LIMIT silently stopped
+        # counting existing exposure at all. It demonstrably worked on
+        # 2026-08-11 (the comment below records it hitting 8% against the 6%
+        # cap), so this was a regression, not a feature that never shipped.
+        from alpaca.trading.enums import AssetClass
+        if eff_account > 0:
+            _heat_positions = _check_stop_coverage()
+            if _heat_positions:
+                for _hp in _heat_positions.values():
+                    # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
+                    # Alpaca doesn't expose stop_price on positions, so we approximate risk as
+                    # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
+                    # Options legs are excluded here — confirmed live 2026-08-11: with 2
+                    # equity swings (CELZ, CLRO) + 2 SMCI option legs open, this loop hit
+                    # 8% against the 6% cap and would have silently heat-capped out ANY
+                    # new equity signal, however good, regardless of the options' actual
+                    # (much smaller, already-defined) premium risk. Options are already
+                    # risk-managed separately — trailing stop, milestone alerts — so they
+                    # shouldn't also consume the equity heat budget.
+                    if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
+                        total_risk_pct += SMALLCAP_RISK_PCT
+    except Exception:
+        pass   # if Alpaca unavailable, proceed without existing-position offset
+    return total_risk_pct
+
+
+def _scan_persist_log(_budget_hit, min_score, regime, rejected_counts, signals, tickers, universe_label):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    """
+    try:
+        # News sentiment breadth snapshot (2026-08-15) — observation-only
+        # per get_market_regime()'s own docstring; recorded here purely so
+        # there's a reviewable per-scan trend to look back on before ever
+        # deciding whether to wire it into scoring. None-safe: regime's
+        # own news_breadth is None if that lookup itself failed.
+        _nb = regime.get("news_breadth") or {}
+        _append_scan_log({
+            "ts":                  datetime.now(ET).isoformat(),
+            "regime":              regime.get("regime", "?"),
+            "regime_score":        regime.get("score", 0),
+            "vix":                 round(float(regime["details"].get("VIX", 0)), 1),
+            "min_score":           min_score,
+            "universe":            universe_label,
+            "tickers_total":       len(tickers),
+            "signals":             len(signals),
+            "signal_tickers":      [s.ticker for s in signals],
+            # Recorded so score SATURATION stays visible. Measured 2026-09-11
+            # over 118 scans: rejected_low_score was 0 every single time --
+            # the score threshold has never rejected anything -- while 26 of
+            # 31 taken trades scored exactly 100. The binding filter is the
+            # setup logic (31,078 "no signal" rejects); the score is a label
+            # applied after it, saturated at the ceiling. Any attempt to tune
+            # min_score is tuning a knob that is not connected to anything,
+            # and without this field there is no way to notice that.
+            "signal_scores":       [getattr(s, "confluence_score", 0) for s in signals],
+            "rejected_no_signal":  rejected_counts["no_signal"],
+            "rejected_hard_gate":  rejected_counts["hard_gate"],
+            "rejected_low_score":  rejected_counts["low_score"],
+            "budget_hit":          _budget_hit,
+            "news_breadth_pct":    _nb.get("breadth_pct"),
+            "news_breadth_total":  _nb.get("total", 0),
+        })
+    except Exception:
+        pass  # never let logging block the scan return
+
+
+
+def _scan_near_miss_tier(_b_tier, _near_misses, min_score, regime, tickers, tracker):
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    Returns: _b_tier, _near_misses.
+    """
+    _nm_universe = list(dict.fromkeys(list(tickers)[:120] + list(WATCHLIST)))
+    for _nm_t in _nm_universe:
+        try:
+            _nm_raw = fetch_df(_nm_t)
+            if _nm_raw is None or len(_nm_raw) < 30:
+                continue
+            _nm_df  = compute_indicators(_nm_raw.copy())
+            _nm_r   = _nm_df.iloc[-1]
+            _nm_p   = _nm_df.iloc[-2]
+            _nm_gap = (float(_nm_r["Open"]) - float(_nm_p["Close"])) / float(_nm_p["Close"]) * 100
+            if _nm_gap < 1.0:
+                continue
+            _nm_macd     = float(_nm_r.get("MACD", 0) or 0)
+            _nm_prn_grn  = float(_nm_p["Close"]) > float(_nm_p["Open"])
+            _nm_sec_ok   = _sector_etf_above_ema50(_nm_t)
+            # Hold% vs open: appended to MACD/prior-red blockers so the user
+            # can see whether the price was above or below the gap open at scan time.
+            try:
+                _nm_c_now = float(_nm_r["Close"].iloc[0]) if hasattr(_nm_r["Close"], "iloc") else float(_nm_r["Close"])
+                _nm_o_day = float(_nm_r["Open"].iloc[0])  if hasattr(_nm_r["Open"],  "iloc") else float(_nm_r["Open"])
+                _nm_hold_tag = f" ({(_nm_c_now - _nm_o_day) / _nm_o_day * 100:+.1f}%)"
+            except Exception:
+                _nm_hold_tag = ""
+            if not _nm_sec_ok:
+                _nm_blocker = "sector⚠️"
+            elif _nm_macd <= 0:
+                _nm_blocker = f"MACD {_nm_macd:+.1f}{_nm_hold_tag}"
+            elif not _nm_prn_grn:
+                _nm_blocker = f"prior red{_nm_hold_tag}"
+            else:
+                # Primary filters all pass — run full pipeline to get exact blocker
+                try:
+                    _nm_raw_sig = _raw_signals(_nm_df, _nm_t)
+                    if _nm_raw_sig is None:
+                        # Identify the specific _raw_signals sub-check that failed
+                        _nm_rvol = float(_nm_r.get("RVOL", 0) or 0)
+                        _nm_rsi  = float(_nm_r.get("RSI", 0) or 0)
+                        _nm_c    = float(_nm_r["Close"])
+                        _nm_o    = float(_nm_r["Open"])
+                        if _nm_rvol < 1.5:
+                            _nm_blocker = f"RVOL {_nm_rvol:.1f}x"
+                        elif _nm_rsi <= 50:
+                            _nm_blocker = f"RSI {_nm_rsi:.0f}"
+                        elif _nm_c < _nm_o * 0.995:
+                            _nm_blocker = f"not holding ({(_nm_c/_nm_o-1)*100:.1f}%)"
+                        else:
+                            _nm_blocker = "no setup pattern"
+                    else:
+                        _nm_scored = score_signal(_nm_raw_sig, _nm_df, regime, tracker)
+                        _nm_sc     = _nm_scored.confluence_score
+                        _nm_blocker = f"score {_nm_sc}/{min_score}"
+                except Exception:
+                    _nm_blocker = "score short"
+            # Collect actionable entry levels for near-miss Telegram
+            try:
+                _nm_c_px  = float(_nm_r.get("Close", 0) or 0)
+                _nm_o_px  = float(_nm_r.get("Open",  0) or 0)
+                _nm_lo_px = float(_nm_r.get("Low",   0) or 0)
+                _nm_stop  = round(min(_nm_lo_px * 0.99, _nm_o_px * 0.985), 2) if _nm_lo_px > 0 else 0
+                _nm_risk  = (_nm_c_px - _nm_stop) if _nm_stop > 0 and _nm_c_px > _nm_stop else 0
+                _nm_t1    = round(_nm_c_px + 2.5 * _nm_risk, 2) if _nm_risk > 0 else 0
+                _nm_rvol  = float(_nm_r.get("RVOL", 0) or 0)
+                _nm_score_val = 0
+                if "score" in _nm_blocker:
+                    try:
+                        _nm_score_val = int(_nm_blocker.split()[1].split("/")[0])
+                    except Exception:
+                        pass
+                _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
+                # B-tier: setup almost qualified (score within 15 of threshold, or
+                # only blocked by RVOL/RSI which could change intraday)
+                _b_tier_reason = ""
+                if _nm_score_val >= min_score - 15 and _nm_score_val > 0:
+                    _b_tier_reason = f"score {_nm_score_val}/{min_score}"
+                elif "RVOL" in _nm_blocker and _nm_rvol >= 1.0:
+                    _b_tier_reason = f"RVOL {_nm_rvol:.1f}x (needs ≥2.0x)"
+                if _b_tier_reason and _nm_c_px > 0 and _nm_stop > 0 and _nm_t1 > 0:
+                    _b_tier.append({
+                        "ticker": _nm_t, "gap": _nm_gap, "entry": _nm_c_px,
+                        "stop": _nm_stop, "t1": _nm_t1, "rvol": _nm_rvol,
+                        "reason": _b_tier_reason,
+                    })
+            except Exception:
+                _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
+        except Exception:
+            continue
+    _near_misses.sort(key=lambda x: x[1], reverse=True)
+    _near_misses = _near_misses[:3]
+    _b_tier.sort(key=lambda x: x["gap"], reverse=True)
+    _b_tier = _b_tier[:2]
+    return _b_tier, _near_misses
+
+
+def _scan_friday_closeout():
+    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    """
+    try:
+        _now_co = datetime.now(ET)
+        if _now_co.weekday() == 4:  # Friday
+            _hhmm_co = _now_co.hour * 100 + _now_co.minute
+            if 1530 <= _hhmm_co <= 1559:
+                _pending_co = []
+                if os.path.exists(LIVE_SIGNALS_FILE):
+                    with open(LIVE_SIGNALS_FILE) as _fco:
+                        _pending_co = json.load(_fco).get("pending", [])
+                _mins_left = (16 * 60) - (_now_co.hour * 60 + _now_co.minute)
+                # Find upcoming FOMC within 7 days
+                _td_co = _now_co.date()
+                _fomc_co = ""
+                for _ev_co in sorted(_FOMC_DATES):
+                    _d_co = (_ev_co - _td_co).days
+                    if 1 <= _d_co <= 7:
+                        _fomc_co = f" FOMC {_ev_co.strftime('%a %b %d')} in {_d_co}d."
+                        break
+                    if _d_co > 7:
+                        break
+                _pos_co = ""
+                if _pending_co:
+                    _pos_co = "\nOpen: " + ", ".join(p.get("ticker","?") for p in _pending_co)
+                send_telegram(
+                    f"⚠️ <b>FRIDAY — {_mins_left} min to close</b>\n"
+                    f"Exit positions not at T1 to avoid weekend risk.{_fomc_co}"
+                    f"{_pos_co}"
+                )
+                print(f"\n  ⚠️  Friday close-out advisory sent ({_mins_left} min to bell)")
+    except Exception:
+        pass
+
+
+
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
                     min_score: int = None,
                     use_ai: bool = False,
@@ -17406,29 +18136,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     _on_probation, _probation_mult = is_on_probation()
     if not _on_probation:
         # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
-        if stats.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
-            print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses_today']} losses in a row today.")
-            print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
-            if not _is_duplicate_alert("__CONSEC_LOSS__"):
-                send_telegram(
-                    f"🛑 <b>DMan halted</b> — {stats['consec_losses_today']} consecutive losses today.\n"
-                    f"Scanner paused for the day. Review your last trades."
-                )
-                _save_last_alert("__CONSEC_LOSS__")
-            _log_scan_halt("consecutive_losses", tickers, min_score or 0)
-            return []
-
-        # Monthly loss circuit breaker — dedup so it fires at most once per 30-min window
-        month_loss = get_this_month_loss()
-        if month_loss <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
-            print(f"\n  🛑 MONTHLY LOSS LIMIT HIT: Down {month_loss:.1f}% this month "
-                  f"(limit: {MONTHLY_LOSS_LIMIT*100:.0f}%).")
-            print(f"     Stop trading for the month. Review setups. Reset.\n")
-            if not _is_duplicate_alert("__MONTHLY_LIMIT__"):
-                send_telegram(f"🛑 <b>Monthly loss limit hit</b> — down {month_loss:.1f}% this month. Halted until next month.")
-                _save_last_alert("__MONTHLY_LIMIT__")
-            _log_scan_halt("monthly_loss_limit", tickers, min_score or 0)
-            return []
+        _esc, _escv = _scan_consecutive_loss_gate(min_score, stats, tickers)
+        if _esc == 'return':
+            return _escv
     elif not _is_duplicate_alert("__PROBATION_ACTIVE__"):
         print(f"\n  🟡 PROBATION ACTIVE — consec-loss/monthly-loss guards bypassed, "
               f"sizing ×{_probation_mult:.2f}\n")
@@ -17531,33 +18241,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # been False under the old window despite the catalyst being obvious.
     print(f"  [1.5/2] Pre-fetching news catalysts (last 20h)...", end=" ", flush=True)
     _scan_news_map: dict[str, list] = {}
-    try:
-        _scan_news_map = _fetch_alpaca_news(list(tickers), hours_back=20)
-        _news_count = sum(1 for v in _scan_news_map.values() if v)
-        print(f"{_news_count}/{len(tickers)} tickers have recent news")
-        # Background knowledge-base log (2026-08-15) — this REST pre-fetch
-        # is the only news pathway that runs during the cron scanner's own
-        # windows (including premarket-early, before the daemon's
-        # continuous news stream is even running for the day), so logging
-        # here alongside the stream's own logging is what actually makes
-        # coverage continuous across the full 4 AM-8 PM trading window
-        # rather than just the hours the daemon happens to be up.
-        # _log_news_event's own (symbols, headline) dedup keeps the same
-        # story from re-logging every time this 20h-lookback fetch runs.
-        # Sentiment looked up once per TICKER (not per headline) — it's
-        # already a majority vote across that ticker's recent articles,
-        # not headline-specific — and reused for every headline logged
-        # for it this pass; _news_sentiment_verdict's own 10-min cache
-        # keeps repeat cross-cycle lookups cheap.
-        for _nt, _heads in _scan_news_map.items():
-            if not _heads:
-                continue
-            _nt_sentiment = _news_sentiment_verdict(_nt)
-            for _h in _heads:
-                _log_news_event([_nt], _h, source="scan-prefetch", tag="watchlist",
-                               sentiment=_nt_sentiment)
-    except Exception as _ne:
-        print(f"error ({str(_ne)[:60]})")
+    _scan_news_map = _scan_prefetch_news(_scan_news_map, tickers)
 
     # Batch-fetch daily bars via Alpaca SIP (Algo Trader Plus real-time feed)
     # before the ticker loop — a handful of chunked calls instead of one
@@ -17714,62 +18398,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # Second pass over the same universe using Dman's micro-cap criteria.
     # Separate risk rules: 0.5% per trade, max $2,500 cost, lower score bar.
     if ENABLE_SMALLCAP:
-        sc_rejected = 0
-        sc_found    = 0
-        # Dynamic Finviz discovery: low-float (<5M), price <$20, vol >500k
-        _finviz_tickers: list[str] = []
-        if ENABLE_DYNAMIC_SMALLCAP and include_dynamic_smallcap:
-            print("  🔍  Fetching today's movers (Yahoo Finance day gainers + most actives)...", flush=True)
-            _finviz_tickers = fetch_dman_dynamic_tickers()
-            if _finviz_tickers:
-                print(f"  🔍  Live movers: {len(_finviz_tickers)} candidates with RVOL ≥1.5x: "
-                      f"{', '.join(_finviz_tickers[:10])}{'...' if len(_finviz_tickers) > 10 else ''}",
-                      flush=True)
-            else:
-                print("  🔍  No live movers found (market closed or pre-market)", flush=True)
-        # Merge: large-cap tickers (already cached) + curated watchlist + live movers
-        sc_universe = list(dict.fromkeys(list(tickers) + DMAN_SMALLCAP_WATCHLIST + _finviz_tickers))
-        for ticker in sc_universe:
-            df = fetch_df(ticker)   # already cached from the large-cap pass
-            if df is None or len(df) < 30:
-                continue
-            df = _compute_indicators_cached(ticker, df)
-            sc_sig = detect_low_float_catalyst(df, ticker)
-            if sc_sig is None:
-                sc_rejected += 1
-                continue
-            # Simple hard gates for small-cap (skip MTF/RS/Sector — meaningless)
-            macro_ok, _ = check_macro_safe()
-            if not macro_ok:
-                sc_rejected += 1
-                continue
-            earn_ok, _ = check_earnings_safe(ticker)
-            if not earn_ok:
-                sc_rejected += 1
-                continue
-            # Score with small-cap specific scorer — see
-            # _smallcap_score_threshold()'s docstring for why this can't
-            # just use the watchlist floor on its own.
-            sc_sig.confluence_score = score_smallcap_signal(sc_sig)
-            _sc_threshold = _smallcap_score_threshold(ticker, sc_sig.setup)
-            if sc_sig.confluence_score < _sc_threshold:
-                sc_rejected += 1
-                continue
-            # Skip if same ticker already fired as large-cap signal
-            if any(s.ticker == ticker for s in signals):
-                continue
-            fl_m, sh_pct, insider_pct, _cash_mc = _get_short_float_data(ticker)
-            post_rs = _is_recent_reverse_split(ticker)
-            sc_found += 1
-            signals.append(sc_sig)
-            sys.stdout.write(f"\r  🔥 SMALLCAP {ticker:<8} "
-                             f"float={fl_m:.1f}M SI={sh_pct:.0f}%"
-                             f"{' POST-RS' if post_rs else ''} "
-                             f"score={sc_sig.confluence_score}\n")
-            _smallcap_extra[ticker] = (fl_m, sh_pct, insider_pct, post_rs)
-            # NOTE: alerting deferred to after heat-cap/sector-cap — see below.
-        if sc_found or sc_rejected:
-            print(f"  🔥  Small-cap pass: {sc_found} signal(s), {sc_rejected} rejected")
+        _scan_smallcap_pass(_smallcap_extra, include_dynamic_smallcap, signals, tickers)
 
     signals.sort(key=lambda s: s.confluence_score, reverse=True)
 
@@ -17784,33 +18413,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     heat_capped: list[ProSignal] = []
     eff_account = get_effective_account()
     total_risk_pct = 0.0
-    try:
-        # Imported here because AssetClass is not in module scope. Without it
-        # the comparison below raised NameError on the first held position of
-        # any kind, the bare `except Exception: pass` swallowed it, and
-        # total_risk_pct stayed 0 -- PORTFOLIO_HEAT_LIMIT silently stopped
-        # counting existing exposure at all. It demonstrably worked on
-        # 2026-08-11 (the comment below records it hitting 8% against the 6%
-        # cap), so this was a regression, not a feature that never shipped.
-        from alpaca.trading.enums import AssetClass
-        if eff_account > 0:
-            _heat_positions = _check_stop_coverage()
-            if _heat_positions:
-                for _hp in _heat_positions.values():
-                    # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
-                    # Alpaca doesn't expose stop_price on positions, so we approximate risk as
-                    # 2% of account per existing position (matches SMALLCAP_RISK_PCT).
-                    # Options legs are excluded here — confirmed live 2026-08-11: with 2
-                    # equity swings (CELZ, CLRO) + 2 SMCI option legs open, this loop hit
-                    # 8% against the 6% cap and would have silently heat-capped out ANY
-                    # new equity signal, however good, regardless of the options' actual
-                    # (much smaller, already-defined) premium risk. Options are already
-                    # risk-managed separately — trailing stop, milestone alerts — so they
-                    # shouldn't also consume the equity heat budget.
-                    if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
-                        total_risk_pct += SMALLCAP_RISK_PCT
-    except Exception:
-        pass   # if Alpaca unavailable, proceed without existing-position offset
+    total_risk_pct = _scan_portfolio_heat(eff_account, total_risk_pct)
     if total_risk_pct > 0:
         print(f"  🌡  Existing position heat: {total_risk_pct*100:.1f}% of account")
     for sig in signals:
@@ -17838,137 +18441,14 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print(f"{'─'*68}\n")
 
     # Persist scan result to rolling log
-    try:
-        # News sentiment breadth snapshot (2026-08-15) — observation-only
-        # per get_market_regime()'s own docstring; recorded here purely so
-        # there's a reviewable per-scan trend to look back on before ever
-        # deciding whether to wire it into scoring. None-safe: regime's
-        # own news_breadth is None if that lookup itself failed.
-        _nb = regime.get("news_breadth") or {}
-        _append_scan_log({
-            "ts":                  datetime.now(ET).isoformat(),
-            "regime":              regime.get("regime", "?"),
-            "regime_score":        regime.get("score", 0),
-            "vix":                 round(float(regime["details"].get("VIX", 0)), 1),
-            "min_score":           min_score,
-            "universe":            universe_label,
-            "tickers_total":       len(tickers),
-            "signals":             len(signals),
-            "signal_tickers":      [s.ticker for s in signals],
-            # Recorded so score SATURATION stays visible. Measured 2026-09-11
-            # over 118 scans: rejected_low_score was 0 every single time --
-            # the score threshold has never rejected anything -- while 26 of
-            # 31 taken trades scored exactly 100. The binding filter is the
-            # setup logic (31,078 "no signal" rejects); the score is a label
-            # applied after it, saturated at the ceiling. Any attempt to tune
-            # min_score is tuning a knob that is not connected to anything,
-            # and without this field there is no way to notice that.
-            "signal_scores":       [getattr(s, "confluence_score", 0) for s in signals],
-            "rejected_no_signal":  rejected_counts["no_signal"],
-            "rejected_hard_gate":  rejected_counts["hard_gate"],
-            "rejected_low_score":  rejected_counts["low_score"],
-            "budget_hit":          _budget_hit,
-            "news_breadth_pct":    _nb.get("breadth_pct"),
-            "news_breadth_total":  _nb.get("total", 0),
-        })
-    except Exception:
-        pass  # never let logging block the scan return
+    _scan_persist_log(_budget_hit, min_score, regime, rejected_counts, signals, tickers, universe_label)
 
     # Near-miss collection — only when no signals fired; uses cached fetch_df() data (fast)
     # Covers the full scan universe (not just WATCHLIST) so Yahoo gainers are included.
     _near_misses: list[tuple[str, float, str]] = []
     _b_tier: list[dict] = []   # below-threshold setups for manual consideration
     if not signals:
-        _nm_universe = list(dict.fromkeys(list(tickers)[:120] + list(WATCHLIST)))
-        for _nm_t in _nm_universe:
-            try:
-                _nm_raw = fetch_df(_nm_t)
-                if _nm_raw is None or len(_nm_raw) < 30:
-                    continue
-                _nm_df  = compute_indicators(_nm_raw.copy())
-                _nm_r   = _nm_df.iloc[-1]
-                _nm_p   = _nm_df.iloc[-2]
-                _nm_gap = (float(_nm_r["Open"]) - float(_nm_p["Close"])) / float(_nm_p["Close"]) * 100
-                if _nm_gap < 1.0:
-                    continue
-                _nm_macd     = float(_nm_r.get("MACD", 0) or 0)
-                _nm_prn_grn  = float(_nm_p["Close"]) > float(_nm_p["Open"])
-                _nm_sec_ok   = _sector_etf_above_ema50(_nm_t)
-                # Hold% vs open: appended to MACD/prior-red blockers so the user
-                # can see whether the price was above or below the gap open at scan time.
-                try:
-                    _nm_c_now = float(_nm_r["Close"].iloc[0]) if hasattr(_nm_r["Close"], "iloc") else float(_nm_r["Close"])
-                    _nm_o_day = float(_nm_r["Open"].iloc[0])  if hasattr(_nm_r["Open"],  "iloc") else float(_nm_r["Open"])
-                    _nm_hold_tag = f" ({(_nm_c_now - _nm_o_day) / _nm_o_day * 100:+.1f}%)"
-                except Exception:
-                    _nm_hold_tag = ""
-                if not _nm_sec_ok:
-                    _nm_blocker = "sector⚠️"
-                elif _nm_macd <= 0:
-                    _nm_blocker = f"MACD {_nm_macd:+.1f}{_nm_hold_tag}"
-                elif not _nm_prn_grn:
-                    _nm_blocker = f"prior red{_nm_hold_tag}"
-                else:
-                    # Primary filters all pass — run full pipeline to get exact blocker
-                    try:
-                        _nm_raw_sig = _raw_signals(_nm_df, _nm_t)
-                        if _nm_raw_sig is None:
-                            # Identify the specific _raw_signals sub-check that failed
-                            _nm_rvol = float(_nm_r.get("RVOL", 0) or 0)
-                            _nm_rsi  = float(_nm_r.get("RSI", 0) or 0)
-                            _nm_c    = float(_nm_r["Close"])
-                            _nm_o    = float(_nm_r["Open"])
-                            if _nm_rvol < 1.5:
-                                _nm_blocker = f"RVOL {_nm_rvol:.1f}x"
-                            elif _nm_rsi <= 50:
-                                _nm_blocker = f"RSI {_nm_rsi:.0f}"
-                            elif _nm_c < _nm_o * 0.995:
-                                _nm_blocker = f"not holding ({(_nm_c/_nm_o-1)*100:.1f}%)"
-                            else:
-                                _nm_blocker = "no setup pattern"
-                        else:
-                            _nm_scored = score_signal(_nm_raw_sig, _nm_df, regime, tracker)
-                            _nm_sc     = _nm_scored.confluence_score
-                            _nm_blocker = f"score {_nm_sc}/{min_score}"
-                    except Exception:
-                        _nm_blocker = "score short"
-                # Collect actionable entry levels for near-miss Telegram
-                try:
-                    _nm_c_px  = float(_nm_r.get("Close", 0) or 0)
-                    _nm_o_px  = float(_nm_r.get("Open",  0) or 0)
-                    _nm_lo_px = float(_nm_r.get("Low",   0) or 0)
-                    _nm_stop  = round(min(_nm_lo_px * 0.99, _nm_o_px * 0.985), 2) if _nm_lo_px > 0 else 0
-                    _nm_risk  = (_nm_c_px - _nm_stop) if _nm_stop > 0 and _nm_c_px > _nm_stop else 0
-                    _nm_t1    = round(_nm_c_px + 2.5 * _nm_risk, 2) if _nm_risk > 0 else 0
-                    _nm_rvol  = float(_nm_r.get("RVOL", 0) or 0)
-                    _nm_score_val = 0
-                    if "score" in _nm_blocker:
-                        try:
-                            _nm_score_val = int(_nm_blocker.split()[1].split("/")[0])
-                        except Exception:
-                            pass
-                    _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
-                    # B-tier: setup almost qualified (score within 15 of threshold, or
-                    # only blocked by RVOL/RSI which could change intraday)
-                    _b_tier_reason = ""
-                    if _nm_score_val >= min_score - 15 and _nm_score_val > 0:
-                        _b_tier_reason = f"score {_nm_score_val}/{min_score}"
-                    elif "RVOL" in _nm_blocker and _nm_rvol >= 1.0:
-                        _b_tier_reason = f"RVOL {_nm_rvol:.1f}x (needs ≥2.0x)"
-                    if _b_tier_reason and _nm_c_px > 0 and _nm_stop > 0 and _nm_t1 > 0:
-                        _b_tier.append({
-                            "ticker": _nm_t, "gap": _nm_gap, "entry": _nm_c_px,
-                            "stop": _nm_stop, "t1": _nm_t1, "rvol": _nm_rvol,
-                            "reason": _b_tier_reason,
-                        })
-                except Exception:
-                    _near_misses.append((_nm_t, _nm_gap, _nm_blocker))
-            except Exception:
-                continue
-        _near_misses.sort(key=lambda x: x[1], reverse=True)
-        _near_misses = _near_misses[:3]
-        _b_tier.sort(key=lambda x: x["gap"], reverse=True)
-        _b_tier = _b_tier[:2]
+        _b_tier, _near_misses = _scan_near_miss_tier(_b_tier, _near_misses, min_score, regime, tickers, tracker)
 
     # Expose scan metadata for the heartbeat in main()
     _last_scan_meta.update({
@@ -17979,37 +18459,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     })
 
     # Friday close-out advisory — fires on the 3:30 PM scan (30 min before bell)
-    try:
-        _now_co = datetime.now(ET)
-        if _now_co.weekday() == 4:  # Friday
-            _hhmm_co = _now_co.hour * 100 + _now_co.minute
-            if 1530 <= _hhmm_co <= 1559:
-                _pending_co = []
-                if os.path.exists(LIVE_SIGNALS_FILE):
-                    with open(LIVE_SIGNALS_FILE) as _fco:
-                        _pending_co = json.load(_fco).get("pending", [])
-                _mins_left = (16 * 60) - (_now_co.hour * 60 + _now_co.minute)
-                # Find upcoming FOMC within 7 days
-                _td_co = _now_co.date()
-                _fomc_co = ""
-                for _ev_co in sorted(_FOMC_DATES):
-                    _d_co = (_ev_co - _td_co).days
-                    if 1 <= _d_co <= 7:
-                        _fomc_co = f" FOMC {_ev_co.strftime('%a %b %d')} in {_d_co}d."
-                        break
-                    if _d_co > 7:
-                        break
-                _pos_co = ""
-                if _pending_co:
-                    _pos_co = "\nOpen: " + ", ".join(p.get("ticker","?") for p in _pending_co)
-                send_telegram(
-                    f"⚠️ <b>FRIDAY — {_mins_left} min to close</b>\n"
-                    f"Exit positions not at T1 to avoid weekend risk.{_fomc_co}"
-                    f"{_pos_co}"
-                )
-                print(f"\n  ⚠️  Friday close-out advisory sent ({_mins_left} min to bell)")
-    except Exception:
-        pass
+    _scan_friday_closeout()
 
     return signals
 
@@ -18073,8 +18523,303 @@ def _bt_stop_fill(stop: float, bar, is_long: bool) -> float:
     return min(stop, _open) if is_long else max(stop, _open)
 
 
-def run_pro_backtest(tickers: list[str] = WATCHLIST,
-                     years: int = 2, min_score: int = 85) -> dict:
+class _PointInTimeData:
+    """Make the LIVE scoring pipeline safe to run inside a historical backtest.
+
+    run_pro_backtest used to score candidates with its own hand-rolled formula
+    and 6 checks, so it validated a different, looser pipeline than the one
+    that trades: live signals go through score_signal()'s ~20 checks and six
+    hard gates (regime, weekly MTF, earnings, macro, divergence, not-chasing).
+    Calling score_signal() from a backtest naively would be worse, because
+    several of its checks fetch CURRENT data internally -- that is lookahead.
+
+    Inside this context every data source score_signal can reach answers as of
+    `asof` instead of now:
+      price history (fetch_df / fetch_weekly)  truncated to asof; weekly bars
+                                               are resampled from truncated
+                                               daily, so no partial week leaks
+      earnings (_fetch_massive_earnings)       historical records, windowed by
+                                               the caller relative to asof
+      clock (datetime, _et_today)              asof at 16:30 ET -- AFTER the
+                                               close, so the partial-session
+                                               RVOL projection cannot treat a
+                                               complete historical bar as a
+                                               forming one
+      is_market_open()                         False; it queries the REAL
+                                               Alpaca clock, which would make
+                                               results depend on when the
+                                               backtest happens to be run
+      beta                                     computed from truncated history
+      account equity                           fixed
+    and the sector-ranking cache is dropped whenever asof changes, since it is
+    keyed on wall-clock age and would otherwise serve a later date's ranking.
+
+    Neutralised because no point-in-time source exists (reported in output):
+    insider activity, short float, news sentiment, setup probation, the
+    defensive-rotation penalty, AI scoring.
+    """
+    NEUTRALISED = ("insider activity", "short float", "news sentiment",
+                   "setup probation", "defensive-rotation penalty", "AI score")
+    _PATCH = ("fetch_df", "fetch_weekly", "get_beta", "check_insider_activity",
+              "_get_short_float_data", "_check_earnings_already_reported",
+              "_fetch_massive_earnings", "get_effective_account", "_et_today",
+              "datetime", "is_market_open")
+
+    def __init__(self, equity: float = 10_000.0):
+        self.asof = None
+        self.equity = equity
+        self.score_errors = 0
+        self._full: dict = {}
+        self._earn: dict = {}
+        self._saved: dict = {}
+        self._vix = None
+
+    def __enter__(self):
+        g = globals()
+        for n in self._PATCH:
+            self._saved[n] = g[n]
+        real_dt, pit = self._saved["datetime"], self
+        from datetime import time as _clock
+
+        class _PitDatetime(real_dt):
+            @classmethod
+            def now(cls, tz=None):
+                d = pit.asof or real_dt.now(ET).date()
+                base = real_dt.combine(d, _clock(16, 30), tzinfo=ET)
+                return base.astimezone(tz) if tz else base.replace(tzinfo=None)
+
+        g["datetime"] = _PitDatetime
+        g["fetch_df"] = self._fetch_df
+        g["fetch_weekly"] = lambda ticker: self._fetch_df(ticker, 730, "1wk")
+        g["get_beta"] = self._beta
+        g["check_insider_activity"] = lambda ticker, bias: (True, 0)
+        g["_get_short_float_data"] = lambda ticker: (0.0, 0.0, 0.0, 0.0)
+        g["_check_earnings_already_reported"] = lambda ticker, hours_back=14: False
+        g["_fetch_massive_earnings"] = self._earnings
+        g["get_effective_account"] = lambda: self.equity
+        g["_et_today"] = lambda: self.asof or self._saved["_et_today"]()
+        g["is_market_open"] = lambda: False
+        return self
+
+    def __exit__(self, *exc):
+        g = globals()
+        for n, v in self._saved.items():
+            g[n] = v
+        self._drop_time_keyed_caches()
+        return False
+
+    @staticmethod
+    def _drop_time_keyed_caches():
+        global _sector_cache, _sector_cache_ts
+        _sector_cache, _sector_cache_ts = None, None
+
+    def set_asof(self, ts) -> None:
+        d = ts.date() if hasattr(ts, "date") else ts
+        if d != self.asof:
+            self.asof = d
+            self._drop_time_keyed_caches()
+
+    def _daily_full(self, ticker):
+        if ticker not in self._full:
+            try:
+                self._full[ticker] = self._saved["fetch_df"](ticker, period_days=2200, interval="1d")
+            except Exception:
+                self._full[ticker] = None
+        return self._full[ticker]
+
+    def _cut(self, df, period_days: int):
+        if df is None or self.asof is None or len(df) == 0:
+            return df
+        idx = df.index
+        if getattr(idx, "tz", None) is not None:
+            idx = idx.tz_convert(None)
+        idx = idx.normalize()
+        end = pd.Timestamp(self.asof)
+        start = end - pd.Timedelta(days=period_days)
+        return df[(idx <= end) & (idx >= start)].copy()
+
+    def _fetch_df(self, ticker, period_days=430, interval="1d"):
+        if interval in ("1wk", "1w"):
+            daily = self._cut(self._daily_full(ticker), period_days)
+            if daily is None or len(daily) == 0:
+                return None
+            wk = daily.resample("W-FRI").agg({"Open": "first", "High": "max", "Low": "min",
+                                              "Close": "last", "Volume": "sum"})
+            return wk.dropna(subset=["Close"])
+        daily = self._cut(self._daily_full(ticker), period_days)
+        return daily if daily is not None and len(daily) else None
+
+    def _beta(self, ticker):
+        try:
+            t = self._fetch_df(ticker, 400)
+            m = self._fetch_df("SPY", 400)
+            r = pd.concat([t["Close"].pct_change(), m["Close"].pct_change()], axis=1).dropna().tail(252)
+            var = float(r.iloc[:, 1].var())
+            return round(float(r.iloc[:, 0].cov(r.iloc[:, 1])) / var, 2) if var > 0 else 1.0
+        except Exception:
+            return 1.0
+
+    def _earnings(self, ticker, date_from, date_to):
+        if ticker not in self._earn:
+            try:
+                self._earn[ticker] = self._saved["_fetch_massive_earnings"](
+                    ticker, date(2019, 1, 1), self._saved["_et_today"]() + timedelta(days=90)) or []
+            except Exception:
+                self._earn[ticker] = []
+        lo, hi = str(date_from), str(date_to)
+        return [r for r in self._earn[ticker] if lo <= str(r.get("date", ""))[:10] <= hi]
+
+    def vix_asof(self) -> float:
+        if self._vix is None:
+            try:
+                import yfinance as _yf
+                v = _yf.download("^VIX", period="10y", interval="1d", progress=False, auto_adjust=False)
+                if hasattr(v.columns, "levels"):
+                    v.columns = v.columns.get_level_values(0)
+                self._vix = v["Close"]
+            except Exception:
+                self._vix = pd.Series(dtype=float)
+        try:
+            idx = self._vix.index.tz_localize(None) if getattr(self._vix.index, "tz", None) else self._vix.index
+            sub = self._vix[idx.normalize() <= pd.Timestamp(self.asof)]
+            return float(sub.iloc[-1]) if len(sub) else 20.0
+        except Exception:
+            return 20.0
+
+
+def run_pro_backtest(tickers: list[str] = WATCHLIST, years: int = 2,
+                     min_score: int = 85, live_scoring: bool = True) -> dict:
+    """Walk-forward backtest.
+
+    live_scoring=True (default) scores candidates with the SAME score_signal()
+    and hard gates the live scanner uses, point-in-time (see _PointInTimeData).
+    live_scoring=False runs the legacy backtest-only formula, kept so the two
+    can be compared.
+    """
+    if not live_scoring:
+        return _run_pro_backtest_impl(tickers, years, min_score, False, None)
+    with _PointInTimeData() as _pit:
+        res = _run_pro_backtest_impl(tickers, years, min_score, True, _pit)
+    print(f"  Live scoring: point-in-time; neutralised (no historical source): "
+          f"{', '.join(_PointInTimeData.NEUTRALISED)}; score errors skipped: {_pit.score_errors}")
+    return res
+
+
+def _bt_score_live(_pit, current_date, hist_regime, i, min_score, raw, sig, tracker, window):
+    """Extracted verbatim from _run_pro_backtest_impl() on 2026-09-14 (refx).
+    Returns (escape, value, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND)); escape is None or the original
+    return/continue/break of the block.
+    """
+    _pit.set_asof(current_date)
+    _regime_pit = dict(hist_regime)
+    _regime_pit.setdefault("details", {"VIX": _pit.vix_asof()})
+    _pre_shares = sig.shares
+    sig.news_boost = False
+    try:
+        sig = score_signal(sig, window, _regime_pit, tracker)
+    except Exception:
+        _pit.score_errors += 1
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+    if not sig.shares:
+        sig.shares = _pre_shares or 1   # sizing only; P&L is a percentage
+    if not (sig.regime_ok and sig.mtf_ok and sig.earnings_ok and sig.macro_ok
+            and sig.divergence_free and sig.not_chasing_extended_highs):
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+    _eff_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
+    if sig.ticker in VOLATILE_TICKERS:
+        _eff_min = max(_eff_min, VOLATILE_MIN_CONFLUENCE)
+    if (raw.index[i].month in SEASONAL_WEAK_MONTHS
+            and sig.setup not in {"Gap & Hold", "Morning Runner"}):
+        _eff_min = max(_eff_min, SEASONAL_MIN_SCORE)
+    if sig.confluence_score < _eff_min:
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+    bt_score = sig.confluence_score
+    return (None, None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
+
+
+def _bt_score_legacy(bt_score, hist_regime, i, min_score, raw, sig, window):
+    """Extracted verbatim from _run_pro_backtest_impl() on 2026-09-14 (refx).
+    Returns (escape, value, locals().get("bt_score", _REFX_UNBOUND)); escape is None or the original
+    return/continue/break of the block.
+    """
+    if bt_score is _REFX_UNBOUND:
+        del bt_score   # unassigned on this path in the caller
+    if sig.bias == "LONG"  and hist_regime["regime"] == "BEAR":
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    if sig.bias == "SHORT" and hist_regime["regime"] == "BULL":
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+
+    r = window.iloc[-1]
+    # RS: use 20-day price change as proxy
+    pct20 = float(r["Chg20d"]) if "Chg20d" in r.index else 0
+    if sig.bias == "LONG"  and pct20 < -5: return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    if sig.bias == "SHORT" and pct20 >  5: return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    # Divergence
+    div_free, _ = check_divergence_free(window, sig.bias)
+    if not div_free:
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    # Fibonacci, VWAP, POC, candlestick, 52wk prox
+    _, fib_pts  = check_fibonacci(window, sig.entry)
+    _, vwap_pts = check_vwap(window, sig.bias)
+    _, poc_pts  = check_poc_alignment(window, sig.entry, sig.bias)
+    _, candle_pts = detect_candle_pattern(window.iloc[-1], window.iloc[-2], sig.bias)
+    try:
+        hi52 = float(window["High"].iloc[-252:].max()) if len(window) >= 252 else float(window["High"].max())
+        off_hi = (hi52 - sig.entry) / hi52 * 100
+        prox_pts = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
+    except Exception:
+        prox_pts = 0
+
+    # Backtest score using historical regime score instead of hardcoded 15
+    regime_pts = min(15, hist_regime.get("score", 7))
+    # Supertrend alignment
+    try:
+        st_bull = bool(window["ST_bull"].iloc[-1])
+        st_pts  = 8 if (sig.bias == "LONG" and st_bull) or \
+                       (sig.bias == "SHORT" and not st_bull) else 0
+    except Exception:
+        st_pts = 4
+    # ADX strength
+    try:
+        adx_val = float(window["ADX"].iloc[-1])
+        adx_pts = 5 if adx_val > 25 else (2 if adx_val > 20 else 0)
+    except Exception:
+        adx_pts = 2
+    # Divergence-free bonus
+    div_pts = 5 if div_free else 0
+    # ATR percentile score
+    atr_pts = check_atr_percentile(window, sig.setup)
+    # Regime-setup-type bonus (BULL→momentum, CHOP→reversal)
+    momentum_setups = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
+    reversal_setups = {"OS Bounce", "OB Reversal", "MACD Cross", "MACD Bear",
+                       "Gap & Short", "EMA Breakdown", "Vol Breakdown"}
+    cur_regime = hist_regime.get("regime", "CHOP")
+    if cur_regime == "BULL" and sig.setup in momentum_setups:
+        regime_setup_pts = 8
+    elif cur_regime in ("BEAR", "CHOP") and sig.setup in reversal_setups:
+        regime_setup_pts = 8
+    else:
+        regime_setup_pts = 0
+    bt_score = (
+        (10 if sig.rvol >= 2.0 else 5 if sig.rvol >= 1.5 else 0) +
+        (8 if sig.rr >= 2.5 else 5) +
+        fib_pts + vwap_pts + poc_pts + candle_pts + prox_pts +
+        (5 if 45 <= sig.rsi <= 62 else 0) +
+        regime_pts + st_pts + adx_pts + div_pts + atr_pts + regime_setup_pts
+    )
+    bt_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
+    if sig.ticker in VOLATILE_TICKERS:
+        bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
+    if raw.index[i].month in SEASONAL_WEAK_MONTHS:
+        bt_min = max(bt_min, SEASONAL_MIN_SCORE)
+    if bt_score < bt_min * 0.95:
+        return ('continue', None, locals().get("bt_score", _REFX_UNBOUND))
+    return (None, None, locals().get("bt_score", _REFX_UNBOUND))
+
+
+def _run_pro_backtest_impl(tickers: list[str] = WATCHLIST,
+                          years: int = 2, min_score: int = 85,
+                          live_scoring: bool = True, _pit=None) -> dict:
     """
     Walk-forward backtest applying all pro filters on each historical window.
     More accurate than raw backtesting because regime/sector/RS are computed
@@ -18146,76 +18891,22 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST,
                     hist_regime = {"regime": "CHOP", "score": 7}
 
                 # Hard regime gate
-                if sig.bias == "LONG"  and hist_regime["regime"] == "BEAR":
-                    continue
-                if sig.bias == "SHORT" and hist_regime["regime"] == "BULL":
-                    continue
-
-                r = window.iloc[-1]
-                # RS: use 20-day price change as proxy
-                pct20 = float(r["Chg20d"]) if "Chg20d" in r.index else 0
-                if sig.bias == "LONG"  and pct20 < -5: continue
-                if sig.bias == "SHORT" and pct20 >  5: continue
-                # Divergence
-                div_free, _ = check_divergence_free(window, sig.bias)
-                if not div_free:
-                    continue
-                # Fibonacci, VWAP, POC, candlestick, 52wk prox
-                _, fib_pts  = check_fibonacci(window, sig.entry)
-                _, vwap_pts = check_vwap(window, sig.bias)
-                _, poc_pts  = check_poc_alignment(window, sig.entry, sig.bias)
-                _, candle_pts = detect_candle_pattern(window.iloc[-1], window.iloc[-2], sig.bias)
-                try:
-                    hi52 = float(window["High"].iloc[-252:].max()) if len(window) >= 252 else float(window["High"].max())
-                    off_hi = (hi52 - sig.entry) / hi52 * 100
-                    prox_pts = 10 if off_hi <= 5 else (7 if off_hi <= 15 else 0)
-                except Exception:
-                    prox_pts = 0
-
-                # Backtest score using historical regime score instead of hardcoded 15
-                regime_pts = min(15, hist_regime.get("score", 7))
-                # Supertrend alignment
-                try:
-                    st_bull = bool(window["ST_bull"].iloc[-1])
-                    st_pts  = 8 if (sig.bias == "LONG" and st_bull) or \
-                                   (sig.bias == "SHORT" and not st_bull) else 0
-                except Exception:
-                    st_pts = 4
-                # ADX strength
-                try:
-                    adx_val = float(window["ADX"].iloc[-1])
-                    adx_pts = 5 if adx_val > 25 else (2 if adx_val > 20 else 0)
-                except Exception:
-                    adx_pts = 2
-                # Divergence-free bonus
-                div_pts = 5 if div_free else 0
-                # ATR percentile score
-                atr_pts = check_atr_percentile(window, sig.setup)
-                # Regime-setup-type bonus (BULL→momentum, CHOP→reversal)
-                momentum_setups = {"Vol Breakout", "Gap & Hold", "VCP", "EMA Pullback", "Morning Runner"}
-                reversal_setups = {"OS Bounce", "OB Reversal", "MACD Cross", "MACD Bear",
-                                   "Gap & Short", "EMA Breakdown", "Vol Breakdown"}
-                cur_regime = hist_regime.get("regime", "CHOP")
-                if cur_regime == "BULL" and sig.setup in momentum_setups:
-                    regime_setup_pts = 8
-                elif cur_regime in ("BEAR", "CHOP") and sig.setup in reversal_setups:
-                    regime_setup_pts = 8
+                if live_scoring:
+                    # The SAME scoring and gates the live scanner applies
+                    # (run_pro_scanner), evaluated as of this bar.
+                    _esc, _escv, _o_bt_score, _o_sig = _bt_score_live(_pit, current_date, hist_regime, i, min_score, raw, sig, tracker, window)
+                    if _o_bt_score is not _REFX_UNBOUND:
+                        bt_score = _o_bt_score
+                    if _o_sig is not _REFX_UNBOUND:
+                        sig = _o_sig
+                    if _esc == 'continue':
+                        continue
                 else:
-                    regime_setup_pts = 0
-                bt_score = (
-                    (10 if sig.rvol >= 2.0 else 5 if sig.rvol >= 1.5 else 0) +
-                    (8 if sig.rr >= 2.5 else 5) +
-                    fib_pts + vwap_pts + poc_pts + candle_pts + prox_pts +
-                    (5 if 45 <= sig.rsi <= 62 else 0) +
-                    regime_pts + st_pts + adx_pts + div_pts + atr_pts + regime_setup_pts
-                )
-                bt_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
-                if sig.ticker in VOLATILE_TICKERS:
-                    bt_min = max(bt_min, VOLATILE_MIN_CONFLUENCE)
-                if raw.index[i].month in SEASONAL_WEAK_MONTHS:
-                    bt_min = max(bt_min, SEASONAL_MIN_SCORE)
-                if bt_score < bt_min * 0.95:
-                    continue
+                    _esc, _escv, _o_bt_score = _bt_score_legacy(locals().get("bt_score", _REFX_UNBOUND), hist_regime, i, min_score, raw, sig, window)
+                    if _o_bt_score is not _REFX_UNBOUND:
+                        bt_score = _o_bt_score
+                    if _esc == 'continue':
+                        continue
 
                 entry_px = sig.entry * 1.001   # 0.1% slippage
                 entry_i  = i
@@ -21436,59 +22127,23 @@ def _shares_fallback_allowed(ticker: str, setup: str = "") -> bool:
             or setup == MOMENTUM_DAY_ONLY_SETUP)
 
 
-def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) -> None:
+def _live_mode_preflight(signals: list) -> Optional[tuple]:
+    """Live-account preflight: ACCOUNT_SIZE sanity, PDT budget / options-only /
+    swing-mode routing (including the PDT-zero shares fallback), and the
+    FOMC / major-macro entry guards.
+
+    Returns (signals, options_only_overnight, share_ok), or None when the
+    submission must stop -- every early `return` in this block is a hard stop
+    for the whole submit. Extracted verbatim from _submit_signals_to_alpaca()
+    on 2026-09-14 (behaviour pinned by a characterization harness).
+
+    options_only_overnight / share_ok are initialised here as well as inside
+    the live branch: they were previously only assigned INSIDE
+    `if not ALPACA_PAPER:`, so in paper mode the submit function referenced
+    them unbound and would have raised. Live behaviour is unchanged.
     """
-    Validate entry prices and submit passing signals to Alpaca (paper or live).
-    Re-anchors each signal's stop and target to the live price so bracket legs
-    are always correct relative to the actual fill price.
-    Automatically adds each submitted trade to PositionTracker.
-    Called after a scan when --submit flag is set.
-
-    size_mult: extra caller-supplied sizing multiplier, compounds on top of
-    the regime/streak/probation multiplier below (default 1.0 = no change
-    for every existing caller). Added for momentum-watch's reduced-size
-    auto-execute path (see MOMENTUM_AUTO_EXEC_SIZE_MULT) — a setup trusted
-    enough to skip the YES/NO approval gate but without the live track
-    record yet to earn full size while unsupervised.
-    """
-    if not signals:
-        return
-    if not ALPACA_API_KEY:
-        print("  ⚠️  --submit requires ALPACA_API_KEY to be set.")
-        return
-
-    # Belt-and-suspenders: re-check circuit breakers here in case this function
-    # is called directly (e.g. --mode alpaca, manual workflow_dispatch after close).
-    if not is_market_open():
-        print("  ⏸️  Market is closed — no orders submitted.")
-        return
-    if is_halted():
-        _hr = ""
-        try:
-            with open(HALT_FILE) as _hf:
-                _hr = json.load(_hf).get("reason", "")
-        except Exception:
-            pass
-        print(f"  🛑 Manual halt active{(' — ' + _hr) if _hr else ''} — no orders submitted (/resume to re-enable).")
-        return
-    _on_probation_sub, _ = is_on_probation()
-    if not _on_probation_sub:
-        _tracker_cb = WinRateTracker()
-        _stats_cb   = _tracker_cb.rolling_stats()
-        if _stats_cb.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
-            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses_today']} losses today) — no orders.")
-            return
-        if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
-                and not _monthly_halt_lifted()):
-            print(f"  🛑 Monthly loss limit active — no orders.")
-            return
-    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
-        print(f"  🛑 Daily loss limit active — no orders.")
-        return
-
-    mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
-
-    # ── Live-mode safety warnings ──────────────────────────────────────────
+    _options_only_overnight = False
+    _share_ok: list = []
     if not ALPACA_PAPER:
         # Warn if ACCOUNT_SIZE was not explicitly configured
         if not os.getenv("ACCOUNT_SIZE"):
@@ -21728,10 +22383,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     _save_last_alert("__MACRO_EVENT_WARN__")
                     print(f"  🚫 LIVE: major macro event {_ev_mm} — entries blocked, alert sent")
                 break
+    return signals, _options_only_overnight, _share_ok
 
-    # Adaptive risk multiplier — full global context (replaces SPY-only check).
-    # Reads futures, VIX, DXY, BTC, Asia overnight, IWM/SPY ratio.
-    # Score -4 → 0.35x sizing  |  Score +4 → 1.30x sizing.
+
+def _submission_risk_multiplier(size_mult: float) -> float:
+    """Net position-size multiplier for this submit pass: global-context risk
+    tone, win/loss streak, account probation, then the caller's size_mult,
+    compounded in that order. Extracted verbatim from
+    _submit_signals_to_alpaca() on 2026-09-14.
+    """
     print("  🌍 Fetching global context for adaptive sizing...", flush=True)
     _ctx = _fetch_global_context()
     _risk_off_mult = _ctx["risk_mult"]
@@ -21778,6 +22438,437 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     if size_mult != 1.0:
         _risk_off_mult *= size_mult
         print(f"  🔻 Caller size_mult: ×{size_mult:.2f} → net ×{_risk_off_mult:.2f}")
+    return _risk_off_mult
+
+
+def _submit_path_options_attempt(_opt_contract, _risk_off_mult, _use_options, _use_puts, cur, oid, sig):
+    """Try to express the signal as a long call: budget clamp, aggregate cap, viability floor, contract selection and submit.
+
+    Extracted verbatim from _submit_signals_to_alpaca()'s per-signal loop on
+    2026-09-14. Returns (skip, *state): skip=True is the original
+    `continue`. State passed in and handed back: _opt_contract, _use_options, _use_puts, oid.
+    """
+    if _use_options:
+        _opt_client = get_alpaca_client()
+        if _opt_client:
+            _opt_risk = _clamp_option_budget(
+                _options_position_budget(sig) * _risk_off_mult)
+            _agg = _options_aggregate_room(_opt_risk)
+            if _agg:
+                print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
+                if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                    send_telegram(
+                        f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
+                        f"A long option has no stop, so concurrent premium is "
+                        f"simultaneous max loss. Waiting for an open position to close.")
+                return True, _opt_contract, _use_options, _use_puts, oid
+            if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:
+                print(f"  💸 {sig.ticker}: options budget ${_opt_risk:.0f} < "
+                      f"${OPTIONS_MIN_VIABLE_BUDGET:.0f} — too small to buy a real "
+                      f"contract, not attempting")
+                _use_options = False
+            else:
+                print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
+                try:
+                    oid, _opt_contract = _submit_options_call(
+                        _opt_client, sig.ticker, cur, _opt_risk, sig
+                    )
+                except Exception as _opt_exc:
+                    print(f"  ⚠️  Options error ({sig.ticker}): {_opt_exc} — falling back to shares")
+                    oid = None
+                if oid is None:
+                    print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
+                    _use_options = False
+
+    elif _use_puts:
+        _opt_client = get_alpaca_client()
+        if _opt_client:
+            _opt_risk = _clamp_option_budget(
+                _options_position_budget(sig) * _risk_off_mult)
+            _agg = _options_aggregate_room(_opt_risk)
+            if _agg:
+                print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
+                if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                    send_telegram(
+                        f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
+                        f"A long option has no stop, so concurrent premium is "
+                        f"simultaneous max loss. Waiting for an open position to close.")
+                return True, _opt_contract, _use_options, _use_puts, oid
+            print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
+            try:
+                oid, _opt_contract = _submit_options_put(
+                    _opt_client, sig.ticker, cur, _opt_risk, sig
+                )
+            except Exception as _opt_exc:
+                print(f"  ⚠️  Put options error ({sig.ticker}): {_opt_exc} — skipping")
+                oid = None
+            if oid is None:
+                print(f"  ↩️  Put options unavailable for {sig.ticker} — SHORT signal skipped (ALLOW_SHORTS=False)")
+                _use_puts = False
+    return False, _opt_contract, _use_options, _use_puts, oid
+
+
+def _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attempted, _submit_err, _use_options, _use_puts, oid, sig):
+    """Shares path once options are not in play: watchlist/low-float fallback guard, PDT-zero naked-shares gate, and the equity submit.
+
+    Extracted verbatim from _submit_signals_to_alpaca()'s per-signal loop on
+    2026-09-14. Returns (skip, *state): skip=True is the original
+    `continue`. State passed in and handed back: _naked_open, _submit_err, oid.
+    """
+    if not _use_options and not _use_puts:
+        if sig.bias == "SHORT" and not ALLOW_SHORTS:
+            if _options_was_attempted:
+                # The WATCHLIST/Bear-Gap-Hold gate passed and a put search
+                # was actually attempted above but came back empty (e.g.
+                # ADV/liquidity floor) — say so accurately instead of
+                # implying the gate itself blocked it. Confirmed live
+                # 2026-08-31: HWM printed this exact stale message despite
+                # passing the Bear Gap Hold gate, only to fail the ADV
+                # check inside _submit_options_put — misleading for
+                # after-the-fact review of why a play was missed.
+                print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — no put contract "
+                      f"available (ADV/liquidity) and ALLOW_SHORTS=False, so no shares "
+                      f"fallback either")
+            else:
+                print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
+                      f"not in WATCHLIST, and not a Bear Gap Hold signal")
+            return True, _naked_open, _submit_err, oid
+        # Shares-fallback policy (2026-08-05, tightened 2026-08-21): grow
+        # the account on options, not on buying shares outright. DMan's
+        # own curated small-cap watchlist is the one deliberate
+        # exception — those are exactly the cheap, thin-float gap-ups
+        # where "buy a lot of shares" IS the play (and where options
+        # usually aren't liquid enough to exist anyway).
+        #
+        # Removed 2026-08-21: a budget-capped shares fallback for
+        # options-eligible-but-unfillable signals on NON-watchlist
+        # tickers (added 2026-08-08 so a valid signal never produced
+        # zero trade). Direct instruction after NDSN — a large
+        # industrial name, nothing like a low-float catalyst play —
+        # bought as a single $334 share this exact way when its Gap &
+        # Hold options attempt found no fill: shares should only ever
+        # happen for a real low-float catalyst (the watchlist OR
+        # setup exception below — see _shares_fallback_allowed()'s
+        # docstring for the PMI incident that added the setup half),
+        # everything else skips outright rather than settle for a
+        # consolation equity position.
+        # Checked BEFORE _shares_fallback_allowed below, deliberately.
+        # That guard reserves shares for DMan watchlist picks and low-float
+        # catalysts during normal operation. At a zero PDT budget the
+        # naked-shares gate is both stricter and better informed, so it
+        # decides -- and it has to be reachable to do so. Ordered the other
+        # way, a market-wide discovery (never on the watchlist by
+        # definition) was refused above and the gate never ran.
+        if _options_only_overnight and not getattr(sig, "no_stop_entry", False):
+            # Zero day-trade budget: the SHARES fallback is exactly what
+            # must not happen here. Shares get a broker-side stop that
+            # can fill the same session, and that fill IS the day trade
+            # the options-only mode exists to avoid.
+            #
+            # Confirmed live 2026-09-04. _signal_can_use_options() passed
+            # APVO/ARTL/CAST/TRVI/LABT because their setup is in
+            # OPTIONS_SETUPS -- structurally options-eligible -- but none
+            # of those tickers HAS a listed option chain, so all five
+            # fell straight through to shares and became real day trades
+            # against a 0/3 budget. Structural eligibility is not the
+            # same as an option actually existing, and only the attempt
+            # can tell the difference, so the block belongs here (after
+            # the attempt failed) rather than in the predicate.
+            #
+            # The one exception is a signal carrying no_stop_entry, set
+            # only by _genuine_shares_case() in the zero-PDT branch above.
+            # That path places NO sell-side order whatsoever, so it cannot
+            # round-trip today and the reasoning here does not apply to
+            # it -- it pays for that with an unprotected overnight instead.
+            #
+            # This is also the ONLY point in the pipeline that knows an
+            # option does not really exist for this name. The pre-attempt
+            # branch cannot know it -- _signal_can_use_options() answers
+            # the STRUCTURAL question, and the names that need shares most
+            # (no listed chain at all) pass it and fail here instead.
+            # Confirmed live 2026-09-09: ONCO, ELAB, ATOS and APVO all
+            # reached this block, so a genuine-case check that ran only
+            # upstream never saw a single one of them.
+            _naked_ok, _naked_why = False, "an unprotected position is already open"
+            if not _naked_open:
+                _naked_ok, _naked_why = _genuine_shares_case(sig)
+            if _naked_ok:
+                sig.no_stop_entry = True
+                sig.swing_mode    = True
+                sig.shares = _pdt_zero_share_size(sig.entry, get_effective_account())
+                sig.cost   = round(sig.shares * sig.entry, 2)
+                if sig.shares <= 0:
+                    print(f"  \u23ed\ufe0f  {sig.ticker}: naked-share size rounds to 0 "
+                          f"at ${sig.entry:.2f} — skipping")
+                    return True, _naked_open, _submit_err, oid
+                _naked_open = True
+                print(f"  \U0001fa79 {sig.ticker}: no option exists, but genuine case "
+                      f"({_naked_why}) — {sig.shares}sh, NO stop today")
+                send_telegram(
+                    "\U0001fa79 <b>PDT-ZERO SHARES</b> — genuine case, entered "
+                    "WITHOUT a stop\n"
+                    f"<b>{sig.ticker}</b> {sig.shares}sh @ ${sig.entry:.2f} "
+                    f"(${sig.cost:,.0f})\n<i>{html.escape(_naked_why)}</i>\n\n"
+                    "No options chain exists, so this could not be an option. No "
+                    "stop today: a same-day stop fill would be day trade #4. Sized "
+                    f"so a -{PDT_ZERO_SHARES_ASSUMED_GAP*100:.0f}% overnight gap "
+                    f"costs about ${get_effective_account()*MAX_TRADE_LOSS_PCT:,.0f}.\n"
+                    "<b>Unprotected until a stop goes on next session.</b>")
+                oid, _submit_err = submit_alpaca_trade(sig)
+            else:
+                print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
+                      f"no shares ({_naked_why})")
+                if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
+                    send_telegram(
+                        f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
+                        f"day-trade budget is 0.\n{html.escape(_naked_why)}."
+                    )
+                return True, _naked_open, _submit_err, oid
+        elif (not _shares_fallback_allowed(sig.ticker, sig.setup)
+                and not getattr(sig, "no_stop_entry", False)):
+            print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
+                  f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
+                  f"for DMan picks and low-float catalysts only)")
+            if _options_was_attempted:
+                send_telegram(
+                    f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
+                    f"Options attempted and unavailable, and shares are reserved for DMan's "
+                    f"low-float watchlist picks only. No trade placed."
+                )
+            return True, _naked_open, _submit_err, oid
+        else:
+            oid, _submit_err = submit_alpaca_trade(sig)
+    return False, _naked_open, _submit_err, oid
+
+
+def _submit_path_record_fill(_opt_contract, _submit_err, _use_options, _use_puts, cur, mode_label, oid, pt, sig, submitted):
+    """After a successful submit: open the tracker record (options or shares), persist it, and send the entry Telegram.
+
+    Extracted verbatim from _submit_signals_to_alpaca()'s per-signal loop on
+    2026-09-14. Returns (skip, *state): skip=True is the original
+    `continue`. State passed in and handed back: submitted.
+    """
+    if oid:
+        if (_use_options or _use_puts) and _opt_contract:
+            _occ     = _opt_contract.get("occ_symbol", "")
+            _exp_str = _opt_contract.get("expiry", "?")
+            _strike  = _opt_contract.get("strike", 0)
+            _ask     = _opt_contract.get("ask", 0)
+            _ctrs    = _opt_contract.get("contracts", 1)
+            _delta   = _opt_contract.get("delta", 0)
+            _theta   = _opt_contract.get("theta", 0)
+            _gamma   = _opt_contract.get("gamma", 0)
+            _vega    = _opt_contract.get("vega", 0)
+            _iv      = _opt_contract.get("iv", 0)
+            _oi      = _opt_contract.get("oi", 0)
+            _bsz     = _opt_contract.get("bid_size", 0)
+            _asz     = _opt_contract.get("ask_size", 0)
+            _pc      = _opt_contract.get("pc_ratio", 1.0)
+            _flow    = _opt_contract.get("flow_label", "")
+            _dom_k   = _opt_contract.get("dominant_call_strike", 0)
+            _opt_type = _opt_contract.get("option_type", "CALL")   # CALL or PUT
+            _t1_prem = round(_ask * 1.5, 2)   # +50% premium = T1 (realistic for ITM delta 0.70)
+            _t2_prem = round(_ask * 2.5, 2)   # +150% premium = T2 (full runner)
+            _sl_prem = round(_ask * 0.50, 2)  # -50% stop
+            _theta_pct_day = abs(_theta / _ask * 100) if _ask > 0 else 0
+            _strike_dir = "P" if _opt_type == "PUT" else "C"
+
+            _tracked = pt.open(OpenPosition(
+                ticker     = sig.ticker,
+                bias       = "LONG" if _use_options else "SHORT",
+                setup      = f"Options {_opt_type.title()} {_occ} (${_strike}{_strike_dir} exp {_exp_str})",
+                entry      = _ask,
+                stop       = _sl_prem,
+                target1    = _t1_prem,
+                target2    = _t2_prem,
+                shares     = _ctrs * 100,
+                entry_date = _et_today().isoformat(),
+                atr        = _delta,
+                score      = sig.confluence_score,
+                # NOT day_only when the signal was switched to swing:
+                # the two are contradictory and day_only used to win.
+                # Confirmed live 2026-09-04, and it is what actually
+                # broke the PDT budget that session: five entries were
+                # deliberately submitted as GTC SWINGS (because the
+                # budget was already 0/3, so an overnight hold is the
+                # only safe kind of entry) and then _force_close_day_
+                # only_positions() flattened three of them at 15:45 ET
+                # anyway -- CAST, TRVI and LABT all show a market SELL
+                # at 19:45 UTC. That turned three intended swings into
+                # three same-day round trips, i.e. exactly the day
+                # trades swing mode existed to avoid.
+                day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
+                              and not getattr(sig, "swing_mode", False)),
+                # Recomputed rather than threaded down from the budget:
+                # _elevated_size_reason() is a cheap pure check, so the
+                # flag can never drift from the rule that actually
+                # governs the tier. It is what MAX_ELEVATED_
+                # POSITIONS counts, so this would silently
+                # un-cap concurrency if it were wrong.
+                elevated_size = _elevated_size_reason(sig) is not None,
+            ))
+            if not _tracked:
+                print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} options order {oid[:8]}")
+                send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} options order {oid[:8]} cancelled (portfolio full, no tracking slot available)")
+                try:
+                    _cc = get_alpaca_client()
+                    if _cc:
+                        _cc.cancel_order_by_id(oid)
+                except Exception as _ce:
+                    send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
+                return True, submitted
+            submitted += 1
+            # OPRA data subscription not entitled on this account (confirmed
+            # live 2026-08-08) -- when the broker can't supply real Greeks,
+            # _find_best_call/put_contract fills delta from a Black-Scholes
+            # estimate instead of blocking the trade. Flagged here so this
+            # never reads as a real broker-quoted delta.
+            _delta_note = " (Δ est. — OPRA not entitled)" if _opt_contract.get("delta_estimated") else ""
+            _greek_str = (
+                f"Δ {_delta:.2f}  Γ {_gamma:.4f}  θ {_theta:.3f}/d  "
+                f"ν {_vega:.3f}  IV {_iv*100:.0f}%  OI {_oi:,}{_delta_note}"
+            )
+            _l2_str = (
+                f"L2: bid {_bsz}×{_opt_contract.get('bid',0):.2f}  "
+                f"ask {_asz}×{_ask:.2f}  "
+                f"P/C {_pc:.2f} ({_flow})"
+                + (f"  Dominant strike ${_dom_k}" if _dom_k else "")
+            )
+            _icon = "🐻" if _opt_type == "PUT" else "🎯"
+            send_telegram(
+                f"{_icon} <b>Options order placed</b> [{mode_label}] — {sig.ticker} {_opt_type}\n"
+                f"Contract: <b>{_occ}</b>\n"
+                f"Strike ${_strike}  Exp {_exp_str}  ({_opt_contract.get('dte','?')}d)\n"
+                f"Premium: ${_ask}/sh × {_ctrs}ct = <b>${_opt_contract['total_cost']:.0f}</b>  "
+                f"(θ decay {_theta_pct_day:.1f}%/day)\n"
+                f"T1 (+50%): ${_t1_prem}  T2 (+150%): ${_t2_prem}  Stop (-50%): ${_sl_prem}\n"
+                f"{_greek_str}\n"
+                f"{_l2_str}\n"
+                f"Underlying: ${cur:.2f}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+            )
+        else:
+            _setup_tag = ("SWING — " + sig.setup) if sig.swing_mode else sig.setup
+            _tracked = pt.open(OpenPosition(
+                ticker     = sig.ticker,
+                bias       = sig.bias,
+                setup      = _setup_tag,
+                entry      = sig.entry,
+                stop       = sig.stop,
+                target1    = sig.target1,
+                target2    = sig.target2,
+                shares     = sig.shares,
+                entry_date = _et_today().isoformat(),
+                atr        = sig.atr,
+                score      = sig.confluence_score,
+                # NOT day_only when the signal was switched to swing:
+                # the two are contradictory and day_only used to win.
+                # Confirmed live 2026-09-04, and it is what actually
+                # broke the PDT budget that session: five entries were
+                # deliberately submitted as GTC SWINGS (because the
+                # budget was already 0/3, so an overnight hold is the
+                # only safe kind of entry) and then _force_close_day_
+                # only_positions() flattened three of them at 15:45 ET
+                # anyway -- CAST, TRVI and LABT all show a market SELL
+                # at 19:45 UTC. That turned three intended swings into
+                # three same-day round trips, i.e. exactly the day
+                # trades swing mode existed to avoid.
+                day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
+                              and not getattr(sig, "swing_mode", False)),
+            ))
+            if not _tracked:
+                print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} order {oid[:8]}")
+                send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} order {oid[:8]} cancelled (portfolio full)")
+                try:
+                    _cc = get_alpaca_client()
+                    if _cc:
+                        _cc.cancel_order_by_id(oid)
+                except Exception as _ce:
+                    send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
+                return True, submitted
+            submitted += 1
+            if sig.swing_mode:
+                send_telegram(
+                    f"🔄 <b>SWING Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                    f"GTC Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1} (monitor tomorrow)\n"
+                    f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…\n"
+                    f"<i>PDT budget preserved — position held overnight, managed by momentum-watch</i>"
+                )
+            else:
+                send_telegram(
+                    f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+                    f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
+                    f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
+                )
+    else:
+        send_telegram(
+            f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
+            f"{_submit_err or 'Alpaca rejected the order — check GitHub Actions logs immediately.'}"
+        )
+    return False, submitted
+
+
+def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) -> None:
+    """
+    Validate entry prices and submit passing signals to Alpaca (paper or live).
+    Re-anchors each signal's stop and target to the live price so bracket legs
+    are always correct relative to the actual fill price.
+    Automatically adds each submitted trade to PositionTracker.
+    Called after a scan when --submit flag is set.
+
+    size_mult: extra caller-supplied sizing multiplier, compounds on top of
+    the regime/streak/probation multiplier below (default 1.0 = no change
+    for every existing caller). Added for momentum-watch's reduced-size
+    auto-execute path (see MOMENTUM_AUTO_EXEC_SIZE_MULT) — a setup trusted
+    enough to skip the YES/NO approval gate but without the live track
+    record yet to earn full size while unsupervised.
+    """
+    if not signals:
+        return
+    if not ALPACA_API_KEY:
+        print("  ⚠️  --submit requires ALPACA_API_KEY to be set.")
+        return
+
+    # Belt-and-suspenders: re-check circuit breakers here in case this function
+    # is called directly (e.g. --mode alpaca, manual workflow_dispatch after close).
+    if not is_market_open():
+        print("  ⏸️  Market is closed — no orders submitted.")
+        return
+    if is_halted():
+        _hr = ""
+        try:
+            with open(HALT_FILE) as _hf:
+                _hr = json.load(_hf).get("reason", "")
+        except Exception:
+            pass
+        print(f"  🛑 Manual halt active{(' — ' + _hr) if _hr else ''} — no orders submitted (/resume to re-enable).")
+        return
+    _on_probation_sub, _ = is_on_probation()
+    if not _on_probation_sub:
+        _tracker_cb = WinRateTracker()
+        _stats_cb   = _tracker_cb.rolling_stats()
+        if _stats_cb.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
+            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses_today']} losses today) — no orders.")
+            return
+        if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
+                and not _monthly_halt_lifted()):
+            print(f"  🛑 Monthly loss limit active — no orders.")
+            return
+    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+        print(f"  🛑 Daily loss limit active — no orders.")
+        return
+
+    mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
+
+    # ── Live-mode safety warnings ──────────────────────────────────────────
+    _pre = _live_mode_preflight(signals)
+    if _pre is None:
+        return
+    signals, _options_only_overnight, _share_ok = _pre
+
+    # Adaptive risk multiplier — full global context (replaces SPY-only check).
+    # Reads futures, VIX, DXY, BTC, Asia overnight, IWM/SPY ratio.
+    # Score -4 → 0.35x sizing  |  Score +4 → 1.30x sizing.
+    _risk_off_mult = _submission_risk_multiplier(size_mult)
 
     # At most ONE unprotected share position at a time, shared by both places
     # that can open one: the pre-attempt branch (options structurally
@@ -21983,344 +23074,17 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         _submit_err: str | None = None
         _options_was_attempted = _use_options or _use_puts
 
-        if _use_options:
-            _opt_client = get_alpaca_client()
-            if _opt_client:
-                _opt_risk = _clamp_option_budget(
-                    _options_position_budget(sig) * _risk_off_mult)
-                _agg = _options_aggregate_room(_opt_risk)
-                if _agg:
-                    print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
-                    if not _is_duplicate_alert("__OPT_AGG_CAP__"):
-                        send_telegram(
-                            f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
-                            f"A long option has no stop, so concurrent premium is "
-                            f"simultaneous max loss. Waiting for an open position to close.")
-                    continue
-                if _opt_risk < OPTIONS_MIN_VIABLE_BUDGET:
-                    print(f"  💸 {sig.ticker}: options budget ${_opt_risk:.0f} < "
-                          f"${OPTIONS_MIN_VIABLE_BUDGET:.0f} — too small to buy a real "
-                          f"contract, not attempting")
-                    _use_options = False
-                else:
-                    print(f"  🎯 Options mode: finding call for {sig.ticker}  budget=${_opt_risk:.0f}")
-                    try:
-                        oid, _opt_contract = _submit_options_call(
-                            _opt_client, sig.ticker, cur, _opt_risk, sig
-                        )
-                    except Exception as _opt_exc:
-                        print(f"  ⚠️  Options error ({sig.ticker}): {_opt_exc} — falling back to shares")
-                        oid = None
-                    if oid is None:
-                        print(f"  ↩️  Options unavailable for {sig.ticker} — falling back to shares")
-                        _use_options = False
+        _skip_options_attempt, _opt_contract, _use_options, _use_puts, oid = _submit_path_options_attempt(_opt_contract, _risk_off_mult, _use_options, _use_puts, cur, oid, sig)
+        if _skip_options_attempt:
+            continue
 
-        elif _use_puts:
-            _opt_client = get_alpaca_client()
-            if _opt_client:
-                _opt_risk = _clamp_option_budget(
-                    _options_position_budget(sig) * _risk_off_mult)
-                _agg = _options_aggregate_room(_opt_risk)
-                if _agg:
-                    print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
-                    if not _is_duplicate_alert("__OPT_AGG_CAP__"):
-                        send_telegram(
-                            f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
-                            f"A long option has no stop, so concurrent premium is "
-                            f"simultaneous max loss. Waiting for an open position to close.")
-                    continue
-                print(f"  🐻 Put options mode: finding put for {sig.ticker}  budget=${_opt_risk:.0f}")
-                try:
-                    oid, _opt_contract = _submit_options_put(
-                        _opt_client, sig.ticker, cur, _opt_risk, sig
-                    )
-                except Exception as _opt_exc:
-                    print(f"  ⚠️  Put options error ({sig.ticker}): {_opt_exc} — skipping")
-                    oid = None
-                if oid is None:
-                    print(f"  ↩️  Put options unavailable for {sig.ticker} — SHORT signal skipped (ALLOW_SHORTS=False)")
-                    _use_puts = False
+        _skip_shares, _naked_open, _submit_err, oid = _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attempted, _submit_err, _use_options, _use_puts, oid, sig)
+        if _skip_shares:
+            continue
 
-        if not _use_options and not _use_puts:
-            if sig.bias == "SHORT" and not ALLOW_SHORTS:
-                if _options_was_attempted:
-                    # The WATCHLIST/Bear-Gap-Hold gate passed and a put search
-                    # was actually attempted above but came back empty (e.g.
-                    # ADV/liquidity floor) — say so accurately instead of
-                    # implying the gate itself blocked it. Confirmed live
-                    # 2026-08-31: HWM printed this exact stale message despite
-                    # passing the Bear Gap Hold gate, only to fail the ADV
-                    # check inside _submit_options_put — misleading for
-                    # after-the-fact review of why a play was missed.
-                    print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — no put contract "
-                          f"available (ADV/liquidity) and ALLOW_SHORTS=False, so no shares "
-                          f"fallback either")
-                else:
-                    print(f"  ⏭️  {sig.ticker} {sig.setup} SHORT skipped — ALLOW_SHORTS=False, "
-                          f"not in WATCHLIST, and not a Bear Gap Hold signal")
-                continue
-            # Shares-fallback policy (2026-08-05, tightened 2026-08-21): grow
-            # the account on options, not on buying shares outright. DMan's
-            # own curated small-cap watchlist is the one deliberate
-            # exception — those are exactly the cheap, thin-float gap-ups
-            # where "buy a lot of shares" IS the play (and where options
-            # usually aren't liquid enough to exist anyway).
-            #
-            # Removed 2026-08-21: a budget-capped shares fallback for
-            # options-eligible-but-unfillable signals on NON-watchlist
-            # tickers (added 2026-08-08 so a valid signal never produced
-            # zero trade). Direct instruction after NDSN — a large
-            # industrial name, nothing like a low-float catalyst play —
-            # bought as a single $334 share this exact way when its Gap &
-            # Hold options attempt found no fill: shares should only ever
-            # happen for a real low-float catalyst (the watchlist OR
-            # setup exception below — see _shares_fallback_allowed()'s
-            # docstring for the PMI incident that added the setup half),
-            # everything else skips outright rather than settle for a
-            # consolation equity position.
-            # Checked BEFORE _shares_fallback_allowed below, deliberately.
-            # That guard reserves shares for DMan watchlist picks and low-float
-            # catalysts during normal operation. At a zero PDT budget the
-            # naked-shares gate is both stricter and better informed, so it
-            # decides -- and it has to be reachable to do so. Ordered the other
-            # way, a market-wide discovery (never on the watchlist by
-            # definition) was refused above and the gate never ran.
-            if _options_only_overnight and not getattr(sig, "no_stop_entry", False):
-                # Zero day-trade budget: the SHARES fallback is exactly what
-                # must not happen here. Shares get a broker-side stop that
-                # can fill the same session, and that fill IS the day trade
-                # the options-only mode exists to avoid.
-                #
-                # Confirmed live 2026-09-04. _signal_can_use_options() passed
-                # APVO/ARTL/CAST/TRVI/LABT because their setup is in
-                # OPTIONS_SETUPS -- structurally options-eligible -- but none
-                # of those tickers HAS a listed option chain, so all five
-                # fell straight through to shares and became real day trades
-                # against a 0/3 budget. Structural eligibility is not the
-                # same as an option actually existing, and only the attempt
-                # can tell the difference, so the block belongs here (after
-                # the attempt failed) rather than in the predicate.
-                #
-                # The one exception is a signal carrying no_stop_entry, set
-                # only by _genuine_shares_case() in the zero-PDT branch above.
-                # That path places NO sell-side order whatsoever, so it cannot
-                # round-trip today and the reasoning here does not apply to
-                # it -- it pays for that with an unprotected overnight instead.
-                #
-                # This is also the ONLY point in the pipeline that knows an
-                # option does not really exist for this name. The pre-attempt
-                # branch cannot know it -- _signal_can_use_options() answers
-                # the STRUCTURAL question, and the names that need shares most
-                # (no listed chain at all) pass it and fail here instead.
-                # Confirmed live 2026-09-09: ONCO, ELAB, ATOS and APVO all
-                # reached this block, so a genuine-case check that ran only
-                # upstream never saw a single one of them.
-                _naked_ok, _naked_why = False, "an unprotected position is already open"
-                if not _naked_open:
-                    _naked_ok, _naked_why = _genuine_shares_case(sig)
-                if _naked_ok:
-                    sig.no_stop_entry = True
-                    sig.swing_mode    = True
-                    sig.shares = _pdt_zero_share_size(sig.entry, get_effective_account())
-                    sig.cost   = round(sig.shares * sig.entry, 2)
-                    if sig.shares <= 0:
-                        print(f"  \u23ed\ufe0f  {sig.ticker}: naked-share size rounds to 0 "
-                              f"at ${sig.entry:.2f} — skipping")
-                        continue
-                    _naked_open = True
-                    print(f"  \U0001fa79 {sig.ticker}: no option exists, but genuine case "
-                          f"({_naked_why}) — {sig.shares}sh, NO stop today")
-                    send_telegram(
-                        "\U0001fa79 <b>PDT-ZERO SHARES</b> — genuine case, entered "
-                        "WITHOUT a stop\n"
-                        f"<b>{sig.ticker}</b> {sig.shares}sh @ ${sig.entry:.2f} "
-                        f"(${sig.cost:,.0f})\n<i>{html.escape(_naked_why)}</i>\n\n"
-                        "No options chain exists, so this could not be an option. No "
-                        "stop today: a same-day stop fill would be day trade #4. Sized "
-                        f"so a -{PDT_ZERO_SHARES_ASSUMED_GAP*100:.0f}% overnight gap "
-                        f"costs about ${get_effective_account()*MAX_TRADE_LOSS_PCT:,.0f}.\n"
-                        "<b>Unprotected until a stop goes on next session.</b>")
-                    oid, _submit_err = submit_alpaca_trade(sig)
-                else:
-                    print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
-                          f"no shares ({_naked_why})")
-                    if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
-                        send_telegram(
-                            f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
-                            f"day-trade budget is 0.\n{html.escape(_naked_why)}."
-                        )
-                    continue
-            elif (not _shares_fallback_allowed(sig.ticker, sig.setup)
-                    and not getattr(sig, "no_stop_entry", False)):
-                print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
-                      f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
-                      f"for DMan picks and low-float catalysts only)")
-                if _options_was_attempted:
-                    send_telegram(
-                        f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
-                        f"Options attempted and unavailable, and shares are reserved for DMan's "
-                        f"low-float watchlist picks only. No trade placed."
-                    )
-                continue
-            else:
-                oid, _submit_err = submit_alpaca_trade(sig)
-
-        if oid:
-            if (_use_options or _use_puts) and _opt_contract:
-                _occ     = _opt_contract.get("occ_symbol", "")
-                _exp_str = _opt_contract.get("expiry", "?")
-                _strike  = _opt_contract.get("strike", 0)
-                _ask     = _opt_contract.get("ask", 0)
-                _ctrs    = _opt_contract.get("contracts", 1)
-                _delta   = _opt_contract.get("delta", 0)
-                _theta   = _opt_contract.get("theta", 0)
-                _gamma   = _opt_contract.get("gamma", 0)
-                _vega    = _opt_contract.get("vega", 0)
-                _iv      = _opt_contract.get("iv", 0)
-                _oi      = _opt_contract.get("oi", 0)
-                _bsz     = _opt_contract.get("bid_size", 0)
-                _asz     = _opt_contract.get("ask_size", 0)
-                _pc      = _opt_contract.get("pc_ratio", 1.0)
-                _flow    = _opt_contract.get("flow_label", "")
-                _dom_k   = _opt_contract.get("dominant_call_strike", 0)
-                _opt_type = _opt_contract.get("option_type", "CALL")   # CALL or PUT
-                _t1_prem = round(_ask * 1.5, 2)   # +50% premium = T1 (realistic for ITM delta 0.70)
-                _t2_prem = round(_ask * 2.5, 2)   # +150% premium = T2 (full runner)
-                _sl_prem = round(_ask * 0.50, 2)  # -50% stop
-                _theta_pct_day = abs(_theta / _ask * 100) if _ask > 0 else 0
-                _strike_dir = "P" if _opt_type == "PUT" else "C"
-
-                _tracked = pt.open(OpenPosition(
-                    ticker     = sig.ticker,
-                    bias       = "LONG" if _use_options else "SHORT",
-                    setup      = f"Options {_opt_type.title()} {_occ} (${_strike}{_strike_dir} exp {_exp_str})",
-                    entry      = _ask,
-                    stop       = _sl_prem,
-                    target1    = _t1_prem,
-                    target2    = _t2_prem,
-                    shares     = _ctrs * 100,
-                    entry_date = _et_today().isoformat(),
-                    atr        = _delta,
-                    score      = sig.confluence_score,
-                    # NOT day_only when the signal was switched to swing:
-                    # the two are contradictory and day_only used to win.
-                    # Confirmed live 2026-09-04, and it is what actually
-                    # broke the PDT budget that session: five entries were
-                    # deliberately submitted as GTC SWINGS (because the
-                    # budget was already 0/3, so an overnight hold is the
-                    # only safe kind of entry) and then _force_close_day_
-                    # only_positions() flattened three of them at 15:45 ET
-                    # anyway -- CAST, TRVI and LABT all show a market SELL
-                    # at 19:45 UTC. That turned three intended swings into
-                    # three same-day round trips, i.e. exactly the day
-                    # trades swing mode existed to avoid.
-                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
-                                  and not getattr(sig, "swing_mode", False)),
-                    # Recomputed rather than threaded down from the budget:
-                    # _elevated_size_reason() is a cheap pure check, so the
-                    # flag can never drift from the rule that actually
-                    # governs the tier. It is what MAX_ELEVATED_
-                    # POSITIONS counts, so this would silently
-                    # un-cap concurrency if it were wrong.
-                    elevated_size = _elevated_size_reason(sig) is not None,
-                ))
-                if not _tracked:
-                    print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} options order {oid[:8]}")
-                    send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} options order {oid[:8]} cancelled (portfolio full, no tracking slot available)")
-                    try:
-                        _cc = get_alpaca_client()
-                        if _cc:
-                            _cc.cancel_order_by_id(oid)
-                    except Exception as _ce:
-                        send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
-                    continue
-                submitted += 1
-                # OPRA data subscription not entitled on this account (confirmed
-                # live 2026-08-08) -- when the broker can't supply real Greeks,
-                # _find_best_call/put_contract fills delta from a Black-Scholes
-                # estimate instead of blocking the trade. Flagged here so this
-                # never reads as a real broker-quoted delta.
-                _delta_note = " (Δ est. — OPRA not entitled)" if _opt_contract.get("delta_estimated") else ""
-                _greek_str = (
-                    f"Δ {_delta:.2f}  Γ {_gamma:.4f}  θ {_theta:.3f}/d  "
-                    f"ν {_vega:.3f}  IV {_iv*100:.0f}%  OI {_oi:,}{_delta_note}"
-                )
-                _l2_str = (
-                    f"L2: bid {_bsz}×{_opt_contract.get('bid',0):.2f}  "
-                    f"ask {_asz}×{_ask:.2f}  "
-                    f"P/C {_pc:.2f} ({_flow})"
-                    + (f"  Dominant strike ${_dom_k}" if _dom_k else "")
-                )
-                _icon = "🐻" if _opt_type == "PUT" else "🎯"
-                send_telegram(
-                    f"{_icon} <b>Options order placed</b> [{mode_label}] — {sig.ticker} {_opt_type}\n"
-                    f"Contract: <b>{_occ}</b>\n"
-                    f"Strike ${_strike}  Exp {_exp_str}  ({_opt_contract.get('dte','?')}d)\n"
-                    f"Premium: ${_ask}/sh × {_ctrs}ct = <b>${_opt_contract['total_cost']:.0f}</b>  "
-                    f"(θ decay {_theta_pct_day:.1f}%/day)\n"
-                    f"T1 (+50%): ${_t1_prem}  T2 (+150%): ${_t2_prem}  Stop (-50%): ${_sl_prem}\n"
-                    f"{_greek_str}\n"
-                    f"{_l2_str}\n"
-                    f"Underlying: ${cur:.2f}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
-                )
-            else:
-                _setup_tag = ("SWING — " + sig.setup) if sig.swing_mode else sig.setup
-                _tracked = pt.open(OpenPosition(
-                    ticker     = sig.ticker,
-                    bias       = sig.bias,
-                    setup      = _setup_tag,
-                    entry      = sig.entry,
-                    stop       = sig.stop,
-                    target1    = sig.target1,
-                    target2    = sig.target2,
-                    shares     = sig.shares,
-                    entry_date = _et_today().isoformat(),
-                    atr        = sig.atr,
-                    score      = sig.confluence_score,
-                    # NOT day_only when the signal was switched to swing:
-                    # the two are contradictory and day_only used to win.
-                    # Confirmed live 2026-09-04, and it is what actually
-                    # broke the PDT budget that session: five entries were
-                    # deliberately submitted as GTC SWINGS (because the
-                    # budget was already 0/3, so an overnight hold is the
-                    # only safe kind of entry) and then _force_close_day_
-                    # only_positions() flattened three of them at 15:45 ET
-                    # anyway -- CAST, TRVI and LABT all show a market SELL
-                    # at 19:45 UTC. That turned three intended swings into
-                    # three same-day round trips, i.e. exactly the day
-                    # trades swing mode existed to avoid.
-                    day_only   = (sig.setup == MOMENTUM_DAY_ONLY_SETUP
-                                  and not getattr(sig, "swing_mode", False)),
-                ))
-                if not _tracked:
-                    print(f"  ⚠️  MAX_POSITIONS reached — cancelling {sig.ticker} order {oid[:8]}")
-                    send_telegram(f"⚠️ <b>MAX POSITIONS</b> — {sig.ticker} order {oid[:8]} cancelled (portfolio full)")
-                    try:
-                        _cc = get_alpaca_client()
-                        if _cc:
-                            _cc.cancel_order_by_id(oid)
-                    except Exception as _ce:
-                        send_telegram(f"🚨 <b>CANCEL FAILED</b> — {sig.ticker} {oid[:8]}: {_ce}. Cancel manually in Alpaca!")
-                    continue
-                submitted += 1
-                if sig.swing_mode:
-                    send_telegram(
-                        f"🔄 <b>SWING Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                        f"GTC Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1} (monitor tomorrow)\n"
-                        f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…\n"
-                        f"<i>PDT budget preserved — position held overnight, managed by momentum-watch</i>"
-                    )
-                else:
-                    send_telegram(
-                        f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                        f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
-                        f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
-                    )
-        else:
-            send_telegram(
-                f"❌ <b>Order FAILED</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                f"{_submit_err or 'Alpaca rejected the order — check GitHub Actions logs immediately.'}"
-            )
+        _skip_record_fill, submitted = _submit_path_record_fill(_opt_contract, _submit_err, _use_options, _use_puts, cur, mode_label, oid, pt, sig, submitted)
+        if _skip_record_fill:
+            continue
 
     print(f"  📤 {submitted}/{len(signals)} signal(s) submitted [{mode_label}]\n")
 
@@ -22328,6 +23092,446 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
 # ═══════════════════════════════════════════════════════════════════════════
 #  SECTION 22 — CLI ENTRY POINT
 # ═══════════════════════════════════════════════════════════════════════════
+
+def _main_mode_record(args):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    Returns: missing, tracker.
+    """
+    missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
+                               ("--exit-price", args.exit_price), ("--bias", args.bias),
+                               ("--outcome", args.outcome)] if v is None]
+    if missing:
+        print(f"  --mode record requires: {', '.join(missing)}")
+        sys.exit(1)
+    outcome = args.outcome.upper()
+    if outcome not in ("WIN", "LOSS", "BE"):
+        print("  --outcome must be WIN, LOSS, or BE")
+        sys.exit(1)
+    bias = args.bias.upper()
+    pnl_pct = ((args.exit_price - args.entry) / args.entry * 100
+               if bias == "LONG"
+               else (args.entry - args.exit_price) / args.entry * 100)
+    tracker = WinRateTracker()
+    tracker.record(TradeRecord(
+        ticker=args.ticker.upper(),
+        date=_et_today().isoformat(),
+        bias=bias,
+        setup=args.setup_name,
+        entry=args.entry,
+        exit=args.exit_price,
+        outcome=outcome,
+        pnl_pct=round(pnl_pct, 2),
+        score=0,
+        is_live=True,   # --mode record is for logging real executed trades
+    ))
+    # Close position first so we can read the share count for account-level P&L
+    closed = PositionTracker().close(args.ticker)
+    if closed is not None:
+        _record_day_trade(args.ticker.upper(),
+                          getattr(closed, "entry_date", ""),
+                          _et_today().isoformat())
+    shares_used = closed.shares if closed else (args.shares or 0)
+    if shares_used > 0:
+        dollar_pnl   = (args.exit_price - args.entry) * shares_used * (1 if bias == "LONG" else -1)
+        acct_pnl_pct = dollar_pnl / ACCOUNT_SIZE * 100
+        record_daily_pnl(acct_pnl_pct)   # account-level %, not stock price %
+    print(f"\n  ✅ Recorded: {args.ticker.upper()} {bias} "
+          f"${args.entry} → ${args.exit_price} | {outcome} ({pnl_pct:+.2f}%)\n")
+    tracker.print_report()
+    return missing, tracker
+
+
+def _main_mode_open(args):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    """
+    missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
+                               ("--bias", args.bias)] if v is None]
+    if missing:
+        print(f"  --mode open requires: {', '.join(missing)}")
+        sys.exit(1)
+    pt  = PositionTracker()
+    pos = OpenPosition(
+        ticker     = args.ticker.upper(),
+        bias       = args.bias.upper(),
+        setup      = args.setup_name or "Manual",
+        entry      = args.entry,
+        stop       = args.stop_price or 0.0,
+        target1    = args.target1    or 0.0,
+        target2    = args.target2    or 0.0,
+        shares     = args.shares     or 1,
+        entry_date = _et_today().isoformat(),
+    )
+    if pt.open(pos):
+        print(f"\n  ✅ Position logged: {pos.ticker} {pos.bias} "
+              f"{pos.shares}sh @ ${pos.entry}  stop ${pos.stop}\n")
+
+
+
+def _main_mode_watch(args, s, tickers):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    Returns: locals().get("n_fills", _REFX_UNBOUND), locals().get("s", _REFX_UNBOUND), locals().get("signals", _REFX_UNBOUND).
+    """
+    if s is _REFX_UNBOUND:
+        del s   # unassigned on this path in the caller
+    if tickers is _REFX_UNBOUND:
+        del tickers   # unassigned on this path in the caller
+    interval = args.interval
+    print(f"\n  👁  Watch mode — scanning every {interval} min during ET market hours\n"
+          f"       Press Ctrl+C to stop.\n")
+    try:
+        while True:
+            now          = datetime.now(ET)
+            market_open  = now.replace(hour=9,  minute=30, second=0, microsecond=0)
+            market_close = now.replace(hour=16, minute=0,  second=0, microsecond=0)
+
+            if now.weekday() >= 5:          # weekend
+                print(f"  Weekend — sleeping 1h...")
+                time.sleep(3600)
+                continue
+
+            if now < market_open:
+                wait = int((market_open - now).total_seconds())
+                print(f"  Pre-market — {now.strftime('%H:%M ET')} — "
+                      f"waiting {wait//60}m for open...")
+                time.sleep(min(wait, 600))
+                continue
+
+            if now > market_close:
+                print(f"  Market closed for today. Exiting watch mode.\n")
+                break
+
+            print(f"\n  ── Scan at {now.strftime('%H:%M ET')} ──")
+            _cache.clear()             # force fresh data
+            _indicator_cache.clear()   # stale indicators computed off the old raw data must not survive the clear
+            # Sync any fills that came in since last cycle
+            n_fills = sync_alpaca_fills(WinRateTracker())
+            if n_fills:
+                print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
+            signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
+            if not signals:
+                print("  No new A+ setups this scan.")
+            else:
+                print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
+                for s in signals:
+                    print_pro_signal(s)
+                if args.submit:
+                    _submit_signals_to_alpaca(signals)
+
+            next_scan = now + timedelta(minutes=interval)
+            if next_scan > market_close:
+                print("  Next scan would be after close — done for today.\n")
+                break
+            wait_sec = max(0, int((next_scan - datetime.now(ET)).total_seconds()))
+            print(f"  Next scan: {next_scan.strftime('%H:%M ET')}  "
+                  f"(sleeping {interval}m)\n")
+            time.sleep(wait_sec)
+    except KeyboardInterrupt:
+        print("\n  Watch mode stopped.\n")
+    return locals().get("n_fills", _REFX_UNBOUND), locals().get("s", _REFX_UNBOUND), locals().get("signals", _REFX_UNBOUND)
+
+
+def _main_mode_alpaca(args, n_fills, s, signals, tickers):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    Returns: locals().get("fname", _REFX_UNBOUND), n_fills, locals().get("s", _REFX_UNBOUND), signals.
+    """
+    if n_fills is _REFX_UNBOUND:
+        del n_fills   # unassigned on this path in the caller
+    if s is _REFX_UNBOUND:
+        del s   # unassigned on this path in the caller
+    if signals is _REFX_UNBOUND:
+        del signals   # unassigned on this path in the caller
+    if tickers is _REFX_UNBOUND:
+        del tickers   # unassigned on this path in the caller
+    show_alpaca_account()
+    # 2. Sync pending fills
+    tracker = WinRateTracker()
+    n_fills = sync_alpaca_fills(tracker)
+    if n_fills:
+        print(f"  📋 {n_fills} trade(s) auto-recorded\n")
+        tracker.print_report()
+    # 3. Scan + validate + submit
+    signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
+    if not signals:
+        print("  No A+ setups — nothing to submit.\n")
+    else:
+        print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
+        for s in signals:
+            print_pro_signal(s)
+        if args.submit:
+            _submit_signals_to_alpaca(signals)
+        else:
+            print("  [dry-run] Pass --submit to place live orders.\n")
+        if args.export:
+            fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
+            _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
+            print(f"  💾 Signals exported to {fname}\n")
+    return locals().get("fname", _REFX_UNBOUND), n_fills, locals().get("s", _REFX_UNBOUND), signals
+
+
+def _main_mode_readiness():
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    """
+    run_readiness_scan()
+    # Weekly news-keyword freshness check (2026-08-21) — runs alongside
+    # the existing Sunday readiness scan rather than its own separate
+    # cron, same "get ready for the week ahead" moment. Never blocks or
+    # fails the readiness scan itself — see the function's own
+    # fail-open contract.
+    try:
+        _kw_suggestion = check_news_keyword_freshness()
+        if _kw_suggestion and _kw_suggestion.strip().lower() != "no gaps found.":
+            send_telegram(
+                "🔎 <b>Weekly news-keyword review</b>\n"
+                f"{_kw_suggestion}\n\n"
+                "Suggestions only — nothing was changed automatically."
+            )
+    except Exception as _kw_exc:
+        print(f"  ⚠️  News-keyword freshness check failed (non-fatal): {_kw_exc}")
+
+
+
+def _scan_mode_fomc_breakout_window(t_str):
+    """Extracted verbatim from _main_mode_scan() on 2026-09-14 (refx).
+    """
+    _lift_day2 = "soon"
+    for _doff2 in range(1, 8):
+        _ck2 = _et_today() + timedelta(days=_doff2)
+        if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
+            continue
+        if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
+            _lift_day2 = _ck2.strftime("%a %b %d")
+            break
+    _rs_summary = ""
+    try:
+        _spy_df2 = fetch_df("SPY")
+        if _spy_df2 is not None and len(_spy_df2) >= 1:
+            _spy_row2 = _spy_df2.iloc[-1]
+            _spy_day_chg = (float(_spy_row2["Close"]) - float(_spy_row2["Open"])) / float(_spy_row2["Open"]) * 100
+        else:
+            _spy_day_chg = 0.0
+        _rs_all2: list[tuple[str, float, float]] = []
+        for _rs_t2 in WATCHLIST[:35]:
+            try:
+                _rs_df2 = fetch_df(_rs_t2)
+                if _rs_df2 is None or len(_rs_df2) < 1:
+                    continue
+                _rs_row3 = _rs_df2.iloc[-1]
+                _rs_chg2 = (float(_rs_row3["Close"]) - float(_rs_row3["Open"])) / float(_rs_row3["Open"]) * 100
+                _rs_all2.append((_rs_t2, _rs_chg2, _rs_chg2 - _spy_day_chg))
+            except Exception:
+                continue
+        _rs_all2.sort(key=lambda x: x[2], reverse=True)
+        _ldr = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[:3]) or "—"
+        _lag = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[-3:][::-1]) if len(_rs_all2) >= 3 else "—"
+        _rs_summary = (
+            f"\nSPY: {_spy_day_chg:+.1f}% today"
+            f"\nRS leaders → watch {_lift_day2}: {_ldr}"
+            f"\nRS laggards: {_lag}"
+        )
+    except Exception:
+        pass
+    send_telegram(
+        f"📊 <b>DMan</b> {t_str} — FOMC reaction wrap 🔒\n"
+        f"Blackout lifts: <b>{_lift_day2}</b>"
+        f"{_rs_summary}"
+    )
+
+
+
+def _scan_mode_quiet_heartbeat(_hb_bt_str, _hb_counts, _hb_hhmm, _hb_nm_str, _hb_r, _hb_rs, t_str):
+    """Extracted verbatim from _main_mode_scan() on 2026-09-14 (refx).
+    """
+    _spy_ctx = ""
+    try:
+        _spy_hb = fetch_df("SPY")
+        if _spy_hb is not None and len(_spy_hb) >= 2:
+            _spy_c2  = float(_spy_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-1]["Close"], "iloc") else float(_spy_hb.iloc[-1]["Close"])
+            _spy_pc2 = float(_spy_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-2]["Close"], "iloc") else float(_spy_hb.iloc[-2]["Close"])
+            _spy_net2 = (_spy_c2 - _spy_pc2) / _spy_pc2 * 100
+            if _spy_net2 <= -1.0:
+                _xlk_net2 = 0.0
+                try:
+                    _xlk_hb = fetch_df("XLK")
+                    if _xlk_hb is not None and len(_xlk_hb) >= 2:
+                        _xlk_c2  = float(_xlk_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-1]["Close"], "iloc") else float(_xlk_hb.iloc[-1]["Close"])
+                        _xlk_pc2 = float(_xlk_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-2]["Close"], "iloc") else float(_xlk_hb.iloc[-2]["Close"])
+                        _xlk_net2 = (_xlk_c2 - _xlk_pc2) / _xlk_pc2 * 100
+                except Exception:
+                    pass
+                _spy_ctx = f"\n📉 SPY {_spy_net2:+.1f}%"
+                if _xlk_net2 <= -1.5:
+                    _spy_ctx += f" | XLK {_xlk_net2:+.1f}% — sector selloff, standing down on longs"
+                else:
+                    _spy_ctx += " — market weak, no long setups"
+    except Exception:
+        pass
+
+    # End-of-day scan — 4 PM close only
+    # • Recovery watch: names down >5% today → potential bounce candidates tomorrow
+    # • Intraday momentum: names up >5% intraday AND held into close → watch for
+    #   follow-through gap next morning (captures TSLA-style no-gap run days)
+    _eod_watch = ""
+    if 1550 <= _hb_hhmm <= 1615:
+        try:
+            _eod_losers:  list[tuple[str, float]] = []
+            _eod_runners: list[tuple[str, float]] = []
+            for _eod_t in WATCHLIST[:35]:
+                try:
+                    _eod_df = fetch_df(_eod_t)
+                    if _eod_df is None or len(_eod_df) < 2:
+                        continue
+                    _eod_row = _eod_df.iloc[-1]
+                    _eod_prv = _eod_df.iloc[-2]
+                    _eod_c   = float(_eod_row["Close"].iloc[0]) if hasattr(_eod_row["Close"], "iloc") else float(_eod_row["Close"])
+                    _eod_o   = float(_eod_row["Open"].iloc[0])  if hasattr(_eod_row["Open"],  "iloc") else float(_eod_row["Open"])
+                    _eod_pc  = float(_eod_prv["Close"].iloc[0]) if hasattr(_eod_prv["Close"], "iloc") else float(_eod_prv["Close"])
+                    _eod_net   = (_eod_c - _eod_pc) / _eod_pc * 100
+                    _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
+                    if _eod_net <= -5.0:
+                        _eod_losers.append((_eod_t, _eod_net))
+                    if _eod_intra >= 4.0 and _eod_net >= 3.0:
+                        _eod_runners.append((_eod_t, _eod_intra))
+                except Exception:
+                    continue
+            _eod_losers.sort(key=lambda x: x[1])
+            _eod_runners.sort(key=lambda x: x[1], reverse=True)
+            if len(_eod_losers) >= 3:
+                _eod_watch += (
+                    f"\n⚠️ <b>Sector flush</b> — {len(_eod_losers)} names down 5%+: "
+                    f"watch for gap-down continuation or reversal bounce tomorrow"
+                )
+            if _eod_losers:
+                _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
+                    f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
+                )
+            if _eod_runners:
+                _eod_watch += "\n🔥 Intraday momentum — watch for gap tomorrow: " + " | ".join(
+                    f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_runners[:3]
+                )
+        except Exception:
+            pass
+
+    send_telegram(
+        f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
+        f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
+        f"{_hb_nm_str}"
+        f"{_hb_bt_str}"
+        f"{_spy_ctx}"
+        f"{_eod_watch}"
+    )
+
+    # 4 PM only: send live account P&L summary to Telegram
+    if 1550 <= _hb_hhmm <= 1615 and not ALPACA_PAPER:
+        send_account_pnl_telegram(label="EOD")
+
+
+
+def _main_mode_scan(args, tickers):
+    """Extracted verbatim from main() on 2026-09-14 (refx).
+    """
+    if tickers is _REFX_UNBOUND:
+        del tickers   # unassigned on this path in the caller
+    try:
+        _force_close_day_only_positions()
+    except Exception as _fc_exc:
+        print(f"  ⚠️  Day-only force-close check failed (non-fatal): {_fc_exc}")
+
+    # Sync Alpaca fills first so PositionTracker is current before we submit
+    if args.submit and ALPACA_API_KEY:
+        _sync_tracker = WinRateTracker()
+        n_fills = sync_alpaca_fills(_sync_tracker)
+        if n_fills:
+            print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
+
+    signals = run_pro_scanner(tickers,
+                               min_score=args.score,
+                               use_ai=args.ai,
+                               universe_label=args.universe)
+    if not signals:
+        print("  No A+ setups today. The filters are working —")
+        print("  D🔥man waits for the PERFECT setup, not just any setup.\n")
+    else:
+        print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
+        for s in signals:
+            print_pro_signal(s)
+        if args.submit:
+            _submit_signals_to_alpaca(signals)
+        if args.export:
+            fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
+            _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
+            print(f"  💾 Signals exported to {fname}\n")
+
+    # Safety EOD P&L — fires on the 3:30 PM scan as a belt-and-suspenders backup
+    # in case the dedicated 4 PM cron is delayed past the market-hours gate.
+    _eod_t = datetime.now(ET).hour * 100 + datetime.now(ET).minute
+    if 1525 <= _eod_t <= 1600:
+        print("\n  [EOD] Final scan window — sending P&L summary...")
+        send_account_pnl_telegram("EOD")
+
+    # Meta-watchdog belt-and-suspenders — see _check_and_heal_watchdog()'s
+    # docstring for the 2026-08-17 incident this closes. Never let this
+    # block or fail the actual scan.
+    try:
+        _check_and_heal_watchdog()
+    except Exception:
+        pass
+
+    # Scan heartbeat — include regime context so user knows why it's quiet
+    # get_market_regime() is cheap here because fetch_df() hits the in-memory cache
+    t_str = datetime.now(ET).strftime("%I:%M %p")
+    _hb_regime = get_market_regime()
+    _hb_r  = _hb_regime.get("regime", "?")
+    _hb_rs = _hb_regime.get("score", "?")
+    _hb_meta  = _last_scan_meta
+    _hb_rej   = _hb_meta.get("rejected", {})
+    _hb_total = _hb_meta.get("tickers_total", 0)
+    _hb_gate  = _hb_rej.get("hard_gate", 0)
+    _hb_score = _hb_rej.get("low_score", 0)
+    _hb_nm_list = _hb_meta.get("near_misses", [])
+    _hb_bt_list = _hb_meta.get("b_tier", [])
+    _hb_counts = (f"{_hb_total} scanned"
+                  + (f" | {_hb_gate} gate-blocked" if _hb_gate else "")
+                  + (f" | {_hb_score} score-short" if _hb_score else ""))
+    _hb_nm_str = ""
+    if _hb_nm_list:
+        _hb_nm_str = "\nNear-miss: " + " | ".join(
+            f"<b>{_t}</b> +{_g:.1f}% → {_b}" for _t, _g, _b in _hb_nm_list
+        )
+    _hb_bt_str = ""
+    if _hb_bt_list:
+        _bt_lines = []
+        for _bt in _hb_bt_list:
+            _bt_lines.append(
+                f"📋 <b>{_bt['ticker']}</b> +{_bt['gap']:.1f}%  RVOL {_bt['rvol']:.1f}x  "
+                f"({_bt['reason']})\n"
+                f"   Manual: entry ~${_bt['entry']}  stop ${_bt['stop']}  T1 ${_bt['t1']}"
+            )
+        _hb_bt_str = "\n\n<b>WATCH — manual entries available:</b>\n" + "\n".join(_bt_lines)
+    if signals:
+        send_telegram(
+            f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
+            f"Regime: {_hb_r} ({_hb_rs}/19)"
+        )
+    else:
+        _fomc_bkout = any(abs((ev - _et_today()).days) <= MACRO_BLACKOUT
+                          for ev in _FOMC_DATES)
+        _hb_hhmm = datetime.now(ET).hour * 100 + datetime.now(ET).minute
+        if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
+            # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
+            # after the 2 PM ET announcement when initial reaction has settled
+            _scan_mode_fomc_breakout_window(t_str)
+        elif _fomc_bkout:
+            send_telegram(
+                f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
+                f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
+                f"{_hb_nm_str}"
+            )
+        else:
+            # Down-day context — warn when market is selling off so user
+            # knows silence is intentional, not a scanner issue
+            _scan_mode_quiet_heartbeat(_hb_bt_str, _hb_counts, _hb_hhmm, _hb_nm_str, _hb_r, _hb_rs, t_str)
+
+
 
 def main():
     if hasattr(sys.stdout, "reconfigure"):
@@ -22485,47 +23689,7 @@ def main():
     """)
 
     if args.mode == "record":
-        missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
-                                   ("--exit-price", args.exit_price), ("--bias", args.bias),
-                                   ("--outcome", args.outcome)] if v is None]
-        if missing:
-            print(f"  --mode record requires: {', '.join(missing)}")
-            sys.exit(1)
-        outcome = args.outcome.upper()
-        if outcome not in ("WIN", "LOSS", "BE"):
-            print("  --outcome must be WIN, LOSS, or BE")
-            sys.exit(1)
-        bias = args.bias.upper()
-        pnl_pct = ((args.exit_price - args.entry) / args.entry * 100
-                   if bias == "LONG"
-                   else (args.entry - args.exit_price) / args.entry * 100)
-        tracker = WinRateTracker()
-        tracker.record(TradeRecord(
-            ticker=args.ticker.upper(),
-            date=_et_today().isoformat(),
-            bias=bias,
-            setup=args.setup_name,
-            entry=args.entry,
-            exit=args.exit_price,
-            outcome=outcome,
-            pnl_pct=round(pnl_pct, 2),
-            score=0,
-            is_live=True,   # --mode record is for logging real executed trades
-        ))
-        # Close position first so we can read the share count for account-level P&L
-        closed = PositionTracker().close(args.ticker)
-        if closed is not None:
-            _record_day_trade(args.ticker.upper(),
-                              getattr(closed, "entry_date", ""),
-                              _et_today().isoformat())
-        shares_used = closed.shares if closed else (args.shares or 0)
-        if shares_used > 0:
-            dollar_pnl   = (args.exit_price - args.entry) * shares_used * (1 if bias == "LONG" else -1)
-            acct_pnl_pct = dollar_pnl / ACCOUNT_SIZE * 100
-            record_daily_pnl(acct_pnl_pct)   # account-level %, not stock price %
-        print(f"\n  ✅ Recorded: {args.ticker.upper()} {bias} "
-              f"${args.entry} → ${args.exit_price} | {outcome} ({pnl_pct:+.2f}%)\n")
-        tracker.print_report()
+        missing, tracker = _main_mode_record(args)
 
     elif args.mode == "stocktwits":
         run_stocktwits_monitor()
@@ -22583,83 +23747,19 @@ def main():
         PositionTracker().show()
 
     elif args.mode == "open":
-        missing = [f for f, v in [("--ticker", args.ticker), ("--entry", args.entry),
-                                   ("--bias", args.bias)] if v is None]
-        if missing:
-            print(f"  --mode open requires: {', '.join(missing)}")
-            sys.exit(1)
-        pt  = PositionTracker()
-        pos = OpenPosition(
-            ticker     = args.ticker.upper(),
-            bias       = args.bias.upper(),
-            setup      = args.setup_name or "Manual",
-            entry      = args.entry,
-            stop       = args.stop_price or 0.0,
-            target1    = args.target1    or 0.0,
-            target2    = args.target2    or 0.0,
-            shares     = args.shares     or 1,
-            entry_date = _et_today().isoformat(),
-        )
-        if pt.open(pos):
-            print(f"\n  ✅ Position logged: {pos.ticker} {pos.bias} "
-                  f"{pos.shares}sh @ ${pos.entry}  stop ${pos.stop}\n")
+        _main_mode_open(args)
 
     elif args.mode == "rank":
         run_ranking(tickers, min_score=args.score)
 
     elif args.mode == "watch":
-        interval = args.interval
-        print(f"\n  👁  Watch mode — scanning every {interval} min during ET market hours\n"
-              f"       Press Ctrl+C to stop.\n")
-        try:
-            while True:
-                now          = datetime.now(ET)
-                market_open  = now.replace(hour=9,  minute=30, second=0, microsecond=0)
-                market_close = now.replace(hour=16, minute=0,  second=0, microsecond=0)
-
-                if now.weekday() >= 5:          # weekend
-                    print(f"  Weekend — sleeping 1h...")
-                    time.sleep(3600)
-                    continue
-
-                if now < market_open:
-                    wait = int((market_open - now).total_seconds())
-                    print(f"  Pre-market — {now.strftime('%H:%M ET')} — "
-                          f"waiting {wait//60}m for open...")
-                    time.sleep(min(wait, 600))
-                    continue
-
-                if now > market_close:
-                    print(f"  Market closed for today. Exiting watch mode.\n")
-                    break
-
-                print(f"\n  ── Scan at {now.strftime('%H:%M ET')} ──")
-                _cache.clear()             # force fresh data
-                _indicator_cache.clear()   # stale indicators computed off the old raw data must not survive the clear
-                # Sync any fills that came in since last cycle
-                n_fills = sync_alpaca_fills(WinRateTracker())
-                if n_fills:
-                    print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
-                signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
-                if not signals:
-                    print("  No new A+ setups this scan.")
-                else:
-                    print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
-                    for s in signals:
-                        print_pro_signal(s)
-                    if args.submit:
-                        _submit_signals_to_alpaca(signals)
-
-                next_scan = now + timedelta(minutes=interval)
-                if next_scan > market_close:
-                    print("  Next scan would be after close — done for today.\n")
-                    break
-                wait_sec = max(0, int((next_scan - datetime.now(ET)).total_seconds()))
-                print(f"  Next scan: {next_scan.strftime('%H:%M ET')}  "
-                      f"(sleeping {interval}m)\n")
-                time.sleep(wait_sec)
-        except KeyboardInterrupt:
-            print("\n  Watch mode stopped.\n")
+        _o_n_fills, _o_s, _o_signals = _main_mode_watch(args, locals().get("s", _REFX_UNBOUND), locals().get("tickers", _REFX_UNBOUND))
+        if _o_n_fills is not _REFX_UNBOUND:
+            n_fills = _o_n_fills
+        if _o_s is not _REFX_UNBOUND:
+            s = _o_s
+        if _o_signals is not _REFX_UNBOUND:
+            signals = _o_signals
 
     elif args.mode == "sync":
         tracker  = WinRateTracker()
@@ -22670,29 +23770,11 @@ def main():
 
     elif args.mode == "alpaca":
         # 1. Show account dashboard
-        show_alpaca_account()
-        # 2. Sync pending fills
-        tracker = WinRateTracker()
-        n_fills = sync_alpaca_fills(tracker)
-        if n_fills:
-            print(f"  📋 {n_fills} trade(s) auto-recorded\n")
-            tracker.print_report()
-        # 3. Scan + validate + submit
-        signals = run_pro_scanner(tickers, min_score=args.score, use_ai=args.ai)
-        if not signals:
-            print("  No A+ setups — nothing to submit.\n")
-        else:
-            print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
-            for s in signals:
-                print_pro_signal(s)
-            if args.submit:
-                _submit_signals_to_alpaca(signals)
-            else:
-                print("  [dry-run] Pass --submit to place live orders.\n")
-            if args.export:
-                fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
-                _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
-                print(f"  💾 Signals exported to {fname}\n")
+        _o_fname, n_fills, _o_s, signals = _main_mode_alpaca(args, locals().get("n_fills", _REFX_UNBOUND), locals().get("s", _REFX_UNBOUND), locals().get("signals", _REFX_UNBOUND), locals().get("tickers", _REFX_UNBOUND))
+        if _o_fname is not _REFX_UNBOUND:
+            fname = _o_fname
+        if _o_s is not _REFX_UNBOUND:
+            s = _o_s
 
     elif args.mode == "live-outcomes":
         print(f"\n{'═'*60}")
@@ -22726,22 +23808,7 @@ def main():
         print_scan_log()
 
     elif args.mode == "readiness":
-        run_readiness_scan()
-        # Weekly news-keyword freshness check (2026-08-21) — runs alongside
-        # the existing Sunday readiness scan rather than its own separate
-        # cron, same "get ready for the week ahead" moment. Never blocks or
-        # fails the readiness scan itself — see the function's own
-        # fail-open contract.
-        try:
-            _kw_suggestion = check_news_keyword_freshness()
-            if _kw_suggestion and _kw_suggestion.strip().lower() != "no gaps found.":
-                send_telegram(
-                    "🔎 <b>Weekly news-keyword review</b>\n"
-                    f"{_kw_suggestion}\n\n"
-                    "Suggestions only — nothing was changed automatically."
-                )
-        except Exception as _kw_exc:
-            print(f"  ⚠️  News-keyword freshness check failed (non-fatal): {_kw_exc}")
+        _main_mode_readiness()
 
     elif args.mode == "scan":
         # Day-only EOD close redundancy. run_momentum_watch() owns this
@@ -22754,227 +23821,7 @@ def main():
         # either). The function is time-gated and dedup-guarded, so on
         # every scan before 3:45 PM this is a cheap no-op. Never let it
         # block the actual scan.
-        try:
-            _force_close_day_only_positions()
-        except Exception as _fc_exc:
-            print(f"  ⚠️  Day-only force-close check failed (non-fatal): {_fc_exc}")
-
-        # Sync Alpaca fills first so PositionTracker is current before we submit
-        if args.submit and ALPACA_API_KEY:
-            _sync_tracker = WinRateTracker()
-            n_fills = sync_alpaca_fills(_sync_tracker)
-            if n_fills:
-                print(f"  📋 {n_fills} trade(s) auto-recorded from Alpaca fills")
-
-        signals = run_pro_scanner(tickers,
-                                   min_score=args.score,
-                                   use_ai=args.ai,
-                                   universe_label=args.universe)
-        if not signals:
-            print("  No A+ setups today. The filters are working —")
-            print("  D🔥man waits for the PERFECT setup, not just any setup.\n")
-        else:
-            print(f"{'─'*68}\n  A+ SIGNALS\n{'─'*68}\n")
-            for s in signals:
-                print_pro_signal(s)
-            if args.submit:
-                _submit_signals_to_alpaca(signals)
-            if args.export:
-                fname = f"dman_signals_{datetime.today().strftime('%Y-%m-%d')}.json"
-                _write_json_atomic(fname, [asdict(s) for s in signals], indent=2)
-                print(f"  💾 Signals exported to {fname}\n")
-
-        # Safety EOD P&L — fires on the 3:30 PM scan as a belt-and-suspenders backup
-        # in case the dedicated 4 PM cron is delayed past the market-hours gate.
-        _eod_t = datetime.now(ET).hour * 100 + datetime.now(ET).minute
-        if 1525 <= _eod_t <= 1600:
-            print("\n  [EOD] Final scan window — sending P&L summary...")
-            send_account_pnl_telegram("EOD")
-
-        # Meta-watchdog belt-and-suspenders — see _check_and_heal_watchdog()'s
-        # docstring for the 2026-08-17 incident this closes. Never let this
-        # block or fail the actual scan.
-        try:
-            _check_and_heal_watchdog()
-        except Exception:
-            pass
-
-        # Scan heartbeat — include regime context so user knows why it's quiet
-        # get_market_regime() is cheap here because fetch_df() hits the in-memory cache
-        t_str = datetime.now(ET).strftime("%I:%M %p")
-        _hb_regime = get_market_regime()
-        _hb_r  = _hb_regime.get("regime", "?")
-        _hb_rs = _hb_regime.get("score", "?")
-        _hb_meta  = _last_scan_meta
-        _hb_rej   = _hb_meta.get("rejected", {})
-        _hb_total = _hb_meta.get("tickers_total", 0)
-        _hb_gate  = _hb_rej.get("hard_gate", 0)
-        _hb_score = _hb_rej.get("low_score", 0)
-        _hb_nm_list = _hb_meta.get("near_misses", [])
-        _hb_bt_list = _hb_meta.get("b_tier", [])
-        _hb_counts = (f"{_hb_total} scanned"
-                      + (f" | {_hb_gate} gate-blocked" if _hb_gate else "")
-                      + (f" | {_hb_score} score-short" if _hb_score else ""))
-        _hb_nm_str = ""
-        if _hb_nm_list:
-            _hb_nm_str = "\nNear-miss: " + " | ".join(
-                f"<b>{_t}</b> +{_g:.1f}% → {_b}" for _t, _g, _b in _hb_nm_list
-            )
-        _hb_bt_str = ""
-        if _hb_bt_list:
-            _bt_lines = []
-            for _bt in _hb_bt_list:
-                _bt_lines.append(
-                    f"📋 <b>{_bt['ticker']}</b> +{_bt['gap']:.1f}%  RVOL {_bt['rvol']:.1f}x  "
-                    f"({_bt['reason']})\n"
-                    f"   Manual: entry ~${_bt['entry']}  stop ${_bt['stop']}  T1 ${_bt['t1']}"
-                )
-            _hb_bt_str = "\n\n<b>WATCH — manual entries available:</b>\n" + "\n".join(_bt_lines)
-        if signals:
-            send_telegram(
-                f"🔍 <b>DMan</b> {t_str} — {len(signals)} signal(s) fired\n"
-                f"Regime: {_hb_r} ({_hb_rs}/19)"
-            )
-        else:
-            _fomc_bkout = any(abs((ev - _et_today()).days) <= MACRO_BLACKOUT
-                              for ev in _FOMC_DATES)
-            _hb_hhmm = datetime.now(ET).hour * 100 + datetime.now(ET).minute
-            if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
-                # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
-                # after the 2 PM ET announcement when initial reaction has settled
-                _lift_day2 = "soon"
-                for _doff2 in range(1, 8):
-                    _ck2 = _et_today() + timedelta(days=_doff2)
-                    if _ck2.weekday() >= 5 or _ck2 in _MARKET_HOLIDAYS:
-                        continue
-                    if all(abs((ev - _ck2).days) > MACRO_BLACKOUT for ev in _FOMC_DATES):
-                        _lift_day2 = _ck2.strftime("%a %b %d")
-                        break
-                _rs_summary = ""
-                try:
-                    _spy_df2 = fetch_df("SPY")
-                    if _spy_df2 is not None and len(_spy_df2) >= 1:
-                        _spy_row2 = _spy_df2.iloc[-1]
-                        _spy_day_chg = (float(_spy_row2["Close"]) - float(_spy_row2["Open"])) / float(_spy_row2["Open"]) * 100
-                    else:
-                        _spy_day_chg = 0.0
-                    _rs_all2: list[tuple[str, float, float]] = []
-                    for _rs_t2 in WATCHLIST[:35]:
-                        try:
-                            _rs_df2 = fetch_df(_rs_t2)
-                            if _rs_df2 is None or len(_rs_df2) < 1:
-                                continue
-                            _rs_row3 = _rs_df2.iloc[-1]
-                            _rs_chg2 = (float(_rs_row3["Close"]) - float(_rs_row3["Open"])) / float(_rs_row3["Open"]) * 100
-                            _rs_all2.append((_rs_t2, _rs_chg2, _rs_chg2 - _spy_day_chg))
-                        except Exception:
-                            continue
-                    _rs_all2.sort(key=lambda x: x[2], reverse=True)
-                    _ldr = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[:3]) or "—"
-                    _lag = " | ".join(f"<b>{t}</b> {c:+.1f}%" for t, c, r in _rs_all2[-3:][::-1]) if len(_rs_all2) >= 3 else "—"
-                    _rs_summary = (
-                        f"\nSPY: {_spy_day_chg:+.1f}% today"
-                        f"\nRS leaders → watch {_lift_day2}: {_ldr}"
-                        f"\nRS laggards: {_lag}"
-                    )
-                except Exception:
-                    pass
-                send_telegram(
-                    f"📊 <b>DMan</b> {t_str} — FOMC reaction wrap 🔒\n"
-                    f"Blackout lifts: <b>{_lift_day2}</b>"
-                    f"{_rs_summary}"
-                )
-            elif _fomc_bkout:
-                send_telegram(
-                    f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
-                    f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
-                    f"{_hb_nm_str}"
-                )
-            else:
-                # Down-day context — warn when market is selling off so user
-                # knows silence is intentional, not a scanner issue
-                _spy_ctx = ""
-                try:
-                    _spy_hb = fetch_df("SPY")
-                    if _spy_hb is not None and len(_spy_hb) >= 2:
-                        _spy_c2  = float(_spy_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-1]["Close"], "iloc") else float(_spy_hb.iloc[-1]["Close"])
-                        _spy_pc2 = float(_spy_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_spy_hb.iloc[-2]["Close"], "iloc") else float(_spy_hb.iloc[-2]["Close"])
-                        _spy_net2 = (_spy_c2 - _spy_pc2) / _spy_pc2 * 100
-                        if _spy_net2 <= -1.0:
-                            _xlk_net2 = 0.0
-                            try:
-                                _xlk_hb = fetch_df("XLK")
-                                if _xlk_hb is not None and len(_xlk_hb) >= 2:
-                                    _xlk_c2  = float(_xlk_hb.iloc[-1]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-1]["Close"], "iloc") else float(_xlk_hb.iloc[-1]["Close"])
-                                    _xlk_pc2 = float(_xlk_hb.iloc[-2]["Close"].iloc[0]) if hasattr(_xlk_hb.iloc[-2]["Close"], "iloc") else float(_xlk_hb.iloc[-2]["Close"])
-                                    _xlk_net2 = (_xlk_c2 - _xlk_pc2) / _xlk_pc2 * 100
-                            except Exception:
-                                pass
-                            _spy_ctx = f"\n📉 SPY {_spy_net2:+.1f}%"
-                            if _xlk_net2 <= -1.5:
-                                _spy_ctx += f" | XLK {_xlk_net2:+.1f}% — sector selloff, standing down on longs"
-                            else:
-                                _spy_ctx += " — market weak, no long setups"
-                except Exception:
-                    pass
-
-                # End-of-day scan — 4 PM close only
-                # • Recovery watch: names down >5% today → potential bounce candidates tomorrow
-                # • Intraday momentum: names up >5% intraday AND held into close → watch for
-                #   follow-through gap next morning (captures TSLA-style no-gap run days)
-                _eod_watch = ""
-                if 1550 <= _hb_hhmm <= 1615:
-                    try:
-                        _eod_losers:  list[tuple[str, float]] = []
-                        _eod_runners: list[tuple[str, float]] = []
-                        for _eod_t in WATCHLIST[:35]:
-                            try:
-                                _eod_df = fetch_df(_eod_t)
-                                if _eod_df is None or len(_eod_df) < 2:
-                                    continue
-                                _eod_row = _eod_df.iloc[-1]
-                                _eod_prv = _eod_df.iloc[-2]
-                                _eod_c   = float(_eod_row["Close"].iloc[0]) if hasattr(_eod_row["Close"], "iloc") else float(_eod_row["Close"])
-                                _eod_o   = float(_eod_row["Open"].iloc[0])  if hasattr(_eod_row["Open"],  "iloc") else float(_eod_row["Open"])
-                                _eod_pc  = float(_eod_prv["Close"].iloc[0]) if hasattr(_eod_prv["Close"], "iloc") else float(_eod_prv["Close"])
-                                _eod_net   = (_eod_c - _eod_pc) / _eod_pc * 100
-                                _eod_intra = (_eod_c - _eod_o)  / _eod_o  * 100
-                                if _eod_net <= -5.0:
-                                    _eod_losers.append((_eod_t, _eod_net))
-                                if _eod_intra >= 4.0 and _eod_net >= 3.0:
-                                    _eod_runners.append((_eod_t, _eod_intra))
-                            except Exception:
-                                continue
-                        _eod_losers.sort(key=lambda x: x[1])
-                        _eod_runners.sort(key=lambda x: x[1], reverse=True)
-                        if len(_eod_losers) >= 3:
-                            _eod_watch += (
-                                f"\n⚠️ <b>Sector flush</b> — {len(_eod_losers)} names down 5%+: "
-                                f"watch for gap-down continuation or reversal bounce tomorrow"
-                            )
-                        if _eod_losers:
-                            _eod_watch += "\n👀 Recovery watch tomorrow: " + " | ".join(
-                                f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_losers[:4]
-                            )
-                        if _eod_runners:
-                            _eod_watch += "\n🔥 Intraday momentum — watch for gap tomorrow: " + " | ".join(
-                                f"<b>{t}</b> {c:+.1f}%" for t, c in _eod_runners[:3]
-                            )
-                    except Exception:
-                        pass
-
-                send_telegram(
-                    f"🔍 <b>DMan</b> {t_str} — quiet ✅\n"
-                    f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"
-                    f"{_hb_nm_str}"
-                    f"{_hb_bt_str}"
-                    f"{_spy_ctx}"
-                    f"{_eod_watch}"
-                )
-
-                # 4 PM only: send live account P&L summary to Telegram
-                if 1550 <= _hb_hhmm <= 1615 and not ALPACA_PAPER:
-                    send_account_pnl_telegram(label="EOD")
+        _main_mode_scan(args, locals().get("tickers", _REFX_UNBOUND))
 
 
 if __name__ == "__main__":

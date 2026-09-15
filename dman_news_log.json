@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:07.226659-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop Insiders Buy: Ryan Cohen&#39;s GME Stake Nears $800 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:07.227507-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Reported September 10, Gamestop CEO Ryan Cohen Buys 1M Shares At Average Price Of $20.38 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:07.228192-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop Reopens Stores Days After Q2 Revenue Beat \u2014 Here&#39;s What&#39;s Happening",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:07.228841-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Oracle, Adobe, RH, Copart and GameStop: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:07.481102-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Trump&#39;s Surgeon General Pick Has Tobacco, Cola Stocks In Portfolio Even as Robert Kennedy Jr. Wages War On Sugary Drinks, Processed Food",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:07.703607-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Raymond James Initiates Coverage On Rocket Lab with Outperform Rating, Announces Price Target of $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:07.704480-04:00",
     "symbols": [
       "RKLB"
@@ -5108,6 +5048,66 @@
       "VEEA"
     ],
     "headline": "Veea Shares Halted On Circuit Breaker To The Upside, Stock Now Up 172.05%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T10:02:23.659048-04:00",
+    "symbols": [
+      "PDSB"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:02:24.971344-04:00",
+    "symbols": [
+      "RLGT"
+    ],
+    "headline": "Radiant Logistics, Waystar, Forgent Power Solutions And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:02:26.322563-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "Radiant Logistics, Waystar, Forgent Power Solutions And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:02:26.572452-04:00",
+    "symbols": [
+      "RCKT"
+    ],
+    "headline": "Rocket Pharmaceuticals Aligned With FDA on Continued Enrollment and Dosing and key elements of Phase 2 trial of RP-A501 for Danon disease",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:02:27.077266-04:00",
+    "symbols": [
+      "MAIA"
+    ],
+    "headline": "MAIA Biotechnology CEO Vlad Vitoc Buys 73K Shares At An Average Price Of $1.37 Per Share; Board Member Ramiro Guerrero Buys 185,078 Shares At An Average Price Of $1.36 Per Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:03:32.042413-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "Veea Shares Resume Trading",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

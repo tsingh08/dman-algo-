@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:51.792219-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla\u2019s Cybercab \u2018Held Me Hostage for an Hour,\u2019 Rider Says \u2014 This Cybercab Limitation Just Turned a Short Austin Trip Into 70-Minute Detour",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T09:37:51.796654-04:00",
     "symbols": [
       "TSLA"
@@ -5046,5 +5036,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:37:06.348433-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#34;The Trump Administration Is Preparing A Multibillion-Dollar Sale Of 2,000-Pound Bombs To Israel In The Largest Single Sale Of The Controversial Munition In Recent Years&#34; - Washington Post",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

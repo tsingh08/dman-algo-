@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:13.270499-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron CEO Speaking At Energy Symposium Says Early Buffers In Oil Market Have &#39;Played Out&#39;, Price Risk From Iran War Is Now Higher",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:13.271331-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Trump&#39;s Surgeon General Pick Has Tobacco, Cola Stocks In Portfolio Even as Robert Kennedy Jr. Wages War On Sugary Drinks, Processed Food",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:13.548201-04:00",
     "symbols": [
       "OXY"
@@ -5112,6 +5092,30 @@
       "SPY"
     ],
     "headline": "U.S. Treasury&#39;s Bessent Says At Deficit-To-GDP Ratio Of 3%, We Can Start To Pay Down Debt; We Would Have Continued Fiscal Contraction This Year If Not For Tariff Redfunds",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:48:37.435659-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury&#39;s Bessent Says Will Continue To Push For Transparency In Debt Restructuring In Light Of Hidden China Debt Provisions; Dollar Continues To Thrive As Reserve Currency, Transaction Volume In Dollars Has Risen; Decrease In Reserve Holdings Of Dollars Is Mainly From Russia And China; Strong Dollar Is A Set Of Behaviors, Including Regulatory, Tax, Trade, Energy Certainty",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:50:06.978456-04:00",
+    "symbols": [
+      "CEG",
+      "ETN",
+      "GEV",
+      "NVDA",
+      "VST"
+    ],
+    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

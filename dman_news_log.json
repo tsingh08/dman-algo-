@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:55.026550-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly To Present New Data Across Its Cardiometabolic Health Portfolio At The Annual Meeting of the European Association for the Study of Diabetes; Results From TRIUMPH-2 Showed Investigational Triple Hormone Receptor Agonist Retatrutide Delivered Substantial Weight Loss And A1C Improvements In Obesity And Type 2 Diabetes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:55.292155-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Top 3 Tech And Telecom Stocks That May Keep You Up At Night This Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:55.296412-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Zebra Technologies To Rally Around 24%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:55.300129-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "BTIG Maintains Sell on Roblox, Raises Price Target to $41",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:55.553519-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T09:37:55.558074-04:00",
     "symbols": [
       "XOM"
@@ -5048,5 +4998,61 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T16:17:26.813898-04:00",
+    "symbols": [
+      "AMAT",
+      "KLAC",
+      "NVDA",
+      "SKHY",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Elon Musk Flags Taiwan as AI\u2019s Weak Link. These Semiconductor ETFs Could Offer a Hedge",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T16:31:43.705335-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Jill Albertelli Appointed President Of Pratt &amp; Whitney, Succeeding Retiring Shane Eddy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T16:41:50.580489-04:00",
+    "symbols": [
+      "MU",
+      "NVDA"
+    ],
+    "headline": "&#39;This Selloff Makes Zero Sense&#39;: An Analysis from WallStreetBets",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T16:55:31.452161-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Pressures Mexico To Box Out China\u2019s AI Hardware Exports; Washington Trade Negotiators Want To Encourage More North American Content In Servers, Chips And Other Equipment Crossing America\u2019s Southern Border&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T16:57:41.920581-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Senator Bets on Small Cap Stocks Ahead of Likely Rate Hike: Why That Could be Risky",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

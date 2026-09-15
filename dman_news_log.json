@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:10.332958-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Wedbush Assumes Fortinet at Neutral, Announces Price Target of $155",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-11T14:14:10.567882-04:00",
     "symbols": [
       "ZS"
@@ -5112,6 +5102,17 @@
     ],
     "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:33:40.291602-04:00",
+    "symbols": [
+      "LUNR",
+      "SPCX"
+    ],
+    "headline": "Intuitive Machines Hands Over SXM-11 Satellite To SiriusXM Following Successful In-Orbit Testing; Geostationary Communications Satellite Is Now Fully Operational Following A Successful Launch By SpaceX On A Falcon 9 Rocket On June 28, 2026",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:14.999008-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:15.041489-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Stifel Maintains Buy on Oracle, Lowers Price Target to $200",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-11T14:14:15.059216-04:00",
     "symbols": [
       "ORCL"
@@ -5116,6 +5096,26 @@
       "GILD"
     ],
     "headline": "Gilead Sciences Exec Says Weekly Oral HIV Prevention Drug Expected To Launch In Q1 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:09:54.908710-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Chamath Called Nvidia the \u2018Bank of AI\u2019\u2014and Jensen Huang Just Proved It",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:09:55.748745-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Exec Says HIV Market Growth Should Normalize To 2%-3% Within Next Couple Of Quarters",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

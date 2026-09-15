@@ -15055,6 +15055,28 @@ class TestSetupPerformanceDrift(unittest.TestCase):
         self.assertEqual(drift[0]["total"], 3)
         self.assertEqual(drift[0]["win_rate"], 0.0)
 
+    def test_per_contract_options_labels_are_pooled_as_one_family(self):
+        # Same failure mode as the earnings-spread pooling above, found in
+        # the 2026-09-15 review: single-leg options setup labels embed the
+        # OCC symbol ("Options Call TE260925C00004000 (...)"), so every
+        # contract was its own 1-2 trade "setup" and a losing options
+        # family could never accumulate min_trades under one key.
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self._record(tracker, "LOSS",
+                     setup="Options Call TE260925C00004000 ($4.0C exp 2026-09-25)",
+                     pnl_pct=-14.43)
+        self._record(tracker, "LOSS",
+                     setup="Options Call APLD260925C00025000 ($25.0C exp 2026-09-25)",
+                     pnl_pct=-52.14)
+        self._record(tracker, "LOSS",
+                     setup="Options Put SMCI260814P00029500 ($29.5P exp 2026-08-14)",
+                     pnl_pct=-94.69)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["setup"], "Options Single-Leg")
+        self.assertEqual(drift[0]["total"], 3)
+        self.assertEqual(drift[0]["win_rate"], 0.0)
+
     def test_non_earnings_setups_still_pool_by_their_own_exact_label(self):
         # The grouping is earnings-only -- Gap & Hold and Low Float
         # Catalyst must stay separate from each other and from Earnings

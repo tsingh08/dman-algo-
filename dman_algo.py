@@ -14202,9 +14202,20 @@ class WinRateTracker:
         under min_trades, so this alert had never once fired for it and
         never could, no matter how badly the underlying strategy did,
         because each new spread shape resets its own counter to zero.
+
+        Single-leg options trades have the same shape of problem: their
+        setup labels embed the OCC contract symbol (e.g. "Options Call
+        TE260925C00004000 ($4.0C exp 2026-09-25)"), so every contract is
+        its own 1-2 trade "setup" and the family record (8 live trades
+        with -50.9% average loss as of 2026-09-15) was invisible here.
+        Pooled into one "Options Single-Leg" family for the same reason.
         """
         def _drift_key(setup: str) -> str:
-            return "Earnings Spread" if setup.startswith("Earnings ") else setup
+            if setup.startswith("Earnings "):
+                return "Earnings Spread"
+            if setup.startswith(("Options Call", "Options Put")):
+                return "Options Single-Leg"
+            return setup
 
         live = [r for r in self.records if r.is_live]
         setups = sorted({_drift_key(r.setup) for r in live if r.setup})

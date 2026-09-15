@@ -1,108 +1,5 @@
 [
   {
-    "ts": "2026-09-14T13:54:47.068416-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Deutsche Bank Maintains Buy on Robinhood Markets, Raises Price Target to $138",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-14T14:03:15.687564-04:00",
-    "symbols": [
-      "AMD",
-      "NVDA"
-    ],
-    "headline": "Musk Biographer Says AI Giants May Face Liability After Admitting Risks as Nvidia, AMD Slide",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T14:03:36.210996-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Stock Pops After Revised Clarity Act Draft Released",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T14:04:49.370047-04:00",
-    "symbols": [
-      "ETN",
-      "GEV"
-    ],
-    "headline": "Shares of data center infrastructure-related companies are trading lower after AI executives from firms including Anthropic, OpenAI and SpaceXAI signaled that the industry&#39;s growth may have to be slowed, which may lead to curtailed demand for providers of electrical equipment and services, HVAC systems, and power generation capacity.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-14T14:06:41.551990-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO",
-      "CRWD",
-      "DIA",
-      "IWM",
-      "MU",
-      "PANW",
-      "QQQ",
-      "ZS"
-    ],
-    "headline": "Nasdaq 100 Slips as AI Leaders Urge a Slowdown, 10-Year Yield Touches 5%: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T14:18:28.042764-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "DA Davidson Maintains Buy on Adobe, Raises Price Target to $290",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T14:18:41.529604-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Exec Speaking At Morgan Stanley Conference Says Company Now Has More Than 30% Share Of New Starts In Oral Obesity Treatment Market,",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T14:23:59.511766-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "House Speaker Johnson Says Trump Will Convene With AI Executives This Week Or Next",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T14:33:13.815082-04:00",
-    "symbols": [
-      "AAPL",
-      "MSFT",
-      "NVDA",
-      "ORCL"
-    ],
-    "headline": "&#39;OpenAI Buys Startup Developing Smartphone Camera&#39; - Wall Street Journal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-14T14:45:52.569305-04:00",
     "symbols": [
       "FTFT"
@@ -5065,5 +4962,96 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:07:04.900803-04:00",
+    "symbols": [
+      "CVX",
+      "XOM"
+    ],
+    "headline": "Oil Crisis Worsens, Diesel Hits Record High: Here&#39;s How to Trade It",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:07:20.772095-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Slides: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:07:21.375605-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "&#39;Robinhood Staffers Charged With Crypto-Related Trading Fraud&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:07:23.715337-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Oil Crisis Worsens, Diesel Hits Record High: Here&#39;s How to Trade It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:07:24.585485-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Slides 6% as CLARITY Odds Crash to 15% Just Before Senate Vote",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:07:27.704529-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Oil Crisis Worsens, Diesel Hits Record High: Here&#39;s How to Trade It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:07:37.944265-04:00",
+    "symbols": [
+      "THRM"
+    ],
+    "headline": "JP Morgan Upgrades Gentherm to Overweight, Maintains Price Target to $48",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:07:37.947588-04:00",
+    "symbols": [
+      "DRVN"
+    ],
+    "headline": "Driven Brands Announces $100M Share Buyback Program; Sets Long-Term Net Leverage Target Of 2-3x Net Debt To Adjusted EBITDA",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:07:38.415334-04:00",
+    "symbols": [
+      "TALO"
+    ],
+    "headline": "Keybanc Maintains Overweight on Talos Energy, Raises Price Target to $23",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

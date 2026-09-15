@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:20.430713-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:20.431943-04:00",
     "symbols": [
       "TNON"
@@ -5124,5 +5114,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:05:49.641217-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is IREN Stock Falling on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

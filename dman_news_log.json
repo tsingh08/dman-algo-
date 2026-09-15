@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:06.006917-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "ServiceNow To Rally More Than 18%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:06.007480-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Robinhood Markets, Raises Price Target to $165",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:06.259232-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "What&#39;s Going On With NIO Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:06.489471-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:06.490203-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Congresswoman Bets on Elon Musk, Warren Buffett: Here\u2019s the Latest Stock Transactions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:06.770304-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "What&#39;s Going On With AbbVie Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:06.771056-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Trump&#39;s Surgeon General Pick Has Tobacco, Cola Stocks In Portfolio Even as Robert Kennedy Jr. Wages War On Sugary Drinks, Processed Food",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:06.997325-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:06.998124-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Deal Dispatch: Bending Spoons Acquires Miro For $1.35B, Kinetik Up For Sale, LIV Golf Bankruptcy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:06.998771-04:00",
     "symbols": [
       "LLY"
@@ -5111,5 +5021,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T09:48:50.045947-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury Secretary Scott Bessent Says Rising Bond Yields Are Due To &#39;Global Issues&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T09:49:13.643712-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Cathie Wood Backs AI Slowdown but Calls Extinction Fears \u2018Ridiculous:\u2019 What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T09:49:15.118115-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Cathie Wood Backs AI Slowdown but Calls Extinction Fears \u2018Ridiculous:\u2019 What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T09:49:18.898224-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Cathie Wood Backs AI Slowdown but Calls Extinction Fears \u2018Ridiculous:\u2019 What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T09:49:27.665695-04:00",
+    "symbols": [
+      "NCT"
+    ],
+    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T09:49:29.490332-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T09:49:30.504148-04:00",
+    "symbols": [
+      "SUGP"
+    ],
+    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T09:49:30.784319-04:00",
+    "symbols": [
+      "MYSZ"
+    ],
+    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T09:51:05.391231-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Trending After Subsidiary Completes $2.1 Billion Debt Tender",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

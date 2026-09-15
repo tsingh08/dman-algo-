@@ -1,104 +1,14 @@
 {
-  "pending": [
-    {
-      "ticker": "ADTX",
-      "entry_px": 0.0058,
-      "stop_px": 0.0046,
-      "t1": 0.0075,
-      "t2": 0.0087,
-      "signal_str": "VWAP reclaim (recovery dip (opened -7.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:39:02.600033-04:00",
-      "expires_at": "2026-09-15T10:54:02.600033-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "PAVS",
-      "entry_px": 4.3988,
-      "stop_px": 4.3065,
-      "t1": 5.7184,
-      "t2": 6.5982,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:39:02.743399-04:00",
-      "expires_at": "2026-09-15T10:54:02.743399-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "SLXN",
-      "entry_px": 0.3465,
-      "stop_px": 0.3209,
-      "t1": 0.4504,
-      "t2": 0.5197,
-      "signal_str": "VWAP reclaim (recovery dip (opened -13.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:39:21.403170-04:00",
-      "expires_at": "2026-09-15T10:54:21.403170-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "NEXR",
-      "entry_px": 1.503,
-      "stop_px": 1.4652,
-      "t1": 1.9539,
-      "t2": 2.2545,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:39:43.925816-04:00",
-      "expires_at": "2026-09-15T10:54:43.925816-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "SURG",
-      "entry_px": 0.1526,
-      "stop_px": 0.147,
-      "t1": 0.1984,
-      "t2": 0.2289,
-      "signal_str": "VWAP reclaim (recovery dip (opened -4.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:40:56.165951-04:00",
-      "expires_at": "2026-09-15T10:55:56.165951-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "CLRO",
-      "entry_px": 4.6493,
-      "stop_px": 4.4748,
-      "t1": 6.0441,
-      "t2": 6.974,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.3% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:40:56.379930-04:00",
-      "expires_at": "2026-09-15T10:55:56.379930-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "GAUZ",
-      "entry_px": 7.3747,
-      "stop_px": 6.5792,
-      "t1": 9.5871,
-      "t2": 11.062,
-      "signal_str": "VWAP reclaim (recovery dip (opened -8.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:40:56.443414-04:00",
-      "expires_at": "2026-09-15T10:55:56.443414-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "XHLD",
-      "entry_px": 9.6192,
-      "stop_px": 8.2665,
-      "t1": 12.505,
-      "t2": 14.4288,
-      "signal_str": "VWAP reclaim (recovery dip (opened -4.6% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:41:01.075705-04:00",
-      "expires_at": "2026-09-15T10:56:01.075705-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "MSGY",
-      "entry_px": 2.004,
-      "stop_px": 1.9128,
-      "t1": 2.6052,
-      "t2": 3.006,
-      "signal_str": "VWAP reclaim (recovery dip (opened -4.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T10:41:15.201286-04:00",
-      "expires_at": "2026-09-15T10:56:15.201286-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
-  "consumed": {}
+  "pending": [],
+  "consumed": {
+    "ADTX_2026-09-15T10:39:02.600033-04:00": 1789484104.4483209,
+    "PAVS_2026-09-15T10:39:02.743399-04:00": 1789484104.4487538,
+    "SLXN_2026-09-15T10:39:21.403170-04:00": 1789484104.4490678,
+    "NEXR_2026-09-15T10:39:43.925816-04:00": 1789484104.4493957,
+    "SURG_2026-09-15T10:40:56.165951-04:00": 1789484167.0187151,
+    "CLRO_2026-09-15T10:40:56.379930-04:00": 1789484167.020185,
+    "GAUZ_2026-09-15T10:40:56.443414-04:00": 1789484167.0204482,
+    "XHLD_2026-09-15T10:41:01.075705-04:00": 1789484167.0207245,
+    "MSGY_2026-09-15T10:41:15.201286-04:00": 1789484227.6266546
+  }
 }

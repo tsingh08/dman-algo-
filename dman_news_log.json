@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:13.548201-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Occidental Petroleum, Raises Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:13.779242-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:13.780540-04:00",
     "symbols": [
       "UNH"
@@ -5116,6 +5096,26 @@
       "VST"
     ],
     "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:52:58.575907-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Senate Majority Leader Thune Says I Am Open To Considering An Export Ban On Diesel&#39; - Investing Live",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:56:39.538381-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Fox News, House Speaker Johnson Says We Cannot Have A Moratorium Of Development Of AI; Johnson Says AI Moratorium Will Lose Competitive Edge To China",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

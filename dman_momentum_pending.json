@@ -1,135 +1,23 @@
 {
-  "pending": [
-    {
-      "ticker": "LBGJ",
-      "entry_px": 2.1344,
-      "stop_px": 2.0196,
-      "t1": 2.7747,
-      "t2": 3.2016,
-      "signal_str": "VWAP reclaim (recovery dip (opened -1.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:55:05.405532-04:00",
-      "expires_at": "2026-09-15T12:10:05.405532-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "ADTX",
-      "entry_px": 0.0062,
-      "stop_px": 0.0046,
-      "t1": 0.0081,
-      "t2": 0.0093,
-      "signal_str": "VWAP reclaim (recovery dip (opened -7.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:55:08.928233-04:00",
-      "expires_at": "2026-09-15T12:10:08.928233-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "PAVS",
-      "entry_px": 4.3988,
-      "stop_px": 4.3065,
-      "t1": 5.7184,
-      "t2": 6.5982,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:55:08.971040-04:00",
-      "expires_at": "2026-09-15T12:10:08.971040-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "QNME",
-      "entry_px": 0.3041,
-      "stop_px": 0.2783,
-      "t1": 0.3953,
-      "t2": 0.4561,
-      "signal_str": "VWAP reclaim (recovery dip (opened -6.0% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:55:57.309282-04:00",
-      "expires_at": "2026-09-15T12:10:57.309282-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "ELPW",
-      "entry_px": 2.7405,
-      "stop_px": 2.585,
-      "t1": 3.5627,
-      "t2": 4.1107,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.9% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:56:00.361985-04:00",
-      "expires_at": "2026-09-15T12:11:00.361985-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "XOS",
-      "entry_px": 2.5751,
-      "stop_px": 2.4503,
-      "t1": 3.3476,
-      "t2": 3.8626,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.8% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:56:06.664589-04:00",
-      "expires_at": "2026-09-15T12:11:06.664589-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "GTE",
-      "entry_px": 10.8617,
-      "stop_px": 10.4148,
-      "t1": 14.1202,
-      "t2": 16.2926,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:56:06.710138-04:00",
-      "expires_at": "2026-09-15T12:11:06.710138-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "GAUZ",
-      "entry_px": 7.4549,
-      "stop_px": 6.5792,
-      "t1": 9.6914,
-      "t2": 11.1823,
-      "signal_str": "VWAP reclaim (recovery dip (opened -8.1% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:56:18.948675-04:00",
-      "expires_at": "2026-09-15T12:11:18.948675-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "WYHG",
-      "entry_px": 4.4489,
-      "stop_px": 3.8808,
-      "t1": 5.7836,
-      "t2": 6.6734,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.7% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:56:18.966437-04:00",
-      "expires_at": "2026-09-15T12:11:18.966437-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "PLAG",
-      "entry_px": 0.7007,
-      "stop_px": 0.6763,
-      "t1": 0.9109,
-      "t2": 1.0511,
-      "signal_str": "VWAP reclaim (recovery dip (opened -0.5% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:56:38.936870-04:00",
-      "expires_at": "2026-09-15T12:11:38.936870-04:00",
-      "status": "awaiting_approval"
-    },
-    {
-      "ticker": "KPLT",
-      "entry_px": 9.2184,
-      "stop_px": 8.806,
-      "t1": 11.9839,
-      "t2": 13.8276,
-      "signal_str": "VWAP reclaim (recovery dip (opened -2.3% \u2192 VWAP reclaim watch))",
-      "created_at": "2026-09-15T11:56:42.304652-04:00",
-      "expires_at": "2026-09-15T12:11:42.304652-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
+  "pending": [],
   "consumed": {
-    "MSGY_2026-09-15T10:41:15.201286-04:00": 1789484227.6266546,
     "ADTX_2026-09-15T11:14:44.049954-04:00": 1789486209.4680882,
     "PAVS_2026-09-15T11:14:44.121267-04:00": 1789486209.4688394,
     "WLDS_2026-09-15T11:14:44.201054-04:00": 1789486209.4691317,
     "QNME_2026-09-15T11:16:22.008713-04:00": 1789486331.9000888,
     "GTE_2026-09-15T11:16:40.580332-04:00": 1789486331.9005802,
     "GAUZ_2026-09-15T11:16:57.698121-04:00": 1789486331.9008322,
-    "XHLD_2026-09-15T11:17:02.482811-04:00": 1789486331.901073
+    "XHLD_2026-09-15T11:17:02.482811-04:00": 1789486331.901073,
+    "LBGJ_2026-09-15T11:55:05.405532-04:00": 1789488617.8512197,
+    "ADTX_2026-09-15T11:55:08.928233-04:00": 1789488617.8517,
+    "PAVS_2026-09-15T11:55:08.971040-04:00": 1789488617.8520565,
+    "QNME_2026-09-15T11:55:57.309282-04:00": 1789488680.2464318,
+    "ELPW_2026-09-15T11:56:00.361985-04:00": 1789488680.2468555,
+    "XOS_2026-09-15T11:56:06.664589-04:00": 1789488680.247183,
+    "GTE_2026-09-15T11:56:06.710138-04:00": 1789488680.2475195,
+    "GAUZ_2026-09-15T11:56:18.948675-04:00": 1789488742.63496,
+    "WYHG_2026-09-15T11:56:18.966437-04:00": 1789488742.6353498,
+    "PLAG_2026-09-15T11:56:38.936870-04:00": 1789488742.6356251,
+    "KPLT_2026-09-15T11:56:42.304652-04:00": 1789488742.6358943
   }
 }

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:20.431943-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Dow Jumps Over 1%; US Inflation Holds at 3.4% In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.433376-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Tenon Medical Stock Extends Multi-Day Rally: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.434619-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.693741-04:00",
-    "symbols": [
-      "ACVA"
-    ],
-    "headline": "Crude Oil Down 3%; Kroger Shares Gain After Upbeat Q2 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:20.695392-04:00",
     "symbols": [
       "ACVA"
@@ -5124,5 +5084,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:11:03.776798-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What Is Going on With Arm Holdings Stock on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:11:26.870473-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: UBS Tags Palantir &#39;Best AI Enabler&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:11:28.929131-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "QUICK SPARK: UBS Tags Palantir &#39;Best AI Enabler&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T12:11:56.263362-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Democrats Reject GOP&#39;s &#39;Final&#39; Offer as Bessent Says CLARITY Act Fights &#39;Evasion&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

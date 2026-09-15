@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:13.780540-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth CFO Says \u2018We Didn\u2019t Need the Dollars\u2019 As TPG Joins Optum Overhaul",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:13.781502-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Live On CNBC, Kevin Simpson Announces Bought UnitedHealth Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:13.825081-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Trump&#39;s Surgeon General Pick Has Tobacco, Cola Stocks In Portfolio Even as Robert Kennedy Jr. Wages War On Sugary Drinks, Processed Food",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:14.053746-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:14.291504-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "This Novo Nordisk Analyst Turns Bearish; Here Are Top 4 Downgrades For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:14.292562-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Morgan Stanley Downgrades Novo Nordisk to Underweight, Maintains Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:14.518970-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Freeport-McMoRan, iShares U.S. Energy ETF, Delta Air Lines, Kimberly-Clark",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:14.754313-04:00",
     "symbols": [
       "COST"
@@ -5119,5 +5049,75 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:59:33.660982-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T10:59:38.276797-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Arbitrum to Hit $10 by 2030, Outperform ETH and BTC, Standard Chartered Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:59:41.359342-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T10:59:42.595096-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:59:42.844263-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T10:59:43.568190-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:00:29.618409-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Recent Report Shows That Rep. Josh Gottheimer Bought Up to $1.54M Worth of Microsoft Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

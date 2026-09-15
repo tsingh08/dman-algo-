@@ -3211,8 +3211,8 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
     _on_probation, _ = is_on_probation()
     if not _on_probation:
         _stats = WinRateTracker().rolling_stats()
-        if _stats["consec_losses"] >= MAX_CONSEC_LOSSES:
-            return False, f"consecutive-loss guard active ({_stats['consec_losses']} losses)"
+        if _stats.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
+            return False, f"consecutive-loss guard active ({_stats['consec_losses_today']} losses today)"
         if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
                 and not _monthly_halt_lifted()):
             return False, "monthly loss limit active"
@@ -13712,6 +13712,18 @@ class WinRateTracker:
                 consec += 1
             else:
                 break
+        # The halt guards say "paused for the day", so they count only losses
+        # closed TODAY. The all-time streak (above) never reset: a halt blocks
+        # new trades, so no win could ever arrive to clear it -- the 2026-09-14
+        # halt (DFNS, TE on 9/11 + APLD on 9/14) would have lasted forever.
+        # The all-time streak is still used for sizing and reports.
+        _today = str(_et_today())
+        consec_today = 0
+        for r in reversed(recent):
+            if str(r.date)[:10] == _today and _classify_outcome(r.pnl_pct) == "LOSS":
+                consec_today += 1
+            else:
+                break
 
         # Consecutive wins (from end)
         consec_wins = 0
@@ -13725,7 +13737,7 @@ class WinRateTracker:
             "win_rate":     round(win_rate, 3),
             "avg_win_r":    round(avg_win_r, 2),
             "avg_loss_r":   round(avg_loss_r, 2),
-            "consec_losses":consec,
+            "consec_losses":consec, "consec_losses_today": consec_today,
             "consec_wins":  consec_wins,
             "total":        len(recent),
             "wins":         len(wins),
@@ -17394,12 +17406,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     _on_probation, _probation_mult = is_on_probation()
     if not _on_probation:
         # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
-        if stats["consec_losses"] >= MAX_CONSEC_LOSSES:
-            print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses']} losses in a row.")
+        if stats.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
+            print(f"\n  🛑 CONSECUTIVE LOSS GUARD: {stats['consec_losses_today']} losses in a row today.")
             print(f"     Take a break. Reset your mind. Come back tomorrow.\n")
             if not _is_duplicate_alert("__CONSEC_LOSS__"):
                 send_telegram(
-                    f"🛑 <b>DMan halted</b> — {stats['consec_losses']} consecutive losses.\n"
+                    f"🛑 <b>DMan halted</b> — {stats['consec_losses_today']} consecutive losses today.\n"
                     f"Scanner paused for the day. Review your last trades."
                 )
                 _save_last_alert("__CONSEC_LOSS__")
@@ -21463,8 +21475,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     if not _on_probation_sub:
         _tracker_cb = WinRateTracker()
         _stats_cb   = _tracker_cb.rolling_stats()
-        if _stats_cb["consec_losses"] >= MAX_CONSEC_LOSSES:
-            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses']} losses) — no orders.")
+        if _stats_cb.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
+            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses_today']} losses today) — no orders.")
             return
         if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
                 and not _monthly_halt_lifted()):

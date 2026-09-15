@@ -1051,7 +1051,7 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
 
     def test_consecutive_loss_guard_logs_a_halt(self):
         with patch.object(a.WinRateTracker, "rolling_stats",
-                          return_value={"consec_losses": a.MAX_CONSEC_LOSSES, "consec_wins": 0}), \
+                          return_value={"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "consec_wins": 0}), \
              patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
              patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
              patch.object(a, "_log_scan_halt") as mock_halt:
@@ -1079,7 +1079,7 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
         # the scan terminates quickly instead of falling through into a
         # real live scan of "AAPL" -- this only asserts the two bypassed
         # reasons never got logged, not that scanning fully completed.
-        _stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_wins": 0,
+        _stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "consec_wins": 0,
                   "win_rate": 0.3, "total": 10, "wins": 3, "losses": 7}
         regime = {"regime": "CRISIS", "score": 0, "vix_ok": False, "details": {"VIX": 45.0}}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=_stats), \
@@ -1097,7 +1097,7 @@ class TestRunProScannerHaltLogging(unittest.TestCase):
 
     def test_probation_still_lets_daily_loss_guard_halt(self):
         with patch.object(a.WinRateTracker, "rolling_stats",
-                          return_value={"consec_losses": a.MAX_CONSEC_LOSSES, "consec_wins": 0}), \
+                          return_value={"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "consec_wins": 0}), \
              patch.object(a.WinRateTracker, "adaptive_min_score", return_value=80), \
              patch.object(a, "get_this_month_loss", return_value=0.0), \
              patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 1), \
@@ -9805,7 +9805,7 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
         # consecutive-loss/daily/monthly circuit breakers had tripped.
         with open(self._buy_tmp.name, "w") as f:
             json.dump(self._pending(), f)
-        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
                       "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
              patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
@@ -9892,7 +9892,7 @@ class TestEntryCircuitBreakersOk(unittest.TestCase):
         mock_stats.assert_not_called()
 
     def test_probation_bypasses_consec_loss_guard(self):
-        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3,
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "win_rate": 0.3,
                       "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7}
         with patch.object(a, "is_halted", return_value=False), \
              patch.object(a, "is_on_probation", return_value=(True, 0.5)), \
@@ -9921,7 +9921,7 @@ class TestEntryCircuitBreakersOk(unittest.TestCase):
         self.assertIn("halted", reason)
 
     def test_without_probation_consec_loss_guard_still_blocks(self):
-        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3,
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "win_rate": 0.3,
                       "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7}
         with patch.object(a, "is_halted", return_value=False), \
              patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
@@ -12740,7 +12740,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_consecutive_loss_guard_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
-        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
+        mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
                       "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
              patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
@@ -14709,7 +14709,7 @@ class TestSubmitSignalsProbationSizing(unittest.TestCase):
              patch.object(a, "submit_alpaca_trade", return_value=("order-1", None)), \
              patch.object(a, "send_telegram", return_value=True):
             MockWRT.return_value.rolling_stats.return_value = {
-                "consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3, "avg_win_r": 2.0,
+                "consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "win_rate": 0.3, "avg_win_r": 2.0,
                 "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7, "consec_wins": 0,
             }
             MockPT.return_value.positions = []
@@ -14726,7 +14726,7 @@ class TestSubmitSignalsProbationSizing(unittest.TestCase):
              patch.object(a, "submit_alpaca_trade") as mock_submit, \
              patch.object(a, "send_telegram", return_value=True):
             MockWRT.return_value.rolling_stats.return_value = {
-                "consec_losses": a.MAX_CONSEC_LOSSES, "win_rate": 0.3, "avg_win_r": 2.0,
+                "consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "win_rate": 0.3, "avg_win_r": 2.0,
                 "avg_loss_r": 1.0, "total": 10, "wins": 3, "losses": 7, "consec_wins": 0,
             }
             a._submit_signals_to_alpaca([sig])
@@ -15562,3 +15562,27 @@ class TestBearGapHoldToggle(unittest.TestCase):
     def test_detector_is_gated_by_the_flag(self):
         src = inspect.getsource(a._raw_signals)
         self.assertIn('OPTIONS_ENABLE_PUTS and flag("ENABLE_BEAR_GAP_HOLD", ENABLE_BEAR_GAP_HOLD)', src)
+
+
+class TestConsecutiveLossGuardResetsDaily(unittest.TestCase):
+    """2026-09-14: 2 losses on 9/11 + 1 on 9/14 halted the scanner with a
+    "paused for the day" message, but the streak only cleared on a win -- which
+    a halt makes impossible. The guards now count only today's losses."""
+
+    def _tracker(self, dates_pnls):
+        t = a.WinRateTracker.__new__(a.WinRateTracker)
+        t.records = [a.TradeRecord(ticker="X", date=d, bias="LONG", setup="S", entry=1.0,
+                                   exit=1.0, outcome="LOSS" if p < 0 else "WIN", pnl_pct=p,
+                                   score=90, is_live=True) for d, p in dates_pnls]
+        return t
+
+    def test_yesterdays_losses_do_not_halt_today(self):
+        with patch.object(a, "_et_today", lambda: a.date(2026, 9, 15)):
+            s = self._tracker([("2026-09-11", -3.6), ("2026-09-11", -14.4), ("2026-09-14", -52.1)]).rolling_stats()
+        self.assertEqual(s["consec_losses"], 3)
+        self.assertEqual(s["consec_losses_today"], 0)
+
+    def test_three_losses_today_still_halt(self):
+        with patch.object(a, "_et_today", lambda: a.date(2026, 9, 15)):
+            s = self._tracker([("2026-09-15", -2.0), ("2026-09-15", -3.0), ("2026-09-15", -1.5)]).rolling_stats()
+        self.assertGreaterEqual(s["consec_losses_today"], a.MAX_CONSEC_LOSSES)

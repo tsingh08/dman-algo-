@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:51.796654-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Fuels Tesla-SpaceX Merger Talks Again, Says, &#39;Imagine What Action One Might Take\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T09:37:52.380153-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce And Nvidia Announce Koa CRM Reasoning Model For Agentforce, Built On Nvidia Nemotron 3 Super; In Customer Pilots Now, General Availability Expected Winter 2026 In US Regions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T09:37:52.642146-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir CTO Warns AI Safety \u2018Effective Altruists\u2019 Are Attempting a \u2018Coup\u2019 \u2014 Says \u2018Tiny Group of Technocrats\u2019 Shouldn\u2019t Decide for Everyone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T09:37:52.646576-04:00",
     "symbols": [
       "PLTR"
@@ -5045,6 +5015,36 @@
     "headline": "&#34;The Trump Administration Is Preparing A Multibillion-Dollar Sale Of 2,000-Pound Bombs To Israel In The Largest Single Sale Of The Controversial Munition In Recent Years&#34; - Washington Post",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:45:43.689434-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "&#39;Salesforce Unveils New AI Model, Agent Security Tools at Dreamforce&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:46:00.964391-04:00",
+    "symbols": [
+      "REF"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:46:00.968744-04:00",
+    "symbols": [
+      "REF"
+    ],
+    "headline": "Jim Cramer: Buy This Energy Stock, It Is \u2018Terrific\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

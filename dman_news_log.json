@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-14T14:55:36.413159-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Shares of precious metal-related companies are trading lower in response to surging oil prices and Friday&#39;s economic data, which spurred Fed rate hike expectations. The commodity may be experiencing weakness in response to a stronger dollar.\u00a0(edited)",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T14:56:09.193203-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "ASML Eyes 110+ EUV Machines as JPM Stresses &#39;Strong&#39; AI Demand",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T15:02:15.447102-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Stock is Trending Higher: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-14T15:03:22.808239-04:00",
     "symbols": [
       "MA",
@@ -5053,5 +5023,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:14:15.938381-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Targets Middle-Market Deals After Raising $11.7B",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:14:19.811900-04:00",
+    "symbols": [
+      "WAY"
+    ],
+    "headline": "Why Is Waystar Holdings Stock Gaining Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:15:17.249137-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Interactive Brokers Partners With X To Enable Direct Trading Via Cashtags, Offering A $100 Bonus For New U.S. Clients",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

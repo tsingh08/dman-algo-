@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-14T11:19:12.830475-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Muse Monetization \u2018Somewhat Limited\u2019 In Near Term: Analyst",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T11:23:48.192867-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Posts On Truth Social &#34;Ukraine has agreed not to hit Russian Energy targets. Russia has agreed to do, likewise! The World\u2019s Diesel price rise is mostly caused by the Russia/Ukraine War, not Iran.&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T11:29:09.407739-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "IREN Receives Double Upgrade As Analysts Cite Strong Deal Momentum",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-14T11:34:19.733497-04:00",
     "symbols": [
       "SPY"
@@ -5103,5 +5073,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:53:29.486132-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Secures Funding for Iridium Buyout",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T13:53:43.006941-04:00",
+    "symbols": [
+      "AVGO",
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "Nvidia, Broadcom Just Helped Break a 90-Year Earnings Trend\u2014Now Comes the Hard Part",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:56:47.406972-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Why Is Ascendis Pharma Stock Trading Lower on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

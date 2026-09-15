@@ -1,129 +1,5 @@
 [
   {
-    "ts": "2026-09-11T15:34:20.017139-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CPI Inflation Came Hot: Watch These Stocks If Kevin Warsh Hikes Next Week",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T15:44:14.219468-04:00",
-    "symbols": [
-      "INSP"
-    ],
-    "headline": "Stifel Maintains Buy on Inspire Medical Systems, Raises Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T16:00:17.276820-04:00",
-    "symbols": [
-      "AAPL",
-      "ORCL"
-    ],
-    "headline": "Rate Hike Odds Jump to 90% as Record Diesel Lifts Inflation: This Week on Wall Street",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T16:12:02.670242-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Leveraged Funds Turn Bearish on Nasdaq-100 as Short Bets Hit $75 Billion",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T16:24:12.852748-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "&#39;Goldman, BofA Vie to Manage Anthropic Staffers\u2019 IPO Millions&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T16:49:22.486187-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Government Becomes ~10% Shareholder oF Trilogy Metals With $35.6M Strategic Investment To Advance Exploration And Development Of Alaska\u2019s Ambler Mining District Copper Projects",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T16:56:27.232896-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "&#39;JPMorgan Cut Off Situational Awareness Lending After AI Losses&#39; - Financial Times",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T19:00:23.951333-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Newmont Stock In The Last 5 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T09:48:15.600628-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Citigroup Maintains Buy on e.l.f. Beauty, Raises Price Target to $118",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T09:49:08.488950-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO",
-      "MRVL",
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T09:50:31.837588-04:00",
-    "symbols": [
-      "AMAT",
-      "AMD",
-      "CRWD",
-      "ETN",
-      "GEV",
-      "MRVL",
-      "MU",
-      "NVDA",
-      "PANW",
-      "SKHY"
-    ],
-    "headline": "OpenAI, Anthropic Call for AI Slowdown: Chips Sink, Cybersecurity Stocks Jump",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-14T09:51:13.220034-04:00",
     "symbols": [
       "MSFT",
@@ -5130,6 +5006,117 @@
     "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:29:16.181485-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Says Starship Flight 14 Preparing To Launch As Soon As September 22 Pending Regulatory Approval, With 75-Minute Window Opening At 7:15 AM CT",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T13:30:32.374898-04:00",
+    "symbols": [
+      "META",
+      "NVDA"
+    ],
+    "headline": "AI Selloff Is \u2018Panic,\u2019 Meta May Be The Best Stock To Buy, Joseph Carlson Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T13:31:04.564210-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Selloff Is \u2018Panic,\u2019 Meta May Be The Best Stock To Buy, Joseph Carlson Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T13:31:04.815602-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AI Selloff Is \u2018Panic,\u2019 Meta May Be The Best Stock To Buy, Joseph Carlson Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T13:31:07.565920-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:31:10.605215-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T13:31:15.434961-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T13:31:15.651561-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T13:31:25.530954-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:31:26.199122-04:00",
+    "symbols": [
+      "SAFX"
+    ],
+    "headline": "XCF Global Files Prospectus To Sell $300M Mixed Securities Shelf",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:31:26.202724-04:00",
+    "symbols": [
+      "SAFX"
+    ],
+    "headline": "XCF Global, DevvStream, Southern Energy Amend Combination Agreement, Raising XCF Ownership To 69.57%, Adding $1.0M GL Warrant Investment At $2.50 Per Share And $4.3M Capital Framework",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

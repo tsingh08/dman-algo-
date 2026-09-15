@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:07.705972-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Deploys Single Earth Observation Satellite To 500km Orbit In 16th Electron Launch Of 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:07.946759-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:08.179192-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jensen Huang Calls NVIDIA the \u2018World\u2019s First and Only Growth Value Stock\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:08.180100-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Wedbush Assumes CrowdStrike Holdings at Outperform, Announces Price Target of $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:08.419496-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Wedbush Assumes Palo Alto Networks at Outperform, Announces Price Target of $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:08.648321-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Wedbush Assumes Datadog at Outperform, Announces Price Target of $275",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:08.876947-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "9 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-11T14:14:08.877807-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Kalshi Eyes 24/7 Leveraged Bets on TSLA, NVDA and AAPL With New Perpetual Futures Push: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:09.111507-04:00",
     "symbols": [
       "MSTR"
@@ -5108,6 +5028,89 @@
       "META"
     ],
     "headline": "&#39;Meta Touts the Cost-Saving Benefits of Latest In-House AI Chips&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T10:17:42.639573-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T10:18:29.235129-04:00",
+    "symbols": [
+      "BIVI"
+    ],
+    "headline": "BioVie shares are trading lower. The company announced topline results from Phase 2 ADDRESS\u2011LC trial evaluating Bezisterim for the treatment of neurological symptoms associated with long COVID.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:18:53.190905-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What&#39;s Going On With Apple Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T10:19:21.107075-04:00",
+    "symbols": [
+      "CRDF"
+    ],
+    "headline": "HC Wainwright &amp; Co. Upgrades Cardiff Oncology to Buy, Announces $9 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:19:21.429820-04:00",
+    "symbols": [
+      "FBDT"
+    ],
+    "headline": "First Breach Receives Type 23 Federal Explosives License From The ATF, Expanding Its Regulated Materials Capabilities To Produce Attritable Strike Drone Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:19:21.434456-04:00",
+    "symbols": [
+      "FBDT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T10:20:03.398429-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Why Is Roblox Stock Trading Lower on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T10:21:48.155533-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Exec Says Apogee Fits &#39;Very Nicely&#39; With Its Business Development Approach; Says Existing Portfolio Provides &#39;Clear Line Of Sight&#39; To Very Strong Growth Well Into Next Decade",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

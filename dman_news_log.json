@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:20.695392-04:00",
-    "symbols": [
-      "ACVA"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.697034-04:00",
-    "symbols": [
-      "ACVA"
-    ],
-    "headline": "Needham Downgrades ACV Auctions to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:20.698594-04:00",
     "symbols": [
       "ACVA"
@@ -5123,6 +5103,27 @@
     "headline": "Democrats Reject GOP&#39;s &#39;Final&#39; Offer as Bessent Says CLARITY Act Fights &#39;Evasion&#39;",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:16:06.497171-04:00",
+    "symbols": [
+      "CRM",
+      "NVDA"
+    ],
+    "headline": "Salesforce Launches Koa AI Model Built On NVIDIA Nemotron",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:16:11.022862-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "Forgent Power Solutions Q4 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

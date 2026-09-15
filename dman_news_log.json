@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:15.059216-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Says Its AI Buildout Will Pay for Itself. Can It?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-11T14:14:15.302497-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "S&amp;P 500 Snaps 4-Day Decline as Oil Cools, Dell Jumps 11%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-11T14:14:15.303799-04:00",
     "symbols": [
       "ADBE"
@@ -5116,6 +5096,26 @@
       "GILD"
     ],
     "headline": "Gilead Exec Says HIV Market Growth Should Normalize To 2%-3% Within Next Couple Of Quarters",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:13:31.687846-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead And PAHO Partner To Expand Twice-Yearly Lenacapavir HIV Prevention Access Across Latin America And The Caribbean",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T11:14:03.384531-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "What&#39;s Going On With Robinhood Stock Tuesday?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

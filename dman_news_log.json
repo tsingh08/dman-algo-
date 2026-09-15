@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:22.288899-04:00",
-    "symbols": [
-      "NCRA"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:22.521610-04:00",
-    "symbols": [
-      "BTCT"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:22.523434-04:00",
     "symbols": [
       "BTCT"
@@ -5129,6 +5109,26 @@
     ],
     "headline": "What&#39;s Going on With Vera Therapeutics Stock on Tuesday?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:44:09.187174-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Watching Ali Baba; Traders Circulating Note Suggesting Ali Baba-Backed Kimi Was Able To Push Kimi 2.5 Base Model To Outperform ChatGPT&#39;s Astra In Unnamed Benchmark",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:46:59.925295-04:00",
+    "symbols": [
+      "FEED"
+    ],
+    "headline": "ENvue Medical Says It Received Nasdaq Hearings Panel Decision Denying Continued Listing; Common Stock To Be Suspended And Begin Trading On OTC Markets Under Symbol FEED On September 16",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

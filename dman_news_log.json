@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:51.189713-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Google Finally Lets All Engineers Use Anthropic&#39;s Claude&#39; - Business Insider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.194126-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Waymo Expands Robotaxi Battle to Las Vegas \u2014 Alphabet-Backed Service Plans Unsupervised Tokyo Launch in 2027, Taking on Uber",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.198106-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump Called AI Safety Warnings a &#39;Hoax,&#39; But Barack Obama Says AI Leaders Slowing Development a &#39;Good and Necessary&#39; First Step",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.514406-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Analyzing Amazon.com In Comparison To Competitors In Broadline Retail Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.518283-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Costco Nearly Doubles Motor Oil Prices, Limits Purchases to &#39;1 Transaction Per Membership&#39; as Iran War Squeezes Supply",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.521710-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cathie Wood Keeps Buying Meta on Mark Zuckerberg&#39;s Muse Push, Dumps Amazon, AMD, Alphabet, Palantir Amid AI Slowdown Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:51.778626-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Warns Welfare State, Free Immigration Would &#39;Bankrupt&#39; Countries: \u2018AI + Robotics Is the Only Path to Universal High Income\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T09:37:51.782871-04:00",
     "symbols": [
       "TSLA"
@@ -5046,5 +4976,75 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:20:06.903422-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Co-President Doug Petno Says Competition For High Quality Deposits Is Intense; We Are Being Very Selective With AI Financing; We Are Maintaining Our Underwriting Discipline With AI Financing And Being Very Deliberate About It",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:20:26.199235-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tesla\u2019s Cybercab \u2018Held Me Hostage for an Hour,\u2019 Rider Says \u2014 This Cybercab Limitation Just Turned a Short Austin Trip Into 70-Minute Detour",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:20:26.202552-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Mark Cuban Says Meta and Google Could Be Funding Their AI Future With Anti-Tech Content: &#39;Interesting to Watch the Irony\u2026&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:20:26.205585-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Finally Lets All Engineers Use Anthropic&#39;s Claude&#39; - Business Insider",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:20:26.208576-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Waymo Expands Robotaxi Battle to Las Vegas \u2014 Alphabet-Backed Service Plans Unsupervised Tokyo Launch in 2027, Taking on Uber",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:20:26.374250-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Analyzing Amazon.com In Comparison To Competitors In Broadline Retail Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T15:20:33.109585-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Co-President Doug Petno Says We Still Worry About Private Credit But The Asset Class Is In A Decent Place Compared To Earlier In The Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

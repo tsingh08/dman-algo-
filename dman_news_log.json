@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:21.763796-04:00",
-    "symbols": [
-      "AENT"
-    ],
-    "headline": "CORRECTION: Alliance Entertainment Q4 Adj. EPS $0.13 Beats $0.06 Estimate, Sales $268.100M Beat $234.971M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.765327-04:00",
-    "symbols": [
-      "AENT"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.807222-04:00",
-    "symbols": [
-      "AENT"
-    ],
-    "headline": "Why RH Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:21.808843-04:00",
-    "symbols": [
-      "AENT"
-    ],
-    "headline": "Alliance Entertainment Holding Stock Soars Over 12% After Hours \u2014 Is This Small-Cap Entertainment Play Ready for a Comeback?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:22.046375-04:00",
-    "symbols": [
-      "PCLA"
-    ],
-    "headline": "Dow Jumps Over 1%; US Inflation Holds at 3.4% In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:22.048324-04:00",
-    "symbols": [
-      "PCLA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:22.049965-04:00",
-    "symbols": [
-      "PCLA"
-    ],
-    "headline": "Why RH Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:22.286922-04:00",
-    "symbols": [
-      "NCRA"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:22.288899-04:00",
     "symbols": [
       "NCRA"
@@ -5129,5 +5049,87 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T12:42:03.528497-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:42:43.866234-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:42:45.242065-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T12:42:53.433525-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Steve Eisman&#39;s &#39;Big Short&#39; Partners Warn Anthropic, SpaceX IPOs Could Hurt Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T12:42:59.209779-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:42:59.214688-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Steve Eisman&#39;s &#39;Big Short&#39; Partners Warn Anthropic, SpaceX IPOs Could Hurt Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:43:03.630863-04:00",
+    "symbols": [
+      "OESX"
+    ],
+    "headline": "Why Is Orion Energy Systems Stock Gaining Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:43:03.867421-04:00",
+    "symbols": [
+      "VERA"
+    ],
+    "headline": "What&#39;s Going on With Vera Therapeutics Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

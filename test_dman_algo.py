@@ -15690,3 +15690,37 @@ class TestConsecutiveLossGuardResetsDaily(unittest.TestCase):
         with patch.object(a, "_et_today", lambda: a.date(2026, 9, 15)):
             s = self._tracker([("2026-09-15", -2.0), ("2026-09-15", -3.0), ("2026-09-15", -1.5)]).rolling_stats()
         self.assertGreaterEqual(s["consec_losses_today"], a.MAX_CONSEC_LOSSES)
+
+
+class TestDmanPlaySelection(unittest.TestCase):
+    """2026-09-15 study of 198 DMan calls: only lead-ticker, pre-close, $1-5,
+    non-'loaded' posts qualify; the fetcher reads top-level symbols."""
+
+    def _t(self, h, m=0, day=15):
+        return a.datetime(2026, 9, day, h, m, tzinfo=a.ET).astimezone(a.timezone.utc) if hasattr(a, "timezone") \
+            else a.datetime(2026, 9, day, h, m, tzinfo=a.ET)
+
+    def test_qualifying_premarket_idea(self):
+        ok, why = a._dman_play_grade("$VEEA 1.50s to $4+ tomorrow", "VEEA", self._t(8, 10), 2.10)
+        self.assertTrue(ok, why)
+
+    def test_rejections(self):
+        cases = [("$IPW merger then $VEEA", "VEEA", self._t(10), 2.0, "lead"),
+                 ("$VEEA to $4", "VEEA", self._t(20), 2.0, "close"),
+                 ("$VEEA loaded 1.70s", "VEEA", self._t(10), 2.0, "loaded"),
+                 ("$VEEA to $4", "VEEA", self._t(10), 0.40, "outside"),
+                 ("$QCLS short idea", "QCLS", self._t(10), 2.0, "bearish"),
+                 ("$VEEA to $4", "VEEA", self._t(10, day=13), 2.0, "close")]
+        for body, tk, when, px, frag in cases:
+            ok, why = a._dman_play_grade(body, tk, when, px)
+            self.assertFalse(ok, body)
+            self.assertIn(frag, why)
+
+    def test_fetcher_reads_top_level_symbols(self):
+        msg = {"created_at": a.datetime.now(a.ET).isoformat(), "body": "$VEEA go",
+               "symbols": [{"symbol": "VEEA"}], "entities": {}}
+        resp = MagicMock(status_code=200)
+        resp.json.return_value = {"messages": [msg]}
+        with patch.object(a.requests, "get", return_value=resp):
+            out = a._fetch_dman_stocktwits_calls(hours_back=48)
+        self.assertEqual([r[0] for r in out], ["VEEA"])

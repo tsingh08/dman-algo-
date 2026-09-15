@@ -5082,6 +5082,76 @@ def _stocktwits_quick_take(ticker: str) -> str:
         return "  quick-take unavailable (data error)"
 
 
+# ── DMan play selection (study of 198 @ProfessorDman1 calls, 2026-06-30..09-15) ──
+# Buying every call at the post and holding to the close lost -2.0%/trade (39%
+# win); the median call ran +11% but also dipped -15%, so tight stops are noise.
+# What held up: the post's LEAD ticker, posted before the 4 PM close on a
+# weekday (after-hours posts: -4.1%/trade), priced $1-5 (sub-$1: -3.0%), and NOT
+# a "loaded/added" post (those: -1.5% -- he posts after he is in). With a +15%
+# target / -20% stop, same-day exit and 1% cost: +2.5%/trade, 58% win (n=69),
+# but -0.3% in the first half vs +4.6% in the second. Unproven, so plays are
+# alert + paper-logged, never auto-executed.
+DMAN_PLAY_MIN_PX     = 1.0
+DMAN_PLAY_MAX_PX     = 5.0
+DMAN_PLAY_TARGET_PCT = 15.0
+DMAN_PLAY_STOP_PCT   = 20.0
+DMAN_PLAY_NOTIONAL   = 500.0     # -20% stop -> ~$100 max loss
+DMAN_PLAY_LOG_FILE   = "dman_play_log.json"
+_DMAN_ENTRY_POST_RE  = re.compile(r"\b(loaded|bought|buying|added|adding|starter|grabbed|in at|"
+                                  r"entered|position|long here|scooped|holding)\b", re.I)
+_DMAN_BEARISH_RE     = re.compile(r"\bshort\b|nasty|dump|avoid|stay away|sold|trimmed|took profits?", re.I)
+_CASHTAG_RE          = re.compile(r"\$([A-Z]{1,5})\b")
+
+
+def _dman_play_grade(body: str, ticker: str, posted_utc: datetime,
+                     price: Optional[float]) -> tuple[bool, str]:
+    """(True, "") if a DMan call matches the selection rule above, else (False, reason)."""
+    tags = _CASHTAG_RE.findall(body or "")
+    if tags and tags[0] != ticker:
+        return False, "not the post's lead ticker"
+    t_et = posted_utc.astimezone(ET)
+    if t_et.weekday() >= 5 or t_et.hour >= 16:
+        return False, "posted after the close"
+    if _DMAN_BEARISH_RE.search(body or ""):
+        return False, "bearish/exit post"
+    if _DMAN_ENTRY_POST_RE.search(body or ""):
+        return False, "'loaded' post (he is already in)"
+    if price is None or price <= 0:
+        return False, "no price"
+    if not (DMAN_PLAY_MIN_PX <= price < DMAN_PLAY_MAX_PX):
+        return False, f"price ${price:.2f} outside ${DMAN_PLAY_MIN_PX:.0f}-{DMAN_PLAY_MAX_PX:.0f}"
+    return True, ""
+
+
+def _dman_play_card(ticker: str, body: str, posted_utc: datetime, price: float) -> str:
+    t_et = posted_utc.astimezone(ET)
+    when = "pre-market" if (t_et.hour, t_et.minute) < (9, 30) else "intraday"
+    stop = price * (1 - DMAN_PLAY_STOP_PCT / 100)
+    tgt = price * (1 + DMAN_PLAY_TARGET_PCT / 100)
+    shares = max(1, int(DMAN_PLAY_NOTIONAL // price))
+    return (f"🎯 <b>DMan PLAY — {ticker}</b> ${price:.2f} ({when} post {t_et:%I:%M %p} ET)\n"
+            f"\"{body[:120]}\"\n"
+            f"Plan: buy ≤ ${price * 1.03:.2f} after 9:30 · stop ${stop:.2f} (−{DMAN_PLAY_STOP_PCT:.0f}%) · "
+            f"target ${tgt:.2f} (+{DMAN_PLAY_TARGET_PCT:.0f}%) · out by close\n"
+            f"Size ~{shares} sh (≈${shares * price:.0f}, max loss ≈${shares * (price - stop):.0f}) · "
+            f"uses a day trade · rule is paper-tracked, not yet proven")
+
+
+def _log_dman_play(ticker: str, body: str, posted_utc: datetime, price: float) -> None:
+    try:
+        with open(DMAN_PLAY_LOG_FILE) as f:
+            log = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        log = []
+    log.append({"ticker": ticker, "posted": posted_utc.isoformat(), "ref_price": round(price, 4),
+                "target_pct": DMAN_PLAY_TARGET_PCT, "stop_pct": DMAN_PLAY_STOP_PCT,
+                "body": (body or "")[:160]})
+    try:
+        _write_json_atomic(DMAN_PLAY_LOG_FILE, log[-500:], indent=1)
+    except Exception as exc:
+        _log_swallowed("dman play log", exc)
+
+
 def run_stocktwits_monitor() -> None:
     """
     Fetch ProfessorDman1's recent StockTwits messages.
@@ -5149,9 +5219,13 @@ def run_stocktwits_monitor() -> None:
             if (not _ticker or _ticker in _known_large
                     or _ticker in _seen or _ticker in _seen_this_run):
                 continue
+            _body = _msg.get("body", "")
+            _px = get_live_price(_ticker)
+            _ok, _why = _dman_play_grade(_body, _ticker, _msg_time, _px)
             _new_calls.append({
                 "ticker": _ticker,
-                "body":   _msg.get("body", "")[:120].replace("\n", " "),
+                "body":   _body[:120].replace("\n", " "),
+                "ok": _ok, "why": _why, "px": _px, "t": _msg_time,
             })
             _seen[_ticker] = _now_utc.isoformat()
             _seen_this_run.add(_ticker)
@@ -5168,25 +5242,21 @@ def run_stocktwits_monitor() -> None:
         return
 
     # Auto-add to DMAN_SMALLCAP_WATCHLIST
-    _to_add  = [_c["ticker"] for _c in _new_calls]
-    _added   = _stocktwits_inject_tickers(_to_add)
-
-    # Telegram — confirm what was added, with a live quick-take so the alert
-    # itself answers "is this worth looking at right now" instead of just
-    # "ticker added, check back later."
-    _lines = []
+    _plays = [_c for _c in _new_calls if _c["ok"]]
     for _c in _new_calls:
-        _tag = "✅ added to scanner" if _c["ticker"] in _added else "already tracked"
-        _quick = _stocktwits_quick_take(_c["ticker"])
-        _lines.append(f"  <b>{_c['ticker']}</b> [{_tag}]\n  \"{_c['body']}\"\n{_quick}\n"
-                      f"  💬 <code>/options {_c['ticker']}</code> to browse strikes and buy")
-
-    send_telegram(
-        f"📡 <b>DMan StockTwits — {len(_new_calls)} call(s) detected</b>\n\n"
-        + "\n\n".join(_lines)
-        + (f"\n\n✅ {len(_added)} ticker(s) added to DMAN_SMALLCAP_WATCHLIST." if _added else "")
-    )
-    print(f"  📡 Added: {_added}  |  Already known: {[c['ticker'] for c in _new_calls if c['ticker'] not in _added]}")
+        if not _c["ok"]:
+            print(f"  📡 {_c['ticker']}: skipped — {_c['why']}")
+    if not _plays:
+        # Non-qualifying calls no longer alert or join the watchlist: feeding
+        # them to the scanners is how late entries on IOTR/CLRO/FGL/DFNS lost.
+        print(f"  📡 {len(_new_calls)} DMan call(s), none match the play rule — no alert")
+        return
+    _added = _stocktwits_inject_tickers([_c["ticker"] for _c in _plays])
+    for _c in _plays:
+        _log_dman_play(_c["ticker"], _c["body"], _c["t"], _c["px"])
+    send_telegram("\n\n".join(_dman_play_card(_c["ticker"], _c["body"], _c["t"], _c["px"])
+                                for _c in _plays))
+    print(f"  📡 Plays: {[c['ticker'] for c in _plays]}  |  added to watchlist: {_added}")
 
 
 _MASSIVE_NEWS_CACHE: dict[tuple, tuple[float, dict]] = {}
@@ -5870,7 +5940,11 @@ def _fetch_dman_stocktwits_calls(hours_back: int = 48) -> list[tuple[str, str, s
                 ).astimezone(ET)
                 if ts < cutoff:
                     continue
-                symbols = [s["symbol"] for s in msg.get("entities", {}).get("symbols", [])]
+                # StockTwits lists tickers in top-level "symbols"; the old
+                # entities.symbols location is now always empty, which made
+                # this return nothing (found 2026-09-15).
+                symbols = [s["symbol"] for s in (msg.get("symbols")
+                           or (msg.get("entities") or {}).get("symbols") or [])]
                 body = msg.get("body", "")[:200]
                 for sym in symbols:
                     results.append((sym.upper(), body, ts.astimezone(MT).strftime("%m/%d %I:%M %p MT")))

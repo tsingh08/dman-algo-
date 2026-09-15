@@ -13,18 +13,6 @@
       "timestamp": "2026-09-08T13:32:16.216874-04:00"
     },
     {
-      "ticker": "IONQ",
-      "setup": "Bear Gap Hold",
-      "bias": "SHORT",
-      "entry": 38.51,
-      "stop": 40.31,
-      "target1": 34.0,
-      "target2": 31.29,
-      "score": 100,
-      "date": "2026-09-09",
-      "timestamp": "2026-09-09T11:12:38.679353-04:00"
-    },
-    {
       "ticker": "GRAB",
       "setup": "Bear Gap Hold",
       "bias": "SHORT",
@@ -71,6 +59,18 @@
       "score": 100,
       "date": "2026-09-11",
       "timestamp": "2026-09-11T10:12:44.301412-04:00"
+    },
+    {
+      "ticker": "IONQ",
+      "setup": "Bear Gap Hold",
+      "bias": "SHORT",
+      "entry": 38.51,
+      "stop": 40.31,
+      "target1": 34.0,
+      "target2": 31.29,
+      "score": 100,
+      "date": "2026-09-09",
+      "timestamp": "2026-09-09T11:12:38.679353-04:00"
     },
     {
       "ticker": "AEO",

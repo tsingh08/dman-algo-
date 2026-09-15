@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-09-14T15:03:22.808239-04:00",
-    "symbols": [
-      "MA",
-      "V"
-    ],
-    "headline": "&#39;UK banks kick off fundraising in bid to create new payments giant&#39; - Sky News",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T15:05:29.591610-04:00",
-    "symbols": [
-      "BFRI"
-    ],
-    "headline": "Biofrontera shares are trading lower. The company announced that the FDA has approved its sNDA for Ameluz topical gel for the treatment of superficial Basal Cell Carcinoma in adults.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T15:09:19.879156-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Interior Secretary Burgum Says Oil Export Bans Unlikely To Help Lower Energy Prices But All Options On The Table; Sees Possibility Of Venezuelan Coal Exports As Part Of Deals With US",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T15:13:05.846751-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With Meta Stock?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T15:19:48.024354-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump privately met with Open AI\u2019s Sam Altman at GOP convention&#39; - MS NOW",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-14T15:20:40.204134-04:00",
     "symbols": [
       "PLTR"
@@ -5053,5 +5002,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:21:33.260738-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase CEO Says a &#39;No&#39; on CLARITY Lets Other Countries &#39;Lead&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:22:19.626545-04:00",
+    "symbols": [
+      "PDSB"
+    ],
+    "headline": "PDS Biotech Stock Surges Tuesday: What&#39;s Driving the Action?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:22:23.442971-04:00",
+    "symbols": [
+      "AGL"
+    ],
+    "headline": "This Ulta Beauty Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:22:23.446803-04:00",
+    "symbols": [
+      "AGL"
+    ],
+    "headline": "Zebra Technologies To Rally Around 24%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:22:23.449924-04:00",
+    "symbols": [
+      "AGL"
+    ],
+    "headline": "Bernstein Upgrades Agilon Health to Outperform, Raises Price Target to $125",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

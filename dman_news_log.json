@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-11T14:14:19.267398-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk&#39;s Starlink Not a Threat to Wireless Carriers, Says T-Mobile CFO: \u2018You Can Have a Million Satellites\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-11T14:14:19.268671-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SPCX CFO Bret Johnsen Says China Has an \u2018Amazing Space Program\u2019 \u2014 But It\u2019s \u2018Not on a Starship Level\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-11T14:14:19.498978-04:00",
-    "symbols": [
-      "SURG"
-    ],
-    "headline": "Why RH Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:19.500479-04:00",
-    "symbols": [
-      "SURG"
-    ],
-    "headline": "SurgePays (SURG) Stock Jumps Over 34% After Hours: Why It Is Trending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:19.729270-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:19.731174-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:19.973916-04:00",
-    "symbols": [
-      "VSA"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.205338-04:00",
-    "symbols": [
-      "WXM"
-    ],
-    "headline": "WF International Files Prospectus For $5.5M Sale Of 5M Shares At $1.10 Per Share To Certain Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-11T14:14:20.429240-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Tenon Medical To Exercise 572,179 Existing Warrants For $2.87M, Issuing New Warrants For 858,269 Shares At $5.02 Each",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-11T14:14:20.430713-04:00",
     "symbols": [
       "TNON"
@@ -5123,5 +5033,96 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T11:59:25.572940-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Dave Outperforms Visa And Chime, Analyst Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:59:45.763585-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Stock Edges Lower Tuesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:59:55.018557-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Clarity Act&#39;s odds of passing plunge as Republicans reject Democrats&#39; counter-proposal&#39; - Coindesk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:59:55.023126-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury&#39;s Bessent Says For A Nominal Amount, The U.S. Treasury Was Able To Signal Support For Japanese Policies",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T11:59:55.027957-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On CNBC, U.S. Energy Secretary Wright On Saudis, Oil, Says &#39;Think We Will See Pipeline Running Again Very Soon&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T12:00:01.078019-04:00",
+    "symbols": [
+      "SUGP"
+    ],
+    "headline": "SU Group Shares Jump After X-Ray Rights, KM Acquisition Plan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:00:57.579756-04:00",
+    "symbols": [
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "QUICK SPARK: UBS Tags Palantir &#39;Best AI Enabler&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T12:01:51.604933-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury&#39;s Bessent Says The Need To Address Deficit Is One Factor Affecting 10-Year Treasury Bond Yield",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T12:02:18.851153-04:00",
+    "symbols": [
+      "AADX"
+    ],
+    "headline": "Guggenheim Initiates Coverage On Applied Aerospace with Buy Rating, Announces Price Target of $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:50.551464-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cathie Wood Keeps Buying Meta on Mark Zuckerberg&#39;s Muse Push, Dumps Amazon, AMD, Alphabet, Palantir Amid AI Slowdown Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.834285-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mark Cuban Says Meta and Google Could Be Funding Their AI Future With Anti-Tech Content: &#39;Interesting to Watch the Irony\u2026&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.838552-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta, Google, OpenAI, Snap in Focus as EU Reportedly Moves to Keep Under-15s off Social Media and ChatGPT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T09:37:50.842756-04:00",
     "symbols": [
       "META"
@@ -5046,5 +5016,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T15:04:01.586253-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Co-President Doug Petno Says Private Equity Activity Is Back To Normal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T15:04:32.191359-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Senate Blocks Crypto-Friendly Clarity Act; Clarity Act Voted Down Amid Concerns About President Trump&#39;s Crypto Ties",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T15:05:36.336352-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Shares of oil and gas companies are trading higher amid a rise in crude after reports suggesting that Saudi Aramco deferred and cancelled some September crude cargoes meant for European refiners after the closure of its East-West pipeline to the Red Sea. Also, ongoing Saudi strikes on Yemen&#39;s Houthi rebels and a tight global diesel market are helping to support crude prices.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

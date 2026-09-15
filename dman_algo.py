@@ -3112,7 +3112,16 @@ def _setup_probation_bonus(setup: str) -> int:
     """
     try:
         state = _load_setup_probation()
-        entry = state.get(setup)
+        # Swing-mode entries are recorded — and therefore drift into
+        # probation — under a "SWING — <setup>" tag (see the pt.open()
+        # call in execute_signals), but every score gate passes sig.setup
+        # WITHOUT that prefix. Found 2026-09-15 review: the live probation
+        # on "SWING — Momentum Watch Breakout (Day)" (38% WR / 8 trades)
+        # was a silent no-op because state.get(sig.setup) never matched.
+        # Check both spellings so a probation earned under the swing tag
+        # actually restricts the setup that earned it.
+        key = setup if setup in state else f"SWING — {setup}"
+        entry = state.get(key)
         if not entry:
             return 0
         started_str = entry.get("started", "")
@@ -3122,15 +3131,15 @@ def _setup_probation_bonus(setup: str) -> int:
         except (ValueError, TypeError):
             age_days = 0
         if age_days >= SETUP_PROBATION_MAX_DAYS:
-            del state[setup]
+            del state[key]
             _save_setup_probation(state)
-            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}"):
+            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{key}"):
                 send_telegram(
-                    f"🟡 <b>Setup probation expired</b> — {setup}, {age_days} days since "
+                    f"🟡 <b>Setup probation expired</b> — {key}, {age_days} days since "
                     f"restricted. Back to its normal SETUP_MIN_CONFLUENCE bar. Send "
-                    f"<b>/setupprobation {setup}</b> to restrict it again if it's still weak."
+                    f"<b>/setupprobation {key}</b> to restrict it again if it's still weak."
                 )
-                _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{setup}")
+                _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{key}")
             return 0
         return SETUP_PROBATION_SCORE_BONUS
     except Exception:

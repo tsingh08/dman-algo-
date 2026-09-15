@@ -1,63 +1,5 @@
 [
   {
-    "ts": "2026-09-14T09:51:13.220034-04:00",
-    "symbols": [
-      "MSFT",
-      "NVDA",
-      "PLTR"
-    ],
-    "headline": "Reported Earlier, &#39;Anthropic Data Fears Prompt Nvidia, Palantir and Booz Allen to Restrict Model Use&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T09:53:42.737061-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Skips Bitcoin Purchases Again: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T09:57:42.065343-04:00",
-    "symbols": [
-      "MU",
-      "SKHY"
-    ],
-    "headline": "Why Is SK hynix Stock Falling Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-14T10:02:37.430009-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "NVDA",
-      "PLTR",
-      "SPY"
-    ],
-    "headline": "President Trump Posts On X &#34;... We already have tremendous CRIMINAL and REGULATORY power over these companies! There is a SICK conspiracy going on against AI and Data Centers, and the only one that is happy about it is China. WHOEVER WINS AI, WINS! We are leading China, and all others, and will continue to do so. Conspiracy Theorists, Treasonists, Traitors, and Leakers, BEWARE!&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-14T10:03:44.961467-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Is Exploring A New Data Center Project In Lea County, New Mexico",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-14T10:05:37.982821-04:00",
     "symbols": [
       "CRM"
@@ -5118,5 +5060,70 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:34:37.153714-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "B of A Securities Maintains Buy on e.l.f. Beauty, Raises Price Target to $118",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:35:19.348455-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "MSFT",
+      "MSTR",
+      "NVDA",
+      "ON",
+      "PLTR",
+      "SNDK",
+      "ZS"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T13:35:19.656580-04:00",
+    "symbols": [
+      "BABA",
+      "DKNG",
+      "PDD",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T13:35:20.073337-04:00",
+    "symbols": [
+      "CAT",
+      "GEV",
+      "LMT"
+    ],
+    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T13:36:50.748885-04:00",
+    "symbols": [
+      "AVGO",
+      "META",
+      "NVDA"
+    ],
+    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

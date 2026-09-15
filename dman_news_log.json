@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:37:50.001219-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Citizens Reiterates Market Outperform on Microsoft, Maintains $550 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.004702-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Top 3 Stocks Dan Ives Says Will Lead the Next Tech Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.007941-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Comparing Microsoft With Industry Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.011146-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "NVIDIA Isn\u2019t \u2018so Expensive,\u2019 but Crowded AI Trade Could Unwind Quickly, Fund Manager Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.014446-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.269426-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Sam Altman\u2019s AI Nightmare Splits ETF Trade: Build Vs. Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T09:37:50.272988-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Big Short Veterans Say AI Boom Could End in a \u2018Boom, Bust\u2019 Cycle \u2014 Warn Nvidia Faces a Hidden Risk: \u2018It Scares Me\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T09:37:50.276646-04:00",
     "symbols": [
       "NVDA"
@@ -5046,5 +4976,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:44:18.889268-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Watching Robinhood Markets; Hearing Investor Business Daily SwingTrader Sells Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-15T14:46:46.351049-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Clarity Act Is On Track To Fail Procedural Hurdle In Senate",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:47:50.169895-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Citizens Reiterates Market Outperform on Microsoft, Maintains $550 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-15T14:47:50.375222-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA CEO, On AI Safety, Says Companies Should Pace Themselves Until They Are Are Confident They Are Releasing Something The Market Would Appreciate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:47:50.378668-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA CEO Jensen Huang, At Dreamforce, Says Do Not Need New Laws Or Regulations For AI Safety",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-15T14:47:51.748500-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "NVIDIA CEO, On AI Safety, Says Companies Should Pace Themselves Until They Are Are Confident They Are Releasing Something The Market Would Appreciate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-15T14:47:51.751889-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "NVIDIA CEO Jensen Huang, At Dreamforce, Says Do Not Need New Laws Or Regulations For AI Safety",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

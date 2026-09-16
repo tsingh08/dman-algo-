@@ -45,6 +45,7 @@ jobs:
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
           APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}   # shadow reviewer on DMan plays
           ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
           PYTHONIOENCODING:    utf-8
         run: python dman_algo.py --mode stocktwits

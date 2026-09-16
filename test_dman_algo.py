@@ -1514,6 +1514,83 @@ class TestPnlEntriesAreMergeSafe(unittest.TestCase):
             mock_dt.now.return_value = datetime(2026, 8, 16, 12, 0, tzinfo=a.ET)
             self.assertAlmostEqual(a.get_todays_loss(), -1.25, places=4)
 
+    # ── Same-close-from-two-machines dedup (confirmed live 2026-09-16) ────
+    # The daemon and the cron scanner both detected QQQ260922C00728000's
+    # single +$35 close before either checkout's push propagated: the
+    # recorded_ids cache and the win-rate ledger dupe guard both live in
+    # files that hadn't synced yet, so BOTH machines recorded it. Their two
+    # entries had different ts (each stamps datetime.now itself) and
+    # slightly different pnl_pct (+1.3166% vs +1.3196% — get_effective_
+    # account() is live equity sampled 9 minutes apart), so the content-
+    # keyed union kept both and the day was overstated by +1.32pp — in the
+    # dangerous direction, masking real losses from DAILY_LOSS_LIMIT /
+    # MONTHLY_LOSS_LIMIT. Entries now carry a `key` (closing order id +
+    # entry price, identical on every machine that sees the fill), and the
+    # merge collapses same-key entries no matter what ts/pnl_pct they carry.
+
+    def test_same_close_recorded_by_two_machines_merges_to_one_entry(self):
+        self._write(self._daily_tmp.name, {"entries": [
+            {"ts": "2026-09-16T11:32:10-04:00", "pnl_pct": 1.3166,
+             "key": "c95811f6|0.36"}]})
+        remote = {"entries": [
+            {"ts": "2026-09-16T11:41:56-04:00", "pnl_pct": 1.3196,
+             "key": "c95811f6|0.36"}]}
+        result = self._sync_daily_against_remote(remote)
+        self.assertEqual(len(result["entries"]), 1,
+                         msg="one real close must contribute exactly once to the day's P&L")
+        # Local's version wins, matching merge_json_lists()'s local-is-base rule
+        self.assertAlmostEqual(result["entries"][0]["pnl_pct"], 1.3166, places=4)
+
+    def test_distinct_keys_are_not_collapsed(self):
+        # Two genuinely separate closes (e.g. two tranches closed by two
+        # different orders) must both survive even if pnl_pct is identical.
+        self._write(self._daily_tmp.name, {"entries": [
+            {"ts": "2026-09-16T14:00:34-04:00", "pnl_pct": 0.0378, "key": "ord-a|0.24"}]})
+        remote = {"entries": [
+            {"ts": "2026-09-16T14:45:49-04:00", "pnl_pct": 0.0378, "key": "ord-b|1.37"}]}
+        result = self._sync_daily_against_remote(remote)
+        total = sum(e["pnl_pct"] for e in result["entries"])
+        self.assertAlmostEqual(total, 0.0756, places=4)
+
+    def test_keyless_history_still_merges_by_content(self):
+        # Pre-fix entries have no key; their identity stays byte-for-byte
+        # content, so a keyless remote entry with a different ts is (still)
+        # treated as new — unchanged legacy behavior, no history rewrite.
+        self._write(self._daily_tmp.name, {"entries": [
+            {"ts": "2026-09-16T11:32:10-04:00", "pnl_pct": 1.3166}]})
+        remote = {"entries": [
+            {"ts": "2026-09-16T11:41:56-04:00", "pnl_pct": 1.3196}]}
+        result = self._sync_daily_against_remote(remote)
+        self.assertEqual(len(result["entries"]), 2)
+
+    def test_monthly_merge_dedups_by_key_too(self):
+        self._write(self._monthly_tmp.name, {"entries": [
+            {"ts": "2026-09-16T11:32:10-04:00", "pnl_pct": 1.3166,
+             "key": "c95811f6|0.36"}]})
+        remote = {"entries": [
+            {"ts": "2026-09-16T11:41:56-04:00", "pnl_pct": 1.3196,
+             "key": "c95811f6|0.36"}]}
+        result = self._sync_monthly_against_remote(remote)
+        self.assertEqual(len(result["entries"]), 1)
+
+    def test_record_daily_pnl_stamps_the_key_into_the_entry(self):
+        self._write(self._daily_tmp.name, {"entries": []})
+        a.record_daily_pnl(-1.0, key="oid-123|4.2")
+        with open(self._daily_tmp.name) as f:
+            entries = json.load(f)["entries"]
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["key"], "oid-123|4.2")
+        self.assertAlmostEqual(entries[0]["pnl_pct"], -1.0, places=4)
+
+    def test_record_daily_pnl_without_key_writes_no_key_field(self):
+        # Manual --mode record has no order id; its entries must keep the
+        # exact legacy shape so nothing downstream sees a spurious field.
+        self._write(self._daily_tmp.name, {"entries": []})
+        a.record_daily_pnl(-1.0)
+        with open(self._daily_tmp.name) as f:
+            entries = json.load(f)["entries"]
+        self.assertNotIn("key", entries[0])
+
 
 class TestLogNewsEvent(unittest.TestCase):
     """Added 2026-08-15, direct instruction to have the algo "constantly

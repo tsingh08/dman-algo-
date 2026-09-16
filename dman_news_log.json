@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-15T11:59:25.572940-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Dave Outperforms Visa And Chime, Analyst Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T11:59:45.763585-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Stock Edges Lower Tuesday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T11:59:55.018557-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Clarity Act&#39;s odds of passing plunge as Republicans reject Democrats&#39; counter-proposal&#39; - Coindesk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T11:59:55.023126-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury&#39;s Bessent Says For A Nominal Amount, The U.S. Treasury Was Able To Signal Support For Japanese Policies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T11:59:55.027957-04:00",
     "symbols": [
       "SPY"
@@ -5047,6 +5007,47 @@
       "JBHT"
     ],
     "headline": "JB Hunt Stock Sinks As Rising Driver and Fuel Costs Hit Q3 Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T11:38:49.497186-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "SEC, CFTC Rulemaking Will Be &#39;Aggressive and Swift&#39; After CLARITY Act Failure, Bernstein Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T11:39:14.038804-04:00",
+    "symbols": [
+      "ARTL",
+      "NVO"
+    ],
+    "headline": "Artelo Cannabinoid Drug Doubles Weight Loss When Paired with Popular Obesity Drug",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T11:39:41.778807-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "If You Invested $100 In RTX Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T11:39:41.959027-04:00",
+    "symbols": [
+      "TPST"
+    ],
+    "headline": "Tempest Therapeutics (TPST) Stock Surges Wednesday: What&#39;s Driving the Action?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T11:52:57.429863-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Energy Secretary Chris Wright Speaking To CNBC Says He Thinks Saudi Arabia&#39;s Pipeline Will Be Running Again Very Soon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T11:52:57.883523-04:00",
     "symbols": [
       "PDM"
@@ -5046,6 +5036,17 @@
     ],
     "headline": "Nokia Defense Partners With C3IA To Deliver Resilient Multi-Domain Capabilities Spanning Tactical Communications, C2, Sensing, And Edge Computing",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T11:20:57.557549-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL"
+    ],
+    "headline": "U.S. International Trade Commission Voted To Institute An Investigation Of Certain Electronic Devices With Certain Audio Technologies, Respondents Are Apple, Samsung And Google",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -83,6 +83,7 @@ with open(_SRC_PATH, encoding="utf-8") as _f:
 _flags_isolation = None
 _wl_isolation = None
 _halt_isolation = None
+_probation_isolation = None
 
 
 def setUpModule():
@@ -110,6 +111,15 @@ def setUpModule():
     # would halt every test that ran after it. Here the guards see the
     # un-latched predicate; the latch itself is covered directly, against the
     # real function, in TestDailyLossHaltLatches.
+    # Same reasoning as FLAGS_FILE above: dman_setup_probation.json is live,
+    # committed state (it currently restricts the momentum breakout setup), and
+    # tests that assert the unrestricted path must not read it. Tests covering
+    # probation itself patch this to their own file.
+    global _probation_isolation
+    _probation_isolation = patch.object(
+        a, "SETUP_PROBATION_FILE",
+        os.path.join(tempfile.gettempdir(), "dman_setup_probation_test_isolation_absent.json"))
+    _probation_isolation.start()
     global _halt_isolation
     _halt_isolation = patch.object(
         a, "_daily_loss_limit_hit",
@@ -118,6 +128,8 @@ def setUpModule():
 
 
 def tearDownModule():
+    if _probation_isolation is not None:
+        _probation_isolation.stop()
     if _halt_isolation is not None:
         _halt_isolation.stop()
     if _flags_isolation is not None:
@@ -16257,3 +16269,37 @@ class TestDailyLossHaltLatches(unittest.TestCase):
     def test_guards_use_the_latch(self):
         for fn in (a._entry_circuit_breakers_ok, a._submit_signals_to_alpaca):
             self.assertIn("_daily_loss_limit_hit()", inspect.getsource(fn))
+
+
+class TestSwingLabelPooledInDrift(unittest.TestCase):
+    """Review 2026-09-09: PDT-zero swing conversion records "SWING — <setup>",
+    so one strategy accumulated under two names and neither reached
+    min_trades."""
+
+    def test_swing_and_base_labels_count_as_one_family(self):
+        tmp = os.path.join(tempfile.mkdtemp(), "wr.json")
+        tracker = a.WinRateTracker(filepath=tmp)
+        for i in range(6):
+            tracker.record(a.TradeRecord(
+                ticker=f"T{i}", date=str(a._et_today()), bias="LONG",
+                setup=("SWING — Momentum Watch Breakout (Day)" if i % 2
+                       else "Momentum Watch Breakout (Day)"),
+                entry=10.0, exit=9.0, outcome="LOSS", pnl_pct=-5.0, score=90, is_live=True))
+        fams = [d["setup"] for d in tracker.setup_performance_drift(min_trades=6)]
+        self.assertIn("Momentum Watch Breakout (Day)", fams)
+        self.assertNotIn("SWING — Momentum Watch Breakout (Day)", fams)
+
+
+class TestMomentumAutoExecRespectsProbation(unittest.TestCase):
+    """Review 2026-09-10: the auto-exec path ignored setup probation, so a
+    restricted setup kept entering itself unsupervised."""
+
+    def test_probation_suspends_auto_exec_and_asks_instead(self):
+        src = inspect.getsource(a._mw_process_play)
+        self.assertIn("_mw_on_probation", src)
+        i = src.index("_submit_signals_to_alpaca")
+        self.assertIn("not _mw_on_probation", src[:i])
+
+    def test_auto_exec_still_runs_when_not_restricted(self):
+        src = inspect.getsource(a._mw_process_play)
+        self.assertIn('if bp["setup"] and not _mw_on_probation:', src)

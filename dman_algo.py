@@ -9349,7 +9349,21 @@ def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
                 # reduced size with no reply needed (see
                 # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
                 # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
-                if bp["setup"]:
+                # Setup probation revokes the auto-exec privilege (2026-09-10
+                # review: this path kept entering "SWING — Momentum Watch
+                # Breakout (Day)" unsupervised the session after it was
+                # restricted at 38% WR). Probation elsewhere raises the
+                # confluence bar, but _build_momentum_signal() hardcodes 100 --
+                # a human approval standing in for a score, which is exactly
+                # the trust probation suspends. While restricted the pattern
+                # match falls back to the YES/NO offer: still takeable, just
+                # not by itself. Both recorded spellings are checked.
+                _mw_on_probation = (_setup_probation_bonus(MOMENTUM_DAY_ONLY_SETUP) > 0
+                                    or _setup_probation_bonus("SWING — " + MOMENTUM_DAY_ONLY_SETUP) > 0)
+                if bp["setup"] and _mw_on_probation:
+                    _breakout_msg += ("\n   🟡 Setup on probation (weak recent live record) — "
+                                      "auto-execute suspended, explicit YES required")
+                if bp["setup"] and not _mw_on_probation:
                     _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
                                   "t1": t1, "t2": t2, "signal_str": sig_str}
                     try:
@@ -9360,7 +9374,7 @@ def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
                                           f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET)")
                     except Exception as _mw_exc:
                         _breakout_msg += f"\n   ⚠️ Auto-execute failed ({_mw_exc}) — no order placed"
-                else:
+                if not bp["setup"] or _mw_on_probation:
                     # Make it actionable, not just informational -- direct
                     # instruction 2026-08-30. One offer per ticker at a
                     # time: a fresh alert for a ticker that already has an
@@ -14351,6 +14365,12 @@ class WinRateTracker:
         Pooled into one "Options Single-Leg" family for the same reason.
         """
         def _drift_key(setup: str) -> str:
+            # PDT-zero swing conversion records "SWING — <setup>", so the same
+            # strategy accumulated under two names and neither reached
+            # min_trades. Live on 2026-09-16: 9 trades under "SWING — Momentum
+            # Watch Breakout (Day)" sat apart from the unprefixed twin.
+            if setup.startswith("SWING — "):
+                setup = setup[len("SWING — "):]
             if setup.startswith("Earnings "):
                 return "Earnings Spread"
             if setup.startswith(("Options Call", "Options Put")):

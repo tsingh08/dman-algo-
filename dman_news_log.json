@@ -1,342 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:31:26.202724-04:00",
-    "symbols": [
-      "SAFX"
-    ],
-    "headline": "XCF Global, DevvStream, Southern Energy Amend Combination Agreement, Raising XCF Ownership To 69.57%, Adding $1.0M GL Warrant Investment At $2.50 Per Share And $4.3M Capital Framework",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:34:37.153714-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "B of A Securities Maintains Buy on e.l.f. Beauty, Raises Price Target to $118",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:35:19.348455-04:00",
-    "symbols": [
-      "AAPL",
-      "AMD",
-      "MSFT",
-      "MSTR",
-      "NVDA",
-      "ON",
-      "PLTR",
-      "SNDK",
-      "ZS"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:35:19.656580-04:00",
-    "symbols": [
-      "BABA",
-      "DKNG",
-      "PDD",
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:35:20.073337-04:00",
-    "symbols": [
-      "CAT",
-      "GEV",
-      "LMT"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:36:50.748885-04:00",
-    "symbols": [
-      "AVGO",
-      "META",
-      "NVDA"
-    ],
-    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:43:04.414763-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:43:04.600043-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:43:04.795994-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:43:04.799659-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:43:04.955743-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T13:43:05.171465-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:43:05.742329-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T13:43:06.286147-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:43:06.479490-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:43:06.913078-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:43:07.673346-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:10.624775-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:11.482722-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:11.633518-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:11.859722-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:43:12.035229-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:12.848496-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:43:12.995470-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:13.410191-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:23.858608-04:00",
-    "symbols": [
-      "FNGR"
-    ],
-    "headline": "FingerMotion Says It Is Developing Ten 9.9 MW Behind-The-Meter Generation And Data Hall Sites In Alberta Totaling 99 MW; Targets Completed Permitting By End Of Q1 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:43:24.085637-04:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Radiant Logistics, Waystar, Forgent Power Solutions And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:46:48.610842-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;Exxon wins Texas approval for $5bn carbon capture project&#39; - Financial Times",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:53:29.486132-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Secures Funding for Iridium Buyout",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:53:43.006941-04:00",
-    "symbols": [
-      "AVGO",
-      "NVDA",
-      "SPY"
-    ],
-    "headline": "Nvidia, Broadcom Just Helped Break a 90-Year Earnings Trend\u2014Now Comes the Hard Part",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:54:06.107497-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:54:06.305925-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T13:54:06.489404-04:00",
     "symbols": [
       "NVDA"
@@ -5059,5 +4722,325 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:00.067910-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T13:15:00.376214-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:01.753507-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Helps Live Nation Provide 24/7 Fan Support",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:02.540541-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:03.381888-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ninth Circuit Reverses Denial Of Injunction Against Kalshi, Robinhood; Says California Tribes Likely To Win IGRA Claim Over Sports Event Contracts, Remands For Remaining Factors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T13:15:03.743738-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:05.742494-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on e.l.f. Beauty, Raises Price Target to $115",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:06.344807-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Ninth Circuit Reverses Denial Of Injunction Against Kalshi, Robinhood; Says California Tribes Likely To Win IGRA Claim Over Sports Event Contracts, Remands For Remaining Factors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:07.414140-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Sees \u2018Nothing Flashing Red\u2019 In US Economy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T13:15:07.728002-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:07.871535-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Charles Schwab, Cleveland-Cliffs, UnitedHealth Group, Incyte",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:08.876572-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T13:15:09.002693-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:09.145035-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:09.149560-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "Crude Oil Down Over 3%; US Business Inventories Surge In July",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:09.263570-04:00",
+    "symbols": [
+      "MRLN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:09.390326-04:00",
+    "symbols": [
+      "LUXE"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T13:15:09.538458-04:00",
+    "symbols": [
+      "FANG"
+    ],
+    "headline": "Diamondback Energy Stock Slides Wednesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:09.543092-04:00",
+    "symbols": [
+      "FANG"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:15:09.655088-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:09.659645-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "Freight Stocks Plummet as Record-High Diesel Squeezes Profit Margins: 7 Names To Watch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:09.663939-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "QUICK SPARK: $6 Diesel Triggers JB Hunt Stock&#39;s Worst Day Since March 2020",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.035718-04:00",
+    "symbols": [
+      "NAMI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.272370-04:00",
+    "symbols": [
+      "GLOO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.399320-04:00",
+    "symbols": [
+      "KNX"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.403818-04:00",
+    "symbols": [
+      "KNX"
+    ],
+    "headline": "Freight Stocks Plummet as Record-High Diesel Squeezes Profit Margins: 7 Names To Watch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.408111-04:00",
+    "symbols": [
+      "KNX"
+    ],
+    "headline": "QUICK SPARK: $6 Diesel Triggers JB Hunt Stock&#39;s Worst Day Since March 2020",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.577435-04:00",
+    "symbols": [
+      "RETO"
+    ],
+    "headline": "ReTo Eco-Solutions Shares Resume Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.581916-04:00",
+    "symbols": [
+      "RETO"
+    ],
+    "headline": "Why Tempest Therapeutics Shares Are Trading Higher By Around 50%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.586172-04:00",
+    "symbols": [
+      "RETO"
+    ],
+    "headline": "ReTo Eco-Solutions Stock Surged 676% on Tuesday: RETO Stock Keeps Trending After Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.711880-04:00",
+    "symbols": [
+      "LIFE"
+    ],
+    "headline": "Ethos Technologies Announces None Of Its Systems Were Accessed Or Exfiltrated In July 2026 Service Disruption At Its Carrier Partner Trustage Financial; Doesn&#39;t Expect Any Material Q3 Impact From The Incident",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:15:10.716370-04:00",
+    "symbols": [
+      "LIFE"
+    ],
+    "headline": "Beta Bionics, J.B. Hunt Transport And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

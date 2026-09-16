@@ -1498,5 +1498,17 @@
     "pnl_pct": -52.14,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "QQQ",
+    "date": "2026-09-16",
+    "bias": "LONG",
+    "setup": "Options Call QQQ260922C00728000",
+    "entry": 0.36,
+    "exit": 0.71,
+    "outcome": "WIN",
+    "pnl_pct": 97.22,
+    "score": 0,
+    "is_live": true
   }
 ]

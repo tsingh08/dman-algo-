@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:08:58.514957-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Senate Blocks Crypto-Friendly Clarity Act; Clarity Act Voted Down Amid Concerns About President Trump&#39;s Crypto Ties",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T15:16:00.708578-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno Says We Dont See A Lot Of Institutional Demand For Stablecoins",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:20:06.903422-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno Says Competition For High Quality Deposits Is Intense; We Are Being Very Selective With AI Financing; We Are Maintaining Our Underwriting Discipline With AI Financing And Being Very Deliberate About It",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:20:26.199235-04:00",
     "symbols": [
       "GOOGL"
@@ -5052,6 +5022,37 @@
     ],
     "headline": "SpaceXAI Announces Memory In Grok Build, Writing Project Notes In Background And Reading Them Back In Later Sessions; Adds /memory And /dream Commands",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:00:55.593525-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says Today&#39;s Action Starts To Show We Are Serious About This; Asked About AI Safety, Says We Care Very Much About What&#39;s Happening In AI But Decisions About Risks And Rewards Are For Other Policymakers To Make; Don&#39;t Believe We Need To Do Harm To Job Market To Achieve Our Objective; Job We Did Today And Will Continue To Do Is To Ensure Price Stability So Durable Growth Can Continue",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:01:58.863735-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "SpaceX-Tesla Merger: Ron Baron Told Elon Musk &#39;Whatever You Decide... Is What I&#39;m Going to Support&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:02:25.655824-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX-Tesla Merger: Ron Baron Told Elon Musk &#39;Whatever You Decide... Is What I&#39;m Going to Support&#39;",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

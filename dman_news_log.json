@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:20:26.208576-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Waymo Expands Robotaxi Battle to Las Vegas \u2014 Alphabet-Backed Service Plans Unsupervised Tokyo Launch in 2027, Taking on Uber",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:20:26.374250-04:00",
     "symbols": [
       "AMZN"
@@ -5057,5 +5047,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:19:14.313471-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Stock Gains Following Bullish Executive Commentary at Morgan Stanley Conference",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

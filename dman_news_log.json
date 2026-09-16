@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:01:45.114240-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Slides as Bitcoin Falls After Senate Rejection",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:02:02.267121-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Sam Altman\u2019s AI Nightmare Splits ETF Trade: Build Vs. Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T15:02:02.270446-04:00",
     "symbols": [
       "AMD"
@@ -5049,6 +5029,26 @@
       "SPY"
     ],
     "headline": "Fed Chair Warsh Says Those Less Well Off Have Most To Gain From That; Did Not Offer Own Summary of Economic Projection; Decision We Made Today Was A Sober Decision; Am Not Going To Prejudge Any Future Decision We May Make; Decision Today Was The Right Decision, I Have Nothing For You About A Discussion With The President; Because Of Underlying Strength Of The Economy We Can Afford To Focus On Price Stability",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:46:49.731102-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says What Happened In 7 Weeks Since We Last Met, Data Has Shown Economy Has Strengthened; Inflation Trends Were Not Passing Test And Seen Little To Change That; My Colleagues Are Hard Pressed To Describe Financial Conditions As Restrictive; We Decided To Remove A Dose Of Accommodation; I&#39;ve Always Been Interested In A Neutral Rate Academically, But Don&#39;t See It Having An Operational Effect On Decisions Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:49:54.616175-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says Our Judgement About What is Most Likely or Least Likely of the Geopolitical Situation Has Changed; I Was Not Waiting Breathlessly On Any One Data Point; Trends Matter, Data Points Are Noisy; My Colleagues And I Were Hard Pressed To Describe Financial Conditions As Restrictive; INdependence Is A 2-Way Street, Must Stay In Our Lane; In Aggregate We&#39;re More Or Less At Full Employment; Stable Prices Offer Good News To Workers To See Real Take Home Pay Increases",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

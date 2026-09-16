@@ -350,6 +350,13 @@ OPTIONS_SETUPS          = {"Gap & Hold", "Morning Runner"}  # alert annotation o
                                                               # that constant is defined
 OPTIONS_MIN_PRICE       = 10.0          # no options notes on sub-$10 stocks (illiquid chains)
 OPTIONS_TARGET_DTE      = 14            # target 2-week DTE — DMan gap plays resolve in 1-5 days
+# At least this share of the premium must be intrinsic (real, already-earned
+# value), so a flat tape cannot by itself take the trade out. The 2026-09-14
+# APLD call was 74% time value: the stock closed FLAT that day and the option
+# still lost 52%, tripping the -50% premium stop on no move at all. TE was the
+# same shape. The delta >= 0.40 filter allowed it because near-the-money
+# contracts are the cheapest thing that clears the per-contract budget.
+OPTIONS_MIN_INTRINSIC_PCT = 0.50
 OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — documents strike scan intent
 OPTIONS_CLOSE_DTE       = 7             # DTE ≤ 7 → close/roll warning from the monitor
 # Hard backstop: never carry a long option INTO expiry. Distinct from the
@@ -21447,6 +21454,20 @@ def _estimate_bs_delta(current_price: float, strike: float, dte: int, is_call: b
         return 0.0
 
 
+def _intrinsic_pct(intrinsic: float, premium: float) -> float:
+    """Share of the premium that is already-earned value, 0..1."""
+    if premium <= 0:
+        return 0.0
+    return max(0.0, min(1.0, intrinsic / premium))
+
+
+def _has_enough_intrinsic(intrinsic: float, premium: float) -> bool:
+    """See OPTIONS_MIN_INTRINSIC_PCT. Missing/zero premium fails closed."""
+    if premium <= 0:
+        return False
+    return _intrinsic_pct(intrinsic, premium) >= OPTIONS_MIN_INTRINSIC_PCT
+
+
 def _find_best_call_contract(client, ticker: str, current_price: float) -> dict | None:
     """
     Greeks-aware contract selection:
@@ -21540,6 +21561,11 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
             if (snap["delta"] < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT
                     or snap.get("bid_size", 0) < OPTIONS_MIN_QUOTE_SIZE
                     or snap.get("ask_size", 0) < OPTIONS_MIN_QUOTE_SIZE):
+                continue
+            _k = float(getattr(items[0], "strike_price", strike))   # the contract's real strike
+            if not _has_enough_intrinsic(current_price - _k, snap.get("mid", 0)):
+                print(f"    {occ}  skip — {_intrinsic_pct(current_price - _k, snap.get('mid', 0))*100:.0f}% "
+                      f"intrinsic (need {OPTIONS_MIN_INTRINSIC_PCT*100:.0f}%+): a flat tape alone would lose")
                 continue
             score, reason = _score_option_contract(snap, current_price)
             _delta_tag = "~" if snap.get("delta_estimated") else ""
@@ -21645,6 +21671,11 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
                     False, _realized_vol_estimate(ticker))
                 snap["delta_estimated"] = True
             delta_abs = abs(snap.get("delta", 0))
+            _k = float(getattr(items[0], "strike_price", strike))   # the contract's real strike
+            if not _has_enough_intrinsic(_k - current_price, snap.get("mid", 0)):
+                print(f"    {occ}  skip — {_intrinsic_pct(_k - current_price, snap.get('mid', 0))*100:.0f}% "
+                      f"intrinsic (need {OPTIONS_MIN_INTRINSIC_PCT*100:.0f}%+): a flat tape alone would lose")
+                continue
             if (delta_abs < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT
                     or snap.get("bid_size", 0) < OPTIONS_MIN_QUOTE_SIZE
                     or snap.get("ask_size", 0) < OPTIONS_MIN_QUOTE_SIZE):

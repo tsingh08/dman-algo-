@@ -15774,3 +15774,29 @@ class TestShadowReviewer(unittest.TestCase):
                     self.assertFalse(line.strip().startswith(("if ", "elif ", "return ", "assert ")),
                                      f"verdict used as a decision in {fn.__name__}: {line.strip()}")
                     self.assertNotIn("=", line.split("_shadow_review(")[0])
+
+
+class TestOptionIntrinsicFloor(unittest.TestCase):
+    """2026-09-14 APLD: $25 call at $2.34 with the stock at ~$25.6 is 26%
+    intrinsic. The stock closed FLAT and the option lost 52%, hitting the
+    -50% premium stop on no move. Contracts must now be mostly intrinsic."""
+
+    def test_the_apld_contract_is_rejected(self):
+        self.assertFalse(a._has_enough_intrinsic(25.6 - 25.0, 2.34))
+        self.assertAlmostEqual(a._intrinsic_pct(0.6, 2.34), 0.256, places=2)
+
+    def test_a_deeper_itm_contract_passes(self):
+        # same stock, $22.5 strike around $3.60: 86% intrinsic
+        self.assertTrue(a._has_enough_intrinsic(25.6 - 22.5, 3.60))
+
+    def test_puts_use_strike_minus_price(self):
+        self.assertTrue(a._has_enough_intrinsic(30.0 - 27.0, 3.40))
+        self.assertFalse(a._has_enough_intrinsic(30.0 - 29.8, 1.50))
+
+    def test_missing_premium_fails_closed(self):
+        for prem in (0, -1):
+            self.assertFalse(a._has_enough_intrinsic(5.0, prem))
+
+    def test_both_scans_enforce_it(self):
+        for fn in (a._find_best_call_contract, a._find_best_put_contract):
+            self.assertIn("_has_enough_intrinsic", inspect.getsource(fn))

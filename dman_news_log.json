@@ -1,320 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:08:13.184346-04:00",
-    "symbols": [
-      "SCNI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:14.108817-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:08:14.112387-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Crude Oil Rises Sharply; Forgent Power Solutions Shares Jump After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:08:14.530398-04:00",
-    "symbols": [
-      "WETO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:15.418662-04:00",
-    "symbols": [
-      "MYSZ"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:15.422546-04:00",
-    "symbols": [
-      "MYSZ"
-    ],
-    "headline": "Crude Oil Rises Sharply; Forgent Power Solutions Shares Jump After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:15.635606-04:00",
-    "symbols": [
-      "ADBT"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:15.847456-04:00",
-    "symbols": [
-      "PDSB"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:16.067664-04:00",
-    "symbols": [
-      "VRA"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:08:16.283109-04:00",
-    "symbols": [
-      "PHOE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:16.913547-04:00",
-    "symbols": [
-      "RLGT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:16.917145-04:00",
-    "symbols": [
-      "RLGT"
-    ],
-    "headline": "Crude Oil Rises Sharply; Forgent Power Solutions Shares Jump After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:18.624519-04:00",
-    "symbols": [
-      "INDP"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:18.844925-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "Crude Oil Rises Sharply; Forgent Power Solutions Shares Jump After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:19.688372-04:00",
-    "symbols": [
-      "FBDT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:20.574642-04:00",
-    "symbols": [
-      "ALMU"
-    ],
-    "headline": "Aeluma Executes Agreement With Sumitomo Chemical Advanced Technologies To Accelerate Development And Production Of Photonics Wafers For AI Datacom Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:09:01.752942-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Calls AI Safety Warnings \u20184D Chess\u2019\u2014Then Proposes A Test That Could Expose Them",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:16:35.692797-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Announces Five-Service Streaming Bundle On Prime Video In US For $29.99/Month, Combining AMC+, BritBox, MGM+, PBS Masterpiece, And Starz, Available September 15",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:19:34.159272-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Announces Gemini 3.8 Live And Gemini 3.8 Live Extended Thinking Via Live API; Partners Include Salesforce, Genspark, And Lumeris",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:26:47.629972-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Senator Bernie Sanders Says AI Development Needs Binding Safety Rules Rather Than Voluntary Standards; Urges US-China Treaty To Pause Advanced AI Development, Calls On AI CEOs To Halt Donations To Anti-Regulation Candidates",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:27:16.082921-04:00",
-    "symbols": [
-      "COIN",
-      "DIA",
-      "IWM",
-      "QCOM",
-      "QQQ"
-    ],
-    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:29:16.181485-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Says Starship Flight 14 Preparing To Launch As Soon As September 22 Pending Regulatory Approval, With 75-Minute Window Opening At 7:15 AM CT",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:30:32.374898-04:00",
-    "symbols": [
-      "META",
-      "NVDA"
-    ],
-    "headline": "AI Selloff Is \u2018Panic,\u2019 Meta May Be The Best Stock To Buy, Joseph Carlson Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:31:04.564210-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AI Selloff Is \u2018Panic,\u2019 Meta May Be The Best Stock To Buy, Joseph Carlson Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:31:04.815602-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AI Selloff Is \u2018Panic,\u2019 Meta May Be The Best Stock To Buy, Joseph Carlson Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:31:07.565920-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:31:10.605215-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:31:15.434961-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T13:31:15.651561-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:31:25.530954-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "10-Year Yield Tops 5%, Oil Storms Past $105: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:31:26.199122-04:00",
-    "symbols": [
-      "SAFX"
-    ],
-    "headline": "XCF Global Files Prospectus To Sell $300M Mixed Securities Shelf",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T13:31:26.202724-04:00",
     "symbols": [
       "SAFX"
@@ -5063,5 +4748,316 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:07:49.582338-04:00",
+    "symbols": [
+      "DKNG",
+      "HOOD"
+    ],
+    "headline": "Ninth Circuit Reverses Denial Of Injunction Against Kalshi, Robinhood; Says California Tribes Likely To Win IGRA Claim Over Sports Event Contracts, Remands For Remaining Factors",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:11.655208-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:08:12.153803-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:08:14.537447-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:08:15.692721-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ninth Circuit Reverses Denial Of Injunction Against Kalshi, Robinhood; Says California Tribes Likely To Win IGRA Claim Over Sports Event Contracts, Remands For Remaining Factors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T13:08:16.125017-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:08:18.814820-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on e.l.f. Beauty, Raises Price Target to $115",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:19.719139-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Ninth Circuit Reverses Denial Of Injunction Against Kalshi, Robinhood; Says California Tribes Likely To Win IGRA Claim Over Sports Event Contracts, Remands For Remaining Factors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:21.072462-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Sees \u2018Nothing Flashing Red\u2019 In US Economy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T13:08:21.512182-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:08:21.732243-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Charles Schwab, Cleveland-Cliffs, UnitedHealth Group, Incyte",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:08:23.296683-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T13:08:23.519703-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:23.959454-04:00",
+    "symbols": [
+      "ARTL"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:24.236715-04:00",
+    "symbols": [
+      "BMGL"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:24.488490-04:00",
+    "symbols": [
+      "BOXL"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:24.708849-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:25.664613-04:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:27.161503-04:00",
+    "symbols": [
+      "NAMI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:27.601906-04:00",
+    "symbols": [
+      "QCLS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:28.731855-04:00",
+    "symbols": [
+      "TPST"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:28.946763-04:00",
+    "symbols": [
+      "YFOR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:29.165146-04:00",
+    "symbols": [
+      "JZXN"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:29.387713-04:00",
+    "symbols": [
+      "LUXE"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T13:08:30.047270-04:00",
+    "symbols": [
+      "VWAV"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:30.492037-04:00",
+    "symbols": [
+      "NRXS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:30.923119-04:00",
+    "symbols": [
+      "MNOV"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:31.638351-04:00",
+    "symbols": [
+      "CIFR"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:08:31.864119-04:00",
+    "symbols": [
+      "GLOO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:08:32.087003-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:09:23.166691-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Helps Live Nation Provide 24/7 Fan Support",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

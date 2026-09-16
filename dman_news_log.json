@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:38:12.264316-04:00",
-    "symbols": [
-      "TLX"
-    ],
-    "headline": "Radiant Logistics, Waystar, Forgent Power Solutions And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T10:38:12.575437-04:00",
     "symbols": [
       "ARWR"
@@ -5052,5 +5042,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:18:13.471211-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Partners With Lululemon To Advance AI-Driven Product Recommendations As Part Of Expanded Holiday Commerce And YouTube Ad Suite",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

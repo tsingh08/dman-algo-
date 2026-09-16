@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:38:12.575437-04:00",
-    "symbols": [
-      "ARWR"
-    ],
-    "headline": "Arrowhead Pharmaceuticals Says Phase 1/2a Interim Single-Dose Data For ARO-DIMER-PA Showed Mean Maximal Reductions Of 54% In Bad Cholesterol, 73% In Triglycerides; No Drug-Related Serious Adverse Events",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:42:22.149033-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury&#39;s Bessent Says At Deficit-To-GDP Ratio Of 3%, We Can Start To Pay Down Debt; We Would Have Continued Fiscal Contraction This Year If Not For Tariff Redfunds",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T10:48:37.435659-04:00",
     "symbols": [
       "SPY"
@@ -5052,5 +5032,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T10:24:28.326699-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Citigroup Maintains Buy on Meta Platforms, Maintains $800 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:25:14.170031-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is Meta Platforms Stock Gaining Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

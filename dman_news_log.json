@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:30:47.553938-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Is Shipping 16-Layer HBM4 for Nvidia Rubin: Where Do Micron And Samsung Stand?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:30:52.652640-04:00",
-    "symbols": [
-      "RETO"
-    ],
-    "headline": "ReTo Eco-Solutions Shared Halted On Circuit Breaker To The Upside; Stock Now Up 271.69%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:30:52.657085-04:00",
-    "symbols": [
-      "RETO"
-    ],
-    "headline": "ReTo Eco-Solutions Shared Halted On Circuit Breaker To The Upside; Stock Now Up 155.25%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:30:53.451141-04:00",
-    "symbols": [
-      "PLAY"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T14:30:53.609280-04:00",
-    "symbols": [
-      "ASND"
-    ],
-    "headline": "Why Is Ascendis Pharma Stock Trading Lower on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T14:30:54.674364-04:00",
     "symbols": [
       "PSIG"
@@ -5049,5 +4999,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:07:13.170648-04:00",
+    "symbols": [
+      "XHLD"
+    ],
+    "headline": "TEN Holdings Board Authorizes New $2M Share Repurchase Program And Approves Establishment Of Strategic Technology And Engineering Relationship With GLSoft",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:09:11.988002-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO David Solomon Speaking At Barclays Global Financial Services Conference, Says We Are Doing Better Than Our Target To Grow Our Asset Wealth Management Business At High Single Digits",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:09:27.758997-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Gets Love From Ron Baron for Not Hitting Ducks: \u2018Time to Buy The Stock is Now\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:09:33.613219-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FOMC: Fed Projections Show 12 Of 18 Officials See One More 25-Basis-Point Rate Hike This Year; Four See Two Hikes; Two See No More Hikes; Fed Policymakers See 4.1% Unemployment Rate At End Of 2026 Versus 4.3% In June Projections; Fed Policymakers See End-2026 PCE Inflation At 3.7% Versus 3.6% In June; Core Seen At 3.4% Versus 3.3%; Fed Policymakers See 2.3% GDP Growth In 2026 Versus 2.2% In June, See Longer-run Growth At 2.0% Vs 2.0% In June",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T14:09:35.187792-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla Gets Love From Ron Baron for Not Hitting Ducks: \u2018Time to Buy The Stock is Now\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

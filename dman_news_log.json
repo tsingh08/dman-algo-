@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:47:50.169895-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Citizens Reiterates Market Outperform on Microsoft, Maintains $550 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T14:47:50.375222-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA CEO, On AI Safety, Says Companies Should Pace Themselves Until They Are Are Confident They Are Releasing Something The Market Would Appreciate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T14:47:50.378668-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA CEO Jensen Huang, At Dreamforce, Says Do Not Need New Laws Or Regulations For AI Safety",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T14:47:51.748500-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "NVIDIA CEO, On AI Safety, Says Companies Should Pace Themselves Until They Are Are Confident They Are Releasing Something The Market Would Appreciate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:47:51.751889-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "NVIDIA CEO Jensen Huang, At Dreamforce, Says Do Not Need New Laws Or Regulations For AI Safety",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:48:59.436669-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno At Barclays Global Financial Services Conference, Says Jamie Dimon Is Not Stepping Back; We Dont See Anything Flashing Red Or Very Little Flashing Yellow In The Economy For The U.S. Consumer And Corporates; We Dont See Anything Systemic That Is Concerning Us At The Moment; Deal Activity Is Quite Robust",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:49:38.081958-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat Stock Rises, Long-Term Slide Persists: What&#39;s Going On Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T14:52:44.612633-04:00",
     "symbols": [
       "JPM"
@@ -5052,5 +4982,75 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:37:39.959413-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO David Solomon Speaking At Barclays Global Financial Services Conference, Says Our Provisions Are Going Slightly Higher Than Last Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:37:39.964617-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO David Solomon Speaking At Barclays Global Financial Services Conference, Says Non-Compensation Expenses To Run More Than $500M Higher Sequentially",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:37:39.969281-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO David Solomon Speaking At Barclays Global Financial Services Conference, Says Sponsors Deals Activity Is Very Quiet; Fixed Income Clearing Corporation Has Been A Little Softer On A Relative Basis; Equity Business Has Been Strong",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:37:43.274292-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla Killed Its Solar Roof. Now Elon Musk Wants 100 GW of Solar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:37:45.393980-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "Oppenheimer Reiterates Outperform on Forgent Power Solutions, Maintains $60 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T14:37:47.190419-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says Plain Fact Is Inflation Is Too High And Has Been For Too Long; Summer Data Does Not Tell Me Inflation Situation Has Improved; Too Many Categories Are Posting Increases Above 3% On Both 6 And 12 Month Basis; In July We Expressed Joint Readiness To Act; We Must Be Confident Underlying Inflation Must Be Moving To 2% On Timely Basis; FOMC Decided This Has Not Been Met; Did Not Submit A Dot; Fed Has A Role In Sustaining Economic Progress Occurring Right Now",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:38:54.470282-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "onsemi Unveils Scalable Embedded Power Platform To Boost Power Density Up To 3-5x For AI And Electrification Applications",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

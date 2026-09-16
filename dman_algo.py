@@ -13308,9 +13308,16 @@ def _period_pnl_total(filepath: str, period_key: str) -> float:
     return round(total, 4)
 
 
-def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int) -> None:
+def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int,
+                       key: Optional[str] = None) -> None:
     """
     Shared append logic for record_daily_pnl()/record_monthly_pnl().
+
+    `key` is an optional stable identity for the CLOSE this entry came from
+    (closing order id + entry price). Two machines recording the same close
+    produce entries with different ts (each calls datetime.now itself) but
+    the SAME key, which is what lets _pnl_entry_merge_key() collapse them
+    at merge time — see that function for the 2026-09-16 incident this fixes.
 
     An append-only entry log, not a single mutated running total — found
     2026-08-16 review: dman_daily_pnl.json/dman_monthly_pnl.json are
@@ -13357,7 +13364,10 @@ def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int) -> None
             )
         return
     entries = _load_pnl_entries(filepath)
-    entries.append({"ts": datetime.now(ET).isoformat(), "pnl_pct": round(pnl_pct, 4)})
+    _entry: dict = {"ts": datetime.now(ET).isoformat(), "pnl_pct": round(pnl_pct, 4)}
+    if key:
+        _entry["key"] = key
+    entries.append(_entry)
     _cutoff = (datetime.now(ET) - timedelta(days=max_age_days)).isoformat()
     entries = sorted([e for e in entries if str(e.get("ts", "")) >= _cutoff],
                       key=lambda e: e.get("ts", ""))
@@ -13429,10 +13439,11 @@ def get_todays_loss() -> float:
     return _recorded
 
 
-def record_daily_pnl(pnl_pct: float) -> None:
+def record_daily_pnl(pnl_pct: float, key: Optional[str] = None) -> None:
     """Append pnl_pct (signed %) as a new entry to today's P&L log.
-    See _record_period_pnl()'s docstring for the merge-safety reasoning."""
-    _record_period_pnl(DAILY_PNL_FILE, pnl_pct, _PNL_ENTRY_MAX_AGE_DAYS)
+    See _record_period_pnl()'s docstring for the merge-safety reasoning
+    and what `key` is for."""
+    _record_period_pnl(DAILY_PNL_FILE, pnl_pct, _PNL_ENTRY_MAX_AGE_DAYS, key=key)
 
 
 def get_this_month_loss() -> float:
@@ -13440,11 +13451,11 @@ def get_this_month_loss() -> float:
     return _period_pnl_total(MONTHLY_PNL_FILE, datetime.now(ET).strftime("%Y-%m"))
 
 
-def record_monthly_pnl(pnl_pct: float) -> None:
+def record_monthly_pnl(pnl_pct: float, key: Optional[str] = None) -> None:
     """Append pnl_pct (signed %) as a new entry to this month's P&L log.
     See _record_period_pnl()'s docstring — same append-only-log reasoning,
     same multi-writer merge safety, same ET-vs-UTC fix."""
-    _record_period_pnl(MONTHLY_PNL_FILE, pnl_pct, 400)   # ~13 months of history
+    _record_period_pnl(MONTHLY_PNL_FILE, pnl_pct, 400, key=key)   # ~13 months of history
 
 
 _live_equity_cache: dict = {"equity": 0.0, "ts": 0.0}
@@ -15137,7 +15148,8 @@ def merge_json_lists(local_list: list, remote_list: list, key_fn=None,
     return combined
 
 
-def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str) -> None:
+def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str,
+                              key_fn=None) -> None:
     """
     Shared plumbing for sync_scan_log_with_remote() / sync_win_rate_with_remote()
     / etc: fetch origin's copy, merge with the local copy via the caller-
@@ -15146,6 +15158,11 @@ def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str) -> No
     if something actually changed. Same fail-safe pattern as
     sync_positions_with_remote(): any git/parse error is a silent no-op,
     never a crash.
+
+    key_fn overrides the default byte-for-byte content identity used to
+    decide which remote entries are "new" — needed when the same logical
+    event can be written by two machines with fields that legitimately
+    differ (see _pnl_entry_merge_key()).
     """
     import subprocess
     try:
@@ -15171,9 +15188,10 @@ def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str) -> No
     except Exception:
         return
 
-    merged_list = merge_json_lists(local_list, remote_list,
-                                   key_fn=lambda x: json.dumps(x, sort_keys=True)
-                                   if isinstance(x, (dict, list)) else x)
+    if key_fn is None:
+        key_fn = (lambda x: json.dumps(x, sort_keys=True)
+                  if isinstance(x, (dict, list)) else x)
+    merged_list = merge_json_lists(local_list, remote_list, key_fn=key_fn)
     if len(merged_list) == len(local_list) and local_extra == remote_extra:
         return   # nothing new from remote and no extra-field change — avoid a needless rewrite
     rebuilt = rebuild(merged_list, local_extra, remote_extra)
@@ -15327,6 +15345,36 @@ def sync_alpaca_sync_state_with_remote() -> None:
     )
 
 
+def _pnl_entry_merge_key(entry):
+    """
+    Merge identity for one {ts, pnl_pct[, key]} P&L entry.
+
+    Content identity (the default) is not enough for these two files:
+    when the daemon and the cron scanner BOTH detect the same closing fill
+    before either's push has propagated (recorded_ids and the win-rate
+    ledger dupe guard both live in files that hadn't synced yet), each
+    writes an entry for the same close with a DIFFERENT ts and a slightly
+    different pnl_pct (get_effective_account() is live equity, sampled
+    minutes apart) — so the union merge keeps both and the close is
+    double-counted. Confirmed live 2026-09-16: QQQ260922C00728000's single
+    +$35 close landed as +1.3166% at 11:32 AND +1.3196% at 11:41; the
+    win-rate ledger deduped its identical TradeRecord by content, but
+    daily/monthly P&L kept both, overstating the day by +1.32pp — in the
+    dangerous direction, since an overstated gain masks real losses from
+    DAILY_LOSS_LIMIT/MONTHLY_LOSS_LIMIT.
+
+    Entries recorded since the fix carry a `key` (closing order id +
+    position entry price — the same Alpaca order id on both machines, and
+    entry price disambiguates the one legitimate same-order-id case: a
+    single order closing two separately-tracked tranches). Two entries
+    with the same key are the same close; keep local's. Entries without a
+    key (all history) keep the old byte-for-byte content identity.
+    """
+    if isinstance(entry, dict) and entry.get("key"):
+        return f"key:{entry['key']}"
+    return json.dumps(entry, sort_keys=True) if isinstance(entry, (dict, list)) else entry
+
+
 def sync_daily_pnl_with_remote() -> None:
     """
     dman_daily_pnl.json — append-only list of {ts, pnl_pct} entries (see
@@ -15338,7 +15386,9 @@ def sync_daily_pnl_with_remote() -> None:
     side's contribution to today's realized P&L can be silently dropped —
     which get_todays_loss() feeds directly into DAILY_LOSS_LIMIT, so a
     lost entry here isn't just a display bug, it's a live risk-guard that
-    can silently under-count today's real loss.
+    can silently under-count today's real loss. Union by
+    _pnl_entry_merge_key(), not raw content — see its docstring for why
+    the same close can arrive from two machines with different bytes.
     """
     _sync_json_file_via_merge(
         DAILY_PNL_FILE,
@@ -15347,6 +15397,7 @@ def sync_daily_pnl_with_remote() -> None:
             "entries": sorted(merged, key=lambda e: e.get("ts", ""))[-2000:]
         },
         label="dman_daily_pnl.json",
+        key_fn=_pnl_entry_merge_key,
     )
 
 
@@ -15360,6 +15411,7 @@ def sync_monthly_pnl_with_remote() -> None:
             "entries": sorted(merged, key=lambda e: e.get("ts", ""))[-2000:]
         },
         label="dman_monthly_pnl.json",
+        key_fn=_pnl_entry_merge_key,
     )
 
 
@@ -20973,8 +21025,15 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             # Consumes a PDT day trade only if this was a same-day round
             # trip -- the helper enforces that, so call it unconditionally.
             _record_day_trade(ticker, getattr(pos, "entry_date", ""), fill_date)
-            record_daily_pnl(acct_pct)
-            record_monthly_pnl(acct_pct)
+            # Order id is the same on every machine that sees this fill, so
+            # it survives as a dedup identity across checkouts in a way the
+            # recorded_ids cache (file-propagation-bound) does not. Entry
+            # price disambiguates the documented case of one order closing
+            # two separately-tracked tranches (see the filled-date check's
+            # comment above). See _pnl_entry_merge_key().
+            _pnl_key = f"{oid}|{round(pos.entry, 4)}"
+            record_daily_pnl(acct_pct, key=_pnl_key)
+            record_monthly_pnl(acct_pct, key=_pnl_key)
 
             sign = "+" if dollar_pnl >= 0 else ""
             print(f"  📋 Synced: {ticker} {pos.bias}  "
@@ -21243,8 +21302,12 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
             outcome=outcome, pnl_pct=round(pnl_pct, 2), score=pos.score, is_live=True,
         ))
         _record_day_trade(pos.ticker, getattr(pos, "entry_date", ""), fill_date)
-        record_daily_pnl(acct_pct)
-        record_monthly_pnl(acct_pct)
+        # Same cross-checkout dedup identity as sync_alpaca_fills() — leg
+        # order ids are identical on every machine, sorted so the key is
+        # deterministic regardless of leg-fill discovery order.
+        _pnl_key = "|".join(sorted(oids)) + f"|{round(debit_paid, 2)}"
+        record_daily_pnl(acct_pct, key=_pnl_key)
+        record_monthly_pnl(acct_pct, key=_pnl_key)
         pt.close(pos.ticker)
         recorded_ids.update(oids)
         new_count += 1

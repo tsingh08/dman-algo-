@@ -82,6 +82,7 @@ with open(_SRC_PATH, encoding="utf-8") as _f:
 
 _flags_isolation = None
 _wl_isolation = None
+_halt_isolation = None
 
 
 def setUpModule():
@@ -104,9 +105,21 @@ def setUpModule():
     global _wl_isolation
     _wl_isolation = patch.object(a, "ENABLE_WATCHLIST_ONLY_AUTO", False)
     _wl_isolation.start()
+    # The daily-loss stop latches to a file once tripped, which is right in
+    # production and poisonous in a suite: one test simulating a losing day
+    # would halt every test that ran after it. Here the guards see the
+    # un-latched predicate; the latch itself is covered directly, against the
+    # real function, in TestDailyLossHaltLatches.
+    global _halt_isolation
+    _halt_isolation = patch.object(
+        a, "_daily_loss_limit_hit",
+        lambda: a.get_todays_loss() <= -(a.DAILY_LOSS_LIMIT * 100))
+    _halt_isolation.start()
 
 
 def tearDownModule():
+    if _halt_isolation is not None:
+        _halt_isolation.stop()
     if _flags_isolation is not None:
         _flags_isolation.stop()
     if _wl_isolation is not None:
@@ -16199,3 +16212,48 @@ class TestPolicyAudit(unittest.TestCase):
     def test_exposed_as_a_mode_and_a_command(self):
         self.assertIn('"audit"', inspect.getsource(a.main))
         self.assertIn("run_policy_audit", inspect.getsource(a._handle_telegram_command))
+
+
+class TestLiveOnlyCircuitBreakers(unittest.TestCase):
+    """Review 2026-09-07/08: the guards read rolling_stats()'s blended pool,
+    so backtest records could gate live orders."""
+
+    def test_guards_ask_for_live_only(self):
+        for fn in (a._entry_circuit_breakers_ok, a.run_pro_scanner, a._submit_signals_to_alpaca):
+            src = inspect.getsource(fn)
+            self.assertIn("rolling_stats(live_only=True)", src, fn.__name__)
+
+
+_REAL_DAILY_LOSS_LIMIT_HIT = a._daily_loss_limit_hit   # before setUpModule's patch
+
+
+class TestDailyLossHaltLatches(unittest.TestCase):
+    """Review 2026-09-10: down 3.1% stopped trading, a bounce to -2.9% resumed
+    it on the same day. Once hit, the stop holds until the ET date changes."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        p = patch.object(a, "DAILY_HALT_FILE", os.path.join(self.tmp, "halt.json"))
+        p.start(); self.addCleanup(p.stop)
+
+    def test_not_hit_when_within_the_limit(self):
+        with patch.object(a, "get_todays_loss", return_value=-1.0):
+            self.assertFalse(_REAL_DAILY_LOSS_LIMIT_HIT())
+        self.assertFalse(os.path.exists(a.DAILY_HALT_FILE))
+
+    def test_latches_and_survives_a_recovery(self):
+        with patch.object(a, "get_todays_loss", return_value=-(a.DAILY_LOSS_LIMIT * 100) - 0.1):
+            self.assertTrue(_REAL_DAILY_LOSS_LIMIT_HIT())
+        with patch.object(a, "get_todays_loss", return_value=-0.5):
+            self.assertTrue(_REAL_DAILY_LOSS_LIMIT_HIT())   # same day: still stopped
+
+    def test_a_new_day_clears_it(self):
+        with patch.object(a, "get_todays_loss", return_value=-99.0):
+            self.assertTrue(_REAL_DAILY_LOSS_LIMIT_HIT())
+        with patch.object(a, "_et_today", lambda: a.date(2099, 1, 1)), \
+             patch.object(a, "get_todays_loss", return_value=-0.5):
+            self.assertFalse(_REAL_DAILY_LOSS_LIMIT_HIT())
+
+    def test_guards_use_the_latch(self):
+        for fn in (a._entry_circuit_breakers_ok, a._submit_signals_to_alpaca):
+            self.assertIn("_daily_loss_limit_hit()", inspect.getsource(fn))

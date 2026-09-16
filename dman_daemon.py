@@ -100,6 +100,9 @@ SCAN_RETRY_S    = 60        # after a FAILED scan, retry this soon instead of
                             # of downed coverage is a real missed setup
 STATE_FILES = [
     "dman_positions.json", "dman_last_alerts.json", "dman_live_signals.json",
+    # the daily-loss stop latches here; each workflow run is a fresh checkout,
+    # so the latch only holds for the rest of the day if it syncs like the rest
+    "dman_daily_halt.json",
     "dman_live_outcomes.csv", "dman_alpaca_sync.json", "dman_win_rate.json",
     "dman_daily_pnl.json", "dman_monthly_pnl.json", "dman_halt.json",
     "dman_probation.json",   # manual reduced-size trading period — see is_on_probation()

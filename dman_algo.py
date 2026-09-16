@@ -363,6 +363,7 @@ OPTIONS_TARGET_DTE      = 14            # target 2-week DTE — DMan gap plays r
 # qualifying DMan calls agree: +2.46% at the post vs +3.16% waiting 3%. Deeper
 # (-5%) loses too many fills to pay, and confirmation entries (+2%, +3% first)
 # are worse than either -- that is chasing.
+DAILY_HALT_FILE    = "dman_daily_halt.json"   # latches the daily-loss stop, see _daily_loss_limit_hit()
 ENTRY_PULLBACK_PCT = 3.0
 
 # ── Accumulation: volume building while price goes nowhere ─────────────────
@@ -3265,13 +3266,15 @@ def _entry_circuit_breakers_ok() -> tuple[bool, str]:
         return False, "bot is halted (/resume first)"
     _on_probation, _ = is_on_probation()
     if not _on_probation:
-        _stats = WinRateTracker().rolling_stats()
+        # live_only: rolling_stats()'s default pool is blended with backtest
+        # records, so a simulated streak could gate real orders (review 2026-09-07).
+        _stats = WinRateTracker().rolling_stats(live_only=True)
         if _stats.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
             return False, f"consecutive-loss guard active ({_stats['consec_losses_today']} losses today)"
         if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
                 and not _monthly_halt_lifted()):
             return False, "monthly loss limit active"
-    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+    if _daily_loss_limit_hit():
         return False, "daily loss limit active"
     return True, ""
 
@@ -17892,7 +17895,7 @@ def run_policy_audit(notify: bool = True) -> list[str]:
         return ""
 
     def _loss_guard_can_clear():
-        st = WinRateTracker().rolling_stats()
+        st = WinRateTracker().rolling_stats(live_only=True)   # real fills gate real scans
         if (st.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES
                 and st.get("consec_losses", 0) >= MAX_CONSEC_LOSSES):
             return "halted on today's losses — expected, clears tomorrow"
@@ -18597,7 +18600,11 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     _on_probation, _probation_mult = is_on_probation()
     if not _on_probation:
         # Consecutive loss guard — send Telegram once per session (dedup via alert cache)
-        _esc, _escv = _scan_consecutive_loss_gate(min_score, stats, tickers)
+        # live_only: the gate must not stop real trading on a backtest streak
+        # (review 2026-09-07). `stats` keeps the blended pool for the display
+        # line below, which reports the tracker's whole record.
+        _esc, _escv = _scan_consecutive_loss_gate(
+            min_score, tracker.rolling_stats(live_only=True), tickers)
         if _esc == 'return':
             return _escv
     elif not _is_duplicate_alert("__PROBATION_ACTIVE__"):
@@ -20153,6 +20160,31 @@ def _get_pdt_status() -> dict:
         return {"used": _effective_used, "remaining": _remaining, "swing_mode": _swing, "equity": _equity}
     except Exception:
         return {"used": 0, "remaining": 0, "swing_mode": True, "equity": 0.0}
+
+
+def _daily_loss_limit_hit() -> bool:
+    """True once the day's loss has reached DAILY_LOSS_LIMIT, and for the rest
+    of that ET day even if the account recovers.
+
+    Without the latch the guard re-read a live number: down 3.1% it stopped
+    trading, and a bounce to -2.9% let it start again on the same broken day,
+    which is exactly when it is most likely to compound the damage.
+    """
+    _today = str(_et_today())
+    try:
+        with open(DAILY_HALT_FILE) as f:
+            if json.load(f).get("date") == _today:
+                return True
+    except (FileNotFoundError, json.JSONDecodeError, OSError, AttributeError):
+        pass
+    if get_todays_loss() > -(DAILY_LOSS_LIMIT * 100):
+        return False
+    try:
+        _write_json_atomic(DAILY_HALT_FILE, {"date": _today,
+                                             "pct": round(get_todays_loss(), 2)}, indent=1)
+    except Exception as exc:
+        _log_swallowed("daily halt latch", exc)
+    return True
 
 
 def _entry_limit_price(entry: float, bias: str) -> float:
@@ -23391,7 +23423,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     _on_probation_sub, _ = is_on_probation()
     if not _on_probation_sub:
         _tracker_cb = WinRateTracker()
-        _stats_cb   = _tracker_cb.rolling_stats()
+        _stats_cb   = _tracker_cb.rolling_stats(live_only=True)   # see _auto_trade_allowed
         if _stats_cb.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
             print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses_today']} losses today) — no orders.")
             return
@@ -23399,7 +23431,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                 and not _monthly_halt_lifted()):
             print(f"  🛑 Monthly loss limit active — no orders.")
             return
-    if get_todays_loss() <= -(DAILY_LOSS_LIMIT * 100):
+    if _daily_loss_limit_hit():
         print(f"  🛑 Daily loss limit active — no orders.")
         return
 

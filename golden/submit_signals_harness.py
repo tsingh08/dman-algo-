@@ -7,7 +7,7 @@ opens, return value, and normalized stdout. `golden.py record` saves the result;
 to nothing.
 """
 import sys, io, json, re, contextlib
-import os
+import os, tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 from unittest.mock import patch, MagicMock
@@ -112,6 +112,10 @@ def run(name, over):
         patch.object(a, "is_halted", return_value=cfg["halted"]),
         patch.object(a, "is_on_probation", return_value=cfg["probation"]),
         patch.object(a, "get_todays_loss", return_value=cfg["todays_loss"]),
+        # the daily stop latches to a file; keep each scenario's latch out of
+        # the repo and out of the next scenario
+        patch.object(a, "DAILY_HALT_FILE",
+                     os.path.join(tempfile.mkdtemp(), "dman_daily_halt.json")),
         patch.object(a, "get_this_month_loss", return_value=cfg["month_loss"]),
         patch.object(a, "_monthly_halt_lifted", return_value=False),
         patch.object(a, "_get_pdt_status", return_value=cfg["pdt"]),

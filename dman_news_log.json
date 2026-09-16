@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:30:55.020161-04:00",
-    "symbols": [
-      "KMTS"
-    ],
-    "headline": "Kestra Medical Technologies Posts Mixed Q1 Results, Joins Enova International, Dave and Buster&#39;s And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T14:30:55.024613-04:00",
     "symbols": [
       "KMTS"
@@ -5048,6 +5038,17 @@
       "SPY"
     ],
     "headline": "Major indices are trading higher following the FOMC decision to increase the target range for the fed funds rate from 3.50%-3.75% to 3.75%-4.00% as Fed expectations for another rate hike in 2026 largely reflect investor expectations heading into the event.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:24:40.347196-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Tesla Killed Its Solar Roof. Now Elon Musk Wants 100 GW of Solar",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

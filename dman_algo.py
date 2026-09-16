@@ -3313,6 +3313,16 @@ def _save_setup_probation(state: dict) -> None:
     _write_json_atomic(SETUP_PROBATION_FILE, state, indent=2)
 
 
+def _setup_probation_alt_key(setup: str) -> str:
+    """The other spelling of `setup` across the swing-mode "SWING — " tag.
+    The same strategy exists in the probation file under both spellings:
+    manual /setupprobation and pre-2026-09-16 drift entries used the raw
+    position tag (which carries the prefix for swing-converted entries),
+    while setup_performance_drift() now reports the stripped family name."""
+    return (setup[len("SWING — "):] if setup.startswith("SWING — ")
+            else f"SWING — {setup}")
+
+
 def _enter_setup_probation(setup: str, note: str) -> bool:
     """
     Marks `setup` as restricted, starting the auto-expiry clock now.
@@ -3320,10 +3330,13 @@ def _enter_setup_probation(setup: str, note: str) -> bool:
     (an already-running clock must not keep resetting just because the
     drift check keeps re-flagging the same still-underperforming setup on
     every subsequent EOD run). Returns True if this call newly restricted
-    it, False if it was already restricted.
+    it, False if it was already restricted. Idempotency checks BOTH
+    spellings of the swing tag — drift reports the stripped family name,
+    so without this a family already restricted under its "SWING — " tag
+    would gain a parallel entry with a fresh clock on the next drift pass.
     """
     state = _load_setup_probation()
-    if setup in state:
+    if setup in state or _setup_probation_alt_key(setup) in state:
         return False
     state[setup] = {"started": datetime.now(ET).isoformat(), "note": note}
     _save_setup_probation(state)
@@ -3375,7 +3388,7 @@ def _setup_probation_bonus(setup: str) -> int:
         # was a silent no-op because state.get(sig.setup) never matched.
         # Check both spellings so a probation earned under the swing tag
         # actually restricts the setup that earned it.
-        key = setup if setup in state else f"SWING — {setup}"
+        key = setup if setup in state else _setup_probation_alt_key(setup)
         entry = state.get(key)
         if not entry:
             return 0
@@ -3648,10 +3661,14 @@ def _tg_cmd_endsetupprobation(_parts):
     else:
         try:
             state = _load_setup_probation()
-            if _setup_name in state:
-                del state[_setup_name]
+            # Accept either spelling of the swing tag — the alert a human is
+            # replying to may show the stripped family name while the file
+            # holds the "SWING — " key (or vice versa).
+            _key = _setup_name if _setup_name in state else _setup_probation_alt_key(_setup_name)
+            if _key in state:
+                del state[_key]
                 _save_setup_probation(state)
-                send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_setup_name} back to its normal bar.")
+                send_telegram(f"🟢 <b>SETUP PROBATION ENDED</b> — {_key} back to its normal bar.")
             else:
                 send_telegram(f"🟢 {_setup_name} isn't restricted — nothing to end.")
         except Exception as _e:

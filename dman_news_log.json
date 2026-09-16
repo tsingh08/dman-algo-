@@ -1,17 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:28:05.466868-04:00",
-    "symbols": [
-      "COIN",
-      "HOOD",
-      "MSTR"
-    ],
-    "headline": "Shares of crypto-related companies are trading lower as Bitcoin declines after reports suggesting that Senate Republicans rejected a Clarity Act counteroffer from Democrats ahead of a key vote scheduled for today.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T12:30:52.556155-04:00",
     "symbols": [
       "SPY"
@@ -5056,5 +5044,18 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:13:41.612125-04:00",
+    "symbols": [
+      "AAPL",
+      "CVX",
+      "GOOGL",
+      "OXY"
+    ],
+    "headline": "Warren Buffett, Donald Trump Bet on Same 17 Stocks \u2014 Some Might Surprise You",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

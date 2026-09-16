@@ -1,36 +1,5 @@
 [
   {
-    "ts": "2026-09-15T11:59:55.027957-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On CNBC, U.S. Energy Secretary Wright On Saudis, Oil, Says &#39;Think We Will See Pipeline Running Again Very Soon&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T12:00:01.078019-04:00",
-    "symbols": [
-      "SUGP"
-    ],
-    "headline": "SU Group Shares Jump After X-Ray Rights, KM Acquisition Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:00:57.579756-04:00",
-    "symbols": [
-      "NVDA",
-      "PLTR"
-    ],
-    "headline": "QUICK SPARK: UBS Tags Palantir &#39;Best AI Enabler&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T12:01:51.604933-04:00",
     "symbols": [
       "SPY"
@@ -5051,5 +5020,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T11:42:20.105500-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "SEC, CFTC Rulemaking Will Be &#39;Aggressive and Swift&#39; After CLARITY Act Failure, Bernstein Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T11:42:22.034414-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "If You Invested $100 In RTX Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T11:42:22.419489-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Artelo Cannabinoid Drug Doubles Weight Loss When Paired with Popular Obesity Drug",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

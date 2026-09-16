@@ -10164,6 +10164,25 @@ class TestSetupProbation(unittest.TestCase):
         a._enter_setup_probation("Low Float Catalyst", "test")
         self.assertEqual(a._setup_probation_bonus("Gap & Hold"), 0)
 
+    def test_probation_keyed_by_swing_tag_restricts_the_unprefixed_setup(self):
+        # Swing-mode trades are recorded as "SWING — <setup>", so drift
+        # detection enters probation under that tag — but the scan gates
+        # look up sig.setup without the prefix. Found live 2026-09-15:
+        # "SWING — Momentum Watch Breakout (Day)" probation was a no-op.
+        a._enter_setup_probation("SWING — Momentum Watch Breakout (Day)", "38% WR test")
+        self.assertEqual(a._setup_probation_bonus("Momentum Watch Breakout (Day)"),
+                         a.SETUP_PROBATION_SCORE_BONUS)
+
+    def test_swing_tagged_probation_past_max_days_expires_via_unprefixed_lookup(self):
+        state = {"SWING — Momentum Watch Breakout (Day)": {
+            "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
+            "note": "x"}}
+        a._save_setup_probation(state)
+        with patch.object(a, "send_telegram", return_value=True):
+            self.assertEqual(a._setup_probation_bonus("Momentum Watch Breakout (Day)"), 0)
+        self.assertNotIn("SWING — Momentum Watch Breakout (Day)", a._load_setup_probation(),
+                          "an expired swing-tagged restriction must be removed under its own key")
+
     def test_recent_restriction_is_still_active(self):
         state = {"Low Float Catalyst": {
             "started": (datetime.now(a.ET) - timedelta(days=2)).isoformat(), "note": "x"}}

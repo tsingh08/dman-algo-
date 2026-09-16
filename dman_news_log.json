@@ -1,97 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:52:43.883621-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "UBS Maintains Buy on Palantir Technologies, Raises Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T15:53:38.831509-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce CEO Marc Benioff On AI Safety, Says We Must Hold Companies And Technology Executives Responsible For The Technology They Build",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:55:52.491236-04:00",
-    "symbols": [
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "Trump Administration Appeals Ruling Blocking Environmental Protection Agency From Sending Landmark California Vehicle Emissions To Congress For Potential Repeal",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:55:54.213805-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Sam Altman\u2019s AI Nightmare Splits ETF Trade: Build Vs. Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T15:55:54.218690-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "AI Fears Hammer Chip Stocks, but Broadcom CEO Says Demand Isn\u2019t Cracking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T16:00:28.509242-04:00",
-    "symbols": [
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "Mark Cuban Asked Grok Whether AI Or Climate Change Will End Humanity. It Didn&#39;t Hesitate",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T16:01:32.780549-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Here&#39;s How Much $1000 Invested In Netflix 10 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T16:04:22.578413-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI Backs Bipartisan Push To Address AI Biothreats; The Company Is Endorsing Three Bills To Standardize Biological Data And Defend Against Threats Amplified By Advanced Artificial Intelligence&#39; - Politico",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T16:04:35.531900-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Mark Cuban Asked Grok Whether AI Or Climate Change Will End Humanity. It Didn&#39;t Hesitate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T16:04:35.994775-04:00",
     "symbols": [
       "TSLA"
@@ -5061,5 +4969,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:46:11.605189-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:46:11.778090-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T15:46:12.160478-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:46:12.406813-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T15:46:12.568830-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:46:20.401307-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T15:46:22.945839-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:46:26.039707-04:00",
+    "symbols": [
+      "WOR"
+    ],
+    "headline": "LuxExperience, Alvotech, Twist Bioscience And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T15:47:14.641951-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Shares of oil and gas related-companies are lower following reports suggesting that Saudi Arabia is attempting to restore crude oil exports quickly through pipeline repairs and ship-to-ship transfers. Also, API and EIA data indicated weekly U.S. crude and distillate inventory growth, further pressuring the oil price.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

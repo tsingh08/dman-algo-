@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:02:02.270446-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "NVIDIA Isn\u2019t \u2018so Expensive,\u2019 but Crowded AI Trade Could Unwind Quickly, Fund Manager Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T15:02:02.273516-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T15:04:01.586253-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno Says Private Equity Activity Is Back To Normal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:04:32.191359-04:00",
     "symbols": [
       "SPY"
@@ -5049,6 +5019,36 @@
       "SPY"
     ],
     "headline": "Fed Chair Warsh Says Our Judgement About What is Most Likely or Least Likely of the Geopolitical Situation Has Changed; I Was Not Waiting Breathlessly On Any One Data Point; Trends Matter, Data Points Are Noisy; My Colleagues And I Were Hard Pressed To Describe Financial Conditions As Restrictive; INdependence Is A 2-Way Street, Must Stay In Our Lane; In Aggregate We&#39;re More Or Less At Full Employment; Stable Prices Offer Good News To Workers To See Real Take Home Pay Increases",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:51:18.506874-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova shares are trading higher after a company executive said at a conference that it expects H2 contract commitments to exceed its 20 GW guidance, sees 50% growth in gas capacity additions by the end of 2026 and expects Q4 contract commitments to be higher than Q3 based on current trends.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T14:52:46.239341-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Boeing CEO Speaking At Morgan Stanley Conference Says It Is Still Waiting On Engine Seal Fix From GE Aerospace For 777X, Required For Final Certification",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T14:55:11.534692-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says Today We Took A Step Toward Delivering Price Stability; Other Advanced Economies Are Suffering From Price Pressures Too; Economy Has Indeed Strengthened; Inflation Is The Problem; Price Stability Is Foundational To Growth, Today We Took A Step In Delivering It; See 3 Reasons Bond Yields Have Risen, First Is Economic Strength, Second Is Competition For Capital; Surge In CapEx Is Real, Third Is Geopolitics; Hot Spots Around The World Are Driving That Activity",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

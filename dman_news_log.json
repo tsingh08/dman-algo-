@@ -1,89 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:50:06.978456-04:00",
-    "symbols": [
-      "CEG",
-      "ETN",
-      "GEV",
-      "NVDA",
-      "VST"
-    ],
-    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:52:58.575907-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Senate Majority Leader Thune Says I Am Open To Considering An Export Ban On Diesel&#39; - Investing Live",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:56:39.538381-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Fox News, House Speaker Johnson Says We Cannot Have A Moratorium Of Development Of AI; Johnson Says AI Moratorium Will Lose Competitive Edge To China",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:59:33.660982-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T10:59:38.276797-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Arbitrum to Hit $10 by 2030, Outperform ETH and BTC, Standard Chartered Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:59:41.359342-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T10:59:42.595096-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:59:42.844263-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T10:59:43.568190-04:00",
     "symbols": [
       "ETN"
@@ -5042,6 +4958,86 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:29:19.603412-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is Meta Platforms Stock Gaining Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:29:19.607919-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Citigroup Maintains Buy on Meta Platforms, Maintains $800 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:29:19.855760-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Partners With Lululemon To Advance AI-Driven Product Recommendations As Part Of Expanded Holiday Commerce And YouTube Ad Suite",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T10:29:29.697933-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "B of A Securities Maintains Buy on JB Hunt Transport Servs, Lowers Price Target to $302",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:29:29.702564-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "Rapport Therapeutics To Rally Around 76%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:29:29.707122-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on JB Hunt Transport Servs, Lowers Price Target to $285",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:29:29.711528-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on JB Hunt Transport Servs, Lowers Price Target to $305",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:29:29.716059-04:00",
+    "symbols": [
+      "JBHT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   },
   {
     "ts": "2026-09-16T10:30:13.159768-04:00",

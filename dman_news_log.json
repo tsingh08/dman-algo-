@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:04:32.191359-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Senate Blocks Crypto-Friendly Clarity Act; Clarity Act Voted Down Amid Concerns About President Trump&#39;s Crypto Ties",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:05:36.336352-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Shares of oil and gas companies are trading higher amid a rise in crude after reports suggesting that Saudi Aramco deferred and cancelled some September crude cargoes meant for European refiners after the closure of its East-West pipeline to the Red Sea. Also, ongoing Saudi strikes on Yemen&#39;s Houthi rebels and a tight global diesel market are helping to support crude prices.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:08:57.258917-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno Says Private Equity Activity Is Back To Normal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:08:58.514957-04:00",
     "symbols": [
       "SPY"
@@ -5052,5 +5022,37 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:57:39.881262-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "J.B. Hunt\u2019s Diesel Shock Hits Transportation ETFs: Which Funds Have the Most Fuel-Sensitive Exposure?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:59:28.664250-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "SPY"
+    ],
+    "headline": "Major indices are trading lower as Fed Chairman Warsh takes a hawkish tone in his press conference and Q&amp;A session after the FOMC rate hike, including committing to returning 2% inflation on a timely basis, referencing FOMC consensus that financial conditions weren&#39;t restrictive, and noting that too many inflation categories were over 3% on three- and six-month timelines.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:00:10.089341-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Announces Memory In Grok Build, Writing Project Notes In Background And Reading Them Back In Later Sessions; Adds /memory And /dream Commands",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:08:12.960877-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T13:08:13.184346-04:00",
     "symbols": [
       "SCNI"
@@ -5059,5 +5049,19 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:52:00.749970-04:00",
+    "symbols": [
+      "DIA",
+      "FSLR",
+      "IWM",
+      "OXY",
+      "QQQ"
+    ],
+    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

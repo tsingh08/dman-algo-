@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-15T11:11:11.000019-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Introduces Meta One; Meta One Plans Now Available Globally; Meta One Pricing Starts At $2.99/Month For Single Products, $7.99/Month For Individual Bundles, $14.99/Month For Creator &amp; Business Bundles; Core Experience Across Meta Apps &amp; Meta AI Will Stay Free",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T11:11:11.550892-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cognition And AWS Sign Multi-Year Strategic Collaboration Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T11:11:15.261125-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Exec Says HIV Market Growth Should Normalize To 2%-3% Within Next Couple Of Quarters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T11:11:15.264620-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Sciences Exec Says Weekly Oral HIV Prevention Drug Expected To Launch In Q1 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T11:11:16.426014-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Why Is Coinbase Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T11:11:21.718715-04:00",
     "symbols": [
       "MNR"
@@ -5046,6 +4996,56 @@
       "ORCL"
     ],
     "headline": "Oracle Stock Edges Higher Wednesday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:58:25.065450-04:00",
+    "symbols": [
+      "ARTL"
+    ],
+    "headline": "Artelo Biosciences shares are trading lower. The company reported nonclinical results showing its oral cannabinoid agonist ART27.13 cut body weight by about 20% in obese mice, matching semaglutide.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:59:32.541574-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Beyond Hype: Twist Bioscience Secures Data Pipeline Role In Eli Lilly TuneLab Ecosystem",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T10:59:53.231667-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SK Hynix Is Following Samsung\u2019s US Chip Playbook\u2014With AI Memory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:59:53.515725-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Is Following Samsung\u2019s US Chip Playbook\u2014With AI Memory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T11:00:07.069486-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Florida Rep. Byron Donalds Sold Up to $60K Worth of Howmet Aerospace Stock",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

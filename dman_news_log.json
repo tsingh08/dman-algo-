@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:30:54.674364-04:00",
-    "symbols": [
-      "PSIG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T14:30:54.902980-04:00",
     "symbols": [
       "GH"
@@ -5049,5 +5039,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:12:15.566320-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Oppenheimer Reiterates Outperform on Costco Wholesale, Maintains $1160 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

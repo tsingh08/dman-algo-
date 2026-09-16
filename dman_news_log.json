@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:26:55.287266-04:00",
-    "symbols": [
-      "OESX"
-    ],
-    "headline": "Orion Energy Systems Raises FY27 Sales Guidance From $95M-$97M To $100M-$102M After Follow-On Commitment For An LED Lighting Project With Estimated Sales Contribution Of $10M-$15M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:26:57.228320-04:00",
-    "symbols": [
-      "OSTX"
-    ],
-    "headline": "OS Therapies Achieves Full Alignment With UK MHRA On Its Pending Conditional Marketing Authorization Application",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:26:58.463372-04:00",
-    "symbols": [
-      "PBF"
-    ],
-    "headline": "Reported Earlier, PBF Holding Prices $500M Of 0% Exchangeable Notes Due 2032 At $96.80 Exchange Price, 37.5% Premium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T12:28:05.466868-04:00",
     "symbols": [
       "COIN",
@@ -5054,5 +5024,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T12:08:28.948924-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:11:25.740058-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "Circle CEO Says CLARITY Talks Are \u201890%\u2019 There: What Do Prediction Markets Say?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T12:12:20.226534-04:00",
+    "symbols": [
+      "CRM",
+      "NVDA"
+    ],
+    "headline": "Nvidia Is Fighting the AI Slowdown Narrative\u2014With Power as Its Next Problem",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

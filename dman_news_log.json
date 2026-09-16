@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:49:27.665695-04:00",
-    "symbols": [
-      "NCT"
-    ],
-    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T09:49:29.490332-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T09:49:30.504148-04:00",
     "symbols": [
       "SUGP"
@@ -5053,5 +5033,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T09:41:42.645990-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Energy Secretary Chris Wright Speaking On Fox Says 18M Barrels Flowed Out Of Persian Gulf Yesterday; Says More Flow Through Bab El-Mandeb Strait Would Be Helpful",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T09:44:22.039262-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s AI Is Moving Into Cell Towers\u2014and Nokia Is Already Testing It",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

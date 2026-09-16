@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:01:51.604933-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury&#39;s Bessent Says The Need To Address Deficit Is One Factor Affecting 10-Year Treasury Bond Yield",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:02:18.851153-04:00",
-    "symbols": [
-      "AADX"
-    ],
-    "headline": "Guggenheim Initiates Coverage On Applied Aerospace with Buy Rating, Announces Price Target of $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:05:49.641217-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is IREN Stock Falling on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:11:03.776798-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What Is Going on With Arm Holdings Stock on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T12:11:26.870473-04:00",
     "symbols": [
       "NVDA"
@@ -5050,5 +5010,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T11:48:10.888129-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Surges: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T11:51:32.307826-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Occidental Petroleum Stock Slides Wednesday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T11:51:37.427954-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Says At Morgan Stanley Conference It Would Like To Do More M&amp;A, Almost Certainly Within Its Core Businesses",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T11:51:37.452709-04:00",
+    "symbols": [
+      "ARTL"
+    ],
+    "headline": "Artelo Cannabinoid Drug Doubles Weight Loss When Paired with Popular Obesity Drug",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

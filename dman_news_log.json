@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:54:06.697702-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T13:54:06.852280-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T13:54:07.558375-04:00",
     "symbols": [
       "TSLA"
@@ -5043,5 +5023,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T13:31:27.229387-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Bitcoin Fed Meeting Preview: Could One Decision Pump BTC?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T13:31:30.064035-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bitcoin Fed Meeting Preview: Could One Decision Pump BTC?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

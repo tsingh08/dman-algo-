@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:20:26.199235-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Tesla\u2019s Cybercab \u2018Held Me Hostage for an Hour,\u2019 Rider Says \u2014 This Cybercab Limitation Just Turned a Short Austin Trip Into 70-Minute Detour",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:20:26.202552-04:00",
     "symbols": [
       "GOOGL"
@@ -5055,5 +5045,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:09:53.553089-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House&#39;s Kush Desai Speaking With Fox News Says Fed Rate Hike Is &#39;Rather Unfortunate&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

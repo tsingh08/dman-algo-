@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:20:26.202552-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Mark Cuban Says Meta and Google Could Be Funding Their AI Future With Anti-Tech Content: &#39;Interesting to Watch the Irony\u2026&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T15:20:26.205585-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Google Finally Lets All Engineers Use Anthropic&#39;s Claude&#39; - Business Insider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:20:26.208576-04:00",
     "symbols": [
       "GOOGL"
@@ -5052,6 +5032,28 @@
       "SPY"
     ],
     "headline": "White House&#39;s Kush Desai Speaking With Fox News Says Fed Rate Hike Is &#39;Rather Unfortunate&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:13:16.088999-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX-Tesla Merger: Ron Baron Told Elon Musk &#39;Whatever You Decide... Is What I&#39;m Going to Support&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:15:37.106725-04:00",
+    "symbols": [
+      "JPM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

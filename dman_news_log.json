@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:35:34.950768-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "If You Invested $1000 In ON Semiconductor Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:35:35.675107-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Exec Says Plans To Start Enrolling Apogee&#39;s Zumilokibart This Year, Targets Launch In Early 2030; Says Will Present Late-stage Data For Blood Cancer Drug Etentamig At International Myeloma Society Meeting Later In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T10:35:38.822039-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Hands Over SXM-11 Satellite To SiriusXM Following Successful In-Orbit Testing; Geostationary Communications Satellite Is Now Fully Operational Following A Successful Launch By SpaceX On A Falcon 9 Rocket On June 28, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:35:43.009632-04:00",
-    "symbols": [
-      "ENVA"
-    ],
-    "headline": "TD Cowen Maintains Buy on Enova International, Lowers Price Target to $220",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:35:43.013451-04:00",
-    "symbols": [
-      "ENVA"
-    ],
-    "headline": "Zebra Technologies To Rally Around 24%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T10:35:43.017017-04:00",
-    "symbols": [
-      "ENVA"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Enova International, Lowers Price Target to $215",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T10:35:43.020483-04:00",
     "symbols": [
       "ENVA"
@@ -5049,6 +4989,66 @@
       "SPY"
     ],
     "headline": "NAHB Housing Market Index For September 32 Vs 34 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:02:44.761011-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Announces Launch Of Authenticated Delivery Using QR Code Recipient Verification For Eligible US And Canada Shipments On Select Expedited Services",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T10:03:01.275485-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Safety Could Mean More Nvidia GPU Demand, Not Less, SemiAnalysis Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:03:10.828742-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "AI Safety Could Mean More Nvidia GPU Demand, Not Less, SemiAnalysis Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:03:11.075689-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "AI Safety Could Mean More Nvidia GPU Demand, Not Less, SemiAnalysis Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:03:12.126391-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "AI Safety Could Mean More Nvidia GPU Demand, Not Less, SemiAnalysis Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:05:46.966230-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;HHS Plans New Research Into Autism Development, Treatment&#39; - Bloomberg",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

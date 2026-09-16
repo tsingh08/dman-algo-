@@ -5112,6 +5112,11 @@ def _dman_play_grade(body: str, ticker: str, posted_utc: datetime,
     t_et = posted_utc.astimezone(ET)
     if t_et.weekday() >= 5 or t_et.hour >= 16:
         return False, "posted after the close"
+    # A bare cashtag dump ("$IPW $NEXR $QCLS $VEEA") carries no thesis and is
+    # not a call. First live paper play from one, 2026-09-15 IPW, closed -32%.
+    _words = [w for w in _CASHTAG_RE.sub(" ", body or "").split() if any(ch.isalnum() for ch in w)]
+    if len(_words) < 3:
+        return False, "no thesis (cashtag list only)"
     if _DMAN_BEARISH_RE.search(body or ""):
         return False, "bearish/exit post"
     if _DMAN_ENTRY_POST_RE.search(body or ""):

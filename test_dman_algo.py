@@ -15705,16 +15705,21 @@ class TestDmanPlaySelection(unittest.TestCase):
         self.assertTrue(ok, why)
 
     def test_rejections(self):
-        cases = [("$IPW merger then $VEEA", "VEEA", self._t(10), 2.0, "lead"),
-                 ("$VEEA to $4", "VEEA", self._t(20), 2.0, "close"),
-                 ("$VEEA loaded 1.70s", "VEEA", self._t(10), 2.0, "loaded"),
-                 ("$VEEA to $4", "VEEA", self._t(10), 0.40, "outside"),
-                 ("$QCLS short idea", "QCLS", self._t(10), 2.0, "bearish"),
-                 ("$VEEA to $4", "VEEA", self._t(10, day=13), 2.0, "close")]
+        cases = [("$IPW merger news then $VEEA runs too", "VEEA", self._t(10), 2.0, "lead"),
+                 ("$VEEA to $4 run incoming", "VEEA", self._t(20), 2.0, "close"),
+                 ("$VEEA loaded 1.70s here big size", "VEEA", self._t(10), 2.0, "loaded"),
+                 ("$VEEA to $4 run incoming", "VEEA", self._t(10), 0.40, "outside"),
+                 ("$QCLS short idea here today", "QCLS", self._t(10), 2.0, "bearish"),
+                 ("$VEEA to $4 run incoming", "VEEA", self._t(10, day=13), 2.0, "close")]
         for body, tk, when, px, frag in cases:
             ok, why = a._dman_play_grade(body, tk, when, px)
             self.assertFalse(ok, body)
             self.assertIn(frag, why)
+
+    def test_bare_cashtag_dump_is_not_a_call(self):
+        ok, why = a._dman_play_grade("$IPW $NEXR $QCLS $VEEA", "IPW", self._t(15, 7), 3.83)
+        self.assertFalse(ok)
+        self.assertIn("no thesis", why)
 
     def test_fetcher_reads_top_level_symbols(self):
         msg = {"created_at": a.datetime.now(a.ET).isoformat(), "body": "$VEEA go",

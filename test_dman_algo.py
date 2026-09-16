@@ -15800,3 +15800,105 @@ class TestOptionIntrinsicFloor(unittest.TestCase):
     def test_both_scans_enforce_it(self):
         for fn in (a._find_best_call_contract, a._find_best_put_contract):
             self.assertIn("_has_enough_intrinsic", inspect.getsource(fn))
+
+
+class TestEntryPullbackLimit(unittest.TestCase):
+    """Entry location study 2026-09-15: resting the limit 3% back beat buying
+    the signal price on both our own signals and the DMan calls."""
+
+    def test_long_rests_below_and_short_above(self):
+        self.assertAlmostEqual(a._entry_limit_price(100.0, "LONG"), 97.0, places=6)
+        self.assertAlmostEqual(a._entry_limit_price(100.0, "SHORT"), 103.0, places=6)
+
+    def test_zero_or_bad_pct_leaves_the_price_alone(self):
+        for v in (0, -1, "nonsense", None):
+            with patch.object(a, "ENTRY_PULLBACK_PCT", v):
+                px = a._entry_limit_price(100.0, "LONG")
+            self.assertEqual(px, 100.0)
+        self.assertEqual(a._entry_limit_price(0.0, "LONG"), 0.0)
+
+    def test_submit_uses_it(self):
+        self.assertIn("_entry_limit_price", inspect.getsource(a.submit_alpaca_trade))
+
+    def test_stop_is_not_moved_with_the_entry(self):
+        # the whole point: fill better, keep the setup's stop
+        src = inspect.getsource(a.submit_alpaca_trade)
+        i = src.index("_entry_limit_price")
+        self.assertNotIn("_entry_limit_price", src[src.index("stop_px", i):][:200])
+
+
+class TestAccumulationDetector(unittest.TestCase):
+    """Volume building while price goes nowhere. Alert-only: measured +0.77%
+    vs +0.44% baseline over 5 sessions, but +0.08% in the first half of the
+    sample vs +1.45% in the second, so it is not allowed to trade."""
+
+    def _frame(self, vol_recent=3_000_000, drift=0.0, tight=True):
+        import pandas as pd
+        n = 90
+        px = [100.0] * n
+        for k, i in enumerate(range(n - 5, n), 1):
+            px[i] = 100.0 * (1 + drift / 100 * k / 5)   # ramp, so drift is real
+        hi = [p * (1.004 if tight and i >= n - 5 else 1.03) for i, p in enumerate(px)]
+        lo = [p * (0.996 if tight and i >= n - 5 else 0.97) for i, p in enumerate(px)]
+        vol = [1_000_000] * (n - 5) + [vol_recent] * 5
+        return pd.DataFrame({"Close": px, "High": hi, "Low": lo, "Volume": vol,
+                             "Open": px}, index=pd.date_range("2026-05-01", periods=n, freq="D"))
+
+    def test_detects_quiet_volume_build(self):
+        m = a.detect_accumulation(self._frame())
+        self.assertIsNotNone(m)
+        self.assertGreaterEqual(m["rvol"], a.ACCUM_MIN_RVOL)
+
+    def test_rejects_when_volume_is_ordinary(self):
+        self.assertIsNone(a.detect_accumulation(self._frame(vol_recent=900_000)))
+
+    def test_rejects_when_price_is_already_moving(self):
+        self.assertIsNone(a.detect_accumulation(self._frame(drift=6.0)))
+
+    def test_short_or_broken_frames_return_none(self):
+        import pandas as pd
+        self.assertIsNone(a.detect_accumulation(None))
+        self.assertIsNone(a.detect_accumulation(pd.DataFrame()))
+
+    def test_it_never_reaches_the_order_path(self):
+        for fn in (a._submit_signals_to_alpaca, a.submit_alpaca_trade):
+            src = inspect.getsource(fn)
+            self.assertNotIn("detect_accumulation", src)
+            self.assertNotIn("_accumulation_found", src)
+
+
+class TestPolicyAudit(unittest.TestCase):
+    """The overseer: invariants checked mechanically, each tied to a real
+    incident. Must never raise, and must report rather than act."""
+
+    def test_clean_state_reports_nothing(self):
+        with patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "get_this_month_loss", return_value=-1.0), \
+             patch.object(a, "is_market_open", return_value=False), \
+             patch.object(a, "send_telegram") as tg:
+            pt.return_value.positions = []
+            findings = a.run_policy_audit(notify=True)
+        self.assertEqual(findings, [])
+        tg.assert_not_called()
+
+    def test_a_broken_check_becomes_a_finding_not_a_crash(self):
+        with patch.object(a, "PositionTracker", side_effect=RuntimeError("boom")), \
+             patch.object(a, "get_this_month_loss", return_value=-1.0), \
+             patch.object(a, "is_market_open", return_value=False), \
+             patch.object(a, "send_telegram"):
+            findings = a.run_policy_audit(notify=False)
+        self.assertTrue(any("check itself failed" in f for f in findings))
+
+    def test_unlifted_monthly_breach_is_caught(self):
+        with patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "get_this_month_loss", return_value=-9.5), \
+             patch.object(a, "_monthly_halt_lifted", return_value=False), \
+             patch.object(a, "is_market_open", return_value=False), \
+             patch.object(a, "send_telegram"):
+            pt.return_value.positions = []
+            findings = a.run_policy_audit(notify=False)
+        self.assertTrue(any("halt state" in f for f in findings), findings)
+
+    def test_exposed_as_a_mode_and_a_command(self):
+        self.assertIn('"audit"', inspect.getsource(a.main))
+        self.assertIn("run_policy_audit", inspect.getsource(a._handle_telegram_command))

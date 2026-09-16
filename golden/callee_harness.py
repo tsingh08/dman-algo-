@@ -69,8 +69,21 @@ def called_names(func):
     t = ast.parse(open(os.path.join(ROOT, "dman_algo.py"), encoding="utf-8").read())
     mod = {n.name for n in t.body if isinstance(n, (ast.FunctionDef, ast.ClassDef))}
     fn = [n for n in t.body if isinstance(n, ast.FunctionDef) and n.name == func][0]
-    return sorted({c.func.id for c in ast.walk(fn) if isinstance(c, ast.Call)
-                   and isinstance(c.func, ast.Name) and c.func.id in mod and c.func.id != func})
+    direct = {c.func.id for c in ast.walk(fn) if isinstance(c, ast.Call)
+              and isinstance(c.func, ast.Name) and c.func.id in mod and c.func.id != func}
+    # Helpers extracted FROM the target are part of it: patching them would
+    # leave the harness covering dispatch only. Run them for real and record
+    # what they call instead (found 2026-09-16: adding two /flags entries
+    # changed nothing in the golden, because the body never ran).
+    inner = {n for n in direct if n.startswith(("_tg_cmd_", "_scan_", "_main_mode_",
+                                                "_pmb_", "_mw_", "_rs_", "_ss_", "_regime_"))}
+    out = set(direct) - inner
+    for name in inner:
+        h = [n for n in t.body if isinstance(n, ast.FunctionDef) and n.name == name]
+        if h:
+            out |= {c.func.id for c in ast.walk(h[0]) if isinstance(c, ast.Call)
+                    and isinstance(c.func, ast.Name) and c.func.id in mod and c.func.id not in inner}
+    return sorted(out)
 
 
 def norm(x):

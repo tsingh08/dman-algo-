@@ -33,7 +33,7 @@
 
 from __future__ import annotations
 
-import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile, threading, html
+import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile, threading, html, glob
 from datetime import datetime, timedelta, date
 from dataclasses import dataclass, field, asdict
 from typing import Optional
@@ -356,6 +356,33 @@ OPTIONS_TARGET_DTE      = 14            # target 2-week DTE — DMan gap plays r
 # still lost 52%, tripping the -50% premium stop on no move at all. TE was the
 # same shape. The delta >= 0.40 filter allowed it because near-the-money
 # contracts are the cheapest thing that clears the per-contract budget.
+# Entry location, measured two ways on 2026-09-15. Our own signals replayed
+# through the backtest fixtures: buying the open = +2.76%/trade (39), resting a
+# limit 3% back = +3.19% on 37 of the same 39 -- nearly every trade still fills,
+# and the ones that do start 3% better against an unchanged stop. The 69
+# qualifying DMan calls agree: +2.46% at the post vs +3.16% waiting 3%. Deeper
+# (-5%) loses too many fills to pay, and confirmation entries (+2%, +3% first)
+# are worse than either -- that is chasing.
+ENTRY_PULLBACK_PCT = 3.0
+
+# ── Accumulation: volume building while price goes nowhere ─────────────────
+# Volume over the last 5 sessions running ACCUM_MIN_RVOL x the prior 20, price
+# drifting less than ACCUM_MAX_DRIFT_PCT over those 5, the 5-day range under
+# ACCUM_MAX_RANGE_RATIO of the prior range, and still within ACCUM_MIN_NEAR_HIGH
+# of the 60-day closing high. Measured on the 24 backtest-fixture names: 288
+# hits, +0.77% over the next 5 sessions vs +0.44% for all bars, 62% vs 55% win.
+# NOT trusted: split by date it is +0.08% in the first half and +1.45% in the
+# second, the same regime-shaped instability as the DMan rule, and tighter
+# thresholds only shrink the sample (n=11 at +3.09% is a sweep artefact, not an
+# edge). So it alerts and logs; it never sizes, scores or trades anything.
+ENABLE_ACCUMULATION_ALERTS = True
+ACCUM_MIN_RVOL         = 1.5
+ACCUM_MAX_DRIFT_PCT    = 1.5
+ACCUM_MAX_RANGE_RATIO  = 0.7
+ACCUM_MIN_NEAR_HIGH    = 0.95
+ACCUM_QUIET_BARS       = 5
+ACCUM_BASE_BARS        = 20
+ACCUM_LOG_FILE         = "dman_accumulation_log.json"
 OPTIONS_MIN_INTRINSIC_PCT = 0.50
 OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — documents strike scan intent
 OPTIONS_CLOSE_DTE       = 7             # DTE ≤ 7 → close/roll warning from the monitor
@@ -2352,6 +2379,9 @@ TOGGLEABLE_FLAGS = {
                 "(>=8 trades, <=20% WR, <=-20% cumulative). OFF re-enables it."),
     "smallcap":("ENABLE_DYNAMIC_SMALLCAP",
                 "dynamic small-cap discovery from the Yahoo screeners."),
+    "accum":   ("ENABLE_ACCUMULATION_ALERTS",
+                "volume-building-before-price alerts. Observation only — never "
+                "trades."),
     "shadow":  ("ENABLE_SHADOW_REVIEW",
                 "second-opinion reviewer on alerted signals and DMan plays. "
                 "Records a verdict only — never blocks a trade."),
@@ -3566,6 +3596,11 @@ def _handle_telegram_command(text: str) -> None:
 
     elif _cmd == "close" and _arg:
         _tg_cmd_close(_arg)
+
+    elif _cmd == "audit":
+        _findings = run_policy_audit(notify=False)
+        send_telegram("🔍 <b>Policy audit</b>\n" + ("\n".join(f"• {f}" for f in _findings)
+                                                    if _findings else "Everything matches the rules."))
 
     elif _cmd == "why" and _arg:
         try:
@@ -17675,6 +17710,166 @@ def _shadow_review(kind: str, ticker: str, facts: dict) -> Optional[dict]:
         return None
 
 
+def detect_accumulation(df) -> Optional[dict]:
+    """Volume building while price goes nowhere — see the ACCUM_* constants.
+
+    Pure and deterministic: takes the same indicator frame the scanner already
+    built, returns the measurements or None. Observation only, by design.
+    """
+    q, b = ACCUM_QUIET_BARS, ACCUM_BASE_BARS
+    try:
+        if df is None or len(df) < b + q + 5:
+            return None
+        c = df["Close"].astype(float)
+        v = df["Volume"].astype(float)
+        h = df["High"].astype(float)
+        lo = df["Low"].astype(float)
+        v_now, v_base = v.iloc[-q:].mean(), v.iloc[-(b + q):-q].mean()
+        px = float(c.iloc[-1])
+        if v_base <= 0 or px <= 0:
+            return None
+        rvol = float(v_now / v_base)
+        drift = abs(px / float(c.iloc[-q]) - 1) * 100
+        rng_now = (float(h.iloc[-q:].max()) - float(lo.iloc[-q:].min())) / px
+        rng_base = (float(h.iloc[-(b + q):-q].max()) - float(lo.iloc[-(b + q):-q].min())) / px
+        if rng_base <= 0:
+            return None
+        near_high = px / float(c.iloc[-60:].max())
+        if (rvol < ACCUM_MIN_RVOL or drift > ACCUM_MAX_DRIFT_PCT
+                or rng_now > ACCUM_MAX_RANGE_RATIO * rng_base
+                or near_high < ACCUM_MIN_NEAR_HIGH):
+            return None
+        return {"price": round(px, 4), "rvol": round(rvol, 2), "drift_pct": round(drift, 2),
+                "range_ratio": round(rng_now / rng_base, 2), "near_high": round(near_high, 3)}
+    except Exception as exc:
+        _log_swallowed("accumulation detector", exc)
+        return None
+
+
+def _report_accumulation(found: list[tuple[str, dict]]) -> None:
+    """One batched alert and one log line per scan. Never touches orders."""
+    if not found:
+        return
+    try:
+        rows = [{"ts": datetime.now(ET).isoformat(), "ticker": t, **m} for t, m in found]
+        try:
+            with open(ACCUM_LOG_FILE) as f:
+                log = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            log = []
+        _write_json_atomic(ACCUM_LOG_FILE, (log + rows)[-500:], indent=1)
+        send_telegram(
+            "🔎 <b>Accumulation — volume building, price flat</b>\n"
+            + "\n".join(f"  <b>{t}</b> ${m['price']:.2f} · vol {m['rvol']:.1f}x · "
+                         f"drift {m['drift_pct']:.1f}% · range {m['range_ratio']:.2f}x · "
+                         f"{m['near_high']*100:.0f}% of 60d high" for t, m in found)
+            + "\n<i>Observation only — unproven, not traded. /flags accum off to silence.</i>")
+    except Exception as exc:
+        _log_swallowed("accumulation report", exc)
+
+
+def run_policy_audit(notify: bool = True) -> list[str]:
+    """Check what the rules promise against what is actually true right now.
+
+    The session review already narrates the day; this is the half a narrator is
+    bad at — invariants, checked mechanically, each one traceable to something
+    that has actually gone wrong here. Returns the list of violations (empty is
+    a pass) and never raises: an audit that can crash is an audit nobody runs.
+    """
+    bad: list[str] = []
+
+    def check(name, fn):
+        try:
+            msg = fn()
+            if msg:
+                bad.append(f"{name}: {msg}")
+        except Exception as exc:
+            bad.append(f"{name}: check itself failed ({type(exc).__name__}: {exc})")
+
+    def _state_files_parse():
+        broken = []
+        for f in sorted(glob.glob("dman_*.json")):
+            try:
+                with open(f, encoding="utf-8") as fh:
+                    json.load(fh)
+            except Exception as exc:
+                broken.append(f"{f} ({type(exc).__name__})")
+        # dman_live_signals.json carried stash-pop conflict markers on main from
+        # 2026-09-14 12:12 ET until the next day, unreadable the whole time.
+        return "unreadable: " + ", ".join(broken) if broken else ""
+
+    def _positions_have_stops():
+        loose = [p.ticker for p in PositionTracker().positions
+                 if not getattr(p, "stop", 0) and not getattr(p, "day_only", False)]
+        return f"open with no stop: {', '.join(loose)}" if loose else ""
+
+    def _halt_state_is_coherent():
+        month = get_this_month_loss()
+        if month <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
+            return f"month at {month:.1f}% is past the {MONTHLY_LOSS_LIMIT*100:.0f}% limit and no lift is set"
+        return ""
+
+    def _loss_guard_can_clear():
+        st = WinRateTracker().rolling_stats()
+        if (st.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES
+                and st.get("consec_losses", 0) >= MAX_CONSEC_LOSSES):
+            return "halted on today's losses — expected, clears tomorrow"
+        return ""
+
+    def _auto_trades_stayed_on_the_watchlist():
+        if not flag("ENABLE_WATCHLIST_ONLY_AUTO", ENABLE_WATCHLIST_ONLY_AUTO):
+            return ""
+        off = [p.ticker for p in PositionTracker().positions
+               if p.ticker not in set(WATCHLIST) and "Options" not in (p.setup or "")]
+        return f"held off-watchlist: {', '.join(off)}" if off else ""
+
+    def _options_are_mostly_intrinsic():
+        thin = []
+        for p in PositionTracker().positions:
+            occ = re.search(r"\b([A-Z]{1,6}\d{6})([CP])(\d{8})\b", p.setup or "")
+            if not occ:
+                continue
+            strike = int(occ.group(3)) / 1000.0
+            px = get_live_price(p.ticker)
+            if not px or not getattr(p, "entry", 0):
+                continue
+            intrinsic = (px - strike) if occ.group(2) == "C" else (strike - px)
+            if not _has_enough_intrinsic(intrinsic, p.entry):
+                thin.append(f"{p.ticker} {_intrinsic_pct(intrinsic, p.entry)*100:.0f}%")
+        return f"time-value heavy: {', '.join(thin)}" if thin else ""
+
+    def _scanner_is_running():
+        try:
+            with open(SCAN_LOG_FILE, encoding="utf-8") as fh:
+                log = json.load(fh)
+            entries = log if isinstance(log, list) else log.get("entries", [])
+            last = max(e.get("ts", "") for e in entries) if entries else ""
+        except Exception:
+            return "no readable scan log"
+        if not last:
+            return "scan log is empty"
+        age_min = (datetime.now(ET) - datetime.fromisoformat(last)).total_seconds() / 60
+        return f"last scan {age_min:.0f} min ago" if (is_market_open() and age_min > 90) else ""
+
+    check("state files", _state_files_parse)
+    check("stops", _positions_have_stops)
+    check("halt state", _halt_state_is_coherent)
+    check("loss guard", _loss_guard_can_clear)
+    check("watchlist-only", _auto_trades_stayed_on_the_watchlist)
+    check("option quality", _options_are_mostly_intrinsic)
+    check("scanner freshness", _scanner_is_running)
+
+    if bad:
+        print("\n  🔍 POLICY AUDIT — " + f"{len(bad)} finding(s)")
+        for b in bad:
+            print(f"     • {b}")
+        if notify:
+            send_telegram("🔍 <b>Policy audit</b>\n" + "\n".join(f"• {b}" for b in bad))
+    else:
+        print("\n  🔍 POLICY AUDIT — everything matches the rules")
+    return bad
+
+
 def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
                                 smallcap_extra: dict) -> None:
     """
@@ -18413,6 +18608,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # against GOOGL/TSLA's July 23 earnings gaps, whose news_boost would have
     # been False under the old window despite the catalyst being obvious.
     print(f"  [1.5/2] Pre-fetching news catalysts (last 20h)...", end=" ", flush=True)
+    _accumulation_found: list[tuple[str, dict]] = []
     _scan_news_map: dict[str, list] = {}
     _scan_news_map = _scan_prefetch_news(_scan_news_map, tickers)
 
@@ -18463,6 +18659,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             continue
 
         # Raw signal detection (v2 logic)
+        if flag("ENABLE_ACCUMULATION_ALERTS", ENABLE_ACCUMULATION_ALERTS):
+            _acc = detect_accumulation(df)
+            if _acc and not _is_duplicate_alert(f"__ACCUM_{ticker}__"):
+                _accumulation_found.append((ticker, _acc))
+                _save_last_alert(f"__ACCUM_{ticker}__")
+
         sig = _raw_signals(df, ticker)
         if sig is None:
             rejected_counts["no_signal"] += 1
@@ -18614,6 +18816,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print(f"{'─'*68}\n")
 
     # Persist scan result to rolling log
+    _report_accumulation(_accumulation_found)
     _scan_persist_log(_budget_hit, min_score, regime, rejected_counts, signals, tickers, universe_label)
 
     # Near-miss collection — only when no signals fired; uses cached fetch_df() data (fast)
@@ -19859,6 +20062,20 @@ def _get_pdt_status() -> dict:
         return {"used": 0, "remaining": 0, "swing_mode": True, "equity": 0.0}
 
 
+def _entry_limit_price(entry: float, bias: str) -> float:
+    """Where to rest the entry limit: ENTRY_PULLBACK_PCT better than the signal
+    price (below for longs, above for shorts). The stop stays where the setup
+    says it is, so a filled trade simply carries more room. Unfilled means the
+    move left without us, which the study says is the cheaper mistake."""
+    try:
+        pct = float(flag("ENTRY_PULLBACK_PCT", ENTRY_PULLBACK_PCT))
+    except (TypeError, ValueError):
+        return entry          # misconfigured: rest at the signal price, as before
+    if pct <= 0 or entry <= 0:
+        return entry
+    return entry * (1 + pct / 100) if str(bias).upper() == "SHORT" else entry * (1 - pct / 100)
+
+
 def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]]:
     """
     Place a bracket order on Alpaca (paper or live).
@@ -19908,7 +20125,7 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
             return None, _err
 
     side      = OrderSide.BUY  if signal.bias == "LONG" else OrderSide.SELL
-    limit_px  = round(signal.entry,   2)
+    limit_px  = round(_entry_limit_price(signal.entry, signal.bias), 2)
     stop_px   = round(signal.stop,    2)
     target_px = round(signal.target1, 2)
     label     = "PAPER" if ALPACA_PAPER else "LIVE"
@@ -23742,7 +23959,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard"],
+                 "fallback-guard", "audit"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -24003,6 +24220,9 @@ def main():
 
     elif args.mode == "scan-log":
         print_scan_log()
+
+    elif args.mode == "audit":
+        run_policy_audit()
 
     elif args.mode == "readiness":
         _main_mode_readiness()

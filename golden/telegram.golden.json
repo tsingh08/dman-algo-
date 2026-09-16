@@ -1,32 +1,82 @@
 {
  "patch_names": [
+  "PositionTracker",
+  "_close_earnings_spread",
+  "_enter_setup_probation",
   "_handle_buy_command",
   "_handle_options_command",
-  "_tg_cmd_close",
-  "_tg_cmd_endprobation",
-  "_tg_cmd_endsetupprobation",
-  "_tg_cmd_flags",
-  "_tg_cmd_halt",
-  "_tg_cmd_positions",
-  "_tg_cmd_probation",
-  "_tg_cmd_restart",
-  "_tg_cmd_resume",
-  "_tg_cmd_review",
-  "_tg_cmd_scan",
-  "_tg_cmd_setupprobation",
-  "_tg_cmd_status",
+  "_load_setup_probation",
+  "_save_setup_probation",
+  "_submit_options_close",
+  "_trigger_workflow_restart",
   "explain_ticker",
+  "flag",
+  "get_alpaca_client",
   "get_this_month_loss",
   "get_todays_loss",
-  "send_telegram"
+  "is_halted",
+  "is_on_probation",
+  "run_policy_audit",
+  "send_telegram",
+  "set_flag"
  ],
  "results": {
   "mock|flags": {
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags'],)",
+     "flag",
+     "('ENABLE_RVOL_SESSION_PROJECTION', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_MARKET_WIDE_SCAN', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_OPTIONS_TRADING', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_PDT_ZERO_SHARES', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_WATCHLIST_ONLY_AUTO', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_SETUP_KILL', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_DYNAMIC_SMALLCAP', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_ACCUMULATION_ALERTS', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_SHADOW_REVIEW', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_BEAR_GAP_HOLD', False)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "(\"🎛️ <b>Feature flags</b>\\n\\n✅ <b>rvol</b> — ON\\n    <i>intraday RVOL projection — makes live RVOL comparable to the backtest's. OFF reverts to the raw partial-",
      "[]"
     ]
    ],
@@ -36,8 +86,58 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags'],)",
+     "flag",
+     "('ENABLE_RVOL_SESSION_PROJECTION', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_MARKET_WIDE_SCAN', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_OPTIONS_TRADING', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_PDT_ZERO_SHARES', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_WATCHLIST_ONLY_AUTO', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_SETUP_KILL', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_DYNAMIC_SMALLCAP', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_ACCUMULATION_ALERTS', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_SHADOW_REVIEW', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_BEAR_GAP_HOLD', False)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "(\"🎛️ <b>Feature flags</b>\\n\\n⛔ <b>rvol</b> — OFF\\n    <i>intraday RVOL projection — makes live RVOL comparable to the backtest's. OFF reverts to the raw partial",
      "[]"
     ]
    ],
@@ -47,8 +147,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'shares'],)",
+     "send_telegram",
+     "('❓ Say <b>/flags shares on</b> or <b>/flags shares off</b>.',)",
      "[]"
     ]
    ],
@@ -58,8 +158,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'shares'],)",
+     "send_telegram",
+     "('❓ Say <b>/flags shares on</b> or <b>/flags shares off</b>.',)",
      "[]"
     ]
    ],
@@ -69,8 +169,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'shares', 'on'],)",
+     "set_flag",
+     "('ENABLE_PDT_ZERO_SHARES', True)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('✅ <b>shares = ON</b>\\nat 0 day trades, allow ONE share entry with no stop on a Tier-A catalyst that has no options chain. OFF = options only. The position is ",
      "[]"
     ]
    ],
@@ -80,8 +185,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'shares', 'on'],)",
+     "set_flag",
+     "('ENABLE_PDT_ZERO_SHARES', True)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('✅ <b>shares = ON</b>\\nat 0 day trades, allow ONE share entry with no stop on a Tier-A catalyst that has no options chain. OFF = options only. The position is ",
      "[]"
     ]
    ],
@@ -91,8 +201,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'shares', 'off'],)",
+     "set_flag",
+     "('ENABLE_PDT_ZERO_SHARES', False)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('⛔ <b>shares = OFF</b>\\nat 0 day trades, allow ONE share entry with no stop on a Tier-A catalyst that has no options chain. OFF = options only. The position is",
      "[]"
     ]
    ],
@@ -102,8 +217,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'shares', 'off'],)",
+     "set_flag",
+     "('ENABLE_PDT_ZERO_SHARES', False)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('⛔ <b>shares = OFF</b>\\nat 0 day trades, allow ONE share entry with no stop on a Tier-A catalyst that has no options chain. OFF = options only. The position is",
      "[]"
     ]
    ],
@@ -113,8 +233,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'bogus', 'on'],)",
+     "send_telegram",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, rvol, setupkill, shadow, shares, smallcap, watchlistonly',)",
      "[]"
     ]
    ],
@@ -124,8 +244,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_flags",
-     "(['flags', 'bogus', 'on'],)",
+     "send_telegram",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, rvol, setupkill, shadow, shares, smallcap, watchlistonly',)",
      "[]"
     ]
    ],
@@ -135,8 +255,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_halt",
-     "(['halt'],)",
+     "send_telegram",
+     "('🛑 <b>HALTED</b> — no new entries will be submitted (reason: manual). Exits/stops still enforced. Send /resume to re-enable.',)",
      "[]"
     ]
    ],
@@ -146,8 +266,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_halt",
-     "(['halt'],)",
+     "send_telegram",
+     "('🛑 <b>HALTED</b> — no new entries will be submitted (reason: manual). Exits/stops still enforced. Send /resume to re-enable.',)",
      "[]"
     ]
    ],
@@ -157,8 +277,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_resume",
-     "()",
+     "send_telegram",
+     "('🟢 Not halted — nothing to resume.',)",
      "[]"
     ]
    ],
@@ -168,8 +288,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_resume",
-     "()",
+     "send_telegram",
+     "('🟢 Not halted — nothing to resume.',)",
      "[]"
     ]
    ],
@@ -179,8 +299,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_probation",
-     "('', ['probation'])",
+     "send_telegram",
+     "('🟡 <b>PROBATION ON</b> — sizing ×0.50. Bypasses the consecutive-loss and monthly-loss guards only; daily loss limit and /halt still apply. Send /endprobation t",
      "[]"
     ]
    ],
@@ -190,8 +310,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_probation",
-     "('', ['probation'])",
+     "send_telegram",
+     "('🟡 <b>PROBATION ON</b> — sizing ×0.50. Bypasses the consecutive-loss and monthly-loss guards only; daily loss limit and /halt still apply. Send /endprobation t",
      "[]"
     ]
    ],
@@ -201,8 +321,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_probation",
-     "('NVDA', ['probation', 'NVDA'])",
+     "send_telegram",
+     "(\"❌ /probation failed: could not convert string to float: 'NVDA'\",)",
      "[]"
     ]
    ],
@@ -212,8 +332,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_probation",
-     "('NVDA', ['probation', 'NVDA'])",
+     "send_telegram",
+     "(\"❌ /probation failed: could not convert string to float: 'NVDA'\",)",
      "[]"
     ]
    ],
@@ -223,8 +343,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endprobation",
-     "()",
+     "send_telegram",
+     "('🟢 Not on probation — nothing to end.',)",
      "[]"
     ]
    ],
@@ -234,8 +354,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endprobation",
-     "()",
+     "send_telegram",
+     "('🟢 Not on probation — nothing to end.',)",
      "[]"
     ]
    ],
@@ -245,8 +365,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endprobation",
-     "()",
+     "send_telegram",
+     "('🟢 Not on probation — nothing to end.',)",
      "[]"
     ]
    ],
@@ -256,8 +376,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endprobation",
-     "()",
+     "send_telegram",
+     "('🟢 Not on probation — nothing to end.',)",
      "[]"
     ]
    ],
@@ -267,8 +387,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_setupprobation",
-     "(['setupprobation'],)",
+     "send_telegram",
+     "('⚠️ Usage: /setupprobation SETUP NAME (e.g. /setupprobation Low Float Catalyst)',)",
      "[]"
     ]
    ],
@@ -278,8 +398,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_setupprobation",
-     "(['setupprobation'],)",
+     "send_telegram",
+     "('⚠️ Usage: /setupprobation SETUP NAME (e.g. /setupprobation Low Float Catalyst)',)",
      "[]"
     ]
    ],
@@ -289,8 +409,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_setupprobation",
-     "(['setupprobation', 'Gap'],)",
+     "_enter_setup_probation",
+     "('Gap', 'manual')",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('🟡 <b>SETUP PROBATION ON</b> — Gap\\n+10pts required on top of its normal bar for 10d. Send /endsetupprobation Gap to clear early.',)",
      "[]"
     ]
    ],
@@ -300,8 +425,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_setupprobation",
-     "(['setupprobation', 'Gap'],)",
+     "_enter_setup_probation",
+     "('Gap', 'manual')",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('🟡 Gap is already restricted.',)",
      "[]"
     ]
    ],
@@ -311,8 +441,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endsetupprobation",
-     "(['endsetupprobation'],)",
+     "send_telegram",
+     "('⚠️ Usage: /endsetupprobation SETUP NAME',)",
      "[]"
     ]
    ],
@@ -322,8 +452,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endsetupprobation",
-     "(['endsetupprobation'],)",
+     "send_telegram",
+     "('⚠️ Usage: /endsetupprobation SETUP NAME',)",
      "[]"
     ]
    ],
@@ -333,8 +463,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endsetupprobation",
-     "(['endsetupprobation', 'Gap'],)",
+     "_load_setup_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "(\"🟢 Gap isn't restricted — nothing to end.\",)",
      "[]"
     ]
    ],
@@ -344,8 +479,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_endsetupprobation",
-     "(['endsetupprobation', 'Gap'],)",
+     "_load_setup_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "(\"❌ /endsetupprobation failed: argument of type 'NoneType' is not a container or iterable\",)",
      "[]"
     ]
    ],
@@ -355,8 +495,43 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_status",
+     "is_halted",
      "()",
+     "[]"
+    ],
+    [
+     "is_on_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "_load_setup_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "get_alpaca_client",
+     "()",
+     "[]"
+    ],
+    [
+     "PositionTracker",
+     "()",
+     "[]"
+    ],
+    [
+     "get_todays_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "get_this_month_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nEquity <b>$1.00</b>  BP $1.00  Day trades 1/3\\nTracked positions: 0\\nToda",
      "[]"
     ]
    ],
@@ -366,8 +541,43 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_status",
+     "is_halted",
      "()",
+     "[]"
+    ],
+    [
+     "is_on_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "_load_setup_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "get_alpaca_client",
+     "()",
+     "[]"
+    ],
+    [
+     "PositionTracker",
+     "()",
+     "[]"
+    ],
+    [
+     "get_todays_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "get_this_month_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('📊 <b>DMan status</b> — 🟢 active\\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +0.00%  Month: +0.00%',)",
      "[]"
     ]
    ],
@@ -377,8 +587,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_positions",
+     "PositionTracker",
      "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('📋 <b>Open positions</b>\\n',)",
      "[]"
     ]
    ],
@@ -388,8 +603,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_positions",
+     "PositionTracker",
      "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('📭 No tracked positions.',)",
      "[]"
     ]
    ],
@@ -441,8 +661,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_restart",
-     "()",
+     "send_telegram",
+     "('🔄 <b>Restart requested</b> — dispatching a fresh daemon session (automatically cancels any stuck/hung session first, same concurrency group). This works even ",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_daemon.yml',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('✅ Fresh daemon session dispatched — should be live within a few minutes. You\\'ll get the usual \"daemon ONLINE\" message once it starts.',)",
      "[]"
     ]
    ],
@@ -452,8 +682,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_restart",
-     "()",
+     "send_telegram",
+     "('🔄 <b>Restart requested</b> — dispatching a fresh daemon session (automatically cancels any stuck/hung session first, same concurrency group). This works even ",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_daemon.yml',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('❌ Restart dispatch failed: HTTP 404\\nFallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.',)",
      "[]"
     ]
    ],
@@ -463,8 +703,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_restart",
-     "()",
+     "send_telegram",
+     "('🔄 <b>Restart requested</b> — dispatching a fresh daemon session (automatically cancels any stuck/hung session first, same concurrency group). This works even ",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_daemon.yml',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('✅ Fresh daemon session dispatched — should be live within a few minutes. You\\'ll get the usual \"daemon ONLINE\" message once it starts.',)",
      "[]"
     ]
    ],
@@ -474,8 +724,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_restart",
-     "()",
+     "send_telegram",
+     "('🔄 <b>Restart requested</b> — dispatching a fresh daemon session (automatically cancels any stuck/hung session first, same concurrency group). This works even ",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_daemon.yml',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('❌ Restart dispatch failed: HTTP 404\\nFallback: GitHub app → Actions → DMan Cloud Daemon → Run workflow.',)",
      "[]"
     ]
    ],
@@ -485,8 +745,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_scan",
-     "()",
+     "send_telegram",
+     "(\"🔍 <b>Scan requested</b> — dispatching an immediate scanner run (curated universe, real submission if the market's open). Results post the same way a scheduled",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_scanner.yml',)",
+     "[('inputs', {'mode': 'scan'})]"
+    ],
+    [
+     "send_telegram",
+     "('✅ Scan dispatched — should start within a minute or two.',)",
      "[]"
     ]
    ],
@@ -496,8 +766,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_scan",
-     "()",
+     "send_telegram",
+     "(\"🔍 <b>Scan requested</b> — dispatching an immediate scanner run (curated universe, real submission if the market's open). Results post the same way a scheduled",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_scanner.yml',)",
+     "[('inputs', {'mode': 'scan'})]"
+    ],
+    [
+     "send_telegram",
+     "('❌ Scan dispatch failed: HTTP 404\\nFallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.',)",
      "[]"
     ]
    ],
@@ -507,8 +787,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_scan",
-     "()",
+     "send_telegram",
+     "(\"🔍 <b>Scan requested</b> — dispatching an immediate scanner run (curated universe, real submission if the market's open). Results post the same way a scheduled",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_scanner.yml',)",
+     "[('inputs', {'mode': 'scan'})]"
+    ],
+    [
+     "send_telegram",
+     "('✅ Scan dispatched — should start within a minute or two.',)",
      "[]"
     ]
    ],
@@ -518,8 +808,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_scan",
-     "()",
+     "send_telegram",
+     "(\"🔍 <b>Scan requested</b> — dispatching an immediate scanner run (curated universe, real submission if the market's open). Results post the same way a scheduled",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_scanner.yml',)",
+     "[('inputs', {'mode': 'scan'})]"
+    ],
+    [
+     "send_telegram",
+     "('❌ Scan dispatch failed: HTTP 404\\nFallback: GitHub app → Actions → DMan PRO Scanner → Run workflow → mode=scan.',)",
      "[]"
     ]
    ],
@@ -529,8 +829,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_review",
-     "()",
+     "send_telegram",
+     "(\"🔎 <b>Review requested</b> — dispatching a session review now (report only, nothing gets pushed or traded automatically). Takes a few minutes — the report post",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_review.yml',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('✅ Review dispatched.',)",
      "[]"
     ]
    ],
@@ -540,8 +850,18 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_review",
-     "()",
+     "send_telegram",
+     "(\"🔎 <b>Review requested</b> — dispatching a session review now (report only, nothing gets pushed or traded automatically). Takes a few minutes — the report post",
+     "[]"
+    ],
+    [
+     "_trigger_workflow_restart",
+     "('dman_review.yml',)",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('❌ Review dispatch failed: HTTP 404\\nFallback: GitHub app → Actions → DMan Session Review → Run workflow.',)",
      "[]"
     ]
    ],
@@ -573,8 +893,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_close",
-     "('NVDA',)",
+     "PositionTracker",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('❓ /close: no tracked position for NVDA',)",
      "[]"
     ]
    ],
@@ -584,8 +909,13 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_close",
-     "('NVDA',)",
+     "PositionTracker",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('❓ /close: no tracked position for NVDA',)",
      "[]"
     ]
    ],
@@ -737,8 +1067,43 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_status",
+     "is_halted",
      "()",
+     "[]"
+    ],
+    [
+     "is_on_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "_load_setup_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "get_alpaca_client",
+     "()",
+     "[]"
+    ],
+    [
+     "PositionTracker",
+     "()",
+     "[]"
+    ],
+    [
+     "get_todays_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "get_this_month_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nEquity <b>$1.00</b>  BP $1.00  Day trades 1/3\\nTracked positions: 0\\nToda",
      "[]"
     ]
    ],
@@ -748,8 +1113,43 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_status",
+     "is_halted",
      "()",
+     "[]"
+    ],
+    [
+     "is_on_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "_load_setup_probation",
+     "()",
+     "[]"
+    ],
+    [
+     "get_alpaca_client",
+     "()",
+     "[]"
+    ],
+    [
+     "PositionTracker",
+     "()",
+     "[]"
+    ],
+    [
+     "get_todays_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "get_this_month_loss",
+     "()",
+     "[]"
+    ],
+    [
+     "send_telegram",
+     "('📊 <b>DMan status</b> — 🟢 active\\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +0.00%  Month: +0.00%',)",
      "[]"
     ]
    ],
@@ -781,8 +1181,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_halt",
-     "(['HALT'],)",
+     "send_telegram",
+     "('🛑 <b>HALTED</b> — no new entries will be submitted (reason: manual). Exits/stops still enforced. Send /resume to re-enable.',)",
      "[]"
     ]
    ],
@@ -792,8 +1192,8 @@
    "how": "returned None",
    "calls": [
     [
-     "_tg_cmd_halt",
-     "(['HALT'],)",
+     "send_telegram",
+     "('🛑 <b>HALTED</b> — no new entries will be submitted (reason: manual). Exits/stops still enforced. Send /resume to re-enable.',)",
      "[]"
     ]
    ],

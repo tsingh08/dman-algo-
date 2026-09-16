@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:54:06.496471-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T13:54:06.697702-04:00",
     "symbols": [
       "AMD"
@@ -5043,5 +5033,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:23:59.159750-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX shares are trading higher amid catalysts including renewed attention on revenue from Starship launches, with both sell-side and buy-side investors noting the company&#39;s AI aspirations and orbital data centers as sources of potential upside.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

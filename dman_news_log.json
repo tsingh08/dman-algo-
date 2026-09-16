@@ -1,107 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:11:56.263362-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Democrats Reject GOP&#39;s &#39;Final&#39; Offer as Bessent Says CLARITY Act Fights &#39;Evasion&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:16:06.497171-04:00",
-    "symbols": [
-      "CRM",
-      "NVDA"
-    ],
-    "headline": "Salesforce Launches Koa AI Model Built On NVIDIA Nemotron",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:16:11.022862-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "Forgent Power Solutions Q4 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:21:37.407615-04:00",
-    "symbols": [
-      "BIVI"
-    ],
-    "headline": "What&#39;s Going On With BioVie Stock on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:25:52.186259-04:00",
-    "symbols": [
-      "AAPL",
-      "SPCX"
-    ],
-    "headline": "Elon Musk Makes Nice with Apple, Dismisses Antitrust Lawsuit: Not Ready to Make Nice With OpenAI Yet",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:26:34.639664-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Elon Musk Makes Nice with Apple, Dismisses Antitrust Lawsuit: Not Ready to Make Nice With OpenAI Yet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:26:35.201181-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Salesforce Launches Koa AI Model Built On NVIDIA Nemotron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:26:37.264499-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Launches Koa AI Model Built On NVIDIA Nemotron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:26:41.463900-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What&#39;s Going On With Arm Holdings Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:26:50.901882-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Makes Nice with Apple, Dismisses Antitrust Lawsuit: Not Ready to Make Nice With OpenAI Yet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T12:26:55.287266-04:00",
     "symbols": [
       "OESX"
@@ -5056,5 +4954,105 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:02:36.410758-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:02:36.416897-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Intel Analyst Raises Price Target On Terafab, AI-Driven Turnaround",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:02:36.423874-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:02:37.620125-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Intel Analyst Raises Price Target On Terafab, AI-Driven Turnaround",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:02:38.475044-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:02:38.745115-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:02:40.112558-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:02:53.938433-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Intel Analyst Raises Price Target On Terafab, AI-Driven Turnaround",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:02:58.203652-04:00",
+    "symbols": [
+      "DVLT"
+    ],
+    "headline": "Datavault AI Stock Rebounds as Investors Weigh Big Order Against Lawsuit Risk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T12:02:58.208842-04:00",
+    "symbols": [
+      "DVLT"
+    ],
+    "headline": "Veea Inc., DataMEDS AI, Trip.com, Datavault AI and Circle Internet Group: Why These 5 Stocks Are on Investors&#39; Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

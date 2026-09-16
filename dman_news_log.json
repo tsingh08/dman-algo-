@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:52:44.612633-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno Says We Are Seeing Broad Based Strength Across Investment Banking And Across All Geographies; We Would Expect Investment Banking Fees In Third Quarter To Be Up Mid To High Teens; We Would Expect Trading Fees In Third Quarter To Be Up Mid To High Teens",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:01:45.114240-04:00",
     "symbols": [
       "MSTR"
@@ -5052,5 +5042,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T14:42:49.092505-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says Those Less Well Off Have Most To Gain From That; Did Not Offer Own Summary of Economic Projection; Decision We Made Today Was A Sober Decision; Am Not Going To Prejudge Any Future Decision We May Make; Decision Today Was The Right Decision, I Have Nothing For You About A Discussion With The President; Because Of Underlying Strength Of The Economy We Can Afford To Focus On Price Stability",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

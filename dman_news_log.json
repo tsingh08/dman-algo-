@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:44:18.889268-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Watching Robinhood Markets; Hearing Investor Business Daily SwingTrader Sells Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T14:46:46.351049-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Clarity Act Is On Track To Fail Procedural Hurdle In Senate",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T14:47:50.169895-04:00",
     "symbols": [
       "MSFT"
@@ -5051,6 +5031,26 @@
     "headline": "Huntington Bancshares Lowers FY2027 GAAP EPS Guidance from $1.90-$1.93 to $1.75-$1.83 vs $1.88 Est",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:32:16.672775-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Stock Falls as Bitcoin Extends Pullback After Senate Vote",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:33:54.359297-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says FOMC Decided To Raise Rates By Quarter Point; Inflation Remains Elevated; Decision Comes When Economy Appears To Be Strengthening; Key Markers Have Improved In Recent Months; This Committee Will Deliver Price Stability; View That Conditions Are Not Restrictive Was Widely Shared By FOMC; Jobless Rate Remains Low, Openings And Hours Are Increasing; Labor Side Of Fed Remit Is In Good Shape; OUr Predominant Focus Is Inflation",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

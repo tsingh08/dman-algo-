@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:07:57.941372-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "10-Year Treasury Yield At Highest Level Since 2007 As Fed Decision Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:07:58.448206-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "10-Year Treasury Yield At Highest Level Since 2007 As Fed Decision Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:08:01.985242-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Roth Capital Maintains Buy on Roblox, Raises Price Target to $60",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:08:07.045114-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Makes Massive Clean-Energy Push to Feed Growing AI Power Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:08:07.493472-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "10-Year Treasury Yield At Highest Level Since 2007 As Fed Decision Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:08:07.718052-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "10-Year Treasury Yield At Highest Level Since 2007 As Fed Decision Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T13:08:08.155970-04:00",
     "symbols": [
       "BMGL"
@@ -5056,5 +4996,68 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:33:23.151632-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "ORCL"
+    ],
+    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:33:23.396381-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is IREN Stock Surging Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:35:05.072946-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Mizuho Maintains Outperform on Salesforce, Raises Price Target to $280",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:36:43.734749-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Shares of oil and gas related-companies are lower amid reports suggesting that Saudi Arabia is attempting to restore crude oil exports quickly through pipeline repairs and ship-to-ship transfers. Also, API and EIA data indicated weekly U.S. crude and distillate inventory growth, further pressuring the oil price.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:37:10.404682-04:00",
+    "symbols": [
+      "CIFR"
+    ],
+    "headline": "Why Is IREN Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:37:32.582975-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Stifel Reiterates Buy on Salesforce, Maintains $275 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

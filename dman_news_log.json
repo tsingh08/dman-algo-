@@ -1,5 +1,15 @@
 [
   {
+    "ts": "2026-09-15T11:59:25.572940-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Dave Outperforms Visa And Chime, Analyst Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
     "ts": "2026-09-15T11:59:45.763585-04:00",
     "symbols": [
       "NFLX"
@@ -4982,27 +4992,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-09-16T11:28:01.851918-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Markets Stock Falling Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T11:30:20.202608-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "If You Invested $100 In RTX Stock 5 Years Ago, You Would Have This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T11:30:38.107277-04:00",
+    "ts": "2026-09-16T11:29:45.880381-04:00",
     "symbols": [
       "AAPL"
     ],
@@ -5012,7 +5002,7 @@
     "sentiment": "positive"
   },
   {
-    "ts": "2026-09-16T11:30:39.500735-04:00",
+    "ts": "2026-09-16T11:29:46.308279-04:00",
     "symbols": [
       "GOOGL"
     ],
@@ -5022,7 +5012,7 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-09-16T11:30:39.778709-04:00",
+    "ts": "2026-09-16T11:29:46.395345-04:00",
     "symbols": [
       "AMZN"
     ],
@@ -5032,7 +5022,17 @@
     "sentiment": "neutral"
   },
   {
-    "ts": "2026-09-16T11:30:45.878195-04:00",
+    "ts": "2026-09-16T11:29:47.631895-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Why Is Robinhood Markets Stock Falling Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T11:29:48.677306-04:00",
     "symbols": [
       "COIN"
     ],
@@ -5042,11 +5042,11 @@
     "sentiment": "negative"
   },
   {
-    "ts": "2026-09-16T11:30:56.828299-04:00",
+    "ts": "2026-09-16T11:29:50.542994-04:00",
     "symbols": [
-      "TPST"
+      "JBHT"
     ],
-    "headline": "Tempest Therapeutics (TPST) Stock Surges Wednesday: What&#39;s Driving the Action?",
+    "headline": "JB Hunt Stock Sinks As Rising Driver and Fuel Costs Hit Q3 Outlook",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

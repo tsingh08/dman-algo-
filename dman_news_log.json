@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:46:59.925295-04:00",
-    "symbols": [
-      "FEED"
-    ],
-    "headline": "ENvue Medical Says It Received Nasdaq Hearings Panel Decision Denying Continued Listing; Common Stock To Be Suspended And Begin Trading On OTC Markets Under Symbol FEED On September 16",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:07:56.982406-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10-Year Treasury Yield At Highest Level Since 2007 As Fed Decision Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:07:57.211988-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "10-Year Treasury Yield At Highest Level Since 2007 As Fed Decision Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T13:07:57.464537-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10-Year Treasury Yield At Highest Level Since 2007 As Fed Decision Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T13:07:57.941372-04:00",
     "symbols": [
       "META"
@@ -5054,6 +5014,46 @@
     ],
     "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:31:14.996979-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What&#39;s Going On With Amazon Stock Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:31:33.303654-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:31:33.655898-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:31:49.811168-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

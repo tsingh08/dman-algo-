@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-15T09:49:30.504148-04:00",
-    "symbols": [
-      "SUGP"
-    ],
-    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T09:49:30.784319-04:00",
-    "symbols": [
-      "MYSZ"
-    ],
-    "headline": "Dow Tumbles Over 250 Points; NY Empire State Manufacturing Index Falls In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T09:51:05.391231-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Trending After Subsidiary Completes $2.1 Billion Debt Tender",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T09:57:05.166546-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Veea Stock Surges Tuesday: What&#39;s Driving the Action?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T09:57:37.352133-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Veea Shares Halted On Circuit Breaker To The Upside, Stock Now Up 172.05%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T10:02:23.659048-04:00",
-    "symbols": [
-      "PDSB"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T10:02:24.971344-04:00",
     "symbols": [
       "RLGT"
@@ -5053,5 +4993,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T09:49:29.217592-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "B of A Securities Maintains Buy on Costco Wholesale, Lowers Price Target to $1095",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T09:50:01.879624-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Energy Secretary Chris Wright Speaking On Fox Says 18M Barrels Flowed Out Of Persian Gulf Yesterday; Says More Flow Through Bab El-Mandeb Strait Would Be Helpful",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T09:50:01.885586-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Energy Secretary Speaking On Fox Says Oil And Gas Producer To Announce Major Investment In Venezuela",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T09:50:01.890788-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Stickier Inflation&#39; Is Here, Market Strategist Warns After August CPI \u2014 &#39;One-Time Event&#39; Narrative Takes a Hit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T09:50:02.195337-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "&#39;Stickier Inflation&#39; Is Here, Market Strategist Warns After August CPI \u2014 &#39;One-Time Event&#39; Narrative Takes a Hit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T09:50:45.534523-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Goldman Sachs Reiterates Neutral on Tesla, Maintains $360 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

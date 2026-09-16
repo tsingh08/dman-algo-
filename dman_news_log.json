@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:20:26.374250-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Analyzing Amazon.com In Comparison To Competitors In Broadline Retail Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T15:20:33.109585-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno Says We Still Worry About Private Credit But The Asset Class Is In A Decent Place Compared To Earlier In The Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T15:23:35.101161-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Shares Up 3.5% After Key Trading Signal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T15:26:03.587550-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Co-President Doug Petno Says Do Not Really Expect Inorganic Growth To Be A Growth Opportunity For The CIB Business As The Bar Is Very, Very High",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:37:06.348433-04:00",
     "symbols": [
       "SPY"
@@ -5057,5 +5017,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T15:29:54.299094-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T15:29:55.186065-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T15:29:55.302045-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T15:30:42.855879-04:00",
+    "symbols": [
+      "GS",
+      "LGHL"
+    ],
+    "headline": "Shares of financial companies are trading lower amid overall market weakness after Fed Chairman Warsh took a hawkish tone in his press conference and Q&amp;A session after the FOMC rate hike.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

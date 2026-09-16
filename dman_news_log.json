@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:48:37.435659-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury&#39;s Bessent Says Will Continue To Push For Transparency In Debt Restructuring In Light Of Hidden China Debt Provisions; Dollar Continues To Thrive As Reserve Currency, Transaction Volume In Dollars Has Risen; Decrease In Reserve Holdings Of Dollars Is Mainly From Russia And China; Strong Dollar Is A Set Of Behaviors, Including Regulatory, Tax, Trade, Energy Certainty",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T10:50:06.978456-04:00",
     "symbols": [
       "CEG",
@@ -5052,5 +5042,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:30:13.159768-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks 1.585M Barrel Build Vs 0.100M Barrel Build Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

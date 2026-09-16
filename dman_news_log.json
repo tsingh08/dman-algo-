@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:30:55.024613-04:00",
-    "symbols": [
-      "KMTS"
-    ],
-    "headline": "BTIG Reiterates Buy on Kestra Medical Techs, Maintains $32 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T14:30:55.028939-04:00",
-    "symbols": [
-      "KMTS"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By 58%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T14:30:55.143440-04:00",
-    "symbols": [
-      "KBWB"
-    ],
-    "headline": "Why Is Bank of America Stock Falling Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T14:30:55.259674-04:00",
-    "symbols": [
-      "RDN"
-    ],
-    "headline": "FHFA Director Bill Pulte Says In X Post That Fannie Mae Will Follow Freddie Mac&#39;s Rule Allowing Loan Servicers To Contact Borrowers Who May Qualify To Cancel Private Mortgage Insurance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:38:54.661221-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Watching Hims &amp; Hers Health; Hearing Zacks Healthcare Innovators Newsletter Mentions Stock As A Buy",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T14:42:28.796473-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Lines Up Starship&#39;s First Commercial Mission for 2028",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T14:44:18.889268-04:00",
     "symbols": [
       "HOOD"
@@ -5051,6 +4991,66 @@
     "headline": "Tesla Killed Its Solar Roof. Now Elon Musk Wants 100 GW of Solar",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:26:45.752696-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Killed Its Solar Roof. Now Elon Musk Wants 100 GW of Solar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T14:26:59.914716-04:00",
+    "symbols": [
+      "EAF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:27:00.445883-04:00",
+    "symbols": [
+      "HBAN"
+    ],
+    "headline": "Huntington Bancshares Expects FY26 Revenue Synergies Of $75M+",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:27:00.449583-04:00",
+    "symbols": [
+      "HBAN"
+    ],
+    "headline": "Huntington Bancshares Sees FY2026 GAAP EPS $1.52-$1.54 vs $1.60 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:27:00.453036-04:00",
+    "symbols": [
+      "HBAN"
+    ],
+    "headline": "Huntington Bancshares Guides FY27 EPS Of $1.75-$1.83; Raises FY27 Expected Buybacks To $1.3B-1.4B; Sees NII Of ~35% Vs FY25 Baseline $6.056B; Target For FY26 Implied Revenue Growth ~34% Vs FY25 Baseline $8.278B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:27:00.456474-04:00",
+    "symbols": [
+      "HBAN"
+    ],
+    "headline": "Huntington Bancshares Lowers FY2027 GAAP EPS Guidance from $1.90-$1.93 to $1.75-$1.83 vs $1.88 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

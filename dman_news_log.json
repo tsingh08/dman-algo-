@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:59:43.568190-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Trump Compares AI Data Centers To Oil Boom \u2014 Nvidia CEO Agrees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T11:00:29.618409-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Recent Report Shows That Rep. Josh Gottheimer Bought Up to $1.54M Worth of Microsoft Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T11:03:24.413937-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Introduces Meta One; Meta One Plans Now Available Globally; Meta One Pricing Starts At $2.99/Month For Single Products, $7.99/Month For Individual Bundles, $14.99/Month For Creator &amp; Business Bundles; Core Experience Across Meta Apps &amp; Meta AI Will Stay Free",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T11:03:55.749393-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cognition And AWS Sign Multi-Year Strategic Collaboration Agreement",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T11:06:14.134511-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Why Is Coinbase Stock Falling on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T11:06:23.869992-04:00",
     "symbols": [
       "GILD"
@@ -5048,5 +4998,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:37:31.890632-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Intel Stock Moves Higher: What&#39;s Going On Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:37:35.455735-04:00",
+    "symbols": [
+      "CYPH"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:37:35.465979-04:00",
+    "symbols": [
+      "SKUU"
+    ],
+    "headline": "What&#39;s Going On With SK hynix Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:37:35.474947-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "Forgent Power Solutions Stock Rises on Record Q4, Fresh Analyst Target Hike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:40:36.250905-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "Veea Shares Halted On Circuit Breaker To The Upside; Stock Now Up 15.06%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

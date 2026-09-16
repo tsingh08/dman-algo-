@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:11:26.870473-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "QUICK SPARK: UBS Tags Palantir &#39;Best AI Enabler&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:11:28.929131-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "QUICK SPARK: UBS Tags Palantir &#39;Best AI Enabler&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T12:11:56.263362-04:00",
     "symbols": [
       "COIN"
@@ -5050,5 +5030,31 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T11:52:33.877368-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Intel Analyst Raises Price Target On Terafab, AI-Driven Turnaround",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T11:53:04.944627-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "MRVL",
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

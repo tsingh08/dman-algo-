@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:30:54.902980-04:00",
-    "symbols": [
-      "GH"
-    ],
-    "headline": "Watching Guardant Health; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T14:30:55.020161-04:00",
     "symbols": [
       "KMTS"
@@ -5049,5 +5039,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T14:19:07.292403-04:00",
+    "symbols": [
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Major indices are trading higher following the FOMC decision to increase the target range for the fed funds rate from 3.50%-3.75% to 3.75%-4.00% as Fed expectations for another rate hike in 2026 largely reflect investor expectations heading into the event.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

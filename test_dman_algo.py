@@ -15729,3 +15729,48 @@ class TestDmanPlaySelection(unittest.TestCase):
         with patch.object(a.requests, "get", return_value=resp):
             out = a._fetch_dman_stocktwits_calls(hours_back=48)
         self.assertEqual([r[0] for r in out], ["VEEA"])
+
+
+class TestShadowReviewer(unittest.TestCase):
+    """Advisory second opinion: recorded, never acted on."""
+
+    def _resp(self, text, code=200):
+        r = MagicMock(status_code=code)
+        r.json.return_value = {"content": [{"text": text}]}
+        return r
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        p = patch.object(a, "SHADOW_REVIEW_FILE", os.path.join(self.tmp, "sr.json"))
+        p.start(); self.addCleanup(p.stop)
+        k = patch.object(a, "ANTHROPIC_API_KEY", "test-key")
+        k.start(); self.addCleanup(k.stop)
+
+    def test_records_a_verdict(self):
+        body = '{"verdict": "skip", "confidence": 70, "reason": "extended into resistance"}'
+        with patch.object(a.requests, "post", return_value=self._resp(body)):
+            row = a._shadow_review("signal", "NVDA", {"setup": "Gap & Hold"})
+        self.assertEqual(row["verdict"], "skip")
+        self.assertEqual(json.load(open(a.SHADOW_REVIEW_FILE))[0]["ticker"], "NVDA")
+
+    def test_never_raises_and_writes_nothing_on_failure(self):
+        for side in (self._resp("not json"), self._resp("", 500)):
+            with patch.object(a.requests, "post", return_value=side):
+                self.assertIsNone(a._shadow_review("signal", "NVDA", {}))
+        with patch.object(a.requests, "post", side_effect=OSError("boom")):
+            self.assertIsNone(a._shadow_review("signal", "NVDA", {}))
+        self.assertFalse(os.path.exists(a.SHADOW_REVIEW_FILE))
+
+    def test_flag_off_skips_the_call(self):
+        with patch.object(a, "ENABLE_SHADOW_REVIEW", False), \
+             patch.object(a.requests, "post", side_effect=AssertionError("must not call")):
+            self.assertIsNone(a._shadow_review("signal", "NVDA", {}))
+
+    def test_no_caller_branches_on_the_verdict(self):
+        # The whole point of shadow mode: nothing may gate on it yet.
+        for fn in (a._finalize_and_alert_signals, a.run_stocktwits_monitor):
+            for line in inspect.getsource(fn).splitlines():
+                if "_shadow_review(" in line:
+                    self.assertFalse(line.strip().startswith(("if ", "elif ", "return ", "assert ")),
+                                     f"verdict used as a decision in {fn.__name__}: {line.strip()}")
+                    self.assertNotIn("=", line.split("_shadow_review(")[0])

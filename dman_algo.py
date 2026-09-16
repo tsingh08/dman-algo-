@@ -2345,6 +2345,9 @@ TOGGLEABLE_FLAGS = {
                 "(>=8 trades, <=20% WR, <=-20% cumulative). OFF re-enables it."),
     "smallcap":("ENABLE_DYNAMIC_SMALLCAP",
                 "dynamic small-cap discovery from the Yahoo screeners."),
+    "shadow":  ("ENABLE_SHADOW_REVIEW",
+                "second-opinion reviewer on alerted signals and DMan plays. "
+                "Records a verdict only — never blocks a trade."),
     "beargap": ("ENABLE_BEAR_GAP_HOLD",
                 "Bear Gap Hold put signals (worst setup in the 2026-09-14 "
                 "ablation). OFF by default."),
@@ -5097,6 +5100,17 @@ DMAN_PLAY_TARGET_PCT = 15.0
 DMAN_PLAY_STOP_PCT   = 20.0
 DMAN_PLAY_NOTIONAL   = 500.0     # -20% stop -> ~$100 max loss
 DMAN_PLAY_LOG_FILE   = "dman_play_log.json"
+
+# ── Shadow reviewer ────────────────────────────────────────────────────────
+# A second opinion on every alerted signal and DMan play, recorded and NEVER
+# acted on. The point is evidence: after ~30 reviews, compare the trades it
+# would have skipped against what they actually did. Only if its skips avoid
+# losers at a rate worth having does it earn a veto -- and that is a separate,
+# deliberate change. Nothing in the order path may read these verdicts.
+ENABLE_SHADOW_REVIEW  = True
+SHADOW_REVIEW_FILE    = "dman_shadow_reviews.json"
+SHADOW_REVIEW_MODEL   = "claude-haiku-4-5-20251001"   # cents per hundred reviews
+SHADOW_REVIEW_TIMEOUT = 12
 _DMAN_ENTRY_POST_RE  = re.compile(r"\b(loaded|bought|buying|added|adding|starter|grabbed|in at|"
                                   r"entered|position|long here|scooped|holding)\b", re.I)
 _DMAN_BEARISH_RE     = re.compile(r"\bshort\b|nasty|dump|avoid|stay away|sold|trimmed|took profits?", re.I)
@@ -5259,6 +5273,11 @@ def run_stocktwits_monitor() -> None:
     _added = _stocktwits_inject_tickers([_c["ticker"] for _c in _plays])
     for _c in _plays:
         _log_dman_play(_c["ticker"], _c["body"], _c["t"], _c["px"])
+        _shadow_review("dman_play", _c["ticker"], {
+            "price": _c["px"], "post": _c["body"][:160],
+            "posted_et": _c["t"].astimezone(ET).strftime("%m/%d %H:%M"),
+            "plan": f"+{DMAN_PLAY_TARGET_PCT:.0f}% target / -{DMAN_PLAY_STOP_PCT:.0f}% stop, same-day exit",
+        })
     send_telegram("\n\n".join(_dman_play_card(_c["ticker"], _c["body"], _c["t"], _c["px"])
                                 for _c in _plays))
     print(f"  📡 Plays: {[c['ticker'] for c in _plays]}  |  added to watchlist: {_added}")
@@ -17588,6 +17607,67 @@ def _apply_sector_concentration_cap(signals: list["ProSignal"]) -> list["ProSign
     return concentrated
 
 
+def _shadow_review(kind: str, ticker: str, facts: dict) -> Optional[dict]:
+    """Ask for a take/skip opinion on one candidate and record it.
+
+    Fail-open and advisory ONLY: every failure path returns None, and no
+    caller may branch on the result (see the test that asserts this). `facts`
+    is whatever the caller already computed — no extra data fetching here, so
+    a review can never slow a scan by more than one short API call.
+    """
+    if not flag("ENABLE_SHADOW_REVIEW", ENABLE_SHADOW_REVIEW) or not ANTHROPIC_API_KEY:
+        return None
+    try:
+        prompt = (
+            # Deliberately NO account context here: told about a drawdown, the
+            # model skips everything at high confidence, which carries no
+            # information. It has to separate this setup from that one.
+            "You are a second opinion on a short-term trading entry. Judge THIS setup on the "
+            "evidence below only - the quality of the catalyst, the entry location relative to "
+            "the move already made, and whether the stop sits where the trade is actually "
+            "wrong. Do not reason about account size, drawdown or how many positions are open; "
+            "that is handled elsewhere. Say skip only when you can name a concrete flaw in this "
+            "specific setup, and take when the evidence supports it. Expect to take roughly "
+            "half of what you see.\n\n"
+            f"Candidate ({kind}): {ticker}\n"
+            + "\n".join(f"  {k}: {v}" for k, v in facts.items())
+            + "\n\nAnswer ONLY with JSON: {\"verdict\": \"take\" or \"skip\", "
+              "\"confidence\": 0-100, \"reason\": \"<=25 words\"}"
+        )
+        resp = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={"x-api-key": ANTHROPIC_API_KEY,
+                     "anthropic-version": "2023-06-01",
+                     "content-type": "application/json"},
+            json={"model": SHADOW_REVIEW_MODEL, "max_tokens": 200,
+                  "messages": [{"role": "user", "content": prompt}]},
+            timeout=SHADOW_REVIEW_TIMEOUT,
+        )
+        if resp.status_code != 200:
+            _log_swallowed("shadow review", RuntimeError(f"HTTP {resp.status_code}"))
+            return None
+        text = "".join(b.get("text", "") for b in resp.json().get("content", []))
+        m = re.search(r"\{.*\}", text, re.S)
+        verdict = json.loads(m.group(0)) if m else None
+        if not verdict or verdict.get("verdict") not in ("take", "skip"):
+            return None
+        row = {"ts": datetime.now(ET).isoformat(), "kind": kind, "ticker": ticker,
+               "verdict": verdict["verdict"], "confidence": verdict.get("confidence"),
+               "reason": str(verdict.get("reason", ""))[:200], "facts": facts}
+        try:
+            with open(SHADOW_REVIEW_FILE) as f:
+                log = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            log = []
+        log.append(row)
+        _write_json_atomic(SHADOW_REVIEW_FILE, log[-500:], indent=1)
+        print(f"  🧪 shadow review {ticker}: {row['verdict']} ({row['confidence']}) — {row['reason'][:60]}")
+        return row
+    except Exception as exc:
+        _log_swallowed("shadow review", exc)
+        return None
+
+
 def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
                                 smallcap_extra: dict) -> None:
     """
@@ -17623,6 +17703,13 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
         else:
             _alert_batch.append(format_signal_telegram(sig, regime))
         _save_last_alert(sig.ticker)
+        _shadow_review("signal", sig.ticker, {
+            "setup": sig.setup, "bias": sig.bias, "confluence_score": sig.confluence_score,
+            "entry": sig.entry, "stop": sig.stop, "target1": sig.target1,
+            "rr": getattr(sig, "rr", None), "rvol": getattr(sig, "rvol", None),
+            "rsi": getattr(sig, "rsi", None), "reason": getattr(sig, "reason", "")[:200],
+            "regime": regime.get("regime"), "regime_score": regime.get("score"),
+        })
     _send_signal_alert_batch(_alert_batch)
 
 

@@ -54,7 +54,7 @@ jobs:
         if: always()
         uses: ./.github/actions/persist-state
         with:
-          files: dman_stocktwits_seen.json dman_smallcap_watchlist.json dman_play_log.json
+          files: dman_stocktwits_seen.json dman_smallcap_watchlist.json dman_play_log.json dman_shadow_reviews.json
           commit_message: "feat: auto-add DMan StockTwits calls to watchlist data file [skip ci]"
 
       - name: Determine if the watchlist file changed

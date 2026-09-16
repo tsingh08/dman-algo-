@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:54:07.558375-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T13:54:08.054917-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:54:08.245006-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nvidia, Broadcom Just Helped Break a 90-Year Earnings Trend\u2014Now Comes the Hard Part",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:54:08.248395-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:54:08.712235-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T13:54:09.467528-04:00",
     "symbols": [
       "ON"
@@ -5043,5 +4993,63 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:34:19.622925-04:00",
+    "symbols": [
+      "MU",
+      "SKHY"
+    ],
+    "headline": "SK Hynix, Intel May Make Memories in Ohio: These ETFs Are Along for the Ride",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:35:21.235891-04:00",
+    "symbols": [
+      "AMD",
+      "MARA",
+      "MRVL",
+      "MSTR",
+      "MU",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:35:21.470867-04:00",
+    "symbols": [
+      "AFRM",
+      "GS"
+    ],
+    "headline": "10 Financials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T13:35:21.728848-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T13:36:18.954679-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Freeport-McMoRan, Raises Price Target to $85",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

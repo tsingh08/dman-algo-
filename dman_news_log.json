@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:43:03.867421-04:00",
-    "symbols": [
-      "VERA"
-    ],
-    "headline": "What&#39;s Going on With Vera Therapeutics Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:44:09.187174-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Watching Ali Baba; Traders Circulating Note Suggesting Ali Baba-Backed Kimi Was Able To Push Kimi 2.5 Base Model To Outperform ChatGPT&#39;s Astra In Unnamed Benchmark",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T12:46:59.925295-04:00",
     "symbols": [
       "FEED"
@@ -5054,5 +5034,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:24:25.413892-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova And Vineyard Wind Announce Settlement Of Commercial Litigation; Company Withdraws Termination Notice And All Legal Claims Dismissed; Terms Confidential",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:27:09.592753-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

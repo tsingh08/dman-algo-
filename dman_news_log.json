@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:38:12.259120-04:00",
-    "symbols": [
-      "TLX"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Telix Pharmaceuticals, Maintains $20 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T10:38:12.264316-04:00",
     "symbols": [
       "TLX"
@@ -5050,6 +5040,16 @@
     ],
     "headline": "LuxExperience, Alvotech, Twist Bioscience And Other Big Stocks Moving Higher On Wednesday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:15:35.568603-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Oracle Stock In The Last 20 Years",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

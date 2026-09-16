@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T11:52:57.883523-04:00",
-    "symbols": [
-      "PDM"
-    ],
-    "headline": "Reported Earlier, Piedmont Realty Trust Prices $200M Of 2.875% Exchangeable Senior Notes Due 2031 At $12.65 Exchange Price",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T11:52:57.888179-04:00",
     "symbols": [
       "PDM"
@@ -5049,5 +5039,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T11:23:24.094457-04:00",
+    "symbols": [
+      "AMZN",
+      "COIN"
+    ],
+    "headline": "Coinbase Institutional Business Is An \u2018Increasingly Important Contributor\u2019 To Growth, Says Bullish Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

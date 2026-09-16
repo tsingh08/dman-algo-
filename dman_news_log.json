@@ -1,67 +1,5 @@
 [
   {
-    "ts": "2026-09-15T14:22:23.442971-04:00",
-    "symbols": [
-      "AGL"
-    ],
-    "headline": "This Ulta Beauty Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:22:23.446803-04:00",
-    "symbols": [
-      "AGL"
-    ],
-    "headline": "Zebra Technologies To Rally Around 24%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:22:23.449924-04:00",
-    "symbols": [
-      "AGL"
-    ],
-    "headline": "Bernstein Upgrades Agilon Health to Outperform, Raises Price Target to $125",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T14:23:45.898412-04:00",
-    "symbols": [
-      "MU",
-      "NVDA",
-      "SKHY"
-    ],
-    "headline": "SK Hynix Is Shipping 16-Layer HBM4 for Nvidia Rubin: Where Do Micron And Samsung Stand?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T14:30:45.699583-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SK Hynix Is Shipping 16-Layer HBM4 for Nvidia Rubin: Where Do Micron And Samsung Stand?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T14:30:47.320697-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix Is Shipping 16-Layer HBM4 for Nvidia Rubin: Where Do Micron And Samsung Stand?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T14:30:47.553938-04:00",
     "symbols": [
       "SKHY"
@@ -5050,6 +4988,66 @@
     "headline": "USA Fed Interest Rate Decision 4.00% Up From 3.75% Prior",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:00:41.049415-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Federal Reserve Issues FOMC Statement For September 15-16, 2026 (Link In Body)",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:01:38.296051-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FOMC: Fed Officials&#39; Median View Of Fed Funds Rate At End-2026 4.1% (Prev 3.8%); Fed Officials&#39; Median View Of Fed Funds Rate At End-2027 4.1% (Prev 3.6%); Fed Officials&#39; Median View Of Fed Funds Rate At End-2028 3.9% (Prev 3.4%); Fed Officials&#39; Median View Of Fed Funds Rate At End-2029 3.6%; Fed Officials&#39; Median View Of Fed Funds Rate In Longer Run 3.2% (Prev 3.1%)",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:02:12.117506-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FOMC: Fed Projections Show 12 Of 18 Officials See One More 25-Basis-Point Rate Hike This Year; Four See Two Hikes; Two See No More Hikes; Fed Policymakers See 4.1% Unemployment Rate At End Of 2026 Versus 4.3% In June Projections; Fed Policymakers See End-2026 Pce Inflation At 3.7% Versus 3.6% In June; Core Seen At 3.4% Versus 3.3%; Fed Policymakers See 2.3% GDP Growth In 2026 Versus 2.2% In June, See Longer-run Growth At 2.0% Vs 2.0% In June",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:03:39.426312-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FOMC: Federal Reserve Raises Key Overnight Interest Rate By 25 Basis Points To 3.75-4.00% Range, Says Action Will Support Timelier Return To 2% Inflation Goal; Economic Activity Is Expanding At A Solid Pace; Fed Says Inflation Remains Elevated, Drops Earlier Description Of That Owing In Part To Supply Shocks; Domestic Spending Has Been Resilient Despite Elevated Uncertainty",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:04:10.803717-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FOMC: Job Gains Have Kept Pace With Workforce, Unemployment Rate Has Changed Little; Productivity Growth Is Strong, Capital Investment Is Robust; Committee Will Deliver Price Stability; Fed Vote In Favor Of Policy Was Unanimous",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T14:05:07.043653-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Newmont, Raises Price Target to $155",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

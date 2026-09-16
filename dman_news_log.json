@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:08:09.845386-04:00",
-    "symbols": [
-      "BOXL"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:10.095776-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:10.584456-04:00",
-    "symbols": [
-      "FEED"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:11.019879-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:11.665533-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:12.085526-04:00",
-    "symbols": [
-      "NCT"
-    ],
-    "headline": "Crude Oil Rises Sharply; Forgent Power Solutions Shares Jump After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:12.330012-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T13:08:12.539353-04:00",
-    "symbols": [
-      "PN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T13:08:12.960877-04:00",
     "symbols": [
       "RBNE"
@@ -5059,5 +4979,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T12:46:22.226348-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "If You Invested $1000 In Freeport-McMoRan Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T12:46:39.226396-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:46:40.419763-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:46:40.732441-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:46:50.560343-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:46:57.460051-04:00",
+    "symbols": [
+      "LUXE"
+    ],
+    "headline": "Crude Oil Down Over 3%; US Business Inventories Surge In July",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T12:47:07.533987-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Gas Prices Fuel a Hybrid Boom: Why Can&#39;t GM Cash In on It?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:47:34.861728-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Musk Backer Valor Hands Investors $8.5 Billion of SpaceX Stock&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

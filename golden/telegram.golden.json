@@ -485,7 +485,7 @@
     ],
     [
      "send_telegram",
-     "(\"❌ /endsetupprobation failed: argument of type 'NoneType' is not a container or iterable\",)",
+     "(\"❌ /endsetupprobation failed: argument of type 'NoneType' is not iterable\",)",
      "[]"
     ]
    ],

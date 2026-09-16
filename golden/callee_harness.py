@@ -90,6 +90,10 @@ def norm(x):
     s = str(x)
     s = re.sub(r"0x[0-9a-fA-F]+", "0xADDR", s)
     s = re.sub(r"id='\d+'", "id=ID", s)
+    # CPython rewords some builtin errors between versions (3.14 says "is not a
+    # container or iterable" where 3.11, which CI runs, says "is not iterable").
+    # The harness compares behaviour, not interpreter phrasing.
+    s = s.replace("is not a container or iterable", "is not iterable")
     return s
 
 

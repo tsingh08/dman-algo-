@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T11:06:23.869992-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Sciences Exec Says Weekly Oral HIV Prevention Drug Expected To Launch In Q1 2027",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T11:09:54.908710-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Chamath Called Nvidia the \u2018Bank of AI\u2019\u2014and Jensen Huang Just Proved It",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T11:09:55.748745-04:00",
     "symbols": [
       "GILD"
@@ -5048,5 +5028,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:44:20.525664-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk, Anthropic Team Up For AI Drug Research",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:46:22.479084-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Shares of memory and storage-related companies are trading higher after reports suggesting that SK Hynix is in discussions with Intel to produce memory chips in the U.S. for the first time, which may help reinforce demand optimism for the sector.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

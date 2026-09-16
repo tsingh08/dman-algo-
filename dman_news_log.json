@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T16:04:35.994775-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Trump Administration Appeals Ruling Blocking Environmental Protection Agency From Sending Landmark California Vehicle Emissions To Congress For Potential Repeal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T16:04:36.396265-04:00",
     "symbols": [
       "MU"
@@ -5056,6 +5046,16 @@
       "CVX"
     ],
     "headline": "Shares of oil and gas related-companies are lower following reports suggesting that Saudi Arabia is attempting to restore crude oil exports quickly through pipeline repairs and ship-to-ship transfers. Also, API and EIA data indicated weekly U.S. crude and distillate inventory growth, further pressuring the oil price.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T16:07:55.356322-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Banks Line Up $22 Billion Chip Loan Tied to Blackstone, Alphabet&#39; - Bloomberg",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

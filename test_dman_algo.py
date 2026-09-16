@@ -15899,6 +15899,25 @@ class TestPolicyAudit(unittest.TestCase):
             findings = a.run_policy_audit(notify=False)
         self.assertTrue(any("halt state" in f for f in findings), findings)
 
+    def test_a_strangle_is_not_flagged_as_time_value_heavy(self):
+        # Both legs of an event strangle are OTM on purpose.
+        legs = [SimpleNamespace(ticker="QQQ", entry=1.42, stop=0.71, day_only=False,
+                                setup="Options Put QQQ260922P00676000"),
+                SimpleNamespace(ticker="QQQ", entry=0.36, stop=0.18, day_only=False,
+                                setup="Options Call QQQ260922C00728000")]
+        with patch.object(a, "PositionTracker") as pt,              patch.object(a, "get_this_month_loss", return_value=-1.0),              patch.object(a, "get_live_price", return_value=700.0),              patch.object(a, "is_market_open", return_value=False),              patch.object(a, "send_telegram"):
+            pt.return_value.positions = legs
+            findings = a.run_policy_audit(notify=False)
+        self.assertEqual([f for f in findings if "option quality" in f], [])
+
+    def test_a_lone_time_value_heavy_call_is_flagged(self):
+        lone = [SimpleNamespace(ticker="APLD", entry=2.34, stop=1.17, day_only=False,
+                                setup="Options Call APLD260925C00025000")]
+        with patch.object(a, "PositionTracker") as pt,              patch.object(a, "get_this_month_loss", return_value=-1.0),              patch.object(a, "get_live_price", return_value=25.6),              patch.object(a, "is_market_open", return_value=False),              patch.object(a, "send_telegram"):
+            pt.return_value.positions = lone
+            findings = a.run_policy_audit(notify=False)
+        self.assertTrue(any("option quality" in f for f in findings), findings)
+
     def test_exposed_as_a_mode_and_a_command(self):
         self.assertIn('"audit"', inspect.getsource(a.main))
         self.assertIn("run_policy_audit", inspect.getsource(a._handle_telegram_command))

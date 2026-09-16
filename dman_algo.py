@@ -17825,7 +17825,18 @@ def run_policy_audit(notify: bool = True) -> list[str]:
 
     def _options_are_mostly_intrinsic():
         thin = []
-        for p in PositionTracker().positions:
+        _open = list(PositionTracker().positions)
+        # A strangle is two-sided on purpose: both legs are out of the money and
+        # are meant to be. Only single-sided directional contracts are judged.
+        _pairs = {}
+        for _p in _open:
+            _m = re.search(r"\b([A-Z]{1,6})(\d{6})([CP])\d{8}\b", _p.setup or "")
+            if _m:
+                _pairs.setdefault((_m.group(1), _m.group(2)), set()).add(_m.group(3))
+        for p in _open:
+            _m = re.search(r"\b([A-Z]{1,6})(\d{6})([CP])\d{8}\b", p.setup or "")
+            if _m and _pairs.get((_m.group(1), _m.group(2))) == {"C", "P"}:
+                continue
             occ = re.search(r"\b([A-Z]{1,6}\d{6})([CP])(\d{8})\b", p.setup or "")
             if not occ:
                 continue

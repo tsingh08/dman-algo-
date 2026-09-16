@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T11:09:55.748745-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Exec Says HIV Market Growth Should Normalize To 2%-3% Within Next Couple Of Quarters",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T11:11:10.521688-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Chamath Called Nvidia the \u2018Bank of AI\u2019\u2014and Jensen Huang Just Proved It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-15T11:11:11.000019-04:00",
     "symbols": [
       "META"
@@ -5048,5 +5028,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:52:11.702434-04:00",
+    "symbols": [
+      "MU",
+      "SKHY"
+    ],
+    "headline": "SK Hynix Is Following Samsung\u2019s US Chip Playbook\u2014With AI Memory",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T10:55:58.858452-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Edges Higher Wednesday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

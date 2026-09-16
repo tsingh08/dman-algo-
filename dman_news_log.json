@@ -1,98 +1,5 @@
 [
   {
-    "ts": "2026-09-15T12:30:52.556155-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;U.S., Israeli and Arab military chiefs held secret meeting on Iran&#39; - Axios",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:32:53.058507-04:00",
-    "symbols": [
-      "GS",
-      "SPCX"
-    ],
-    "headline": "Steve Eisman&#39;s &#39;Big Short&#39; Partners Warn Anthropic, SpaceX IPOs Could Hurt Stocks",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T12:42:03.528497-04:00",
-    "symbols": [
-      "NVDA",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T12:42:43.866234-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:42:45.242065-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T12:42:53.433525-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Steve Eisman&#39;s &#39;Big Short&#39; Partners Warn Anthropic, SpaceX IPOs Could Hurt Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T12:42:59.209779-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Just Gave Nvidia\u2019s Supply Chain A New Headache",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:42:59.214688-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Steve Eisman&#39;s &#39;Big Short&#39; Partners Warn Anthropic, SpaceX IPOs Could Hurt Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T12:43:03.630863-04:00",
-    "symbols": [
-      "OESX"
-    ],
-    "headline": "Why Is Orion Energy Systems Stock Gaining Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T12:43:03.867421-04:00",
     "symbols": [
       "VERA"
@@ -5057,5 +4964,95 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T12:18:51.219505-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Shares of oil and gas exploration and production companies are trading lower as API data indicating a U.S. crude inventory weekly increase and EIA data showing that gasoline and distillate stored volumes grew since last week are pressuring stocks that have heavier exposure to the North American physical energy market. Also, reports suggesting Saudi Arabia is making efforts to get crude exports moving are dampening oil prices.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:19:36.412297-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Warren Buffett, Donald Trump Bet on Same 17 Stocks \u2014 Some Might Surprise You",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:19:36.955063-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Is Fighting the AI Slowdown Narrative\u2014With Power as Its Next Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:19:37.757420-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Warren Buffett, Donald Trump Bet on Same 17 Stocks \u2014 Some Might Surprise You",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T12:19:39.796056-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Nvidia Is Fighting the AI Slowdown Narrative\u2014With Power as Its Next Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:19:41.918253-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Circle CEO Says CLARITY Talks Are \u201890%\u2019 There: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T12:19:44.614361-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Circle CEO Says CLARITY Talks Are \u201890%\u2019 There: What Do Prediction Markets Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T12:19:47.817133-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Warren Buffett, Donald Trump Bet on Same 17 Stocks \u2014 Some Might Surprise You",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T12:19:47.822705-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Warren Buffett, Donald Trump Bet on Same 17 Stocks \u2014 Some Might Surprise You",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

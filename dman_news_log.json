@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:37:06.348433-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#34;The Trump Administration Is Preparing A Multibillion-Dollar Sale Of 2,000-Pound Bombs To Israel In The Largest Single Sale Of The Controversial Munition In Recent Years&#34; - Washington Post",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T15:45:43.689434-04:00",
     "symbols": [
       "CRM"
@@ -5055,6 +5045,19 @@
       "LGHL"
     ],
     "headline": "Shares of financial companies are trading lower amid overall market weakness after Fed Chairman Warsh took a hawkish tone in his press conference and Q&amp;A session after the FOMC rate hike.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:34:19.847167-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

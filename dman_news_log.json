@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-15T10:35:33.765701-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-15T10:35:34.011661-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-15T10:35:34.241993-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "EXCLUSIVE: AI Memory Shortage Could Last Until 2029, Yorkville CEO Says: What Does It Mean for Micron?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-15T10:35:34.950768-04:00",
     "symbols": [
       "ON"
@@ -5052,5 +5022,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-16T09:59:36.284838-04:00",
+    "symbols": [
+      "QCLS"
+    ],
+    "headline": "Q/C Technologies Halted On Circuit Breaker To The Upside; Stock Now Up 63.45%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:00:12.249538-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Business Inventories (MoM) For July 0.8% Vs 0.6% Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T10:00:26.759095-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "NAHB Housing Market Index For September 32 Vs 34 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

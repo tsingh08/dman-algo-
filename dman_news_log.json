@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-15T13:54:06.489404-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia, Broadcom Just Helped Break a 90-Year Earnings Trend\u2014Now Comes the Hard Part",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-15T13:54:06.493050-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Meta Looks to Slash Its AI Bill With Homegrown Silicon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T13:54:06.496471-04:00",
     "symbols": [
       "NVDA"
@@ -5042,5 +5022,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:20:10.200100-04:00",
+    "symbols": [
+      "JPM",
+      "SPY"
+    ],
+    "headline": "Bitcoin Fed Meeting Preview: Could One Decision Pump BTC?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T13:20:22.212377-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Continental Resources Announces MOU With PDVSA To Operate And Develop 126,000-Acre Ayacucho 2 Block In Venezuela&#39;s Orinoco Belt With 100% Working Interest; Terms Not Disclosed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

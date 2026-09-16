@@ -16303,3 +16303,42 @@ class TestMomentumAutoExecRespectsProbation(unittest.TestCase):
     def test_auto_exec_still_runs_when_not_restricted(self):
         src = inspect.getsource(a._mw_process_play)
         self.assertIn('if bp["setup"] and not _mw_on_probation:', src)
+
+
+class TestDriftRestrictionsEnforcedEveryScan(unittest.TestCase):
+    """Review 2026-09-08: restrictions expired on a clock and were only ever
+    re-applied inside an EOD window that delayed crons routinely miss."""
+
+    def _tracker(self, wr_floor_breach=True):
+        tmp = os.path.join(tempfile.mkdtemp(), "wr.json")
+        tr = a.WinRateTracker(filepath=tmp)
+        for i in range(a.SETUP_PERFORMANCE_ALERT_MIN_TRADES + 1):
+            win = not wr_floor_breach and i > 0
+            tr.record(a.TradeRecord(
+                ticker=f"T{i}", date=str(a._et_today()), bias="LONG", setup="Low Float Catalyst",
+                entry=10.0, exit=11.0 if win else 9.0, outcome="WIN" if win else "LOSS",
+                pnl_pct=8.0 if win else -9.0, score=90, is_live=True))
+        return tr
+
+    def test_a_drifting_setup_is_restricted(self):
+        prob = os.path.join(tempfile.mkdtemp(), "prob.json")
+        with patch.object(a, "SETUP_PROBATION_FILE", prob), patch.object(a, "send_telegram"):
+            newly = a._enforce_setup_drift_restrictions(self._tracker())
+            self.assertIn("Low Float Catalyst", newly)
+            self.assertGreater(a._setup_probation_bonus("Low Float Catalyst"), 0)
+            # idempotent: a second scan keeps the original clock, restricts nothing new
+            self.assertEqual(a._enforce_setup_drift_restrictions(self._tracker()), [])
+
+    def test_a_healthy_setup_is_left_alone(self):
+        prob = os.path.join(tempfile.mkdtemp(), "prob.json")
+        with patch.object(a, "SETUP_PROBATION_FILE", prob), patch.object(a, "send_telegram"):
+            self.assertEqual(a._enforce_setup_drift_restrictions(self._tracker(False)), [])
+
+    def test_it_never_raises(self):
+        broken = MagicMock()
+        broken.setup_performance_drift.side_effect = RuntimeError("boom")
+        self.assertEqual(a._enforce_setup_drift_restrictions(broken), [])
+
+    def test_the_scanner_calls_it(self):
+        self.assertIn("_enforce_setup_drift_restrictions(tracker)",
+                      inspect.getsource(a.run_pro_scanner))

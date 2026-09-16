@@ -3218,6 +3218,38 @@ def _setup_live_record() -> dict:
     return _rec
 
 
+def _enforce_setup_drift_restrictions(tracker: "WinRateTracker") -> list[str]:
+    """Re-restrict every setup currently below the drift floor. Returns the
+    setups newly restricted by this call.
+
+    The only automatic caller of _enter_setup_probation() was the EOD P&L
+    block, which runs solely if a scan lands inside a ~35-minute window that
+    GitHub's cron delays routinely miss. So restrictions expired on a fixed
+    clock and were never re-applied while the setup was still failing: Low
+    Float Catalyst's lapsed 2026-09-04 and Gap & Hold's 2026-09-08, both far
+    under the floor, and the next Low Float signal (AKAN, the same day the
+    restriction expired) was evaluated unrestricted and stopped out -20%.
+    Probation is meant to clear on the live win rate recovering, not on a date.
+
+    Silent by design: enforcement rides every scan, while the Telegram drift
+    alert stays on the EOD path. _enter_setup_probation() keeps an existing
+    clock, so repeat calls are no-ops.
+    """
+    newly: list[str] = []
+    try:
+        for _d in tracker.setup_performance_drift() or []:
+            if _enter_setup_probation(
+                    _d["setup"],
+                    f"{_d['win_rate']*100:.0f}% WR over last {_d['total']} live trades "
+                    f"({_d['wins']}W/{_d['losses']}L, avg loss {_d['avg_loss_pct']:.1f}%)"):
+                newly.append(_d["setup"])
+                print(f"  📉 Setup restricted on drift: {_d['setup']} "
+                      f"({_d['win_rate']*100:.0f}% WR over {_d['total']} live)")
+    except Exception as exc:
+        _log_swallowed("setup drift enforcement", exc)
+    return newly
+
+
 def _setup_is_disabled(setup: str) -> tuple[bool, str]:
     """(True, reason) if the live record says stop trading this setup."""
     if not flag("ENABLE_SETUP_KILL", ENABLE_SETUP_KILL):
@@ -18617,6 +18649,10 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # clears on a win, monthly only on a new calendar month), with no
     # path back to trading on their own. Daily loss limit still applies
     # unconditionally below — a genuinely bad new day still halts.
+    # Drift restrictions are re-applied on every scan, not only in the EOD
+    # window a delayed cron can skip entirely -- see the function's docstring.
+    _enforce_setup_drift_restrictions(tracker)
+
     _on_probation, _probation_mult = is_on_probation()
     if not _on_probation:
         # Consecutive loss guard — send Telegram once per session (dedup via alert cache)

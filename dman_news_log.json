@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-15T15:45:43.689434-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "&#39;Salesforce Unveils New AI Model, Agent Security Tools at Dreamforce&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:46:00.964391-04:00",
-    "symbols": [
-      "REF"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:46:00.968744-04:00",
-    "symbols": [
-      "REF"
-    ],
-    "headline": "Jim Cramer: Buy This Energy Stock, It Is \u2018Terrific\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:52:43.754469-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce And Nvidia Announce Koa CRM Reasoning Model For Agentforce, Built On Nvidia Nemotron 3 Super; In Customer Pilots Now, General Availability Expected Winter 2026 In US Regions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-15T15:52:43.878915-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir CTO Warns AI Safety \u2018Effective Altruists\u2019 Are Attempting a \u2018Coup\u2019 \u2014 Says \u2018Tiny Group of Technocrats\u2019 Shouldn\u2019t Decide for Everyone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-15T15:52:43.883621-04:00",
     "symbols": [
       "PLTR"
@@ -5060,6 +5010,56 @@
     "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:38:16.507494-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Why iShares Russell 2000 ETF Is Falling Wednesday",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:40:44.903173-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T15:40:44.978559-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-16T15:40:45.166619-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-16T15:40:48.425389-04:00",
+    "symbols": [
+      "BRKR"
+    ],
+    "headline": "LuxExperience, Alvotech, Twist Bioscience And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

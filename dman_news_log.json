@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-16T14:37:39.969281-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs CEO David Solomon Speaking At Barclays Global Financial Services Conference, Says Sponsors Deals Activity Is Very Quiet; Fixed Income Clearing Corporation Has Been A Little Softer On A Relative Basis; Equity Business Has Been Strong",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-16T14:37:43.274292-04:00",
     "symbols": [
       "SPCX"
@@ -5074,6 +5064,16 @@
     ],
     "headline": "&#39;The FAA\u2019s $875M Plan To Use AI To Ease Air-Traffic Woes; New Software Aimed At Reducing Flight Delays, Cancellations Will First Roll Out In Washington, D.C., Area&#39; - WSJ Exclusive",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:57:02.552372-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "LeBron James Will Make Nearly 4x More From Polymarket Than Playing for the 76ers",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

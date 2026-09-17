@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-16T11:07:01.898785-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix Is Following Samsung\u2019s US Chip Playbook\u2014With AI Memory",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T11:07:02.147959-04:00",
     "symbols": [
       "SKHY"
@@ -5061,5 +5051,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T10:30:44.849069-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Natural Gas Storage 44B Vs 40B Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

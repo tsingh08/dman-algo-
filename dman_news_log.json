@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:08:23.296683-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T13:08:23.519703-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T13:08:23.959454-04:00",
     "symbols": [
       "ARTL"
@@ -5046,5 +5026,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:10:36.813146-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace CFO Says At Morgan Stanley Conference He Is Confident GE9X Mid-Seal Issue Won&#39;t Hold Up 777X Entry Into Service Next Year; Says Aircraft Retirements Down Year-Over-Year",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:12:28.164739-04:00",
+    "symbols": [
+      "CVX",
+      "JPM",
+      "XOM"
+    ],
+    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

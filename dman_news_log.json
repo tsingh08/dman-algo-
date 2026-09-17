@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-16T11:00:07.069486-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Florida Rep. Byron Donalds Sold Up to $60K Worth of Howmet Aerospace Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:04:32.540815-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Speaking At The Morgan Stanley 14th Annual Laguna Conference, Says It Does Not Expect 40 GW Pace Of New Contract Commitments Every Six Months; Expects Second-Half Contract Commitments To Exceed Its 20 GW Guidance",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:04:37.276282-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "Why Is Cipher Digital Stock Surging on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:07:00.550434-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Florida Rep. Byron Donalds Sold Up to $60K Worth of Howmet Aerospace Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T11:07:01.898785-04:00",
     "symbols": [
       "MU"
@@ -5060,5 +5020,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T10:23:54.962027-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Senate Panel Votes To Advance Capital One Executive Brian Johnson&#39;s Nomination To Lead Consumer Financial Protection Bureau",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T10:25:58.550060-04:00",
+    "symbols": [
+      "AMD",
+      "NVDA"
+    ],
+    "headline": "Huawei Takes Aim at Nvidia, AMD with Over 10 new AI Chipsets \u2014 But Can the Chinese Tech Giant Close the Gap?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T10:26:16.277846-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Huawei Takes Aim at Nvidia, AMD with Over 10 new AI Chipsets \u2014 But Can the Chinese Tech Giant Close the Gap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T10:26:16.285901-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Huawei Takes Aim at Nvidia, AMD with Over 10 new AI Chipsets \u2014 But Can the Chinese Tech Giant Close the Gap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

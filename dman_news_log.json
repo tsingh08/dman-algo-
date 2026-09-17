@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-16T12:02:37.620125-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Intel Analyst Raises Price Target On Terafab, AI-Driven Turnaround",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:02:38.475044-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T12:02:38.745115-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T12:02:40.112558-04:00",
     "symbols": [
       "MRVL"
@@ -5051,6 +5021,36 @@
     ],
     "headline": "Roundtable Announces 10-Yr, $1B Agreement With Paradium.AI To Migrate, Operate And Monetize Media Portfolio On Roundtable\u2019s AI/DeFi-Powered MediaOS",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:25:13.798332-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin CFO Says Q3 May Have Lower Program Risk Retirements Than Q2, &#39;May See Some Lumpiness As We Get To Our Guided Margins&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:25:21.305152-04:00",
+    "symbols": [
+      "SLNH"
+    ],
+    "headline": "Rosenblatt Initiates Coverage On Soluna Holdings with Buy Rating, Announces Price Target of $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:26:55.942989-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin CFO Says 2026 Margins Expected To Be &#39;In Line With Our Guide&#39;",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

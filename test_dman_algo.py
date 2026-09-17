@@ -16465,6 +16465,25 @@ class TestStrangleAutoExecution(unittest.TestCase):
         cl.submit_order.assert_not_called()
         self.assertIn("Already executed", note)
 
+    def test_only_one_event_strangle_per_day(self):
+        # SPY and QQQ move together; two strangles is one view at twice the price
+        cl = self._client()
+        seen = {"n": 0}
+
+        def _dup(key, *a, **k):
+            if key.startswith("__STRANGLE_DAY__"):
+                seen["n"] += 1
+                return seen["n"] > 1        # first ticker executes, second does not
+            return False
+
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")),              patch.object(a, "_is_duplicate_alert", side_effect=_dup),              patch.object(a, "_save_last_alert"),              patch.object(a, "size_strangle_trade", return_value=1),              patch.object(a, "PositionTracker") as pt:
+            pt.return_value.open.return_value = True
+            first = a._submit_strangle(self._result(), "OPEX")
+            second = a._submit_strangle({**self._result(), "ticker": "SPY"}, "OPEX")
+        self.assertIn("AUTO-EXECUTED", first)
+        self.assertIn("already placed today", second)
+        self.assertEqual(cl.submit_order.call_count, 2)   # only the first pair
+
     def test_flag_off_leaves_the_order_to_the_user(self):
         cl = self._client()
         with patch.object(a, "ENABLE_STRANGLE_AUTO_EXEC", False), \

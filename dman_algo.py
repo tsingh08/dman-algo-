@@ -16999,6 +16999,12 @@ def _submit_strangle(result: dict, event: str) -> str:
     _dedup = f"__STRANGLE__:{result['ticker']}:{result['expiration']}"
     if _is_duplicate_alert(_dedup):
         return "↩️ Already executed for this expiry — not doubling up."
+    # One event strangle a day, full stop. STRANGLE_TICKERS is SPY and QQQ,
+    # which move together: buying both is one view at twice the price, and on
+    # this account two would be ~30% of equity on a single day's volatility.
+    _day_key = f"__STRANGLE_DAY__:{_et_today()}"
+    if _is_duplicate_alert(_day_key):
+        return "↩️ One event strangle already placed today — advisory only."
     _qty = size_strangle_trade(result["total_premium"])
     if _qty < 1:
         return (f"⛔ Not executed — one strangle costs "
@@ -17037,6 +17043,7 @@ def _submit_strangle(result: dict, event: str) -> str:
         print(f"  ⚡ Strangle leg submitted: {_occ} ×{_qty} @ ${_limit:.2f} id={str(_order.id)[:8]}…")
     if _done:
         _save_last_alert(_dedup)
+        _save_last_alert(_day_key)
     _line = ("🤖 <b>AUTO-EXECUTED</b>\n   " + "\n   ".join(_done)) if _done else "⛔ Not executed"
     if _failed:
         _line += "\n   ⚠️ " + "; ".join(_failed)

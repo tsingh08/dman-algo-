@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:46:26.039707-04:00",
-    "symbols": [
-      "WOR"
-    ],
-    "headline": "LuxExperience, Alvotech, Twist Bioscience And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T15:47:14.641951-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Shares of oil and gas related-companies are lower following reports suggesting that Saudi Arabia is attempting to restore crude oil exports quickly through pipeline repairs and ship-to-ship transfers. Also, API and EIA data indicated weekly U.S. crude and distillate inventory growth, further pressuring the oil price.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T16:07:55.356322-04:00",
     "symbols": [
       "GOOGL"
@@ -5085,5 +5065,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T16:00:56.784215-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Cycurion Has Received A Notice Of Allowance For U.S. Patent Titled &#34;Systems And Methods Of Legibly Capturing Vehicle Markings&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T16:01:43.357670-04:00",
+    "symbols": [
+      "COIN",
+      "DKNG",
+      "MARA",
+      "RIOT"
+    ],
+    "headline": "&#34;CFTC Staff Issues No-Action Position To Providers Of Passive Software&#34; - CFTC",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

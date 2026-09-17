@@ -604,6 +604,10 @@ MOMENTUM_DAY_ONLY_SETUP = "Momentum Watch Breakout (Day)"
 # spread's kind of live track record yet -- this is how it earns one
 # safely while unsupervised, not a vote of full confidence.
 MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
+# Event strangles place themselves. generate_strangle_advisory() only ever sent
+# a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
+# the Alpaca site -- the one part of the day that actually required a human.
+ENABLE_STRANGLE_AUTO_EXEC = True
 # Orphan adoption — see adopt_orphan_positions(). A position held at the
 # broker but missing from the tracker gets NO P&L recording, NO PDT
 # day-trade counting and NO exit management, so it is brought back under
@@ -2383,6 +2387,9 @@ TOGGLEABLE_FLAGS = {
     "accum":   ("ENABLE_ACCUMULATION_ALERTS",
                 "volume-building-before-price alerts. Observation only — never "
                 "trades."),
+    "strangle":("ENABLE_STRANGLE_AUTO_EXEC",
+                "place event strangles automatically. OFF sends the advisory "
+                "and leaves the order to you."),
     "shadow":  ("ENABLE_SHADOW_REVIEW",
                 "second-opinion reviewer on alerted signals and DMan plays. "
                 "Records a verdict only — never blocks a trade."),
@@ -16971,6 +16978,71 @@ def format_strangle_telegram(result: dict, event: str) -> str:
     )
 
 
+def _submit_strangle(result: dict, event: str) -> str:
+    """Buy both legs of a selected strangle. Returns a line for the advisory.
+
+    The advisory used to stop at "here is the trade": every strangle was then
+    entered by hand. Both legs go in as day limit orders at the quoted premium
+    plus the same 3% buffer single-leg entries use, and both are registered in
+    PositionTracker so the guard manages them instead of adopting them later as
+    orphans with invented stops.
+
+    Deliberately NOT stopped per leg: _has_open_opposite_leg() suppresses the
+    -50% stop while the sibling is open, because in a strangle one side is
+    meant to die. The expiry backstop and the profit exits still apply.
+    """
+    if not flag("ENABLE_STRANGLE_AUTO_EXEC", ENABLE_STRANGLE_AUTO_EXEC):
+        return "📋 Advisory only — <code>/flags strangle on</code> to auto-execute."
+    _ok, _why = _entry_circuit_breakers_ok()
+    if not _ok:
+        return f"⛔ Not executed — {_why}"
+    _dedup = f"__STRANGLE__:{result['ticker']}:{result['expiration']}"
+    if _is_duplicate_alert(_dedup):
+        return "↩️ Already executed for this expiry — not doubling up."
+    _qty = size_strangle_trade(result["total_premium"])
+    if _qty < 1:
+        return (f"⛔ Not executed — one strangle costs "
+                f"${result['total_premium'] * 100:.0f}, over the "
+                f"${OPTIONS_CONTRACT_BUDGET_MAX:.0f} per-position budget.")
+    client = get_alpaca_client()
+    if client is None:
+        return "⛔ Not executed — no broker client."
+    from alpaca.trading.requests import LimitOrderRequest
+    from alpaca.trading.enums import OrderSide, TimeInForce
+    _done, _failed = [], []
+    for _side in ("call", "put"):
+        _leg = result[_side]
+        _occ = _leg["occ"]
+        _limit = round(float(_leg["premium"]) * 1.03, 2)
+        try:
+            _order = client.submit_order(LimitOrderRequest(
+                symbol=_occ, qty=_qty, side=OrderSide.BUY,
+                time_in_force=TimeInForce.DAY, limit_price=_limit))
+        except Exception as exc:
+            _failed.append(f"{_side.upper()} {exc}")
+            continue
+        _tracked = PositionTracker().open(OpenPosition(
+            ticker=result["ticker"],
+            bias="LONG" if _side == "call" else "SHORT",
+            setup=(f"Options {_side.title()} {_occ} "
+                   f"(${_leg['strike']:g}{'C' if _side == 'call' else 'P'} "
+                   f"exp {result['expiration']}) [{event} strangle]"),
+            entry=_limit, stop=round(_limit * 0.50, 2),
+            target1=round(_limit * 1.5, 2), target2=round(_limit * 2.5, 2),
+            shares=_qty * 100, entry_date=_et_today().isoformat(),
+            atr=0.0, score=0,
+        ))
+        _done.append(f"{_side.upper()} {_occ} ×{_qty} @ ${_limit:.2f}"
+                     + ("" if _tracked else " (UNTRACKED — position slots full)"))
+        print(f"  ⚡ Strangle leg submitted: {_occ} ×{_qty} @ ${_limit:.2f} id={str(_order.id)[:8]}…")
+    if _done:
+        _save_last_alert(_dedup)
+    _line = ("🤖 <b>AUTO-EXECUTED</b>\n   " + "\n   ".join(_done)) if _done else "⛔ Not executed"
+    if _failed:
+        _line += "\n   ⚠️ " + "; ".join(_failed)
+    return _line
+
+
 def generate_strangle_advisory(event: str) -> None:
     """
     Fire pre-event strangle advisories on STRANGLE_TICKERS (SPY + QQQ by default).
@@ -16988,7 +17060,8 @@ def generate_strangle_advisory(event: str) -> None:
             print(f"  [options] {ticker}: no liquid strangle found", file=sys.stderr)
             continue
         msg = format_strangle_telegram(result, event)
-        send_telegram(msg)
+        _exec_note = _submit_strangle(result, event)
+        send_telegram(msg + (f"\n\n{_exec_note}" if _exec_note else ""))
         print(f"  ⚡ Strangle: {ticker}  "
               f"${result['call']['strike']:.0f}C / ${result['put']['strike']:.0f}P  "
               f"exp {result['expiration']} ({result['dte']}d)  "

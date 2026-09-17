@@ -16404,3 +16404,74 @@ class TestStrangleLegsAreNotStoppedIndividually(unittest.TestCase):
 
     def test_the_monitor_consults_it(self):
         self.assertIn("_has_open_opposite_leg", inspect.getsource(a._monitor_option_position))
+
+
+class TestStrangleAutoExecution(unittest.TestCase):
+    """2026-09-16: the advisory only ever sent a message, so both QQQ strangles
+    were typed by hand on the Alpaca site."""
+
+    def _result(self):
+        return {"ticker": "QQQ", "price": 700.0, "expiration": "2026-09-23", "dte": 7,
+                "call": {"strike": 735.0, "premium": 0.24, "occ": "QQQ260923C00735000"},
+                "put": {"strike": 682.0, "premium": 1.37, "occ": "QQQ260923P00682000"},
+                "total_premium": 1.61, "call_breakeven": 736.6, "put_breakeven": 680.4,
+                "move_needed_pct": 0.2}
+
+    def _client(self):
+        cl = MagicMock()
+        cl.submit_order.return_value = MagicMock(id="abcd1234")
+        return cl
+
+    def test_both_legs_are_submitted_and_tracked(self):
+        cl = self._client()
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "size_strangle_trade", return_value=1), \
+             patch.object(a, "PositionTracker") as pt:
+            pt.return_value.open.return_value = True
+            note = a._submit_strangle(self._result(), "FOMC")
+        self.assertEqual(cl.submit_order.call_count, 2)
+        self.assertIn("AUTO-EXECUTED", note)
+        setups = [k.kwargs["setup"] if k.kwargs else k.args[0].setup
+                  for k in pt.return_value.open.call_args_list]
+        self.assertEqual(len(setups), 2)
+
+    def test_circuit_breakers_block_it(self):
+        cl = self._client()
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(False, "daily loss limit active")):
+            note = a._submit_strangle(self._result(), "FOMC")
+        cl.submit_order.assert_not_called()
+        self.assertIn("daily loss limit", note)
+
+    def test_over_budget_does_not_trade(self):
+        cl = self._client()
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "size_strangle_trade", return_value=0):
+            note = a._submit_strangle(self._result(), "FOMC")
+        cl.submit_order.assert_not_called()
+        self.assertIn("budget", note)
+
+    def test_same_expiry_is_not_doubled_up(self):
+        cl = self._client()
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=True):
+            note = a._submit_strangle(self._result(), "FOMC")
+        cl.submit_order.assert_not_called()
+        self.assertIn("Already executed", note)
+
+    def test_flag_off_leaves_the_order_to_the_user(self):
+        cl = self._client()
+        with patch.object(a, "ENABLE_STRANGLE_AUTO_EXEC", False), \
+             patch.object(a, "get_alpaca_client", return_value=cl):
+            note = a._submit_strangle(self._result(), "FOMC")
+        cl.submit_order.assert_not_called()
+        self.assertIn("Advisory only", note)
+
+    def test_the_advisory_calls_it(self):
+        self.assertIn("_submit_strangle(", inspect.getsource(a.generate_strangle_advisory))

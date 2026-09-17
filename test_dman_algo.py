@@ -7971,7 +7971,7 @@ class TestOptionsExpiryBackstop(unittest.TestCase):
         # 2026-09-14; the monitor keeps the elif ORDER and calls it.
         src = inspect.getsource(a._monitor_option_position)
         head = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
-        head = head[:head.index("elif not _trail_active")]
+        head = head[:head.index("not _trail_active")]
         self.assertIn("_opt_exit_expiry_backstop(", head)
         seg = inspect.getsource(a._opt_exit_expiry_backstop)
         self.assertIn("_submit_options_close(", seg)
@@ -7984,7 +7984,7 @@ class TestOptionsExpiryBackstop(unittest.TestCase):
         # 2026-09-14; the monitor keeps the elif ORDER and calls it.
         src = inspect.getsource(a._monitor_option_position)
         head = src[src.index("OPTIONS_FORCE_CLOSE_DTE"):]
-        head = head[:head.index("elif not _trail_active")]
+        head = head[:head.index("not _trail_active")]
         self.assertIn("_opt_exit_expiry_backstop(", head)
         seg = inspect.getsource(a._opt_exit_expiry_backstop)
         self.assertIn("pdt_blocked", seg)
@@ -16342,3 +16342,65 @@ class TestDriftRestrictionsEnforcedEveryScan(unittest.TestCase):
     def test_the_scanner_calls_it(self):
         self.assertIn("_enforce_setup_drift_restrictions(tracker)",
                       inspect.getsource(a.run_pro_scanner))
+
+
+class TestNoBidIsNotAPriceOfZero(unittest.TestCase):
+    """2026-09-16 FOMC: option quotes blinked out, _get_option_snapshot()
+    reported bid 0.0, and both legs of a fresh strangle were 'stopped' — the
+    put while profitable."""
+
+    def _pos(self):
+        exp = (a._et_today() + a.timedelta(days=7)).strftime("%y%m%d")
+        return {"ticker": "QQQ", "setup": f"Options Put QQQ{exp}P00682000",
+                "entry": 1.37, "stop": 0.69, "target1": 2.06, "shares": 100,
+                "entry_date": str(a._et_today()), "atr": 0.45}
+
+    def test_zero_bid_does_not_trigger_the_stop(self):
+        # bid 0.0 means an empty book, not a worthless option
+        snap = {"mid": 1.40, "bid": 0.0, "ask": 1.45, "bid_size": 0, "ask_size": 0,
+                "spread_pct": 0.9, "delta": -0.4, "iv": 0.3, "oi": 500, "theta": -0.02}
+        with patch.object(a, "_get_option_snapshot", return_value=snap), \
+             patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "_submit_options_close") as close:
+            pt.return_value.positions = []
+            a._monitor_option_position(self._pos(), "PUT")
+        close.assert_not_called()
+
+    def test_a_real_bid_below_the_stop_still_closes(self):
+        snap = {"mid": 0.60, "bid": 0.58, "ask": 0.62, "bid_size": 20, "ask_size": 20,
+                "spread_pct": 0.06, "delta": -0.4, "iv": 0.3, "oi": 500, "theta": -0.02}
+        with patch.object(a, "_get_option_snapshot", return_value=snap), \
+             patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "get_live_price", return_value=700.0), \
+             patch.object(a, "_submit_options_close", return_value=("submitted", "oid-1")) as close:
+            pt.return_value.positions = []
+            a._monitor_option_position(self._pos(), "PUT")
+        close.assert_called_once()
+
+
+class TestStrangleLegsAreNotStoppedIndividually(unittest.TestCase):
+    """One leg of a two-sided position is expected to lose; stopping it at
+    -50% guarantees the structure cannot pay."""
+
+    def _pos(self, setup):
+        return SimpleNamespace(ticker="QQQ", setup=setup, entry=1.0, stop=0.5, day_only=False)
+
+    def test_sibling_leg_open_blocks_the_stop(self):
+        with patch.object(a, "PositionTracker") as pt:
+            pt.return_value.positions = [self._pos("Options Call QQQ260923C00735000"),
+                                         self._pos("Options Put QQQ260923P00682000")]
+            self.assertTrue(a._has_open_opposite_leg("QQQ260923P00682000"))
+
+    def test_lone_leg_still_stops(self):
+        with patch.object(a, "PositionTracker") as pt:
+            pt.return_value.positions = [self._pos("Options Put QQQ260923P00682000")]
+            self.assertFalse(a._has_open_opposite_leg("QQQ260923P00682000"))
+
+    def test_different_expiry_is_not_a_sibling(self):
+        with patch.object(a, "PositionTracker") as pt:
+            pt.return_value.positions = [self._pos("Options Call QQQ260922C00728000"),
+                                         self._pos("Options Put QQQ260923P00682000")]
+            self.assertFalse(a._has_open_opposite_leg("QQQ260923P00682000"))
+
+    def test_the_monitor_consults_it(self):
+        self.assertIn("_has_open_opposite_leg", inspect.getsource(a._monitor_option_position))

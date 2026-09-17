@@ -8204,6 +8204,34 @@ def _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, 
     return _action, _msg
 
 
+def _has_open_opposite_leg(occ_symbol: str) -> bool:
+    """True when the other side of a strangle/straddle on the same underlying
+    and expiry is still open.
+
+    A two-sided position expects one leg to die: that is what pays for the
+    other one running. Stopping the loser at -50% per leg guarantees the
+    structure can never work, and 2026-09-16 showed the cost — both QQQ legs
+    were closed within the hour, the put for +$2 when holding to the close was
+    +$40. While the sibling is open the position is managed as a whole: the
+    expiry backstop and the profit exits still apply to each leg.
+    """
+    try:
+        info = _parse_occ_symbol(occ_symbol)
+        if not info:
+            return False
+        for pos in PositionTracker().positions:
+            _m = re.search(r"[A-Z]{1,6}" + r"\d{6}" + r"[CP]" + r"\d{8}",
+                           (getattr(pos, "setup", "") or "").upper())
+            other = _parse_occ_symbol(_m.group(0)) if _m else None
+            if (other and other["underlying"] == info["underlying"]
+                    and other["expiry"] == info["expiry"]
+                    and other["right"] != info["right"]):
+                return True
+    except Exception as exc:
+        _log_swallowed("opposite leg check", exc)
+    return False
+
+
 def _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t):
     """Premium stop (floored at intrinsic value, see _stop_ref).
 
@@ -8391,6 +8419,20 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     _cur_prem  = _snap["mid"]                       # display P&L at mid
     _exit_prem = _snap.get("bid", _cur_prem)        # exits fill at bid
 
+    # A bid of 0 means NO QUOTE, not "worth nothing". _get_option_snapshot()
+    # coerces a missing bid to 0.0, and every premium exit below compares
+    # against that number, so an empty book reads as a total loss and fires
+    # the stop. Live 2026-09-16, 2:00 PM: QQQ option quotes blinked out on the
+    # FOMC decision and both legs of a fresh strangle were "stopped" — the PUT
+    # while it was PROFITABLE. Alpaca then rejected the market close for the
+    # same reason ("no available quote ... reenter with a limit") and the
+    # attempt repeated every cycle until it sold at 1.38; holding to the close
+    # was 1.78. Defer every premium-based exit until a real bid exists.
+    # The expiry backstop still runs: an expiring contract must be dealt with
+    # whether or not anyone is quoting it. Only PRICE-based exits are deferred,
+    # because they have no price to judge.
+    _quote_ok = _exit_prem is not None and _exit_prem > 0
+
     # An option can never rationally be worth less than its intrinsic value,
     # so a BID below intrinsic is a stale or lowball quote rather than a real
     # price -- and the stop below triggers on the bid. Confirmed live
@@ -8477,17 +8519,18 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         # strategy exit below it. In particular the T1 branch sells only HALF
         # a position -- at DTE 1 that would leave the other half to expire.
         _action, _msg = _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t)
-    elif not _trail_active and _stop_ref <= _stop_prem:
+    elif (_quote_ok and not _trail_active and _stop_ref <= _stop_prem
+          and not _has_open_opposite_leg(_occ)):
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.
         _action, _msg = _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t)
-    elif _trail_active and _cur_prem <= _peak_prem * (1 - _giveback_pct / 100):
+    elif _quote_ok and _trail_active and _cur_prem <= _peak_prem * (1 - _giveback_pct / 100):
         # Replaces the old fixed T2 (+150%) auto-close (2026-08-10) — reacts
         # to how the trade actually moved (peak, then a real give-back)
         # instead of one static number that could be missed on a fast
         # reversal or fire too early on a slow, healthy grind.
         _action, _msg = _opt_exit_trailing(_ctrs, _cur_prem, _flow_lean, _flow_tightened, _giveback_pct, _occ, _peak_prem, _pnl_pct, _trailk, kind, t)
-    elif _cur_prem >= _t1_prem and _stop_prem < _entry_prem:
+    elif _quote_ok and _cur_prem >= _t1_prem and _stop_prem < _entry_prem:
         # T1: sell half if ≥2 contracts, raise stop to breakeven either way.
         # (_stop_prem < entry guard = T1 not yet taken)
         _action, _msg = _opt_exit_t1_half(_ctrs, _cur_prem, _entry_prem, _occ, _pnl_pct, _t1_prem, _t1k, kind, t)

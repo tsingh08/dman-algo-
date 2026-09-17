@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:08:24.488490-04:00",
-    "symbols": [
-      "BOXL"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:24.708849-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:25.664613-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:27.161503-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:27.601906-04:00",
-    "symbols": [
-      "QCLS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:28.731855-04:00",
-    "symbols": [
-      "TPST"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:28.946763-04:00",
-    "symbols": [
-      "YFOR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T13:08:29.165146-04:00",
     "symbols": [
       "JZXN"
@@ -5053,5 +4983,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:29:41.504510-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:29:41.941565-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:29:42.284517-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:29:43.477131-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:29:45.038581-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace CFO Says At Morgan Stanley Conference He Is Confident GE9X Mid-Seal Issue Won&#39;t Hold Up 777X Entry Into Service Next Year; Company Started Shipping GE9X Engines With Improved Mid-Seal To Boeing In Q3; Says Aircraft Retirements Down Year-Over-Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:29:45.157418-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:29:45.391915-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

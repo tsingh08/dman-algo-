@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:08:23.959454-04:00",
-    "symbols": [
-      "ARTL"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:24.236715-04:00",
-    "symbols": [
-      "BMGL"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T13:08:24.488490-04:00",
     "symbols": [
       "BOXL"
@@ -5048,5 +5028,30 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T12:19:00.741477-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Major indices are trading higher amid a retreat in oil prices and bond yields. Confidence that Saudi Arabia will be able to replace lost oil export capacity, coupled with the Fed&#39;s largely expected hawkish tone after yesterday&#39;s rate hike, may be fueling relief buying across markets.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T12:19:05.535139-04:00",
+    "symbols": [
+      "AMZN",
+      "CRM",
+      "NVDA"
+    ],
+    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

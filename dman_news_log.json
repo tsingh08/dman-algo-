@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-16T14:00:41.049415-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Federal Reserve Issues FOMC Statement For September 15-16, 2026 (Link In Body)",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T14:01:38.296051-04:00",
     "symbols": [
       "SPY"
@@ -5076,6 +5066,16 @@
       "LUNR"
     ],
     "headline": "Lyntris Selected By Intuitive Machines To Provide Advanced Tri-Band Antenna Systems For Global Deep-Space Network",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T13:48:04.841591-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Goldman Slashes Tesla Q3 Delivery Forecast to 435,000: What Do Prediction Markets Say?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

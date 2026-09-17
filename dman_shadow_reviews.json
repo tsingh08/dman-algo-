@@ -12,5 +12,19 @@
    "posted_et": "09/17 10:52",
    "plan": "+15% target / -20% stop, same-day exit"
   }
+ },
+ {
+  "ts": "2026-09-17T15:08:28.175153-04:00",
+  "kind": "dman_play",
+  "ticker": "CISS",
+  "verdict": "skip",
+  "confidence": 78,
+  "reason": "Entry at fresh HOD with 15% target vs 20% stop is poor R:R. Stop placement unclear on intraday move already underway.",
+  "facts": {
+   "price": 1.395,
+   "post": "$CISS 1.40s perking up fresh HOD now \ud83e\udd17\u2705 break out run incoming",
+   "posted_et": "09/17 15:07",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
  }
 ]

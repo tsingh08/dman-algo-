@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-09-16T11:16:45.016290-04:00",
-    "symbols": [
-      "NOK"
-    ],
-    "headline": "What&#39;s Going On With Nokia Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:16:45.020636-04:00",
-    "symbols": [
-      "NOK"
-    ],
-    "headline": "Nokia Announced Accelerated AI-RAN Adoption As Global Operators Embrace AI-Native Network Evolution On NVIDIA Platforms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:16:45.025075-04:00",
-    "symbols": [
-      "NOK"
-    ],
-    "headline": "Nokia Defense Partners With C3IA To Deliver Resilient Multi-Domain Capabilities Spanning Tactical Communications, C2, Sensing, And Edge Computing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:20:57.557549-04:00",
-    "symbols": [
-      "AAPL",
-      "GOOGL"
-    ],
-    "headline": "U.S. International Trade Commission Voted To Institute An Investigation Of Certain Electronic Devices With Certain Audio Technologies, Respondents Are Apple, Samsung And Google",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T11:23:24.094457-04:00",
     "symbols": [
       "AMZN",
@@ -5058,5 +5017,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T10:37:54.444047-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce shares are trading lower after the company raised its FY27 sales guidance to the higher end of its previous range, which may be disappointing investors who were expecting a stronger upgrade. Also, RBC Capital reiterated its Sector Perform rating and maintained its $250 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T10:38:17.636082-04:00",
+    "symbols": [
+      "AEHL"
+    ],
+    "headline": "Antelope Enterprise Stock Surges Thursday: What&#39;s Driving the Move?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T10:38:17.641814-04:00",
+    "symbols": [
+      "AEHL"
+    ],
+    "headline": "Antelope Enterprise Holdings (AEHL) Stock Jumps 20% After Hours: Why It Is Trending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T10:38:17.646740-04:00",
+    "symbols": [
+      "AEHL"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

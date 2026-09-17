@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-16T09:55:31.401071-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Says Research With Oak Ridge National Laboratory, NVIDIA Shows Generative AI Held Circuit-Finding Time Nearly 28 Seconds vs. Over 11 Minutes At 12 Qubits; Simulated, Not Run On Hardware",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T09:56:21.199147-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Ginkgo Bioworks Announces Ginkgo Datapoints Agreement With Eli Lilly&#39;s TuneLab To Provide Small Molecule And Antibody Developability Testing",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T09:59:36.284838-04:00",
-    "symbols": [
-      "QCLS"
-    ],
-    "headline": "Q/C Technologies Halted On Circuit Breaker To The Upside; Stock Now Up 63.45%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T10:00:12.249538-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Business Inventories (MoM) For July 0.8% Vs 0.6% Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T10:00:26.759095-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "NAHB Housing Market Index For September 32 Vs 34 Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T10:02:44.761011-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Announces Launch Of Authenticated Delivery Using QR Code Recipient Verification For Eligible US And Canada Shipments On Select Expedited Services",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T10:03:01.275485-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AI Safety Could Mean More Nvidia GPU Demand, Not Less, SemiAnalysis Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T10:03:10.828742-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "AI Safety Could Mean More Nvidia GPU Demand, Not Less, SemiAnalysis Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T10:03:11.075689-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "AI Safety Could Mean More Nvidia GPU Demand, Not Less, SemiAnalysis Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T10:03:12.126391-04:00",
     "symbols": [
       "ZS"
@@ -5055,6 +4965,96 @@
     "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T09:47:24.031586-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Crypto Bull Market Doesn&#39;t Depend on CLARITY Act, Bitwise Exec Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T09:47:40.667096-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T09:47:40.898894-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T09:47:41.149776-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T09:47:41.257100-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T09:47:45.838166-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T09:47:45.936304-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-17T09:47:46.037350-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-17T09:47:50.896180-04:00",
+    "symbols": [
+      "DAIC"
+    ],
+    "headline": "CID HoldCo Shares Halted On Circuit Breaker To The Upside, Stock Now Up 124.88%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

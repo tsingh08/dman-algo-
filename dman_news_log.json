@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:40:48.425389-04:00",
-    "symbols": [
-      "BRKR"
-    ],
-    "headline": "LuxExperience, Alvotech, Twist Bioscience And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T15:46:11.605189-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T15:46:11.778090-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T15:46:12.160478-04:00",
     "symbols": [
       "META"
@@ -5079,5 +5049,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T15:41:41.217855-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Senators Sought To Add AI Antitrust Exemption To Defense Bill; AI Companies, Led By Anthropic\u2019s Dario Amodei, Advocate For A Different Type Of Antitrust Exemption That Allows Them To Coordinate On Pacing The Development Of Their Technologies&#39; - Semafor Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:41:42.875807-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Rate Hike in October or December? Benzinga Viewers Say This is More Likely",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:43:53.643647-04:00",
+    "symbols": [
+      "IOVA"
+    ],
+    "headline": "Barclays Maintains Overweight on Iovance Biotherapeutics, Raises Price Target to $15",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

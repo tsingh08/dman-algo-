@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-09-16T11:23:24.094457-04:00",
-    "symbols": [
-      "AMZN",
-      "COIN"
-    ],
-    "headline": "Coinbase Institutional Business Is An \u2018Increasingly Important Contributor\u2019 To Growth, Says Bullish Analyst",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-16T11:29:45.880381-04:00",
     "symbols": [
       "AAPL"
@@ -5057,5 +5046,18 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T10:51:25.673891-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

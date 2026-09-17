@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:08:30.492037-04:00",
-    "symbols": [
-      "NRXS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:30.923119-04:00",
-    "symbols": [
-      "MNOV"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:31.638351-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:08:31.864119-04:00",
-    "symbols": [
-      "GLOO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:32.087003-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:09:23.166691-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Helps Live Nation Provide 24/7 Fan Support",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T13:15:00.067910-04:00",
     "symbols": [
       "AAPL"
@@ -5053,5 +4993,68 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:44:47.511069-04:00",
+    "symbols": [
+      "AMZN",
+      "RKLB",
+      "SPCX"
+    ],
+    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:45:00.173582-04:00",
+    "symbols": [
+      "LLY",
+      "NVO"
+    ],
+    "headline": "EMA Committee Endorses Novo Nordisk&#39;s Hemophilia A Therapy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:45:01.038008-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:45:03.786781-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:45:08.441540-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:45:41.430653-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What&#39;s Going On With Apple Stock Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

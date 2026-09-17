@@ -1,86 +1,5 @@
 [
   {
-    "ts": "2026-09-16T16:07:55.356322-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Banks Line Up $22 Billion Chip Loan Tied to Blackstone, Alphabet&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T16:11:29.348447-04:00",
-    "symbols": [
-      "REPL"
-    ],
-    "headline": "Replimune Says Stockholders Approved Amendment To Increase Authorized Common Shares From 150M To 300M, Effective September 15",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T16:18:39.370108-04:00",
-    "symbols": [
-      "NBIS",
-      "ON"
-    ],
-    "headline": "Chips, Asset Managers and Consumer Names Slide After Warsh&#39;s Press Conference: The 10 Biggest Losers",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T16:35:21.494042-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Generac Issues Amazon Warrant To Acquire Up To 1,693,745 Common Shares With Vesting Tied To $8B In Data Center Generator Orders",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T16:42:14.891044-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Posts &#34;Interest Rates in the U.S. should be 1%, or less, because we are the Best Credit in the World - BY FAR. Our Country is BOOMING with new Investment! If we stopped Trading with every country that we have a Deficit with, which is most of them, we would make, at least, $1.5T a year. The word \u201cDeficit\u201d is nothing more than a fancy word for LOSS. We are \u201ccarrying\u201d almost every country in the World, and that cannot go on any longer. LOWER THE INTEREST RATES FOR THE U.S. AND FAST&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T16:56:56.384200-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;Exxon Is Nearing A Preliminary Deal To Invest In Venezuela\u2019s Oil Fields; The U.S. Oil Major Is Negotiating A Potential Return To The Latin American Country 19 Years After Its Exit&#39; - WSJ Exclusive",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T19:50:00.887105-04:00",
-    "symbols": [
-      "NCT"
-    ],
-    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:19.511784-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Intel Stock Could Nearly Double to $200 in 2 Years, Analyst Says \u2014 Potential Apple, Tesla, and AI Chip Deals Could Fuel the Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T09:37:19.516808-04:00",
     "symbols": [
       "AAPL"
@@ -5085,6 +5004,90 @@
       "RIOT"
     ],
     "headline": "&#34;CFTC Staff Issues No-Action Position To Providers Of Passive Software&#34; - CFTC",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T16:15:31.454071-04:00",
+    "symbols": [
+      "WHLR"
+    ],
+    "headline": "Wheeler Real Estate Investment Trust Announces 1-For-9 Reverse Stock Split Effective September 21, 2026",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T16:17:49.669317-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen Announces Publication Of Phase 3 VALIANT Adolescent Subgroup Data In CJASN Demonstrating 75% Proteinuria Reduction For EMPAVELI In Rare Kidney Diseases",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T16:32:00.856354-04:00",
+    "symbols": [
+      "WHLR"
+    ],
+    "headline": "Wheeler Real Estate Investment Trust shares are trading lower after the company announced a 1-for-9 reverse stock split.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T16:37:41.034560-04:00",
+    "symbols": [
+      "HCWC"
+    ],
+    "headline": "Host Digital Commences Proposed Underwritten Public Offering Of $17.5M Class A Common Shares",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T16:49:19.449317-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "NASA Selects SpaceX To Launch StarBurst Mission In 2028 Under $1B, 10-Year VADR Contract",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T16:50:45.542327-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir CEO Alex Karp Says Only Washington Can Cap AI Liability: &#39;These Businesses Have to Be Nationalized&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T16:51:04.396206-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "QQQ"
+    ],
+    "headline": "Ten-Year Treasury Yield Hits 5%: Why QQQ Could Face More Pressure Than Value ETFs",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T17:00:21.254570-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Grayscale: Bitcoin Put in the Bottom at $58,000, &#39;Green Light&#39; From Here",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

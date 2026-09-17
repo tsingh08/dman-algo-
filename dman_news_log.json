@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:08:29.165146-04:00",
-    "symbols": [
-      "JZXN"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:08:29.387713-04:00",
-    "symbols": [
-      "LUXE"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T13:08:30.047270-04:00",
-    "symbols": [
-      "VWAV"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T13:08:30.492037-04:00",
     "symbols": [
       "NRXS"
@@ -5053,5 +5023,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:33:21.212067-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Watching Salesforce; Hearing Investor Business Daily SwingTrader Sells Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:33:55.329710-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce&#39;s Anthropic Bet Likely Worth &#39;Tens of Billions&#39; \u2014 And Benioff Plans to Cash In",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T12:35:41.561164-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Is Coming After Walmart\u2019s Biggest Delivery Advantage",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

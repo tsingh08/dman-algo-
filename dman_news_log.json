@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-15T16:04:36.701465-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-15T16:04:36.705750-04:00",
     "symbols": [
       "MRVL"
@@ -5060,5 +5050,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-16T19:50:00.887105-04:00",
+    "symbols": [
+      "NCT"
+    ],
+    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

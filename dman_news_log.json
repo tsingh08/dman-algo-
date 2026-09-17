@@ -1,68 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:01:58.863735-04:00",
-    "symbols": [
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "SpaceX-Tesla Merger: Ron Baron Told Elon Musk &#39;Whatever You Decide... Is What I&#39;m Going to Support&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T15:02:25.655824-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SpaceX-Tesla Merger: Ron Baron Told Elon Musk &#39;Whatever You Decide... Is What I&#39;m Going to Support&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T15:09:53.553089-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "White House&#39;s Kush Desai Speaking With Fox News Says Fed Rate Hike Is &#39;Rather Unfortunate&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T15:13:16.088999-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX-Tesla Merger: Ron Baron Told Elon Musk &#39;Whatever You Decide... Is What I&#39;m Going to Support&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T15:15:37.106725-04:00",
-    "symbols": [
-      "JPM",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T15:19:14.313471-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Gains Following Bullish Executive Commentary at Morgan Stanley Conference",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T15:29:54.299094-04:00",
     "symbols": [
       "JPM"
@@ -5065,6 +5002,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T14:33:37.935861-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Alphabet, Raises Price Target to $450",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T14:33:45.508959-04:00",
+    "symbols": [
+      "GNRC"
+    ],
+    "headline": "Roth Capital Maintains Neutral on Generac Holdings, Raises Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T14:33:45.629008-04:00",
+    "symbols": [
+      "HPK"
+    ],
+    "headline": "&#39;U.S. Shale Producer HighPeak Energy Exploring Sale After Receiving Takeover Interest&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:33:45.738987-04:00",
+    "symbols": [
+      "FLNC"
+    ],
+    "headline": "BNP Paribas Maintains Underperform on Fluence Energy, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:33:47.239222-04:00",
+    "symbols": [
+      "SGRY"
+    ],
+    "headline": "Surgery Partners Updates FY2026 Revenue Guidance To $3.08B-$3.18B, Adjusted EBITDA To At Least $489M Following Idaho Falls Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:33:47.490432-04:00",
+    "symbols": [
+      "CEPU"
+    ],
+    "headline": "B of A Securities Maintains Buy on Central Puerto, Lowers Price Target to $28",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   },
   {
     "ts": "2026-09-17T14:35:14.515879-04:00",

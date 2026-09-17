@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:46:12.568830-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T15:46:20.401307-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T15:46:22.945839-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-16T15:46:26.039707-04:00",
     "symbols": [
       "WOR"
@@ -5085,5 +5055,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:54:55.606212-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Says Bitcoin Could Beat Gold as Analyst Predicts It&#39;ll &#39;Triple&#39; Gold",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T15:55:08.117725-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Wall Street Expects Micron to Earn $31 A Share This Quarter: That\u2019s 10x From Last Year",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T15:58:37.958148-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Shares of sports betting companies are trading lower. The industry may be falling in response to the CFTC&#39;s no-action notice that would benefit cryptocurrency trading and prediction markets.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

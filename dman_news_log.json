@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:15:10.581916-04:00",
-    "symbols": [
-      "RETO"
-    ],
-    "headline": "Why Tempest Therapeutics Shares Are Trading Higher By Around 50%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.586172-04:00",
-    "symbols": [
-      "RETO"
-    ],
-    "headline": "ReTo Eco-Solutions Stock Surged 676% on Tuesday: RETO Stock Keeps Trending After Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T13:15:10.711880-04:00",
     "symbols": [
       "LIFE"
@@ -5053,6 +5033,27 @@
       "SPY"
     ],
     "headline": "&#39;The FAA\u2019s $875M Plan To Use AI To Ease Air-Traffic Woes; New Software Aimed At Reducing Flight Delays, Cancellations Will First Roll Out In Washington, D.C., Area&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:13:50.588082-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Posts On X &#34;Now Targeting To Launch Starship Flight 14 As Early As Monday, September 28, Pending Regulatory Approval&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T13:16:58.710001-04:00",
+    "symbols": [
+      "LMT",
+      "SPY"
+    ],
+    "headline": "U.S. State Dept Approves Potential Sale Of F-35 Lightning II Joint Strike Fighter Aircraft To Saudi Arabia For An Estimated $24.3B",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

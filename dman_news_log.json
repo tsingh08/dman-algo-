@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-16T09:55:22.104538-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Reports Q2 2026 Results: Full Earnings Call Transcript",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-16T09:55:31.401071-04:00",
     "symbols": [
       "IONQ"
@@ -5049,5 +5039,22 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T09:46:49.872512-04:00",
+    "symbols": [
+      "DIA",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,76 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:15:10.711880-04:00",
-    "symbols": [
-      "LIFE"
-    ],
-    "headline": "Ethos Technologies Announces None Of Its Systems Were Accessed Or Exfiltrated In July 2026 Service Disruption At Its Carrier Partner Trustage Financial; Doesn&#39;t Expect Any Material Q3 Impact From The Incident",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.716370-04:00",
-    "symbols": [
-      "LIFE"
-    ],
-    "headline": "Beta Bionics, J.B. Hunt Transport And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:20:10.200100-04:00",
-    "symbols": [
-      "JPM",
-      "SPY"
-    ],
-    "headline": "Bitcoin Fed Meeting Preview: Could One Decision Pump BTC?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:20:22.212377-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Continental Resources Announces MOU With PDVSA To Operate And Develop 126,000-Acre Ayacucho 2 Block In Venezuela&#39;s Orinoco Belt With 100% Working Interest; Terms Not Disclosed",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:23:59.159750-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX shares are trading higher amid catalysts including renewed attention on revenue from Starship launches, with both sell-side and buy-side investors noting the company&#39;s AI aspirations and orbital data centers as sources of potential upside.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T13:31:27.229387-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Bitcoin Fed Meeting Preview: Could One Decision Pump BTC?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T13:31:30.064035-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bitcoin Fed Meeting Preview: Could One Decision Pump BTC?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T13:34:19.622925-04:00",
     "symbols": [
       "MU",
@@ -5054,6 +4983,84 @@
       "SPY"
     ],
     "headline": "U.S. State Dept Approves Potential Sale Of F-35 Lightning II Joint Strike Fighter Aircraft To Saudi Arabia For An Estimated $24.3B",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:18:09.518311-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "FTC Announces Additional Payments To Consumers Stemming From FTC\u2019s Amazon Prime Settlement; Under A Revised Order, More Consumers Will Qualify For Refunds With The Maximum Payment Increased From $51 To $200",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T13:18:30.666886-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "U.S. State Dept Approves Potential Sale Of F-35 Lightning II Joint Strike Fighter Aircraft To Saudi Arabia For An Estimated $24.3B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:18:32.137707-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. State Dept Approves Potential Sale Of F-35 Lightning II Joint Strike Fighter Aircraft To Saudi Arabia For An Estimated $24.3B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:18:35.312775-04:00",
+    "symbols": [
+      "DTSS"
+    ],
+    "headline": "Crude Oil Down 1%; US Pending Home Sales Rise 0.3% In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:18:37.502340-04:00",
+    "symbols": [
+      "AEMD"
+    ],
+    "headline": "Crude Oil Down 1%; US Pending Home Sales Rise 0.3% In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:18:37.617573-04:00",
+    "symbols": [
+      "DAIC"
+    ],
+    "headline": "Crude Oil Down 1%; US Pending Home Sales Rise 0.3% In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:18:49.360632-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NBIS",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Triple Witching, Falling Oil, and Fed Hopium Drive Up Stocks, But Downside Risks Remain",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

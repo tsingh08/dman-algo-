@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:46:12.160478-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T15:46:12.406813-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Trump Officials Considering AI Executive Meeting On The Sidelines Of Xi Visit Next Week&#39; - CNN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T15:46:12.568830-04:00",
     "symbols": [
       "AMZN"
@@ -5077,6 +5057,32 @@
     ],
     "headline": "Barclays Maintains Overweight on Iovance Biotherapeutics, Raises Price Target to $15",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:50:12.799520-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "COIN",
+      "HOOD",
+      "MARA",
+      "MSTR",
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-related companies are trading higher after the SEC announced a five-year exemption for tokenized stock trading. The CFTC also issued a no-action position against passive software providers that partnered with regulated entities and failed to register as brokers.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:50:44.994042-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Surges After Wells Fargo Names Stock a Top Pick With $50 Price Target",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

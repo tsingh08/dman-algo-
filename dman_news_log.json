@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-16T14:37:47.190419-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Plain Fact Is Inflation Is Too High And Has Been For Too Long; Summer Data Does Not Tell Me Inflation Situation Has Improved; Too Many Categories Are Posting Increases Above 3% On Both 6 And 12 Month Basis; In July We Expressed Joint Readiness To Act; We Must Be Confident Underlying Inflation Must Be Moving To 2% On Timely Basis; FOMC Decided This Has Not Been Met; Did Not Submit A Dot; Fed Has A Role In Sustaining Economic Progress Occurring Right Now",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T14:38:54.470282-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "onsemi Unveils Scalable Embedded Power Platform To Boost Power Density Up To 3-5x For AI And Electrification Applications",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T14:42:49.092505-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Those Less Well Off Have Most To Gain From That; Did Not Offer Own Summary of Economic Projection; Decision We Made Today Was A Sober Decision; Am Not Going To Prejudge Any Future Decision We May Make; Decision Today Was The Right Decision, I Have Nothing For You About A Discussion With The President; Because Of Underlying Strength Of The Economy We Can Afford To Focus On Price Stability",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T14:46:49.731102-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says What Happened In 7 Weeks Since We Last Met, Data Has Shown Economy Has Strengthened; Inflation Trends Were Not Passing Test And Seen Little To Change That; My Colleagues Are Hard Pressed To Describe Financial Conditions As Restrictive; We Decided To Remove A Dose Of Accommodation; I&#39;ve Always Been Interested In A Neutral Rate Academically, But Don&#39;t See It Having An Operational Effect On Decisions Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T14:49:54.616175-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Our Judgement About What is Most Likely or Least Likely of the Geopolitical Situation Has Changed; I Was Not Waiting Breathlessly On Any One Data Point; Trends Matter, Data Points Are Noisy; My Colleagues And I Were Hard Pressed To Describe Financial Conditions As Restrictive; INdependence Is A 2-Way Street, Must Stay In Our Lane; In Aggregate We&#39;re More Or Less At Full Employment; Stable Prices Offer Good News To Workers To See Real Take Home Pay Increases",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T14:51:18.506874-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova shares are trading higher after a company executive said at a conference that it expects H2 contract commitments to exceed its 20 GW guidance, sees 50% growth in gas capacity additions by the end of 2026 and expects Q4 contract commitments to be higher than Q3 based on current trends.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T14:52:46.239341-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Boeing CEO Speaking At Morgan Stanley Conference Says It Is Still Waiting On Engine Seal Fix From GE Aerospace For 777X, Required For Final Certification",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T14:55:11.534692-04:00",
     "symbols": [
       "SPY"
@@ -5076,5 +5006,76 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T14:11:49.977406-04:00",
+    "symbols": [
+      "IONQ",
+      "NVDA"
+    ],
+    "headline": "Why Is IonQ Stock Surging Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T14:12:10.314330-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is IonQ Stock Surging Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T14:12:18.948335-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Why Is IonQ Stock Surging Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T14:12:27.910640-04:00",
+    "symbols": [
+      "LSTA"
+    ],
+    "headline": "Nano Cap Lisata Therapeutics Bolsters Cardioendocrine Pipeline Strategy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:12:31.638250-04:00",
+    "symbols": [
+      "TLSA"
+    ],
+    "headline": "Why Is Tiziana Life Sciences Stock Gaining Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:13:36.118667-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Connect Expands Into A Set Of Agentic AI Solutions; Amazon Connect Talent, One Of Four Agentic AI Solutions For Hiring, Supply Chains, Customer Service, And Health Care, Is Now Generally Available; Originally Published April 28, 2026",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T14:14:48.108081-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Delta Electronics Partners with NVIDIA To Accelerate AI Factory Deployment Based On NVIDIA DSX",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

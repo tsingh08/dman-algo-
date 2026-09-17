@@ -1,69 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:29:55.302045-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T15:30:42.855879-04:00",
-    "symbols": [
-      "GS",
-      "LGHL"
-    ],
-    "headline": "Shares of financial companies are trading lower amid overall market weakness after Fed Chairman Warsh took a hawkish tone in his press conference and Q&amp;A session after the FOMC rate hike.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T15:34:19.847167-04:00",
-    "symbols": [
-      "DIA",
-      "IWM",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T15:38:16.507494-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Why iShares Russell 2000 ETF Is Falling Wednesday",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T15:40:44.903173-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T15:40:44.978559-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stocks Sink, 10-Year Yield Reclaims 5% as Warsh Delivers His Hawkish Show",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-16T15:40:45.166619-04:00",
     "symbols": [
       "IWM"
@@ -5072,5 +5008,67 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:18:35.654891-04:00",
+    "symbols": [
+      "GS",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Trump&#39;s Inflation Approval Slumps to 19%: What Do Prediction Markets Say About the Midterms?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:19:27.336666-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Trump&#39;s Inflation Approval Slumps to 19%: What Do Prediction Markets Say About the Midterms?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T15:19:30.677558-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump&#39;s Inflation Approval Slumps to 19%: What Do Prediction Markets Say About the Midterms?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:19:30.884351-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Trump&#39;s Inflation Approval Slumps to 19%: What Do Prediction Markets Say About the Midterms?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:19:36.788455-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "BioAffinity Technologies Stock Surges Following Hong Kong Patent Grant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T15:19:40.647973-04:00",
+    "symbols": [
+      "ABEO"
+    ],
+    "headline": "Roth Capital Initiates Coverage On Abeona Therapeutics with Buy Rating, Announces Price Target of $17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

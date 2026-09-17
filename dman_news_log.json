@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-16T14:37:43.274292-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Tesla Killed Its Solar Roof. Now Elon Musk Wants 100 GW of Solar",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-16T14:37:45.393980-04:00",
     "symbols": [
       "FPS"
@@ -5076,5 +5066,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:03:41.876080-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "B of A Securities Reiterates Buy on Apple, Maintains $370 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

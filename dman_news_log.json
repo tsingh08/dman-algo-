@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:29:54.299094-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T15:29:55.186065-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Hikes 25 Basis Points, Projects Another Hike in 2026: Do Prediction Markets Agree?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T15:29:55.302045-04:00",
     "symbols": [
       "QQQ"
@@ -5071,6 +5051,26 @@
     "headline": "&#39;US Said to Delay Excess Capacity Tariffs Until After Xi Summit&#39; - Bloomberg News",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:46:41.960716-04:00",
+    "symbols": [
+      "RTB"
+    ],
+    "headline": "Paradium.AI Stock Soars on $1 Billion Roundtable Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T14:46:45.974945-04:00",
+    "symbols": [
+      "PBLS"
+    ],
+    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:15:00.376214-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:01.753507-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Helps Live Nation Provide 24/7 Fan Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:02.540541-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Apple, Nvidia Eye Major Entry into AI Servers: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:03.381888-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Ninth Circuit Reverses Denial Of Injunction Against Kalshi, Robinhood; Says California Tribes Likely To Win IGRA Claim Over Sports Event Contracts, Remands For Remaining Factors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T13:15:03.743738-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:05.742494-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on e.l.f. Beauty, Raises Price Target to $115",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:06.344807-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Ninth Circuit Reverses Denial Of Injunction Against Kalshi, Robinhood; Says California Tribes Likely To Win IGRA Claim Over Sports Event Contracts, Remands For Remaining Factors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:07.414140-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Sees \u2018Nothing Flashing Red\u2019 In US Economy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T13:15:07.728002-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:07.871535-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Charles Schwab, Cleveland-Cliffs, UnitedHealth Group, Incyte",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:08.876572-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T13:15:09.002693-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:09.145035-04:00",
-    "symbols": [
-      "MEDS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:09.149560-04:00",
-    "symbols": [
-      "MEDS"
-    ],
-    "headline": "Crude Oil Down Over 3%; US Business Inventories Surge In July",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:09.263570-04:00",
-    "symbols": [
-      "MRLN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:09.390326-04:00",
-    "symbols": [
-      "LUXE"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-16T13:15:09.538458-04:00",
-    "symbols": [
-      "FANG"
-    ],
-    "headline": "Diamondback Energy Stock Slides Wednesday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:09.543092-04:00",
-    "symbols": [
-      "FANG"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:15:09.655088-04:00",
-    "symbols": [
-      "JBHT"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:09.659645-04:00",
-    "symbols": [
-      "JBHT"
-    ],
-    "headline": "Freight Stocks Plummet as Record-High Diesel Squeezes Profit Margins: 7 Names To Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:09.663939-04:00",
-    "symbols": [
-      "JBHT"
-    ],
-    "headline": "QUICK SPARK: $6 Diesel Triggers JB Hunt Stock&#39;s Worst Day Since March 2020",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.035718-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.272370-04:00",
-    "symbols": [
-      "GLOO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.399320-04:00",
-    "symbols": [
-      "KNX"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.403818-04:00",
-    "symbols": [
-      "KNX"
-    ],
-    "headline": "Freight Stocks Plummet as Record-High Diesel Squeezes Profit Margins: 7 Names To Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.408111-04:00",
-    "symbols": [
-      "KNX"
-    ],
-    "headline": "QUICK SPARK: $6 Diesel Triggers JB Hunt Stock&#39;s Worst Day Since March 2020",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T13:15:10.577435-04:00",
-    "symbols": [
-      "RETO"
-    ],
-    "headline": "ReTo Eco-Solutions Shares Resume Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T13:15:10.581916-04:00",
     "symbols": [
       "RETO"
@@ -5056,5 +4786,275 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T13:07:49.505261-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Lucid Stock Gains on Bolt Deal To Deploy Autonomous Vehicles",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T13:07:50.671028-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Falling Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T13:07:51.981056-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Is Surging: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:51.985630-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock More Than Doubled in a Month. Now Comes the Hard Part",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:54.535993-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, The Goldman Sachs Group, Teradyne",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T13:07:54.994659-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, The Goldman Sachs Group, Teradyne",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T13:07:55.123179-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "EMA Committee Endorses Novo Nordisk&#39;s Hemophilia A Therapy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T13:07:55.990926-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:56.141783-04:00",
+    "symbols": [
+      "FTFT"
+    ],
+    "headline": "11 Financials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:56.383735-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Lucid Stock Gains on Bolt Deal To Deploy Autonomous Vehicles",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T13:07:56.491354-04:00",
+    "symbols": [
+      "MSC"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:56.611538-04:00",
+    "symbols": [
+      "NAMI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:56.946574-04:00",
+    "symbols": [
+      "NEXR"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:57.057475-04:00",
+    "symbols": [
+      "NUWE"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:57.291200-04:00",
+    "symbols": [
+      "QCLS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:58.205604-04:00",
+    "symbols": [
+      "TURB"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:58.317527-04:00",
+    "symbols": [
+      "LSTA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:58.542524-04:00",
+    "symbols": [
+      "SDST"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:58.652598-04:00",
+    "symbols": [
+      "KXIN"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:58.870737-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:59.306302-04:00",
+    "symbols": [
+      "SRFM"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:59.542043-04:00",
+    "symbols": [
+      "MKDW"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:07:59.828212-04:00",
+    "symbols": [
+      "MNOV"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:08:00.378090-04:00",
+    "symbols": [
+      "CYPH"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:08:00.491069-04:00",
+    "symbols": [
+      "AEMD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:08:00.984597-04:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "11 Financials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T13:11:29.270441-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;The FAA\u2019s $875M Plan To Use AI To Ease Air-Traffic Woes; New Software Aimed At Reducing Flight Delays, Cancellations Will First Roll Out In Washington, D.C., Area&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

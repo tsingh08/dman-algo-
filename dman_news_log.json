@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T12:02:36.416897-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Intel Analyst Raises Price Target On Terafab, AI-Driven Turnaround",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T12:02:36.423874-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T12:02:37.620125-04:00",
     "symbols": [
       "TSLA"
@@ -5053,5 +5033,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T11:19:47.379405-04:00",
+    "symbols": [
+      "RTB"
+    ],
+    "headline": "Roundtable Forecasts $100M Annualized Revenue And EBITDA-Positive Run Rate Post-Deal; Agreement Subject To Roundtable&#39;s $89M Investment Of Cash And Stock For About 49% Of PAAI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:19:47.384597-04:00",
+    "symbols": [
+      "RTB"
+    ],
+    "headline": "Roundtable Announces 10-Yr, $1B Agreement With Paradium.AI To Migrate, Operate And Monetize Media Portfolio On Roundtable\u2019s AI/DeFi-Powered MediaOS",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

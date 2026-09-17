@@ -1,90 +1,5 @@
 [
   {
-    "ts": "2026-09-16T12:24:25.413892-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova And Vineyard Wind Announce Settlement Of Commercial Litigation; Company Withdraws Termination Notice And All Legal Claims Dismissed; Terms Confidential",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T12:27:09.592753-04:00",
-    "symbols": [
-      "MSFT",
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:31:14.996979-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What&#39;s Going On With Amazon Stock Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:31:33.303654-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:31:33.655898-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T12:31:49.811168-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Cathie Wood Says SpaceX Didn&#39;t Need an IPO\u2014Until Data Centers in Space Came Along",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:33:23.151632-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "ORCL"
-    ],
-    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:33:23.396381-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is IREN Stock Surging Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T12:35:05.072946-04:00",
     "symbols": [
       "CRM"
@@ -5051,5 +4966,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T11:46:16.439112-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "EXCLUSIVE: Trump-Xi Talks Put SK Hynix\u2019s China Footprint in Focus. What It Means for Korea ETFs",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:46:35.771534-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T11:46:37.646135-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T11:46:37.830371-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T11:46:40.608212-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace CFO At Morgan Stanley Conference Says Not Seeing Any Change In Airline Fleet Plans, Parked Aircraft Remain Really Low",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T11:46:43.838556-04:00",
+    "symbols": [
+      "DTSS"
+    ],
+    "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:46:45.465029-04:00",
+    "symbols": [
+      "AEMD"
+    ],
+    "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:46:45.540772-04:00",
+    "symbols": [
+      "DAIC"
+    ],
+    "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

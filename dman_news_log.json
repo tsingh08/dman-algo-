@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-16T10:29:29.697933-04:00",
-    "symbols": [
-      "JBHT"
-    ],
-    "headline": "B of A Securities Maintains Buy on JB Hunt Transport Servs, Lowers Price Target to $302",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T10:29:29.702564-04:00",
-    "symbols": [
-      "JBHT"
-    ],
-    "headline": "Rapport Therapeutics To Rally Around 76%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T10:29:29.707122-04:00",
-    "symbols": [
-      "JBHT"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on JB Hunt Transport Servs, Lowers Price Target to $285",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T10:29:29.711528-04:00",
     "symbols": [
       "JBHT"
@@ -5055,6 +5025,39 @@
       "MSFT"
     ],
     "headline": "AI Could Threaten Nuclear Command Systems, Warn US-China Experts\u2014 Urge Human Control and Emergency Hotline",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T10:05:01.503883-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Moves Higher: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T10:05:05.354222-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Is Worth $2 Trillion. Why Does Its Stock Swing Like a Small-Cap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T10:06:29.823338-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "ORCL"
+    ],
+    "headline": "&#39;OpenAI Is Close To Solving Another Millennium Prize Math Problem&#39; - The Information",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

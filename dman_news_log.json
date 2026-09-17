@@ -1,81 +1,5 @@
 [
   {
-    "ts": "2026-09-16T11:48:10.888129-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Stock Surges: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T11:51:32.307826-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Occidental Petroleum Stock Slides Wednesday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:51:37.427954-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Says At Morgan Stanley Conference It Would Like To Do More M&amp;A, Almost Certainly Within Its Core Businesses",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:51:37.452709-04:00",
-    "symbols": [
-      "ARTL"
-    ],
-    "headline": "Artelo Cannabinoid Drug Doubles Weight Loss When Paired with Popular Obesity Drug",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-16T11:52:33.877368-04:00",
-    "symbols": [
-      "NVDA",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Intel Analyst Raises Price Target On Terafab, AI-Driven Turnaround",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:53:04.944627-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO",
-      "MRVL",
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T12:02:36.410758-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Super Micro Rebounds 3% After This Week&#39;s AI Infrastructure Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T12:02:36.416897-04:00",
     "symbols": [
       "NVDA"
@@ -5059,5 +4983,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:11:34.389996-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T11:11:34.664865-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Boss Slams AI Doom Mongers, Stock Bounces",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T11:11:35.229872-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T11:11:35.518442-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T11:11:35.813053-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Public Power Corp Announces Binding MOU With Amazon Web Services To Develop 300 MW Data Center In Western Macedonia, Greece; Says It May Explore Expansion To 1 GW",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T11:11:35.816376-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T11:11:36.546053-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "NVIDIA Boss Slams AI Doom Mongers, Stock Bounces",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

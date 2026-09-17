@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-16T13:08:21.512182-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "S&amp;P 500 Gains, Crude Falls Ahead Of Fed&#39;s Expected First Hike Since 2023: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T13:08:21.732243-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Charles Schwab, Cleveland-Cliffs, UnitedHealth Group, Incyte",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T13:08:23.296683-04:00",
     "symbols": [
       "QQQ"
@@ -5046,5 +5026,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:04:35.504498-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk shares are trading higher after the company announced that the EMA&#39;s CHMP adopted a positive opinion recommending marketing authorization for FREHEMGO to treat hemophilia A, with or without inhibitors, in adults and children.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T12:06:28.157683-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "ON Semiconductor CEO Warns Power Density Is the Next Massive AI Bottleneck",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

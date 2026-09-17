@@ -1,0 +1,16 @@
+[
+ {
+  "ts": "2026-09-17T11:22:39.682605-04:00",
+  "kind": "dman_play",
+  "ticker": "IPW",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Vague catalyst ('due for squeeze'), no technical setup details, comparison to AEMD lacks concrete evidence, same-day exit conflicts with squeeze thesis.",
+  "facts": {
+   "price": 1.805,
+   "post": "$IPW $IPW could be next $AEMD 1s to $9.50 700%  IPW due for major squeeze again",
+   "posted_et": "09/17 10:52",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
+ }
+]

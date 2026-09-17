@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-16T14:37:45.393980-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "Oppenheimer Reiterates Outperform on Forgent Power Solutions, Maintains $60 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-16T14:37:47.190419-04:00",
     "symbols": [
       "SPY"
@@ -5073,6 +5063,16 @@
       "AAPL"
     ],
     "headline": "B of A Securities Reiterates Buy on Apple, Maintains $370 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T14:08:16.275878-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Mark Cuban Asked What&#39;s Scarier Than AI. One Reply: &#39;You Can Unplug AI. You Can&#39;t Unplug Humans&#39;",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-16T12:46:39.226396-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:46:40.419763-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T12:46:40.732441-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Announces Beta Launch Of Claude Docs, Claude Slides, And Claude Design Integration On Paid Plans; Claude Cowork And Chat Merging Into One Claude On Pro And Max",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-16T12:46:50.560343-04:00",
     "symbols": [
       "ORCL"
@@ -5044,6 +5014,37 @@
     ],
     "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:53:05.060249-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Moves Higher Today: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T11:54:05.547159-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock for Free? Board Member is Giving Away Shares to Early Backers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T11:55:13.307574-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "What&#39;s Going On With CleanSpark Shares On Thursday?",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

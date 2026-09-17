@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-16T11:29:45.880381-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "U.S. International Trade Commission Voted To Institute An Investigation Of Certain Electronic Devices With Certain Audio Technologies, Respondents Are Apple, Samsung And Google",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-16T11:29:46.308279-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "U.S. International Trade Commission Voted To Institute An Investigation Of Certain Electronic Devices With Certain Audio Technologies, Respondents Are Apple, Samsung And Google",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-16T11:29:46.395345-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Coinbase Institutional Business Is An \u2018Increasingly Important Contributor\u2019 To Growth, Says Bullish Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-16T11:29:47.631895-04:00",
     "symbols": [
       "HOOD"
@@ -5056,6 +5026,36 @@
       "MSFT"
     ],
     "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T10:57:43.720139-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Fed Rate Hikes Are Supposed to Hurt Bonds: This One Is Doing the Opposite",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-17T10:57:59.316540-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Steve Eisman Calls AI &#39;Terminator&#39; Fears &#39;Garbage&#39;: If You&#39;re Scared, &#39;Postpone Your IPO&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-17T10:58:56.523777-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Extends Rally: What&#39;s Going On Today?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

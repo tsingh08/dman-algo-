@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-16T15:00:55.593525-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Today&#39;s Action Starts To Show We Are Serious About This; Asked About AI Safety, Says We Care Very Much About What&#39;s Happening In AI But Decisions About Risks And Rewards Are For Other Policymakers To Make; Don&#39;t Believe We Need To Do Harm To Job Market To Achieve Our Objective; Job We Did Today And Will Continue To Do Is To Ensure Price Stability So Durable Growth Can Continue",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-16T15:01:58.863735-04:00",
     "symbols": [
       "SPCX",
@@ -5075,5 +5065,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-17T14:35:14.515879-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US Said to Delay Excess Capacity Tariffs Until After Xi Summit&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

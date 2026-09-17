@@ -608,6 +608,24 @@ MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
 # a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
 # the Alpaca site -- the one part of the day that actually required a human.
 ENABLE_STRANGLE_AUTO_EXEC = True
+
+# ── Telegram quiet mode ───────────────────────────────────────────────────
+# 215 send sites push into one chat. Quiet mode keeps what is money or safety
+# -- an order, a fill, an exit, a halt, a failure, anything waiting on a reply,
+# the end-of-day number -- and drops the running commentary. A reply to a
+# command YOU sent is never filtered: you asked, you get the answer.
+# `/flags quiet off` restores everything.
+ENABLE_TELEGRAM_QUIET = True
+_TELEGRAM_KEEP = (
+    "auto-exec", "order placed", "order submitted", "filled", "fill ",
+    "bought", "sold", "entered", "closed", "exit", "stop hit", "stopped",
+    "t1 hit", "target hit", "trail", "halt", "resumed", "probation",
+    "loss limit", "guard", "failed", "error", "unable", "reject", "cancel",
+    "reply yes", "yes/no", "approval", "awaiting", "p&l", "pnl",
+    "dman play", "policy audit", "strangle", "position",
+)
+_TELEGRAM_REPLY_DEPTH = [0]      # >0 while handling a command you sent
+_TELEGRAM_SUPPRESSED = [0]       # counted so the EOD note can mention them
 # Orphan adoption — see adopt_orphan_positions(). A position held at the
 # broker but missing from the tracker gets NO P&L recording, NO PDT
 # day-trade counting and NO exit management, so it is brought back under
@@ -2135,10 +2153,30 @@ def get_beta(ticker: str) -> float:
     return beta
 
 
+def _telegram_worth_sending(message: str) -> bool:
+    """Quiet mode: keep money/safety messages, drop commentary.
+
+    Direct replies always pass (_TELEGRAM_REPLY_DEPTH), so every /command still
+    answers. Matching is on the text because the alternative -- tagging 215
+    call sites -- is a bigger change than the problem justifies, and an
+    unmatched message is kept only if it names one of the events above.
+    """
+    if _TELEGRAM_REPLY_DEPTH[0] > 0:
+        return True
+    if not flag("ENABLE_TELEGRAM_QUIET", ENABLE_TELEGRAM_QUIET):
+        return True
+    low = (message or "").lower()
+    return any(k in low for k in _TELEGRAM_KEEP)
+
+
 def send_telegram(message: str) -> bool:
     """Send a message via Telegram Bot API. Returns True on success."""
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         return False
+    if not _telegram_worth_sending(message):
+        _TELEGRAM_SUPPRESSED[0] += 1
+        print(f"  [Telegram quiet] suppressed: {(message or '')[:70]}")
+        return True
     # Telegram hard limit is 4096 chars per message. Truncate rather than drop silently.
     if len(message) > 4000:
         message = message[:3970] + "\n… <i>[truncated]</i>"
@@ -2387,6 +2425,9 @@ TOGGLEABLE_FLAGS = {
     "accum":   ("ENABLE_ACCUMULATION_ALERTS",
                 "volume-building-before-price alerts. Observation only — never "
                 "trades."),
+    "quiet":   ("ENABLE_TELEGRAM_QUIET",
+                "send only money/safety messages (orders, fills, exits, halts, "
+                "failures, EOD P&L). OFF sends everything."),
     "strangle":("ENABLE_STRANGLE_AUTO_EXEC",
                 "place event strangles automatically. OFF sends the advisory "
                 "and leaves the order to you."),
@@ -3576,6 +3617,15 @@ def _tg_cmd_close(_arg):
 
 def _handle_telegram_command(text: str) -> None:
     """Execute one bot command and reply via Telegram."""
+    _TELEGRAM_REPLY_DEPTH[0] += 1
+    try:
+        return _handle_telegram_command_inner(text)
+    finally:
+        _TELEGRAM_REPLY_DEPTH[0] -= 1
+
+
+def _handle_telegram_command_inner(text: str) -> None:
+    """The command bodies. Wrapped above so every reply bypasses quiet mode."""
     _parts = text.split()
     _cmd   = _parts[0].lower().lstrip("/").split("@")[0]
     _arg   = _parts[1].upper().strip() if len(_parts) > 1 else ""

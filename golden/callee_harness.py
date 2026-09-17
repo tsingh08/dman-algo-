@@ -71,18 +71,29 @@ def called_names(func):
     fn = [n for n in t.body if isinstance(n, ast.FunctionDef) and n.name == func][0]
     direct = {c.func.id for c in ast.walk(fn) if isinstance(c, ast.Call)
               and isinstance(c.func, ast.Name) and c.func.id in mod and c.func.id != func}
-    # Helpers extracted FROM the target are part of it: patching them would
-    # leave the harness covering dispatch only. Run them for real and record
-    # what they call instead (found 2026-09-16: adding two /flags entries
-    # changed nothing in the golden, because the body never ran).
-    inner = {n for n in direct if n.startswith(("_tg_cmd_", "_scan_", "_main_mode_",
-                                                "_pmb_", "_mw_", "_rs_", "_ss_", "_regime_"))}
-    out = set(direct) - inner
-    for name in inner:
-        h = [n for n in t.body if isinstance(n, ast.FunctionDef) and n.name == name]
-        if h:
-            out |= {c.func.id for c in ast.walk(h[0]) if isinstance(c, ast.Call)
-                    and isinstance(c.func, ast.Name) and c.func.id in mod and c.func.id not in inner}
+
+    def _is_inner(n):
+        # Helpers extracted FROM the target (and the reply-context wrapper's
+        # inner half) are part of it: patching them would leave the harness
+        # covering dispatch only. Run them for real and record what they call.
+        return n == func + "_inner" or n.startswith(
+            ("_tg_cmd_", "_scan_", "_main_mode_", "_pmb_", "_mw_", "_rs_", "_ss_", "_regime_"))
+
+    by_name = {n.name: n for n in t.body if isinstance(n, ast.FunctionDef)}
+    out, seen, work = set(), set(), list(direct)
+    while work:                      # expand inner helpers transitively
+        name = work.pop()
+        if name in seen:
+            continue
+        seen.add(name)
+        if not _is_inner(name):
+            out.add(name)
+            continue
+        h = by_name.get(name)
+        if not h:
+            continue
+        work += [c.func.id for c in ast.walk(h) if isinstance(c, ast.Call)
+                 and isinstance(c.func, ast.Name) and c.func.id in mod]
     return sorted(out)
 
 

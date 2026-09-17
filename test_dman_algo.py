@@ -16223,7 +16223,7 @@ class TestPolicyAudit(unittest.TestCase):
 
     def test_exposed_as_a_mode_and_a_command(self):
         self.assertIn('"audit"', inspect.getsource(a.main))
-        self.assertIn("run_policy_audit", inspect.getsource(a._handle_telegram_command))
+        self.assertIn("run_policy_audit", inspect.getsource(a._handle_telegram_command_inner))
 
 
 class TestLiveOnlyCircuitBreakers(unittest.TestCase):
@@ -16494,3 +16494,45 @@ class TestStrangleAutoExecution(unittest.TestCase):
 
     def test_the_advisory_calls_it(self):
         self.assertIn("_submit_strangle(", inspect.getsource(a.generate_strangle_advisory))
+
+
+class TestTelegramQuietMode(unittest.TestCase):
+    """Direct instruction 2026-09-17: fewer messages, only the ones that matter."""
+
+    def setUp(self):
+        a._TELEGRAM_REPLY_DEPTH[0] = 0
+
+    def test_money_and_safety_messages_pass(self):
+        for m in ("🤖 <b>AUTO-EXECUTED</b> QQQ strangle",
+                  "🔴 STOP HIT — AUTO-CLOSED APLD CALL",
+                  "🛑 <b>DMan halted</b> — 3 consecutive losses today",
+                  "⚠️ Auto-close failed (QQQ...) — no order placed",
+                  "💰 <b>P&L</b> Today: +1.2%",
+                  "🎯 <b>DMan PLAY — LRHC</b> $2.65",
+                  "Reply YES TESTX to enter"):
+            self.assertTrue(a._telegram_worth_sending(m), m)
+
+    def test_commentary_is_dropped(self):
+        for m in ("🔎 Accumulation — volume building, price flat: NVDA",
+                  "📡 3 recent messages fetched",
+                  "🌅 Pre-market briefing — [2/6] Checking macro calendar...",
+                  "  Seasonal : September — weak month"):
+            self.assertFalse(a._telegram_worth_sending(m), m)
+
+    def test_a_reply_to_your_command_always_sends(self):
+        a._TELEGRAM_REPLY_DEPTH[0] = 1
+        self.assertTrue(a._telegram_worth_sending("🔎 Accumulation — nothing important"))
+
+    def test_flag_off_sends_everything(self):
+        with patch.object(a, "ENABLE_TELEGRAM_QUIET", False):
+            self.assertTrue(a._telegram_worth_sending("anything at all"))
+
+    def test_suppressed_messages_are_counted_not_sent(self):
+        before = a._TELEGRAM_SUPPRESSED[0]
+        with patch.object(a, "TELEGRAM_TOKEN", "t"), patch.object(a, "TELEGRAM_CHAT_ID", "c"), \
+             patch.object(a.requests, "post", side_effect=AssertionError("must not send")):
+            self.assertTrue(a.send_telegram("🔎 Accumulation — quiet please"))
+        self.assertEqual(a._TELEGRAM_SUPPRESSED[0], before + 1)
+
+    def test_every_command_reply_is_wrapped(self):
+        self.assertIn("_TELEGRAM_REPLY_DEPTH", inspect.getsource(a._handle_telegram_command))

@@ -66,6 +66,11 @@
     ],
     [
      "flag",
+     "('ENABLE_TELEGRAM_QUIET', True)",
+     "[]"
+    ],
+    [
+     "flag",
      "('ENABLE_STRANGLE_AUTO_EXEC', True)",
      "[]"
     ],
@@ -128,6 +133,11 @@
     [
      "flag",
      "('ENABLE_ACCUMULATION_ALERTS', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_TELEGRAM_QUIET', True)",
      "[]"
     ],
     [
@@ -244,7 +254,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
      "[]"
     ]
    ],
@@ -255,7 +265,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
      "[]"
     ]
    ],

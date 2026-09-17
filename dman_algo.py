@@ -1024,7 +1024,12 @@ TELEGRAM_STATE_FILE = "dman_telegram_state.json"  # getUpdates offset for two-wa
 HALT_FILE           = "dman_halt.json"            # exists = /halt active: no new entries (exits still run)
 PROBATION_FILE       = "dman_probation.json"      # exists = probation active — see is_on_probation()
 LIVE_SIGNALS_FILE  = "dman_live_signals.json"   # pending live signals awaiting outcome
-LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # ground-truth live trade log
+LIVE_OUTCOMES_FILE = "dman_live_outcomes.csv"    # SIGNAL-outcome log, not fills: every
+                                                 # alerted signal (filled or not), resolved
+                                                 # by daily-bar simulation at plan prices —
+                                                 # see _setup_live_record()'s docstring.
+                                                 # Real fills: win-rate tracker via
+                                                 # sync_alpaca_fills().
 SCAN_LOG_FILE      = "dman_scan_log.json"        # rolling log of each scan run
 # Raised 20 -> 120 on 2026-09-03. At the live cadence (daemon ~every 5-10
 # min plus the cron scanner) 20 entries is roughly TWO HOURS of history, so
@@ -3236,11 +3241,29 @@ def _setup_probation_bonus(setup: str) -> int:
 
 
 def _setup_live_record() -> dict:
-    """{setup: {n, wins, cum_pct}} from the ground-truth live outcomes log.
+    """{setup: {n, wins, cum_pct}} per setup from LIVE_OUTCOMES_FILE.
 
-    Reads LIVE_OUTCOMES_FILE rather than the win-rate tracker on purpose:
-    this decides whether to stop trading something, so it should rest on the
-    realised trade log, not on a derived rolling statistic.
+    NOT the realised trade log, despite what this docstring used to claim
+    (corrected 2026-09-17 review). LIVE_OUTCOMES_FILE holds the outcome of
+    every signal that was ever ALERTED — _log_live_signal() fires at alert
+    time, independent of whether an order was submitted or filled (see the
+    2026-08-08 note in the stop-coverage check) — and resolve_live_outcomes()
+    settles each one by simulating the plan against daily bars, exiting at
+    the exact planned stop/target prices. Real fills are recorded separately,
+    in the win-rate tracker by sync_alpaca_fills().
+
+    Consequences for the SETUP_KILL breaker built on this:
+      - it judges a setup's SIGNAL quality on a larger sample than was
+        actually traded, so it can restrict a bad setup before more of it
+        is traded (conservative, probably what you want here), but
+      - it can also kill a setup on signals that were never taken, and
+      - it understates real damage on the ones that were: no slippage or
+        gap-through in the simulation (FGL 2026-08-13: -20.0 simulated at
+        the plan stop vs -37.9% on the actual fills in the win-rate
+        tracker).
+    Switching this to the fill-based ledger (or blending both) is a policy
+    decision — the fill sample is much smaller — so it stays as-is until a
+    human decides; just don't quote its totals as money the account lost.
     """
     _rec: dict = {}
     try:

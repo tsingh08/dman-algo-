@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-17T09:37:27.602672-04:00",
-    "symbols": [
-      "DTSS"
-    ],
-    "headline": "Datasea Announces AI Agent Marketing Agreements With Five Customers, About $1.10M Delivered To Date; Says Pre-Orders Are Not Commitments Or Backlog",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:27.608493-04:00",
-    "symbols": [
-      "DTSS"
-    ],
-    "headline": "Datasea Intelligent Technology Stock Jumps Over 45% Overnight: Here&#39;s What We Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T09:37:27.612832-04:00",
     "symbols": [
       "DTSS"
@@ -5091,5 +5071,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T09:43:27.000534-04:00",
+    "symbols": [
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "Oracle, CoreWeave Dump on AI&#39;s $3.6 Trillion Financing Bill",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T09:45:50.683035-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "UBS Maintains Buy on DraftKings, Lowers Price Target to $48",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

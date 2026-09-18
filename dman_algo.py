@@ -3787,7 +3787,7 @@ def _render_options_chain_table(calls: list[dict], puts: list[dict], underlying_
         if not item:
             return _CALL_BLANK
         itm = "●" if item["strike"] < underlying_price else " "
-        dtag = "~" if item["delta_estimated"] else ""
+        dtag = "~" if item.get("delta_estimated") else ""
         bidask = f"{item['bid']:.2f}/{item['ask']:.2f}"
         delta = f"Δ{dtag}{item['delta']:.2f}"
         return f"{item['idx']:>2}){itm}{bidask:>10} {delta:<6}"
@@ -3796,7 +3796,7 @@ def _render_options_chain_table(calls: list[dict], puts: list[dict], underlying_
         if not item:
             return _PUT_BLANK
         itm = "●" if item["strike"] > underlying_price else " "
-        dtag = "~" if item["delta_estimated"] else ""
+        dtag = "~" if item.get("delta_estimated") else ""
         bidask = f"{item['bid']:.2f}/{item['ask']:.2f}"
         delta = f"Δ{dtag}{item['delta']:.2f}"
         return f"{delta:>6} {bidask:<10}{itm}{item['idx']:>2})"

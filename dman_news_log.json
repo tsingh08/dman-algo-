@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:36:21.541768-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Is an \u2018Awesome Company,\u2019 but Its Stock Is Priced as \u2018Greatest Company Ever,\u2019 Damodaran Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:36:21.752559-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta&#39;s Custom AI Chips Could Save It $8.5 Billion, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:36:21.868975-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta&#39;s Custom AI Chips Could Save It $8.5 Billion, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:36:22.563974-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Meta&#39;s Custom AI Chips Could Save It $8.5 Billion, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:36:24.825694-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin CFO Says Budget Delays Have Limited Impact As Most Of 2027 Revenue Already Funded, Can Slow New Program Starts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:36:24.830259-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin CFO Says Supply Chain Is Biggest Risk Factor In Production Scaling",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:36:25.896662-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Is Now on DoorDash Nationwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T11:36:26.681025-04:00",
     "symbols": [
       "GNRC"
@@ -5107,6 +5037,76 @@
       "SNDK"
     ],
     "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T12:23:21.231935-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T12:23:21.493272-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T12:23:22.005950-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T12:23:30.585175-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "&#39;Hill investigates after F-35 parts diverted to Hong Kong&#39; - Politico",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:23:33.004094-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Hill investigates after F-35 parts diverted to Hong Kong&#39; - Politico",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:26:22.903343-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "Digital Currency X Technology Stock Plunges Friday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:27:02.463182-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "NASA Awards SpaceX $946M For Three Additional Crew Missions, Bringing Total Contract Value To $5.92B Through 2030",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

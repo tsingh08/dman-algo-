@@ -1,31 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:35:24.273088-04:00",
-    "symbols": [
-      "ETN",
-      "RKLB"
-    ],
-    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T13:35:24.482724-04:00",
-    "symbols": [
-      "AMZN",
-      "BABA",
-      "DECK",
-      "DKNG",
-      "JD",
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T13:35:38.582306-04:00",
     "symbols": [
       "AAPL"
@@ -5102,5 +5076,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:51:41.991542-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Stock Rises as CFTC Proposes Crypto Regulations",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:52:42.683960-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "This $3 Biotech Could Be Worth $11.45, Analyst Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

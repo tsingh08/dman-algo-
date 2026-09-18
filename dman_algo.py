@@ -20857,22 +20857,30 @@ def run_ranking(tickers: list[str] = WATCHLIST,
 # ═══════════════════════════════════════════════════════════════════════════
 
 def _signal_health_label(entry: float, stop: float,
-                          t1: float, t2: float, px: float) -> tuple[str, str]:
-    """Return (emoji, one-line status) for a live signal given the current price."""
-    if px <= stop:
-        return "🛑", f"Below stop ${stop:.2f} — consider exiting"
-    pct = (px - entry) / entry * 100
-    if px >= t2:
+                          t1: float, t2: float, px: float,
+                          bias: str = "LONG") -> tuple[str, str]:
+    """Return (emoji, one-line status) for a live signal given the current price.
+
+    Direction-aware: a SHORT's stop sits ABOVE entry and its targets BELOW,
+    so every price comparison mirrors, and pct is quoted as signal P&L
+    (positive = winning) rather than raw price change.
+    """
+    short = str(bias).upper() == "SHORT"
+    if (px >= stop) if short else (px <= stop):
+        return "🛑", f"Past stop ${stop:.2f} — consider exiting"
+    pct = ((entry - px) if short else (px - entry)) / entry * 100
+    if (px <= t2) if short else (px >= t2):
         return "🚀🚀", f"T2 HIT! +{pct:.1f}% — take remaining profits"
-    if px >= t1:
+    if (px <= t1) if short else (px >= t1):
         return "🚀",   f"T1 hit! +{pct:.1f}% — trail stop to breakeven"
     if pct >= 3.0:
         return "⚡",   f"+{pct:.1f}% — move stop to breakeven"
     if pct >= 0:
-        return "✅",   f"+{pct:.1f}% — holding above entry"
-    if px > stop * 1.03:
+        return "✅",   f"+{pct:.1f}% — holding {'below' if short else 'above'} entry"
+    # Losing but not stopped: warn only once price is within 3% of the stop.
+    if (px >= stop / 1.03) if short else (px <= stop * 1.03):
         return "⚠️",  f"{pct:.1f}% — approaching stop"
-    return "🟡", f"{pct:.1f}% below entry"
+    return "🟡", f"{pct:.1f}% vs entry"
 
 
 def get_pending_health() -> list[dict]:
@@ -20900,10 +20908,12 @@ def get_pending_health() -> list[dict]:
             px = get_live_price(ticker)
             if not px:
                 continue
-            emoji, status = _signal_health_label(entry, stop, t1, t2, px)
+            bias = str(p.get("bias", "LONG")).upper()
+            emoji, status = _signal_health_label(entry, stop, t1, t2, px, bias)
             results.append({
                 "ticker":   ticker,
                 "setup":    p.get("setup", "Gap & Hold"),
+                "bias":     bias,
                 "entry":    entry,
                 "stop":     stop,
                 "t1":       t1,
@@ -21005,8 +21015,11 @@ def format_watchlist_telegram(health: list[dict],
         for h in health:
             age_tag = f"  <i>({h['days_old']}d old)</i>" if h['days_old'] > 1 else ""
             pct     = (h['current'] - h['entry']) / h['entry'] * 100
+            if h.get("bias") == "SHORT":
+                pct = -pct   # quote signal P&L, not raw price change
             lines.append(
-                f"\n{h['emoji']} <b>{h['ticker']}</b> — {h['setup']}"
+                f"\n{h['emoji']} <b>{h['ticker']}</b>"
+                f"{' (SHORT)' if h.get('bias') == 'SHORT' else ''} — {h['setup']}"
                 f"  score {h['score']}{age_tag}\n"
                 f"   Entry <b>${h['entry']}</b>  →  Now <b>${h['current']}</b>"
                 f"  ({pct:+.1f}%)\n"

@@ -604,6 +604,12 @@ MOMENTUM_DAY_ONLY_SETUP = "Momentum Watch Breakout (Day)"
 # spread's kind of live track record yet -- this is how it earns one
 # safely while unsupervised, not a vote of full confidence.
 MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
+# One pick, not a menu. The breakout digest used to alert every qualifying
+# play at once and auto-execute each of them, which is both impossible to act
+# on by hand and a way to end up in four correlated small caps at once. Every
+# candidate is scored on the criteria we already compute and only the best one
+# is alerted in full and traded; the rest collapse to a single line.
+MOMENTUM_MIN_PICK_SCORE = 50   # out of 90 — see _breakout_quality()
 # Event strangles place themselves. generate_strangle_advisory() only ever sent
 # a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
 # the Alpaca site -- the one part of the day that actually required a human.
@@ -9423,6 +9429,108 @@ def _mw_collect_watchlist_plays(active_plays, already):
 
 
 
+def _breakout_quality(bp: dict, levels: dict, cur: float, vwap: float,
+                      entry_px: float, stop_px: float, fl_m: float) -> tuple[int, list[str]]:
+    """Score one breakout candidate 0-100 on the criteria already measured.
+
+    Weighted toward what the live record and the 2026-09-15 entry study
+    actually support: a real pattern rather than a bare VWAP cross, a tight
+    stop, an entry NEAR the level instead of extended past it, and a gap that
+    has not already made its move (calls already up 30-100% at entry were the
+    worst bucket). Returns (score, reasons) — reasons are what earned points,
+    so the alert can say why this one and not the others. Maximum is 90: the
+    prior close is not available here, so how far the name has already gapped
+    is judged through the VWAP distance and session-high checks instead.
+    """
+    score, why = 0, []
+    try:
+        _sigs = list(bp.get("signals") or [])
+        if _sigs:
+            score += min(30, 15 * len(_sigs))
+            why.append(f"{len(_sigs)} pattern signal(s)")
+        risk_pct = ((entry_px - stop_px) / entry_px * 100) if entry_px > 0 else 99.0
+        if risk_pct <= 3:
+            score += 20; why.append(f"tight stop ({risk_pct:.1f}%)")
+        elif risk_pct <= 5:
+            score += 12; why.append(f"stop {risk_pct:.1f}%")
+        elif risk_pct <= 8:
+            score += 6
+        _vwap_dist = ((cur - vwap) / vwap * 100) if vwap > 0 else 0.0
+        if 0 <= _vwap_dist <= 2:
+            score += 15; why.append(f"just above VWAP (+{_vwap_dist:.1f}%)")
+        elif 2 < _vwap_dist <= 5:
+            score += 8
+        _hi = float(levels.get("session_high") or 0)
+        if _hi > 0 and cur > 0:
+            _to_high = (_hi - cur) / cur * 100
+            if -1 <= _to_high <= 1:
+                score += 15; why.append("coiled at session high")
+            elif 1 < _to_high <= 3:
+                score += 8; why.append(f"{_to_high:.1f}% under the high")
+            elif _to_high < -2:
+                why.append(f"extended {abs(_to_high):.1f}% past the high")
+        if fl_m and fl_m < 20:
+            score += 10; why.append(f"float {fl_m:.0f}M")
+        elif fl_m and fl_m < 50:
+            score += 5
+    except Exception as exc:
+        _log_swallowed("breakout quality", exc)
+    return max(0, min(100, score)), why
+
+
+def _mw_pick_and_execute(candidates: list[dict]) -> list[str]:
+    """Alert the single best breakout and trade only that one.
+
+    Everything else becomes one line. Acting on a five-name menu is the part
+    that does not happen when nobody is at the phone, and entering all five is
+    how a small account ends up correlated and fully committed at once.
+    """
+    if not candidates:
+        return []
+    ranked = sorted(candidates, key=lambda c: c["score"], reverse=True)
+    best, rest = ranked[0], ranked[1:]
+    _why = ", ".join(best["why"][:4]) or "best of the set"
+    lines = [f"🏆 <b>TOP PICK — {best['ticker']}</b>  ({best['score']}/90: {_why})",
+             best["msg"]]
+    if best["executable"] and best["score"] >= MOMENTUM_MIN_PICK_SCORE:
+        try:
+            _sig = _build_momentum_signal(best["offer"])
+            _submit_signals_to_alpaca([_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
+            lines.append(f"   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x size "
+                         f"— day-only, auto-closes ~{MOMENTUM_EOD_CLOSE_HOUR_ET}:"
+                         f"{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET")
+        except Exception as exc:
+            lines.append(f"   ⚠️ Auto-execute failed ({exc}) — no order placed")
+    elif best["executable"]:
+        lines.append(f"   ⏸ Scored {best['score']}, under the {MOMENTUM_MIN_PICK_SCORE} bar "
+                     f"to trade itself — alert only.")
+    else:
+        lines.append(_momentum_offer_line(best))
+    if rest:
+        lines.append("   <i>Also seen: "
+                     + ", ".join(f"{c['ticker']} {c['score']}" for c in rest[:6])
+                     + " — not taken, lower score.</i>")
+    for c in rest:
+        print(f"    breakout candidate {c['ticker']}: {c['score']}/90 "
+              f"({', '.join(c['why'][:3]) or 'no edge'}) — not taken")
+    return lines
+
+
+def _momentum_offer_line(cand: dict) -> str:
+    """Register the YES/NO offer for a candidate that may not trade itself."""
+    _pending = _load_momentum_pending()
+    if any(e["ticker"] == cand["ticker"] and e.get("status") == "awaiting_approval"
+           for e in _pending):
+        return f"   (approval already pending for {cand['ticker']})"
+    _now = datetime.now(ET)
+    _offer = dict(cand["offer"], created_at=_now.isoformat(),
+                  expires_at=(_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
+                  status="awaiting_approval")
+    _pending.append(_offer)
+    _save_momentum_pending(_pending)
+    return format_momentum_breakout_telegram(_offer)
+
+
 def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
     """Extracted verbatim from run_momentum_watch() on 2026-09-14 (refx).
     Returns (escape, value, ); escape is None or the original
@@ -9475,60 +9583,23 @@ def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
                     f"   T1: ${t1:.4f} (+30%)  T2: ${t2:.4f} (+50%){t3_str}\n"
                     f"   Curr: ${cur:.4f}  VWAP: ${vwap:.4f}"
                 )
-                # High confidence = _detect_pre_breakout() found a real
-                # technical pattern (consolidation/volume/etc.), not just
-                # "price crossed back above VWAP" -- auto-executes at
-                # reduced size with no reply needed (see
-                # MOMENTUM_AUTO_EXEC_SIZE_MULT's comment for why). The
-                # weaker pure-VWAP-reclaim case keeps the YES/NO gate.
-                # Setup probation revokes the auto-exec privilege (2026-09-10
-                # review: this path kept entering "SWING — Momentum Watch
-                # Breakout (Day)" unsupervised the session after it was
-                # restricted at 38% WR). Probation elsewhere raises the
-                # confluence bar, but _build_momentum_signal() hardcodes 100 --
-                # a human approval standing in for a score, which is exactly
-                # the trust probation suspends. While restricted the pattern
-                # match falls back to the YES/NO offer: still takeable, just
-                # not by itself. Both recorded spellings are checked.
+                # Collected, not acted on: _mw_pick_and_execute() ranks every
+                # candidate after the loop and trades only the best one.
+                # Probation still revokes the auto-exec privilege (2026-09-10
+                # review: this path kept entering a setup restricted at 38% WR
+                # unsupervised), which makes the pick an offer instead.
                 _mw_on_probation = (_setup_probation_bonus(MOMENTUM_DAY_ONLY_SETUP) > 0
                                     or _setup_probation_bonus("SWING — " + MOMENTUM_DAY_ONLY_SETUP) > 0)
                 if bp["setup"] and _mw_on_probation:
                     _breakout_msg += ("\n   🟡 Setup on probation (weak recent live record) — "
                                       "auto-execute suspended, explicit YES required")
-                if bp["setup"] and not _mw_on_probation:
-                    _mw_offer = {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                                  "t1": t1, "t2": t2, "signal_str": sig_str}
-                    try:
-                        _mw_sig = _build_momentum_signal(_mw_offer)
-                        _submit_signals_to_alpaca([_mw_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
-                        _breakout_msg += (f"\n   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x "
-                                          f"size — no reply needed (day-only, auto-closes "
-                                          f"~{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET)")
-                    except Exception as _mw_exc:
-                        _breakout_msg += f"\n   ⚠️ Auto-execute failed ({_mw_exc}) — no order placed"
-                if not bp["setup"] or _mw_on_probation:
-                    # Make it actionable, not just informational -- direct
-                    # instruction 2026-08-30. One offer per ticker at a
-                    # time: a fresh alert for a ticker that already has an
-                    # awaiting-approval offer just shows a note instead of
-                    # opening a second, redundant approval.
-                    _mw_pending = _load_momentum_pending()
-                    if any(e["ticker"] == ticker and e.get("status") == "awaiting_approval"
-                           for e in _mw_pending):
-                        _breakout_msg += f"\n   (approval already pending for {ticker})"
-                    else:
-                        _mw_now = datetime.now(ET)
-                        _mw_offer = {
-                            "ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                            "t1": t1, "t2": t2, "signal_str": sig_str,
-                            "created_at": _mw_now.isoformat(),
-                            "expires_at": (_mw_now + timedelta(minutes=MOMENTUM_APPROVAL_TIMEOUT_MIN)).isoformat(),
-                            "status": "awaiting_approval",
-                        }
-                        _mw_pending.append(_mw_offer)
-                        _save_momentum_pending(_mw_pending)
-                        _breakout_msg += "\n" + format_momentum_breakout_telegram(_mw_offer)
-                setup_alerts.append(_breakout_msg)
+                _score, _why = _breakout_quality(bp, levels, cur, vwap, entry_px, stop_px, fl_m)
+                setup_alerts.append({
+                    "ticker": ticker, "msg": _breakout_msg, "score": _score, "why": _why,
+                    "executable": bool(bp["setup"]) and not _mw_on_probation,
+                    "offer": {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
+                              "t1": t1, "t2": t2, "signal_str": sig_str},
+                })
         else:
             # In position — check fade + trailing stop levels
             gain_pct = (cur - entry) / entry * 100 if entry > 0 else 0.0
@@ -9680,10 +9751,9 @@ def run_momentum_watch() -> None:
             lines.append("")
 
     if setup_alerts:
-        lines.append(f"\n🔔 <b>BREAKOUT SETUP ({len(setup_alerts)})</b> — entry NOW before next leg\n")
-        for a in setup_alerts:
-            lines.append(a)
-            lines.append("")
+        lines.append(f"\n🔔 <b>BREAKOUT — {len(setup_alerts)} candidate(s), one pick</b>\n")
+        lines += _mw_pick_and_execute(setup_alerts)
+        lines.append("")
 
     if fade_alerts:
         lines.append(f"\n📊 <b>POSITION STATUS ({len(fade_alerts)})</b>\n")
@@ -17118,6 +17188,10 @@ def generate_strangle_advisory(event: str) -> None:
             continue
         msg = format_strangle_telegram(result, event)
         _exec_note = _submit_strangle(result, event)
+        # Printed as well as sent: on 2026-09-17 the OPEX advisory produced a
+        # QQQ strangle and placed nothing, and the reason existed only inside
+        # a Telegram message, so the run log could not say which guard stopped it.
+        print(f"  [options] strangle execution: {_exec_note}")
         send_telegram(msg + (f"\n\n{_exec_note}" if _exec_note else ""))
         print(f"  ⚡ Strangle: {ticker}  "
               f"${result['call']['strike']:.0f}C / ${result['put']['strike']:.0f}P  "

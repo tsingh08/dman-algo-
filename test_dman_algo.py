@@ -13379,7 +13379,7 @@ class TestMomentumWatchAutoExecute(unittest.TestCase):
     hours (9-5 job), and every breakout offer was expiring unactioned as a
     result (104 in one session, confirmed live, zero ever approved)."""
 
-    def _run_watch(self, breakout_setup: bool):
+    def _run_watch(self, breakout_setup: bool, strong: bool = True):
         # 2-day history with a real ~-3% opening gap so is_recovery_dip
         # (source contains "recovery") is genuinely true for the fallback
         # (non-auto-exec) case's _fire condition, not just cur > vwap alone.
@@ -13399,8 +13399,12 @@ class TestMomentumWatchAutoExecute(unittest.TestCase):
                  "session_high": 10.6,
              }), \
              patch.object(a, "_detect_pre_breakout", return_value={
-                 "setup": breakout_setup, "entry_px": 10.55, "stop_px": 9.9,
-                 "signals": ["tight coil"],
+                 # strong: two signals, tight stop, entry right at the session
+                 # high — clears MOMENTUM_MIN_PICK_SCORE, so it trades itself.
+                 "setup": breakout_setup,
+                 "entry_px": 10.05 if strong else 10.55,
+                 "stop_px": 9.85 if strong else 9.9,
+                 "signals": ["tight coil", "VWAP reclaim bounce"] if strong else ["tight coil"],
              }), \
              patch.object(a, "_build_momentum_signal") as mock_build, \
              patch.object(a, "_submit_signals_to_alpaca") as mock_submit, \
@@ -13415,6 +13419,11 @@ class TestMomentumWatchAutoExecute(unittest.TestCase):
             )
             a.run_momentum_watch()
         return mock_submit, mock_save_pending
+
+    def test_a_marginal_candidate_alerts_but_does_not_trade(self):
+        # One pick, and only when it clears the bar (2026-09-17).
+        mock_submit, _ = self._run_watch(breakout_setup=True, strong=False)
+        mock_submit.assert_not_called()
 
     def test_real_breakout_pattern_auto_executes_no_reply_needed(self):
         mock_submit, mock_save_pending = self._run_watch(breakout_setup=True)
@@ -16294,15 +16303,19 @@ class TestMomentumAutoExecRespectsProbation(unittest.TestCase):
     """Review 2026-09-10: the auto-exec path ignored setup probation, so a
     restricted setup kept entering itself unsupervised."""
 
-    def test_probation_suspends_auto_exec_and_asks_instead(self):
+    def test_a_restricted_setup_is_not_executable(self):
+        # Since 2026-09-17 the loop only collects candidates; _mw_pick_and_execute()
+        # trades the best one. Probation marks a candidate non-executable, so it
+        # reaches the digest as an offer instead of an order.
         src = inspect.getsource(a._mw_process_play)
         self.assertIn("_mw_on_probation", src)
-        i = src.index("_submit_signals_to_alpaca")
-        self.assertIn("not _mw_on_probation", src[:i])
+        self.assertNotIn("_submit_signals_to_alpaca", src)
+        self.assertIn('"executable": bool(bp["setup"]) and not _mw_on_probation', src)
 
-    def test_auto_exec_still_runs_when_not_restricted(self):
-        src = inspect.getsource(a._mw_process_play)
-        self.assertIn('if bp["setup"] and not _mw_on_probation:', src)
+    def test_the_picker_only_trades_executable_candidates(self):
+        src = inspect.getsource(a._mw_pick_and_execute)
+        i = src.index("_submit_signals_to_alpaca")
+        self.assertIn('best["executable"]', src[:i])
 
 
 class TestDriftRestrictionsEnforcedEveryScan(unittest.TestCase):
@@ -16536,3 +16549,60 @@ class TestTelegramQuietMode(unittest.TestCase):
 
     def test_every_command_reply_is_wrapped(self):
         self.assertIn("_TELEGRAM_REPLY_DEPTH", inspect.getsource(a._handle_telegram_command))
+
+
+class TestBreakoutTopPick(unittest.TestCase):
+    """Direct instruction 2026-09-17: a menu of candidates is impossible to act
+    on. Rank them, alert one, trade one."""
+
+    def _cand(self, ticker, score, executable=True):
+        return {"ticker": ticker, "msg": f"{ticker} msg", "score": score, "why": ["x"],
+                "executable": executable,
+                "offer": {"ticker": ticker, "entry_px": 10.0, "stop_px": 9.5,
+                          "t1": 13.0, "t2": 15.0, "signal_str": "coil"}}
+
+    def test_only_the_best_is_traded_and_the_rest_are_one_line(self):
+        with patch.object(a, "_build_momentum_signal", return_value="SIG"), \
+             patch.object(a, "_submit_signals_to_alpaca") as sub:
+            out = "\n".join(a._mw_pick_and_execute(
+                [self._cand("AAA", 40), self._cand("BBB", 80), self._cand("CCC", 60)]))
+        sub.assert_called_once()
+        self.assertEqual(sub.call_args[0][0], ["SIG"])
+        self.assertIn("TOP PICK — BBB", out)
+        self.assertIn("Also seen:", out)
+        self.assertIn("CCC 60", out)
+        self.assertNotIn("CCC msg", out)
+
+    def test_a_low_score_winner_is_alerted_not_traded(self):
+        with patch.object(a, "_submit_signals_to_alpaca") as sub:
+            out = "\n".join(a._mw_pick_and_execute([self._cand("AAA", 20)]))
+        sub.assert_not_called()
+        self.assertIn("under the", out)
+
+    def test_a_non_executable_pick_becomes_an_offer(self):
+        with patch.object(a, "_submit_signals_to_alpaca") as sub, \
+             patch.object(a, "_load_momentum_pending", return_value=[]), \
+             patch.object(a, "_save_momentum_pending") as save, \
+             patch.object(a, "format_momentum_breakout_telegram", return_value="OFFER"):
+            out = "\n".join(a._mw_pick_and_execute([self._cand("AAA", 80, executable=False)]))
+        sub.assert_not_called()
+        save.assert_called_once()
+        self.assertIn("OFFER", out)
+
+    def test_quality_rewards_a_tight_coil_at_the_high(self):
+        strong, why = a._breakout_quality(
+            {"signals": ["tight coil", "VWAP reclaim bounce"]},
+            {"session_high": 10.1}, 10.0, 9.95, 10.05, 9.85, 12.0)
+        weak, _ = a._breakout_quality(
+            {"signals": []}, {"session_high": 9.0}, 10.0, 9.0, 10.5, 9.0, 300.0)
+        self.assertGreater(strong, weak)
+        self.assertGreaterEqual(strong, a.MOMENTUM_MIN_PICK_SCORE)
+        self.assertTrue(why)
+
+    def test_extension_past_the_high_is_called_out(self):
+        _, why = a._breakout_quality({"signals": ["coil"]}, {"session_high": 9.0},
+                                     10.0, 9.5, 10.0, 9.7, 15.0)
+        self.assertTrue(any("extended" in w for w in why), why)
+
+    def test_empty_candidate_list_is_quiet(self):
+        self.assertEqual(a._mw_pick_and_execute([]), [])

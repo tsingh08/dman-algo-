@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:46:35.771534-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:46:37.646135-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T11:46:37.830371-04:00",
     "symbols": [
       "SKHY"
@@ -5107,6 +5087,26 @@
       "TLN"
     ],
     "headline": "Morgan Stanley Maintains Overweight on Talen Energy, Raises Price Target to $514",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:40:12.113491-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Schmid Says U.S. Treasury&#39;s Buybacks Don&#39;t Make Fed&#39;s Job Harder Or Easier; Powell&#39;s Style Is Different From Warsh, Relative To Running Meetings, To The Board, To The Hill; We Are In A Fairly Normalized Place; Economy Strong, Growing",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:42:57.137454-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Why Is MARA Stock Surging on Friday?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:03:15.135304-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:03:15.257938-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T11:03:15.436806-04:00",
     "symbols": [
       "AMZN"
@@ -5098,5 +5078,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T11:42:47.075604-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "On Holding Stock Edges Higher Following Kylian Mbapp\u00e9 Partnership",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T11:45:17.529072-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Strategy Stock In The Last 10 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

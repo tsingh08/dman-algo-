@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:36:26.681025-04:00",
-    "symbols": [
-      "GNRC"
-    ],
-    "headline": "Watching Generac; Hearing Zacks Counterstrike Newsletter Mentions Stock As A Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:46:16.439112-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "EXCLUSIVE: Trump-Xi Talks Put SK Hynix\u2019s China Footprint in Focus. What It Means for Korea ETFs",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T11:46:35.771534-04:00",
     "symbols": [
       "NVDA"
@@ -5110,5 +5090,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T12:28:41.999100-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Major U.S. Airlines Oppose Air China Bid To Fly Additional Flights To United States",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:28:48.747979-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Talen Energy, Raises Price Target to $514",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

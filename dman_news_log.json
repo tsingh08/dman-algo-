@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T09:54:45.296417-04:00",
-    "symbols": [
-      "TLSA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T09:54:45.302206-04:00",
     "symbols": [
       "TLSA"
@@ -5094,5 +5084,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:23:55.296274-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "Digital Currency X Technology shares are trading lower after the company announced pricing of $5 million registered direct offering.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

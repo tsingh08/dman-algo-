@@ -16568,10 +16568,10 @@ class TestBreakoutTopPick(unittest.TestCase):
                 [self._cand("AAA", 40), self._cand("BBB", 80), self._cand("CCC", 60)]))
         sub.assert_called_once()
         self.assertEqual(sub.call_args[0][0], ["SIG"])
-        self.assertIn("TOP PICK — BBB", out)
-        self.assertIn("Also seen:", out)
-        self.assertIn("CCC 60", out)
-        self.assertNotIn("CCC msg", out)
+        self.assertIn("#1 BBB", out)          # ranked, best first
+        self.assertIn("THE PICK", out)
+        self.assertIn("#2 CCC", out)          # runners-up are explained, not traded
+        self.assertIn("#3 AAA", out)
 
     def test_a_low_score_winner_is_alerted_not_traded(self):
         with patch.object(a, "_submit_signals_to_alpaca") as sub:
@@ -16668,3 +16668,48 @@ class TestStrangleMoveMath(unittest.TestCase):
     def test_missing_data_returns_none(self):
         with patch.object(a, "fetch_df", return_value=None):
             self.assertIsNone(a._expected_move_pct("QQQ", 7))
+
+
+class TestBreakoutRankedTopThree(unittest.TestCase):
+    """Direct instruction 2026-09-17: rank them, and explain the reasoning on
+    each rather than only naming a winner."""
+
+    def _cand(self, ticker, score, why, executable=True):
+        return {"ticker": ticker, "msg": f"{ticker} detail", "score": score, "why": why,
+                "executable": executable,
+                "offer": {"ticker": ticker, "entry_px": 10.0, "stop_px": 9.8, "t1": 13.0,
+                          "t2": 15.0, "signal_str": "tight coil + VWAP reclaim"}}
+
+    def _run(self, cands):
+        with patch.object(a, "_build_momentum_signal", return_value="SIG"), \
+             patch.object(a, "_submit_signals_to_alpaca") as sub:
+            return "\n".join(a._mw_pick_and_execute(cands)), sub
+
+    def test_three_are_explained_and_only_one_is_traded(self):
+        out, sub = self._run([
+            self._cand("AAA", 80, ["2 pattern signal(s)", "tight stop (2.0%)", "coiled at session high"]),
+            self._cand("BBB", 60, ["1 pattern signal(s)", "stop 4.0%"]),
+            self._cand("CCC", 55, ["1 pattern signal(s)", "float 9M"]),
+            self._cand("DDD", 20, ["1 pattern signal(s)"])])
+        sub.assert_called_once()
+        self.assertIn("#1 AAA", out)
+        self.assertIn("#2 BBB", out)
+        self.assertIn("#3 CCC", out)
+        self.assertIn("Why not #1", out)
+        self.assertIn("Also seen: DDD 20", out)
+        self.assertNotIn("DDD detail", out)
+
+    def test_thesis_explains_risk_reward_and_location(self):
+        lines = a._breakout_thesis(self._cand(
+            "AAA", 80, ["2 pattern signal(s)", "tight stop (2.0%)", "coiled at session high",
+                        "just above VWAP (+0.5%)", "float 12M"]))
+        joined = " ".join(lines)
+        self.assertIn("Setup:", joined)
+        self.assertIn("Location:", joined)
+        self.assertIn("Risk:", joined)
+        self.assertIn("Fuel:", joined)
+        self.assertIn("The trade:", joined)
+
+    def test_an_extended_candidate_is_called_out_as_caution(self):
+        lines = a._breakout_thesis(self._cand("BBB", 15, ["extended 14.3% past the high"]))
+        self.assertTrue(any("Caution" in l for l in lines), lines)

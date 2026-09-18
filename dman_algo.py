@@ -610,6 +610,7 @@ MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
 # candidate is scored on the criteria we already compute and only the best one
 # is alerted in full and traded; the rest collapse to a single line.
 MOMENTUM_MIN_PICK_SCORE = 50   # out of 90 — see _breakout_quality()
+MOMENTUM_RANKED_SHOWN   = 3    # #1 traded, #2 and #3 shown with their reasoning
 # Event strangles place themselves. generate_strangle_advisory() only ever sent
 # a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
 # the Alpaca site -- the one part of the day that actually required a human.
@@ -9487,6 +9488,41 @@ def _breakout_quality(bp: dict, levels: dict, cur: float, vwap: float,
     return max(0, min(100, score)), why
 
 
+def _breakout_thesis(c: dict) -> list[str]:
+    """Why this one can move, in the terms the score was actually built from.
+
+    Every line is a measured fact and its consequence, so a ranking can be read
+    in a few seconds rather than re-derived: what the pattern is, where the
+    entry sits against the level, what the stop costs, and what has to happen
+    for the trade to work. Lines are ordered by how much they decided the rank.
+    """
+    out, o = [], c.get("offer", {})
+    _entry, _stop = float(o.get("entry_px") or 0), float(o.get("stop_px") or 0)
+    _risk = ((_entry - _stop) / _entry * 100) if _entry > 0 else 0.0
+    _t1 = float(o.get("t1") or 0)
+    for w in c.get("why", []):
+        if "pattern signal" in w:
+            out.append(f"• Setup: {o.get('signal_str') or w} — a measured pattern, not a bare VWAP cross")
+        elif "coiled at session high" in w:
+            out.append("• Location: coiled right at the session high — the move starts here, "
+                       "so the stop sits under the base rather than under a run")
+        elif "under the high" in w:
+            out.append(f"• Location: {w}, still below the level it has to clear")
+        elif "extended" in w:
+            out.append(f"• Caution: {w} — entering after the move is the losing half of the record")
+        elif "tight stop" in w or w.startswith("stop "):
+            out.append(f"• Risk: {w} — a {_risk:.1f}% stop against a +30% first target is "
+                       f"about {30 / max(_risk, 0.1):.0f}:1 if it works")
+        elif "above VWAP" in w:
+            out.append(f"• Trend: {w} — buyers in control intraday without paying up for it")
+        elif w.startswith("float "):
+            out.append(f"• Fuel: {w} — thin float is what turns steady buying into a gap")
+    if _entry and _t1:
+        out.append(f"• The trade: ${_entry:.4f} → ${_t1:.4f} (+30%), out by "
+                   f"{MOMENTUM_EOD_CLOSE_HOUR_ET}:{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET the same day")
+    return out
+
+
 def _mw_pick_and_execute(candidates: list[dict]) -> list[str]:
     """Alert the single best breakout and trade only that one.
 
@@ -9497,10 +9533,10 @@ def _mw_pick_and_execute(candidates: list[dict]) -> list[str]:
     if not candidates:
         return []
     ranked = sorted(candidates, key=lambda c: c["score"], reverse=True)
-    best, rest = ranked[0], ranked[1:]
-    _why = ", ".join(best["why"][:4]) or "best of the set"
-    lines = [f"🏆 <b>TOP PICK — {best['ticker']}</b>  ({best['score']}/90: {_why})",
-             best["msg"]]
+    best = ranked[0]
+    shown, rest = ranked[:MOMENTUM_RANKED_SHOWN], ranked[MOMENTUM_RANKED_SHOWN:]
+    lines = [f"🏆 <b>#1 {best['ticker']}</b> — {best['score']}/90  <b>THE PICK</b>", best["msg"]]
+    lines += _breakout_thesis(best)
     if best["executable"] and best["score"] >= MOMENTUM_MIN_PICK_SCORE:
         try:
             _sig = _build_momentum_signal(best["offer"])
@@ -9515,11 +9551,17 @@ def _mw_pick_and_execute(candidates: list[dict]) -> list[str]:
                      f"to trade itself — alert only.")
     else:
         lines.append(_momentum_offer_line(best))
+    for _n, c in enumerate(shown[1:], start=2):
+        lines.append(f"\n<b>#{_n} {c['ticker']}</b> — {c['score']}/90 (not taken)")
+        lines += _breakout_thesis(c)
+        _gap = best["score"] - c["score"]
+        lines.append(f"• Why not #1: {_gap} points behind {best['ticker']}"
+                     + (f" on {best['why'][0]}" if best.get("why") else ""))
     if rest:
-        lines.append("   <i>Also seen: "
+        lines.append("\n<i>Also seen: "
                      + ", ".join(f"{c['ticker']} {c['score']}" for c in rest[:6])
-                     + " — not taken, lower score.</i>")
-    for c in rest:
+                     + " — further down the same scale.</i>")
+    for c in ranked[1:]:
         print(f"    breakout candidate {c['ticker']}: {c['score']}/90 "
               f"({', '.join(c['why'][:3]) or 'no edge'}) — not taken")
     return lines

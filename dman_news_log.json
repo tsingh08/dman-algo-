@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:52:29.948043-04:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "Piper Sandler Maintains Underweight on Fluence Energy, Lowers Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:52:30.152622-04:00",
     "symbols": [
       "PSIX"
@@ -5103,5 +5093,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T15:34:30.514040-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Appeals Court Rejects Trump Administration Policy On Rapid Third-Country Deportations",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

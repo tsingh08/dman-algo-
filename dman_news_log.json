@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:07:59.828212-04:00",
-    "symbols": [
-      "MNOV"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:08:00.378090-04:00",
-    "symbols": [
-      "CYPH"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:08:00.491069-04:00",
-    "symbols": [
-      "AEMD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:08:00.984597-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "11 Financials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:11:29.270441-04:00",
     "symbols": [
       "SPY"
@@ -5113,5 +5073,61 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:35:13.839168-04:00",
+    "symbols": [
+      "AAPL",
+      "MRVL",
+      "MSTR",
+      "MU",
+      "NBIS",
+      "ORCL",
+      "RIOT"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:35:13.886680-04:00",
+    "symbols": [
+      "CRWD",
+      "DDOG",
+      "FTNT",
+      "NET",
+      "PANW"
+    ],
+    "headline": "Shares of cybersecurity-related companies are trading lower. Reports suggesting that hackers used Anthropic&#39;s Claude assistant to access the internal code of OpenAI&#39;s ChatGPT may highlight to investors the challenges facing legacy security software makers amid AI&#39;s growth.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:35:14.121579-04:00",
+    "symbols": [
+      "COIN",
+      "GS",
+      "HOOD",
+      "JPM",
+      "MA"
+    ],
+    "headline": "10 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:35:14.641406-04:00",
+    "symbols": [
+      "HIMS",
+      "MRNA",
+      "UNH"
+    ],
+    "headline": "9 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:52:30.152622-04:00",
-    "symbols": [
-      "PSIX"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:52:30.289351-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Triple Witching, Falling Oil, and Fed Hopium Drive Up Stocks, But Downside Risks Remain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T13:52:30.444357-04:00",
     "symbols": [
       "VGK"
@@ -5103,5 +5083,27 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T15:44:16.263023-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Red Cat, Ondas Miss the Cut in Pentagon&#39;s Latest Drone Dominance Round (CORRECTED)",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T15:45:08.997379-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory- and storage-related chip companies are trading higher, possibly amid reports suggesting SK Hynix&#39;s subsidiary is considering building a NAND flash memory chip factory in the U.S. Also, reports suggest ChangXin \u200bMemory Technologies plans to establish a research-and-development production line for NAND flash memory.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -26,5 +26,33 @@
    "posted_et": "09/17 15:07",
    "plan": "+15% target / -20% stop, same-day exit"
   }
+ },
+ {
+  "ts": "2026-09-18T10:42:34.095367-04:00",
+  "kind": "dman_play",
+  "ticker": "MGN",
+  "verdict": "skip",
+  "confidence": 78,
+  "reason": "Vague catalyst ('about to break out'), no technical specificity. Entry near resistance at $4 lacks clear structure or support level.",
+  "facts": {
+   "price": 3.73,
+   "post": "$MGN almost $4 now about to break out here  $AKAN $IMCC \u2705",
+   "posted_et": "09/18 10:12",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
+ },
+ {
+  "ts": "2026-09-18T10:42:35.231774-04:00",
+  "kind": "dman_play",
+  "ticker": "NEXR",
+  "verdict": "skip",
+  "confidence": 78,
+  "reason": "Vague catalyst ('I say $3-$5'). No news, catalyst, or technical event dated. Unsupported price target lacks credibility.",
+  "facts": {
+   "price": 1.625,
+   "post": "$NEXR I say $3-$5 range",
+   "posted_et": "09/18 08:33",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
  }
 ]

@@ -1,102 +1,5 @@
 [
   {
-    "ts": "2026-09-17T09:37:28.932447-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "CID HoldCo Stock Climbs Over 72% After Hours: Here&#39;s What You Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:29.006539-04:00",
-    "symbols": [
-      "GLOO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:29.011427-04:00",
-    "symbols": [
-      "GLOO"
-    ],
-    "headline": "Why Generac Shares Are Trading Higher By Around 35%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:29.016411-04:00",
-    "symbols": [
-      "GLOO"
-    ],
-    "headline": "Gloo Holdings (GLOO) Stock Is Trending Overnight\u2014Here&#39;s Why It Jumped Over 14% After Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:29.020985-04:00",
-    "symbols": [
-      "GLOO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:40:38.601226-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;U.S. To Invest Hundreds Of Millions Of Dollars In Niger&#39;s Uranium Mining Sector, Years After Troops Were Expelled; U.S. Officials Lobbied To Prevent Uranium, A Critical Mineral, From Falling Into Rival Hands, Sources Say&#39; - Reuters News",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:41:27.301919-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix, Intel Mull Memory Chip Making Deal in Ohio as US Pushes Semiconductor Production: Report (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T09:46:49.872512-04:00",
-    "symbols": [
-      "DIA",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA",
-      "ORCL",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:47:24.031586-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Crypto Bull Market Doesn&#39;t Depend on CLARITY Act, Bitwise Exec Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T09:47:40.667096-04:00",
     "symbols": [
       "MSFT"
@@ -5094,6 +4997,97 @@
     ],
     "headline": "Viant Technology And Stockholder Determine Not To Proceed With Previously Announced Underwritten Public Offering Of 8.5M Shares To Be Sold In Secondary Offering",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T09:56:59.576207-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Pritzker presses Congress on AI&#39; - Politico",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T09:59:45.049474-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "CFTC Makes It Easier to Put Prediction Markets in More Apps",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:00:07.537831-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:00:08.010117-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:00:08.575508-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:00:11.775769-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "CFTC Makes It Easier to Put Prediction Markets in More Apps",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:00:14.847873-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "CFTC Makes It Easier to Put Prediction Markets in More Apps",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:00:21.545058-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:01:57.583414-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "Digital Currency X Technology Announces $5M Registered Direct Offering Of 23,809,530 Shares With Series A And B Warrants At $0.21 Combined Price",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

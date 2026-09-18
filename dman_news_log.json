@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-17T14:12:27.910640-04:00",
-    "symbols": [
-      "LSTA"
-    ],
-    "headline": "Nano Cap Lisata Therapeutics Bolsters Cardioendocrine Pipeline Strategy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T14:12:31.638250-04:00",
-    "symbols": [
-      "TLSA"
-    ],
-    "headline": "Why Is Tiziana Life Sciences Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T14:13:36.118667-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Connect Expands Into A Set Of Agentic AI Solutions; Amazon Connect Talent, One Of Four Agentic AI Solutions For Hiring, Supply Chains, Customer Service, And Health Care, Is Now Generally Available; Originally Published April 28, 2026",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T14:14:48.108081-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Delta Electronics Partners with NVIDIA To Accelerate AI Factory Deployment Based On NVIDIA DSX",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T14:18:31.274629-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump, Sheinbaum talk as US, Mexico close in on a trade agreement&#39; - Politico",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T14:20:48.878252-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Stock Trends Higher: What&#39;s Going On Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T14:25:52.697897-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Has a Sept. 22 Catalyst. Here&#39;s What Investors Are Really Watching",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T14:27:00.181094-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Alphabet, Raises Price Target to $450",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T14:33:37.935861-04:00",
     "symbols": [
       "GOOGL"
@@ -5107,6 +5027,100 @@
     ],
     "headline": "NScale Announces IPO Of Ordinary Shares; To On NYSE Under Symbol &#39;NSCL&#39;; Goldman Sachs, J.P. Morgan, Morgan Stanley Lead Bookrunners; Says For The 6-Months Ended June 30, 2026 And 2025, We Generated Revenues Of $140.6M And $10.4M, Respectively; Says Do Not Anticipate Paying Any Cash Dividends On Our Ordinary Shares In The Foreseeable Future; As Of August 31, About $2.6B Of Active, $103.4B Of Active And Contracted TCV Under Long-Term Take-Or-Pay Contracts With Customers",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T16:07:11.487262-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia&#39;s AI Token Trade Has a Catch: &#39;Attention Correlates. Returns Don&#39;t&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T16:09:54.193877-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "&#39;Anthropic Moves Ahead With I.P.O. Plans Amid A.I. Safety Debate&#39; - Wall Street Journal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T16:11:24.892636-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Anthropic and Accenture partner on embedded AI safety evaluation; Co And Accenture To Invest $1B Each In AI Evaluation Capacity Over 5-Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T16:11:49.909365-04:00",
+    "symbols": [
+      "AMZN",
+      "COIN",
+      "CRWD",
+      "FTNT",
+      "GS",
+      "HOOD",
+      "MSTR",
+      "NVDA",
+      "PANW"
+    ],
+    "headline": "Fed Raises Rates, Yields Hit 2007 Highs as Fuel Costs Set Records: This Week On Wall Street",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T16:12:53.853067-04:00",
+    "symbols": [
+      "AAPL",
+      "JPM",
+      "NVO"
+    ],
+    "headline": "Congressman Ditches Magnificent Seven Stocks for Consumer Staples: Here&#39;s What He Bought",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T16:32:08.281117-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Diesel Squeeze Nobody Hedged: 4 Refiners Just Logged Their 6th Straight Week of Gains",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T16:53:21.231111-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "&#39;Oracle\u2019s $18B Data Centre Debt Under Strain Amid Local Pushback&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T16:57:49.226056-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Trex Bio Files For Initial Public Offering; Applies To List Common Stock On Nasdaq Under Symbol &#39;TRXB&#39;; Eli Lilly Indicates Interest In Purchasing Up To 19.9% Of Trex Bio Common Stock; Says J.P. Morgan, Evercore ISI, Cantor, Stifel, Wedbush PacGrow Are Underwriters To IPO",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

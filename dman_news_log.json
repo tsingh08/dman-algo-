@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:03:15.436806-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:03:15.703612-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "NVIDIA Boss Slams AI Doom Mongers, Stock Bounces",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:03:24.981355-04:00",
-    "symbols": [
-      "RTB"
-    ],
-    "headline": "Roundtable Announces 10-Yr, $1 Billion Agreement With Paradium.AI To Migrate, Operate And Monetize Media Portfolio On Roundtable\u2019s AI/DeFi-Powered MediaOS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T11:09:04.681088-04:00",
     "symbols": [
       "AMZN"
@@ -5097,6 +5067,36 @@
     "headline": "Here\u2019s How Much You Would Have Made Owning Strategy Stock In The Last 10 Years",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:50:36.929574-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Red Cat, Ondas Miss the Cut in Pentagon&#39;s Latest Drone Dominance Round",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:51:03.246771-04:00",
+    "symbols": [
+      "GEMI"
+    ],
+    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:52:14.185474-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Schmid Says I Agree With Chairman Warsh&#39;s Framework On Why Bond Yields Have Gone Up - Economic Growth, Demand For Capital From AI Investment, Geopolitical Challenges",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

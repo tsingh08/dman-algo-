@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:35:43.214313-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:35:43.329570-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-17T13:35:43.452481-04:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:35:43.597710-04:00",
     "symbols": [
       "IONQ"
@@ -5093,6 +5063,36 @@
       "HSDT"
     ],
     "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:58:30.211362-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Announces FDA Approval Of Inluriyo In Combination With Verzenio For Treatment Of Adults With ER+, HER2\u2013, ESR1-Mutated Locally Advanced Or Metastatic Breast Cancer",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:58:54.568967-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "B of A Securities Maintains Neutral on CrowdStrike Holdings, Raises Price Target to $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:59:02.650809-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Punchbowl Defense Reporter Briana Reilly Posts On X &#34;Breaking: Iran military operations have cost $43.6B as of Sept. 3, according to a new estimate Central Command provided to congressional defense committees this week. That includes: ~11.2B for ops; ~$28.1B to replace expended munitions; ~$4.3B for replacing lost equipment&#34;",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

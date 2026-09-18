@@ -2872,6 +2872,24 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
     return None  # still open
 
 
+def _logged_outcome_keys() -> set[tuple[str, str]]:
+    """(ticker, entry_date) pairs already written to dman_live_outcomes.csv.
+
+    Fail-open: any read/parse problem returns an empty set, so callers that
+    use this to skip or drop already-resolved entries treat everything as
+    not-yet-logged — the same worst case as before this helper existed
+    (a duplicate slips through once), never a lost signal."""
+    keys: set[tuple[str, str]] = set()
+    if os.path.exists(LIVE_OUTCOMES_FILE):
+        try:
+            with open(LIVE_OUTCOMES_FILE) as f:
+                for row in csv.DictReader(f):
+                    keys.add((row.get("ticker", ""), row.get("entry_date", "")))
+        except Exception:
+            pass
+    return keys
+
+
 def resolve_live_outcomes(verbose: bool = True) -> int:
     """
     Check all pending live signals and resolve completed ones to the CSV log.
@@ -2889,10 +2907,11 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
     across every process/cycle (daemon scan_loop, hourly cron, guard_loop
     sync) appended ANOTHER row for the same trade. Confirmed live: one real
     LGHL trade (entered 2026-07-27) ended up logged 33 times in
-    dman_live_outcomes.csv. The union-merge behavior on the pending list
-    stays as-is (still the right call — never lose a real signal); this
-    just makes the CSV write itself idempotent so a resurrection is a no-op
-    instead of a duplicate.
+    dman_live_outcomes.csv. This makes the CSV write itself idempotent so a
+    resurrection is a no-op instead of a duplicate; since 2026-09-18
+    sync_live_signals_with_remote() also filters CSV-logged entries out of
+    its merge result (see its docstring), so resurrections should stop
+    reaching the committed pending list at all.
     """
     if not os.path.exists(LIVE_SIGNALS_FILE):
         if verbose:
@@ -2910,14 +2929,7 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
     still_open: list[dict] = []
     resolved_count = 0
 
-    already_logged: set[tuple[str, str]] = set()
-    if os.path.exists(LIVE_OUTCOMES_FILE):
-        try:
-            with open(LIVE_OUTCOMES_FILE) as f:
-                for row in csv.DictReader(f):
-                    already_logged.add((row.get("ticker", ""), row.get("entry_date", "")))
-        except Exception:
-            pass   # fail-open on a malformed CSV — worst case, a duplicate slips through once
+    already_logged = _logged_outcome_keys()
 
     # Write CSV header if file doesn't exist
     write_header = not os.path.exists(LIVE_OUTCOMES_FILE)
@@ -16233,17 +16245,34 @@ def sync_live_signals_with_remote() -> None:
     dman_live_signals.json — "pending" list nested in a dict. Unlike
     scan_log/win_rate this list also has entries REMOVED (once resolved),
     not just appended, so a blind union could resurrect an already-
-    resolved signal. Accepted deliberately, same reasoning as
-    merge_positions_snapshots(): resolve_live_outcomes() re-evaluates
-    every pending entry against real price data on the next run regardless
-    of how it got there, so a resurrected-then-immediately-re-resolved
-    entry self-heals within one cycle — silently losing a signal that
-    should still be tracked is the worse failure mode to guard against.
+    resolved signal. The union itself stays deliberate, same reasoning as
+    merge_positions_snapshots(): silently losing a signal that should
+    still be tracked is the worse failure mode to guard against.
+
+    But rebuild() now drops any merged entry whose (ticker, date) is
+    already logged in dman_live_outcomes.csv. Without this the committed
+    pending list could never shrink: resolve_live_outcomes() drops a
+    resolved entry from the LOCAL copy, then this sync (which runs before
+    the persist-step commit) union-merged origin/main's copy straight back
+    in, so the resurrected entry was what got committed — every cycle,
+    forever. Confirmed live 2026-09-18: 8 of 9 committed pending entries
+    (ROIV/IONQ/SIG/NAVN/AEO/MSTX/BDRX from 09-08..09-11) had been resolved
+    to the CSV days earlier and kept resurrecting. Filtering against the
+    CSV keeps the never-lose-a-real-signal property — only entries with a
+    ground-truth logged outcome are dropped, exactly the ones
+    resolve_live_outcomes() itself discards on sight — while letting the
+    committed state converge. Fail-open: an unreadable CSV yields an empty
+    key set and the old pure-union behavior.
     """
+    def _rebuild(merged, _le, _re):
+        logged = _logged_outcome_keys()
+        return {"pending": [p for p in merged
+                            if (p.get("ticker", ""), p.get("date", "")) not in logged]}
+
     _sync_json_file_via_merge(
         LIVE_SIGNALS_FILE,
         extract=lambda d: (d.get("pending", []), None),
-        rebuild=lambda merged, _le, _re: {"pending": merged},
+        rebuild=_rebuild,
         label="dman_live_signals.json",
     )
 

@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-17T09:47:40.667096-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T09:47:40.898894-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T09:47:41.149776-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T09:47:41.257100-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T09:47:45.838166-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T09:47:45.936304-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-17T09:47:46.037350-04:00",
     "symbols": [
       "QQQ"
@@ -5090,5 +5030,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:02:06.020383-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:04:31.798858-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "QUICK SPARK: $30B Flows Into ETFs, IVV Leads With $6.5B Inflows",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:05:53.999385-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "What&#39;s Going On With Applied Materials Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:06:00.068598-04:00",
+    "symbols": [
+      "MG"
+    ],
+    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:06:04.018076-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Leading Index (MoM) For August -0.1% Vs 0.1% Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:06:50.084865-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Watching Robinhood Markets; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

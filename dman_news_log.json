@@ -1,98 +1,5 @@
 [
   {
-    "ts": "2026-09-17T10:00:23.855148-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Pending Home Sales Index For August 71.2 Vs 71.0 Prior",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T10:00:29.609483-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "SpaceX Is Worth $2 Trillion. Why Does Its Stock Swing Like a Small-Cap?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:00:30.521107-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Pending Home Sales (MoM) For August Revises Prior From -2.3% To -2.6%",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T10:00:33.184922-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "SpaceX Is Worth $2 Trillion. Why Does Its Stock Swing Like a Small-Cap?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T10:01:40.990331-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "AI Could Threaten Nuclear Command Systems, Warn US-China Experts\u2014 Urge Human Control and Emergency Hotline",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:05:01.503883-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Stock Moves Higher: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:05:05.354222-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Is Worth $2 Trillion. Why Does Its Stock Swing Like a Small-Cap?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:06:29.823338-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "ORCL"
-    ],
-    "headline": "&#39;OpenAI Is Close To Solving Another Millennium Prize Math Problem&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:08:00.791539-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "China Foreign Minister Wang Yi Says China, U.S. Should Prepare For Next Stage Of High-Level Exchanges In Call With Rubio",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T10:08:20.557929-04:00",
     "symbols": [
       "SPY"
@@ -5092,5 +4999,98 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:39:47.590098-04:00",
+    "symbols": [
+      "AMD",
+      "MRVL",
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:40:31.588538-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:40:34.635269-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:40:34.927879-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:40:35.708333-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:40:54.372605-04:00",
+    "symbols": [
+      "BHYP"
+    ],
+    "headline": "Why Is Hyperliquid Stock Surging On Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:40:54.626833-04:00",
+    "symbols": [
+      "HELP"
+    ],
+    "headline": "Why Alaunos Therapeutics Shares Are Trading Higher By Around 22%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:40:54.865012-04:00",
+    "symbols": [
+      "FWDI"
+    ],
+    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:40:54.870656-04:00",
+    "symbols": [
+      "FWDI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

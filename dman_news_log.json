@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:35:45.655871-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Rallies as Oil Slides, Yields Retreat: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:35:46.694642-04:00",
     "symbols": [
       "NBIS"
@@ -5096,5 +5086,18 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T14:35:45.306538-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "headline": "S&amp;P Growth Is a Feature, Not a Bug, Goldman Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

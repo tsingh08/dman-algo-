@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:52:24.155861-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Goldman Slashes Tesla Q3 Delivery Forecast to 435,000: What Do Prediction Markets Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T13:52:25.019029-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:52:27.879904-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Lyntris Selected By Intuitive Machines To Provide Advanced Tri-Band Antenna Systems For Global Deep-Space Network",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T13:52:29.648450-04:00",
-    "symbols": [
-      "GNRC"
-    ],
-    "headline": "Nasdaq 100 Rallies as Oil Slides, Yields Retreat: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:52:29.653072-04:00",
-    "symbols": [
-      "GNRC"
-    ],
-    "headline": "QUICK SPARK: Generac Soars Nearly 20% on $8 Billion Amazon Data Center Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:52:29.657591-04:00",
-    "symbols": [
-      "GNRC"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:52:29.930406-04:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "Crude Oil Down 1%; US Pending Home Sales Rise 0.3% In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:52:29.934953-04:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:52:29.939326-04:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "Truist Securities Reiterates Hold on Fluence Energy, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:52:29.943712-04:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "Fluence Energy Shares Slide As Analysts Lower Targets On Guidance Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:52:29.948043-04:00",
     "symbols": [
       "FLNC"
@@ -5103,5 +5003,105 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T15:16:15.106531-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T15:16:15.343463-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T15:16:16.635605-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T15:16:16.834141-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T15:16:17.036732-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T15:16:17.041474-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T15:16:18.079763-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T15:16:25.411689-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;I am proud to announce that, effective immediately, I am banning Fake News CNN, MSNOW, and Politico from the White House ...&#34; &#34;..Other Fake News Media Outlets to follow. ...&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T15:16:55.103573-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Reported Earlier: Sandoz Canada Launches Lower-Cost Generic Version Of Novo Nordisk\u2019s Ozempic, Expanding Access to Semaglutide for Type 2 Diabetes",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T15:18:59.925965-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Want Nvidia on Crypto Rails? \u2018Tokenized Stock Is the Honest Way\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

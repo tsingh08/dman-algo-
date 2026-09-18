@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:46:37.830371-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:46:40.608212-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CFO At Morgan Stanley Conference Says Not Seeing Any Change In Airline Fleet Plans, Parked Aircraft Remain Really Low",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:46:43.838556-04:00",
-    "symbols": [
-      "DTSS"
-    ],
-    "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T11:46:45.465029-04:00",
     "symbols": [
       "AEMD"
@@ -5108,6 +5078,36 @@
     ],
     "headline": "Why Is MARA Stock Surging on Friday?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:44:58.391749-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Stock Rises with Bitcoin Amid CFTC&#39;s New Crypto Proposal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T12:45:26.156188-04:00",
+    "symbols": [
+      "HYPG"
+    ],
+    "headline": "Why Is Hyperliquid Stock Surging On Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:45:26.436250-04:00",
+    "symbols": [
+      "CANG"
+    ],
+    "headline": "Cango\u2019s AI Pivot Gets First Customer",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

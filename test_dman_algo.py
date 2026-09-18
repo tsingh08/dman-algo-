@@ -16713,3 +16713,45 @@ class TestBreakoutRankedTopThree(unittest.TestCase):
     def test_an_extended_candidate_is_called_out_as_caution(self):
         lines = a._breakout_thesis(self._cand("BBB", 15, ["extended 14.3% past the high"]))
         self.assertTrue(any("Caution" in l for l in lines), lines)
+
+
+class TestGradedCatalyst(unittest.TestCase):
+    """Direct instruction 2026-09-18: news and catalysts must carry real weight.
+    The old rule was 5 flat points for "any headline in 4h" — an FDA approval
+    and a paid promo scored the same, and a dilution headline scored the same
+    as no news at all."""
+
+    def _sig(self, tier, bias="LONG"):
+        return SimpleNamespace(catalyst_tier=tier, catalyst_headline="Company announces offering",
+                               bias=bias, news_boost=True)
+
+    def test_tiers_are_worth_different_points(self):
+        pts = [a._catalyst_points(self._sig(t)) for t in ("A", "B", "C", "D")]
+        self.assertEqual(pts, [15, 10, 5, -10])
+        self.assertGreater(pts[0], pts[2])
+
+    def test_no_tier_falls_back_to_the_old_flag(self):
+        self.assertEqual(a._catalyst_points(SimpleNamespace(news_boost=True)), 5)
+        self.assertEqual(a._catalyst_points(SimpleNamespace(news_boost=False)), 0)
+
+    def test_dilution_vetoes_a_long_but_not_a_short(self):
+        blocked, why = a._catalyst_veto(self._sig("D"))
+        self.assertTrue(blocked)
+        self.assertIn("bearish catalyst", why)
+        self.assertFalse(a._catalyst_veto(self._sig("D", bias="SHORT"))[0])
+
+    def test_good_tiers_are_not_vetoed(self):
+        for t in ("A", "B", "C", ""):
+            self.assertFalse(a._catalyst_veto(self._sig(t))[0], t)
+
+    def test_grader_reads_headlines_into_a_tier(self):
+        tier, head = a._grade_catalyst("XYZ", ["XYZ announces FDA approval for lead candidate"])
+        self.assertIn(tier, ("A", "B", "C"))
+        self.assertIn("FDA", head)
+        self.assertEqual(a._grade_catalyst("XYZ", [])[0], "")
+
+    def test_the_scanner_blocks_on_the_veto(self):
+        self.assertIn("CATALYST BLOCKED", inspect.getsource(a.run_pro_scanner))
+
+    def test_score_signal_uses_the_graded_points(self):
+        self.assertIn("_catalyst_points(signal)", inspect.getsource(a.score_signal))

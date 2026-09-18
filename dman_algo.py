@@ -6854,6 +6854,60 @@ def scan_news_catalysts(verbose: bool = True) -> list[dict]:
     return _out
 
 
+# What a catalyst is worth, by tier, inside the 0-100 confluence score. The
+# old rule gave a flat 5 points for "has any headline in the last 4h", which
+# treated an FDA approval and a paid promo alike and ignored dilution entirely.
+# A/B/C/D come from _score_catalyst_tier(); D is a dilution or otherwise
+# bearish headline, and it does not merely score low -- see _catalyst_veto().
+CATALYST_TIER_POINTS = {"A": 15, "B": 10, "C": 5, "D": -10}
+
+
+def _grade_catalyst(ticker: str, headlines: Optional[list]) -> tuple[str, str]:
+    """(tier, headline) for a ticker's recent news, or ("", "") with none.
+
+    Reuses the keyword scorer and tier rules the premarket path already uses,
+    so one definition of "good catalyst" serves both instead of the scanner
+    carrying a weaker, separate one.
+    """
+    try:
+        if not headlines:
+            return "", ""
+        _bull, _bear = [], []
+        for _h in headlines:
+            _text = _h if isinstance(_h, str) else (_h[0] if isinstance(_h, (list, tuple)) and _h else str(_h))
+            _sent, _kw = _score_news_headline(_text)
+            if _sent == "bullish":
+                _bull.append((_text, _kw))
+            elif _sent == "bearish":
+                _bear.append((_text, _kw))
+        _tier = _score_catalyst_tier(_bull, _bear, edgar_found=False)
+        _pick = (_bear or _bull or [("", "")])[0][0]
+        return (_tier or ""), _pick[:160]
+    except Exception as exc:
+        _log_swallowed("catalyst grade", exc)
+        return "", ""
+
+
+def _catalyst_points(signal) -> int:
+    """Confluence points for this signal's catalyst tier."""
+    return CATALYST_TIER_POINTS.get(getattr(signal, "catalyst_tier", "") or "",
+                                    5 if getattr(signal, "news_boost", False) else 0)
+
+
+def _catalyst_veto(signal) -> tuple[bool, str]:
+    """(True, reason) when the news itself disqualifies a long.
+
+    Tier D is dilution, offerings, going-concern and the like. Those are the
+    headlines that turn a clean-looking low-float chart into the losses that
+    made Low Float Catalyst 73% of this account's damage; a few points of
+    score penalty is not enough to stop a 100-score setup.
+    """
+    if (getattr(signal, "catalyst_tier", "") == "D"
+            and str(getattr(signal, "bias", "LONG")).upper() == "LONG"):
+        return True, f"bearish catalyst: {getattr(signal, 'catalyst_headline', '')[:80]}"
+    return False, ""
+
+
 def _score_catalyst_tier(bull_news: list[tuple[str, str]],
                           bear_news: list[tuple[str, str]],
                           edgar_found: bool) -> str:
@@ -11167,7 +11221,9 @@ class ProSignal:
     is_moonshot:    bool  = False  # True when Moon Shot tier conditions are met
     no_stop_entry:  bool  = False  # PDT-zero shares: entry only, no sell-side order
     swing_mode:     bool  = False  # True when PDT budget ≤ 1 → GTC entry + stop only, no T1 TP
-    news_boost:     bool  = False  # True when ticker has a news headline in the last 4 hours
+    news_boost:     bool  = False  # True when ticker has a news headline in the last 4 h
+    catalyst_tier:  str   = ""     # A/B/C/D from _grade_catalyst(); "" = no news
+    catalyst_headline: str = ""    # the headline that set the tierours
 
     # Scoring
     confluence_score:  int  = 0   # 0-100
@@ -16441,7 +16497,7 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
     _ss_gap_size_bonus(breakdown, df, signal)
 
     # 22. News catalyst recency (0-5 pts) — confirmed headline in last 4 hours
-    breakdown["News Catalyst"] = 5 if getattr(signal, "news_boost", False) else 0
+    breakdown["News Catalyst"] = _catalyst_points(signal)
 
     # Populate context fields on the signal
     signal.atr  = float(r_last["ATR"]) if ("ATR" in r_last.index and not pd.isna(r_last["ATR"])) else 0.0
@@ -18008,6 +18064,7 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
         except Exception:
             _news_map = {}
         sig.news_boost = _news_boost_after_sentiment_veto(bool(_news_map.get(ticker)), ticker)
+        sig.catalyst_tier, sig.catalyst_headline = _grade_catalyst(ticker, _news_map.get(ticker))
 
         sig = score_signal(sig, df, regime, tracker)
 
@@ -19169,11 +19226,17 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         # See _news_boost_after_sentiment_veto's docstring for why a negative
         # headline doesn't earn the same credit a positive one does.
         sig.news_boost = _news_boost_after_sentiment_veto(bool(_scan_news_map.get(ticker)), ticker)
+        sig.catalyst_tier, sig.catalyst_headline = _grade_catalyst(ticker, _scan_news_map.get(ticker))
 
         # Apply all pro filters
         sig = score_signal(sig, df, regime, tracker)
 
-        # Hard gates: regime + MTF + earnings + divergence (absolute stops)
+        # Hard gates: catalyst + regime + MTF + earnings + divergence (absolute stops)
+        _cat_veto, _cat_why = _catalyst_veto(sig)
+        if _cat_veto:
+            rejected_counts["hard_gate"] += 1
+            sys.stdout.write(f"CATALYST BLOCKED ({_cat_why})\n")
+            continue
         if not sig.regime_ok:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"REGIME BLOCKED ({sig.bias} in {regime['regime']})\n")

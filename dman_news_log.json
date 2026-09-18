@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:11:35.813053-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Public Power Corp Announces Binding MOU With Amazon Web Services To Develop 300 MW Data Center In Western Macedonia, Greece; Says It May Explore Expansion To 1 GW",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:11:35.816376-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T11:11:36.546053-04:00",
     "symbols": [
       "CRM"
@@ -5107,5 +5087,28 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:59:06.539181-04:00",
+    "symbols": [
+      "JPM",
+      "NVDA",
+      "QCOM",
+      "SPY"
+    ],
+    "headline": "Citigroup CEO Jane Fraser Expected To Attend U.S. President Donald Trump&#39;s State Dinner For President Xi Jinping",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:00:23.534977-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Diabetes Drug Franchise Remains Strong, Analyst Praises Foundayo Trajectory",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

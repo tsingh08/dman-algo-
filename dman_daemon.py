@@ -103,6 +103,7 @@ STATE_FILES = [
     # the daily-loss stop latches here; each workflow run is a fresh checkout,
     # so the latch only holds for the rest of the day if it syncs like the rest
     "dman_daily_halt.json",
+    "dman_signal_features.json",   # the learning dataset — see _log_signal_features()
     "dman_live_outcomes.csv", "dman_alpaca_sync.json", "dman_win_rate.json",
     "dman_daily_pnl.json", "dman_monthly_pnl.json", "dman_halt.json",
     "dman_probation.json",   # manual reduced-size trading period — see is_on_probation()

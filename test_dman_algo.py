@@ -16755,3 +16755,48 @@ class TestGradedCatalyst(unittest.TestCase):
 
     def test_score_signal_uses_the_graded_points(self):
         self.assertIn("_catalyst_points(signal)", inspect.getsource(a.score_signal))
+
+
+class TestSignalFeatureLog(unittest.TestCase):
+    """The rejects are half the dataset, and nothing recorded them before."""
+
+    def setUp(self):
+        self.tmp = os.path.join(tempfile.mkdtemp(), "feat.json")
+        p = patch.object(a, "SIGNAL_FEATURES_FILE", self.tmp)
+        p.start(); self.addCleanup(p.stop)
+
+    def _sig(self):
+        return SimpleNamespace(ticker="NVDA", setup="Gap & Hold", bias="LONG",
+                               confluence_score=92, final_score=88, entry=10.0, stop=9.5,
+                               target1=13.0, rr=2.5, rsi=58, rvol=2.4, atr=0.4, beta=1.2,
+                               catalyst_tier="B", news_boost=True, mtf_ok=True, regime_ok=True,
+                               earnings_ok=True, macro_ok=True, divergence_free=True,
+                               score_breakdown={"MTF": 10})
+
+    def test_a_row_is_written_with_the_deciding_numbers(self):
+        a._log_signal_features(self._sig(), {"regime": "BULL", "score": 8}, taken=True)
+        rows = json.load(open(self.tmp))
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["ticker"], "NVDA")
+        self.assertEqual(rows[0]["catalyst_tier"], "B")
+        self.assertEqual(rows[0]["regime"], "BULL")
+        self.assertTrue(rows[0]["taken"])
+
+    def test_rejects_are_recorded_too(self):
+        a._log_signal_features(self._sig(), {"regime": "CHOP", "score": 5}, taken=False,
+                               reject_reason="bearish catalyst: offering priced")
+        rows = json.load(open(self.tmp))
+        self.assertFalse(rows[0]["taken"])
+        self.assertIn("offering", rows[0]["reject"])
+
+    def test_it_never_raises_on_a_broken_signal(self):
+        a._log_signal_features(object(), {}, taken=False)   # no attributes at all
+
+    def test_the_log_is_capped(self):
+        with patch.object(a, "SIGNAL_FEATURES_MAX", 3):
+            for _ in range(5):
+                a._log_signal_features(self._sig(), {"regime": "BULL"}, taken=True)
+        self.assertEqual(len(json.load(open(self.tmp))), 3)
+
+    def test_the_scanner_logs_every_scored_signal(self):
+        self.assertIn("_log_signal_features(sig, regime", inspect.getsource(a.run_pro_scanner))

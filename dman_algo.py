@@ -6861,6 +6861,55 @@ def scan_news_catalysts(verbose: bool = True) -> list[dict]:
 # bearish headline, and it does not merely score low -- see _catalyst_veto().
 CATALYST_TIER_POINTS = {"A": 15, "B": 10, "C": 5, "D": -10}
 
+# Every scored signal, taken or not, with the numbers that decided it. This is
+# the dataset a model would need and the one thing nothing here records today:
+# the live tracker keeps outcomes for trades that happened, so the rejects --
+# the other half of any honest comparison -- were lost. Joined to
+# dman_live_outcomes.csv on (ticker, date) it answers which features actually
+# separated winners from losers, which is the question to settle BEFORE
+# weights get tuned. Capped and append-only; no decision reads it.
+SIGNAL_FEATURES_FILE = "dman_signal_features.json"
+SIGNAL_FEATURES_MAX  = 4000
+
+
+def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = "") -> None:
+    """Append one feature row per scored signal. Never raises, never decides."""
+    try:
+        _row = {
+            "ts": datetime.now(ET).isoformat(),
+            "date": str(_et_today()),
+            "ticker": getattr(sig, "ticker", ""),
+            "setup": getattr(sig, "setup", ""),
+            "bias": getattr(sig, "bias", ""),
+            "taken": bool(taken),
+            "reject": reject_reason[:60],
+            "score": getattr(sig, "confluence_score", 0),
+            "final_score": getattr(sig, "final_score", 0),
+            "entry": getattr(sig, "entry", 0), "stop": getattr(sig, "stop", 0),
+            "target1": getattr(sig, "target1", 0),
+            "rr": getattr(sig, "rr", 0), "rsi": getattr(sig, "rsi", 0),
+            "rvol": getattr(sig, "rvol", 0), "atr": getattr(sig, "atr", 0),
+            "beta": getattr(sig, "beta", 0),
+            "catalyst_tier": getattr(sig, "catalyst_tier", ""),
+            "news_boost": bool(getattr(sig, "news_boost", False)),
+            "regime": regime.get("regime", ""), "regime_score": regime.get("score", 0),
+            "mtf_ok": bool(getattr(sig, "mtf_ok", False)),
+            "regime_ok": bool(getattr(sig, "regime_ok", False)),
+            "earnings_ok": bool(getattr(sig, "earnings_ok", False)),
+            "macro_ok": bool(getattr(sig, "macro_ok", False)),
+            "divergence_free": bool(getattr(sig, "divergence_free", False)),
+            "breakdown": getattr(sig, "score_breakdown", {}) or {},
+        }
+        try:
+            with open(SIGNAL_FEATURES_FILE) as f:
+                _log = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            _log = []
+        _log.append(_row)
+        _write_json_atomic(SIGNAL_FEATURES_FILE, _log[-SIGNAL_FEATURES_MAX:], indent=0)
+    except Exception as exc:
+        _log_swallowed("signal features", exc)
+
 
 def _grade_catalyst(ticker: str, headlines: Optional[list]) -> tuple[str, str]:
     """(tier, headline) for a ticker's recent news, or ("", "") with none.
@@ -19233,6 +19282,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
         # Hard gates: catalyst + regime + MTF + earnings + divergence (absolute stops)
         _cat_veto, _cat_why = _catalyst_veto(sig)
+        _log_signal_features(sig, regime, taken=False, reject_reason=(
+            _cat_why if _cat_veto else
+            "" if (sig.regime_ok and sig.mtf_ok and sig.earnings_ok) else "hard gate"))
         if _cat_veto:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"CATALYST BLOCKED ({_cat_why})\n")

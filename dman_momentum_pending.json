@@ -1,18 +1,7 @@
 {
-  "pending": [
-    {
-      "ticker": "YYAI",
-      "entry_px": 0.6968,
-      "stop_px": 0.6779,
-      "t1": 0.9058,
-      "t2": 1.0452,
-      "signal_str": "VWAP reclaim bounce ($0.6840) + tight coil (1.2% high range) + higher lows (demand stepping up)",
-      "created_at": "2026-09-18T13:56:31.893243-04:00",
-      "expires_at": "2026-09-18T14:11:31.893243-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
+  "pending": [],
   "consumed": {
-    "RMCF_2026-09-18T13:26:52.967358-04:00": 1789753364.6225758
+    "RMCF_2026-09-18T13:26:52.967358-04:00": 1789753364.6225758,
+    "YYAI_2026-09-18T13:56:31.893243-04:00": 1789755105.2841597
   }
 }

@@ -1,128 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:11:36.546053-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "NVIDIA Boss Slams AI Doom Mongers, Stock Bounces",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:19:47.379405-04:00",
-    "symbols": [
-      "RTB"
-    ],
-    "headline": "Roundtable Forecasts $100M Annualized Revenue And EBITDA-Positive Run Rate Post-Deal; Agreement Subject To Roundtable&#39;s $89M Investment Of Cash And Stock For About 49% Of PAAI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:19:47.384597-04:00",
-    "symbols": [
-      "RTB"
-    ],
-    "headline": "Roundtable Announces 10-Yr, $1B Agreement With Paradium.AI To Migrate, Operate And Monetize Media Portfolio On Roundtable\u2019s AI/DeFi-Powered MediaOS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:25:13.798332-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin CFO Says Q3 May Have Lower Program Risk Retirements Than Q2, &#39;May See Some Lumpiness As We Get To Our Guided Margins&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:25:21.305152-04:00",
-    "symbols": [
-      "SLNH"
-    ],
-    "headline": "Rosenblatt Initiates Coverage On Soluna Holdings with Buy Rating, Announces Price Target of $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:26:55.942989-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin CFO Says 2026 Margins Expected To Be &#39;In Line With Our Guide&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:28:48.283913-04:00",
-    "symbols": [
-      "AAPL",
-      "NVDA"
-    ],
-    "headline": "Nvidia Is an \u2018Awesome Company,\u2019 but Its Stock Is Priced as \u2018Greatest Company Ever,\u2019 Damodaran Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:30:10.415118-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin CFO Says Supply Chain Is Biggest Risk Factor In Production Scaling",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:35:07.642014-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Is Now On DoorDash Nationwide",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:35:27.245228-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Is an \u2018Awesome Company,\u2019 but Its Stock Is Priced as \u2018Greatest Company Ever,\u2019 Damodaran Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:35:27.437027-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Is an \u2018Awesome Company,\u2019 but Its Stock Is Priced as \u2018Greatest Company Ever,\u2019 Damodaran Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:35:30.326189-04:00",
-    "symbols": [
-      "AVGO",
-      "GOOGL",
-      "META"
-    ],
-    "headline": "Meta&#39;s Custom AI Chips Could Save It $8.5 Billion, Analyst Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T11:35:31.655758-04:00",
     "symbols": [
       "LMT"
@@ -5110,5 +4987,125 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T12:10:00.131201-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Citigroup CEO Jane Fraser Expected To Attend U.S. President Donald Trump&#39;s State Dinner For President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T12:10:04.050095-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Citigroup CEO Jane Fraser Expected To Attend U.S. President Donald Trump&#39;s State Dinner For President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T12:10:13.373067-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Citigroup CEO Jane Fraser Expected To Attend U.S. President Donald Trump&#39;s State Dinner For President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T12:10:14.825270-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Citigroup CEO Jane Fraser Expected To Attend U.S. President Donald Trump&#39;s State Dinner For President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:24.249740-04:00",
+    "symbols": [
+      "STUB"
+    ],
+    "headline": "Citigroup Upgrades Stubhub Holdings to Buy, Lowers Price Target to $7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:24.765166-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Dow Falls Over 200 Points; Xenon Pharmaceuticals Shares Plunge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:25.480344-04:00",
+    "symbols": [
+      "MG"
+    ],
+    "headline": "Dow Falls Over 200 Points; Xenon Pharmaceuticals Shares Plunge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:25.718773-04:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "Dow Falls Over 200 Points; Xenon Pharmaceuticals Shares Plunge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:25.979577-04:00",
+    "symbols": [
+      "ALMR"
+    ],
+    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:26.217210-04:00",
+    "symbols": [
+      "FEAM"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow Futures Pare Gains, Nasdaq 100 Up as Trump Weighs &#39;Big Decision&#39; on Iran Military Strikes\u2014 OKLO, MCD, BB, NUE in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:26.221833-04:00",
+    "symbols": [
+      "FEAM"
+    ],
+    "headline": "Nucor, BlackBerry and 3 Stocks to Watch Heading Into Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:10:26.226273-04:00",
+    "symbols": [
+      "FEAM"
+    ],
+    "headline": "5E Advanced Materials Q4 EPS $(0.14) Beats $(0.32) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

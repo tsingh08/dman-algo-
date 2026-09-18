@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:36:21.367036-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Is an \u2018Awesome Company,\u2019 but Its Stock Is Priced as \u2018Greatest Company Ever,\u2019 Damodaran Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T11:36:21.541768-04:00",
     "symbols": [
       "NVDA"
@@ -5108,5 +5098,17 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:22:57.357568-04:00",
+    "symbols": [
+      "MRVL",
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

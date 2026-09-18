@@ -16606,3 +16606,65 @@ class TestBreakoutTopPick(unittest.TestCase):
 
     def test_empty_candidate_list_is_quiet(self):
         self.assertEqual(a._mw_pick_and_execute([]), [])
+
+
+class TestStrangleMoveMath(unittest.TestCase):
+    """2026-09-17 OPEX: QQQ ~704 with a $745C/$688P at $0.90 total printed
+    "needs 0.1% move". The call side needs +5.9%, the put side -2.5%."""
+
+    def _result(self, needed, expected, dte=7):
+        return {"ticker": "QQQ", "price": 704.0, "expiration": "2026-09-24", "dte": dte,
+                "call": {"strike": 745.0, "premium": 0.24, "occ": "QQQ260924C00745000"},
+                "put": {"strike": 688.0, "premium": 0.66, "occ": "QQQ260924P00688000"},
+                "total_premium": 0.90, "call_breakeven": 745.9, "put_breakeven": 687.1,
+                "move_needed_pct": needed, "expected_move_pct": expected,
+                "call_move_pct": 5.9, "put_move_pct": 2.4}
+
+    def test_unreachable_breakeven_is_not_traded(self):
+        cl = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False):
+            note = a._submit_strangle(self._result(needed=2.4, expected=1.2), "OPEX")
+        cl.submit_order.assert_not_called()
+        self.assertIn("only covers about", note)
+
+    def test_reachable_breakeven_still_trades(self):
+        cl = MagicMock()
+        cl.submit_order.return_value = MagicMock(id="x1")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "size_strangle_trade", return_value=1), \
+             patch.object(a, "PositionTracker") as pt:
+            pt.return_value.open.return_value = True
+            note = a._submit_strangle(self._result(needed=2.4, expected=4.0), "OPEX")
+        self.assertEqual(cl.submit_order.call_count, 2)
+        self.assertIn("AUTO-EXECUTED", note)
+
+    def test_unknown_expected_move_does_not_block(self):
+        cl = MagicMock()
+        cl.submit_order.return_value = MagicMock(id="x1")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "size_strangle_trade", return_value=1), \
+             patch.object(a, "PositionTracker") as pt:
+            pt.return_value.open.return_value = True
+            note = a._submit_strangle(self._result(needed=2.4, expected=None), "OPEX")
+        self.assertIn("AUTO-EXECUTED", note)
+
+    def test_expected_move_scales_with_time(self):
+        import pandas as pd
+        df = pd.DataFrame({"High": [101.0] * 25, "Low": [99.0] * 25, "Close": [100.0] * 25})
+        with patch.object(a, "fetch_df", return_value=df):
+            one = a._expected_move_pct("QQQ", 1)
+            four = a._expected_move_pct("QQQ", 4)
+        self.assertAlmostEqual(one, 2.0, places=1)      # 2% daily range
+        self.assertAlmostEqual(four, 4.0, places=1)     # x sqrt(4)
+
+    def test_missing_data_returns_none(self):
+        with patch.object(a, "fetch_df", return_value=None):
+            self.assertIsNone(a._expected_move_pct("QQQ", 7))

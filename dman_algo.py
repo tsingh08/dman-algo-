@@ -614,6 +614,15 @@ MOMENTUM_MIN_PICK_SCORE = 50   # out of 90 — see _breakout_quality()
 # a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
 # the Alpaca site -- the one part of the day that actually required a human.
 ENABLE_STRANGLE_AUTO_EXEC = True
+# A strangle only pays if the underlying can actually reach a breakeven in the
+# time left. Require the nearer breakeven to sit inside this multiple of the
+# 20-day average true range stretched over the holding period; 1.0 means "the
+# move it needs is the move it typically makes", which is already generous
+# since typical is not the same as reliable.
+# 0.8, not 1.0: "needs exactly the move it typically makes" is a coin flip
+# before premium decay. 2026-09-17 OPEX was precisely that case -- 2.5% needed
+# against a 2.5% typical 7-day range, with the call side needing 5.8%.
+STRANGLE_MOVE_HEADROOM = 0.8
 
 # ── Telegram quiet mode ───────────────────────────────────────────────────
 # 215 send sites push into one chat. Quiet mode keeps what is money or safety
@@ -16958,6 +16967,26 @@ def _build_occ_symbol(ticker: str, strike: float, expiration: str,
 
 # ── Strangles (pre-event, direction-neutral) ──────────────────────────────
 
+def _expected_move_pct(ticker: str, dte: int) -> Optional[float]:
+    """Roughly how far this underlying travels in `dte` sessions, in percent.
+
+    Daily true range over the last 20 sessions, scaled by sqrt(time) — the
+    standard way to stretch a one-day move across several. Used to ask the
+    only question that matters for a strangle: is the breakeven inside the
+    range this thing actually covers? Returns None when data is missing,
+    and callers treat that as "unknown", never as "fine".
+    """
+    try:
+        df = fetch_df(ticker, period_days=60)
+        if df is None or len(df) < 21:
+            return None
+        _rng = ((df["High"] - df["Low"]) / df["Close"]).tail(20).mean() * 100
+        return round(float(_rng) * max(1, int(dte)) ** 0.5, 1)
+    except Exception as exc:
+        _log_swallowed("expected move", exc)
+        return None
+
+
 def select_strangle_legs(ticker: str, current_price: float) -> Optional[dict]:
     """
     Select OTM call + OTM put for a pre-event strangle on weekly expiration.
@@ -17028,7 +17057,16 @@ def select_strangle_legs(ticker: str, current_price: float) -> Optional[dict]:
         total_prem     = round(call_leg["premium"] + put_leg["premium"], 2)
         call_breakeven = round(call_leg["strike"] + total_prem, 2)
         put_breakeven  = round(put_leg["strike"]  - total_prem, 2)
-        move_needed    = round(total_prem / current_price * 100, 1)
+        _expected = _expected_move_pct(ticker, best_dte)
+        # Distance to the nearer BREAKEVEN, not premium-over-spot. The old
+        # formula divided the premium by the underlying price, which for the
+        # 2026-09-17 OPEX pick (QQQ ~704, $745C/$688P, $0.90 total) printed
+        # "needs 0.1%" when the call side actually needs +5.9% and the put
+        # side -2.5%. Understating the hurdle ~20x is what makes an OTM
+        # strangle read as free money.
+        _call_move = (call_breakeven / current_price - 1) * 100
+        _put_move  = (1 - put_breakeven / current_price) * 100
+        move_needed    = round(min(_call_move, _put_move), 1)
 
         return {
             "ticker":         ticker,
@@ -17041,6 +17079,9 @@ def select_strangle_legs(ticker: str, current_price: float) -> Optional[dict]:
             "call_breakeven": call_breakeven,
             "put_breakeven":  put_breakeven,
             "move_needed_pct": move_needed,
+            "call_move_pct":   round(_call_move, 1),
+            "put_move_pct":    round(_put_move, 1),
+            "expected_move_pct": _expected,
         }
     except Exception:
         return None
@@ -17088,7 +17129,10 @@ def format_strangle_telegram(result: dict, event: str) -> str:
         f"  IV: {p['iv_pct']:.0f}%  |  Vol: {p['volume']:,}  OI: {p['oi']:,}\n"
         f"  <code>{p['occ']}</code>\n\n"
         f"Cost: <b>${cost_each:.0f}</b>/strangle  |  "
-        f"Need <b>{result['move_needed_pct']}%+</b> move to profit\n"
+        f"Needs <b>{result['move_needed_pct']}%+</b> to break even "
+        f"(call +{result.get('call_move_pct', 0)}% / put -{result.get('put_move_pct', 0)}%)"
+        + (f" · typical {result['dte']}d range ≈ {result['expected_move_pct']}%"
+           if result.get("expected_move_pct") is not None else "") + "\n"
         f"Break-even ↑ ${result['call_breakeven']}  |  "
         f"Break-even ↓ ${result['put_breakeven']}\n"
         f"{size_line}"
@@ -17125,6 +17169,11 @@ def _submit_strangle(result: dict, event: str) -> str:
     _day_key = f"__STRANGLE_DAY__:{_et_today()}"
     if _is_duplicate_alert(_day_key):
         return "↩️ One event strangle already placed today — advisory only."
+    _needed = result.get("move_needed_pct")
+    _expected = result.get("expected_move_pct")
+    if _needed is not None and _expected is not None and _needed > _expected * STRANGLE_MOVE_HEADROOM:
+        return (f"⛔ Not executed — needs {_needed:.1f}% to break even but {result['ticker']} "
+                f"only covers about {_expected:.1f}% in {result['dte']}d.")
     _qty = size_strangle_trade(result["total_premium"])
     if _qty < 1:
         return (f"⛔ Not executed — one strangle costs "

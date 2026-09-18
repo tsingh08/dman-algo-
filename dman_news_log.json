@@ -1,77 +1,5 @@
 [
   {
-    "ts": "2026-09-17T09:54:45.302206-04:00",
-    "symbols": [
-      "TLSA"
-    ],
-    "headline": "Tiziana Life Sciences Announces MOU With King Abdullah International Medical Research Center And Foundation For Neurologic Diseases For Trial Of Intranasal Foralumab With Anti-CD20 Therapy In Relapsing-Remitting MS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:54:45.428380-04:00",
-    "symbols": [
-      "RDCM"
-    ],
-    "headline": "RADCOM Announces $20M Stock Buyback Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:54:45.605704-04:00",
-    "symbols": [
-      "BNAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:54:45.789040-04:00",
-    "symbols": [
-      "USDE"
-    ],
-    "headline": "StablecoinX Announces Waiver Freeing Its Entire ENA Token Holding From 48-Month Lock-Up Effective October 5, Allowing Sales To Fund Working Capital; Ethena Foundation Retains Consent Right And Five-Day Right Of First Refusal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:54:45.797605-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "CID HoldCo Stock Surges Thursday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T10:00:12.377104-04:00",
-    "symbols": [
-      "MSFT",
-      "RKLB",
-      "SPCX"
-    ],
-    "headline": "SpaceX Is Worth $2 Trillion. Why Does Its Stock Swing Like a Small-Cap?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:00:12.386397-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Pending Home Sales (Mom) August 0.3% Vs -0.2% Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T10:00:23.855148-04:00",
     "symbols": [
       "SPY"
@@ -5094,5 +5022,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:29:12.162300-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Stock Slides Friday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:29:30.526076-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:29:30.786637-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:29:31.547846-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:29:31.856885-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:29:43.095087-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:30:31.924478-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Robinhood Markets Stock In The Last 5 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

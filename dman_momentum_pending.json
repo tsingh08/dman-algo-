@@ -1,16 +1,6 @@
 {
-  "pending": [
-    {
-      "ticker": "RMCF",
-      "entry_px": 0.888,
-      "stop_px": 0.8668,
-      "t1": 1.1544,
-      "t2": 1.332,
-      "signal_str": "tight coil (0.9% high range) + volume dry-up (9% of prior avg)",
-      "created_at": "2026-09-18T13:26:52.967358-04:00",
-      "expires_at": "2026-09-18T13:41:52.967358-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
-  "consumed": {}
+  "pending": [],
+  "consumed": {
+    "RMCF_2026-09-18T13:26:52.967358-04:00": 1789753364.6225758
+  }
 }

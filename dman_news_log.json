@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:07:59.542043-04:00",
-    "symbols": [
-      "MKDW"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:07:59.828212-04:00",
     "symbols": [
       "MNOV"
@@ -5112,6 +5102,16 @@
     "headline": "Pearson Acquires Baltimore-Based ITS, Expanding Into Remote Testing And Continuous Certification; Terms Not Disclosed",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:29:35.729973-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Says Starlink Now Beats Cable on Reliability",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

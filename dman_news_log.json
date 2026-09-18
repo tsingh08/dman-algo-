@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:35:45.539761-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Rallies as Oil Slides, Yields Retreat: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:35:45.545084-04:00",
     "symbols": [
       "QQQ"
@@ -5096,5 +5086,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T14:14:48.025532-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;The Top Democrat On The Senate Foreign Relations Committee, New Hampshire\u2019s Jeanne Shaheen, Has Blocked An Arms Sale To Israel Since July And Continues To Withhold Consent For Advancing The $2.8B Transaction, A Person Familiar With The Matter Told Semafor&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

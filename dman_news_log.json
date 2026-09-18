@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-09-17T10:51:25.673891-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:57:43.720139-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "Fed Rate Hikes Are Supposed to Hurt Bonds: This One Is Doing the Opposite",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T10:57:59.316540-04:00",
     "symbols": [
       "NVDA"
@@ -5099,6 +5076,27 @@
     "headline": "This Crude Refiner Has Beaten Every Magnificent Seven Stock in the Last 2 Years",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:34:31.676238-04:00",
+    "symbols": [
+      "NVDA",
+      "SNDK"
+    ],
+    "headline": "What&#39;s Going On With Sandisk Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T11:36:32.722468-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Kansas City Fed&#39;s Schmid Says Supported Rate Hike, Recent Data Suggest Inflation Trending Above 3%; Rate Hike Was A Step Towards Returning To The 2% Target; Current Inflation Problem &#39;not Just About Energy,&#39; Price Growth Has Been &#39;Hot&#39; Across A Broad Set Of Goods And Services; High Inflation A Sign Supply And Demand Are Out Of Balance; Outside Of Inflation The Economy Is Performing Well",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

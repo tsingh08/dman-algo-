@@ -1,16 +1,6 @@
 {
-  "pending": [
-    {
-      "ticker": "INM",
-      "entry_px": 1.39,
-      "stop_px": 1.3495,
-      "t1": 1.807,
-      "t2": 2.085,
-      "signal_str": "tight coil (1.4% high range) + higher lows (demand stepping up)",
-      "created_at": "2026-09-18T11:22:28.272911-04:00",
-      "expires_at": "2026-09-18T11:37:28.272911-04:00",
-      "status": "awaiting_approval"
-    }
-  ],
-  "consumed": {}
+  "pending": [],
+  "consumed": {
+    "INM_2026-09-18T11:22:28.272911-04:00": 1789745870.3217688
+  }
 }

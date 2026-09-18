@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-09-17T10:17:29.582188-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Bernstein Maintains Market Perform on Fortinet, Raises Price Target to $145",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T10:19:41.722456-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Bernstein Maintains Market Perform on Cloudflare, Raises Price Target to $181",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:23:54.962027-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Senate Panel Votes To Advance Capital One Executive Brian Johnson&#39;s Nomination To Lead Consumer Financial Protection Bureau",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T10:25:58.550060-04:00",
-    "symbols": [
-      "AMD",
-      "NVDA"
-    ],
-    "headline": "Huawei Takes Aim at Nvidia, AMD with Over 10 new AI Chipsets \u2014 But Can the Chinese Tech Giant Close the Gap?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T10:26:16.277846-04:00",
     "symbols": [
       "NVDA"
@@ -5016,6 +4975,16 @@
     "sentiment": "positive"
   },
   {
+    "ts": "2026-09-18T10:59:00.521410-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CFTC Sends Early-Stage Crypto Asset Transaction And Market Rulemaking To White House For Review, Ahead Of Formal Proposal",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
     "ts": "2026-09-18T10:59:17.648934-04:00",
     "symbols": [
       "XENE"
@@ -5091,6 +5060,36 @@
       "FXY"
     ],
     "headline": "Yen Suffers Worst Day In 2026 Despite BoJ Hiking Rates To 31-Year High: Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:00:45.347329-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Ohio Rep. David Taylor Bought Up to $30K Worth of Installed Building Prods Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T11:01:54.569381-04:00",
+    "symbols": [
+      "IMOS"
+    ],
+    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:01:54.574508-04:00",
+    "symbols": [
+      "IMOS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

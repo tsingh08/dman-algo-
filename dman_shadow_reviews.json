@@ -54,27 +54,5 @@
    "posted_et": "09/18 08:33",
    "plan": "+15% target / -20% stop, same-day exit"
   }
- },
- {
-  "ts": "2026-09-18T10:59:54.602779-04:00",
-  "kind": "signal",
-  "ticker": "AMD",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "RSI 70.1 overbought; Day 2 continuation in CHOP regime (score 11) lacks directional conviction. Entry risks mean reversion.",
-  "facts": {
-   "setup": "Day 2 Continuation",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 542.71,
-   "stop": 528.74,
-   "target1": 570.65,
-   "rr": 2.0,
-   "rvol": 1.68,
-   "rsi": 70.1,
-   "reason": "Day 1 gapped +4.1%, held 64% of range; Day 2 holding",
-   "regime": "CHOP",
-   "regime_score": 11
-  }
  }
 ]

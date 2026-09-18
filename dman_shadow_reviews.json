@@ -76,5 +76,19 @@
    "regime": "CHOP",
    "regime_score": 11
   }
+ },
+ {
+  "ts": "2026-09-18T16:09:52.898013-04:00",
+  "kind": "dman_play",
+  "ticker": "CISS",
+  "verdict": "skip",
+  "confidence": 72,
+  "reason": "Vague catalyst ('watch closely'), no specific trigger identified. Entry timing unclear relative to intraday move. Risk/reward acceptable but setup lacks definition.",
+  "facts": {
+   "price": 1.305,
+   "post": "$CISS watch this one closely going into closing and AH .. momentum",
+   "posted_et": "09/18 15:23",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
  }
 ]

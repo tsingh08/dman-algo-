@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:46:45.465029-04:00",
-    "symbols": [
-      "AEMD"
-    ],
-    "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T11:46:45.540772-04:00",
     "symbols": [
       "DAIC"
@@ -5109,6 +5099,34 @@
     "headline": "Cango\u2019s AI Pivot Gets First Customer",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T12:55:21.779926-04:00",
+    "symbols": [
+      "AMAT",
+      "AMZN",
+      "COIN",
+      "DIA",
+      "GOOGL",
+      "HOOD",
+      "IONQ",
+      "IWM",
+      "META",
+      "MSFT",
+      "MSTR",
+      "MU",
+      "NVDA",
+      "ORCL",
+      "QCOM",
+      "QQQ",
+      "RKLB",
+      "SNDK",
+      "TSLA"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

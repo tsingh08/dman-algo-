@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:52:23.365611-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-17T13:52:23.607567-04:00",
     "symbols": [
       "AMD"
@@ -5103,5 +5093,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T14:43:30.255213-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Brad Gerstner Says AI Labs Need $180B Revenue Run Rate to Keep Nvidia Trade Alive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

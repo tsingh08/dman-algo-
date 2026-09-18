@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-17T10:08:33.851138-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Wang Yi, Rubio Exchange Views On Middle East Situation In Phone Call",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T10:12:22.670875-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Stifel Maintains Hold on ON Semiconductor, Lowers Price Target to $75",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T10:12:42.823593-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI Is Close To Solving Another Millennium Prize Math Problem&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T10:12:43.368327-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;OpenAI Is Close To Solving Another Millennium Prize Math Problem&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T10:12:43.497822-04:00",
     "symbols": [
       "AMZN"
@@ -5094,5 +5054,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:50:43.798176-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Mexico President Claudia Sheinbaum Says Wednesday Call With Trump Was &#39;Very Good,&#39; Some Agreements Reached; Says Mexico Working Within Its Sovereignty To Reach Deal Soon",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:51:01.723008-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron, SanDisk Face New China Rival: Trouble for MU and SNDK Ahead?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T10:51:04.878211-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron, SanDisk Face New China Rival: Trouble for MU and SNDK Ahead?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:51:05.143634-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron, SanDisk Face New China Rival: Trouble for MU and SNDK Ahead?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

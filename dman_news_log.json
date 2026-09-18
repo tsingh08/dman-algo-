@@ -1,268 +1,5 @@
 [
   {
-    "ts": "2026-09-17T12:44:47.511069-04:00",
-    "symbols": [
-      "AMZN",
-      "RKLB",
-      "SPCX"
-    ],
-    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:45:00.173582-04:00",
-    "symbols": [
-      "LLY",
-      "NVO"
-    ],
-    "headline": "EMA Committee Endorses Novo Nordisk&#39;s Hemophilia A Therapy",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:45:01.038008-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:45:03.786781-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:45:08.441540-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Adds $100B in One Day\u2014That\u2019s More Than Two Rocket Labs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:45:41.430653-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "What&#39;s Going On With Apple Stock Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:55:56.445791-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "EMA Committee Endorses Novo Nordisk&#39;s Hemophilia A Therapy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:07:49.505261-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Lucid Stock Gains on Bolt Deal To Deploy Autonomous Vehicles",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:07:50.671028-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Why Is Salesforce Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:07:51.981056-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Is Surging: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:51.985630-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock More Than Doubled in a Month. Now Comes the Hard Part",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:54.535993-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, The Goldman Sachs Group, Teradyne",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:07:54.994659-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, The Goldman Sachs Group, Teradyne",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:07:55.123179-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "EMA Committee Endorses Novo Nordisk&#39;s Hemophilia A Therapy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T13:07:55.990926-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:56.141783-04:00",
-    "symbols": [
-      "FTFT"
-    ],
-    "headline": "11 Financials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:56.383735-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Stock Gains on Bolt Deal To Deploy Autonomous Vehicles",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T13:07:56.491354-04:00",
-    "symbols": [
-      "MSC"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:56.611538-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:56.946574-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:57.057475-04:00",
-    "symbols": [
-      "NUWE"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:57.291200-04:00",
-    "symbols": [
-      "QCLS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:58.205604-04:00",
-    "symbols": [
-      "TURB"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:58.317527-04:00",
-    "symbols": [
-      "LSTA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:58.542524-04:00",
-    "symbols": [
-      "SDST"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:07:58.652598-04:00",
-    "symbols": [
-      "KXIN"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:07:58.870737-04:00",
     "symbols": [
       "BIAF"
@@ -5113,6 +4850,266 @@
       "CANG"
     ],
     "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:48.974004-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:49.189378-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:49.543958-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:14:49.733478-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:14:49.909719-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:50.088502-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:14:50.229832-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Viewer Trends &#39;Look Worrying&#39;: Wells Fargo Slashes Target on Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:50.584699-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Arista Networks, Cisco Systems, Broadcom, Itau Unibanco Banco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:50.734939-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:50.930555-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:14:51.135854-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:51.516811-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:14:51.843487-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Truist Securities Maintains Hold on ON Semiconductor, Lowers Price Target to $75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:52.138793-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:53.227930-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:53.533220-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Arista Networks, Cisco Systems, Broadcom, Itau Unibanco Banco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:54.036633-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:54.161904-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:55.342708-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:57.781692-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:57.912873-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Baker Hughes Oil Rig Count +2 To 452; U.S. Baker Hughes NatGas Rig Count +2 To 134; U.S. Baker Hughes Total Rig Count 595 Vs 591 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:58.080766-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:14:58.240428-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:14:58.689717-04:00",
+    "symbols": [
+      "MG"
+    ],
+    "headline": "Mistras Group Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:59.200834-04:00",
+    "symbols": [
+      "DSP"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:14:59.590711-04:00",
+    "symbols": [
+      "PSO"
+    ],
+    "headline": "Pearson Acquires Baltimore-Based ITS, Expanding Into Remote Testing And Continuous Certification; Terms Not Disclosed",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,417 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:46:45.540772-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:48:03.252981-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:48:05.339826-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:48:05.643739-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "EXCLUSIVE: Trump-Xi Talks Put SK Hynix\u2019s China Footprint in Focus. What It Means for Korea ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:48:05.648101-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron Jumps 5% as Intel CEO Says Memory Prices Have Surged Over 500%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:48:08.329452-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CFO At Morgan Stanley Conference Says Not Seeing Any Change In Airline Fleet Plans, Parked Aircraft Remain Really Low",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:48:11.095808-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "Nasdaq Jumps 400 Points; US Weekly Jobless Claims Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:53:05.060249-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Stock Moves Higher Today: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:54:05.547159-04:00",
-    "symbols": [
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "SpaceX Stock for Free? Board Member is Giving Away Shares to Early Backers",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:55:13.307574-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "What&#39;s Going On With CleanSpark Shares On Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:58:46.882930-04:00",
-    "symbols": [
-      "ARM",
-      "MRNA",
-      "MU",
-      "ORCL",
-      "SMCI"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:59:01.276124-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SpaceX Stock for Free? Board Member is Giving Away Shares to Early Backers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:59:01.660243-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:59:02.024110-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:59:02.563843-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:59:02.913259-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:59:04.916287-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-17T11:59:06.535293-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Stock for Free? Board Member is Giving Away Shares to Early Backers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:59:06.540750-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;SpaceX Discusses Buying Data for AI Models From Failed Startups&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:59:10.168725-04:00",
-    "symbols": [
-      "SDGR"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:59:10.242155-04:00",
-    "symbols": [
-      "ABSI"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:59:10.337484-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:59:10.407352-04:00",
-    "symbols": [
-      "TEM"
-    ],
-    "headline": "Vicor, Arm Holdings, Micron Technology And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T12:02:07.275704-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "QUICK SPARK: Generac Soars Nearly 20% on $8 Billion Amazon Data Center Deal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:04:35.504498-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk shares are trading higher after the company announced that the EMA&#39;s CHMP adopted a positive opinion recommending marketing authorization for FREHEMGO to treat hemophilia A, with or without inhibitors, in adults and children.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:06:28.157683-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "ON Semiconductor CEO Warns Power Density Is the Next Massive AI Bottleneck",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:10:36.813146-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CFO Says At Morgan Stanley Conference He Is Confident GE9X Mid-Seal Issue Won&#39;t Hold Up 777X Entry Into Service Next Year; Says Aircraft Retirements Down Year-Over-Year",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:12:28.164739-04:00",
-    "symbols": [
-      "CVX",
-      "JPM",
-      "XOM"
-    ],
-    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T12:19:00.741477-04:00",
-    "symbols": [
-      "DIA",
-      "IWM",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Major indices are trading higher amid a retreat in oil prices and bond yields. Confidence that Saudi Arabia will be able to replace lost oil export capacity, coupled with the Fed&#39;s largely expected hawkish tone after yesterday&#39;s rate hike, may be fueling relief buying across markets.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T12:19:05.535139-04:00",
-    "symbols": [
-      "AMZN",
-      "CRM",
-      "NVDA"
-    ],
-    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:29:41.504510-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:29:41.941565-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:29:42.284517-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Snap Just Turned Its $2,195 Glasses Into an Nvidia AI Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:29:43.477131-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:29:45.038581-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CFO Says At Morgan Stanley Conference He Is Confident GE9X Mid-Seal Issue Won&#39;t Hold Up 777X Entry Into Service Next Year; Company Started Shipping GE9X Engines With Improved Mid-Seal To Boeing In Q3; Says Aircraft Retirements Down Year-Over-Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:29:45.157418-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T12:29:45.391915-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "The Fed Just Raised Rates\u2013How To Cash In On The Hike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:33:21.212067-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Watching Salesforce; Hearing Investor Business Daily SwingTrader Sells Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:33:55.329710-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce&#39;s Anthropic Bet Likely Worth &#39;Tens of Billions&#39; \u2014 And Benioff Plans to Cash In",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T12:35:41.561164-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Is Coming After Walmart\u2019s Biggest Delivery Advantage",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T12:44:47.511069-04:00",
     "symbols": [
       "AMZN",
@@ -5127,6 +4715,406 @@
     "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:27.263641-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:27.524394-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:28.158901-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:08:29.746519-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:08:30.041918-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:30.301023-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:08:30.557150-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Viewer Trends &#39;Look Worrying&#39;: Wells Fargo Slashes Target on Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:31.142550-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Arista Networks, Cisco Systems, Broadcom, Itau Unibanco Banco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:31.395884-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:31.670293-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:08:31.914082-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:32.415332-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:08:32.903984-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Truist Securities Maintains Hold on ON Semiconductor, Lowers Price Target to $75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:33.418889-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:35.238268-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:35.721301-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Arista Networks, Cisco Systems, Broadcom, Itau Unibanco Banco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:36.487328-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:36.734033-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:38.710085-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:42.643620-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:42.890950-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Baker Hughes Oil Rig Count +2 To 452; U.S. Baker Hughes NatGas Rig Count +2 To 134; U.S. Baker Hughes Total Rig Count 595 Vs 591 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:43.136679-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:43.387224-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T13:08:44.644828-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:45.382046-04:00",
+    "symbols": [
+      "GAUZ"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T13:08:47.152176-04:00",
+    "symbols": [
+      "NUWE"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:47.403051-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:48.124597-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:48.623229-04:00",
+    "symbols": [
+      "IMCC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:48.873904-04:00",
+    "symbols": [
+      "SSM"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:49.363193-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:49.610799-04:00",
+    "symbols": [
+      "USDE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:49.615251-04:00",
+    "symbols": [
+      "USDE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:50.093371-04:00",
+    "symbols": [
+      "XRTX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:50.341522-04:00",
+    "symbols": [
+      "SVRN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:50.585245-04:00",
+    "symbols": [
+      "ZTG"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:51.064945-04:00",
+    "symbols": [
+      "DSP"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:52.826938-04:00",
+    "symbols": [
+      "FWDI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:53.847009-04:00",
+    "symbols": [
+      "LVWR"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T13:08:54.797497-04:00",
+    "symbols": [
+      "CANG"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

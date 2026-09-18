@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T09:47:46.037350-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Bond King Jeffrey Gundlach Wants Out of the AI &#39;Epicenter&#39;: Inside His Zero-Exposure Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-17T09:47:50.896180-04:00",
     "symbols": [
       "DAIC"
@@ -5090,5 +5080,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T10:12:24.597680-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "CDT Equity shares are trading lower. The company announced a partnership with QIMA Life Sciences to explore the potential of several of CDT\u2019s assets in autoimmune skin diseases.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

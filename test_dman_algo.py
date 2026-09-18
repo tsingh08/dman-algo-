@@ -16800,3 +16800,78 @@ class TestSignalFeatureLog(unittest.TestCase):
 
     def test_the_scanner_logs_every_scored_signal(self):
         self.assertIn("_log_signal_features(sig, regime", inspect.getsource(a.run_pro_scanner))
+
+
+class TestSignalLabelling(unittest.TestCase):
+    """Live fills cannot label rejected signals, and rejects are the only way
+    to learn whether a gate earns its keep. Labels come from real bars."""
+
+    def setUp(self):
+        self.tmp = os.path.join(tempfile.mkdtemp(), "feat.json")
+        p = patch.object(a, "SIGNAL_FEATURES_FILE", self.tmp)
+        p.start(); self.addCleanup(p.stop)
+
+    def _write(self, rows):
+        with open(self.tmp, "w") as f:
+            json.dump(rows, f)
+
+    def _row(self, **kw):
+        base = dict(ticker="NVDA", date=str(a._et_today() - a.timedelta(days=10)), bias="LONG",
+                    entry=10.0, stop=9.0, target1=12.0, score=90, taken=False,
+                    catalyst_tier="B", regime="BULL", mtf_ok=True, setup="Gap & Hold")
+        base.update(kw)
+        return base
+
+    def _bars(self, highs, lows, opens=None, closes=None):
+        import pandas as pd
+        n = len(highs)
+        return pd.DataFrame(
+            {"Open": opens or [10.0] * n, "High": highs, "Low": lows,
+             "Close": closes or [10.0] * n},
+            index=pd.date_range(a._et_today() - a.timedelta(days=9), periods=n, freq="D"))
+
+    def test_a_winner_is_labelled_from_the_target(self):
+        self._write([self._row()])
+        with patch.object(a, "fetch_df", return_value=self._bars([10.5, 12.5], [9.9, 11.0])):
+            self.assertEqual(a.label_signal_features(verbose=False), 1)
+        r = json.load(open(self.tmp))[0]
+        self.assertEqual(r["label_exit_reason"], "target")
+        self.assertGreater(r["label_pnl_pct"], 15)
+        self.assertEqual(r["label_outcome"], "WIN")
+
+    def test_a_loser_is_labelled_from_the_stop(self):
+        self._write([self._row()])
+        with patch.object(a, "fetch_df", return_value=self._bars([10.2, 10.1], [8.5, 8.0])):
+            a.label_signal_features(verbose=False)
+        r = json.load(open(self.tmp))[0]
+        self.assertEqual(r["label_exit_reason"], "stop")
+        self.assertLess(r["label_pnl_pct"], 0)
+
+    def test_the_stop_wins_a_tie_within_one_bar(self):
+        # both touched in the same session: assume the stop, never the target
+        self._write([self._row()])
+        with patch.object(a, "fetch_df", return_value=self._bars([12.5], [8.5])):
+            a.label_signal_features(verbose=False)
+        self.assertEqual(json.load(open(self.tmp))[0]["label_exit_reason"], "stop")
+
+    def test_recent_signals_are_left_alone(self):
+        self._write([self._row(date=str(a._et_today()))])
+        with patch.object(a, "fetch_df", return_value=self._bars([12.0], [9.5])):
+            self.assertEqual(a.label_signal_features(verbose=False), 0)
+
+    def test_labelling_is_idempotent(self):
+        self._write([self._row()])
+        with patch.object(a, "fetch_df", return_value=self._bars([12.5], [9.9])):
+            a.label_signal_features(verbose=False)
+            self.assertEqual(a.label_signal_features(verbose=False), 0)
+
+    def test_the_report_needs_a_real_sample(self):
+        self._write([dict(self._row(), label_outcome="WIN", label_pnl_pct=5.0) for _ in range(3)])
+        self.assertFalse(any("catalyst B" in l for l in a.report_signal_features(min_n=5)))
+        self._write([dict(self._row(), label_outcome="WIN", label_pnl_pct=5.0) for _ in range(6)])
+        self.assertTrue(any("catalyst" in l for l in a.report_signal_features(min_n=5)))
+
+    def test_modes_are_exposed(self):
+        src = inspect.getsource(a.main)
+        self.assertIn('"label"', src)
+        self.assertIn('"features"', src)

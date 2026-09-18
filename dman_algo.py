@@ -6870,6 +6870,9 @@ CATALYST_TIER_POINTS = {"A": 15, "B": 10, "C": 5, "D": -10}
 # weights get tuned. Capped and append-only; no decision reads it.
 SIGNAL_FEATURES_FILE = "dman_signal_features.json"
 SIGNAL_FEATURES_MAX  = 4000
+SIGNAL_LABEL_HORIZON_DAYS = 5     # sessions a labelled signal is given to work
+SIGNAL_LABEL_MIN_AGE_DAYS = 3     # do not label until the horizon can exist
+SIGNAL_LABEL_MAX_PER_RUN  = 40    # tickers fetched per labelling pass
 
 
 def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = "") -> None:
@@ -6909,6 +6912,132 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
         _write_json_atomic(SIGNAL_FEATURES_FILE, _log[-SIGNAL_FEATURES_MAX:], indent=0)
     except Exception as exc:
         _log_swallowed("signal features", exc)
+
+
+def label_signal_features(max_rows: int = SIGNAL_LABEL_MAX_PER_RUN, verbose: bool = True) -> int:
+    """Fill in what each logged signal WOULD have done. Returns rows labelled.
+
+    Live fills cannot answer this: at one to three trades a week the taken
+    signals would take years to become a dataset, and the rejected ones -- the
+    only way to find out whether a gate is earning its keep -- would never be
+    answered at all. So each row is replayed against real bars on the rule the
+    signal itself carried: enter at the next session's open, stop where it said,
+    first target where it said, out at the close of the horizon otherwise.
+
+    Deliberately the same convention as the backtest, so labels and backtest
+    results mean the same thing. Nothing here places or blocks a trade.
+    """
+    try:
+        with open(SIGNAL_FEATURES_FILE) as f:
+            rows = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return 0
+    _today = _et_today()
+    _pending = [r for r in rows
+                if not r.get("label_outcome")
+                and r.get("entry") and r.get("stop")
+                and (_today - date.fromisoformat(r["date"])).days >= SIGNAL_LABEL_MIN_AGE_DAYS]
+    if not _pending:
+        return 0
+    _frames, _done = {}, 0
+    for r in _pending:
+        _tk = r.get("ticker", "")
+        if not _tk:
+            continue
+        if _tk not in _frames:
+            if len(_frames) >= max_rows:
+                break
+            try:
+                _frames[_tk] = fetch_df(_tk, period_days=120)
+            except Exception:
+                _frames[_tk] = None
+        df = _frames.get(_tk)
+        if df is None or not len(df):
+            continue
+        try:
+            _after = [i for i, d in enumerate(df.index) if str(d)[:10] > r["date"]][:SIGNAL_LABEL_HORIZON_DAYS]
+            if not _after:
+                continue
+            _long = str(r.get("bias", "LONG")).upper() != "SHORT"
+            _fill = float(df.iloc[_after[0]]["Open"])
+            _stop, _tgt = float(r["stop"]), float(r.get("target1") or 0)
+            # the signal's own stop/target, re-anchored to the actual fill
+            _ratio = _fill / float(r["entry"]) if float(r["entry"]) else 1.0
+            _stop, _tgt = _stop * _ratio, (_tgt * _ratio if _tgt else 0.0)
+            _mfe = _mae = 0.0
+            _exit, _why = None, "horizon"
+            for i in _after:
+                _bar = df.iloc[i]
+                _hi, _lo = float(_bar["High"]), float(_bar["Low"])
+                _mfe = max(_mfe, ((_hi - _fill) if _long else (_fill - _lo)) / _fill * 100)
+                _mae = min(_mae, ((_lo - _fill) if _long else (_fill - _hi)) / _fill * 100)
+                _hit_stop = (_lo <= _stop) if _long else (_hi >= _stop)
+                _hit_tgt = _tgt and ((_hi >= _tgt) if _long else (_lo <= _tgt))
+                if _hit_stop:                      # stop first: the honest assumption
+                    _exit, _why = _stop, "stop"
+                    break
+                if _hit_tgt:
+                    _exit, _why = _tgt, "target"
+                    break
+            if _exit is None:
+                _exit = float(df.iloc[_after[-1]]["Close"])
+            _pnl = ((_exit - _fill) if _long else (_fill - _exit)) / _fill * 100
+            r["label_fill"] = round(_fill, 4)
+            r["label_exit_reason"] = _why
+            r["label_pnl_pct"] = round(_pnl, 2)
+            r["label_outcome"] = _classify_outcome(_pnl)
+            r["label_mfe_pct"] = round(_mfe, 2)
+            r["label_mae_pct"] = round(_mae, 2)
+            _done += 1
+        except Exception as exc:
+            _log_swallowed("signal label", exc)
+    if _done:
+        _write_json_atomic(SIGNAL_FEATURES_FILE, rows, indent=0)
+    if verbose:
+        print(f"  🏷  Labelled {_done} signal(s); {len(_pending) - _done} still waiting on data")
+    return _done
+
+
+def report_signal_features(min_n: int = 5) -> list[str]:
+    """What the labelled data says so far, as plain comparisons.
+
+    Deliberately descriptive: win rate and average result per bucket, with the
+    sample size next to it, so a 3-signal bucket cannot masquerade as a
+    finding. This is the report that should decide weight changes -- not a
+    model, and not a hunch.
+    """
+    try:
+        with open(SIGNAL_FEATURES_FILE) as f:
+            rows = [r for r in json.load(f) if r.get("label_outcome")]
+    except (FileNotFoundError, json.JSONDecodeError):
+        rows = []
+    if not rows:
+        return ["No labelled signals yet."]
+    def _bucket(name, keyfn):
+        groups: dict = {}
+        for r in rows:
+            try:
+                groups.setdefault(str(keyfn(r)), []).append(float(r["label_pnl_pct"]))
+            except Exception:
+                continue
+        out = []
+        for k, v in sorted(groups.items(), key=lambda kv: -(sum(kv[1]) / len(kv[1]))):
+            if len(v) < min_n:
+                continue
+            _wr = sum(1 for x in v if x > 0.5) / len(v) * 100
+            out.append(f"   {name} {k:<14} n={len(v):<4} avg={sum(v)/len(v):+6.2f}%  win={_wr:3.0f}%")
+        return out
+    lines = [f"📊 <b>Signal features</b> — {len(rows)} labelled"]
+    for _name, _fn in (("catalyst", lambda r: r.get("catalyst_tier") or "none"),
+                       ("setup", lambda r: (r.get("setup") or "?")[:12]),
+                       ("regime", lambda r: r.get("regime") or "?"),
+                       ("score", lambda r: f"{int(r['score']) // 10 * 10}s"),
+                       ("taken", lambda r: "taken" if r.get("taken") else "rejected"),
+                       ("mtf_ok", lambda r: r.get("mtf_ok"))):
+        _b = _bucket(_name, _fn)
+        if _b:
+            lines += _b
+    return lines
 
 
 def _grade_catalyst(ticker: str, headlines: Optional[list]) -> tuple[str, str]:
@@ -19084,6 +19213,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     # Resolve any pending live signals whose bars are now available
     resolved = resolve_live_outcomes(verbose=False)
+    # Label what the older logged signals would have done, a few per scan so
+    # the dataset fills itself without a separate job or any attention.
+    label_signal_features(max_rows=8, verbose=False)
     if resolved:
         print(f"  📊 {resolved} live trade(s) resolved — run --mode live-perf to see stats")
 
@@ -24632,7 +24764,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit"],
+                 "fallback-guard", "audit", "label", "features"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -24893,6 +25025,12 @@ def main():
 
     elif args.mode == "scan-log":
         print_scan_log()
+
+    elif args.mode == "label":
+        label_signal_features()
+
+    elif args.mode == "features":
+        print("\n".join(report_signal_features()))
 
     elif args.mode == "audit":
         run_policy_audit()

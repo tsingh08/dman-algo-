@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-17T09:37:27.612832-04:00",
-    "symbols": [
-      "DTSS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:27.695834-04:00",
-    "symbols": [
-      "SDST"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:27.782980-04:00",
-    "symbols": [
-      "KXIN"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:27.788155-04:00",
-    "symbols": [
-      "KXIN"
-    ],
-    "headline": "Why Generac Shares Are Trading Higher By Around 35%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:27.793135-04:00",
-    "symbols": [
-      "KXIN"
-    ],
-    "headline": "Kaixin Holdings (KXIN) Stock Soars 138% After Hours On 600% Revenue Jump",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:27.917621-04:00",
-    "symbols": [
-      "BIAF"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T09:37:27.922667-04:00",
-    "symbols": [
-      "BIAF"
-    ],
-    "headline": "Hong Kong Intellectual Property Department Grants Patent For bioAffinity\u2019s Proprietary Platform Technology For Predicting Likelihood Of Lung Cancer Using Flow Cytometry And Fluorescent Markers To Characterize Cell Populations In Sputum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T09:37:28.006027-04:00",
     "symbols": [
       "ADBT"
@@ -5089,6 +5019,76 @@
       "DKNG"
     ],
     "headline": "UBS Maintains Buy on DraftKings, Lowers Price Target to $48",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T09:48:16.341598-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood\u2019s 24/7 Stock Dream Just Got A Boost From The SEC",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T09:48:22.109329-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Exxon Sees Power Demand Exploding 65% By 2050",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T09:48:40.034182-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Oracle, CoreWeave Dump on AI&#39;s $3.6 Trillion Financing Bill",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T09:48:51.689082-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle, CoreWeave Dump on AI&#39;s $3.6 Trillion Financing Bill",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T09:48:57.763643-04:00",
+    "symbols": [
+      "IMCC"
+    ],
+    "headline": "US Stocks Mixed; Industrial Production Unchanged In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T09:48:58.010133-04:00",
+    "symbols": [
+      "SSM"
+    ],
+    "headline": "US Stocks Mixed; Industrial Production Unchanged In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T09:49:48.615504-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Micron Technology, Maintains $1500 Price Target",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

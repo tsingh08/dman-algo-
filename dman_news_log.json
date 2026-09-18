@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T10:08:20.557929-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "China Foreign Minister Wang Yi Says China-U.S. Relations Moving Along Constructive, Strategically Stable Track Set By Two Leaders",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T10:08:33.851138-04:00",
     "symbols": [
       "SPY"
@@ -5092,5 +5082,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T10:45:55.636097-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SNDK"
+    ],
+    "headline": "Micron, SanDisk Face New China Rival: Trouble for MU and SNDK Ahead?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

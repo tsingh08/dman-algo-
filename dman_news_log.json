@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:35:43.597710-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Nasdaq 100 Rallies as Oil Slides, Yields Retreat: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T13:35:43.838866-04:00",
     "symbols": [
       "OKLO"
@@ -5095,6 +5085,16 @@
     "headline": "Punchbowl Defense Reporter Briana Reilly Posts On X &#34;Breaking: Iran military operations have cost $43.6B as of Sept. 3, according to a new estimate Central Command provided to congressional defense committees this week. That includes: ~11.2B for ops; ~$28.1B to replace expended munitions; ~$4.3B for replacing lost equipment&#34;",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T14:03:31.331078-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

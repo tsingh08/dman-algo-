@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-17T11:09:04.681088-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Public Power Corp Announces Binding MOU With Amazon Web Services To Develop 300 MW Data Center In Western Macedonia, Greece; Says It May Explore Expansion To 1 GW",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:09:11.653052-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "INNIO Announces 450 MW Firm Order From Undisclosed U.S. Energy Company For Jenbacher J624 Containerized Gas Engines To Power North American Data Centers; Booked In Q3 2026, Delivery Expected By 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T11:11:34.389996-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:11:34.664865-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Boss Slams AI Doom Mongers, Stock Bounces",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T11:11:35.229872-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-17T11:11:35.518442-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "EXCLUSIVE: Google Is Racing to Secure Nuclear Power for AI\u2014The Fuel Problem Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T11:11:35.813053-04:00",
     "symbols": [
       "AMZN"
@@ -5097,6 +5037,75 @@
     "headline": "Fed&#39;s Schmid Says I Agree With Chairman Warsh&#39;s Framework On Why Bond Yields Have Gone Up - Economic Growth, Demand For Capital From AI Investment, Geopolitical Challenges",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:56:00.742076-04:00",
+    "symbols": [
+      "JPM",
+      "NVDA",
+      "QCOM",
+      "SPY"
+    ],
+    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:56:09.843171-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "COIN",
+      "HOOD",
+      "MARA",
+      "MSTR",
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-linked companies are trading higher amid a rise in Bitcoin after the CFTC submitted a proposal on Thursday to regulate crypto asset transactions and markets. This, along with yesterday&#39;s announcements from the CFTC and SEC, signals that regulatory agencies are taking action after the Clarity Act failed to advance in the Senate.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:56:22.708922-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T11:56:26.454176-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T11:56:36.560659-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T11:56:38.022162-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

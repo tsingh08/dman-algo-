@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-17T13:52:30.444357-04:00",
-    "symbols": [
-      "VGK"
-    ],
-    "headline": "Bank of England Holds Key Rate at 3.75%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:52:30.448827-04:00",
-    "symbols": [
-      "VGK"
-    ],
-    "headline": "Canada PM Carney Says Europe And Canada Are Strong, Even Stronger Together; Alliance Can Help Fill Europe\u2019s Need For Reliable Supply Of Critical Minerals; Canada Can Contribute LNG And Hydrogen At Large Scale To Support EU&#39;s Energy Security; We&#39;re Not Proposing A Third Bloc In Order To Become A Great-Power Rival; There Will Be Debate In Canadian Parliament On EU Associate Membership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:52:30.453154-04:00",
-    "symbols": [
-      "VGK"
-    ],
-    "headline": "European Commission Adopts EU KIDS Act, Banning Social Media Access For Children Under 13, Setting Minimum Account Age Of 15, Reversing Burden Of Proof To Require Platforms Prove Safety By Design",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-17T13:52:30.526243-04:00",
-    "symbols": [
-      "JXN"
-    ],
-    "headline": "Jackson Financial Stock Falls After Bear Cave Report Flags Reinsurer Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T13:52:30.530613-04:00",
     "symbols": [
       "JXN"
@@ -5105,5 +5065,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T15:47:02.709715-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab shares are trading lower after SpaceX delayed the date for its Starship launch to September, 28.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-18T15:50:22.071920-04:00",
+    "symbols": [
+      "ELOX"
+    ],
+    "headline": "Leerink Partners Initiates Coverage On Eloxx Pharma with Outperform Rating, Announces Price Target of $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T15:50:22.269166-04:00",
+    "symbols": [
+      "NGVC"
+    ],
+    "headline": "This Cue Biopharma Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T15:50:22.274219-04:00",
+    "symbols": [
+      "NGVC"
+    ],
+    "headline": "B of A Securities Initiates Coverage On Natural Grocers with Buy Rating, Announces Price Target of $35",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

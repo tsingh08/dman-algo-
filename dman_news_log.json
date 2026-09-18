@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-17T10:26:16.277846-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Huawei Takes Aim at Nvidia, AMD with Over 10 new AI Chipsets \u2014 But Can the Chinese Tech Giant Close the Gap?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T10:26:16.285901-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Huawei Takes Aim at Nvidia, AMD with Over 10 new AI Chipsets \u2014 But Can the Chinese Tech Giant Close the Gap?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-17T10:30:44.849069-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Natural Gas Storage 44B Vs 40B Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-17T10:34:21.620496-04:00",
     "symbols": [
       "NVDA"
@@ -5093,5 +5063,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:08:35.512450-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Morgan Stanley Maintains Underweight on MARA Holdings, Raises Price Target to $11",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:08:49.737039-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "California Governor Gavin Newsom Says On X He Signed Executive Order To Accelerate Independent Oversight Of AI Companies, Advance Creation Of &#39;AI Kill Switch&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-18T11:09:15.024867-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s Optimus Has a New Problem: Figure\u2019s Humanoid Is Getting Better at the Unknown",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

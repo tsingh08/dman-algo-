@@ -19214,8 +19214,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # Resolve any pending live signals whose bars are now available
     resolved = resolve_live_outcomes(verbose=False)
     # Label what the older logged signals would have done, a few per scan so
-    # the dataset fills itself without a separate job or any attention.
-    label_signal_features(max_rows=8, verbose=False)
+    # the dataset fills itself without a separate job or any attention --
+    # but never during the session. Labels are days old by definition and
+    # each one costs a price fetch; a live scan should spend its API budget
+    # on today's prices, not on bookkeeping.
+    if not is_market_open():
+        label_signal_features(max_rows=8, verbose=False)
     if resolved:
         print(f"  📊 {resolved} live trade(s) resolved — run --mode live-perf to see stats")
 

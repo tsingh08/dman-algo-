@@ -16875,3 +16875,13 @@ class TestSignalLabelling(unittest.TestCase):
         src = inspect.getsource(a.main)
         self.assertIn('"label"', src)
         self.assertIn('"features"', src)
+
+
+class TestLabellingStaysOutOfTheSession(unittest.TestCase):
+    """Labels are days old by definition; a live scan should spend its API
+    budget on today's prices."""
+
+    def test_the_scan_loop_guards_on_market_hours(self):
+        src = inspect.getsource(a.run_pro_scanner)
+        i = src.index("label_signal_features")
+        self.assertIn("if not is_market_open():", src[max(0, i - 200):i])

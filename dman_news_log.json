@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-17T14:33:37.935861-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Alphabet, Raises Price Target to $450",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-17T14:33:45.508959-04:00",
     "symbols": [
       "GNRC"
@@ -5123,5 +5113,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-18T19:15:20.660320-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "If You Invested $1000 In Caterpillar Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

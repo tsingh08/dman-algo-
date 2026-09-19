@@ -611,6 +611,23 @@ MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
 # is alerted in full and traded; the rest collapse to a single line.
 MOMENTUM_MIN_PICK_SCORE = 50   # out of 90 — see _breakout_quality()
 MOMENTUM_RANKED_SHOWN   = 3    # #1 traded, #2 and #3 shown with their reasoning
+# A second scoring lane for the profile the first one cannot see. The coil lane
+# rewards a tight stop, a price just above VWAP and a base under the session
+# high -- a pre-breakout consolidation. A low-priced name going vertical is the
+# opposite on every count, so it scores badly no matter how strong it is:
+# 2026-09-18 QNME was detected with three pattern signals and scored 43/90
+# while running $0.29 -> $1.03 (+255%) on 318M shares. In this profile the
+# extension IS the signal, a wide percentage stop is normal, and what matters
+# is whether volume confirms the move.
+RUNNER_MAX_PRICE        = 2.00   # above this, the coil lane is the right read
+RUNNER_MIN_SESSION_RVOL = 3.0    # session volume vs the stock's own daily average
+RUNNER_MIN_DAY_GAIN_PCT = 25.0   # only then is a dip under VWAP a pullback
+RUNNER_MAX_BELOW_VWAP   = 15.0   # further under and it is a failed move, not a dip
+# And a ceiling on how far it may already have run. QNME on 2026-09-18 scored
+# 90/90 at noon, +205% on the day -- with exactly +1% left in it. The same name
+# at 10:00, +17% on the day, had +205% ahead. Buying after the triple is the
+# losing half of this profile, so the lane refuses it.
+RUNNER_MAX_DAY_GAIN_PCT = 100.0
 # Event strangles place themselves. generate_strangle_advisory() only ever sent
 # a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
 # the Alpaca site -- the one part of the day that actually required a human.
@@ -9682,7 +9699,8 @@ def _mw_collect_watchlist_plays(active_plays, already):
 
 
 def _breakout_quality(bp: dict, levels: dict, cur: float, vwap: float,
-                      entry_px: float, stop_px: float, fl_m: float) -> tuple[int, list[str]]:
+                      entry_px: float, stop_px: float, fl_m: float,
+                      adv: float = 0.0) -> tuple[int, list[str]]:
     """Score one breakout candidate 0-100 on the criteria already measured.
 
     Weighted toward what the live record and the 2026-09-15 entry study
@@ -9696,6 +9714,7 @@ def _breakout_quality(bp: dict, levels: dict, cur: float, vwap: float,
     """
     score, why = 0, []
     try:
+        _runner = _runner_quality(bp, levels, cur, vwap, fl_m, adv)
         _sigs = list(bp.get("signals") or [])
         if _sigs:
             score += min(30, 15 * len(_sigs))
@@ -9727,7 +9746,101 @@ def _breakout_quality(bp: dict, levels: dict, cur: float, vwap: float,
             score += 5
     except Exception as exc:
         _log_swallowed("breakout quality", exc)
+        _runner = (0, [])
+    # Whichever lane reads this name better. They are scored on the same 0-90
+    # scale so one bar (MOMENTUM_MIN_PICK_SCORE) still governs both.
+    if _runner[0] > score:
+        return max(0, min(100, _runner[0])), _runner[1]
     return max(0, min(100, score)), why
+
+
+def _volume_surge(levels: dict, fast: int = 5, slow: int = 20) -> float:
+    """Recent bar volume over the preceding average. 1.0 means no change."""
+    try:
+        _bars = levels.get("bars") or []
+        if len(_bars) < fast + slow:
+            return 0.0
+        _fast = sum(b.get("v", 0) for b in _bars[-fast:]) / fast
+        _slow = sum(b.get("v", 0) for b in _bars[-(fast + slow):-fast]) / slow
+        return round(_fast / _slow, 2) if _slow > 0 else 0.0
+    except Exception:
+        return 0.0
+
+
+def _average_daily_volume(ticker: str, days: int = 20) -> float:
+    """The stock's own normal daily volume, for judging today against it."""
+    try:
+        df = fetch_df(ticker, period_days=60)
+        if df is None or len(df) < 5:
+            return 0.0
+        return float(df["Volume"].tail(days).mean())
+    except Exception:
+        return 0.0
+
+
+def _runner_quality(bp: dict, levels: dict, cur: float, vwap: float,
+                    fl_m: float, adv: float = 0.0) -> tuple[int, list[str]]:
+    """Score a low-priced name that is already moving, on its own terms.
+
+    Two measurement choices matter here, and the first version of this lane got
+    both wrong on 2026-09-18 QNME ($0.29 -> $1.03):
+
+    Volume is measured against the stock's OWN daily average, not against its
+    own last few minutes. A name that has been exploding all session has a huge
+    trailing baseline, so a 5-bar-vs-20-bar ratio reads ~1.0 at the exact
+    moment it is trading 300M shares against a normal 5M.
+
+    And a dip under VWAP mid-run is a pullback, not a failure: QNME was 12%
+    under VWAP at 10:30 while up 96% on the day, and ran another 81% after.
+    Below VWAP is allowed only with a real day gain behind it and only so far
+    down -- past RUNNER_MAX_BELOW_VWAP the move has broken, not paused.
+    """
+    try:
+        if cur <= 0 or cur > RUNNER_MAX_PRICE or vwap <= 0:
+            return 0, []
+        _bars = levels.get("bars") or []
+        if not _bars:
+            return 0, []
+        _open = float(_bars[0].get("o") or _bars[0].get("c") or 0)
+        _day_gain = ((cur / _open - 1) * 100) if _open > 0 else 0.0
+        _below = (vwap - cur) / vwap * 100
+        if cur < vwap and not (_day_gain >= RUNNER_MIN_DAY_GAIN_PCT
+                               and _below <= RUNNER_MAX_BELOW_VWAP):
+            return 0, []
+        if _day_gain > RUNNER_MAX_DAY_GAIN_PCT:
+            return 0, []          # already tripled: the move is somebody else's
+        _session_vol = sum(b.get("v", 0) for b in _bars)
+        _rvol = (_session_vol / adv) if adv > 0 else 0.0
+        if _rvol < RUNNER_MIN_SESSION_RVOL:
+            return 0, []
+        score, why = 0, ["runner profile"]
+        _sigs = list(bp.get("signals") or [])
+        if _sigs:
+            score += min(30, 15 * len(_sigs))
+            why.append(f"{len(_sigs)} pattern signal(s)")
+        if _rvol >= 10:
+            score += 25; why.append(f"volume {_rvol:.0f}x its normal day")
+        elif _rvol >= 5:
+            score += 18; why.append(f"volume {_rvol:.0f}x normal")
+        else:
+            score += 10; why.append(f"volume {_rvol:.1f}x normal")
+        if cur >= vwap:
+            score += 15
+            why.append(f"holding {(cur - vwap) / vwap * 100:.0f}% above VWAP")
+        else:
+            score += 8
+            why.append(f"pullback {_below:.0f}% under VWAP, still +{_day_gain:.0f}% on the day")
+        _hi = float(levels.get("session_high") or 0)
+        if _hi > 0 and cur >= _hi * 0.98:
+            score += 20; why.append("at the session high, not fading from it")
+        elif _day_gain >= RUNNER_MIN_DAY_GAIN_PCT:
+            score += 10; why.append(f"+{_day_gain:.0f}% on the day")
+        if fl_m and fl_m < 20:
+            score += 10; why.append(f"float {fl_m:.0f}M")
+        return score, why
+    except Exception as exc:
+        _log_swallowed("runner quality", exc)
+        return 0, []
 
 
 def _breakout_thesis(c: dict) -> list[str]:
@@ -9743,7 +9856,16 @@ def _breakout_thesis(c: dict) -> list[str]:
     _risk = ((_entry - _stop) / _entry * 100) if _entry > 0 else 0.0
     _t1 = float(o.get("t1") or 0)
     for w in c.get("why", []):
-        if "pattern signal" in w:
+        if w == "runner profile":
+            out.append("• Profile: already moving, judged on volume and whether it holds "
+                       "the high — not on a tight base it no longer has")
+        elif "volume" in w and "x" in w:
+            out.append(f"• Confirmation: {w} — the move is being paid for, not drifting")
+        elif "above VWAP" in w and "holding" in w:
+            out.append(f"• Trend: {w} — buyers still in control after the run")
+        elif "session high, not fading" in w:
+            out.append(f"• Location: {w} — strength, which is what pays in this profile")
+        elif "pattern signal" in w:
             out.append(f"• Setup: {o.get('signal_str') or w} — a measured pattern, not a bare VWAP cross")
         elif "coiled at session high" in w:
             out.append("• Location: coiled right at the session high — the move starts here, "
@@ -9886,7 +10008,8 @@ def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
                 if bp["setup"] and _mw_on_probation:
                     _breakout_msg += ("\n   🟡 Setup on probation (weak recent live record) — "
                                       "auto-execute suspended, explicit YES required")
-                _score, _why = _breakout_quality(bp, levels, cur, vwap, entry_px, stop_px, fl_m)
+                _score, _why = _breakout_quality(bp, levels, cur, vwap, entry_px, stop_px, fl_m,
+                                                 _average_daily_volume(ticker))
                 setup_alerts.append({
                     "ticker": ticker, "msg": _breakout_msg, "score": _score, "why": _why,
                     "executable": bool(bp["setup"]) and not _mw_on_probation,

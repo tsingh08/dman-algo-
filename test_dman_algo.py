@@ -17060,3 +17060,102 @@ class TestShareOrdersFitTheCash(unittest.TestCase):
 
     def test_submit_applies_the_cap(self):
         self.assertIn("_cap_shares_to_cash", inspect.getsource(a.submit_alpaca_trade))
+
+
+class TestRunnerLane(unittest.TestCase):
+    """2026-09-18 QNME: three pattern signals, scored 43/90 on the coil lane
+    while running $0.29 -> $1.03 (+255%) on 318M shares. The coil lane cannot
+    see this profile; a second lane scores it on its own terms."""
+
+    def _levels(self, cur, hi, fast_v=900000, slow_v=100000, open_px=None):
+        _o = open_px if open_px is not None else cur
+        bars = [{"h": cur, "l": cur * 0.98, "o": _o, "c": cur, "v": slow_v} for _ in range(20)]
+        bars += [{"h": hi, "l": cur * 0.99, "o": cur, "c": cur, "v": fast_v} for _ in range(5)]
+        return {"bars": bars, "session_high": hi}
+
+    def test_a_cheap_high_volume_runner_scores_well(self):
+        sc, why = a._breakout_quality(
+            {"signals": ["tight coil", "VWAP reclaim bounce", "volume expansion"]},
+            self._levels(0.55, 0.56), 0.55, 0.42, 0.56, 0.44, 12.0, adv=500_000)
+        self.assertGreaterEqual(sc, a.MOMENTUM_MIN_PICK_SCORE)
+        self.assertIn("runner profile", why)
+
+    def test_volume_must_confirm(self):
+        sc, why = a._runner_quality({"signals": ["coil"]},
+                                    self._levels(0.55, 0.56, fast_v=100000, slow_v=100000),
+                                    0.55, 0.42, 12.0, adv=50_000_000)
+        self.assertEqual((sc, why), (0, []))
+
+    def test_an_expensive_stock_stays_on_the_coil_lane(self):
+        sc, _ = a._runner_quality({"signals": ["coil"]}, self._levels(540.0, 545.0),
+                                  540.0, 500.0, 200.0, adv=500_000)
+        self.assertEqual(sc, 0)
+
+    def test_below_vwap_is_not_a_runner(self):
+        # 20% under VWAP with no day gain behind it: a failed move, not a dip
+        sc, _ = a._runner_quality({"signals": ["coil"]}, self._levels(0.55, 0.60, open_px=0.55),
+                                  0.40, 0.50, 12.0, adv=500_000)
+        self.assertEqual(sc, 0)
+
+    def test_the_coil_lane_still_wins_when_it_scores_higher(self):
+        sc, why = a._breakout_quality(
+            {"signals": ["tight coil", "VWAP reclaim bounce"]},
+            {"session_high": 10.1, "bars": []}, 10.0, 9.95, 10.05, 9.85, 12.0)
+        self.assertNotIn("runner profile", why)
+        self.assertGreaterEqual(sc, a.MOMENTUM_MIN_PICK_SCORE)
+
+    def test_volume_surge_needs_enough_bars(self):
+        self.assertEqual(a._volume_surge({"bars": [{"v": 10}] * 5}), 0.0)
+
+
+class TestRunnerPullbackUnderVwap(unittest.TestCase):
+    """QNME was 12% under VWAP at 10:30 while up 96% on the day, and ran
+    another 81% after. A dip mid-run is a pullback; a dip with nothing behind
+    it is a failed move."""
+
+    def _levels(self, cur, hi, open_px, vol=60_000_000):
+        bars = [{"h": hi, "l": cur * 0.9, "o": open_px, "c": cur, "v": vol // 25} for _ in range(25)]
+        return {"bars": bars, "session_high": hi}
+
+    def test_a_pullback_in_a_real_runner_qualifies(self):
+        sc, why = a._runner_quality({"signals": ["VWAP reclaim bounce"]},
+                                    self._levels(0.568, 1.03, 0.29), 0.568, 0.647, 12.0,
+                                    adv=5_000_000)
+        self.assertGreater(sc, 0)
+        self.assertTrue(any("pullback" in w for w in why), why)
+
+    def test_too_far_under_vwap_is_a_failed_move(self):
+        sc, _ = a._runner_quality({"signals": ["coil"]},
+                                  self._levels(0.40, 1.03, 0.29), 0.40, 0.70, 12.0,
+                                  adv=5_000_000)
+        self.assertEqual(sc, 0)
+
+    def test_a_dip_without_a_day_gain_is_not_a_runner(self):
+        sc, _ = a._runner_quality({"signals": ["coil"]},
+                                  self._levels(0.95, 1.03, 1.00), 0.95, 1.00, 12.0,
+                                  adv=5_000_000)
+        self.assertEqual(sc, 0)
+
+    def test_volume_must_be_big_against_a_normal_day(self):
+        sc, _ = a._runner_quality({"signals": ["coil"]},
+                                  self._levels(0.568, 1.03, 0.29), 0.568, 0.647, 12.0,
+                                  adv=500_000_000)
+        self.assertEqual(sc, 0)
+
+
+class TestRunnerRefusesTheChase(unittest.TestCase):
+    """QNME at noon: 90/90 and +205% on the day, with +1% left in it."""
+
+    def _levels(self, cur, hi, open_px, vol=60_000_000):
+        bars = [{"h": hi, "l": cur * 0.9, "o": open_px, "c": cur, "v": vol // 25} for _ in range(25)]
+        return {"bars": bars, "session_high": hi}
+
+    def test_a_name_that_already_tripled_is_refused(self):
+        sc, _ = a._runner_quality({"signals": ["coil"]}, self._levels(0.884, 0.90, 0.29),
+                                  0.884, 0.713, 12.0, adv=5_000_000)
+        self.assertEqual(sc, 0)
+
+    def test_the_same_name_earlier_is_allowed(self):
+        sc, why = a._runner_quality({"signals": ["coil"]}, self._levels(0.50, 0.52, 0.29),
+                                    0.50, 0.45, 12.0, adv=5_000_000)
+        self.assertGreater(sc, 0)

@@ -649,6 +649,20 @@ STRANGLE_MOVE_HEADROOM = 0.8
 # command YOU sent is never filtered: you asked, you get the answer.
 # `/flags quiet off` restores everything.
 ENABLE_TELEGRAM_QUIET = True
+
+# ── Plain-English commands ────────────────────────────────────────────────
+# Anything that is not a recognised /command is read as English and mapped to
+# one of the commands that already exist. A translator, never a new way to act:
+# read-only commands run straight away, and anything that moves money or
+# changes risk state is echoed back for you to send yourself. The model can
+# only choose from TELEGRAM_COMMANDS, so a misread produces a wrong menu
+# choice, never an invented action.
+ENABLE_NL_COMMANDS = True
+NL_COMMAND_MODEL   = "claude-haiku-4-5-20251001"
+# Commands that change money or risk state — echoed for confirmation, never
+# auto-run from an interpretation.
+NL_CONFIRM_REQUIRED = {"buy", "close", "halt", "resume", "probation", "endprobation",
+                       "setupprobation", "endsetupprobation", "restart", "flags"}
 _TELEGRAM_KEEP = (
     "auto-exec", "order placed", "order submitted", "filled", "fill ",
     "bought", "sold", "entered", "closed", "exit", "stop hit", "stopped",
@@ -2468,6 +2482,9 @@ TOGGLEABLE_FLAGS = {
     "accum":   ("ENABLE_ACCUMULATION_ALERTS",
                 "volume-building-before-price alerts. Observation only — never "
                 "trades."),
+    "english": ("ENABLE_NL_COMMANDS",
+                "read plain-English messages as commands. OFF shows the menu "
+                "for anything that is not a /command."),
     "quiet":   ("ENABLE_TELEGRAM_QUIET",
                 "send only money/safety messages (orders, fills, exits, halts, "
                 "failures, EOD P&L). OFF sends everything."),
@@ -3759,10 +3776,76 @@ def _handle_telegram_command_inner(text: str) -> None:
         _handle_buy_command(_parts)
 
     else:
-        send_telegram(
-            "🤖 <b>DMan commands</b>\n" +
-            "\n".join(f"/{c} — {d}" for c, d in TELEGRAM_COMMANDS)
+        _nl_cmd, _nl_why = _interpret_plain_english(text)
+        if _nl_cmd:
+            _nl_name = _nl_cmd.lstrip("/").split()[0].lower()
+            if _nl_name in NL_CONFIRM_REQUIRED:
+                send_telegram(f"🗣 Read that as <code>{_nl_cmd}</code>"
+                              + (f" — {_nl_why}" if _nl_why else "")
+                              + "\nSend it to run (anything that trades or changes "
+                                "risk state is never run from an interpretation).")
+            else:
+                send_telegram(f"🗣 Running <code>{_nl_cmd}</code>"
+                              + (f" — {_nl_why}" if _nl_why else ""))
+                _handle_telegram_command_inner(_nl_cmd)
+        else:
+            send_telegram(
+                "🤖 <b>DMan commands</b>\n" +
+                "\n".join(f"/{c} — {d}" for c, d in TELEGRAM_COMMANDS)
+            )
+
+
+def _interpret_plain_english(text: str) -> tuple[str, str]:
+    """Map plain English to one of TELEGRAM_COMMANDS. ("", "") when unclear.
+
+    Fail-closed in every direction that matters: no key, flag off, an
+    unparseable reply, or a command that is not in the table all return
+    nothing, which leaves the caller showing the normal menu. The model never
+    sees account state and cannot invent a command -- it picks from the list,
+    and the caller decides whether that choice may run by itself.
+    """
+    if not flag("ENABLE_NL_COMMANDS", ENABLE_NL_COMMANDS) or not ANTHROPIC_API_KEY:
+        return "", ""
+    _clean = (text or "").strip()
+    if not _clean or _clean.startswith("/") or len(_clean) > 200:
+        return "", ""
+    try:
+        _menu = "\n".join(f"/{c} — {d}" for c, d in TELEGRAM_COMMANDS)
+        _prompt = (
+            "Map the user's message to exactly one command from this trading bot's menu.\n\n"
+            f"{_menu}\n\n"
+            "Rules: include arguments the command needs (a ticker, a number) when the "
+            "message supplies them. If the message does not clearly correspond to one "
+            "command, return null. Do not invent commands or arguments.\n\n"
+            f"Message: {_clean}\n\n"
+            'Answer ONLY with JSON: {"command": "/status" or null, "why": "<=12 words"}')
+        resp = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={"x-api-key": ANTHROPIC_API_KEY,
+                     "anthropic-version": "2023-06-01",
+                     "content-type": "application/json"},
+            json={"model": NL_COMMAND_MODEL, "max_tokens": 150,
+                  "messages": [{"role": "user", "content": _prompt}]},
+            timeout=12,
         )
+        if resp.status_code != 200:
+            _log_swallowed("nl command", RuntimeError(f"HTTP {resp.status_code}"))
+            return "", ""
+        _text = "".join(b.get("text", "") for b in resp.json().get("content", []))
+        _m = re.search(r"\{.*\}", _text, re.S)
+        if not _m:
+            return "", ""
+        _out = json.loads(_m.group(0))
+        _cmd = (_out.get("command") or "").strip()
+        if not _cmd.startswith("/"):
+            return "", ""
+        _name = _cmd.lstrip("/").split()[0].lower()
+        if _name not in {c for c, _ in TELEGRAM_COMMANDS} | {"flags"}:
+            return "", ""          # not on the menu: treat as unclear
+        return _cmd, str(_out.get("why", ""))[:80]
+    except Exception as exc:
+        _log_swallowed("nl command", exc)
+        return "", ""
 
 
 def _render_options_chain_table(calls: list[dict], puts: list[dict], underlying_price: float) -> str:

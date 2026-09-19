@@ -17159,3 +17159,69 @@ class TestRunnerRefusesTheChase(unittest.TestCase):
         sc, why = a._runner_quality({"signals": ["coil"]}, self._levels(0.50, 0.52, 0.29),
                                     0.50, 0.45, 12.0, adv=5_000_000)
         self.assertGreater(sc, 0)
+
+
+class TestPlainEnglishCommands(unittest.TestCase):
+    """Direct instruction 2026-09-19: type plain English in Telegram. A
+    translator onto the existing menu, never a new way to act."""
+
+    def _resp(self, body, code=200):
+        r = MagicMock(status_code=code)
+        r.json.return_value = {"content": [{"text": body}]}
+        return r
+
+    def setUp(self):
+        k = patch.object(a, "ANTHROPIC_API_KEY", "test-key")
+        k.start(); self.addCleanup(k.stop)
+
+    def test_a_question_maps_to_a_command(self):
+        with patch.object(a.requests, "post",
+                          return_value=self._resp('{"command": "/positions", "why": "wants holdings"}')):
+            cmd, why = a._interpret_plain_english("what am i holding right now?")
+        self.assertEqual(cmd, "/positions")
+        self.assertIn("holdings", why)
+
+    def test_an_invented_command_is_refused(self):
+        with patch.object(a.requests, "post",
+                          return_value=self._resp('{"command": "/liquidate_everything"}')):
+            self.assertEqual(a._interpret_plain_english("sell it all"), ("", ""))
+
+    def test_unclear_text_returns_nothing(self):
+        for body in ('{"command": null}', "not json", ""):
+            with patch.object(a.requests, "post", return_value=self._resp(body)):
+                self.assertEqual(a._interpret_plain_english("hello there"), ("", ""))
+
+    def test_a_slash_command_is_left_alone(self):
+        with patch.object(a.requests, "post", side_effect=AssertionError("must not call")):
+            self.assertEqual(a._interpret_plain_english("/status"), ("", ""))
+
+    def test_flag_off_and_missing_key_both_disable_it(self):
+        with patch.object(a, "ENABLE_NL_COMMANDS", False), \
+             patch.object(a.requests, "post", side_effect=AssertionError("must not call")):
+            self.assertEqual(a._interpret_plain_english("how are we doing"), ("", ""))
+        with patch.object(a, "ANTHROPIC_API_KEY", ""), \
+             patch.object(a.requests, "post", side_effect=AssertionError("must not call")):
+            self.assertEqual(a._interpret_plain_english("how are we doing"), ("", ""))
+
+    def test_api_failure_is_silent(self):
+        with patch.object(a.requests, "post", side_effect=OSError("down")):
+            self.assertEqual(a._interpret_plain_english("what is my pnl"), ("", ""))
+
+    def test_a_read_only_command_runs_immediately(self):
+        sent = []
+        with patch.object(a, "_interpret_plain_english", return_value=("/pnl", "asked about p&l")), \
+             patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "get_todays_loss", return_value=1.2), \
+             patch.object(a, "get_this_month_loss", return_value=-9.5):
+            a._handle_telegram_command("how did we do today")
+        self.assertTrue(any("Running" in m and "/pnl" in m for m in sent), sent)
+        self.assertTrue(any("P&L" in m for m in sent), sent)   # the command itself ran
+
+    def test_a_trading_command_is_never_auto_run(self):
+        sent = []
+        with patch.object(a, "_interpret_plain_english", return_value=("/close NVDA", "exit nvda")), \
+             patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "_tg_cmd_close") as close:
+            a._handle_telegram_command("get me out of nvda")
+        close.assert_not_called()
+        self.assertTrue(any("Send it to run" in m for m in sent), sent)

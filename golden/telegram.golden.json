@@ -5,6 +5,7 @@
   "_enter_setup_probation",
   "_handle_buy_command",
   "_handle_options_command",
+  "_interpret_plain_english",
   "_load_setup_probation",
   "_save_setup_probation",
   "_submit_options_close",
@@ -62,6 +63,11 @@
     [
      "flag",
      "('ENABLE_ACCUMULATION_ALERTS', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_NL_COMMANDS', True)",
      "[]"
     ],
     [
@@ -133,6 +139,11 @@
     [
      "flag",
      "('ENABLE_ACCUMULATION_ALERTS', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_NL_COMMANDS', True)",
      "[]"
     ],
     [
@@ -254,7 +265,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
      "[]"
     ]
    ],
@@ -265,7 +276,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
      "[]"
     ]
    ],
@@ -888,22 +899,22 @@
    "stdout": []
   },
   "mock|close": {
-   "how": "returned None",
+   "how": "ValueError: not enough values to unpack (expected 2, got 0)",
    "calls": [
     [
-     "send_telegram",
-     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "_interpret_plain_english",
+     "('close',)",
      "[]"
     ]
    ],
    "stdout": []
   },
   "none|close": {
-   "how": "returned None",
+   "how": "TypeError: cannot unpack non-iterable NoneType object",
    "calls": [
     [
-     "send_telegram",
-     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "_interpret_plain_english",
+     "('close',)",
      "[]"
     ]
    ],
@@ -942,22 +953,22 @@
    "stdout": []
   },
   "mock|why": {
-   "how": "returned None",
+   "how": "ValueError: not enough values to unpack (expected 2, got 0)",
    "calls": [
     [
-     "send_telegram",
-     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "_interpret_plain_english",
+     "('why',)",
      "[]"
     ]
    ],
    "stdout": []
   },
   "none|why": {
-   "how": "returned None",
+   "how": "TypeError: cannot unpack non-iterable NoneType object",
    "calls": [
     [
-     "send_telegram",
-     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "_interpret_plain_english",
+     "('why',)",
      "[]"
     ]
    ],
@@ -1176,22 +1187,22 @@
    "stdout": []
   },
   "mock|nonsense": {
-   "how": "returned None",
+   "how": "ValueError: not enough values to unpack (expected 2, got 0)",
    "calls": [
     [
-     "send_telegram",
-     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "_interpret_plain_english",
+     "('nonsense',)",
      "[]"
     ]
    ],
    "stdout": []
   },
   "none|nonsense": {
-   "how": "returned None",
+   "how": "TypeError: cannot unpack non-iterable NoneType object",
    "calls": [
     [
-     "send_telegram",
-     "(\"🤖 <b>DMan commands</b>\\n/status — Account, halt state, positions count\\n/positions — List tracked positions\\n/pnl — Today + month P&L\\n/halt — Block new entri",
+     "_interpret_plain_english",
+     "('nonsense',)",
      "[]"
     ]
    ],

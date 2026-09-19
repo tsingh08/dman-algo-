@@ -963,6 +963,16 @@ PDT_ZERO_SHARES_MAX_ENTRY_GAP = 15.0  # already run this much => it is a chase
 PDT_ZERO_SHARES_MIN_DOLLAR_VOL = 1_000_000  # must be exitable by hand
 
 MAX_TRADE_LOSS_PCT = 0.10        # ceiling on what ONE trade may lose, % of equity
+# A watchlist name that scores this high takes shares when options are out of
+# reach. 2026-09-18: AMD signalled Day 2 Continuation at 100/100, the options
+# path found exactly one contract clearing the intrinsic floor -- and it cost
+# $3,165 against a $338 budget, i.e. 120% of the account -- so the trade was
+# dropped entirely. AMD then ran +3.2% and closed +2.8% with a 0.2% drawdown.
+# Four shares was always the affordable expression of that signal: ~$61 on
+# ~$65 of risk. Expensive stocks are exactly where shares beat options on a
+# small account, which is the opposite of the 2026-08-05 assumption.
+SHARES_FALLBACK_MIN_SCORE = 95
+SHARES_FALLBACK_MAX_CASH_PCT = 0.85   # never commit the whole balance to one name
 # ...and a ceiling on what ALL open options may lose together. Five concurrent
 # positions at the per-trade cap is 37.5% of the account at risk at once, and
 # a long option has no stop -- PORTFOLIO_HEAT_LIMIT is computed from stop
@@ -20846,6 +20856,30 @@ def _entry_limit_price(entry: float, bias: str) -> float:
     return entry * (1 + pct / 100) if str(bias).upper() == "SHORT" else entry * (1 - pct / 100)
 
 
+def _cap_shares_to_cash(ticker: str, qty: int, price: float) -> tuple[int, str]:
+    """Trim a share order to what the account can actually pay for.
+
+    Risk-based sizing answers "how much can this trade lose"; on a $2.6k
+    account holding a $542 stock it can still ask for more shares than there
+    is cash. Returns (qty, note) with qty 0 when even one share is out of
+    reach, so the caller reports that instead of sending a doomed order.
+    """
+    try:
+        if qty <= 0 or price <= 0:
+            return max(0, qty), ""
+        _acct = get_alpaca_client().get_account()
+        _cash = float(getattr(_acct, "cash", 0) or 0)
+        _max = int((_cash * SHARES_FALLBACK_MAX_CASH_PCT) // price)
+        if _max < 1:
+            return 0, f"${price:.2f}/share exceeds {SHARES_FALLBACK_MAX_CASH_PCT:.0%} of ${_cash:,.0f} cash"
+        if qty > _max:
+            return _max, f"trimmed {qty}→{_max} shares to fit cash"
+        return qty, ""
+    except Exception as exc:
+        _log_swallowed("share cash cap", exc)
+        return qty, ""
+
+
 def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]]:
     """
     Place a bracket order on Alpaca (paper or live).
@@ -20896,6 +20930,12 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
 
     side      = OrderSide.BUY  if signal.bias == "LONG" else OrderSide.SELL
     limit_px  = round(_entry_limit_price(signal.entry, signal.bias), 2)
+    _qty, _cap_note = _cap_shares_to_cash(signal.ticker, int(signal.shares or 0), limit_px)
+    if _qty < 1:
+        return None, f"{signal.ticker}: {_cap_note or 'no affordable share size'}"
+    if _cap_note:
+        print(f"  💵 {signal.ticker}: {_cap_note}")
+        signal.shares = _qty
     stop_px   = round(signal.stop,    2)
     target_px = round(signal.target1, 2)
     label     = "PAPER" if ALPACA_PAPER else "LIVE"
@@ -23315,7 +23355,7 @@ def _submit_manual_options_buy(client, pending: dict) -> tuple[Optional[str], Op
     return str(order.id), None
 
 
-def _shares_fallback_allowed(ticker: str, setup: str = "") -> bool:
+def _shares_fallback_allowed(ticker: str, setup: str = "", score: float = 0) -> bool:
     """
     True for DMan's own curated small-cap watchlist, OR any live Low
     Float Catalyst signal regardless of watchlist membership. Policy set
@@ -23346,8 +23386,15 @@ def _shares_fallback_allowed(ticker: str, setup: str = "") -> bool:
     order goes out -- watchlist membership adds nothing a real YES
     doesn't already cover.
     """
-    return (ticker in DMAN_SMALLCAP_WATCHLIST or setup == "Low Float Catalyst"
-            or setup == MOMENTUM_DAY_ONLY_SETUP)
+    if (ticker in DMAN_SMALLCAP_WATCHLIST or setup == "Low Float Catalyst"
+            or setup == MOMENTUM_DAY_ONLY_SETUP):
+        return True
+    # Extended 2026-09-18: a backtest-validated watchlist name that scores at
+    # least SHARES_FALLBACK_MIN_SCORE. See that constant for the AMD case --
+    # the original "grow on options, not expensive shares" rule silently means
+    # "do not trade our best signals at all" once one contract costs more than
+    # the whole account.
+    return bool(ticker in WATCHLIST and score >= SHARES_FALLBACK_MIN_SCORE)
 
 
 def _live_mode_preflight(signals: list) -> Optional[tuple]:
@@ -23847,7 +23894,8 @@ def _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attem
                         f"day-trade budget is 0.\n{html.escape(_naked_why)}."
                     )
                 return True, _naked_open, _submit_err, oid
-        elif (not _shares_fallback_allowed(sig.ticker, sig.setup)
+        elif (not _shares_fallback_allowed(sig.ticker, sig.setup,
+                                           getattr(sig, "confluence_score", 0))
                 and not getattr(sig, "no_stop_entry", False)):
             print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
                   f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "

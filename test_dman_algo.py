@@ -1724,6 +1724,7 @@ class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
 
     def test_auth_failure_surfaces_the_real_exception_text(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.side_effect = Exception("401 Client Error: Unauthorized")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             oid, err = a.submit_alpaca_trade(self._signal())
@@ -1736,6 +1737,7 @@ class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
         mock_order = MagicMock()
         mock_order.id = "abc123"
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = mock_order
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             oid, err = a.submit_alpaca_trade(self._signal())
@@ -1759,6 +1761,7 @@ class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
         # means going back to a stop that may never actually activate.
         mock_order = MagicMock(); mock_order.id = "abc123"
         mock_client = MagicMock(); mock_client.submit_order.return_value = mock_order
+        mock_client.get_account.return_value = MagicMock(cash="100000")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             a.submit_alpaca_trade(self._signal())
         req = mock_client.submit_order.call_args[0][0]
@@ -1772,6 +1775,7 @@ class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
         sig.swing_mode = True
         mock_order = MagicMock(); mock_order.id = "abc123"
         mock_client = MagicMock(); mock_client.submit_order.return_value = mock_order
+        mock_client.get_account.return_value = MagicMock(cash="100000")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             a.submit_alpaca_trade(sig)
         req = mock_client.submit_order.call_args[0][0]
@@ -2666,6 +2670,7 @@ class TestOptionContractStrikeStringConversion(unittest.TestCase):
             return MagicMock(option_contracts=[FakeContract()])
 
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.side_effect = fake_get_option_contracts
 
         fake_snap = {"bid": 5.0, "ask": 5.2, "mid": 5.1, "spread_pct": 0.04,
@@ -2942,6 +2947,7 @@ class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
     def test_double_spread_submits_exactly_four_legs_correct_sides(self):
         mock_order = MagicMock(); mock_order.id = "xyz"
         mock_client = MagicMock(); mock_client.submit_order.return_value = mock_order
+        mock_client.get_account.return_value = MagicMock(cash="100000")
         with patch.object(a, "get_available_cash", return_value=1_000_000.0):
             oid, err = a._submit_earnings_spread(mock_client, self._plan())
         self.assertIsNone(err)
@@ -2972,6 +2978,7 @@ class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
 
     def test_submit_failure_returns_error_text_not_swallowed(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.side_effect = Exception("insufficient buying power")
         with patch.object(a, "get_available_cash", return_value=1_000_000.0):
             oid, err = a._submit_earnings_spread(mock_client, self._plan())
@@ -2988,6 +2995,7 @@ class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
 
     def test_no_legs_is_rejected_before_hitting_the_api(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         oid, err = a._submit_earnings_spread(mock_client, {"ticker": "X", "sets": 1, "net_debit": 1})
         self.assertIsNone(oid)
         self.assertIsNotNone(err)
@@ -3008,6 +3016,7 @@ class TestCloseEarningsSpread(unittest.TestCase):
     def test_sides_and_intents_are_inverted_from_opening(self):
         mock_held = MagicMock(qty="1")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_open_position.return_value = mock_held
         mock_client.get_orders.return_value = []
         mock_client.submit_order.return_value = MagicMock(id="close1")
@@ -3025,6 +3034,7 @@ class TestCloseEarningsSpread(unittest.TestCase):
 
     def test_already_closed_when_no_leg_is_held(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             st, oid = a._close_earnings_spread(self._pos(), "test")
@@ -3631,6 +3641,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
 
     def test_below_t1_does_nothing(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.20)
         self.assertIsNone(result)
@@ -3638,6 +3649,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
 
     def test_already_trailing_does_nothing(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             result = a._progress_equity_stop_to_trailing(
                 self._pos(stop_stage="trailing"), cur_price=2.00)
@@ -3650,6 +3662,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         # even a price that's already well past the position's real T1
         # target must still do nothing if it hasn't reached the custom gate.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             result = a._progress_equity_stop_to_trailing(
                 self._pos(), cur_price=1.30, trigger_price=1.40)
@@ -3660,6 +3673,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         # The core of the fix: a trigger_price BELOW pos.target1 must let
         # this fire even though cur_price never reached the real T1.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._stop_order()]
         mock_client.submit_order.return_value = MagicMock(id="early-trail-1")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -3672,6 +3686,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
 
     def test_successful_transition_updates_stage_and_uses_capped_trail(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._stop_order()]
         mock_client.submit_order.return_value = MagicMock(id="trail-order-1")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -3706,6 +3721,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         # the gain-from-entry distance must win the cap, not the original
         # stop%, or the initial trailing level could land below breakeven.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._stop_order()]
         mock_client.submit_order.return_value = MagicMock(id="trail-order-2")
         wide_stop_pos = self._pos(entry=10.0, stop=8.2, target1=10.5)  # 18% original stop
@@ -3718,6 +3734,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
 
     def test_trailing_submission_failure_falls_back_to_plain_breakeven_stop(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._stop_order()]
         mock_client.submit_order.side_effect = [
             Exception("trailing stop rejected"),   # first call: trailing stop fails
@@ -3734,6 +3751,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
 
     def test_both_trailing_and_fallback_fail_sends_emergency_alert(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._stop_order()]
         mock_client.submit_order.side_effect = Exception("Alpaca is down")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -3745,6 +3763,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
 
     def test_no_live_stop_order_found_does_not_crash(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = []
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
@@ -3753,6 +3772,7 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
 
     def test_breakeven_replace_failure_stops_before_any_cancel(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._stop_order()]
         mock_client.replace_order_by_id.side_effect = Exception("replace rejected")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -4888,6 +4908,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
     def test_real_filled_sell_order_is_recorded(self):
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []   # IOTR no longer held
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
@@ -4910,6 +4931,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         # ground truth, and kept resurrecting it from a stale remote copy.
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
@@ -4923,6 +4945,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
     def test_non_filled_order_is_not_recorded(self):
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
@@ -4946,6 +4969,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         # cleared regardless of whether its closing order was recorded before.
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []   # not held at Alpaca
         # Genuinely not found -- matches the real Alpaca SDK, which raises
         # on get_open_position() for a symbol with no open position, rather
@@ -4986,6 +5010,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
             entry=3.52, exit=3.21, outcome="LOSS", pnl_pct=-8.7, score=0, is_live=True,
         ))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         order = self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21)
@@ -5019,6 +5044,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
             entry=3.52, exit=3.21, outcome="LOSS", pnl_pct=-8.7, score=0, is_live=True,
         ))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         order = self._order(OrderSide.SELL, OrderStatus.FILLED, filled_avg_price=3.21)
@@ -5044,6 +5070,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         # against. A direct single-symbol re-check must catch this.
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []   # bulk snapshot: false negative
         mock_client.get_open_position.return_value = MagicMock(qty="159")   # direct check: really open
         mock_client.get_orders.return_value = []   # no closing order exists at all
@@ -5061,6 +5088,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         # through to the existing ghost/stale-clear logic.
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = []
@@ -5082,6 +5110,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         # history, with the position cleared exactly once regardless.
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []   # fully closed now
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         tranche_1 = self._order(OrderSide.SELL, OrderStatus.FILLED,
@@ -5114,6 +5143,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
             entry=3.5168, exit=4.00, outcome="WIN", pnl_pct=13.8, score=0, is_live=True,
         ))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         dupe_order = self._order(OrderSide.SELL, OrderStatus.FILLED,
@@ -5144,6 +5174,7 @@ class TestSyncAlpacaFillsStatusMatching(unittest.TestCase):
         # that FILLED before the position's entry_date cannot be its close.
         from alpaca.trading.enums import OrderStatus, OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         stale = self._order(OrderSide.SELL, OrderStatus.FILLED,
@@ -5236,6 +5267,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
     def test_all_legs_closed_with_a_credit_records_a_loss(self):
         from alpaca.trading.enums import OrderStatus
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []   # no legs held anywhere
         mock_client.get_orders.return_value = [self._order(
             ["BABA260828C00138000", "BABA260828C00142000",
@@ -5257,6 +5289,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
     def test_partial_leg_close_does_not_record_or_clear(self):
         from alpaca.trading.enums import OrderStatus
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         # Only 2 of 4 legs closed -- 2 still held.
         mock_client.get_all_positions.return_value = [
             MagicMock(symbol="BABA260828C00138000"), MagicMock(symbol="BABA260828P00120000"),
@@ -5281,6 +5314,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         # already-fixed CLRO-incident behavior for the single-symbol path.
         from alpaca.trading.enums import OrderStatus
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = [self._order(
             ["SOME260828C00001000", "SOME260828C00002000"], OrderStatus.FILLED,
@@ -5296,6 +5330,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
     def test_already_recorded_id_is_skipped(self):
         from alpaca.trading.enums import OrderStatus
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = [self._order(
             ["BABA260828C00138000", "BABA260828C00142000",
@@ -5331,6 +5366,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         # opening-shaped order (positive price) must be skipped, not matched.
         from alpaca.trading.enums import OrderStatus
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = [self._order(
             ["BABA260828C00138000", "BABA260828C00142000",
@@ -5356,6 +5392,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         # short_put]; closing sells the longs and buys back the shorts.
         from alpaca.trading.enums import OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = [
             self._simple_order("BABA260828C00138000", OrderSide.SELL, 2.74, "leg-1"),
@@ -5384,6 +5421,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         # doing so.
         from alpaca.trading.enums import OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = [
             self._simple_order("BABA260828C00138000", OrderSide.SELL, 2.74, "leg-1"),
@@ -5403,6 +5441,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         # get replayed as if they were the close.
         from alpaca.trading.enums import OrderSide
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = [
             self._simple_order("BABA260828C00138000", OrderSide.BUY, 1.20, "open-leg-1"),  # wrong side
@@ -5423,6 +5462,7 @@ class TestSyncEarningsSpreadFills(unittest.TestCase):
         # with zero call-site changes.
         from alpaca.trading.enums import OrderStatus
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = [self._order(
             ["BABA260828C00138000", "BABA260828C00142000",
@@ -5471,6 +5511,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
 
     def test_account_fetch_exception_fails_closed(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.side_effect = Exception("network error")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             status = a._get_pdt_status()
@@ -5482,6 +5523,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.equity = "10000.0"
         mock_acct.daytrade_count = 0
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = mock_acct
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
              patch.object(a, "PositionTracker") as MockPT:
@@ -5495,6 +5537,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.equity = "10000.0"
         mock_acct.daytrade_count = 3
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = mock_acct
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
              patch.object(a, "PositionTracker") as MockPT:
@@ -5515,6 +5558,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.equity = "10000.0"
         mock_acct.daytrade_count = 1
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = mock_acct
         today_str = datetime.now(a.ET).date().isoformat()
         open_today = [
@@ -5543,6 +5587,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.equity = "10000.0"
         mock_acct.daytrade_count = 0
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = mock_acct
         today_str = datetime.now(a.ET).date().isoformat()
         positions = [
@@ -5565,6 +5610,7 @@ class TestPdtStatusFailsClosed(unittest.TestCase):
         mock_acct.equity = "30000.0"
         mock_acct.daytrade_count = 5
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = mock_acct
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             status = a._get_pdt_status()
@@ -8586,6 +8632,7 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
             shares=200, entry_date="2026-08-14",
         ))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []   # no longer held
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         # 2 contracts, stopped out at 4.61 -- real dollar loss is
@@ -8610,6 +8657,7 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
             shares=47, entry_date="2026-08-12",
         ))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
@@ -8635,6 +8683,7 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
             shares=47, entry_date="2026-08-12",
         ))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         mock_client.get_orders.return_value = [
@@ -9375,6 +9424,7 @@ class TestFetchAvailableExpiries(unittest.TestCase):
             C(_dt.date(2026, 8, 28)),
         ])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = raw
         result = a._fetch_available_expiries(mock_client, "SMCI")
         self.assertEqual(result, [_dt.date(2026, 8, 14), _dt.date(2026, 8, 21), _dt.date(2026, 8, 28)])
@@ -9387,6 +9437,7 @@ class TestFetchAvailableExpiries(unittest.TestCase):
 
     def test_exception_fails_open_to_empty_list(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.side_effect = Exception("network error")
         result = a._fetch_available_expiries(mock_client, "SMCI")
         self.assertEqual(result, [])
@@ -9405,6 +9456,7 @@ class TestFetchOptionChainForDisplay(unittest.TestCase):
 
     def test_illiquid_underlying_returns_none(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "yf") as mock_yf:
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 100_000
             result = a._fetch_option_chain_for_display(mock_client, "THIN", 50.0)
@@ -9417,6 +9469,7 @@ class TestFetchOptionChainForDisplay(unittest.TestCase):
             strike_price = 100.0
 
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = MagicMock(option_contracts=[FakeContract()])
         with patch.object(a, "yf") as mock_yf, \
              patch.object(a, "_get_option_snapshot", return_value=self._snap(2.0, 2.1)):
@@ -9432,6 +9485,7 @@ class TestFetchOptionChainForDisplay(unittest.TestCase):
             strike_price = 100.0
 
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = MagicMock(option_contracts=[FakeContract()])
         with patch.object(a, "yf") as mock_yf, \
              patch.object(a, "_get_option_snapshot", return_value=self._snap(0, 0)):
@@ -10041,6 +10095,7 @@ class TestTelegramOptionsBrowseAndBuy(unittest.TestCase):
             json.dump(self._pending(), f)
         snap = {"bid": 1.52, "ask": 1.56, "delta": 0.51}
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = MagicMock(id="order-abc-123")
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
@@ -10406,6 +10461,7 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
 
     def test_price_drift_past_limit_aborts(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "_get_option_snapshot", return_value={"bid": 2.0, "ask": 2.05, "delta": 0.5}):
             order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
         self.assertIsNone(order_id)
@@ -10414,6 +10470,7 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
 
     def test_no_live_quote_aborts(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "_get_option_snapshot", return_value=None):
             order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
         self.assertIsNone(order_id)
@@ -10421,6 +10478,7 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
 
     def test_insufficient_cash_aborts(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "_get_option_snapshot", return_value={"bid": 1.52, "ask": 1.56, "delta": 0.5}), \
              patch.object(a, "_cash_available_for", return_value=(False, "insufficient cash")):
             order_id, err = a._submit_manual_options_buy(mock_client, self._pending())
@@ -10430,6 +10488,7 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
 
     def test_max_positions_cancels_the_just_placed_order(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = MagicMock(id="order-xyz")
         # Fill the tracker to MAX_POSITIONS before submitting.
         pt = a.PositionTracker(filepath=self._pos_tmp.name)
@@ -10454,6 +10513,7 @@ class TestSubmitManualOptionsBuy(unittest.TestCase):
         # deliberately different from the pending confirmation's chosen
         # price (1.55) to prove the submitted order uses the latter.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = MagicMock(id="order-xyz")
         with patch.object(a, "_get_option_snapshot", return_value={"bid": 1.52, "ask": 1.56, "delta": 0.5}), \
              patch.object(a, "_cash_available_for", return_value=(True, "")):
@@ -11330,6 +11390,7 @@ class TestOptionsFeedResolution(unittest.TestCase):
 
     def test_403_falls_back_to_indicative_and_alerts(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_resp = MagicMock(status_code=403)
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11342,6 +11403,7 @@ class TestOptionsFeedResolution(unittest.TestCase):
 
     def test_200_keeps_preferred_feed_no_alert(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_resp = MagicMock(status_code=200)
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11353,6 +11415,7 @@ class TestOptionsFeedResolution(unittest.TestCase):
 
     def test_repeat_resolution_within_window_does_not_reprobe(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_resp = MagicMock(status_code=403)
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11369,6 +11432,7 @@ class TestOptionsFeedResolution(unittest.TestCase):
         # the resulting real re-probe must not alert twice for the same
         # known-broken entitlement.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_resp = MagicMock(status_code=403)
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11392,6 +11456,7 @@ class TestOptionsFeedResolution(unittest.TestCase):
         # None -> indicative transition and re-send the same Telegram
         # alert, repeating every ~10 min across scan/momentum-watch runs.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_resp = MagicMock(status_code=403)
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11408,6 +11473,7 @@ class TestOptionsFeedResolution(unittest.TestCase):
 
     def test_fresh_process_within_recheck_window_does_not_reprobe(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_resp = MagicMock(status_code=403)
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11427,6 +11493,7 @@ class TestOptionsFeedResolution(unittest.TestCase):
         # hourly re-probe hit ANY transient error, even though OPRA
         # entitlement never actually came back.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_option_contracts.return_value = self._mock_contract()
         mock_403 = MagicMock(status_code=403)
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11804,6 +11871,7 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
 
     def test_position_with_no_stop_order_at_all_triggers_alert(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [self._equity_position("W")]
         mock_client.get_orders.return_value = []   # no orders whatsoever
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -11824,6 +11892,7 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
                        "entry": 118.0, "stop": 110.0, "target1": 130.0, "target2": 140.0,
                        "shares": 3, "entry_date": "2026-08-01"}], f)
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [self._equity_position("W")]
         # get_orders is called twice: once for the broad stop-coverage scan
         # (empty — that's WHY this is unprotected), once inside
@@ -11851,6 +11920,7 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
                        "entry": 118.0, "stop": 110.0, "target1": 130.0, "target2": 140.0,
                        "shares": 3, "entry_date": "2026-08-01"}], f)
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [self._equity_position("W")]
         mock_client.get_orders.return_value = []
         mock_client.submit_order.return_value = MagicMock(id="restored-order-id")
@@ -11882,6 +11952,7 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
         # exists and is the right type, but its status means it isn't
         # actually working on the exchange.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [self._equity_position("W")]
         mock_client.get_orders.return_value = [
             self._order("W", self.OrderType.STOP_LIMIT, self.OrderStatus.HELD)
@@ -11894,6 +11965,7 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
 
     def test_live_stop_order_suppresses_the_alert(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [self._equity_position("W")]
         mock_client.get_orders.return_value = [
             self._order("W", self.OrderType.STOP_LIMIT, self.OrderStatus.NEW)
@@ -11906,6 +11978,7 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
 
     def test_options_positions_are_excluded(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         opt_pos = self._equity_position("META260807C00650000")
         opt_pos.asset_class = self.AssetClass.US_OPTION
         mock_client.get_all_positions.return_value = [opt_pos]
@@ -11979,6 +12052,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
     def test_untracked_ticker_refuses_to_guess_a_stop(self):
         self._write_positions([])   # nothing tracked
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
         self.assertFalse(ok)
         self.assertIn("not in PositionTracker", detail)
@@ -11987,6 +12061,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
     def test_zero_stop_on_record_refuses_to_guess(self):
         self._write_positions([self._tracked_litx(stop=0)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
         self.assertFalse(ok)
         mock_client.submit_order.assert_not_called()
@@ -12002,6 +12077,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
             "shares": 100, "entry_date": "2026-08-12",
         }])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
         self.assertFalse(ok)
         self.assertIn("not in PositionTracker", detail)
@@ -12009,6 +12085,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
     def test_successful_restore_submits_a_plain_stop_at_the_tracked_price(self):
         self._write_positions([self._tracked_litx(stop=28.01)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = []   # nothing to cancel
         mock_order = MagicMock(id="new-stop-order-id-12345678")
         mock_client.submit_order.return_value = mock_order
@@ -12035,6 +12112,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         # test_take_profit_is_left_alone_when_stop_submission_succeeds).
         self._write_positions([self._tracked_litx(stop=28.01)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         stale_tp = MagicMock(id="stale-take-profit-id")
         from alpaca.trading.enums import OrderSide
         stale_tp.side = OrderSide.SELL
@@ -12061,6 +12139,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         # up front, and the TP-cancel fallback should never trigger.
         self._write_positions([self._tracked_litx(stop=28.01)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         healthy_tp = MagicMock(id="healthy-take-profit-id")
         from alpaca.trading.enums import OrderSide
         healthy_tp.side = OrderSide.SELL
@@ -12077,6 +12156,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
     def test_repeat_call_within_cooldown_does_not_touch_orders(self):
         self._write_positions([self._tracked_litx(stop=28.01)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = []
         mock_client.submit_order.return_value = MagicMock(id="new-stop-id")
 
@@ -12093,6 +12173,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
     def test_submission_failure_is_reported_not_raised(self):
         self._write_positions([self._tracked_litx(stop=28.01)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = []
         mock_client.submit_order.side_effect = Exception("insufficient buying power")
         ok, detail = a._auto_restore_missing_stop(mock_client, "ZTEST9x", 47)
@@ -12116,6 +12197,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         # not a plain stop at the old breakeven.
         self._write_positions([self._tracked_trailing_litx(stop=35.85, trail_pct=8.5)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = []
         mock_client.submit_order.return_value = MagicMock(id="new-trail-id-12345678")
 
@@ -12137,6 +12219,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         # restore.
         self._write_positions([self._tracked_trailing_litx(stop=35.85, trail_pct=8.5)])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = []
         mock_client.submit_order.side_effect = [
             Exception("trailing stop rejected"),
@@ -12166,6 +12249,7 @@ class TestAutoRestoreMissingStop(unittest.TestCase):
         pos["trail_pct"] = 0.0
         self._write_positions([pos])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = []
         mock_client.submit_order.return_value = MagicMock(id="plain-stop-id")
 
@@ -12251,6 +12335,7 @@ class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):
         # set BELOW stop (would definitely alert if not filtered out).
         self._write_pending(["FGL"])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []   # no real positions at all
         mock_client.get_orders.return_value = []
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
@@ -12263,6 +12348,7 @@ class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):
     def test_real_held_position_still_gets_checked_and_alerted(self):
         self._write_pending(["CLRO"])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [self._equity_position("CLRO")]
         mock_client.get_orders.return_value = []
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
@@ -12276,6 +12362,7 @@ class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):
     def test_mixed_real_and_phantom_only_real_one_alerts(self):
         self._write_pending(["CLRO", "FGL"])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [self._equity_position("CLRO")]
         mock_client.get_orders.return_value = []
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
@@ -12304,6 +12391,7 @@ class TestPendingSignalsFilteredToRealPositions(unittest.TestCase):
         # you hold nothing" (must filter to empty, not show stale signals).
         self._write_pending(["FGL"])
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = []
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
@@ -12982,6 +13070,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_bare_yes_applies_to_the_only_pending_offer(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = MagicMock(id="ord1")
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
@@ -13009,6 +13098,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         # loudly, not just vanish.
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = MagicMock(id="ord1")
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
@@ -13041,6 +13131,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         # have happened by the time the function returns.
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         call_order = []
         _real_consume = a._consume_earnings_offer_save
         def _tracked_consume(pending, entry):
@@ -13067,6 +13158,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_yes_with_wrong_ticker_does_not_match(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "send_telegram", return_value=True):
             with patch.object(a, "get_alpaca_client", return_value=mock_client):
                 consumed = a._handle_earnings_approval_reply("yes META")
@@ -13078,6 +13170,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         self._add_pending("HOOD")
         self._add_pending("RIVN")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "send_telegram", return_value=True):
             with patch.object(a, "get_alpaca_client", return_value=mock_client):
                 a._handle_earnings_approval_reply("yes")
@@ -13087,6 +13180,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_no_rejects_and_does_not_submit_an_order(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "send_telegram", return_value=True):
             with patch.object(a, "get_alpaca_client", return_value=mock_client):
                 consumed = a._handle_earnings_approval_reply("no HOOD")
@@ -13097,6 +13191,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_expired_offer_is_not_approvable(self):
         self._add_pending("HOOD", minutes_until_expiry=-5)   # already expired
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "send_telegram", return_value=True):
             with patch.object(a, "get_alpaca_client", return_value=mock_client):
                 a._handle_earnings_approval_reply("yes")
@@ -13114,6 +13209,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         # multi-leg spread -- only offer-matching/reachability/price-drift.
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "is_halted", return_value=True), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg, \
              patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -13125,6 +13221,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_consecutive_loss_guard_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_stats = {"consec_losses": a.MAX_CONSEC_LOSSES, "consec_losses_today": a.MAX_CONSEC_LOSSES, "win_rate": 0.5,
                       "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=mock_stats), \
@@ -13138,6 +13235,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_daily_loss_limit_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
@@ -13152,6 +13250,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_monthly_loss_limit_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
@@ -13166,6 +13265,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
     def test_macro_blackout_blocks_submission(self):
         self._add_pending("HOOD")
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
         with patch.object(a.WinRateTracker, "rolling_stats", return_value=clean_stats), \
@@ -13197,6 +13297,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         # a small move since the offer was built must not block a real approval.
         self._add_pending_with_plan("HOOD", self._plan_with_snapshot(100.0))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = MagicMock(id="ord1")
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
@@ -13217,6 +13318,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         # must abort rather than submit a spread built on outdated numbers.
         self._add_pending_with_plan("HOOD", self._plan_with_snapshot(100.0))
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         with patch.object(a, "send_telegram", return_value=True) as mock_tg:
             with patch.object(a, "get_alpaca_client", return_value=mock_client):
                 with patch.object(a, "get_live_price", return_value=112.0):   # +12%, over the 8% limit
@@ -13232,6 +13334,7 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
         # open to the pre-existing submit path, not silently block forever.
         self._add_pending("HOOD")   # no current_price key
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.submit_order.return_value = MagicMock(id="ord1")
         clean_stats = {"consec_losses": 0, "win_rate": 0.5, "avg_win_r": 2.0,
                        "avg_loss_r": 1.0, "total": 10, "wins": 5, "losses": 5}
@@ -13323,6 +13426,7 @@ class TestAccountMilestones(unittest.TestCase):
 
     def _run(self, equity, prior_crossed=None, mock_open_target=None):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value.equity = equity
         read_data = json.dumps({"crossed": prior_crossed or []})
         m = mock_open(read_data=read_data)
@@ -13827,6 +13931,7 @@ class TestStaleEntryOrderDetection(unittest.TestCase):
 
     def _run(self, orders, positions):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = []
         mock_client.get_orders.return_value = orders
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
@@ -13878,6 +13983,7 @@ class TestCancelStaleDayOnlyEntry(unittest.TestCase):
 
     def test_cancels_working_buy_entry_and_alerts(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._order(a.OrderSide.BUY)]
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
@@ -13891,6 +13997,7 @@ class TestCancelStaleDayOnlyEntry(unittest.TestCase):
         # cancelling it while a position is still held would be strictly worse
         # than the stale entry this function exists to clean up.
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.return_value = [self._order(a.OrderSide.SELL)]
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
@@ -13907,6 +14014,7 @@ class TestCancelStaleDayOnlyEntry(unittest.TestCase):
 
     def test_lookup_failure_is_not_fatal(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_orders.side_effect = Exception("network")
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
              patch.object(a, "send_telegram", return_value=True):
@@ -13933,6 +14041,7 @@ class TestClosePositionAtMarket(unittest.TestCase):
 
     def test_nothing_held_is_already_closed(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_open_position.side_effect = Exception("position does not exist")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             status, oid = a._close_position_at_market(self._pos(), "test")
@@ -13941,6 +14050,7 @@ class TestClosePositionAtMarket(unittest.TestCase):
 
     def test_real_position_submits_a_market_sell(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_open_position.return_value = MagicMock(qty="10")
         mock_client.get_orders.return_value = []
         mock_client.submit_order.return_value = MagicMock(id="ord1")
@@ -13952,6 +14062,7 @@ class TestClosePositionAtMarket(unittest.TestCase):
 
     def test_options_position_closes_by_the_occ_symbol_not_the_ticker(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_open_position.return_value = MagicMock(qty="2")
         mock_client.get_orders.return_value = []
         mock_client.submit_order.return_value = MagicMock(id="ord1")
@@ -13962,6 +14073,7 @@ class TestClosePositionAtMarket(unittest.TestCase):
 
     def test_open_stop_orders_are_cancelled_before_closing(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_open_position.return_value = MagicMock(qty="10")
         mock_client.get_orders.return_value = [MagicMock(id="stop1")]
         mock_client.submit_order.return_value = MagicMock(id="ord1")
@@ -13971,6 +14083,7 @@ class TestClosePositionAtMarket(unittest.TestCase):
 
     def test_submission_failure_alerts_and_returns_failed(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_open_position.return_value = MagicMock(qty="10")
         mock_client.get_orders.return_value = []
         mock_client.submit_order.side_effect = Exception("broker error")
@@ -15226,6 +15339,7 @@ class TestCheckStopCoverageSplit(unittest.TestCase):
         order = MagicMock()
         order.symbol = "W"; order.order_type = OrderType.STOP; order.status = OrderStatus.NEW
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_all_positions.return_value = [pos]
         mock_client.get_orders.return_value = [order]
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
@@ -15432,6 +15546,7 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         acct = MagicMock()
         acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = acct
         mock_client.get_all_positions.return_value = []
         with patch.object(a, "_get_day_start_equity", return_value=5000.0), \
@@ -15577,6 +15692,7 @@ class TestAccountPnlTelegramOptionsPositionDisplay(unittest.TestCase):
         acct = MagicMock()
         acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = acct
         mock_client.get_all_positions.return_value = [self._option_position("UMAC260828C00025000")]
         mock_tg = MagicMock(return_value=True)
@@ -15595,6 +15711,7 @@ class TestAccountPnlTelegramOptionsPositionDisplay(unittest.TestCase):
         acct = MagicMock()
         acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = acct
         mock_client.get_all_positions.return_value = [self._equity_position()]
         mock_tg = MagicMock(return_value=True)
@@ -15609,6 +15726,7 @@ class TestAccountPnlTelegramOptionsPositionDisplay(unittest.TestCase):
         acct = MagicMock()
         acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = acct
         mock_client.get_all_positions.return_value = [
             self._equity_position(), self._option_position("UMAC260828C00025000"),
@@ -15816,6 +15934,7 @@ class TestEquityFallbackAlert(unittest.TestCase):
 
     def test_successful_fetch_sends_no_alert(self):
         mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
         mock_client.get_account.return_value = MagicMock(equity="9876.0")
         with patch.object(a, "get_alpaca_client", return_value=mock_client), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
@@ -16885,3 +17004,59 @@ class TestLabellingStaysOutOfTheSession(unittest.TestCase):
         src = inspect.getsource(a.run_pro_scanner)
         i = src.index("label_signal_features")
         self.assertIn("if not is_market_open():", src[max(0, i - 200):i])
+
+
+class TestSharesFallbackForExpensiveWatchlistNames(unittest.TestCase):
+    """2026-09-18: AMD scored 100/100, the only contract clearing the intrinsic
+    floor cost $3,165 against a $338 budget, and the signal was dropped. AMD
+    closed +2.8% with a 0.2% drawdown."""
+
+    def test_a_high_scoring_watchlist_name_may_use_shares(self):
+        tk = list(a.WATCHLIST)[0]
+        self.assertTrue(a._shares_fallback_allowed(tk, "Day 2 Continuation", 100))
+        self.assertTrue(a._shares_fallback_allowed(tk, "Gap & Hold", a.SHARES_FALLBACK_MIN_SCORE))
+
+    def test_a_mediocre_score_still_may_not(self):
+        tk = list(a.WATCHLIST)[0]
+        self.assertFalse(a._shares_fallback_allowed(tk, "Day 2 Continuation",
+                                                    a.SHARES_FALLBACK_MIN_SCORE - 1))
+
+    def test_an_off_watchlist_name_still_may_not(self):
+        self.assertFalse(a._shares_fallback_allowed("NOTONLIST", "Day 2 Continuation", 100))
+
+    def test_the_old_exceptions_still_hold(self):
+        self.assertTrue(a._shares_fallback_allowed("ANYTHING", "Low Float Catalyst", 0))
+        self.assertTrue(a._shares_fallback_allowed("ANYTHING", a.MOMENTUM_DAY_ONLY_SETUP, 0))
+
+
+class TestShareOrdersFitTheCash(unittest.TestCase):
+    """Risk sizing answers how much a trade can lose, not whether the account
+    can pay for it."""
+
+    def _client(self, cash):
+        cl = MagicMock()
+        cl.get_account.return_value = MagicMock(cash=str(cash))
+        return cl
+
+    def test_quantity_is_trimmed_to_available_cash(self):
+        with patch.object(a, "get_alpaca_client", return_value=self._client(2647)):
+            qty, note = a._cap_shares_to_cash("AMD", 13, 542.0)
+        self.assertEqual(qty, 4)          # 2647 * 0.85 / 542
+        self.assertIn("trimmed", note)
+
+    def test_an_unaffordable_share_price_returns_zero(self):
+        with patch.object(a, "get_alpaca_client", return_value=self._client(300)):
+            qty, note = a._cap_shares_to_cash("AMD", 1, 542.0)
+        self.assertEqual(qty, 0)
+        self.assertIn("exceeds", note)
+
+    def test_an_affordable_order_is_untouched(self):
+        with patch.object(a, "get_alpaca_client", return_value=self._client(2647)):
+            self.assertEqual(a._cap_shares_to_cash("SOFI", 100, 8.0), (100, ""))
+
+    def test_a_broker_error_does_not_block_the_order(self):
+        with patch.object(a, "get_alpaca_client", side_effect=RuntimeError("down")):
+            self.assertEqual(a._cap_shares_to_cash("AMD", 5, 542.0), (5, ""))
+
+    def test_submit_applies_the_cap(self):
+        self.assertIn("_cap_shares_to_cash", inspect.getsource(a.submit_alpaca_trade))

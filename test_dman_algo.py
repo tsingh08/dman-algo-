@@ -17225,3 +17225,46 @@ class TestPlainEnglishCommands(unittest.TestCase):
             a._handle_telegram_command("get me out of nvda")
         close.assert_not_called()
         self.assertTrue(any("Send it to run" in m for m in sent), sent)
+
+
+class TestWeekendWatch(unittest.TestCase):
+    """Direct instruction 2026-09-19: track catalysts on weekends too. One of
+    eighteen crons ran on a weekend, so Friday-night news was first seen on
+    Monday, after the gap it caused."""
+
+    def _rows(self):
+        return [{"ticker": "AAA", "tier": "A", "gap_pct": 0.2, "reacted": False,
+                 "headline": "AAA receives FDA approval"},
+                {"ticker": "BBB", "tier": "B", "gap_pct": 11.4, "reacted": True,
+                 "headline": "BBB announces merger"},
+                {"ticker": "CCC", "tier": "C", "gap_pct": 0.0, "reacted": False,
+                 "headline": "CCC names new CFO"}]
+
+    def test_only_unreacted_ab_catalysts_are_reported(self):
+        with patch.object(a, "scan_news_catalysts", return_value=self._rows()), \
+             patch.object(a, "send_telegram") as tg:
+            out = a.run_weekend_watch()
+        self.assertEqual([r["ticker"] for r in out], ["AAA"])
+        msg = tg.call_args[0][0]
+        self.assertIn("AAA", msg)
+        self.assertNotIn("CCC", msg)          # tier C is not a catalyst worth waking for
+
+    def test_nothing_actionable_sends_nothing(self):
+        with patch.object(a, "scan_news_catalysts", return_value=[self._rows()[1]]), \
+             patch.object(a, "send_telegram") as tg:
+            self.assertEqual(a.run_weekend_watch(), [])
+        tg.assert_not_called()
+
+    def test_a_scan_failure_is_not_fatal(self):
+        with patch.object(a, "scan_news_catalysts", side_effect=RuntimeError("feed down")), \
+             patch.object(a, "send_telegram") as tg:
+            self.assertEqual(a.run_weekend_watch(), [])
+        tg.assert_not_called()
+
+    def test_it_never_stages_a_trade(self):
+        src = inspect.getsource(a.run_weekend_watch)
+        for forbidden in ("_submit_signals_to_alpaca", "_save_momentum_pending", "submit_order"):
+            self.assertNotIn(forbidden, src)
+
+    def test_the_mode_exists(self):
+        self.assertIn('"weekend"', inspect.getsource(a.main))

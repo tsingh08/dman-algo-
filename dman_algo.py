@@ -669,7 +669,7 @@ _TELEGRAM_KEEP = (
     "t1 hit", "target hit", "trail", "halt", "resumed", "probation",
     "loss limit", "guard", "failed", "error", "unable", "reject", "cancel",
     "reply yes", "yes/no", "approval", "awaiting", "p&l", "pnl",
-    "dman play", "policy audit", "strangle", "position",
+    "dman play", "policy audit", "strangle", "position", "catalyst",
 )
 _TELEGRAM_REPLY_DEPTH = [0]      # >0 while handling a command you sent
 _TELEGRAM_SUPPRESSED = [0]       # counted so the EOD note can mention them
@@ -18694,6 +18694,42 @@ def _report_accumulation(found: list[tuple[str, dict]]) -> None:
         _log_swallowed("accumulation report", exc)
 
 
+def run_weekend_watch(notify: bool = True) -> list[dict]:
+    """Weekend catalyst watch: what broke while the market was shut.
+
+    Of eighteen crons, exactly one ran on a Saturday or Sunday, so news that
+    landed after Friday's close was first seen by Monday's pre-market pass --
+    hours after everyone else had read it, and after the gap it caused. This
+    runs the same catalyst scan the weekday path uses and reports only the
+    rows that can still be acted on: a real Tier A/B catalyst on a name whose
+    price has NOT moved yet. Read-only; it never places or stages anything.
+    """
+    _rows = []
+    try:
+        _rows = scan_news_catalysts(verbose=False) or []
+    except Exception as exc:
+        _log_swallowed("weekend watch", exc)
+    _fresh = [r for r in _rows if str(r.get("tier", "")).upper() in ("A", "B")
+              and not r.get("reacted")]
+    _moved = [r for r in _rows if str(r.get("tier", "")).upper() in ("A", "B")
+              and r.get("reacted")]
+    print(f"  🗓  Weekend watch: {len(_rows)} catalyst row(s); "
+          f"{len(_fresh)} still unreacted, {len(_moved)} already moved")
+    for r in _fresh + _moved:
+        print(f"     {r.get('ticker','')}: tier {r.get('tier','')} "
+              f"gap {r.get('gap_pct', 0):+.1f}% — {str(r.get('headline',''))[:70]}")
+    if notify and _fresh:
+        _lines = [f"🗓 <b>Weekend catalyst — {len(_fresh)} name(s) not yet moved</b>"]
+        for r in _fresh[:6]:
+            _lines.append(f"  <b>{r.get('ticker','')}</b> tier {r.get('tier','')} "
+                          f"({r.get('gap_pct', 0):+.1f}% so far)\n   "
+                          f"{html.escape(str(r.get('headline',''))[:120])}")
+        _lines.append("<i>Catalyst first, price later — these are the ones Monday's "
+                      "gap scanners cannot see yet. Nothing staged.</i>")
+        send_telegram("\n".join(_lines))
+    return _fresh
+
+
 def run_policy_audit(notify: bool = True) -> list[str]:
     """Check what the rules promise against what is actually true right now.
 
@@ -25022,7 +25058,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit", "label", "features"],
+                 "fallback-guard", "audit", "label", "features", "weekend"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -25283,6 +25319,9 @@ def main():
 
     elif args.mode == "scan-log":
         print_scan_log()
+
+    elif args.mode == "weekend":
+        run_weekend_watch()
 
     elif args.mode == "label":
         label_signal_features()

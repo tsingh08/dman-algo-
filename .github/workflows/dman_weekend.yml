@@ -1,0 +1,34 @@
+name: DMan Weekend Catalyst Watch
+
+# Of eighteen crons, exactly one ran on a Saturday or Sunday (2026-09-19), so a
+# headline that landed after Friday's close was first seen by Monday's
+# pre-market pass -- hours late, and after the gap it caused. This watches the
+# weekend for real catalysts on names that have NOT moved yet. Read-only.
+on:
+  schedule:
+    - cron: '0 15 * * 6,0'    # ~11 AM ET Sat/Sun
+    - cron: '0 23 * * 6,0'    # ~7 PM ET Sat/Sun
+    - cron: '0 22 * * 0'      # ~6 PM ET Sunday -- last look before Monday
+  workflow_dispatch:
+
+jobs:
+  weekend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -q -r requirements.txt
+      - name: Weekend catalyst watch
+        env:
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
+          BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
+          ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
+        run: python dman_algo.py --mode weekend

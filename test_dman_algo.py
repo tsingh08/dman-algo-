@@ -17317,3 +17317,78 @@ class TestMassiveKeyResolution(unittest.TestCase):
             self.assertIn(name, decl)
         self.assertLess(decl.index('getenv("MASSIVE_API_KEY"'),
                         decl.index('getenv("BENZINGA_API_KEY"'))
+
+
+class TestMassiveKeyRotation(unittest.TestCase):
+    """2026-09-20: the working Massive key sat in BENZINGA_API_KEY while a
+    revoked one still occupied BENZINGA_EARNING_API_KEY. The `or` chain that
+    picks MASSIVE_API_KEY takes the first key that is SET, not the first that
+    WORKS, so every news and earnings call answered 'Unknown API Key' and the
+    catalyst layer went quiet without a single error line."""
+
+    def setUp(self):
+        self._s = patch.dict(a._MASSIVE_KEY_STATE, {"key": "deadkey", "rotated": False},
+                             clear=True)
+        self._s.start()
+        self.addCleanup(self._s.stop)
+        self._c = patch.object(a, "_MASSIVE_KEY_CANDIDATES", ["deadkey", "livekey"])
+        self._c.start()
+        self.addCleanup(self._c.stop)
+
+    @staticmethod
+    def _resp(code, text="{}"):
+        r = MagicMock(); r.status_code = code; r.text = text
+        return r
+
+    def test_a_working_key_is_passed_through_untouched(self):
+        ok = self._resp(200)
+        with patch.object(a.requests, "get", return_value=ok) as g:
+            out = a._massive_get("https://api.massive.com/x", {"limit": 1})
+        self.assertIs(out, ok)
+        self.assertEqual(g.call_count, 1)
+        self.assertEqual(g.call_args.kwargs["params"]["apiKey"], "deadkey")
+
+    def test_unknown_api_key_rotates_to_the_candidate_that_authenticates(self):
+        dead = self._resp(401, '{"error":"Unknown API Key"}')
+        live = self._resp(200)
+
+        def _get(url, params=None, timeout=None, headers=None):
+            return live if (params or {}).get("apiKey") == "livekey" else dead
+
+        with patch.object(a.requests, "get", side_effect=_get),              patch.object(a, "send_telegram"):
+            out = a._massive_get("https://api.massive.com/x", {"limit": 1})
+        self.assertIs(out, live)
+        self.assertEqual(a._MASSIVE_KEY_STATE["key"], "livekey")
+
+    def test_a_real_http_error_is_returned_not_rotated_around(self):
+        """A 500 is the endpoint's problem, not the key's -- burning the one
+        rotation on it would leave a genuinely dead key undetected."""
+        bad = self._resp(500, "upstream timeout")
+        with patch.object(a.requests, "get", return_value=bad) as g:
+            out = a._massive_get("https://api.massive.com/x", {"limit": 1})
+        self.assertIs(out, bad)
+        self.assertEqual(g.call_count, 1)
+        self.assertFalse(a._MASSIVE_KEY_STATE["rotated"])
+
+    def test_it_stops_probing_once_nothing_works(self):
+        dead = self._resp(401, '{"error":"Unknown API Key"}')
+        with patch.object(a.requests, "get", return_value=dead) as g:
+            a._massive_get("https://api.massive.com/x", {"limit": 1})
+            first = g.call_count
+            a._massive_get("https://api.massive.com/y", {"limit": 1})
+        self.assertTrue(a._MASSIVE_KEY_STATE["rotated"])
+        self.assertEqual(g.call_count, first + 1)     # second call probes nothing
+
+    def test_headers_reach_the_endpoint(self):
+        """_fetch_benzinga_earnings_time sends Accept: application/json; a
+        wrapper that dropped it raised TypeError into a bare except and the
+        function silently returned None."""
+        with patch.object(a.requests, "get", return_value=self._resp(200)) as g:
+            a._massive_get("https://api.massive.com/x", {"limit": 1},
+                           headers={"Accept": "application/json"})
+        self.assertEqual(g.call_args.kwargs["headers"], {"Accept": "application/json"})
+
+    def test_the_key_is_never_printed_in_full(self):
+        src = inspect.getsource(a._massive_get)
+        self.assertIn("[-4:]", src)
+        self.assertNotIn("{_cand}", src)

@@ -1069,6 +1069,15 @@ BENZINGA_API_KEY  = os.getenv("BENZINGA_API_KEY", "")     # Benzinga Basic — r
 MASSIVE_API_KEY   = (os.getenv("MASSIVE_API_KEY", "")
                      or os.getenv("BENZINGA_EARNING_API_KEY", "")
                      or os.getenv("BENZINGA_API_KEY", ""))
+# Every candidate, in preference order. A dead key that is merely SET wins the
+# chain above, which is exactly what happened on 2026-09-20: the working key
+# sat in BENZINGA_API_KEY while the revoked one still occupied
+# BENZINGA_EARNING_API_KEY. _massive_get() falls through to the next candidate
+# the first time Massive rejects the one in use.
+_MASSIVE_KEY_CANDIDATES = [k for k in (os.getenv("MASSIVE_API_KEY", ""),
+                                       os.getenv("BENZINGA_EARNING_API_KEY", ""),
+                                       os.getenv("BENZINGA_API_KEY", "")) if k]
+_MASSIVE_KEY_STATE: dict = {"key": MASSIVE_API_KEY, "rotated": False}
 ALPACA_PAPER      = False     # LIVE — real brokerage, real money
 ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed entry
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
@@ -1781,13 +1790,12 @@ def fetch_earnings_mover_tickers(max_tickers: int = 15) -> list[str]:
         return []
     try:
         yesterday = _et_today() - timedelta(days=1)
-        resp = requests.get(
+        resp = _massive_get(
             "https://api.massive.com/benzinga/v1/earnings",
-            params={
+            {
                 "date.gte": yesterday.isoformat(),
                 "date.lte": _et_today().isoformat(),
                 "limit":    200,
-                "apiKey":   MASSIVE_API_KEY,
             },
             timeout=15,
         )
@@ -5597,6 +5605,51 @@ _MASSIVE_NEWS_CACHE: dict[tuple, tuple[float, dict]] = {}
 _MASSIVE_NEWS_CACHE_TTL_S = 600   # 10 min — matches the daemon's scan_loop cadence
 
 
+def _massive_key() -> str:
+    """The Massive key currently believed good."""
+    return _MASSIVE_KEY_STATE.get("key") or MASSIVE_API_KEY
+
+
+def _massive_get(url: str, params: dict, timeout: int = 10, headers: dict | None = None):
+    """GET a Massive endpoint, switching keys once if the current one is dead.
+
+    Massive answers a revoked key with 'Unknown API Key' (401 on some paths,
+    404 on others) -- indistinguishable from a bad URL unless you read the
+    body. On that specific answer, every other configured key is tried once;
+    whichever authenticates becomes the key for the rest of the process and is
+    announced, because a silent switch would hide a stale secret forever.
+    """
+    _params = dict(params)
+    _params["apiKey"] = _massive_key()
+    resp = requests.get(url, params=_params, timeout=timeout, headers=headers)
+    if resp.status_code == 200 or "Unknown API Key" not in str(resp.text):
+        return resp
+    if _MASSIVE_KEY_STATE.get("rotated"):
+        return resp
+    for _cand in _MASSIVE_KEY_CANDIDATES:
+        if _cand == _massive_key():
+            continue
+        try:
+            _probe = requests.get("https://api.massive.com/v2/reference/news",
+                                  params={"apiKey": _cand, "limit": 1}, timeout=timeout)
+        except Exception:
+            continue
+        if _probe.status_code == 200:
+            _MASSIVE_KEY_STATE.update({"key": _cand, "rotated": True})
+            print(f"  🔑 Massive key rotated to the one ending ...{_cand[-4:]} "
+                  f"— the configured key was rejected")
+            try:
+                send_telegram(f"🔑 <b>Massive API key switched</b> — the configured key was "
+                              f"rejected; using the one ending ...{html.escape(_cand[-4:])}. "
+                              f"Point MASSIVE_API_KEY at it to make this permanent.")
+            except Exception as exc:
+                _log_swallowed("massive key alert", exc)
+            _params["apiKey"] = _cand
+            return requests.get(url, params=_params, timeout=timeout, headers=headers)
+    _MASSIVE_KEY_STATE["rotated"] = True      # nothing worked: stop probing
+    return resp
+
+
 def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> dict[str, list[str]]:
     """
     Real-time per-ticker headlines via Massive's Benzinga news proxy
@@ -5641,13 +5694,12 @@ def _fetch_massive_benzinga_news(tickers: list[str], hours_back: int = 20) -> di
                     result[t] = headlines
             continue
         try:
-            resp = requests.get(
+            resp = _massive_get(
                 "https://api.massive.com/benzinga/v2/news",
-                params={
+                {
                     "tickers.any_of": ",".join(batch),
                     "published.gte":  cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
                     "limit":          100,
-                    "apiKey":         MASSIVE_API_KEY,
                 },
                 timeout=10,
             )
@@ -5705,13 +5757,12 @@ def _fetch_massive_reference_news(ticker: str, hours_back: int = 48) -> list[dic
     if cached and (time.time() - cached[0]) < _MASSIVE_SENTIMENT_CACHE_TTL_S:
         return cached[1]
     try:
-        resp = requests.get(
+        resp = _massive_get(
             "https://api.massive.com/v2/reference/news",
-            params={
+            {
                 "ticker":            ticker,
                 "published_utc.gte": cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "limit":             10,
-                "apiKey":            MASSIVE_API_KEY,
             },
             timeout=10,
         )
@@ -12309,14 +12360,13 @@ def _fetch_massive_earnings(ticker: str, date_from: date, date_to: date) -> list
         return cached[1]
     for _attempt in range(2):
         try:
-            resp = requests.get(
+            resp = _massive_get(
                 "https://api.massive.com/benzinga/v1/earnings",
-                params={
+                {
                     "ticker":      ticker,
                     "date.gte":    date_from.isoformat(),
                     "date.lte":    date_to.isoformat(),
                     "limit":       10,
-                    "apiKey":      MASSIVE_API_KEY,
                 },
                 timeout=8,
             )
@@ -12618,9 +12668,9 @@ def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]
     if not _key:
         return None
     try:
-        resp = requests.get(
+        resp = _massive_get(
             "https://api.massive.com/benzinga/v1/earnings",
-            params={"apiKey": _key, "ticker": ticker.upper(), "limit": 12},
+            {"apiKey": _key, "ticker": ticker.upper(), "limit": 12},
             headers={"Accept": "application/json"},
             timeout=8,
         )

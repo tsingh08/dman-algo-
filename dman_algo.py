@@ -18837,17 +18837,45 @@ def run_news_source_check(notify: bool = False) -> list[str]:
     for _label, _key in (("BENZINGA_EARNING_API_KEY", os.getenv("BENZINGA_EARNING_API_KEY", "")),
                          ("BENZINGA_API_KEY", os.getenv("BENZINGA_API_KEY", ""))):
         if _key and _key not in (MASSIVE_NEWS_API_KEY, MASSIVE_EARNINGS_API_KEY):
-            _show(f"{_label} (stale)", _key)
+            _show(f"{_label} (not in use)", _key)
             _probe(f"massive w/ {_label[:12]} key", "https://api.massive.com/v2/reference/news",
                    {"apiKey": _key, "limit": 1})
 
-    _probe("massive reference news", "https://api.massive.com/v2/reference/news",
-           {"apiKey": MASSIVE_NEWS_API_KEY, "limit": 2})
-    _probe("massive benzinga news", "https://api.massive.com/benzinga/v2/news",
-           {"apiKey": MASSIVE_NEWS_API_KEY, "published.gte": _cut, "limit": 2})
-    _probe("massive earnings", "https://api.massive.com/benzinga/v1/earnings",
-           {"apiKey": MASSIVE_EARNINGS_API_KEY, "date.gte": str(_et_today()),
-            "date.lte": str(_et_today() + timedelta(days=30)), "limit": 2})
+    # These go through _massive_get, not raw requests, so the report shows what
+    # the algo will actually experience: if the configured key is dead and a
+    # working one is configured under another name, these rows go GREEN and the
+    # rotation line above says which key carried them. Probing the configured
+    # key directly would paint a red row next to a feed that works fine.
+    def _probe_live(name, url, params, product):
+        try:
+            r = _massive_get(url, params, timeout=12, product=product)
+            if r.status_code == 200:
+                try:
+                    _n = len((r.json() or {}).get("results", []) or [])
+                except Exception:
+                    _n = "?"
+                _lines.append(f"  ✅ {name:<26} HTTP 200  {_n} row(s)  "
+                              f"[key ...{_massive_key(product)[-4:]}]")
+            else:
+                _lines.append(f"  ❌ {name:<26} HTTP {r.status_code}  "
+                              f"{str(r.text)[:60]}")
+        except Exception as exc:
+            _lines.append(f"  ❌ {name:<26} {type(exc).__name__}: {str(exc)[:50]}")
+
+    _probe_live("massive reference news", "https://api.massive.com/v2/reference/news",
+                {"limit": 2}, "news")
+    _probe_live("massive benzinga news", "https://api.massive.com/benzinga/v2/news",
+                {"published.gte": _cut, "limit": 2}, "news")
+    _probe_live("massive earnings", "https://api.massive.com/benzinga/v1/earnings",
+                {"date.gte": str(_et_today()),
+                 "date.lte": str(_et_today() + timedelta(days=30)), "limit": 2},
+                "earnings")
+    for _product in ("news", "earnings"):
+        _cfg = MASSIVE_NEWS_API_KEY if _product == "news" else MASSIVE_EARNINGS_API_KEY
+        _live = _massive_key(_product)
+        if _cfg and _live and _cfg != _live:
+            _lines.append(f"  ⚠️  {_product} is running on a FALLBACK key (...{_live[-4:]}), "
+                          f"not the configured one (...{_cfg[-4:]}) — rename the secret")
     # Only probed when a real benzinga.com subscription exists. Without one the
     # answer is always 'Access denied for user 0 "anonymous"', which is noise
     # that made the genuinely broken rows harder to spot.

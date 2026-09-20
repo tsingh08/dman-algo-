@@ -17302,6 +17302,25 @@ class TestNewsSourceCheck(unittest.TestCase):
             lines = a.run_news_source_check()
         self.assertGreaterEqual(len([l for l in lines if "\u274c" in l]), 4)
 
+    def test_a_fallback_key_in_use_is_flagged_as_a_misconfiguration(self):
+        """Running on a fallback is survivable, not fine: the next key change
+        will move the same landmine somewhere else. Say so every time."""
+        ok = MagicMock(status_code=200)
+        ok.json.return_value = {"results": [1]}
+        with patch.object(a, "MASSIVE_NEWS_API_KEY", "CONFIGURED_AAAA"), \
+             patch.object(a, "MASSIVE_EARNINGS_API_KEY", "CONFIGURED_AAAA"), \
+             patch.dict(a._MASSIVE_KEY_STATE,
+                        {"news":     {"key": "FALLBACK_BBBB", "rotated": True},
+                         "earnings": {"key": "CONFIGURED_AAAA", "rotated": False}},
+                        clear=True), \
+             patch.object(a.requests, "get", return_value=ok), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}):
+            lines = a.run_news_source_check()
+        joined = "\n".join(lines)
+        self.assertIn("FALLBACK", joined.upper())
+        self.assertIn("...BBBB", joined)
+        self.assertNotIn("earnings is running on a FALLBACK", joined)
+
     def test_a_stale_alias_key_is_called_out_by_name(self):
         """The alias that still held a revoked key is the whole failure mode.
         Reporting it only when it DIFFERS from the key in use keeps the normal
@@ -17315,7 +17334,7 @@ class TestNewsSourceCheck(unittest.TestCase):
              patch.object(a, "_fetch_alpaca_news", return_value={}):
             lines = a.run_news_source_check()
         joined = "\n".join(lines)
-        self.assertIn("(stale)", joined)
+        self.assertIn("(not in use)", joined)
         self.assertIn("...BBBB", joined)
 
     def test_benzinga_direct_is_not_probed_without_a_real_subscription(self):

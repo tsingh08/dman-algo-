@@ -17526,3 +17526,18 @@ class TestEarningsUsesTheEarningsKey(unittest.TestCase):
                          "earnings": {"key": "goodkey", "rotated": False}}, clear=True):
             self.assertEqual(a._massive_key("earnings"), "goodkey")
             self.assertEqual(a._massive_key("news"), "deadkey")
+
+
+class TestKeyAlertsSurviveQuietMode(unittest.TestCase):
+    """Quiet mode was added so Telegram carries money and safety only. A dead
+    news key IS a money problem -- it silences the catalyst layer and earnings
+    timing -- but the first version of the alert matched no keep-word and was
+    suppressed, which would have hidden exactly the outage it was built for."""
+
+    def test_the_dead_feed_alert_is_never_suppressed(self):
+        self.assertTrue(a._telegram_worth_sending(
+            "⚠️ <b>Massive news feed is down</b> — every configured key was rejected."))
+
+    def test_the_key_switched_alert_is_never_suppressed(self):
+        self.assertTrue(a._telegram_worth_sending(
+            "🔑 <b>Massive news key switched</b> — the configured key was rejected."))

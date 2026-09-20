@@ -670,6 +670,9 @@ _TELEGRAM_KEEP = (
     "loss limit", "guard", "failed", "error", "unable", "reject", "cancel",
     "reply yes", "yes/no", "approval", "awaiting", "p&l", "pnl",
     "dman play", "policy audit", "strangle", "position", "catalyst",
+    # A dead data feed is a money problem: it silences the catalyst layer
+    # and earnings timing, and looks exactly like a quiet news day.
+    "api key", "feed is down",
 )
 _TELEGRAM_REPLY_DEPTH = [0]      # >0 while handling a command you sent
 _TELEGRAM_SUPPRESSED = [0]       # counted so the EOD note can mention them

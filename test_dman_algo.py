@@ -17674,12 +17674,97 @@ class TestAScoreBarIsAlwaysReachable(unittest.TestCase):
                                      a.MAX_EFFECTIVE_MIN_SCORE)
 
     def test_the_scanner_caps_and_shows_the_uncapped_figure(self):
-        src = inspect.getsource(a.run_pro_scanner) + inspect.getsource(a.explain_ticker)
-        self.assertIn("MAX_EFFECTIVE_MIN_SCORE", src)
-        self.assertIn("bar capped from", src)
+        # The cap itself moved into _effective_min_score(); both callers must
+        # still SHOW the uncapped figure, or a stacked restriction is invisible.
+        self.assertIn("MAX_EFFECTIVE_MIN_SCORE", inspect.getsource(a._effective_min_score))
+        for fn in (a.run_pro_scanner, a.explain_ticker):
+            self.assertIn("bar capped from", inspect.getsource(fn))
 
     def test_an_unrestricted_bar_is_left_alone(self):
         """The cap must not quietly LOOSEN a setup that was already reachable."""
         with patch.object(a, "_setup_probation_bonus", return_value=0):
             self.assertLess(a._smallcap_score_threshold("AAPL", "Gap & Hold"),
                             a.MAX_EFFECTIVE_MIN_SCORE + 1)
+
+
+class TestEffectiveMinScoreIsOnePlace(unittest.TestCase):
+    """The bar was computed by two hand-copied blocks: one in the scanner that
+    blocks trades, one in explain_ticker that only prints the reason. They had
+    already drifted -- capping the display copy alone showed a reachable bar
+    next to a scanner still rejecting at 102, so the bug looked fixed."""
+
+    def test_both_callers_use_the_helper(self):
+        for fn in (a.run_pro_scanner, a.explain_ticker):
+            src = inspect.getsource(fn)
+            self.assertIn("_effective_min_score(", src)
+            self.assertNotIn("_setup_probation_bonus(sig.setup)", src)
+
+    def test_it_returns_the_capped_and_uncapped_bar(self):
+        with patch.object(a, "_setup_probation_bonus", return_value=50):
+            eff, raw = a._effective_min_score("Low Float Catalyst", "AAPL", 70)
+        self.assertEqual(eff, a.MAX_EFFECTIVE_MIN_SCORE)
+        self.assertGreater(raw, eff)
+
+    def test_an_unrestricted_setup_is_unchanged_by_the_cap(self):
+        with patch.object(a, "_setup_probation_bonus", return_value=0), \
+             patch.object(a, "SEASONAL_WEAK_MONTHS", set()):
+            eff, raw = a._effective_min_score("No Such Setup", "AAPL", 70)
+        self.assertEqual((eff, raw), (70, 70))
+
+    def test_a_volatile_ticker_raises_the_bar(self):
+        _vol = next(iter(a.VOLATILE_TICKERS))
+        with patch.object(a, "_setup_probation_bonus", return_value=0), \
+             patch.object(a, "SEASONAL_WEAK_MONTHS", set()):
+            eff, _ = a._effective_min_score("No Such Setup", _vol, 10)
+        self.assertEqual(eff, a.VOLATILE_MIN_CONFLUENCE)
+
+    def test_the_exempt_setups_skip_the_seasonal_floor(self):
+        """Gap & Hold and Morning Runner are the weak-month workhorses; the
+        seasonal floor was never meant to apply to them."""
+        with patch.object(a, "_setup_probation_bonus", return_value=0), \
+             patch.object(a, "SEASONAL_WEAK_MONTHS", set(range(1, 13))):
+            eff, _ = a._effective_min_score("Gap & Hold", "AAPL", 70)
+        self.assertLess(eff, a.SEASONAL_MIN_SCORE)
+        self.assertEqual(a.SEASONAL_EXEMPT_SETUPS, {"Gap & Hold", "Morning Runner"})
+
+
+class TestSetupProbationExpires(unittest.TestCase):
+    """Checked 2026-09-20 after three setups restricted on 2026-09-09 still
+    appeared in the state file 11 days later: the window is 10 days and expiry
+    happens lazily, on the next call, not on a timer. Working as designed --
+    recorded so the stale-looking file is not re-diagnosed."""
+
+    def setUp(self):
+        self._d = tempfile.mkdtemp()
+        self._f = os.path.join(self._d, "prob.json")
+        self._p = patch.object(a, "SETUP_PROBATION_FILE", self._f)
+        self._p.start()
+        self.addCleanup(self._p.stop)
+        import shutil as _sh
+        self.addCleanup(_sh.rmtree, self._d, True)
+
+    def _write(self, days_ago):
+        started = (datetime.now(a.ET) - timedelta(days=days_ago)).isoformat()
+        with open(self._f, "w", encoding="utf-8") as fh:
+            json.dump({"Low Float Catalyst": {"started": started, "note": "test"}}, fh)
+
+    def test_inside_the_window_the_bonus_applies(self):
+        self._write(a.SETUP_PROBATION_MAX_DAYS - 1)
+        self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"),
+                         a.SETUP_PROBATION_SCORE_BONUS)
+
+    def test_past_the_window_it_expires_and_clears_the_file(self):
+        self._write(a.SETUP_PROBATION_MAX_DAYS + 1)
+        with patch.object(a, "send_telegram"), patch.object(a, "_is_duplicate_alert",
+                                                            return_value=True):
+            self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), 0)
+        self.assertNotIn("Low Float Catalyst", json.load(open(self._f, encoding="utf-8")))
+
+    def test_expiry_is_announced_once(self):
+        self._write(a.SETUP_PROBATION_MAX_DAYS + 1)
+        with patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            a._setup_probation_bonus("Low Float Catalyst")
+        tg.assert_called_once()
+        self.assertIn("expired", tg.call_args[0][0].lower())

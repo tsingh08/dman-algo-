@@ -3314,6 +3314,33 @@ def _enter_setup_probation(setup: str, note: str) -> bool:
     return True
 
 
+SEASONAL_EXEMPT_SETUPS = {"Gap & Hold", "Morning Runner"}
+
+
+def _effective_min_score(setup: str, ticker: str, base: int) -> tuple[int, int]:
+    """The score a signal must clear, as (effective, uncapped).
+
+    Every restriction that can raise the bar lives here: the per-setup floor,
+    the volatile-ticker floor, the seasonal weak-month floor, and the probation
+    bonus. They STACK, which is how the bar reached 102 out of a possible 100
+    in September 2026 -- see MAX_EFFECTIVE_MIN_SCORE.
+
+    This existed as two hand-copied blocks, one in the scanner that blocks
+    trades and one in explain_ticker that only prints the reason. They had
+    already drifted once: capping the display copy alone would have shown a
+    reachable bar next to a scanner still rejecting at 102, so the bug would
+    have looked fixed. Callers take the second element only to SHOW the
+    uncapped figure -- never to gate on it.
+    """
+    _eff = SETUP_MIN_CONFLUENCE.get(setup, base)
+    if ticker in VOLATILE_TICKERS:
+        _eff = max(_eff, VOLATILE_MIN_CONFLUENCE)
+    if datetime.today().month in SEASONAL_WEAK_MONTHS and setup not in SEASONAL_EXEMPT_SETUPS:
+        _eff = max(_eff, SEASONAL_MIN_SCORE)
+    _uncapped = _eff + _setup_probation_bonus(setup)
+    return min(_uncapped, MAX_EFFECTIVE_MIN_SCORE), _uncapped
+
+
 def _setup_probation_bonus(setup: str) -> int:
     """
     Extra confluence points required for `setup` right now — 0 if it
@@ -18685,13 +18712,7 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
         _seasonal_active = _curr_month in SEASONAL_WEAK_MONTHS
         _SEASONAL_EXEMPT = {"Gap & Hold", "Morning Runner"}
 
-        effective_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
-        if sig.ticker in VOLATILE_TICKERS:
-            effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
-        if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
-            effective_min = max(effective_min, SEASONAL_MIN_SCORE)
-        _uncapped_min = effective_min + _setup_probation_bonus(sig.setup)
-        effective_min = min(_uncapped_min, MAX_EFFECTIVE_MIN_SCORE)
+        effective_min, _uncapped_min = _effective_min_score(sig.setup, sig.ticker, min_score)
 
         lines.append(f"  Setup   : <b>{sig.setup}</b> ({sig.bias})")
         lines.append(f"  Entry ${sig.entry:.2f} | Stop ${sig.stop:.2f} | T1 ${sig.target1:.2f} | RR {sig.rr:.2f}")
@@ -20014,16 +20035,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 sys.stdout.write(f"  [-5 def-rotation penalty → {sig.confluence_score}]  ")
 
         # Soft score gate (per-setup overrides + volatile ticker floor + seasonal)
-        effective_min = SETUP_MIN_CONFLUENCE.get(sig.setup, min_score)
-        if sig.ticker in VOLATILE_TICKERS:
-            effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
-        if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
-            effective_min = max(effective_min, SEASONAL_MIN_SCORE)
-        # Capped: these restrictions stack, and September's seasonal floor (92)
-        # plus a probation bonus (+10) asked for 102 out of a possible 100 --
-        # a setup that cannot fire at all, with nothing in the log saying so.
-        _uncapped_min = effective_min + _setup_probation_bonus(sig.setup)
-        effective_min = min(_uncapped_min, MAX_EFFECTIVE_MIN_SCORE)
+        effective_min, _uncapped_min = _effective_min_score(sig.setup, sig.ticker, min_score)
         if sig.confluence_score < effective_min:
             rejected_counts["low_score"] += 1
             sys.stdout.write(f"score {sig.confluence_score}/100 < {effective_min}"

@@ -21,6 +21,16 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install -q -r requirements.txt
+      - name: News source check
+        env:
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
+          BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
+        run: python dman_algo.py --mode newscheck
+
       - name: Weekend catalyst watch
         env:
           TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}

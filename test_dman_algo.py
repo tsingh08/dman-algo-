@@ -17268,3 +17268,37 @@ class TestWeekendWatch(unittest.TestCase):
 
     def test_the_mode_exists(self):
         self.assertIn('"weekend"', inspect.getsource(a.main))
+
+
+class TestNewsSourceCheck(unittest.TestCase):
+    """A key swap has to be verifiable without reading the key."""
+
+    def test_it_reports_each_source_and_never_prints_a_key(self):
+        ok = MagicMock(status_code=200)
+        ok.json.return_value = {"results": [1, 2]}
+        with patch.object(a, "BENZINGA_API_KEY", "SECRETKEY1234567890ABCDEFGHIJKLMN"), \
+             patch.object(a, "MASSIVE_API_KEY", "SECRETKEY1234567890ABCDEFGHIJKLMN"), \
+             patch.object(a.requests, "get", return_value=ok), \
+             patch.object(a, "_fetch_alpaca_news", return_value={"NVDA": ["x"]}):
+            lines = a.run_news_source_check()
+        joined = "\n".join(lines)
+        self.assertNotIn("SECRETKEY1234567890ABCDEFGHIJKLMN", joined)
+        self.assertIn("...KLMN", joined)            # last four only
+        self.assertIn("massive reference news", joined)
+        self.assertIn("alpaca news", joined)
+
+    def test_a_failing_source_is_shown_with_its_status(self):
+        bad = MagicMock(status_code=401, text='{"error":"Unknown API Key"}')
+        with patch.object(a.requests, "get", return_value=bad), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}):
+            lines = a.run_news_source_check()
+        self.assertTrue(any("401" in l and "Unknown API Key" in l for l in lines), lines)
+
+    def test_an_exception_does_not_stop_the_check(self):
+        with patch.object(a.requests, "get", side_effect=OSError("dns")), \
+             patch.object(a, "_fetch_alpaca_news", side_effect=RuntimeError("boom")):
+            lines = a.run_news_source_check()
+        self.assertGreaterEqual(len([l for l in lines if "❌" in l]), 4)
+
+    def test_the_mode_exists(self):
+        self.assertIn('"newscheck"', inspect.getsource(a.main))

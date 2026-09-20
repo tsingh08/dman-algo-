@@ -18694,6 +18694,64 @@ def _report_accumulation(found: list[tuple[str, dict]]) -> None:
         _log_swallowed("accumulation report", exc)
 
 
+def run_news_source_check(notify: bool = False) -> list[str]:
+    """Probe every news/earnings source and report what each one answers.
+
+    Built 2026-09-20 after a key swap could not be verified: the same 32-char
+    string sat in both BENZINGA_API_KEY and BENZINGA_EARNING_API_KEY, Benzinga
+    direct answered 401 'Access denied', and Massive answered 200 once and then
+    'Unknown API Key'. Guessing which endpoint a key belongs to from a failing
+    scan is slow; this asks each one directly.
+
+    Prints status per source and NEVER prints a key -- only its length and last
+    four characters, which is enough to tell two keys apart.
+    """
+    import datetime as _d
+    _cut = (datetime.now(ET) - timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    _lines = []
+
+    def _probe(name, url, params, count_key="results"):
+        try:
+            r = requests.get(url, params=params, timeout=12)
+            if r.status_code == 200:
+                try:
+                    _n = len((r.json() or {}).get(count_key, []) or [])
+                except Exception:
+                    _n = "?"
+                _lines.append(f"  ✅ {name:<26} HTTP 200  {_n} row(s)")
+            else:
+                _err = str(r.text)[:70].replace("\n", " ")
+                _lines.append(f"  ❌ {name:<26} HTTP {r.status_code}  {_err}")
+        except Exception as exc:
+            _lines.append(f"  ❌ {name:<26} {type(exc).__name__}: {str(exc)[:50]}")
+
+    for _label, _key in (("BENZINGA_API_KEY", BENZINGA_API_KEY),
+                         ("MASSIVE_API_KEY", MASSIVE_API_KEY)):
+        _lines.append(f"  {_label:<26} {'len %d ...%s' % (len(_key), _key[-4:]) if _key else 'MISSING'}")
+    _probe("benzinga direct news", "https://api.benzinga.com/api/v2/news",
+           {"token": BENZINGA_API_KEY, "pageSize": 2}, count_key="")
+    _probe("massive reference news", "https://api.massive.com/v2/reference/news",
+           {"apiKey": MASSIVE_API_KEY, "limit": 2})
+    _probe("massive benzinga news", "https://api.massive.com/benzinga/v2/news",
+           {"apiKey": MASSIVE_API_KEY, "published.gte": _cut, "limit": 2})
+    _probe("massive earnings", "https://api.massive.com/benzinga/v1/earnings",
+           {"apiKey": MASSIVE_API_KEY, "date.gte": str(_et_today()),
+            "date.lte": str(_et_today() + timedelta(days=30)), "limit": 2})
+    try:
+        _alp = _fetch_alpaca_news(["NVDA", "AMD", "TSLA"], hours_back=48)
+        _lines.append(f"  ✅ {'alpaca news (REST)':<26} {sum(len(v) for v in _alp.values())} headline(s)")
+    except Exception as exc:
+        _lines.append(f"  ❌ {'alpaca news (REST)':<26} {type(exc).__name__}: {str(exc)[:50]}")
+
+    print("\n  📰 NEWS SOURCE CHECK")
+    for _l in _lines:
+        print(_l)
+    if notify:
+        send_telegram("📰 <b>News source check</b>\n" + "\n".join(
+            html.escape(_l.strip()) for _l in _lines))
+    return _lines
+
+
 def run_weekend_watch(notify: bool = True) -> list[dict]:
     """Weekend catalyst watch: what broke while the market was shut.
 
@@ -25058,7 +25116,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit", "label", "features", "weekend"],
+                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -25319,6 +25377,9 @@ def main():
 
     elif args.mode == "scan-log":
         print_scan_log()
+
+    elif args.mode == "newscheck":
+        run_news_source_check(notify=True)
 
     elif args.mode == "weekend":
         run_weekend_watch()

@@ -18734,6 +18734,11 @@ def run_news_source_check(notify: bool = False) -> list[str]:
            {"apiKey": MASSIVE_API_KEY, "limit": 2})
     _probe("massive benzinga news", "https://api.massive.com/benzinga/v2/news",
            {"apiKey": MASSIVE_API_KEY, "published.gte": _cut, "limit": 2})
+    # cross-test: a key pasted into the wrong variable is the likeliest cause of
+    # a swap that changes nothing, so ask Massive about the Benzinga key too
+    if BENZINGA_API_KEY and BENZINGA_API_KEY != MASSIVE_API_KEY:
+        _probe("massive w/ BENZINGA key", "https://api.massive.com/v2/reference/news",
+               {"apiKey": BENZINGA_API_KEY, "limit": 2})
     _probe("massive earnings", "https://api.massive.com/benzinga/v1/earnings",
            {"apiKey": MASSIVE_API_KEY, "date.gte": str(_et_today()),
             "date.lte": str(_et_today() + timedelta(days=30)), "limit": 2})

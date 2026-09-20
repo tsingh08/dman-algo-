@@ -10369,8 +10369,11 @@ class TestSetupProbation(unittest.TestCase):
         # Direct integration with the smallcap-discovery gate.
         base = a._smallcap_score_threshold("ARTL", "Low Float Catalyst")
         a._enter_setup_probation("Low Float Catalyst", "test")
+        # Capped since 2026-09-20: stacked restrictions could ask for more than
+        # the score can reach, which disables a setup instead of tightening it.
         self.assertEqual(a._smallcap_score_threshold("ARTL", "Low Float Catalyst"),
-                          base + a.SETUP_PROBATION_SCORE_BONUS)
+                          min(base + a.SETUP_PROBATION_SCORE_BONUS,
+                              a.MAX_EFFECTIVE_MIN_SCORE))
 
 
 class TestSetupProbationTelegramCommands(unittest.TestCase):
@@ -17646,3 +17649,37 @@ class TestFeatureLogRecordsWhatWasTaken(unittest.TestCase):
     def test_the_scanner_marks_what_it_returns(self):
         src = inspect.getsource(a.run_pro_scanner)
         self.assertIn("_mark_signals_taken", src)
+
+
+class TestAScoreBarIsAlwaysReachable(unittest.TestCase):
+    """Found 2026-09-20. Restrictions STACK: September is a seasonal weak month
+    (floor 92) and four setups were on probation (+10), so the bar was 102 out
+    of a possible 100. Thursday's AMD signal scored a perfect 100 and would
+    still have been rejected. Weak months are {1,7,8,9,12} -- five months a
+    year in which a restricted setup was not strict, it was off, silently."""
+
+    def test_the_cap_is_below_a_perfect_score(self):
+        self.assertLess(a.MAX_EFFECTIVE_MIN_SCORE, 100)
+
+    def test_september_plus_probation_used_to_exceed_a_perfect_score(self):
+        """The arithmetic this guards against, recorded so it cannot come
+        back: the uncapped bar really is above what any signal can score."""
+        self.assertIn(9, a.SEASONAL_WEAK_MONTHS)
+        self.assertGreater(a.SEASONAL_MIN_SCORE + a.SETUP_PROBATION_SCORE_BONUS, 100)
+
+    def test_the_smallcap_bar_is_capped(self):
+        with patch.object(a, "_setup_probation_bonus", return_value=50):
+            for ticker in ("AAPL", next(iter(a.DMAN_SMALLCAP_WATCHLIST), "AAPL")):
+                self.assertLessEqual(a._smallcap_score_threshold(ticker, "Low Float Catalyst"),
+                                     a.MAX_EFFECTIVE_MIN_SCORE)
+
+    def test_the_scanner_caps_and_shows_the_uncapped_figure(self):
+        src = inspect.getsource(a.run_pro_scanner) + inspect.getsource(a.explain_ticker)
+        self.assertIn("MAX_EFFECTIVE_MIN_SCORE", src)
+        self.assertIn("bar capped from", src)
+
+    def test_an_unrestricted_bar_is_left_alone(self):
+        """The cap must not quietly LOOSEN a setup that was already reachable."""
+        with patch.object(a, "_setup_probation_bonus", return_value=0):
+            self.assertLess(a._smallcap_score_threshold("AAPL", "Gap & Hold"),
+                            a.MAX_EFFECTIVE_MIN_SCORE + 1)

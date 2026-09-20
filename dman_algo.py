@@ -802,6 +802,15 @@ VIX_SIZE_BASE = 20.0   # baseline VIX; size is 1.0x at or below this level
 # Seasonal regime — backtest shows Jan(38% WR), Jul(38%), Aug(25%), Sep(29%), Dec(33%) are chronic losers
 SEASONAL_WEAK_MONTHS = {1, 7, 8, 9, 12}
 SEASONAL_MIN_SCORE   = 92          # raised bar during weak months
+# A score bar is capped here because the confluence score maxes out at 100, and
+# these restrictions STACK: September's seasonal floor (92) plus a probation
+# bonus (+10) asked for 102 out of 100. That is not a strict setup, it is a
+# disabled one, and nothing said so -- Thursday's AMD signal scored a perfect
+# 100 and would still have been rejected. Weak months are {1,7,8,9,12}, so this
+# silently switched setups off for five months a year. A capped bar is still
+# brutal (95/100) but it can be cleared, and the scanner prints the uncapped
+# figure next to it so a stacked restriction stays visible.
+MAX_EFFECTIVE_MIN_SCORE = 95
 
 # ADX trend-strength floor. NOT a hard gate despite what this comment used
 # to claim ("skip directionless/choppy stocks before any pattern check") --
@@ -17587,7 +17596,11 @@ def _smallcap_score_threshold(ticker: str, setup: str) -> int:
     ticker happens to be curated.
     """
     base = DMAN_WATCHLIST_MIN_SCORE if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_SCORE
-    return max(base, SETUP_MIN_CONFLUENCE.get(setup, 0)) + _setup_probation_bonus(setup)
+    # Capped for the same reason the scanner's bar is: stacked restrictions can
+    # ask for more than the score can ever reach, which disables a setup
+    # silently instead of tightening it. See MAX_EFFECTIVE_MIN_SCORE.
+    return min(max(base, SETUP_MIN_CONFLUENCE.get(setup, 0)) + _setup_probation_bonus(setup),
+               MAX_EFFECTIVE_MIN_SCORE)
 
 
 def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
@@ -18677,11 +18690,14 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
             effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
         if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
             effective_min = max(effective_min, SEASONAL_MIN_SCORE)
-        effective_min += _setup_probation_bonus(sig.setup)
+        _uncapped_min = effective_min + _setup_probation_bonus(sig.setup)
+        effective_min = min(_uncapped_min, MAX_EFFECTIVE_MIN_SCORE)
 
         lines.append(f"  Setup   : <b>{sig.setup}</b> ({sig.bias})")
         lines.append(f"  Entry ${sig.entry:.2f} | Stop ${sig.stop:.2f} | T1 ${sig.target1:.2f} | RR {sig.rr:.2f}")
-        lines.append(f"  Score   : {sig.confluence_score}/100  (need ≥{effective_min})")
+        lines.append(f"  Score   : {sig.confluence_score}/100  (need ≥{effective_min})"
+                     + (f"  [bar capped from {_uncapped_min}]"
+                        if _uncapped_min > effective_min else ""))
         if _vix_now > 25 or regime.get("vix_shock") or _def_rotation or _seasonal_active:
             lines.append(f"  Session : " + ", ".join(filter(None, [
                 f"VIX {_vix_now:.1f} (>25, floor raised)" if _vix_now > 25 else "",
@@ -20003,10 +20019,16 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             effective_min = max(effective_min, VOLATILE_MIN_CONFLUENCE)
         if _seasonal_active and sig.setup not in _SEASONAL_EXEMPT:
             effective_min = max(effective_min, SEASONAL_MIN_SCORE)
-        effective_min += _setup_probation_bonus(sig.setup)
+        # Capped: these restrictions stack, and September's seasonal floor (92)
+        # plus a probation bonus (+10) asked for 102 out of a possible 100 --
+        # a setup that cannot fire at all, with nothing in the log saying so.
+        _uncapped_min = effective_min + _setup_probation_bonus(sig.setup)
+        effective_min = min(_uncapped_min, MAX_EFFECTIVE_MIN_SCORE)
         if sig.confluence_score < effective_min:
             rejected_counts["low_score"] += 1
-            sys.stdout.write(f"score {sig.confluence_score}/100 < {effective_min}\n")
+            sys.stdout.write(f"score {sig.confluence_score}/100 < {effective_min}"
+                             + (f" (bar capped from {_uncapped_min})\n"
+                                if _uncapped_min > effective_min else "\n"))
             continue
 
         # Optional AI scoring. A None result means the call itself failed

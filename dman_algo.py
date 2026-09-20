@@ -1061,7 +1061,14 @@ BENZINGA_API_KEY  = os.getenv("BENZINGA_API_KEY", "")     # Benzinga Basic — r
 # only AAPL, with a real date/time/date_status). Reads MASSIVE_API_KEY first
 # (Massive's own documented env var name) and falls back to
 # BENZINGA_EARNING_API_KEY (this account's existing var) so either works.
-MASSIVE_API_KEY   = os.getenv("MASSIVE_API_KEY", "") or os.getenv("BENZINGA_EARNING_API_KEY", "")
+# All three names have held a Massive key at some point here -- the vendor
+# changed, the variable names did not. 2026-09-20: a new working Massive key
+# was pasted into BENZINGA_API_KEY while Massive still read the old, revoked
+# one from BENZINGA_EARNING_API_KEY, so a correct key swap changed nothing and
+# earnings plus the Massive news feed stayed dark. Try each name in turn.
+MASSIVE_API_KEY   = (os.getenv("MASSIVE_API_KEY", "")
+                     or os.getenv("BENZINGA_EARNING_API_KEY", "")
+                     or os.getenv("BENZINGA_API_KEY", ""))
 ALPACA_PAPER      = False     # LIVE — real brokerage, real money
 ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed entry
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"

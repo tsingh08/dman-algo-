@@ -17302,3 +17302,18 @@ class TestNewsSourceCheck(unittest.TestCase):
 
     def test_the_mode_exists(self):
         self.assertIn('"newscheck"', inspect.getsource(a.main))
+
+
+class TestMassiveKeyResolution(unittest.TestCase):
+    """2026-09-20: a working Massive key was pasted into BENZINGA_API_KEY while
+    Massive read the old revoked one from BENZINGA_EARNING_API_KEY, so a
+    correct key swap changed nothing."""
+
+    def test_every_name_is_tried_in_order(self):
+        src = inspect.getsource(a)
+        i = src.index("MASSIVE_API_KEY   = ")
+        decl = src[i:i + 320]
+        for name in ("MASSIVE_API_KEY", "BENZINGA_EARNING_API_KEY", "BENZINGA_API_KEY"):
+            self.assertIn(name, decl)
+        self.assertLess(decl.index('getenv("MASSIVE_API_KEY"'),
+                        decl.index('getenv("BENZINGA_API_KEY"'))

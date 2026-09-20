@@ -97,6 +97,9 @@ jobs:
           APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
           BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
+          MASSIVE_API_KEY:          ${{ secrets.MASSIVE_API_KEY }}
+          MASSIVE_NEWS_API_KEY:     ${{ secrets.MASSIVE_NEWS_API_KEY }}
+          MASSIVE_EARNINGS_API_KEY: ${{ secrets.MASSIVE_EARNINGS_API_KEY }}
           BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
           GITHUB_TOKEN:        ${{ secrets.GITHUB_TOKEN }}
           PYTHONIOENCODING:    utf-8

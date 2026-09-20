@@ -99,6 +99,9 @@ jobs:
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
           ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
           BENZINGA_API_KEY:    ${{ secrets.BENZINGA_API_KEY }}
+          MASSIVE_API_KEY:          ${{ secrets.MASSIVE_API_KEY }}
+          MASSIVE_NEWS_API_KEY:     ${{ secrets.MASSIVE_NEWS_API_KEY }}
+          MASSIVE_EARNINGS_API_KEY: ${{ secrets.MASSIVE_EARNINGS_API_KEY }}
           BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
           GITHUB_TOKEN:        ${{ secrets.GITHUB_TOKEN }}
           DAEMON_RUN_UNTIL:    ${{ steps.session.outputs.until }}

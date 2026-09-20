@@ -17277,6 +17277,8 @@ class TestNewsSourceCheck(unittest.TestCase):
         ok = MagicMock(status_code=200)
         ok.json.return_value = {"results": [1, 2]}
         with patch.object(a, "BENZINGA_API_KEY", "SECRETKEY1234567890ABCDEFGHIJKLMN"), \
+             patch.object(a, "MASSIVE_NEWS_API_KEY", "SECRETKEY1234567890ABCDEFGHIJKLMN"), \
+             patch.object(a, "MASSIVE_EARNINGS_API_KEY", "SECRETKEY1234567890ABCDEFGHIJKLMN"), \
              patch.object(a, "MASSIVE_API_KEY", "SECRETKEY1234567890ABCDEFGHIJKLMN"), \
              patch.object(a.requests, "get", return_value=ok), \
              patch.object(a, "_fetch_alpaca_news", return_value={"NVDA": ["x"]}):
@@ -17298,7 +17300,34 @@ class TestNewsSourceCheck(unittest.TestCase):
         with patch.object(a.requests, "get", side_effect=OSError("dns")), \
              patch.object(a, "_fetch_alpaca_news", side_effect=RuntimeError("boom")):
             lines = a.run_news_source_check()
-        self.assertGreaterEqual(len([l for l in lines if "❌" in l]), 4)
+        self.assertGreaterEqual(len([l for l in lines if "\u274c" in l]), 4)
+
+    def test_a_stale_alias_key_is_called_out_by_name(self):
+        """The alias that still held a revoked key is the whole failure mode.
+        Reporting it only when it DIFFERS from the key in use keeps the normal
+        output short while making the dangerous case impossible to miss."""
+        ok = MagicMock(status_code=200)
+        ok.json.return_value = {"results": [1]}
+        with patch.object(a, "MASSIVE_NEWS_API_KEY", "GOODKEY_AAAA"), \
+             patch.object(a, "MASSIVE_EARNINGS_API_KEY", "GOODKEY_AAAA"), \
+             patch.dict(a.os.environ, {"BENZINGA_API_KEY": "STALEKEY_BBBB"}), \
+             patch.object(a.requests, "get", return_value=ok), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}):
+            lines = a.run_news_source_check()
+        joined = "\n".join(lines)
+        self.assertIn("(stale)", joined)
+        self.assertIn("...BBBB", joined)
+
+    def test_benzinga_direct_is_not_probed_without_a_real_subscription(self):
+        """Without a benzinga.com subscription that row is always a 401, and
+        the noise hid the rows that were genuinely broken."""
+        ok = MagicMock(status_code=200)
+        ok.json.return_value = {"results": [1]}
+        with patch.object(a, "BENZINGA_DIRECT_API_KEY", ""), \
+             patch.object(a.requests, "get", return_value=ok), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}):
+            lines = a.run_news_source_check()
+        self.assertNotIn("benzinga direct", "\n".join(lines))
 
     def test_the_mode_exists(self):
         self.assertIn('"newscheck"', inspect.getsource(a.main))
@@ -17311,12 +17340,34 @@ class TestMassiveKeyResolution(unittest.TestCase):
 
     def test_every_name_is_tried_in_order(self):
         src = inspect.getsource(a)
-        i = src.index("MASSIVE_API_KEY   = ")
+        i = src.index("_MASSIVE_ANY_KEY = ")
         decl = src[i:i + 320]
         for name in ("MASSIVE_API_KEY", "BENZINGA_EARNING_API_KEY", "BENZINGA_API_KEY"):
             self.assertIn(name, decl)
         self.assertLess(decl.index('getenv("MASSIVE_API_KEY"'),
                         decl.index('getenv("BENZINGA_API_KEY"'))
+
+    def test_the_canonical_name_wins_over_the_deprecated_aliases(self):
+        """The whole point of the rename: one name that is obviously right."""
+        src = inspect.getsource(a)
+        i = src.index("_MASSIVE_ANY_KEY = ")
+        self.assertLess(src.index('getenv("MASSIVE_API_KEY"', i),
+                        src.index('getenv("BENZINGA_EARNING_API_KEY"', i))
+
+    def test_a_per_product_key_overrides_the_account_key(self):
+        """Massive can issue one key per product. A news key and an earnings
+        key must be able to differ without either one disabling the other."""
+        src = inspect.getsource(a)
+        self.assertIn('MASSIVE_NEWS_API_KEY     = os.getenv("MASSIVE_NEWS_API_KEY", "")', src)
+        self.assertIn('MASSIVE_EARNINGS_API_KEY = os.getenv("MASSIVE_EARNINGS_API_KEY", "")', src)
+
+    def test_the_dead_benzinga_direct_path_is_gated_on_its_own_name(self):
+        """api.benzinga.com has never been entitled for this account, and the
+        var called BENZINGA_API_KEY holds a MASSIVE key. Gating the direct
+        fetchers on it meant two guaranteed 401 round trips per news cycle."""
+        for fn in (a._fetch_benzinga_ticker_news, a._fetch_benzinga_breaking_news):
+            self.assertIn("BENZINGA_DIRECT_API_KEY", inspect.getsource(fn))
+        self.assertEqual(a.BENZINGA_DIRECT_API_KEY, "")     # unset: path is dormant
 
 
 class TestMassiveKeyRotation(unittest.TestCase):
@@ -17327,7 +17378,9 @@ class TestMassiveKeyRotation(unittest.TestCase):
     catalyst layer went quiet without a single error line."""
 
     def setUp(self):
-        self._s = patch.dict(a._MASSIVE_KEY_STATE, {"key": "deadkey", "rotated": False},
+        self._s = patch.dict(a._MASSIVE_KEY_STATE,
+                             {"news":     {"key": "deadkey", "rotated": False},
+                              "earnings": {"key": "deadkey", "rotated": False}},
                              clear=True)
         self._s.start()
         self.addCleanup(self._s.stop)
@@ -17358,7 +17411,9 @@ class TestMassiveKeyRotation(unittest.TestCase):
         with patch.object(a.requests, "get", side_effect=_get),              patch.object(a, "send_telegram"):
             out = a._massive_get("https://api.massive.com/x", {"limit": 1})
         self.assertIs(out, live)
-        self.assertEqual(a._MASSIVE_KEY_STATE["key"], "livekey")
+        self.assertEqual(a._MASSIVE_KEY_STATE["news"]["key"], "livekey")
+        # earnings is a separate product and must be untouched
+        self.assertEqual(a._MASSIVE_KEY_STATE["earnings"]["key"], "deadkey")
 
     def test_a_real_http_error_is_returned_not_rotated_around(self):
         """A 500 is the endpoint's problem, not the key's -- burning the one
@@ -17368,15 +17423,16 @@ class TestMassiveKeyRotation(unittest.TestCase):
             out = a._massive_get("https://api.massive.com/x", {"limit": 1})
         self.assertIs(out, bad)
         self.assertEqual(g.call_count, 1)
-        self.assertFalse(a._MASSIVE_KEY_STATE["rotated"])
+        self.assertFalse(a._MASSIVE_KEY_STATE["news"]["rotated"])
 
     def test_it_stops_probing_once_nothing_works(self):
         dead = self._resp(401, '{"error":"Unknown API Key"}')
-        with patch.object(a.requests, "get", return_value=dead) as g:
+        with patch.object(a.requests, "get", return_value=dead) as g, \
+             patch.object(a, "send_telegram"):
             a._massive_get("https://api.massive.com/x", {"limit": 1})
             first = g.call_count
             a._massive_get("https://api.massive.com/y", {"limit": 1})
-        self.assertTrue(a._MASSIVE_KEY_STATE["rotated"])
+        self.assertTrue(a._MASSIVE_KEY_STATE["news"]["rotated"])
         self.assertEqual(g.call_count, first + 1)     # second call probes nothing
 
     def test_headers_reach_the_endpoint(self):
@@ -17392,3 +17448,62 @@ class TestMassiveKeyRotation(unittest.TestCase):
         src = inspect.getsource(a._massive_get)
         self.assertIn("[-4:]", src)
         self.assertNotIn("{_cand}", src)
+
+
+class TestMassiveDeadKeyIsAnnounced(unittest.TestCase):
+    """A silent news layer looks exactly like a quiet news day. That is how the
+    September 2026 outage survived a week: every Massive call was answering
+    'Unknown API Key' and nothing in the logs or on Telegram said so."""
+
+    def setUp(self):
+        self._s = patch.dict(a._MASSIVE_KEY_STATE,
+                             {"news": {"key": "deadkey", "rotated": False}}, clear=True)
+        self._s.start()
+        self.addCleanup(self._s.stop)
+        self._c = patch.object(a, "_MASSIVE_KEY_CANDIDATES", ["deadkey"])
+        self._c.start()
+        self.addCleanup(self._c.stop)
+
+    def test_every_key_rejected_raises_a_telegram_alert(self):
+        dead = MagicMock(status_code=401, text='{"error":"Unknown API Key"}')
+        with patch.object(a.requests, "get", return_value=dead), \
+             patch.object(a, "send_telegram") as tg:
+            a._massive_get("https://api.massive.com/x", {"limit": 1})
+        tg.assert_called_once()
+        msg = tg.call_args[0][0]
+        self.assertIn("down", msg.lower())
+        self.assertIn("massive.com", msg)
+
+    def test_the_alert_does_not_repeat_every_call(self):
+        """One alert per process. The scanner makes dozens of news calls a
+        run; an alert on each would train the user to ignore Telegram."""
+        dead = MagicMock(status_code=401, text='{"error":"Unknown API Key"}')
+        with patch.object(a.requests, "get", return_value=dead), \
+             patch.object(a, "send_telegram") as tg:
+            for _ in range(5):
+                a._massive_get("https://api.massive.com/x", {"limit": 1})
+        self.assertEqual(tg.call_count, 1)
+
+    def test_a_failed_alert_does_not_break_the_caller(self):
+        dead = MagicMock(status_code=401, text='{"error":"Unknown API Key"}')
+        with patch.object(a.requests, "get", return_value=dead), \
+             patch.object(a, "send_telegram", side_effect=RuntimeError("tg down")):
+            self.assertIs(a._massive_get("https://api.massive.com/x", {"limit": 1}), dead)
+
+
+class TestEarningsUsesTheEarningsKey(unittest.TestCase):
+    """Earnings timing decides whether a setup can be entered BEFORE a print or
+    has to wait for the gap after -- the 'catalyst before the move' rule. It
+    must not be taken down by a bad NEWS key."""
+
+    def test_the_earnings_call_names_its_product(self):
+        src = inspect.getsource(a._fetch_benzinga_earnings_time)
+        self.assertIn('product="earnings"', src)
+        self.assertIn("MASSIVE_EARNINGS_API_KEY", src)
+
+    def test_a_dead_news_key_does_not_disable_earnings(self):
+        with patch.dict(a._MASSIVE_KEY_STATE,
+                        {"news":     {"key": "deadkey", "rotated": True},
+                         "earnings": {"key": "goodkey", "rotated": False}}, clear=True):
+            self.assertEqual(a._massive_key("earnings"), "goodkey")
+            self.assertEqual(a._massive_key("news"), "deadkey")

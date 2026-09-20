@@ -1054,30 +1054,54 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 # Get keys at app.alpaca.markets → Paper Trading → API Keys
 ALPACA_API_KEY    = os.getenv("APCA_API_KEY_ID",    "")   # standard Alpaca env var name
 ALPACA_SECRET_KEY = os.getenv("APCA_API_SECRET_KEY", "")
-BENZINGA_API_KEY  = os.getenv("BENZINGA_API_KEY", "")     # Benzinga Basic — real-time news
-# Massive.com's Benzinga-earnings proxy (api.massive.com/benzinga/v1/earnings) —
-# unlike BENZINGA_API_KEY's direct calendar endpoint, its ticker filter is
-# confirmed server-side accurate (tested live 2026-07-30: ticker=AAPL returns
-# only AAPL, with a real date/time/date_status). Reads MASSIVE_API_KEY first
-# (Massive's own documented env var name) and falls back to
-# BENZINGA_EARNING_API_KEY (this account's existing var) so either works.
-# All three names have held a Massive key at some point here -- the vendor
-# changed, the variable names did not. 2026-09-20: a new working Massive key
-# was pasted into BENZINGA_API_KEY while Massive still read the old, revoked
-# one from BENZINGA_EARNING_API_KEY, so a correct key swap changed nothing and
-# earnings plus the Massive news feed stayed dark. Try each name in turn.
-MASSIVE_API_KEY   = (os.getenv("MASSIVE_API_KEY", "")
-                     or os.getenv("BENZINGA_EARNING_API_KEY", "")
-                     or os.getenv("BENZINGA_API_KEY", ""))
-# Every candidate, in preference order. A dead key that is merely SET wins the
-# chain above, which is exactly what happened on 2026-09-20: the working key
-# sat in BENZINGA_API_KEY while the revoked one still occupied
-# BENZINGA_EARNING_API_KEY. _massive_get() falls through to the next candidate
-# the first time Massive rejects the one in use.
-_MASSIVE_KEY_CANDIDATES = [k for k in (os.getenv("MASSIVE_API_KEY", ""),
-                                       os.getenv("BENZINGA_EARNING_API_KEY", ""),
-                                       os.getenv("BENZINGA_API_KEY", "")) if k]
-_MASSIVE_KEY_STATE: dict = {"key": MASSIVE_API_KEY, "rotated": False}
+# DEPRECATED alias. On this account it has only ever held a MASSIVE key, never
+# a benzinga.com one -- see the Massive block below. Kept so an old deployment
+# keeps working; nothing should read it directly any more.
+BENZINGA_API_KEY  = os.getenv("BENZINGA_API_KEY", "")
+# A real benzinga.com key, which this account does not have: api.benzinga.com
+# answers 'Access denied for user 0 "anonymous"' to every request, which is
+# what Benzinga says to an unsubscribed account, not to a malformed key. Unset,
+# so the two direct-Benzinga fetchers below never run and never spend a round
+# trip on a guaranteed 401. Set it only if a benzinga.com subscription is ever
+# bought; the Massive proxy already covers the same data.
+BENZINGA_DIRECT_API_KEY = os.getenv("BENZINGA_DIRECT_API_KEY", "")
+# ---- Massive.com: the only news/earnings vendor on this account -------------
+# Confirmed by the user 2026-09-20: BOTH the news key and the earnings key come
+# from massive.com. Massive proxies Benzinga's feeds, so the data is Benzinga's
+# but the account, the host and the key system are Massive's. A benzinga.com
+# key will never work here and a Massive key will never work there.
+#
+# MASSIVE_API_KEY is the one name that matters. Massive's dashboard can issue a
+# separate key per product, so MASSIVE_NEWS_API_KEY and MASSIVE_EARNINGS_API_KEY
+# override it when set -- but a single account key covers both products
+# (verified live: the earnings key answered HTTP 200 on the news endpoints too),
+# so one secret is enough and is what we recommend.
+#
+# The BENZINGA_*-named vars are DEPRECATED aliases, read only as a last resort.
+# They caused the 2026-09-20 blackout: the same key sat in both of them, it was
+# revoked, and this chain picks the first name that is SET rather than the first
+# that WORKS -- so pasting a good key into one var changed nothing, and every
+# news and earnings call answered "Unknown API Key" without one line in the log.
+# _massive_get() now heals that at runtime; naming it properly prevents it.
+_MASSIVE_ANY_KEY = (os.getenv("MASSIVE_API_KEY", "")
+                    or os.getenv("BENZINGA_EARNING_API_KEY", "")
+                    or os.getenv("BENZINGA_API_KEY", ""))
+MASSIVE_API_KEY          = _MASSIVE_ANY_KEY
+MASSIVE_NEWS_API_KEY     = os.getenv("MASSIVE_NEWS_API_KEY", "")     or _MASSIVE_ANY_KEY
+MASSIVE_EARNINGS_API_KEY = os.getenv("MASSIVE_EARNINGS_API_KEY", "") or _MASSIVE_ANY_KEY
+# Every distinct key configured under any name, preferred first. _massive_get()
+# falls through to the next one the first time Massive rejects the one in use,
+# so a half-finished key rotation degrades instead of going dark.
+_MASSIVE_KEY_CANDIDATES = [k for k in dict.fromkeys((
+    os.getenv("MASSIVE_NEWS_API_KEY", ""),
+    os.getenv("MASSIVE_EARNINGS_API_KEY", ""),
+    os.getenv("MASSIVE_API_KEY", ""),
+    os.getenv("BENZINGA_EARNING_API_KEY", ""),
+    os.getenv("BENZINGA_API_KEY", ""))) if k]
+_MASSIVE_KEY_STATE: dict = {
+    "news":     {"key": MASSIVE_NEWS_API_KEY,     "rotated": False},
+    "earnings": {"key": MASSIVE_EARNINGS_API_KEY, "rotated": False},
+}
 ALPACA_PAPER      = False     # LIVE — real brokerage, real money
 ENTRY_DRIFT_MAX   = 0.02      # reject signal if price drifted >2% from computed entry
 ALPACA_SYNC_FILE   = "dman_alpaca_sync.json"
@@ -5605,12 +5629,18 @@ _MASSIVE_NEWS_CACHE: dict[tuple, tuple[float, dict]] = {}
 _MASSIVE_NEWS_CACHE_TTL_S = 600   # 10 min — matches the daemon's scan_loop cadence
 
 
-def _massive_key() -> str:
-    """The Massive key currently believed good."""
-    return _MASSIVE_KEY_STATE.get("key") or MASSIVE_API_KEY
+def _massive_key(product: str = "news") -> str:
+    """The Massive key currently believed good for this product.
+
+    'news' and 'earnings' are tracked apart because Massive can issue one key
+    per product: a dead news key must not disable earnings timing as well.
+    """
+    _st = _MASSIVE_KEY_STATE.get(product) or {}
+    return _st.get("key") or MASSIVE_API_KEY
 
 
-def _massive_get(url: str, params: dict, timeout: int = 10, headers: dict | None = None):
+def _massive_get(url: str, params: dict, timeout: int = 10, headers: dict | None = None,
+                 product: str = "news"):
     """GET a Massive endpoint, switching keys once if the current one is dead.
 
     Massive answers a revoked key with 'Unknown API Key' (401 on some paths,
@@ -5620,14 +5650,15 @@ def _massive_get(url: str, params: dict, timeout: int = 10, headers: dict | None
     announced, because a silent switch would hide a stale secret forever.
     """
     _params = dict(params)
-    _params["apiKey"] = _massive_key()
+    _params["apiKey"] = _massive_key(product)
     resp = requests.get(url, params=_params, timeout=timeout, headers=headers)
     if resp.status_code == 200 or "Unknown API Key" not in str(resp.text):
         return resp
-    if _MASSIVE_KEY_STATE.get("rotated"):
+    _st = _MASSIVE_KEY_STATE.setdefault(product, {"key": MASSIVE_API_KEY, "rotated": False})
+    if _st.get("rotated"):
         return resp
     for _cand in _MASSIVE_KEY_CANDIDATES:
-        if _cand == _massive_key():
+        if _cand == _massive_key(product):
             continue
         try:
             _probe = requests.get("https://api.massive.com/v2/reference/news",
@@ -5635,18 +5666,29 @@ def _massive_get(url: str, params: dict, timeout: int = 10, headers: dict | None
         except Exception:
             continue
         if _probe.status_code == 200:
-            _MASSIVE_KEY_STATE.update({"key": _cand, "rotated": True})
-            print(f"  🔑 Massive key rotated to the one ending ...{_cand[-4:]} "
+            _st.update({"key": _cand, "rotated": True})
+            print(f"  🔑 Massive {product} key rotated to the one ending ...{_cand[-4:]} "
                   f"— the configured key was rejected")
             try:
-                send_telegram(f"🔑 <b>Massive API key switched</b> — the configured key was "
-                              f"rejected; using the one ending ...{html.escape(_cand[-4:])}. "
-                              f"Point MASSIVE_API_KEY at it to make this permanent.")
+                send_telegram(f"🔑 <b>Massive {html.escape(product)} key switched</b> — the "
+                              f"configured key was rejected; using the one ending "
+                              f"...{html.escape(_cand[-4:])}. Point MASSIVE_API_KEY at it "
+                              f"to make this permanent.")
             except Exception as exc:
                 _log_swallowed("massive key alert", exc)
             _params["apiKey"] = _cand
             return requests.get(url, params=_params, timeout=timeout, headers=headers)
-    _MASSIVE_KEY_STATE["rotated"] = True      # nothing worked: stop probing
+    # Nothing authenticates. Stop probing, but say so out loud: a silent news
+    # layer looks exactly like a quiet news day, and that is the failure that
+    # went unnoticed for a week in September 2026.
+    _st["rotated"] = True
+    print(f"  ⚠️  Every configured Massive key was rejected — {product} feed is DOWN")
+    try:
+        send_telegram(f"⚠️ <b>Massive {html.escape(product)} feed is down</b> — every "
+                      f"configured key was rejected. Catalyst and earnings data are "
+                      f"unavailable until MASSIVE_API_KEY is renewed at massive.com.")
+    except Exception as exc:
+        _log_swallowed("massive dead-key alert", exc)
     return resp
 
 
@@ -5833,7 +5875,7 @@ def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dic
     Fetch real-time ticker-specific headlines from Benzinga Basic API.
     Returns {ticker: [headline, ...]}. Returns {} if key not set or on error.
     """
-    if not BENZINGA_API_KEY:
+    if not BENZINGA_DIRECT_API_KEY:
         return {}
     from datetime import timezone as _tz
     cutoff = datetime.now(_tz.utc) - timedelta(hours=hours_back)
@@ -5846,7 +5888,7 @@ def _fetch_benzinga_ticker_news(tickers: list[str], hours_back: int = 20) -> dic
             resp = requests.get(
                 "https://api.benzinga.com/api/v2/news",
                 params={
-                    "token":          BENZINGA_API_KEY,
+                    "token":          BENZINGA_DIRECT_API_KEY,
                     "tickers":        ",".join(batch),
                     "pageSize":       100,
                     "displayOutput":  "headline",
@@ -5885,7 +5927,7 @@ def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, s
     format as _fetch_breaking_news_rss so callers are drop-in compatible.
     Returns [] if key not set or on error.
     """
-    if not BENZINGA_API_KEY:
+    if not BENZINGA_DIRECT_API_KEY:
         return []
     from datetime import timezone as _tz
     from email.utils import parsedate_to_datetime as _parse_date
@@ -5894,7 +5936,7 @@ def _fetch_benzinga_breaking_news(hours_back: int = 8) -> list[tuple[str, str, s
         resp = requests.get(
             "https://api.benzinga.com/api/v2/news",
             params={
-                "token":          BENZINGA_API_KEY,
+                "token":          BENZINGA_DIRECT_API_KEY,
                 "pageSize":       30,
                 "displayOutput":  "headline",
                 "publishedAfter": cutoff.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -6176,7 +6218,7 @@ def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, li
     # Secondary: direct Benzinga API (requires BENZINGA_API_KEY) — known
     # unreliable per-ticker filter (see _fetch_benzinga_ticker_news docstring),
     # kept as a fallback layer rather than the primary source now.
-    if BENZINGA_API_KEY:
+    if BENZINGA_DIRECT_API_KEY:
         bz = _fetch_benzinga_ticker_news(tickers, hours_back=hours_back)
         filled = sum(1 for v in bz.values() if v)
         print(f"  [news] Benzinga returned headlines for {filled}/{len(tickers)} tickers")
@@ -6584,7 +6626,7 @@ def _fetch_breaking_news_rss(hours_back: int = 8) -> list[tuple[str, str, str, i
     impact: -2 (very bearish) to +2 (very bullish).
     """
     # Benzinga real-time path — skip RSS entirely when key is available
-    if BENZINGA_API_KEY:
+    if BENZINGA_DIRECT_API_KEY:
         bz_results = _fetch_benzinga_breaking_news(hours_back=hours_back)
         if bz_results:
             return bz_results
@@ -12664,7 +12706,7 @@ def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]
     # definition) -- naming that env var again here referenced an undefined
     # global that only stayed hidden because `or` short-circuits whenever
     # MASSIVE_API_KEY is set.
-    _key = MASSIVE_API_KEY
+    _key = MASSIVE_EARNINGS_API_KEY or MASSIVE_API_KEY
     if not _key:
         return None
     try:
@@ -12673,6 +12715,7 @@ def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]
             {"apiKey": _key, "ticker": ticker.upper(), "limit": 12},
             headers={"Accept": "application/json"},
             timeout=8,
+            product="earnings",
         )
         if resp.status_code != 200:
             return None
@@ -18782,23 +18825,35 @@ def run_news_source_check(notify: bool = False) -> list[str]:
         except Exception as exc:
             _lines.append(f"  ❌ {name:<26} {type(exc).__name__}: {str(exc)[:50]}")
 
-    for _label, _key in (("BENZINGA_API_KEY", BENZINGA_API_KEY),
-                         ("MASSIVE_API_KEY", MASSIVE_API_KEY)):
-        _lines.append(f"  {_label:<26} {'len %d ...%s' % (len(_key), _key[-4:]) if _key else 'MISSING'}")
-    _probe("benzinga direct news", "https://api.benzinga.com/api/v2/news",
-           {"token": BENZINGA_API_KEY, "pageSize": 2}, count_key="")
+    def _show(label, key):
+        _lines.append(f"  {label:<26} "
+                      + (f"len {len(key)} ...{key[-4:]}" if key else "MISSING"))
+
+    _show("MASSIVE_NEWS_API_KEY", MASSIVE_NEWS_API_KEY)
+    _show("MASSIVE_EARNINGS_API_KEY", MASSIVE_EARNINGS_API_KEY)
+    # The deprecated aliases are worth naming only when they hold something
+    # DIFFERENT from the key actually in use -- that is the exact shape of the
+    # 2026-09-20 outage, where a stale alias won the resolution chain.
+    for _label, _key in (("BENZINGA_EARNING_API_KEY", os.getenv("BENZINGA_EARNING_API_KEY", "")),
+                         ("BENZINGA_API_KEY", os.getenv("BENZINGA_API_KEY", ""))):
+        if _key and _key not in (MASSIVE_NEWS_API_KEY, MASSIVE_EARNINGS_API_KEY):
+            _show(f"{_label} (stale)", _key)
+            _probe(f"massive w/ {_label[:12]} key", "https://api.massive.com/v2/reference/news",
+                   {"apiKey": _key, "limit": 1})
+
     _probe("massive reference news", "https://api.massive.com/v2/reference/news",
-           {"apiKey": MASSIVE_API_KEY, "limit": 2})
+           {"apiKey": MASSIVE_NEWS_API_KEY, "limit": 2})
     _probe("massive benzinga news", "https://api.massive.com/benzinga/v2/news",
-           {"apiKey": MASSIVE_API_KEY, "published.gte": _cut, "limit": 2})
-    # cross-test: a key pasted into the wrong variable is the likeliest cause of
-    # a swap that changes nothing, so ask Massive about the Benzinga key too
-    if BENZINGA_API_KEY and BENZINGA_API_KEY != MASSIVE_API_KEY:
-        _probe("massive w/ BENZINGA key", "https://api.massive.com/v2/reference/news",
-               {"apiKey": BENZINGA_API_KEY, "limit": 2})
+           {"apiKey": MASSIVE_NEWS_API_KEY, "published.gte": _cut, "limit": 2})
     _probe("massive earnings", "https://api.massive.com/benzinga/v1/earnings",
-           {"apiKey": MASSIVE_API_KEY, "date.gte": str(_et_today()),
+           {"apiKey": MASSIVE_EARNINGS_API_KEY, "date.gte": str(_et_today()),
             "date.lte": str(_et_today() + timedelta(days=30)), "limit": 2})
+    # Only probed when a real benzinga.com subscription exists. Without one the
+    # answer is always 'Access denied for user 0 "anonymous"', which is noise
+    # that made the genuinely broken rows harder to spot.
+    if BENZINGA_DIRECT_API_KEY:
+        _probe("benzinga direct news", "https://api.benzinga.com/api/v2/news",
+               {"token": BENZINGA_DIRECT_API_KEY, "pageSize": 2}, count_key="")
     try:
         _alp = _fetch_alpaca_news(["NVDA", "AMD", "TSLA"], hours_back=48)
         _lines.append(f"  ✅ {'alpaca news (REST)':<26} {sum(len(v) for v in _alp.values())} headline(s)")

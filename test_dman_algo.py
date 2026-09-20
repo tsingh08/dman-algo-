@@ -16422,19 +16422,75 @@ class TestMomentumAutoExecRespectsProbation(unittest.TestCase):
     """Review 2026-09-10: the auto-exec path ignored setup probation, so a
     restricted setup kept entering itself unsupervised."""
 
-    def test_a_restricted_setup_is_not_executable(self):
-        # Since 2026-09-17 the loop only collects candidates; _mw_pick_and_execute()
-        # trades the best one. Probation marks a candidate non-executable, so it
-        # reaches the digest as an offer instead of an order.
+    def test_a_restricted_setup_is_sized_down_not_switched_off(self):
+        """Superseded 2026-09-20 on the user's instruction. Suspending
+        auto-exec turned the pick into an offer, and an offer nobody answers is
+        a trade that silently never happens -- this account is meant to run
+        with the user away. The restriction is now expressed as SIZE, so the
+        setup stays alive and small."""
         src = inspect.getsource(a._mw_process_play)
         self.assertIn("_mw_on_probation", src)
         self.assertNotIn("_submit_signals_to_alpaca", src)
-        self.assertIn('"executable": bool(bp["setup"]) and not _mw_on_probation', src)
+        self.assertIn('"probation": _mw_on_probation', src)
+        self.assertIn('"executable": bool(bp["setup"]),', src)
 
     def test_the_picker_only_trades_executable_candidates(self):
         src = inspect.getsource(a._mw_pick_and_execute)
         i = src.index("_submit_signals_to_alpaca")
         self.assertIn('best["executable"]', src[:i])
+
+    def test_the_picker_halves_size_for_a_probationary_pick(self):
+        src = inspect.getsource(a._mw_pick_and_execute)
+        i = src.index("_submit_signals_to_alpaca")
+        self.assertIn("_probation_size_mult()", src[:i])
+        self.assertIn('best.get("probation")', src[:i])
+
+
+class TestProbationSizeFollowsTheAccount(unittest.TestCase):
+    """Direct instruction 2026-09-20: "lets do halfsize for now till the
+    account goes up from this point" -- the account stood at $2,647.09, down
+    ~9.5% on the month."""
+
+    def setUp(self):
+        self._d = tempfile.mkdtemp()
+        self._f = os.path.join(self._d, "eq.json")
+        self._p = patch.object(a, "_DAY_START_EQUITY_FILE", self._f)
+        self._p.start()
+        self.addCleanup(self._p.stop)
+        import shutil as _sh
+        self.addCleanup(_sh.rmtree, self._d, True)
+
+    def _write(self, equity, date=None):
+        with open(self._f, "w", encoding="utf-8") as fh:
+            json.dump({"date": date or str(a._et_today()), "equity": equity}, fh)
+
+    def test_at_or_below_the_line_size_is_halved(self):
+        self._write(a.PROBATION_FULL_SIZE_EQUITY)
+        self.assertEqual(a._probation_size_mult(), a.MOMENTUM_PROBATION_SIZE_MULT)
+
+    def test_above_the_line_full_size_returns(self):
+        self._write(a.PROBATION_FULL_SIZE_EQUITY + 0.01)
+        self.assertEqual(a._probation_size_mult(), 1.0)
+
+    def test_yesterdays_figure_is_never_trusted(self):
+        """A stale row would size today's trades off an account that no longer
+        exists. Staying small is the safe direction to be wrong in."""
+        self._write(a.PROBATION_FULL_SIZE_EQUITY * 3, date="2020-01-02")
+        self.assertEqual(a._probation_size_mult(), a.MOMENTUM_PROBATION_SIZE_MULT)
+
+    def test_a_missing_or_corrupt_file_stays_small(self):
+        self.assertEqual(a._probation_size_mult(), a.MOMENTUM_PROBATION_SIZE_MULT)
+        with open(self._f, "w", encoding="utf-8") as fh:
+            fh.write("{ not json")
+        self.assertEqual(a._probation_size_mult(), a.MOMENTUM_PROBATION_SIZE_MULT)
+
+    def test_it_reads_the_days_open_not_live_equity(self):
+        """Live equity crosses the line and back all session; sizing off it
+        would double and halve positions intraday."""
+        src = inspect.getsource(a._probation_size_mult)
+        self.assertIn("_DAY_START_EQUITY_FILE", src)
+        for live in ("get_account", "/v2/account", "last_equity"):
+            self.assertNotIn(live, src)
 
 
 class TestDriftRestrictionsEnforcedEveryScan(unittest.TestCase):

@@ -604,6 +604,18 @@ MOMENTUM_DAY_ONLY_SETUP = "Momentum Watch Breakout (Day)"
 # spread's kind of live track record yet -- this is how it earns one
 # safely while unsupervised, not a vote of full confidence.
 MOMENTUM_AUTO_EXEC_SIZE_MULT = 0.35
+# A setup on probation still executes itself, at half the already-reduced size.
+# Probation exists to cut exposure, not to hand the decision back: suspending
+# auto-exec turned the pick into an offer, and an offer nobody answers is not
+# caution -- it is a trade that silently does not happen. This account is meant
+# to run with the user away, so the restriction has to be expressible as size.
+# Direct instruction 2026-09-17, reaffirmed 2026-09-20.
+MOMENTUM_PROBATION_SIZE_MULT = 0.5
+# The equity this rule was set against: $2,647.09 on 2026-09-20, down ~9.5% on
+# the month. Above this line probation stops halving size -- "halfsize for now
+# till the account goes up from this point". Read via _probation_size_mult(),
+# which uses the DAY's opening equity so size cannot flip intraday.
+PROBATION_FULL_SIZE_EQUITY = 2647.09
 # One pick, not a menu. The breakout digest used to alert every qualifying
 # play at once and auto-execute each of them, which is both impossible to act
 # on by hand and a way to end up in four correlated small caps at once. Every
@@ -10110,6 +10122,33 @@ def _breakout_thesis(c: dict) -> list[str]:
     return out
 
 
+def _probation_size_mult() -> float:
+    """Half size for a probationary setup until the account climbs past where
+    it stood when this rule was set.
+
+    Direct instruction 2026-09-20: "lets do halfsize for now till the account
+    goes up from this point" -- the account was $2,647.09 and down ~9.5% on the
+    month. Probation used to suspend auto-exec entirely, which in an account
+    meant to run unattended is not caution, it is a trade that silently never
+    happens. Expressing the restriction as SIZE keeps the setup alive.
+
+    The reading is deliberately the DAY's starting equity, not live equity: a
+    live reading crosses the line and back all session and would double and
+    halve position size intraday. This can change at most once a day, at the
+    open, and is conservative when the figure is unavailable.
+    """
+    try:
+        with open(_DAY_START_EQUITY_FILE) as _f:
+            _row = json.load(_f)
+        if str(_row.get("date", "")) != str(_et_today()):
+            return MOMENTUM_PROBATION_SIZE_MULT      # stale: stay small
+        if float(_row.get("equity", 0.0)) > PROBATION_FULL_SIZE_EQUITY:
+            return 1.0
+    except Exception as exc:
+        _log_swallowed("probation size mult", exc)
+    return MOMENTUM_PROBATION_SIZE_MULT
+
+
 def _mw_pick_and_execute(candidates: list[dict]) -> list[str]:
     """Alert the single best breakout and trade only that one.
 
@@ -10127,8 +10166,10 @@ def _mw_pick_and_execute(candidates: list[dict]) -> list[str]:
     if best["executable"] and best["score"] >= MOMENTUM_MIN_PICK_SCORE:
         try:
             _sig = _build_momentum_signal(best["offer"])
-            _submit_signals_to_alpaca([_sig], size_mult=MOMENTUM_AUTO_EXEC_SIZE_MULT)
-            lines.append(f"   🤖 <b>AUTO-EXECUTED</b> at {MOMENTUM_AUTO_EXEC_SIZE_MULT:.2f}x size "
+            _mult = MOMENTUM_AUTO_EXEC_SIZE_MULT * (
+                _probation_size_mult() if best.get("probation") else 1.0)
+            _submit_signals_to_alpaca([_sig], size_mult=_mult)
+            lines.append(f"   🤖 <b>AUTO-EXECUTED</b> at {_mult:.2f}x size "
                          f"— day-only, auto-closes ~{MOMENTUM_EOD_CLOSE_HOUR_ET}:"
                          f"{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET")
         except Exception as exc:
@@ -10230,12 +10271,13 @@ def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
                                     or _setup_probation_bonus("SWING — " + MOMENTUM_DAY_ONLY_SETUP) > 0)
                 if bp["setup"] and _mw_on_probation:
                     _breakout_msg += ("\n   🟡 Setup on probation (weak recent live record) — "
-                                      "auto-execute suspended, explicit YES required")
+                                      f"executing at {_probation_size_mult():.0%} size")
                 _score, _why = _breakout_quality(bp, levels, cur, vwap, entry_px, stop_px, fl_m,
                                                  _average_daily_volume(ticker))
                 setup_alerts.append({
                     "ticker": ticker, "msg": _breakout_msg, "score": _score, "why": _why,
-                    "executable": bool(bp["setup"]) and not _mw_on_probation,
+                    "executable": bool(bp["setup"]),
+                    "probation": _mw_on_probation,
                     "offer": {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
                               "t1": t1, "t2": t2, "signal_str": sig_str},
                 })

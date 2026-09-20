@@ -7088,6 +7088,43 @@ SIGNAL_LABEL_MIN_AGE_DAYS = 3     # do not label until the horizon can exist
 SIGNAL_LABEL_MAX_PER_RUN  = 40    # tickers fetched per labelling pass
 
 
+def _mark_signals_taken(tickers) -> int:
+    """Flip today's feature rows for these tickers to taken=True.
+
+    Every row is written BEFORE the hard gates run, so the logger cannot know
+    yet whether a signal survives -- it writes taken=False for all of them. Left
+    that way the dataset has no positive class at all: you can still label every
+    row counterfactually, but you can never ask the only question that matters
+    for the gates, which is whether the ones the algo PICKED did better than the
+    ones it threw away.
+
+    Called with the signals a scan actually returns, so "taken" means "this
+    survived every gate and was handed to the order path", not "this filled".
+    Fills are a separate question answered by dman_live_outcomes.csv.
+    """
+    _want = {str(t).upper() for t in (tickers or []) if t}
+    if not _want:
+        return 0
+    try:
+        with open(SIGNAL_FEATURES_FILE) as _f:
+            _log = json.load(_f)
+        if not isinstance(_log, list):
+            return 0
+        _today, _n = str(_et_today()), 0
+        for _row in _log:
+            if (isinstance(_row, dict) and _row.get("date") == _today
+                    and str(_row.get("ticker", "")).upper() in _want
+                    and not _row.get("taken")):
+                _row["taken"] = True
+                _n += 1
+        if _n:
+            _write_json_atomic(SIGNAL_FEATURES_FILE, _log, indent=0)
+        return _n
+    except Exception as exc:
+        _log_swallowed("mark signals taken", exc)
+        return 0
+
+
 def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = "") -> None:
     """Append one feature row per scored signal. Never raises, never decides."""
     try:
@@ -20040,6 +20077,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # Friday close-out advisory — fires on the 3:30 PM scan (30 min before bell)
     _scan_friday_closeout()
 
+    # Every row above was written before the hard gates ran, so all of them say
+    # taken=False. These are the ones that survived.
+    _mark_signals_taken([getattr(_s, "ticker", "") for _s in signals])
     return signals
 
 

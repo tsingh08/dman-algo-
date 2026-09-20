@@ -17541,3 +17541,52 @@ class TestKeyAlertsSurviveQuietMode(unittest.TestCase):
     def test_the_key_switched_alert_is_never_suppressed(self):
         self.assertTrue(a._telegram_worth_sending(
             "🔑 <b>Massive news key switched</b> — the configured key was rejected."))
+
+
+class TestFeatureLogRecordsWhatWasTaken(unittest.TestCase):
+    """The learning dataset is the long pole for the model the user wants
+    before late November. Rows are written BEFORE the hard gates, so every one
+    of them said taken=False -- a dataset with no positive class, which cannot
+    answer whether the gates pick better signals than they discard."""
+
+    def setUp(self):
+        self._d = tempfile.mkdtemp()
+        self._f = os.path.join(self._d, "features.json")
+        self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
+        self._p.start()
+        self.addCleanup(self._p.stop)
+        import shutil as _sh
+        self.addCleanup(_sh.rmtree, self._d, True)
+
+    def _write(self, rows):
+        with open(self._f, "w", encoding="utf-8") as fh:
+            json.dump(rows, fh)
+
+    def test_todays_rows_for_those_tickers_flip_to_taken(self):
+        today = str(a._et_today())
+        self._write([{"date": today, "ticker": "AMD", "taken": False},
+                     {"date": today, "ticker": "QQQ", "taken": False}])
+        self.assertEqual(a._mark_signals_taken(["amd"]), 1)
+        rows = json.load(open(self._f, encoding="utf-8"))
+        self.assertTrue(rows[0]["taken"])
+        self.assertFalse(rows[1]["taken"])
+
+    def test_an_older_session_is_never_rewritten(self):
+        """A ticker can signal on many days. Flipping an old row would credit
+        today's decision to a trade that was never taken."""
+        self._write([{"date": "2020-01-02", "ticker": "AMD", "taken": False}])
+        self.assertEqual(a._mark_signals_taken(["AMD"]), 0)
+        self.assertFalse(json.load(open(self._f, encoding="utf-8"))[0]["taken"])
+
+    def test_no_tickers_writes_nothing(self):
+        self._write([{"date": str(a._et_today()), "ticker": "AMD", "taken": False}])
+        self.assertEqual(a._mark_signals_taken([]), 0)
+
+    def test_a_corrupt_log_is_never_fatal_to_a_scan(self):
+        with open(self._f, "w", encoding="utf-8") as fh:
+            fh.write("{ not json")
+        self.assertEqual(a._mark_signals_taken(["AMD"]), 0)
+
+    def test_the_scanner_marks_what_it_returns(self):
+        src = inspect.getsource(a.run_pro_scanner)
+        self.assertIn("_mark_signals_taken", src)

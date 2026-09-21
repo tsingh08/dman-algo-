@@ -1,18 +1,5 @@
 [
   {
-    "ts": "2026-09-18T11:56:00.742076-04:00",
-    "symbols": [
-      "JPM",
-      "NVDA",
-      "QCOM",
-      "SPY"
-    ],
-    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T11:56:09.843171-04:00",
     "symbols": [
       "APLD",
@@ -5101,5 +5088,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:04:39.485959-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Crude Oil Down 4%; Intel Shares Move Higher",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T11:30:38.969621-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "$100 Invested In Meta Platforms 10 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T11:31:01.731028-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "This Crude Refiner Has Beaten Every Magnificent Seven Stock in the Last 2 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T11:31:02.073786-04:00",
     "symbols": [
       "MSFT"
@@ -5093,5 +5073,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:33:57.630632-04:00",
+    "symbols": [
+      "AMD",
+      "ORCL"
+    ],
+    "headline": "QUICK SPARK: AMD Stock Hits Fresh Record High, Up 183% This Year",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T11:33:59.227297-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What Is Going On With Arm Holdings Stock on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

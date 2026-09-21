@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T12:28:48.747979-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on Talen Energy, Raises Price Target to $514",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T12:40:12.113491-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Schmid Says U.S. Treasury&#39;s Buybacks Don&#39;t Make Fed&#39;s Job Harder Or Easier; Powell&#39;s Style Is Different From Warsh, Relative To Running Meetings, To The Board, To The Hill; We Are In A Fairly Normalized Place; Economy Strong, Growing",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T12:42:57.137454-04:00",
     "symbols": [
       "MARA"
@@ -5086,6 +5066,26 @@
       "NAMS"
     ],
     "headline": "NewAmsterdam Pharma Receives Marketing Authorization From European Commission For Ubeslo, Evlarco To Treat Primary Hypercholesterolaemia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:43:25.614403-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron&#39;s 343% Growth Boom Is Already Over, I/O Fund Says \u2014 Now Comes the Hard Part",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:44:01.835447-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "Paramount Stock Jumps on Settlement Talks",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

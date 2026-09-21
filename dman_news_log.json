@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:08:48.124597-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:48.623229-04:00",
-    "symbols": [
-      "IMCC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:48.873904-04:00",
-    "symbols": [
-      "SSM"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:49.363193-04:00",
-    "symbols": [
-      "MEDS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:49.610799-04:00",
-    "symbols": [
-      "USDE"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:49.615251-04:00",
-    "symbols": [
-      "USDE"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:50.093371-04:00",
-    "symbols": [
-      "XRTX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:50.341522-04:00",
-    "symbols": [
-      "SVRN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:08:50.585245-04:00",
-    "symbols": [
-      "ZTG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:08:51.064945-04:00",
     "symbols": [
       "DSP"
@@ -5060,6 +4970,96 @@
     "headline": "Trump, Greenland Deal Puts Rare-Earth ETFs In Focus: Funds to Watch as US Targets China\u2019s Supply Chain",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:20:14.225666-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Buy These 4 Cybersecurity Stocks, Skip These 2: Josh Brown Names Names",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:20:14.455836-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Buy These 4 Cybersecurity Stocks, Skip These 2: Josh Brown Names Names",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:20:14.708406-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Buy These 4 Cybersecurity Stocks, Skip These 2: Josh Brown Names Names",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:20:16.464925-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Buy These 4 Cybersecurity Stocks, Skip These 2: Josh Brown Names Names",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:20:16.741621-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Buy These 4 Cybersecurity Stocks, Skip These 2: Josh Brown Names Names",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:20:20.123864-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Occidental Petroleum Stock Slides Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:20:20.582949-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Why Energy Resilience Is The Underpriced Attribute In Gold Mining Stocks\u2014Beyond AISC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T13:20:21.359304-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Transportation Department Announces Federal Aviation Administration Rolls Out SMART AI Tool In Limited Version",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:20:21.867537-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

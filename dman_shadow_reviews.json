@@ -90,5 +90,49 @@
    "posted_et": "09/18 15:23",
    "plan": "+15% target / -20% stop, same-day exit"
   }
+ },
+ {
+  "ts": "2026-09-21T12:09:45.007180-04:00",
+  "kind": "signal",
+  "ticker": "AMD",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 78 is overbought; gap & hold in choppy regime (14 score) lacks directional conviction. Entry too extended after 4.3% move.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 610.03,
+   "stop": 575.12,
+   "target1": 697.3,
+   "rr": 2.5,
+   "rvol": 3.04,
+   "rsi": 78.0,
+   "reason": "Gap up +4.3% from prior close, holding, RVOL 3.0x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
+ },
+ {
+  "ts": "2026-09-21T12:09:46.011836-04:00",
+  "kind": "signal",
+  "ticker": "WBD",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 71.4 is overbought; morning runner after 7.1% gap in choppy regime risks mean reversion into stop.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 30.57,
+   "stop": 29.57,
+   "target1": 35.55,
+   "rr": 4.98,
+   "rvol": 12.37,
+   "rsi": 71.4,
+   "reason": "News gap +7.1% on 12.4x vol, holding open",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

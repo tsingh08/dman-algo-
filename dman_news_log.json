@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T15:16:16.635605-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T15:16:16.834141-04:00",
     "symbols": [
       "AMAT"
@@ -5079,5 +5069,18 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T16:02:53.713746-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "META",
+      "QCOM"
+    ],
+    "headline": "Meta&#39;s Muse Hits No. 1, Carrying AMD Into the $1-Trillion Club",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-18T12:10:26.217210-04:00",
-    "symbols": [
-      "FEAM"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Futures Pare Gains, Nasdaq 100 Up as Trump Weighs &#39;Big Decision&#39; on Iran Military Strikes\u2014 OKLO, MCD, BB, NUE in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T12:10:26.221833-04:00",
-    "symbols": [
-      "FEAM"
-    ],
-    "headline": "Nucor, BlackBerry and 3 Stocks to Watch Heading Into Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T12:10:26.226273-04:00",
-    "symbols": [
-      "FEAM"
-    ],
-    "headline": "5E Advanced Materials Q4 EPS $(0.14) Beats $(0.32) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T12:15:16.954181-04:00",
     "symbols": [
       "MSTR"
@@ -5086,6 +5056,37 @@
       "NUAI"
     ],
     "headline": "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:19:52.357491-04:00",
+    "symbols": [
+      "MRVL",
+      "MSFT"
+    ],
+    "headline": "This Analyst Raises Price Targets For Microsoft And This AI Infrastructure Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:20:17.333944-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "This Analyst Raises Price Targets For Microsoft And This AI Infrastructure Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T12:20:19.204687-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "This Analyst Raises Price Targets For Microsoft And This AI Infrastructure Stock",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

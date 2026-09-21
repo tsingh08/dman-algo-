@@ -25,6 +25,30 @@
       "timestamp": "2026-09-18T10:59:53.588234-04:00"
     },
     {
+      "ticker": "AMDL",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 78.57,
+      "stop": 71.82,
+      "target1": 95.45,
+      "target2": 105.58,
+      "score": 100,
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T09:57:40.259654-04:00"
+    },
+    {
+      "ticker": "WBD",
+      "setup": "Morning Runner",
+      "bias": "LONG",
+      "entry": 29.75,
+      "stop": 29.07,
+      "target1": 32.68,
+      "target2": 34.45,
+      "score": 100,
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T09:57:40.260355-04:00"
+    },
+    {
       "ticker": "BDRX",
       "setup": "Low Float Catalyst",
       "bias": "LONG",

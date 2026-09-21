@@ -14503,6 +14503,16 @@ def _elevated_size_reason(sig) -> Optional[str]:
     try:
         if getattr(sig, "confluence_score", 0) < ELEVATED_MIN_SCORE:
             return None
+        # A setup under drift probation is the opposite of "absolute
+        # confidence" — it just posted a live record bad enough to restrict
+        # it. Seen live 2026-09-21: Gap & Hold entered probation at 09:59
+        # (1W/2L) and RXRX, a Gap & Hold signal, was still sized at the
+        # ELEVATED tier that afternoon, because the probation bonus only
+        # raises the score bar (capped at MAX_EFFECTIVE_MIN_SCORE=95, which
+        # a score-100 signal clears) and nothing here looked at probation.
+        # Probation may still allow the trade — but at BASE size only.
+        if _setup_probation_bonus(getattr(sig, "setup", "") or "") > 0:
+            return None
         _watchlisted = sig.ticker in WATCHLIST
         if not _watchlisted and not _has_liquid_option_chain(sig.ticker):
             return None

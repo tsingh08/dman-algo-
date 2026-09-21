@@ -84,6 +84,7 @@ _flags_isolation = None
 _wl_isolation = None
 _halt_isolation = None
 _probation_isolation = None
+_state_write_isolation: list = []
 
 
 def setUpModule():
@@ -125,9 +126,31 @@ def setUpModule():
         a, "_daily_loss_limit_hit",
         lambda: a.get_todays_loss() <= -(a.DAILY_LOSS_LIMIT * 100))
     _halt_isolation.start()
+    # Unlike FLAGS_FILE/SETUP_PROBATION_FILE above (which the suite only
+    # READS), these three are WRITTEN by code paths the suite exercises
+    # without patching. Found 2026-09-21: one full run left the live,
+    # committed dman_day_start_equity.json as {"date": "2026-08-16",
+    # "equity": 1.0} in the working tree — a state-sync commit after that
+    # would have poisoned the next session's day-P&L baseline. Point each
+    # at a temp path, cleared first so a leftover from a prior run cannot
+    # leak state between suite runs. Tests that cover these stores directly
+    # still patch them to their own files, which overrides this.
+    global _state_write_isolation
+    for _const in ("LAST_ALERTS_FILE", "_ALERT_DEDUP_FILE", "_DAY_START_EQUITY_FILE"):
+        _tmp = os.path.join(tempfile.gettempdir(),
+                            f"dman_test_isolation{_const.lower()}.json")
+        try:
+            os.remove(_tmp)
+        except OSError:
+            pass
+        _p = patch.object(a, _const, _tmp)
+        _p.start()
+        _state_write_isolation.append(_p)
 
 
 def tearDownModule():
+    for _p in _state_write_isolation:
+        _p.stop()
     if _probation_isolation is not None:
         _probation_isolation.stop()
     if _halt_isolation is not None:
@@ -7938,6 +7961,21 @@ class TestElevatedSizeTier(unittest.TestCase):
     def test_named_examples_are_all_watchlist_members(self):
         for t in ("NVDA", "SNOW", "PANW", "MDB"):
             self.assertIn(t, a.WATCHLIST, f"{t} must be options-eligible to size up")
+
+    def test_setup_on_probation_does_not_qualify(self):
+        # Live 2026-09-21: Gap & Hold entered drift probation at 09:59 and a
+        # Gap & Hold signal (RXRX) was still sized ELEVATED that afternoon —
+        # the probation score bonus is capped at MAX_EFFECTIVE_MIN_SCORE=95,
+        # so a score-100 signal clears it, and nothing else checked. A setup
+        # restricted for its live record must fall back to BASE size.
+        with self._no_positions(), \
+             patch.object(a, "_setup_probation_bonus", return_value=a.SETUP_PROBATION_SCORE_BONUS):
+            self.assertIsNone(a._elevated_size_reason(self._sig()))
+
+    def test_setup_not_on_probation_still_qualifies(self):
+        with self._no_positions(), \
+             patch.object(a, "_setup_probation_bonus", return_value=0):
+            self.assertIsNotNone(a._elevated_size_reason(self._sig()))
 
     def test_concurrency_cap_blocks_a_second_elevated_position(self):
         held = [a.OpenPosition(ticker="NVDA", bias="LONG", setup="Options Call X",

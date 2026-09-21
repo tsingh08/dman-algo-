@@ -156,27 +156,5 @@
    "regime": "CHOP",
    "regime_score": 14
   }
- },
- {
-  "ts": "2026-09-21T13:21:49.232921-04:00",
-  "kind": "signal",
-  "ticker": "ARM",
-  "verdict": "skip",
-  "confidence": 92,
-  "reason": "RSI 73.6 is overbought; entry chases gap after 6.8% move already made. Regime CHOP (score 14) unsuitable for continuation trades.",
-  "facts": {
-   "setup": "Gap & Hold",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 318.86,
-   "stop": 292.76,
-   "target1": 391.16,
-   "rr": 2.77,
-   "rvol": 3.68,
-   "rsi": 73.6,
-   "reason": "Gap up +6.8% from prior close, holding, RVOL 3.7x",
-   "regime": "CHOP",
-   "regime_score": 14
-  }
  }
 ]

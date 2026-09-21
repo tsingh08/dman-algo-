@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:46:20.386135-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "10 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:46:20.635204-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:46:25.136133-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "10 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T13:46:25.389818-04:00",
     "symbols": [
       "GS"
@@ -5072,5 +5042,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:55:29.448178-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Palo Alto Networks, Raises Price Target to $410",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:56:14.673204-04:00",
+    "symbols": [
+      "FGL"
+    ],
+    "headline": "Founder Group shares are trading lower after the company announced the receipt of non-compliance notice from the Nasdaq.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:57:18.883448-04:00",
+    "symbols": [
+      "AMZN",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "OpenAI Announces Formation Of An Advisory Group On Mathematics And AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:43:11.265091-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "S&amp;P Growth Is a Feature, Not a Bug, Goldman Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T14:43:11.538710-04:00",
     "symbols": [
       "GOOGL"
@@ -5070,5 +5060,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T15:40:18.905009-04:00",
+    "symbols": [
+      "ETN",
+      "SMR"
+    ],
+    "headline": "Shares of electronic equipment-related companies are trading higher, possibly amid overall market strength and sliding oil prices that ease inflation concerns. The industry, which provides infrastructure needs, may be moving alongside the AI sector&#39;s rally.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

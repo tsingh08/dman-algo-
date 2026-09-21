@@ -1,19 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:18:49.834312-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "NVDA",
-      "ORCL"
-    ],
-    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T10:19:16.884086-04:00",
     "symbols": [
       "GOOGL"
@@ -5102,6 +5088,19 @@
     ],
     "headline": "&#39;OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta\u2019s Muse&#39; - The Information",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:48:43.365352-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD",
+      "MARA",
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

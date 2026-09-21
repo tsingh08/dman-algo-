@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:46:36.482081-04:00",
-    "symbols": [
-      "HELP"
-    ],
-    "headline": "9 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:51:41.991542-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Stock Rises as CFTC Proposes Crypto Regulations",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:52:42.683960-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "This $3 Biotech Could Be Worth $11.45, Analyst Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:54:32.440603-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T13:54:34.620306-04:00",
     "symbols": [
       "MRVL"
@@ -5071,6 +5031,46 @@
       "PSKY"
     ],
     "headline": "California&#39;s Attorney General Says About Paramount&#39;s Bid For Warner Bros Discovery That We&#39;ll Select A Trustee To Monitor Paramount&#39;s Compliance With Terms Of Settlement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T14:18:53.402508-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "Writers Guild Of America Says It Continues To Believe The Paramount-Warner Bros Discovery Merger Will Cause Damage To Writers And The Industry At Large; Entire Industry Needs Structural Separation Between Streamers And Studios In Order To Promote Competition In Programming",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T14:18:53.406721-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "California&#39;s Attorney General Says We Believe The Merged Company Is In Los Angeles For Many Years To Come, For The Foreseeable Future",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T14:18:53.520505-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "Writers Guild Of America Says It Continues To Believe The Paramount-Warner Bros Discovery Merger Will Cause Damage To Writers And The Industry At Large; Entire Industry Needs Structural Separation Between Streamers And Studios In Order To Promote Competition In Programming",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T14:18:53.524602-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "California&#39;s Attorney General Says We Believe The Merged Company Is In Los Angeles For Many Years To Come, For The Foreseeable Future",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

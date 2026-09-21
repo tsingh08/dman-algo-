@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:06:50.084865-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Watching Robinhood Markets; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T10:12:24.597680-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "CDT Equity shares are trading lower. The company announced a partnership with QIMA Life Sciences to explore the potential of several of CDT\u2019s assets in autoimmune skin diseases.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:17:23.436034-04:00",
-    "symbols": [
-      "ORBS"
-    ],
-    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:17:23.699408-04:00",
-    "symbols": [
-      "DFDV"
-    ],
-    "headline": "Full Transcript: DeFi Development Q2 2026 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T10:18:49.834312-04:00",
     "symbols": [
       "AMZN",
@@ -5103,5 +5063,46 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:43:06.674318-04:00",
+    "symbols": [
+      "COIN",
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-linked companies are trading higher amid a rise in Bitcoin as investors assess recent regulatory decisions from the SEC and CFTC and easing oil prices that alleviate inflation concerns.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:45:28.068215-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Super Micro Computer 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:45:44.197980-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta\u2019s Muse&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:45:44.570090-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta\u2019s Muse&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

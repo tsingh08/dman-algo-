@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:46:25.389818-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "10 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T13:46:25.644028-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "10 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T13:46:25.894858-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "9 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:46:26.673265-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:46:31.080636-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T13:46:36.482081-04:00",
     "symbols": [
       "HELP"
@@ -5074,5 +5024,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T14:07:58.500944-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Announces Formation Of An Advisory Group On Mathematics And AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T14:07:58.643993-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "OpenAI Announces Formation Of An Advisory Group On Mathematics And AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T14:07:59.402149-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "OpenAI Announces Formation Of An Advisory Group On Mathematics And AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T14:08:13.296574-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "California&#39;s Attorney General Says About Paramount&#39;s Bid For Warner Bros Discovery That We&#39;ll Select A Trustee To Monitor Paramount&#39;s Compliance With Terms Of Settlement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T14:08:13.415017-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "California&#39;s Attorney General Says About Paramount&#39;s Bid For Warner Bros Discovery That We&#39;ll Select A Trustee To Monitor Paramount&#39;s Compliance With Terms Of Settlement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

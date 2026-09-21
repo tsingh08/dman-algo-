@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:43:10.753261-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Brad Gerstner Says AI Labs Need $180B Revenue Run Rate to Keep Nvidia Trade Alive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T14:43:11.265091-04:00",
     "symbols": [
       "META"
@@ -5070,5 +5060,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:33:43.545902-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Shares of Tesla are trading higher, possibly due to the company reopening Roaderster reservations ahead of its October 1st event. The company is also scheduled to host an exclusive Semi event on September 24th.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

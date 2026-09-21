@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:14:54.161904-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:14:55.342708-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:14:57.781692-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:57.912873-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Baker Hughes Oil Rig Count +2 To 452; U.S. Baker Hughes NatGas Rig Count +2 To 134; U.S. Baker Hughes Total Rig Count 595 Vs 591 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:14:58.080766-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:58.240428-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T13:14:58.689717-04:00",
-    "symbols": [
-      "MG"
-    ],
-    "headline": "Mistras Group Stock Hits 52-Week High - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:14:59.200834-04:00",
-    "symbols": [
-      "DSP"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:14:59.590711-04:00",
     "symbols": [
       "PSO"
@@ -5076,6 +4996,96 @@
     "headline": "U.S., Denmark, Greenland Are Going To Hold A Signing Ceremony On Tuesday",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:51:26.231597-04:00",
+    "symbols": [
+      "AMD",
+      "COST",
+      "DIA",
+      "FDX",
+      "IWM",
+      "META",
+      "MU",
+      "QCOM",
+      "QQQ",
+      "SKHY",
+      "XOM"
+    ],
+    "headline": "Nasdaq 100 Rallies, Intel Soars 14%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:52:07.898021-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Marvell Technology, Raises Price Target to $268",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:52:22.307598-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "Nasdaq 100 Rallies, Intel Soars 14%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:52:22.426417-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "Nasdaq 100 Rallies, Intel Soars 14%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:52:22.431018-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "NJ Attorney General Davenport Announces Settlement With Paramount Skydance; Deal Settlement Includes A Five-Year Court Enforceable Commitment To Increase Film Output; Settlement Also Includes Minimum Of Additional $1.5B Commitment To Bolster Domestic Film Production",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:52:22.436148-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "Paramount Settles Antitrust Lawsuit By U.S. States That Delayed Warner Bros Discovery Acquisition; Consent Decree Requires Theatrical Film Commitments, Including Minimum Numbers Of Annual Film Releases, And A Commitment To Spend At Least $300M More Annually On Film Production In Us Than In 2025",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:52:22.439841-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "Paramount Stock Jumps on Settlement Talks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:52:22.443575-04:00",
+    "symbols": [
+      "PSKY"
+    ],
+    "headline": "&#39;Paramount to Settle Lawsuits, Paving Way for Warner Bros. Merger&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,36 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:59:45.049474-04:00",
-    "symbols": [
-      "COIN",
-      "HOOD"
-    ],
-    "headline": "CFTC Makes It Easier to Put Prediction Markets in More Apps",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:00:07.537831-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T10:00:08.010117-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T10:00:08.575508-04:00",
     "symbols": [
       "AMZN"
@@ -5103,5 +5072,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:27:44.166951-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Constellation Energy, Toyota Motor North America Ink 15-Year Renewable Energy Deal To Support Development Of New Solar Generation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:27:53.112392-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Finds Way Around Data Center Moratorium As 300-Plus Restrictions Delay 3 Projects",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:27:53.349014-04:00",
+    "symbols": [
+      "MX"
+    ],
+    "headline": "Why Is Magnachip Semiconductor Stock Soaring Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

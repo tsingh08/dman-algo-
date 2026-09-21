@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:08:54.797497-04:00",
-    "symbols": [
-      "CANG"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:14:48.974004-04:00",
     "symbols": [
       "MSFT"
@@ -5071,5 +5061,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:33:28.099088-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft\u2019s Azure Has Another Growth Lever Waiting in the Wings, Analyst Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

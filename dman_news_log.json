@@ -1,19 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:42:49.922357-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "Brad Gerstner Says AI Labs Need $180B Revenue Run Rate to Keep Nvidia Trade Alive",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T14:43:10.482063-04:00",
     "symbols": [
       "MSFT"
@@ -5071,6 +5057,16 @@
       "ZS"
     ],
     "headline": "Shares of software companies are trading higher amid overall market strength and easing inflation concerns as investors return to AI-related companies. Investors may be taking confidence in Accenture&#39;s five-year partnership with Anthropic to embed evaluators to alongside AI development teams.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:12:52.930071-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Administration Proposes $5 Billion To Kickstart Investment Fund To Rebuild Gulf Energy Sites; Proposal Is Under Discussion With Several Middle Eastern Countries Including Saudi Arabia And U.A.E.&#39; - WSJ Exclusive",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

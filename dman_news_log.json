@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:08:53.847009-04:00",
-    "symbols": [
-      "LVWR"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:08:54.797497-04:00",
     "symbols": [
       "CANG"
@@ -5071,5 +5061,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:30:22.515116-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Stock of the Day: Where Is the Top for Coinbase?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -48,6 +48,7 @@ jobs:
           MASSIVE_EARNINGS_API_KEY: ${{ secrets.MASSIVE_EARNINGS_API_KEY }}
           BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
           PYTHONIOENCODING:  utf-8
+          EVENT_NAME:        ${{ github.event_name }}
         run: |
           python - <<'EOF'
           from datetime import datetime, timedelta
@@ -64,6 +65,17 @@ jobs:
           cur_hhmm    = now.hour * 100 + now.minute
           if cur_hhmm < 730:
               print(f"Too early ({now.strftime('%H:%M ET')}) — GitHub ran job ahead of schedule. Skipping.")
+              sys.exit(0)
+          # GitHub's scheduler has been starting this job ~4 hours late every
+          # day (12:21, 12:56, 12:49, 12:55 PM ET the week of 2026-09-14). The
+          # scanner workflow dispatches the briefing at ~8:20 AM as a backstop,
+          # and THAT is the briefing that arrives in time; the late scheduled
+          # run then sent a second "pre-market" briefing hours after the open.
+          # Scheduled runs only -- a manual dispatch always runs.
+          import os
+          if os.environ.get("EVENT_NAME") == "schedule" and cur_hhmm >= 925:
+              print(f"Too late ({now.strftime('%H:%M ET')}) — GitHub delayed this past the open; "
+                    "the 8:20 dispatch already delivered today's briefing. Skipping.")
               sys.exit(0)
           if cur_hhmm < target_hhmm:
               wait_s = (target_hhmm // 100 * 60 + target_hhmm % 100 - now.hour * 60 - now.minute) * 60

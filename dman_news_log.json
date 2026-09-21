@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:53:08.374549-04:00",
-    "symbols": [
-      "DSP"
-    ],
-    "headline": "Viant Technology And Stockholder Determine Not To Proceed With Previously Announced Underwritten Public Offering Of 8.5M Shares To Be Sold In Secondary Offering",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T09:56:59.576207-04:00",
     "symbols": [
       "SPY"
@@ -5097,6 +5087,16 @@
       "AMD"
     ],
     "headline": "Advanced Micro Devices Hits $1T In Market Capitalization For The First Time",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:21:52.555017-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What&#39;s Going On With Alphabet Stock Today?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

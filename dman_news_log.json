@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:43:11.538710-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Brad Gerstner Says AI Labs Need $180B Revenue Run Rate to Keep Nvidia Trade Alive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T14:43:11.543877-04:00",
     "symbols": [
       "GOOGL"
@@ -5068,6 +5058,16 @@
       "SMR"
     ],
     "headline": "Shares of electronic equipment-related companies are trading higher, possibly amid overall market strength and sliding oil prices that ease inflation concerns. The industry, which provides infrastructure needs, may be moving alongside the AI sector&#39;s rally.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:49:14.511788-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;White House Drafting Executive Order To Take Over NIH Grant Approvals&#39; - The Hill",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

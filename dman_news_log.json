@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:39:51.432813-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Trump Admin Launches $215M Quantum Competition: IonQ, D-Wave, Rigetti Take Notice",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T09:39:54.340363-04:00",
     "symbols": [
       "QQQ"
@@ -5101,5 +5091,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:04:41.044371-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "What&#39;s Going On With Lucid Stock Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

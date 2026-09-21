@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:14:50.088502-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T13:14:50.229832-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Viewer Trends &#39;Look Worrying&#39;: Wells Fargo Slashes Target on Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:50.584699-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Arista Networks, Cisco Systems, Broadcom, Itau Unibanco Banco",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:50.734939-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:50.930555-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T13:14:51.135854-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:51.516811-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T13:14:51.843487-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Truist Securities Maintains Hold on ON Semiconductor, Lowers Price Target to $75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:14:52.138793-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:53.227930-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:53.533220-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Arista Networks, Cisco Systems, Broadcom, Itau Unibanco Banco",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:14:54.036633-04:00",
     "symbols": [
       "COIN"
@@ -5076,6 +4966,116 @@
     "headline": "NJ Attorney General Davenport Announces Settlement With Paramount Skydance; Deal Settlement Includes A Five-Year Court Enforceable Commitment To Increase Film Output; Settlement Also Includes Minimum Of Additional $1.5B Commitment To Bolster Domestic Film Production",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:44:01.143575-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:44:02.652985-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:44:03.813888-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:44:04.235641-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-21T13:44:04.586224-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:44:08.377404-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:44:08.492376-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:44:08.955911-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:44:11.290234-04:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:44:13.362736-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "NJ Attorney General Davenport Announces Settlement With Paramount Skydance; Deal Settlement Includes A Five-Year Court Enforceable Commitment To Increase Film Output; Settlement Also Includes Minimum Of Additional $1.5B Commitment To Bolster Domestic Film Production",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:44:13.367191-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "Paramount Settles Antitrust Lawsuit By U.S. States That Delayed Warner Bros Discovery Acquisition; Consent Decree Requires Theatrical Film Commitments, Including Minimum Numbers Of Annual Film Releases, And A Commitment To Spend At Least $300M More Annually On Film Production In Us Than In 2025",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

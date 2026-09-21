@@ -1,58 +1,5 @@
 [
   {
-    "ts": "2026-09-18T11:56:22.708922-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T11:56:26.454176-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T11:56:36.560659-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T11:56:38.022162-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "JPMorgan Chase CEO Jamie Dimon Will Attend U.S. President Donald Trump&#39;s State Dinner For Chinese President Xi Jinping",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T11:59:06.539181-04:00",
-    "symbols": [
-      "JPM",
-      "NVDA",
-      "QCOM",
-      "SPY"
-    ],
-    "headline": "Citigroup CEO Jane Fraser Expected To Attend U.S. President Donald Trump&#39;s State Dinner For President Xi Jinping",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T12:00:23.534977-04:00",
     "symbols": [
       "LLY"
@@ -5090,6 +5037,56 @@
     ],
     "headline": "This Flutter Entertainment Analyst Is No Longer Bullish; Here Are Top 2 Downgrades For Monday",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:09:29.317967-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "What&#39;s Going on With Western Digital Stock on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:09:38.577818-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Wins Either Way? Why a Dead Bill Isn&#39;t Bad News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:09:46.622931-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:09:51.510193-04:00",
+    "symbols": [
+      "PRTH"
+    ],
+    "headline": "Crude Oil Down 4%; Intel Shares Move Higher",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:09:52.454876-04:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

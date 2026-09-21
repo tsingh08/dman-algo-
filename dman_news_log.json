@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:50:43.798176-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Mexico President Claudia Sheinbaum Says Wednesday Call With Trump Was &#39;Very Good,&#39; Some Agreements Reached; Says Mexico Working Within Its Sovereignty To Reach Deal Soon",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:51:01.723008-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron, SanDisk Face New China Rival: Trouble for MU and SNDK Ahead?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:51:04.878211-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron, SanDisk Face New China Rival: Trouble for MU and SNDK Ahead?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T10:51:05.143634-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Micron, SanDisk Face New China Rival: Trouble for MU and SNDK Ahead?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:59:00.521410-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "CFTC Sends Early-Stage Crypto Asset Transaction And Market Rulemaking To White House For Review, Ahead Of Formal Proposal",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:59:17.648934-04:00",
-    "symbols": [
-      "XENE"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Xenon Pharmaceuticals, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:59:17.653421-04:00",
-    "symbols": [
-      "XENE"
-    ],
-    "headline": "US Stocks Mixed; Industrial Production Unchanged In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:59:17.657762-04:00",
-    "symbols": [
-      "XENE"
-    ],
-    "headline": "Wedbush Maintains Outperform on Xenon Pharmaceuticals, Lowers Price Target to $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:59:17.662088-04:00",
-    "symbols": [
-      "XENE"
-    ],
-    "headline": "This Netflix Analyst Turns Bearish; Here Are Top 5 Downgrades For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:59:17.666406-04:00",
-    "symbols": [
-      "XENE"
-    ],
-    "headline": "Apple To Rally Around 13%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:59:17.902278-04:00",
-    "symbols": [
-      "AKAN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T10:59:18.374657-04:00",
     "symbols": [
       "HALO"
@@ -5078,6 +4968,116 @@
     ],
     "headline": "ExxonMobil Stock Falls Monday: What&#39;s Happening?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:34.356831-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Stock Falls Monday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.230844-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Dow Surges Over 200 Points; Chicago Fed Activity Index Falls In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.235281-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Greenland Mines Expands Sarfartoq Project By 262 km\u00b2, More Than Doubling District Footprint To ~454 km\u00b2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.239346-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Why Is Greenland Mines Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.243377-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.247404-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Why Is Critical Metals Stock Soaring Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.361677-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Dow Surges Over 200 Points; Chicago Fed Activity Index Falls In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.366086-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Why Is Greenland Mines Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.370165-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Market-Moving News for September 21st",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.374205-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Why Is Critical Metals Stock Soaring Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:20:38.378147-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Greenland Energy Stock Doubles on US-Greenland Agreement: Details",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },

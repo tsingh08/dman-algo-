@@ -1,170 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:39:54.340363-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T09:43:27.000534-04:00",
-    "symbols": [
-      "NVDA",
-      "ORCL"
-    ],
-    "headline": "Oracle, CoreWeave Dump on AI&#39;s $3.6 Trillion Financing Bill",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T09:45:50.683035-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "UBS Maintains Buy on DraftKings, Lowers Price Target to $48",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T09:48:16.341598-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood\u2019s 24/7 Stock Dream Just Got A Boost From The SEC",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T09:48:22.109329-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Exxon Sees Power Demand Exploding 65% By 2050",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T09:48:40.034182-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Oracle, CoreWeave Dump on AI&#39;s $3.6 Trillion Financing Bill",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T09:48:51.689082-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle, CoreWeave Dump on AI&#39;s $3.6 Trillion Financing Bill",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T09:48:57.763643-04:00",
-    "symbols": [
-      "IMCC"
-    ],
-    "headline": "US Stocks Mixed; Industrial Production Unchanged In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T09:48:58.010133-04:00",
-    "symbols": [
-      "SSM"
-    ],
-    "headline": "US Stocks Mixed; Industrial Production Unchanged In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T09:49:48.615504-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Micron Technology, Maintains $1500 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T09:52:35.105463-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "ORCL",
-      "SPCX"
-    ],
-    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T09:53:06.366071-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "AI Capex Boom Risks &#39;Massive Capital Destruction&#39; in the US, Warns Veteran Market Strategist: &#39;You Could Get Some News Item That Suddenly\u2026&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T09:53:06.637152-04:00",
-    "symbols": [
-      "XRTX"
-    ],
-    "headline": "XORTX Outlines Anticipated FDA IND Submission For XRx-026 Gout Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T09:53:06.642227-04:00",
-    "symbols": [
-      "XRTX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T09:53:06.943123-04:00",
-    "symbols": [
-      "SVRN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T09:53:07.197679-04:00",
-    "symbols": [
-      "SOS"
-    ],
-    "headline": "SOS Limited Announces Non-Binding Memorandum With Unnamed Indonesian Company For Planned 500MW AI Data Center Campus On Bintan Island; 50MW First Phase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T09:53:07.202754-04:00",
     "symbols": [
       "SOS"
@@ -5099,6 +4934,170 @@
     ],
     "headline": "What&#39;s Going On With Lucid Stock Monday?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:09:14.649581-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "META",
+      "MRNA",
+      "MSTR"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:09:16.115327-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "At Novo Nordisk Capital Markets Day, Co CFO Says Aim To Maintain Broadly Stable Operating Margin Until 2030 Compared To Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:09:29.867932-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI and Anthropic Neared Deal to Stress-Test Each Other\u2019s AI&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:09:30.123028-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:09:30.235988-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:09:30.397709-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;OpenAI and Anthropic Neared Deal to Stress-Test Each Other\u2019s AI&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:09:30.583951-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;OpenAI and Anthropic Neared Deal to Stress-Test Each Other\u2019s AI&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:09:32.067805-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:09:32.678768-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-21T10:09:33.057802-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:09:35.101473-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:09:37.093009-04:00",
+    "symbols": [
+      "PRTH"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:09:37.315847-04:00",
+    "symbols": [
+      "CRML"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:09:37.890783-04:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:09:37.993524-04:00",
+    "symbols": [
+      "VGZ"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:09:39.808211-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "&#39;Paramount to Settle Lawsuits, Paving Way for Warner Bros. Merger&#39; - Bloomberg News",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

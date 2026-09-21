@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:19:16.884086-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Adds Nobel Laureate Philippe Aghion As Academic Advisor And Ajay Agrawal As Visiting Fellow To AI &amp; Economy Program; Names Anu Madgavkar And Daniel Rock Research Directors",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T10:21:52.232232-04:00",
     "symbols": [
       "CRWD"
@@ -5103,5 +5093,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:51:40.260992-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, On Social Media, Says U.S. Working On Massive Deal With Towards Purchase Of Potash From Belarus; The Pricing Would Be For Substantially Less Than We Are Currently Paying To Canada",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

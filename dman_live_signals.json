@@ -121,6 +121,18 @@
       "timestamp": "2026-09-21T13:21:47.469750-04:00"
     },
     {
+      "ticker": "RXRX",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 4.0,
+      "stop": 3.79,
+      "target1": 4.5,
+      "target2": 4.81,
+      "score": 100,
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T14:49:32.001968-04:00"
+    },
+    {
       "ticker": "BDRX",
       "setup": "Low Float Catalyst",
       "bias": "LONG",

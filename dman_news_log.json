@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:08:45.382046-04:00",
-    "symbols": [
-      "GAUZ"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:08:47.152176-04:00",
-    "symbols": [
-      "NUWE"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:08:47.403051-04:00",
     "symbols": [
       "QNME"
@@ -5071,5 +5051,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T13:17:24.175970-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Transportation Department Announces Federal Aviation Administration Rolls Out SMART AI Tool In Limited Version",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:20:05.776050-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Trump, Greenland Deal Puts Rare-Earth ETFs In Focus: Funds to Watch as US Targets China\u2019s Supply Chain",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

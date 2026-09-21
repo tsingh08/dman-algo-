@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T12:15:16.954181-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy CEO Says &#39;We&#39;re Never Going To Stop&#39; Buying Bitcoin as MSTR Surges 11%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T12:16:38.853461-04:00",
     "symbols": [
       "LMT",
@@ -5090,5 +5080,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:30:41.835704-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "L3Harris Technologies Signs Multi-Year Agreement With NAWCWD To Manufacture Critical Missile Components, Including Tomahawk Cruise Missile Parts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T11:52:14.185474-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Schmid Says I Agree With Chairman Warsh&#39;s Framework On Why Bond Yields Have Gone Up - Economic Growth, Demand For Capital From AI Investment, Geopolitical Challenges",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T11:56:00.742076-04:00",
     "symbols": [
       "JPM",
@@ -5101,5 +5091,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:02:03.311200-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Mersen Tapped By GE Vernova To Provide Complete Current Transmission Systems For Synchronous Condensers In Saudi Arabia",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

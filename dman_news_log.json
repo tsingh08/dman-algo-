@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:14:49.909719-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T13:14:50.088502-04:00",
     "symbols": [
       "TSLA"
@@ -5076,6 +5066,16 @@
     "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:37:55.786839-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "NJ Attorney General Davenport Announces Settlement With Paramount Skydance; Deal Settlement Includes A Five-Year Court Enforceable Commitment To Increase Film Output; Settlement Also Includes Minimum Of Additional $1.5B Commitment To Bolster Domestic Film Production",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

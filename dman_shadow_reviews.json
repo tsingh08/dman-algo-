@@ -90,5 +90,27 @@
    "posted_et": "09/18 15:23",
    "plan": "+15% target / -20% stop, same-day exit"
   }
+ },
+ {
+  "ts": "2026-09-21T11:21:31.031509-04:00",
+  "kind": "signal",
+  "ticker": "AMD",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "RSI 78.1 is deeply overbought; gap already up 4.3% with no pullback to enter. Regime is CHOP (14 score), unfavorable for trend follow.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 610.8,
+   "stop": 575.12,
+   "target1": 700.0,
+   "rr": 2.5,
+   "rvol": 3.28,
+   "rsi": 78.1,
+   "reason": "Gap up +4.3% from prior close, holding, RVOL 3.3x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

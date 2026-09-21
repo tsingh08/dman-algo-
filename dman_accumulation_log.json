@@ -1,0 +1,20 @@
+[
+ {
+  "ts": "2026-09-21T11:21:31.033663-04:00",
+  "ticker": "QCOM",
+  "price": 189.375,
+  "rvol": 1.68,
+  "drift_pct": 0.84,
+  "range_ratio": 0.55,
+  "near_high": 0.991
+ },
+ {
+  "ts": "2026-09-21T11:21:31.033674-04:00",
+  "ticker": "JPM",
+  "price": 351.525,
+  "rvol": 1.67,
+  "drift_pct": 0.27,
+  "range_ratio": 0.69,
+  "near_high": 0.963
+ }
+]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:54:36.600187-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Stock Rises as CFTC Proposes Crypto Regulations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:54:36.604331-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "10 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T13:54:36.722849-04:00",
     "symbols": [
       "MSTR"
@@ -5074,5 +5054,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T14:34:28.709414-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "What&#39;s Going On With SpaceX Stock Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T14:37:02.073817-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Billionaire Investor More Than Doubles Live Nation Stake",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

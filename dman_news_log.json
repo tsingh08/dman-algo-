@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:37:56.706657-04:00",
-    "symbols": [
-      "ONMD"
-    ],
-    "headline": "OneMedNet Reports FY26 YTD Bookings Of ~$16.2M, Up 1,600% YoY; Significant Portion Of These Bookings Expected To Be Delivered During Remainder Of The Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T09:37:56.961321-04:00",
     "symbols": [
       "FTCI"
@@ -5098,6 +5088,16 @@
     "headline": "11 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T09:46:05.596618-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Scott Bessent Says AI Companies Must Take Responsibility, Rejects Calls for Federal Liability Shield: \u2018It Is Humans Who Are Responsible, Not the AI\u2019",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

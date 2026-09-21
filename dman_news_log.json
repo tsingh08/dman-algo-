@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T15:18:59.925965-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "QUICK SPARK: Want Nvidia on Crypto Rails? \u2018Tokenized Stock Is the Honest Way\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T15:34:30.514040-04:00",
     "symbols": [
       "SPY"
@@ -5080,6 +5070,16 @@
     ],
     "headline": "Cantor Fitzgerald Initiates Coverage On Securitize Holdings with Overweight Rating, Announces Price Target of $21.2",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T16:05:23.439832-04:00",
+    "symbols": [
+      "NAMI"
+    ],
+    "headline": "Jinxin Technology COO, CFO Jun Jiang Resigns; Fangfang Zhou Appointed CFO; Co. Decides Not To Name New Operations Chief",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

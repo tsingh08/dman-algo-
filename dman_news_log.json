@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:37:56.961321-04:00",
-    "symbols": [
-      "FTCI"
-    ],
-    "headline": "UBS Upgrades FTC Solar to Buy, Raises Price Target to $3.6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T09:37:56.995043-04:00",
     "symbols": [
       "FTCI"
@@ -5099,5 +5089,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T09:47:49.131606-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Says AI Opportunity Could Reach $4 Trillion: \u2018The Sky\u2019s the Limit\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

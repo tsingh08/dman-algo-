@@ -134,5 +134,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-09-21T13:03:08.957720-04:00",
+  "kind": "signal",
+  "ticker": "AMD",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 78.1 indicates overbought conditions. Gap & Hold works better with RSI <70. Risk/reward doesn't compensate for exhaustion setup.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 610.78,
+   "stop": 575.12,
+   "target1": 699.94,
+   "rr": 2.5,
+   "rvol": 2.75,
+   "rsi": 78.1,
+   "reason": "Gap up +4.3% from prior close, holding, RVOL 2.8x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

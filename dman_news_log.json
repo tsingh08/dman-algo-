@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T11:31:03.439432-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "This Crude Refiner Has Beaten Every Magnificent Seven Stock in the Last 2 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T11:31:03.694344-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Auto Industry Urges Trump To Keep Chinese Carmakers Out Of U.S.&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T11:31:03.699660-04:00",
     "symbols": [
       "TSLA"
@@ -5095,5 +5075,31 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:49:02.094981-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "QQQ",
+      "SPY",
+      "TLT"
+    ],
+    "headline": "$6.51 Diesel Should Be Crushing the Economy: Here\u2019s Why It Has Rarely Grown Faster",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:50:01.676263-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Rolls Out Grok 4.7",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,63 +1,5 @@
 [
   {
-    "ts": "2026-09-18T12:44:58.391749-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Stock Rises with Bitcoin Amid CFTC&#39;s New Crypto Proposal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T12:45:26.156188-04:00",
-    "symbols": [
-      "HYPG"
-    ],
-    "headline": "Why Is Hyperliquid Stock Surging On Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T12:45:26.436250-04:00",
-    "symbols": [
-      "CANG"
-    ],
-    "headline": "Cango\u2019s AI Pivot Gets First Customer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T12:55:21.779926-04:00",
-    "symbols": [
-      "AMAT",
-      "AMZN",
-      "COIN",
-      "DIA",
-      "GOOGL",
-      "HOOD",
-      "IONQ",
-      "IWM",
-      "META",
-      "MSFT",
-      "MSTR",
-      "MU",
-      "NVDA",
-      "ORCL",
-      "QCOM",
-      "QQQ",
-      "RKLB",
-      "SNDK",
-      "TSLA"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:08:27.263641-04:00",
     "symbols": [
       "MSFT"
@@ -5088,6 +5030,46 @@
     "headline": "S&amp;P 500 Will \u2018Easily\u2019 Top 8,000 Before Historic Crash, \u2018Black Swan\u2019 Fund Manager Says",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:02:18.285085-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia To Acquire $1.5B Of SB Energy&#39;s Class N Common Shares; To Invest $3B In Total In SB Energy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:02:22.965075-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Lands $20 Billion Qatar Investment Mandate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:02:23.483262-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500 Will \u2018Easily\u2019 Top 8,000 Before Historic Crash, \u2018Black Swan\u2019 Fund Manager Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:02:23.665839-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Greenland Mines Stock Surges On Rare Earth Expansion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

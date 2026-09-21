@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:40:34.927879-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:40:35.708333-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:40:54.372605-04:00",
-    "symbols": [
-      "BHYP"
-    ],
-    "headline": "Why Is Hyperliquid Stock Surging On Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:40:54.626833-04:00",
-    "symbols": [
-      "HELP"
-    ],
-    "headline": "Why Alaunos Therapeutics Shares Are Trading Higher By Around 22%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T10:40:54.865012-04:00",
     "symbols": [
       "FWDI"
@@ -5102,5 +5062,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T11:08:06.906691-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Mexico President Sheinbaum Says Government Is Looking For Ways To Reduce Imports From Other Nations And Buy More Goods From U.S.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:11:08.701852-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Rep. Pete Sessions Has Sold Up to $100K Worth Of AbbVie Stock: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T11:11:10.928695-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Rep. Pete Sessions Has Sold Up to $100K Worth Of AbbVie Stock: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T11:11:17.103101-04:00",
+    "symbols": [
+      "PRTH"
+    ],
+    "headline": "Priority Technology Stock Surges Monday: What&#39;s Driving the Action?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

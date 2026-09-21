@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:37:58.841597-04:00",
-    "symbols": [
-      "ICCM"
-    ],
-    "headline": "Full Transcript: Icecure Medical Q2 2026 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T09:37:59.129117-04:00",
-    "symbols": [
-      "YCBD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T09:39:51.432813-04:00",
     "symbols": [
       "IONQ"
@@ -5099,5 +5079,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:00:29.168052-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI and Anthropic Neared Deal to Stress-Test Each Other\u2019s AI&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:01:34.852474-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is Nokia Stock Surging Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:05:53.999385-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "What&#39;s Going On With Applied Materials Stock Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:06:00.068598-04:00",
-    "symbols": [
-      "MG"
-    ],
-    "headline": "Mistras Group, Strategy, Hyperliquid Strategies And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T10:06:04.018076-04:00",
     "symbols": [
       "SPY"
@@ -5102,5 +5082,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:34:55.004353-04:00",
+    "symbols": [
+      "META",
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta\u2019s Muse&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:35:47.783603-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Einride Taps NVIDIA to Put More Self-Driving Trucks on the Highway",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

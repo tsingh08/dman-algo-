@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T15:10:46.592378-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Posts On Truth Social &#34;I am proud to announce that, effective immediately, I am banning Fake News CNN, MSNOW, and Politico from the White House ...&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T15:16:15.106531-04:00",
     "symbols": [
       "NVDA"
@@ -5070,6 +5060,24 @@
     "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:55:22.633436-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Stocks Jump On Iran, China, and Bitcoin Hopium\u2014But The Big Conflicts Have Not Gone Away",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T11:31:02.073786-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "This Crude Refiner Has Beaten Every Magnificent Seven Stock in the Last 2 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T11:31:02.456025-04:00",
     "symbols": [
       "NVDA"
@@ -5094,5 +5084,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-21T11:35:34.893010-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Putin Plans to Attend Xi\u2019s APEC Summit and Skip G20 With Trump&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

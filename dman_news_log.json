@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T12:42:57.137454-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Why Is MARA Stock Surging on Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T12:44:58.391749-04:00",
     "symbols": [
       "HOOD"
@@ -5088,6 +5078,16 @@
     "headline": "Paramount Stock Jumps on Settlement Talks",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:54:14.600978-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500 Will \u2018Easily\u2019 Top 8,000 Before Historic Crash, \u2018Black Swan\u2019 Fund Manager Says",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

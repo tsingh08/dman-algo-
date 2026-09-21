@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:43:11.543877-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "S&amp;P Growth Is a Feature, Not a Bug, Goldman Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T14:43:11.551253-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Brad Gerstner Says AI Labs Need $180B Revenue Run Rate to Keep Nvidia Trade Alive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:43:11.555540-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "S&amp;P Growth Is a Feature, Not a Bug, Goldman Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:43:30.255213-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Brad Gerstner Says AI Labs Need $180B Revenue Run Rate to Keep Nvidia Trade Alive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T15:10:46.592378-04:00",
     "symbols": [
       "SPY"
@@ -5063,13 +5023,53 @@
     "sentiment": null
   },
   {
-    "ts": "2026-09-21T15:49:14.511788-04:00",
+    "ts": "2026-09-21T15:47:10.024321-04:00",
     "symbols": [
-      "SPY"
+      "FJET"
     ],
-    "headline": "&#39;White House Drafting Executive Order To Take Over NIH Grant Approvals&#39; - The Hill",
-    "source": "benzinga",
-    "tag": "macro",
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:47:10.097028-04:00",
+    "symbols": [
+      "GRAL"
+    ],
+    "headline": "Low False Positives and High Accuracy: FDA Document Fueling Grail Stock Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:47:10.101551-04:00",
+    "symbols": [
+      "GRAL"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:47:10.105975-04:00",
+    "symbols": [
+      "GRAL"
+    ],
+    "headline": "The FDA Posted Briefing Documents For Grails Galleri Test Review Ahead Of The Molecular And Clinical Genetics Panel Of The Medical Devices Advisory Committee That Is Being Held On September 23; Flags No Major Concerns For Co&#39;s Cancer Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:47:10.110529-04:00",
+    "symbols": [
+      "GRAL"
+    ],
+    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

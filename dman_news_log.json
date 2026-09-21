@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T15:16:15.106531-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T15:16:15.343463-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "$3.2T Chip Boom: Which Semiconductor ETFs Get The Biggest Slice?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T15:16:16.635605-04:00",
     "symbols": [
       "AVGO"
@@ -5078,6 +5058,26 @@
     "headline": "Stocks Jump On Iran, China, and Bitcoin Hopium\u2014But The Big Conflicts Have Not Gone Away",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T16:00:20.883730-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;White House Drafting Executive Order To Take Over NIH Grant Approvals&#39; - The Hill",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T16:00:28.696470-04:00",
+    "symbols": [
+      "CRML"
+    ],
+    "headline": "Greenland Stocks Explode After Trump&#39;s Denmark Deal \u2014 GRML Up 245%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

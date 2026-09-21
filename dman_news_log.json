@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:23:55.296274-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "Digital Currency X Technology shares are trading lower after the company announced pricing of $5 million registered direct offering.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T10:29:12.162300-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Stock Slides Friday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:29:30.526076-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:29:30.786637-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:29:31.547846-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T10:29:31.856885-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:29:43.095087-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Reported September 17, &#39;Hackers Used Anthropic\u2019s Claude to Break Into OpenAI&#39; - Wall Street Journal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T10:30:31.924478-04:00",
     "symbols": [
       "HOOD"
@@ -5104,5 +5034,75 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:58:06.732405-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Stock Is Surging: What&#39;s Happening Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:58:21.296751-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:58:22.433798-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:58:22.579422-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:58:22.715634-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T10:58:24.784284-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, On Social Media, Says U.S. Working On Massive Deal Towards Purchase Of Potash From Belarus; The Pricing Would Be For Substantially Less Than We Are Currently Paying To Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T10:58:24.907073-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "SpaceX\u2019s Nasdaq-100 Weight Just More Than Doubled. Here\u2019s Where ETF Money Is Heading",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

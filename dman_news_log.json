@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:14:54.036633-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T13:14:54.161904-04:00",
     "symbols": [
       "MSTR"
@@ -5076,6 +5066,16 @@
     "headline": "Paramount Settles Antitrust Lawsuit By U.S. States That Delayed Warner Bros Discovery Acquisition; Consent Decree Requires Theatrical Film Commitments, Including Minimum Numbers Of Annual Film Releases, And A Commitment To Spend At Least $300M More Annually On Film Production In Us Than In 2025",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:46:41.207317-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S., Denmark, Greenland Are Going To Hold A Signing Ceremony On Tuesday",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

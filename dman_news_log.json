@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:30:16.252030-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#34;More U.S. Troops Have Died Amid Iran War Than Pentagon Has Disclosed Publicly; Officials Who Spoke With The Post Expressed Frustration That The Additional Loss Of Life In The Middle East Is Not Reflected In The Defense Department\u2019s Casualty Database&#34; - Washington Post",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T14:35:45.306538-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT"
-    ],
-    "headline": "S&amp;P Growth Is a Feature, Not a Bug, Goldman Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T14:42:49.922357-04:00",
     "symbols": [
       "AMZN",
@@ -5073,6 +5050,29 @@
     "headline": "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:09:48.037685-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "QUICK SPARK: Meta Stock Adds Over $200 Billion in Value Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T15:09:59.003091-04:00",
+    "symbols": [
+      "DDOG",
+      "FTNT",
+      "NBIS",
+      "ZS"
+    ],
+    "headline": "Shares of software companies are trading higher amid overall market strength and easing inflation concerns as investors return to AI-related companies. Investors may be taking confidence in Accenture&#39;s five-year partnership with Anthropic to embed evaluators to alongside AI development teams.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

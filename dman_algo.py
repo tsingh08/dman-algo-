@@ -10832,15 +10832,15 @@ def _pmb_gap_watch(gap_lines):
     Returns: near_gap_lines.
     """
     near_gap_lines: list[tuple[float, str]] = []  # 1.0–1.5% READY — near-threshold watch
+    # Alpaca SIP, not yfinance: its quote cache carries no pre-market trades, so
+    # this read every gap as ~0% and the briefing went out empty (2026-09-21).
+    _gaps = _premarket_gaps(WATCHLIST)
     try:
         for ticker in WATCHLIST:
             try:
-                info       = yf.Ticker(ticker).fast_info
-                pre_px     = float(info.last_price or 0)
-                prev_close = float(info.previous_close or 0)
-                if pre_px <= 0 or prev_close <= 0:
+                if ticker.upper() not in _gaps:
                     continue
-                gap_pct = (pre_px - prev_close) / prev_close * 100
+                pre_px, prev_close, gap_pct = _gaps[ticker.upper()]
                 if gap_pct < 1.0:   # capture near-threshold (1.0-1.5%) too
                     continue
                 est_stop = round(pre_px * 0.985, 2)
@@ -11198,14 +11198,12 @@ def run_premarket_briefing() -> None:
     sc_gap_lines: list[tuple[float, str]] = []
     try:
         _sc_scan_list = list(dict.fromkeys(DMAN_SMALLCAP_WATCHLIST))
+        _sc_gaps = _premarket_gaps(_sc_scan_list)   # see _pmb_gap_watch: not yfinance
         for _sc_t in _sc_scan_list:
             try:
-                _sc_info   = yf.Ticker(_sc_t).fast_info
-                _sc_pm     = float(_sc_info.last_price or 0)
-                _sc_prev   = float(_sc_info.previous_close or 0)
-                if _sc_pm <= 0 or _sc_prev <= 0:
+                if _sc_t.upper() not in _sc_gaps:
                     continue
-                _sc_gap = (_sc_pm - _sc_prev) / _sc_prev * 100
+                _sc_pm, _sc_prev, _sc_gap = _sc_gaps[_sc_t.upper()]
                 if abs(_sc_gap) < 5.0:   # only surface meaningful moves
                     continue
                 _sc_fl_m, _sc_si, _, _ = _get_short_float_data(_sc_t)
@@ -19253,6 +19251,75 @@ def _all_tradable_us_equities() -> list[str]:
         return _asset_universe_cache["symbols"] or []
 
 
+def _snapshot_gap(snap: dict):
+    """(price, reference_close, gap_pct) for TODAY's session, or None.
+
+    An Alpaca snapshot's bars shift meaning with the clock. Before today's
+    regular session prints, `dailyBar` is still the LAST session and
+    `prevDailyBar` the one before it -- at 8:38 AM on 2026-09-21 they were
+    Friday and Thursday. Reading the gap as dailyBar.o vs prevDailyBar.c then
+    reports FRIDAY's gap as today's, and prevDailyBar.c as the reference
+    doubles the real move (AMD read +6.2% against a true +3.4%).
+
+    So: once dailyBar is dated today, the gap is today's open against the
+    prior close. Until then it is the latest pre-market trade against the
+    last session's close -- and only if that trade happened today, because a
+    name with no pre-market prints has no gap to report, not a gap of zero.
+    """
+    from datetime import timezone as _tz
+    try:
+        _today = _et_today()
+
+        def _et_date(ts):
+            return (datetime.fromisoformat(str(ts)[:19]).replace(tzinfo=_tz.utc)
+                    .astimezone(ET).date())
+
+        db  = snap.get("dailyBar") or {}
+        pdb = snap.get("prevDailyBar") or {}
+        lt  = snap.get("latestTrade") or {}
+        if db.get("t") and _et_date(db["t"]) == _today:
+            ref, px = float(pdb.get("c", 0) or 0), float(db.get("o", 0) or 0)
+        else:
+            if not lt.get("t") or _et_date(lt["t"]) != _today:
+                return None
+            ref, px = float(db.get("c", 0) or 0), float(lt.get("p", 0) or 0)
+        if ref <= 0 or px <= 0:
+            return None
+        return px, ref, (px - ref) / ref * 100
+    except Exception:
+        return None
+
+
+def _premarket_gaps(symbols) -> dict:
+    """{SYMBOL: (price, reference_close, gap_pct)} from Alpaca SIP snapshots.
+
+    Replaces yfinance fast_info for pre-market gap work. fast_info carries no
+    pre-market trades: at 8:38 AM on 2026-09-21 it read AMD +0.3% and NVDA
+    -0.1% while both were up 3.4% and 1.9% on the tape, so the pre-market
+    briefing saw a flat market and sent a header with nothing under it.
+    Symbols with no trade yet today are simply absent.
+    """
+    _syms = list(dict.fromkeys(str(s).upper() for s in (symbols or []) if s))
+    _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+    out: dict = {}
+    for i in range(0, len(_syms), MARKET_SCAN_BATCH):
+        try:
+            r = requests.get("https://data.alpaca.markets/v2/stocks/snapshots",
+                             headers=_hdrs,
+                             params={"symbols": ",".join(_syms[i:i + MARKET_SCAN_BATCH]),
+                                     "feed": _resolve_stock_feed()},
+                             timeout=30)
+            if r.status_code != 200:
+                continue
+            for sym, snap in (r.json() or {}).items():
+                g = _snapshot_gap(snap or {})
+                if g:
+                    out[sym.upper()] = g
+        except Exception as exc:
+            _log_swallowed("premarket gaps", exc)
+    return out
+
+
 def screen_market_wide(max_candidates: int = MARKET_SCAN_MAX_CANDIDATES,
                        verbose: bool = True) -> list[str]:
     """
@@ -19305,7 +19372,12 @@ def screen_market_wide(max_candidates: int = MARKET_SCAN_MAX_CANDIDATES,
                         continue
                     if c * v < MARKET_SCAN_MIN_DOLLAR_VOL:
                         continue
-                    gap = (o - pc) / pc * 100
+                    # Session-aware: before the open, dailyBar.o - prevDailyBar.c
+                    # is LAST session's gap. See _snapshot_gap().
+                    _g = _snapshot_gap(snap)
+                    if _g is None:
+                        continue
+                    gap = _g[2]
                     if gap < MARKET_SCAN_MIN_GAP_PCT:
                         continue
                     # Corporate-action filter. A real gap comes with volume

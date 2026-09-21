@@ -5973,7 +5973,12 @@ class TestMarketWideScreen(unittest.TestCase):
         a._asset_universe_cache["day"] = ""
 
     def _snap(self, o, c, v, pc):
-        return {"dailyBar": {"o": o, "c": c, "v": v}, "prevDailyBar": {"c": pc}}
+        # Dated TODAY: these tests model an in-session snapshot, which is what
+        # the o-vs-pc gap means. Undated bars were ambiguous about which
+        # session they described, and before the open the same formula
+        # reported the PREVIOUS session's gap -- see _snapshot_gap().
+        return {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": o, "c": c, "v": v},
+                "prevDailyBar": {"c": pc}}
 
     def _run(self, snaps):
         r = MagicMock(); r.status_code = 200; r.json.return_value = snaps
@@ -6015,18 +6020,18 @@ class TestMarketWideScreen(unittest.TestCase):
 
     def test_a_real_gap_with_volume_expansion_survives(self):
         # AOUT's actual Friday shape: gapped and volume expanded.
-        snaps = {"AOUT": {"dailyBar": {"o": 14.0, "c": 14.5, "v": 4_000_000},
+        snaps = {"AOUT": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 14.0, "c": 14.5, "v": 4_000_000},
                           "prevDailyBar": {"c": 11.0, "v": 900_000}}}
         self.assertIn("AOUT", self._run(snaps))
 
     def test_absurd_gap_is_rejected_outright(self):
-        snaps = {"XXXX": {"dailyBar": {"o": 50.0, "c": 50.0, "v": 9_000_000},
+        snaps = {"XXXX": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 50.0, "c": 50.0, "v": 9_000_000},
                           "prevDailyBar": {"c": 1.0, "v": 1_000_000}}}
         self.assertEqual(self._run(snaps), [])
 
     def test_missing_prior_volume_does_not_reject_a_gapper(self):
         # No prior-volume figure is not evidence of a split.
-        snaps = {"AAA": {"dailyBar": {"o": 11.0, "c": 11.5, "v": 500_000},
+        snaps = {"AAA": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 11.0, "c": 11.5, "v": 500_000},
                          "prevDailyBar": {"c": 10.0}}}
         self.assertIn("AAA", self._run(snaps))
 
@@ -17768,3 +17773,92 @@ class TestSetupProbationExpires(unittest.TestCase):
             a._setup_probation_bonus("Low Float Catalyst")
         tg.assert_called_once()
         self.assertIn("expired", tg.call_args[0][0].lower())
+
+
+class TestSnapshotGapKnowsWhichSessionItIs(unittest.TestCase):
+    """2026-09-21: the pre-market briefing went out as a header with nothing
+    under it. yfinance fast_info carries no pre-market trades (AMD read +0.3%,
+    really +3.4%), and Alpaca's snapshot bars shift meaning with the clock:
+    before the open, dailyBar is the LAST session and prevDailyBar the one
+    before, so the obvious formula reports Friday's gap on Monday morning."""
+
+    TODAY = date(2026, 9, 21)
+
+    def _snap(self, daily_day, trade_ts, o=100.0, c=110.0, pc=90.0, p=121.0):
+        return {"dailyBar": {"t": f"{daily_day}T04:00:00Z", "o": o, "c": c},
+                "prevDailyBar": {"t": "2026-09-17T04:00:00Z", "c": pc},
+                "latestTrade": {"t": trade_ts, "p": p}}
+
+    def _gap(self, snap):
+        with patch.object(a, "_et_today", return_value=self.TODAY):
+            return a._snapshot_gap(snap)
+
+    def test_premarket_uses_the_last_close_and_the_latest_trade(self):
+        px, ref, gp = self._gap(self._snap("2026-09-18", "2026-09-21T12:38:01.123456789Z"))
+        self.assertEqual((px, ref), (121.0, 110.0))       # NOT prevDailyBar's 90
+        self.assertAlmostEqual(gp, 10.0)
+
+    def test_in_session_uses_todays_open_against_the_prior_close(self):
+        px, ref, gp = self._gap(self._snap("2026-09-21", "2026-09-21T14:00:00Z"))
+        self.assertEqual((px, ref), (100.0, 90.0))
+        self.assertAlmostEqual(gp, (100.0 - 90.0) / 90.0 * 100)
+
+    def test_no_trade_yet_today_is_no_gap_not_a_zero_gap(self):
+        self.assertIsNone(self._gap(self._snap("2026-09-18", "2026-09-18T19:59:59Z")))
+
+    def test_nanosecond_timestamps_parse(self):
+        """Alpaca stamps trades to the nanosecond; fromisoformat does not."""
+        self.assertIsNotNone(self._gap(self._snap("2026-09-18", "2026-09-21T12:00:00.987654321Z")))
+
+    def test_an_after_hours_print_is_dated_in_eastern_time(self):
+        """00:30Z on the 22nd is 8:30 PM ET on the 21st -- today, not tomorrow."""
+        with patch.object(a, "_et_today", return_value=date(2026, 9, 21)):
+            g = a._snapshot_gap(self._snap("2026-09-18", "2026-09-22T00:30:00Z"))
+        self.assertIsNotNone(g)
+
+    def test_garbage_is_none_not_a_crash(self):
+        for bad in ({}, {"dailyBar": {"t": "nonsense"}}, {"latestTrade": {"p": "x"}}):
+            self.assertIsNone(self._gap(bad))
+
+    def test_zero_prices_are_rejected(self):
+        self.assertIsNone(self._gap(self._snap("2026-09-18", "2026-09-21T12:00:00Z", c=0.0)))
+
+
+class TestPremarketScansDoNotUseYfinance(unittest.TestCase):
+    """fast_info carries no pre-market trades; every gap reads ~0%."""
+
+    def test_the_largecap_gap_watch_uses_alpaca(self):
+        src = inspect.getsource(a._pmb_gap_watch)
+        self.assertIn("_premarket_gaps(", src)
+        self.assertNotIn("fast_info", src)
+
+    def test_the_smallcap_mover_scan_uses_alpaca(self):
+        src = inspect.getsource(a.run_premarket_briefing)
+        i = src.index("_sc_scan_list = ")
+        block = src[i:i + 600]
+        self.assertIn("_premarket_gaps(", block)
+        self.assertNotIn("fast_info", block)
+
+    def test_the_market_wide_screen_is_session_aware(self):
+        src = inspect.getsource(a.screen_market_wide)
+        self.assertIn("_snapshot_gap(", src)
+        self.assertNotIn("gap = (o - pc) / pc * 100", src)
+
+    def test_premarket_gaps_batches_and_keeps_only_real_gaps(self):
+        today = date(2026, 9, 21)
+        good = {"dailyBar": {"t": "2026-09-18T04:00:00Z", "c": 100.0},
+                "latestTrade": {"t": "2026-09-21T12:00:00Z", "p": 105.0}}
+        stale = {"dailyBar": {"t": "2026-09-18T04:00:00Z", "c": 100.0},
+                 "latestTrade": {"t": "2026-09-18T20:00:00Z", "p": 99.0}}
+        ok = MagicMock(status_code=200)
+        ok.json.return_value = {"AAA": good, "BBB": stale}
+        with patch.object(a, "_et_today", return_value=today), \
+             patch.object(a.requests, "get", return_value=ok) as g:
+            out = a._premarket_gaps(["aaa", "bbb", "aaa"])
+        self.assertEqual(set(out), {"AAA"})
+        self.assertAlmostEqual(out["AAA"][2], 5.0)
+        self.assertEqual(g.call_count, 1)                  # one batch, deduped
+
+    def test_a_failed_batch_is_skipped_not_fatal(self):
+        with patch.object(a.requests, "get", side_effect=OSError("down")):
+            self.assertEqual(a._premarket_gaps(["AAA"]), {})

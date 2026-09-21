@@ -1,38 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:30:31.924478-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Robinhood Markets Stock In The Last 5 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T10:39:47.590098-04:00",
-    "symbols": [
-      "AMD",
-      "MRVL",
-      "MU",
-      "SNDK"
-    ],
-    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T10:40:31.588538-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Jim Cramer Flags &#39;Boatload&#39; of Bullish Option Buying in Micron, Sandisk, Intel",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T10:40:34.635269-04:00",
     "symbols": [
       "MU"
@@ -5099,6 +5066,37 @@
     "ts": "2026-09-21T10:58:24.907073-04:00",
     "symbols": [
       "QQQ"
+    ],
+    "headline": "SpaceX\u2019s Nasdaq-100 Weight Just More Than Doubled. Here\u2019s Where ETF Money Is Heading",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:59:37.321867-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Trade Representative Greer Says Boeing Is Making Progress On Finalizing 200 Chinese Airplane Orders Announced Earlier This Year",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:00:19.033307-04:00",
+    "symbols": [
+      "ABBV",
+      "GOOGL"
+    ],
+    "headline": "Rep. Pete Sessions Has Sold Up to $100K Worth Of AbbVie Stock: Here\u2019s What You Should Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T11:00:22.635226-04:00",
+    "symbols": [
+      "SPCX"
     ],
     "headline": "SpaceX\u2019s Nasdaq-100 Weight Just More Than Doubled. Here\u2019s Where ETF Money Is Heading",
     "source": "scan-prefetch",

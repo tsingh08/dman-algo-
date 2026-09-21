@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:59:18.374657-04:00",
-    "symbols": [
-      "HALO"
-    ],
-    "headline": "Reported Earlier, Halozyme Therapeutics Prices Upsized $1.3B Offering Of 1.50% Convertible Senior Notes Due 2033",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T10:59:18.632643-04:00",
     "symbols": [
       "FXY"
@@ -5100,5 +5090,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T11:24:51.965289-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple iPhone 18 Estimates Are &#39;Too Conservative&#39;, Gene Munster Says Duo to Account for 8% of Units",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

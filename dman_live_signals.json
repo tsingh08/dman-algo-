@@ -85,6 +85,30 @@
       "timestamp": "2026-09-21T11:32:00.465660-04:00"
     },
     {
+      "ticker": "ARM",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 319.1,
+      "stop": 293.0,
+      "target1": 392.0,
+      "target2": 435.74,
+      "score": 100,
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T13:13:46.841148-04:00"
+    },
+    {
+      "ticker": "USDE",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 13.08,
+      "stop": 12.08,
+      "target1": 16.75,
+      "target2": 18.59,
+      "score": 100,
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T13:13:46.842077-04:00"
+    },
+    {
       "ticker": "BDRX",
       "setup": "Low Float Catalyst",
       "bias": "LONG",

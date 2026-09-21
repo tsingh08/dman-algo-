@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T10:06:04.018076-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Leading Index (MoM) For August -0.1% Vs 0.1% Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T10:06:50.084865-04:00",
     "symbols": [
       "HOOD"
@@ -5103,5 +5093,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:41:26.919681-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;China Has Pushed For A Longer Extension Of The Current Trade Truce, Which Expires In November, But The U.S. Has Proposed It Be Extended For Just Six Months To Keep Negotiations On A Tighter Leash&#39; - The New York Times",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

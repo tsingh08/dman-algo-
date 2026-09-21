@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-09-18T12:16:38.853461-04:00",
-    "symbols": [
-      "LMT",
-      "SPY"
-    ],
-    "headline": "&#39;Hill investigates after F-35 parts diverted to Hong Kong&#39; - Politico",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T12:22:57.357568-04:00",
-    "symbols": [
-      "MRVL",
-      "MU",
-      "SNDK"
-    ],
-    "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T12:23:21.231935-04:00",
     "symbols": [
       "MU"
@@ -5087,6 +5064,28 @@
       "RTX"
     ],
     "headline": "L3Harris Technologies Signs Multi-Year Agreement With NAWCWD To Manufacture Critical Missile Components, Including Tomahawk Cruise Missile Parts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:32:32.614092-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Sunrun, Tesla Set Record With 580 MW California Grid Dispatch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:34:16.774329-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "NVDA"
+    ],
+    "headline": "An Nvidia Earnings Miss Is Almost Unthinkable\u2014VanEck Says There\u2019s a Real Risk",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

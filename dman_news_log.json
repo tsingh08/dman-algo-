@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T12:23:21.231935-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T12:23:21.493272-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Options Surge As SNXX Ranks Among Most Active ETFs. What Investors Are Betting On",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T12:23:22.005950-04:00",
     "symbols": [
       "MRVL"
@@ -5089,5 +5069,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T12:34:53.767104-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Ameresco Lands US Army Energy Projects",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T12:36:31.220338-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Terrestrial Energy shares are trading higher after the company announced its support and role as supplier of advanced nuclear plant technology for Ameresco\u2019s power plant project at the U.S. Army\u2019s APG in Maryland.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

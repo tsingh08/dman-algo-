@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:54:34.855855-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T13:54:34.979778-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "10 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T13:54:35.233380-04:00",
     "symbols": [
       "MRNA"
@@ -5074,5 +5054,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T14:23:58.812102-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says That Without Further Policy Restraint, It&#39;s More Likely Inflation Will Remain Substantially Above 2% Target 18 Months From Now; Interest Rates Likely Need To Rise Further To Tame Inflation That Is Both Demand- And Supply-Driven",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T14:26:01.486951-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says Labor Market Stable, Around Full Employment And Not A Source Of Inflation Pressure; Commodity Shock Is More Than Just Oil, Includes Base Metals Like Copper; Better For Rate Hikes To Be &#39;Earlier And Incremental&#39; Rather Than &#39;Later And Larger&#39;; Even When Stripping Out Supply-Related Factors, Inflation Is Still &#39;Too High&#39; At Up To 3%; Business Contacts Say They Are Planning On Price Increases &#39;Closer To 3%&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

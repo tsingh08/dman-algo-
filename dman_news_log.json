@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:14:48.974004-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:49.189378-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T13:14:49.543958-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T13:14:49.733478-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Bitcoin Tops $80,000, S&amp;P 500 Slips as Yields Reclaim 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T13:14:49.909719-04:00",
     "symbols": [
       "AMZN"
@@ -5071,5 +5031,51 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T13:34:40.880804-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Is Soaring: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:35:17.403932-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "TE"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T13:35:17.772066-04:00",
+    "symbols": [
+      "HIMS",
+      "MRNA",
+      "NVO",
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-21T13:35:18.016483-04:00",
+    "symbols": [
+      "FDX",
+      "RKLB"
+    ],
+    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

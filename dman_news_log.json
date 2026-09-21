@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:10:03.896346-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:10:04.203915-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:10:04.462960-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:10:05.073724-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-18T14:10:05.658888-04:00",
     "symbols": [
       "AMZN"
@@ -5074,5 +5034,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T15:02:25.926412-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Stocks Jump On Iran, China, and Bitcoin Hopium\u2014But The Big Conflicts Have Not Gone Away",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:02:26.172017-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Stocks Jump On Iran, China, and Bitcoin Hopium\u2014But The Big Conflicts Have Not Gone Away",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:02:26.176536-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Trump, Greenland Deal Puts Rare-Earth ETFs In Focus: Funds to Watch as US Targets China\u2019s Supply Chain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:02:29.029927-04:00",
+    "symbols": [
+      "NTR"
+    ],
+    "headline": "President Trump, On Social Media, Says U.S. Working On Massive Deal Towards Purchase Of Potash From Belarus; The Pricing Would Be For Substantially Less Than We Are Currently Paying To Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

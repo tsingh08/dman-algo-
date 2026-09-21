@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T13:08:44.644828-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T13:08:45.382046-04:00",
     "symbols": [
       "GAUZ"
@@ -5071,5 +5061,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T13:14:25.515413-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Why Energy Resilience Is The Underpriced Attribute In Gold Mining Stocks\u2014Beyond AISC",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

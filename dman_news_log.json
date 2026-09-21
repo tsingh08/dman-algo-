@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-18T09:56:59.576207-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Pritzker presses Congress on AI&#39; - Politico",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T09:59:45.049474-04:00",
     "symbols": [
       "COIN",
@@ -5097,6 +5087,19 @@
       "GOOGL"
     ],
     "headline": "What&#39;s Going On With Alphabet Stock Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T10:22:32.084926-04:00",
+    "symbols": [
+      "AMZN",
+      "CAT",
+      "GEV",
+      "SPCX"
+    ],
+    "headline": "SpaceX Finds Way Around Data Center Moratorium As 300-Plus Restrictions Delay 3 Projects",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

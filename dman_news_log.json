@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-18T14:10:05.658888-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:10:05.921222-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:10:19.842500-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Japan Outpaces S&amp;P 500 By 81%\u2014Yen Drops After BOJ Hike, Raising Spillover Risks For The US",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T14:14:48.025532-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;The Top Democrat On The Senate Foreign Relations Committee, New Hampshire\u2019s Jeanne Shaheen, Has Blocked An Arms Sale To Israel Since July And Continues To Withhold Consent For Advancing The $2.8B Transaction, A Person Familiar With The Matter Told Semafor&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-18T14:30:16.252030-04:00",
     "symbols": [
       "SPY"
@@ -5071,6 +5031,46 @@
       "NTR"
     ],
     "headline": "President Trump, On Social Media, Says U.S. Working On Massive Deal Towards Purchase Of Potash From Belarus; The Pricing Would Be For Substantially Less Than We Are Currently Paying To Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:07:40.110277-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bitcoin Trails Nasdaq This Year: Why One Analyst Calls It \u2018Helpful\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T15:07:45.956620-04:00",
+    "symbols": [
+      "CRMX"
+    ],
+    "headline": "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:07:46.210622-04:00",
+    "symbols": [
+      "CRMU"
+    ],
+    "headline": "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T15:07:47.722364-04:00",
+    "symbols": [
+      "CRML"
+    ],
+    "headline": "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

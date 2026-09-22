@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:55:23.025206-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "The Fed Is Watching AI Inflation. Here&#39;s What ETF Investors Should Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:55:23.573297-04:00",
     "symbols": [
       "SPY"
@@ -5055,5 +5045,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:55:17.906669-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Vertex Pharmaceuticals shares are trading higher after the company announced results from a study of its inaxaplin candidate that showed a reduction in urine albumin to creatinine ratio at week 13 and was generally safe and well tolerated.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

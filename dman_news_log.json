@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:20:38.378147-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Greenland Energy Stock Doubles on US-Greenland Agreement: Details",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:47.876133-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Buys 950 Bitcoin For $76M as MSTR Surges 8%: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:21:47.019154-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "What&#39;s Going On with the Pop in Intuitive Machines Stock?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:24:51.965289-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple iPhone 18 Estimates Are &#39;Too Conservative&#39;, Gene Munster Says Duo to Account for 8% of Units",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T11:30:16.040380-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Steve Eisman Says AI CEOs Are Faking the \u2018Doomsday Crisis\u2019 \u2014 Anthropic May Be Speeding Up Anyway",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T11:30:29.396464-04:00",
-    "symbols": [
-      "USDE"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:30:33.637061-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Here&#39;s How Much $1000 Invested In Gilead Sciences 5 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:30:44.959908-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple iPhone 18 Estimates Are &#39;Too Conservative&#39;, Gene Munster Says Duo to Account for 8% of Units",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T11:30:46.103720-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Steve Eisman Says AI CEOs Are Faking the \u2018Doomsday Crisis\u2019 \u2014 Anthropic May Be Speeding Up Anyway",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T11:30:51.309318-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Stock Falls Monday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:30:52.595453-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Buys 950 Bitcoin For $76M as MSTR Surges 8%: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:30:54.087453-04:00",
     "symbols": [
       "LUNR"
@@ -5055,6 +4945,116 @@
     "headline": "President Trump Delivers Remarks At The UN General Assembly Says We Will Immediately Begin Process Of Developing Large Military Presence In &#39;Appropriate Locations&#39;",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:07:10.004547-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:07:10.008055-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Stock Runs Overbought Into Connect \u2014 Wall Street Still Targets $800+",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:07:10.530826-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:07:11.241550-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Meta Stock Runs Overbought Into Connect \u2014 Wall Street Still Targets $800+",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:07:13.153164-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Eli Lilly, Maintains $1250 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:07:14.300834-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:07:16.841615-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Goldman, Morgan Stanley Ride $17.2B China Tech Boom as AI Truce Odds Sit at 10%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:07:17.056842-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman, Morgan Stanley Ride $17.2B China Tech Boom as AI Truce Odds Sit at 10%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:07:18.674444-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Delivers Remarks At The UN General Assembly Says We Will Immediately Begin Process Of Developing Large Military Presence In &#39;Appropriate Locations&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:07:18.678042-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Delivers Remarks At The UN General Assembly Says Agreement With Denmark On Greenland &#39;Gives The United States Permanent Control Over Security And All Other Needs&#39; In Territory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:07:18.681428-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Delivers Remarks At The UN General Assembly Calls Warnings About AI A Hoax; Wants To Rebrand Artificial Intelligence To Super Intelligence",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

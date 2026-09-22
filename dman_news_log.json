@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:01:17.750073-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Joby Aviation, Maintains $18 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T11:08:06.906691-04:00",
     "symbols": [
       "SPY"
@@ -5051,6 +5041,16 @@
     "headline": "President Trump Delivers Remarks At The UN General Assembly In New York; Says We Must Be United In Maintaining Pressure On Iran",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:40:11.206604-04:00",
+    "symbols": [
+      "XBI"
+    ],
+    "headline": "Cathie Wood Loads Up On Biotech: 5 ETFs Holding Her Latest Bets",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

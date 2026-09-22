@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T12:09:51.510193-04:00",
-    "symbols": [
-      "PRTH"
-    ],
-    "headline": "Crude Oil Down 4%; Intel Shares Move Higher",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T12:09:52.454876-04:00",
     "symbols": [
       "NUAI"
@@ -5055,5 +5045,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T12:30:35.759583-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Shares of aerospace and defense companies are trading lower amid multiple catalysts that indicate de-escalation in the Middle East. Reports suggested Iran would open the Strait of Hormuz in seven days if the U.S. took certain steps, and President Trump said he expects an agreement with Iran after the U.S. midterm elections.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

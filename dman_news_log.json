@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.244637-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;China Probes DeepSeek, Moonshot Over Potential Data Leaks to Anthropic&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.248858-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Big Tech\u2019s AI Debt Spree Hits a Wall as Bond Investors Demand Higher Yields From Alphabet, Meta and Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.253056-04:00",
     "symbols": [
       "MSFT"
@@ -5050,5 +5030,30 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:46:23.384757-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Faces \u2018Rampant Racism\u2019 Allegations in Trial: What Investors Should Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:48:22.617663-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "EXCLUSIVE: Nvidia Is a Stock And a Token \u2014 When \u2018Retail No Longer Distinguishes Between Ticker and Rail\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:33:32.152069-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "SpaceX Finds Way Around Data Center Moratorium As 300-Plus Restrictions Delay 3 Projects",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T10:33:35.973713-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "SpaceX Finds Way Around Data Center Moratorium As 300-Plus Restrictions Delay 3 Projects",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:33:36.393423-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "SpaceX Finds Way Around Data Center Moratorium As 300-Plus Restrictions Delay 3 Projects",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T10:33:40.576632-04:00",
-    "symbols": [
-      "IVVD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T10:34:55.004353-04:00",
     "symbols": [
       "META",
@@ -5058,6 +5018,46 @@
     "headline": "Fed Vice Chair Philip Jefferson Says Discount Window Is Shock Absorber During Market Stress, Supports Short-Term Funding Markets And Treasury Liquidity",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:21:52.563323-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s Cybercab Strategy Hinges on One Giant, Unanswered Question",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T10:21:54.495654-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Tesla\u2019s Cybercab Strategy Hinges on One Giant, Unanswered Question",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:21:57.455112-04:00",
+    "symbols": [
+      "LNAI"
+    ],
+    "headline": "Lunai Bioworks Enters Exclusive Worldwide License And Collaboration Agreement With Tanaist To Add Human Cellular Phenotyping To Its Parkinson&#39;s Disease Discovery And Validation Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:21:58.279107-04:00",
+    "symbols": [
+      "BNAI"
+    ],
+    "headline": "Brand Engagement Network Commences $1.051M Common Stock Offering At $8.50 Per Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

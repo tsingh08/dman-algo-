@@ -1,47 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:34:55.004353-04:00",
-    "symbols": [
-      "META",
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta\u2019s Muse&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:35:47.783603-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Einride Taps NVIDIA to Put More Self-Driving Trucks on the Highway",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T10:41:26.919681-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;China Has Pushed For A Longer Extension Of The Current Trade Truce, Which Expires In November, But The U.S. Has Proposed It Be Extended For Just Six Months To Keep Negotiations On A Tighter Leash&#39; - The New York Times",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:43:06.674318-04:00",
-    "symbols": [
-      "COIN",
-      "MSTR"
-    ],
-    "headline": "Shares of crypto-linked companies are trading higher amid a rise in Bitcoin as investors assess recent regulatory decisions from the SEC and CFTC and easing oil prices that alleviate inflation concerns.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T10:45:28.068215-04:00",
     "symbols": [
       "SMCI"
@@ -4998,6 +4956,46 @@
     "headline": "California Governor Newsom Announces $886M California Utility Bill Relief",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:18:36.771411-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s Cybercab Strategy Hinges on One Giant, Unanswered Question",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T10:18:42.151242-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Tesla\u2019s Cybercab Strategy Hinges on One Giant, Unanswered Question",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:18:45.642855-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "California Governor Newsom Announces $886M California Utility Bill Relief",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:18:46.125132-04:00",
+    "symbols": [
+      "XNDU"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:40.199305-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Likely To Report Higher Q4 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T09:25:40.345285-04:00",
     "symbols": [
       "SNDK"
@@ -5059,5 +5049,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T16:00:07.141874-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Microsoft To Consider Shareholder Proposals Through 2027, Even As SEC Proposes To End Oversight Of Such Votes&#39; - Reuters Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

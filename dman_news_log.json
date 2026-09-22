@@ -1,251 +1,5 @@
 [
   {
-    "ts": "2026-09-21T13:28:54.787510-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Michael Saylor Says &#39;Welcome Back&#39; as Bitcoin Bear Admits: &#39;I Was Wrong&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:29:29.464169-04:00",
-    "symbols": [
-      "CRML"
-    ],
-    "headline": "Trump, Greenland Deal Puts Rare-Earth ETFs In Focus: Funds to Watch as US Targets China\u2019s Supply Chain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:30:22.515116-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Stock of the Day: Where Is the Top for Coinbase?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T13:33:28.099088-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft\u2019s Azure Has Another Growth Lever Waiting in the Wings, Analyst Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T13:34:40.880804-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Is Soaring: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T13:35:17.403932-04:00",
-    "symbols": [
-      "MU",
-      "NVDA",
-      "TE"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T13:35:17.772066-04:00",
-    "symbols": [
-      "HIMS",
-      "MRNA",
-      "NVO",
-      "UNH"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-21T13:35:18.016483-04:00",
-    "symbols": [
-      "FDX",
-      "RKLB"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:37:55.786839-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "NJ Attorney General Davenport Announces Settlement With Paramount Skydance; Deal Settlement Includes A Five-Year Court Enforceable Commitment To Increase Film Output; Settlement Also Includes Minimum Of Additional $1.5B Commitment To Bolster Domestic Film Production",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:44:01.143575-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T13:44:02.652985-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T13:44:03.813888-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T13:44:04.235641-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-21T13:44:04.586224-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:44:08.377404-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:44:08.492376-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:44:08.955911-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:44:11.290234-04:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:44:13.362736-04:00",
-    "symbols": [
-      "WBD"
-    ],
-    "headline": "NJ Attorney General Davenport Announces Settlement With Paramount Skydance; Deal Settlement Includes A Five-Year Court Enforceable Commitment To Increase Film Output; Settlement Also Includes Minimum Of Additional $1.5B Commitment To Bolster Domestic Film Production",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:44:13.367191-04:00",
-    "symbols": [
-      "WBD"
-    ],
-    "headline": "Paramount Settles Antitrust Lawsuit By U.S. States That Delayed Warner Bros Discovery Acquisition; Consent Decree Requires Theatrical Film Commitments, Including Minimum Numbers Of Annual Film Releases, And A Commitment To Spend At Least $300M More Annually On Film Production In Us Than In 2025",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:46:41.207317-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S., Denmark, Greenland Are Going To Hold A Signing Ceremony On Tuesday",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:51:26.231597-04:00",
-    "symbols": [
-      "AMD",
-      "COST",
-      "DIA",
-      "FDX",
-      "IWM",
-      "META",
-      "MU",
-      "QCOM",
-      "QQQ",
-      "SKHY",
-      "XOM"
-    ],
-    "headline": "Nasdaq 100 Rallies, Intel Soars 14%: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:52:07.898021-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Marvell Technology, Raises Price Target to $268",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T13:52:22.307598-04:00",
     "symbols": [
       "WBD"
@@ -5061,5 +4815,235 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:26.889477-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T13:25:26.893845-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T13:25:27.127571-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T13:25:27.362056-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T13:25:27.597899-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:27.825983-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "PayPal Stock Is Rising: What&#39;s Going On Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:27.830320-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:28.370692-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T13:25:28.375054-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T13:25:28.607817-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:28.897070-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "HSBC Downgrades Netflix to Hold, Lowers Price Target to $76",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:29.829526-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:30.285602-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:32.330927-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:35.328404-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:38.246910-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:25:38.473451-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:38.765495-04:00",
+    "symbols": [
+      "JAGX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:25:39.444071-04:00",
+    "symbols": [
+      "EVER"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:25:39.881446-04:00",
+    "symbols": [
+      "SHOP"
+    ],
+    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:25:40.106767-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:25:40.111179-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Greenland Mines Shares Halted On Circuit Breaker To The Downside, Stock Now Up 68.47%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:25:40.115536-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Greenland Mines Shares Halted On Circuit Breaker To The Upside, Stock Now Up 82.38%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:20:38.366086-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Why Is Greenland Mines Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:20:38.370165-04:00",
     "symbols": [
       "GLND"
@@ -5056,5 +5046,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:05:12.598580-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Delivers Remarks At The UN General Assembly Calls Warnings About AI A Hoax; Wants To Rebrand Artificial Intelligence To Super Intelligence",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

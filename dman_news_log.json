@@ -1,58 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:15:36.180201-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "At Novo Nordisk Capital Markets Day, Co CFO Says Reasonable To Expect That We Should Be Able To Grow The Company By Mid-Single Digits Compound Annual Growth Rate Toward 2030",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:16:30.202743-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Takaichi To Stress Japanese Investment In U.S. In Talks With Trump; Tokyo Looks To Probe Washington&#39;s Intentions Ahead Of U.S.-China Meeting&#39; - Nikkei Asia",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:16:48.489384-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Advanced Micro Devices Hits $1T In Market Capitalization For The First Time",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T10:21:52.555017-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "What&#39;s Going On With Alphabet Stock Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T10:22:32.084926-04:00",
-    "symbols": [
-      "AMZN",
-      "CAT",
-      "GEV",
-      "SPCX"
-    ],
-    "headline": "SpaceX Finds Way Around Data Center Moratorium As 300-Plus Restrictions Delay 3 Projects",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-21T10:27:44.166951-04:00",
     "symbols": [
       "CEG"
@@ -5061,5 +5008,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:07:17.024273-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Microsoft starts a new round of job cuts and the next phase of its Xbox reset&#39; - Business Insider",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T10:07:31.536488-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Dan Ives Says Tech Stocks Are in a &#39;1997 Moment&#39; as Tom Lee Predicts: \u2018Probability of a Massive Rally\u2019 Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T10:07:32.056183-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Dan Ives Says Tech Stocks Are in a &#39;1997 Moment&#39; as Tom Lee Predicts: \u2018Probability of a Massive Rally\u2019 Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:07:32.168413-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Dan Ives Says Tech Stocks Are in a &#39;1997 Moment&#39; as Tom Lee Predicts: \u2018Probability of a Massive Rally\u2019 Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T10:07:35.718442-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

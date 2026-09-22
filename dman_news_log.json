@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:27:44.166951-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Constellation Energy, Toyota Motor North America Ink 15-Year Renewable Energy Deal To Support Development Of New Solar Generation",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:27:53.112392-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Finds Way Around Data Center Moratorium As 300-Plus Restrictions Delay 3 Projects",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-21T10:27:53.349014-04:00",
     "symbols": [
       "MX"
@@ -5058,5 +5038,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:08:19.008602-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "New York Fed President John Williams Says Fed Will Adjust Reserve Supply Depending On Market Conditions, Holding Reserves Should Carry No Opportunity Cost",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:08:34.559643-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "New York Fed President John Williams Says Rate Control System Very Effective, Fed Will Adjust Policy Implementation Strategy As Needed; Monitoring Rise Of Centrally Cleared Repo",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-21T12:08:36.620343-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Mersen Tapped By GE Vernova To Provide Complete Current Transmission Systems For Synchronous Condensers In Saudi Arabia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T12:08:37.662980-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Crude Oil Down 4%; Intel Shares Move Higher",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:08:38.588815-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Crude Oil Down 4%; Intel Shares Move Higher",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T12:08:38.716480-04:00",
     "symbols": [
       "GLND"
@@ -5053,6 +5023,36 @@
     ],
     "headline": "Vertex Pharmaceuticals shares are trading higher after the company announced results from a study of its inaxaplin candidate that showed a reduction in urine albumin to creatinine ratio at week 13 and was generally safe and well tolerated.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:01:10.362918-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#34;Meta Is Testing A &#39;Human Concierge&#39; For Its New Personal Agent Muse&#34; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T12:01:14.943151-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S.-Denmark-Greenland Agreement Lets U.S. Aircraft Fly Over And Land Anywhere In Greenland, Including Territorial Waters; U.S. Access Rights Must Respect Greenlandic Society And Way Of Life",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:01:14.949241-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S.-Denmark-Greenland Agreement Allows U.S. To Establish Golden Dome Missile Defense In Greenland; Bars Non-NATO States From Military Installations There",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

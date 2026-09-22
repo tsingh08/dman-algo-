@@ -519,6 +519,22 @@ EARNINGS_SPREAD_MIN_OI         = 25      # per-leg minimum open interest
 EARNINGS_SPREAD_BUDGET_SLACK   = 1.3     # skip only if min-width spread still costs > budget * this
 EARNINGS_SPREAD_CLOSE_DTE      = 1       # close this many days before expiry — avoid short-leg pin/assignment risk
 EARNINGS_SPREAD_TAKE_PROFIT_PCT= 0.70    # optional early close at this fraction of max gain
+# ---- Momentum call spreads ---------------------------------------------------
+# A single call on a $300-700 stock costs $2,600-3,900 -- more than this whole
+# account -- so on 2026-09-21 the scanner found AMD at a perfect 100 and had no
+# instrument it could afford. ARM, INTC, META and AMD then closed +10% to +17%.
+# A call debit spread buys the same direction for the SAME dollar budget a
+# single call would have used: this does not raise per-trade risk, it makes the
+# existing budget spendable on high-priced names. Max loss is the debit.
+# Geometry differs from earnings spreads on purpose: an earnings spread sits 7%
+# OTM to pay for a binary event; a continuation play has to pay from the first
+# dollar of follow-through, so the long leg sits AT the money.
+ENABLE_MOMENTUM_SPREADS       = True
+MOMENTUM_SPREAD_MIN_PRICE     = 100.0   # below this, a call or shares already fit the budget
+MOMENTUM_SPREAD_LONG_OTM_PCT  = 0.0     # long leg at the money
+MOMENTUM_SPREAD_SHORT_OTM_PCT = 0.03    # start 3% wide, narrow to fit the budget
+MOMENTUM_SPREAD_MIN_WIDTH_PCT = 0.005   # $3 on a $600 stock -- one or two strikes
+MOMENTUM_SPREAD_WIDTH_STEP    = 0.005   # 1% steps are $6 on a $600 stock: too coarse
 EARNINGS_SPREAD_POST_EVENT_EXIT_PCT = 0.5   # close once the earnings event has passed AND
                                               # value has decayed below this fraction of the
                                               # debit paid — added 2026-08-21 (session review
@@ -676,7 +692,7 @@ NL_COMMAND_MODEL   = "claude-haiku-4-5-20251001"
 NL_CONFIRM_REQUIRED = {"buy", "close", "halt", "resume", "probation", "endprobation",
                        "setupprobation", "endsetupprobation", "restart", "flags"}
 _TELEGRAM_KEEP = (
-    "auto-exec", "order placed", "order submitted", "filled", "fill ",
+    "auto-exec", "order placed", "order submitted", "filled", "fill",
     "bought", "sold", "entered", "closed", "exit", "stop hit", "stopped",
     "t1 hit", "target hit", "trail", "halt", "resumed", "probation",
     "loss limit", "guard", "failed", "error", "unable", "reject", "cancel",
@@ -3679,7 +3695,7 @@ def _tg_cmd_positions():
     else:
         _lines = []
         for _p in _pt.positions:
-            if _p.setup.startswith("Earnings "):
+            if _is_spread_setup(_p.setup):
                 _lines.append(f"<b>{_p.ticker}</b> [SPREAD] {_p.setup}  "
                               f"cost ${_p.entry:.0f}  max loss ${_p.max_loss:.0f}  "
                               f"max gain ${_p.max_gain:.0f}")
@@ -3746,7 +3762,7 @@ def _tg_cmd_close(_arg):
     _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
     if _pos is None:
         send_telegram(f"❓ /close: no tracked position for {_arg}")
-    elif _pos.setup.startswith("Earnings "):
+    elif _is_spread_setup(_pos.setup):
         _st, _oid = _close_earnings_spread(asdict(_pos), f"manual /close {_arg}")
         send_telegram(f"📤 /close {_arg}: {_st}"
                       + (f" (id {_oid[:8]}…)" if _oid else ""))
@@ -4511,7 +4527,7 @@ def _earnings_sector_overlap(ticker: str, pending: list[dict]) -> list[str]:
             overlap.add(other)
     try:
         for pos in PositionTracker().positions:
-            if (pos.setup.startswith("Earnings ") and pos.ticker != ticker
+            if (_is_spread_setup(pos.setup) and pos.ticker != ticker
                     and TICKER_SECTOR.get(pos.ticker) == sector):
                 overlap.add(pos.ticker)
     except Exception:
@@ -4540,7 +4556,7 @@ def _earnings_spread_committed_risk(pending: list[dict]) -> float:
     total = 0.0
     try:
         for pos in PositionTracker().positions:
-            if pos.setup.startswith("Earnings "):
+            if _is_spread_setup(pos.setup):
                 total += float(pos.max_loss or 0)
     except Exception:
         pass
@@ -4642,8 +4658,12 @@ def _open_earnings_spread_position(plan: dict) -> OpenPosition:
         legs += [plan["call"]["long_occ"], plan["call"]["short_occ"]]
     if plan.get("put"):
         legs += [plan["put"]["long_occ"], plan["put"]["short_occ"]]
-    setup_tag = ("Earnings Double Spread" if (plan.get("call") and plan.get("put"))
-                 else ("Earnings Call Spread" if plan.get("call") else "Earnings Put Spread"))
+    # A momentum spread must not be recorded as an earnings spread: setup
+    # stats and probation are keyed by this name, and Earnings Spread is on
+    # probation for its own record.
+    setup_tag = plan.get("setup_tag") or (
+        "Earnings Double Spread" if (plan.get("call") and plan.get("put"))
+        else ("Earnings Call Spread" if plan.get("call") else "Earnings Put Spread"))
     max_gain = max(plan.get("call", {}).get("max_gain", 0), plan.get("put", {}).get("max_gain", 0))
 
     pos = OpenPosition(
@@ -9585,7 +9605,7 @@ def run_options_guard(verbose: bool = True, get_snapshot_fn=None, get_price_fn=N
             _a = _monitor_option_position(_pos, "CALL", get_snapshot_fn=get_snapshot_fn, get_price_fn=get_price_fn)
         elif _setup.startswith("Options Put "):
             _a = _monitor_option_position(_pos, "PUT", get_snapshot_fn=get_snapshot_fn, get_price_fn=get_price_fn)
-        elif _setup.startswith("Earnings "):
+        elif _is_spread_setup(_setup):
             _a = _monitor_earnings_spread_position(_pos)
         else:
             continue
@@ -9918,7 +9938,7 @@ def _mw_monitor_open_positions(active_plays, options_alerts):
                         if _oa:
                             options_alerts.append(_oa)
                         continue
-                    elif setup.startswith("Earnings "):
+                    elif _is_spread_setup(setup):
                         _oa = _monitor_earnings_spread_position(pos)
                         if _oa:
                             options_alerts.append(_oa)
@@ -15290,7 +15310,9 @@ class WinRateTracker:
             # Watch Breakout (Day)" sat apart from the unprefixed twin.
             if setup.startswith("SWING — "):
                 setup = setup[len("SWING — "):]
-            if setup.startswith("Earnings "):
+            if setup.startswith("Momentum Call Spread"):
+                return "Momentum Call Spread"
+            if setup.startswith("Earnings "):  # stats family, not a spread check
                 return "Earnings Spread"
             if setup.startswith(("Options Call", "Options Put")):
                 return "Options Single-Leg"
@@ -15662,7 +15684,7 @@ class PositionTracker:
 
         total_unreal = 0.0
         for p in self.positions:
-            if p.setup.startswith("Earnings "):
+            if _is_spread_setup(p.setup):
                 # Comparing STOCK price against entry/stop/target below is
                 # meaningless for a spread (already imprecise for existing
                 # single-leg options positions too, but a spread's P&L isn't
@@ -18233,7 +18255,7 @@ def _check_stop_coverage() -> Optional[dict]:
         try:
             _pt_pos = PositionTracker().positions
             for _p in _pt_pos:
-                if _p.setup.startswith("Earnings "):
+                if _is_spread_setup(_p.setup):
                     # A spread position has 2-4 real option legs, not a single
                     # symbol embedded in `setup` — without this, every leg
                     # would falsely alarm as an orphan (untracked) position.
@@ -19217,6 +19239,12 @@ _asset_universe_cache: dict = {"symbols": None, "day": ""}
 # to change how much it finds.
 ENABLE_MARKET_WIDE_SCAN  = True
 MARKET_SCAN_BATCH        = 200     # symbols per snapshot call
+# Was a hard-coded 100.0: a name above $100 could not be traded in this account,
+# so there was no point surfacing it. INTC gapped +7.3% on 2026-09-21 from $108
+# and closed +12.1% without the scanner ever seeing it -- it is not on the
+# curated watchlist and this cap filtered it from the market-wide screen. A
+# call spread now expresses a high-priced name for the normal budget.
+MARKET_SCAN_MAX_PRICE    = 1000.0
 MARKET_SCAN_MIN_GAP_PCT  = 2.0     # pre-filter only; the real gate is _raw_signals()
 MARKET_SCAN_MIN_DOLLAR_VOL = 300_000
 MARKET_SCAN_MIN_VOL_RATIO  = 0.5    # today's volume vs prior day's — a reverse
@@ -19368,7 +19396,7 @@ def screen_market_wide(max_candidates: int = MARKET_SCAN_MAX_CANDIDATES,
                     pc = float(pdb.get("c", 0))
                     if not (o and c and pc and v):
                         continue
-                    if not (SMALLCAP_MIN_PRICE <= c <= 100.0):
+                    if not (SMALLCAP_MIN_PRICE <= c <= MARKET_SCAN_MAX_PRICE):
                         continue
                     if c * v < MARKET_SCAN_MIN_DOLLAR_VOL:
                         continue
@@ -22012,7 +22040,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
         # MONTHLY_LOSS_LIMIT have never once counted a real earnings-spread
         # loss. sync_earnings_spread_fills() below is the multi-leg
         # counterpart to the rest of this loop, called once at the end.
-        if pos.setup.startswith("Earnings "):
+        if _is_spread_setup(pos.setup):
             continue
         # Options positions: Alpaca reports the OCC symbol (e.g. "SMCI260724C00027500"),
         # not the underlying. _position_identity() already extracts OCC
@@ -22404,7 +22432,7 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
         return 0
 
     for pos in list(pt.positions):
-        if not pos.setup.startswith("Earnings "):
+        if not _is_spread_setup(pos.setup):
             continue
         legs = pos.legs
         if not legs or any(leg in alp_open for leg in legs):
@@ -23568,7 +23596,10 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
 
 
 def _find_spread_legs(client, ticker: str, current_price: float, side: str,
-                      target_debit: float) -> Optional[dict]:
+                      target_debit: float,
+                      long_otm_pct: float = None, short_otm_pct: float = None,
+                      min_width_pct: float = None, width_step: float = 0.01,
+                      max_width_pct: float = None) -> Optional[dict]:
     """
     Select a long OTM leg + short OTM leg for an earnings vertical debit spread,
     on the Friday nearest EARNINGS_SPREAD_TARGET_DTE. Starts at
@@ -23612,18 +23643,28 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
     if not target_expiry:
         return None
 
+    # Normalised, and anything else refused. A case-sensitive compare meant
+    # side="call" read as NOT a call and silently built a PUT spread -- a
+    # bearish trade on a bullish signal (caught in a 2026-09-21 dry run).
+    side = str(side).upper()
+    if side not in ("CALL", "PUT"):
+        return None
     is_call = side == "CALL"
     contract_type = ContractType.CALL if is_call else ContractType.PUT
 
     # Band wide enough to cover the long target through the widest possible
     # short target, plus a small buffer since listed strikes won't land
     # exactly on the computed targets.
+    long_otm_pct  = EARNINGS_SPREAD_LONG_OTM_PCT  if long_otm_pct  is None else long_otm_pct
+    short_otm_pct = EARNINGS_SPREAD_SHORT_OTM_PCT if short_otm_pct is None else short_otm_pct
+    min_width_pct = EARNINGS_SPREAD_MIN_WIDTH_PCT if min_width_pct is None else min_width_pct
+    max_width_pct = EARNINGS_SPREAD_MAX_WIDTH_PCT if max_width_pct is None else max_width_pct
     if is_call:
-        lo = current_price * (1 + EARNINGS_SPREAD_LONG_OTM_PCT - 0.02)
-        hi = current_price * (1 + EARNINGS_SPREAD_LONG_OTM_PCT + EARNINGS_SPREAD_MAX_WIDTH_PCT + 0.02)
+        lo = current_price * (1 + long_otm_pct - 0.02)
+        hi = current_price * (1 + long_otm_pct + max_width_pct + 0.02)
     else:
-        lo = current_price * (1 - EARNINGS_SPREAD_LONG_OTM_PCT - EARNINGS_SPREAD_MAX_WIDTH_PCT - 0.02)
-        hi = current_price * (1 - EARNINGS_SPREAD_LONG_OTM_PCT + 0.02)
+        lo = current_price * (1 - long_otm_pct - max_width_pct - 0.02)
+        hi = current_price * (1 - long_otm_pct + 0.02)
 
     try:
         raw = client.get_option_contracts(GetOptionContractsRequest(
@@ -23641,23 +23682,23 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
     if len(items) < 2:
         return None
 
-    long_target = (current_price * (1 + EARNINGS_SPREAD_LONG_OTM_PCT) if is_call
-                   else current_price * (1 - EARNINGS_SPREAD_LONG_OTM_PCT))
+    long_target = (current_price * (1 + long_otm_pct) if is_call
+                   else current_price * (1 - long_otm_pct))
     long_c = min(items, key=lambda c: abs(float(c.strike_price) - long_target))
 
-    width_pct = EARNINGS_SPREAD_SHORT_OTM_PCT - EARNINGS_SPREAD_LONG_OTM_PCT
-    while width_pct >= EARNINGS_SPREAD_MIN_WIDTH_PCT - 1e-9:
+    width_pct = short_otm_pct - long_otm_pct
+    while width_pct >= min_width_pct - 1e-9:
         long_strike = float(long_c.strike_price)
         short_target = long_strike * (1 + width_pct) if is_call else long_strike * (1 - width_pct)
         others = [c for c in items if float(c.strike_price) != long_strike]
         if not others:
-            width_pct -= 0.01
+            width_pct -= width_step
             continue
         short_c = min(others, key=lambda c: abs(float(c.strike_price) - short_target))
 
         long_snap  = _get_option_snapshot(long_c.symbol)
         short_snap = _get_option_snapshot(short_c.symbol)
-        width_pct -= 0.01
+        width_pct -= width_step
         if not long_snap or not short_snap:
             continue
         long_snap  = _merge_contract_oi(long_snap, long_c)
@@ -23682,7 +23723,7 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
         # Good enough to fit budget, or we're already at the narrowest allowed
         # width — return either way; build_earnings_spread_plan() decides
         # whether the final cost is still acceptable.
-        if net_debit * 100 <= target_debit or width_pct < EARNINGS_SPREAD_MIN_WIDTH_PCT - 1e-9:
+        if net_debit * 100 <= target_debit or width_pct < min_width_pct - 1e-9:
             return result
     return None
 
@@ -24305,6 +24346,107 @@ def _live_mode_preflight(signals: list) -> Optional[tuple]:
     return signals, _options_only_overnight, _share_ok
 
 
+def _is_spread_setup(setup: str) -> bool:
+    """True for any multi-leg position the spread monitor/closer must manage.
+
+    Ten call sites tested the "Earnings " name prefix directly -- the
+    monitor, the EOD sweep, /close, close-sync, orphan-leg reconciliation,
+    the stock-price exit skip, the positions view, and both spread exposure
+    caps. A spread under any other name would have been opened at
+    the broker and then never monitored, never closed by /close, and never
+    counted against the spread exposure caps.
+    """
+    return str(setup or "").startswith(("Earnings ", "Momentum Call Spread"))
+
+
+def _options_route(sig) -> tuple[bool, bool]:
+    """(use_calls, use_puts) for this signal -- the one definition of which
+    signals may trade as options. It was inline in the submit loop, which is
+    why a check sitting ABOVE it (shares<=0) could not consult it."""
+    _calls = (ENABLE_OPTIONS_TRADING and sig.bias == "LONG"
+              and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
+    _puts = (OPTIONS_ENABLE_PUTS and sig.bias == "SHORT"
+             and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
+    return bool(_calls), bool(_puts)
+
+
+def _try_momentum_call_spread(sig, risk_mult: float) -> bool:
+    """Express a LONG signal as an at-the-money call debit spread. True if placed.
+
+    Only reached when a single call did not fit (see the submit loop). Spends
+    the SAME dollar budget the single call would have, through the same
+    atomic two-leg submitter, position record and monitor the earnings
+    spreads already use live: take-profit at EARNINGS_SPREAD_TAKE_PROFIT_PCT
+    of max gain, close EARNINGS_SPREAD_CLOSE_DTE before expiry.
+
+    earn_date is set to the ENTRY date. The monitor's post-event exit closes a
+    spread worth less than EARNINGS_SPREAD_POST_EVENT_EXIT_PCT of its debit
+    once today is past earn_date -- which, for a continuation play, is exactly
+    the right stop: the entry day to follow through, then cut at half.
+    """
+    if not ENABLE_MOMENTUM_SPREADS or sig.bias != "LONG":
+        return False
+    client = get_alpaca_client()
+    if not client:
+        return False
+    budget = _clamp_option_budget(_options_position_budget(sig) * risk_mult)
+    if budget < OPTIONS_MIN_VIABLE_BUDGET:
+        return False
+    _agg = _options_aggregate_room(budget)
+    if _agg:
+        print(f"  🧯 {sig.ticker}: momentum spread skipped — options aggregate cap — {_agg}")
+        return False
+    try:
+        px = float(get_live_price(sig.ticker) or sig.entry)
+    except Exception:
+        px = float(sig.entry)
+    print(f"  🪜 {sig.ticker}: single call over budget — trying ATM call spread  budget=${budget:.0f}")
+    leg = _find_spread_legs(client, sig.ticker, px, "CALL", budget,
+                            long_otm_pct=MOMENTUM_SPREAD_LONG_OTM_PCT,
+                            short_otm_pct=MOMENTUM_SPREAD_SHORT_OTM_PCT,
+                            min_width_pct=MOMENTUM_SPREAD_MIN_WIDTH_PCT,
+                            width_step=MOMENTUM_SPREAD_WIDTH_STEP)
+    if not leg or leg["net_debit"] * 100 > budget:
+        print(f"  ⏭️  {sig.ticker}: no liquid call spread fits ${budget:.0f}")
+        return False
+    # Belt and braces on direction: a bull call spread buys the LOWER strike.
+    # Anything else is a different trade than the signal asked for.
+    if not (leg["short_strike"] > leg["long_strike"]
+            and str(leg["long_occ"])[-9:-8] == "C" and str(leg["short_occ"])[-9:-8] == "C"):
+        print(f"  ⛔ {sig.ticker}: spread legs are not a bull call spread "
+              f"({leg['long_occ']} / {leg['short_occ']}) — refusing")
+        return False
+    _width = leg["short_strike"] - leg["long_strike"]
+    _cost = round(leg["net_debit"] * 100, 2)
+    plan = {
+        "ticker": sig.ticker, "current_price": px, "sets": 1,
+        "net_debit": leg["net_debit"],
+        "call": {**leg, "max_gain": round((_width - leg["net_debit"]) * 100, 2)},
+        "total_cost": _cost, "max_loss": _cost, "directional": "LONG",
+        "earn_date": _et_today().isoformat(), "timing": "",
+        "setup_tag": f"Momentum Call Spread — {sig.setup}",
+    }
+    oid, err = _submit_earnings_spread(client, plan)
+    if err:
+        print(f"  ❌ {sig.ticker} momentum spread failed: {err}")
+        send_telegram(f"❌ <b>{sig.ticker} call spread FAILED</b>\n{html.escape(str(err))}")
+        return False
+    try:
+        _open_earnings_spread_position(plan)
+    except Exception as exc:
+        send_telegram(
+            f"🚨 <b>{sig.ticker} call spread FILLED but NOT TRACKED</b>  id {str(oid)[:8]}…\n"
+            f"{leg['long_occ']} / {leg['short_occ']}  cost ${_cost:.0f} — tracking failed "
+            f"({html.escape(str(exc))}). No automated exit. Close it manually.")
+        return True
+    send_telegram(
+        f"📤 <b>{sig.ticker} CALL SPREAD placed</b> — {sig.setup}, score {sig.confluence_score}\n"
+        f"Buy {leg['long_strike']:g}C / sell {leg['short_strike']:g}C  exp {leg['expiry']}\n"
+        f"Cost ${_cost:.0f} = max loss · max gain ${plan['call']['max_gain']:.0f} "
+        f"above ${leg['short_strike']:g} · stock ${px:.2f}")
+    return True
+
+
 def _submission_risk_multiplier(size_mult: float) -> float:
     """Net position-size multiplier for this submit pass: global-context risk
     tone, win/loss streak, account probation, then the caller's size_mult,
@@ -24315,7 +24457,13 @@ def _submission_risk_multiplier(size_mult: float) -> float:
     _ctx = _fetch_global_context()
     _risk_off_mult = _ctx["risk_mult"]
     _ctx_tone = _ctx["tone"]
-    if _risk_off_mult != 1.0:
+    # Once per ET day per tone+multiplier. This runs on EVERY submission pass
+    # -- every few minutes in the daemon -- and on 2026-09-21 it re-sent the
+    # same RISK-ON 1.30x summary 31 times from one morning session, and
+    # quiet mode let every copy through because the text says "position".
+    _ctx_key = f"__GLOBAL_CTX__:{_et_today()}:{_ctx_tone}:{_risk_off_mult:.2f}"
+    if _risk_off_mult != 1.0 and not _is_duplicate_alert(_ctx_key, cooldown_min=24 * 60):
+        _save_last_alert(_ctx_key)
         _dir = "reduced" if _risk_off_mult < 1.0 else "boosted"
         _pct = abs(1 - _risk_off_mult) * 100
         send_telegram(
@@ -24892,10 +25040,20 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         # would either be rejected by the broker or, worse, silently
         # round up somewhere downstream and re-blow the exact budget this
         # was meant to protect.
+        # ...unless the signal can be expressed as an option. Shares sizing is
+        # the WRONG instrument test for a high-priced name in a small account:
+        # AMD scored a perfect 100 on 2026-09-21, one share was 22% of equity,
+        # and this check discarded it before the options branch below was
+        # ever reached. AMD closed +9.9%. Same miss as the week before. A call
+        # sized to the dollar budget is exactly what this account needs on a
+        # $500 stock, so an options-eligible signal goes on to that branch;
+        # if no contract fits, the guard before the shares path skips it.
         if sig.shares <= 0:
-            print(f"  ⏭️  {sig.ticker:<8} sizing failed — even 1 share exceeds the "
-                  f"risk budget for this stop distance — skipping")
-            continue
+            if not any(_options_route(sig)):
+                print(f"  ⏭️  {sig.ticker:<8} sizing failed — even 1 share exceeds the "
+                      f"risk budget for this stop distance — skipping")
+                continue
+            print(f"  ↪️  {sig.ticker:<8} shares unaffordable at this stop — routing to options")
 
         valid, cur = validate_entry_price(sig)
         drift_pct  = (cur - sig.entry) / sig.entry * 100
@@ -24974,8 +25132,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         # Breakdown) still fall through to equity regardless of ticker,
         # same as before — this only widens eligibility for setups already
         # proven in backtest, not a blanket "any LONG signal" gate.
-        _use_options = (ENABLE_OPTIONS_TRADING and sig.bias == "LONG"
-                        and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
+        _use_options, _use_puts = _options_route(sig)
+        _calls_route = _use_options
         # Puts: WATCHLIST membership OR a Bear Gap Hold signal — that setup is
         # one of the two most strictly-gated patterns in the system (gap%,
         # RVOL, RSI, MACD-confirmed, held-below-open, MTF+news-catalyst
@@ -24987,8 +25145,6 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         # correctly alerted, but had NO execution path — SHORT bias blocks
         # equity (ALLOW_SHORTS=False) and it wasn't in WATCHLIST (blocked
         # puts too) — a valid signal that could never become a trade.
-        _use_puts = (OPTIONS_ENABLE_PUTS and sig.bias == "SHORT"
-                     and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
         _opt_contract: dict | None = None
         oid: str | None = None
         _submit_err: str | None = None
@@ -24996,6 +25152,21 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
 
         _skip_options_attempt, _opt_contract, _use_options, _use_puts, oid = _submit_path_options_attempt(_opt_contract, _risk_off_mult, _use_options, _use_puts, cur, oid, sig)
         if _skip_options_attempt:
+            continue
+
+        # A signal let through the shares<=0 check above only because it was
+        # options-eligible: if no contract was placed, there is nothing left
+        # to trade -- the shares path must never see qty=0.
+        # The single call did not fit. On a high-priced name, one or two shares
+        # is not the trade either -- an ATM call spread for the same budget is.
+        if (_calls_route and not _use_options and not oid
+                and (sig.shares <= 0 or sig.entry >= MOMENTUM_SPREAD_MIN_PRICE)):
+            if _try_momentum_call_spread(sig, _risk_off_mult):
+                continue
+
+        if sig.shares <= 0 and not (_use_options or _use_puts):
+            print(f"  ⏭️  {sig.ticker:<8} no option fit the budget and even 1 share exceeds "
+                  f"the risk budget — skipping")
             continue
 
         _skip_shares, _naked_open, _submit_err, oid = _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attempted, _submit_err, _use_options, _use_puts, oid, sig)

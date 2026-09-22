@@ -15032,14 +15032,19 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
     -- _submit_signals_to_alpaca() must actually skip that signal, not
     attempt to submit a qty=0 order."""
 
-    def test_zero_share_signal_is_skipped_before_order_submission(self):
-        sig = a.ProSignal(
+    def _sig(self):
+        return a.ProSignal(
             ticker="TEST", bias="LONG", setup="Gap & Hold",
             entry=10.0, stop=9.0, target1=13.0, target2=16.0,
             rr=3.0, rsi=50.0, rvol=2.0, reason="test", confluence_score=90,
             shares=0, cost=0.0,
         )
-        with patch.object(a, "ALPACA_API_KEY", "test-key"), \
+
+    def test_zero_share_signal_is_skipped_before_order_submission(self):
+        # Not options-eligible: nothing can express it, so it stops here.
+        sig = self._sig()
+        with patch.object(a, "_options_route", return_value=(False, False)), \
+             patch.object(a, "ALPACA_API_KEY", "test-key"), \
              patch.object(a, "is_market_open", return_value=True), \
              patch.object(a, "is_halted", return_value=False), \
              patch.object(a, "WinRateTracker") as MockWRT, \
@@ -15062,6 +15067,40 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
             a._submit_signals_to_alpaca([sig])
         mock_validate.assert_not_called()
         mock_submit.assert_not_called()
+
+    def test_options_eligible_zero_share_signal_never_becomes_a_share_order(self):
+        """2026-09-21: AMD scored 100 and was discarded here because one share
+        was 22% of equity. An options-eligible signal now goes on to the
+        options branch -- but if no call or spread fits, it must still end
+        without a qty=0 equity order."""
+        sig = self._sig()
+        with patch.object(a, "_options_route", return_value=(True, False)), \
+             patch.object(a, "_submit_path_options_attempt",
+                          return_value=(False, None, False, False, None)), \
+             patch.object(a, "_try_momentum_call_spread", return_value=False) as spread, \
+             patch.object(a, "ALPACA_API_KEY", "test-key"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "WinRateTracker") as MockWRT, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "PositionTracker") as MockPT, \
+             patch.object(a, "validate_entry_price", return_value=(True, 10.0)), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
+             patch.object(a, "submit_alpaca_trade") as mock_submit, \
+             patch.object(a, "send_telegram", return_value=True):
+            MockWRT.return_value.rolling_stats.return_value = {
+                "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
+                "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0,
+            }
+            MockPT.return_value.positions = []
+            a._submit_signals_to_alpaca([sig])
+        spread.assert_called_once()        # it was given the chance a spread fits
+        mock_submit.assert_not_called()    # and no zero-share order followed
 
 
 class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
@@ -17862,3 +17901,158 @@ class TestPremarketScansDoNotUseYfinance(unittest.TestCase):
     def test_a_failed_batch_is_skipped_not_fatal(self):
         with patch.object(a.requests, "get", side_effect=OSError("down")):
             self.assertEqual(a._premarket_gaps(["AAA"]), {})
+
+
+class TestMomentumCallSpread(unittest.TestCase):
+    """2026-09-21: AMD scored a perfect 100 and one share was 22% of equity;
+    a single call on AMD, META or ARM cost more than the whole account. A call
+    debit spread for the SAME dollar budget is the instrument that fits."""
+
+    def _sig(self, **kw):
+        base = dict(ticker="AMD", bias="LONG", setup="Gap & Hold", entry=600.0,
+                    stop=590.0, target1=630.0, target2=660.0, rr=3.0, rsi=60.0,
+                    rvol=2.0, reason="t", confluence_score=100, shares=0, cost=0.0)
+        base.update(kw)
+        return a.ProSignal(**base)
+
+    def _leg(self, long_k=600.0, short_k=605.0, debit=2.5, lc="C", sc="C"):
+        return {"long_occ": f"AMD260925{lc}00{int(long_k*1000):06d}",
+                "short_occ": f"AMD260925{sc}00{int(short_k*1000):06d}",
+                "long_strike": long_k, "short_strike": short_k, "net_debit": debit,
+                "expiry": "2026-09-25", "dte": 4, "long_oi": 500, "short_oi": 500}
+
+    def _run(self, leg, submit=("oid123", None)):
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "_clamp_option_budget", return_value=400.0), \
+             patch.object(a, "_options_position_budget", return_value=400.0), \
+             patch.object(a, "_options_aggregate_room", return_value=""), \
+             patch.object(a, "get_live_price", return_value=600.0), \
+             patch.object(a, "_find_spread_legs", return_value=leg) as find, \
+             patch.object(a, "_submit_earnings_spread", return_value=submit) as sub, \
+             patch.object(a, "_open_earnings_spread_position") as rec, \
+             patch.object(a, "send_telegram"):
+            ok = a._try_momentum_call_spread(self._sig(), 1.0)
+        return ok, find, sub, rec
+
+    def test_a_fitting_spread_is_placed_and_recorded(self):
+        ok, find, sub, rec = self._run(self._leg())
+        self.assertTrue(ok)
+        plan = sub.call_args[0][1]
+        self.assertEqual(plan["setup_tag"], "Momentum Call Spread — Gap & Hold")
+        self.assertEqual(plan["max_loss"], 250.0)
+        self.assertEqual(plan["call"]["max_gain"], 250.0)
+        rec.assert_called_once()
+
+    def test_it_asks_for_a_CALL_spread(self):
+        """side='call' read as a put in the case-sensitive finder and built a
+        BEARISH spread on a bullish signal (caught in a dry run)."""
+        _, find, _, _ = self._run(self._leg())
+        self.assertEqual(find.call_args[0][3], "CALL")
+
+    def test_legs_that_are_not_a_bull_call_spread_are_refused(self):
+        for bad in (self._leg(long_k=605.0, short_k=600.0),   # inverted strikes
+                    self._leg(lc="P", sc="P")):                 # puts
+            ok, _, sub, _ = self._run(bad)
+            self.assertFalse(ok)
+            sub.assert_not_called()
+
+    def test_over_budget_or_missing_is_not_placed(self):
+        for leg in (None, self._leg(debit=4.5)):               # $450 > $400
+            ok, _, sub, _ = self._run(leg)
+            self.assertFalse(ok)
+            sub.assert_not_called()
+
+    def test_a_failed_submit_is_not_reported_as_placed(self):
+        ok, _, _, rec = self._run(self._leg(), submit=(None, "rejected"))
+        self.assertFalse(ok)
+        rec.assert_not_called()
+
+    def test_shorts_and_the_kill_switch_never_spread(self):
+        with patch.object(a, "get_alpaca_client") as cl:
+            self.assertFalse(a._try_momentum_call_spread(self._sig(bias="SHORT"), 1.0))
+            with patch.object(a, "ENABLE_MOMENTUM_SPREADS", False):
+                self.assertFalse(a._try_momentum_call_spread(self._sig(), 1.0))
+            cl.assert_not_called()
+
+    def test_the_finder_normalises_side_and_refuses_nonsense(self):
+        self.assertIsNone(a._find_spread_legs(MagicMock(), "AMD", 600.0, "sideways", 400))
+        src = inspect.getsource(a._find_spread_legs)
+        self.assertIn("side = str(side).upper()", src)
+
+    def test_earnings_geometry_is_unchanged_by_default(self):
+        sig = inspect.signature(a._find_spread_legs)
+        for name in ("long_otm_pct", "short_otm_pct", "min_width_pct", "max_width_pct"):
+            self.assertIsNone(sig.parameters[name].default)
+        self.assertEqual(sig.parameters["width_step"].default, 0.01)
+
+
+class TestSpreadPositionsAreAlwaysManaged(unittest.TestCase):
+    """Ten sites recognised a spread by the "Earnings " name prefix; a spread
+    under any other name would have been opened and never managed."""
+
+    def test_both_spread_kinds_are_spreads(self):
+        for s in ("Earnings Call Spread", "Earnings Double Spread",
+                  "Momentum Call Spread — Gap & Hold"):
+            self.assertTrue(a._is_spread_setup(s), s)
+        for s in ("Gap & Hold", "Options Call Gap & Hold", "", None):
+            self.assertFalse(a._is_spread_setup(s), s)
+
+    def test_no_site_still_tests_the_raw_prefix(self):
+        src = inspect.getsource(a)
+        hits = [l.strip() for l in src.splitlines()
+                if 'startswith("Earnings ")' in l]
+        self.assertEqual(len(hits), 1, hits)            # only the stats-family map
+        self.assertIn("stats family", hits[0])
+
+    def test_a_momentum_spread_keeps_its_own_stats_family(self):
+        src = inspect.getsource(a)
+        i = src.index('if setup.startswith("Momentum Call Spread"):')
+        self.assertIn('return "Momentum Call Spread"', src[i:i + 120])
+
+    def test_the_position_record_honours_the_tag(self):
+        src = inspect.getsource(a._open_earnings_spread_position)
+        self.assertIn('plan.get("setup_tag")', src)
+
+
+class TestSubmitLoopRoutesToSpreads(unittest.TestCase):
+
+    def test_spread_is_tried_only_after_a_call_did_not_fit(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i = src.index("_try_momentum_call_spread(")
+        pre = src[max(0, i - 400):i]
+        self.assertIn("_calls_route and not _use_options and not oid", pre)
+        self.assertIn("MOMENTUM_SPREAD_MIN_PRICE", pre)
+        self.assertLess(src.index("_submit_path_options_attempt("), i)
+        self.assertLess(i, src.index("_submit_path_shares("))
+
+
+class TestTelegramFixes20260921(unittest.TestCase):
+
+    def test_a_fill_is_never_suppressed(self):
+        """"fill " with a trailing space missed '⚡ <b>FILL</b> — ...'."""
+        self.assertTrue(a._telegram_worth_sending(
+            "\u26a1 <b>FILL</b> \u2014 RXRX261002C00001000 BUY \u00d71 @ $3"))
+
+    def test_global_context_is_sent_once_per_day_per_tone(self):
+        src = inspect.getsource(a._submission_risk_multiplier)
+        self.assertIn("__GLOBAL_CTX__", src)
+        self.assertIn("cooldown_min=24 * 60", src)
+        self.assertIn("_et_today()", src)
+
+
+class TestMarketWideScreenSeesHighPricedGappers(unittest.TestCase):
+    """INTC gapped +7.3% from $108 on 2026-09-21 and was never seen: it is not
+    on the watchlist and a hard-coded $100 cap removed it from the screen."""
+
+    def test_a_high_priced_gapper_survives_the_screen(self):
+        snaps = {"INTC": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 116.5,
+                                       "c": 121.8, "v": 90_000_000},
+                          "prevDailyBar": {"c": 108.6}}}
+        r = MagicMock(); r.status_code = 200; r.json.return_value = snaps
+        with patch.object(a, "_all_tradable_us_equities", return_value=list(snaps)), \
+             patch.object(a.requests, "get", return_value=r):
+            self.assertIn("INTC", a.screen_market_wide(verbose=False))
+
+    def test_the_cap_is_a_named_constant(self):
+        self.assertNotIn("<= 100.0", inspect.getsource(a.screen_market_wide))
+        self.assertGreaterEqual(a.MARKET_SCAN_MAX_PRICE, 1000.0)

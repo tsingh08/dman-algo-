@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:09:32.067805-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T10:09:32.678768-04:00",
     "symbols": [
       "ARM"
@@ -5059,5 +5049,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T09:55:05.721354-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Dan Ives Says Tech Stocks Are in a &#39;1997 Moment&#39; as Tom Lee Predicts: \u2018Probability of a Massive Rally\u2019 Ahead",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

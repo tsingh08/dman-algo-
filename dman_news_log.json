@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.875466-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says Tesla Has Offered FSD to Legacy Automakers, but \u2018None\u2019 Have Accepted So Far",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.880442-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nvidia, Apple Drive Demand for Coinbase-Issued Tokenized Stocks\u2014 Brian Armstrong Notes &#39;Good Traction So Far&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.884733-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SpaceX, Tesla Share Chips, Robots And Compute; Morgan Stanley Calls It A &#39;Shared Mission&#39; To Turn Energy Into Intelligence: Merger Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.971971-04:00",
     "symbols": [
       "NFLX"
@@ -5056,6 +5026,37 @@
     ],
     "headline": "Apple Takes Aim at Nvidia\u2019s AI Economics: New Macs Have \u2018No Cost per Token,\u2019 Hardware Chief Says",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T15:40:53.364289-04:00",
+    "symbols": [
+      "RKLB",
+      "SPCX"
+    ],
+    "headline": "SpaceX Is Winding Down Falcon 9 as a Launch Crunch Looms: Can Rocket Lab&#39;s Neutron Fill the Gap?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T15:41:11.130909-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Takes Aim at Nvidia\u2019s AI Economics: New Macs Have \u2018No Cost per Token,\u2019 Hardware Chief Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T15:41:11.417529-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Apple Takes Aim at Nvidia\u2019s AI Economics: New Macs Have \u2018No Cost per Token,\u2019 Hardware Chief Says",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

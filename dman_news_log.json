@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.971971-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Stock Has \u2018a Heck of a Lot of Bad News Priced in,\u2019 Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.977281-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Paramount&#39;s $110B Warner Bros. Discovery Merger Clears Legal Hurdle; Elizabeth Warren Says Letting Trump-Aligned Entity &#39;Dominate&#39; News Is &#39;Disastrous&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T09:25:40.123556-04:00",
     "symbols": [
       "AVGO"
@@ -5056,6 +5036,26 @@
       "NVDA"
     ],
     "headline": "Apple Takes Aim at Nvidia\u2019s AI Economics: New Macs Have \u2018No Cost per Token,\u2019 Hardware Chief Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T15:41:13.875576-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "SpaceX Is Winding Down Falcon 9 as a Launch Crunch Looms: Can Rocket Lab&#39;s Neutron Fill the Gap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T15:41:18.059541-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Is Winding Down Falcon 9 as a Launch Crunch Looms: Can Rocket Lab&#39;s Neutron Fill the Gap?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

@@ -4867,6 +4867,62 @@ class TestAlertDedupUsesEtClock(unittest.TestCase):
         self.assertTrue(a._is_alerted_today("ROUNDTRIP_KEY"))
 
 
+class TestIsDuplicateAlertSeesMarkAlertedKeys(unittest.TestCase):
+    """Found in the 2026-09-22 review: several Telegram-alert sites pair
+    _is_duplicate_alert() (which read only LAST_ALERTS_FILE) with
+    _mark_alerted() (which writes _ALERT_DEDUP_FILE) -- PDT status,
+    __SETUP_KILLED__, __NONWL_SIGNAL__, __NEWS_FIRST_*, __OPT_AGG_CAP__.
+    The key they marked was invisible to the check, so their cooldown
+    never engaged and the "deduped" alert re-fired on every scan pass
+    (confirmed live 2026-09-22: __SETUP_KILLED__:Low Float Catalyst
+    re-alerted all morning while IMCC signals repeated).
+    _is_duplicate_alert() now reads BOTH stores."""
+
+    def setUp(self):
+        self._dedup_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._dedup_tmp.write(b"{}")
+        self._dedup_tmp.close()
+        self._last_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        self._last_tmp.write(b"{}")
+        self._last_tmp.close()
+        self._patches = [
+            patch.object(a, "_ALERT_DEDUP_FILE", self._dedup_tmp.name),
+            patch.object(a, "LAST_ALERTS_FILE", self._last_tmp.name),
+        ]
+        for p in self._patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        for f in (self._dedup_tmp.name, self._last_tmp.name):
+            try:
+                os.unlink(f)
+            except OSError:
+                pass
+
+    def test_mark_alerted_key_now_suppresses_within_cooldown(self):
+        self.assertFalse(a._is_duplicate_alert("__PDT_ZERO_STATUS_3__", 240))
+        a._mark_alerted("__PDT_ZERO_STATUS_3__")
+        self.assertTrue(a._is_duplicate_alert("__PDT_ZERO_STATUS_3__", 240))
+
+    def test_save_last_alert_key_still_suppresses(self):
+        a._save_last_alert("__SETUP_PERF_DRIFT__")
+        self.assertTrue(a._is_duplicate_alert("__SETUP_PERF_DRIFT__"))
+
+    def test_cooldown_expiry_still_honoured_for_mark_alerted_keys(self):
+        stale = (datetime.now(a.ET) - timedelta(minutes=500)).isoformat()
+        with open(self._dedup_tmp.name, "w") as f:
+            json.dump({"__PDT_ZERO_STATUS_3__": stale}, f)
+        self.assertFalse(a._is_duplicate_alert("__PDT_ZERO_STATUS_3__", 240))
+        self.assertTrue(a._is_duplicate_alert("__PDT_ZERO_STATUS_3__", 600))
+
+    def test_corrupt_timestamp_fails_open(self):
+        with open(self._dedup_tmp.name, "w") as f:
+            json.dump({"BAD": "not-a-date"}, f)
+        self.assertFalse(a._is_duplicate_alert("BAD"))
+
+
 class TestHasPendingReplyPrompt(unittest.TestCase):
     """Added 2026-08-23: both _handle_manual_options_buy_reply() and
     _handle_earnings_approval_reply() return False on any plain-text reply

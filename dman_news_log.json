@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T12:09:46.622931-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T12:09:51.510193-04:00",
     "symbols": [
       "PRTH"
@@ -5055,5 +5045,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T12:26:06.851113-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple Is Developing New Fitness Tracker Aimed at Rivaling Whoop&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

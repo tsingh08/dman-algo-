@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.644774-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Big Tech\u2019s AI Debt Spree Hits a Wall as Bond Investors Demand Higher Yields From Alphabet, Meta and Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.648969-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Economist Justin Wolfers Warns AI Could Leave Workers Earning \u2018Two Pennies an Hour\u2019 While OpenAI Gets \u2018Infinitely Rich\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.787710-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cardano Joins Solana, XRP in AI Payments Race as ADA Surges 8%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.792178-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Accenture Partners With Amazon Web Services To Support Mid-Market Firm To Accelerate Adoption Of Technology Transformation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.796769-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;China Probes DeepSeek, Moonshot Over Potential Data Leaks to Anthropic&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.801084-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Chamath Palihapitiya Warns Amazon\u2019s Blocking of Meta\u2019s Muse AI Signals Bigger Battle Ahead: &#39;Everyone Will Start Blocking Everyone&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.805444-04:00",
     "symbols": [
       "AMZN"
@@ -5057,5 +4997,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T15:12:43.482382-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Ukraine&#39;s Zelenskiy Says He Asked Trump For Winter Package Of Patriot Missiles; Says Ukraine Needs Patriot Licenses And Security Guarantees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T15:12:44.291490-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Ukraine&#39;s Zelenskiy Says He Asked Trump For Winter Package Of Patriot Missiles; Says Ukraine Needs Patriot Licenses And Security Guarantees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:12:51.774047-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Ukraine&#39;s Zelenskiy Says He Is Ready To Meet Putin In Trilateral Format With Trump; Reiterates Energy Ceasefire Would Be First Step To End War",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:13:07.174959-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Ukraine&#39;s Zelenskiy Says Trump Made No Request In Meeting For Ukraine To Stop Energy Strikes Unilaterally",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:13:27.656683-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Ukraine&#39;s Zelenskiy Says He Hopes Trump Will Use Lindsey Graham Russia Sanctions Law If Putin Declines To De-Escalate",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:13:51.477963-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Ukraine&#39;s Zelenskiy Says Risk Of Russia Launching Drone Or Land Operations Against Other European Countries Is High; Says Putin Is Not Winning On Battlefield",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

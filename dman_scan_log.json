@@ -1,53 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:33:50.806290-04:00",
-    "regime": "CHOP",
-    "regime_score": 14,
-    "vix": 14.7,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 294,
-    "signals": 2,
-    "signal_tickers": [
-      "AMDL",
-      "AXTX"
-    ],
-    "signal_scores": [
-      100,
-      94
-    ],
-    "rejected_no_signal": 287,
-    "rejected_hard_gate": 5,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 94.9,
-    "news_breadth_total": 156
-  },
-  {
-    "ts": "2026-09-21T10:35:58.816234-04:00",
-    "regime": "CHOP",
-    "regime_score": 14,
-    "vix": 14.7,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 294,
-    "signals": 2,
-    "signal_tickers": [
-      "AMDL",
-      "AXTX"
-    ],
-    "signal_scores": [
-      100,
-      94
-    ],
-    "rejected_no_signal": 287,
-    "rejected_hard_gate": 5,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 95.1,
-    "news_breadth_total": 162
-  },
-  {
     "ts": "2026-09-21T10:46:06.340797-04:00",
     "regime": "CHOP",
     "regime_score": 14,
@@ -2776,5 +2728,41 @@
     "budget_hit": false,
     "news_breadth_pct": 89.7,
     "news_breadth_total": 383
+  },
+  {
+    "ts": "2026-09-22T15:12:57.078200-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 14.2,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 302,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 300,
+    "rejected_hard_gate": 2,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 89.6,
+    "news_breadth_total": 382
+  },
+  {
+    "ts": "2026-09-22T15:13:11.858165-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 14.2,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 302,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 300,
+    "rejected_hard_gate": 2,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 89.5,
+    "news_breadth_total": 382
   }
 ]

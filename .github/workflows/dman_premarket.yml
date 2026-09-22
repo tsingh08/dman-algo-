@@ -103,6 +103,8 @@ jobs:
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           hhmm=$(TZ=America/New_York date +%H%M); dow=$(TZ=America/New_York date +%u)
           if [ "$dow" -gt 5 ] || [ "$hhmm" -lt 0730 ] || [ "$hhmm" -ge 0910 ]; then
@@ -115,5 +117,25 @@ jobs:
             echo "A daemon run is already active — not dispatching another."
             exit 0
           fi
-          gh workflow run dman_daemon.yml -R "$GITHUB_REPOSITORY" --ref main
-          echo "Daemon dispatched at $hhmm ET — it will hold until 9:10 and run the morning session."
+          # Dispatch, then CONFIRM GitHub picked the run up -- a dispatch that
+          # silently never starts would leave the day untraded with nothing
+          # said. Retry once; only if that also fails, tell the user.
+          confirmed() {
+            for i in 1 2 3 4 5 6 7 8 9; do
+              sleep 10
+              n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow dman_daemon.yml --limit 5                     --json status,event -q '[.[] | select(.event=="workflow_dispatch" and
+                    (.status=="in_progress" or .status=="queued"))] | length')
+              [ "${n:-0}" -gt 0 ] && return 0
+            done
+            return 1
+          }
+          for attempt in 1 2; do
+            gh workflow run dman_daemon.yml -R "$GITHUB_REPOSITORY" --ref main || true
+            if confirmed; then
+              echo "Daemon run confirmed (attempt $attempt) at $hhmm ET — it holds until 9:10, then runs the morning session."
+              exit 0
+            fi
+            echo "Daemon run not confirmed on attempt $attempt"
+          done
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"             -d "chat_id=${TELEGRAM_CHAT_ID}" -d "parse_mode=HTML"             --data-urlencode "text=⚠️ <b>Trading session did not start</b> — two dispatches were not picked up by GitHub. Send /restart, or it starts on its own schedule (often hours late)." || true
+          exit 1

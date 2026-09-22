@@ -1,149 +1,5 @@
 [
   {
-    "ts": "2026-09-21T15:02:26.172017-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Stocks Jump On Iran, China, and Bitcoin Hopium\u2014But The Big Conflicts Have Not Gone Away",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:02:26.176536-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Trump, Greenland Deal Puts Rare-Earth ETFs In Focus: Funds to Watch as US Targets China\u2019s Supply Chain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:02:29.029927-04:00",
-    "symbols": [
-      "NTR"
-    ],
-    "headline": "President Trump, On Social Media, Says U.S. Working On Massive Deal Towards Purchase Of Potash From Belarus; The Pricing Would Be For Substantially Less Than We Are Currently Paying To Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:07:40.110277-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bitcoin Trails Nasdaq This Year: Why One Analyst Calls It \u2018Helpful\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T15:07:45.956620-04:00",
-    "symbols": [
-      "CRMX"
-    ],
-    "headline": "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:07:46.210622-04:00",
-    "symbols": [
-      "CRMU"
-    ],
-    "headline": "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:07:47.722364-04:00",
-    "symbols": [
-      "CRML"
-    ],
-    "headline": "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:09:48.037685-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "QUICK SPARK: Meta Stock Adds Over $200 Billion in Value Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T15:09:59.003091-04:00",
-    "symbols": [
-      "DDOG",
-      "FTNT",
-      "NBIS",
-      "ZS"
-    ],
-    "headline": "Shares of software companies are trading higher amid overall market strength and easing inflation concerns as investors return to AI-related companies. Investors may be taking confidence in Accenture&#39;s five-year partnership with Anthropic to embed evaluators to alongside AI development teams.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:12:52.930071-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump Administration Proposes $5 Billion To Kickstart Investment Fund To Rebuild Gulf Energy Sites; Proposal Is Under Discussion With Several Middle Eastern Countries Including Saudi Arabia And U.A.E.&#39; - WSJ Exclusive",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:24:19.485030-04:00",
-    "symbols": [
-      "GRPN"
-    ],
-    "headline": "Groupon Stock Climbs Monday: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:24:19.490294-04:00",
-    "symbols": [
-      "GRPN"
-    ],
-    "headline": "Groupon Shareholder Nick Nemeth Urges Board For Faster Buybacks, $120M Cash Target And 10b5-1 Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T15:33:43.545902-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Shares of Tesla are trading higher, possibly due to the company reopening Roaderster reservations ahead of its October 1st event. The company is also scheduled to host an exclusive Semi event on September 24th.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T15:40:18.905009-04:00",
-    "symbols": [
-      "ETN",
-      "SMR"
-    ],
-    "headline": "Shares of electronic equipment-related companies are trading higher, possibly amid overall market strength and sliding oil prices that ease inflation concerns. The industry, which provides infrastructure needs, may be moving alongside the AI sector&#39;s rally.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T15:47:10.024321-04:00",
     "symbols": [
       "FJET"
@@ -5059,5 +4915,145 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:16:40.489785-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barkin Says Businesses And Institutions Are Less Reluctant To Make Investment And Spending Decisions After Era Of Uncertainty; Would Not Yet Make An Overheating Case, But Economy Is Firming And Not Weakening; Many Businesses Still Feel They Have Pricing Power; Tempering Business Expectations About Inflation May Help Cool Price Pressures Versus Needing To Rely On Demand Destruction; Banking Conditions Right Now Seem Very Healthy",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:19:50.475526-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:19:50.552811-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:19:52.650063-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:19:53.223801-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:19:53.998576-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:19:54.082341-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:19:55.536087-04:00",
+    "symbols": [
+      "VKTX"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:19:56.231178-04:00",
+    "symbols": [
+      "VICR"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:19:57.514480-04:00",
+    "symbols": [
+      "THO"
+    ],
+    "headline": "THOR Industries CEO Says RV Recovery Never Arrived",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-22T14:19:57.519606-04:00",
+    "symbols": [
+      "THO"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow, Futures Gain Nasdaq 100 Slips as Trump Administration Targets Iranian Airlines\u2014 Lennar, Greenland Mines, Accenture in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-22T14:19:57.524699-04:00",
+    "symbols": [
+      "THO"
+    ],
+    "headline": "Earnings Scheduled For September 22, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-22T14:19:57.529637-04:00",
+    "symbols": [
+      "THO"
+    ],
+    "headline": "Thor Industries Q4 EPS $0.78 Misses $0.96 Estimate, Sales $2.312B Beat $2.168B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-22T14:19:57.534541-04:00",
+    "symbols": [
+      "THO"
+    ],
+    "headline": "Nasdaq Surges To Record Amid Easing Oil And Yields: Investor Sentiment Improves, But Fear &amp; Greed Index Remains In \u2018Fear\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

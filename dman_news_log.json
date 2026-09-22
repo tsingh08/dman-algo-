@@ -1,129 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:45:44.570090-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta\u2019s Muse&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:48:43.365352-04:00",
-    "symbols": [
-      "COIN",
-      "HOOD",
-      "MARA",
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:51:40.260992-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Social Media, Says U.S. Working On Massive Deal With Towards Purchase Of Potash From Belarus; The Pricing Would Be For Substantially Less Than We Are Currently Paying To Canada",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:55:53.331794-04:00",
-    "symbols": [
-      "QQQ",
-      "SPCX"
-    ],
-    "headline": "SpaceX\u2019s Nasdaq-100 Weight Just More Than Doubled. Here\u2019s Where ETF Money Is Heading",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:58:06.732405-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Stock Is Surging: What&#39;s Happening Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:58:21.296751-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:58:22.433798-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:58:22.579422-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:58:22.715634-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Surge as $400 Million in Shorts Get Liquidated",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:58:24.784284-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Social Media, Says U.S. Working On Massive Deal Towards Purchase Of Potash From Belarus; The Pricing Would Be For Substantially Less Than We Are Currently Paying To Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:58:24.907073-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "SpaceX\u2019s Nasdaq-100 Weight Just More Than Doubled. Here\u2019s Where ETF Money Is Heading",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T10:59:37.321867-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Trade Representative Greer Says Boeing Is Making Progress On Finalizing 200 Chinese Airplane Orders Announced Earlier This Year",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:00:19.033307-04:00",
     "symbols": [
       "ABBV",
@@ -5057,5 +4933,125 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:37:07.620345-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Trending After Launching AI-Powered Cyber Defense Service",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:37:30.292297-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:37:31.838074-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:34.777640-04:00",
+    "symbols": [
+      "TOPS"
+    ],
+    "headline": "TOP Ships Stock Loses Steam After Management Comments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:35.153704-04:00",
+    "symbols": [
+      "VKTX"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:35.484245-04:00",
+    "symbols": [
+      "MAZE"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:35.630654-04:00",
+    "symbols": [
+      "BFLY"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:35.717287-04:00",
+    "symbols": [
+      "VICR"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:36.039230-04:00",
+    "symbols": [
+      "OMER"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:36.727842-04:00",
+    "symbols": [
+      "SHOP"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:37:36.912178-04:00",
+    "symbols": [
+      "GRAB"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:37:37.202615-04:00",
+    "symbols": [
+      "CPRI"
+    ],
+    "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-21T09:57:25.627384-04:00",
-    "symbols": [
-      "LOBO"
-    ],
-    "headline": "LOBO TECHNOLOGIES Shares Halted On Circuit Breaker To The Upside, Stock Now Up 77.36%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T09:57:27.009745-04:00",
-    "symbols": [
-      "STKE"
-    ],
-    "headline": "11 Financials Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T09:57:27.158902-04:00",
-    "symbols": [
-      "WBD"
-    ],
-    "headline": "Warner Bros Discovery Stock Nears 52-Week High Amid Paramount Settlement Talks with California AG",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T09:57:27.162414-04:00",
-    "symbols": [
-      "WBD"
-    ],
-    "headline": "&#39;Trump to be sued by MS NOW, CNN, Politico to reverse White House ban&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T09:57:27.166542-04:00",
-    "symbols": [
-      "WBD"
-    ],
-    "headline": "Paramount Reportedly Nears California AG Deal to Clear WBD Merger Hurdle, Weighs $1.5 Billion Investment \u2014 PSKY, WBD Surge Over 7% (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T09:57:27.170173-04:00",
     "symbols": [
       "WBD"
@@ -5059,6 +5009,59 @@
     ],
     "headline": "China Slams Brakes on Humanoid Robot IPOs After Unitree\u2019s 55% Plunge \u2014 Tesla Optimus Faces Commercialization Test",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T09:36:25.089345-04:00",
+    "symbols": [
+      "BABA",
+      "GOOGL",
+      "META",
+      "NVDA"
+    ],
+    "headline": "Sovereign AI Isn\u2019t so Sovereign: Meta\u2019s Llama Powers 38% of Adapted Models",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T09:36:43.604675-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Sovereign AI Isn\u2019t so Sovereign: Meta\u2019s Llama Powers 38% of Adapted Models",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T09:36:43.906339-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Sovereign AI Isn\u2019t so Sovereign: Meta\u2019s Llama Powers 38% of Adapted Models",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T09:36:44.074245-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Sovereign AI Isn\u2019t so Sovereign: Meta\u2019s Llama Powers 38% of Adapted Models",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T09:36:46.766099-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Sovereign AI Isn\u2019t so Sovereign: Meta\u2019s Llama Powers 38% of Adapted Models",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

@@ -1,60 +1,5 @@
 [
   {
-    "ts": "2026-09-18T15:50:22.071920-04:00",
-    "symbols": [
-      "ELOX"
-    ],
-    "headline": "Leerink Partners Initiates Coverage On Eloxx Pharma with Outperform Rating, Announces Price Target of $32",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T15:50:22.269166-04:00",
-    "symbols": [
-      "NGVC"
-    ],
-    "headline": "This Cue Biopharma Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T15:50:22.274219-04:00",
-    "symbols": [
-      "NGVC"
-    ],
-    "headline": "B of A Securities Initiates Coverage On Natural Grocers with Buy Rating, Announces Price Target of $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T15:51:03.733701-04:00",
-    "symbols": [
-      "AMAT",
-      "KLAC"
-    ],
-    "headline": "Shares of chip and semiconductor companies are trading higher as the industry extends yesterday&#39;s rally. Strength may also be due to reports suggesting that SK Hynix&#39;s subsidiary is considering building a NAND flash memory chip factory in the U.S.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-18T15:53:48.096373-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "GS",
-      "JPM",
-      "NVDA"
-    ],
-    "headline": "NScale Announces IPO Of Ordinary Shares; To On NYSE Under Symbol &#39;NSCL&#39;; Goldman Sachs, J.P. Morgan, Morgan Stanley Lead Bookrunners; Says For The 6-Months Ended June 30, 2026 And 2025, We Generated Revenues Of $140.6M And $10.4M, Respectively; Says Do Not Anticipate Paying Any Cash Dividends On Our Ordinary Shares In The Foreseeable Future; As Of August 31, About $2.6B Of Active, $103.4B Of Active And Contracted TCV Under Long-Term Take-Or-Pay Contracts With Customers",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T16:02:26.916483-04:00",
     "symbols": [
       "WBUY"
@@ -5080,5 +5025,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T09:10:33.082684-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "&#39;Vance-Led Task Force Set to Remove 760,000 Allegedly Fraudulent Obamacare Enrollments&#39; - WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T09:10:53.033135-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Terrestrial Energy shares are trading higher after Roth Capital initiated coverage on the stock with a Buy rating and announced a $15 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T09:12:46.408764-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T09:13:49.571690-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "This Marathon Petroleum Analyst Is No Longer Bullish; Here Are Top 4 Downgrades For Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T09:22:20.936918-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Analyst Calls Neutron Launch the \u2018Most Material Catalyst\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

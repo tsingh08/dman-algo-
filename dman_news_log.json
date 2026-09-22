@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:11:17.103101-04:00",
-    "symbols": [
-      "PRTH"
-    ],
-    "headline": "Priority Technology Stock Surges Monday: What&#39;s Driving the Action?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:17:25.494355-04:00",
     "symbols": [
       "XOM"
@@ -5054,5 +5044,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:59:22.105943-04:00",
+    "symbols": [
+      "AMZN",
+      "META",
+      "PANW"
+    ],
+    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

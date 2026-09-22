@@ -10980,6 +10980,44 @@ def _pmb_weekend_section(now_et):
     return weekend_section
 
 
+# Overnight abroad, read through US-listed ADRs. A direct Asia/London account
+# was weighed on 2026-09-22 and deferred: Alpaca is US-only, a second broker
+# brings stamp duty (0.5% on UK buys), FX and per-exchange data fees that eat a
+# sub-1% per-trade edge on a $2.6k account, and nothing here has been tested
+# outside US names. An ADR's pre-market print IS its home session's verdict,
+# already on the SIP feed, and the market-wide screen already makes a gapping
+# ADR tradeable. This is information for the briefing -- it adds no score
+# points, because nothing yet shows an overseas move predicts anything here.
+OVERSEAS_ADRS = {
+    "TSM": "Taiwan", "BABA": "Hong Kong", "PDD": "China", "JD": "Hong Kong",
+    "BIDU": "Hong Kong", "NIO": "Hong Kong", "LI": "Hong Kong", "XPEV": "Hong Kong",
+    "TCOM": "Hong Kong", "SONY": "Tokyo", "TM": "Tokyo", "HMC": "Tokyo",
+    "MUFG": "Tokyo", "INFY": "Mumbai", "SE": "Singapore", "GRAB": "Singapore",
+    "ASML": "Amsterdam", "SAP": "Frankfurt", "NVO": "Copenhagen", "SPOT": "Stockholm",
+    "SHEL": "London", "BP": "London", "AZN": "London", "HSBC": "London",
+    "UL": "London", "RIO": "London", "ARM": "London",
+}
+OVERSEAS_MIN_GAP_PCT = 2.0
+OVERSEAS_MAX_LINES = 6
+
+
+def _pmb_overseas_section() -> str:
+    """Briefing lines for ADRs moving >= OVERSEAS_MIN_GAP_PCT pre-market, or ""."""
+    try:
+        gaps = _premarket_gaps(list(OVERSEAS_ADRS))
+    except Exception as exc:
+        _log_swallowed("overseas section", exc)
+        return ""
+    movers = sorted(((g[2], sym) for sym, g in gaps.items()
+                     if abs(g[2]) >= OVERSEAS_MIN_GAP_PCT), key=lambda x: -abs(x[0]))
+    if not movers:
+        return ""
+    lines = [f"  {'🟢' if gp > 0 else '🔴'} <b>{sym}</b> {gp:+.1f}%  ({OVERSEAS_ADRS[sym]})"
+             for gp, sym in movers[:OVERSEAS_MAX_LINES]]
+    return ("\n\n🌏 <b>OVERNIGHT ABROAD</b> — ADRs pricing in their home session\n"
+            + "\n".join(lines))
+
+
 def _pmb_gap_watch(gap_lines):
     """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
     Returns: near_gap_lines.
@@ -11451,6 +11489,7 @@ def run_premarket_briefing() -> None:
         f"{_milestone_section}"
         f"{weekend_section}"
         f"{gap_section}"
+        f"{_pmb_overseas_section()}"
         f"{earnings_section}"
         f"{suggestion_line}"
     )

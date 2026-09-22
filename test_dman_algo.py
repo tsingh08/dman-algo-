@@ -18450,3 +18450,31 @@ class TestCatalystGradingIsWordAware(unittest.TestCase):
 
     def test_a_headline_naming_its_ticker_credits_only_that_ticker(self):
         self.assertIn('re.findall(r"\\(([A-Z]{1,5})\\)"', inspect.getsource(a.scan_news_catalysts))
+
+
+class TestOvernightAbroadSection(unittest.TestCase):
+    """Asia/London read through US-listed ADRs: information, not score."""
+
+    def test_movers_are_listed_by_size_with_their_home_market(self):
+        gaps = {"TSM": (110.0, 105.0, 4.8), "SHEL": (70.0, 71.5, -2.1), "SONY": (20.0, 19.9, 0.5)}
+        with patch.object(a, "_premarket_gaps", return_value=gaps):
+            out = a._pmb_overseas_section()
+        self.assertIn("TSM</b> +4.8%  (Taiwan)", out)
+        self.assertIn("SHEL</b> -2.1%  (London)", out)
+        self.assertNotIn("SONY", out)                       # under the 2% floor
+        self.assertLess(out.index("TSM"), out.index("SHEL"))
+
+    def test_a_quiet_night_adds_nothing(self):
+        with patch.object(a, "_premarket_gaps", return_value={}):
+            self.assertEqual(a._pmb_overseas_section(), "")
+
+    def test_a_data_failure_adds_nothing(self):
+        with patch.object(a, "_premarket_gaps", side_effect=OSError("down")):
+            self.assertEqual(a._pmb_overseas_section(), "")
+
+    def test_it_adds_no_score_points(self):
+        for fn in (a.score_signal, a._catalyst_points):
+            self.assertNotIn("OVERSEAS", inspect.getsource(fn))
+
+    def test_it_is_in_the_briefing(self):
+        self.assertIn("_pmb_overseas_section()", inspect.getsource(a.run_premarket_briefing))

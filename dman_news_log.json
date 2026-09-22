@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:30:58.749693-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Market-Moving News for September 21st",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:30:58.753977-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Why Is Critical Metals Stock Soaring Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:30:58.758231-04:00",
     "symbols": [
       "GLND"
@@ -5059,5 +5039,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:30:39.569998-04:00",
+    "symbols": [
+      "AAPL",
+      "META"
+    ],
+    "headline": "Why Billionaire Tim Draper Calls Apple, Meta &#39;Irresponsible&#39; for Not Holding Bitcoin",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:30:47.543817-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "$1000 Invested In AppLovin 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:55:23.573297-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "$6.51 Diesel Should Be Crushing the Economy: Here\u2019s Why It Has Rarely Grown Faster",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T11:55:23.693148-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "$6.51 Diesel Should Be Crushing the Economy: Here\u2019s Why It Has Rarely Grown Faster",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T11:55:25.929412-04:00",
-    "symbols": [
-      "LOBO"
-    ],
-    "headline": "Lobo Technologies Stock Surges Monday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:55:27.040309-04:00",
-    "symbols": [
-      "NUAI"
-    ],
-    "headline": "New Era Locks In 20-Year Vistra Power Deal For Texas AI Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:02:03.311200-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Mersen Tapped By GE Vernova To Provide Complete Current Transmission Systems For Synchronous Condensers In Saudi Arabia",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T12:04:39.485959-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Crude Oil Down 4%; Intel Shares Move Higher",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:05:54.341082-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "This Flutter Entertainment Analyst Is No Longer Bullish; Here Are Top 2 Downgrades For Monday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:08:34.891363-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "This Flutter Entertainment Analyst Is No Longer Bullish; Here Are Top 2 Downgrades For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:08:35.643420-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T12:08:36.620343-04:00",
     "symbols": [
       "GEV"
@@ -5045,6 +4955,96 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:52:42.638995-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:52:42.882083-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:52:43.126667-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:52:43.130185-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:52:43.361340-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:52:43.812331-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:52:51.581929-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Danish Government Says U.S. Will Be Allowed To Establish Additional Defense Area At Narsarsuaq And Mestersvig In Greenland; Parties Support Stronger NATO Arctic Engagement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:52:51.585465-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Danish Prime Minister Mette Frederiksen Says U.S. Adversaries Won&#39;t Get Control Or Significant Influence In Greenland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:52:51.588750-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "No Warren Buffett, No Problem: Former Hedge Funder Says Berkshire Stock \u2018Likely to Beat the S&amp;P 500 Over the Next Five Years\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   },
   {
     "ts": "2026-09-22T11:55:17.906669-04:00",

@@ -23,6 +23,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: read
+      actions: write    # dispatch the trading daemon ahead of the open (last step)
 
     steps:
       - name: Checkout repo
@@ -88,3 +89,28 @@ jobs:
           )
           sys.exit(result.returncode)
           EOF
+
+      # Start the trading daemon from here. Its own 9:23 cron has fired hours
+      # late (11:55 AM on 2026-08-03; a watchdog dispatch at 9:36 on
+      # 2026-09-21), and this briefing is the one run that reliably lands
+      # before the open. The daemon holds until 9:10 ET when dispatched early,
+      # and shares a cancel-in-progress group with its scheduled runs, so if
+      # the 9:23 cron does fire on time it replaces this one -- never two.
+      - name: Make sure the trading daemon is up for the open
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          hhmm=$(TZ=America/New_York date +%H%M); dow=$(TZ=America/New_York date +%u)
+          if [ "$dow" -gt 5 ] || [ "$hhmm" -lt 0730 ] || [ "$hhmm" -ge 0910 ]; then
+            echo "Outside the 7:30-9:10 ET weekday window ($hhmm) — leaving the daemon to its own schedule."
+            exit 0
+          fi
+          active=$(gh run list -R "$GITHUB_REPOSITORY" --workflow dman_daemon.yml --limit 10 \
+                   --json status -q '[.[] | select(.status=="in_progress" or .status=="queued")] | length')
+          if [ "${active:-0}" -gt 0 ]; then
+            echo "A daemon run is already active — not dispatching another."
+            exit 0
+          fi
+          gh workflow run dman_daemon.yml -R "$GITHUB_REPOSITORY" --ref main
+          echo "Daemon dispatched at $hhmm ET — it will hold until 9:10 and run the morning session."

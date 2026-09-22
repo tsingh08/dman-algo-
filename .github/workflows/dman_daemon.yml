@@ -47,12 +47,31 @@ env:
 jobs:
   daemon:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    # 240 -> 330: a session dispatched early by the pre-market briefing holds
+    # up to 100 min for the 9:10 start (step below) before its normal ~3h45m
+    # morning run. GitHub's hard cap is 360.
+    timeout-minutes: 330
     permissions:
       contents: write   # git state sync (positions, halt flag, telegram offset)
       actions: write    # lets a live daemon session self-restart on /restart via its own Telegram poll
 
     steps:
+      # GitHub's scheduler has started this job hours late -- 11:55 AM on
+      # 2026-08-03, and via a watchdog dispatch at 9:36 on 2026-09-21 -- so the
+      # pre-market briefing, the one run that reliably lands before the open,
+      # now dispatches this job. Dispatched between 7:30 and 9:10 ET, it holds
+      # here, BEFORE checkout, so the daemon starts at 9:10 on fresh code and
+      # fresh state. Any other time it starts immediately, exactly as before.
+      - name: Hold for the open if dispatched early
+        run: |
+          now=$(TZ=America/New_York date +%s)
+          start=$(TZ=America/New_York date -d "today 09:10" +%s)
+          dow=$(TZ=America/New_York date +%u)
+          if [ "$dow" -le 5 ] && [ "$now" -lt "$start" ] && [ $(( start - now )) -le 6000 ]; then
+            echo "Dispatched at $(TZ=America/New_York date +%H:%M) ET — holding $(( (start - now) / 60 )) min for the 9:10 start"
+            sleep $(( start - now ))
+          fi
+
       - name: Checkout repo
         uses: actions/checkout@v4
 

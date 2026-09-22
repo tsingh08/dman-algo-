@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T14:07:59.402149-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "OpenAI Announces Formation Of An Advisory Group On Mathematics And AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-21T14:08:13.296574-04:00",
     "symbols": [
       "WBD"
@@ -5048,5 +5038,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:50:01.430983-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "SoFi, Mastercard Launch Stablecoin Settlement Across $25 Billion Card Program",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

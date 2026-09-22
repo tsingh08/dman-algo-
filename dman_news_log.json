@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:20:38.370165-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Market-Moving News for September 21st",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:38.374205-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Why Is Critical Metals Stock Soaring Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:20:38.378147-04:00",
     "symbols": [
       "GLND"
@@ -5053,6 +5033,26 @@
       "SPY"
     ],
     "headline": "President Trump Delivers Remarks At The UN General Assembly Calls Warnings About AI A Hoax; Wants To Rebrand Artificial Intelligence To Super Intelligence",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:05:44.848713-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Delivers Remarks At The UN General Assembly Says Agreement With Denmark On Greenland &#39;Gives The United States Permanent Control Over Security And All Other Needs&#39; In Territory",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:06:16.418899-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Delivers Remarks At The UN General Assembly Says We Will Immediately Begin Process Of Developing Large Military Presence In &#39;Appropriate Locations&#39;",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,78 +1,5 @@
 [
   {
-    "ts": "2026-09-21T12:09:52.454876-04:00",
-    "symbols": [
-      "NUAI"
-    ],
-    "headline": "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:19:52.357491-04:00",
-    "symbols": [
-      "MRVL",
-      "MSFT"
-    ],
-    "headline": "This Analyst Raises Price Targets For Microsoft And This AI Infrastructure Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:20:17.333944-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "This Analyst Raises Price Targets For Microsoft And This AI Infrastructure Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T12:20:19.204687-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "This Analyst Raises Price Targets For Microsoft And This AI Infrastructure Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:30:41.835704-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "L3Harris Technologies Signs Multi-Year Agreement With NAWCWD To Manufacture Critical Missile Components, Including Tomahawk Cruise Missile Parts",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T12:32:32.614092-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Sunrun, Tesla Set Record With 580 MW California Grid Dispatch",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T12:34:16.774329-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO",
-      "NVDA"
-    ],
-    "headline": "An Nvidia Earnings Miss Is Almost Unthinkable\u2014VanEck Says There\u2019s a Real Risk",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T12:34:53.767104-04:00",
     "symbols": [
       "IMSR"
@@ -5055,5 +4982,77 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:31:23.599138-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Web Services Now Available For Use By NATO Member Nations To Handle Restricted Workloads",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T12:31:41.428777-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "If You Invested $100 In Netflix Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T12:34:45.940236-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Anthropic Introduces Claude Opus 5.5, Now Available On All Platforms, Including AWS, Google Cloud &amp; Microsoft Azure; Claude Opus 5.5 Performs At Level Of Claude Fable 5.1 On Most Work, Costs Around 40% Less To Run Than Opus 5; Says Over Coming Weeks, We&#39;ll Also Be Launching Claude Sonnet 5.5 &amp; Haiku 5.5",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T12:34:59.772537-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic Introduces Claude Opus 5.5, Now Available On All Platforms, Including AWS, Google Cloud &amp; Microsoft Azure; Claude Opus 5.5 Performs At Level Of Claude Fable 5.1 On Most Work, Costs Around 40% Less To Run Than Opus 5; Says Over Coming Weeks, We&#39;ll Also Be Launching Claude Sonnet 5.5 &amp; Haiku 5.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T12:35:00.234054-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Introduces Claude Opus 5.5, Now Available On All Platforms, Including AWS, Google Cloud &amp; Microsoft Azure; Claude Opus 5.5 Performs At Level Of Claude Fable 5.1 On Most Work, Costs Around 40% Less To Run Than Opus 5; Says Over Coming Weeks, We&#39;ll Also Be Launching Claude Sonnet 5.5 &amp; Haiku 5.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T12:35:00.243009-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Introduces Claude Opus 5.5, Now Available On All Platforms, Including AWS, Google Cloud &amp; Microsoft Azure; Claude Opus 5.5 Performs At Level Of Claude Fable 5.1 On Most Work, Costs Around 40% Less To Run Than Opus 5; Says Over Coming Weeks, We&#39;ll Also Be Launching Claude Sonnet 5.5 &amp; Haiku 5.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T12:35:07.654565-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple\u2019s New Macs Are Faster, Smarter and Built for AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

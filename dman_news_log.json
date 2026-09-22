@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:11:08.701852-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Rep. Pete Sessions Has Sold Up to $100K Worth Of AbbVie Stock: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-21T11:11:10.928695-04:00",
     "symbols": [
       "ABBV"
@@ -5052,5 +5042,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:51:36.589326-04:00",
+    "symbols": [
+      "GS",
+      "JPM"
+    ],
+    "headline": "Goldman, Morgan Stanley Ride $17.2B China Tech Boom as AI Truce Odds Sit at 10%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

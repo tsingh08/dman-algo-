@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.555417-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "StoneX Reiterates Hold on Meta Platformsto Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.559711-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Jefferies Maintains Buy on Meta Platforms, Raises Price Target to $875",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.564163-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mark Zuckerberg Adds $27 Billion to Net Worth Monday, More Than Rest of Top 10 Combined",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.631929-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "QUICK SPARK: Wall Street Is Moving Nvidia Onto Crypto Rails. 24/7 Trading Is Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.636349-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Cardano Joins Solana, XRP in AI Payments Race as ADA Surges 8%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.640562-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "If There\u2019s a Problem With Google Search, There\u2019s a Problem With Google Stock: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T09:25:39.644774-04:00",
     "symbols": [
       "GOOGL"
@@ -5057,5 +4997,65 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:01:44.092102-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "China\u2019s $159 Billion Gold Rush Reveals Where the Money Is Moving",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T15:02:01.487577-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Gary Cardone Made $750,000 on Strategy&#39;s STRC Instead of Bitcoin, Says He&#39;ll Buy BTC at $70,000",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:02:05.045844-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Buying SOFI Is Like Buying &#39;AMD or Nvidia&#39; at the Bottom: Strategists Highlight Bold Bull Case for SoFi Technologies",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T15:02:05.050744-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T15:02:05.385481-04:00",
+    "symbols": [
+      "INOD"
+    ],
+    "headline": "Watching Innodata; Hunterbrook Media Issues Report Titled, \u201cMeta&#39;s Muse Could Be Big Win For Innodata.\u201d; States Hunterbrook Capital Is Long $INOD",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:02:10.178734-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta\u2019s Muse Beat ChatGPT\u2019s Early Download Pace: Is Zuckerberg\u2019s AI Bet Finally Paying Out?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,47 +1,5 @@
 [
   {
-    "ts": "2026-09-18T15:34:30.514040-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Appeals Court Rejects Trump Administration Policy On Rapid Third-Country Deportations",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T15:44:16.263023-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat, Ondas Miss the Cut in Pentagon&#39;s Latest Drone Dominance Round (CORRECTED)",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-18T15:45:08.997379-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Shares of memory- and storage-related chip companies are trading higher, possibly amid reports suggesting SK Hynix&#39;s subsidiary is considering building a NAND flash memory chip factory in the U.S. Also, reports suggest ChangXin \u200bMemory Technologies plans to establish a research-and-development production line for NAND flash memory.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-18T15:47:02.709715-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab shares are trading lower after SpaceX delayed the date for its Starship launch to September, 28.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-18T15:50:22.071920-04:00",
     "symbols": [
       "ELOX"
@@ -5079,6 +5037,46 @@
       "NAMI"
     ],
     "headline": "Jinxin Technology COO, CFO Jun Jiang Resigns; Fangfang Zhou Appointed CFO; Co. Decides Not To Name New Operations Chief",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-21T19:45:39.620223-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Adobe Stock In The Last 15 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T19:59:26.847558-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Secures $1.2B Army Contract To Produce Increment 2 Of The Precision Strike Missile",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-21T20:00:48.655081-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Breaks Ground On Houston Facility To Manufacture Active Pharmaceutical Ingredients For Medicines Like Foundayo; Site Will Employ More Than 600 People In High-Wage Jobs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-21T20:01:24.144073-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Partners With SDT To Deploy First Superion 256 Quantum System And Quantum Memory Module In South Korea",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

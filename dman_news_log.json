@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T12:34:53.767104-04:00",
-    "symbols": [
-      "IMSR"
-    ],
-    "headline": "Ameresco Lands US Army Energy Projects",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T12:36:31.220338-04:00",
     "symbols": [
       "IMSR"
@@ -5054,5 +5044,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T12:36:37.482578-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Golden Cross Brings This Key Level Into Focus",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

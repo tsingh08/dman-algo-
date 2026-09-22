@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T12:08:39.936825-04:00",
-    "symbols": [
-      "NUAI"
-    ],
-    "headline": "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:08:40.199219-04:00",
-    "symbols": [
-      "TPB"
-    ],
-    "headline": "Crude Oil Down 4%; Intel Shares Move Higher",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T12:08:40.319389-04:00",
     "symbols": [
       "OMAH"
@@ -5054,6 +5034,26 @@
     "headline": "U.S.-Denmark-Greenland Agreement Subject To Parliamentary Procedures In Denmark And Greenland",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:12:08.316607-04:00",
+    "symbols": [
+      "MAZE"
+    ],
+    "headline": "BTIG Reiterates Buy on Maze Therapeutics, Maintains $46 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:12:08.400656-04:00",
+    "symbols": [
+      "BFLY"
+    ],
+    "headline": "Butterfly Network Stock Soars After Needham Initiates Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

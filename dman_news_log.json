@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T14:56:25.731502-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna shares are trading higher. The company announced three abstracts on its mRNA-based individualized neoantigen therapy intismeran autogene have been accepted for presentation at the ESMO Congress 2026.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T15:02:25.926412-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Stocks Jump On Iran, China, and Bitcoin Hopium\u2014But The Big Conflicts Have Not Gone Away",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T15:02:26.172017-04:00",
     "symbols": [
       "GLND"
@@ -5053,5 +5033,31 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:11:46.959717-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iraq Orders Civil Aviation To Suspend Iranian Flights To Baghdad Starting Midnight Wednesday, Weighs Diverting Them To Najaf",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:15:05.157912-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "JPM",
+      "MU",
+      "ONON",
+      "QQQ",
+      "SNDK"
+    ],
+    "headline": "Nasdaq 100 Flirts with Records, Oil Sinks for Fifth Day: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

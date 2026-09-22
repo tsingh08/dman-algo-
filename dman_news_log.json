@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:30:58.740931-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Dow Surges Over 200 Points; Chicago Fed Activity Index Falls In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:30:58.745350-04:00",
     "symbols": [
       "GLND"
@@ -5056,5 +5046,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:23:56.631692-04:00",
+    "symbols": [
+      "BABA",
+      "META",
+      "NVDA"
+    ],
+    "headline": "Alibaba Debuts AI Chip, Challenges Nvidia With Triple Processing Power",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

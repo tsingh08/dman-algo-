@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:11:10.928695-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Rep. Pete Sessions Has Sold Up to $100K Worth Of AbbVie Stock: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-21T11:11:17.103101-04:00",
     "symbols": [
       "PRTH"
@@ -5053,5 +5043,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T10:58:18.854491-04:00",
+    "symbols": [
+      "AVGO",
+      "META"
+    ],
+    "headline": "Meta Stock Runs Overbought Into Connect \u2014 Wall Street Still Targets $800+",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

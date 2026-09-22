@@ -299,6 +299,20 @@ jobs:
           sys.exit(result.returncode)
           EOF
 
+      # Trend-day ORB shadow: scores the backtested rule against the newest
+      # complete session it has not logged. Idempotent and delay-proof, so it
+      # can ride every run; it only finds new work after a session closes.
+      # Never trades. See run_orb_shadow().
+      - name: Trend-day ORB shadow
+        if: always()
+        env:
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONIOENCODING:    utf-8
+        run: python dman_algo.py --mode orb || true
+
       - name: Merge positions/scan-log/win-rate against remote
         if: always()
         run: |
@@ -341,7 +355,7 @@ jobs:
           # billing voided twice before finally activating.
           files: >-
             dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv
-            dman_signal_features.json
+            dman_signal_features.json dman_orb_shadow.json
             dman_alpaca_sync.json dman_positions.json
             dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json
             dman_day_start_equity.json

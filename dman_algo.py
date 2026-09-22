@@ -19095,6 +19095,191 @@ def _report_accumulation(found: list[tuple[str, dict]]) -> None:
         _log_swallowed("accumulation report", exc)
 
 
+# ---- Trend-day ORB: shadow-tracked, never traded ----------------------------
+# The META shape from 2026-09-21: a large cap opens flat-to-modestly-up, then
+# trends all day (+2.2% gap, +9% open to close). No existing setup sees it.
+# Backtested 2026-09-22 on 81 large caps, 6 months of 5-min SIP bars: the bare
+# opening-range break has no edge (+0.03R, negative in the second half); with
+# price above VWAP, beating QQQ since the open, and time-of-day volume >= 1.3x
+# its 10-day norm it was +0.09R, PF 1.46, n=357 -- positive in BOTH halves
+# (+0.13R, then +0.06R) but decaying. Too thin to trade blind, too good to drop:
+# this logs the exact rule against every real session, so the live-trading
+# decision rests on out-of-sample evidence, not on the backtest that found it.
+ORB_SHADOW_FILE    = "dman_orb_shadow.json"
+ORB_MIN_PRICE      = 50.0
+ORB_GAP_MIN_PCT    = 0.0
+ORB_GAP_MAX_PCT    = 4.0
+ORB_RVOL_MIN       = 1.3
+ORB_NORM_DAYS      = 10
+ORB_MILESTONES     = (10, 20, 30)     # Telegram only here -- no daily message
+ORB_PROMOTE_N      = 30
+# The backtest used bars through 2026-09-21. Scoring any session up to then
+# would count in-sample days as out-of-sample evidence -- the one thing this
+# tracker exists to prevent. Only sessions after it are scored.
+ORB_SHADOW_START   = date(2026, 9, 22)
+
+
+def _orb_session_bars(bars: list) -> dict:
+    """{date: [(t_et, o, h, l, c, v), ...]} for regular-session 5-min bars."""
+    from datetime import timezone as _tz
+    out: dict = {}
+    for b in bars or []:
+        try:
+            t = datetime.fromisoformat(str(b["t"])[:19]).replace(tzinfo=_tz.utc).astimezone(ET)
+        except Exception:
+            continue
+        if (t.hour, t.minute) < (9, 30) or (t.hour, t.minute) >= (16, 0):
+            continue
+        out.setdefault(t.date(), []).append(
+            (t, float(b["o"]), float(b["h"]), float(b["l"]), float(b["c"]), float(b["v"])))
+    return out
+
+
+def _orb_trade(day: list, prev_close: float, prior_days: list, qqq_day: list):
+    """The backtested rule for one symbol-session. None if no breakout.
+
+    Opening range 9:30-10:00; entry is the first 5-min CLOSE above the range
+    high between 10:00 and 12:00; stop is the range low; exit is the stop or
+    the 15:55 bar. Returns the trade with each filter recorded separately, so
+    variants can be re-scored later without re-fetching.
+    """
+    if len(day) < 70 or prev_close <= 0 or not qqq_day:
+        return None
+    gap = (day[0][1] / prev_close - 1) * 100
+    if not (ORB_GAP_MIN_PCT <= gap <= ORB_GAP_MAX_PCT):
+        return None
+    orb = [x for x in day if (x[0].hour, x[0].minute) < (10, 0)]
+    if len(orb) < 6:
+        return None
+    orh, orl = max(x[2] for x in orb), min(x[3] for x in orb)
+    q_open = qqq_day[0][1]
+    q_close = {(x[0].hour, x[0].minute): x[4] for x in qqq_day}
+
+    def _cum(bs, hh, mm):
+        return sum(x[5] for x in bs if (x[0].hour, x[0].minute) <= (hh, mm))
+
+    pv = cv = 0.0
+    for k, (t, o, h, l, c, v) in enumerate(day):
+        pv += c * v
+        cv += v
+        if (t.hour, t.minute) < (10, 0) or (t.hour, t.minute) >= (12, 0) or c <= orh:
+            continue
+        if c - orl <= 0:
+            return None
+        vwap = pv / cv if cv else c
+        rs = (c / day[0][1] - 1) - (q_close.get((t.hour, t.minute), q_open) / q_open - 1)
+        norms = [_cum(d, t.hour, t.minute) for d in prior_days if d]
+        norm = sum(norms) / len(norms) if norms else 0.0
+        rvol = _cum(day, t.hour, t.minute) / norm if norm else 0.0
+        ex, why = day[-1][4], "close"
+        for y in day[k + 1:]:
+            if y[3] <= orl:
+                ex, why = orl, "stop"
+                break
+            if (y[0].hour, y[0].minute) >= (15, 55):
+                ex = y[4]
+                break
+        return {"entry_time": t.strftime("%H:%M"), "gap_pct": round(gap, 2),
+                "entry": round(c, 4), "stop": round(orl, 4), "exit": round(ex, 4), "exit_why": why,
+                "R": round((ex - c) / (c - orl), 3), "pct": round((ex / c - 1) * 100, 3),
+                "above_vwap": bool(c > vwap), "beats_qqq": bool(rs > 0),
+                "rvol": round(rvol, 2), "qualified": bool(c > vwap and rs > 0 and rvol >= ORB_RVOL_MIN)}
+    return None
+
+
+def _orb_record(log: list) -> tuple[int, float, float]:
+    """(qualified shadow trades, mean R, win rate %)."""
+    q = [r for r in log if r.get("qualified")]
+    if not q:
+        return 0, 0.0, 0.0
+    return (len(q), sum(float(r["R"]) for r in q) / len(q),
+            sum(1 for r in q if float(r["R"]) > 0) / len(q) * 100)
+
+
+def run_orb_shadow(notify: bool = True) -> list[dict]:
+    """Score the ORB rule against the latest complete session not yet logged.
+
+    Idempotent and delay-proof: GitHub runs the evening scan hours late, so
+    this never assumes "today" -- it evaluates whatever complete session (last
+    bar at or after 15:55) is newest and absent from the log. Never places or
+    stages anything.
+    """
+    try:
+        with open(ORB_SHADOW_FILE) as f:
+            log = json.load(f)
+        if not isinstance(log, list):
+            log = []
+    except (FileNotFoundError, json.JSONDecodeError):
+        log = []
+    done = {r.get("date") for r in log}
+    syms = list(dict.fromkeys(list(WATCHLIST) + ["QQQ"]))
+    _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+    start = (datetime.now(ET) - timedelta(days=21)).date().isoformat()
+    bars: dict = {}
+    tok = None
+    try:
+        while True:
+            params = {"symbols": ",".join(syms), "timeframe": "5Min", "start": start,
+                      "feed": _resolve_stock_feed(), "adjustment": "split", "limit": 10000}
+            if tok:
+                params["page_token"] = tok
+            r = requests.get("https://data.alpaca.markets/v2/stocks/bars",
+                             headers=_hdrs, params=params, timeout=60)
+            if r.status_code != 200:
+                print(f"  ORB shadow: bars HTTP {r.status_code} — skipped")
+                return []
+            j = r.json() or {}
+            for k, v in (j.get("bars") or {}).items():
+                bars.setdefault(k, []).extend(v or [])
+            tok = j.get("next_page_token")
+            if not tok:
+                break
+    except Exception as exc:
+        _log_swallowed("orb shadow fetch", exc)
+        return []
+    by = {k: _orb_session_bars(v) for k, v in bars.items()}
+    qqq = by.get("QQQ", {})
+    complete = sorted(d for d, b in qqq.items()
+                      if b and (b[-1][0].hour, b[-1][0].minute) >= (15, 55))
+    todo = [d for d in complete if d.isoformat() not in done and d >= ORB_SHADOW_START]
+    if not todo:
+        print("  ORB shadow: no new complete session to score")
+        return []
+    target = todo[-1]
+    new = []
+    for sym, days in by.items():
+        if sym == "QQQ" or target not in days:
+            continue
+        ds = sorted(days)
+        i = ds.index(target)
+        if i < ORB_NORM_DAYS:
+            continue
+        prev = days[ds[i - 1]]
+        if not prev or prev[-1][4] < ORB_MIN_PRICE:
+            continue
+        t = _orb_trade(days[target], prev[-1][4],
+                       [days[ds[i - j]] for j in range(1, ORB_NORM_DAYS + 1)], qqq.get(target))
+        if t:
+            new.append({"date": target.isoformat(), "symbol": sym, **t})
+    before = _orb_record(log)[0]
+    log.extend(new or [{"date": target.isoformat(), "symbol": "", "none": True}])
+    _write_json_atomic(ORB_SHADOW_FILE, log[-5000:], indent=0)
+    n, er, wr = _orb_record(log)
+    q_today = [x for x in new if x.get("qualified")]
+    _trig = " ".join(f"{x['symbol']} {x['R']:+.2f}R" for x in q_today)
+    print(f"  📐 ORB shadow {target}: {len(new)} breakout(s), {len(q_today)} qualified "
+          f"{_trig} | running n={n} {er:+.3f}R {wr:.0f}% WR")
+    crossed = [m for m in ORB_MILESTONES if before < m <= n]
+    if notify and crossed:
+        verdict = ""
+        if n >= ORB_PROMOTE_N:
+            verdict = ("\n✅ Holding up out of sample — worth wiring to trade live."
+                       if er > 0 else "\n❌ Not holding up out of sample — the backtest edge was not real.")
+        send_telegram(f"📐 <b>Trend-day ORB shadow — {n} trades</b>: {er:+.2f}R/trade, "
+                      f"{wr:.0f}% WR (backtest: +0.09R, 54%). No money at risk.{verdict}")
+    return new
+
+
 def run_news_source_check(notify: bool = False) -> list[str]:
     """Probe every news/earnings source and report what each one answers.
 
@@ -25852,7 +26037,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck"],
+                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "orb"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -26113,6 +26298,9 @@ def main():
 
     elif args.mode == "scan-log":
         print_scan_log()
+
+    elif args.mode == "orb":
+        run_orb_shadow()
 
     elif args.mode == "newscheck":
         run_news_source_check(notify=True)

@@ -18284,3 +18284,69 @@ class TestMomentumSpreadGuardrails(unittest.TestCase):
                                       R("Momentum Call Spread — Gap & Hold", 900.0, False),
                                       R("Earnings Call Spread", -100.0, True)]
             self.assertEqual(a._momentum_spread_record(), (2, -25.0))
+
+
+class TestTrendDayOrbShadow(unittest.TestCase):
+    """The META shape (2026-09-21: +2.2% gap, +9% open to close). Shadow-
+    tracked, never traded: +0.09R in backtest, decaying between halves."""
+
+    D = date(2026, 9, 23)
+
+    def _day(self, base=100.0, orh=101.0, orl=99.0, breakout_at=(10, 5), close=104.0, vol=1000):
+        from zoneinfo import ZoneInfo
+        et = ZoneInfo("America/New_York")
+        out, t = [], datetime(2026, 9, 23, 9, 30, tzinfo=et)
+        while (t.hour, t.minute) < (16, 0):
+            if (t.hour, t.minute) < (10, 0):
+                o = c = base; h, l = orh, orl
+            elif (t.hour, t.minute) < breakout_at:
+                o = c = base; h, l = base + 0.5, base - 0.5
+            else:
+                o = c = close; h, l = close + 0.2, close - 0.2
+            out.append((t, o, h, l, c, vol))
+            t += timedelta(minutes=5)
+        return out
+
+    def test_a_qualified_breakout_is_scored_to_the_close(self):
+        day = self._day(vol=2000)
+        prior = [self._day(vol=1000) for _ in range(10)]
+        qqq = self._day(close=100.0)
+        tr = a._orb_trade(day, 99.0, prior, qqq)
+        self.assertEqual(tr["entry_time"], "10:05")
+        self.assertTrue(tr["qualified"])
+        self.assertAlmostEqual(tr["R"], 0.0, places=3)      # entry 104, exit 104
+        self.assertEqual(tr["exit_why"], "close")
+
+    def test_thin_volume_is_logged_but_not_qualified(self):
+        tr = a._orb_trade(self._day(vol=1000), 99.0, [self._day(vol=1000)] * 10, self._day(close=100.0))
+        self.assertIsNotNone(tr)
+        self.assertFalse(tr["qualified"])                  # rvol 1.0 < 1.3
+
+    def test_a_gap_outside_the_band_is_not_a_trend_day(self):
+        self.assertIsNone(a._orb_trade(self._day(), 90.0, [self._day()] * 10, self._day()))  # +11%
+
+    def test_a_stop_hit_is_minus_one_R_ish(self):
+        day = self._day(close=104.0)
+        k = next(i for i, x in enumerate(day) if (x[0].hour, x[0].minute) == (11, 0))
+        t, o, h, l, c, v = day[k]
+        day[k] = (t, o, h, 98.0, c, v)                       # trades through the OR low
+        tr = a._orb_trade(day, 99.0, [self._day()] * 10, self._day(close=100.0))
+        self.assertEqual(tr["exit_why"], "stop")
+        self.assertAlmostEqual(tr["R"], -1.0, places=3)
+
+    def test_in_sample_sessions_are_never_scored(self):
+        self.assertGreaterEqual(a.ORB_SHADOW_START, date(2026, 9, 22))
+        self.assertIn("d >= ORB_SHADOW_START", inspect.getsource(a.run_orb_shadow))
+
+    def test_it_never_trades(self):
+        src = inspect.getsource(a.run_orb_shadow)
+        for forbidden in ("_submit_signals_to_alpaca", "submit_order", "_try_momentum_call_spread"):
+            self.assertNotIn(forbidden, src)
+
+    def test_record_counts_qualified_only(self):
+        log = [{"qualified": True, "R": 1.0}, {"qualified": True, "R": -1.0},
+               {"qualified": False, "R": 5.0}, {"none": True}]
+        self.assertEqual(a._orb_record(log), (2, 0.0, 50.0))
+
+    def test_the_mode_exists(self):
+        self.assertIn('"orb"', inspect.getsource(a.main))

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:40.350163-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Rosenblatt Initiates Coverage On SanDisk with Buy Rating, Announces Price Target of $2400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.477635-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "QCOM Stock in Focus Today: What Investors Need to Know About GOOGL Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.482120-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Meta&#39;s Muse Hits No. 1, Carrying AMD Into the $1-Trillion Club",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.624506-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Valens Semiconductor Enters License Agreement With onsemi On A Cost-Optimized Integrated Sensor For High-Volume 3-Megapixel Automotive Camera Applications",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T09:25:40.688448-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "&#39;Kalshi asks CFTC to allow margin trading on its platform, letting users buy with borrowed funds&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.693594-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Apple Should Acquire Disney, Robinhood, Uber or these Companies, All-In Podcast Host Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.697894-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Polymarket CEO Reportedly Put Growth Over Fraud Concerns as Kalshi Fights &#39;Fake Crypto Volume&#39; Claims",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.766072-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Top 3 Health Care Stocks That May Keep You Up At Night This Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.830891-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie&#39;s Allergan Aesthetics Announces U.S. Launch Of AA Signature Consultation Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T09:25:40.835647-04:00",
     "symbols": [
       "ABBV"
@@ -5059,5 +4969,103 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T16:10:21.341662-04:00",
+    "symbols": [
+      "ABBV",
+      "GOOGL"
+    ],
+    "headline": "Congressman with $11.5 Million in Trades Keeps Selling Stocks: Here\u2019s the Latest Moves",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T16:11:29.710724-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Announces Snapdragon For The Agentic Age: Powering Personal AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T16:16:10.499945-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "&#39;Qualcomm Launches Two New Smartphone Chips With Emphasis On AI; Snapdragon 8 Elite Extreme Gen 6 And Snapdragon 8 Elite Gen 6&#39; - TechCrunch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T16:25:49.997175-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ shares are trading higher after the company announced that researchers demonstrated the development and testing of the first end-to-end real-time quantum error correction decoder that runs on a single standard off-the-shelf central processing unit.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T16:30:29.381573-04:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In NRG Energy 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T16:30:34.126570-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "NY Fed&#39;s Perli Says Fed&#39;s Reserve Management Purchases Are Not On Pre-Set Course; Central Clearing Of Fed Repo Operations Would Have Benefits; Monetary Policy Toolkit Has Been Working Very Well; Fed&#39;s Reserve Forecasting Process Is Robust",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T16:34:17.314312-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Stock Jumps After Real-Time Quantum Error Decoder Demonstration",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T16:38:24.433997-04:00",
+    "symbols": [
+      "MU",
+      "NBIS",
+      "PLTR"
+    ],
+    "headline": "QUICK SPARK: Michael Burry Adds to Micron, Palantir, Nebius, SOXX Shorts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T16:40:49.596822-04:00",
+    "symbols": [
+      "AMAT",
+      "MU",
+      "NBIS",
+      "NVDA",
+      "PLTR",
+      "SKHY"
+    ],
+    "headline": "Michael Burry Bets Against the Memory Boom: These ETFs Could Be Exposed if He\u2019s Right",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

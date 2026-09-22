@@ -7178,13 +7178,21 @@ def _mark_signals_taken(tickers) -> int:
             _log = json.load(_f)
         if not isinstance(_log, list):
             return 0
-        _today, _n = str(_et_today()), 0
-        for _row in _log:
-            if (isinstance(_row, dict) and _row.get("date") == _today
-                    and str(_row.get("ticker", "")).upper() in _want
-                    and not _row.get("taken")):
-                _row["taken"] = True
-                _n += 1
+        # Only the NEWEST row per ticker -- the one this scan just wrote. Every
+        # scan logs a row per ticker, so flipping all of today's rows labelled
+        # AMD's REJECTED 9:45 row as taken because it passed at 10:00: on
+        # 2026-09-21, 142 of 292 rows read taken. A model trained on that
+        # learns that the gates pass what they actually rejected.
+        _today, _n, _done = str(_et_today()), 0, set()
+        for _row in reversed(_log):
+            if not (isinstance(_row, dict) and _row.get("date") == _today):
+                continue
+            _t = str(_row.get("ticker", "")).upper()
+            if _t in _want and _t not in _done:
+                _done.add(_t)
+                if not _row.get("taken"):
+                    _row["taken"] = True
+                    _n += 1
         if _n:
             _write_json_atomic(SIGNAL_FEATURES_FILE, _log, indent=0)
         return _n

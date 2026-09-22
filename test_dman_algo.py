@@ -18056,3 +18056,35 @@ class TestMarketWideScreenSeesHighPricedGappers(unittest.TestCase):
     def test_the_cap_is_a_named_constant(self):
         self.assertNotIn("<= 100.0", inspect.getsource(a.screen_market_wide))
         self.assertGreaterEqual(a.MARKET_SCAN_MAX_PRICE, 1000.0)
+
+
+class TestOnlyThisScansRowIsMarkedTaken(unittest.TestCase):
+    """2026-09-21: 142 of 292 feature rows read taken. Every scan logs a row
+    per ticker, and marking flipped ALL of today's rows -- so a ticker that
+    passed at 10:00 had its rejected 9:45 row labelled taken too."""
+
+    def setUp(self):
+        self._d = tempfile.mkdtemp()
+        self._f = os.path.join(self._d, "features.json")
+        self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
+        self._p.start()
+        self.addCleanup(self._p.stop)
+        import shutil as _sh
+        self.addCleanup(_sh.rmtree, self._d, True)
+
+    def test_an_earlier_rejected_row_stays_untaken(self):
+        today = str(a._et_today())
+        rows = [{"date": today, "ticker": "AMD", "taken": False, "reject_reason": "hard gate"},
+                {"date": today, "ticker": "AMD", "taken": False, "reject_reason": ""}]
+        with open(self._f, "w", encoding="utf-8") as fh:
+            json.dump(rows, fh)
+        self.assertEqual(a._mark_signals_taken(["AMD"]), 1)
+        out = json.load(open(self._f, encoding="utf-8"))
+        self.assertEqual([r["taken"] for r in out], [False, True])
+
+    def test_a_second_call_is_a_no_op(self):
+        today = str(a._et_today())
+        with open(self._f, "w", encoding="utf-8") as fh:
+            json.dump([{"date": today, "ticker": "AMD", "taken": False}], fh)
+        a._mark_signals_taken(["AMD"])
+        self.assertEqual(a._mark_signals_taken(["AMD"]), 0)

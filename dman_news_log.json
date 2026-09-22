@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:40.345285-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "This SanDisk Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:40.350163-04:00",
     "symbols": [
       "SNDK"
@@ -5059,5 +5049,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T16:02:40.471182-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Eliminates Real-Time Error Correction Bottleneck In Fault-Tolerant Quantum Computing Using A Single Off-The-Shelf CPU",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

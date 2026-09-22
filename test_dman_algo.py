@@ -2894,13 +2894,14 @@ class TestMissingGreeksDeltaEstimateFallback(unittest.TestCase):
         return client
 
     def test_call_with_zero_delta_snapshot_gets_estimated_and_selected(self):
-        # Deep ITM by construction (current price way above strike) --
+        # 10% ITM by construction (current price above strike) -- a real
+        # contract, not a delta-1.00 stock substitute the leverage floor rejects --
         # the estimate should land comfortably above the 0.40 floor.
-        zero_greeks_snap = {"bid": 30.0, "ask": 30.5, "mid": 30.25,
+        zero_greeks_snap = {"bid": 15.0, "ask": 15.5, "mid": 15.25,
                              "spread_pct": 0.02, "delta": 0.0, "gamma": 0.0,
                              "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0,
                              "bid_size": 50, "ask_size": 50}
-        client = self._client_returning("TESTX260821C00070000", 70.0)
+        client = self._client_returning("TESTX260821C00090000", 90.0)
         with patch.object(a, "yf") as mock_yf:
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
             with patch.object(a, "_get_option_snapshot", return_value=zero_greeks_snap), \
@@ -2932,11 +2933,11 @@ class TestMissingGreeksDeltaEstimateFallback(unittest.TestCase):
 
     def test_put_with_zero_delta_snapshot_gets_estimated_and_selected(self):
         # Deep ITM put by construction (strike way above current price).
-        zero_greeks_snap = {"bid": 30.0, "ask": 30.5, "mid": 30.25,
+        zero_greeks_snap = {"bid": 15.0, "ask": 15.5, "mid": 15.25,
                              "spread_pct": 0.02, "delta": 0.0, "gamma": 0.0,
                              "theta": 0.0, "vega": 0.0, "iv": 0.0, "oi": 0,
                              "bid_size": 50, "ask_size": 50}
-        client = self._client_returning("TESTX260821P00130000", 130.0)
+        client = self._client_returning("TESTX260821P00110000", 110.0)
         with patch.object(a, "yf") as mock_yf:
             mock_yf.Ticker.return_value.fast_info.three_month_average_volume = 10_000_000
             with patch.object(a, "_get_option_snapshot", return_value=zero_greeks_snap), \
@@ -18203,3 +18204,23 @@ class TestOnlyThisScansRowIsMarkedTaken(unittest.TestCase):
             json.dump([{"date": today, "ticker": "AMD", "taken": False}], fh)
         a._mark_signals_taken(["AMD"])
         self.assertEqual(a._mark_signals_taken(["AMD"]), 0)
+
+
+class TestOptionsNeedRealLeverage(unittest.TestCase):
+    """2026-09-21: the 50%-intrinsic floor pushed RXRX ($4) to the $1 strike --
+    a delta-1.00 call at $3.00, i.e. 100 shares plus a wide bid/ask."""
+
+    def test_the_rxrx_contract_is_rejected_and_amds_is_not(self):
+        self.assertLess(a._option_leverage(1.00, 4.00, 3.00), a.OPTIONS_MIN_LEVERAGE)
+        self.assertGreater(a._option_leverage(0.70, 615.0, 36.12), a.OPTIONS_MIN_LEVERAGE)
+
+    def test_unpriced_is_zero_leverage(self):
+        for prem in (0, None, -1):
+            self.assertEqual(a._option_leverage(0.7, 100.0, prem), 0.0)
+
+    def test_puts_use_absolute_delta(self):
+        self.assertAlmostEqual(a._option_leverage(-0.7, 100.0, 7.0), 10.0)
+
+    def test_both_pickers_apply_the_floor(self):
+        for fn in (a._find_best_call_contract, a._find_best_put_contract):
+            self.assertIn("OPTIONS_MIN_LEVERAGE", inspect.getsource(fn))

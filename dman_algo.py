@@ -385,6 +385,20 @@ ACCUM_QUIET_BARS       = 5
 ACCUM_BASE_BARS        = 20
 ACCUM_LOG_FILE         = "dman_accumulation_log.json"
 OPTIONS_MIN_INTRINSIC_PCT = 0.50
+# The intrinsic floor is sound on a $600 stock and perverse on a $4 one: it
+# pushed RXRX (2026-09-21) to the $1 strike, a delta-1.00 call bought at $3.00
+# that was exactly 100 shares with a wide bid/ask stapled on. Leverage =
+# delta x stock price / premium: that contract was 1.3x; AMD's 595C was 12x.
+# Below this floor a contract is rejected, and a cheap stock falls through to
+# the shares path, which buys the same exposure with no spread and a real stop.
+OPTIONS_MIN_LEVERAGE = 3.0
+
+
+def _option_leverage(delta: float, underlying: float, premium: float) -> float:
+    """Dollars of stock exposure per dollar of premium. 0 when unpriced."""
+    if not premium or premium <= 0 or not underlying:
+        return 0.0
+    return abs(float(delta or 0)) * float(underlying) / float(premium)
 OPTIONS_ITM_TARGET_PCT  = 0.04          # target 4% ITM (≈ delta 0.70) — documents strike scan intent
 OPTIONS_CLOSE_DTE       = 7             # DTE ≤ 7 → close/roll warning from the monitor
 # Hard backstop: never carry a long option INTO expiry. Distinct from the
@@ -23460,6 +23474,11 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
                 print(f"    {occ}  skip — {_intrinsic_pct(current_price - _k, snap.get('mid', 0))*100:.0f}% "
                       f"intrinsic (need {OPTIONS_MIN_INTRINSIC_PCT*100:.0f}%+): a flat tape alone would lose")
                 continue
+            _lev = _option_leverage(snap["delta"], current_price, snap.get("mid", 0))
+            if _lev < OPTIONS_MIN_LEVERAGE:
+                print(f"    {occ}  skip — {_lev:.1f}x leverage (need {OPTIONS_MIN_LEVERAGE:.0f}x+): "
+                      f"a stock substitute with a spread attached; shares do this better")
+                continue
             score, reason = _score_option_contract(snap, current_price)
             _delta_tag = "~" if snap.get("delta_estimated") else ""
             print(f"    {occ}  Δ{_delta_tag}{snap['delta']:.2f}  θ{snap['theta']:.3f}/d  "
@@ -23568,6 +23587,11 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
             if not _has_enough_intrinsic(_k - current_price, snap.get("mid", 0)):
                 print(f"    {occ}  skip — {_intrinsic_pct(_k - current_price, snap.get('mid', 0))*100:.0f}% "
                       f"intrinsic (need {OPTIONS_MIN_INTRINSIC_PCT*100:.0f}%+): a flat tape alone would lose")
+                continue
+            _lev = _option_leverage(snap.get("delta", 0), current_price, snap.get("mid", 0))
+            if _lev < OPTIONS_MIN_LEVERAGE:
+                print(f"    {occ}  skip — {_lev:.1f}x leverage (need {OPTIONS_MIN_LEVERAGE:.0f}x+): "
+                      f"a stock substitute with a spread attached")
                 continue
             if (delta_abs < 0.40 or snap["spread_pct"] > OPTIONS_MAX_SPREAD_PCT
                     or snap.get("bid_size", 0) < OPTIONS_MIN_QUOTE_SIZE

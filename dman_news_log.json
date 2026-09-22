@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T13:20:21.867537-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:21:05.272155-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Why Is Chevron Stock Falling on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T13:28:54.787510-04:00",
     "symbols": [
       "MSTR"
@@ -5061,5 +5041,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:23:24.278233-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "PayPal Stock Is Rising: What&#39;s Going On Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T13:24:39.167887-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Shares of enterprise software companies are trading lower. Investors may be trimming exposure amid e-commerce and payments agreements for Meta&#39;s Musa agentic AI assistant, would could lead to lower demand for legacy offerings.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -549,6 +549,15 @@ MOMENTUM_SPREAD_LONG_OTM_PCT  = 0.0     # long leg at the money
 MOMENTUM_SPREAD_SHORT_OTM_PCT = 0.03    # start 3% wide, narrow to fit the budget
 MOMENTUM_SPREAD_MIN_WIDTH_PCT = 0.005   # $3 on a $600 stock -- one or two strikes
 MOMENTUM_SPREAD_WIDTH_STEP    = 0.005   # 1% steps are $6 on a $600 stock: too coarse
+# No track record yet, and the only evidence is against it: replaying the
+# engine's 20 LONG signals on >$100 names over two years (2026-09-22) lost
+# 2.15%/trade as SHARES and ~20% of debit as ATM spreads (intrinsic-valued, so
+# pessimistic). A spread amplifies whatever edge the signal has. So it trades
+# small in count, only on the strongest signals, and ends itself if the live
+# record comes back negative -- a real track record, at a capped cost.
+MOMENTUM_SPREAD_MIN_SCORE     = 95
+MOMENTUM_SPREAD_MAX_OPEN      = 1
+MOMENTUM_SPREAD_REVIEW_N      = 12      # closed live spreads before the verdict
 EARNINGS_SPREAD_POST_EVENT_EXIT_PCT = 0.5   # close once the earnings event has passed AND
                                               # value has decayed below this fraction of the
                                               # debit paid — added 2026-08-21 (session review
@@ -24544,6 +24553,16 @@ def _options_route(sig) -> tuple[bool, bool]:
     return bool(_calls), bool(_puts)
 
 
+def _momentum_spread_record() -> tuple[int, float]:
+    """(closed LIVE momentum spreads, their average pnl_pct). (0, 0.0) if unreadable."""
+    try:
+        rs = [r for r in WinRateTracker().records
+              if r.is_live and str(r.setup).startswith("Momentum Call Spread")]
+        return len(rs), (sum(float(r.pnl_pct) for r in rs) / len(rs) if rs else 0.0)
+    except Exception:
+        return 0, 0.0
+
+
 def _try_momentum_call_spread(sig, risk_mult: float) -> bool:
     """Express a LONG signal as an at-the-money call debit spread. True if placed.
 
@@ -24559,6 +24578,29 @@ def _try_momentum_call_spread(sig, risk_mult: float) -> bool:
     the right stop: the entry day to follow through, then cut at half.
     """
     if not ENABLE_MOMENTUM_SPREADS or sig.bias != "LONG":
+        return False
+    if (sig.confluence_score or 0) < MOMENTUM_SPREAD_MIN_SCORE:
+        print(f"  ⏭️  {sig.ticker}: call spread needs score {MOMENTUM_SPREAD_MIN_SCORE}+ "
+              f"(has {sig.confluence_score})")
+        return False
+    _n, _avg = _momentum_spread_record()
+    if _n >= MOMENTUM_SPREAD_REVIEW_N and _avg <= 0:
+        print(f"  ⏹️  {sig.ticker}: momentum spreads OFF — {_n} closed, average {_avg:+.1f}%")
+        if not _is_duplicate_alert("__MSPREAD_OFF__", cooldown_min=7 * 24 * 60):
+            _save_last_alert("__MSPREAD_OFF__")
+            send_telegram(f"⏹️ <b>Momentum call spreads switched themselves off</b> — "
+                          f"{_n} closed live, average {_avg:+.1f}%. The signals are not "
+                          f"paying for the leverage. Set ENABLE_MOMENTUM_SPREADS to retire "
+                          f"it, or review the record before re-enabling.")
+        return False
+    try:
+        _open = sum(1 for p in PositionTracker().positions
+                    if str(p.setup).startswith("Momentum Call Spread"))
+    except Exception:
+        _open = MOMENTUM_SPREAD_MAX_OPEN          # unreadable -> assume full, fail closed
+    if _open >= MOMENTUM_SPREAD_MAX_OPEN:
+        print(f"  ⏭️  {sig.ticker}: a momentum spread is already open ({_open}/"
+              f"{MOMENTUM_SPREAD_MAX_OPEN})")
         return False
     client = get_alpaca_client()
     if not client:

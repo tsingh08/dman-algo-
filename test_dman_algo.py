@@ -18038,7 +18038,9 @@ class TestMomentumCallSpread(unittest.TestCase):
                 "expiry": "2026-09-25", "dte": 4, "long_oi": 500, "short_oi": 500}
 
     def _run(self, leg, submit=("oid123", None)):
-        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+        with patch.object(a, "_momentum_spread_record", return_value=(0, 0.0)), \
+             patch.object(a, "PositionTracker") as _PT, \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
              patch.object(a, "_clamp_option_budget", return_value=400.0), \
              patch.object(a, "_options_position_budget", return_value=400.0), \
              patch.object(a, "_options_aggregate_room", return_value=""), \
@@ -18047,6 +18049,7 @@ class TestMomentumCallSpread(unittest.TestCase):
              patch.object(a, "_submit_earnings_spread", return_value=submit) as sub, \
              patch.object(a, "_open_earnings_spread_position") as rec, \
              patch.object(a, "send_telegram"):
+            _PT.return_value.positions = []
             ok = a._try_momentum_call_spread(self._sig(), 1.0)
         return ok, find, sub, rec
 
@@ -18224,3 +18227,60 @@ class TestOptionsNeedRealLeverage(unittest.TestCase):
     def test_both_pickers_apply_the_floor(self):
         for fn in (a._find_best_call_contract, a._find_best_put_contract):
             self.assertIn("OPTIONS_MIN_LEVERAGE", inspect.getsource(fn))
+
+
+class TestMomentumSpreadGuardrails(unittest.TestCase):
+    """No track record, and a two-year replay against it (-2.15%/trade as
+    shares). So: strongest signals only, one at a time, and it ends itself
+    if the live record comes back negative."""
+
+    def _sig(self, score=100):
+        return a.ProSignal(ticker="AMD", bias="LONG", setup="Gap & Hold", entry=600.0,
+                           stop=590.0, target1=630.0, target2=660.0, rr=3.0, rsi=60.0,
+                           rvol=2.0, reason="t", confluence_score=score, shares=0, cost=0.0)
+
+    def _try(self, sig, record=(0, 0.0), open_setups=()):
+        pos = [MagicMock(setup=s) for s in open_setups]
+        with patch.object(a, "_momentum_spread_record", return_value=record), \
+             patch.object(a, "PositionTracker") as PT, \
+             patch.object(a, "get_alpaca_client", return_value=None) as cl, \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            PT.return_value.positions = pos
+            ok = a._try_momentum_call_spread(sig, 1.0)
+        return ok, cl.called, tg
+
+    def test_a_weaker_signal_never_gets_a_spread(self):
+        ok, reached, _ = self._try(self._sig(score=90))
+        self.assertFalse(ok); self.assertFalse(reached)
+
+    def test_only_one_momentum_spread_at_a_time(self):
+        ok, reached, _ = self._try(self._sig(), open_setups=("Momentum Call Spread — Gap & Hold",))
+        self.assertFalse(ok); self.assertFalse(reached)
+
+    def test_an_open_earnings_spread_does_not_count_against_it(self):
+        _, reached, _ = self._try(self._sig(), open_setups=("Earnings Call Spread",))
+        self.assertTrue(reached)
+
+    def test_a_negative_record_switches_it_off_and_says_so(self):
+        ok, reached, tg = self._try(self._sig(), record=(12, -8.0))
+        self.assertFalse(ok); self.assertFalse(reached)
+        self.assertIn("switched themselves off", tg.call_args[0][0])
+
+    def test_a_positive_record_keeps_it_on(self):
+        _, reached, _ = self._try(self._sig(), record=(12, +15.0))
+        self.assertTrue(reached)
+
+    def test_too_few_trades_is_not_a_verdict(self):
+        _, reached, _ = self._try(self._sig(), record=(5, -30.0))
+        self.assertTrue(reached)
+
+    def test_record_counts_only_live_momentum_spreads(self):
+        R = lambda setup, pnl, live: MagicMock(setup=setup, pnl_pct=pnl, is_live=live)
+        with patch.object(a, "WinRateTracker") as W:
+            W.return_value.records = [R("Momentum Call Spread — Gap & Hold", 50.0, True),
+                                      R("Momentum Call Spread — Gap & Hold", -100.0, True),
+                                      R("Momentum Call Spread — Gap & Hold", 900.0, False),
+                                      R("Earnings Call Spread", -100.0, True)]
+            self.assertEqual(a._momentum_spread_record(), (2, -25.0))

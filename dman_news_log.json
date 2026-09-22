@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:40.123556-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Competitor Analysis: Evaluating Broadcom And Competitors In Semiconductors &amp; Semiconductor Equipment Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.189149-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "QUICK SPARK: Wall Street Is Moving Nvidia Onto Crypto Rails. 24/7 Trading Is Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.194050-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Uber, Micron, Datadog And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T09:25:40.199305-04:00",
     "symbols": [
       "MU"
@@ -5059,5 +5029,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T15:46:43.389560-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Expedia Posts On X &#34;Here at Expedia, we love planning trips. Soon, your personal AI agent will too. We&#39;re joining @Muse: tell it where you&#39;re headed and it can work with Expedia to sort your hotels, and everything in between.&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T15:46:48.644692-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Stock Has \u2018a Heck of a Lot of Bad News Priced in,\u2019 Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T15:46:48.653687-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Competitor Analysis: Evaluating Broadcom And Competitors In Semiconductors &amp; Semiconductor Equipment Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

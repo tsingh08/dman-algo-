@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:09:30.397709-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;OpenAI and Anthropic Neared Deal to Stress-Test Each Other\u2019s AI&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T10:09:30.583951-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;OpenAI and Anthropic Neared Deal to Stress-Test Each Other\u2019s AI&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-21T10:09:32.067805-04:00",
     "symbols": [
       "MRNA"
@@ -5057,6 +5037,26 @@
     ],
     "headline": "Dow Gains Over 100 Points; AutoZone Posts Upbeat Earnings",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T09:51:43.761989-04:00",
+    "symbols": [
+      "HUBC"
+    ],
+    "headline": "Dow Gains Over 100 Points; AutoZone Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T09:51:44.197634-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "Dow Gains Over 100 Points; AutoZone Posts Upbeat Earnings",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

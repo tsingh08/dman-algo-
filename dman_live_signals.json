@@ -119,6 +119,30 @@
       "score": 100,
       "date": "2026-09-22",
       "timestamp": "2026-09-22T09:41:15.137274-04:00"
+    },
+    {
+      "ticker": "AMD",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 615.52,
+      "stop": 577.24,
+      "target1": 716.52,
+      "target2": 777.11,
+      "score": 100,
+      "date": "2026-09-22",
+      "timestamp": "2026-09-22T09:51:53.908351-04:00"
+    },
+    {
+      "ticker": "ARM",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 322.9,
+      "stop": 296.42,
+      "target1": 405.29,
+      "target2": 454.72,
+      "score": 100,
+      "date": "2026-09-22",
+      "timestamp": "2026-09-22T09:51:53.909522-04:00"
     }
   ]
 }

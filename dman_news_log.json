@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:27:53.349014-04:00",
-    "symbols": [
-      "MX"
-    ],
-    "headline": "Why Is Magnachip Semiconductor Stock Soaring Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T10:31:50.284997-04:00",
     "symbols": [
       "LGHL"
@@ -5058,5 +5048,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:11:03.448601-04:00",
+    "symbols": [
+      "TSLA",
+      "UBER"
+    ],
+    "headline": "Tesla\u2019s Cybercab Strategy Hinges on One Giant, Unanswered Question",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

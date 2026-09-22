@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.253056-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Economist Justin Wolfers Warns AI Could Leave Workers Earning \u2018Two Pennies an Hour\u2019 While OpenAI Gets \u2018Infinitely Rich\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.257421-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Exploring The Competitive Space: Microsoft Versus Industry Peers In Software",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.337671-04:00",
     "symbols": [
       "NVDA"
@@ -5055,5 +5035,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:51:11.456062-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta\u2019s Mark Zuckerberg to Join Tech Leaders at Trump-Xi Dinner&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:51:22.571791-04:00",
+    "symbols": [
+      "THO"
+    ],
+    "headline": "Crude Oil Down Over 1%; Thor Industries Shares Gain After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

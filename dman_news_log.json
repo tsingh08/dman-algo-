@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-21T12:44:01.835447-04:00",
-    "symbols": [
-      "WBD"
-    ],
-    "headline": "Paramount Stock Jumps on Settlement Talks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T12:54:14.600978-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Will \u2018Easily\u2019 Top 8,000 Before Historic Crash, \u2018Black Swan\u2019 Fund Manager Says",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T13:02:18.285085-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia To Acquire $1.5B Of SB Energy&#39;s Class N Common Shares; To Invest $3B In Total In SB Energy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T13:02:22.965075-04:00",
     "symbols": [
       "JPM"
@@ -5056,6 +5026,36 @@
     ],
     "headline": "What&#39;s Going on with On Semiconductor Shares on Tuesday?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:48:06.797549-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "UK PM Andy Burnham Tells U.S. President Trump, &#34;We Are Ready To Play Our Part In Middle East&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:48:15.338275-04:00",
+    "symbols": [
+      "VLN"
+    ],
+    "headline": "What&#39;s Going on with On Semiconductor Shares on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T12:48:15.481919-04:00",
+    "symbols": [
+      "VBIO"
+    ],
+    "headline": "Valion Bio Regains NASDAQ Compliance",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

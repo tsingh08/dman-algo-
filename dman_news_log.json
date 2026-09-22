@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:00:19.033307-04:00",
-    "symbols": [
-      "ABBV",
-      "GOOGL"
-    ],
-    "headline": "Rep. Pete Sessions Has Sold Up to $100K Worth Of AbbVie Stock: Here\u2019s What You Should Know",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T11:00:22.635226-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX\u2019s Nasdaq-100 Weight Just More Than Doubled. Here\u2019s Where ETF Money Is Heading",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-21T11:01:17.750073-04:00",
     "symbols": [
       "JOBY"
@@ -5052,6 +5031,26 @@
     "headline": "On Holding, Viking Therapeutics, Shopify And Other Big Stocks Moving Higher On Tuesday",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:39:05.401867-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Analyst Sees More Upside for Microsoft Stock Following Management Meeting",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T10:39:26.833071-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Delivers Remarks At The UN General Assembly In New York; Says We Must Be United In Maintaining Pressure On Iran",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

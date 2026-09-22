@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:17:25.494355-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Stock Falls Monday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:34.356831-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Stock Falls Monday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:38.230844-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Dow Surges Over 200 Points; Chicago Fed Activity Index Falls In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:38.235281-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Greenland Mines Expands Sarfartoq Project By 262 km\u00b2, More Than Doubling District Footprint To ~454 km\u00b2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:38.239346-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Why Is Greenland Mines Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:38.243377-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:38.247404-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Why Is Critical Metals Stock Soaring Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:20:38.361677-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Dow Surges Over 200 Points; Chicago Fed Activity Index Falls In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:20:38.366086-04:00",
     "symbols": [
       "GLND"
@@ -5054,6 +4974,86 @@
     ],
     "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:00:50.548620-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Eli Lilly, Maintains $1250 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:01:06.922368-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:01:06.928198-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Stock Runs Overbought Into Connect \u2014 Wall Street Still Targets $800+",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:01:07.052630-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:01:07.366563-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Meta Stock Runs Overbought Into Connect \u2014 Wall Street Still Targets $800+",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:01:08.502256-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:01:09.795438-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Goldman, Morgan Stanley Ride $17.2B China Tech Boom as AI Truce Odds Sit at 10%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:01:09.907915-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman, Morgan Stanley Ride $17.2B China Tech Boom as AI Truce Odds Sit at 10%",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

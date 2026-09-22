@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T09:57:25.522085-04:00",
-    "symbols": [
-      "VEEE"
-    ],
-    "headline": "Dow Surges Over 200 Points; Chicago Fed Activity Index Falls In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T09:57:25.627384-04:00",
     "symbols": [
       "LOBO"
@@ -5058,6 +5048,16 @@
       "ABNB"
     ],
     "headline": "Airbnb Expands Groceries With Instacart Across U.S., Canada",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T09:31:31.985386-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "China Slams Brakes on Humanoid Robot IPOs After Unitree\u2019s 55% Plunge \u2014 Tesla Optimus Faces Commercialization Test",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

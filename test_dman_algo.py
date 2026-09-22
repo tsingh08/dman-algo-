@@ -18350,3 +18350,59 @@ class TestTrendDayOrbShadow(unittest.TestCase):
 
     def test_the_mode_exists(self):
         self.assertIn('"orb"', inspect.getsource(a.main))
+
+
+class TestDeliveredTelegramsAreLogged(unittest.TestCase):
+    """2026-09-22: a review of what the user received was impossible -- only
+    suppressed and failed sends were logged, never delivered ones."""
+
+    def test_a_delivered_message_leaves_one_log_line(self):
+        ok = MagicMock(status_code=200)
+        buf = io.StringIO()
+        with patch.object(a, "TELEGRAM_TOKEN", "t"), patch.object(a, "TELEGRAM_CHAT_ID", "c"), \
+             patch.object(a, "_telegram_worth_sending", return_value=True), \
+             patch.object(a.requests, "post", return_value=ok), \
+             contextlib.redirect_stdout(buf):
+            self.assertTrue(a.send_telegram("<b>FILL</b>\nRXRX  BUY x1"))
+        self.assertIn("[Telegram] sent: <b>FILL</b> RXRX BUY x1", buf.getvalue())
+
+
+class TestCiAlertIsSeverityAware(unittest.TestCase):
+    """The CI alert said 'dman_algo.py is broken ... all trading jobs will
+    fail' for EVERY failure, including a stale golden on 2026-09-22."""
+
+    def _wf(self):
+        return open(os.path.join(os.path.dirname(os.path.abspath(a.__file__)),
+                                 ".github", "workflows", "ci.yml"), encoding="utf-8").read()
+
+    def test_only_load_failures_claim_trading_is_broken(self):
+        wf = self._wf()
+        i = wf.index("trading is broken")
+        self.assertIn('"$S_SYNTAX" = failure', wf[i - 200:i])
+        self.assertIn('"$S_JSON" = failure', wf[i - 200:i])
+        self.assertIn("trading still runs", wf)
+
+    def test_every_check_has_an_id_the_alert_reads(self):
+        wf = self._wf()
+        for sid in ("syntax", "imports", "names", "golden", "suite", "json"):
+            self.assertIn(f"id: {sid}", wf)
+            self.assertIn(f"steps.{sid}.outcome", wf)
+
+
+class TestSourceStaysPython311Compatible(unittest.TestCase):
+    """CI and every trading job run Python 3.11; local development runs 3.14.
+    On 2026-09-22 an f-string nesting same-quote strings (legal only since
+    3.12) passed the full suite locally and would have been a SyntaxError on
+    every runner. The tokenizer check needs 3.12+ to see f-string tokens, so on
+    3.11 itself this is a no-op -- CI's own syntax check covers that side."""
+
+    def test_no_same_quote_nesting_inside_f_strings(self):
+        if sys.version_info < (3, 12):
+            self.skipTest("3.11 tokenizes f-strings whole; CI's syntax check covers it")
+        here = os.path.dirname(os.path.abspath(a.__file__))
+        sys.path.insert(0, os.path.join(here, "tools"))
+        import py311_check
+        bad = []
+        for f in ("dman_algo.py", "dman_daemon.py", "test_dman_algo.py"):
+            bad += [f"{f}:{ln}: {line}" for ln, line in py311_check.violations(os.path.join(here, f))]
+        self.assertEqual(bad, [], "\n".join(bad))

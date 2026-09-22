@@ -2352,6 +2352,10 @@ def send_telegram(message: str) -> bool:
                 timeout=10,
             )
             if resp.status_code == 200:
+                # One line per delivered message. Suppressed and failed sends
+                # were logged but delivered ones were not, so "what did the user
+                # actually receive?" had no answer from the run logs (2026-09-22).
+                print(f"  [Telegram] sent: {' '.join((message or '').split())[:110]}")
                 return True
             # Non-200 — log so GitHub Actions captures it
             print(f"  [Telegram] HTTP {resp.status_code}: {resp.text[:120]}", file=sys.stderr)

@@ -26,17 +26,20 @@ jobs:
           cache: pip
 
       - name: Syntax check
+        id: syntax
         run: python -m py_compile dman_algo.py
 
       - name: Install dependencies
         run: pip install --upgrade pip && pip install -r requirements.txt
 
       - name: Import check (catches module-level NameErrors, bad constants)
+        id: imports
         env:
           PYTHONIOENCODING: utf-8
         run: python -c "import dman_algo; print('dman_algo imports cleanly')"
 
       - name: Static check — undefined names inside functions
+        id: names
         # The import check above only catches NAMES EVALUATED AT IMPORT.
         # A NameError inside a function body only fires when that line runs,
         # and if the line sits in a try/except it never surfaces at all.
@@ -56,6 +59,7 @@ jobs:
           echo "no undefined names"
 
       - name: Golden characterization harnesses (order + exit logic)
+        id: golden
         # Replays the order function and the options exit logic through fixed,
         # hermetic scenarios and compares every order, Telegram message,
         # tracker write and printed line to a committed baseline. Built for the
@@ -70,11 +74,13 @@ jobs:
           grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt
 
       - name: Regression suite (test_dman_algo.py)
+        id: suite
         env:
           PYTHONIOENCODING: utf-8
         run: python -m unittest test_dman_algo -v
 
       - name: Validate JSON data files
+        id: json
         run: |
           python - <<'EOF'
           import json, glob, sys
@@ -91,13 +97,41 @@ jobs:
           print(f"All {len(glob.glob('dman_*.json'))} JSON data files valid")
           EOF
 
+      # Severity-aware. The old text said "dman_algo.py is broken on main. All
+      # trading jobs will fail" for EVERY failure -- including a stale golden
+      # recording on 2026-09-22, when nothing was broken and nothing traded.
+      # An alarm that cries wolf trains you to ignore the real one.
       - name: Notify on failure
         if: failure()
         env:
           TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          S_SYNTAX:  ${{ steps.syntax.outcome }}
+          S_IMPORTS: ${{ steps.imports.outcome }}
+          S_JSON:    ${{ steps.json.outcome }}
+          S_NAMES:   ${{ steps.names.outcome }}
+          S_GOLDEN:  ${{ steps.golden.outcome }}
+          S_SUITE:   ${{ steps.suite.outcome }}
+          SHA:       ${{ github.sha }}
+          RUN_URL:   ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
+          failed=""
+          for p in "syntax=$S_SYNTAX" "import=$S_IMPORTS" "state JSON=$S_JSON" \
+                   "undefined names=$S_NAMES" "golden harness=$S_GOLDEN" "test suite=$S_SUITE"; do
+            [ "${p##*=}" = "failure" ] && failed="$failed ${p%%=*},"
+          done
+          if [ "$S_SYNTAX" = failure ] || [ "$S_IMPORTS" = failure ] || [ "$S_JSON" = failure ]; then
+            head="🚨 <b>CI FAILED — trading is broken</b>"
+            why="dman_algo.py or its state files will not load. Scheduled trading jobs fail until this is fixed."
+          else
+            head="⚠️ <b>CI check failed — trading still runs</b>"
+            why="The code loads and runs; a behaviour check disagrees with its recorded expectation. Fix before the next change."
+          fi
+          text="$head  (${SHA:0:8})
+          Failed:${failed%,}
+          $why
+          $RUN_URL"
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
-            -d "text=🚨 <b>CI FAILED</b> — dman_algo.py is broken on main. All trading jobs will fail until fixed. Check GitHub Actions now." \
+            --data-urlencode "text=${text}" \
             -d "parse_mode=HTML" || true

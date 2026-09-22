@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:09:30.235988-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Critical Metals, Priority Technology, Meta Platforms And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-21T10:09:30.397709-04:00",
     "symbols": [
       "GOOGL"
@@ -5057,6 +5047,17 @@
     "headline": "&#39;Boston Fed President Backed Rate Hike Because Inflation Wasn&#39;t Improving Fast Enough; Susan Collins Cited Slow Inflation Progress And Middle East Conflict As Reasons She Supported The Fed&#39;s Quarter-point Increase Last Wednesday&#39; - Quartz",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T09:43:18.292449-04:00",
+    "symbols": [
+      "HUBC",
+      "QNME"
+    ],
+    "headline": "Dow Gains Over 100 Points; AutoZone Posts Upbeat Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

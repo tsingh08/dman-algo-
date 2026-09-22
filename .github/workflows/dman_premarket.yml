@@ -20,7 +20,10 @@ concurrency:
 jobs:
   premarket:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 15 -> 30: dispatched before 8:00 ET the briefing waits up to 12 min, then
+    # runs 8-10; at 15 the timeout would kill it before its last step, which now
+    # starts the trading daemon.
+    timeout-minutes: 30
     permissions:
       contents: read
       actions: write    # dispatch the trading daemon ahead of the open (last step)

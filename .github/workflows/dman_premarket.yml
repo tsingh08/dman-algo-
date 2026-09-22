@@ -67,7 +67,13 @@ jobs:
           # running the job far too early (rare) and we'll catch it next time.
           target_hhmm = 800   # 8:00 AM ET
           cur_hhmm    = now.hour * 100 + now.minute
-          if cur_hhmm < 730:
+          import os
+          # Scheduled runs only. A DISPATCH always runs: the cloud routine that
+          # dispatches this briefing is pinned to 12:20 UTC, which is 8:20 ET in
+          # summer but 7:20 ET after daylight saving ends (Nov 1) -- skipping it
+          # then would mean no briefing and no daemon start from November on.
+          # Dispatched early, it waits (capped at 12 min) toward 8:00 below.
+          if cur_hhmm < 730 and os.environ.get("EVENT_NAME") == "schedule":
               print(f"Too early ({now.strftime('%H:%M ET')}) — GitHub ran job ahead of schedule. Skipping.")
               sys.exit(0)
           # GitHub's scheduler has been starting this job ~4 hours late every

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-21T10:13:43.564517-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna To Present Three Abstracts On Intismeran Autogene At European Society For Medical Oncology Congress 2026",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T10:13:55.288027-04:00",
-    "symbols": [
-      "VEEE"
-    ],
-    "headline": "Twin Vee PowerCats Shares Halted On Circuit Breaker To The Upside, Stock Now Up 141.72%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:13:55.408582-04:00",
-    "symbols": [
-      "NCPL"
-    ],
-    "headline": "11 Financials Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T10:13:55.524549-04:00",
-    "symbols": [
-      "SVRN"
-    ],
-    "headline": "11 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T10:15:36.180201-04:00",
     "symbols": [
       "NVO"
@@ -5061,5 +5021,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T10:00:39.114560-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Richmond Manufacturing Index For September -2 Vs 2 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:00:46.015535-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Richmond Manufacturing Shipments For September -5 Vs 11 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:01:09.638078-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Richmond Services Index For September 0 Vs -8 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T10:01:27.875295-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "Quanome Stock Soars 80% After Agreeing to Buy 32 GPU Servers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

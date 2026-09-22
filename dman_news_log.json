@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.082419-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "QUICK SPARK: Wall Street Is Moving Nvidia Onto Crypto Rails. 24/7 Trading Is Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.086668-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Performance Comparison: Apple And Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.090875-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Amazon Blocks Meta\u2019s Muse AI Shopping Assistant, Raising Stakes in Battle Over the Future of E-Commerce: \u2018Bigger Battle Than Anyone Anticipates\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.095086-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia, Apple Drive Demand for Coinbase-Issued Tokenized Stocks\u2014 Brian Armstrong Notes &#39;Good Traction So Far&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.239729-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "QUICK SPARK: Wall Street Is Moving Nvidia Onto Crypto Rails. 24/7 Trading Is Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.244637-04:00",
     "symbols": [
       "MSFT"
@@ -5050,5 +5000,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:43:38.159207-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Intuit Stock Slides Amid Meta&#39;s AI Collaboration Uncertainty",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:43:40.545979-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Analyst Calls Neutron Launch the \u2018Most Material Catalyst\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:43:40.558892-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "This Marathon Petroleum Analyst Is No Longer Bullish; Here Are Top 4 Downgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:43:40.584487-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Partners With SDT To Deploy First Superion 256 Quantum System And Quantum Memory Module In South Korea",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:43:40.600954-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "&#39;Vance-Led Task Force Set to Remove 760,000 Allegedly Fraudulent Obamacare Enrollments&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

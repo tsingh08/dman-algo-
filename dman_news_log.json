@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.870206-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Top Analyst Says There\u2019s 80% Chance Could Put Tesla and SpaceX \u2018Under One Hood\u2019 by 2027 \u2014 \u2018Golden Goose\u2019 Could Create the \u2018Biggest Company in the World\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.875466-04:00",
     "symbols": [
       "TSLA"
@@ -5057,5 +5047,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T15:32:50.747070-04:00",
+    "symbols": [
+      "AAPL",
+      "NVDA"
+    ],
+    "headline": "Apple Takes Aim at Nvidia\u2019s AI Economics: New Macs Have \u2018No Cost per Token,\u2019 Hardware Chief Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

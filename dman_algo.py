@@ -2683,14 +2683,40 @@ def _save_last_alert(ticker: str) -> None:
         pass
 
 def _is_duplicate_alert(ticker: str, cooldown_min: int = ALERT_COOLDOWN_MIN) -> bool:
+    """True if this key was alerted within the last `cooldown_min` minutes.
+
+    Reads BOTH alert stores, not just LAST_ALERTS_FILE. Found in the
+    2026-09-22 review: several call sites pair this check with
+    _mark_alerted() — which writes _ALERT_DEDUP_FILE, a file this check
+    never read — instead of _save_last_alert(). Every one of those alerts
+    (PDT status, __SETUP_KILLED__, __NONWL_SIGNAL__, __NEWS_FIRST_*,
+    __OPT_AGG_CAP__) had dedup that could never engage: the key they
+    marked was invisible here, so the "deduped" Telegram message re-fired
+    on every scan pass. Confirmed live 2026-09-22: __SETUP_KILLED__:Low
+    Float Catalyst re-alerted across the whole morning while IMCC signals
+    repeated. Checking both stores fixes every such site at once without
+    disturbing the correctly-paired _is_alerted_today()/_mark_alerted()
+    and _is_duplicate_alert()/_save_last_alert() sites.
+    """
+    stamps = []
     alerts = _load_last_alerts()
-    if ticker not in alerts:
-        return False
+    if ticker in alerts:
+        stamps.append(alerts[ticker])
     try:
-        last = datetime.fromisoformat(alerts[ticker])
-        return (datetime.now(ET) - last).total_seconds() < cooldown_min * 60
+        with open(_ALERT_DEDUP_FILE) as _f:
+            _mk = json.load(_f).get(ticker)
+        if _mk:
+            stamps.append(_mk)
     except Exception:
-        return False
+        pass
+    for _s in stamps:
+        try:
+            last = datetime.fromisoformat(_s)
+            if (datetime.now(ET) - last).total_seconds() < cooldown_min * 60:
+                return True
+        except Exception:
+            continue
+    return False
 
 
 # ═══════════════════════════════════════════════════════════════════════════

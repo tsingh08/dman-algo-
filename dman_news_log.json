@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-09-21T16:03:18.460262-04:00",
-    "symbols": [
-      "INOD"
-    ],
-    "headline": "5 Stocks In The Spotlight Last Week:  Wall Street&#39;s Most Accurate Analysts Weigh In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T16:03:18.717918-04:00",
-    "symbols": [
-      "FIVN"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Five9, Raises Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T16:03:18.985872-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "Microsoft To Rally Over 23%? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T16:03:18.990652-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "This Digital Realty Trust Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T16:03:18.995455-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Securitize Holdings, Raises Price Target to $13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T16:03:18.999888-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "Cantor Fitzgerald Initiates Coverage On Securitize Holdings with Overweight Rating, Announces Price Target of $21.2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T16:05:23.439832-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "Jinxin Technology COO, CFO Jun Jiang Resigns; Fangfang Zhou Appointed CFO; Co. Decides Not To Name New Operations Chief",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T19:45:39.620223-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Adobe Stock In The Last 15 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T19:59:26.847558-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Secures $1.2B Army Contract To Produce Increment 2 Of The Precision Strike Missile",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-21T20:00:48.655081-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Breaks Ground On Houston Facility To Manufacture Active Pharmaceutical Ingredients For Medicines Like Foundayo; Site Will Employ More Than 600 People In High-Wage Jobs",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T20:01:24.144073-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Partners With SDT To Deploy First Superion 256 Quantum System And Quantum Memory Module In South Korea",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T09:10:33.082684-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "&#39;Vance-Led Task Force Set to Remove 760,000 Allegedly Fraudulent Obamacare Enrollments&#39; - WSJ Exclusive",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T09:10:53.033135-04:00",
-    "symbols": [
-      "IMSR"
-    ],
-    "headline": "Terrestrial Energy shares are trading higher after Roth Capital initiated coverage on the stock with a Buy rating and announced a $15 price target.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T09:12:46.408764-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:13:49.571690-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "This Marathon Petroleum Analyst Is No Longer Bullish; Here Are Top 4 Downgrades For Tuesday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:22:20.936918-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Analyst Calls Neutron Launch the \u2018Most Material Catalyst\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T09:25:39.077650-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Announces Availability Of New Mac Mini, Mac Studio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.082419-04:00",
     "symbols": [
       "AAPL"
@@ -5044,5 +4874,181 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:34:24.213607-04:00",
+    "symbols": [
+      "APP",
+      "ARM",
+      "MRVL",
+      "MU",
+      "QQQ",
+      "SNDK"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:34:30.942707-04:00",
+    "symbols": [
+      "AMZN",
+      "META"
+    ],
+    "headline": "Meta Stock \u2018Has More Room to Run\u2019: Former Hedge Fund Manager Calls It His \u2018Favorite Large-Cap Tech Stock\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:34:49.578642-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Stock of the Day: Is Apple Breaking Out?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:34:50.030173-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Stock \u2018Has More Room to Run\u2019: Former Hedge Fund Manager Calls It His \u2018Favorite Large-Cap Tech Stock\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:50.136300-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Meta Stock \u2018Has More Room to Run\u2019: Former Hedge Fund Manager Calls It His \u2018Favorite Large-Cap Tech Stock\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:34:50.791818-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:50.865546-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T14:34:51.229071-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:52.165394-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:52.421120-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-22T14:34:54.195588-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Secures $1.2B Army Contract To Produce Increment 2 Of The Precision Strike Missile",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:55.027688-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Adobe Stock In The Last 15 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:55.206623-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:56.083645-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Tells Customers In Email That October 1 Price Hikes Will Extend To Dedicated Inference Endpoints, Raising On-Demand Rates By 16% To 20%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T14:34:56.249603-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "Crude Oil Down Over 1%; Thor Industries Shares Gain After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:34:56.823228-04:00",
+    "symbols": [
+      "VKTX"
+    ],
+    "headline": "Crude Oil Down Over 1%; Thor Industries Shares Gain After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T14:34:58.634287-04:00",
+    "symbols": [
+      "VNCE"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

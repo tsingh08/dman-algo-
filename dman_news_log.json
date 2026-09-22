@@ -1,74 +1,5 @@
 [
   {
-    "ts": "2026-09-21T11:44:27.132053-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "QUICK SPARK: AMD Stock Hits Fresh Record High, Up 183% This Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T11:44:27.197781-04:00",
-    "symbols": [
-      "AMZN",
-      "META"
-    ],
-    "headline": "&#39;No One Violates Privacy Like Meta&#39;: Scott Galloway Says Years of User Data Could Become an AI Advantage",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T11:44:32.651119-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "QUICK SPARK: AMD Stock Hits Fresh Record High, Up 183% This Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:49:02.094981-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "QQQ",
-      "SPY",
-      "TLT"
-    ],
-    "headline": "$6.51 Diesel Should Be Crushing the Economy: Here\u2019s Why It Has Rarely Grown Faster",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T11:50:01.676263-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceXAI Rolls Out Grok 4.7",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-21T11:54:24.135818-04:00",
-    "symbols": [
-      "CVX",
-      "ETN",
-      "XOM"
-    ],
-    "headline": "The Fed Is Watching AI Inflation. Here&#39;s What ETF Investors Should Watch",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T11:54:49.448425-04:00",
     "symbols": [
       "VST"
@@ -5059,5 +4990,67 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:45:26.814881-04:00",
+    "symbols": [
+      "AMD",
+      "META",
+      "NVDA"
+    ],
+    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:45:29.369450-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Danish Prime Minister Mette Frederiksen Says U.S. Adversaries Won&#39;t Get Control Or Significant Influence In Greenland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:45:29.374335-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "No Warren Buffett, No Problem: Former Hedge Funder Says Berkshire Stock \u2018Likely to Beat the S&amp;P 500 Over the Next Five Years\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T11:45:29.392779-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What Is Going on With Nebius Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-22T11:45:29.525516-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;SpaceXAI\u2019s Grok Bot Agent Tops 400,000 Users After First Month&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-22T11:45:29.565222-04:00",
+    "symbols": [
+      "BB"
+    ],
+    "headline": "What Is Going On With BlackBerry Stock Ahead Of Earnings?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

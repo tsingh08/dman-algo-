@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:39.805444-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "AWS Partners With The Biological Computing Co. To Bring World\u2019s First Neuron-Derived AI Video Model To Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:39.870206-04:00",
     "symbols": [
       "TSLA"
@@ -5057,5 +5047,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T15:26:16.383609-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Stock \u2018High on the List\u2019 for Former Hedge Fund Manager",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

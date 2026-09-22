@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-21T14:08:13.296574-04:00",
-    "symbols": [
-      "WBD"
-    ],
-    "headline": "California&#39;s Attorney General Says About Paramount&#39;s Bid For Warner Bros Discovery That We&#39;ll Select A Trustee To Monitor Paramount&#39;s Compliance With Terms Of Settlement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-21T14:08:13.415017-04:00",
-    "symbols": [
-      "PSKY"
-    ],
-    "headline": "California&#39;s Attorney General Says About Paramount&#39;s Bid For Warner Bros Discovery That We&#39;ll Select A Trustee To Monitor Paramount&#39;s Compliance With Terms Of Settlement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-21T14:18:53.402508-04:00",
     "symbols": [
       "WBD"
@@ -5047,6 +5027,26 @@
     "headline": "SoFi, Mastercard Launch Stablecoin Settlement Across $25 Billion Card Program",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:53:41.664870-04:00",
+    "symbols": [
+      "OMER"
+    ],
+    "headline": "Omeros Transplant Drug Could Be Bigger than Expected, Says Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-22T13:53:41.985430-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "SoFi, Mastercard Launch Stablecoin Settlement Across $25 Billion Card Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

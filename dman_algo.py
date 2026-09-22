@@ -6933,6 +6933,33 @@ _TIER_B_KW = {"phase 2", "phase ii", "trial", "partnership", "milestone", "deal"
 _TIER_D_KW = {"dilut", "offering", "placement", "warrant", "clinical hold",
                "fda reject", "complete response", "investigation", "fraud", "delisting"}
 
+# Keywords were matched as raw substrings, so "bla" (Biologics License
+# Application) fired inside "BlackRock" and "nda" inside "Honda" and "agenda":
+# on 2026-09-22 a Zacks filler piece, "BlackRock (BLK) Outpaces Stock Market
+# Gains: What You Should Know", graded tier A -- worth +15 confluence points in
+# the scanner. Whole words now; only true stems may carry a suffix.
+_CATALYST_STEMS = {"acqui": "acqui", "approv": "approv", "dilut": "dilut",
+                   "license": "licens", "fraud": "fraud"}
+_CATALYST_KW_RE: dict = {}
+
+
+def _catalyst_kw_hits(text: str, keywords) -> list:
+    """Keywords present in `text` as words (plurals allowed), stems as prefixes."""
+    _t = str(text or "").lower()
+    hits = []
+    for kw in keywords:
+        rx = _CATALYST_KW_RE.get(kw)
+        if rx is None:
+            if kw in _CATALYST_STEMS:
+                pat = r"(?<![a-z0-9])" + re.escape(_CATALYST_STEMS[kw])
+            else:
+                pat = r"(?<![a-z0-9])" + re.escape(kw) + r"(?:s|es)?(?![a-z0-9])"
+            rx = _CATALYST_KW_RE[kw] = re.compile(pat)
+        if rx.search(_t):
+            hits.append(kw)
+    return hits
+
+
 
 # ── News-FIRST catalyst scan ──────────────────────────────────────────────
 # Every other discovery path in this file is price-first: find something that
@@ -7020,6 +7047,14 @@ _NEWS_ROUTINE_KW = {
     "preferred shares", "consent solicitation",
 }
 
+# Syndicated market-recap templates: "X (TICK) Outpaces Stock Market Gains:
+# What You Should Know", "X Rises As Market Takes a Dip: Key Facts". A daily
+# price summary, never an event.
+_NEWS_MARKET_RECAP_RE = re.compile(
+    r"what (you|investors) (should|need to) know\s*$|key facts\s*$|"
+    r"\b(outpaces|lags|beats|trails|tops|falls behind)\b.{0,20}\bmarket\b|"
+    r"\bas (the )?market (gains|dips|takes|falls|rises|slides|climbs)",
+    re.IGNORECASE)
 def _news_catalyst_tier(title: str, desc: str) -> Optional[str]:
     """Tier for one raw headline, or None if it is noise or not a catalyst.
 
@@ -7034,13 +7069,18 @@ def _news_catalyst_tier(title: str, desc: str) -> Optional[str]:
         return None
     if (_NEWS_COMMENTARY_RE.match(title) or _NEWS_RETRO_RE.search(_t)
             or _NEWS_COMMENTARY_ANYWHERE_RE.search(title)
-            or _NEWS_LISTICLE_RE.match(title)):
+            or _NEWS_LISTICLE_RE.match(title)
+            or _NEWS_MARKET_RECAP_RE.search(title)):
         return None
-    if any(_k in _t for _k in _TIER_D_KW):
-        return None                      # dilution / fraud — never a long
-    if any(_k in _t for _k in _TIER_A_KW):
+    if _catalyst_kw_hits(_t, _TIER_D_KW):
+        return None                      # dilution / fraud anywhere — never a long
+    # The HEADLINE decides the tier; the description can only veto. A real
+    # catalyst is the news, so it is in the headline -- "Gray Media Again
+    # Partner to Bring Collegiate Sports" graded tier A on 2026-09-22 from a
+    # keyword in its description alone.
+    if _catalyst_kw_hits(title, _TIER_A_KW):
         return "A"
-    if any(_k in _t for _k in _TIER_B_KW):
+    if _catalyst_kw_hits(title, _TIER_B_KW):
         return "B"
     return None
 
@@ -7145,6 +7185,12 @@ def scan_news_catalysts(verbose: bool = True) -> list[dict]:
         _tk = _a.get("tickers") or []
         if not _tk or len(_tk) > NEWS_FIRST_MAX_TICKERS:
             continue
+        # A headline that names its ticker -- "BlackRock (BLK) ..." -- is about
+        # that ticker, not every symbol the article is tagged with (the same
+        # piece was credited to the DIVB ETF).
+        _named = set(re.findall(r"\(([A-Z]{1,5})\)", str(_a.get("title") or "")))
+        if _named:
+            _tk = [t for t in _tk if str(t).upper() in _named] or list(_named)
         for _sym in _tk:
             _sym = str(_sym).upper()
             if not _sym.isalpha() or len(_sym) > 5:
@@ -7503,8 +7549,8 @@ def _score_catalyst_tier(bull_news: list[tuple[str, str]],
     if bear_news:
         return "D"
     combined = " ".join(h.lower() for h, _ in bull_news)
-    has_a = any(kw in combined for kw in _TIER_A_KW)
-    has_b = any(kw in combined for kw in _TIER_B_KW)
+    has_a = bool(_catalyst_kw_hits(combined, _TIER_A_KW))
+    has_b = bool(_catalyst_kw_hits(combined, _TIER_B_KW))
     if edgar_found and has_a:
         return "A"
     if edgar_found or has_a:

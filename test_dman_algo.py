@@ -18406,3 +18406,47 @@ class TestSourceStaysPython311Compatible(unittest.TestCase):
         for f in ("dman_algo.py", "dman_daemon.py", "test_dman_algo.py"):
             bad += [f"{f}:{ln}: {line}" for ln, line in py311_check.violations(os.path.join(here, f))]
         self.assertEqual(bad, [], "\n".join(bad))
+
+
+class TestCatalystGradingIsWordAware(unittest.TestCase):
+    """2026-09-22: two of three weekend "tier A" catalysts were junk. "bla"
+    (Biologics License Application) matched inside "BlackRock"; a college-
+    sports media renewal graded A from a keyword in its description."""
+
+    def _g(self, title, desc=""):
+        return a._news_catalyst_tier(title, desc)
+
+    def test_real_catalysts_grade_a(self):
+        for h in ("FDA Approves Vertex Cystic Fibrosis Drug", "Pfizer Submits BLA for RSV Vaccine",
+                  "Acme to Be Acquired by Globex for $45 Per Share", "Acme Awarded $120M Defense Contract",
+                  "Acme Licensing Deal With Novartis", "Acme Receives 510(k) Clearance"):
+            self.assertEqual(self._g(h), "A", h)
+
+    def test_a_keyword_inside_another_word_is_not_a_catalyst(self):
+        for h in ("BlackRock Names New Chief Strategist", "Honda Unveils Agenda for EV Plant",
+                  "Acme Hires Contractor for Office Refit"):
+            self.assertIsNone(self._g(h), h)
+
+    def test_the_description_can_veto_but_never_promote(self):
+        self.assertIsNone(self._g("Gray Media Again Partner to Bring Collegiate Sports to Fans",
+                                  "multi-year media rights contract awarded"))
+        self.assertIsNone(self._g("FDA Approves Acme Drug", "priced a registered direct offering"))
+
+    def test_market_recap_templates_are_not_events(self):
+        for h in ("BlackRock (BLK) Outpaces Stock Market Gains: What You Should Know",
+                  "Acme Stock Sinks As Market Gains: What You Should Know",
+                  "Acme Rises As Market Takes a Dip: Key Facts"):
+            self.assertIsNone(self._g(h), h)
+
+    def test_plurals_and_stems_still_match(self):
+        self.assertEqual(a._catalyst_kw_hits("two partnerships signed", {"partnership"}), ["partnership"])
+        self.assertEqual(a._catalyst_kw_hits("regulators approved it", {"approv"}), ["approv"])
+        self.assertEqual(a._catalyst_kw_hits("a dealer network", {"deal"}), [])
+
+    def test_the_scanner_grader_uses_the_same_matcher(self):
+        src = inspect.getsource(a._score_catalyst_tier)
+        self.assertIn("_catalyst_kw_hits(combined, _TIER_A_KW)", src)
+        self.assertNotIn("kw in combined", src)
+
+    def test_a_headline_naming_its_ticker_credits_only_that_ticker(self):
+        self.assertIn('re.findall(r"\\(([A-Z]{1,5})\\)"', inspect.getsource(a.scan_news_catalysts))

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:18:16.622798-04:00",
-    "symbols": [
-      "FLNA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:16.628629-04:00",
-    "symbols": [
-      "FLNA"
-    ],
-    "headline": "Positive FDA Decision Propels Rebranded Filana Therapeutics Epilepsy Research Forward",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:16.722503-04:00",
-    "symbols": [
-      "VKTX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:16.899432-04:00",
-    "symbols": [
-      "ZEO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:16.985665-04:00",
-    "symbols": [
-      "AEHL"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:17.152004-04:00",
-    "symbols": [
-      "WSHP"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:17.610119-04:00",
-    "symbols": [
-      "TGL"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:17.876110-04:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:18.805136-04:00",
-    "symbols": [
-      "FLYE"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T13:18:19.151726-04:00",
     "symbols": [
       "FIRY"
@@ -5051,5 +4961,97 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:57:11.822811-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Senior Iranian Official Tells Reuters That Iran&#39;s Key Priorities Are Permanently Ending Hostilities, Lifting US Naval Blockade; Many Differences Remain With US, But Diplomacy Continues",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:57:30.234981-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Secretary Of State Rubio Says Talks On Iran On Tuesday Were Largely An Exchange Of Ideas And Messages; Hope Putin Will Accept Invitation To G20",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T11:00:09.540403-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump&#39;s Strategy Stock Trades Draw Scrutiny as MSTR Surges 83%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:00:09.707203-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Trump&#39;s Strategy Stock Trades Draw Scrutiny as MSTR Surges 83%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:00:11.425807-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Trump&#39;s Strategy Stock Trades Draw Scrutiny as MSTR Surges 83%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:00:15.757502-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Trump&#39;s Strategy Stock Trades Draw Scrutiny as MSTR Surges 83%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:00:15.934257-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Trump&#39;s Strategy Stock Trades Draw Scrutiny as MSTR Surges 83%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T11:00:20.149128-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Rep. Rick Allen Has Sold Up to $50K Worth Of Rollins Stock: Here\u2019s What You Should Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:00:20.423720-04:00",
+    "symbols": [
+      "AAPL",
+      "ABBV",
+      "GOOGL"
+    ],
+    "headline": "Recent Filing Shows That Rep. Pete Sessions Sold Over $100K Worth of Apple Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

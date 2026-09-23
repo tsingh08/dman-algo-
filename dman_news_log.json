@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-09-22T15:32:50.747070-04:00",
-    "symbols": [
-      "AAPL",
-      "NVDA"
-    ],
-    "headline": "Apple Takes Aim at Nvidia\u2019s AI Economics: New Macs Have \u2018No Cost per Token,\u2019 Hardware Chief Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T15:40:53.364289-04:00",
     "symbols": [
       "RKLB",
@@ -5060,6 +5049,16 @@
     "headline": "U.S. Lawmakers To Unveil Legislation To Revise National Security Tool Used By Federal Communications Commission To Bar Chinese Tech Gear",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:08:53.152239-04:00",
+    "symbols": [
+      "ADGM"
+    ],
+    "headline": "Crude Oil Gains 1%; Cintas Earnings Top Views",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

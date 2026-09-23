@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:50:32.200383-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:50:32.298448-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T11:50:32.425120-04:00",
     "symbols": [
       "META"
@@ -5046,6 +5026,28 @@
       "META"
     ],
     "headline": "Meta Platforms shares are trading higher after Cantor Fitzgerald maintained its Overweight rating on the stock and raised its price target from $680 to $860. Also, Keybanc maintained its Overweight rating and raises its price target from $780 to $900.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:57:29.183640-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Watching Palantir; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:59:44.853773-04:00",
+    "symbols": [
+      "AMD",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "AI Boom Is \u2018Dot-Com and Subprime All Merged in One,\u2019 Former Fidelity Manager Tells Steve Eisman",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

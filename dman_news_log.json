@@ -1,167 +1,5 @@
 [
   {
-    "ts": "2026-09-22T12:48:15.481919-04:00",
-    "symbols": [
-      "VBIO"
-    ],
-    "headline": "Valion Bio Regains NASDAQ Compliance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T12:50:06.154791-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Iran Has Been Talking With Us Even Today; I Think A Settlement Will Be Reached",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T12:50:19.822444-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Microsoft, Raises Price Target to $570",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T12:51:39.083512-04:00",
-    "symbols": [
-      "FTFT",
-      "JPM",
-      "KPLT"
-    ],
-    "headline": "Shares of financial companies are trading lower. The sector may be under pressure as traders rotate into the tech space after recent e-commerce and payments partnerships with Meta&#39;s Muse AI agent threaten to disrupt traditional financial companies.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T12:52:57.271950-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Barkin Says U.S. Central Bank Raised Rates Last Week Because Risks To Inflation Outweigh Risks To Maximum Employment; Last Week&#39;s Rate Hike &#39;will Help&#39; Restore Price Stability, We&#39;ll See If More Hikes Are Needed; Tempting To Blame High Inflation On Handful Of Categories Exposed To Energy Costs Or Tariffs, But Much Of The Personal Consumption Expenditures Index Is Rising By More Than 3%; There Is Momentum Outside Data Centers, AI, With Consumer Spending Holding Up, Strength In Defense And Manufacturing",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:09.925778-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:18:09.930881-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:18:10.052349-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:18:10.205651-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:18:10.299681-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:18:10.417838-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:18:10.602955-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:18:10.607611-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:18:10.720819-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:18:11.130287-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:18:11.323140-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T13:18:12.170425-04:00",
     "symbols": [
       "ARM"
@@ -5046,6 +4884,166 @@
       "LKFT"
     ],
     "headline": "RBC Capital Upgrades Lakefront Biotherapeutics to Outperform, Raises Price Target to $45",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:33:11.529641-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "EXCLUSIVE: AI Data Center Boom Is \u2018Overkill,\u2019 Defense AI CEO Warns Compute Demand Will Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:33:12.217940-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: AI Data Center Boom Is \u2018Overkill,\u2019 Defense AI CEO Warns Compute Demand Will Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:33:13.025494-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#34;YouTube Is Battling Netflix Over Top Talent; Google-Owned Platform Rolling Out Better Tools For Digital Producers That Could Help It Keep More Of Their Content Exclusively&#34; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:33:13.869835-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "&#34;YouTube Is Battling Netflix Over Top Talent; Google-Owned Platform Rolling Out Better Tools For Digital Producers That Could Help It Keep More Of Their Content Exclusively&#34; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:33:20.404935-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "&#39;Crypto Firm Coinbase Dropped as Member of UK Finance Lobby Group&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:33:25.361937-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks 0.428M Barrel DrawVs 0.600M Barrel Draw Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:33:25.365629-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Gasoline Inventories 1.686M Barrel Draw Vs 0.100M Barrel Build Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:33:25.369198-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Crude Oil Inventories 2.969M\tBarrel Build Vs 0.700M Barrel Draw Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:33:25.372850-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Secretary Of State Rubio Says Things Are Not Going To Get Better In Cuba Without Them Making Changes; Cuba And Its Leaders Have Opportunity To Begin Process Of Change, They Should Take It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:33:25.376418-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Secretary Of State Rubio On Iran, Says We Understand Strait Is Issue; We Will Continue To Defend And Hold Straits Open; President Trump Has Number Of Options Available, Including Military Options; If There&#39;s Going To Be A Deal With Iran, It&#39;s Going To Involve Hard Work Over Period Of Time",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:33:26.081744-04:00",
+    "symbols": [
+      "INNV"
+    ],
+    "headline": "InnovAge, Voyager Technologies And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:33:26.085341-04:00",
+    "symbols": [
+      "INNV"
+    ],
+    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:33:26.088593-04:00",
+    "symbols": [
+      "INNV"
+    ],
+    "headline": "Reported Earlier, InnovAge Prices Secondary Offering Of 10M Shares At $9.25 Per Share By Apax Partners And Welsh, Carson Affiliated Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:33:26.091915-04:00",
+    "symbols": [
+      "INNV"
+    ],
+    "headline": "InnovAge (INNV) Shares Tumble 9% After Hours: Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:33:26.095042-04:00",
+    "symbols": [
+      "INNV"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:33:26.316809-04:00",
+    "symbols": [
+      "GRAL"
+    ],
+    "headline": "Trading Halt: Halted at 6:55:00 a.m. ET - Trading Halt: Halt News Pending",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

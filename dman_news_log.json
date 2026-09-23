@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:45.796200-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "China Business Delegation\u2019s Trump-Xi Visit In Doubt Over US Investment Disputes: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T09:25:45.944795-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "This Editas Medicine Analyst Turns Bullish; Here Are Top 4 Upgrades For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:45.950580-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft To Rally More Than 15%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:45.956100-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T09:25:45.960463-04:00",
     "symbols": [
       "MSFT"
@@ -5051,5 +5011,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:12:45.809638-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Waymo Expands Robotaxi Access to Teens as Ridership Surges",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:12:53.331629-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Lion Group Says Hong Kong Court Allows Creditor Vote On Skyfame Realty Restructuring; Sanction Hearing Tentatively Set For November 20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:12:53.381332-04:00",
+    "symbols": [
+      "KMX"
+    ],
+    "headline": "Microsoft To Rally More Than 15%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:12:53.385448-04:00",
+    "symbols": [
+      "KMX"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on CarMax, Raises Price Target to $47",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

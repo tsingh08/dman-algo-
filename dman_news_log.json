@@ -1,57 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:35:16.318874-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Billionaire Tim Draper Calls Apple, Meta &#39;Irresponsible&#39; for Not Holding Bitcoin",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:35:16.323397-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Alibaba Debuts AI Chip, Challenges Nvidia With Triple Processing Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:35:19.605653-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "$1000 Invested In AppLovin 5 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-22T11:35:21.158647-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Debuts AI Chip, Challenges Nvidia With Triple Processing Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T11:45:26.814881-04:00",
-    "symbols": [
-      "AMD",
-      "META",
-      "NVDA"
-    ],
-    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T11:45:29.369450-04:00",
     "symbols": [
       "SPY"
@@ -5053,5 +5001,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:45:56.108730-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Best Buy, Amazon Deepen Fire TV Alliance",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T09:46:09.357964-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA S&amp;P Global Manufacturing PMI For September 57.0 Vs 53.6 Est",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:46:18.177753-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA S&amp;P Global Services PMI For September 58.7 Vs 55.8 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:46:46.316129-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA S&amp;P Global Composite PMI For September 58.4 Vs 56.0 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:49:57.183617-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin shares are trading lower after reports suggesting that Edgewater Research published a research note warning that the company&#39;s mobile ad market share has slowed down significantly.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

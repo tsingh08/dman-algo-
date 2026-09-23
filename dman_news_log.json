@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:25:29.829526-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:25:30.285602-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:25:32.330927-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:25:35.328404-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:25:38.246910-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T13:25:38.473451-04:00",
     "symbols": [
       "QQQ"
@@ -5053,5 +5003,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T11:27:02.947575-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Citigroup Maintains Buy on Micron Technology, Raises Price Target to $1300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:27:12.858037-04:00",
+    "symbols": [
+      "AYTU"
+    ],
+    "headline": "Transcript: Aytu BioPharma Q4 2026 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:27:12.863410-04:00",
+    "symbols": [
+      "AYTU"
+    ],
+    "headline": "Aytu BioPharma Q4 EPS $0.00 Beats $(0.33) Estimate, Sales $16.106M Beat $12.276M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:27:12.869629-04:00",
+    "symbols": [
+      "AYTU"
+    ],
+    "headline": "Aytu BioPharma Q4 EPS $0.00 and Sales $16.106M Beat $12.276M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:30:24.297129-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "$100 Invested In Applied Materials 20 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

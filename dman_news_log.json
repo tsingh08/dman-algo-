@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:50:32.425120-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:50:32.430040-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:50:32.436886-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:50:32.651863-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T11:50:37.777459-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T11:52:42.638995-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T11:52:42.882083-04:00",
     "symbols": [
       "AMD"
@@ -5049,6 +4989,67 @@
     ],
     "headline": "AI Boom Is \u2018Dot-Com and Subprime All Merged in One,\u2019 Former Fidelity Manager Tells Steve Eisman",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:02:59.903496-04:00",
+    "symbols": [
+      "MRNA",
+      "PLTR"
+    ],
+    "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:03:17.487174-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "AI Boom Is \u2018Dot-Com and Subprime All Merged in One,\u2019 Former Fidelity Manager Tells Steve Eisman",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:03:17.614984-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Boom Is \u2018Dot-Com and Subprime All Merged in One,\u2019 Former Fidelity Manager Tells Steve Eisman",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:03:17.847140-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AI Boom Is \u2018Dot-Com and Subprime All Merged in One,\u2019 Former Fidelity Manager Tells Steve Eisman",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:03:18.611105-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:03:20.187446-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

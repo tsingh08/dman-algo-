@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:07:18.674444-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Delivers Remarks At The UN General Assembly Says We Will Immediately Begin Process Of Developing Large Military Presence In &#39;Appropriate Locations&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:07:18.678042-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Delivers Remarks At The UN General Assembly Says Agreement With Denmark On Greenland &#39;Gives The United States Permanent Control Over Security And All Other Needs&#39; In Territory",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:07:18.681428-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Delivers Remarks At The UN General Assembly Calls Warnings About AI A Hoax; Wants To Rebrand Artificial Intelligence To Super Intelligence",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:23:12.762453-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;Some of the Oracle cloud roles hit hardest in layoffs&#39; - Business Insider Exclusive",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:23:35.852708-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on Strategy, Raises Price Target to $195",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:23:39.935487-04:00",
-    "symbols": [
-      "TGL"
-    ],
-    "headline": "Treasure Global&#39;s Tadaa Technology Subsidiary Signs $7.3M Partnership With Kainan Sdn To Offer AI-Powered Technology Services For Proposed $367M Solar Farm Construction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:23:40.171128-04:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "FDA Grants Jaguar Health Family Company Napo Pharma&#39;s Request For Waiver Of Fee Associated With PDUFA For Mytesi For 2027 Fiscal Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:23:40.339463-04:00",
-    "symbols": [
-      "QNCX"
-    ],
-    "headline": "Citizens Upgrades Quince Therapeutics to Market Outperform, Announces $77 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T11:23:40.346015-04:00",
     "symbols": [
       "QNCX"
@@ -5057,5 +4977,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:38:48.783002-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Quantum Stocks Catch a Bid After IonQ Shows Real-Time Error Correction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:38:53.562720-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Quantum Stocks Catch a Bid After IonQ Shows Real-Time Error Correction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:38:59.942045-04:00",
+    "symbols": [
+      "BFRG"
+    ],
+    "headline": "BullFrog AI Stock Surges Wednesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:39:00.567598-04:00",
+    "symbols": [
+      "WOR"
+    ],
+    "headline": "Transcript: Worthington Enterprises Q1 2027 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-23T09:39:01.443357-04:00",
+    "symbols": [
+      "QBTS"
+    ],
+    "headline": "Quantum Stocks Catch a Bid After IonQ Shows Real-Time Error Correction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:39:02.517353-04:00",
+    "symbols": [
+      "RGTI"
+    ],
+    "headline": "Quantum Stocks Catch a Bid After IonQ Shows Real-Time Error Correction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:39:02.623058-04:00",
+    "symbols": [
+      "INFQ"
+    ],
+    "headline": "Quantum Stocks Catch a Bid After IonQ Shows Real-Time Error Correction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:39:02.892841-04:00",
+    "symbols": [
+      "XNDU"
+    ],
+    "headline": "Quantum Stocks Catch a Bid After IonQ Shows Real-Time Error Correction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

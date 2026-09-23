@@ -392,6 +392,10 @@ OPTIONS_MIN_INTRINSIC_PCT = 0.50
 # Below this floor a contract is rejected, and a cheap stock falls through to
 # the shares path, which buys the same exposure with no spread and a real stop.
 OPTIONS_MIN_LEVERAGE = 3.0
+# An exit may never sell an in-the-money contract for less than this fraction of
+# its intrinsic value: below it the quote is broken, not cheap. See
+# _submit_options_close().
+OPTIONS_CLOSE_MIN_INTRINSIC_FRAC = 0.90
 
 
 def _option_leverage(delta: float, underlying: float, premium: float) -> float:
@@ -8743,6 +8747,23 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
         print(f"  ⏳ {occ_symbol}: no live quote — deferring close ({reason}), "
               f"not selling blind at market")
         return "no_quote", None
+    # A bid far below intrinsic is a broken book, not a price. On 2026-09-22 a
+    # stop fired on RXRX's $1 call at a $0.98 bid (ask $5.00) with the stock at
+    # $4.05: this would have sold $3.05 of intrinsic for $0.96, ~8% of the
+    # account, for nothing. Refuse and let the next cycle retry.
+    try:
+        _ci = _parse_occ_symbol(occ_symbol)
+        _up = get_live_price(_ci["underlying"]) if _ci else None
+        if _ci and _up:
+            _intr = (max(0.0, float(_up) - _ci["strike"]) if _ci["right"] == "CALL"
+                     else max(0.0, _ci["strike"] - float(_up)))
+            if _intr > 0.05 and float(snap.get("bid", 0)) < _intr * OPTIONS_CLOSE_MIN_INTRINSIC_FRAC:
+                print(f"  ⛔ {occ_symbol}: bid ${snap.get('bid', 0):.2f} is below "
+                      f"{OPTIONS_CLOSE_MIN_INTRINSIC_FRAC:.0%} of ${_intr:.2f} intrinsic "
+                      f"— refusing to sell into a broken book ({reason})")
+                return "no_quote", None
+    except Exception as exc:
+        _log_swallowed("close intrinsic guard", exc)
     try:
         # A real quote with bid <= $0.02 is a contract that is effectively
         # worthless; a market order there is the correct way out.
@@ -9202,17 +9223,31 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
     # not to pretend the quote is better, it is to refuse to be stopped out
     # by a quote that cannot be right.
     _stop_ref = _exit_prem
+    _intrinsic_known = False
     try:
-        _und_px = get_price_fn(t) if get_price_fn else None
+        # REST fallback: the real-time feed goes quiet outside market hours, and
+        # get_price_fn returned nothing at 16:03 ET on 2026-09-22 -- so this
+        # floor silently did not apply and RXRX's $1 call was "stopped" on a
+        # stale $0.98 bid while the stock closed at $4.05 (intrinsic $3.05).
+        _und_px = (get_price_fn(t) if get_price_fn else None) or get_live_price(t)
         _occ_info = _parse_occ_symbol(_occ)
         if _und_px and _occ_info:
             _intrinsic = (max(0.0, float(_und_px) - _occ_info["strike"])
                           if _occ_info["right"] == "CALL"
                           else max(0.0, _occ_info["strike"] - float(_und_px)))
+            _intrinsic_known = True
             if _intrinsic > _stop_ref:
                 _stop_ref = round(_intrinsic, 2)
     except Exception:
         pass
+    # Only the STOP is deferred when the underlying is unknown: it is the one
+    # branch that fires on a LOW bid, where a stale quote and a real collapse
+    # are indistinguishable. Profit-taking exits (T1, trailing giveback) read a
+    # HIGH bid and need no such proof -- blocking them too would have frozen
+    # every take-profit in a quiet feed.
+    _stop_verified = _intrinsic_known
+    if not _stop_verified:
+        print(f"  ⏳ {_occ}: underlying price unavailable — stop deferred this cycle")
     _pnl_pct   = (_cur_prem - _entry_prem) / _entry_prem * 100
     # A stream-fed snapshot has no Greeks keys at all (not even a 0
     # default) — fall back to the periodically REST-refreshed cache so
@@ -9275,7 +9310,7 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         # strategy exit below it. In particular the T1 branch sells only HALF
         # a position -- at DTE 1 that would leave the other half to expire.
         _action, _msg = _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t)
-    elif (_quote_ok and not _trail_active and _stop_ref <= _stop_prem
+    elif (_quote_ok and _stop_verified and not _trail_active and _stop_ref <= _stop_prem
           and not _has_open_opposite_leg(_occ)):
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.

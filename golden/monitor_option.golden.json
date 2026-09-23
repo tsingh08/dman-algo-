@@ -20,7 +20,9 @@
   ],
   "telegram": [],
   "marks": [],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M04_stale_bid_below_intrinsic": {
   "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.70 (bid $0.60)  (-15%)  6ct × 100 = $420 mkt val\n   P&L: <b>-15%</b>  θ decay 0.7%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.65  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -48,7 +50,9 @@
   "marks": [
    "TE_OPT_TRAIL_2026-09-14"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M06_t1_half_close": {
   "ret": "🟢 T1 HIT — ½ SOLD, stop → breakeven  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.30 (bid $1.28)  (+59%)  6ct × 100 = $780 mkt val\n   Premium $1.30 ≥ T1 $1.23 (+59%) — sold 3/6 (id close-12…), stop raised to $0.82\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: trailing active, peak $1.30 (exits below $0.84)",
@@ -77,7 +81,9 @@
   "marks": [
    "TE_OPT_T1_2026-09-14"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M08_dte_warning": {
   "ret": "⏳ DTE ALERT — 7d left, consider close  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   Only 7d to expiry — theta burning fast. P&L: +4%. Close or roll now.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 7d\n   Trail: not yet active (arms at +25%)",
@@ -95,7 +101,9 @@
   "marks": [
    "TE_OPT_DTE_2026-09-18"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M09_theta_warning": {
   "ret": "⏰ THETA ALERT — consider exit  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.60 (bid $0.58)  (-27%)  6ct × 100 = $360 mkt val\n   Decaying 13.3%/day with only -27% gain — time is working against you\n   Δ 0.60  θ -0.080/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -118,7 +126,9 @@
   ],
   "telegram": [],
   "marks": [],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M11_order_flow_lean_ask_heavy": {
   "ret": "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.20 (bid $1.18)  (+46%)  6ct × 100 = $720 mkt val\n   Gave back 15%+ off the peak — tightened by order flow (bid/ask size lean -0.95) — peak $1.43 → now $1.20 (+46% from entry) — SELL ×6 submitted (id close-12…). Runner banked.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.82  DTE 11d\n   Trail: trailing active, peak $1.43 (exits below $1.22, tightened by order flow)",
@@ -137,7 +147,9 @@
   "marks": [
    "TE_OPT_TRAIL_2026-09-14"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M12_order_flow_lean_bid_heavy": {
   "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.20 (bid $1.18)  (+46%)  6ct × 100 = $720 mkt val\n   P&L: <b>+46%</b>  θ decay 0.4%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.82  DTE 11d\n   Trail: trailing active, peak $1.43 (exits below $0.89)",
@@ -146,7 +158,9 @@
   "fields": [],
   "telegram": [],
   "marks": [],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M13_trailing_no_lean_hold": {
   "ret": "✅ HOLDING  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $1.20 (bid $1.18)  (+46%)  6ct × 100 = $720 mkt val\n   P&L: <b>+46%</b>  θ decay 0.4%/day  DTE 11d\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.82  DTE 11d\n   Trail: trailing active, peak $1.43 (exits below $0.89)",
@@ -155,7 +169,9 @@
   "fields": [],
   "telegram": [],
   "marks": [],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M03_stop_submitted": {
   "ret": "🔴 STOP HIT — AUTO-CLOSED  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Bid $0.30 ≤ stop $0.41 (-61%) — SELL ×6 submitted (id close-12…). Sync will record P&L.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -198,7 +214,9 @@
   "marks": [
    "TE_OPT_EXPIRY_2026-09-24"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M03_stop_pending": {
   "ret": "🔴 STOP HIT — close order working  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   SELL already open (id close-12…) — awaiting fill\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -241,7 +259,9 @@
   "marks": [
    "TE_OPT_EXPIRY_2026-09-24"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M03_stop_already_closed": {
   "ret": "🔴 STOP — position already closed at Alpaca  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Nothing held — next sync records the P&L\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -284,7 +304,9 @@
   "marks": [
    "TE_OPT_EXPIRY_2026-09-24"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M03_stop_pdt_blocked": {
   "ret": "🚫 STOP HIT — HELD (PDT budget exhausted)  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Bid $0.30 ≤ stop $0.41 (-61%) — selling today would be day trade #4. Holding overnight; max loss is the premium.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -327,7 +349,9 @@
   "marks": [
    "TE_OPT_EXPIRY_2026-09-24"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M03_stop_no_quote": {
   "ret": "⏳ EXIT DEFERRED — no live option quote  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Quote unavailable, so not selling blind at market. Retrying next guard cycle.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -370,7 +394,9 @@
   "marks": [
    "TE_OPT_EXPIRY_2026-09-24"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  },
  "M03_stop_failed": {
   "ret": "🔴 STOP HIT — ⚠️ AUTO-CLOSE FAILED  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.32 (bid $0.30)  (-61%)  6ct × 100 = $192 mkt val\n   Bid $0.30 ≤ stop $0.41 (-61%) — SELL MANUALLY NOW\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 11d\n   Trail: not yet active (arms at +25%)",
@@ -413,6 +439,8 @@
   "marks": [
    "TE_OPT_EXPIRY_2026-09-24"
   ],
-  "stdout": []
+  "stdout": [
+   "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
+  ]
  }
 }

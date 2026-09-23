@@ -4679,7 +4679,10 @@ class TestMonitorOptionPositionTrailingExit(unittest.TestCase):
                             pos, "CALL", get_price_fn=lambda t: None)
                         get_underlying_px_fn = a._check_options_pnl_milestone.call_args.args[5]
                         self.assertEqual(get_underlying_px_fn(), 33.0)
-        mock_rest_price.assert_called_once()
+        # Called more than once since 2026-09-22: the stop's intrinsic floor
+        # takes the same REST fallback, so it cannot be skipped when the
+        # real-time feed is quiet (which is how RXRX was stopped on a stale bid).
+        mock_rest_price.assert_called()
 
     def test_extreme_giveback_still_exits_even_at_deep_profit(self):
         # The widened tolerance is not unlimited -- a giveback past even
@@ -18478,3 +18481,64 @@ class TestOvernightAbroadSection(unittest.TestCase):
 
     def test_it_is_in_the_briefing(self):
         self.assertIn("_pmb_overseas_section()", inspect.getsource(a.run_premarket_briefing))
+
+
+class TestNeverSellBelowIntrinsic(unittest.TestCase):
+    """2026-09-22, 16:03 ET: RXRX's $1 call was "stopped" at a $0.98 bid (ask
+    $5.00) with the stock at $4.05 -- $3.05 of intrinsic. The resting sell at
+    $0.96 would have realised ~8% of the account for nothing. The stop's
+    intrinsic floor existed but needs the underlying price, and the real-time
+    feed was quiet after the close, so it silently did not apply."""
+
+    OCC = "RXRX261002C00001000"
+
+    def _snap(self, bid, ask=5.00):
+        return {"bid": bid, "ask": ask, "mid": (bid + ask) / 2, "spread_pct": 0.8,
+                "bid_size": 10, "ask_size": 10, "delta": 1.0, "theta": 0.0, "iv": 0.0}
+
+    def test_the_close_refuses_a_bid_below_intrinsic(self):
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.98)), \
+             patch.object(a, "get_live_price", return_value=4.05), \
+             patch.object(a, "get_alpaca_client") as client:
+            status, oid = a._submit_options_close(self.OCC, 1, "RXRX CALL stop")
+        self.assertEqual(status, "no_quote")
+        self.assertIsNone(oid)
+        client.return_value.submit_order.assert_not_called()
+
+    def test_a_fair_bid_still_closes(self):
+        ok = MagicMock(); ok.id = "o1"
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(3.00, 3.10)), \
+             patch.object(a, "get_live_price", return_value=4.05), \
+             patch.object(a, "get_alpaca_client") as client:
+            client.return_value.submit_order.return_value = ok
+            status, _ = a._submit_options_close(self.OCC, 1, "stop")
+        self.assertEqual(status, "submitted")
+        client.return_value.submit_order.assert_called_once()
+
+    def test_an_out_of_the_money_contract_is_unaffected(self):
+        """No intrinsic to protect -- a cheap bid there is a real price."""
+        ok = MagicMock(); ok.id = "o2"
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.10, 0.14)), \
+             patch.object(a, "get_live_price", return_value=0.50), \
+             patch.object(a, "get_alpaca_client") as client:
+            client.return_value.submit_order.return_value = ok
+            status, _ = a._submit_options_close(self.OCC, 1, "stop")
+        self.assertEqual(status, "submitted")
+
+    def test_the_stop_floor_uses_the_rest_fallback(self):
+        src = inspect.getsource(a._monitor_option_position)
+        i = src.index("_stop_ref = _exit_prem")
+        self.assertIn("or get_live_price(t)", src[i:i + 500])
+
+    def test_price_exits_defer_when_the_underlying_is_unknown(self):
+        """Without the stock price a stale bid and a real collapse look
+        identical, so nothing price-based may fire."""
+        pos = {"option_symbol": self.OCC, "ticker": "RXRX", "entry_premium": 3.0,
+               "stop_premium": 1.5, "target1_premium": 4.5, "qty": 1, "peak_premium": 3.0,
+               "setup": f"Options Call {self.OCC}"}
+        with patch.object(a, "_get_option_snapshot", return_value=self._snap(0.98)), \
+             patch.object(a, "get_live_price", return_value=None), \
+             patch.object(a, "_submit_options_close") as close, \
+             patch.object(a, "send_telegram", return_value=True):
+            a._monitor_option_position(pos, "CALL", get_price_fn=lambda t: None)
+        close.assert_not_called()

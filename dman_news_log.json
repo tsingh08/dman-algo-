@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T12:34:59.772537-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Introduces Claude Opus 5.5, Now Available On All Platforms, Including AWS, Google Cloud &amp; Microsoft Azure; Claude Opus 5.5 Performs At Level Of Claude Fable 5.1 On Most Work, Costs Around 40% Less To Run Than Opus 5; Says Over Coming Weeks, We&#39;ll Also Be Launching Claude Sonnet 5.5 &amp; Haiku 5.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T12:35:00.234054-04:00",
     "symbols": [
       "GOOGL"
@@ -5049,6 +5039,16 @@
       "NEM"
     ],
     "headline": "Shares of precious metals-related companies are trading lower as gold and silver decline amid a stronger dollar and rising yields. Recent comments from the Fed&#39;s Barkin on inflation and future rate hikes prompt expectations of tighter monetary policy, which would create headwinds as investors rotate into fixed income.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:24:35.207839-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s President Pezeshkian Says Iran Needs To Be Strong And Powerful To Resist U.S., Enemies; Iran Needs Nuclear Energy Not Nuclear Bomb; Iran&#39;s Military Power Is Defensive; Hormuz Strait Cannot Be Used For Passage Of Weapons That Will Be Used Against Iran; Iran Will Not Surrender With Military Power, Believes In Diplomacy",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

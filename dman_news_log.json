@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:40:56.416180-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "4 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-22T13:40:56.555331-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Unconfirmed Social Media Reports Suggest The ShinyHunters Hacking Group Claims To Have Breached The FBI, Stating The Attack Is &#34;Not Financially Motivated.&#34; The FBI Has Not Yet Commented.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T13:40:56.719083-04:00",
     "symbols": [
       "PANW"
@@ -5047,5 +5027,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T11:59:01.802122-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB Expands Oman Footprint with Bisat-B Facility Project",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T12:00:46.452874-04:00",
+    "symbols": [
+      "AMD",
+      "AMZN",
+      "APLD"
+    ],
+    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

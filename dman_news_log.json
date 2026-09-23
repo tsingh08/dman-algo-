@@ -1,181 +1,5 @@
 [
   {
-    "ts": "2026-09-22T14:34:55.206623-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:34:56.083645-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Tells Customers In Email That October 1 Price Hikes Will Extend To Dedicated Inference Endpoints, Raising On-Demand Rates By 16% To 20%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:34:56.249603-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "Crude Oil Down Over 1%; Thor Industries Shares Gain After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T14:34:56.823228-04:00",
-    "symbols": [
-      "VKTX"
-    ],
-    "headline": "Crude Oil Down Over 1%; Thor Industries Shares Gain After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T14:34:58.634287-04:00",
-    "symbols": [
-      "VNCE"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:43:38.159207-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Intuit Stock Slides Amid Meta&#39;s AI Collaboration Uncertainty",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:43:40.545979-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Analyst Calls Neutron Launch the \u2018Most Material Catalyst\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:43:40.558892-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "This Marathon Petroleum Analyst Is No Longer Bullish; Here Are Top 4 Downgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:43:40.584487-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Partners With SDT To Deploy First Superion 256 Quantum System And Quantum Memory Module In South Korea",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:43:40.600954-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "&#39;Vance-Led Task Force Set to Remove 760,000 Allegedly Fraudulent Obamacare Enrollments&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T14:46:23.384757-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Faces \u2018Rampant Racism\u2019 Allegations in Trial: What Investors Should Know",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:48:22.617663-04:00",
-    "symbols": [
-      "AAPL",
-      "GOOGL",
-      "MSFT",
-      "MU",
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: Nvidia Is a Stock And a Token \u2014 When \u2018Retail No Longer Distinguishes Between Ticker and Rail\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:51:11.456062-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Meta\u2019s Mark Zuckerberg to Join Tech Leaders at Trump-Xi Dinner&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T14:51:22.571791-04:00",
-    "symbols": [
-      "THO"
-    ],
-    "headline": "Crude Oil Down Over 1%; Thor Industries Shares Gain After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-22T14:59:45.877567-04:00",
-    "symbols": [
-      "RTX",
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says He And Trump Discussed Energy Ceasefire And How To End War; Says Ukraine Ready For Any Format",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:00:00.347852-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "EXCLUSIVE: Nvidia Is a Stock And a Token \u2014 When \u2018Retail No Longer Distinguishes Between Ticker and Rail\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T15:00:00.551221-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "EXCLUSIVE: Nvidia Is a Stock And a Token \u2014 When \u2018Retail No Longer Distinguishes Between Ticker and Rail\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T15:00:00.853818-04:00",
     "symbols": [
       "NVDA"
@@ -5053,5 +4877,185 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-23T13:35:18.831020-04:00",
+    "symbols": [
+      "AAPL",
+      "CRM",
+      "CRWD",
+      "MSTR",
+      "NBIS",
+      "NVDA",
+      "QMCO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:35:19.095608-04:00",
+    "symbols": [
+      "BABA",
+      "GME",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:35:19.353105-04:00",
+    "symbols": [
+      "ISRG",
+      "LLY",
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:35:38.994353-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:35:39.562287-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:35:41.186993-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:35:41.702099-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:35:45.064081-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:35:45.571999-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:35:46.081370-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:35:46.853769-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:35:47.857985-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:35:50.101900-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:35:52.444791-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:35:58.284999-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:35:58.776782-04:00",
+    "symbols": [
+      "QMCO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:36:03.000952-04:00",
+    "symbols": [
+      "TLSI"
+    ],
+    "headline": "TriSalus Secures FDA Clearance For TriNav Advance as Stock Tests Key Support",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

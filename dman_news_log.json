@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:52:42.882083-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:52:43.126667-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:52:43.130185-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AMD Stock Beat Nvidia By 160 Points In 2026: A Historic AI Boom First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:52:43.361340-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:52:43.812331-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T11:52:51.581929-04:00",
     "symbols": [
       "SPY"
@@ -5052,5 +5002,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:06:40.135876-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Mortgage Rates Top 7% for the First Time Since 2024: 5 Stocks Most at Risk",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:07:47.309970-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Further Rate Hikes Likely Needed To Ensure Timely Return To 2% Inflation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:07:50.290594-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Risks To Achieving 2% Inflation Have Increased, Risks To Labor Market Have Receded",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:07:53.044623-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Fed Was Out Of Position Going Into Recent Meeting, Made An Adjustment In The Right Direction",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:07:55.232237-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Inflation Not Clearly Trending Toward Target In A Timely Way; Economic Growth Strong, Labor Market Solid",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

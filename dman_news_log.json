@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:53.914963-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "3 E Network Technology Group&#39;s Nordic Strategic Subsidiary, Aurora Core Technology Oy Enter Implementation, Execution Phase Of AI Data Center Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:53.996617-04:00",
     "symbols": [
       "NBIS"
@@ -5060,6 +5050,16 @@
     "headline": "Reported Earlier, Li Bang International Shareholders Approve All Resolutions At September 2026 Extraordinary General Meeting, Including Share Capital Increase And Restructuring",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:24:21.239068-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Shares of retail companies are trading lower as growing expectations for tighter monetary policy may raise borrowing costs and slow consumer demand.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

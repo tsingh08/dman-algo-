@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:46.579824-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Mark Zuckerberg Buying PayPal Could Save Meta &#39;5-10 Years&#39; in Super-App Race Against Elon Musk, Says Hedge Fund Manager",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.584370-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Alibaba Takes on Amazon, Google With Aggressive Overseas Cloud Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.588803-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon, Apple, Micron, Check Point Software On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.593431-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.786189-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "OpenAI&#39;s GPT-6 Just Got 50% Cheaper \u2014 Box CEO Says AI Agent Opportunity Could &#39;Dramatically&#39; Expand: &#39;What an Insane Day&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.790786-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Cathie Wood-led ARK Invest Says Oil Could Crash to $30-$35 Once Strait of Hormuz Reopens As Trump Touts Positive Iran Talks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.795183-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Touts Grok in Tesla Vehicles: Here\u2019s What It Can Do",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.800179-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Gary Black Says Legacy Automakers Will Not License Tesla FSD, Instead Bet on In-House Self-Driving Efforts: \u2018Inclined to Build\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.171156-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Surf Air Mobility Signs Agreement With SkyDance Air To Supply Its SurfOS Flight Operations Software; Company Will Earn A Revenue Royalty For All SkyDance Flights Managed Through OperatorOS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.175760-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Michael Burry Bets Against the Memory Boom: These ETFs Could Be Exposed if He\u2019s Right",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.180223-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "QUICK SPARK: Michael Burry Adds to Micron, Palantir, Nebius, SOXX Shorts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.278498-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Computer Begins Shipments Of Nvidia Vera Rubin NVL72 Racks Integrated With Its Data Center Building Block Solutions And Direct Liquid Cooling Stack",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.283149-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "What&#39;s Going On With Super Micro Computer Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.366383-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Market Analysis: Broadcom And Competitors In Semiconductors &amp; Semiconductor Equipment Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.371218-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "&#39;China Reviews Dependence on Broadcom Switches In Data Centres&#39; - FT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.375908-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Broadcom Faces China Data Center Threat as Beijing Finds Its Switches in Up to 90% of State-Owned Firms: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.472062-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Michael Burry Bets Against the Memory Boom: These ETFs Could Be Exposed if He\u2019s Right",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.553209-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Amazon, Apple, Micron, Check Point Software On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.557767-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "AI Boom Will Dwarf the Industrial Revolution, Push Real GDP Growth to 7%: Cathie Wood Says, &#39;Get on the Right Side of Change&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:47.562189-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Michael Burry Bets Against the Memory Boom: These ETFs Could Be Exposed if He\u2019s Right",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T09:25:47.566583-04:00",
     "symbols": [
       "MU"
@@ -5055,5 +4855,205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:38:35.561604-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With Snap Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:38:35.703534-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:38:35.707990-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Elon Musk Touts Grok in Tesla Vehicles: Here\u2019s What It Can Do",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:38:35.863144-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Muse vs. Elon Musk\u2019s X: The Battle for the \u2018Everything App\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:38:36.211706-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What Is Going on With Snap Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:38:36.215965-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Meta Muse vs. Elon Musk\u2019s X: The Battle for the \u2018Everything App\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:38:36.772680-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "What Is Going on With Snap Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:38:43.134106-04:00",
+    "symbols": [
+      "BENF"
+    ],
+    "headline": "Crude Oil Gains 1%; Cintas Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:38:43.698294-04:00",
+    "symbols": [
+      "ALKT"
+    ],
+    "headline": "Crude Oil Gains 1%; Cintas Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:38:43.702635-04:00",
+    "symbols": [
+      "ALKT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:38:44.129959-04:00",
+    "symbols": [
+      "CLDX"
+    ],
+    "headline": "Leerink Partners Maintains Outperform on Celldex Therapeutics, Raises Price Target to $88",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:38:44.134326-04:00",
+    "symbols": [
+      "CLDX"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Celldex Therapeutics, Raises Price Target to $57",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:38:44.244296-04:00",
+    "symbols": [
+      "DBRG"
+    ],
+    "headline": "DigitalBridge, L&amp;G, TD Asset Management Agree To Acquire VodafoneZiggo&#39;s Passive Mobile Tower Infrastructure; Financial Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:38:44.662762-04:00",
+    "symbols": [
+      "MCD"
+    ],
+    "headline": "QUICK SPARK: McDonald&#39;s Stock Slumps to 4-Year Lows, Eyes 7th Week of Losses",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:38:45.090788-04:00",
+    "symbols": [
+      "AMBA"
+    ],
+    "headline": "Whatching Ambarella; Traders Circulating Rumors An M&amp;A Blog Reported That AMBA Is Being Weighed By Unnamed US Strategic Acquirer; Reported Offer For $95-$105/Share In Stock-And-Cash Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:38:45.337917-04:00",
+    "symbols": [
+      "EXPE"
+    ],
+    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:38:45.342267-04:00",
+    "symbols": [
+      "EXPE"
+    ],
+    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:38:45.670791-04:00",
+    "symbols": [
+      "IMVT"
+    ],
+    "headline": "Immunovant Ends Autoimmune Skin Disorder Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:38:45.675144-04:00",
+    "symbols": [
+      "IMVT"
+    ],
+    "headline": "Roivant And Immunovant Say Topline Results From Period 1 Of Proof-of-concept Trial of IMVT-1402 (Imeroprubart) For Cutaneous Lupus Erythematosus Did Not Achieve Statistical Significance On The Primary Endpoint",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:38:45.785484-04:00",
+    "symbols": [
+      "OMAH"
+    ],
+    "headline": "What Is Going on with Apple Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

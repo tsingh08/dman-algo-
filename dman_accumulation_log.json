@@ -1,0 +1,83 @@
+[
+ {
+  "ts": "2026-09-23T14:07:28.349429-04:00",
+  "ticker": "GGOV",
+  "price": 50.17,
+  "rvol": 16.98,
+  "drift_pct": 0.08,
+  "range_ratio": 0.39,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349438-04:00",
+  "ticker": "NEAR",
+  "price": 49.985,
+  "rvol": 1.56,
+  "drift_pct": 0.31,
+  "range_ratio": 0.32,
+  "near_high": 0.987
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349442-04:00",
+  "ticker": "TDTF",
+  "price": 22.755,
+  "rvol": 2.01,
+  "drift_pct": 0.81,
+  "range_ratio": 0.41,
+  "near_high": 0.957
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349445-04:00",
+  "ticker": "IUSB",
+  "price": 44.485,
+  "rvol": 7.42,
+  "drift_pct": 0.99,
+  "range_ratio": 0.47,
+  "near_high": 0.964
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349448-04:00",
+  "ticker": "IALT",
+  "price": 29.74,
+  "rvol": 6.1,
+  "drift_pct": 0.07,
+  "range_ratio": 0.47,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349451-04:00",
+  "ticker": "FLRT",
+  "price": 46.815,
+  "rvol": 2.37,
+  "drift_pct": 0.12,
+  "range_ratio": 0.4,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349454-04:00",
+  "ticker": "SHYM",
+  "price": 21.435,
+  "rvol": 1.85,
+  "drift_pct": 1.31,
+  "range_ratio": 0.66,
+  "near_high": 0.955
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349458-04:00",
+  "ticker": "IEMG",
+  "price": 82.345,
+  "rvol": 2.06,
+  "drift_pct": 1.04,
+  "range_ratio": 0.65,
+  "near_high": 0.981
+ },
+ {
+  "ts": "2026-09-23T14:07:28.349461-04:00",
+  "ticker": "TBPH",
+  "price": 17.045,
+  "rvol": 4.54,
+  "drift_pct": 0.03,
+  "range_ratio": 0.2,
+  "near_high": 0.998
+ }
+]

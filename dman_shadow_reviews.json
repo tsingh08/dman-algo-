@@ -156,5 +156,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-09-23T14:07:28.347940-04:00",
+  "kind": "signal",
+  "ticker": "VKTX",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 70.7 overbought. CHOP regime (score 14) contradicts directional conviction. Entry chasing gap after 2.2% move already made.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 41.82,
+   "stop": 38.14,
+   "target1": 53.04,
+   "rr": 3.05,
+   "rvol": 3.65,
+   "rsi": 70.7,
+   "reason": "Gap up +2.2% from prior close, holding, RVOL 3.7x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

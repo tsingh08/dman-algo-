@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:18:16.534871-04:00",
-    "symbols": [
-      "IMCC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T13:18:16.622798-04:00",
     "symbols": [
       "FLNA"
@@ -5050,6 +5040,16 @@
     "headline": "Maase Announces ~$50M PIPE Agreement For 3,878,856 Shares Priced At $12.89 Per Share",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:55:22.411131-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "During Indirect Talks With U.S. On Tuesday Reopening Hormuz Strait And Lifting U.S. Blockade Were Discussed; Iran&#39;s Key Priorities Are Permanently Ending Hostilities And Lifting U.S. Naval Blockade",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

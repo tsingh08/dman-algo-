@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:49.715868-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Elizabeth Warren Counts Trump&#39;s Oil, Gas Gains Amid Iran War As Americans Pay More At Pump: Ban President From &#39;Owning And Trading Stock&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T09:25:49.797421-04:00",
     "symbols": [
       "RKLB"
@@ -5055,5 +5045,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:54:25.103923-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Anthropic CEO Dario Amodei Posts On X &#34;Today we announced the Claude-led discovery of a molecular machine that we suspect could represent a new gene editing mechanism. Its precise function, biotechnological utility (if any), or level of significance is not yet clear, but at minimum it is work I would have been proud to do as a PhD student. The work was done mostly, though not entirely, by Claude: our life sciences team suggested a broad area of research...&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,86 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:19:59.209856-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "HSBC Downgrades Netflix to Hold, Lowers Price Target to $76",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:22:08.156741-04:00",
-    "symbols": [
-      "LMT",
-      "RTX"
-    ],
-    "headline": "Shares of aerospace and defense companies are trading lower amid multiple catalysts that indicate de-escalation in the Middle East. Reports suggested Iran would open the Strait of Hormuz in seven days if the U.S. took certain steps, and President Trump said he expects an agreement with Iran after the U.S. midterm elections.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:23:24.278233-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "PayPal Stock Is Rising: What&#39;s Going On Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:24:39.167887-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Shares of enterprise software companies are trading lower. Investors may be trimming exposure amid e-commerce and payments agreements for Meta&#39;s Musa agentic AI assistant, would could lead to lower demand for legacy offerings.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:25:26.889477-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Amazon, Check Point Software Technologies, Micron Technology, Apple",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:25:26.893845-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:25:27.127571-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T13:25:27.362056-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T13:25:27.597899-04:00",
     "symbols": [
       "AMD"
@@ -5052,6 +4971,87 @@
     "headline": "U.S. Secretary Of State Rubio Says Much Of Interaction With China Over Last Year Has Been Focused On Trade; Will Be Opportunity For Trump To Interact With China Again Later This Year At APEC And G20",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T11:10:17.275491-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Tesla vs. SpaceX: Why Fitch Favors Musk\u2019s Rockets Over His Robots",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:10:39.292722-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Recent Filing Shows That Rep. Pete Sessions Sold Over $100K Worth of Apple Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:10:40.017299-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Recent Filing Shows That Rep. Pete Sessions Sold Over $100K Worth of Apple Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:10:40.182163-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla vs. SpaceX: Why Fitch Favors Musk\u2019s Rockets Over His Robots",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:10:42.346255-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Recent Filing Shows That Rep. Pete Sessions Sold Over $100K Worth of Apple Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:10:48.248968-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla vs. SpaceX: Why Fitch Favors Musk\u2019s Rockets Over His Robots",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:10:52.791869-04:00",
+    "symbols": [
+      "ACIU"
+    ],
+    "headline": "AC Immune Says Investigational Parkinson\u2019s Drug Shows 100% Antibody Response",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:10:52.992132-04:00",
+    "symbols": [
+      "QXL"
+    ],
+    "headline": "Quantum X Labs Co-CEO Amihay Hadad Steps Down, Effective Immediately; Co. Appoints Yakov Baranes As Sole CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

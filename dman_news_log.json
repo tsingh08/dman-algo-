@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-22T14:34:51.229071-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:34:52.165394-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:34:52.421120-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-22T14:34:54.195588-04:00",
     "symbols": [
       "LMT"
@@ -5047,6 +5017,36 @@
       "ZS"
     ],
     "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:23:50.385505-04:00",
+    "symbols": [
+      "ARTL"
+    ],
+    "headline": "Artelo Biosciences shares are trading higher after the company announced the filing of a provisional patent application for ART27.13 as a monotherapy and in combination with GLP-1 receptor agonists.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:25:43.754873-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "B of A Securities Reiterates Buy on Apple, Maintains $370 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:26:09.592700-04:00",
+    "symbols": [
+      "EGHT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

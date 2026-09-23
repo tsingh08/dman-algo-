@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:55.201850-04:00",
-    "symbols": [
-      "DCOY"
-    ],
-    "headline": "Crude Oil Down Over 1%; Thor Industries Shares Gain After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:55.278138-04:00",
     "symbols": [
       "BFRG"
@@ -5065,5 +5055,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T16:00:35.267362-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "$100 Invested In Marvell Technology 20 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

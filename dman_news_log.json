@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:25:40.111179-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Greenland Mines Shares Halted On Circuit Breaker To The Downside, Stock Now Up 68.47%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T13:25:40.115536-04:00",
     "symbols": [
       "GRML"
@@ -5053,5 +5043,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:37:36.754147-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s Foreign Ministry Spokesperson Posts On X, Another Round Of Message Exchanges And Clarifications Took Place Between Iran, U.S. Via The Qatari Mediator On Tuesday; Iran Clarified Its Conditions For Reviving Diplomacy In The Two Hour Long Process To U.S.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

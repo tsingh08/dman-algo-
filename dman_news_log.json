@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:51.460153-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Fuerza\u202fA\u00e9rea\u202fMexicana Acquires Second Lockheed Martin C\u2011130J\u201130\u202fSuper\u202fHercules Tactical Airlifter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T09:25:51.541152-04:00",
     "symbols": [
       "RTX"
@@ -5060,6 +5050,16 @@
     "headline": "GE Vernova Announces Services Agreement To Provide Rotor Life Extension Solutions For Five Gas Turbines At Power Plants In Egypt; Terms Not Disclosed",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:14:03.894914-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-linked companies are trading amid a drop in Bitcoin as the 10-year Treasury yield hits a 19-year high.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -18545,22 +18545,21 @@ class TestNeverSellBelowIntrinsic(unittest.TestCase):
 
 
 class TestBreakoutZones(unittest.TestCase):
-    """The META shape (2026-09-22: $545 in July, near all-time highs by
-    September). Tested over 3 years: a new 252-day high after a >=60-session
-    base returned +1.33% over SPY on a 20-session hold (n=170), positive in
-    both halves. Surfaced and logged, NOT traded -- the exits here are built
-    for 1-5 day holds."""
+    """The META shape (2026-09-22). Tested on 1,784 liquid US stocks >= $50 over
+    3 years: a new 252-day high is worth something only when the stock is
+    ALREADY running -- >100% above its 52-week low and >10% above its 20-day
+    average gave +3.2% MEDIAN over SPY on a 20-session hold (n=401, both halves
+    positive). A long quiet base near the lows was the worst cut (-1.25%, up
+    31%), and the effect is weakest in the highest-priced names."""
 
-    def _bars(self, n=400, flat=100.0, last=None, high_at=None):
-        """A slowly DECLINING series: no bar ties the 252-day high, so the base
-        count is meaningful. (A perfectly flat series ties every bar and reads
-        as a new high every day -- which is what a first draft of this fixture
-        did, and why the base came out as zero.)"""
+    def _bars(self, n=400, start=200.0, drift=-0.2, last=None, high_at=None):
+        """A declining series (so no bar ties the 252-day high), an optional
+        earlier new high, and a final close that sets today's breakout."""
         bs = []
         for i in range(n):
-            c = flat * 2 - i * 0.2                  # 200 -> ~120 over 400 bars
+            c = start + i * drift
             if high_at is not None and i == high_at:
-                c = flat * 5                        # an earlier new high
+                c = start * 5
             if last is not None and i == n - 1:
                 c = last
             bs.append({"t": "2026-01-01T00:00:00Z", "c": c, "h": c, "l": c, "o": c, "v": 1e6})
@@ -18572,26 +18571,46 @@ class TestBreakoutZones(unittest.TestCase):
         with patch.object(a.requests, "get", return_value=r):
             return a._breakout_zone_scan(["AAA"])
 
-    def test_a_new_high_after_a_long_base_is_a_zone(self):
-        out = self._scan({"AAA": self._bars(last=200.0)})
+    def test_a_running_stock_at_a_new_high_is_a_zone(self):
+        out = self._scan({"AAA": self._bars(last=400.0)})
         self.assertEqual(len(out), 1)
-        self.assertEqual(out[0]["ticker"], "AAA")
-        self.assertGreaterEqual(out[0]["base_days"], a.BZONE_MIN_BASE)
+        self.assertGreaterEqual(out[0]["above_low_pct"], a.BZONE_MIN_ABOVE_LOW)
+        self.assertGreaterEqual(out[0]["extension_pct"], a.BZONE_MIN_EXTENSION)
+        self.assertTrue(out[0]["fresh_base"])
 
-    def test_a_short_base_is_not_a_zone(self):
-        """Day 5 of a run is not a breakout out of a base."""
-        bars = self._bars(last=200.0, high_at=399 - 10)          # a new high 10 days ago
+    def test_a_new_high_without_the_run_is_rejected(self):
+        """Barely above its low is the cut that LOST money in the backtest."""
+        self.assertEqual(self._scan({"AAA": self._bars(last=125.0)}), [])
+
+    def test_a_stock_at_its_high_but_not_extended_is_rejected(self):
+        bars = self._bars(last=400.0)
+        for i in range(379, 400):
+            bars[i]["c"] = bars[i]["h"] = 400.0          # flat into the high
         self.assertEqual(self._scan({"AAA": bars}), [])
+
+    def test_a_short_base_still_qualifies_but_is_not_premium(self):
+        """Requiring a long base threw away 90% of the opportunities (AMD, MRNA
+        and TXG on 2026-09-22 among them) and the strength filters carry the
+        edge alone: base 0-20d was +0.81% median vs +3.20% for base >=60d."""
+        bars = self._bars(last=400.0)
+        bars[399 - 10]["c"] = bars[399 - 10]["h"] = 300.0   # a new high 10 sessions ago
+        out = self._scan({"AAA": bars})
+        self.assertEqual(len(out), 1)
+        self.assertFalse(out[0]["fresh_base"])
+        self.assertLess(out[0]["base_days"], a.BZONE_PREMIUM_BASE)
+
+    def test_a_long_base_is_flagged_premium_and_ranked_first(self):
+        out = self._scan({"AAA": self._bars(last=400.0)})
+        self.assertTrue(out[0]["fresh_base"])
 
     def test_no_new_high_is_not_a_zone(self):
         self.assertEqual(self._scan({"AAA": self._bars(high_at=300, last=101.0)}), [])
 
     def test_cheap_stocks_are_out_of_scope(self):
-        bars = self._bars(flat=1.0, last=2.0)   # a $2 breakout is still too cheap
-        self.assertEqual(self._scan({"AAA": bars}), [])
+        self.assertEqual(self._scan({"AAA": self._bars(start=2.0, drift=-0.001, last=4.0)}), [])
 
     def test_a_short_history_is_skipped_not_guessed(self):
-        self.assertEqual(self._scan({"AAA": self._bars(n=100, last=200.0)}), [])
+        self.assertEqual(self._scan({"AAA": self._bars(n=100, last=400.0)}), [])
 
     def test_a_data_failure_is_not_fatal(self):
         bad = MagicMock(); bad.status_code = 500
@@ -18599,6 +18618,28 @@ class TestBreakoutZones(unittest.TestCase):
             self.assertEqual(a._breakout_zone_scan(["AAA"]), [])
         with patch.object(a.requests, "get", side_effect=OSError("down")):
             self.assertEqual(a._breakout_zone_scan(["AAA"]), [])
+
+    def test_the_universe_is_liquid_and_multi_sector(self):
+        src = inspect.getsource(a._breakout_zone_universe)
+        self.assertIn("_all_tradable_us_equities", src)
+        self.assertIn("BZONE_MIN_DOLLARS", src)
+        self.assertIn("BZONE_MAX_SYMBOLS", src)
+
+    def test_the_universe_falls_back_to_the_watchlist(self):
+        with patch.object(a, "_all_tradable_us_equities", side_effect=OSError("down")):
+            self.assertEqual(a._breakout_zone_universe(), list(a.WATCHLIST))
+
+    def test_strongest_trend_is_listed_first(self):
+        rows = [{"ticker": "A", "date": "d", "close": 60.0, "base_days": 99,
+                 "above_low_pct": 300.0, "extension_pct": 30.0},
+                {"ticker": "B", "date": "d", "close": 60.0, "base_days": 99,
+                 "above_low_pct": 120.0, "extension_pct": 12.0}]
+        with patch.object(a, "_breakout_zone_scan", return_value=rows), \
+             patch.object(a, "_log_breakout_zones", return_value=2):
+            out = a._pmb_breakout_zone_section()
+        self.assertLess(out.index("A</b>"), out.index("B</b>"))
+        self.assertIn("off its low", out)
+        self.assertIn("not traded", out)
 
     def test_the_log_does_not_duplicate_a_ticker_date(self):
         d = tempfile.mkdtemp(); f = os.path.join(d, "bz.json")
@@ -18613,21 +18654,23 @@ class TestBreakoutZones(unittest.TestCase):
         with patch.object(a, "_breakout_zone_scan", return_value=[]):
             self.assertEqual(a._pmb_breakout_zone_section(), "")
 
-    def test_the_section_names_the_stock_and_the_base(self):
-        rows = [{"ticker": "META", "date": "2026-09-22", "close": 745.5,
-                 "base_days": 88, "pct_from_52w_low": 37.0}]
-        with patch.object(a, "_breakout_zone_scan", return_value=rows), \
-             patch.object(a, "_log_breakout_zones", return_value=1):
-            out = a._pmb_breakout_zone_section()
-        self.assertIn("META", out)
-        self.assertIn("88 sessions", out)
-        self.assertIn("not traded yet", out)
-
     def test_it_never_trades(self):
-        for fn in (a._breakout_zone_scan, a._pmb_breakout_zone_section):
+        for fn in (a._breakout_zone_scan, a._pmb_breakout_zone_section, a._breakout_zone_universe):
             src = inspect.getsource(fn)
             for forbidden in ("_submit_signals_to_alpaca", "submit_order", "_try_momentum_call_spread"):
                 self.assertNotIn(forbidden, src)
 
     def test_it_is_in_the_briefing(self):
         self.assertIn("_pmb_breakout_zone_section()", inspect.getsource(a.run_premarket_briefing))
+
+    def test_enough_history_is_fetched_to_measure_the_base(self):
+        """430 calendar days is ~296 sessions: a 60-session base needs 252+60,
+        so the count could never reach the floor and the scan always returned
+        zero -- 30 new 52-week highs on 2026-09-22, none reportable."""
+        self.assertGreaterEqual(a.BZONE_HISTORY_DAYS / 365 * 252,
+                                a.BZONE_LOOKBACK + a.BZONE_PREMIUM_BASE + 20)
+        self.assertIn("BZONE_HISTORY_DAYS", inspect.getsource(a._breakout_zone_scan))
+
+    def test_a_series_too_short_to_measure_the_base_is_skipped(self):
+        bars = self._bars(n=a.BZONE_LOOKBACK + 10, last=400.0)
+        self.assertEqual(self._scan({"AAA": bars}), [])

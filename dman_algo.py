@@ -11036,79 +11036,141 @@ OVERSEAS_MIN_GAP_PCT = 2.0
 OVERSEAS_MAX_LINES = 6
 
 
-# ---- Breakout zones: a new 52-week high out of a long base ------------------
-# The META shape the user flagged (2026-09-22): $545 in July, near all-time
-# highs by September. Tested the same day on 107 watchlist large caps over 3
-# years of daily SIP bars -- a CLOSE at a new 252-day high, where the previous
-# new high was >= BZONE_MIN_BASE sessions earlier:
-#     base >=  0d  n=1543  20d +2.31% (SPY +0.78% excess), up 55%
-#     base >= 20d  n=304   20d +2.19% (excess +1.29%),     up 56%
-#     base >= 60d  n=170   20d +2.90% (excess +1.33%),     up 56%
-#     >= $100      n=243   20d +2.59% (excess +1.33%),     up 58%
-# Positive in both halves and stronger the longer the base. This is the only
-# idea tested in September 2026 that came back positive out of sample.
+# ---- Breakout zones: a new 52-week high in a stock already running ----------
+# Prompted by the user's META observation (2026-09-22): $545 in July, near
+# all-time highs by September. First tested on 107 watchlist large caps, then
+# on the FULL liquid universe (1,784 US stocks >= $50 and >= $10M/day, every
+# sector) over 3 years of daily SIP bars. 20-session hold, EXCESS over SPY:
+#
+#   new 252-day high, base >= 60d        n=3402  +0.73% mean  -0.03% MEDIAN
+#     ...>100% above its 52-week low     n=550   +4.08%       +2.46%   up 59%
+#     ...and >10% above its 20-day avg   n=401   +5.10%       +3.20%   up 60%
+#     ...>150% above its 52-week low     n=257   +6.46%       +5.19%   up 61%
+#     ...but >= $100 a share             n=250   +1.20%       +1.14%   halves +2.12/+0.27
+#
+# The base LENGTH is not the edge -- the trend's STRENGTH is. A long quiet base
+# near the lows was the worst cut of all (-1.25%, up 31%). And the effect is
+# WEAKEST in the highest-priced names, so this deliberately does not filter for
+# them. The median beats SPY, not just the mean, so it is not a few outliers.
 #
 # NOT TRADED YET: the edge is a 10-20 SESSION hold and every exit path here is
-# built for 1-5 days (day-only closes, premium stops, expiry sweeps). It is
-# surfaced in the briefing and logged, so the live record starts accumulating
-# before any money rides on it. Breakouts also CLUSTER -- the six most recent
-# fired within days of each other and all fell -- so position limits will
-# matter as much as the signal when this does go live.
-BZONE_LOOKBACK   = 252
-BZONE_MIN_BASE   = 60
-BZONE_MIN_PRICE  = 50.0
-BZONE_SHADOW_FILE = "dman_bzone_shadow.json"
-BZONE_MAX_LINES  = 5
+# built for 1-5 days. Surfaced in the briefing and logged so the live record
+# accumulates first. Breakouts cluster, so position limits will matter as much
+# as the signal.
+BZONE_LOOKBACK      = 252
+# The base is a BONUS, not a gate. Requiring >=60 sessions since the previous
+# new high threw away 90% of the opportunities -- AMD, MRNA and TXG on
+# 2026-09-22 among them -- and the strength filters carry the edge alone
+# (20-session hold, excess over SPY, 3y, all sectors):
+#   >100% off low & >10% extended, ANY base  n=5447  +2.80% mean  +0.77% median
+#   ...base 0-20d (a continuation run)       n=4639  +2.81%       +0.81%
+#   ...base >= 60d (fresh out of a base)     n=401   +5.10%       +3.20%  premium
+#   >150% off low & >10% extended            n=3516  +3.60%       +1.03%
+# All stable across halves. Base >= BZONE_PREMIUM_BASE ranks first and is
+# starred; it no longer filters anything out.
+BZONE_PREMIUM_BASE  = 60
+BZONE_MIN_ABOVE_LOW = 100.0   # % above the 252-day low -- the dominant filter
+BZONE_MIN_EXTENSION = 10.0    # % above the 20-day average
+BZONE_MIN_PRICE     = 50.0
+BZONE_MIN_DOLLARS   = 10_000_000.0
+BZONE_MAX_SYMBOLS   = 1200    # most liquid first; bounds the briefing's runtime
+# Counting a base of N sessions needs LOOKBACK + N bars of history. At 430
+# calendar days (~296 sessions) the count could never exceed ~43, so every
+# candidate failed a >=60 floor and the scan returned zero no matter what the
+# market did -- 30 stocks made new 52-week highs on 2026-09-22 and none was
+# reportable. 800 calendar days is ~550 sessions: enough for a ~300-session base.
+BZONE_HISTORY_DAYS  = 800
+BZONE_SHADOW_FILE   = "dman_bzone_shadow.json"
+BZONE_MAX_LINES     = 6
+
+
+def _breakout_zone_universe() -> list[str]:
+    """Liquid US stocks >= BZONE_MIN_PRICE, most traded first. Every sector --
+    sector labels are not needed (and not carried by the feed) when the filter
+    is price and dollar volume."""
+    _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+    try:
+        syms = _all_tradable_us_equities()
+    except Exception as exc:
+        _log_swallowed("breakout zone universe", exc)
+        return list(WATCHLIST)
+    out = []
+    for i in range(0, len(syms), MARKET_SCAN_BATCH):
+        try:
+            r = requests.get("https://data.alpaca.markets/v2/stocks/snapshots",
+                             headers=_hdrs,
+                             params={"symbols": ",".join(syms[i:i + MARKET_SCAN_BATCH]),
+                                     "feed": _resolve_stock_feed()}, timeout=30)
+            if r.status_code != 200:
+                continue
+            for sym, snap in (r.json() or {}).items():
+                db = (snap or {}).get("dailyBar") or {}
+                c, v = float(db.get("c", 0) or 0), float(db.get("v", 0) or 0)
+                if c >= BZONE_MIN_PRICE and c * v >= BZONE_MIN_DOLLARS:
+                    out.append((c * v, sym))
+        except Exception as exc:
+            _log_swallowed("breakout zone universe batch", exc)
+    out.sort(reverse=True)
+    return [s for _, s in out[:BZONE_MAX_SYMBOLS]] or list(WATCHLIST)
 
 
 def _breakout_zone_scan(symbols=None) -> list[dict]:
-    """Names whose LAST completed session closed at a new 252-day high after a
-    base of >= BZONE_MIN_BASE sessions. Read-only; never places anything."""
-    _syms = list(dict.fromkeys(symbols or WATCHLIST))
+    """Stocks whose last completed session closed at a new 252-day high while
+    already in a strong uptrend. Read-only; never places anything."""
+    _syms = list(dict.fromkeys(symbols or _breakout_zone_universe()))
     _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
-    _start = (datetime.now(ET) - timedelta(days=int(BZONE_LOOKBACK * 1.7))).date().isoformat()
+    _start = (datetime.now(ET) - timedelta(days=BZONE_HISTORY_DAYS)).date().isoformat()
     bars: dict = {}
-    tok = None
     try:
-        while True:
-            _p = {"symbols": ",".join(_syms), "timeframe": "1Day", "start": _start,
-                  "feed": _resolve_stock_feed(), "adjustment": "all", "limit": 10000}
-            if tok:
-                _p["page_token"] = tok
-            r = requests.get("https://data.alpaca.markets/v2/stocks/bars",
-                             headers=_hdrs, params=_p, timeout=60)
-            if r.status_code != 200:
-                print(f"  breakout zones: bars HTTP {r.status_code}")
-                return []
-            j = r.json() or {}
-            for k, v in (j.get("bars") or {}).items():
-                bars.setdefault(k, []).extend(v or [])
-            tok = j.get("next_page_token")
-            if not tok:
-                break
+        for i in range(0, len(_syms), 150):
+            chunk, tok = _syms[i:i + 150], None
+            while True:
+                _p = {"symbols": ",".join(chunk), "timeframe": "1Day", "start": _start,
+                      "feed": _resolve_stock_feed(), "adjustment": "all", "limit": 10000}
+                if tok:
+                    _p["page_token"] = tok
+                r = requests.get("https://data.alpaca.markets/v2/stocks/bars",
+                                 headers=_hdrs, params=_p, timeout=90)
+                if r.status_code != 200:
+                    print(f"  breakout zones: bars HTTP {r.status_code}")
+                    return []
+                j = r.json() or {}
+                for k, v in (j.get("bars") or {}).items():
+                    bars.setdefault(k, []).extend(v or [])
+                tok = j.get("next_page_token")
+                if not tok:
+                    break
     except Exception as exc:
         _log_swallowed("breakout zone scan", exc)
         return []
     out = []
     for sym, bs in bars.items():
-        if len(bs) < BZONE_LOOKBACK + 5:
+        try:
+            if len(bs) < BZONE_LOOKBACK + BZONE_PREMIUM_BASE + 5:
+                continue        # too little history to measure the base at all
+            cl = [float(b["c"]) for b in bs]
+            hi = [float(b["h"]) for b in bs]
+            i = len(bs) - 1                      # last completed session
+            if cl[i] < BZONE_MIN_PRICE or cl[i] < max(hi[i - BZONE_LOOKBACK:i]):
+                continue
+            base = 0
+            for j2 in range(i - 1, BZONE_LOOKBACK - 1, -1):
+                if cl[j2] >= max(hi[j2 - BZONE_LOOKBACK:j2]):
+                    break
+                base += 1
+            _low = min(cl[i - BZONE_LOOKBACK:i])
+            _above_low = (cl[i] / _low - 1) * 100 if _low > 0 else 0.0
+            _avg20 = sum(cl[i - 20:i]) / 20
+            _ext = (cl[i] / _avg20 - 1) * 100 if _avg20 > 0 else 0.0
+            if _above_low < BZONE_MIN_ABOVE_LOW or _ext < BZONE_MIN_EXTENSION:
+                continue
+            out.append({"ticker": sym, "date": str(bs[i]["t"])[:10], "close": round(cl[i], 2),
+                        "base_days": base, "above_low_pct": round(_above_low, 1),
+                        "extension_pct": round(_ext, 1),
+                        "fresh_base": bool(base >= BZONE_PREMIUM_BASE)})
+        except Exception:
             continue
-        cl = [float(b["c"]) for b in bs]
-        hi = [float(b["h"]) for b in bs]
-        i = len(bs) - 1                      # last completed session
-        if cl[i] < BZONE_MIN_PRICE or cl[i] < max(hi[i - BZONE_LOOKBACK:i]):
-            continue
-        base = 0
-        for j2 in range(i - 1, BZONE_LOOKBACK - 1, -1):
-            if cl[j2] >= max(hi[j2 - BZONE_LOOKBACK:j2]):
-                break
-            base += 1
-        if base < BZONE_MIN_BASE:
-            continue
-        out.append({"ticker": sym, "date": str(bs[i]["t"])[:10], "close": round(cl[i], 2),
-                    "base_days": base,
-                    "pct_from_52w_low": round((cl[i] / min(cl[i - BZONE_LOOKBACK:i]) - 1) * 100, 1)})
-    out.sort(key=lambda r: -r["base_days"])
+    out.sort(key=lambda r: (not r["fresh_base"], -r["above_low_pct"]))
     return out
 
 
@@ -11129,7 +11191,7 @@ def _log_breakout_zones(rows: list[dict]) -> int:
 
 
 def _pmb_breakout_zone_section() -> str:
-    """Briefing lines for yesterday's breakout zones, or ""."""
+    """Briefing lines for the last session's breakout zones, or ""."""
     try:
         rows = _breakout_zone_scan()
     except Exception as exc:
@@ -11141,13 +11203,16 @@ def _pmb_breakout_zone_section() -> str:
         _log_breakout_zones(rows)
     except Exception as exc:
         _log_swallowed("breakout zone log", exc)
-    lines = [f"  🏔 <b>{r['ticker']}</b> ${r['close']:,.2f} — new 52-week high after "
-             f"{r['base_days']} sessions, +{r['pct_from_52w_low']:.0f}% off the 52-week low"
+    lines = [f"  🏔 <b>{r['ticker']}</b> ${r['close']:,.2f} — new 52-week high, "
+             f"+{r['above_low_pct']:.0f}% off its low, {r['extension_pct']:+.0f}% vs its 20-day avg"
+             + (f"  \u2b50 fresh out of a {r['base_days']}-session base" if r.get("fresh_base") else "")
              for r in rows[:BZONE_MAX_LINES]]
-    return ("\n\n🏔 <b>BREAKOUT ZONES</b> — new 52-week high out of a long base\n"
-            + "\n".join(lines)
-            + "\n<i>Tested +1.3% over SPY on a 20-session hold (n=170, 3y). Tracked, "
-              "not traded yet: the exits here are built for 1-5 day holds.</i>")
+    _more = f"\n  …and {len(rows) - BZONE_MAX_LINES} more" if len(rows) > BZONE_MAX_LINES else ""
+    return ("\n\n🏔 <b>BREAKOUT ZONES</b> — new 52-week highs in stocks already running\n"
+            + "\n".join(lines) + _more
+            + "\n<i>Tested over 3y, all sectors: +0.8% median over SPY on a 20-session hold "
+              "(n=5,447); \u2b50 fresh-base names +3.2% (n=401). Tracked, not traded — "
+              "the exits here are built for 1-5 day holds.</i>")
 
 
 def _pmb_overseas_section() -> str:

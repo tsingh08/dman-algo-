@@ -11036,6 +11036,120 @@ OVERSEAS_MIN_GAP_PCT = 2.0
 OVERSEAS_MAX_LINES = 6
 
 
+# ---- Breakout zones: a new 52-week high out of a long base ------------------
+# The META shape the user flagged (2026-09-22): $545 in July, near all-time
+# highs by September. Tested the same day on 107 watchlist large caps over 3
+# years of daily SIP bars -- a CLOSE at a new 252-day high, where the previous
+# new high was >= BZONE_MIN_BASE sessions earlier:
+#     base >=  0d  n=1543  20d +2.31% (SPY +0.78% excess), up 55%
+#     base >= 20d  n=304   20d +2.19% (excess +1.29%),     up 56%
+#     base >= 60d  n=170   20d +2.90% (excess +1.33%),     up 56%
+#     >= $100      n=243   20d +2.59% (excess +1.33%),     up 58%
+# Positive in both halves and stronger the longer the base. This is the only
+# idea tested in September 2026 that came back positive out of sample.
+#
+# NOT TRADED YET: the edge is a 10-20 SESSION hold and every exit path here is
+# built for 1-5 days (day-only closes, premium stops, expiry sweeps). It is
+# surfaced in the briefing and logged, so the live record starts accumulating
+# before any money rides on it. Breakouts also CLUSTER -- the six most recent
+# fired within days of each other and all fell -- so position limits will
+# matter as much as the signal when this does go live.
+BZONE_LOOKBACK   = 252
+BZONE_MIN_BASE   = 60
+BZONE_MIN_PRICE  = 50.0
+BZONE_SHADOW_FILE = "dman_bzone_shadow.json"
+BZONE_MAX_LINES  = 5
+
+
+def _breakout_zone_scan(symbols=None) -> list[dict]:
+    """Names whose LAST completed session closed at a new 252-day high after a
+    base of >= BZONE_MIN_BASE sessions. Read-only; never places anything."""
+    _syms = list(dict.fromkeys(symbols or WATCHLIST))
+    _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+    _start = (datetime.now(ET) - timedelta(days=int(BZONE_LOOKBACK * 1.7))).date().isoformat()
+    bars: dict = {}
+    tok = None
+    try:
+        while True:
+            _p = {"symbols": ",".join(_syms), "timeframe": "1Day", "start": _start,
+                  "feed": _resolve_stock_feed(), "adjustment": "all", "limit": 10000}
+            if tok:
+                _p["page_token"] = tok
+            r = requests.get("https://data.alpaca.markets/v2/stocks/bars",
+                             headers=_hdrs, params=_p, timeout=60)
+            if r.status_code != 200:
+                print(f"  breakout zones: bars HTTP {r.status_code}")
+                return []
+            j = r.json() or {}
+            for k, v in (j.get("bars") or {}).items():
+                bars.setdefault(k, []).extend(v or [])
+            tok = j.get("next_page_token")
+            if not tok:
+                break
+    except Exception as exc:
+        _log_swallowed("breakout zone scan", exc)
+        return []
+    out = []
+    for sym, bs in bars.items():
+        if len(bs) < BZONE_LOOKBACK + 5:
+            continue
+        cl = [float(b["c"]) for b in bs]
+        hi = [float(b["h"]) for b in bs]
+        i = len(bs) - 1                      # last completed session
+        if cl[i] < BZONE_MIN_PRICE or cl[i] < max(hi[i - BZONE_LOOKBACK:i]):
+            continue
+        base = 0
+        for j2 in range(i - 1, BZONE_LOOKBACK - 1, -1):
+            if cl[j2] >= max(hi[j2 - BZONE_LOOKBACK:j2]):
+                break
+            base += 1
+        if base < BZONE_MIN_BASE:
+            continue
+        out.append({"ticker": sym, "date": str(bs[i]["t"])[:10], "close": round(cl[i], 2),
+                    "base_days": base,
+                    "pct_from_52w_low": round((cl[i] / min(cl[i - BZONE_LOOKBACK:i]) - 1) * 100, 1)})
+    out.sort(key=lambda r: -r["base_days"])
+    return out
+
+
+def _log_breakout_zones(rows: list[dict]) -> int:
+    """Append new zone entries to the shadow log (one per ticker per date)."""
+    try:
+        with open(BZONE_SHADOW_FILE) as f:
+            log = json.load(f)
+        if not isinstance(log, list):
+            log = []
+    except (FileNotFoundError, json.JSONDecodeError):
+        log = []
+    seen = {(r.get("ticker"), r.get("date")) for r in log}
+    new = [r for r in rows if (r["ticker"], r["date"]) not in seen]
+    if new:
+        _write_json_atomic(BZONE_SHADOW_FILE, (log + new)[-2000:], indent=0)
+    return len(new)
+
+
+def _pmb_breakout_zone_section() -> str:
+    """Briefing lines for yesterday's breakout zones, or ""."""
+    try:
+        rows = _breakout_zone_scan()
+    except Exception as exc:
+        _log_swallowed("breakout zone section", exc)
+        return ""
+    if not rows:
+        return ""
+    try:
+        _log_breakout_zones(rows)
+    except Exception as exc:
+        _log_swallowed("breakout zone log", exc)
+    lines = [f"  🏔 <b>{r['ticker']}</b> ${r['close']:,.2f} — new 52-week high after "
+             f"{r['base_days']} sessions, +{r['pct_from_52w_low']:.0f}% off the 52-week low"
+             for r in rows[:BZONE_MAX_LINES]]
+    return ("\n\n🏔 <b>BREAKOUT ZONES</b> — new 52-week high out of a long base\n"
+            + "\n".join(lines)
+            + "\n<i>Tested +1.3% over SPY on a 20-session hold (n=170, 3y). Tracked, "
+              "not traded yet: the exits here are built for 1-5 day holds.</i>")
+
+
 def _pmb_overseas_section() -> str:
     """Briefing lines for ADRs moving >= OVERSEAS_MIN_GAP_PCT pre-market, or ""."""
     try:
@@ -11525,6 +11639,7 @@ def run_premarket_briefing() -> None:
         f"{weekend_section}"
         f"{gap_section}"
         f"{_pmb_overseas_section()}"
+        f"{_pmb_breakout_zone_section()}"
         f"{earnings_section}"
         f"{suggestion_line}"
     )

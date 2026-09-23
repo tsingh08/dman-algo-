@@ -18542,3 +18542,92 @@ class TestNeverSellBelowIntrinsic(unittest.TestCase):
              patch.object(a, "send_telegram", return_value=True):
             a._monitor_option_position(pos, "CALL", get_price_fn=lambda t: None)
         close.assert_not_called()
+
+
+class TestBreakoutZones(unittest.TestCase):
+    """The META shape (2026-09-22: $545 in July, near all-time highs by
+    September). Tested over 3 years: a new 252-day high after a >=60-session
+    base returned +1.33% over SPY on a 20-session hold (n=170), positive in
+    both halves. Surfaced and logged, NOT traded -- the exits here are built
+    for 1-5 day holds."""
+
+    def _bars(self, n=400, flat=100.0, last=None, high_at=None):
+        """A slowly DECLINING series: no bar ties the 252-day high, so the base
+        count is meaningful. (A perfectly flat series ties every bar and reads
+        as a new high every day -- which is what a first draft of this fixture
+        did, and why the base came out as zero.)"""
+        bs = []
+        for i in range(n):
+            c = flat * 2 - i * 0.2                  # 200 -> ~120 over 400 bars
+            if high_at is not None and i == high_at:
+                c = flat * 5                        # an earlier new high
+            if last is not None and i == n - 1:
+                c = last
+            bs.append({"t": "2026-01-01T00:00:00Z", "c": c, "h": c, "l": c, "o": c, "v": 1e6})
+        return bs
+
+    def _scan(self, bars_by_sym):
+        r = MagicMock(); r.status_code = 200
+        r.json.return_value = {"bars": bars_by_sym, "next_page_token": None}
+        with patch.object(a.requests, "get", return_value=r):
+            return a._breakout_zone_scan(["AAA"])
+
+    def test_a_new_high_after_a_long_base_is_a_zone(self):
+        out = self._scan({"AAA": self._bars(last=200.0)})
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["ticker"], "AAA")
+        self.assertGreaterEqual(out[0]["base_days"], a.BZONE_MIN_BASE)
+
+    def test_a_short_base_is_not_a_zone(self):
+        """Day 5 of a run is not a breakout out of a base."""
+        bars = self._bars(last=200.0, high_at=399 - 10)          # a new high 10 days ago
+        self.assertEqual(self._scan({"AAA": bars}), [])
+
+    def test_no_new_high_is_not_a_zone(self):
+        self.assertEqual(self._scan({"AAA": self._bars(high_at=300, last=101.0)}), [])
+
+    def test_cheap_stocks_are_out_of_scope(self):
+        bars = self._bars(flat=1.0, last=2.0)   # a $2 breakout is still too cheap
+        self.assertEqual(self._scan({"AAA": bars}), [])
+
+    def test_a_short_history_is_skipped_not_guessed(self):
+        self.assertEqual(self._scan({"AAA": self._bars(n=100, last=200.0)}), [])
+
+    def test_a_data_failure_is_not_fatal(self):
+        bad = MagicMock(); bad.status_code = 500
+        with patch.object(a.requests, "get", return_value=bad):
+            self.assertEqual(a._breakout_zone_scan(["AAA"]), [])
+        with patch.object(a.requests, "get", side_effect=OSError("down")):
+            self.assertEqual(a._breakout_zone_scan(["AAA"]), [])
+
+    def test_the_log_does_not_duplicate_a_ticker_date(self):
+        d = tempfile.mkdtemp(); f = os.path.join(d, "bz.json")
+        rows = [{"ticker": "AAA", "date": "2026-09-22", "close": 200.0, "base_days": 90}]
+        with patch.object(a, "BZONE_SHADOW_FILE", f):
+            self.assertEqual(a._log_breakout_zones(rows), 1)
+            self.assertEqual(a._log_breakout_zones(rows), 0)
+            self.assertEqual(len(json.load(open(f, encoding="utf-8"))), 1)
+        import shutil as _sh; _sh.rmtree(d, True)
+
+    def test_the_section_is_omitted_when_there_is_nothing(self):
+        with patch.object(a, "_breakout_zone_scan", return_value=[]):
+            self.assertEqual(a._pmb_breakout_zone_section(), "")
+
+    def test_the_section_names_the_stock_and_the_base(self):
+        rows = [{"ticker": "META", "date": "2026-09-22", "close": 745.5,
+                 "base_days": 88, "pct_from_52w_low": 37.0}]
+        with patch.object(a, "_breakout_zone_scan", return_value=rows), \
+             patch.object(a, "_log_breakout_zones", return_value=1):
+            out = a._pmb_breakout_zone_section()
+        self.assertIn("META", out)
+        self.assertIn("88 sessions", out)
+        self.assertIn("not traded yet", out)
+
+    def test_it_never_trades(self):
+        for fn in (a._breakout_zone_scan, a._pmb_breakout_zone_section):
+            src = inspect.getsource(fn)
+            for forbidden in ("_submit_signals_to_alpaca", "submit_order", "_try_momentum_call_spread"):
+                self.assertNotIn(forbidden, src)
+
+    def test_it_is_in_the_briefing(self):
+        self.assertIn("_pmb_breakout_zone_section()", inspect.getsource(a.run_premarket_briefing))

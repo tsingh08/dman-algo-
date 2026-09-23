@@ -1546,5 +1546,17 @@
     "pnl_pct": 0.73,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "RXRX",
+    "date": "2026-09-23",
+    "bias": "LONG",
+    "setup": "Options Call RXRX261002C00001000 ($1.0C exp 2026-10-02)",
+    "entry": 3.0,
+    "exit": 2.76,
+    "outcome": "LOSS",
+    "pnl_pct": -8.0,
+    "score": 100,
+    "is_live": true
   }
 ]

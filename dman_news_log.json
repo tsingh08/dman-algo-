@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T14:09:12.211394-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Earnings Are Set for a 10x Jump: The Stock Is Still the Cheapest in Tech",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T14:09:12.397576-04:00",
     "symbols": [
       "SKHY"
@@ -5044,5 +5034,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T12:52:48.722668-04:00",
+    "symbols": [
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Alphabet Stock Dips: Here&#39;s What You Need To Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

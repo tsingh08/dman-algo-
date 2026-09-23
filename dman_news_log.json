@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-22T09:25:40.835647-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Receives European Commission Approval Of RINVOQ For Children With Active Polyarticular Juvenile Idiopathic Arthritis Aged Two And Older",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.840282-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Nvidia-Backed AI Drug Discovery Company Iambic Therapeutics Files for Nasdaq IPO, to Use Proceeds for Cancer Drug Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T09:25:40.907264-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Trump&#39;s Drug Price Achievements Questioned Following Separate Most Favored Nation Contract Disclosures with Lilly, Pfizer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T09:25:40.911947-04:00",
     "symbols": [
       "LLY"
@@ -5067,5 +5037,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:16:31.286785-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Lion Group Says Hong Kong Court Allows Creditor Vote On Skyfame Realty Restructuring; Sanction Hearing Tentatively Set For November 20",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:19:54.563321-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What&#39;s Going On With Meta Platforms Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:21:04.585707-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Russia&#39;s FM Sergey Lavrov Holds Talks With U.S. Secretary Of State Marco Rubio On The Sidelines Of UN General Assembly 2026",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

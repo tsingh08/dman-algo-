@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:18:12.170425-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:18:13.351011-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:18:14.708068-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:14.808426-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Commodity ETF Delivers Double Nvidia\u2019s YTD Returns; Muse Ignites CPU Fever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:18:14.984793-04:00",
-    "symbols": [
-      "CISS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:15.231411-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:15.509419-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:15.824963-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:18:15.918728-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T13:18:16.534871-04:00",
     "symbols": [
       "IMCC"
@@ -5044,6 +4954,100 @@
       "GRAL"
     ],
     "headline": "Trading Halt: Halted at 6:55:00 a.m. ET - Trading Halt: Halt News Pending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:46:01.950664-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Secretary Of State Rubio Says Ukraine And Russia Have Identified Energy As A Strategic Objective Of Their War Aims",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:49:15.859321-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "YouTube Says Rolling Out Likeness Detection To Mobile Phone For Face &amp; Voice Protection; Piloting Live Auto-Dubbing For Real-Time Speech Translation In Early 2027; Integrating Gemini Into New Conversational Editing Assistant For Both Shorts &amp; YouTube Create App; Amazon Product Tagging Expansion To India, Brazil In Coming Weeks &amp; More Countries Before 2026-End",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:49:15.864773-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "YouTube Says Launching Custom Feeds, Will Be Available For Users In U.S. On Web, Mobile &amp; TVs Soon; Launching New Capabilities To Ask YouTube; Introduces Conversational AI Editing Tool For Shorts &amp; YouTube Create App; YouTube Studio Now Offers AI Thumbnail Generation &amp; A/B Video Testing Tools; Expanding Affiliate Program To 35 Countries By Year-End &amp; Bringing More Partners, Including Support For Amazon In International Regions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:49:15.981341-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "YouTube Says Rolling Out Likeness Detection To Mobile Phone For Face &amp; Voice Protection; Piloting Live Auto-Dubbing For Real-Time Speech Translation In Early 2027; Integrating Gemini Into New Conversational Editing Assistant For Both Shorts &amp; YouTube Create App; Amazon Product Tagging Expansion To India, Brazil In Coming Weeks &amp; More Countries Before 2026-End",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:49:15.988138-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "YouTube Says Launching Custom Feeds, Will Be Available For Users In U.S. On Web, Mobile &amp; TVs Soon; Launching New Capabilities To Ask YouTube; Introduces Conversational AI Editing Tool For Shorts &amp; YouTube Create App; YouTube Studio Now Offers AI Thumbnail Generation &amp; A/B Video Testing Tools; Expanding Affiliate Program To 35 Countries By Year-End &amp; Bringing More Partners, Including Support For Amazon In International Regions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:49:16.114730-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s Bitcoin Stash Nears $1B as Short Squeeze Fuels Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:49:23.000777-04:00",
+    "symbols": [
+      "AMD",
+      "COIN",
+      "MSTR",
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "Trump&#39;s Strategy Stock Trades Draw Scrutiny as MSTR Surges 83%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:49:25.730194-04:00",
+    "symbols": [
+      "ACIU"
+    ],
+    "headline": "AC Immune Announces Safety And Immunogenicity Results Through Week 100 In Part 1 Of VacSYn, Its Phase 2 Trial Of ACI-7104 In Patients With Early-Stage Parkinson\u2019s Disease: All Primary Endpoints Were Met, Generally Safe And Well Tolerated; Strong Immunogenicity Demonstrated, With 100% Response Rate After Three Immunizations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:49:26.214555-04:00",
+    "symbols": [
+      "MAAS"
+    ],
+    "headline": "Maase Announces ~$50M PIPE Agreement For 3,878,856 Shares Priced At $12.89 Per Share",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:07:14.300834-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Meta vs. Amazon: The Battle to Own E-Commerce\u2019s &#39;Invisible Layer&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T11:07:16.841615-04:00",
     "symbols": [
       "JPM"
@@ -5056,5 +5046,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-23T09:27:15.144773-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Energy Secretary Chris Wright Says Diesel Export Ban Would Not Work; Says U.S. Diesel Export Ban Would Raise Gasoline And Jet Fuel Prices",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

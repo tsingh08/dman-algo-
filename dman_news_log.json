@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T14:09:11.715908-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;OpenAI launches GPT-6 Sol and Luna&#39; - Tech Crunch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T14:09:12.211394-04:00",
     "symbols": [
       "MU"
@@ -5044,5 +5034,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:50:53.719490-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Shares of oil and gas-related companies are trading higher as energy prices gain amid a perceived lack of progress in U.S.-Iran peace talks taking place alongside UN meetings. Also, activist interest in Devon Energy may be drawing attention to value in the exploration and production industry.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

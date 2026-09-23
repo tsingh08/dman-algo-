@@ -1,100 +1,5 @@
 [
   {
-    "ts": "2026-09-22T14:02:49.511090-04:00",
-    "symbols": [
-      "RKLB",
-      "SPCX"
-    ],
-    "headline": "Rocket Lab&#39;s SpaceX Playbook: Own the Rocket, Constellation and Customer",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:02:52.683692-04:00",
-    "symbols": [
-      "CANG"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T14:03:01.144545-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says U.S. Will Talk About Patriot Missiles With Zelenskiy; Official Met With Iranian Delegation For Three Hours",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T14:04:24.331437-04:00",
-    "symbols": [
-      "MU",
-      "SKHY"
-    ],
-    "headline": "Micron Earnings Are Set for a 10x Jump: The Stock Is Still the Cheapest in Tech",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:08:55.531812-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "ORCL"
-    ],
-    "headline": "&#39;OpenAI launches GPT-6 Sol and Luna&#39; - Tech Crunch",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:09:10.960544-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;Apple settlement offers eligible iPhone owners up to $95&#39; - CBS News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:09:11.060725-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI launches GPT-6 Sol and Luna&#39; - Tech Crunch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:09:11.552722-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "JPMorgan Stock Slips as Traders Shift to Tech Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:09:11.707138-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;OpenAI launches GPT-6 Sol and Luna&#39; - Tech Crunch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T14:09:11.715908-04:00",
     "symbols": [
       "AMZN"
@@ -5047,6 +4952,96 @@
     ],
     "headline": "Microsoft Plans To Invest Over $10B In Middle East By 2030",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:45:20.321281-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Shares of critical metal-related companies are trading lower as gold and silver decline amid a stronger dollar and rising yields. Recent comments from the Fed&#39;s Barkin on inflation and future rate hikes prompt expectations of tighter monetary policy may raise costs for global consumers and could impact orders and demand.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T12:46:20.184680-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T12:46:20.473476-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:46:20.834621-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:46:21.410124-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:46:21.968367-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T12:46:22.251025-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T12:46:33.658633-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T12:46:33.908845-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

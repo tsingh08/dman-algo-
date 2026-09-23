@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-22T12:45:21.619893-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: CrowdStrike, Palo Alto Networks, Fortinet, Cloudflare, Zscaler, SentinelOne&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T12:45:21.704261-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: CrowdStrike, Palo Alto Networks, Fortinet, Cloudflare, Zscaler, SentinelOne&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T12:45:21.820256-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: CrowdStrike, Palo Alto Networks, Fortinet, Cloudflare, Zscaler, SentinelOne&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T12:45:22.295705-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: CrowdStrike, Palo Alto Networks, Fortinet, Cloudflare, Zscaler, SentinelOne&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T12:45:22.369281-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: CrowdStrike, Palo Alto Networks, Fortinet, Cloudflare, Zscaler, SentinelOne&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T12:45:23.051210-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "What&#39;s Going on with On Semiconductor Shares on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T12:48:06.797549-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "UK PM Andy Burnham Tells U.S. President Trump, &#34;We Are Ready To Play Our Part In Middle East&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T12:48:15.338275-04:00",
-    "symbols": [
-      "VLN"
-    ],
-    "headline": "What&#39;s Going on with On Semiconductor Shares on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T12:48:15.481919-04:00",
     "symbols": [
       "VBIO"
@@ -5048,5 +4968,86 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:30:47.801066-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Gasoline Inventories 1.686M Barrel Draw Vs 0.100M Barrel Build Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:31:08.938155-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks 0.428M Barrel DrawVs 0.600M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:31:49.320580-04:00",
+    "symbols": [
+      "AAPL",
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: AI Data Center Boom Is \u2018Overkill,\u2019 Defense AI CEO Warns Compute Demand Will Drop",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T10:32:01.483117-04:00",
+    "symbols": [
+      "EDIT"
+    ],
+    "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:32:01.696924-04:00",
+    "symbols": [
+      "SPIR"
+    ],
+    "headline": "Spire Global Announces $33.2M NOAA Task Order For Satellite Weather Data, Up To $66M If All Options Exercised",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:32:01.808919-04:00",
+    "symbols": [
+      "LKFT"
+    ],
+    "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:32:01.814668-04:00",
+    "symbols": [
+      "LKFT"
+    ],
+    "headline": "This Editas Medicine Analyst Turns Bullish; Here Are Top 4 Upgrades For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:32:01.819896-04:00",
+    "symbols": [
+      "LKFT"
+    ],
+    "headline": "RBC Capital Upgrades Lakefront Biotherapeutics to Outperform, Raises Price Target to $45",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

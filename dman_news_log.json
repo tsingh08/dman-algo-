@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T14:34:54.195588-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Secures $1.2B Army Contract To Produce Increment 2 Of The Precision Strike Missile",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:34:55.027688-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Adobe Stock In The Last 15 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T14:34:55.206623-04:00",
     "symbols": [
       "QQQ"
@@ -5050,5 +5030,28 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:29:12.774179-04:00",
+    "symbols": [
+      "CRWD",
+      "DDOG",
+      "FTNT",
+      "PANW"
+    ],
+    "headline": "Shares of cybersecurity-related companies are trading higher. The sector may be experiencing rotational interest from investors as a hedge against continued AI tool deployment, which may yield more demand for more security, or as a haven against weakness in AI-related tech stocks.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:32:03.821400-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Why Is The Trade Desk Stock Falling on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

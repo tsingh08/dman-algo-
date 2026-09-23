@@ -3026,6 +3026,16 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
                f"{p.get('score', 0)},{result['hold_bars']}")
         csv_rows.append(row)
         resolved_count += 1
+        # The CSV dedup above only sees rows written in PRIOR cycles. When
+        # pending itself holds two entries for the same (ticker, date) —
+        # which sync_live_signals_with_remote()'s byte-identity union-merge
+        # produces whenever two processes each logged the same signal before
+        # syncing (live 2026-09-21: AMD and ARM both pending twice) — both
+        # would resolve in this same loop and the trade would be counted
+        # twice in the per-setup win-rate/kill stats. Marking the key logged
+        # as soon as it resolves makes the in-cycle duplicate hit the
+        # already-logged drop path instead.
+        already_logged.add((p["ticker"], p["date"]))
 
         if verbose:
             icon = "✅" if result["outcome"] == "WIN" else ("⚪" if result["pnl_pct"] == 0 else "❌")
@@ -16689,8 +16699,22 @@ def sync_live_signals_with_remote() -> None:
     """
     def _rebuild(merged, _le, _re):
         logged = _logged_outcome_keys()
-        return {"pending": [p for p in merged
-                            if (p.get("ticker", ""), p.get("date", "")) not in logged]}
+        # One entry per (ticker, date), same identity _log_live_signal()
+        # enforces within a single process. The union-merge's byte-for-byte
+        # key can't see that two processes logged the SAME signal with
+        # slightly different entry prices/timestamps before syncing, so both
+        # copies survived the merge (live 2026-09-21: AMD and ARM each
+        # committed twice). Keep the first occurrence — merged is local-first,
+        # so that's the copy this checkout already had.
+        seen: set = set()
+        pending = []
+        for p in merged:
+            key = (p.get("ticker", ""), p.get("date", ""))
+            if key in logged or key in seen:
+                continue
+            seen.add(key)
+            pending.append(p)
+        return {"pending": pending}
 
     _sync_json_file_via_merge(
         LIVE_SIGNALS_FILE,

@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-22T15:02:05.045844-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Buying SOFI Is Like Buying &#39;AMD or Nvidia&#39; at the Bottom: Strategists Highlight Bold Bull Case for SoFi Technologies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T15:02:05.050744-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T15:02:05.385481-04:00",
-    "symbols": [
-      "INOD"
-    ],
-    "headline": "Watching Innodata; Hunterbrook Media Issues Report Titled, \u201cMeta&#39;s Muse Could Be Big Win For Innodata.\u201d; States Hunterbrook Capital Is Long $INOD",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:02:10.178734-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta\u2019s Muse Beat ChatGPT\u2019s Early Download Pace: Is Zuckerberg\u2019s AI Bet Finally Paying Out?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T15:12:43.482382-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says He Asked Trump For Winter Package Of Patriot Missiles; Says Ukraine Needs Patriot Licenses And Security Guarantees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T15:12:44.291490-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says He Asked Trump For Winter Package Of Patriot Missiles; Says Ukraine Needs Patriot Licenses And Security Guarantees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:12:51.774047-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says He Is Ready To Meet Putin In Trilateral Format With Trump; Reiterates Energy Ceasefire Would Be First Step To End War",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:13:07.174959-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says Trump Made No Request In Meeting For Ukraine To Stop Energy Strikes Unilaterally",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:13:27.656683-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says He Hopes Trump Will Use Lindsey Graham Russia Sanctions Law If Putin Declines To De-Escalate",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:13:51.477963-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says Risk Of Russia Launching Drone Or Land Operations Against Other European Countries Is High; Says Putin Is Not Winning On Battlefield",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:26:16.383609-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Stock \u2018High on the List\u2019 for Former Hedge Fund Manager",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T15:32:50.747070-04:00",
     "symbols": [
       "AAPL",
@@ -5060,5 +4950,116 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:04:53.227679-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Jefferies Maintains Buy on GE Aerospace, Lowers Price Target to $435",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:05:15.127001-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:07:41.892222-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Beam Expands With New Regions, Partners, And Customers; Says We\u2019re Expanding Google Beam To Five New Countries, Partnering With Industrious For An Extended Network, And Proving Our Impact At Google And Beyond",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:08:04.919402-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:08:04.924799-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:08:11.678900-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:08:12.037236-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:08:12.284531-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:08:13.067950-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:08:13.312118-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:08:19.368176-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Lawmakers To Unveil Legislation To Revise National Security Tool Used By Federal Communications Commission To Bar Chinese Tech Gear",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

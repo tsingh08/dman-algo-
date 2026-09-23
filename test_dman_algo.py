@@ -18623,7 +18623,8 @@ class TestBreakoutZones(unittest.TestCase):
         src = inspect.getsource(a._breakout_zone_universe)
         self.assertIn("_all_tradable_us_equities", src)
         self.assertIn("BZONE_MIN_DOLLARS", src)
-        self.assertIn("BZONE_MAX_SYMBOLS", src)
+        self.assertIn("BZONE_MAX_CHEAP", src)
+        self.assertIn("BZONE_MAX_RICH", src)
 
     def test_the_universe_falls_back_to_the_watchlist(self):
         with patch.object(a, "_all_tradable_us_equities", side_effect=OSError("down")):
@@ -18674,3 +18675,41 @@ class TestBreakoutZones(unittest.TestCase):
     def test_a_series_too_short_to_measure_the_base_is_skipped(self):
         bars = self._bars(n=a.BZONE_LOOKBACK + 10, last=400.0)
         self.assertEqual(self._scan({"AAA": bars}), [])
+
+    def test_cheap_stocks_are_in_scope_now(self):
+        """$5-15 is the strongest band (+3.9% median over 20 sessions) and the
+        only one where the 20% ITM 90-day call fits a $400 budget."""
+        out = self._scan({"AAA": self._bars(start=4.0, drift=-0.004, last=8.0)})
+        self.assertEqual(len(out), 1)
+        self.assertFalse(out[0]["weak_band"])
+
+    def test_the_dead_band_is_flagged_and_ranked_last(self):
+        rows = [{"ticker": "W", "date": "d", "close": 40.0, "base_days": 90,
+                 "above_low_pct": 900.0, "extension_pct": 30.0, "fresh_base": True, "weak_band": True},
+                {"ticker": "G", "date": "d", "close": 9.0, "base_days": 1,
+                 "above_low_pct": 110.0, "extension_pct": 11.0, "fresh_base": False, "weak_band": False}]
+        with patch.object(a, "_breakout_zone_scan", return_value=sorted(
+                rows, key=lambda r: (r["weak_band"], not r["fresh_base"], -r["above_low_pct"]))), \
+             patch.object(a, "_log_breakout_zones", return_value=2):
+            out = a._pmb_breakout_zone_section()
+        self.assertLess(out.index("G</b>"), out.index("W</b>"))
+        self.assertIn("$30-50 band", out)
+
+    def test_a_sub_dollar_stock_is_still_out_of_scope(self):
+        self.assertEqual(self._scan({"AAA": self._bars(start=2.0, drift=-0.001, last=4.0)}), [])
+
+    def test_the_cheap_band_gets_its_own_slots(self):
+        """Ranking the whole market by dollar volume ranks it by market cap:
+        with one pooled cap, none of 2026-09-23's ten zones came from the
+        $5-30 band -- the band the edge lives in."""
+        snaps = {}
+        for i in range(900):                       # many cheap, thinly traded
+            snaps[f"C{i}"] = {"dailyBar": {"c": 10.0, "v": 1_000_000}}
+        for i in range(900):                       # fewer rich, heavily traded
+            snaps[f"R{i}"] = {"dailyBar": {"c": 500.0, "v": 1_000_000}}
+        r = MagicMock(); r.status_code = 200; r.json.return_value = snaps
+        with patch.object(a, "_all_tradable_us_equities", return_value=list(snaps)), \
+             patch.object(a.requests, "get", return_value=r):
+            u = a._breakout_zone_universe()
+        self.assertEqual(sum(1 for s in u if s.startswith("C")), a.BZONE_MAX_CHEAP)
+        self.assertEqual(sum(1 for s in u if s.startswith("R")), a.BZONE_MAX_RICH)

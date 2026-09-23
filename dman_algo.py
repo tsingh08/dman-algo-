@@ -11071,9 +11071,27 @@ BZONE_LOOKBACK      = 252
 BZONE_PREMIUM_BASE  = 60
 BZONE_MIN_ABOVE_LOW = 100.0   # % above the 252-day low -- the dominant filter
 BZONE_MIN_EXTENSION = 10.0    # % above the 20-day average
-BZONE_MIN_PRICE     = 50.0
-BZONE_MIN_DOLLARS   = 10_000_000.0
-BZONE_MAX_SYMBOLS   = 1200    # most liquid first; bounds the briefing's runtime
+# $5, not $50. Tested 2026-09-23 by price band (20-session hold, same rule):
+#   $5-15   n=954   raw +10.24% mean / +3.92% median,  vs SPY +9.18%/+3.26%, up 60%
+#   $15-30  n=1177  raw  +5.55% / +2.33%,              vs SPY +4.41%/+1.49%, up 56%
+#   $30-50  n=791   raw  -0.33% / -2.39%  <- avoid
+#   $50+    n=5447  raw  +4.60% / +2.20%,              vs SPY +2.80%/+0.77%
+# Stable across halves in the $5-15 band (+8.5% then +9.4% vs SPY), spread over
+# 156 names (top 10 = 19% of events). It is also the only band where the option
+# structure that works is affordable: a 20% ITM 90-day call costs ~$279 median
+# there and fits a $400 budget 89% of the time, versus $1,300-$14,600 on a $50+
+# name. Caveat both ways: the universe is today's tradable list, so names that
+# collapsed are missing (flattering) and names that ran past the band are
+# excluded (unflattering -- those returned +22.9% median vs SPY).
+BZONE_MIN_PRICE     = 5.0
+BZONE_AVOID_BAND    = (30.0, 50.0)   # negative in every cut; ranked last
+BZONE_MIN_DOLLARS   = 5_000_000.0
+# Split by price band, because ranking the whole market by dollar volume is
+# ranking it by market cap: with one pooled cap the 1,200 slots filled with
+# mega-caps and NOT ONE of 2026-09-23's ten zones came from the $5-30 band --
+# the band the edge actually lives in. Each band gets its own slots.
+BZONE_MAX_CHEAP     = 700     # $5 up to BZONE_AVOID_BAND[0]
+BZONE_MAX_RICH      = 500     # everything above
 # Counting a base of N sessions needs LOOKBACK + N bars of history. At 430
 # calendar days (~296 sessions) the count could never exceed ~43, so every
 # candidate failed a >=60 floor and the scan returned zero no matter what the
@@ -11094,7 +11112,7 @@ def _breakout_zone_universe() -> list[str]:
     except Exception as exc:
         _log_swallowed("breakout zone universe", exc)
         return list(WATCHLIST)
-    out = []
+    cheap, rich = [], []
     for i in range(0, len(syms), MARKET_SCAN_BATCH):
         try:
             r = requests.get("https://data.alpaca.markets/v2/stocks/snapshots",
@@ -11106,12 +11124,15 @@ def _breakout_zone_universe() -> list[str]:
             for sym, snap in (r.json() or {}).items():
                 db = (snap or {}).get("dailyBar") or {}
                 c, v = float(db.get("c", 0) or 0), float(db.get("v", 0) or 0)
-                if c >= BZONE_MIN_PRICE and c * v >= BZONE_MIN_DOLLARS:
-                    out.append((c * v, sym))
+                if c < BZONE_MIN_PRICE or c * v < BZONE_MIN_DOLLARS:
+                    continue
+                (cheap if c < BZONE_AVOID_BAND[0] else rich).append((c * v, sym))
         except Exception as exc:
             _log_swallowed("breakout zone universe batch", exc)
-    out.sort(reverse=True)
-    return [s for _, s in out[:BZONE_MAX_SYMBOLS]] or list(WATCHLIST)
+    cheap.sort(reverse=True)
+    rich.sort(reverse=True)
+    picked = [s for _, s in cheap[:BZONE_MAX_CHEAP]] + [s for _, s in rich[:BZONE_MAX_RICH]]
+    return picked or list(WATCHLIST)
 
 
 def _breakout_zone_scan(symbols=None) -> list[dict]:
@@ -11167,10 +11188,12 @@ def _breakout_zone_scan(symbols=None) -> list[dict]:
             out.append({"ticker": sym, "date": str(bs[i]["t"])[:10], "close": round(cl[i], 2),
                         "base_days": base, "above_low_pct": round(_above_low, 1),
                         "extension_pct": round(_ext, 1),
-                        "fresh_base": bool(base >= BZONE_PREMIUM_BASE)})
+                        "fresh_base": bool(base >= BZONE_PREMIUM_BASE),
+                        "weak_band": bool(BZONE_AVOID_BAND[0] <= cl[i] < BZONE_AVOID_BAND[1])})
         except Exception:
             continue
-    out.sort(key=lambda r: (not r["fresh_base"], -r["above_low_pct"]))
+    # Tested bands first, the $30-50 dead zone last, then strongest trend.
+    out.sort(key=lambda r: (r["weak_band"], not r["fresh_base"], -r["above_low_pct"]))
     return out
 
 
@@ -11206,6 +11229,7 @@ def _pmb_breakout_zone_section() -> str:
     lines = [f"  🏔 <b>{r['ticker']}</b> ${r['close']:,.2f} — new 52-week high, "
              f"+{r['above_low_pct']:.0f}% off its low, {r['extension_pct']:+.0f}% vs its 20-day avg"
              + (f"  \u2b50 fresh out of a {r['base_days']}-session base" if r.get("fresh_base") else "")
+             + ("  ⚠ $30-50 band (untested edge)" if r.get("weak_band") else "")
              for r in rows[:BZONE_MAX_LINES]]
     _more = f"\n  …and {len(rows) - BZONE_MAX_LINES} more" if len(rows) > BZONE_MAX_LINES else ""
     return ("\n\n🏔 <b>BREAKOUT ZONES</b> — new 52-week highs in stocks already running\n"

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:55.278138-04:00",
-    "symbols": [
-      "BFRG"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:55.283150-04:00",
     "symbols": [
       "BFRG"
@@ -5062,6 +5052,18 @@
       "MRVL"
     ],
     "headline": "$100 Invested In Marvell Technology 20 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T16:01:01.444703-04:00",
+    "symbols": [
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "headline": "OpenAI Announces MentalHealthBench, Open Benchmark For Evaluating AI Responses In Mental Health Conversations, Built With More Than 80 Licensed Experts",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

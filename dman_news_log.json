@@ -1,89 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:23:40.346015-04:00",
-    "symbols": [
-      "QNCX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:23:56.631692-04:00",
-    "symbols": [
-      "BABA",
-      "META",
-      "NVDA"
-    ],
-    "headline": "Alibaba Debuts AI Chip, Challenges Nvidia With Triple Processing Power",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T11:29:34.250939-04:00",
-    "symbols": [
-      "NBIS",
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Nebius Stock on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:30:39.569998-04:00",
-    "symbols": [
-      "AAPL",
-      "META"
-    ],
-    "headline": "Why Billionaire Tim Draper Calls Apple, Meta &#39;Irresponsible&#39; for Not Holding Bitcoin",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T11:30:47.543817-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "$1000 Invested In AppLovin 5 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-22T11:35:15.456379-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Why Billionaire Tim Draper Calls Apple, Meta &#39;Irresponsible&#39; for Not Holding Bitcoin",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T11:35:15.924517-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Nebius Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:35:15.929056-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Alibaba Debuts AI Chip, Challenges Nvidia With Triple Processing Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T11:35:16.318874-04:00",
     "symbols": [
       "META"
@@ -5057,5 +4973,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:40:59.435561-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "EXCLUSIVE: Meta\u2019s AI Rally Needs More Than Muse Downloads",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:41:10.300805-04:00",
+    "symbols": [
+      "HCTI"
+    ],
+    "headline": "Healthcare Triangle Inks Letter Of Intent With Crestpoint Capital To Acquire Certain Of Its IP, Trademarks, Business Assets Of Roboticom For Up To $30M In Cash, Equity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:41:10.428903-04:00",
+    "symbols": [
+      "LXEH"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:41:10.520135-04:00",
+    "symbols": [
+      "WAFU"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:41:10.617546-04:00",
+    "symbols": [
+      "GYGY"
+    ],
+    "headline": "Game Your Game Announces Availability Of GameGolf KZN AI, Next-Gen Golf Performance Platform, For Purchase At gamegolf.com",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:41:10.716061-04:00",
+    "symbols": [
+      "QUBT"
+    ],
+    "headline": "Quantum Stocks Catch a Bid After IonQ Shows Real-Time Error Correction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-23T09:41:10.812247-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "BIO-key Announces FIDO Alliance Full Certification For Passkey:YOU Passwordless Login Authenticator",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:43:58.298775-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Surf Air Mobility Adds Second OperatorOS Customer With SkyDance Air",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:46.069177-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "China Business Delegation\u2019s Trump-Xi Visit In Doubt Over US Investment Disputes: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.286811-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.291903-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Elon Musk Touts Grok in Tesla Vehicles: Here\u2019s What It Can Do",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.296426-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Broadcom Faces China Data Center Threat as Beijing Finds Its Switches in Up to 90% of State-Owned Firms: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T09:25:46.301579-04:00",
     "symbols": [
       "META"
@@ -5048,6 +5008,46 @@
       "TLSI"
     ],
     "headline": "Crude Oil Gains 1%; Cintas Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:27:26.805386-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings Stock Nears 52-Week Low: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:27:55.268072-04:00",
+    "symbols": [
+      "FSLY"
+    ],
+    "headline": "Watching Fastly; Traders Circulating X Post From Independent Tester Saying Fastly Carried 29.3% Of Meta Muse Agent Traffic, Including All Browser Navigation Tasks, In 738 Tests; Cloudflare Carried 37.0%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:27:55.271808-04:00",
+    "symbols": [
+      "FSLY"
+    ],
+    "headline": "DA Davidson Maintains Neutral on Fastly, Raises Price Target to $23",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:27:55.275532-04:00",
+    "symbols": [
+      "FSLY"
+    ],
+    "headline": "B of A Securities Maintains Underperform on Fastly, Raises Price Target to $22",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

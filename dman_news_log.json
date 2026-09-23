@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:45.960463-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Chases Mass Copilot Adoption With Deep Discounts for Large Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:45.965327-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Assessing Microsoft&#39;s Performance Against Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.050825-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Super Micro Computer Begins Shipments Of Nvidia Vera Rubin NVL72 Racks Integrated With Its Data Center Building Block Solutions And Direct Liquid Cooling Stack",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.055487-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Rigetti Stock Rises as IonQ-NVIDIA Deal Lifts Quantum Computing Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.060383-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:46.064790-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "In-Depth Analysis: NVIDIA Versus Competitors In Semiconductors &amp; Semiconductor Equipment Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T09:25:46.069177-04:00",
     "symbols": [
       "NVDA"
@@ -5051,5 +4991,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:19:44.747966-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Shares of travel and leisure-related stocks are trading lower as elevated energy prices and bond yields drive expectations of tighter monetary policy for longer, which may curtail consumer discretionary spending.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:22:35.543530-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Q4 Preview: Members Are &#39;Engaged&#39; Despite Ongoing Macro Uncertainty",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:23:05.134678-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: AI Is Supercharging Memory Stocks\u2013This Fund Manager Says Earnings May Be Lying",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:23:05.412238-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "EXCLUSIVE: AI Is Supercharging Memory Stocks\u2013This Fund Manager Says Earnings May Be Lying",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T14:23:05.655532-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "EXCLUSIVE: AI Is Supercharging Memory Stocks\u2013This Fund Manager Says Earnings May Be Lying",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:23:29.809329-04:00",
+    "symbols": [
+      "TLSI"
+    ],
+    "headline": "Crude Oil Gains 1%; Cintas Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

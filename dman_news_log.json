@@ -1,66 +1,5 @@
 [
   {
-    "ts": "2026-09-22T14:34:30.942707-04:00",
-    "symbols": [
-      "AMZN",
-      "META"
-    ],
-    "headline": "Meta Stock \u2018Has More Room to Run\u2019: Former Hedge Fund Manager Calls It His \u2018Favorite Large-Cap Tech Stock\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:34:49.578642-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Stock of the Day: Is Apple Breaking Out?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:34:50.030173-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Stock \u2018Has More Room to Run\u2019: Former Hedge Fund Manager Calls It His \u2018Favorite Large-Cap Tech Stock\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:34:50.136300-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Meta Stock \u2018Has More Room to Run\u2019: Former Hedge Fund Manager Calls It His \u2018Favorite Large-Cap Tech Stock\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T14:34:50.791818-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T14:34:50.865546-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "QUICK SPARK: Nasdaq 100 on Track for Best 4-Year Rally Since 1999",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-22T14:34:51.229071-04:00",
     "symbols": [
       "MRVL"
@@ -5051,5 +4990,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:21:50.689529-04:00",
+    "symbols": [
+      "ADGM"
+    ],
+    "headline": "Adagio Medical shares are trading lower after the company announced a strategic alternatives review and a workforce reduction.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:22:54.355407-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:22:54.601725-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:22:54.847493-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T13:22:55.595233-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:22:55.840725-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

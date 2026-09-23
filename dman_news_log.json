@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:55.635103-04:00",
-    "symbols": [
-      "TLSI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:55.717717-04:00",
     "symbols": [
       "LGCL"
@@ -5067,5 +5057,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T16:07:12.129529-04:00",
+    "symbols": [
+      "GS",
+      "JPM"
+    ],
+    "headline": "&#39;Hellman &amp; Friedman Explores Sale Of Applied Systems At Up To $10B; Hellman &amp; Friedman Is Working With JPMorgan, Goldman Sachs On The Sale, Sources Say&#39; - Reuters Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

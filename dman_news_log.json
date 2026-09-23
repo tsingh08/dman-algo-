@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T15:00:07.812866-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says He Hopes U.S. Will Find A Way To Bring Russia To Any Kind Of Negotiations",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T15:00:08.930121-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Ukraine&#39;s Zelenskiy Says He And Trump Discussed Energy Ceasefire And How To End War; Says Ukraine Ready For Any Format",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T15:00:10.739427-04:00",
     "symbols": [
       "SPCX"
@@ -5055,6 +5035,26 @@
     ],
     "headline": "9 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T13:49:54.698611-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is Shopify Stock Falling on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T13:50:32.541281-04:00",
+    "symbols": [
+      "VSA"
+    ],
+    "headline": "VisionSys AI Shares Halted On Circuit Breaker To The Upside, Stock Now Up 87.88%",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

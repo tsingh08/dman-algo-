@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:50.670362-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Gain as Trump Touts &#39;Good Meeting&#39; With Iran: Analyst Says BTC &#39;Sitting&#39; Above Strong Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:50.750411-04:00",
     "symbols": [
       "FTNT"
@@ -5055,6 +5045,19 @@
     "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:07:28.253975-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "QQQ"
+    ],
+    "headline": "Apple\u2019s AI Bet Is Getting Bigger. So Is the Valuation Risk Hiding Inside These ETFs",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

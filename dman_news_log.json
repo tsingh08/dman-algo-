@@ -1,78 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:45:29.369450-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Danish Prime Minister Mette Frederiksen Says U.S. Adversaries Won&#39;t Get Control Or Significant Influence In Greenland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:45:29.374335-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "No Warren Buffett, No Problem: Former Hedge Funder Says Berkshire Stock \u2018Likely to Beat the S&amp;P 500 Over the Next Five Years\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:45:29.392779-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "What Is Going on With Nebius Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T11:45:29.525516-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;SpaceXAI\u2019s Grok Bot Agent Tops 400,000 Users After First Month&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-22T11:45:29.565222-04:00",
-    "symbols": [
-      "BB"
-    ],
-    "headline": "What Is Going On With BlackBerry Stock Ahead Of Earnings?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:49:21.087388-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Danish Government Says U.S. Will Be Allowed To Establish Additional Defense Area At Narsarsuaq And Mestersvig In Greenland; Parties Support Stronger NATO Arctic Engagement",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:50:15.202447-04:00",
-    "symbols": [
-      "GOOGL",
-      "META",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T11:50:32.200383-04:00",
     "symbols": [
       "NVDA"
@@ -5051,5 +4978,76 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-23T09:50:46.150505-04:00",
+    "symbols": [
+      "ADGM",
+      "WHLR"
+    ],
+    "headline": "Dow Falls 100 Points; General Mills Posts Upbeat Q1 Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:51:06.745110-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta\u2019s Muse Tests Show Human Callers Outperform AI Alone",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T09:51:35.949803-04:00",
+    "symbols": [
+      "ADGM"
+    ],
+    "headline": "Dow Falls 100 Points; General Mills Posts Upbeat Q1 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:51:37.943716-04:00",
+    "symbols": [
+      "WHLR"
+    ],
+    "headline": "Dow Falls 100 Points; General Mills Posts Upbeat Q1 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:51:38.511499-04:00",
+    "symbols": [
+      "IPDN"
+    ],
+    "headline": "Dow Falls 100 Points; General Mills Posts Upbeat Q1 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:51:39.656359-04:00",
+    "symbols": [
+      "SRFM"
+    ],
+    "headline": "Surf Air Mobility Adds Second OperatorOS Customer With SkyDance Air",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:53:38.981068-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms shares are trading higher after Cantor Fitzgerald maintained its Overweight rating on the stock and raised its price target from $680 to $860. Also, Keybanc maintained its Overweight rating and raises its price target from $780 to $900.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

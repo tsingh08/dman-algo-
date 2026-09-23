@@ -79,5 +79,149 @@
   "drift_pct": 0.03,
   "range_ratio": 0.2,
   "near_high": 0.998
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822790-04:00",
+  "ticker": "GGOV",
+  "price": 50.179,
+  "rvol": 17.22,
+  "drift_pct": 0.06,
+  "range_ratio": 0.39,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822799-04:00",
+  "ticker": "NEAR",
+  "price": 49.985,
+  "rvol": 1.59,
+  "drift_pct": 0.31,
+  "range_ratio": 0.32,
+  "near_high": 0.987
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822802-04:00",
+  "ticker": "CLOI",
+  "price": 52.9096,
+  "rvol": 3.04,
+  "drift_pct": 0.06,
+  "range_ratio": 0.35,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822806-04:00",
+  "ticker": "ACWX",
+  "price": 76.57,
+  "rvol": 7.32,
+  "drift_pct": 0.21,
+  "range_ratio": 0.61,
+  "near_high": 0.975
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822808-04:00",
+  "ticker": "IUSB",
+  "price": 44.485,
+  "rvol": 7.54,
+  "drift_pct": 0.99,
+  "range_ratio": 0.47,
+  "near_high": 0.964
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822812-04:00",
+  "ticker": "IALT",
+  "price": 29.74,
+  "rvol": 6.14,
+  "drift_pct": 0.07,
+  "range_ratio": 0.47,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822815-04:00",
+  "ticker": "TDTF",
+  "price": 22.74,
+  "rvol": 2.03,
+  "drift_pct": 0.87,
+  "range_ratio": 0.41,
+  "near_high": 0.957
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822818-04:00",
+  "ticker": "FLRT",
+  "price": 46.815,
+  "rvol": 2.43,
+  "drift_pct": 0.12,
+  "range_ratio": 0.43,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822822-04:00",
+  "ticker": "SHYM",
+  "price": 21.425,
+  "rvol": 1.89,
+  "drift_pct": 1.36,
+  "range_ratio": 0.69,
+  "near_high": 0.954
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822825-04:00",
+  "ticker": "IEMG",
+  "price": 82.3,
+  "rvol": 2.08,
+  "drift_pct": 0.98,
+  "range_ratio": 0.65,
+  "near_high": 0.981
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822828-04:00",
+  "ticker": "SPMB",
+  "price": 21.345,
+  "rvol": 1.81,
+  "drift_pct": 1.45,
+  "range_ratio": 0.56,
+  "near_high": 0.957
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822831-04:00",
+  "ticker": "TBPH",
+  "price": 17.045,
+  "rvol": 4.56,
+  "drift_pct": 0.03,
+  "range_ratio": 0.2,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822833-04:00",
+  "ticker": "SCHZ",
+  "price": 22.275,
+  "rvol": 1.76,
+  "drift_pct": 1.04,
+  "range_ratio": 0.48,
+  "near_high": 0.963
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822836-04:00",
+  "ticker": "RWM",
+  "price": 14.1538,
+  "rvol": 1.58,
+  "drift_pct": 0.45,
+  "range_ratio": 0.3,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822838-04:00",
+  "ticker": "VT",
+  "price": 159.395,
+  "rvol": 1.51,
+  "drift_pct": 0.11,
+  "range_ratio": 0.64,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-09-23T14:39:28.822841-04:00",
+  "ticker": "IAGG",
+  "price": 49.265,
+  "rvol": 1.93,
+  "drift_pct": 0.45,
+  "range_ratio": 0.57,
+  "near_high": 0.974
  }
 ]

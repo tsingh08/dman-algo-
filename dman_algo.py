@@ -11239,19 +11239,55 @@ def _log_breakout_zones(rows: list[dict]) -> int:
     return len(new)
 
 
+def _recent_logged_zones(max_age_days: int = 4) -> list[dict]:
+    """The newest day's zones from the shadow log, if that day is recent."""
+    try:
+        with open(BZONE_SHADOW_FILE) as f:
+            log = json.load(f)
+        if not isinstance(log, list) or not log:
+            return []
+        newest = max(str(r.get("date", "")) for r in log)
+        if not newest:
+            return []
+        if (_et_today() - date.fromisoformat(newest)).days > max_age_days:
+            return []
+        return [r for r in log if str(r.get("date", "")) == newest]
+    except (FileNotFoundError, json.JSONDecodeError, ValueError, TypeError):
+        return []
+
+
+def run_breakout_zone_log(notify: bool = False) -> list[dict]:
+    """Scan for breakout zones and append them to the shadow log.
+
+    Runs in the SCANNER, which is the only workflow that commits state files:
+    the briefing wrote this log and nothing persisted it, so every zone it
+    recorded died with the runner -- the same way the feature log was being
+    thrown away before 2026-09-20. The briefing now reads what this wrote.
+    """
+    rows = _breakout_zone_scan()
+    added = _log_breakout_zones(rows) if rows else 0
+    print(f"  🏔 Breakout zones: {len(rows)} found, {added} new to the log")
+    for r in rows[:BZONE_MAX_LINES]:
+        print(f"     {r['ticker']:<6} ${r['close']:>8.2f}  +{r['above_low_pct']:.0f}% off low  "
+              f"ext {r['extension_pct']:+.0f}%  base {r['base_days']}")
+    return rows
+
+
 def _pmb_breakout_zone_section() -> str:
     """Briefing lines for the last session's breakout zones, or ""."""
     try:
-        rows = _breakout_zone_scan()
+        # Prefer what the evening scan already recorded (instant, and the copy
+        # that actually persists); scan live only if that log is stale.
+        rows = _recent_logged_zones()
+        if not rows:
+            rows = _breakout_zone_scan()
+            if rows:
+                _log_breakout_zones(rows)
     except Exception as exc:
         _log_swallowed("breakout zone section", exc)
         return ""
     if not rows:
         return ""
-    try:
-        _log_breakout_zones(rows)
-    except Exception as exc:
-        _log_swallowed("breakout zone log", exc)
     lines = [f"  🏔 <b>{r['ticker']}</b> ${r['close']:,.2f} — new 52-week high, "
              f"+{r['above_low_pct']:.0f}% off its low, {r['extension_pct']:+.0f}% vs its 20-day avg"
              + (f"  \u2b50 fresh out of a {r['base_days']}-session base" if r.get("fresh_base") else "")
@@ -26391,7 +26427,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "orb"],
+                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "orb", "bzone"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -26655,6 +26691,9 @@ def main():
 
     elif args.mode == "orb":
         run_orb_shadow()
+
+    elif args.mode == "bzone":
+        run_breakout_zone_log()
 
     elif args.mode == "newscheck":
         run_news_source_check(notify=True)

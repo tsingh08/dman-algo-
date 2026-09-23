@@ -18769,3 +18769,39 @@ class TestBreakoutZones(unittest.TestCase):
             u = a._breakout_zone_universe()
         self.assertEqual(sum(1 for s in u if s.startswith("C")), a.BZONE_MAX_CHEAP)
         self.assertEqual(sum(1 for s in u if s.startswith("R")), a.BZONE_MAX_RICH)
+
+    def test_the_briefing_reads_the_log_before_rescanning(self):
+        """The briefing wrote this log and nothing committed it, so every zone
+        died with the runner. The scanner records it; the briefing reads it."""
+        rows = [{"ticker": "AAA", "date": str(a._et_today()), "close": 9.0, "base_days": 3,
+                 "above_low_pct": 150.0, "extension_pct": 12.0, "fresh_base": False,
+                 "weak_band": False}]
+        with patch.object(a, "_recent_logged_zones", return_value=rows), \
+             patch.object(a, "_breakout_zone_scan") as scan:
+            out = a._pmb_breakout_zone_section()
+        self.assertIn("AAA", out)
+        scan.assert_not_called()
+
+    def test_a_stale_log_falls_back_to_a_live_scan(self):
+        with patch.object(a, "_recent_logged_zones", return_value=[]), \
+             patch.object(a, "_breakout_zone_scan", return_value=[]) as scan:
+            a._pmb_breakout_zone_section()
+        scan.assert_called_once()
+
+    def test_only_the_newest_recent_day_is_read(self):
+        d = tempfile.mkdtemp(); f = os.path.join(d, "bz.json")
+        today = str(a._et_today())
+        json.dump([{"ticker": "OLD", "date": "2020-01-02"},
+                   {"ticker": "NEW", "date": today}], open(f, "w"))
+        with patch.object(a, "BZONE_SHADOW_FILE", f):
+            self.assertEqual([r["ticker"] for r in a._recent_logged_zones()], ["NEW"])
+        json.dump([{"ticker": "OLD", "date": "2020-01-02"}], open(f, "w"))
+        with patch.object(a, "BZONE_SHADOW_FILE", f):
+            self.assertEqual(a._recent_logged_zones(), [])          # too old to show
+        import shutil as _sh; _sh.rmtree(d, True)
+
+    def test_the_scanner_mode_exists(self):
+        self.assertIn('"bzone"', inspect.getsource(a.main))
+        self.assertIn("dman_bzone_shadow.json", open(os.path.join(
+            os.path.dirname(os.path.abspath(a.__file__)),
+            ".github", "workflows", "dman_scanner.yml"), encoding="utf-8").read())

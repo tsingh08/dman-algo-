@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:52:51.581929-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Danish Government Says U.S. Will Be Allowed To Establish Additional Defense Area At Narsarsuaq And Mestersvig In Greenland; Parties Support Stronger NATO Arctic Engagement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T11:52:51.585465-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Danish Prime Minister Mette Frederiksen Says U.S. Adversaries Won&#39;t Get Control Or Significant Influence In Greenland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T11:52:51.588750-04:00",
     "symbols": [
       "SPY"
@@ -5049,6 +5029,26 @@
       "SPY"
     ],
     "headline": "Fed&#39;s Barr Says Inflation Not Clearly Trending Toward Target In A Timely Way; Economic Growth Strong, Labor Market Solid",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T10:11:59.720412-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What&#39;s Going On With Arm Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T10:15:28.886445-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s Pezeshkian Begins Speech At UN General Assembly 2026; United States Delegation Walks Out",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:54.923040-04:00",
-    "symbols": [
-      "ZCMD"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.013717-04:00",
-    "symbols": [
-      "IPDN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.018362-04:00",
-    "symbols": [
-      "IPDN"
-    ],
-    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.022919-04:00",
-    "symbols": [
-      "IPDN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.101437-04:00",
-    "symbols": [
-      "VTGN"
-    ],
-    "headline": "Penny Stock Vistagen Analyst Highlights Caution after Anxiety Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.106022-04:00",
-    "symbols": [
-      "VTGN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.110635-04:00",
-    "symbols": [
-      "VTGN"
-    ],
-    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.187669-04:00",
-    "symbols": [
-      "DCOY"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:55.192303-04:00",
-    "symbols": [
-      "DCOY"
-    ],
-    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:55.197177-04:00",
     "symbols": [
       "DCOY"
@@ -5064,5 +4974,96 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T15:45:42.374369-04:00",
+    "symbols": [
+      "AAPL",
+      "META"
+    ],
+    "headline": "Meta\u2019s Muse \u2018A Game Changer\u2019 Says Dan Ives: \u2018Investors Discounted Meta and Zuckerberg&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T15:46:30.145954-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Meta\u2019s Muse \u2018A Game Changer\u2019 Says Dan Ives: \u2018Investors Discounted Meta and Zuckerberg&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T15:46:31.238685-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta\u2019s Muse \u2018A Game Changer\u2019 Says Dan Ives: \u2018Investors Discounted Meta and Zuckerberg&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T15:46:50.408384-04:00",
+    "symbols": [
+      "ZCMD"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:46:50.639741-04:00",
+    "symbols": [
+      "IPDN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:46:50.643429-04:00",
+    "symbols": [
+      "IPDN"
+    ],
+    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:46:50.876374-04:00",
+    "symbols": [
+      "VTGN"
+    ],
+    "headline": "Penny Stock Vistagen Analyst Highlights Caution after Anxiety Data",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:46:50.880091-04:00",
+    "symbols": [
+      "VTGN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:46:50.883889-04:00",
+    "symbols": [
+      "VTGN"
+    ],
+    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

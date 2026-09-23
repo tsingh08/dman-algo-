@@ -1,91 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:25:40.115536-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Greenland Mines Shares Halted On Circuit Breaker To The Upside, Stock Now Up 82.38%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:33:12.081558-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Shares of copper-related companies are trading higher after reports suggesting of Chinese copper price gains amid a tight physical market for the region. Also, lack of clarity on U.S. copper import tariffs is yielding strong demand in global physical markets, further supporting prices.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:33:21.000689-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Investors Weigh Fresh Wipro Deal Against Layoffs, Project Jupiter Debt Stress",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:33:21.043780-04:00",
-    "symbols": [
-      "ZEO"
-    ],
-    "headline": "Why Is Zeo Energy Stock Gaining Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:33:21.057880-04:00",
-    "symbols": [
-      "VICR"
-    ],
-    "headline": "Roth Capital Reiterates Buy on Vicor, Maintains $375 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:35:36.928802-04:00",
-    "symbols": [
-      "APLD",
-      "AVGO",
-      "MU",
-      "PLTR"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-22T13:35:36.997708-04:00",
-    "symbols": [
-      "APP",
-      "BIDU",
-      "GOOGL",
-      "META"
-    ],
-    "headline": "4 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-22T13:35:37.186857-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "3 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-22T13:40:54.216329-04:00",
     "symbols": [
       "META"
@@ -5052,6 +4966,88 @@
     "headline": "Iran&#39;s Foreign Ministry Spokesperson Posts On X, Another Round Of Message Exchanges And Clarifications Took Place Between Iran, U.S. Via The Qatari Mediator On Tuesday; Iran Clarified Its Conditions For Reviving Diplomacy In The Two Hour Long Process To U.S.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T11:43:29.184318-04:00",
+    "symbols": [
+      "ABNB",
+      "META",
+      "MSFT"
+    ],
+    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:43:55.025673-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:43:55.524087-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:43:55.935425-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Paramount weighs tapping Musk for equity investment&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T11:43:56.631896-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Micron Technology, Lowers Price Target to $1400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:43:58.679922-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T11:44:00.422694-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Speaking On &#39;Economics, Applied&#39; Podcast Says Better To Assume Bigger Negative Supply Shocks Have Persistent Effect On Inflation, As With Tariffs, COVID And Possibly Oil",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T11:44:05.559192-04:00",
+    "symbols": [
+      "BTQ"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

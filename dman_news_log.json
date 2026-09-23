@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-22T13:40:56.806440-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Unconfirmed Social Media Reports Suggest The ShinyHunters Hacking Group Claims To Have Breached The FBI, Stating The Attack Is &#34;Not Financially Motivated.&#34; The FBI Has Not Yet Commented.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:40:56.884265-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Unconfirmed Social Media Reports Suggest The ShinyHunters Hacking Group Claims To Have Breached The FBI, Stating The Attack Is &#34;Not Financially Motivated.&#34; The FBI Has Not Yet Commented.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:40:57.254664-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Unconfirmed Social Media Reports Suggest The ShinyHunters Hacking Group Claims To Have Breached The FBI, Stating The Attack Is &#34;Not Financially Motivated.&#34; The FBI Has Not Yet Commented.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:40:57.337249-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Unconfirmed Social Media Reports Suggest The ShinyHunters Hacking Group Claims To Have Breached The FBI, Stating The Attack Is &#34;Not Financially Motivated.&#34; The FBI Has Not Yet Commented.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-22T13:40:57.715184-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "4 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:40:58.678192-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Unconfirmed Social Media Reports Suggest The ShinyHunters Hacking Group Claims To Have Breached The FBI, Stating The Attack Is &#34;Not Financially Motivated.&#34; The FBI Has Not Yet Commented.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:40:58.683160-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Barkin Says Fed Is Highly Attentive To Financial Conditions, But Can&#39;t Assume Markets Will Keep Rates At A Level Needed To Cool Inflation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-22T13:40:58.925949-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-22T13:43:05.335727-04:00",
     "symbols": [
       "LLY"
@@ -5048,6 +4968,86 @@
     "headline": "Shares of fintech and financial services companies are trading lower amid elevated bond yields and Fed interest rate expectations, which may dampen enthusiasm for the growth-oriented sector.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T12:18:13.724670-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:18:14.024330-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Lands @Muse Social Media Handles: Zuckerberg Didn\u2019t Steal From Rock Band \u2013 \u2018We Had a Chat\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:18:14.617183-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T12:18:15.460141-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Flips $188 Into Support, Eyes $200 Next",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:18:16.597698-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Is Micron Stock Now The Biggest Value Play on Wall Street?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:18:17.690360-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "If You Invested $1000 In KLA Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T12:18:26.758023-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "According To A Document Seen By Reuters, Senators Aim To Fast-Track Chinese Vehicle Ban Legislation This Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T12:18:27.498365-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

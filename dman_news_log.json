@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:49.491129-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Needham Maintains Buy on Roblox, Raises Price Target to $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:49.597620-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Spotify Technology Stock In The Last 5 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T09:25:49.715868-04:00",
     "symbols": [
       "XOM"
@@ -5052,6 +5032,26 @@
       "NIO"
     ],
     "headline": "NIO Pushes Smart Driving In Europe with HERE Tech Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T14:50:19.363085-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Microsoft President Backs Deployment of AI Safety Evaluators&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T14:50:26.912845-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Needham Maintains Buy on Roblox, Raises Price Target to $55",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

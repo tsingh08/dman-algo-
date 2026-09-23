@@ -3026,6 +3026,16 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
                f"{p.get('score', 0)},{result['hold_bars']}")
         csv_rows.append(row)
         resolved_count += 1
+        # Mark the key as logged NOW, not just on the next run's CSV read —
+        # the pending list can hold two entries for the same (ticker, date)
+        # (two scanner processes each logged the signal with slightly
+        # different prices, and _sync_json_file_via_merge()'s byte-identity
+        # union keeps both). already_logged was snapshotted before this
+        # loop, so without this the duplicate resolved AGAIN in the same
+        # pass and wrote a second CSV row, double-counting the trade in the
+        # live win-rate stats. Adding the key here makes the duplicate hit
+        # the already-resolved branch above and get dropped from pending.
+        already_logged.add((p["ticker"], p["date"]))
 
         if verbose:
             icon = "✅" if result["outcome"] == "WIN" else ("⚪" if result["pnl_pct"] == 0 else "❌")

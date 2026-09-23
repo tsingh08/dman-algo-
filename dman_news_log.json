@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:49.797421-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Cathie Wood Trims Alphabet Even as Google Regains Search Share, Ark Bets Big on This Space Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:49.983106-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "AppLovin Stock Drops After Analyst Calls It a &#39;Show-Me Story&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-23T09:25:50.129149-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "$1000 Invested In Arista Networks 10 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:50.568687-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase CEO Brian Armstrong Pushes Back on AI \u2018Doomers\u2019: \u2018Slowing Progress Doesn\u2019t Keep Us Safer\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:50.665598-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin At $80,000 Today Vs. Bitcoin At $80,000 in May: &#39;Very Different,&#39; Says This Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:50.670362-04:00",
     "symbols": [
       "MSTR"
@@ -5056,5 +5006,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T15:05:33.997400-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic CEO Dario Amodei Posts On X &#34;Today we announced the Claude-led discovery of a molecular machine that we suspect could represent a new gene editing mechanism. Its precise function, biotechnological utility (if any), or level of significance is not yet clear, but at minimum it is work I would have been proud to do as a PhD student. The work was done mostly, though not entirely, by Claude: our life sciences team suggested a broad area of research...&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T15:05:34.274319-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic CEO Dario Amodei Posts On X &#34;Today we announced the Claude-led discovery of a molecular machine that we suspect could represent a new gene editing mechanism. Its precise function, biotechnological utility (if any), or level of significance is not yet clear, but at minimum it is work I would have been proud to do as a PhD student. The work was done mostly, though not entirely, by Claude: our life sciences team suggested a broad area of research...&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-23T15:05:39.872633-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin Stock Drops After Analyst Calls It a &#39;Show-Me Story&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-23T15:05:54.723313-04:00",
+    "symbols": [
+      "LXEH"
+    ],
+    "headline": "Lixiang Education Shares Halted On Circuit Breaker To The Downside, Stock Now Up 41.61%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:06:00.820149-04:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

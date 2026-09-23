@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-22T11:07:16.841615-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Goldman, Morgan Stanley Ride $17.2B China Tech Boom as AI Truce Odds Sit at 10%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-22T11:07:17.056842-04:00",
     "symbols": [
       "GS"
@@ -5056,5 +5046,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T09:31:12.307773-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:53.996617-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Michael Burry Bets Against the Memory Boom: These ETFs Could Be Exposed if He\u2019s Right",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T09:25:54.002093-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "QUICK SPARK: Michael Burry Adds to Micron, Palantir, Nebius, SOXX Shorts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T09:25:54.099332-04:00",
     "symbols": [
       "PN"
@@ -5060,6 +5040,28 @@
     "headline": "Shares of retail companies are trading lower as growing expectations for tighter monetary policy may raise borrowing costs and slow consumer demand.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:31:54.810952-04:00",
+    "symbols": [
+      "AMZN",
+      "COST",
+      "SPY"
+    ],
+    "headline": "&#39;Trump Officials Weigh Rolling Back Beef Import Plan As GOP Midterm Panic Spreads&#39; - Politico Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-23T15:32:02.461165-04:00",
+    "symbols": [
+      "MASK"
+    ],
+    "headline": "3 E Network Technology Group&#39;s Nordic Strategic Subsidiary, Aurora Core Technology Oy Enter Implementation, Execution Phase Of AI Data Center Project",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

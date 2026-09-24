@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:03.791102-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Sandisk Dips Premarket on Market Weakness, But Multi-Year AI Storage Outlook Remains Intact",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T09:26:03.795857-04:00",
     "symbols": [
       "MU"
@@ -5082,5 +5072,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:58:53.945692-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Dell Stock Edges Lower Thursday: What&#39;s Driving the Action?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

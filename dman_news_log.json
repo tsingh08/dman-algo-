@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:14.051503-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Howmet Aerospace, FTAI Aviation, Microsoft, Cheniere Energy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:10:14.347695-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Beyond Nvidia: Why Jensen Investment&#39;s Allen Bond Favors Broadcom, KLAC, Amphenol",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:10:14.352914-04:00",
     "symbols": [
       "NVDA"
@@ -5055,5 +5035,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:08:53.795049-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. And Argentina Launch Andes-Atlantic Infrastructure Corridor; EXIM Issues Non-Binding Term Sheet Of Up To $6B For YPF-Led Argentina LNG",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:09:12.838831-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "What&#39;s Going On With Marvell Technology Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

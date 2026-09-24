@@ -3325,6 +3325,29 @@ def is_on_probation() -> tuple[bool, float]:
 
 SETUP_PROBATION_FILE        = "dman_setup_probation.json"
 SETUP_PROBATION_MAX_DAYS    = 10    # same auto-expiry window as account-level probation
+
+# Setups that may no longer open a position. Probation (a higher score bar and
+# half size) did not stop these: Low Float Catalyst re-entered probation twice
+# with the same record. From 47 live trades to 2026-09-23 (36% WR, -6.07% mean
+# overall), these two families are nearly all of the damage:
+#
+#   Earnings spreads/strangles   n=4   -253% total  (~-63% per trade)
+#   Low Float Catalyst           n=8    -80% total  (12% WR, -10% mean)
+#
+# Without them the remaining 35 trades are roughly break-even. The code stays,
+# the scanner still scores and LOGS these signals for the learning dataset --
+# they simply cannot take money any more. Remove a name here to re-enable it,
+# and check the live record first.
+RETIRED_SETUPS = {
+    "Earnings Spread", "Earnings Call Spread", "Earnings Put Spread",
+    "Earnings Double Spread", "Low Float Catalyst",
+}
+
+
+def _setup_retired(setup: str) -> bool:
+    """True if this setup may not open a position (see RETIRED_SETUPS)."""
+    _s = str(setup or "").replace("SWING — ", "")
+    return any(_s == r or _s.startswith(r + " ") for r in RETIRED_SETUPS)
 # HARD KILL for a setup the live record has already answered on.
 #
 # Probation (below) only raises the score bar by SETUP_PROBATION_SCORE_BONUS,
@@ -24787,6 +24810,14 @@ def _submit_earnings_spread(client, plan: dict) -> tuple[str | None, str | None]
     from alpaca.trading.requests import OptionLegRequest
     from alpaca.trading.enums import PositionIntent
 
+    # Retired families never reach the broker, whatever asked. Earnings spreads
+    # lost ~63% per trade across 4 live trades.
+    _tag = plan.get("setup_tag") or ("Earnings Double Spread" if (plan.get("call") and plan.get("put"))
+                                     else ("Earnings Call Spread" if plan.get("call")
+                                           else "Earnings Put Spread"))
+    if _setup_retired(_tag):
+        return None, f"{_tag} is retired (see RETIRED_SETUPS) — not submitted"
+
     legs = []
     if plan.get("call"):
         legs += [
@@ -26039,6 +26070,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         # sized to the dollar budget is exactly what this account needs on a
         # $500 stock, so an options-eligible signal goes on to that branch;
         # if no contract fits, the guard before the shares path skips it.
+        if _setup_retired(sig.setup):
+            print(f"  ⛔ {sig.ticker:<8} {sig.setup} is retired — logged, not traded")
+            if not _is_duplicate_alert(f"__RETIRED__:{sig.setup}", cooldown_min=24 * 60):
+                _save_last_alert(f"__RETIRED__:{sig.setup}")
+                send_telegram(f"⛔ <b>{sig.ticker} {html.escape(sig.setup)} skipped — setup retired</b>\n"
+                              f"Its live record is why (see RETIRED_SETUPS). Still scored and "
+                              f"logged for the dataset; it just cannot take money.")
+            continue
+
         if sig.shares <= 0:
             if not any(_options_route(sig)):
                 print(f"  ⏭️  {sig.ticker:<8} sizing failed — even 1 share exceeds the "

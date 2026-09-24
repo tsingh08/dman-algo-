@@ -3038,6 +3038,15 @@ class TestEarningsSpreadMlegOrderConstruction(unittest.TestCase):
     list here means partial fills / naked short legs in a LIVE brokerage
     account, which is exactly the risk this feature exists to eliminate."""
 
+    def setUp(self):
+        # The earnings-spread MACHINERY is still tested; only the POLICY retired
+        # it after 4 live trades at about -63% each (see RETIRED_SETUPS). These
+        # tests lift the retirement so the order path stays covered for the day
+        # the record justifies re-enabling it.
+        self._ret = patch.object(a, "RETIRED_SETUPS", set())
+        self._ret.start()
+        self.addCleanup(self._ret.stop)
+
     def _plan(self, both_sides=True):
         p = {"ticker": "META", "sets": 1, "net_debit": 8.34,
              "put": {"long_occ": "META260807P00540000", "short_occ": "META260807P00510000"}}
@@ -13224,6 +13233,10 @@ class TestEarningsApprovalTelegramFlow(unittest.TestCase):
             # once the real calendar rolls into a blackout window (confirmed
             # live: these tests started failing once "today" hit one).
             patch.object(a, "check_macro_safe", return_value=(True, 0)),
+            # The approval MACHINERY is still tested; only the POLICY retired
+            # earnings spreads after 4 live trades at about -63% each (see
+            # RETIRED_SETUPS), so lift it here to keep this path covered.
+            patch.object(a, "RETIRED_SETUPS", set()),
         ]
         for p in self._patches:
             p.start()
@@ -18920,3 +18933,61 @@ class TestBreakoutZoneTrading(unittest.TestCase):
     def test_the_modes_exist(self):
         for m in ('"bzone"', '"bzmanage"'):
             self.assertIn(m, inspect.getsource(a.main))
+
+
+class TestRetiredSetups(unittest.TestCase):
+    """47 live trades to 2026-09-23: 36% WR, -6.07% mean. Earnings spreads
+    (-253% over 4) and Low Float Catalyst (-80% over 8, 12% WR) are nearly all
+    of it. Probation only shrank them -- Low Float re-entered it twice with the
+    same record -- so they may no longer open a position."""
+
+    def test_the_two_bleeding_families_are_retired(self):
+        for s in ("Earnings Spread", "Earnings Call Spread", "Earnings Put Spread",
+                  "Earnings Double Spread", "Low Float Catalyst",
+                  "SWING — Low Float Catalyst"):
+            self.assertTrue(a._setup_retired(s), s)
+
+    def test_working_setups_are_untouched(self):
+        for s in ("Gap & Hold", "Momentum Watch Breakout (Day)", "Day 2 Continuation",
+                  a.BZONE_SETUP, "Morning Runner", "", None):
+            self.assertFalse(a._setup_retired(s), s)
+
+    def test_a_retired_signal_never_reaches_the_order_path(self):
+        sig = a.ProSignal(ticker="AAA", bias="LONG", setup="Low Float Catalyst", entry=5.0,
+                          stop=4.5, target1=7.0, target2=9.0, rr=3.0, rsi=60.0, rvol=3.0,
+                          reason="t", confluence_score=100, shares=40, cost=200.0)
+        with patch.object(a, "ALPACA_API_KEY", "k"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "WinRateTracker") as W, patch.object(a, "PositionTracker") as P, \
+             patch.object(a, "get_todays_loss", return_value=0.0), \
+             patch.object(a, "get_this_month_loss", return_value=0.0), \
+             patch.object(a, "_fetch_global_context", return_value={
+                 "risk_mult": 1.0, "tone": "NEUTRAL", "score": 0, "summary": ""}), \
+             patch.object(a, "_get_pdt_status", return_value={
+                 "used": 0, "remaining": 3, "swing_mode": False, "equity": 30000.0}), \
+             patch.object(a, "validate_entry_price", return_value=(True, 5.0)), \
+             patch.object(a, "submit_alpaca_trade") as submit, \
+             patch.object(a, "_submit_path_options_attempt") as opts, \
+             patch.object(a, "_is_duplicate_alert", return_value=True), \
+             patch.object(a, "send_telegram"):
+            W.return_value.rolling_stats.return_value = {"consec_losses": 0, "win_rate": 0.6,
+                "avg_win_r": 2.0, "avg_loss_r": 1.0, "total": 10, "wins": 6, "losses": 4,
+                "consec_wins": 0}
+            P.return_value.positions = []
+            a._submit_signals_to_alpaca([sig])
+        submit.assert_not_called()
+        opts.assert_not_called()
+
+    def test_a_retired_spread_is_refused_at_the_broker_call(self):
+        plan = {"ticker": "AAA", "sets": 1, "net_debit": 1.0, "total_cost": 100.0,
+                "call": {"long_occ": "A", "short_occ": "B"}, "earn_date": "", "max_loss": 100.0}
+        oid, err = a._submit_earnings_spread(MagicMock(), plan)
+        self.assertIsNone(oid)
+        self.assertIn("retired", err)
+
+    def test_retired_setups_are_still_scored_and_logged(self):
+        """The dataset still needs them; only the money is withheld."""
+        src = inspect.getsource(a.run_pro_scanner)
+        self.assertNotIn("_setup_retired", src)
+        self.assertIn("_log_signal_features", src)

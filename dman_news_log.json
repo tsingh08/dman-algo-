@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:23:18.129121-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Elizabeth Warren Counts Trump&#39;s Oil, Gas Gains Amid Iran War As Americans Pay More At Pump: Ban President From &#39;Owning And Trading Stock&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T15:23:18.596738-04:00",
     "symbols": [
       "NVO"
@@ -5063,5 +5053,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:43:33.293485-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Why FedEx Stock Is Falling Thursday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

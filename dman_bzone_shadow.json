@@ -58,5 +58,145 @@
 "extension_pct": 18.7,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "GRAL",
+"date": "2026-09-24",
+"close": 125.21,
+"base_days": 168,
+"above_low_pct": 191.0,
+"extension_pct": 50.4,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "MRNA",
+"date": "2026-09-24",
+"close": 194.82,
+"base_days": 1,
+"above_low_pct": 771.3,
+"extension_pct": 29.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TXG",
+"date": "2026-09-24",
+"close": 84.11,
+"base_days": 1,
+"above_low_pct": 641.7,
+"extension_pct": 22.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TWST",
+"date": "2026-09-24",
+"close": 184.03,
+"base_days": 3,
+"above_low_pct": 623.1,
+"extension_pct": 29.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "QMCO",
+"date": "2026-09-24",
+"close": 29.49,
+"base_days": 27,
+"above_low_pct": 584.2,
+"extension_pct": 22.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMD",
+"date": "2026-09-24",
+"close": 629.26,
+"base_days": 1,
+"above_low_pct": 294.6,
+"extension_pct": 22.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SECZ",
+"date": "2026-09-24",
+"close": 16.53,
+"base_days": 0,
+"above_low_pct": 206.7,
+"extension_pct": 93.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ILMN",
+"date": "2026-09-24",
+"close": 273.9,
+"base_days": 0,
+"above_low_pct": 201.0,
+"extension_pct": 23.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TWLO",
+"date": "2026-09-24",
+"close": 299.66,
+"base_days": 0,
+"above_low_pct": 199.4,
+"extension_pct": 24.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NTRA",
+"date": "2026-09-24",
+"close": 408.79,
+"base_days": 1,
+"above_low_pct": 155.2,
+"extension_pct": 19.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ADPT",
+"date": "2026-09-24",
+"close": 29.57,
+"base_days": 5,
+"above_low_pct": 138.3,
+"extension_pct": 14.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARKG",
+"date": "2026-09-24",
+"close": 53.53,
+"base_days": 1,
+"above_low_pct": 115.7,
+"extension_pct": 10.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "P",
+"date": "2026-09-24",
+"close": 121.88,
+"base_days": 28,
+"above_low_pct": 113.9,
+"extension_pct": 21.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RSKD",
+"date": "2026-09-24",
+"close": 7.91,
+"base_days": 0,
+"above_low_pct": 108.7,
+"extension_pct": 24.7,
+"fresh_base": false,
+"weak_band": false
 }
 ]

@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:56.271408-04:00",
-    "symbols": [
-      "NNBR"
-    ],
-    "headline": "NN Raises FY2026 Sales Guidance from $460.000M-$470.000M to $470.000M-$490.000M vs $464.859M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:56.276091-04:00",
-    "symbols": [
-      "NNBR"
-    ],
-    "headline": "NN Raises FY26 Net Sales Guidance From $460M-$480M To $470M-$490M And Adjusted EBITDA From $55M-$65M To $58M-$68M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:56.353998-04:00",
-    "symbols": [
-      "EDVA"
-    ],
-    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:56.358625-04:00",
-    "symbols": [
-      "EDVA"
-    ],
-    "headline": "Endovia Health Sciences (EVDA) Stock Soars 48% After-Hours: Here&#39;s What&#39;s Going On",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:56.438682-04:00",
-    "symbols": [
-      "SRFM"
-    ],
-    "headline": "Surf Air Mobility Signs Agreement With SkyDance Air To Supply Its SurfOS Flight Operations Software; Company Will Earn A Revenue Royalty For All SkyDance Flights Managed Through OperatorOS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T09:25:56.520216-04:00",
-    "symbols": [
-      "QBTS"
-    ],
-    "headline": "What&#39;s Going On With D-Wave Quantum Shares On Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T09:25:56.524840-04:00",
     "symbols": [
       "QBTS"
@@ -5070,5 +5010,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:11:52.831607-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Citizens Maintains Market Outperform on Meta Platforms, Raises Price Target to $885",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:17:11.714634-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon To Invest $100M+ In Advanced Manufacturing Facility In Indiana, Adding Production And Engineering 300 Jobs; Expected To Open In 2028",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:17:50.920236-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Takes the A.I. Data Center Race To Outer Space; Next Thursday, Google Is Sending An Experimental Satellite Into Orbit That Will Have Enough Computing Power To Answer Simple AI Queries From Space&#39; - NY Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:18:44.304580-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Cycurion Anticipates $843,028 Revenue This Year From losed Public Safety Engagements",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:23:20.668290-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "What&#39;s Going On with AppLovin Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:24:51.010861-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Stock of the Day: Is this the Bottom for Airbnb?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

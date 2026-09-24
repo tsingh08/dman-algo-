@@ -178,5 +178,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-09-24T11:21:16.154456-04:00",
+  "kind": "signal",
+  "ticker": "VBIO",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Regime is CHOP (score 10). Low float catalysts require directional conviction. Choppy market conditions create whipsaw risk despite strong technicals.",
+  "facts": {
+   "setup": "Low Float Catalyst",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 2.996,
+   "stop": 2.3968,
+   "target1": 4.49,
+   "rr": 2.49,
+   "rvol": 12.86,
+   "rsi": 54.8,
+   "reason": "Float 0.9M | RVOL 12.9x | \u26a1 ULTRA-LOW FLOAT | \ud83d\udd25 Float 8.1x rotated | \ud83d\udd25 SQUEEZE 38% SI | \u2705 POST-RS | Cash 0.8x MC | MACD curling bullish, RVOL spike",
+   "regime": "CHOP",
+   "regime_score": 10
+  }
  }
 ]

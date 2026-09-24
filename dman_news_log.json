@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:04:53.227679-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Jefferies Maintains Buy on GE Aerospace, Lowers Price Target to $435",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T14:05:15.127001-04:00",
     "symbols": [
       "AMZN",
@@ -5045,6 +5035,16 @@
     "headline": "QUICK SPARK: The TLT ETF Tracking Long Duration Bonds Hits New Record Low",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:56:53.628323-04:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "Citigroup Maintains Buy on Everpure, Raises Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:11.979936-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Current Account For Q2 -246B Vs -255B Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T09:26:11.985372-04:00",
     "symbols": [
       "SPY"
@@ -5082,6 +5072,16 @@
     ],
     "headline": "Comparative Study: Adobe And Industry Competitors In Software Industry",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T16:00:29.749786-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Intuitive Surgical 10 Years Ago Would Be Worth Today",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

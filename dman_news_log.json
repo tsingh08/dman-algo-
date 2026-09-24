@@ -1,17 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:35:21.113282-04:00",
-    "symbols": [
-      "AMZN",
-      "CRM",
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Snap Stock on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T14:35:44.787930-04:00",
     "symbols": [
       "NVDA"
@@ -5048,5 +5036,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T12:25:05.161628-04:00",
+    "symbols": [
+      "AAPL",
+      "META"
+    ],
+    "headline": "Here&#39;s How Meta&#39;s Muse Mania Is Spilling into Leveraged ETFs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

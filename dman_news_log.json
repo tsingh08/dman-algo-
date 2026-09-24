@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:35:41.186993-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:35:41.702099-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T13:35:45.064081-04:00",
     "symbols": [
       "MRNA"
@@ -5040,5 +5020,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:39:17.294298-04:00",
+    "symbols": [
+      "GCTK"
+    ],
+    "headline": "What&#39;s Going On With GlucoTrack Shares On Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:40:06.441640-04:00",
+    "symbols": [
+      "BABA",
+      "BBAI",
+      "BIDU",
+      "GFAI",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QCOM",
+      "SOUN",
+      "SPY"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

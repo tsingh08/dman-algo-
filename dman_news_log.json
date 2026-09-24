@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:23:19.422433-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "What&#39;s Going On With Oracle Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T15:23:19.426270-04:00",
     "symbols": [
       "ORCL"
@@ -5064,5 +5054,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T13:58:00.959551-04:00",
+    "symbols": [
+      "LUNR",
+      "RKLB"
+    ],
+    "headline": "Shares of space-related companies are trading higher after Google announced its Project Suncatcher, which aims to deploy AI compute in space. The project&#39;s implied need for low Earth orbit propulsion, connectivity, power delivery and other technologies may be drawing investor interest to the sector.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

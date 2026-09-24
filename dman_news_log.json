@@ -1,208 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:23:21.536723-04:00",
-    "symbols": [
-      "ARX"
-    ],
-    "headline": "Raymond James Downgrades Accelerant Hldgs to Underperform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:23:21.763775-04:00",
-    "symbols": [
-      "BQ"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:23:24.462180-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Netlist Stock Jumps Wednesday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:23:58.894360-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:23:58.898974-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "L\u014dkahi Therapeutics And Glucotrack Issue Update On LT-100 Program And ai\u00b2 Asset Monetization Strategy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:23:58.902624-04:00",
-    "symbols": [
-      "GFAI"
-    ],
-    "headline": "Guardforce AI Co H1 EPS $(0.10) Up From $(0.11) YoY, Sales $18.271M Up From $17.168M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:23:58.906942-04:00",
-    "symbols": [
-      "LBGJ"
-    ],
-    "headline": "Reported Earlier, Li Bang International Shareholders Approve All Resolutions At September 2026 Extraordinary General Meeting, Including Share Capital Increase And Restructuring",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:24:21.239068-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Shares of retail companies are trading lower as growing expectations for tighter monetary policy may raise borrowing costs and slow consumer demand.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:31:54.810952-04:00",
-    "symbols": [
-      "AMZN",
-      "COST",
-      "SPY"
-    ],
-    "headline": "&#39;Trump Officials Weigh Rolling Back Beef Import Plan As GOP Midterm Panic Spreads&#39; - Politico Exclusive",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:32:02.461165-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "3 E Network Technology Group&#39;s Nordic Strategic Subsidiary, Aurora Core Technology Oy Enter Implementation, Execution Phase Of AI Data Center Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:35:33.206565-04:00",
-    "symbols": [
-      "HOOD",
-      "META"
-    ],
-    "headline": "AI Agents Could Wipe Out Schwab\u2019s $9 Billion \u2018Lazy Cash\u2019 Windfall, Citrini Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:35:59.303879-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AI Agents Could Wipe Out Schwab\u2019s $9 Billion \u2018Lazy Cash\u2019 Windfall, Citrini Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:35:59.831515-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Trump Officials Weigh Rolling Back Beef Import Plan As GOP Midterm Panic Spreads&#39; - Politico Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T15:36:03.351718-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "AI Agents Could Wipe Out Schwab\u2019s $9 Billion \u2018Lazy Cash\u2019 Windfall, Citrini Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:36:11.481323-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "&#39;Trump Officials Weigh Rolling Back Beef Import Plan As GOP Midterm Panic Spreads&#39; - Politico Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:36:12.222095-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump Officials Weigh Rolling Back Beef Import Plan As GOP Midterm Panic Spreads&#39; - Politico Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:36:16.250589-04:00",
-    "symbols": [
-      "PN"
-    ],
-    "headline": "PN Smart Energy Subsidiary PN Sunshine Enters Framework Cooperation Agreement With Limeon Digital Partners To Integrate AI Into Operations And Maintenance Of Solar Plants",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:36:16.704033-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "UPDATE: Quanome Technologies Advances Quantum And AI Systems Business Through ~$18.8M Purchase Agreement Was Originally Announced September 16, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:36:16.708371-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "Quanome Technologies Advances Quantum And AI Systems Business Through ~$18.8M Purchase Agreement For Computing Infrastructure Powered By NVIDIA GPU Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:36:16.712834-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T15:36:16.944136-04:00",
     "symbols": [
       "RBNE"
@@ -5007,6 +4804,206 @@
     ],
     "headline": "Arm Stock Dips Amid Oracle&#39;s &#34;Force Majeure&#34; Reports",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:01.328337-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB Lands Multi-Year Saudi Aramco Deals For 450-Plus Wells",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:02.405481-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Treasury Yields Hit 5%: The Hidden Duration In Your ETF Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:06:02.785867-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "Micro Cap Profusa Navigates European Regulatory Hurdles to Advance Oxygen Monitoring Tech",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:03.162080-04:00",
+    "symbols": [
+      "TRT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:03.684105-04:00",
+    "symbols": [
+      "GIL"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:04.084896-04:00",
+    "symbols": [
+      "MGM"
+    ],
+    "headline": "Mizuho Maintains Outperform on MGM Resorts International, Lowers Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:04.088771-04:00",
+    "symbols": [
+      "MGM"
+    ],
+    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:04.125304-04:00",
+    "symbols": [
+      "MGM"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:04.845661-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:06:05.136737-04:00",
+    "symbols": [
+      "NEOV"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T14:06:05.524023-04:00",
+    "symbols": [
+      "SGMT"
+    ],
+    "headline": "Goldman Sachs Reinstates Sell on Sagimet Biosciences, Announces $7 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:05.756476-04:00",
+    "symbols": [
+      "GEN"
+    ],
+    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:05.912522-04:00",
+    "symbols": [
+      "UCO"
+    ],
+    "headline": "Oil Groups Join Chris Wright to Oppose Diesel Export Ban, Urge Trump Not to Weaken US Influence: Warn it Could Raise Fuel Costs, Hurt American Refiners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:05.915576-04:00",
+    "symbols": [
+      "UCO"
+    ],
+    "headline": "Fed&#39;s Kevin Warsh Says 2% Is &#39;Firm, Fixed Target,&#39; McDonald\u2019s CEO Sees Years of Elevated Inflation \u2014 Peter Schiff Asks \u2018Who Do You Believe?\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:06.100760-04:00",
+    "symbols": [
+      "GDDY"
+    ],
+    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T14:06:06.227591-04:00",
+    "symbols": [
+      "OWL"
+    ],
+    "headline": "Why Is Bloom Energy Stock Falling Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:06.230780-04:00",
+    "symbols": [
+      "OWL"
+    ],
+    "headline": "Blue Owl Stock Dips After &#34;Force Majeure&#34; Payment Notice",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:06.552084-04:00",
+    "symbols": [
+      "OWL"
+    ],
+    "headline": "&#39;Oracle Cites \u2018Force Majeure\u2019 to Shield Itself on Controversial Data Center&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:06.735693-04:00",
+    "symbols": [
+      "UNG"
+    ],
+    "headline": "USA Natural Gas Storage 53B Vs 50B Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:06.894206-04:00",
+    "symbols": [
+      "MNTK"
+    ],
+    "headline": "Watching Montauk Renewables; Shares See Volume To The Upside, Hearing Zacks Under $10 Newsletter Mentions Stock As A Buy",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },

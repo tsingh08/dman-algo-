@@ -19333,3 +19333,72 @@ class TestOrphanAdoptionSeparatesSharesFromOptions(unittest.TestCase):
         src = inspect.getsource(a.adopt_orphan_positions)
         blk = src[:src.index("# Working sell stops")]
         self.assertIn("_is_option_position", blk)
+
+
+class TestManualCloseResolvesOnePosition(unittest.TestCase):
+    """/close took the first position matching the ticker, so with shares and
+    a contract on one name it could flatten either, and never said which. An
+    OCC symbol matched nothing, since options track under the underlying."""
+
+    OCC = "AAPL261017C00230000"
+    OCC2 = "AAPL261017C00240000"
+
+    def _pt(self, *rows):
+        return SimpleNamespace(positions=list(rows))
+
+    def _equity(self):
+        return SimpleNamespace(ticker="AAPL", setup="Gap & Hold", shares=10,
+                               entry=200.0, stop=190.0)
+
+    def _option(self, occ=None):
+        occ = occ or self.OCC
+        return SimpleNamespace(ticker="AAPL", shares=200, entry=1.5, stop=0.75,
+                               setup=f"Options Call {occ} ($230C exp 2026-10-17)")
+
+    def test_a_bare_ticker_closes_the_shares_not_the_contract(self):
+        client = MagicMock()
+        with patch.object(a, "PositionTracker", return_value=self._pt(self._option(), self._equity())), \
+             patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_submit_options_close") as opt_close, \
+             patch.object(a, "send_telegram"):
+            a._tg_cmd_close("AAPL")
+        opt_close.assert_not_called()
+        client.close_position.assert_called_once_with("AAPL")
+
+    def test_an_occ_symbol_closes_that_contract(self):
+        with patch.object(a, "PositionTracker", return_value=self._pt(self._equity(), self._option())), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()) as cl, \
+             patch.object(a, "_submit_options_close", return_value=("submitted", "oid")) as opt_close, \
+             patch.object(a, "send_telegram"):
+            a._tg_cmd_close(self.OCC)
+        opt_close.assert_called_once()
+        self.assertEqual(opt_close.call_args[0][0], self.OCC)
+        cl.return_value.close_position.assert_not_called()
+
+    def test_a_lone_contract_still_closes_by_ticker(self):
+        with patch.object(a, "PositionTracker", return_value=self._pt(self._option())), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "_submit_options_close", return_value=("submitted", "oid")) as opt_close, \
+             patch.object(a, "send_telegram"):
+            a._tg_cmd_close("AAPL")
+        opt_close.assert_called_once()
+
+    def test_two_contracts_ask_instead_of_guessing(self):
+        with patch.object(a, "PositionTracker",
+                          return_value=self._pt(self._option(), self._option(self.OCC2))), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "_submit_options_close") as opt_close, \
+             patch.object(a, "send_telegram") as tg:
+            a._tg_cmd_close("AAPL")
+        opt_close.assert_not_called()
+        msg = tg.call_args[0][0]
+        self.assertIn("ambiguous", msg)
+        self.assertIn(self.OCC, msg)
+        self.assertIn(self.OCC2, msg)
+
+    def test_an_unknown_ticker_still_reports_nothing_tracked(self):
+        with patch.object(a, "PositionTracker", return_value=self._pt(self._equity())), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "send_telegram") as tg:
+            a._tg_cmd_close("TSLA")
+        self.assertIn("no tracked position", tg.call_args[0][0])

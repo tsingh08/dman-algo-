@@ -3897,7 +3897,40 @@ def _tg_cmd_close(_arg):
     """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
     """
     _pt  = PositionTracker()
-    _pos = next((p for p in _pt.positions if p.ticker == _arg), None)
+    _argu = str(_arg or "").upper()
+    # Shares and a contract on the same name are two positions sharing one
+    # ticker, and this used to take whichever came first in the file -- so
+    # "/close AAPL" could flatten the call when you meant the stock, with
+    # nothing in the reply saying which it picked. An OCC symbol never
+    # matched at all, since options are tracked under their underlying, so
+    # there was also no way to ask for a specific leg.
+    #
+    # An exact OCC names one contract. A bare ticker means the SHARES, which
+    # is how anyone typing it reads it, and falls through to the contract
+    # only when there is exactly one and no equity position to confuse it
+    # with. Anything still ambiguous asks instead of guessing.
+    _occ_hit = [p for p in _pt.positions
+                if str(_position_identity(p.ticker, p.setup)).upper() == _argu]
+    _equity  = [p for p in _pt.positions
+                if p.ticker.upper() == _argu and not _is_option_position(p.setup)]
+    _opts    = [p for p in _pt.positions
+                if p.ticker.upper() == _argu and _is_option_position(p.setup)]
+    if _occ_hit:
+        _pos = _occ_hit[0]
+    elif _equity:
+        _pos = _equity[0]
+    elif len(_opts) == 1:
+        _pos = _opts[0]
+    elif _opts:
+        send_telegram(
+            f"❓ <b>/close {html.escape(str(_arg))} is ambiguous</b> — "
+            f"{len(_opts)} contracts on this underlying:\n"
+            + "\n".join(f"• <code>{html.escape(str(_position_identity(p.ticker, p.setup)))}</code>"
+                        for p in _opts)
+            + "\n\nSend /close with the full contract symbol.")
+        return
+    else:
+        _pos = None
     if _pos is None:
         send_telegram(f"❓ /close: no tracked position for {_arg}")
     elif _is_spread_setup(_pos.setup):
@@ -3912,8 +3945,11 @@ def _tg_cmd_close(_arg):
                       + (f" (id {_oid[:8]}…)" if _oid else ""))
     else:
         try:
-            get_alpaca_client().close_position(_arg)
-            send_telegram(f"📤 /close {_arg}: equity close submitted")
+            # The RESOLVED position's ticker, not the raw argument: it is
+            # already normalised, and a lowercase /close would otherwise be
+            # sent to the broker as typed.
+            get_alpaca_client().close_position(_pos.ticker)
+            send_telegram(f"📤 /close {_pos.ticker}: equity close submitted")
         except Exception as _e:
             send_telegram(f"❌ /close {_arg} failed: {_e}")
 

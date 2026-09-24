@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:02.122754-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Says AI Labs Should &#39;Shut Down&#39; If They Can&#39;t Control Their Systems: Bernie Sanders Says His Bill &#39;Would Do Just That&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:02.553890-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mozilla Targets Zuckerberg, Musk, Bezos in NYC Campaign Promoting Its Tech Fellows: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:02.559168-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Google, OpenAI and Anthropic AI Safety Group Takes Shape&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:02.563763-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Drop as Bessent Says Iranian Aviation Restrictions Are Working\u2014 Airbnb, Oracle, Costco in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:02.568912-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Google\u2019s Gemini 4 Could Launch &#39;Much Earlier\u2019 Than Year-End, Says DeepMind Exec as AI Battle With OpenAI, Anthropic, Meta Heats up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:02.574224-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Google, OpenAI And Anthropic AI Safety Group Takes Shape; AI Safety Standards Body Has A Tentative Name: Standards Authority For Frontier AI; Group Plans To Operate Independently, Filling A Government Regulatory Vacuum&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T09:26:02.578885-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google\u2019s Gemini 4 Could Launch &#39;Much Earlier\u2019 Than Year-End, Says DeepMind Exec as AI Battle With OpenAI, Anthropic, Meta Heats up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T09:26:02.583913-04:00",
     "symbols": [
       "GOOGL"
@@ -5081,6 +5011,76 @@
     "headline": "Small Caps Get Crushed: IWM Sees $3.3B Outflow as Treasury Yields Surge",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:50:08.825455-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Rolls Out Horizon Create, Horizon Studio",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:50:11.369130-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Qualcomm Renew Global Patent License Deal With Apple, Effective April 1, 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:50:11.381851-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon To Invest $100M+ In Advanced Manufacturing Facility In Indiana, Adding Production And Engineering 300 Jobs; Expected To Open In 2028",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:50:11.401776-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "What&#39;s Going On with AppLovin Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:50:11.405414-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Cloudflare 5 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:50:11.411643-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Stock of the Day: Is this the Bottom for Airbnb?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:50:11.436130-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Cycurion Anticipates $843,028 Revenue This Year From losed Public Safety Engagements",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

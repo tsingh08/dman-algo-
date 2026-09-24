@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:15.622188-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:10:16.416945-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:10:16.421555-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Micron Faces Short Pressure Ahead Earnings, Analysts Reaffirm Buy Consensus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:10:16.944335-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "EXCLUSIVE: Beyond Nvidia: Why Jensen Investment&#39;s Allen Bond Favors Broadcom, KLAC, Amphenol",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:10:17.487679-04:00",
     "symbols": [
       "MU"
@@ -5054,6 +5014,46 @@
     "headline": "Fed&#39;s Paulson Says Best You Can Say About Inflation Is That It Has Not Gotten Worse; Inflation Balance Of Risks Shifted Ahead Of September Policy Meeting; AI Buildout Helping Drive Inflation Pressures; Underlying Inflation Remains Stubbornly High; Economy Resilient And Showing Signs Of Increased Momentum; Labor Market Is Stable",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:19:22.062539-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "What&#39;s Going On with NIO Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:20:10.535369-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "U.S. And Argentina Launch Andes-Atlantic Infrastructure Corridor; EXIM Issues Non-Binding Term Sheet Of Up To $6B For YPF-Led Argentina LNG",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T10:20:18.678288-04:00",
+    "symbols": [
+      "SKYQ"
+    ],
+    "headline": "Sky Quarry Stock Pops After Nevada Air Permit Approval",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T10:20:20.684830-04:00",
+    "symbols": [
+      "LU"
+    ],
+    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

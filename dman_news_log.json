@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:34.134907-04:00",
-    "symbols": [
-      "HCTI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T13:10:35.919145-04:00",
     "symbols": [
       "LGCL"
@@ -5055,5 +5045,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:45:35.354910-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In NVIDIA 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

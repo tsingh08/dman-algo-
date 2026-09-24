@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T09:25:56.180279-04:00",
-    "symbols": [
-      "ZONE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T09:25:56.271408-04:00",
     "symbols": [
       "NNBR"
@@ -5070,5 +5060,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-23T19:30:17.194402-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Cloudflare 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

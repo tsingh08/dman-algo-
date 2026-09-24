@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-23T11:27:12.869629-04:00",
-    "symbols": [
-      "AYTU"
-    ],
-    "headline": "Aytu BioPharma Q4 EPS $0.00 and Sales $16.106M Beat $12.276M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T11:29:47.036757-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Citigroup Maintains Buy on Micron Technology, Raises Price Target to $1300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T11:29:52.971777-04:00",
-    "symbols": [
-      "RCL"
-    ],
-    "headline": "Stock Market Today: Dow, Nasdaq, S&amp;P 500 Futures Drop as Trump Threatens to &#39;Annihilate&#39; Iran at UNGA\u2014KB Home, Worthington, IONQ in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T11:29:52.976671-04:00",
     "symbols": [
       "RCL"
@@ -5052,6 +5022,41 @@
       "NVDA"
     ],
     "headline": "Jensen Huang Says AI Boom Will Eventually Hit a &#39;Period of Digestion,&#39; But Not for 2-3 Years",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:31:33.212450-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "META",
+      "MU",
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:34:29.127788-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Faces Another Wave of Insider Shares",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:34:59.045031-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "10-Year Yields Hit 19-Year Highs Due to \u2018Booming&#39; Economy, Yardeni Says",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

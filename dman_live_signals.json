@@ -25,18 +25,6 @@
       "timestamp": "2026-09-21T09:57:40.260355-04:00"
     },
     {
-      "ticker": "AXTX",
-      "setup": "Morning Runner",
-      "bias": "LONG",
-      "entry": 8.98,
-      "stop": 7.72,
-      "target1": 12.13,
-      "target2": 14.02,
-      "score": 94,
-      "date": "2026-09-21",
-      "timestamp": "2026-09-21T10:33:50.805657-04:00"
-    },
-    {
       "ticker": "AMD",
       "setup": "Gap & Hold",
       "bias": "LONG",
@@ -59,30 +47,6 @@
       "score": 100,
       "date": "2026-09-21",
       "timestamp": "2026-09-21T11:32:00.465660-04:00"
-    },
-    {
-      "ticker": "ARM",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 319.1,
-      "stop": 293.0,
-      "target1": 392.0,
-      "target2": 435.74,
-      "score": 100,
-      "date": "2026-09-21",
-      "timestamp": "2026-09-21T13:13:46.841148-04:00"
-    },
-    {
-      "ticker": "ARM",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 318.86,
-      "stop": 292.76,
-      "target1": 391.16,
-      "target2": 434.53,
-      "score": 100,
-      "date": "2026-09-21",
-      "timestamp": "2026-09-21T13:21:47.469750-04:00"
     },
     {
       "ticker": "AMD",
@@ -119,30 +83,6 @@
       "score": 95,
       "date": "2026-09-23",
       "timestamp": "2026-09-23T09:26:49.596414-04:00"
-    },
-    {
-      "ticker": "VKTX",
-      "setup": "Morning Runner",
-      "bias": "LONG",
-      "entry": 40.85,
-      "stop": 37.51,
-      "target1": 54.18,
-      "target2": 62.17,
-      "score": 100,
-      "date": "2026-09-23",
-      "timestamp": "2026-09-23T09:31:24.992815-04:00"
-    },
-    {
-      "ticker": "VSA",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 3.7274,
-      "stop": 2.9819,
-      "target1": 5.59,
-      "target2": 9.32,
-      "score": 100,
-      "date": "2026-09-23",
-      "timestamp": "2026-09-23T13:56:54.168569-04:00"
     }
   ]
 }

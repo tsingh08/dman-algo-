@@ -1,119 +1,5 @@
 [
   {
-    "ts": "2026-09-23T12:46:33.658633-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:46:33.908845-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:50:53.719490-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Shares of oil and gas-related companies are trading higher as energy prices gain amid a perceived lack of progress in U.S.-Iran peace talks taking place alongside UN meetings. Also, activist interest in Devon Energy may be drawing attention to value in the exploration and production industry.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:52:48.722668-04:00",
-    "symbols": [
-      "GOOGL",
-      "META"
-    ],
-    "headline": "Alphabet Stock Dips: Here&#39;s What You Need To Know",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T12:58:50.653213-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Alphabet Stock Dips: Here&#39;s What You Need To Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:58:50.848702-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Stock Dips: Here&#39;s What You Need To Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:06:05.098643-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:06:05.325312-04:00",
-    "symbols": [
-      "ADGM",
-      "ARTL",
-      "SLXN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:08:52.196329-04:00",
-    "symbols": [
-      "AMZN",
-      "CRWD",
-      "DIA",
-      "GOOGL",
-      "IONQ",
-      "IWM",
-      "NVDA",
-      "PANW",
-      "PLTR",
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:09:32.724204-04:00",
-    "symbols": [
-      "AVGO",
-      "KLAC",
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Beyond Nvidia: Why Jensen Investment&#39;s Allen Bond Favors Broadcom, KLAC, Amphenol",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:10:14.051503-04:00",
     "symbols": [
       "MSFT"
@@ -5066,6 +4952,108 @@
     "headline": "USA New Home Sales For August Revises Prior From 607K To 643K",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:01:01.873046-04:00",
+    "symbols": [
+      "GTE",
+      "QMCO",
+      "SECZ"
+    ],
+    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:03:40.643891-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta\u2019s AI Strategy Runs From Hearing Aids to a $1,299 Cinema: JPMorgan Sees a Giant Market",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T10:04:27.737779-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Kalshi&#39;s Sports Push &#39;Really Undermines&#39; Case Against States, Former CFPB Adviser Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T10:04:31.231903-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "EXCLUSIVE: Kalshi&#39;s Sports Push &#39;Really Undermines&#39; Case Against States, Former CFPB Adviser Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:04:39.605010-04:00",
+    "symbols": [
+      "GTE"
+    ],
+    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:04:41.248226-04:00",
+    "symbols": [
+      "QMCO"
+    ],
+    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:04:44.005359-04:00",
+    "symbols": [
+      "UXIN"
+    ],
+    "headline": "Full Transcript: Uxin Q2 2026 Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:04:44.474886-04:00",
+    "symbols": [
+      "FRVO"
+    ],
+    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:04:45.181134-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Greenland Energy Enters Farm-Out Agreement With 80 Mile And March GL On The Jameson Land Basin, With The Company Assuming March GL&#39;s Rights And Obligations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:04:46.384014-04:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-23T16:30:19.535205-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Here&#39;s How Much $1000 Invested In Apple 20 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T16:31:34.037212-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Stock Slides Wednesday: What Happened?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T16:32:42.180542-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "Glucotrack Subsidiary L\u014dkahi Therapeutics Engaged Two ai\u00b2 PIPELINE Project Teams To Identify And Evaluate Brain Tumor Therapeutic Assets Available For Licensing And Development",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T16:33:47.144857-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "GlucoTrack shares are trading higher after the company announced its subsidiary, L\u014dkahi Therapeutics, engaged two ai PIPELINE project teams to identify and evaluate brain tumor therapeutic assets available for licensing and development.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T16:39:59.440332-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Prime Minister Anthony Albanese Has Revealed That An Artificial Intelligence Agent Developed By OpenAI Infiltrated An Australian Government Website In June, Accessing Public And Non-Public Files&#39; - Sydney Morning Herald",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T16:45:30.045960-04:00",
     "symbols": [
       "AMD"
@@ -5081,6 +5031,56 @@
     "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:40:57.373940-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Senate Rejects Resolution Curbing Trump&#39;s Iran War Powers",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:41:14.688410-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:41:17.615391-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T14:41:20.438834-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T14:41:22.293326-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -8424,9 +8424,38 @@ def _update_positions_matching(match, label: str, **fields) -> None:
         print(f"  ⚠️  Could not update position {label}: {_e}")
 
 
+def _is_option_position(setup: str) -> bool:
+    """True for a single-leg option or a multi-leg spread position.
+
+    An option position keeps its ticker as the UNDERLYING, so it is
+    indistinguishable from an equity position on that name by ticker alone --
+    which is the whole reason this predicate exists.
+    """
+    _s = str(setup or "")
+    return (_s.startswith("Options Call ") or _s.startswith("Options Put ")
+            or _is_spread_setup(_s))
+
+
 def _update_position_field(ticker: str, **fields) -> None:
-    """Update fields on a tracked position in dman_positions.json (e.g. raise stop)."""
-    _update_positions_matching(lambda p: p.get("ticker") == ticker, ticker, **fields)
+    """Update fields on a tracked EQUITY position in dman_positions.json.
+
+    Options positions on the same underlying are excluded, and that exclusion
+    is load-bearing rather than tidy. Both callers are the equity stop
+    progression, which writes stop=<entry SHARE price>; an option records its
+    stop as a PREMIUM. A ticker-only match therefore overwrote the option's
+    $1.50 premium stop with, say, $230 -- and _monitor_option_position() stops
+    out when bid <= stop, so the very next guard tick would have force-sold a
+    perfectly healthy option "at its stop", at any price, purely because the
+    unrelated SHARE position on the same ticker locked in a profit.
+
+    This is the same cross-contamination _update_option_position_field() was
+    added for in the SMCI incident (2026-08-10); only the options side was
+    migrated then, so the equity side kept the bug.
+    """
+    _update_positions_matching(
+        lambda p: (p.get("ticker") == ticker
+                   and not _is_option_position(p.get("setup", ""))),
+        ticker, **fields)
 
 
 def _update_option_position_field(occ_symbol: str, **fields) -> None:

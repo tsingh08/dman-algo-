@@ -19160,3 +19160,53 @@ class TestUrgentExpiryCloseBeatsTheBrokenBookGuard(unittest.TestCase):
         src = inspect.getsource(a._opt_exit_expiry_backstop)
         self.assertIn("_unresolved", src)
         self.assertIn("ASSIGNMENT RISK", src)
+
+
+class TestEquityStopUpdateDoesNotTouchOptions(unittest.TestCase):
+    """An equity stop update must not overwrite an option's premium stop.
+
+    Both share a `ticker`, but an option's `stop` is a PREMIUM and an equity's
+    is a SHARE PRICE. _monitor_option_position() stops out on bid <= stop, so
+    writing the share price onto the option makes every bid look like a stop
+    hit -- force-selling a healthy option because the SHARES locked a profit.
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.pf = os.path.join(self.tmp, "positions.json")
+        p = patch.object(a, "POSITIONS_FILE", self.pf)
+        p.start(); self.addCleanup(p.stop)
+        self.rows = [
+            {"ticker": "AAPL", "setup": "Gap & Hold", "stop": 210.0, "stop_stage": "initial"},
+            {"ticker": "AAPL", "setup": "Options Call AAPL261017C00230000 (x2)",
+             "stop": 1.50, "stop_stage": "initial"},
+            {"ticker": "MSFT", "setup": "Gap & Hold", "stop": 400.0, "stop_stage": "initial"},
+        ]
+        with open(self.pf, "w") as f:
+            json.dump(self.rows, f)
+
+    def _read(self):
+        with open(self.pf) as f:
+            return json.load(f)
+
+    def test_the_option_keeps_its_premium_stop(self):
+        a._update_position_field("AAPL", stop_stage="trailing", stop=230.0, trail_pct=4.0)
+        rows = self._read()
+        equity = next(r for r in rows if not r["setup"].startswith("Options"))
+        option = next(r for r in rows if r["setup"].startswith("Options"))
+        self.assertEqual(equity["stop"], 230.0)
+        self.assertEqual(equity["stop_stage"], "trailing")
+        self.assertEqual(option["stop"], 1.50, "option premium stop was clobbered")
+        self.assertEqual(option["stop_stage"], "initial")
+        self.assertNotIn("trail_pct", option)
+
+    def test_an_unrelated_ticker_is_untouched(self):
+        a._update_position_field("AAPL", stop=230.0)
+        msft = next(r for r in self._read() if r["ticker"] == "MSFT")
+        self.assertEqual(msft["stop"], 400.0)
+
+    def test_spread_legs_are_excluded_too(self):
+        self.assertTrue(a._is_option_position("Options Put AAPL261017P00200000"))
+        self.assertTrue(a._is_option_position("Earnings Call Spread"))
+        self.assertFalse(a._is_option_position("Gap & Hold"))
+        self.assertFalse(a._is_option_position(""))

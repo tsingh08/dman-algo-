@@ -1,256 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:05:15.127001-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL"
-    ],
-    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:06:24.925956-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms: 4 Reasons Why This Analyst Is Bullish On Muse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:25.216315-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:25.511136-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:06:31.382415-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:06:31.669375-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:31.924191-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:06:32.718935-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:32.969546-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:35.332801-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Jefferies Maintains Buy on GE Aerospace, Lowers Price Target to $435",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:35.861502-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Exec Says We Continue To Expect Uncertainty Around Critical Minerals Tariffs To Persist; Expect Much Of The Metal Already In The U.S. To Remain Trapped, While Periodic Increases In Tariff Risk Could Encourage Further Stockbuilding",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:06:38.454168-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;FBI Data Allegedly Stolen By Hackers Has Sensitive Information About Bureau Employees&#39; Intelligence Work&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:40.437867-04:00",
-    "symbols": [
-      "VKTX"
-    ],
-    "headline": "Truist Securities Maintains Buy on Viking Therapeutics, Raises Price Target to $87",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:40.920215-04:00",
-    "symbols": [
-      "RCL"
-    ],
-    "headline": "BMO Capital Reiterates Outperform on Royal Caribbean Group, Maintains $370 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:41.170870-04:00",
-    "symbols": [
-      "IYE"
-    ],
-    "headline": "SLB Expands Oman Footprint with Bisat-B Facility Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:41.416738-04:00",
-    "symbols": [
-      "UNG"
-    ],
-    "headline": "EIA Weekly Distillates Stocks 0.428M Barrel DrawVs 0.600M Barrel Draw Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:41.420443-04:00",
-    "symbols": [
-      "UNG"
-    ],
-    "headline": "USA Gasoline Inventories 1.686M Barrel Draw Vs 0.100M Barrel Build Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:41.684653-04:00",
-    "symbols": [
-      "MCD"
-    ],
-    "headline": "McDonald\u2019s Admits It Is \u2018Falling Short\u2019 On Execution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:41.688328-04:00",
-    "symbols": [
-      "MCD"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:41.691770-04:00",
-    "symbols": [
-      "MCD"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:41.695220-04:00",
-    "symbols": [
-      "MCD"
-    ],
-    "headline": "McDonald&#39;s Exec Says ArchIQ Will Free At Least 50 Labor Hours Per Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:41.698674-04:00",
-    "symbols": [
-      "MCD"
-    ],
-    "headline": "McDonald&#39;s Exec Says We Are Falling Short When It Comes To Consistent Execution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:06:41.944366-04:00",
-    "symbols": [
-      "ITB"
-    ],
-    "headline": "Mortgage Rates Top 7% for the First Time Since 2024: 5 Stocks Most at Risk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:42.181470-04:00",
-    "symbols": [
-      "VOYG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:42.185165-04:00",
-    "symbols": [
-      "VOYG"
-    ],
-    "headline": "InnovAge, Voyager Technologies And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T14:06:42.188690-04:00",
     "symbols": [
       "VOYG"
@@ -5026,6 +4775,256 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:07.740014-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:53:08.010664-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:53:08.480450-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:53:08.741851-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:08.744388-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Moves Up its Space Data Center Timeline \u2014 Project Suncatcher Launches Oct. 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:10.890462-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:53:14.854942-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:15.130439-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:15.575749-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:53:15.818345-04:00",
+    "symbols": [
+      "BBAI"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:19.069808-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury 10-year Yield High For Session Of 5.1685%, Highest Since July 2007; Yield On 10-Year Note Last Up 5.24 Basis Points At 5.166%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:53:19.072497-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:53:20.230291-04:00",
+    "symbols": [
+      "KYTX"
+    ],
+    "headline": "Kyverna Therapeutics Therapy Delivers Sustained Relief in Rare Neurological Conditions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:53:20.455456-04:00",
+    "symbols": [
+      "IJK"
+    ],
+    "headline": "Everpure Says It\u2019s at an \u2018Inflection Point\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:53:20.901374-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Drop as Bessent Says Iranian Aviation Restrictions Are Working\u2014 Airbnb, Oracle, Costco in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:20.903982-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:20.906505-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "Stitch Fix Posts Mixed Q4 Results, Joins Viking Therapeutics And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:20.909166-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "Why GlucoTrack Shares Are Trading Higher By Around 118%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:20.911654-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "Darden Restaurants, TD Synnex And 3 Stocks To Watch Heading Into Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:53:21.127962-04:00",
+    "symbols": [
+      "NEOV"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:21.130518-04:00",
+    "symbols": [
+      "NEOV"
+    ],
+    "headline": "Needham Reiterates Buy on NeoVolta, Maintains $8 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:21.133020-04:00",
+    "symbols": [
+      "NEOV"
+    ],
+    "headline": "Why GlucoTrack Shares Are Trading Higher By Around 118%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:21.135480-04:00",
+    "symbols": [
+      "NEOV"
+    ],
+    "headline": "NeoVolta (NEOV) Shares Tumble 16% After Hours: Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:21.137919-04:00",
+    "symbols": [
+      "NEOV"
+    ],
+    "headline": "NeoVolta Q4 2026 Earnings Call: Complete Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:53:21.576567-04:00",
+    "symbols": [
+      "KGC"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Kinross Gold, Lowers Price Target to $39",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   },
   {
     "ts": "2026-09-24T11:55:02.861689-04:00",

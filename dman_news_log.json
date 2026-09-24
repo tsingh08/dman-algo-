@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:36.982704-04:00",
-    "symbols": [
-      "SRFM"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T13:12:11.812871-04:00",
     "symbols": [
       "CRWD",
@@ -5055,5 +5045,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:58:43.484421-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Earnings Prediction Market Preview: What Will CEO Ron Vachris Say?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

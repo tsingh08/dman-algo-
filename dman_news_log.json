@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T16:45:30.045960-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "If You Invested $100 In Advanced Micro Devices Stock 20 Years Ago, You Would Have This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T16:54:41.146467-04:00",
     "symbols": [
       "LLY",
@@ -5082,5 +5072,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:43:52.000734-04:00",
+    "symbols": [
+      "OKLO",
+      "SMR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading lower amid multiple catalysts including reports suggesting Oracle has issued a &#34;force majeure&#34; notice regarding potential timeline slippage of Project Jupiter in New Mexico, which may imply slower data center development. Also, Google&#39;s launch of Project Suncatcher to deploy AI compute capacity in space may dampen expectations for nuclear power needs.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

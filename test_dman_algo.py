@@ -19280,3 +19280,56 @@ class TestAutoRestoreRefusesAShort(unittest.TestCase):
             ok, detail = a._auto_restore_missing_stop(MagicMock(), "AAA", -40.0)
         self.assertFalse(ok)
         self.assertIn("short", detail.lower())
+
+
+class TestOrphanAdoptionSeparatesSharesFromOptions(unittest.TestCase):
+    """An option is tracked under its UNDERLYING ticker, so shares and a
+    contract on the same name kept colliding: the equity orphan looked
+    tracked and was never adopted, and the reconcile then wrote the SHARE
+    count and SHARE price onto the option, whose entry is a premium."""
+
+    OCC = "APLD260925C00025000"
+
+    def _tracked_option(self):
+        return SimpleNamespace(
+            ticker="APLD", setup=f"Options Call {self.OCC} ($25C exp 2026-09-25)",
+            shares=200, entry=1.50, stop=0.75, target1=2.25, bias="LONG")
+
+    def test_the_option_is_not_matched_by_its_underlying(self):
+        opt = self._tracked_option()
+        tracker = SimpleNamespace(positions=[opt], _save=MagicMock())
+        equity_at_broker = SimpleNamespace(qty="100", avg_entry_price="25.00")
+        with patch.object(a, "PositionTracker", return_value=tracker):
+            changed = a._reconcile_tracked_quantity(equity_at_broker, "APLD")
+        self.assertEqual(changed, 0)
+        self.assertEqual(opt.entry, 1.50, "option entry overwritten with the share price")
+        self.assertEqual(opt.shares, 200)
+        tracker._save.assert_not_called()
+
+    def test_the_option_is_still_matched_by_its_occ_symbol(self):
+        opt = self._tracked_option()
+        tracker = SimpleNamespace(positions=[opt], _save=MagicMock())
+        # Broker holds 3 contracts; tracker says 2.
+        opt_at_broker = SimpleNamespace(qty="3", avg_entry_price="1.60")
+        with patch.object(a, "PositionTracker", return_value=tracker):
+            changed = a._reconcile_tracked_quantity(opt_at_broker, self.OCC)
+        self.assertEqual(changed, 1)
+        self.assertEqual(opt.shares, 300)
+        self.assertEqual(opt.entry, 1.60)
+
+    def test_equity_still_reconciles_against_equity(self):
+        eq = SimpleNamespace(ticker="APLD", setup="Gap & Hold", shares=50,
+                             entry=24.0, stop=22.0, target1=28.0, bias="LONG")
+        tracker = SimpleNamespace(positions=[eq], _save=MagicMock())
+        equity_at_broker = SimpleNamespace(qty="100", avg_entry_price="25.00")
+        with patch.object(a, "PositionTracker", return_value=tracker):
+            changed = a._reconcile_tracked_quantity(equity_at_broker, "APLD")
+        self.assertEqual(changed, 1)
+        self.assertEqual(eq.shares, 100)
+        self.assertEqual(eq.entry, 25.0)
+
+    def test_an_options_underlying_does_not_mask_an_equity_orphan(self):
+        """The `tracked` set must carry the OCC symbol, never the underlying."""
+        src = inspect.getsource(a.adopt_orphan_positions)
+        blk = src[:src.index("# Working sell stops")]
+        self.assertIn("_is_option_position", blk)

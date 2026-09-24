@@ -22870,10 +22870,21 @@ def _reconcile_tracked_quantity(pos, sym: str) -> int:
         _avg = float(pos.avg_entry_price)
     except (TypeError, ValueError):
         return 0
+    _sym_is_occ = _is_occ_symbol(sym)
     try:
         _pt = PositionTracker()
         for _p in _pt.positions:
-            if _position_identity(_p.ticker, _p.setup) != sym and _p.ticker != sym:
+            _p_is_opt = _is_option_position(_p.setup)
+            # Match like for like. `_p.ticker == sym` alone let a plain equity
+            # symbol match an OPTION on the same underlying -- an option is
+            # tracked under ticker "APLD" -- and the broker's SHARE count and
+            # SHARE price were then written onto the option's shares/entry,
+            # where entry means a premium. Same cross-contamination that
+            # _update_position_field() carried.
+            if _sym_is_occ:
+                if _position_identity(_p.ticker, _p.setup) != sym:
+                    continue
+            elif _p_is_opt or _p.ticker != sym:
                 continue
             if abs(float(_p.shares or 0) - _want) < 1:
                 return 0                      # already agrees
@@ -22960,7 +22971,13 @@ def adopt_orphan_positions() -> int:
     # added a SECOND record each time and PositionTracker merged the shares,
     # silently doubling the recorded size. Caught 2026-09-11 before the open:
     # one reconciliation run turned APLD 100 into 200 and TE 600 into 900.
-    tracked = {p.ticker.upper() for p in pt.positions}
+    # An OPTION contributes its OCC symbol, NOT its underlying. Adding the
+    # underlying meant a real EQUITY orphan on a ticker that also had a
+    # tracked option looked tracked, so it was never adopted -- no stop
+    # management, no P&L recording, no PDT counting -- and was handed to
+    # _reconcile_tracked_quantity() instead, which then matched the option.
+    tracked = {p.ticker.upper() for p in pt.positions
+               if not _is_option_position(getattr(p, "setup", "") or "")}
     for _p in pt.positions:
         _su = getattr(_p, "setup", "") or ""
         if _su.startswith("Options Call ") or _su.startswith("Options Put "):

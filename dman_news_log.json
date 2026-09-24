@@ -1,69 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:05:39.872633-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "AppLovin Stock Drops After Analyst Calls It a &#39;Show-Me Story&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-23T15:05:54.723313-04:00",
-    "symbols": [
-      "LXEH"
-    ],
-    "headline": "Lixiang Education Shares Halted On Circuit Breaker To The Downside, Stock Now Up 41.61%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:06:00.820149-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "TriSalus Life Sciences, Lakefront Biotherapeutics, Editas Medicine And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:07:28.253975-04:00",
-    "symbols": [
-      "AAPL",
-      "MSFT",
-      "NVDA",
-      "QQQ"
-    ],
-    "headline": "Apple\u2019s AI Bet Is Getting Bigger. So Is the Valuation Risk Hiding Inside These ETFs",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:09:35.074433-04:00",
-    "symbols": [
-      "BIDU",
-      "GOOGL"
-    ],
-    "headline": "Shares of interactive media companies are trading lower as yields climb and investors anticipate future rate hikes amid inflation concerns. This may limit platforms from generating subscription and ad revenue as customers cut spending.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:11:27.431977-04:00",
-    "symbols": [
-      "ONCO"
-    ],
-    "headline": "Onconetix Shares Halted On Circuit Breaker To The Upside, Stock Now Up 47.86%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T15:11:57.931090-04:00",
     "symbols": [
       "MU",
@@ -5049,5 +4985,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:24:17.543019-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "First Solar Stock Hits Fresh 52-Week Low: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T13:25:04.802102-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace Stock Faces Pressure As Jefferies Cuts Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:25:23.408632-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With Nebius Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:25:34.366967-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What Is Going on With Nebius Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:25:38.568465-04:00",
+    "symbols": [
+      "NBIG"
+    ],
+    "headline": "What Is Going on With Nebius Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T13:25:38.897685-04:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Everpure, Raises Price Target to $162",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

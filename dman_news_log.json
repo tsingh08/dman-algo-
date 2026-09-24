@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:17.487679-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Faces Short Pressure Ahead Earnings, Analysts Reaffirm Buy Consensus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:10:18.251598-04:00",
     "symbols": [
       "KLAC"
@@ -5053,6 +5043,16 @@
     ],
     "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:25:15.798471-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "New York Sues Polymarket For Allegedly Running Illegal Gambling Operation",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

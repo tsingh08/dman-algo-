@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:31:56.219343-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T14:31:56.222991-04:00",
     "symbols": [
       "AMD"
@@ -5047,6 +5037,16 @@
     "headline": "US And Iran Discuss Phased Deal To Reopen Strait Of Hormuz And End US Blockade, Sources Say",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T12:23:26.793009-04:00",
+    "symbols": [
+      "CD"
+    ],
+    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

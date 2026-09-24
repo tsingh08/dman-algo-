@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:02.583913-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "IonQ Removes Major Quantum Barrier, Driving Investor Debate Over Commercial Timelines",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T09:26:02.588434-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta\u2019s Muse AI Has Wall Street Seeing Billion-Dollar Possibilities",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T09:26:02.594222-04:00",
     "symbols": [
       "AMZN"
@@ -5081,6 +5061,26 @@
     "headline": "Cycurion Anticipates $843,028 Revenue This Year From losed Public Safety Engagements",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:51:55.835864-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US, Iran Said to Be Exploring Phased Deal to Open Hormuz&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:53:05.382873-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Defense Official Says About 60 Commercial Vessels Transited Strait Of Hormuz Wednesday, Highest Daily Crude Volume Since Early July",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

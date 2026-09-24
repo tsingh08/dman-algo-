@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:31:56.222991-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Elon Musk Touts Grok in Tesla Vehicles: Here\u2019s What It Can Do",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T14:35:21.113282-04:00",
     "symbols": [
       "AMZN",
@@ -5048,5 +5038,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T12:24:16.119882-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Signs Contract To Install Superion 256 Quantum Computer At Florida International University, Expected Late 2027; Terms Not Disclosed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

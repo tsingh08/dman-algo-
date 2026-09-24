@@ -99,9 +99,15 @@ jobs:
           # cold stop at 16:12.
           # Evening start (hour>=16) → run to 20:05 ET, through the 8 PM
           # post-market close (see the workflow header comment).
-          if now.hour < 12:
+          # Windows, not bare hours: when daylight saving ends the afternoon
+          # cron lands at 11:53 ET, and `hour < 12` read that as the MORNING
+          # session -- which exits at 12:55 and left ~3 hours of the session
+          # uncovered until the evening run. These boundaries hold in both
+          # clocks (morning 8:23-11:29, afternoon 11:53-14:59, evening 15:53+).
+          _hhmm = now.hour * 100 + now.minute
+          if _hhmm < 1130:
               until = "1255"
-          elif now.hour < 16:
+          elif _hhmm < 1500:
               until = "1700"
           else:
               until = "2005"

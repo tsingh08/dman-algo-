@@ -68,7 +68,10 @@ on:
     # for the same GitHub-queue-congestion reasoning every other cron in
     # this repo already uses (see dman_watchdog.yml's comment for the
     # confirmed-live incident behind that pattern).
-    - cron: '24 20 * * 1-5'
+    - cron: '24 20 * * 1-5'   # 4:24 PM EDT
+    - cron: '24 21 * * 1-5'   # 4:24 PM EST (daylight saving ends Nov 1; the
+                              # 20:24 cron is 3:24 PM then -- before the close.
+                              # The kind step below runs only one of them.)
   workflow_dispatch:   # /review on Telegram dispatches this directly
 
 env:
@@ -104,10 +107,14 @@ jobs:
           # computed once here so the branch-creation step (EOD only) and
           # the review-session step agree on which kind this run is,
           # instead of recomputing (and risking drifting from) it twice.
+          ET_HHMM=$(TZ="America/New_York" date +%H%M)
           if [ "$ET_HOUR" -ge 10 ] && [ "$ET_HOUR" -lt 15 ]; then
             echo "kind=midday" >> "$GITHUB_OUTPUT"
-          else
+          elif [ "$ET_HHMM" -ge 1605 ] && [ "$ET_HHMM" -lt 1700 ]; then
             echo "kind=eod" >> "$GITHUB_OUTPUT"
+          else
+            # Before the close or long after it: the other cron owns this clock.
+            echo "kind=skip" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Create review branch
@@ -129,6 +136,10 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Run review session
+        # 'skip' = this cron's clock is wrong for the season; the sibling cron
+        # owns the run. Without this the job would still burn a review session
+        # and post a report at 3:24 PM, before the close.
+        if: steps.kind.outputs.kind != 'skip'
         id: review
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -418,7 +429,7 @@ jobs:
           echo "pr_url=$PR_URL" >> "$GITHUB_OUTPUT"
 
       - name: Post report to Telegram
-        if: always()
+        if: always() && steps.kind.outputs.kind != 'skip'
         env:
           REVIEW_OUTPUT: ${{ steps.review.outputs.review_output }}
           REVIEW_STATUS: ${{ steps.review.outputs.exit_status }}

@@ -7,7 +7,11 @@ on:
     # next session, which is Sunday on a normal week and the holiday evening
     # otherwise. Every other night it exits immediately. See the
     # _is_session() block in the scanner step for the incident behind this.
-    - cron: '0 21 * * *'
+    - cron: '0 21 * * *'      # 5 PM EDT / 4 PM EST
+    # The ORB and breakout-zone steps need a run after 16:05 ET. In winter the
+    # 21:00 cron lands at 16:00 -- five minutes too early -- so nothing would
+    # be logged at all. This one is after the close in both clocks.
+    - cron: '0 22 * * *'      # 6 PM EDT / 5 PM EST
     # ~4:36 AM ET — earliest pre-market scanner pass, added 2026-08-13 to
     # close the overnight coverage gap (nothing ran between ~4:20 PM and
     # ~7:06 AM before this). Alpaca's extended pre-market session opens at
@@ -43,7 +47,9 @@ on:
     # gate opens. 13:30 UTC (9:30 AM) is peak GitHub runner contention (all trading
     # bots hit at once); 13:45 UTC is 15 min quieter and the Gate is already open.
     # (Already off a round number — this one's fine as-is.)
-    - cron: '45 13 * * 1-5'
+    - cron: '45 13 * * 1-5'   # 9:45 EDT gate scan
+    - cron: '45 14 * * 1-5'   # 9:45 EST gate scan (redundant runs are safe:
+                              # concurrency group dman-scan, cancel-in-progress false)
     # ~10:34 AM – 3:34 PM ET hourly for momentum continuation + new setups.
     # Offset from :30 for the same reason as the 7 AM slot above.
     - cron: '34 14,15,16,17,18,19 * * 1-5'

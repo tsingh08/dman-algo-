@@ -21,7 +21,12 @@ on:
     # that the 9:30 force-close and any cancel have had time to settle and
     # for fills to report, early enough that a problem still has the whole
     # session left to fix.
-    - cron: '50 13 * * 1-5'
+    # Two crons, one ET window. A UTC cron drifts an hour when daylight
+    # saving ends (Nov 1): 13:50 UTC is 9:50 ET in summer but 8:50 in winter --
+    # verifying the open before it happens. The guard below runs whichever of
+    # these lands inside 9:45-10:30 ET and skips the other.
+    - cron: '50 13 * * 1-5'   # 9:50 EDT
+    - cron: '50 14 * * 1-5'   # 9:50 EST
   workflow_dispatch:
 
 env:
@@ -59,6 +64,11 @@ jobs:
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONIOENCODING:    utf-8
         run: |
+          hhmm=$(TZ=America/New_York date +%H%M)
+          if [ "$hhmm" -lt 0945 ] || [ "$hhmm" -ge 1030 ]; then
+            echo "$hhmm ET is outside the 9:45-10:30 window — the other cron covers this clock."
+            exit 0
+          fi
           python - <<'EOF'
           import os, html, json, sys
           from datetime import datetime

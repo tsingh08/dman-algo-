@@ -1,19 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:12:11.812871-04:00",
-    "symbols": [
-      "CRWD",
-      "FTNT",
-      "NET",
-      "PANW",
-      "ZS"
-    ],
-    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T13:21:50.689529-04:00",
     "symbols": [
       "ADGM"
@@ -5055,5 +5041,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:02:41.709158-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "What&#39;s Going On with Palo Alto Networks Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

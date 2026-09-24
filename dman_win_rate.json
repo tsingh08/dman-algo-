@@ -1558,5 +1558,17 @@
     "pnl_pct": -8.0,
     "score": 100,
     "is_live": true
+  },
+  {
+    "ticker": "SECZ",
+    "date": "2026-09-24",
+    "bias": "LONG",
+    "setup": "Breakout Zone +166% off low",
+    "entry": 14.36,
+    "exit": 14.7,
+    "outcome": "WIN",
+    "pnl_pct": 2.37,
+    "score": 16,
+    "is_live": true
   }
 ]

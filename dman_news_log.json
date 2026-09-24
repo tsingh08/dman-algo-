@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:27:55.271808-04:00",
-    "symbols": [
-      "FSLY"
-    ],
-    "headline": "DA Davidson Maintains Neutral on Fastly, Raises Price Target to $23",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:27:55.275532-04:00",
-    "symbols": [
-      "FSLY"
-    ],
-    "headline": "B of A Securities Maintains Underperform on Fastly, Raises Price Target to $22",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T14:31:48.011250-04:00",
     "symbols": [
       "AMZN",
@@ -5049,6 +5029,26 @@
     "headline": "CNN Granted Access To White House",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T12:11:46.402753-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "BNP Paribas And Google Cloud Announce Five-Year Agentic AI And Cloud Partnership; Terms Not Disclosed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T12:12:06.218593-04:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "Crude Oil Rises Over 4%; Darden Earnings Miss Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

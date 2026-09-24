@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:35.919145-04:00",
-    "symbols": [
-      "LGCL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T13:10:36.418916-04:00",
     "symbols": [
       "NNBR"
@@ -5055,5 +5045,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T10:50:37.736631-04:00",
+    "symbols": [
+      "LABT"
+    ],
+    "headline": "Beyond Antibiotics: Lakewood-Amedex Advances Diabetic Foot Ulcer Trial",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

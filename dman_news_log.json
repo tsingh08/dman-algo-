@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:22:54.601725-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:22:54.847493-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T13:22:55.595233-04:00",
     "symbols": [
       "FTNT"
@@ -5052,5 +5032,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:13:43.350311-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:13:46.139523-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

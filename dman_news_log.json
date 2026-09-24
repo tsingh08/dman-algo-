@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:35:44.787930-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Snap Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:35:45.398572-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Muse vs. Elon Musk\u2019s X: The Battle for the \u2018Everything App\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:35:45.676306-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What Is Going on With Snap Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T14:35:45.680024-04:00",
     "symbols": [
       "AMZN"
@@ -5047,5 +5017,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T12:33:55.645408-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Group shares are trading higher after BNP Paribas upgraded the stock from Neutral to Outperform rating and raised its price target from $260 to $399.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T12:34:55.017889-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Here&#39;s How Meta&#39;s Muse Mania Is Spilling into Leveraged ETFs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T12:34:56.028805-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Here&#39;s How Meta&#39;s Muse Mania Is Spilling into Leveraged ETFs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

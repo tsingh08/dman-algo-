@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-09-23T12:18:14.024330-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Lands @Muse Social Media Handles: Zuckerberg Didn\u2019t Steal From Rock Band \u2013 \u2018We Had a Chat\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:18:14.617183-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T12:18:15.460141-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Stock Flips $188 Into Support, Eyes $200 Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:18:16.597698-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Is Micron Stock Now The Biggest Value Play on Wall Street?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:18:17.690360-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "If You Invested $1000 In KLA Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:18:26.758023-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "According To A Document Seen By Reuters, Senators Aim To Fast-Track Chinese Vehicle Ban Legislation This Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:18:27.498365-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:29:45.136362-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "ON Semiconductor\u2019s $100 Bull Case Runs Into a Bearish Chart",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:30:34.262284-04:00",
-    "symbols": [
-      "CBRL"
-    ],
-    "headline": "Cracker Barrel Battles Consumer Pressure With $7.99 Breakfast, $8.99 Early Dine Deals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:30:43.757031-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "If You Invested $1000 In Tesla Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T12:30:52.198140-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon, Others Facing India Food Regulator Penal Action Over Alleged Food Safety, Regulatory Non-Compliance Practices",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T12:31:18.801379-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:31:34.104146-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Q4 Preview: Stock Hits 8-Month Lows, Will Higher Gas Prices Help Turn Things Around?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:32:02.546156-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "What&#39;s Going On With GE Vernova Stock Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:33:10.812983-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Announces Oncology Electronic Health Record System With AI Tools For Cancer Care Teams",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T12:35:18.594354-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Plans To Invest Over $10B In Middle East By 2030",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:45:20.321281-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Shares of critical metal-related companies are trading lower as gold and silver decline amid a stronger dollar and rising yields. Recent comments from the Fed&#39;s Barkin on inflation and future rate hikes prompt expectations of tighter monetary policy may raise costs for global consumers and could impact orders and demand.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:46:20.184680-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T12:46:20.473476-04:00",
     "symbols": [
       "MSFT"
@@ -5063,5 +4883,188 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:52:41.880322-04:00",
+    "symbols": [
+      "ADBE",
+      "META",
+      "MSFT",
+      "NFLX"
+    ],
+    "headline": "Citrini\u2019s New Short List: 90 Subscription Stocks at Risk From The \u2018Agentic Cancellation Wave\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:01.818584-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Qualcomm Renews Patent License With Apple, Ushers in &#39;Agentic Age&#39; With New Snapdragon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:53:02.105371-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Citrini\u2019s New Short List: 90 Subscription Stocks at Risk From The \u2018Agentic Cancellation Wave\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:02.110218-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Qualcomm Renews Patent License With Apple, Ushers in &#39;Agentic Age&#39; With New Snapdragon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:02.404401-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Super Micro Computer Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:03.076333-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Citrini\u2019s New Short List: 90 Subscription Stocks at Risk From The \u2018Agentic Cancellation Wave\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:03.336419-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Qualcomm Renews Patent License With Apple, Ushers in &#39;Agentic Age&#39; With New Snapdragon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:53:04.143672-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Citrini\u2019s New Short List: 90 Subscription Stocks at Risk From The \u2018Agentic Cancellation Wave\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:04.915551-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What&#39;s Going On With Super Micro Computer Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:06.203474-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Renews Patent License With Apple, Ushers in &#39;Agentic Age&#39; With New Snapdragon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:13.991807-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Citrini\u2019s New Short List: 90 Subscription Stocks at Risk From The \u2018Agentic Cancellation Wave\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:53:15.393716-04:00",
+    "symbols": [
+      "ARTL"
+    ],
+    "headline": "Dow Tumbles Over 100 Points; US Jobless Claims Fall to 197,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:53:18.361818-04:00",
+    "symbols": [
+      "VSA"
+    ],
+    "headline": "Dow Tumbles Over 100 Points; US Jobless Claims Fall to 197,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:53:19.371603-04:00",
+    "symbols": [
+      "SRZN"
+    ],
+    "headline": "Dow Tumbles Over 100 Points; US Jobless Claims Fall to 197,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:53:19.640590-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "Dow Tumbles Over 100 Points; US Jobless Claims Fall to 197,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:53:43.416207-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly shares are trading higher after the company announced FDA approval of its Onswik once-weekly insulin injection to treat Type 2 Diabetes.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:54:18.716516-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "What&#39;s Going On With Airbnb Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:55:23.407496-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle shares are trading lower following reports suggesting the company sent a data center developer a notice citing &#34;force majeure&#34; to delay payments.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

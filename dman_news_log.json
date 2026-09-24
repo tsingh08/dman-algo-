@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:36.418916-04:00",
-    "symbols": [
-      "NNBR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T13:10:36.982704-04:00",
     "symbols": [
       "SRFM"
@@ -5053,6 +5043,16 @@
     ],
     "headline": "Beyond Antibiotics: Lakewood-Amedex Advances Diabetic Foot Ulcer Trial",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:57:01.254226-04:00",
+    "symbols": [
+      "MOBX"
+    ],
+    "headline": "Mobix Labs Expects Fiscal Q4 2026 Revenue Above $1.6M Guidance Midpoint, Up More Than 100% Sequentially",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

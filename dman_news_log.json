@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:22:55.595233-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:22:55.840725-04:00",
     "symbols": [
       "ZS"
@@ -5050,6 +5040,16 @@
     ],
     "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:24:57.267044-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Blue Owl Stock Dips After &#34;Force Majeure&#34; Payment Notice",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-23T12:46:20.473476-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:46:20.834621-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:46:21.410124-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:46:21.968367-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T12:46:22.251025-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "IONQ\u2019s Breakthrough Ignites Quantum Computing Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T12:46:33.658633-04:00",
     "symbols": [
       "SPY"
@@ -5066,5 +5016,56 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:55:55.086762-04:00",
+    "symbols": [
+      "DKNG",
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Kalshi&#39;s Sports Push &#39;Really Undermines&#39; Case Against States, Former CFPB Adviser Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:56:07.396407-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CNN, MS Now, Politico Request Immediate Court Hearing After Being Blocked From White House Grounds On Thursday",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:00:09.095170-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA New Home Sales For August 684K Vs 615K Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:00:22.480334-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA New Home Sales (MoM) For August 6.4% Vs -4.3% Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:00:28.162782-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA New Home Sales For August Revises Prior From 607K To 643K",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

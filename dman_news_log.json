@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T16:05:30.012748-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Stock Rises 3% Despite Losing $875 Million FAA AI Deal: Here\u2019s Why",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T16:05:48.805526-04:00",
     "symbols": [
       "MSFT"
@@ -5076,6 +5066,16 @@
     ],
     "headline": "Roth Capital Initiates Coverage On NeOnc Technologies Hldgs with Buy Rating, Announces Price Target of $20",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:21:27.241897-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Raymond James Maintains Strong Buy on Meta Platforms, Raises Price Target to $860",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

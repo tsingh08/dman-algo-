@@ -303,6 +303,26 @@ jobs:
       # complete session it has not logged. Idempotent and delay-proof, so it
       # can ride every run; it only finds new work after a session closes.
       # Never trades. See run_orb_shadow().
+      # Breakout-zone entries and time exits. Runs after the open so entries
+      # fill at the session's prices (the signal is the prior close, and entry
+      # at the next open tested as good as the unachievable close entry).
+      # Idempotent: exits check sessions held, entries dedupe per ticker per day.
+      - name: Breakout zone manage
+        if: always()
+        env:
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONIOENCODING:    utf-8
+        run: |
+          hhmm=$(TZ=America/New_York date +%H%M); dow=$(TZ=America/New_York date +%u)
+          if [ "$dow" -le 5 ] && [ "$hhmm" -ge 0935 ] && [ "$hhmm" -le 1545 ]; then
+            python dman_algo.py --mode bzmanage || true
+          else
+            echo "Outside 9:35-15:45 ET on a weekday ($hhmm) — no breakout-zone management."
+          fi
+
       # Breakout zones: scanned here because the scanner is the only workflow
       # that commits state -- the briefing wrote this log and nothing persisted
       # it. The briefing reads what this records.

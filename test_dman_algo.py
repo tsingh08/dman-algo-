@@ -18691,7 +18691,7 @@ class TestBreakoutZones(unittest.TestCase):
                  "above_low_pct": 300.0, "extension_pct": 30.0},
                 {"ticker": "B", "date": "d", "close": 60.0, "base_days": 99,
                  "above_low_pct": 120.0, "extension_pct": 12.0}]
-        with patch.object(a, "_breakout_zone_scan", return_value=rows), \
+        with patch.object(a, "_recent_logged_zones", return_value=rows), \
              patch.object(a, "_log_breakout_zones", return_value=2):
             out = a._pmb_breakout_zone_section()
         self.assertLess(out.index("A</b>"), out.index("B</b>"))
@@ -18708,7 +18708,8 @@ class TestBreakoutZones(unittest.TestCase):
         import shutil as _sh; _sh.rmtree(d, True)
 
     def test_the_section_is_omitted_when_there_is_nothing(self):
-        with patch.object(a, "_breakout_zone_scan", return_value=[]):
+        with patch.object(a, "_recent_logged_zones", return_value=[]), \
+             patch.object(a, "_breakout_zone_scan", return_value=[]):
             self.assertEqual(a._pmb_breakout_zone_section(), "")
 
     def test_it_never_trades(self):
@@ -18744,7 +18745,7 @@ class TestBreakoutZones(unittest.TestCase):
                  "above_low_pct": 900.0, "extension_pct": 30.0, "fresh_base": True, "weak_band": True},
                 {"ticker": "G", "date": "d", "close": 9.0, "base_days": 1,
                  "above_low_pct": 110.0, "extension_pct": 11.0, "fresh_base": False, "weak_band": False}]
-        with patch.object(a, "_breakout_zone_scan", return_value=sorted(
+        with patch.object(a, "_recent_logged_zones", return_value=sorted(
                 rows, key=lambda r: (r["weak_band"], not r["fresh_base"], -r["above_low_pct"]))), \
              patch.object(a, "_log_breakout_zones", return_value=2):
             out = a._pmb_breakout_zone_section()
@@ -18805,3 +18806,117 @@ class TestBreakoutZones(unittest.TestCase):
         self.assertIn("dman_bzone_shadow.json", open(os.path.join(
             os.path.dirname(os.path.abspath(a.__file__)),
             ".github", "workflows", "dman_scanner.yml"), encoding="utf-8").read())
+
+
+class TestBreakoutZoneTrading(unittest.TestCase):
+    """Shares on $5-15 zones, held 20 sessions, NO stop. Every stop tested made
+    it worse (median +2.09% with none, -2.00% with a -10% stop), and with a
+    realistic 6% option spread the deep-ITM call's median went negative while
+    shares kept +3.26%. Numbers, not preferences -- see the constants block."""
+
+    def _pos(self, ticker="AAA", entry_date="2026-09-01", shares=25):
+        return MagicMock(ticker=ticker, shares=shares, entry=10.0,
+                         setup=f"{a.BZONE_SETUP} +150% off low", entry_date=entry_date)
+
+    def _zone(self, ticker="AAA", close=10.0):
+        return {"ticker": ticker, "date": str(a._et_today()), "close": close,
+                "base_days": 5, "above_low_pct": 150.0, "extension_pct": 12.0,
+                "fresh_base": False, "weak_band": False}
+
+    def _run(self, zones=(), open_pos=(), held=0, record=(0, 0.0), cash_ok=True, market=True):
+        with patch.object(a, "is_market_open", return_value=market), \
+             patch.object(a, "_recent_logged_zones", return_value=list(zones)), \
+             patch.object(a, "_bzone_open_positions", return_value=list(open_pos)), \
+             patch.object(a, "_sessions_since", return_value=held), \
+             patch.object(a, "_bzone_record", return_value=record), \
+             patch.object(a, "_cash_available_for", return_value=(cash_ok, "no cash")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_close_position_at_market", return_value=("submitted", "o1")) as close, \
+             patch.object(a, "_submit_bzone_entry", return_value=("o2", None)) as entry, \
+             patch.object(a, "send_telegram") as tg:
+            out = a.run_breakout_zone_manage()
+        return out, close, entry, tg
+
+    def test_a_position_exits_after_the_tested_hold(self):
+        out, close, _, tg = self._run(open_pos=[self._pos()], held=a.BZONE_HOLD_SESSIONS)
+        close.assert_called_once()
+        self.assertIn("20-session exit", close.call_args[0][1])
+        self.assertIn("sessions held", tg.call_args[0][0])
+
+    def test_it_is_not_closed_early(self):
+        _, close, _, _ = self._run(open_pos=[self._pos()], held=a.BZONE_HOLD_SESSIONS - 1)
+        close.assert_not_called()
+
+    def test_an_unknown_hold_length_never_forces_an_exit(self):
+        _, close, _, _ = self._run(open_pos=[self._pos()], held=-1)
+        close.assert_not_called()
+
+    def test_a_zone_in_the_band_is_bought(self):
+        out, _, entry, tg = self._run(zones=[self._zone(close=10.0)])
+        entry.assert_called_once()
+        self.assertEqual(entry.call_args[0][1], int(a.BZONE_TRADE_DOLLARS // 10.0))
+        self.assertIn("breakout zone entered", tg.call_args[0][0])
+
+    def test_names_outside_the_tested_band_are_left_alone(self):
+        for px in (4.0, 20.0, 60.0):
+            _, _, entry, _ = self._run(zones=[self._zone(close=px)])
+            entry.assert_not_called()
+
+    def test_the_open_position_cap_holds(self):
+        pos = [self._pos(ticker=f"P{i}") for i in range(a.BZONE_TRADE_MAX_OPEN)]
+        out, _, entry, _ = self._run(zones=[self._zone()], open_pos=pos)
+        entry.assert_not_called()
+        self.assertIn("slots used", out["skipped"])
+
+    def test_a_name_already_held_is_not_doubled(self):
+        _, _, entry, _ = self._run(zones=[self._zone(ticker="AAA")],
+                                   open_pos=[self._pos(ticker="AAA")])
+        entry.assert_not_called()
+
+    def test_no_cash_stops_entries(self):
+        _, _, entry, _ = self._run(zones=[self._zone()], cash_ok=False)
+        entry.assert_not_called()
+
+    def test_nothing_happens_when_the_market_is_closed(self):
+        out, close, entry, _ = self._run(zones=[self._zone()], open_pos=[self._pos()],
+                                         held=99, market=False)
+        close.assert_not_called(); entry.assert_not_called()
+        self.assertEqual(out["skipped"], "market closed")
+
+    def test_a_losing_record_switches_entries_off(self):
+        out, _, entry, tg = self._run(zones=[self._zone()],
+                                      record=(a.BZONE_TRADE_REVIEW_N, -6.0))
+        entry.assert_not_called()
+        self.assertIn("switched themselves off", tg.call_args[0][0])
+
+    def test_a_winning_record_keeps_trading(self):
+        _, _, entry, _ = self._run(zones=[self._zone()],
+                                   record=(a.BZONE_TRADE_REVIEW_N, +8.0))
+        entry.assert_called_once()
+
+    def test_the_kill_switch_stops_everything(self):
+        with patch.object(a, "ENABLE_BZONE_TRADING", False), \
+             patch.object(a, "is_market_open", return_value=True) as mo:
+            out = a.run_breakout_zone_manage()
+        self.assertEqual(out["skipped"], "disabled")
+        mo.assert_not_called()
+
+    def test_there_is_no_price_stop_anywhere_in_the_path(self):
+        """The whole point: the exit is time. A stop would cut the move."""
+        src = inspect.getsource(a.run_breakout_zone_manage) + inspect.getsource(a._submit_bzone_entry)
+        for forbidden in ("stop_loss", "StopOrder", "stop_price"):
+            self.assertNotIn(forbidden, src)
+        self.assertIn("BZONE_HOLD_SESSIONS", inspect.getsource(a.run_breakout_zone_manage))
+
+    def test_the_equity_guard_leaves_these_alone(self):
+        """entry/stop/target comparisons mean nothing for a time-exit position;
+        a zero target would read as 'target hit' immediately."""
+        for fn in (a.run_equity_guard, a.PositionTracker.show):
+            src = inspect.getsource(fn)
+            i = src.index("BZONE_SETUP")
+            self.assertIn("continue", src[i:i + 400])
+
+    def test_the_modes_exist(self):
+        for m in ('"bzone"', '"bzmanage"'):
+            self.assertIn(m, inspect.getsource(a.main))

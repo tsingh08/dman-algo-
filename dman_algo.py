@@ -10103,6 +10103,11 @@ def run_equity_guard(get_price_fn=None, positions: Optional[list] = None) -> Non
         setup = pos.get("setup", "")
         if setup.startswith(("Options Call ", "Options Put ", "Earnings ")):
             continue   # already covered by run_options_guard()
+        if setup.startswith(BZONE_SETUP):
+            # Time-exit position: no stop and no target by design (every stop
+            # tested made the result worse), so price checks have nothing to
+            # say. run_breakout_zone_manage() owns the exit.
+            continue
         cur_price = get_price_fn(pos.get("ticker", "")) if get_price_fn else None
         _check_equity_position_target(pos, cur_price=cur_price)
 
@@ -11125,6 +11130,40 @@ BZONE_MAX_RICH      = 500     # everything above
 # reportable. 800 calendar days is ~550 sessions: enough for a ~300-session base.
 BZONE_HISTORY_DAYS  = 800
 BZONE_SHADOW_FILE   = "dman_bzone_shadow.json"
+
+# ---- Trading the zones ------------------------------------------------------
+# Tested 2026-09-23 on the $5-30 band, entry at the NEXT session's open (the
+# scan runs after the close), 20-session hold:
+#
+#   exit rule                     stock mean/median    option mean/median
+#   hold 20d, NO stop             +6.88% / +2.09%      +18.7% / +0.6%
+#   hold 20d, stop -10%           +4.91% / -2.00%      +14.4% / -13.9%
+#   hold 20d, stop -15%           +5.59% / +0.39%      +16.2% /  -4.8%
+#   hold 20d, below the 20d MA    +4.73% / -2.71%      +13.4% / -13.4%
+#   hold 20d, trail -15%          +4.68% / +0.05%      +13.9% /  -5.2%
+#   hold 30d, stop -15%           +8.35% / +0.07%      +24.5% / -10.5%
+#
+# EVERY stop made it worse: these names dip hard mid-run and a stop cuts the
+# move. So the exit is time, not price. Entry at the next open costs almost
+# nothing versus the (unachievable) signal-day close.
+#
+# SHARES, not options. A 20% ITM 90-day call on a $5-15 name costs ~$283 and
+# fits the budget, but priced with a realistic 6% round-trip spread its median
+# goes NEGATIVE (-2.7%; -7.2% in the $15-30 band) while shares keep +3.26%.
+# The option only wins on the mean, carried by tails -- the wrong trade for an
+# account that needs to compound. Revisit if the account grows enough that
+# tail-heavy bets are affordable.
+#
+# $5-15 only: that band is +9.54% mean / +3.26% median over 20 sessions versus
+# +4.69%/+1.26% for $15-30. The scan still SHOWS everything from $5 up.
+ENABLE_BZONE_TRADING   = True
+BZONE_TRADE_MIN_PRICE  = 5.0
+BZONE_TRADE_MAX_PRICE  = 15.0
+BZONE_TRADE_DOLLARS    = 250.0    # per position, sized in dollars (no stop to size off)
+BZONE_TRADE_MAX_OPEN   = 2        # breakouts cluster; cap correlated exposure
+BZONE_HOLD_SESSIONS    = 20
+BZONE_TRADE_REVIEW_N   = 12       # closed trades before the record gets a verdict
+BZONE_SETUP            = "Breakout Zone"
 BZONE_MAX_LINES     = 6
 
 
@@ -11237,6 +11276,162 @@ def _log_breakout_zones(rows: list[dict]) -> int:
     if new:
         _write_json_atomic(BZONE_SHADOW_FILE, (log + new)[-2000:], indent=0)
     return len(new)
+
+
+def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
+    """Market buy + tracked position for a breakout zone. (order_id, error).
+
+    No broker-side stop by design: every stop tested made the result worse
+    (see the constants block). The exit is time, enforced by
+    run_breakout_zone_manage(). stop/target are set to values the equity guard
+    can never trigger, and it skips this setup anyway.
+    """
+    client = get_alpaca_client()
+    if not client:
+        return None, "Alpaca unavailable"
+    try:
+        from alpaca.trading.enums import PositionIntent
+        order = client.submit_order(MarketOrderRequest(
+            symbol=ticker, qty=qty, side=OrderSide.BUY,
+            time_in_force=TimeInForce.DAY,
+            position_intent=PositionIntent.BUY_TO_OPEN,
+        ))
+    except Exception as exc:
+        print(f"  ❌ {ticker} breakout zone entry failed: {exc}")
+        return None, str(exc)
+    try:
+        PositionTracker().open(OpenPosition(
+            ticker=ticker, bias="LONG",
+            setup=f"{BZONE_SETUP} +{float(row.get('above_low_pct', 0)):.0f}% off low",
+            entry=float(ref_px), stop=0.01, target1=1e9, target2=1e9,
+            shares=int(qty), entry_date=_et_today().isoformat(),
+            score=int(min(100, float(row.get("above_low_pct", 0)) / 10)),
+        ))
+    except Exception as exc:
+        send_telegram(f"🚨 <b>{ticker} breakout zone FILLED but NOT TRACKED</b> "
+                      f"({html.escape(str(exc))}) — {qty} shares, no automated exit. "
+                      f"Close it manually.")
+        return str(order.id), None
+    print(f"  📈 {ticker}: breakout zone entry {qty} shares near ${ref_px:.2f}  id={str(order.id)[:8]}…")
+    return str(order.id), None
+
+
+def _sessions_since(start: date) -> int:
+    """Completed trading sessions since `start`, counted from SPY's own bars so
+    holidays and half-days need no calendar of their own."""
+    try:
+        _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+        r = requests.get("https://data.alpaca.markets/v2/stocks/bars",
+                         headers=_hdrs,
+                         params={"symbols": "SPY", "timeframe": "1Day",
+                                 "start": start.isoformat(), "feed": _resolve_stock_feed(),
+                                 "limit": 500}, timeout=30)
+        if r.status_code != 200:
+            return -1
+        days = {str(b["t"])[:10] for b in ((r.json() or {}).get("bars") or {}).get("SPY", [])}
+        return max(0, len([d for d in days if d > start.isoformat()]))
+    except Exception as exc:
+        _log_swallowed("sessions since", exc)
+        return -1
+
+
+def _bzone_open_positions() -> list:
+    try:
+        return [p for p in PositionTracker().positions
+                if str(getattr(p, "setup", "")).startswith(BZONE_SETUP)]
+    except Exception as exc:
+        _log_swallowed("bzone open positions", exc)
+        return []
+
+
+def _bzone_record() -> tuple[int, float]:
+    """(closed live breakout-zone trades, mean pnl_pct)."""
+    try:
+        rs = [r for r in WinRateTracker().records
+              if r.is_live and str(r.setup).startswith(BZONE_SETUP)]
+        return len(rs), (sum(float(r.pnl_pct) for r in rs) / len(rs) if rs else 0.0)
+    except Exception:
+        return 0, 0.0
+
+
+def run_breakout_zone_manage(notify: bool = True) -> dict:
+    """Exit zones held BZONE_HOLD_SESSIONS sessions, then open new ones.
+
+    Time-based exit, no stop: every stop tested made the result worse. Shares,
+    $5-15, sized in dollars. Read the constants block above before changing any
+    of that -- each number came from a measurement, not a preference.
+    """
+    out = {"exited": [], "entered": [], "skipped": ""}
+    if not ENABLE_BZONE_TRADING:
+        out["skipped"] = "disabled"
+        return out
+    if not is_market_open():
+        out["skipped"] = "market closed"
+        return out
+
+    # ---- exits first, so a freed slot can be reused the same pass ----
+    for _pos in _bzone_open_positions():
+        try:
+            _entry_date = date.fromisoformat(str(getattr(_pos, "entry_date", ""))[:10])
+        except Exception:
+            continue
+        _held = _sessions_since(_entry_date)
+        if _held < 0 or _held < BZONE_HOLD_SESSIONS:
+            continue
+        _st, _ = _close_position_at_market(
+            _pos, f"{BZONE_SETUP} {BZONE_HOLD_SESSIONS}-session exit")
+        out["exited"].append(f"{_pos.ticker} ({_held}d): {_st}")
+        if notify and _st == "submitted":
+            send_telegram(f"📤 <b>{_pos.ticker} breakout zone closed</b> — {_held} sessions held, "
+                          f"the tested exit. Entry ${float(getattr(_pos, 'entry', 0) or 0):.2f}.")
+
+    # ---- entries ----
+    _n, _avg = _bzone_record()
+    if _n >= BZONE_TRADE_REVIEW_N and _avg <= 0:
+        out["skipped"] = f"record {_n} trades, mean {_avg:+.1f}% — entries off"
+        if not _is_duplicate_alert("__BZONE_OFF__", cooldown_min=7 * 24 * 60):
+            _save_last_alert("__BZONE_OFF__")
+            send_telegram(f"⏹️ <b>Breakout zones switched themselves off</b> — {_n} closed live, "
+                          f"mean {_avg:+.1f}%. The setup is not paying; review before re-enabling.")
+        return out
+    _open = _bzone_open_positions()
+    _room = BZONE_TRADE_MAX_OPEN - len(_open)
+    if _room <= 0:
+        out["skipped"] = f"{len(_open)}/{BZONE_TRADE_MAX_OPEN} slots used"
+        return out
+    _held_tickers = {p.ticker for p in _open}
+    for _row in _recent_logged_zones(max_age_days=2):
+        if _room <= 0:
+            break
+        _t, _px = _row.get("ticker", ""), float(_row.get("close", 0) or 0)
+        if not _t or _t in _held_tickers:
+            continue
+        if not (BZONE_TRADE_MIN_PRICE <= _px <= BZONE_TRADE_MAX_PRICE):
+            continue
+        if _is_duplicate_alert(f"__BZONE_ENTRY__:{_t}", cooldown_min=24 * 60):
+            continue          # already acted on this name today
+        _qty = int(BZONE_TRADE_DOLLARS // max(_px, 0.01))
+        if _qty < 1:
+            continue
+        _cash_ok, _cash_msg = _cash_available_for(_qty * _px)
+        if not _cash_ok:
+            out["skipped"] = _cash_msg
+            break
+        _save_last_alert(f"__BZONE_ENTRY__:{_t}")
+        _oid, _err = _submit_bzone_entry(_t, _qty, _px, _row)
+        out["entered"].append(f"{_t} x{_qty}: {_err or _oid}")
+        if not _err:
+            _room -= 1
+            if notify:
+                send_telegram(
+                    f"📈 <b>{_t} breakout zone entered</b> — {_qty} shares near ${_px:.2f}\n"
+                    f"+{_row.get('above_low_pct', 0):.0f}% off its 52-week low, "
+                    f"{_row.get('extension_pct', 0):+.0f}% vs its 20-day average.\n"
+                    f"<i>Held {BZONE_HOLD_SESSIONS} sessions, no stop — the tested rule "
+                    f"(+3.3% median, 3y). Position ${_qty * _px:.0f}.</i>")
+    print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries {out['entered']}"
+          f"{' — ' + out['skipped'] if out['skipped'] else ''}")
+    return out
 
 
 def _recent_logged_zones(max_age_days: int = 4) -> list[dict]:
@@ -16178,6 +16373,11 @@ class PositionTracker:
 
         total_unreal = 0.0
         for p in self.positions:
+            if str(getattr(p, "setup", "")).startswith(BZONE_SETUP):
+                # Time-exit position: no stop and no target by design, so the
+                # price comparisons below have nothing to say about it.
+                # run_breakout_zone_manage() owns the exit.
+                continue
             if _is_spread_setup(p.setup):
                 # Comparing STOCK price against entry/stop/target below is
                 # meaningless for a spread (already imprecise for existing
@@ -26427,7 +26627,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "orb", "bzone"],
+                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "orb", "bzone", "bzmanage"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -26694,6 +26894,9 @@ def main():
 
     elif args.mode == "bzone":
         run_breakout_zone_log()
+
+    elif args.mode == "bzmanage":
+        run_breakout_zone_manage()
 
     elif args.mode == "newscheck":
         run_news_source_check(notify=True)

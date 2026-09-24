@@ -1,127 +1,5 @@
 [
   {
-    "ts": "2026-09-23T11:43:05.170809-04:00",
-    "symbols": [
-      "BENF"
-    ],
-    "headline": "Beneficient Implements Strategy To Eliminate HCLP Indebtedness And Heppner Equity Interests",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:43:07.159854-04:00",
-    "symbols": [
-      "ALKT"
-    ],
-    "headline": "Alkami Concludes Strategic Review, Will Remain Independent Public Company; Reaffirms Full-Year Revenue Guidance Of $528M-$531M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:46:45.987630-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "What Is Going on with Apple Stock on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T11:53:03.871781-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US Treasury&#39;s Bessent, China&#39;s He to meet on &#39;unfinished business&#39; before Trump-Xi summit&#39; - Reuters",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:53:06.792621-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T11:53:06.811072-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T11:53:06.873893-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Agentic Commerce Could Hurt Booking, Intuit While Helping Meta, Microsoft, Joseph Carlson Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T11:53:06.992952-04:00",
-    "symbols": [
-      "BTQ"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:59:01.802122-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "SLB Expands Oman Footprint with Bisat-B Facility Project",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:00:46.452874-04:00",
-    "symbols": [
-      "AMD",
-      "AMZN",
-      "APLD"
-    ],
-    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T12:06:03.104767-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Shares of fintech and financial services companies are trading lower amid elevated bond yields and Fed interest rate expectations, which may dampen enthusiasm for the growth-oriented sector.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T12:18:13.724670-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Hut 8, TeraWulf, Applied Digital: UBS Sees at Least 30% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T12:18:14.024330-04:00",
     "symbols": [
       "META"
@@ -5059,6 +4937,131 @@
     "headline": "Similarweb Announces Appointment Of Michael Akkerman As CEO Effective November 2",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:26.833409-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "What&#39;s Going On With Super Micro Computer Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:41:50.967788-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:50.973379-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "Profusa Says It Received Positive Quality System Certification Decision From EU Certifier GMED; Lumee CE Mark Still Pending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:51.196290-04:00",
+    "symbols": [
+      "SPHL"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:51.201629-04:00",
+    "symbols": [
+      "SPHL"
+    ],
+    "headline": "Why GlucoTrack Shares Are Trading Higher By Around 118%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:51.420993-04:00",
+    "symbols": [
+      "UXIN"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:51.426682-04:00",
+    "symbols": [
+      "UXIN"
+    ],
+    "headline": "Earnings Scheduled For September 24, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:51.431597-04:00",
+    "symbols": [
+      "UXIN"
+    ],
+    "headline": "Uxin Sees Q3 Sales $170.963M-$175.384M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:41:51.436789-04:00",
+    "symbols": [
+      "UXIN"
+    ],
+    "headline": "Uxin Q2 Adj. EPS $(0.11) Down From $(0.03) YoY, Sales $169.664M Up From $70.853M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:43:29.642267-04:00",
+    "symbols": [
+      "ARTL",
+      "VSA"
+    ],
+    "headline": "Dow Tumbles Over 100 Points; US Jobless Claims Fall to 197,000",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:43:55.028958-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL",
+      "MSFT",
+      "QCOM"
+    ],
+    "headline": "Qualcomm Renews Patent License With Apple, Ushers in &#39;Agentic Age&#39; With New Snapdragon",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:44:17.228922-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump To Decide Shortly On New Taiwan Arms Package",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

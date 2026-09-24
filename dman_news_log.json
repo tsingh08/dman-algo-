@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:14.352914-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:10:15.227746-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T13:10:15.622188-04:00",
     "symbols": [
       "AMZN"
@@ -5055,5 +5035,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T10:12:23.167280-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Philadelphia Fed President Anna Paulson Says Fed May Need To Raise Rates Again To Lower Inflation; Will Support Doing What&#39;s Needed To Return Inflation To 2%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:13:06.220112-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Paulson Says Best You Can Say About Inflation Is That It Has Not Gotten Worse; Inflation Balance Of Risks Shifted Ahead Of September Policy Meeting; AI Buildout Helping Drive Inflation Pressures; Underlying Inflation Remains Stubbornly High; Economy Resilient And Showing Signs Of Increased Momentum; Labor Market Is Stable",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

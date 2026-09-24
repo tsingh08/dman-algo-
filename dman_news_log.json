@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:23:19.430003-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T15:23:19.752997-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Melania Trump to Ring NYSE&#39;s Opening Bell Wednesday, Launch New Initiative for Female CEOs in Her &#39;Week of American Excellence&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T15:23:20.254038-04:00",
     "symbols": [
       "QQQ"
@@ -5065,5 +5045,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T13:58:48.805491-04:00",
+    "symbols": [
+      "QQQ",
+      "TLT"
+    ],
+    "headline": "Treasury Yields Hit 5%: The Hidden Duration In Your ETF Portfolio",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:00:16.149548-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;Google, OpenAI And Anthropic AI Safety Group Takes Shape; AI Safety Standards Body Has A Tentative Name: Standards Authority For Frontier AI; Group Plans To Operate Independently, Filling A Government Regulatory Vacuum&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

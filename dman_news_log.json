@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:08:04.919402-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:08:04.924799-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#34;Anthropic\u2019s Biolab Made A Discovery It\u2019s Comparing To Crispr; It Took Nearly 1,000 Claude Agents 21 Hours And 210 Million Tokens To Uncover The \u2018Novel Enzyme System.\u2019&#34; - The Verge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:08:11.678900-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T14:08:12.037236-04:00",
     "symbols": [
       "PANW"
@@ -5046,5 +5016,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T12:01:28.113515-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Tigress Financial Maintains Strong Buy on Meta Platforms, Raises Price Target to $995",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T12:01:52.306258-04:00",
+    "symbols": [
+      "SOS"
+    ],
+    "headline": "SOS Limited Reports Bitcoin, Ethereum And Equivalent Holdings Of ~$75.57M, Down From ~$79.1M At End-2025; Company Is Evaluating Opportunities To Leverage Its Hosting Experience In Data Center Infrastructure, With No Assurance That Any Opportunities Will Be Pursued Or Successful",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T12:01:52.311526-04:00",
+    "symbols": [
+      "SOS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:23:21.532522-04:00",
-    "symbols": [
-      "ARX"
-    ],
-    "headline": "This Autoliv Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T15:23:21.536723-04:00",
     "symbols": [
       "ARX"
@@ -5068,6 +5058,31 @@
     "headline": "Why Is Fervo Energy Stock Gaining Thursday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:59.033942-04:00",
+    "symbols": [
+      "AVGO",
+      "CAT",
+      "CVX",
+      "DIA",
+      "GOOGL",
+      "IWM",
+      "LLY",
+      "META",
+      "MSFT",
+      "NEM",
+      "ORCL",
+      "QQQ",
+      "RTX",
+      "SPY",
+      "UNH",
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

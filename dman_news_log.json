@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:21.052092-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:10:21.310381-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:10:22.854346-04:00",
     "symbols": [
       "IONQ"
@@ -5055,5 +5035,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:31:28.694762-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "Digital Currency X Technology shares are trading lower after the company announced 160-for-1 share consolidation, effective September 28.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:33:56.047829-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "BNP Paribas Upgrades Nebius Group to Outperform, Raises Price Target to $399",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

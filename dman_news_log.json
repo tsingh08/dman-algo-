@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T16:25:34.520846-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Judge Deciding Case Over Media Ban At The White House Ends Hearing Without Saying When He Would Rule",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T16:30:19.535205-04:00",
     "symbols": [
       "AAPL"
@@ -5078,6 +5068,19 @@
     "headline": "Why Is Arcturus Therapeutics Stock Gaining Thursday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:36:08.475418-04:00",
+    "symbols": [
+      "COIN",
+      "GS",
+      "HOOD",
+      "SPY"
+    ],
+    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

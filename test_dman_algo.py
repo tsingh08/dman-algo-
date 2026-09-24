@@ -18991,3 +18991,45 @@ class TestRetiredSetups(unittest.TestCase):
         src = inspect.getsource(a.run_pro_scanner)
         self.assertNotIn("_setup_retired", src)
         self.assertIn("_log_signal_features", src)
+
+
+class TestDuplicationGuards(unittest.TestCase):
+    """Guards against the two copy-paste hazards found in the 2026-09-23 sweep.
+
+    Both are the same failure class as the score-bar bug: logic written out
+    twice, one copy changed, the other silently left behind.
+    """
+
+    def test_fast_scan_macro_keywords_stay_a_subset(self):
+        """FAST_SCAN is a deliberate short list -- but it must not drift.
+
+        Every fast-scan phrase is also in the master list. A phrase added to
+        FAST_SCAN alone would never be seen by the full news gate, so the two
+        scans would disagree about what counts as macro news.
+        """
+        extra = set(a.FAST_SCAN_MACRO_KEYWORDS) - set(a.MACRO_NEWS_KEYWORDS)
+        self.assertEqual(extra, set(),
+                         f"in FAST_SCAN but not MACRO_NEWS_KEYWORDS: {sorted(extra)}")
+
+    def test_expiry_selection_exists_once(self):
+        """The call picker, put picker and /options display share one helper.
+
+        Three copies meant a change to OPTIONS_TARGET_DTE could move the expiry
+        the algo BUYS while the chain shown to the user still priced the old one.
+        """
+        src = inspect.getsource(a)
+        self.assertEqual(src.count("abs(offset - OPTIONS_TARGET_DTE)"), 1)
+        for fn in (a._find_best_call_contract, a._find_best_put_contract,
+                   a._fetch_option_chain_for_display):
+            self.assertIn("_target_friday_expiry", inspect.getsource(fn))
+
+    def test_target_friday_expiry_picks_the_nearest_friday_in_window(self):
+        for probe in (date(2026, 9, 23), date(2026, 9, 25), date(2026, 11, 2)):
+            exp = a._target_friday_expiry(probe)
+            self.assertIsNotNone(exp)
+            self.assertEqual(exp.weekday(), 4, f"{probe} -> {exp} is not a Friday")
+            dte = (exp - probe).days
+            self.assertGreaterEqual(dte, a.OPTIONS_DTE_MIN)
+            self.assertLessEqual(dte, a.OPTIONS_DTE_MAX + 7)
+            # Nearest to target: no other Friday in the window is closer.
+            self.assertLessEqual(abs(dte - a.OPTIONS_TARGET_DTE), 3)

@@ -399,6 +399,7 @@ jobs:
           files: >-
             dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv
             dman_signal_features.json dman_orb_shadow.json dman_bzone_shadow.json
+            dman_accumulation_log.json
             dman_alpaca_sync.json dman_positions.json
             dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json
             dman_day_start_equity.json

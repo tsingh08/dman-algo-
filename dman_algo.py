@@ -24182,6 +24182,25 @@ def _has_enough_intrinsic(intrinsic: float, premium: float) -> bool:
     return _intrinsic_pct(intrinsic, premium) >= OPTIONS_MIN_INTRINSIC_PCT
 
 
+def _target_friday_expiry(today=None):
+    """The Friday nearest OPTIONS_TARGET_DTE inside the allowed DTE window.
+
+    One copy on purpose. This selection used to be written out three times --
+    in the call picker, the put picker and the /options display -- so a change
+    to OPTIONS_TARGET_DTE could have moved what the algo BUYS while the chain
+    the user was shown still priced the old expiry.
+    """
+    today = today or _et_today()
+    best, best_diff = None, float("inf")
+    for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == 4:   # Friday
+            diff = abs(offset - OPTIONS_TARGET_DTE)
+            if diff < best_diff:
+                best_diff, best = diff, candidate
+    return best
+
+
 def _find_best_call_contract(client, ticker: str, current_price: float) -> dict | None:
     """
     Greeks-aware contract selection:
@@ -24212,16 +24231,7 @@ def _find_best_call_contract(client, ticker: str, current_price: float) -> dict 
         return None
 
     today = _et_today()
-    # Pick the Friday nearest to OPTIONS_TARGET_DTE — not just the first available Friday.
-    target_expiry = None
-    _best_diff = float("inf")
-    for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
-        candidate = today + timedelta(days=offset)
-        if candidate.weekday() == 4:   # Friday
-            _diff = abs(offset - OPTIONS_TARGET_DTE)
-            if _diff < _best_diff:
-                _best_diff = _diff
-                target_expiry = candidate
+    target_expiry = _target_friday_expiry(today)
     if not target_expiry:
         return None
 
@@ -24339,15 +24349,7 @@ def _find_best_put_contract(client, ticker: str, current_price: float) -> dict |
         return None
 
     today = _et_today()
-    target_expiry = None
-    _best_diff = float("inf")
-    for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
-        candidate = today + timedelta(days=offset)
-        if candidate.weekday() == 4:
-            _diff = abs(offset - OPTIONS_TARGET_DTE)
-            if _diff < _best_diff:
-                _best_diff = _diff
-                target_expiry = candidate
+    target_expiry = _target_friday_expiry(today)
     if not target_expiry:
         return None
 
@@ -24504,16 +24506,7 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
         return None
 
     today = _et_today()
-    target_expiry = expiry
-    if target_expiry is None:
-        _best_diff = float("inf")
-        for offset in range(OPTIONS_DTE_MIN, OPTIONS_DTE_MAX + 8):
-            candidate = today + timedelta(days=offset)
-            if candidate.weekday() == 4:   # Friday
-                _diff = abs(offset - OPTIONS_TARGET_DTE)
-                if _diff < _best_diff:
-                    _best_diff = _diff
-                    target_expiry = candidate
+    target_expiry = expiry or _target_friday_expiry(today)
     if not target_expiry:
         return None
 

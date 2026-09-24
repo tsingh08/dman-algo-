@@ -19216,27 +19216,96 @@ class TestGtcFillReconciliationCoversEverything(unittest.TestCase):
     """The re-anchor ran only on "SWING" setups, from when those were the only
     GTC entries. submit_alpaca_trade() now makes every entry GTC, so options
     and plain bracket entries kept the LIMIT price as their recorded entry --
-    setting stop/T1 off the wrong base and understating recorded P&L."""
+    setting stop/T1 off the wrong base and understating recorded P&L.
 
-    def test_it_no_longer_filters_on_the_swing_prefix(self):
-        src = inspect.getsource(a.run_premarket_briefing)
-        blk = src[src.index("GTC fill reconciliation"):][:4200]
-        self.assertNotIn('startswith("SWING")', blk)
-        self.assertIn("_is_option_position", blk)
-        self.assertIn("_position_identity", blk)
+    These exercise the function rather than reading its source: it rewrites
+    live stop levels unattended in the pre-market briefing.
+    """
 
-    def test_the_options_branch_uses_premium_multiples(self):
-        src = inspect.getsource(a.run_premarket_briefing)
-        blk = src[src.index("GTC fill reconciliation"):][:4200]
-        for mult in ("* 0.50", "* 1.50", "* 2.50"):
-            self.assertIn(mult, blk)
+    OCC = "APLD260925C00025000"
 
-    def test_progressed_positions_are_left_alone(self):
-        """Re-deriving a trailing stop or a post-T1 breakeven undoes the lock."""
-        src = inspect.getsource(a.run_premarket_briefing)
-        blk = src[src.index("GTC fill reconciliation"):][:4200]
-        self.assertIn('stop_stage == "trailing"', blk)
-        self.assertIn("_rp.stop >= _rp.entry", blk)
+    def _tracker(self, *rows):
+        return SimpleNamespace(positions=list(rows), _save=MagicMock())
+
+    def _equity(self, **kw):
+        d = dict(ticker="AAPL", setup="Gap & Hold", bias="LONG", entry=100.0,
+                 stop=95.0, target1=112.5, target2=120.0, shares=10,
+                 stop_stage="initial")
+        d.update(kw)
+        return SimpleNamespace(**d)
+
+    def _option(self, **kw):
+        d = dict(ticker="APLD", setup=f"Options Call {self.OCC} ($25C exp 2026-09-25)",
+                 bias="LONG", entry=2.00, stop=1.00, target1=3.00, target2=5.00,
+                 shares=200, stop_stage="initial")
+        d.update(kw)
+        return SimpleNamespace(**d)
+
+    @staticmethod
+    def _broker(px):
+        return SimpleNamespace(avg_entry_price=str(px))
+
+    def test_a_plain_bracket_entry_is_re_anchored(self):
+        """Not just SWING -- this is the case that was silently skipped."""
+        eq = self._equity()
+        pt = self._tracker(eq)
+        out = a._reanchor_entries_to_fills(pt, {"AAPL": self._broker(98.0)})
+        self.assertEqual(out, ["AAPL"])
+        self.assertEqual(eq.entry, 98.0)
+        self.assertEqual(eq.stop, 93.0)          # same $5 risk, moved down
+        self.assertEqual(eq.target1, 110.5)      # 2.5R
+        self.assertEqual(eq.target2, 118.0)      # 4.0R
+        pt._save.assert_called_once()
+
+    def test_an_option_is_re_anchored_on_premium_multiples(self):
+        opt = self._option()
+        pt = self._tracker(opt)
+        out = a._reanchor_entries_to_fills(pt, {self.OCC: self._broker(1.60)})
+        self.assertEqual(out, ["APLD"])
+        self.assertEqual(opt.entry, 1.60)
+        self.assertEqual(opt.stop, 0.80)
+        self.assertEqual(opt.target1, 2.40)
+        self.assertEqual(opt.target2, 4.00)
+
+    def test_a_matching_fill_changes_nothing(self):
+        eq = self._equity()
+        pt = self._tracker(eq)
+        self.assertEqual(a._reanchor_entries_to_fills(pt, {"AAPL": self._broker(100.2)}), [])
+        self.assertEqual(eq.entry, 100.0)
+        pt._save.assert_not_called()
+
+    def test_a_trailing_equity_position_is_left_alone(self):
+        """Re-deriving the stop would undo a locked-in trail."""
+        eq = self._equity(stop_stage="trailing", stop=100.0)
+        pt = self._tracker(eq)
+        self.assertEqual(a._reanchor_entries_to_fills(pt, {"AAPL": self._broker(98.0)}), [])
+        self.assertEqual(eq.stop, 100.0)
+
+    def test_an_option_past_t1_is_left_alone(self):
+        """stop >= entry means the T1 half-sale already raised it to breakeven."""
+        opt = self._option(stop=2.00)
+        pt = self._tracker(opt)
+        self.assertEqual(a._reanchor_entries_to_fills(pt, {self.OCC: self._broker(1.60)}), [])
+        self.assertEqual(opt.stop, 2.00)
+
+    def test_a_spread_is_skipped(self):
+        sp = self._option(setup="Earnings Call Spread", ticker="XYZ")
+        pt = self._tracker(sp)
+        self.assertEqual(a._reanchor_entries_to_fills(pt, {"XYZ": self._broker(1.60)}), [])
+
+    def test_a_position_absent_from_the_broker_is_skipped(self):
+        eq = self._equity()
+        pt = self._tracker(eq)
+        self.assertEqual(a._reanchor_entries_to_fills(pt, {}), [])
+        self.assertEqual(eq.entry, 100.0)
+
+    def test_an_empty_book_is_safe(self):
+        self.assertEqual(a._reanchor_entries_to_fills(self._tracker(), {}), [])
+        self.assertEqual(a._reanchor_entries_to_fills(SimpleNamespace(positions=None), {}), [])
+
+    def test_the_briefing_still_calls_it(self):
+        self.assertIn("_reanchor_entries_to_fills",
+                      inspect.getsource(a.run_premarket_briefing))
 
 
 class TestEquityTargetCheckRefusesOptions(unittest.TestCase):

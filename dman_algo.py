@@ -11869,6 +11869,74 @@ def _pmb_strangle_advisory(now_et):
 
 
 
+def _reanchor_entries_to_fills(_pt_r, _alp_positions: dict) -> list:
+    """Re-anchor tracked entry prices to the broker's actual average fill.
+
+    Every entry is recorded at the price we ASKED for -- sig.entry for shares,
+    the contract's ask for options -- because the record is written the moment
+    the order is accepted, before any fill. A limit can only fill at that price
+    or better, so the recorded entry is systematically too HIGH, which sets the
+    stop and T1 off the wrong base and understates every P&L those records
+    later feed (win rate, the loss limits, setup probation).
+
+    This used to run inline in run_premarket_briefing() and only on setups
+    starting with "SWING", from when those were the only GTC entries;
+    submit_alpaca_trade() has since made EVERY entry GTC, so the restriction
+    just meant most positions -- including all options -- silently kept the
+    limit price as their entry. Lifted out as its own function so the thing
+    that rewrites live stop levels unattended can actually be tested.
+
+    Deliberately skipped once a position has moved on from its entry-time
+    levels: an equity position already progressed to trailing, or an option
+    whose stop has been raised to breakeven by the T1 half-sale. Re-deriving
+    those from the entry would undo the lock and re-arm an exit that already
+    fired. Naturally runs once per position -- after it lands, the 0.5% check
+    no longer trips.
+
+    Returns the tickers changed (empty when nothing moved); saves via the
+    tracker only when something actually changed.
+    """
+    _updated = []
+    if not getattr(_pt_r, "positions", None):
+        return _updated
+    for _rp in _pt_r.positions:
+        _is_opt = _is_option_position(_rp.setup)
+        if _is_spread_setup(_rp.setup):
+            continue          # multi-leg: no single avg_entry_price to anchor to
+        # Options report under their OCC symbol at the broker; the
+        # tracker keeps the underlying as `ticker`.
+        _alp_key = _position_identity(_rp.ticker, _rp.setup) if _is_opt else _rp.ticker
+        _ap = _alp_positions.get(_alp_key)
+        if _ap is None or _rp.entry <= 0:
+            continue
+        _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
+        if _actual_entry <= 0 or abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) <= 0.005:
+            continue
+        if _is_opt:
+            # T1 already taken raises the stop to breakeven -- leave it.
+            if _rp.stop >= _rp.entry:
+                continue
+            # Same multiples the submit path writes (-50/+50/+150%).
+            _rp.entry   = round(_actual_entry, 2)
+            _rp.stop    = round(_actual_entry * 0.50, 2)
+            _rp.target1 = round(_actual_entry * 1.50, 2)
+            _rp.target2 = round(_actual_entry * 2.50, 2)
+        else:
+            # Equity shorts are not opened (ALLOW_SHORTS=False) and the
+            # arithmetic below assumes a long, so do not guess at one.
+            if _rp.bias != "LONG" or _rp.stop_stage == "trailing":
+                continue
+            _risk = abs(_rp.entry - _rp.stop)
+            _rp.entry   = _actual_entry
+            _rp.stop    = round(_actual_entry - _risk, 2)
+            _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
+            _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
+        _updated.append(_rp.ticker)
+    if _updated:
+        _pt_r._save()
+    return _updated
+
+
 def run_premarket_briefing() -> None:
     """
     Daily 9:10 AM ET pre-market briefing.
@@ -11888,68 +11956,15 @@ def run_premarket_briefing() -> None:
     except Exception as _pg_exc:
         print(f"  ⚠️  Pre-gap catalyst pass failed: {_pg_exc}")
 
-    # ── 0a. GTC fill reconciliation ─────────────────────────────
-    # Every entry is recorded at the price we ASKED for -- sig.entry for shares,
-    # the contract's ask for options -- because the record is written the moment
-    # the order is accepted, before any fill. A limit can only fill at that price
-    # or better, so the recorded entry is systematically too HIGH, which sets the
-    # stop and T1 off the wrong base and understates every P&L those records
-    # later feed (win rate, the loss limits, setup probation).
-    #
-    # This re-anchors to the broker's actual average fill. It used to run only on
-    # setups starting with "SWING", from when those were the only GTC entries;
-    # submit_alpaca_trade() has since made EVERY entry GTC, so the restriction
-    # just meant most positions -- including all options -- silently kept the
-    # limit price as their entry.
-    #
-    # Deliberately skipped once a position has moved on from its entry-time
-    # levels: an equity position already progressed to trailing, or an option
-    # whose stop has been raised to breakeven by the T1 half-sale. Re-deriving
-    # those from the entry would undo the lock and re-arm an exit that already
-    # fired. Naturally runs once per position -- after it lands, the 0.5% check
-    # no longer trips.
+    # ── 0a. GTC fill reconciliation ────────────────────────────────────────
     try:
         _rc = get_alpaca_client()
-        _pt_r = PositionTracker()
-        if _rc and _pt_r.positions:
-            _alp_positions = {p.symbol: p for p in _rc.get_all_positions()}
-            _updated = []
-            for _rp in _pt_r.positions:
-                _is_opt = _is_option_position(_rp.setup)
-                if _is_spread_setup(_rp.setup):
-                    continue          # multi-leg: no single avg_entry_price to anchor to
-                # Options report under their OCC symbol at the broker; the
-                # tracker keeps the underlying as `ticker`.
-                _alp_key = _position_identity(_rp.ticker, _rp.setup) if _is_opt else _rp.ticker
-                _ap = _alp_positions.get(_alp_key)
-                if _ap is None or _rp.entry <= 0:
-                    continue
-                _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
-                if _actual_entry <= 0 or abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) <= 0.005:
-                    continue
-                if _is_opt:
-                    # T1 already taken raises the stop to breakeven -- leave it.
-                    if _rp.stop >= _rp.entry:
-                        continue
-                    # Same multiples the submit path writes (-50/+50/+150%).
-                    _rp.entry   = round(_actual_entry, 2)
-                    _rp.stop    = round(_actual_entry * 0.50, 2)
-                    _rp.target1 = round(_actual_entry * 1.50, 2)
-                    _rp.target2 = round(_actual_entry * 2.50, 2)
-                else:
-                    # Equity shorts are not opened (ALLOW_SHORTS=False) and the
-                    # arithmetic below assumes a long, so do not guess at one.
-                    if _rp.bias != "LONG" or _rp.stop_stage == "trailing":
-                        continue
-                    _risk = abs(_rp.entry - _rp.stop)
-                    _rp.entry   = _actual_entry
-                    _rp.stop    = round(_actual_entry - _risk, 2)
-                    _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
-                    _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
-                _updated.append(_rp.ticker)
+        if _rc:
+            _updated = _reanchor_entries_to_fills(
+                PositionTracker(), {p.symbol: p for p in _rc.get_all_positions()})
             if _updated:
-                _pt_r._save()
-                print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} to actual fill prices")
+                print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} "
+                      f"to actual fill prices")
     except Exception as _rc_exc:
         print(f"  [swing reconcile] {_rc_exc}")
 

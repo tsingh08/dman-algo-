@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:23:20.254038-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Apple\u2019s AI Bet Is Getting Bigger. So Is the Valuation Risk Hiding Inside These ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:23:20.259085-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow, Nasdaq, S&amp;P 500 Futures Drop as Trump Threatens to &#39;Annihilate&#39; Iran at UNGA\u2014KB Home, Worthington, IONQ in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:23:20.263101-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "AI Trade Is \u2018Dead Money\u2019: Fidelity Strategist Warns $3.3 Trillion Buildout Is Inflationary With \u2018Unknown Returns\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:23:20.743303-04:00",
-    "symbols": [
-      "ADGM"
-    ],
-    "headline": "Adagio Medical&#39;s Board Completes Strategic Review And Has Initiated A Formal Process To Explore Alternatives To Maximize Shareholder Value; May Include Acquisition, Merger, Business Combination, Or Other Transaction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:23:21.002418-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "UBS Initiates Coverage On Applied Digital with Buy Rating, Announces Price Target of $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T15:23:21.303423-04:00",
-    "symbols": [
-      "ARTL"
-    ],
-    "headline": "Artelo Biosciences Files Provisional Patent Application For ART27.13 As Monotherapy And In Combination With GLP-1 Receptor Agonists",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T15:23:21.532522-04:00",
     "symbols": [
       "ARX"
@@ -5068,5 +5008,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:05:51.941793-04:00",
+    "symbols": [
+      "ARM",
+      "ORCL"
+    ],
+    "headline": "Arm Stock Dips Amid Oracle&#39;s &#34;Force Majeure&#34; Reports",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:16.037210-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Arm Stock Dips Amid Oracle&#39;s &#34;Force Majeure&#34; Reports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:20.260762-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Arm Stock Dips Amid Oracle&#39;s &#34;Force Majeure&#34; Reports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T14:06:20.866763-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Treasury Yields Hit 5%: The Hidden Duration In Your ETF Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:06:25.401982-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "Micro Cap Profusa Navigates European Regulatory Hurdles to Advance Oxygen Monitoring Tech",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:06:26.836799-04:00",
+    "symbols": [
+      "FRVO"
+    ],
+    "headline": "Why Is Fervo Energy Stock Gaining Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

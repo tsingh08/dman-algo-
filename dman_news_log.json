@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:05:34.274319-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic CEO Dario Amodei Posts On X &#34;Today we announced the Claude-led discovery of a molecular machine that we suspect could represent a new gene editing mechanism. Its precise function, biotechnological utility (if any), or level of significance is not yet clear, but at minimum it is work I would have been proud to do as a PhD student. The work was done mostly, though not entirely, by Claude: our life sciences team suggested a broad area of research...&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T15:05:39.872633-04:00",
     "symbols": [
       "APP"
@@ -5046,6 +5036,16 @@
       "NVDA"
     ],
     "headline": "What Is Going on With Nebius Stock on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:22:25.914948-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: Micron\u2019s Low P/E May Be Lying to Investors",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

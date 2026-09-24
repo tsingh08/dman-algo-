@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:06:42.188690-04:00",
-    "symbols": [
-      "VOYG"
-    ],
-    "headline": "Market-Moving News for September 23rd",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:06:42.192120-04:00",
-    "symbols": [
-      "VOYG"
-    ],
-    "headline": "Why Worthington Enterprises Shares Are Trading Higher By Around 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T14:07:41.892222-04:00",
     "symbols": [
       "GOOGL"
@@ -5045,5 +5025,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:58:02.808125-04:00",
+    "symbols": [
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "&#39;US Seeks to Join Musk in Court Fight With EU Over X Fine&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:58:27.883097-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Stock Pauses Thursday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

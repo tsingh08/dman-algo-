@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:23:18.947960-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Why Is Newmont Stock Falling Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:23:19.177041-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "BTIG Reiterates Buy on Costco Wholesale, Maintains $1125 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T15:23:19.418630-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Stock Market Today: Dow, Nasdaq, S&amp;P 500 Futures Drop as Trump Threatens to &#39;Annihilate&#39; Iran at UNGA\u2014KB Home, Worthington, IONQ in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T15:23:19.422433-04:00",
     "symbols": [
       "ORCL"
@@ -5064,5 +5034,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:54:16.730034-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Alpha Buying: Follow the Money From NVIDIA and Merck",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:54:18.264267-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What&#39;s Going On With Broadcom Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T13:54:22.790752-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "What&#39;s Going On With Broadcom Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

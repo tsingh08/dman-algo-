@@ -199,7 +199,8 @@
    [
     "TE260925C00004000",
     6,
-    "TE CALL expiry backstop"
+    "TE CALL expiry backstop",
+    "urgent=True"
    ]
   ],
   "fields": [
@@ -244,7 +245,8 @@
    [
     "TE260925C00004000",
     6,
-    "TE CALL expiry backstop"
+    "TE CALL expiry backstop",
+    "urgent=True"
    ]
   ],
   "fields": [
@@ -289,7 +291,8 @@
    [
     "TE260925C00004000",
     6,
-    "TE CALL expiry backstop"
+    "TE CALL expiry backstop",
+    "urgent=True"
    ]
   ],
   "fields": [
@@ -334,7 +337,8 @@
    [
     "TE260925C00004000",
     6,
-    "TE CALL expiry backstop"
+    "TE CALL expiry backstop",
+    "urgent=True"
    ]
   ],
   "fields": [
@@ -344,10 +348,10 @@
    ]
   ],
   "telegram": [
-   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry and selling today would be day trade #4. Holding. If this is ITM it may ASSIGN — close it manually tomorrow, or accept assignment risk."
+   "🚨 <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry and selling today would be day trade #4. Holding. If this is ITM it may ASSIGN — close it manually tomorrow, or accept assignment risk."
   ],
   "marks": [
-   "TE_OPT_EXPIRY_2026-09-24"
+   "dup:__EXPIRY_UNRESOLVED_TE260925C00004000__"
   ],
   "stdout": [
    "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
@@ -373,13 +377,14 @@
   "stdout": []
  },
  "M07_expiry_backstop_no_quote": {
-  "ret": "⏳ EXIT DEFERRED — no live option quote  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   Quote unavailable, so not selling blind at market. Retrying next guard cycle.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
+  "ret": "🚨 EXPIRY — COULD NOT CLOSE, ASSIGNMENT RISK  <b>TE</b> CALL TE260925C00004000\n   Prem: entry $0.82 → now $0.85 (bid $0.80)  (+4%)  6ct × 100 = $510 mkt val\n   1d to expiry and there is NO usable quote at all, so no sell could be priced. If this is in the money it will ASSIGN — close it manually in Alpaca NOW.\n   Δ 0.60  θ -0.005/d  IV 0%  T1 $1.23  Stop $0.41  DTE 1d\n   Trail: not yet active (arms at +25%)",
   "error": null,
   "closes": [
    [
     "TE260925C00004000",
     6,
-    "TE CALL expiry backstop"
+    "TE CALL expiry backstop",
+    "urgent=True"
    ]
   ],
   "fields": [
@@ -389,10 +394,10 @@
    ]
   ],
   "telegram": [
-   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\nQuote unavailable, so not selling blind at market. Retrying next guard cycle."
+   "🚨 <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry and there is NO usable quote at all, so no sell could be priced. If this is in the money it will ASSIGN — close it manually in Alpaca NOW."
   ],
   "marks": [
-   "TE_OPT_EXPIRY_2026-09-24"
+   "dup:__EXPIRY_UNRESOLVED_TE260925C00004000__"
   ],
   "stdout": [
    "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"
@@ -424,7 +429,8 @@
    [
     "TE260925C00004000",
     6,
-    "TE CALL expiry backstop"
+    "TE CALL expiry backstop",
+    "urgent=True"
    ]
   ],
   "fields": [
@@ -434,10 +440,10 @@
    ]
   ],
   "telegram": [
-   "⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry, P&L +4% — SELL MANUALLY NOW to avoid assignment."
+   "🚨 <b>OPTIONS EXPIRY BACKSTOP</b> — TE CALL TE260925C00004000\n1d to expiry, P&L +4% — SELL MANUALLY NOW to avoid assignment."
   ],
   "marks": [
-   "TE_OPT_EXPIRY_2026-09-24"
+   "dup:__EXPIRY_UNRESOLVED_TE260925C00004000__"
   ],
   "stdout": [
    "  ⏳ TE260925C00004000: underlying price unavailable — stop deferred this cycle"

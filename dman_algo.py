@@ -396,6 +396,12 @@ OPTIONS_MIN_LEVERAGE = 3.0
 # its intrinsic value: below it the quote is broken, not cheap. See
 # _submit_options_close().
 OPTIONS_CLOSE_MIN_INTRINSIC_FRAC = 0.90
+# What an URGENT close (assignment avoidance) offers the contract at when the
+# book is broken. Refusing to sell is the safe answer for a stop and the WRONG
+# answer at expiry, where not selling means assignment. Anything genuinely
+# in-the-money fills near intrinsic, so this asks a fair price rather than
+# hitting a stale bid -- and, unlike a refusal, it actually gets us out.
+OPTIONS_URGENT_INTRINSIC_FRAC = 0.95
 
 
 def _option_leverage(delta: float, underlying: float, premium: float) -> float:
@@ -8713,7 +8719,8 @@ def _signal_can_use_options(sig) -> bool:
     return False
 
 
-def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, Optional[str]]:
+def _submit_options_close(occ_symbol: str, qty: int, reason: str,
+                          urgent: bool = False) -> tuple[str, Optional[str]]:
     """
     Submit a closing SELL for an options position — the enforcement arm of the
     momentum-watch monitor (stops/targets execute instead of just alerting).
@@ -8730,6 +8737,16 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
     Uses a marketable limit at bid−2% (fills immediately against the bid but
     caps damage on a crossed/glitched quote); falls back to a market order if
     no usable quote is available.
+
+    `urgent` is for the one exit that cannot be deferred: assignment
+    avoidance at expiry. The broken-book guard below REFUSES to sell a bid
+    far under intrinsic, which is right for a stop -- waiting costs a cycle
+    -- and wrong at DTE<=1, where waiting costs the position. A deep-ITM
+    contract on expiry day with a stale, wide book is exactly the shape the
+    guard rejects, so the refusal would repeat every cycle until the contract
+    expired in the money and ASSIGNED: 100 shares this account cannot fund.
+    An urgent close therefore prices a limit at
+    OPTIONS_URGENT_INTRINSIC_FRAC of intrinsic instead of refusing.
     """
     client = get_alpaca_client()
     if client is None:
@@ -8802,6 +8819,7 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
     # stop fired on RXRX's $1 call at a $0.98 bid (ask $5.00) with the stock at
     # $4.05: this would have sold $3.05 of intrinsic for $0.96, ~8% of the
     # account, for nothing. Refuse and let the next cycle retry.
+    _urgent_px = None      # set only when an urgent close overrides the guard
     try:
         _ci = _parse_occ_symbol(occ_symbol)
         _up = get_live_price(_ci["underlying"]) if _ci else None
@@ -8809,16 +8827,35 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
             _intr = (max(0.0, float(_up) - _ci["strike"]) if _ci["right"] == "CALL"
                      else max(0.0, _ci["strike"] - float(_up)))
             if _intr > 0.05 and float(snap.get("bid", 0)) < _intr * OPTIONS_CLOSE_MIN_INTRINSIC_FRAC:
-                print(f"  ⛔ {occ_symbol}: bid ${snap.get('bid', 0):.2f} is below "
-                      f"{OPTIONS_CLOSE_MIN_INTRINSIC_FRAC:.0%} of ${_intr:.2f} intrinsic "
-                      f"— refusing to sell into a broken book ({reason})")
-                return "no_quote", None
+                if urgent:
+                    # Assignment beats a bad fill only in theory. Offer the
+                    # contract at just under intrinsic: a real, fillable price
+                    # that does not hand over the intrinsic value, and does not
+                    # leave us holding an ITM contract into expiry.
+                    _urgent_px = max(0.01, round(_intr * OPTIONS_URGENT_INTRINSIC_FRAC, 2))
+                    print(f"  ⚠️  {occ_symbol}: bid ${snap.get('bid', 0):.2f} is below "
+                          f"{OPTIONS_CLOSE_MIN_INTRINSIC_FRAC:.0%} of ${_intr:.2f} intrinsic, "
+                          f"but this close is URGENT ({reason}) — offering at "
+                          f"${_urgent_px:.2f} rather than risking assignment")
+                else:
+                    print(f"  ⛔ {occ_symbol}: bid ${snap.get('bid', 0):.2f} is below "
+                          f"{OPTIONS_CLOSE_MIN_INTRINSIC_FRAC:.0%} of ${_intr:.2f} intrinsic "
+                          f"— refusing to sell into a broken book ({reason})")
+                    return "no_quote", None
     except Exception as exc:
         _log_swallowed("close intrinsic guard", exc)
     try:
         # A real quote with bid <= $0.02 is a contract that is effectively
         # worthless; a market order there is the correct way out.
-        if snap.get("bid", 0) > 0.02:
+        if _urgent_px is not None:
+            order = client.submit_order(LimitOrderRequest(
+                symbol        = occ_symbol,
+                qty           = qty,
+                side          = OrderSide.SELL,
+                limit_price   = _urgent_px,
+                time_in_force = TimeInForce.DAY,
+            ))
+        elif snap.get("bid", 0) > 0.02:
             order = client.submit_order(LimitOrderRequest(
                 symbol        = occ_symbol,
                 qty           = qty,
@@ -8997,7 +9034,8 @@ def _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, 
     elif ORDER that decides which exit wins stays in the caller.
     Returns: _action, _msg.
     """
-    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} expiry backstop")
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} expiry backstop",
+                                       urgent=True)
     if _st == "submitted":
         _action = "⏳ EXPIRY BACKSTOP — AUTO-CLOSED"
         _msg = (f"{_dte_now}d to expiry — closed to avoid assignment. "
@@ -9010,9 +9048,12 @@ def _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, 
         _action = "⏳ EXPIRY BACKSTOP — already closed at Alpaca"
         _msg = "Nothing held — next sync records the P&L"
     elif _st == "no_quote":
-        _action = "⏳ EXIT DEFERRED — no live option quote"
-        _msg = ("Quote unavailable, so not selling blind at market. "
-                "Retrying next guard cycle.")
+        # At DTE<=1 a deferral is not a quiet "wait for the next cycle" -- it
+        # is the position walking into expiry. Say so, and say it every time.
+        _action = "🚨 EXPIRY — COULD NOT CLOSE, ASSIGNMENT RISK"
+        _msg = (f"{_dte_now}d to expiry and there is NO usable quote at all, so "
+                f"no sell could be priced. If this is in the money it will "
+                f"ASSIGN — close it manually in Alpaca NOW.")
     elif _st == "pdt_blocked":
         # Only reachable for a contract opened TODAY that is already at
         # DTE<=1 (a same-week expiry bought today). The PDT rule wins --
@@ -9026,7 +9067,15 @@ def _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, 
         _action = "⚠️ EXPIRY BACKSTOP — AUTO-CLOSE FAILED"
         _msg = (f"{_dte_now}d to expiry, P&L {_pnl_pct:+.0f}% — "
                 f"SELL MANUALLY NOW to avoid assignment.")
-    if not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
+    # A clean auto-close is news once a day. An outcome that still leaves the
+    # position open into expiry has to keep saying so -- the once-daily key
+    # meant one reassuring message and then silence while it assigned.
+    _unresolved = _st in ("no_quote", "failed", "pdt_blocked")
+    if _unresolved:
+        if not _is_duplicate_alert(f"__EXPIRY_UNRESOLVED_{_occ}__"):
+            send_telegram(f"🚨 <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
+            _save_last_alert(f"__EXPIRY_UNRESOLVED_{_occ}__")
+    elif not _is_alerted_today(f"{t}_{_kp}_EXPIRY_{_tod}"):
         send_telegram(f"⏳ <b>OPTIONS EXPIRY BACKSTOP</b> — {t} {kind} {_occ}\n{_msg}")
         _mark_alerted(f"{t}_{_kp}_EXPIRY_{_tod}")
     return _action, _msg

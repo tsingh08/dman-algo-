@@ -67,13 +67,21 @@ def run(cfg):
     ps = [
         patch.object(a, "_et_today", return_value=cfg["today"]),
         patch.object(a, "_submit_options_close",
-                     side_effect=lambda occ, n, why: closes.append([occ, n, why]) or
+                     side_effect=lambda occ, n, why, **k: closes.append(
+                         [occ, n, why] + sorted(f"{kk}={vv}" for kk, vv in k.items())) or
                      (cfg.get("status", "submitted"), "close-123")),
         patch.object(a, "_update_option_position_field",
                      side_effect=lambda *x, **k: fields.append([str(v) for v in x] + sorted(f"{kk}={vv}" for kk, vv in k.items()))),
         patch.object(a, "send_telegram", side_effect=lambda m, *x, **k: tg.append(norm(m)) or True),
         patch.object(a, "_mark_alerted", side_effect=lambda k, *x: marks.append(k)),
         patch.object(a, "_is_alerted_today", return_value=False),
+        # The expiry backstop's unresolved outcomes (no_quote/failed/pdt_blocked)
+        # alert on the cooldown key rather than the once-a-day one. Unstubbed,
+        # these read and WRITE the real dman_last_alerts.json: the golden would
+        # mutate repo state and go flaky on its second run (a "duplicate" alert
+        # suppresses the very telegram being characterised).
+        patch.object(a, "_is_duplicate_alert", return_value=False),
+        patch.object(a, "_save_last_alert", side_effect=lambda k, *x: marks.append(f"dup:{k}")),
         patch.object(a, "_check_options_pnl_milestone", return_value=cfg.get("milestone")),
         patch.object(a, "_cached_option_greeks", return_value={"theta": -0.005, "delta": 0.6}),
         patch.object(a, "get_live_price", return_value=cfg.get("und")),

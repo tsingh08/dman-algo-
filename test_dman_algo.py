@@ -19102,3 +19102,61 @@ class TestMoneyPathReview(unittest.TestCase):
         self.assertIn("_entry_circuit_breakers_ok()", src)
         self.assertNotIn("MAX_CONSEC_LOSSES", src)
         self.assertNotIn("MONTHLY_LOSS_LIMIT", src)
+
+
+class TestUrgentExpiryCloseBeatsTheBrokenBookGuard(unittest.TestCase):
+    """The intrinsic guard is right for a stop and fatal at expiry.
+
+    RXRX (2026-09-22) added a refusal to sell when the bid sits far below
+    intrinsic. A deep-ITM contract on expiry day with a stale book is exactly
+    that shape, so the DTE<=1 backstop would refuse every cycle until the
+    contract expired in the money and assigned -- 100 shares this account
+    cannot fund.
+    """
+
+    OCC = "RXRX260925C00001000"      # $1.00 strike call
+
+    def _client(self):
+        client = MagicMock()
+        client.get_orders.return_value = []
+        client.get_open_position.return_value = SimpleNamespace(qty="1")
+        client.submit_order.return_value = SimpleNamespace(id="oid-urgent")
+        return client
+
+    def _run(self, urgent):
+        client = self._client()
+        # Stock at $4.05 -> $3.05 intrinsic, but the book shows a stale $0.98.
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_options_close_would_violate_pdt", return_value=None), \
+             patch.object(a, "_get_option_snapshot",
+                          return_value={"bid": 0.98, "ask": 5.00, "mid": 2.99}), \
+             patch.object(a, "get_live_price", return_value=4.05):
+            status, _ = a._submit_options_close(self.OCC, 1, "test", urgent=urgent)
+        return status, client
+
+    def test_a_routine_close_still_refuses_the_broken_book(self):
+        status, client = self._run(urgent=False)
+        self.assertEqual(status, "no_quote")
+        client.submit_order.assert_not_called()
+
+    def test_an_urgent_close_sells_near_intrinsic_instead_of_refusing(self):
+        status, client = self._run(urgent=True)
+        self.assertEqual(status, "submitted")
+        client.submit_order.assert_called_once()
+        req = client.submit_order.call_args[0][0]
+        self.assertEqual(req.side, a.OrderSide.SELL)
+        # Priced off intrinsic ($3.05), not the stale $0.98 bid.
+        self.assertAlmostEqual(
+            float(req.limit_price),
+            round(3.05 * a.OPTIONS_URGENT_INTRINSIC_FRAC, 2), places=2)
+        self.assertGreater(float(req.limit_price), 0.98 * 2)
+
+    def test_the_expiry_backstop_asks_for_an_urgent_close(self):
+        src = inspect.getsource(a._opt_exit_expiry_backstop)
+        self.assertIn("urgent=True", src)
+
+    def test_an_unresolved_expiry_keeps_alerting(self):
+        """The once-a-day key meant one calm message, then silence."""
+        src = inspect.getsource(a._opt_exit_expiry_backstop)
+        self.assertIn("_unresolved", src)
+        self.assertIn("ASSIGNMENT RISK", src)

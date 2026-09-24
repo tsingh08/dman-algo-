@@ -1,199 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:35:45.064081-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:35:45.571999-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:35:46.081370-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:35:46.853769-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:35:47.857985-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:35:50.101900-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:35:52.444791-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:35:58.284999-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:35:58.776782-04:00",
-    "symbols": [
-      "QMCO"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:36:03.000952-04:00",
-    "symbols": [
-      "TLSI"
-    ],
-    "headline": "TriSalus Secures FDA Clearance For TriNav Advance as Stock Tests Key Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:41:36.342564-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "White House Official Says Report That US Is Considering Diesel Export Ban Is &#39;Fake News&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:46:50.524935-04:00",
-    "symbols": [
-      "ARTL"
-    ],
-    "headline": "Artelo Biosciences (ARTL) Stock Surges Wednesday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:47:20.593034-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "White House Official Says Report That U.S. Is Considering Diesel Export Ban Is &#39;Fake News&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:47:34.513679-04:00",
-    "symbols": [
-      "FIRY"
-    ],
-    "headline": "9 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:49:54.698611-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Is Shopify Stock Falling on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:50:32.541281-04:00",
-    "symbols": [
-      "VSA"
-    ],
-    "headline": "VisionSys AI Shares Halted On Circuit Breaker To The Upside, Stock Now Up 87.88%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:55:24.692543-04:00",
-    "symbols": [
-      "CRWD",
-      "FTNT",
-      "NET",
-      "PANW",
-      "ZS"
-    ],
-    "headline": "Palo Alto Networks Surges 3%, What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:03:48.444397-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;FBI Data Allegedly Stolen By Hackers Has Sensitive Information About Bureau Employees&#39; Intelligence Work&#39; - Reuters Exclusive",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T14:04:14.302137-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Exec Says We Continue To Expect Uncertainty Around Critical Minerals Tariffs To Persist; Expect Much Of The Metal Already In The U.S. To Remain Trapped, While Periodic Increases In Tariff Risk Could Encourage Further Stockbuilding",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T14:04:29.287985-04:00",
     "symbols": [
       "META"
@@ -5050,5 +4856,195 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:41:51.948200-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury 10-year Yield High For Session Of 5.1685%, Highest Since July 2007; Yield On 10-Year Note Last Up 5.24 Basis Points At 5.166%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:45:28.011782-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:45:28.271934-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:45:28.741839-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:45:28.973900-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:45:28.978615-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Moves Up its Space Data Center Timeline \u2014 Project Suncatcher Launches Oct. 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:45:31.218045-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:45:35.342895-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:45:35.566348-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T11:45:36.097078-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:45:36.340304-04:00",
+    "symbols": [
+      "BBAI"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:45:39.651188-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:45:41.947619-04:00",
+    "symbols": [
+      "GFAI"
+    ],
+    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:45:43.755064-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Google Moves Up its Space Data Center Timeline \u2014 Project Suncatcher Launches Oct. 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:45:44.888254-04:00",
+    "symbols": [
+      "SRZN"
+    ],
+    "headline": "Surrozen Gains Momentum as FDA Submission Opens Path for Lead Therapy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:45:46.481991-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Robust Investor Support Positions Greenland Mines for Long-Term Rare Earth Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:45:46.967555-04:00",
+    "symbols": [
+      "FRVO"
+    ],
+    "headline": "Johnson Rice Initiates Coverage On Fervo Energy with Buy Rating, Announces Price Target of $35",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:45:47.879387-04:00",
+    "symbols": [
+      "KYTX"
+    ],
+    "headline": "Kyverna Therapeutics Therapy Delivers Sustained Relief in Rare Neurological Conditions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:45:49.450060-04:00",
+    "symbols": [
+      "GDDY"
+    ],
+    "headline": "&#39;GoDaddy receives takeover offer from maker of Norton antivirus software&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

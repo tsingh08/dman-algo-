@@ -117,7 +117,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T09:57:33.825572-04:00",
@@ -174,7 +180,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T09:57:34.713271-04:00",
@@ -231,7 +243,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T09:57:36.463620-04:00",
@@ -288,7 +306,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T09:59:51.837980-04:00",
@@ -345,7 +369,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T09:59:52.318099-04:00",
@@ -402,7 +432,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T09:59:52.698147-04:00",
@@ -459,7 +495,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T09:59:52.977858-04:00",
@@ -516,7 +558,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:09:44.005387-04:00",
@@ -573,7 +621,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:09:44.372924-04:00",
@@ -630,7 +684,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:09:44.673974-04:00",
@@ -687,7 +747,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:09:45.014353-04:00",
@@ -744,7 +810,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:14:01.537037-04:00",
@@ -801,7 +873,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:14:01.984861-04:00",
@@ -858,7 +936,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:14:03.478600-04:00",
@@ -915,7 +999,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:14:04.738006-04:00",
@@ -972,7 +1062,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:14:05.158800-04:00",
@@ -1029,7 +1125,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:14:05.483886-04:00",
@@ -1086,7 +1188,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:14:05.957658-04:00",
@@ -1143,7 +1251,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:16:39.315467-04:00",
@@ -1200,7 +1314,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:16:39.678830-04:00",
@@ -1257,7 +1377,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:16:40.079628-04:00",
@@ -1314,7 +1440,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:16:40.391963-04:00",
@@ -1371,7 +1503,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:16:40.680892-04:00",
@@ -1428,7 +1566,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:16:41.079647-04:00",
@@ -1485,7 +1629,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:16:41.534569-04:00",
@@ -1542,7 +1692,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:22:23.800122-04:00",
@@ -1599,7 +1755,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:22:24.738259-04:00",
@@ -1656,7 +1818,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:22:25.193838-04:00",
@@ -1713,7 +1881,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:22:25.640119-04:00",
@@ -1770,7 +1944,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:22:26.287714-04:00",
@@ -1827,7 +2007,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:22:27.057639-04:00",
@@ -1884,7 +2070,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:22:27.784220-04:00",
@@ -1941,7 +2133,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:27:57.038686-04:00",
@@ -1998,7 +2196,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:27:57.462443-04:00",
@@ -2055,7 +2259,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:27:57.865094-04:00",
@@ -2112,7 +2322,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:27:58.366815-04:00",
@@ -2169,7 +2385,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:27:58.730198-04:00",
@@ -2226,7 +2448,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:27:58.995772-04:00",
@@ -2283,7 +2511,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:27:59.313959-04:00",
@@ -2340,7 +2574,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:33:45.678112-04:00",
@@ -2397,7 +2637,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:33:46.033877-04:00",
@@ -2454,7 +2700,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:33:47.227509-04:00",
@@ -2511,7 +2763,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T10:33:47.777535-04:00",
@@ -2568,7 +2826,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:33:48.062926-04:00",
@@ -2625,7 +2889,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:33:48.375243-04:00",
@@ -2682,7 +2952,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:33:48.625857-04:00",
@@ -2739,7 +3015,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:35:55.354367-04:00",
@@ -2796,7 +3078,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:35:55.757481-04:00",
@@ -2853,7 +3141,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:35:56.012565-04:00",
@@ -2910,7 +3204,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T10:35:56.938330-04:00",
@@ -2967,7 +3267,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:35:57.559238-04:00",
@@ -3024,7 +3330,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:35:57.887397-04:00",
@@ -3081,7 +3393,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:35:58.254590-04:00",
@@ -3138,7 +3456,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:46:02.097609-04:00",
@@ -3195,7 +3519,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:46:02.851679-04:00",
@@ -3252,7 +3582,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:46:03.137133-04:00",
@@ -3309,7 +3645,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T10:46:03.579857-04:00",
@@ -3366,7 +3708,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:46:03.814522-04:00",
@@ -3423,7 +3771,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:46:04.508280-04:00",
@@ -3480,7 +3834,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:46:05.204754-04:00",
@@ -3537,7 +3897,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 78.14,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.76,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.95,
+"label_mae_pct": -0.2
 },
 {
 "ts": "2026-09-21T10:48:58.002726-04:00",
@@ -3594,7 +3960,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:48:58.441175-04:00",
@@ -3651,7 +4023,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:48:58.709918-04:00",
@@ -3708,7 +4086,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T10:48:59.258288-04:00",
@@ -3765,7 +4149,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:48:59.531934-04:00",
@@ -3822,7 +4212,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:48:59.902291-04:00",
@@ -3879,7 +4275,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:49:00.777330-04:00",
@@ -3936,7 +4338,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:51:45.576212-04:00",
@@ -3993,7 +4401,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:51:46.016982-04:00",
@@ -4050,7 +4464,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:51:46.375216-04:00",
@@ -4107,7 +4527,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T10:51:46.843753-04:00",
@@ -4164,7 +4590,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:51:47.160624-04:00",
@@ -4221,7 +4653,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:51:47.453995-04:00",
@@ -4278,7 +4716,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:51:47.756173-04:00",
@@ -4335,7 +4779,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T10:58:32.636426-04:00",
@@ -4392,7 +4842,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T10:58:33.089531-04:00",
@@ -4449,7 +4905,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T10:58:33.791605-04:00",
@@ -4506,7 +4968,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T10:58:34.574346-04:00",
@@ -4563,7 +5031,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T10:58:35.299972-04:00",
@@ -4620,7 +5094,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T10:58:35.580539-04:00",
@@ -4677,7 +5157,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T10:58:35.952324-04:00",
@@ -4734,7 +5220,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:00:33.807311-04:00",
@@ -4791,7 +5283,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:00:34.143617-04:00",
@@ -4848,7 +5346,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:00:34.427746-04:00",
@@ -4905,7 +5409,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:00:34.860199-04:00",
@@ -4962,7 +5472,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:00:35.146164-04:00",
@@ -5019,7 +5535,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 20.75,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.39,
+"label_mae_pct": -5.25
 },
 {
 "ts": "2026-09-21T11:00:35.470101-04:00",
@@ -5076,7 +5598,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 16.03,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.49,
+"label_mae_pct": -5.08
 },
 {
 "ts": "2026-09-21T11:00:35.704440-04:00",
@@ -5133,7 +5661,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:11:23.107150-04:00",
@@ -5190,7 +5724,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:11:23.865817-04:00",
@@ -5247,7 +5787,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:11:24.146487-04:00",
@@ -5304,7 +5850,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:11:24.517472-04:00",
@@ -5361,7 +5913,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:11:25.188490-04:00",
@@ -5418,7 +5976,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:17:31.958984-04:00",
@@ -5475,7 +6039,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:17:32.244149-04:00",
@@ -5532,7 +6102,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:17:32.503396-04:00",
@@ -5589,7 +6165,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:17:32.944229-04:00",
@@ -5646,7 +6228,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:17:33.259736-04:00",
@@ -5703,7 +6291,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:20:53.920592-04:00",
@@ -5760,7 +6354,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:20:54.189893-04:00",
@@ -5817,7 +6417,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:20:54.934762-04:00",
@@ -5874,7 +6480,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:20:55.706328-04:00",
@@ -5931,7 +6543,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:20:56.149689-04:00",
@@ -5988,7 +6606,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:25:24.827022-04:00",
@@ -6045,7 +6669,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:25:25.127237-04:00",
@@ -6102,7 +6732,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:25:25.407000-04:00",
@@ -6159,7 +6795,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:25:25.770147-04:00",
@@ -6216,7 +6858,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:25:26.022025-04:00",
@@ -6273,7 +6921,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:30:37.757505-04:00",
@@ -6330,7 +6984,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:30:39.144575-04:00",
@@ -6387,7 +7047,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 12.99,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 9.24,
+"label_mae_pct": -3.31
 },
 {
 "ts": "2026-09-21T11:30:39.485021-04:00",
@@ -6444,7 +7110,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:30:40.072347-04:00",
@@ -6501,7 +7173,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:30:40.577359-04:00",
@@ -6558,7 +7236,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:30:40.852961-04:00",
@@ -6615,7 +7299,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:34:05.227339-04:00",
@@ -6672,7 +7362,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:34:05.464997-04:00",
@@ -6729,7 +7425,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 12.99,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 9.24,
+"label_mae_pct": -3.31
 },
 {
 "ts": "2026-09-21T11:34:06.775525-04:00",
@@ -6786,7 +7488,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:34:07.108259-04:00",
@@ -6843,7 +7551,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:34:07.444459-04:00",
@@ -6900,7 +7614,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:34:08.171310-04:00",
@@ -6957,7 +7677,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:44:41.495835-04:00",
@@ -7014,7 +7740,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:44:41.841003-04:00",
@@ -7071,7 +7803,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 12.99,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 9.24,
+"label_mae_pct": -3.31
 },
 {
 "ts": "2026-09-21T11:44:42.220754-04:00",
@@ -7128,7 +7866,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:44:43.092088-04:00",
@@ -7185,7 +7929,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:44:44.155374-04:00",
@@ -7242,7 +7992,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:44:44.405739-04:00",
@@ -7299,7 +8055,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:44:57.125943-04:00",
@@ -7356,7 +8118,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:44:57.432347-04:00",
@@ -7413,7 +8181,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 12.99,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 9.24,
+"label_mae_pct": -3.31
 },
 {
 "ts": "2026-09-21T11:44:57.743202-04:00",
@@ -7470,7 +8244,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:44:58.064380-04:00",
@@ -7527,7 +8307,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:44:58.531159-04:00",
@@ -7584,7 +8370,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 34.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -9.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 8.56,
+"label_mae_pct": -9.38
 },
 {
 "ts": "2026-09-21T11:44:58.938336-04:00",
@@ -7641,7 +8433,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T11:55:32.296167-04:00",
@@ -7698,7 +8496,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T11:55:32.945737-04:00",
@@ -7755,7 +8559,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 12.99,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 9.24,
+"label_mae_pct": -3.31
 },
 {
 "ts": "2026-09-21T11:55:33.546986-04:00",
@@ -7812,7 +8622,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T11:55:33.924023-04:00",
@@ -7869,7 +8685,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T11:55:35.450631-04:00",
@@ -7926,7 +8748,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 6.615,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 3.33,
+"label_mae_pct": -2.49
 },
 {
 "ts": "2026-09-21T11:55:36.157507-04:00",
@@ -7983,7 +8811,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.23,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.02,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T12:08:51.863169-04:00",
@@ -8040,7 +8874,13 @@
 "RVOL Tier": 6,
 "Gap Size": 3,
 "News Catalyst": 5
-}
+},
+"label_fill": 606.565,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 1.33,
+"label_outcome": "WIN",
+"label_mfe_pct": 2.99,
+"label_mae_pct": -0.04
 },
 {
 "ts": "2026-09-21T12:09:05.476970-04:00",

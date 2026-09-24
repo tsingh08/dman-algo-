@@ -10075,6 +10075,14 @@ def _check_equity_position_target(pos: dict, cur_price: Optional[float] = None) 
     e = float(pos.get("entry", 0))
     if not t or e <= 0:
         return
+    # Both callers already skip options -- with two separate copies of the
+    # rule. This is the same check stated once, where it cannot be forgotten
+    # by a third caller: an option's `entry` is a PREMIUM while get_live_price
+    # returns the SHARE price, so every comparison below would be nonsense,
+    # and _progress_equity_stop_to_trailing() would submit an equity trailing
+    # stop for pos.shares (contracts x 100) of stock that is not held.
+    if _is_option_position(pos.get("setup", "")):
+        return
     _cur_eq = cur_price if cur_price is not None else get_live_price(t)
     if _cur_eq is None:
         return
@@ -11844,9 +11852,26 @@ def run_premarket_briefing() -> None:
     except Exception as _pg_exc:
         print(f"  ⚠️  Pre-gap catalyst pass failed: {_pg_exc}")
 
-    # ── 0a. GTC swing fill reconciliation ─────────────────────────────
-    # If a GTC entry filled overnight, update PositionTracker entry price to the
-    # actual avg fill so stop/target math is anchored to the real fill, not the limit.
+    # ── 0a. GTC fill reconciliation ─────────────────────────────
+    # Every entry is recorded at the price we ASKED for -- sig.entry for shares,
+    # the contract's ask for options -- because the record is written the moment
+    # the order is accepted, before any fill. A limit can only fill at that price
+    # or better, so the recorded entry is systematically too HIGH, which sets the
+    # stop and T1 off the wrong base and understates every P&L those records
+    # later feed (win rate, the loss limits, setup probation).
+    #
+    # This re-anchors to the broker's actual average fill. It used to run only on
+    # setups starting with "SWING", from when those were the only GTC entries;
+    # submit_alpaca_trade() has since made EVERY entry GTC, so the restriction
+    # just meant most positions -- including all options -- silently kept the
+    # limit price as their entry.
+    #
+    # Deliberately skipped once a position has moved on from its entry-time
+    # levels: an equity position already progressed to trailing, or an option
+    # whose stop has been raised to breakeven by the T1 half-sale. Re-deriving
+    # those from the entry would undo the lock and re-arm an exit that already
+    # fired. Naturally runs once per position -- after it lands, the 0.5% check
+    # no longer trips.
     try:
         _rc = get_alpaca_client()
         _pt_r = PositionTracker()
@@ -11854,17 +11879,38 @@ def run_premarket_briefing() -> None:
             _alp_positions = {p.symbol: p for p in _rc.get_all_positions()}
             _updated = []
             for _rp in _pt_r.positions:
-                if _rp.setup.startswith("SWING") and _rp.ticker in _alp_positions:
-                    _ap = _alp_positions[_rp.ticker]
-                    _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
-                    if _actual_entry > 0 and abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) > 0.005:
-                        # Fill price differs from limit by > 0.5% — re-anchor stop and target
-                        _risk = abs(_rp.entry - _rp.stop)
-                        _rp.entry   = _actual_entry
-                        _rp.stop    = round(_actual_entry - _risk, 2)
-                        _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
-                        _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
-                        _updated.append(_rp.ticker)
+                _is_opt = _is_option_position(_rp.setup)
+                if _is_spread_setup(_rp.setup):
+                    continue          # multi-leg: no single avg_entry_price to anchor to
+                # Options report under their OCC symbol at the broker; the
+                # tracker keeps the underlying as `ticker`.
+                _alp_key = _position_identity(_rp.ticker, _rp.setup) if _is_opt else _rp.ticker
+                _ap = _alp_positions.get(_alp_key)
+                if _ap is None or _rp.entry <= 0:
+                    continue
+                _actual_entry = float(getattr(_ap, "avg_entry_price", 0) or 0)
+                if _actual_entry <= 0 or abs(_actual_entry - _rp.entry) / max(_rp.entry, 0.01) <= 0.005:
+                    continue
+                if _is_opt:
+                    # T1 already taken raises the stop to breakeven -- leave it.
+                    if _rp.stop >= _rp.entry:
+                        continue
+                    # Same multiples the submit path writes (-50/+50/+150%).
+                    _rp.entry   = round(_actual_entry, 2)
+                    _rp.stop    = round(_actual_entry * 0.50, 2)
+                    _rp.target1 = round(_actual_entry * 1.50, 2)
+                    _rp.target2 = round(_actual_entry * 2.50, 2)
+                else:
+                    # Equity shorts are not opened (ALLOW_SHORTS=False) and the
+                    # arithmetic below assumes a long, so do not guess at one.
+                    if _rp.bias != "LONG" or _rp.stop_stage == "trailing":
+                        continue
+                    _risk = abs(_rp.entry - _rp.stop)
+                    _rp.entry   = _actual_entry
+                    _rp.stop    = round(_actual_entry - _risk, 2)
+                    _rp.target1 = round(_actual_entry + 2.5 * _risk, 2)
+                    _rp.target2 = round(_actual_entry + 4.0 * _risk, 2)
+                _updated.append(_rp.ticker)
             if _updated:
                 _pt_r._save()
                 print(f"  🔄 GTC reconciliation: re-anchored {', '.join(_updated)} to actual fill prices")
@@ -18935,6 +18981,14 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
                        "a stop placed now could fill today and become day trade #4. "
                        "It will be placed next session, when a fill is no longer a "
                        "same-day round trip.")
+    if qty <= 0:
+        # Every order built below is side=SELL for abs(qty). On a SHORT that
+        # opens more short instead of protecting it -- the same defect fixed in
+        # _close_position_at_market(). Unreachable today (ALLOW_SHORTS=False,
+        # and an untracked position is refused just below), so refuse rather
+        # than invent a BUY-stop path that nothing exercises.
+        return False, ("position is short (or flat) — this restores long stops only, "
+                       "needs manual review")
     _cd_key = _STOP_RESTORE_COOLDOWN_KEY_FMT.format(ticker=ticker)
     if _is_duplicate_alert(_cd_key):
         return False, (f"restore attempted recently (within {ALERT_COOLDOWN_MIN}m) — "

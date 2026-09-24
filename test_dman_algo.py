@@ -19210,3 +19210,73 @@ class TestEquityStopUpdateDoesNotTouchOptions(unittest.TestCase):
         self.assertTrue(a._is_option_position("Earnings Call Spread"))
         self.assertFalse(a._is_option_position("Gap & Hold"))
         self.assertFalse(a._is_option_position(""))
+
+
+class TestGtcFillReconciliationCoversEverything(unittest.TestCase):
+    """The re-anchor ran only on "SWING" setups, from when those were the only
+    GTC entries. submit_alpaca_trade() now makes every entry GTC, so options
+    and plain bracket entries kept the LIMIT price as their recorded entry --
+    setting stop/T1 off the wrong base and understating recorded P&L."""
+
+    def test_it_no_longer_filters_on_the_swing_prefix(self):
+        src = inspect.getsource(a.run_premarket_briefing)
+        blk = src[src.index("GTC fill reconciliation"):][:4200]
+        self.assertNotIn('startswith("SWING")', blk)
+        self.assertIn("_is_option_position", blk)
+        self.assertIn("_position_identity", blk)
+
+    def test_the_options_branch_uses_premium_multiples(self):
+        src = inspect.getsource(a.run_premarket_briefing)
+        blk = src[src.index("GTC fill reconciliation"):][:4200]
+        for mult in ("* 0.50", "* 1.50", "* 2.50"):
+            self.assertIn(mult, blk)
+
+    def test_progressed_positions_are_left_alone(self):
+        """Re-deriving a trailing stop or a post-T1 breakeven undoes the lock."""
+        src = inspect.getsource(a.run_premarket_briefing)
+        blk = src[src.index("GTC fill reconciliation"):][:4200]
+        self.assertIn('stop_stage == "trailing"', blk)
+        self.assertIn("_rp.stop >= _rp.entry", blk)
+
+
+class TestEquityTargetCheckRefusesOptions(unittest.TestCase):
+    """Defence in depth: both callers filter options out before calling, but
+    they do it with two separate copies of the rule. If either drifts, this
+    would submit an equity trailing stop for pos.shares (contracts x 100) of
+    a stock that is not held -- a naked short."""
+
+    def test_an_option_position_is_refused(self):
+        pos = {"ticker": "AAPL", "entry": 1.50, "target1": 2.25, "target2": 3.75,
+               "setup": "Options Call AAPL261017C00230000 (x2)", "shares": 200}
+        with patch.object(a, "get_live_price", return_value=230.0) as gp, \
+             patch.object(a, "_progress_equity_stop_to_trailing") as prog, \
+             patch.object(a, "send_telegram") as tg:
+            a._check_equity_position_target(pos)
+        prog.assert_not_called()
+        tg.assert_not_called()
+        gp.assert_not_called()
+
+    def test_an_equity_position_still_runs(self):
+        pos = {"ticker": "AAPL", "entry": 200.0, "target1": 210.0, "target2": 220.0,
+               "setup": "Gap & Hold", "shares": 10}
+        with patch.object(a, "_progress_equity_stop_to_trailing", return_value=None), \
+             patch.object(a, "_is_alerted_today", return_value=False), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "send_telegram") as tg:
+            a._check_equity_position_target(pos, cur_price=225.0)
+        tg.assert_called_once()
+        self.assertIn("T2 HIT", tg.call_args[0][0])
+
+
+class TestAutoRestoreRefusesAShort(unittest.TestCase):
+    """Same defect class as _close_position_at_market: a negative qty with
+    side=SELL adds to a short. Double-guarded today (ALLOW_SHORTS=False, and
+    an untracked position is refused), so this pins the guard rather than
+    fixing a live leak."""
+
+    def test_a_negative_quantity_is_refused(self):
+        with patch.object(a, "_pdt_zero_no_stop_today", return_value=False), \
+             patch.object(a, "_is_duplicate_alert", return_value=False):
+            ok, detail = a._auto_restore_missing_stop(MagicMock(), "AAA", -40.0)
+        self.assertFalse(ok)
+        self.assertIn("short", detail.lower())

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:18.251598-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "EXCLUSIVE: Beyond Nvidia: Why Jensen Investment&#39;s Allen Bond Favors Broadcom, KLAC, Amphenol",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:10:21.052092-04:00",
     "symbols": [
       "CRWD"
@@ -5054,6 +5044,16 @@
     "headline": "New York Sues Polymarket For Allegedly Running Illegal Gambling Operation",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:28:48.898990-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says He And China&#39;s Xi Have Forged Truly Great Friendship; Says Trump Says Proud Of U.S., China Relationship; Trump Says He And Xi Have Made Tremendous Strides On Issues Facing Two Countries; Says Working Toward A More Balanced Trade Relationship; Says He And Xi Will Discuss Security, Technology And Super Intelligence",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

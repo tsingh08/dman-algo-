@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:02.117661-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "LinkedIn Co-Founder Backs Local Control Over Data Center Development: &#39;Communities That Will Live Alongside a Data center...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T09:26:02.122754-04:00",
     "symbols": [
       "NVDA"
@@ -5082,5 +5072,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:48:41.482751-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Small Caps Get Crushed: IWM Sees $3.3B Outflow as Treasury Yields Surge",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

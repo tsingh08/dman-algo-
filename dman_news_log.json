@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-23T16:05:49.116812-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "OpenAI Announces MentalHealthBench, Open Benchmark For Evaluating AI Responses In Mental Health Conversations, Built With More Than 80 Licensed Experts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T16:05:49.227698-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "OpenAI Announces MentalHealthBench, Open Benchmark For Evaluating AI Responses In Mental Health Conversations, Built With More Than 80 Licensed Experts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T16:05:57.393865-04:00",
-    "symbols": [
-      "BFRG"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T16:05:57.398557-04:00",
     "symbols": [
       "BFRG"
@@ -5078,5 +5048,38 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:26:04.078459-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Nvidia Keeps AI Profits, TSMC May Want a Bigger Cut",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T14:26:08.945903-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Texas Attorney General Paxton Launches Investigation Into Texas Data Centers Over Water Usage Requirements",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T14:26:16.581087-04:00",
+    "symbols": [
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Surging on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

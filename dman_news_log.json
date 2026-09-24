@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-23T11:29:52.976671-04:00",
-    "symbols": [
-      "RCL"
-    ],
-    "headline": "Royal Caribbean Sets Sights on $2 Trillion Vacation Market With Sandals Investment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:29:52.981198-04:00",
-    "symbols": [
-      "RCL"
-    ],
-    "headline": "Royal Caribbean Cruises Confirms It Will Acquire 50% Stake In Sandals And Beaches Resorts Holding Company For ~$3B In Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:29:52.985839-04:00",
-    "symbols": [
-      "RCL"
-    ],
-    "headline": "Royal Caribbean Group To Acquire 50% Stake In Sandals And Beaches Resorts For ~$3B, Closing Early 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:30:24.297129-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "$100 Invested In Applied Materials 20 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T11:37:36.754147-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Iran&#39;s Foreign Ministry Spokesperson Posts On X, Another Round Of Message Exchanges And Clarifications Took Place Between Iran, U.S. Via The Qatari Mediator On Tuesday; Iran Clarified Its Conditions For Reviving Diplomacy In The Two Hour Long Process To U.S.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:42:52.342381-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Paramount weighs tapping Musk for equity investment&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T11:42:53.980437-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Micron Technology, Lowers Price Target to $1400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T11:43:03.734420-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Iran&#39;s Foreign Ministry Spokesperson Posts On X, Another Round Of Message Exchanges And Clarifications Took Place Between Iran, U.S. Via The Qatari Mediator On Tuesday; Iran Clarified Its Conditions For Reviving Diplomacy In The Two Hour Long Process To U.S.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:43:03.738921-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Goolsbee Speaking On &#39;Economics, Applied&#39; Podcast Says Better To Assume Bigger Negative Supply Shocks Have Persistent Effect On Inflation, As With Tariffs, COVID And Possibly Oil",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:43:05.161955-04:00",
-    "symbols": [
-      "BENF"
-    ],
-    "headline": "Beneficient Stock Skyrockets Wednesday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T11:43:05.166442-04:00",
-    "symbols": [
-      "BENF"
-    ],
-    "headline": "Dow Falls 100 Points; General Mills Posts Upbeat Q1 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T11:43:05.170809-04:00",
     "symbols": [
       "BENF"
@@ -5059,6 +4949,116 @@
     "headline": "10-Year Yields Hit 19-Year Highs Due to \u2018Booming&#39; Economy, Yardeni Says",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:36:08.085989-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CoreWeave Wants Shorter Contracts \u2014 And JPMorgan Thinks That Could Mean Higher Margins",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:36:37.948258-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Meta Platforms, Maintains $770 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:37:04.747004-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T09:37:05.253955-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:37:05.553632-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:37:05.562244-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:37:06.857732-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:37:07.146766-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T09:37:26.653668-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "What&#39;s Going On with Lucid Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-24T09:37:27.465960-04:00",
+    "symbols": [
+      "MAAS"
+    ],
+    "headline": "Maase&#39;s Huazhi Future Subsidiary Inks Agreement With Chungking New Gardner Enterprise Management Consulting, SAGELIGHT VENTURES In Singapore To Jointly Develop, Advance Global AI Computing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T09:37:28.177451-04:00",
+    "symbols": [
+      "SMWB"
+    ],
+    "headline": "Similarweb Announces Appointment Of Michael Akkerman As CEO Effective November 2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

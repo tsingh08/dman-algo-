@@ -16589,14 +16589,28 @@ class TestPolicyAudit(unittest.TestCase):
         self.assertIn("run_policy_audit", inspect.getsource(a._handle_telegram_command_inner))
 
 
+def _effective_guard_src(fn) -> str:
+    """A function's source, plus that of the breaker helper it delegates to.
+
+    These guards are asserted by reading source text, which is how a
+    hand-copied inline breaker was kept honest. _submit_signals_to_alpaca()
+    now calls _entry_circuit_breakers_ok() instead of restating the rules, so
+    the text moved without the rule changing. Following the delegation keeps
+    the assertion meaningful rather than deleting it.
+    """
+    src = inspect.getsource(fn)
+    if "_entry_circuit_breakers_ok()" in src:
+        src += inspect.getsource(a._entry_circuit_breakers_ok)
+    return src
+
+
 class TestLiveOnlyCircuitBreakers(unittest.TestCase):
     """Review 2026-09-07/08: the guards read rolling_stats()'s blended pool,
     so backtest records could gate live orders."""
 
     def test_guards_ask_for_live_only(self):
         for fn in (a._entry_circuit_breakers_ok, a.run_pro_scanner, a._submit_signals_to_alpaca):
-            src = inspect.getsource(fn)
-            self.assertIn("rolling_stats(live_only=True)", src, fn.__name__)
+            self.assertIn("rolling_stats(live_only=True)", _effective_guard_src(fn), fn.__name__)
 
 
 _REAL_DAILY_LOSS_LIMIT_HIT = a._daily_loss_limit_hit   # before setUpModule's patch
@@ -16631,7 +16645,7 @@ class TestDailyLossHaltLatches(unittest.TestCase):
 
     def test_guards_use_the_latch(self):
         for fn in (a._entry_circuit_breakers_ok, a._submit_signals_to_alpaca):
-            self.assertIn("_daily_loss_limit_hit()", inspect.getsource(fn))
+            self.assertIn("_daily_loss_limit_hit()", _effective_guard_src(fn), fn.__name__)
 
 
 class TestSwingLabelPooledInDrift(unittest.TestCase):
@@ -19033,3 +19047,58 @@ class TestDuplicationGuards(unittest.TestCase):
             self.assertLessEqual(dte, a.OPTIONS_DTE_MAX + 7)
             # Nearest to target: no other Friday in the window is closer.
             self.assertLessEqual(abs(dte - a.OPTIONS_TARGET_DTE), 3)
+
+
+class TestMoneyPathReview(unittest.TestCase):
+    """Findings from the 2026-09-23 line-by-line money-path review."""
+
+    def test_flattening_a_short_buys_to_close(self):
+        """An unconditional SELL doubles a short instead of closing it."""
+        pos = SimpleNamespace(ticker="AAA", setup="Gap & Hold", entry_date="2026-09-01")
+        client = MagicMock()
+        client.get_open_position.return_value = SimpleNamespace(qty="-40")
+        client.get_orders.return_value = []
+        client.submit_order.return_value = SimpleNamespace(id="oid-short")
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            status, _ = a._close_position_at_market(pos, "test short exit")
+        self.assertEqual(status, "submitted")
+        req = client.submit_order.call_args[0][0]
+        self.assertEqual(req.qty, 40)
+        self.assertEqual(req.side, a.OrderSide.BUY,
+                         "closing a short must BUY to close, not sell more")
+
+    def test_flattening_a_long_still_sells(self):
+        pos = SimpleNamespace(ticker="AAA", setup="Gap & Hold", entry_date="2026-09-01")
+        client = MagicMock()
+        client.get_open_position.return_value = SimpleNamespace(qty="40")
+        client.get_orders.return_value = []
+        client.submit_order.return_value = SimpleNamespace(id="oid-long")
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            status, _ = a._close_position_at_market(pos, "test long exit")
+        self.assertEqual(status, "submitted")
+        req = client.submit_order.call_args[0][0]
+        self.assertEqual(req.side, a.OrderSide.SELL)
+
+    def test_submitted_quantity_is_the_capped_quantity(self):
+        """The size sent to the broker must not depend on a status string.
+
+        _cap_shares_to_cash() returns (qty, note). The submit calls send
+        signal.shares, which was only updated when the NOTE was non-empty --
+        so a trim reported with an empty note would have sent the full,
+        unaffordable size.
+        """
+        src = inspect.getsource(a.submit_alpaca_trade)
+        head = src.split("try:")[0]
+        self.assertIn("signal.shares = _qty", head)
+        # The assignment must not be nested under the note check.
+        assign = head.index("signal.shares = _qty")
+        note_if = head.index("if _cap_note:")
+        self.assertLess(assign, note_if,
+                        "signal.shares = _qty must precede (not depend on) the note check")
+
+    def test_submit_path_uses_the_shared_circuit_breakers(self):
+        """One rule, not a hand-copied twin, on the path that places orders."""
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("_entry_circuit_breakers_ok()", src)
+        self.assertNotIn("MAX_CONSEC_LOSSES", src)
+        self.assertNotIn("MONTHLY_LOSS_LIMIT", src)

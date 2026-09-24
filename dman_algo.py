@@ -8723,6 +8723,8 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str) -> tuple[str, 
       "pending"        — a SELL is already working for this contract (no double-submit)
       "already_closed" — Alpaca no longer holds the position (sync will record P&L)
       "pdt_blocked"    — selling today would be a PDT violation; position held
+      "no_quote"       — no usable quote (or a bid below intrinsic); exit
+                         DEFERRED, not abandoned — the caller retries next cycle
       "failed"         — submission failed; manual action needed
 
     Uses a marketable limit at bid−2% (fills immediately against the bid but
@@ -9518,7 +9520,14 @@ def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Op
 
     try:
         _apos = client.get_open_position(symbol)
-        _qty  = abs(int(float(_apos.qty)))
+        _raw_qty = float(_apos.qty)
+        _qty  = abs(int(_raw_qty))
+        # Side follows the SIGN of the holding. This used to be an
+        # unconditional SELL, which flattens a long but DOUBLES a short --
+        # "just get out now" would have doubled down instead. Both current
+        # callers (day-only momentum, breakout zone) are long-only, so this
+        # was latent, but the docstring offers this as the general exit.
+        _is_short = _raw_qty < 0
         if _qty == 0:
             return "already_closed", None
     except Exception:
@@ -9538,8 +9547,11 @@ def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Op
     try:
         from alpaca.trading.enums import PositionIntent
         order = client.submit_order(MarketOrderRequest(
-            symbol=symbol, qty=_qty, side=OrderSide.SELL,
-            time_in_force=TimeInForce.DAY, position_intent=PositionIntent.SELL_TO_CLOSE,
+            symbol=symbol, qty=_qty,
+            side=OrderSide.BUY if _is_short else OrderSide.SELL,
+            time_in_force=TimeInForce.DAY,
+            position_intent=(PositionIntent.BUY_TO_CLOSE if _is_short
+                             else PositionIntent.SELL_TO_CLOSE),
         ))
         print(f"  🕓 Market close: {pos.ticker} ({reason})  id={str(order.id)[:8]}…")
         return "submitted", str(order.id)
@@ -22570,9 +22582,14 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
     _qty, _cap_note = _cap_shares_to_cash(signal.ticker, int(signal.shares or 0), limit_px)
     if _qty < 1:
         return None, f"{signal.ticker}: {_cap_note or 'no affordable share size'}"
+    # Unconditional. The three submit_order() calls below all send
+    # signal.shares, so the size that actually reaches the broker used to
+    # depend on _cap_note being a non-empty STRING. _cap_shares_to_cash()
+    # does always return a note when it trims, so this was correct -- but a
+    # quantity must not be coupled to the truthiness of a status message.
+    signal.shares = _qty
     if _cap_note:
         print(f"  💵 {signal.ticker}: {_cap_note}")
-        signal.shares = _qty
     stop_px   = round(signal.stop,    2)
     target_px = round(signal.target1, 2)
     label     = "PAPER" if ALPACA_PAPER else "LIVE"
@@ -25925,19 +25942,15 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
             pass
         print(f"  🛑 Manual halt active{(' — ' + _hr) if _hr else ''} — no orders submitted (/resume to re-enable).")
         return
-    _on_probation_sub, _ = is_on_probation()
-    if not _on_probation_sub:
-        _tracker_cb = WinRateTracker()
-        _stats_cb   = _tracker_cb.rolling_stats(live_only=True)   # see _auto_trade_allowed
-        if _stats_cb.get("consec_losses_today", 0) >= MAX_CONSEC_LOSSES:
-            print(f"  🛑 Consecutive loss guard active ({_stats_cb['consec_losses_today']} losses today) — no orders.")
-            return
-        if (get_this_month_loss() <= -(MONTHLY_LOSS_LIMIT * 100)
-                and not _monthly_halt_lifted()):
-            print(f"  🛑 Monthly loss limit active — no orders.")
-            return
-    if _daily_loss_limit_hit():
-        print(f"  🛑 Daily loss limit active — no orders.")
+    # The remaining three breakers (consecutive-loss, monthly, daily) were
+    # written out again here, by hand, beside the _entry_circuit_breakers_ok()
+    # that exists precisely so they are stated once. They agreed -- but this is
+    # the path that places EVERY automatic order, and the approval paths that
+    # call the helper would have silently diverged the first time either copy
+    # changed. The halt check stays above: it reads HALT_FILE for the reason.
+    _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
+    if not _cb_ok:
+        print(f"  🛑 {_cb_reason[:1].upper()}{_cb_reason[1:]} — no orders.")
         return
 
     mode_label = "PAPER" if ALPACA_PAPER else "LIVE"

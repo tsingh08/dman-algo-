@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:11.985372-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Continuing Jobless Claims 1,719K Vs 1,750K Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T09:26:11.990401-04:00",
     "symbols": [
       "SPY"
@@ -5084,5 +5074,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T16:08:54.249357-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500\u2019s Midterm Rally Setup Is Getting Interesting: These ETFs Could Hold the Clues",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

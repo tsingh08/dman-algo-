@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:35:38.994353-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:35:39.562287-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T13:35:41.186993-04:00",
     "symbols": [
       "TSLA"
@@ -5039,5 +5019,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T11:34:09.753091-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin Bets Go Into Overdrive As MSTR, Leveraged ETFs Surge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T11:34:32.272750-04:00",
+    "symbols": [
+      "GOOGL",
+      "SPCX"
+    ],
+    "headline": "Google Moves Up its Space Data Center Timeline \u2014 Project Suncatcher Launches Oct. 1",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

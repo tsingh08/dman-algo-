@@ -223,5 +223,32 @@
   "drift_pct": 0.45,
   "range_ratio": 0.57,
   "near_high": 0.974
+ },
+ {
+  "ts": "2026-09-24T10:34:42.064688-04:00",
+  "ticker": "CVX",
+  "price": 207.22,
+  "rvol": 1.91,
+  "drift_pct": 1.09,
+  "range_ratio": 0.56,
+  "near_high": 0.952
+ },
+ {
+  "ts": "2026-09-24T10:34:42.064709-04:00",
+  "ticker": "ATII",
+  "price": 10.7,
+  "rvol": 4.34,
+  "drift_pct": 0.28,
+  "range_ratio": 0.64,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-09-24T10:34:42.064713-04:00",
+  "ticker": "GFLW",
+  "price": 33.52,
+  "rvol": 1.69,
+  "drift_pct": 0.86,
+  "range_ratio": 0.45,
+  "near_high": 0.963
  }
 ]

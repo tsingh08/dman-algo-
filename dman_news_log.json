@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:10:22.854346-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:10:26.447763-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bessent Says He And Vice Premier He Lifeng Held Substantive Discussions On US-China Economic Relationship Ahead Of Trump-Xi Meeting, Focused On Commitments To Protect American Workers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:10:26.452496-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;White House preparing plan for 90-day diesel exports ban&#39; - Politico",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-23T13:10:26.830770-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T13:10:27.090736-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T13:10:27.352749-04:00",
-    "symbols": [
-      "ADGM"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T13:10:27.930447-04:00",
     "symbols": [
       "ARTL"
@@ -5055,5 +4995,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T10:34:10.067441-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says He And China&#39;s Xi Have Forged Truly Great Friendship; Says Trump Says Proud Of U.S., China Relationship; Trump Says He And Xi Have Made Tremendous Strides On Issues Facing Two Countries; Says Working Toward A More Balanced Trade Relationship; Says He And Xi Will Discuss Security, Technology And Super Intelligence",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:34:10.280302-04:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "Dow Tumbles Over 100 Points; US Jobless Claims Fall to 197,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:34:10.285288-04:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "Apimeds Pharmaceuticals&#39; MindWave Signs 12-Month Contract To Build Conservation Credit Platform For AQUAE, Plus 20% Credit Allocation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:34:13.025399-04:00",
+    "symbols": [
+      "HAFN"
+    ],
+    "headline": "Hafnia To Purchase Additional 1.7M TORM Shares At $34.00 Each, Boosting Ownership Stake To ~19.85%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:34:13.117357-04:00",
+    "symbols": [
+      "TRT"
+    ],
+    "headline": "CORRECTION: Trio-Tech Intl Q4 EPS $(0.02) Down From $0.02 YoY, Sales $14.931M Up From $10.671M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T10:34:13.122104-04:00",
+    "symbols": [
+      "TRT"
+    ],
+    "headline": "Trio-Tech Intl Q4 EPS $0.02, Same YoY, Sales $14.931M Up From $10.671M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

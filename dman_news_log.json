@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:27:55.268072-04:00",
-    "symbols": [
-      "FSLY"
-    ],
-    "headline": "Watching Fastly; Traders Circulating X Post From Independent Tester Saying Fastly Carried 29.3% Of Meta Muse Agent Traffic, Including All Browser Navigation Tasks, In 738 Tests; Cloudflare Carried 37.0%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T14:27:55.271808-04:00",
     "symbols": [
       "FSLY"
@@ -5049,6 +5039,16 @@
     "headline": "Crude Oil Rises Over 4%; Darden Earnings Miss Views",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T12:08:33.135567-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CNN Granted Access To White House",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

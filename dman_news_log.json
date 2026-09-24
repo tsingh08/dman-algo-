@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-23T13:22:54.355407-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Stock Hits 52-Week High - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-23T13:22:54.601725-04:00",
     "symbols": [
       "PANW"
@@ -5052,5 +5042,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T11:07:17.348062-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Yield On 30-Year U.S. Treasury Bonds Rise Slightly After Buyback Announcement; Last Up 3.31 Basis Points At 5.435%; 20-Year U.S. Treasury Yield Last Up 3.44 Basis Points At 5.495%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

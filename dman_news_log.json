@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:38:35.703534-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Chuck Schumer Says Senate Heard \u2018Nothing But Crickets\u2019 on AI Risk Briefing Request: \u2018Maybe Trump\u2019s Not Worried Because\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:38:35.707990-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Elon Musk Touts Grok in Tesla Vehicles: Here\u2019s What It Can Do",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:38:35.863144-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Muse vs. Elon Musk\u2019s X: The Battle for the \u2018Everything App\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-23T14:38:36.211706-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What Is Going on With Snap Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:38:36.215965-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Meta Muse vs. Elon Musk\u2019s X: The Battle for the \u2018Everything App\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-23T14:38:36.772680-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "What Is Going on With Snap Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T14:38:43.134106-04:00",
     "symbols": [
       "BENF"
@@ -5045,6 +4985,68 @@
     ],
     "headline": "Tesla FSD Drove Over the Limit in 55% of Brussels Tests Ahead of EU Approval Vote",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T12:48:26.280648-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T12:48:27.606299-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Chinese President Xi Jinping Says China Hopes US Keeps Opposing Taiwan Independence, Handles Taiwan Question With Prudence - Xinhua",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T12:48:40.460526-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms shares are trading higher after multiple analysts maintained their Outperform, Overweight, or Strong Buy ratings on the stock and raised their respective price targets.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T12:48:44.038399-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-24T12:48:44.718876-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-24T12:48:44.726479-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

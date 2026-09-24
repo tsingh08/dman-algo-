@@ -1,17 +1,5 @@
 [
   {
-    "ts": "2026-09-23T14:31:48.011250-04:00",
-    "symbols": [
-      "AMZN",
-      "META",
-      "SPCX"
-    ],
-    "headline": "Meta Muse vs. Elon Musk\u2019s X: The Battle for the \u2018Everything App\u2019",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-23T14:31:56.219343-04:00",
     "symbols": [
       "AMD"
@@ -5049,6 +5037,16 @@
     "headline": "Crude Oil Rises Over 4%; Darden Earnings Miss Views",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T12:19:37.074840-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US And Iran Discuss Phased Deal To Reopen Strait Of Hormuz And End US Blockade, Sources Say",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

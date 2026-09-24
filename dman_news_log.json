@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-09-23T15:11:57.931090-04:00",
-    "symbols": [
-      "MU",
-      "SNDK"
-    ],
-    "headline": "Martin Shkreli Shorts Micron 2 Months After Saying \u2018I Like Micron\u2019: \u2018If Memory Prices Drop, It\u2019s All Over\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-23T15:12:05.888216-04:00",
     "symbols": [
       "COIN"
@@ -5044,6 +5033,23 @@
     "headline": "Piper Sandler Maintains Overweight on Everpure, Raises Price Target to $162",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T13:32:02.157797-04:00",
+    "symbols": [
+      "DIA",
+      "ENPH",
+      "FSLR",
+      "IWM",
+      "LLY",
+      "META",
+      "ORCL",
+      "QQQ"
+    ],
+    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

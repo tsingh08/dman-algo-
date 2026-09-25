@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:45:28.271934-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:45:28.741839-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:45:28.973900-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:45:28.978615-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Moves Up its Space Data Center Timeline \u2014 Project Suncatcher Launches Oct. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:45:31.218045-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:45:35.342895-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T11:45:35.566348-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T11:45:36.097078-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T11:45:36.340304-04:00",
     "symbols": [
       "BBAI"
@@ -5063,5 +4983,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T09:56:00.491359-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "DA Davidson Maintains Neutral on Costco Wholesale, Raises Price Target to $1040",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:56:04.739208-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Wholesale shares are trading higher after the company reported better-than-expected Q4 financial results.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:59:27.963243-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Truist Securities Maintains Hold on Costco Wholesale, Lowers Price Target to $955",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:59:40.994365-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Zscaler, Raises Price Target to $236",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:59:52.951066-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "XRP, Solana Surge 22% After Clarity Act Failure as Regulatory Moves Lifts Coinbase, Robinhood",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T09:59:54.986783-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "XRP, Solana Surge 22% After Clarity Act Failure as Regulatory Moves Lifts Coinbase, Robinhood",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T10:00:26.769385-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michigan Consumer Expectations For September 46.3 Vs 45.8 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:00:36.232851-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michigan Consumer Sentiment For September 48.1 Vs 47.8 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

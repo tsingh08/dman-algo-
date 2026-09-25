@@ -1,59 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:25:38.568465-04:00",
-    "symbols": [
-      "NBIG"
-    ],
-    "headline": "What Is Going on With Nebius Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:25:38.897685-04:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Everpure, Raises Price Target to $162",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:32:02.157797-04:00",
-    "symbols": [
-      "DIA",
-      "ENPH",
-      "FSLR",
-      "IWM",
-      "LLY",
-      "META",
-      "ORCL",
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:35:10.482713-04:00",
-    "symbols": [
-      "AAPL",
-      "AMD",
-      "MSTR",
-      "MU",
-      "NVDA",
-      "QCOM",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T13:35:10.897895-04:00",
     "symbols": [
       "ABBV",
@@ -5083,6 +5029,46 @@
     "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:12:13.947032-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Roth Capital Reiterates Sell on Costco Wholesale, Maintains $781 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:12:24.150786-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:12:28.330665-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:12:29.946230-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

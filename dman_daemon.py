@@ -832,6 +832,23 @@ def sync_loop() -> None:
                 was_open = True
                 git_sync()
                 try:
+                    # Before fills become P&L below, correct any entry still
+                    # recorded at the price we ASKED for rather than paid.
+                    # The pre-market briefing runs this too, but only once a
+                    # day: SECZ (2026-09-24) opened 09:45 and closed 12:07, so
+                    # the briefing's copy never saw it and a real -8.04% loss
+                    # was booked as a +2.37% WIN off an entry price that was
+                    # never paid. Same data this loop already fetches.
+                    _rc = algo.get_alpaca_client()
+                    if _rc:
+                        _ra = algo._reanchor_entries_to_fills(
+                            algo.PositionTracker(),
+                            {p.symbol: p for p in _rc.get_all_positions()})
+                        if _ra:
+                            log(f"re-anchored entry to actual fill: {', '.join(_ra)}")
+                except Exception as exc:
+                    log(f"entry re-anchor error: {exc}")
+                try:
                     n = algo.sync_alpaca_fills(algo.WinRateTracker())
                     if n:
                         log(f"synced {n} closed trade(s)")

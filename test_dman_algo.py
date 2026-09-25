@@ -19494,7 +19494,7 @@ class TestSeczPostMortem(unittest.TestCase):
     def test_the_entry_is_a_limit_order_at_that_price(self):
         client = MagicMock()
         client.submit_order.return_value = SimpleNamespace(id="oid-bz")
-        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price="14.60")
+        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price="14.60", filled_qty="17")
         tracker = MagicMock()
         with patch.object(a, "get_alpaca_client", return_value=client), \
              patch.object(a, "PositionTracker", return_value=tracker), \
@@ -19509,7 +19509,7 @@ class TestSeczPostMortem(unittest.TestCase):
         """Recording the reference price is what booked a loss as a win."""
         client = MagicMock()
         client.submit_order.return_value = SimpleNamespace(id="oid-bz")
-        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price="14.62")
+        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price="14.62", filled_qty="17")
         tracker = MagicMock()
         with patch.object(a, "get_alpaca_client", return_value=client), \
              patch.object(a, "PositionTracker", return_value=tracker), \
@@ -19519,17 +19519,62 @@ class TestSeczPostMortem(unittest.TestCase):
         self.assertEqual(pos.entry, 14.62)
         self.assertNotEqual(pos.entry, 14.36)
 
-    def test_an_unfilled_order_falls_back_to_the_limit_not_the_reference(self):
+    def test_an_unfilled_limit_records_nothing_and_is_cancelled(self):
+        """A limit that never fills is the gate WORKING -- the price ran past
+        the cap. Recording it anyway would hold one of only two slots with no
+        shares behind it, and "exit" into thin air 20 sessions later."""
         client = MagicMock()
         client.submit_order.return_value = SimpleNamespace(id="oid-bz")
-        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price=None)
+        client.get_order_by_id.return_value = SimpleNamespace(
+            filled_avg_price=None, filled_qty="0")
+        tracker = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_et_today", return_value=date(2026, 9, 24)), \
+             patch.object(a.time, "sleep", lambda *_: None):
+            oid, err = a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
+        self.assertIsNone(oid)
+        self.assertIn("not filled", err)
+        tracker.open.assert_not_called()
+        client.cancel_order_by_id.assert_called_once_with("oid-bz")
+
+    def test_a_fill_landing_during_the_cancel_is_still_recorded(self):
+        """The race: it fills between the last poll and the cancel."""
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-bz")
+        seq = [SimpleNamespace(filled_avg_price=None, filled_qty="0")] * 4 + [
+               SimpleNamespace(filled_avg_price="14.63", filled_qty="17")]
+        client.get_order_by_id.side_effect = seq
+        tracker = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_et_today", return_value=date(2026, 9, 24)), \
+             patch.object(a.time, "sleep", lambda *_: None):
+            oid, err = a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
+        self.assertIsNone(err)
+        self.assertEqual(tracker.open.call_args[0][0].entry, 14.63)
+
+    def test_a_partial_fill_records_the_shares_actually_bought(self):
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-bz")
+        client.get_order_by_id.return_value = SimpleNamespace(
+            filled_avg_price="14.60", filled_qty="9")
         tracker = MagicMock()
         with patch.object(a, "get_alpaca_client", return_value=client), \
              patch.object(a, "PositionTracker", return_value=tracker), \
              patch.object(a, "_et_today", return_value=date(2026, 9, 24)), \
              patch.object(a.time, "sleep", lambda *_: None):
             a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
-        self.assertEqual(tracker.open.call_args[0][0].entry, 14.65)
+        self.assertEqual(tracker.open.call_args[0][0].shares, 9)
+
+    def test_adoption_still_catches_a_breakout_name_but_arms_no_stop(self):
+        """Skipping it outright removed the net that exists for a failed
+        tracker write; the 8% fallback is what stopped SECZ out at the low."""
+        src = inspect.getsource(a.adopt_orphan_positions)
+        self.assertIn("_was_bzone", src)
+        self.assertIn("no stop by design", src)
+        # and the adopted setup must be one _is_no_stop_by_design() recognises
+        self.assertTrue(a._is_no_stop_by_design(f"{a.BZONE_SETUP} (adopted)"))
 
     def test_a_breakout_zone_is_no_stop_by_design(self):
         self.assertTrue(a._is_no_stop_by_design(f"{a.BZONE_SETUP} +166% off low"))
@@ -19552,3 +19597,18 @@ class TestSeczPostMortem(unittest.TestCase):
     def test_adoption_skips_a_name_entered_as_a_breakout_zone_today(self):
         src = inspect.getsource(a.adopt_orphan_positions)
         self.assertIn("__BZONE_ENTRY__", src)
+
+
+class TestReanchorRunsIntraday(unittest.TestCase):
+    """Once a day was not enough. SECZ opened 09:45 and closed 12:07, so the
+    pre-market briefing's re-anchor never saw it and a -8.04% loss was booked
+    as a +2.37% win off an entry price that was never paid."""
+
+    def test_the_daemon_sync_loop_re_anchors_before_syncing_fills(self):
+        src = io.open("dman_daemon.py", encoding="utf-8").read()
+        blk = src[src.index("def sync_loop"):]
+        blk = blk[:blk.index("def scan_loop")]
+        self.assertIn("_reanchor_entries_to_fills", blk)
+        # Order matters: a close detected this pass must use the fixed entry.
+        self.assertLess(blk.index("_reanchor_entries_to_fills"),
+                        blk.index("sync_alpaca_fills"))

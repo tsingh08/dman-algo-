@@ -11483,13 +11483,30 @@ def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
     except Exception as exc:
         print(f"  ❌ {ticker} breakout zone entry failed: {exc}")
         return None, str(exc)
-    _fill = _order_fill_price(client, order, _limit)
+    _fill, _got = _order_fill_state(client, order)
+    if _got <= 0:
+        # A limit that has not filled is this gate WORKING: the price ran past
+        # what the entry may pay. Cancel it so it cannot fill hours later,
+        # unwatched, at a price the band already rejected -- and record
+        # nothing, because a tracked position with no shares behind it holds
+        # one of only BZONE_TRADE_MAX_OPEN slots and would "exit" into thin
+        # air in BZONE_HOLD_SESSIONS.
+        try:
+            client.cancel_order_by_id(order.id)
+        except Exception as exc:
+            _log_swallowed("bzone cancel unfilled", exc)
+        # It may have filled between the last poll and the cancel.
+        _fill, _got = _order_fill_state(client, order, tries=1)
+        if _got <= 0:
+            print(f"  ⏭️  {ticker}: breakout zone limit ${_limit:.2f} unfilled "
+                  f"(logged ${ref_px:.2f}) — cancelled, no position")
+            return None, f"not filled at ${_limit:.2f} — price ran past the entry cap"
     try:
         PositionTracker().open(OpenPosition(
             ticker=ticker, bias="LONG",
             setup=f"{BZONE_SETUP} +{float(row.get('above_low_pct', 0)):.0f}% off low",
             entry=float(_fill), stop=0.01, target1=1e9, target2=1e9,
-            shares=int(qty), entry_date=_et_today().isoformat(),
+            shares=int(_got), entry_date=_et_today().isoformat(),
             score=int(min(100, float(row.get("above_low_pct", 0)) / 10)),
         ))
     except Exception as exc:
@@ -11497,29 +11514,36 @@ def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
                       f"({html.escape(str(exc))}) — {qty} shares, no automated exit. "
                       f"Close it manually.")
         return str(order.id), None
-    print(f"  📈 {ticker}: breakout zone entry {qty} shares @ ${_fill:.2f} "
+    print(f"  📈 {ticker}: breakout zone entry {int(_got)} shares @ ${_fill:.2f} "
           f"(limit ${_limit:.2f}, logged ${ref_px:.2f})  id={str(order.id)[:8]}…")
     return str(order.id), None
 
 
-def _order_fill_price(client, order, fallback: float) -> float:
-    """The order's average fill, re-reading it briefly if it is not filled yet.
+def _order_fill_state(client, order, tries: int = 4) -> tuple:
+    """(avg_fill_price, filled_qty) for an order, re-read briefly.
 
-    A position must be recorded at what the broker actually charged. Alpaca
-    returns the submitted order before filled_avg_price is populated, so a
-    caller reading it straight off the submit response gets None and falls
-    back to whatever price it guessed with.
+    A position must be recorded at what the broker actually charged AND for
+    the quantity it actually got. Alpaca returns the submitted order before
+    filled_avg_price is populated, so reading it straight off the submit
+    response yields None -- which is how a limit price ends up recorded as an
+    entry that was never paid.
+
+    (0.0, 0.0) means nothing has filled yet, which for a LIMIT order is a real
+    outcome the caller has to handle, not a value to paper over.
     """
-    for _ in range(4):
+    _px, _qty = 0.0, 0.0
+    for _i in range(max(1, tries)):
         try:
             _o = client.get_order_by_id(order.id)
+            _qty = float(getattr(_o, "filled_qty", 0) or 0)
             _px = float(getattr(_o, "filled_avg_price", 0) or 0)
-            if _px > 0:
-                return round(_px, 4)
+            if _qty > 0 and _px > 0:
+                return round(_px, 4), _qty
         except Exception as exc:
-            _log_swallowed("bzone fill price", exc)
-        time.sleep(0.75)
-    return round(float(fallback), 4)
+            _log_swallowed("order fill state", exc)
+        if _i < tries - 1:
+            time.sleep(0.75)
+    return round(_px, 4), _qty
 
 
 def _sessions_since(start: date) -> int:
@@ -23141,12 +23165,6 @@ def adopt_orphan_positions() -> int:
         if sym in tracked:
             adopted += _reconcile_tracked_quantity(p, sym)
             continue
-        # A breakout-zone entry this session is not an orphan -- its record is
-        # in flight in another process. Adopting it invents an 8% fallback stop
-        # for a strategy that must not have one. The alert key is written at
-        # entry and travels with the synced alert file.
-        if _is_duplicate_alert(f"__BZONE_ENTRY__:{sym}", cooldown_min=24 * 60):
-            continue
         _occ = _parse_occ_symbol(sym)
         if _occ:
             _n = _adopt_single_leg_option(p, _occ, pt)
@@ -23164,8 +23182,18 @@ def adopt_orphan_positions() -> int:
             continue
 
         is_long = qty > 0
+        # A name entered as a breakout zone this session is not really an
+        # orphan -- its record is in flight in another process -- and that
+        # strategy must never carry a stop. Adopt it (so it still gets exit
+        # management if the tracker write really did fail) but as the setup it
+        # actually is, with the no-stop sentinel. Skipping it outright would
+        # remove the very net that exists for a failed tracker write; giving it
+        # the 8% fallback is what stopped SECZ out at the low.
+        _was_bzone = _is_duplicate_alert(f"__BZONE_ENTRY__:{sym}", cooldown_min=24 * 60)
         stop = stops.get(sym)
-        if stop is None:
+        if _was_bzone:
+            stop, stop_note = 0.01, "breakout zone — no stop by design"
+        elif stop is None:
             stop = round(entry * (1 - ADOPTED_FALLBACK_STOP_PCT), 4)
             stop_note = f"no broker stop — fallback {ADOPTED_FALLBACK_STOP_PCT:.0%}"
         else:
@@ -23189,7 +23217,7 @@ def adopt_orphan_positions() -> int:
         pos = OpenPosition(
             ticker     = sym,
             bias       = "LONG" if is_long else "SHORT",
-            setup      = ADOPTED_SETUP,
+            setup      = (f"{BZONE_SETUP} (adopted)" if _was_bzone else ADOPTED_SETUP),
             entry      = round(entry, 4),
             stop       = round(stop, 4),
             target1    = round(entry + risk * 2.0, 4),

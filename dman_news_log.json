@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:53:20.906505-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Stitch Fix Posts Mixed Q4 Results, Joins Viking Therapeutics And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:53:20.909166-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Why GlucoTrack Shares Are Trading Higher By Around 118%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T11:53:20.911654-04:00",
     "symbols": [
       "SFIX"
@@ -5061,6 +5041,26 @@
       "AKAM"
     ],
     "headline": "JP Morgan Maintains Neutral on Akamai Technologies, Raises Price Target to $167",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:44:52.289451-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Did Breach Implied Covenant of Good Faith With Nektar Therapeutics, Jury Funds",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T10:45:18.864875-04:00",
+    "symbols": [
+      "WTTR"
+    ],
+    "headline": "Select Water Solutions Announces Deal To Acquire Water Midstream Firm Pilot Water For $600M Cash, $100M Stock And Up To $15M Earnout",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

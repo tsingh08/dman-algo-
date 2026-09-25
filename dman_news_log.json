@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:29:55.267659-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "EXCLUSIVE: Nvidia Keeps AI Profits, TSMC May Want a Bigger Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T14:29:55.481442-04:00",
     "symbols": [
       "META"
@@ -5062,5 +5052,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:48:11.887008-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "CleanSpark Raises Capital via Expensive Debt, Stock Falls",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

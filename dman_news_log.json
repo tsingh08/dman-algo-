@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:50:08.825455-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Rolls Out Horizon Create, Horizon Studio",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:50:11.369130-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Qualcomm Renew Global Patent License Deal With Apple, Effective April 1, 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:50:11.381851-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon To Invest $100M+ In Advanced Manufacturing Facility In Indiana, Adding Production And Engineering 300 Jobs; Expected To Open In 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:50:11.401776-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "What&#39;s Going On with AppLovin Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:50:11.405414-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Cloudflare 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:50:11.411643-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Stock of the Day: Is this the Bottom for Airbnb?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:50:11.436130-04:00",
-    "symbols": [
-      "CYCU"
-    ],
-    "headline": "Cycurion Anticipates $843,028 Revenue This Year From losed Public Safety Engagements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T14:51:55.835864-04:00",
     "symbols": [
       "SPY"
@@ -5061,6 +4991,76 @@
     "headline": "Fed&#39;s Hammack Says Important For Fed To Deliver On Inflation Mandate; High Inflation Complicates Economic Planning; Fed Policy Is Not Restraining Activity Outside Of Housing",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:42:48.303116-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;White House Eyes Diesel Fuel Moves That Fall Short Of Export Ban&#39; - Politico",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:43:58.704537-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is PayPal Stock Surging on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T14:43:59.234474-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Why Is PayPal Stock Surging on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T14:44:06.275461-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:44:13.939936-04:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:44:16.731725-04:00",
+    "symbols": [
+      "MGLD"
+    ],
+    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:44:19.122056-04:00",
+    "symbols": [
+      "AESI"
+    ],
+    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

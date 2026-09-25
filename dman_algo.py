@@ -18943,25 +18943,40 @@ def _submit_strangle(result: dict, event: str) -> str:
     if _needed is not None and _expected is not None and _needed > _expected * STRANGLE_MOVE_HEADROOM:
         return (f"⛔ Not executed — needs {_needed:.1f}% to break even but {result['ticker']} "
                 f"only covers about {_expected:.1f}% in {result['dte']}d.")
-    _qty = size_strangle_trade(result["total_premium"])
+    # Price both legs FIRST, then size and pay-check against what will actually
+    # be sent. Sizing on the quoted premium while submitting at premium + 3%
+    # overspent the per-position budget by the buffer, the same gap already
+    # fixed in _submit_options_call/_submit_options_put.
+    _limits = {_s: round(float(result[_s]["premium"]) * 1.03, 2) for _s in ("call", "put")}
+    _per_strangle = round(sum(_limits.values()) * 100, 2)
+    _qty = size_strangle_trade(_per_strangle / 100.0)
     if _qty < 1:
         return (f"⛔ Not executed — one strangle costs "
-                f"${result['total_premium'] * 100:.0f}, over the "
+                f"${_per_strangle:.0f} at the limits being sent, over the "
                 f"${OPTIONS_CONTRACT_BUDGET_MAX:.0f} per-position budget.")
+    _total_cost = round(_per_strangle * _qty, 2)
+    # Every single-leg entry pay-checks; this path never did. Without it the
+    # SECOND leg is the one that gets rejected for buying power -- leaving the
+    # first leg filled and the account holding a naked directional option
+    # instead of the volatility position that was intended.
+    _cash_ok, _cash_msg = _cash_available_for(_total_cost)
+    if not _cash_ok:
+        return f"⛔ Not executed — {html.escape(str(_cash_msg))}"
     client = get_alpaca_client()
     if client is None:
         return "⛔ Not executed — no broker client."
     from alpaca.trading.requests import LimitOrderRequest
     from alpaca.trading.enums import OrderSide, TimeInForce
-    _done, _failed = [], []
+    _done, _failed, _orders = [], [], {}
     for _side in ("call", "put"):
         _leg = result[_side]
         _occ = _leg["occ"]
-        _limit = round(float(_leg["premium"]) * 1.03, 2)
+        _limit = _limits[_side]
         try:
             _order = client.submit_order(LimitOrderRequest(
                 symbol=_occ, qty=_qty, side=OrderSide.BUY,
                 time_in_force=TimeInForce.DAY, limit_price=_limit))
+            _orders[_side] = _order
         except Exception as exc:
             _failed.append(f"{_side.upper()} {exc}")
             continue
@@ -18979,7 +18994,26 @@ def _submit_strangle(result: dict, event: str) -> str:
         _done.append(f"{_side.upper()} {_occ} ×{_qty} @ ${_limit:.2f}"
                      + ("" if _tracked else " (UNTRACKED — position slots full)"))
         print(f"  ⚡ Strangle leg submitted: {_occ} ×{_qty} @ ${_limit:.2f} id={str(_order.id)[:8]}…")
-    if _done:
+    # A strangle is one position with two legs. If only one went in, the
+    # account is holding a DIRECTIONAL bet nobody asked for -- the opposite of
+    # the volatility-neutral trade this advisory describes. Cancel the survivor
+    # while it is still an unfilled limit; if it already filled, say so loudly
+    # rather than letting it pass as a completed strangle.
+    if _failed and _orders:
+        for _side, _order in list(_orders.items()):
+            _px, _got = _order_fill_state(client, _order, tries=1)
+            if _got > 0:
+                _failed.append(
+                    f"{_side.upper()} ALREADY FILLED ×{int(_got)} @ ${_px:.2f} — "
+                    f"this is now a NAKED {_side.upper()}, not a strangle")
+                continue
+            try:
+                client.cancel_order_by_id(_order.id)
+                _done = [d for d in _done if not d.startswith(_side.upper())]
+                _failed.append(f"{_side.upper()} cancelled (its sibling never went in)")
+            except Exception as exc:
+                _log_swallowed("strangle unwind", exc)
+    if _done and not _failed:
         _save_last_alert(_dedup)
         _save_last_alert(_day_key)
     _line = ("🤖 <b>AUTO-EXECUTED</b>\n   " + "\n   ".join(_done)) if _done else "⛔ Not executed"

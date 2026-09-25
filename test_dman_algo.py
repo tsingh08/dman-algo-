@@ -16863,6 +16863,7 @@ class TestStrangleAutoExecution(unittest.TestCase):
         cl = self._client()
         with patch.object(a, "get_alpaca_client", return_value=cl), \
              patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
              patch.object(a, "_is_duplicate_alert", return_value=False), \
              patch.object(a, "_save_last_alert"), \
              patch.object(a, "size_strangle_trade", return_value=1), \
@@ -16887,6 +16888,7 @@ class TestStrangleAutoExecution(unittest.TestCase):
         cl = self._client()
         with patch.object(a, "get_alpaca_client", return_value=cl), \
              patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
              patch.object(a, "_is_duplicate_alert", return_value=False), \
              patch.object(a, "size_strangle_trade", return_value=0):
             note = a._submit_strangle(self._result(), "FOMC")
@@ -16913,7 +16915,7 @@ class TestStrangleAutoExecution(unittest.TestCase):
                 return seen["n"] > 1        # first ticker executes, second does not
             return False
 
-        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")),              patch.object(a, "_is_duplicate_alert", side_effect=_dup),              patch.object(a, "_save_last_alert"),              patch.object(a, "size_strangle_trade", return_value=1),              patch.object(a, "PositionTracker") as pt:
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")),              patch.object(a, "_cash_available_for", return_value=(True, "")),              patch.object(a, "_is_duplicate_alert", side_effect=_dup),              patch.object(a, "_save_last_alert"),              patch.object(a, "size_strangle_trade", return_value=1),              patch.object(a, "PositionTracker") as pt:
             pt.return_value.open.return_value = True
             first = a._submit_strangle(self._result(), "OPEX")
             second = a._submit_strangle({**self._result(), "ticker": "SPY"}, "OPEX")
@@ -17058,6 +17060,7 @@ class TestStrangleMoveMath(unittest.TestCase):
         cl.submit_order.return_value = MagicMock(id="x1")
         with patch.object(a, "get_alpaca_client", return_value=cl), \
              patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
              patch.object(a, "_is_duplicate_alert", return_value=False), \
              patch.object(a, "_save_last_alert"), \
              patch.object(a, "size_strangle_trade", return_value=1), \
@@ -17072,6 +17075,7 @@ class TestStrangleMoveMath(unittest.TestCase):
         cl.submit_order.return_value = MagicMock(id="x1")
         with patch.object(a, "get_alpaca_client", return_value=cl), \
              patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
              patch.object(a, "_is_duplicate_alert", return_value=False), \
              patch.object(a, "_save_last_alert"), \
              patch.object(a, "size_strangle_trade", return_value=1), \
@@ -19666,3 +19670,81 @@ class TestOptionsSizeOnTheLimitNotTheMid(unittest.TestCase):
             "_find_best_call_contract", "_submit_options_call", 50.0)
         self.assertIsNone(oid)
         client.submit_order.assert_not_called()
+
+
+class TestStrangleIsOnePositionWithTwoLegs(unittest.TestCase):
+    """A strangle submitted leg-by-leg can half-fail. The account is then
+    holding a DIRECTIONAL option, the opposite of the volatility-neutral trade
+    the advisory describes. This path also never pay-checked, so the SECOND
+    leg is exactly the one buying power would reject."""
+
+    def _result(self):
+        return {"ticker": "SPY", "expiration": "2026-10-16", "dte": 7,
+                "total_premium": 2.00, "move_needed_pct": 1.0,
+                "expected_move_pct": 3.0,
+                "call": {"occ": "SPY261016C00600000", "premium": 1.00, "strike": 600,
+                         "bid": 0.98, "ask": 1.02, "iv_pct": 20, "volume": 10, "oi": 10},
+                "put": {"occ": "SPY261016P00600000", "premium": 1.00, "strike": 600,
+                        "bid": 0.98, "ask": 1.02, "iv_pct": 20, "volume": 10, "oi": 10}}
+
+    def _ctx(self, client, cash=(True, "")):
+        return [patch.object(a, "flag", return_value=True),
+                patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")),
+                patch.object(a, "_is_duplicate_alert", return_value=False),
+                patch.object(a, "_save_last_alert"),
+                patch.object(a, "_cash_available_for", return_value=cash),
+                patch.object(a, "get_alpaca_client", return_value=client),
+                patch.object(a, "PositionTracker", return_value=MagicMock()),
+                patch.object(a.time, "sleep", lambda *_: None)]
+
+    def _run(self, client, cash=(True, "")):
+        ctx = self._ctx(client, cash)
+        for c in ctx:
+            c.start()
+        try:
+            return a._submit_strangle(self._result(), "FOMC")
+        finally:
+            for c in ctx:
+                c.stop()
+
+    def test_both_legs_submit_at_the_limit(self):
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid")
+        line = self._run(client)
+        self.assertIn("AUTO-EXECUTED", line)
+        self.assertEqual(client.submit_order.call_count, 2)
+        for call in client.submit_order.call_args_list:
+            self.assertEqual(float(call[0][0].limit_price), 1.03)
+
+    def test_a_failed_second_leg_cancels_the_first(self):
+        client = MagicMock()
+        client.submit_order.side_effect = [SimpleNamespace(id="oid-call"),
+                                           Exception("insufficient buying power")]
+        client.get_order_by_id.return_value = SimpleNamespace(
+            filled_avg_price=None, filled_qty="0")
+        line = self._run(client)
+        client.cancel_order_by_id.assert_called_once_with("oid-call")
+        self.assertIn("cancelled", line)
+        self.assertNotIn("AUTO-EXECUTED", line)
+
+    def test_a_first_leg_that_already_filled_is_called_out_loudly(self):
+        client = MagicMock()
+        client.submit_order.side_effect = [SimpleNamespace(id="oid-call"),
+                                           Exception("rejected")]
+        client.get_order_by_id.return_value = SimpleNamespace(
+            filled_avg_price="1.03", filled_qty="1")
+        line = self._run(client)
+        self.assertIn("NAKED", line)
+        client.cancel_order_by_id.assert_not_called()
+
+    def test_no_cash_means_no_legs_at_all(self):
+        client = MagicMock()
+        line = self._run(client, cash=(False, "not enough cash"))
+        self.assertIn("Not executed", line)
+        client.submit_order.assert_not_called()
+
+    def test_the_budget_is_measured_at_the_limits_being_sent(self):
+        """Sizing on the quoted premium overspent by the 3% buffer."""
+        src = inspect.getsource(a._submit_strangle)
+        self.assertIn("_per_strangle", src)
+        self.assertIn("_cash_available_for", src)

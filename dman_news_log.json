@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:13:04.504123-04:00",
-    "symbols": [
-      "BB"
-    ],
-    "headline": "Earnings Scheduled For September 24, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T13:13:04.507276-04:00",
     "symbols": [
       "BB"
@@ -5077,5 +5067,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:00:42.665594-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

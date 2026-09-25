@@ -198,5 +198,25 @@
 "extension_pct": 24.7,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "MRNA",
+"date": "2026-09-25",
+"close": 198.88,
+"base_days": 0,
+"above_low_pct": 789.4,
+"extension_pct": 30.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "IOVA",
+"date": "2026-09-25",
+"close": 11.0,
+"base_days": 5,
+"above_low_pct": 507.7,
+"extension_pct": 20.0,
+"fresh_base": false,
+"weak_band": false
 }
 ]

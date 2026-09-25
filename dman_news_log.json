@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:35:40.153772-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T13:35:40.375957-04:00",
     "symbols": [
       "SKHY"
@@ -5065,5 +5055,19 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:25:59.564308-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "ORCL"
+    ],
+    "headline": "Microsoft Gives Copilot A Major AI Makeover",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

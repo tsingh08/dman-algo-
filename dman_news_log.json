@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:59:28.298348-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Is Now a \u2018Battleground\u2019 Between AI Momentum and Long-Term Demand \u2014 UBS Analyst Warns Long-Term Deals &#39;Mute&#39; Revenue Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T14:59:28.301085-04:00",
     "symbols": [
       "MU"
@@ -5064,6 +5054,16 @@
     "headline": "U.S. Appeals Court Rules Against Kalshi, Says States Can Regulate Its Event Contracts",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:52:36.786811-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Greenland Mines Announces Listing Of Common Shares On Frankfurt Stock Exchange Under Symbol HK6; No New Shares Issued",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

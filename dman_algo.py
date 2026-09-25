@@ -8073,7 +8073,26 @@ def run_premarket_early_scan() -> None:
             # with that fix — it does not touch entry criteria or targets.
             _risk_pct  = min(SMALLCAP_RISK_PCT * MOONSHOT_RISK_MULT * _early_ctx["risk_mult"],
                              PORTFOLIO_HEAT_LIMIT, MAX_TRADE_LOSS_PCT)
+            # Probation halves size on every other entry path -- _submission_
+            # risk_multiplier() applies it "last and unconditionally so it
+            # always takes effect". This path builds its own sizing and never
+            # called it, so the single most aggressive entry in the system
+            # (MOONSHOT_RISK_MULT = 5x) was the one trade probation did not
+            # shrink, on an account that is in probation precisely because it
+            # is in drawdown.
+            _pm_prob_on, _pm_prob_mult = is_on_probation()
+            if _pm_prob_on and _pm_prob_mult != 1.0:
+                _risk_pct *= _pm_prob_mult
+                print(f"  🟡 Pre-market probation sizing: ×{_pm_prob_mult:.2f} "
+                      f"→ risk {_risk_pct*100:.1f}% of account")
             _base_risk = _acct * _risk_pct
+            # PORTFOLIO_HEAT_LIMIT is the ceiling on TOTAL risk across every
+            # open position, but it was being used as a PER-TRADE cap and then
+            # multiplied by up to three concurrent entries -- so this path
+            # could commit ~3x the limit it was reading. Share one budget, the
+            # same way the cash check below already shares one balance.
+            _pm_heat_budget = _acct * PORTFOLIO_HEAT_LIMIT
+            _pm_risk_used   = 0.0
             _pm_pt   = PositionTracker()
             # Filter BEFORE slicing, so non-watchlist names cannot use up the
             # three slots. This path calls submit_order() directly and never
@@ -8096,6 +8115,15 @@ def run_premarket_early_scan() -> None:
                     if _cost > SMALLCAP_MAX_COST:
                         _shares = max(1, int(SMALLCAP_MAX_COST / _ep))
                         _cost   = _shares * _ep
+                    # After the cost cap, so this is the risk of the size
+                    # actually being sent rather than the one first computed.
+                    _actual_risk = _shares * _rps
+                    if _pm_risk_used + _actual_risk > _pm_heat_budget:
+                        print(f"  🌡  {_e['ticker']} pre-market: would take total risk to "
+                              f"${_pm_risk_used + _actual_risk:.0f}, over the "
+                              f"{PORTFOLIO_HEAT_LIMIT*100:.0f}% heat budget "
+                              f"(${_pm_heat_budget:.0f}) — skipping")
+                        continue
                     # Tracked and decremented across all 3 possible entries in
                     # this loop, not just checked once — up to 3 concurrent
                     # pre-market orders submitted in immediate succession
@@ -8110,6 +8138,7 @@ def run_premarket_early_scan() -> None:
                                   f"cash remaining — skipping (no margin)")
                             continue
                         _pm_remaining_cash -= _cost
+                    _pm_risk_used += _actual_risk
                     _order = _client.submit_order(_LimReq(
                         symbol        = _e["ticker"],
                         qty           = _shares,
@@ -27109,8 +27138,24 @@ def main():
         _tg_n = _process_telegram_commands()
         if _tg_n:
             print(f"  📱 Processed {_tg_n} Telegram command(s)")
-    except Exception:
-        pass
+    except Exception as _tg_exc:
+        # Was `except Exception: pass`. Telegram is the only channel that can
+        # halt, close or resume this system by hand, so a command processor
+        # that starts throwing takes away the manual override with no sign
+        # that anything is wrong -- every run would just quietly stop reading
+        # commands. Say it out loud, once per cooldown.
+        _log_swallowed("telegram command processing", _tg_exc)
+        try:
+            if not _is_duplicate_alert("__TELEGRAM_CMD_BROKEN__"):
+                send_telegram(
+                    "⚠️ <b>Telegram commands are not being processed</b>\n"
+                    f"<code>{html.escape(str(_tg_exc)[:180])}</code>\n"
+                    "Alerts still send, but /halt, /close and /resume are not "
+                    "being read right now."
+                )
+                _save_last_alert("__TELEGRAM_CMD_BROKEN__")
+        except Exception:
+            pass
 
     # Lightweight, no-ticker modes exit before the universe/watchlist loading
     # below — merge-positions runs once per persist step (every scan) and has

@@ -19787,3 +19787,41 @@ class TestAdaptiveMinScoreIsLiveOnly(unittest.TestCase):
         head = src[:src.index("[1/2]")]
         self.assertIn("rolling_stats(live_only=True)", head)
         self.assertIn("Live WR", head)
+
+
+class TestPremarketAutoSubmitRespectsRiskLimits(unittest.TestCase):
+    """The pre-market moon-shot path builds its own sizing and never went
+    through _submission_risk_multiplier(), so it was the one entry probation
+    did not shrink -- on the most aggressive multiplier in the system
+    (MOONSHOT_RISK_MULT = 5x). It also read PORTFOLIO_HEAT_LIMIT, which is the
+    ceiling on TOTAL risk, as a PER-TRADE cap and then placed up to three."""
+
+    def _src(self):
+        return inspect.getsource(a.run_premarket_early_scan)
+
+    def test_probation_sizing_is_applied(self):
+        src = self._src()
+        blk = src[src.index("Pre-market auto-submit"):]
+        self.assertIn("is_on_probation()", blk)
+        self.assertIn("_risk_pct *= _pm_prob_mult", blk)
+
+    def test_one_shared_heat_budget_not_one_per_trade(self):
+        src = self._src()
+        blk = src[src.index("Pre-market auto-submit"):]
+        self.assertIn("_pm_heat_budget", blk)
+        self.assertIn("_pm_risk_used + _actual_risk > _pm_heat_budget", blk)
+        self.assertIn("_pm_risk_used += _actual_risk", blk)
+
+    def test_risk_is_measured_after_the_cost_cap(self):
+        """SMALLCAP_MAX_COST can trim the share count; the heat check has to
+        see the size actually being sent."""
+        src = self._src()
+        blk = src[src.index("Pre-market auto-submit"):]
+        self.assertLess(blk.index("if _cost > SMALLCAP_MAX_COST"),
+                        blk.index("_actual_risk = _shares * _rps"))
+
+    def test_the_heat_limit_is_a_portfolio_total_everywhere_it_is_read(self):
+        """Documents the constant's meaning so the per-trade reading cannot
+        come back: run_pro_scanner accumulates against it too."""
+        scan = inspect.getsource(a.run_pro_scanner)
+        self.assertIn("total_risk_pct + trade_risk_pct <= PORTFOLIO_HEAT_LIMIT", scan)

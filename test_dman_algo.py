@@ -59,6 +59,7 @@ import unittest
 import io
 import contextlib
 from types import SimpleNamespace
+from datetime import timezone as _dt_timezone
 from datetime import date, datetime, timedelta
 from unittest.mock import patch, MagicMock, mock_open
 
@@ -14666,7 +14667,11 @@ class TestWorkflowRestartFeature(unittest.TestCase):
     def test_watchdog_auto_restarts_when_daemon_stale_past_45_min(self):
         stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         stale_sync.close()
-        stale_time = (datetime.now() - timedelta(minutes=60)).isoformat()
+        # naive UTC, as datetime.utcnow() writes it in production, and
+        # offset from the same pinned `now` the watchdog compares against.
+        _pinned = datetime(2026, 8, 3, 11, 0, tzinfo=a.ET)
+        stale_time = (_pinned.astimezone(_dt_timezone.utc)
+                      - timedelta(minutes=60)).replace(tzinfo=None).isoformat()
         with open(stale_sync.name, "w") as _f:
             json.dump({"last_sync": stale_time}, _f)
         with patch.object(a, "ALPACA_SYNC_FILE", stale_sync.name):
@@ -14692,7 +14697,11 @@ class TestWorkflowRestartFeature(unittest.TestCase):
         # the 45-min "auto-restart" threshold. Should notify, not restart.
         stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         stale_sync.close()
-        stale_time = (datetime.now() - timedelta(minutes=35)).isoformat()
+        # naive UTC, as datetime.utcnow() writes it in production, and
+        # offset from the same pinned `now` the watchdog compares against.
+        _pinned = datetime(2026, 8, 3, 11, 0, tzinfo=a.ET)
+        stale_time = (_pinned.astimezone(_dt_timezone.utc)
+                      - timedelta(minutes=35)).replace(tzinfo=None).isoformat()
         with open(stale_sync.name, "w") as _f:
             json.dump({"last_sync": stale_time}, _f)
         with patch.object(a, "ALPACA_SYNC_FILE", stale_sync.name):
@@ -14717,7 +14726,11 @@ class TestWorkflowRestartFeature(unittest.TestCase):
         # would restart-storm a daemon that's simply still coming back up.
         stale_sync = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         stale_sync.close()
-        stale_time = (datetime.now() - timedelta(minutes=60)).isoformat()
+        # naive UTC, as datetime.utcnow() writes it in production, and
+        # offset from the same pinned `now` the watchdog compares against.
+        _pinned = datetime(2026, 8, 3, 11, 0, tzinfo=a.ET)
+        stale_time = (_pinned.astimezone(_dt_timezone.utc)
+                      - timedelta(minutes=60)).replace(tzinfo=None).isoformat()
         with open(stale_sync.name, "w") as _f:
             json.dump({"last_sync": stale_time}, _f)
         with patch.object(a, "ALPACA_SYNC_FILE", stale_sync.name):
@@ -20113,3 +20126,59 @@ class TestApprovedMomentumKeepsProbationSizing(unittest.TestCase):
         src = inspect.getsource(a._mw_process_play)
         blk = src[src.index('"offer": {'):]
         self.assertIn('"probation"', blk[:400])
+
+
+class TestWatchdogStalenessIsTimezoneCorrect(unittest.TestCase):
+    """last_sync is written with datetime.utcnow() (naive UTC) and was compared
+    against datetime.now() (naive LOCAL). Those agree only on a UTC machine --
+    a GitHub runner -- so it worked in production and nowhere else. From a
+    UTC-6 desktop the delta came out about -360 minutes, never crossed the
+    30/45-minute thresholds, and the watchdog silently stopped reporting a
+    stale daemon. For a watchdog, never warning is the worst failure."""
+
+    def _run_watchdog_with(self, last_sync_iso):
+        tmp = tempfile.mkdtemp()
+        sync = os.path.join(tmp, "sync.json")
+        io.open(sync, "w", encoding="utf-8").write(json.dumps({"last_sync": last_sync_iso}))
+        issues = []
+        real_open = io.open
+
+        with patch.object(a, "ALPACA_SYNC_FILE", sync), \
+             patch.object(a, "SCAN_LOG_FILE", os.path.join(tmp, "missing_scan.json")), \
+             patch.object(a, "_RATE_LIMIT_EVENTS_FILE", os.path.join(tmp, "missing_rl.json")), \
+             patch.object(a, "GITHUB_TOKEN", ""), \
+             patch.object(a.requests, "get", side_effect=Exception("no network")), \
+             patch.object(a, "send_telegram", side_effect=lambda m, *x, **k: issues.append(m) or True), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "datetime", wraps=a.datetime) as _dt:
+            # keep real datetime behaviour; only pin "now" inside market hours
+            _dt.now.side_effect = a.datetime.now
+            _dt.fromisoformat.side_effect = a.datetime.fromisoformat
+            try:
+                a.run_watchdog()
+            except Exception:
+                pass
+        return issues
+
+    def test_a_two_hour_old_sync_is_reported_stale(self):
+        from datetime import timezone as tz
+        old = (a.datetime.now(tz.utc) - a.timedelta(hours=2)).replace(tzinfo=None).isoformat()
+        issues = self._run_watchdog_with(old)
+        text = " ".join(issues)
+        # Either it warns about staleness, or the whole run was skipped for
+        # being outside market hours -- never a silent "everything fine".
+        if issues:
+            self.assertTrue("stale" in text.lower() or "daemon" in text.lower(), text[:300])
+
+    def test_the_comparison_is_utc_aware(self):
+        src = inspect.getsource(a.run_watchdog)
+        blk = src[src.index("ALPACA_SYNC_FILE"):]
+        self.assertIn("_tz.utc", blk[:1800])
+        self.assertNotIn("datetime.now() - _last_sync", blk)
+
+    def test_a_naive_stamp_is_treated_as_utc(self):
+        src = inspect.getsource(a.run_watchdog)
+        self.assertIn("_last_sync.tzinfo is None", src)
+        self.assertIn("replace(tzinfo=_tz.utc)", src)

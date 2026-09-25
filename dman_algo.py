@@ -5371,9 +5371,24 @@ def run_watchdog() -> None:
     daemon_likely_down = False
     if 930 <= t <= 1600:
         try:
+            from datetime import timezone as _tz
             with open(ALPACA_SYNC_FILE) as f:
                 _last_sync = datetime.fromisoformat(json.load(f).get("last_sync", ""))
-            _stale_min = (datetime.now() - _last_sync).total_seconds() / 60
+            # last_sync is written with datetime.utcnow() (naive UTC), and this
+            # used to compare it against datetime.now() -- naive LOCAL. Those
+            # agree only on a UTC machine, which a GitHub runner happens to be,
+            # so it worked in production and nowhere else. Run via
+            # `--mode watchdog` from a UTC-6 desktop the delta comes out about
+            # -360 minutes, never exceeds the 30/45-minute thresholds, and the
+            # watchdog silently stops reporting a stale daemon at all. For a
+            # watchdog, "never warns" is the worst direction to fail in.
+            #
+            # Compare in UTC explicitly, treating a naive stamp as the UTC it
+            # is. Same class as the 2026-08-23 fix in _get_day_start_equity(),
+            # which this file already carries a comment about.
+            if _last_sync.tzinfo is None:
+                _last_sync = _last_sync.replace(tzinfo=_tz.utc)
+            _stale_min = (datetime.now(_tz.utc) - _last_sync).total_seconds() / 60
             if _stale_min > 30:
                 issues.append(f"⚠️ Daemon sync stale — last synced {_stale_min:.0f} min ago")
             # The daemon's own sync cadence is every 5 min (SYNC_EVERY_S) —

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:59:42.073817-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Launches Gemini 3.8 Live With Live Avatar For Enterprise AI Agents",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T12:01:28.113515-04:00",
     "symbols": [
       "META"
@@ -5065,5 +5055,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:03:53.645570-04:00",
+    "symbols": [
+      "INLF",
+      "MSGY"
+    ],
+    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

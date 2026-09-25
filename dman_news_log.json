@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:35:41.415373-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:35:41.546225-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T13:35:41.550112-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:35:41.716529-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T13:35:41.844887-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:35:41.992288-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T13:35:42.167307-04:00",
     "symbols": [
       "HIMS"
@@ -5067,6 +5007,66 @@
     ],
     "headline": "Oklo Stock Trades Flat as UBS Cuts Price Target to $41",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:42:12.059523-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Gives Copilot A Major AI Makeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T12:42:13.035011-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Microsoft Gives Copilot A Major AI Makeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:42:13.324945-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Microsoft Gives Copilot A Major AI Makeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:42:13.664096-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Microsoft Gives Copilot A Major AI Makeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T12:42:22.500710-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Microsoft Gives Copilot A Major AI Makeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:42:28.576838-04:00",
+    "symbols": [
+      "MGLD"
+    ],
+    "headline": "This Obscure Stock Just Jumped 94% Before Lunch \u2015 Only One ETF Caught It",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

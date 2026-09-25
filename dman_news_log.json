@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:54:39.604609-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "UBS Maintains Neutral on Stitch Fix, Lowers Price Target to $3.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T14:54:39.608000-04:00",
     "symbols": [
       "SFIX"
@@ -5061,6 +5051,16 @@
     "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:03:12.536882-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Is Mindful Of Financial Conditions, But Fed Is The Decision Maker On Monetary Policy; Fed Needs Flexibility In This Environment Which Limits Guidance",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

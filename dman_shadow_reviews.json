@@ -178,5 +178,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-09-25T10:52:36.802580-04:00",
+  "kind": "signal",
+  "ticker": "DDOG",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 84.8 is deeply overbought. Gap & Hold works best with room to run; extreme RSI suggests limited upside before pullback.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 271.79,
+   "stop": 258.39,
+   "target1": 305.29,
+   "rr": 2.5,
+   "rvol": 2.24,
+   "rsi": 84.8,
+   "reason": "Gap up +2.4% from prior close, holding, RVOL 2.2x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

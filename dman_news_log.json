@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:11.990401-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Initial Jobless Claims 197K Vs 201K Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T09:26:12.209293-04:00",
     "symbols": [
       "QQQ"
@@ -5084,5 +5074,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-24T19:45:20.480930-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Microsoft 20 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

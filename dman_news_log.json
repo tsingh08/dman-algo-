@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-24T09:26:12.209293-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Drop as Bessent Says Iranian Aviation Restrictions Are Working\u2014 Airbnb, Oracle, Costco in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:12.214298-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Bond Market Alarm Bells Are Ringing, But Mohamed El-Erian Says Psychology May Be Fueling the Fear More Than Fundamentals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:12.219093-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Trump\u2019s Midterm Losses Could Be Wall Street\u2019s Gain: Billionaire Kenneth Fisher Calls Gridlock a \u2018Powerful Positive\u2019, Sees a Potential 19.8% Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:12.224284-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T09:26:12.642053-04:00",
-    "symbols": [
-      "AMIX"
-    ],
-    "headline": "Autonomix Medical Receives European Patent Titled Systems For Assessing Neural Activity In An Eye",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T09:26:12.855089-04:00",
     "symbols": [
       "APVO"
@@ -5084,5 +5034,59 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T09:10:33.854078-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Planet Labs PBC&#39;s Pelican-12 Arrives At Cape Canaveral Space Force Station In Florida For Planned Launch Aboard Bandwagon-5 Rideshare Mission With SpaceX",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:14:27.661840-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "SPY"
+    ],
+    "headline": "&#39;Trump Tells OpenAI, Anthropic to Withhold Models From UK Agency&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:16:25.360981-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Tesla Robot\u2019s Sophisticated Hands Pose Major Manufacturing And Durability Issues; Company Wants Production Line Capable Of Producing 1K+ Robots Per Week By End-2026; Has Ramped Up Production Of Optimus Robot Approximately Tenfold In Recent Months",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:17:43.433250-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Wells Fargo Initiates Coverage On Eaton Corp with Overweight Rating, Announces Price Target of $503",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T09:23:27.437948-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "HSBC Maintains Buy on Chevron, Raises Price Target to $250",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:35:42.167307-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-24T13:35:42.329577-04:00",
     "symbols": [
       "GME"
@@ -5069,5 +5059,20 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:43:23.103135-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NBIS",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "Nvidia GPU Demand Is So Extreme, Even Bad Cloud Infrastructure Is Selling, SemiAnalysis Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

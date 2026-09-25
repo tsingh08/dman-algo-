@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:41:51.948200-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury 10-year Yield High For Session Of 5.1685%, Highest Since July 2007; Yield On 10-Year Note Last Up 5.24 Basis Points At 5.166%",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T11:45:28.011782-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T11:45:28.271934-04:00",
     "symbols": [
       "NVDA"
@@ -5062,5 +5042,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:50:53.552225-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "XRP, Solana Surge 22% After Clarity Act Failure as Regulatory Moves Lifts Coinbase, Robinhood",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T09:51:08.238801-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Goldman Sachs Group, Lowers Price Target to $1175",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

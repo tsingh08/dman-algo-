@@ -23,7 +23,15 @@ jobs:
     # 15 -> 30: dispatched before 8:00 ET the briefing waits up to 12 min, then
     # runs 8-10; at 15 the timeout would kill it before its last step, which now
     # starts the trading daemon.
-    timeout-minutes: 30
+    # 30 -> 45. The briefing's last step (8/8) pre-builds the full RVOL scan
+    # universe, measured at ~8.5 minutes on its own, and the step above it can
+    # sleep up to 12 minutes waiting for 8:00 AM ET -- so the real budget was
+    # about 15 minutes for eight sections plus a build. A JOB-level timeout is
+    # not survivable the way a step failure is: GitHub skips `if: always()`
+    # steps when the job itself is killed, which would take out both the state
+    # persist AND the daemon dispatch below -- the step that guarantees the
+    # daemon is up for the open.
+    timeout-minutes: 45
     permissions:
       # write, not read: this job BUILDS the 500-ticker scan universe for the
       # 9:45 Gap & Hold gate and had no way to save it. See the persist step.

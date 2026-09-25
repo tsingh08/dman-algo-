@@ -1,107 +1,5 @@
 [
   {
-    "ts": "2026-09-24T12:34:55.017889-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Here&#39;s How Meta&#39;s Muse Mania Is Spilling into Leveraged ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:34:56.028805-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Here&#39;s How Meta&#39;s Muse Mania Is Spilling into Leveraged ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T12:43:36.657147-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Bloom Energy Stock Falling Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:43:59.267582-04:00",
-    "symbols": [
-      "ARCT"
-    ],
-    "headline": "Citigroup Upgrades Arcturus Therapeutics to Buy, Raises Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T12:43:59.273828-04:00",
-    "symbols": [
-      "ARCT"
-    ],
-    "headline": "Everpure, Fervo Energy, Charles River Laboratories And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T12:44:53.466403-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla FSD Drove Over the Limit in 55% of Brussels Tests Ahead of EU Approval Vote",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:48:26.280648-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT"
-    ],
-    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:48:27.606299-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Chinese President Xi Jinping Says China Hopes US Keeps Opposing Taiwan Independence, Handles Taiwan Question With Prudence - Xinhua",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T12:48:40.460526-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms shares are trading higher after multiple analysts maintained their Outperform, Overweight, or Strong Buy ratings on the stock and raised their respective price targets.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T12:48:44.038399-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T12:48:44.718876-04:00",
     "symbols": [
       "GOOGL"
@@ -5071,6 +4969,106 @@
       "MRLN"
     ],
     "headline": "Canaccord Genuity Initiates Coverage On Merlin with Buy Rating, Announces Price Target of $7.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:26:28.994849-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on Meta Platforms, Raises Price Target to $950",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:26:31.164843-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:26:33.107422-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:26:33.323456-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Is Preparing For A Customer That Can\u2019t Open An Account",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T11:26:34.590427-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:26:34.800755-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Why Is Atlas Energy Stock Gaining Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:26:34.805282-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:26:36.958685-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:26:37.170539-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:26:37.373172-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

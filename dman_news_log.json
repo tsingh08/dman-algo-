@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T12:48:44.718876-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T12:48:44.726479-04:00",
     "symbols": [
       "AMZN"
@@ -5071,6 +5061,16 @@
     "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:30:31.167896-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FAA To Cease Permission For Specific Cessna Jets To Be Flown With Single Pilot That Requires Two Pilots",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

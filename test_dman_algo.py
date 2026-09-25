@@ -19860,3 +19860,73 @@ class TestPrebuiltUniverseReachesTheGate(unittest.TestCase):
         """Documents why a late commit is worthless, not merely stale."""
         src = inspect.getsource(a.main)
         self.assertIn("_cache_date == _today_str", src)
+
+
+class TestAdoptedOrphansGetNoGuessedStop(unittest.TestCase):
+    """RSKD, 2026-09-25: a $7.39 stop appeared 19 seconds after the fill on a
+    breakout zone, which must never carry one. 8.0367 * 0.92 = 7.3938 -- the
+    adoption placeholder, placed at the broker by _auto_restore_missing_stop.
+
+    Every earlier guard keyed on state the OTHER process had not synced yet
+    (the tracker record, the __BZONE_ENTRY__ alert key). 19 seconds is far
+    shorter than the git-sync cadence, so all of them missed. This one keys on
+    the adopted record itself, which the adopting process just wrote.
+    """
+
+    def _adopted(self, entry=8.0367):
+        return SimpleNamespace(ticker="RSKD", setup=a.ADOPTED_SETUP,
+                               stop=round(entry * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4),
+                               entry=entry, target1=9.0, trail_pct=0,
+                               stop_stage="initial")
+
+    def test_no_stop_is_placed_for_an_adopted_orphan(self):
+        client = MagicMock()
+        with patch.object(a, "_pdt_zero_no_stop_today", return_value=False), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(positions=[self._adopted()])):
+            ok, detail = a._auto_restore_missing_stop(client, "RSKD", 31.0)
+        self.assertFalse(ok)
+        self.assertIn("adopted orphan", detail)
+        client.submit_order.assert_not_called()
+
+    def test_the_exact_rskd_number_is_never_sent(self):
+        """8.0367 * 0.92 = 7.3938 — the stop that actually went on."""
+        self.assertAlmostEqual(
+            round(8.0367 * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4), 7.3938, places=4)
+
+    def test_a_real_broken_bracket_is_still_repaired(self):
+        """The function's actual purpose (LITX/W) must keep working."""
+        real = SimpleNamespace(ticker="AAA", setup="Gap & Hold", stop=9.0,
+                               entry=10.0, target1=12.0, trail_pct=0,
+                               stop_stage="initial")
+        client = MagicMock()
+        client.get_orders.return_value = []
+        client.submit_order.return_value = SimpleNamespace(id="oid-restore")
+        with patch.object(a, "_pdt_zero_no_stop_today", return_value=False), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(positions=[real])):
+            ok, detail = a._auto_restore_missing_stop(client, "AAA", 10.0)
+        self.assertTrue(ok, detail)
+        client.submit_order.assert_called()
+
+
+class TestUnfilledEntryBlocksADuplicate(unittest.TestCase):
+    """DDOG, 2026-09-25: two GTC bracket entries 36 minutes apart, both still
+    working at the close. Entries are GTC limits, so an unfilled one leaves no
+    tracked position and the dedupe -- which only read pt.positions -- let the
+    next scan submit another."""
+
+    def test_the_guard_reads_working_orders_too(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        blk = src[:src.index("Validating")]
+        self.assertIn("already_tracked", blk)
+        self.assertIn("QueryOrderStatus.OPEN", blk)
+        self.assertIn("already_tracked.add", blk)
+
+    def test_it_fails_open_so_a_listing_error_cannot_halt_trading(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        blk = src[:src.index("Validating")]
+        self.assertIn("_log_swallowed", blk)

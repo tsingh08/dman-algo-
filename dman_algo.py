@@ -19203,6 +19203,30 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
         if tracked is not None and _is_no_stop_by_design(tracked.setup):
             return False, (f"{tracked.setup} exits on time, not on a stop — "
                            "not arming one (see _is_no_stop_by_design)")
+        # An ADOPTED orphan never had a stop to restore, so there is nothing
+        # here to repair. This function exists for a bracket that BROKE -- the
+        # LITX/W incidents, where a real stop went HELD or CANCELED and the
+        # position was left unprotected. adopt_orphan_positions() invents
+        # entry*(1-ADOPTED_FALLBACK_STOP_PCT) purely as a placeholder when the
+        # broker shows no stop, and placing that guess at the broker turns a
+        # bookkeeping default into a real exit order.
+        #
+        # Twice now that guess has attached itself to a breakout zone, which
+        # must never carry a stop: SECZ on 2026-09-24 (sold at $14.70, within
+        # 1.6% of the day's low, then closed $16.49) and RSKD on 2026-09-25
+        # ($7.39 stop placed 19 seconds after the fill).
+        #
+        # The previous guards all keyed on state the OTHER process had not
+        # synced yet -- the tracker record, the __BZONE_ENTRY__ alert key --
+        # and a 19-second gap is far shorter than the git-sync cadence they
+        # depend on. This one keys on the adopted record itself, which the
+        # adopting process just wrote, so no cross-process lag can defeat it.
+        # The orphan alert in _check_stop_coverage() still fires; a human is
+        # told, nothing is guessed at the broker.
+        if tracked is not None and str(tracked.setup).startswith(ADOPTED_SETUP):
+            return False, ("adopted orphan — its stop is a placeholder, not a "
+                           "broken bracket to repair; alerting instead of "
+                           "placing a guessed stop")
         if tracked is None or tracked.stop <= 0:
             return False, "not in PositionTracker (or no stop price on record) — can't safely auto-restore, needs manual review"
 
@@ -26391,6 +26415,27 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
     # Guard: skip tickers PositionTracker already knows about — prevents duplicate
     # bracket orders if the same signal fires across two consecutive scans.
     already_tracked = {p.ticker for p in pt.positions}
+    # A tracked POSITION is not the only way a ticker is already spoken for.
+    # Entries are GTC limits, so one that has not filled yet leaves no position
+    # to match against and the next scan happily submits another. DDOG,
+    # 2026-09-25: two bracket entries 36 minutes apart, $265.60 and $263.24,
+    # both still working at the close -- if both filled on Monday that is
+    # double the intended size on one name, sized and heat-budgeted as though
+    # each were the only one.
+    #
+    # More candidates make this more likely, not less, so it matters more now
+    # that the 9:45 gate reads the full pre-built universe.
+    try:
+        _client_dupe = get_alpaca_client()
+        if _client_dupe is not None:
+            for _o in _client_dupe.get_orders(filter=GetOrdersRequest(
+                    status=QueryOrderStatus.OPEN, limit=200)):
+                if str(getattr(_o.side, "value", _o.side)).lower() == "buy":
+                    already_tracked.add(str(_o.symbol).upper())
+    except Exception as _dupe_exc:
+        # Fail OPEN: a listing error must not block every entry for the
+        # session. The tracked-position guard above still applies.
+        _log_swallowed("working-order duplicate guard", _dupe_exc)
 
     print(f"\n  {'─'*68}")
     print(f"  [{mode_label}] Validating {len(signals)} signal(s) for Alpaca submission…")

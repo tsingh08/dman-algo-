@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:54:39.608000-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Telsey Advisory Group Maintains Market Perform on Stitch Fix, Lowers Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:54:40.924513-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "Arm Stock Dips Amid Oracle&#39;s &#34;Force Majeure&#34; Reports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:58:53.945692-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Dell Stock Edges Lower Thursday: What&#39;s Driving the Action?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:27.086262-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Rolling Out Multichannel Selling Tools In Seller Central For eBay, Shopify, TikTok, Walmart Integration; Tool To Be Launched For U.S. Settlers Without Any Additional Charge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:27.088974-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Google, OpenAI And Anthropic AI Safety Group Takes Shape; AI Safety Standards Body Has A Tentative Name: Standards Authority For Frontier AI; Group Plans To Operate Independently, Filling A Government Regulatory Vacuum&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:27.330535-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla&#39;s EU Market Share Rises To 1.9% From 1.2% YoY As January-August Registrations Jump 65.9% To 142,165 Units, August Registrations Up 52.7%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T14:59:27.333353-04:00",
     "symbols": [
       "TSLA"
@@ -5061,6 +5001,66 @@
     "headline": "Fed&#39;s Hammack Says Is Mindful Of Financial Conditions, But Fed Is The Decision Maker On Monetary Policy; Fed Needs Flexibility In This Environment Which Limits Guidance",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:08:31.408420-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Is Mindful Of Financial Conditions, But Fed Is The Decision Maker On Monetary Policy; Fed Needs Flexibility In This Environment Which Limits Guidance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:08:33.483267-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:08:33.488151-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:08:33.492750-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Scholastic Posts Downbeat Q1 Results, Joins Legacy Education, Zscaler And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:08:33.497238-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq Futures Rise Amid Optimism Following Iran\u2019s Offer To Reopen Strait of Hormuz \u2014 AKAM, COST, SCHL In Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:08:33.501746-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Why INLIF Shares Are Trading Higher By Around 78%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

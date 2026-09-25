@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:22:25.914948-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: Micron\u2019s Low P/E May Be Lying to Investors",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:24:17.543019-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "First Solar Stock Hits Fresh 52-Week Low: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T13:25:04.802102-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Stock Faces Pressure As Jefferies Cuts Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:25:23.408632-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Nebius Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:25:34.366967-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "What Is Going on With Nebius Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T13:25:38.568465-04:00",
     "symbols": [
       "NBIG"
@@ -5075,6 +5025,64 @@
     "headline": "UBS Upgrades Stem to Buy, Maintains Price Target to $7",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:06:42.622996-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "UBS Maintains Neutral on Oklo, Lowers Price Target to $41",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:07:11.493297-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T12:07:14.006245-04:00",
+    "symbols": [
+      "STEM"
+    ],
+    "headline": "UBS Upgrades Stem to Buy, Maintains Price Target to $7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:07:14.505913-04:00",
+    "symbols": [
+      "AKAM"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Akamai Technologies, Raises Price Target to $158",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T12:09:33.211991-04:00",
+    "symbols": [
+      "DIA",
+      "GME",
+      "IWM",
+      "META",
+      "NET",
+      "ONON",
+      "ORCL",
+      "QQQ",
+      "ZS"
+    ],
+    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

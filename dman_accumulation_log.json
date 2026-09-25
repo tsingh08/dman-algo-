@@ -250,23 +250,5 @@
   "drift_pct": 0.86,
   "range_ratio": 0.45,
   "near_high": 0.963
- },
- {
-  "ts": "2026-09-25T12:07:00.010128-04:00",
-  "ticker": "META",
-  "price": 749.4,
-  "rvol": 1.67,
-  "drift_pct": 1.1,
-  "range_ratio": 0.68,
-  "near_high": 0.964
- },
- {
-  "ts": "2026-09-25T12:07:00.010143-04:00",
-  "ticker": "TOTL",
-  "price": 37.655,
-  "rvol": 2.13,
-  "drift_pct": 0.99,
-  "range_ratio": 0.52,
-  "near_high": 0.957
  }
 ]

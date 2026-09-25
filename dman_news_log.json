@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:13:00.636648-04:00",
-    "symbols": [
-      "WETO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:00.950845-04:00",
-    "symbols": [
-      "SRZN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:01.227638-04:00",
-    "symbols": [
-      "PFSA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T13:13:01.356438-04:00",
     "symbols": [
       "SPHL"
@@ -5073,6 +5043,37 @@
       "ON"
     ],
     "headline": "If You Invested $100 In ON Semiconductor Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:47:03.524673-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:47:19.208027-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Reached New 52-Week High: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:49:44.116634-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Bloom Energy Stock Rebounds: What&#39;s Going On?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

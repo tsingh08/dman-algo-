@@ -178,5 +178,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-09-25T10:16:12.083210-04:00",
+  "kind": "signal",
+  "ticker": "DDOG",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "RSI 84.9 is deeply overbought. CHOP regime (score 14) contradicts directional trade. Gap already +2.4% - limited continuation edge.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 272.11,
+   "stop": 258.39,
+   "target1": 306.41,
+   "rr": 2.5,
+   "rvol": 2.84,
+   "rsi": 84.9,
+   "reason": "Gap up +2.4% from prior close, holding, RVOL 2.8x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

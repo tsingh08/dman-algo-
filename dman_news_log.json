@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:59:27.808258-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Meta Platforms, McDonald&#39;s, Beneficient, Palantir and Palo Alto Networks: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T14:59:28.298348-04:00",
     "symbols": [
       "MU"
@@ -5065,5 +5055,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T15:49:00.850649-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Appeals Court Rules Against Kalshi, Says States Can Regulate Its Event Contracts",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

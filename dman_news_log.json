@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:35:42.329577-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T13:35:43.223698-04:00",
     "symbols": [
       "MSTR"
@@ -5074,5 +5064,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T12:51:24.580366-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Administration To Meet September 30 Deadline To Commit To Spending $400M In Ukraine Military Aid, Sources Say",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

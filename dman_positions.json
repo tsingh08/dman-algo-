@@ -23,30 +23,5 @@
     "trail_pct": 0.0,
     "day_only": false,
     "elevated_size": false
-  },
-  {
-    "ticker": "DDOG",
-    "bias": "LONG",
-    "setup": "Gap & Hold",
-    "entry": 271.38,
-    "stop": 257.98,
-    "target1": 304.88,
-    "target2": 324.98,
-    "shares": 1,
-    "entry_date": "2026-09-25",
-    "atr": 11.70738571428571,
-    "score": 100,
-    "legs": [],
-    "spread_qty": 0,
-    "max_loss": 0.0,
-    "max_gain": 0.0,
-    "earn_date": "",
-    "stop_stage": "initial",
-    "milestone_gain_alerted": 0.0,
-    "milestone_loss_alerted": 0.0,
-    "peak_premium": 0.0,
-    "trail_pct": 0.0,
-    "day_only": false,
-    "elevated_size": false
   }
 ]

@@ -1,86 +1,5 @@
 [
   {
-    "ts": "2026-09-24T10:58:43.484421-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Earnings Prediction Market Preview: What Will CEO Ron Vachris Say?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:02:41.709158-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "What&#39;s Going On with Palo Alto Networks Stock Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:03:55.139131-04:00",
-    "symbols": [
-      "LMT",
-      "RKLB"
-    ],
-    "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:07:17.348062-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Yield On 30-Year U.S. Treasury Bonds Rise Slightly After Buyback Announcement; Last Up 3.31 Basis Points At 5.435%; 20-Year U.S. Treasury Yield Last Up 3.44 Basis Points At 5.495%",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T11:13:43.350311-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:13:46.139523-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:19:33.384088-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:19:36.282794-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Redwire, Rocket Lab, Firefly Split a $981 Million Space Force Pie",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T11:19:39.185936-04:00",
     "symbols": [
       "SPY"
@@ -5072,6 +4991,87 @@
     "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:37:51.440786-04:00",
+    "symbols": [
+      "HTZ",
+      "NRG"
+    ],
+    "headline": "Junk Bond Yields Are Back Above 15%: 10 Stocks In The Pressure Zone",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:38:15.335888-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:38:21.328410-04:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "Junk Bond Yields Are Back Above 15%: 10 Stocks In The Pressure Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:38:26.914633-04:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Junk Bond Yields Are Back Above 15%: 10 Stocks In The Pressure Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:38:29.212169-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T09:38:33.666532-04:00",
+    "symbols": [
+      "PPLI"
+    ],
+    "headline": "Barry Diller\u2019s Company Tried to Buy MGM. Now MGM May Buy It.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:38:34.165313-04:00",
+    "symbols": [
+      "FRVO"
+    ],
+    "headline": "Wolfe Research Upgrades Fervo Energy to Outperform, Announces $29 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T09:38:35.941772-04:00",
+    "symbols": [
+      "PL"
+    ],
+    "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

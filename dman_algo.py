@@ -16226,8 +16226,17 @@ class WinRateTracker:
         """
         If rolling win rate < target, raise the min confluence score.
         If rolling win rate > target + 5%, relax it slightly.
+
+        live_only, for the same reason _entry_circuit_breakers_ok() and
+        run_pro_scanner()'s consecutive-loss gate already ask for it (review
+        2026-09-07): the default pool is blended with BACKTEST records. This
+        value is the score bar every real signal must clear, so a simulated
+        win rate could relax the bar that governs live orders -- and the
+        backtest pool reads far better than the live one. Both currently land
+        on the same number, which is exactly how this would have gone
+        unnoticed until the mix shifted.
         """
-        stats = self.rolling_stats()
+        stats = self.rolling_stats(live_only=True)
         wr    = stats["win_rate"]
         base  = MIN_CONFLUENCE
 
@@ -21162,7 +21171,10 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     """
     global MIN_CONFLUENCE
     tracker    = WinRateTracker()
-    stats      = tracker.rolling_stats()
+    # Live only: this is the win rate printed in the scan header and the
+    # briefing, i.e. the number a human reads to judge whether the system is
+    # working. Blended with backtest records it reads better than reality.
+    stats      = tracker.rolling_stats(live_only=True)
     min_score  = min_score or tracker.adaptive_min_score()
 
     # Resolve any pending live signals whose bars are now available
@@ -21224,7 +21236,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                      else f"❄️ {_cl}L streak" if _cl >= 1 else "—")
     print(f"  Min score : {min_score}/100  |  AI scoring: {'ON' if use_ai else 'OFF'}")
     print(f"  Shorts    : {'ON' if ALLOW_SHORTS else 'OFF'}  |  "
-          f"Rolling WR: {stats['win_rate']*100:.1f}%  ({stats['total']} trades)  |  Streak: {_streak_label}")
+          f"Live WR: {stats['win_rate']*100:.1f}%  ({stats['total']} live trades)  |  Streak: {_streak_label}")
     print(f"{'═'*68}")
 
     # Get regime once (expensive call)

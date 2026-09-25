@@ -19748,3 +19748,42 @@ class TestStrangleIsOnePositionWithTwoLegs(unittest.TestCase):
         src = inspect.getsource(a._submit_strangle)
         self.assertIn("_per_strangle", src)
         self.assertIn("_cash_available_for", src)
+
+
+class TestAdaptiveMinScoreIsLiveOnly(unittest.TestCase):
+    """The score bar every real signal must clear was computed from a pool
+    blended with BACKTEST records. The backtest pool reads far better than the
+    live one, so a simulated win rate could RELAX the bar governing live
+    orders -- the same defect already fixed in _entry_circuit_breakers_ok()
+    and run_pro_scanner()'s consecutive-loss gate."""
+
+    def test_it_asks_for_live_only(self):
+        src = inspect.getsource(a.WinRateTracker.adaptive_min_score)
+        self.assertIn("rolling_stats(live_only=True)", src)
+
+    def test_a_backtest_streak_cannot_relax_the_bar(self):
+        tmp = os.path.join(tempfile.mkdtemp(), "wr.json")
+        t = a.WinRateTracker(filepath=tmp)
+        def _rec(tk, pnl, live):
+            return a.TradeRecord(ticker=tk, date="2026-09-25", bias="LONG",
+                                 setup="Gap & Hold", entry=10.0,
+                                 exit=10.0 * (1 + pnl / 100),
+                                 outcome="WIN" if pnl > 0 else "LOSS",
+                                 pnl_pct=pnl, score=90, is_live=live)
+        # 40 simulated winners...
+        for _ in range(40):
+            t.record(_rec("AAA", 20.0, False))
+        # ...and 12 real losers.
+        for _ in range(12):
+            t.record(_rec("BBB", -10.0, True))
+        blended = t.rolling_stats()["win_rate"]
+        live = t.rolling_stats(live_only=True)["win_rate"]
+        self.assertGreater(blended, live)
+        # The bar must follow the LIVE record: struggling -> stricter.
+        self.assertEqual(t.adaptive_min_score(), min(90, a.MIN_CONFLUENCE + 10))
+
+    def test_the_scan_header_reports_live_performance(self):
+        src = inspect.getsource(a.run_pro_scanner)
+        head = src[:src.index("[1/2]")]
+        self.assertIn("rolling_stats(live_only=True)", head)
+        self.assertIn("Live WR", head)

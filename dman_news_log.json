@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:17:20.721007-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T14:17:21.395177-04:00",
     "symbols": [
       "CVX"
@@ -5057,5 +5047,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T13:27:47.901459-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Jury Finds Meta Platforms Misled New Mexico Consumers In Cambridge Analytica Trial",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

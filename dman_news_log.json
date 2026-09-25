@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:17:20.389302-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T14:17:20.721007-04:00",
     "symbols": [
       "CAT"
@@ -5057,5 +5047,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:26:07.664540-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "&#39;SK Hynix\u2019s Solidigm Is Said to Weigh US IPO as Soon as 2027&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

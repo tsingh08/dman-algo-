@@ -19825,3 +19825,38 @@ class TestPremarketAutoSubmitRespectsRiskLimits(unittest.TestCase):
         come back: run_pro_scanner accumulates against it too."""
         scan = inspect.getsource(a.run_pro_scanner)
         self.assertIn("total_risk_pct + trade_risk_pct <= PORTFOLIO_HEAT_LIMIT", scan)
+
+
+class TestPrebuiltUniverseReachesTheGate(unittest.TestCase):
+    """run_premarket_briefing() builds the ~500-ticker RVOL universe so the
+    9:45 Gap & Hold gate can use it instead of the ~49-name watchlist. The
+    workflow that runs the briefing had no commit step at all, so the file was
+    built and discarded every day; the copy in the repo came from the
+    scanner's 8:55-9:59 fallback, which commits at 09:46 ET -- one minute
+    AFTER the gate. main() requires the cache to carry TODAY's date, so the
+    gate always fell back."""
+
+    WF = ".github/workflows"
+
+    def _wf(self, name):
+        with io.open(f"{self.WF}/{name}", encoding="utf-8") as f:
+            return f.read()
+
+    def test_every_workflow_that_runs_the_briefing_persists_the_cache(self):
+        import glob
+        for path in glob.glob(f"{self.WF}/*.yml"):
+            src = io.open(path, encoding="utf-8").read()
+            if '"--mode", "premarket"' not in src and "--mode premarket " not in src:
+                continue
+            self.assertIn("dman_universe_cache.json", src,
+                          f"{os.path.basename(path)} runs the briefing but never "
+                          f"persists the universe it builds")
+
+    def test_the_premarket_workflow_can_write(self):
+        src = self._wf("dman_premarket.yml")
+        self.assertIn("contents: write", src)
+
+    def test_the_gate_requires_a_same_day_cache(self):
+        """Documents why a late commit is worthless, not merely stale."""
+        src = inspect.getsource(a.main)
+        self.assertIn("_cache_date == _today_str", src)

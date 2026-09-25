@@ -25,7 +25,9 @@ jobs:
     # starts the trading daemon.
     timeout-minutes: 30
     permissions:
-      contents: read
+      # write, not read: this job BUILDS the 500-ticker scan universe for the
+      # 9:45 Gap & Hold gate and had no way to save it. See the persist step.
+      contents: write
       actions: write    # dispatch the trading daemon ahead of the open (last step)
 
     steps:
@@ -98,6 +100,31 @@ jobs:
           )
           sys.exit(result.returncode)
           EOF
+
+      # The briefing's last step builds the full ~500-ticker RVOL universe so
+      # the 9:45 Gap & Hold gate can load it instead of falling back to the
+      # ~49-name curated watchlist. Nothing saved it: this workflow had no
+      # commit step at all, so every run built that universe and threw it away
+      # when the runner ended.
+      #
+      # The cache still looked fresh in the repo, which is why this went
+      # unnoticed -- dman_scanner.yml's 8:55-9:59 ET "rare fallback" briefing
+      # has in fact been firing every single day and committing it at 09:46
+      # and 09:56 ET. One minute AFTER the 9:45 gate it exists to serve. So at
+      # 9:45 the committed copy still carried YESTERDAY's date, failed
+      # main()'s `_cache_date == _today_str` check, and the highest-volume
+      # setup in the system scanned ~49 names instead of ~500. Every day.
+      #
+      # Only this one file: it is written by exactly one function
+      # (run_premarket_briefing), so there is no writer to race with. The
+      # multi-writer state files stay with the daemon and scanner, which run
+      # --mode merge-positions first for semantic merging; this job does not.
+      - name: Persist the pre-built scan universe
+        if: always()
+        uses: ./.github/actions/persist-state
+        with:
+          files: dman_universe_cache.json
+          commit_message: 'chore: pre-built scan universe for the 9:45 gate [skip ci]'
 
       # Start the trading daemon from here. Its own 9:23 cron has fired hours
       # late (11:55 AM on 2026-08-03; a watchdog dispatch at 9:36 on

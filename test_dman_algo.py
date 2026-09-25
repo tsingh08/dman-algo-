@@ -19471,3 +19471,84 @@ class TestManualCloseResolvesOnePosition(unittest.TestCase):
              patch.object(a, "send_telegram") as tg:
             a._tg_cmd_close("TSLA")
         self.assertIn("no tracked position", tg.call_args[0][0])
+
+
+class TestSeczPostMortem(unittest.TestCase):
+    """2026-09-24, the only trade of the session. Three defects compounded:
+
+    logged close $14.36 -> MARKET fill $15.98 (11.3% slip, above the $15 band
+    ceiling that had just been checked); the tracked entry was recorded as the
+    LOGGED price, turning a real -8.0% loss into a +2.37% WIN and putting
+    +0.22% into daily P&L instead of -0.83%; and an 8% adoption fallback stop
+    was armed at $14.71 on a strategy that must not have a stop, filling at
+    $14.70 within 1.6% of the day's low. SECZ closed the session at $16.49.
+    """
+
+    def test_the_entry_limit_caps_slippage_and_the_band(self):
+        # The SECZ case: 2% over $14.36 is $14.65, well under the $15.98 paid.
+        self.assertAlmostEqual(a._bzone_entry_limit(14.36), 14.65, places=2)
+        # And it can never exceed the band ceiling, whatever the reference.
+        self.assertLessEqual(a._bzone_entry_limit(14.99), a.BZONE_TRADE_MAX_PRICE)
+        self.assertLessEqual(a._bzone_entry_limit(99.0), a.BZONE_TRADE_MAX_PRICE)
+
+    def test_the_entry_is_a_limit_order_at_that_price(self):
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-bz")
+        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price="14.60")
+        tracker = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_et_today", return_value=date(2026, 9, 24)):
+            oid, err = a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
+        self.assertIsNone(err)
+        req = client.submit_order.call_args[0][0]
+        self.assertEqual(float(req.limit_price), 14.65)
+        self.assertEqual(req.side, a.OrderSide.BUY)
+
+    def test_the_tracked_entry_is_the_fill_not_the_logged_price(self):
+        """Recording the reference price is what booked a loss as a win."""
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-bz")
+        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price="14.62")
+        tracker = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_et_today", return_value=date(2026, 9, 24)):
+            a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
+        pos = tracker.open.call_args[0][0]
+        self.assertEqual(pos.entry, 14.62)
+        self.assertNotEqual(pos.entry, 14.36)
+
+    def test_an_unfilled_order_falls_back_to_the_limit_not_the_reference(self):
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-bz")
+        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price=None)
+        tracker = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_et_today", return_value=date(2026, 9, 24)), \
+             patch.object(a.time, "sleep", lambda *_: None):
+            a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
+        self.assertEqual(tracker.open.call_args[0][0].entry, 14.65)
+
+    def test_a_breakout_zone_is_no_stop_by_design(self):
+        self.assertTrue(a._is_no_stop_by_design(f"{a.BZONE_SETUP} +166% off low"))
+        self.assertFalse(a._is_no_stop_by_design("Gap & Hold"))
+        self.assertFalse(a._is_no_stop_by_design(""))
+
+    def test_auto_restore_refuses_to_arm_a_stop_on_one(self):
+        """The 8% fallback stop at $14.71 is what actually cost the money."""
+        bz = SimpleNamespace(ticker="SECZ", setup=f"{a.BZONE_SETUP} +166% off low",
+                             stop=0.01, target1=1e9, trail_pct=0, stop_stage="initial")
+        client = MagicMock()
+        with patch.object(a, "_pdt_zero_no_stop_today", return_value=False), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "PositionTracker", return_value=SimpleNamespace(positions=[bz])):
+            ok, detail = a._auto_restore_missing_stop(client, "SECZ", 17.0)
+        self.assertFalse(ok)
+        self.assertIn("time", detail.lower())
+        client.submit_order.assert_not_called()
+
+    def test_adoption_skips_a_name_entered_as_a_breakout_zone_today(self):
+        src = inspect.getsource(a.adopt_orphan_positions)
+        self.assertIn("__BZONE_ENTRY__", src)

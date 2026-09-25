@@ -11320,6 +11320,11 @@ BZONE_TRADE_DOLLARS    = 250.0    # per position, sized in dollars (no stop to s
 BZONE_TRADE_MAX_OPEN   = 2        # breakouts cluster; cap correlated exposure
 BZONE_HOLD_SESSIONS    = 20
 BZONE_TRADE_REVIEW_N   = 12       # closed trades before the record gets a verdict
+# A breakout-zone entry is priced off a LOGGED scan row that can be two days
+# old, so a market order can fill far from the price the decision was made at.
+# SECZ, 2026-09-24: logged close $14.36, market fill $15.98 -- 11.3% higher and
+# outside the $5-$15 band the gate had just approved. A limit caps both.
+BZONE_ENTRY_MAX_SLIP   = 0.02    # never pay more than 2% above the logged close
 BZONE_SETUP            = "Breakout Zone"
 BZONE_MAX_LINES     = 6
 
@@ -11435,32 +11440,55 @@ def _log_breakout_zones(rows: list[dict]) -> int:
     return len(new)
 
 
+def _bzone_entry_limit(ref_px: float) -> float:
+    """The most a breakout-zone entry may pay, given a logged reference price.
+
+    Capped twice: BZONE_ENTRY_MAX_SLIP above the logged close, and never above
+    the band's own ceiling. A market order honoured neither -- see SECZ.
+    """
+    return round(min(float(ref_px) * (1 + BZONE_ENTRY_MAX_SLIP),
+                     BZONE_TRADE_MAX_PRICE), 2)
+
+
 def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
-    """Market buy + tracked position for a breakout zone. (order_id, error).
+    """Limit buy + tracked position for a breakout zone. (order_id, error).
 
     No broker-side stop by design: every stop tested made the result worse
     (see the constants block). The exit is time, enforced by
     run_breakout_zone_manage(). stop/target are set to values the equity guard
     can never trigger, and it skips this setup anyway.
+
+    A LIMIT, not a market order. ref_px is a LOGGED close up to two days old,
+    and on 2026-09-24 SECZ's logged $14.36 became a $15.98 market fill -- 11.3%
+    of slippage, above the $15 ceiling the band check had just cleared, and
+    then recorded as the entry price it never was.
+
+    The tracked entry is the BROKER'S fill, not ref_px. Recording the
+    reference price turned that real -8.0% loss into a +2.37% WIN in the
+    win-rate history and put +0.22% into daily P&L instead of -0.83% -- the
+    circuit breakers were reading a fabricated gain.
     """
     client = get_alpaca_client()
     if not client:
         return None, "Alpaca unavailable"
+    _limit = _bzone_entry_limit(ref_px)
     try:
         from alpaca.trading.enums import PositionIntent
-        order = client.submit_order(MarketOrderRequest(
+        order = client.submit_order(LimitOrderRequest(
             symbol=ticker, qty=qty, side=OrderSide.BUY,
+            limit_price=_limit,
             time_in_force=TimeInForce.DAY,
             position_intent=PositionIntent.BUY_TO_OPEN,
         ))
     except Exception as exc:
         print(f"  ❌ {ticker} breakout zone entry failed: {exc}")
         return None, str(exc)
+    _fill = _order_fill_price(client, order, _limit)
     try:
         PositionTracker().open(OpenPosition(
             ticker=ticker, bias="LONG",
             setup=f"{BZONE_SETUP} +{float(row.get('above_low_pct', 0)):.0f}% off low",
-            entry=float(ref_px), stop=0.01, target1=1e9, target2=1e9,
+            entry=float(_fill), stop=0.01, target1=1e9, target2=1e9,
             shares=int(qty), entry_date=_et_today().isoformat(),
             score=int(min(100, float(row.get("above_low_pct", 0)) / 10)),
         ))
@@ -11469,8 +11497,29 @@ def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
                       f"({html.escape(str(exc))}) — {qty} shares, no automated exit. "
                       f"Close it manually.")
         return str(order.id), None
-    print(f"  📈 {ticker}: breakout zone entry {qty} shares near ${ref_px:.2f}  id={str(order.id)[:8]}…")
+    print(f"  📈 {ticker}: breakout zone entry {qty} shares @ ${_fill:.2f} "
+          f"(limit ${_limit:.2f}, logged ${ref_px:.2f})  id={str(order.id)[:8]}…")
     return str(order.id), None
+
+
+def _order_fill_price(client, order, fallback: float) -> float:
+    """The order's average fill, re-reading it briefly if it is not filled yet.
+
+    A position must be recorded at what the broker actually charged. Alpaca
+    returns the submitted order before filled_avg_price is populated, so a
+    caller reading it straight off the submit response gets None and falls
+    back to whatever price it guessed with.
+    """
+    for _ in range(4):
+        try:
+            _o = client.get_order_by_id(order.id)
+            _px = float(getattr(_o, "filled_avg_price", 0) or 0)
+            if _px > 0:
+                return round(_px, 4)
+        except Exception as exc:
+            _log_swallowed("bzone fill price", exc)
+        time.sleep(0.75)
+    return round(float(fallback), 4)
 
 
 def _sessions_since(start: date) -> int:
@@ -19050,6 +19099,14 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
                         if p.ticker == ticker
                         and not p.setup.startswith(("Options Call ", "Options Put ", "Earnings "))),
                        None)
+        # Second layer, deliberately. The coverage check above already filters
+        # these out; this catches the case that actually happened, where a
+        # SECOND process held a stale positions file, saw the fill as an
+        # untracked orphan, and adopted it with an 8% fallback stop that this
+        # function then placed at the broker.
+        if tracked is not None and _is_no_stop_by_design(tracked.setup):
+            return False, (f"{tracked.setup} exits on time, not on a stop — "
+                           "not arming one (see _is_no_stop_by_design)")
         if tracked is None or tracked.stop <= 0:
             return False, "not in PositionTracker (or no stop price on record) — can't safely auto-restore, needs manual review"
 
@@ -19300,9 +19357,19 @@ def _check_stop_coverage() -> Optional[dict]:
             if _o.order_type in (OrderType.STOP, OrderType.STOP_LIMIT, OrderType.TRAILING_STOP)
             and _o.status != OrderStatus.HELD
         }
+        # Positions whose strategy forbids a stop are not "unprotected" --
+        # arming one is the bug, not the fix. See _is_no_stop_by_design().
+        _no_stop_syms = set()
+        try:
+            _no_stop_syms = {str(_p.ticker).upper() for _p in PositionTracker().positions
+                             if _is_no_stop_by_design(getattr(_p, "setup", ""))}
+        except Exception as _swallowed:
+            _log_swallowed("no-stop-by-design set", _swallowed)
         _unprotected = [
             sym for sym, _pos in _alp_positions.items()
-            if _pos.asset_class == AssetClass.US_EQUITY and sym not in _live_stop_symbols
+            if _pos.asset_class == AssetClass.US_EQUITY
+            and sym not in _live_stop_symbols
+            and sym.upper() not in _no_stop_syms
         ]
         if _unprotected:
             # Auto-restore attempt (added 2026-08-15) BEFORE building the
@@ -22952,6 +23019,23 @@ def _reconcile_tracked_quantity(pos, sym: str) -> int:
     return 0
 
 
+def _is_no_stop_by_design(setup: str) -> bool:
+    """True for a setup that is SUPPOSED to have no broker-side stop.
+
+    Breakout zones exit on time, never on a stop: every stop tested made the
+    backtested result worse, which is why _submit_bzone_entry() places none and
+    writes stop=0.01. The stop-coverage machinery did not know that, saw an
+    equity position with no working stop, and armed one anyway.
+
+    SECZ, 2026-09-24: filled $15.98 at 09:45:17, an 8% adoption fallback stop
+    went on at $14.71 thirty-three seconds later, and it filled at $14.70 at
+    12:07 -- within 1.6% of the day's low. SECZ then closed the regular session
+    at $16.49 and traded $17.94 after hours. The safety net turned a +$8.67
+    hold into a -$21.76 loss on a strategy whose whole thesis is not stopping.
+    """
+    return str(setup or "").startswith(BZONE_SETUP)
+
+
 def _is_occ_symbol(sym: str) -> bool:
     return _parse_occ_symbol(sym) is not None
 
@@ -23056,6 +23140,12 @@ def adopt_orphan_positions() -> int:
         sym = p.symbol.upper()
         if sym in tracked:
             adopted += _reconcile_tracked_quantity(p, sym)
+            continue
+        # A breakout-zone entry this session is not an orphan -- its record is
+        # in flight in another process. Adopting it invents an 8% fallback stop
+        # for a strategy that must not have one. The alert key is written at
+        # entry and travels with the synced alert file.
+        if _is_duplicate_alert(f"__BZONE_ENTRY__:{sym}", cooldown_min=24 * 60):
             continue
         _occ = _parse_occ_symbol(sym)
         if _occ:

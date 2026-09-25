@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:17:14.695874-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:17:16.910357-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:17:17.706414-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T14:17:20.389302-04:00",
     "symbols": [
       "RTX"
@@ -5055,6 +5025,36 @@
     ],
     "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:18:20.567420-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FTC Chair Says Going To Continue As Long As I Am Chairman To Resist This Anthropomorphizing Of These (AI Agent) Tools;  If There Is Substantial Personal Data Being Used To Offer A Product Or Service Where That Has Not Been The Tradition, They Ought To Be Told That Is Happening; Says, Speaking For Himself, That He Is Most Concerned About Delivery, Rideshare And Airline Pricing",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T13:19:38.011258-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;President Xi and Madam Peng have just left D.C., heading for China. The meeting was one of Friendship, Strength, and Success, for both China and the U.S.A. We will be meeting again in November, in China, and then at the G20 in December, in Miami, Florida. Much has been, and will be, accomplished. I look forward to our next meeting!&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T13:21:30.202108-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "&#39;US Justice Department Closes Investigation of CrowdStrike Deals&#39; - Bloomberg News",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

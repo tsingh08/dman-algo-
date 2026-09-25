@@ -20182,3 +20182,53 @@ class TestWatchdogStalenessIsTimezoneCorrect(unittest.TestCase):
         src = inspect.getsource(a.run_watchdog)
         self.assertIn("_last_sync.tzinfo is None", src)
         self.assertIn("replace(tzinfo=_tz.utc)", src)
+
+
+class TestGlobalContextWillNotSizeUpOnThinData(unittest.TestCase):
+    """_fetch_global_context() scores ten optional components and maps the sum
+    straight to a position-size multiplier. A total outage is fine (no
+    components, score 0, 0.85x). A PARTIAL one was not: three bullish futures
+    with VIX, DXY, gold and the macro calendar all missing scored +3 and sized
+    at 1.30x on three of ten inputs -- and the missing ones are exactly those
+    that would have argued for caution."""
+
+    class _FI:
+        def __init__(self, last, prev):
+            self.last_price, self.previous_close = last, prev
+
+    def _ctx(self, resolved):
+        """resolved: {symbol: pct_change}"""
+        def _ticker(sym):
+            t = MagicMock()
+            if sym in resolved:
+                prev = 100.0
+                t.fast_info = self._FI(prev * (1 + resolved[sym] / 100), prev)
+            else:
+                t.fast_info = self._FI(0, 0)     # unresolved
+            return t
+        with patch.object(a.yf, "Ticker", side_effect=_ticker), \
+             patch.object(a, "_days_to_next_macro_print", return_value=9):
+            return a._fetch_global_context()
+
+    def test_three_bullish_futures_alone_do_not_size_up(self):
+        out = self._ctx({"ES=F": 1.0, "NQ=F": 1.2, "RTY=F": 1.0})
+        self.assertEqual(out["score"], 3)
+        self.assertEqual(out["risk_mult"], 1.00, "thin data must not reach 1.30x")
+        self.assertIn("thin data", out["tone"])
+
+    def test_full_coverage_still_sizes_up(self):
+        out = self._ctx({"ES=F": 1.0, "NQ=F": 1.2, "RTY=F": 1.0, "^VIX": 0.0,
+                         "DX-Y.NYB": -0.5, "BTC-USD": 4.0, "^N225": 1.0,
+                         "^HSI": 1.0, "SPY": 0.2, "IWM": 1.0, "GC=F": 0.1})
+        self.assertGreaterEqual(len(out["components"]), a._GLOBAL_CTX_MIN_COMPONENTS)
+        self.assertEqual(out["risk_mult"], 1.30)
+
+    def test_a_total_outage_is_conservative(self):
+        out = self._ctx({})
+        self.assertEqual(out["score"], 0)
+        self.assertEqual(out["risk_mult"], 0.85)
+
+    def test_the_cap_never_raises_a_cautious_reading(self):
+        """It may only ever reduce size, never increase it."""
+        out = self._ctx({"^VIX": 0.0})        # one component, and a bearish one
+        self.assertLessEqual(out["risk_mult"], 1.00)

@@ -6768,6 +6768,12 @@ def _days_to_next_macro_print(today: Optional[date] = None) -> Optional[int]:
     return min(days_away) if days_away else None
 
 
+# _fetch_global_context() scores up to this many independent components; below
+# _GLOBAL_CTX_MIN_COMPONENTS of them it may not size UP (see the cap there).
+_GLOBAL_CTX_TOTAL_COMPONENTS = 10
+_GLOBAL_CTX_MIN_COMPONENTS   = 5
+
+
 def _fetch_global_context() -> dict:
     """
     Pull overnight futures, global indices, VIX, DXY, BTC, and IWM/SPY ratio
@@ -6905,6 +6911,26 @@ def _fetch_global_context() -> dict:
     elif score ==  0: risk_mult, tone = 0.85, "🟡 NEUTRAL"
     elif score >= -2: risk_mult, tone = 0.60, "🟠 CAUTIOUS"
     else:             risk_mult, tone = 0.35, "🔴 RISK-OFF"
+    # Every component above is optional -- each sits behind `if SYM in data`,
+    # and the whole block is wrapped in a bare except. A TOTAL yfinance outage
+    # is handled well: no components, score 0, 0.85x. A PARTIAL one is not.
+    # The score is summed over whatever resolved and then read as though the
+    # full picture were in, so three bullish futures with VIX, DXY, gold and
+    # the macro calendar all missing scores +3 and sizes at 1.30x on three of
+    # ten inputs. The failure is asymmetric: thin data can only inflate size,
+    # because the components that would argue for caution are the ones that
+    # went missing.
+    #
+    # This multiplier scales the pre-market moon shot, the largest entry the
+    # system can open. Below half coverage, never size UP -- cap at neutral and
+    # leave the already-conservative readings untouched.
+    _coverage = len(components)
+    if _coverage < _GLOBAL_CTX_MIN_COMPONENTS and risk_mult > 1.0:
+        print(f"  🌍 Global context thin ({_coverage}/"
+              f"{_GLOBAL_CTX_TOTAL_COMPONENTS} components) — capping size "
+              f"multiplier {risk_mult:.2f}x → 1.00x")
+        risk_mult = 1.00
+        tone = f"🟡 NEUTRAL (thin data: {_coverage} components)"
 
     _comp_str = "  |  ".join(f"{k}: {v}" for k, v in list(components.items())[:7])
     summary = (

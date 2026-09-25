@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:35:40.375957-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T13:35:40.503354-04:00",
     "symbols": [
       "QCOM"
@@ -5069,5 +5059,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T12:30:54.379500-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Deutsche Bank Maintains Buy on Meta Platforms, Raises Price Target to $820",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -8937,7 +8937,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 5
-}
+},
+"label_fill": 319.41,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -4.09,
+"label_outcome": "LOSS",
+"label_mfe_pct": 5.5,
+"label_mae_pct": -4.93
 },
 {
 "ts": "2026-09-21T12:09:06.988129-04:00",
@@ -8994,7 +9000,13 @@
 "RVOL Tier": 3,
 "Gap Size": 5,
 "News Catalyst": 5
-}
+},
+"label_fill": 167.545,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.57,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.18,
+"label_mae_pct": -3.41
 },
 {
 "ts": "2026-09-21T12:09:08.810663-04:00",
@@ -9051,7 +9063,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.03,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.13,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T12:09:11.392107-04:00",
@@ -9108,7 +9126,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.19,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T12:20:33.789138-04:00",
@@ -9165,7 +9189,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T12:20:34.798142-04:00",
@@ -9222,7 +9252,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 12.99,
+"label_exit_reason": "target",
+"label_pnl_pct": 15.75,
+"label_outcome": "WIN",
+"label_mfe_pct": 19.24,
+"label_mae_pct": -3.31
 },
 {
 "ts": "2026-09-21T12:20:35.475071-04:00",
@@ -9279,7 +9315,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T12:20:35.808392-04:00",
@@ -9336,7 +9378,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T12:20:36.664470-04:00",
@@ -9393,7 +9441,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 0
-}
+},
+"label_fill": 6.615,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.05,
+"label_outcome": "LOSS",
+"label_mfe_pct": 3.33,
+"label_mae_pct": -2.49
 },
 {
 "ts": "2026-09-21T12:20:37.238774-04:00",
@@ -9450,7 +9504,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 10
-}
+},
+"label_fill": 30.83,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.03,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.13,
+"label_mae_pct": -0.49
 },
 {
 "ts": "2026-09-21T12:37:34.149576-04:00",
@@ -9507,7 +9567,13 @@
 "RVOL Tier": 3,
 "Gap Size": 3,
 "News Catalyst": 5
-}
+},
+"label_fill": 606.565,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 3.74,
+"label_outcome": "WIN",
+"label_mfe_pct": 4.0,
+"label_mae_pct": -1.21
 },
 {
 "ts": "2026-09-21T12:37:45.543382-04:00",
@@ -9564,7 +9630,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 5
-}
+},
+"label_fill": 319.41,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -4.09,
+"label_outcome": "LOSS",
+"label_mfe_pct": 5.5,
+"label_mae_pct": -4.93
 },
 {
 "ts": "2026-09-21T12:37:56.754166-04:00",
@@ -9621,7 +9693,13 @@
 "RVOL Tier": 3,
 "Gap Size": 5,
 "News Catalyst": 5
-}
+},
+"label_fill": 167.545,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.4,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.18,
+"label_mae_pct": -3.41
 },
 {
 "ts": "2026-09-21T12:37:58.645903-04:00",
@@ -9678,7 +9756,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 13.7,
+"label_exit_reason": "stop",
+"label_pnl_pct": -16.97,
+"label_outcome": "LOSS",
+"label_mfe_pct": 32.92,
+"label_mae_pct": -24.89
 },
 {
 "ts": "2026-09-21T12:37:59.648827-04:00",
@@ -9735,7 +9819,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.94,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T12:44:06.668359-04:00",
@@ -9792,7 +9882,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 1.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -6.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 13.86,
+"label_mae_pct": -10.68
 },
 {
 "ts": "2026-09-21T12:44:07.270054-04:00",
@@ -9849,7 +9945,13 @@
 "RVOL Tier": 6,
 "Gap Size": 0,
 "News Catalyst": 5
-}
+},
+"label_fill": 12.99,
+"label_exit_reason": "target",
+"label_pnl_pct": 15.75,
+"label_outcome": "WIN",
+"label_mfe_pct": 19.24,
+"label_mae_pct": -3.31
 },
 {
 "ts": "2026-09-21T12:44:07.926052-04:00",
@@ -9906,7 +10008,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 47.87,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.45,
+"label_mae_pct": -6.85
 },
 {
 "ts": "2026-09-21T12:44:08.279913-04:00",
@@ -9963,7 +10071,13 @@
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": 0
-}
+},
+"label_fill": 22.045,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.18,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.27,
+"label_mae_pct": -6.96
 },
 {
 "ts": "2026-09-21T12:44:09.171699-04:00",
@@ -30473,6 +30587,234 @@
 "RSI Zone": 0,
 "52wk Prox": 10,
 "Candle": 0,
+"Supertrend": 8,
+"ADX Trend": 5,
+"Ichimoku": 10,
+"Anchored VWAP": 8,
+"ATR Pctile": 0,
+"RegimeSetup": 3,
+"Float/Short": 10,
+"RVOL Tier": 3,
+"Gap Size": 0,
+"News Catalyst": 5
+}
+},
+{
+"ts": "2026-09-25T09:26:38.588269-04:00",
+"date": "2026-09-25",
+"ticker": "GLND",
+"setup": "Gap & Hold",
+"bias": "LONG",
+"taken": false,
+"reject": "",
+"score": 100,
+"final_score": 70.0,
+"entry": 5.35,
+"stop": 4.25,
+"target1": 10.83,
+"rr": 4.98,
+"rsi": 88.1,
+"rvol": 6.71,
+"atr": 0.5102928571428571,
+"beta": 1.0,
+"catalyst_tier": "C",
+"news_boost": true,
+"regime": "CHOP",
+"regime_score": 14,
+"mtf_ok": true,
+"regime_ok": true,
+"earnings_ok": true,
+"macro_ok": true,
+"divergence_free": true,
+"breakdown": {
+"Regime": 8,
+"MTF": 10,
+"Rel Strength": 15,
+"Sector": 6,
+"Sector ETF": 0,
+"AI Theme": 0,
+"Insider": 0,
+"Earnings": 5,
+"Macro": 5,
+"Earn React": 0,
+"Fibonacci": 0,
+"VWAP": 8,
+"POC": 7,
+"No Divergence": 5,
+"RSI Zone": 5,
+"52wk Prox": 0,
+"Candle": 5,
+"Supertrend": 8,
+"ADX Trend": 5,
+"Ichimoku": 10,
+"Anchored VWAP": 8,
+"ATR Pctile": 0,
+"RegimeSetup": 3,
+"Float/Short": 4,
+"RVOL Tier": 6,
+"Gap Size": 5,
+"News Catalyst": 5
+}
+},
+{
+"ts": "2026-09-25T09:26:51.007985-04:00",
+"date": "2026-09-25",
+"ticker": "SECZ",
+"setup": "Gap & Hold",
+"bias": "LONG",
+"taken": false,
+"reject": "",
+"score": 100,
+"final_score": 70.0,
+"entry": 16.53,
+"stop": 14.57,
+"target1": 22.04,
+"rr": 2.81,
+"rsi": 88.6,
+"rvol": 2.55,
+"atr": 1.3098357142857144,
+"beta": 1.0,
+"catalyst_tier": "C",
+"news_boost": true,
+"regime": "CHOP",
+"regime_score": 14,
+"mtf_ok": true,
+"regime_ok": true,
+"earnings_ok": true,
+"macro_ok": true,
+"divergence_free": true,
+"breakdown": {
+"Regime": 8,
+"MTF": 10,
+"Rel Strength": 15,
+"Sector": 6,
+"Sector ETF": 0,
+"AI Theme": 0,
+"Insider": 0,
+"Earnings": 5,
+"Macro": 5,
+"Earn React": 0,
+"Fibonacci": 0,
+"VWAP": 8,
+"POC": 7,
+"No Divergence": 5,
+"RSI Zone": 0,
+"52wk Prox": 10,
+"Candle": 5,
+"Supertrend": 8,
+"ADX Trend": 5,
+"Ichimoku": 10,
+"Anchored VWAP": 8,
+"ATR Pctile": 0,
+"RegimeSetup": 3,
+"Float/Short": 10,
+"RVOL Tier": 3,
+"Gap Size": 0,
+"News Catalyst": 5
+}
+},
+{
+"ts": "2026-09-25T09:30:05.856111-04:00",
+"date": "2026-09-25",
+"ticker": "GLND",
+"setup": "Gap & Hold",
+"bias": "LONG",
+"taken": false,
+"reject": "",
+"score": 100,
+"final_score": 70.0,
+"entry": 5.35,
+"stop": 4.25,
+"target1": 10.83,
+"rr": 4.98,
+"rsi": 88.1,
+"rvol": 6.71,
+"atr": 0.5102928571428571,
+"beta": 1.0,
+"catalyst_tier": "C",
+"news_boost": true,
+"regime": "CHOP",
+"regime_score": 14,
+"mtf_ok": true,
+"regime_ok": true,
+"earnings_ok": true,
+"macro_ok": true,
+"divergence_free": true,
+"breakdown": {
+"Regime": 8,
+"MTF": 10,
+"Rel Strength": 15,
+"Sector": 6,
+"Sector ETF": 0,
+"AI Theme": 0,
+"Insider": 0,
+"Earnings": 5,
+"Macro": 5,
+"Earn React": 0,
+"Fibonacci": 0,
+"VWAP": 8,
+"POC": 7,
+"No Divergence": 5,
+"RSI Zone": 5,
+"52wk Prox": 0,
+"Candle": 5,
+"Supertrend": 8,
+"ADX Trend": 5,
+"Ichimoku": 10,
+"Anchored VWAP": 8,
+"ATR Pctile": 0,
+"RegimeSetup": 3,
+"Float/Short": 4,
+"RVOL Tier": 6,
+"Gap Size": 5,
+"News Catalyst": 5
+}
+},
+{
+"ts": "2026-09-25T09:30:06.429106-04:00",
+"date": "2026-09-25",
+"ticker": "SECZ",
+"setup": "Gap & Hold",
+"bias": "LONG",
+"taken": false,
+"reject": "",
+"score": 100,
+"final_score": 70.0,
+"entry": 16.53,
+"stop": 14.57,
+"target1": 22.04,
+"rr": 2.81,
+"rsi": 88.6,
+"rvol": 2.55,
+"atr": 1.3098357142857144,
+"beta": 1.0,
+"catalyst_tier": "C",
+"news_boost": true,
+"regime": "CHOP",
+"regime_score": 14,
+"mtf_ok": true,
+"regime_ok": true,
+"earnings_ok": true,
+"macro_ok": true,
+"divergence_free": true,
+"breakdown": {
+"Regime": 8,
+"MTF": 10,
+"Rel Strength": 15,
+"Sector": 6,
+"Sector ETF": 0,
+"AI Theme": 0,
+"Insider": 0,
+"Earnings": 5,
+"Macro": 5,
+"Earn React": 0,
+"Fibonacci": 0,
+"VWAP": 8,
+"POC": 7,
+"No Divergence": 5,
+"RSI Zone": 0,
+"52wk Prox": 10,
+"Candle": 5,
 "Supertrend": 8,
 "ADX Trend": 5,
 "Ichimoku": 10,

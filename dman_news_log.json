@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:58:27.883097-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Stock Pauses Thursday: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T11:59:42.073817-04:00",
     "symbols": [
       "GOOGL"
@@ -5065,5 +5055,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:57:04.147389-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "We Asked 3 AI Chatbots for Next Week&#39;s Top Stock Picks. They All Said Micron.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

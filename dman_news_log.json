@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:53:08.010664-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:53:08.480450-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:53:08.741851-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:53:08.744388-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Moves Up its Space Data Center Timeline \u2014 Project Suncatcher Launches Oct. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T11:53:10.890462-04:00",
     "symbols": [
       "QCOM"
@@ -5062,6 +5022,46 @@
     "headline": "Kansas City Fed President Jeffrey Schmid Speaking At KC Event Says U.S. Debt Seems &#39;Extreme&#39;; Says A Question Is Whether AI Ecosystem Is Becoming Too Big To Fail",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:15:07.314311-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Kansas City Fed President Jeffrey Schmid Speaking At KC Event Says U.S. Debt Seems &#39;Extreme&#39;; Says A Question Is Whether AI Ecosystem Is Becoming Too Big To Fail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:15:08.640220-04:00",
+    "symbols": [
+      "KDK"
+    ],
+    "headline": "Kodiak AI Plans To Roll Out Unsupervised Long-Haul Driverless Service On Dallas-Houston Freight Lane By This Year End",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:15:09.224900-04:00",
+    "symbols": [
+      "JAGX"
+    ],
+    "headline": "Jaguar Health Stock Surges Friday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:15:09.229830-04:00",
+    "symbols": [
+      "JAGX"
+    ],
+    "headline": "Jaguar Health Shares Resume Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

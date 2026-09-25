@@ -5158,7 +5158,15 @@ def _handle_momentum_approval_reply(text: str) -> bool:
                        f"(even 1 share exceeds the risk budget for this stop distance) — not submitted.")
         return True
 
-    _submit_signals_to_alpaca([sig])
+    # The same size rule the AUTO path applies (see run_momentum_watch's
+    # MOMENTUM_AUTO_EXEC_SIZE_MULT * _probation_size_mult() call). Approving an
+    # offer by hand does not improve a probationary setup's recent live record,
+    # and the offer message itself told the account owner it would execute at
+    # reduced size -- so executing at full size made that message untrue.
+    _appr_mult = _probation_size_mult() if entry.get("probation") else 1.0
+    if _appr_mult != 1.0:
+        print(f"  🟡 {entry['ticker']} approved on probation — sizing ×{_appr_mult:.2f}")
+    _submit_signals_to_alpaca([sig], size_mult=_appr_mult)
     return True
 
 
@@ -10749,8 +10757,14 @@ def _mw_process_play(entry, fade_alerts, fl_m, setup_alerts, source, ticker):
                     "ticker": ticker, "msg": _breakout_msg, "score": _score, "why": _why,
                     "executable": bool(bp["setup"]),
                     "probation": _mw_on_probation,
+                    # Also INSIDE the offer. The flag above travels with the
+                    # in-memory candidate, but only `offer` is persisted as a
+                    # pending approval -- so a YES rebuilt the signal with the
+                    # probation status already lost and executed at FULL size,
+                    # while the message above promised reduced size.
                     "offer": {"ticker": ticker, "entry_px": entry_px, "stop_px": stop_px,
-                              "t1": t1, "t2": t2, "signal_str": sig_str},
+                              "t1": t1, "t2": t2, "signal_str": sig_str,
+                              "probation": _mw_on_probation},
                 })
         else:
             # In position — check fade + trailing stop levels

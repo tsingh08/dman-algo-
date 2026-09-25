@@ -13785,7 +13785,10 @@ class TestMomentumBreakoutApprovalFlow(unittest.TestCase):
              patch.object(a, "_submit_signals_to_alpaca") as mock_submit:
             consumed = a._handle_momentum_approval_reply("yes")
         self.assertTrue(consumed)
-        mock_submit.assert_called_once_with([fake_sig])
+        # size_mult is now always explicit: the approval path applies the
+        # same probation reduction the auto path does (1.0 when not on
+        # probation, which is this case).
+        mock_submit.assert_called_once_with([fake_sig], size_mult=1.0)
         self.assertEqual(a._load_momentum_pending(), [])
 
     def test_no_rejects_without_submitting(self):
@@ -20064,3 +20067,49 @@ class TestMajorMacroGateActuallyBlocks(unittest.TestCase):
         self.assertIsNotNone(out)
         signals, _oo, _sh = out
         self.assertEqual(len(signals), 1)
+
+
+class TestApprovedMomentumKeepsProbationSizing(unittest.TestCase):
+    """run_momentum_watch() tells the account owner a probationary setup is
+    "executing at 50% size", and the AUTO path does exactly that. The APPROVAL
+    path dropped it twice over: the probation flag was never copied into the
+    persisted `offer`, and the YES handler passed no size_mult at all -- so a
+    hand-approved probationary breakout went in at FULL size."""
+
+    def _offer(self, probation):
+        return {"ticker": "AAA", "entry_px": 10.0, "stop_px": 9.0, "t1": 12.0,
+                "t2": 14.0, "signal_str": "breakout", "probation": probation,
+                "status": "awaiting_approval",
+                "expires_at": (a.datetime.now(a.ET) + a.timedelta(minutes=10)).isoformat()}
+
+    def _reply(self, probation):
+        sig = SimpleNamespace(ticker="AAA", shares=10, entry=10.0, stop=9.0,
+                              setup="Momentum Watch Breakout (Day)", bias="LONG")
+        with patch.object(a, "_load_momentum_pending", return_value=[self._offer(probation)]), \
+             patch.object(a, "_save_momentum_pending"), \
+             patch.object(a, "_consume_momentum_offer_save"), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "check_macro_safe", return_value=(True, 5)), \
+             patch.object(a, "get_live_price", return_value=10.0), \
+             patch.object(a, "_build_momentum_signal", return_value=sig), \
+             patch.object(a, "_probation_size_mult", return_value=0.5), \
+             patch.object(a, "_submit_signals_to_alpaca") as sub, \
+             patch.object(a, "send_telegram"):
+            a._handle_momentum_approval_reply("YES")
+        return sub
+
+    def test_a_probationary_offer_is_halved(self):
+        sub = self._reply(True)
+        sub.assert_called_once()
+        self.assertEqual(sub.call_args[1].get("size_mult"), 0.5)
+
+    def test_a_normal_offer_is_full_size(self):
+        sub = self._reply(False)
+        sub.assert_called_once()
+        self.assertEqual(sub.call_args[1].get("size_mult"), 1.0)
+
+    def test_the_flag_is_persisted_inside_the_offer(self):
+        """Only `offer` survives to the approval step, so the flag must be in it."""
+        src = inspect.getsource(a._mw_process_play)
+        blk = src[src.index('"offer": {'):]
+        self.assertIn('"probation"', blk[:400])

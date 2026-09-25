@@ -19612,3 +19612,57 @@ class TestReanchorRunsIntraday(unittest.TestCase):
         # Order matters: a close detected this pass must use the fixed entry.
         self.assertLess(blk.index("_reanchor_entries_to_fills"),
                         blk.index("sync_alpaca_fills"))
+
+
+class TestOptionsSizeOnTheLimitNotTheMid(unittest.TestCase):
+    """The per-contract ceiling already says the LIMIT is what determines the
+    loss. Sizing and total_cost were still computed on the mid, so a
+    multi-contract order paid up to 3% over its own budget and reported a cash
+    requirement 3% light."""
+
+    def _contract(self, bid, ask):
+        return {"occ_symbol": "AAA260925C00010000", "expiry": "2026-09-25",
+                "strike": 10.0, "bid": bid, "ask": ask, "delta": 0.7}
+
+    def _run(self, finder, submitter, budget):
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-opt")
+        sig = SimpleNamespace(ticker="AAA", confluence_score=90, setup="Gap & Hold")
+        with patch.object(a, finder, return_value=self._contract(0.97, 1.03)), \
+             patch.object(a, "_get_options_market_context",
+                          return_value={"pc_ratio": 1.0, "flow_label": "x",
+                                        "dominant_call_strike": 0, "stock_spread_pct": 0.1}), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")) as cash, \
+             patch.object(a, "send_telegram"):
+            oid, contract = getattr(a, submitter)(client, "AAA", 10.0, budget, sig)
+        return oid, contract, client, cash
+
+    def test_a_multi_contract_call_stays_inside_its_budget(self):
+        # mid $1.00 -> limit $1.03 -> $103/contract. Budget $300 buys 2, not 3.
+        oid, contract, client, cash = self._run(
+            "_find_best_call_contract", "_submit_options_call", 300.0)
+        self.assertIsNotNone(oid)
+        req = client.submit_order.call_args[0][0]
+        self.assertEqual(req.qty, 2, "3 x $103 = $309 would exceed the $300 budget")
+        self.assertEqual(contract["total_cost"], 206.0)
+        self.assertLessEqual(contract["total_cost"], 300.0)
+
+    def test_the_cash_check_sees_what_will_actually_be_paid(self):
+        oid, contract, client, cash = self._run(
+            "_find_best_call_contract", "_submit_options_call", 300.0)
+        # cash was asked about the limit-priced cost, not the mid-priced one
+        self.assertAlmostEqual(cash.call_args[0][0], 206.0, places=2)
+        self.assertNotAlmostEqual(cash.call_args[0][0], 200.0, places=2)
+
+    def test_the_put_path_sizes_the_same_way(self):
+        oid, contract, client, _ = self._run(
+            "_find_best_put_contract", "_submit_options_put", 300.0)
+        self.assertIsNotNone(oid)
+        self.assertEqual(client.submit_order.call_args[0][0].qty, 2)
+        self.assertEqual(contract["total_cost"], 206.0)
+
+    def test_a_single_contract_over_budget_is_still_refused(self):
+        oid, contract, client, _ = self._run(
+            "_find_best_call_contract", "_submit_options_call", 50.0)
+        self.assertIsNone(oid)
+        client.submit_order.assert_not_called()

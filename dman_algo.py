@@ -25069,7 +25069,15 @@ def _submit_options_put(
         return None, None
 
     _put_mid = (contract.get("bid", contract["ask"]) + contract["ask"]) / 2
-    premium_per_contract = _put_mid * 100
+    _limit_px = round(_put_mid * 1.03, 2)   # mid + 3% buffer for fill
+    # Size and cost off the LIMIT we actually send, not the mid. The
+    # per-contract ceiling below already learned this ("the fill is what
+    # determines the loss"), but sizing and total_cost were left on the mid, so
+    # a MULTI-contract order paid up to 3% over its own budget and reported a
+    # cash requirement 3% light -- premium-at-risk and the Telegram total were
+    # both understated. Same asked-for-vs-actually-paid gap that booked SECZ as
+    # a win, in the one place the comment right below says must not have it.
+    premium_per_contract = _limit_px * 100
     if premium_per_contract <= 0:
         return None, None
 
@@ -25077,8 +25085,7 @@ def _submit_options_put(
     # Near-ATM puts (delta < 0.60): no delta adjustment (flat sizing).
     raw_contracts = int(risk_dollars / premium_per_contract)
     contracts     = max(1, min(raw_contracts, 10))
-    _limit_px     = round(_put_mid * 1.03, 2)   # mid + 3% buffer for fill
-    total_cost    = round(contracts * _put_mid * 100, 2)
+    total_cost    = round(contracts * _limit_px * 100, 2)
 
     # Same hard ceiling as the call side -- see _submit_options_call() for why
     # `* 1.5` plus max(1, ...) let a contract up to 1.5x the budget through.
@@ -25225,7 +25232,15 @@ def _submit_options_call(
         return None, None
 
     _call_mid = (contract.get("bid", contract["ask"]) + contract["ask"]) / 2
-    premium_per_contract = _call_mid * 100
+    _limit_px = round(_call_mid * 1.03, 2)   # mid + 3% buffer for fill
+    # Size and cost off the LIMIT we actually send, not the mid. The
+    # per-contract ceiling below already learned this ("the fill is what
+    # determines the loss"), but sizing and total_cost were left on the mid, so
+    # a MULTI-contract order paid up to 3% over its own budget and reported a
+    # cash requirement 3% light -- premium-at-risk and the Telegram total were
+    # both understated. Same asked-for-vs-actually-paid gap that booked SECZ as
+    # a win, in the one place the comment right below says must not have it.
+    premium_per_contract = _limit_px * 100
     if premium_per_contract <= 0:
         return None, None
 
@@ -25233,8 +25248,7 @@ def _submit_options_call(
     # Flat sizing — no penalty for being ITM (we WANT high-delta contracts).
     raw_contracts = int(risk_dollars / premium_per_contract)
     contracts     = max(1, min(raw_contracts, 10))
-    _limit_px     = round(_call_mid * 1.03, 2)   # mid + 3% buffer for fill
-    total_cost    = round(contracts * _call_mid * 100, 2)
+    total_cost    = round(contracts * _limit_px * 100, 2)
 
     # HARD ceiling, compared against the LIMIT price actually being sent
     # (mid + 3%), not the mid -- the fill is what determines the loss.

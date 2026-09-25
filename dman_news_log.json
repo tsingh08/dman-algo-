@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:59:27.515735-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Disney+ Subscription Prices Nearly Doubled Since 2023 as Company Raises Ad-Free Plan Again to $21.49 a Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T14:59:27.805561-04:00",
     "symbols": [
       "PLTR"
@@ -5065,5 +5055,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:41:06.242657-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Says It Carried Out Broader Review Of Actions After Hugging Face Incident; Vast Majority Of Actions Reviewed Were Completions Of Mundane Research Tasks; Most Cases Identified So Far Have Been Lower Severity, With Limited Or No Evidence Of Meaningful Impact To The Third-party Service; Review Anticipated To Take Months For Completion",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

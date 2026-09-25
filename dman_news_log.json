@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:53:20.911654-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Darden Restaurants, TD Synnex And 3 Stocks To Watch Heading Into Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:53:21.127962-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T11:53:21.130518-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "Needham Reiterates Buy on NeoVolta, Maintains $8 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-24T11:53:21.133020-04:00",
     "symbols": [
       "NEOV"
@@ -5063,6 +5033,38 @@
     "headline": "Select Water Solutions Announces Deal To Acquire Water Midstream Firm Pilot Water For $600M Cash, $100M Stock And Up To $15M Earnout",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:47:39.500123-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Why Is Dell Stock Surging on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T10:47:50.308638-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "NVDA"
+    ],
+    "headline": "Everyone Bought Nvidia for AI: Now AMD Could Win the $211 Billion CPU Race, Bank Of America Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T10:50:02.306784-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Senate Passes Bill To Modernize Mental Health Guidance Regulations For Pilots, Air Traffic Controllers",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

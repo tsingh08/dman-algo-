@@ -127,6 +127,24 @@ jobs:
       # (run_premarket_briefing), so there is no writer to race with. The
       # multi-writer state files stay with the daemon and scanner, which run
       # --mode merge-positions first for semantic merging; this job does not.
+      # Naming one file in `files:` below does NOT mean one file gets pushed.
+      # persist-state absorbs stray uncommitted changes with `git add -A`
+      # before it rebases, and the briefing also writes dman_positions.json
+      # (the fill re-anchor calls _save()), dman_last_alerts.json and others.
+      # Pushing those straight from this runner's checkout would skip the
+      # semantic merge that protects them -- merge_positions_snapshots() exists
+      # because a blind file-level resolution can silently drop whichever side
+      # did more protective work (a raised stop, a partial sale already taken).
+      # The scanner and daemon both merge before they persist; this job has to
+      # as well, now that it persists at all.
+      - name: Merge state against remote before persisting
+        if: always()
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git fetch origin main
+          python dman_algo.py --mode merge-positions || true
+
       - name: Persist the pre-built scan universe
         if: always()
         uses: ./.github/actions/persist-state

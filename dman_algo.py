@@ -5171,11 +5171,26 @@ def _process_telegram_commands(timeout: int = 0) -> int:
     """
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         return 0
+    # A LOST offset must not mean "replay everything". Telegram retains ~24h
+    # of updates, so falling back to 0 asks for the entire backlog and then
+    # executes it: /close, /buy, /halt and /resume would all re-run, placing
+    # real orders and lifting real halts with nobody typing anything. This
+    # file is git-synced and multi-writer, and _restore_corrupted_json()
+    # exists because corruption here has happened before.
+    #
+    # So an unreadable offset is "unknown", not zero. The pass below still
+    # drains the backlog to LEARN the current update_id -- otherwise the next
+    # run faces the same replay -- but executes none of it. A skipped command
+    # costs one manual retry; a replayed one costs money.
+    _offset_known = True
     try:
         with open(TELEGRAM_STATE_FILE) as _f:
             _offset = int(json.load(_f).get("offset", 0))
-    except Exception:
-        _offset = 0
+    except FileNotFoundError:
+        _offset = 0          # genuine first run: nothing to replay
+    except Exception as _off_exc:
+        _log_swallowed("telegram offset unreadable", _off_exc)
+        _offset, _offset_known = 0, False
     try:
         _r = requests.get(
             f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates",
@@ -5194,6 +5209,11 @@ def _process_telegram_commands(timeout: int = 0) -> int:
         if str(_m.get("chat", {}).get("id", "")) != str(TELEGRAM_CHAT_ID):
             continue   # ignore anyone who isn't the account owner
         _text = (_m.get("text") or "").strip()
+        if not _offset_known:
+            # Draining to re-establish the offset, deliberately not acting.
+            print(f"  ⏭️  Telegram offset was unreadable — skipping queued "
+                  f"command without executing it: {_text[:60]}")
+            continue
         if not _text.startswith("/"):
             # Plain (non-"/") replies used to be silently dropped here —
             # that's the only way a human can answer an earnings-spread
@@ -5226,11 +5246,21 @@ def _process_telegram_commands(timeout: int = 0) -> int:
         except Exception as _e:
             print(f"  ⚠️  Telegram command error ({_text}): {_e}")
     if _updates:
+        # Atomic: a half-written offset is what produces the replay above.
         try:
-            with open(TELEGRAM_STATE_FILE, "w") as _f:
-                json.dump({"offset": _offset}, _f)
-        except Exception:
-            pass
+            _write_json_atomic(TELEGRAM_STATE_FILE, {"offset": _offset}, indent=1)
+        except Exception as _w_exc:
+            _log_swallowed("telegram offset write", _w_exc)
+    if _updates and not _offset_known:
+        try:
+            send_telegram(
+                "⚠️ <b>Telegram command offset was unreadable</b>\n"
+                f"Re-synced past {len(_updates)} queued update(s) WITHOUT running "
+                "them, so nothing was executed twice. If you sent a command in "
+                "the last few minutes, send it again."
+            )
+        except Exception as _n_exc:
+            _log_swallowed("telegram offset notice", _n_exc)
     return _handled
 
 
@@ -22691,9 +22721,13 @@ def _load_day_trades() -> list[dict]:
 
 
 def _save_day_trades(ledger: list[dict]) -> None:
+    """Atomic. _load_day_trades() returns [] on a JSONDecodeError, so a
+    half-written ledger reads as ZERO completed day trades -- and the PDT
+    budget is what stands between this account and a 90-day restriction. A
+    truncated write here would silently hand back day trades that were
+    already spent."""
     try:
-        with open(DAY_TRADES_FILE, "w", encoding="utf-8") as f:
-            json.dump(ledger, f, indent=1)
+        _write_json_atomic(DAY_TRADES_FILE, ledger, indent=1)
     except OSError as e:
         print(f"  ⚠️  Could not write {DAY_TRADES_FILE}: {e}")
 
@@ -26535,6 +26569,16 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                 send_telegram(f"⛔ <b>{sig.ticker} {html.escape(sig.setup)} skipped — setup retired</b>\n"
                               f"Its live record is why (see RETIRED_SETUPS). Still scored and "
                               f"logged for the dataset; it just cannot take money.")
+            continue
+
+        # A zero/negative entry is unusable on its own terms, and both
+        # validate_entry_price() and the drift maths below divide by it. An
+        # uncaught ZeroDivisionError here does not skip ONE signal -- it
+        # propagates out of this function to the top-level handler, so the
+        # whole scan dies and nothing at all is submitted.
+        if float(getattr(sig, "entry", 0) or 0) <= 0:
+            print(f"  ⏭️  {sig.ticker:<8} skipped — entry price is "
+                  f"{getattr(sig, 'entry', None)}, nothing to price a trade off")
             continue
 
         if sig.shares <= 0:

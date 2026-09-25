@@ -19930,3 +19930,75 @@ class TestUnfilledEntryBlocksADuplicate(unittest.TestCase):
         src = inspect.getsource(a._submit_signals_to_alpaca)
         blk = src[:src.index("Validating")]
         self.assertIn("_log_swallowed", blk)
+
+
+class TestLostTelegramOffsetDoesNotReplayCommands(unittest.TestCase):
+    """An unreadable offset used to fall back to 0, which asks Telegram for its
+    whole ~24h backlog and then EXECUTES it: /close, /buy, /halt and /resume
+    would re-run, placing orders and lifting halts with nobody typing. The
+    state file is git-synced and multi-writer, and _restore_corrupted_json()
+    exists because corruption here has happened."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.sf = os.path.join(self.tmp, "tg_state.json")
+        for tgt, val in (("TELEGRAM_STATE_FILE", self.sf),
+                         ("TELEGRAM_TOKEN", "tok"), ("TELEGRAM_CHAT_ID", "42")):
+            pt = patch.object(a, tgt, val); pt.start(); self.addCleanup(pt.stop)
+
+    def _updates(self):
+        return {"result": [
+            {"update_id": 9001, "message": {"chat": {"id": 42}, "text": "/close RSKD"}},
+            {"update_id": 9002, "message": {"chat": {"id": 42}, "text": "/resume"}},
+        ]}
+
+    def _run(self):
+        resp = MagicMock()
+        resp.json.return_value = self._updates()
+        with patch.object(a.requests, "get", return_value=resp), \
+             patch.object(a, "_handle_telegram_command") as cmd, \
+             patch.object(a, "send_telegram") as tg:
+            n = a._process_telegram_commands(timeout=0)
+        return n, cmd, tg
+
+    def test_a_corrupt_offset_file_executes_nothing(self):
+        io.open(self.sf, "w", encoding="utf-8").write("{ this is not json")
+        n, cmd, tg = self._run()
+        cmd.assert_not_called()
+        self.assertEqual(n, 0)
+        # and it says so, rather than failing silently
+        self.assertTrue(any("offset" in str(c[0][0]).lower() for c in tg.call_args_list))
+
+    def test_it_still_advances_the_offset_so_the_replay_cannot_recur(self):
+        io.open(self.sf, "w", encoding="utf-8").write("{ corrupt")
+        self._run()
+        with io.open(self.sf, encoding="utf-8") as f:
+            self.assertEqual(json.load(f)["offset"], 9002)
+
+    def test_a_missing_file_is_a_genuine_first_run_and_still_works(self):
+        self.assertFalse(os.path.exists(self.sf))
+        n, cmd, tg = self._run()
+        self.assertEqual(cmd.call_count, 2)
+        self.assertEqual(n, 2)
+
+    def test_a_readable_offset_behaves_normally(self):
+        io.open(self.sf, "w", encoding="utf-8").write('{"offset": 9000}')
+        n, cmd, tg = self._run()
+        self.assertEqual(cmd.call_count, 2)
+
+
+class TestPdtLedgerIsWrittenAtomically(unittest.TestCase):
+    """_load_day_trades() returns [] on a JSONDecodeError, so a half-written
+    ledger reads as ZERO completed day trades -- handing back day trades
+    already spent, against a budget whose breach is a 90-day restriction."""
+
+    def test_it_uses_the_atomic_writer(self):
+        src = inspect.getsource(a._save_day_trades)
+        self.assertIn("_write_json_atomic", src)
+        self.assertNotIn("json.dump", src)
+
+    def test_a_round_trip_survives(self):
+        tmp = os.path.join(tempfile.mkdtemp(), "dt.json")
+        with patch.object(a, "DAY_TRADES_FILE", tmp):
+            a._save_day_trades([{"ticker": "AAA", "date": "2026-09-25"}])
+            self.assertEqual(len(a._load_day_trades()), 1)

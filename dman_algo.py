@@ -25806,7 +25806,24 @@ def _live_mode_preflight(signals: list) -> Optional[tuple]:
                     )
                     _save_last_alert("__MACRO_EVENT_WARN__")
                     print(f"  🚫 LIVE: major macro event {_ev_mm} — entries blocked, alert sent")
-                break
+                # `return`, not `break`. This said "hard gate, not advisory" and
+                # then fell through to return the signals, so the orders went in
+                # anyway and the message telling the account owner they were
+                # blocked was untrue. Every other hard stop in this function
+                # returns; this one was the outlier.
+                #
+                # is_macro_safe() does block these dates upstream, which is why
+                # it never showed: a scanner signal is filtered on macro_ok long
+                # before here. But _submit_signals_to_alpaca() is also reached by
+                # --mode alpaca, the momentum auto-exec and the manual /buy
+                # flows, none of which pass that filter -- so on the next date
+                # added to _MAJOR_MACRO_EVENT_DATES those paths would submit into
+                # exactly the whipsaw this list exists to sit out.
+                #
+                # Outside the dedup check on purpose: the block must hold on
+                # every pass, not only the one that happens to send the alert.
+                print("  🚫 LIVE: major macro event — halting submission (hard gate)")
+                return
     return signals, _options_only_overnight, _share_ok
 
 

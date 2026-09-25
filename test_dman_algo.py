@@ -20002,3 +20002,65 @@ class TestPdtLedgerIsWrittenAtomically(unittest.TestCase):
         with patch.object(a, "DAY_TRADES_FILE", tmp):
             a._save_day_trades([{"ticker": "AAA", "date": "2026-09-25"}])
             self.assertEqual(len(a._load_day_trades()), 1)
+
+
+class TestMajorMacroGateActuallyBlocks(unittest.TestCase):
+    """_live_mode_preflight() told the account owner "new entries BLOCKED today
+    (hard gate, not advisory)" and then fell through to return the signals, so
+    the orders went in anyway. Every other hard stop in that function returns;
+    this one used `break`."""
+
+    def _sig(self):
+        return SimpleNamespace(ticker="AAA", entry=10.0, shares=10, stop=9.0,
+                               setup="Gap & Hold", bias="LONG", swing_mode=False,
+                               cost=100.0, confluence_score=90)
+
+    def _run(self, today, events):
+        with patch.object(a, "ALPACA_PAPER", False), \
+             patch.object(a, "_MAJOR_MACRO_EVENT_DATES", events), \
+             patch.object(a, "_FOMC_DATES", set()), \
+             patch.object(a, "_et_today", return_value=today), \
+             patch.object(a, "_get_pdt_status",
+                          return_value={"used": 0, "remaining": 3,
+                                        "swing_mode": False, "equity": 30000.0}), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "send_telegram") as tg, \
+             patch.dict(a.os.environ, {"ACCOUNT_SIZE": "30000"}):
+            out = a._live_mode_preflight([self._sig()])
+        return out, tg
+
+    def test_a_macro_event_day_stops_the_whole_submission(self):
+        ev = date(2026, 10, 15)
+        out, tg = self._run(ev, {ev})
+        self.assertIsNone(out, "preflight must hard-stop, not return signals")
+        self.assertTrue(any("BLOCKED" in str(c[0][0]) for c in tg.call_args_list))
+
+    def test_the_blackout_covers_the_day_before_and_after(self):
+        ev = date(2026, 10, 15)
+        for probe in (date(2026, 10, 14), date(2026, 10, 16)):
+            out, _ = self._run(probe, {ev})
+            self.assertIsNone(out, f"{probe} is inside the +/-1 day blackout")
+
+    def test_it_blocks_even_when_the_alert_was_already_sent(self):
+        """The stop must not depend on winning the dedup check."""
+        ev = date(2026, 10, 15)
+        with patch.object(a, "ALPACA_PAPER", False), \
+             patch.object(a, "_MAJOR_MACRO_EVENT_DATES", {ev}), \
+             patch.object(a, "_FOMC_DATES", set()), \
+             patch.object(a, "_et_today", return_value=ev), \
+             patch.object(a, "_get_pdt_status",
+                          return_value={"used": 0, "remaining": 3,
+                                        "swing_mode": False, "equity": 30000.0}), \
+             patch.object(a, "_is_duplicate_alert", return_value=True), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "send_telegram"), \
+             patch.dict(a.os.environ, {"ACCOUNT_SIZE": "30000"}):
+            self.assertIsNone(a._live_mode_preflight([self._sig()]))
+
+    def test_an_ordinary_day_still_submits(self):
+        out, _ = self._run(date(2026, 10, 20), {date(2026, 10, 15)})
+        self.assertIsNotNone(out)
+        signals, _oo, _sh = out
+        self.assertEqual(len(signals), 1)

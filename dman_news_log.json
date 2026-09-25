@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-24T12:01:28.113515-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Tigress Financial Maintains Strong Buy on Meta Platforms, Raises Price Target to $995",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T12:01:52.306258-04:00",
-    "symbols": [
-      "SOS"
-    ],
-    "headline": "SOS Limited Reports Bitcoin, Ethereum And Equivalent Holdings Of ~$75.57M, Down From ~$79.1M At End-2025; Company Is Evaluating Opportunities To Leverage Its Hosting Experience In Data Center Infrastructure, With No Assurance That Any Opportunities Will Be Pursued Or Successful",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T12:01:52.311526-04:00",
-    "symbols": [
-      "SOS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T12:06:15.338298-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US Seeks to Join Musk in Court Fight With EU Over X Fine&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T12:06:16.632723-04:00",
-    "symbols": [
-      "IJK"
-    ],
-    "headline": "Everpure Says It\u2019s at an \u2018Inflection Point\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T12:06:17.151650-04:00",
     "symbols": [
       "SFIX"
@@ -5065,6 +5015,67 @@
     "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:07:12.095585-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Secretary Bessent, On Social Media, Says Had A Productive Call With Japanese Finance Minister Satsuki Katayama; Our Conversation Built On President Trump\u2019s Discussion With Prime Minister Sanae Takaichi Earlier This Week; We Discussed The Desirability Of A Strong Yen That Reflects Japan\u2019s Strong Economic Fundamentals, And The Importance Of Staying In Close Communication On Currency Markets",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:08:04.070835-04:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:08:04.831968-04:00",
+    "symbols": [
+      "MSGY"
+    ],
+    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:08:07.261178-04:00",
+    "symbols": [
+      "MGLD"
+    ],
+    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:09:44.830781-04:00",
+    "symbols": [
+      "AAPL",
+      "AVGO",
+      "CAT",
+      "DIA",
+      "GE",
+      "IWM",
+      "META",
+      "MSFT",
+      "NFLX",
+      "QQQ",
+      "SPY",
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

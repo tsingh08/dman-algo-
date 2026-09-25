@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:29:55.481442-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T14:29:55.660115-04:00",
     "symbols": [
       "GOOGL"
@@ -5062,5 +5052,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T13:55:21.436336-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX 2X ETFs Slide Over 6% as Starship 14 Nears, $52.5M Insider Sale Adds to Volatility",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

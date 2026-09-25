@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-24T12:06:17.358765-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "Why GlucoTrack Shares Are Trading Higher By Around 118%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.362855-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "NeoVolta (NEOV) Shares Tumble 16% After Hours: Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.366897-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "NeoVolta Q4 2026 Earnings Call: Complete Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-24T12:06:17.580631-04:00",
     "symbols": [
       "KGC"
@@ -5077,5 +5047,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:17:16.142708-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on Meta Platforms, Raises Price Target to $950",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:17:40.531953-04:00",
+    "symbols": [
+      "DDOG",
+      "QCOM",
+      "QMCO"
+    ],
+    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:18:09.223692-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Is Preparing For A Customer That Can\u2019t Open An Account",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

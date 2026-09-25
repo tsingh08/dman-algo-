@@ -1,88 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:29:55.660115-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:29:56.643877-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "EXCLUSIVE: Nvidia Keeps AI Profits, TSMC May Want a Bigger Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:29:59.232751-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "What&#39;s Going On with the Pop In Rocket Lab Stock?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:30:14.484046-04:00",
-    "symbols": [
-      "ARCT"
-    ],
-    "headline": "Why Is Arcturus Therapeutics Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:36:08.475418-04:00",
-    "symbols": [
-      "COIN",
-      "GS",
-      "HOOD",
-      "SPY"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:40:57.373940-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "US Senate Rejects Resolution Curbing Trump&#39;s Iran War Powers",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:41:14.688410-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:41:17.615391-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-24T14:41:20.438834-04:00",
     "symbols": [
       "GS"
@@ -5062,5 +4979,87 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T14:01:22.762310-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Slides Amid Akamai&#39;s $11.6 Billion Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T14:01:34.758549-04:00",
+    "symbols": [
+      "XBI"
+    ],
+    "headline": "Economy Grows 63% in Six Years, 30-Year Treasury Lost Almost As Much",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:01:35.230055-04:00",
+    "symbols": [
+      "AIFF"
+    ],
+    "headline": "Firefly Neuroscience and Neurosigma Partner To Expand Non-Drug Pediatric ADHD Care",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:01:37.074366-04:00",
+    "symbols": [
+      "AKAM"
+    ],
+    "headline": "CrowdStrike Stock Slides Amid Akamai&#39;s $11.6 Billion Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:01:37.541033-04:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "Prime Medicine Gets FDA Green Light for Gene Editing Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:01:37.997769-04:00",
+    "symbols": [
+      "PPLI"
+    ],
+    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:02:09.084375-04:00",
+    "symbols": [
+      "CLSK",
+      "RXRX",
+      "SOUN"
+    ],
+    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:03:50.573030-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Memory Inflation Is Hitting Costco\u2019s Electronics Business, and It Triggered a $152 Million Charge",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

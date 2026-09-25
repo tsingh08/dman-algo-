@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:41:59.877563-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "US Senate Rejects Resolution Curbing Trump&#39;s Iran War Powers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:41:59.882273-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:00.681393-04:00",
-    "symbols": [
-      "APUS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:00.685973-04:00",
-    "symbols": [
-      "APUS"
-    ],
-    "headline": "Crude Oil Rises Over 4%; Darden Earnings Miss Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:00.690495-04:00",
-    "symbols": [
-      "APUS"
-    ],
-    "headline": "Apimeds Pharmaceuticals Stock Skyrockets Thursday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:03.756051-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "UBS Maintains Neutral on Stitch Fix, Lowers Price Target to $3.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:42:03.760584-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Telsey Advisory Group Maintains Market Perform on Stitch Fix, Lowers Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:42:05.283532-04:00",
-    "symbols": [
-      "BETR"
-    ],
-    "headline": "Better Home &amp; Finance Ex-CEO Vishal Garg Says Company Has Evidence Of Consents From More Than 46% Of Voting Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T14:42:05.288200-04:00",
-    "symbols": [
-      "BETR"
-    ],
-    "headline": "Reported Earlier, Better Home &amp; Finance Opens Investigation Into Former CEO Vishal Garg Over Alleged Breach Of Fiduciary Duty",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T14:42:06.185291-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "Arm Stock Dips Amid Oracle&#39;s &#34;Force Majeure&#34; Reports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:07.759709-04:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "Citigroup Maintains Buy on ACADIA Pharmaceuticals, Lowers Price Target to $33",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T14:42:07.764371-04:00",
     "symbols": [
       "ACAD"
@@ -5020,6 +4910,116 @@
     "headline": "Fed&#39;s Hammack Says The Biggest Risk With Inflation Is The Formation Of An Inflationary Mindset; Public Has Been Dealing With Above Target Inflation For Extended Period; Growth Has Held Up Well, Job Market Is Stable; Worries About Demand Related Pressure On Inflation; Capital Expenditures Will Pressure Inflation For A While; If We Don&#39;t Make Progress Lowering Inflation, Expectations Could Shift; Fed Needs To Make Sure Policy Is At A Restrictive Stance To Lower Inflation",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:44.086882-04:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:45.143887-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Slides Amid Akamai&#39;s $11.6 Billion Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T14:12:46.451037-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:47.539371-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T14:12:50.029659-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Memory Inflation Is Hitting Costco\u2019s Electronics Business, and It Triggered a $152 Million Charge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T14:12:50.929402-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says The Biggest Risk With Inflation Is The Formation Of An Inflationary Mindset; Public Has Been Dealing With Above Target Inflation For Extended Period; Growth Has Held Up Well, Job Market Is Stable; Worries About Demand Related Pressure On Inflation; Capital Expenditures Will Pressure Inflation For A While; If We Don&#39;t Make Progress Lowering Inflation, Expectations Could Shift; Fed Needs To Make Sure Policy Is At A Restrictive Stance To Lower Inflation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:51.802005-04:00",
+    "symbols": [
+      "SHMD"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:51.806566-04:00",
+    "symbols": [
+      "SHMD"
+    ],
+    "headline": "Reported Earlier: &#39;Germany&#39;s SCHMID Says It Is in Talks With Suppliers to Nvidia, Intel and AMD; Glass Boosts Speed and Cuts Power Use Compared With Plastic Substrates; Jensen Huang Discussed Glass Substrates With Chey Tae-won&#39; - Seoul Economic Daily",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:51.811084-04:00",
+    "symbols": [
+      "SHMD"
+    ],
+    "headline": "SCHMID Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 12.71%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:52.027384-04:00",
+    "symbols": [
+      "KDK"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:12:52.958251-04:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "Prime Medicine Gets FDA Green Light for Gene Editing Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

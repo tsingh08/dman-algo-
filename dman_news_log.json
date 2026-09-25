@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:17:21.395177-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:17:21.682614-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:17:21.830856-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:17:22.198343-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:17:22.661236-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T14:17:22.816175-04:00",
     "symbols": [
       "QQQ"
@@ -5054,6 +5004,64 @@
       "META"
     ],
     "headline": "Jury Finds Meta Platforms Misled New Mexico Consumers In Cambridge Analytica Trial",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:35:11.233324-04:00",
+    "symbols": [
+      "AAPL",
+      "NBIS",
+      "ORCL",
+      "PANW",
+      "RIOT"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:35:11.960534-04:00",
+    "symbols": [
+      "ABBV",
+      "HIMS",
+      "NVO",
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:35:11.966145-04:00",
+    "symbols": [
+      "CAT",
+      "FDX"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:35:37.165513-04:00",
+    "symbols": [
+      "EVTL"
+    ],
+    "headline": "Deal Dispatch: Jana Calls For Six Flags Review, Cognex Corp Buys RealSense, Brightline Bankruptcy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T13:36:29.621097-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Save Members $3.2 Billion for Gas this Fiscal Year: How Higher Gas Prices Could Help Retailer",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

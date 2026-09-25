@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:12:57.617336-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:57.680018-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says We Had A Great Meeting; Trump Takes China&#39;s Xi Inside Presidential Helicopter",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:58.348648-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:58.862480-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:59.560090-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:12:59.732424-04:00",
-    "symbols": [
-      "QCLS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:59.974287-04:00",
-    "symbols": [
-      "QMCO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:00.123099-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:00.499639-04:00",
-    "symbols": [
-      "VSA"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T13:13:00.636648-04:00",
     "symbols": [
       "WETO"
@@ -5076,5 +4986,95 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:43:47.414683-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:43:47.723600-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:43:48.337173-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:43:48.663302-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:43:48.958726-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:43:56.733339-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "RMX Industries Signs Compute Supply Purchase Order With Technologent For NVIDIA H200 GPUs To Scale QuantrusX",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:44:07.771143-04:00",
+    "symbols": [
+      "SNPS"
+    ],
+    "headline": "Synopsys Stock Climbs as HSBC Upgrades Software Giant on AI Growth Tailwinds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:44:07.777209-04:00",
+    "symbols": [
+      "SNPS"
+    ],
+    "headline": "HSBC Upgrades Synopsys to Buy, Raises Price Target to $700",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:45:43.522891-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "If You Invested $100 In ON Semiconductor Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

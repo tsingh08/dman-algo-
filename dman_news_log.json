@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:54:27.225234-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Rolls Out Horizon Create, Horizon Studio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:54:29.326006-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:54:32.613398-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T14:54:35.497501-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T14:54:37.467197-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Defense Official Says About 60 Commercial Vessels Transited Strait Of Hormuz Wednesday, Highest Daily Crude Volume Since Early July",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:54:37.470454-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US, Iran Said to Be Exploring Phased Deal to Open Hormuz&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:54:37.473468-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "US Senate Rejects Resolution Curbing Trump&#39;s Iran War Powers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:54:37.476427-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Federal Reserve Board Seeks Public Comment On Proposals For Stablecoin Rules Under GENIUS Act, Requiring Full Reserve Backing And Capital Standards For Supervised Issuers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:54:37.786604-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Small Caps Get Crushed: IWM Sees $3.3B Outflow as Treasury Yields Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T14:54:39.604609-04:00",
     "symbols": [
       "SFIX"
@@ -5059,6 +4969,96 @@
       "STEM"
     ],
     "headline": "This 3M Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:55:57.497756-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Rising Bond Yields Driven By A Number Of Factors; Good Economic Outlook Is Pressuring Up Bond Yields; Some Of What Bond Market Is Doing Is In Reaction To Fed, Government Policy; U.S. Is On An Unsustainable Fiscal Path; AI Investment Demand Is Competeing For Investors In Bond Market; Inflation Expectations Are Reasonably Well Anchored",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:55:59.646002-04:00",
+    "symbols": [
+      "STEM"
+    ],
+    "headline": "This 3M Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:56:00.484629-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:56:00.488450-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:56:00.492018-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Scholastic Posts Downbeat Q1 Results, Joins Legacy Education, Zscaler And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:56:00.495606-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq Futures Rise Amid Optimism Following Iran\u2019s Offer To Reopen Strait of Hormuz \u2014 AKAM, COST, SCHL In Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:56:00.499115-04:00",
+    "symbols": [
+      "SCHL"
+    ],
+    "headline": "Why INLIF Shares Are Trading Higher By Around 78%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:56:00.857991-04:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:56:01.107699-04:00",
+    "symbols": [
+      "TRT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

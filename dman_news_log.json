@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:42:07.773222-04:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "Needham Reiterates Buy on ACADIA Pharmaceuticals, Maintains $41 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:07.777624-04:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "Acadia\u2019s Remlifanserin Advances Toward Phase 3 In Alzheimer\u2019s Psychosis Despite Narrow Miss On Primary Endpoint",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:08.018948-04:00",
-    "symbols": [
-      "AMLP"
-    ],
-    "headline": "S&amp;P 500 Erases Losses as US, Iran Reportedly Discuss Hormuz Deal: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T14:43:52.000734-04:00",
     "symbols": [
       "OKLO",
@@ -5061,5 +5031,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T14:26:13.667833-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Likely Underlying Inflation Is Above Target",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:28:33.958334-04:00",
+    "symbols": [
+      "AMZN",
+      "META"
+    ],
+    "headline": "Why Is PayPal Stock Surging on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T14:28:58.417148-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Sides Of Fed Mandates Are Generally Not In Conflict; Persistently High Inflation Has &#39;Real Costs&#39;, Persistently High Inflation Pressures Wages",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

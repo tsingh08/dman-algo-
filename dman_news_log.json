@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:53:15.575749-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:53:15.818345-04:00",
-    "symbols": [
-      "BBAI"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:53:19.069808-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury 10-year Yield High For Session Of 5.1685%, Highest Since July 2007; Yield On 10-Year Note Last Up 5.24 Basis Points At 5.166%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T11:53:19.072497-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T11:53:20.230291-04:00",
-    "symbols": [
-      "KYTX"
-    ],
-    "headline": "Kyverna Therapeutics Therapy Delivers Sustained Relief in Rare Neurological Conditions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T11:53:20.455456-04:00",
-    "symbols": [
-      "IJK"
-    ],
-    "headline": "Everpure Says It\u2019s at an \u2018Inflection Point\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T11:53:20.901374-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Drop as Bessent Says Iranian Aviation Restrictions Are Working\u2014 Airbnb, Oracle, Costco in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T11:53:20.903982-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T11:53:20.906505-04:00",
     "symbols": [
       "SFIX"
@@ -5063,5 +4983,86 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T10:27:23.761338-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "Forget Bitcoin, XRP: These 2 Coins Could Explode This Weekend",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T10:29:34.664209-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Apollo\u2019s Slok Says Fed May Be Overlooking Risk From Diesel Surge&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:30:17.630178-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Forget Bitcoin, XRP: These 2 Coins Could Explode This Weekend",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T10:30:19.975845-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Forget Bitcoin, XRP: These 2 Coins Could Explode This Weekend",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T10:30:24.873403-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Vistra 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T10:30:30.803179-04:00",
+    "symbols": [
+      "MGLD"
+    ],
+    "headline": "Marygold Stock Nearly Doubles on Madison Dearborn\u2019s 100%-Premium Take-Private Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:30:32.895883-04:00",
+    "symbols": [
+      "AKAM"
+    ],
+    "headline": "TD Cowen Maintains Hold on Akamai Technologies, Raises Price Target to $149",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:30:32.901359-04:00",
+    "symbols": [
+      "AKAM"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Akamai Technologies, Raises Price Target to $167",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

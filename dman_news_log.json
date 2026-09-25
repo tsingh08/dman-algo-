@@ -1,128 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:17:22.816175-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:17:23.013143-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:17:28.633728-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Why Is Greenland Energy Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:17:29.685601-04:00",
-    "symbols": [
-      "HUHU"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:17:30.051003-04:00",
-    "symbols": [
-      "NTHI"
-    ],
-    "headline": "Roth Capital Initiates Coverage On NeOnc Technologies Hldgs with Buy Rating, Announces Price Target of $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:21:27.241897-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Raymond James Maintains Strong Buy on Meta Platforms, Raises Price Target to $860",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:22:47.837594-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Microsoft&#39;s CEO is putting Brad Smith in charge of communications, memo shows&#39; - Business Insider",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:26:04.078459-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO",
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Nvidia Keeps AI Profits, TSMC May Want a Bigger Cut",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:26:08.945903-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Texas Attorney General Paxton Launches Investigation Into Texas Data Centers Over Water Usage Requirements",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:26:16.581087-04:00",
-    "symbols": [
-      "GOOGL",
-      "META"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Surging on Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:29:35.785501-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Why AI Semiconductor Stocks Are a &#39;Dangerous Playground&#39; For Investors",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:29:55.071290-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Nvidia Keeps AI Profits, TSMC May Want a Bigger Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T14:29:55.267659-04:00",
     "symbols": [
       "AMD"
@@ -5063,6 +4940,126 @@
     ],
     "headline": "Costco Save Members $3.2 Billion for Gas this Fiscal Year: How Higher Gas Prices Could Help Retailer",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:45:50.308614-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta Bolsters Muse Safety Warning After Security Vulnerability Found&#39; - The Information Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:46:09.476472-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:46:13.703107-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T13:46:14.552555-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:46:15.059083-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T13:46:16.638119-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T13:46:21.288018-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:46:22.671964-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:46:22.916128-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T13:46:23.540116-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:46:24.085830-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T13:46:28.172887-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

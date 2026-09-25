@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:13:01.356438-04:00",
-    "symbols": [
-      "SPHL"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:01.697747-04:00",
-    "symbols": [
-      "UXIN"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:01.842151-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:01.978011-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:03.478236-04:00",
-    "symbols": [
-      "TSSI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T13:13:03.937770-04:00",
-    "symbols": [
-      "ZSQR"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:04.139281-04:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:13:04.490279-04:00",
-    "symbols": [
-      "BB"
-    ],
-    "headline": "BlackBerry Raises Full-Year Outlook Again",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:13:04.493803-04:00",
-    "symbols": [
-      "BB"
-    ],
-    "headline": "Transcript: BlackBerry Q2 2027 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:13:04.497194-04:00",
-    "symbols": [
-      "BB"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Drop as Bessent Says Iranian Aviation Restrictions Are Working\u2014 Airbnb, Oracle, Costco in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T13:13:04.504123-04:00",
     "symbols": [
       "BB"
@@ -5075,6 +4975,106 @@
     ],
     "headline": "Bloom Energy Stock Rebounds: What&#39;s Going On?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:53:47.647168-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:53:47.979118-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "RMX Industries Signs Compute Supply Purchase Order With Technologent For NVIDIA H200 GPUs To Scale QuantrusX",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:53:47.982005-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:53:48.522833-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:53:48.874193-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:53:49.221092-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:53:49.518387-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:53:51.433716-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "If You Invested $100 In ON Semiconductor Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:53:51.945487-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Reached New 52-Week High: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:53:57.838930-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Bloom Energy Stock Rebounds: What&#39;s Going On?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-24T12:48:44.726479-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;White House Asks OpenAI And Anthropic To Hold New Models From UK Testers Until U.S. Review; U.K. Leaders Are Calling For A Shared Set Of Global Principles, Even As The White House Seeks First Access To New Models For Testing&#39; - Politico",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T13:12:56.745721-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump Administration Presses China on Suspected Nuclear Tests in Confidential Talks&#39; - Wall Street Journal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:56.749426-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Chinese President Xi Jinping Says China Hopes U.S. Keeps Opposing Taiwan Independence, Handles Taiwan Question With Prudence - Xinhua",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:57.076091-04:00",
-    "symbols": [
-      "AIFA"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T13:12:57.489716-04:00",
-    "symbols": [
-      "ARTL"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T13:12:57.617336-04:00",
     "symbols": [
       "CLRO"
@@ -5069,6 +5019,60 @@
       "SPY"
     ],
     "headline": "FAA To Cease Permission For Specific Cessna Jets To Be Flown With Single Pilot That Requires Two Pilots",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:32:47.529248-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:34:20.136936-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Hormuz Letter Posts On X &#34;The US appears to have abandoned its naval blockade line against Iran, pulling its aircraft carriers off it entirely after Iran&#39;s first use of anti-ship ballistic missiles against a carrier. The warships have not been located in the CENTCOM area on Sentinel-2 satellite imagery since the beginning of September, including the USS George H.W. Bush, the USS George Washington, the amphibious assault ship USS Boxer and even their escorting destroyers....&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:34:22.309744-04:00",
+    "symbols": [
+      "QCLS"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid a drop in Bitcoin prices. Recent reports suggest that Bitget, a crypto exchange, halted customer withdrawals after $350 million was stolen in a hack, raising vulnerability and security concerns associated with digital assets.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:34:43.582631-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Supreme Court Restores Trump Administration&#39;s Mass Voter Verification System",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:35:23.002712-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "TLT ETF Hits Record Low as Treasury Yields Hover Near 5.2%: Long-Duration Bond Pain Deepens",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

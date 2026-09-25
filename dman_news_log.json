@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-24T12:06:17.151650-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Crude Oil Rises Over 4%; Darden Earnings Miss Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.156777-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "William Blair Downgrades Stitch Fix to Market Perform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.160952-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Drop as Bessent Says Iranian Aviation Restrictions Are Working\u2014 Airbnb, Oracle, Costco in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.165026-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.169105-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Stitch Fix Posts Mixed Q4 Results, Joins Viking Therapeutics And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.349299-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T12:06:17.354321-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "Needham Reiterates Buy on NeoVolta, Maintains $8 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-24T12:06:17.358765-04:00",
     "symbols": [
       "NEOV"
@@ -5076,6 +5006,76 @@
     "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:13:50.880196-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "China&#39;s Xi Agreed With Trump To Add New Substance To U.S.-China Relationship; U.S.-China Relationship Will Be One Of Strategic Stability Based On Respect, Fairness And Reciprocity",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T11:13:59.635530-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:13:59.927755-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:14:00.850626-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:14:02.142009-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T11:14:02.959070-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T11:14:04.505649-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:53:10.890462-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T11:53:14.854942-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-24T11:53:15.130439-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-24T11:53:15.575749-04:00",
     "symbols": [
       "SOUN"
@@ -5063,5 +5033,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:15:58.520178-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "80% Odds Micron Beats Every Analyst On Wall Street, This Model Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T10:17:38.155401-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Costco Wholesale, Lowers Price Target to $1015",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T10:19:02.761516-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "TD Cowen Maintains Buy on Meta Platforms, Raises Price Target to $865",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

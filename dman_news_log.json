@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:43:52.000734-04:00",
-    "symbols": [
-      "OKLO",
-      "SMR"
-    ],
-    "headline": "Shares of uranium and nuclear-related companies are trading lower amid multiple catalysts including reports suggesting Oracle has issued a &#34;force majeure&#34; notice regarding potential timeline slippage of Project Jupiter in New Mexico, which may imply slower data center development. Also, Google&#39;s launch of Project Suncatcher to deploy AI compute capacity in space may dampen expectations for nuclear power needs.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:48:41.482751-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Small Caps Get Crushed: IWM Sees $3.3B Outflow as Treasury Yields Surge",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T14:50:08.825455-04:00",
     "symbols": [
       "META"
@@ -5059,6 +5038,27 @@
       "SPY"
     ],
     "headline": "Fed&#39;s Hammack Says Sides Of Fed Mandates Are Generally Not In Conflict; Persistently High Inflation Has &#39;Real Costs&#39;, Persistently High Inflation Pressures Wages",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:32:54.284613-04:00",
+    "symbols": [
+      "INLF",
+      "ZS"
+    ],
+    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:33:51.447198-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Important For Fed To Deliver On Inflation Mandate; High Inflation Complicates Economic Planning; Fed Policy Is Not Restraining Activity Outside Of Housing",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

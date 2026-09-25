@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:59:28.446444-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Dips Premarket on Market Weakness, But Multi-Year AI Storage Outlook Remains Intact",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:28.752414-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Renew Global Patent License Deal With Apple, Effective April 1, 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:59:30.069652-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "The FDA Approves Eli Lilly&#39;s Onswik (Insulin Efsitora Alfa-gobe) For Type 2 Diabetes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:30.073209-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Bill Ackman Calls AI\u2019s Rare-Disease Breakthrough \u2018Incredible\u2019 After Model Finds Drug Combination for Dying Patient",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:31.181777-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "SoftBank Launches $11.1 Billion Bond Sale to Fund Final $10 Billion OpenAI Investment Tranche",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:59:31.498917-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Reports Q4 2026 Results: Full Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:31.503628-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Meta Platforms, McDonald&#39;s, Beneficient, Palantir and Palo Alto Networks: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T14:59:31.977785-04:00",
     "symbols": [
       "MSTR"
@@ -5063,6 +4993,80 @@
     ],
     "headline": "HUB Cyber Security Receives Nasdaq Noncompliance Notice",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T16:02:05.618644-04:00",
+    "symbols": [
+      "AMD",
+      "META",
+      "MRNA",
+      "MU",
+      "NVDA"
+    ],
+    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T16:03:12.227122-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T16:03:12.492758-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T16:03:12.763235-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T16:03:14.632514-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-25T16:03:16.266868-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T16:03:31.571072-04:00",
+    "symbols": [
+      "AKAM"
+    ],
+    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

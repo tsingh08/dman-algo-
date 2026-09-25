@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T11:45:36.340304-04:00",
-    "symbols": [
-      "BBAI"
-    ],
-    "headline": "&#39;Senators Move To Force AI Companies To Disclose More&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T11:45:39.651188-04:00",
     "symbols": [
       "SPY"
@@ -5063,5 +5053,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T10:01:09.613621-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "MeetKai Announces Six-Country Sovereign AI Rollout On Nvidia With VEON And Kyivstar, Wins Brazil SERPRO Tender; Plans Ukraine AI Data Center Online In 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

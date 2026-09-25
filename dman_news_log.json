@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:42:07.764371-04:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "Acadia Drug Misses Primary Goal in Alzheimer\u2019s Related Psychosis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:42:07.768822-04:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "Crude Oil Rises Over 4%; Darden Earnings Miss Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-24T14:42:07.773222-04:00",
     "symbols": [
       "ACAD"
@@ -5061,5 +5041,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-25T14:22:10.230130-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says There Are Lots Of Long Term Questions What AI Will Mean For Inflation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T14:23:56.033093-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "What&#39;s Going on With Novo Nordisk Stock on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

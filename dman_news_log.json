@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-09-24T13:13:04.507276-04:00",
-    "symbols": [
-      "BB"
-    ],
-    "headline": "BlackBerry Raises FY2027 Adj EPS Guidance from $0.16-$0.20 to $0.19-$0.22 vs $0.19 Est; Raises FY2027 Sales Guidance from $594.000M-$621.000M to $616.000M-$636.000M vs $614.592M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T13:13:29.372157-04:00",
-    "symbols": [
-      "NBIS",
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Nebius Stock on Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-24T13:22:25.914948-04:00",
     "symbols": [
       "MU"
@@ -5077,5 +5056,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T12:06:00.280674-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-25T12:06:11.309542-04:00",
+    "symbols": [
+      "STEM"
+    ],
+    "headline": "UBS Upgrades Stem to Buy, Maintains Price Target to $7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

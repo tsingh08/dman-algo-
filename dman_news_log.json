@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:59:27.333353-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Trump Says He\u2019d Welcome Chinese Car Factories \u2014 Bipartisan Senate Push Says Not So Fast",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-24T14:59:27.515735-04:00",
     "symbols": [
       "NFLX"
@@ -5060,6 +5050,19 @@
     ],
     "headline": "Why INLIF Shares Are Trading Higher By Around 78%; Here Are 20 Stocks Moving Premarket",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-25T15:26:40.941241-04:00",
+    "symbols": [
+      "FSLR",
+      "ON",
+      "QCOM",
+      "SKHY"
+    ],
+    "headline": "Shares of semiconductor companies are trading higher after the Anthropic-Akamai deal demonstrated industry demand. Also, Meta&#39;s Muse AI agent strengthens the case for continued spending on CPUs, GPUs and AI infrastructure.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

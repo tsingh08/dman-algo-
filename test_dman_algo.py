@@ -20427,3 +20427,64 @@ class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
     def test_the_briefing_runs_it_daily(self):
         self.assertIn("run_position_reconciliation",
                       inspect.getsource(a.run_premarket_briefing))
+
+
+class TestHardGatesAnnounceWhenTheyFailOpen(unittest.TestCase):
+    """run_pro_scanner treats regime_ok / mtf_ok / earnings_ok / macro_ok /
+    divergence_free as hard gates -- a signal failing any is dropped. Four of
+    them return (True, partial) from their exception handler, so a data hiccup
+    does not block the trade, it WAIVES the check. That direction is
+    defensible; being silent about it is not. An errored earnings check means
+    entering straight into the print the blackout existed to avoid."""
+
+    def test_all_four_report_when_they_fail_open(self):
+        for fn, gate in ((a.check_mtf, "mtf"), (a.check_earnings_safe, "earnings"),
+                         (a.check_macro_safe, "macro"),
+                         (a.check_divergence_free, "divergence")):
+            src = inspect.getsource(fn)
+            self.assertIn("_hard_gate_failed_open(", src, fn.__name__)
+            self.assertIn(f'"{gate}"', src, fn.__name__)
+
+    def test_behaviour_is_unchanged_still_passes(self):
+        """The point is visibility, not suppression — a broken feed must not
+        halt the session."""
+        with patch.object(a, "fetch_weekly", side_effect=RuntimeError("feed down")), \
+             patch.object(a, "_log_swallowed"), patch.object(a, "send_telegram"):
+            ok, score = a.check_mtf("AAA", "LONG")
+        self.assertTrue(ok)
+        self.assertEqual(score, 10)
+
+    def test_a_scheduled_event_gate_alerts(self):
+        """earnings and macro guard KNOWN dates — those get a Telegram."""
+        with patch.object(a, "_load_earnings_pending", side_effect=RuntimeError("x")), \
+             patch.object(a, "_log_swallowed"), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram") as tg:
+            a._hard_gate_failed_open("earnings", RuntimeError("feed down"))
+        tg.assert_called_once()
+        self.assertIn("earnings", tg.call_args[0][0].lower())
+
+    def test_a_chart_gate_only_logs(self):
+        """mtf/divergence are chart reads, not scheduled risk — log, no alert."""
+        with patch.object(a, "_log_swallowed") as lg, \
+             patch.object(a, "send_telegram") as tg:
+            a._hard_gate_failed_open("mtf", RuntimeError("x"))
+        lg.assert_called_once()
+        tg.assert_not_called()
+
+    def test_the_notifier_never_raises(self):
+        """It runs inside an exception handler; it cannot be what breaks."""
+        with patch.object(a, "_log_swallowed", side_effect=RuntimeError("boom")):
+            try:
+                a._hard_gate_failed_open("macro", RuntimeError("x"))
+            except Exception as e:
+                self.fail(f"must swallow its own failure: {e}")
+
+    def test_the_regime_gate_fails_closed_and_stays_that_way(self):
+        """Documents the one that is already safe: an UNKNOWN regime matches
+        neither the LONG nor the SHORT branch, so nothing passes."""
+        for bias in ("LONG", "SHORT"):
+            ok, sc = a.regime_allows_signal({"regime": "UNKNOWN", "score": 0}, bias)
+            self.assertFalse(ok, bias)
+            self.assertEqual(sc, 0)

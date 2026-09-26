@@ -1,2906 +1,588 @@
 {
- "how": "returned []",
- "calls": [
-  [
-   "resolve_live_outcomes",
-   "()",
-   "[('verbose', False)]"
-  ],
-  [
-   "_enforce_setup_drift_restrictions",
-   "(<dman_algo.WinRateTracker object at 0xADDR>,)",
-   "[]"
-  ],
-  [
-   "is_on_probation",
-   "()",
-   "[]"
-  ],
-  [
-   "_scan_consecutive_loss_gate",
-   "(85, {'win_rate': 0.333, 'avg_win_r': 19.39, 'avg_loss_r': 25.06, 'consec_losses': 3, 'consec_losses_today': 0, 'consec_wins': 0, 'total': 42, 'wins': 14, 'losses': 24}, ['AAPL', 'MSFT', 'NVDA', 'AMD'",
-   "[]"
-  ],
-  [
-   "get_todays_loss",
-   "()",
-   "[]"
-  ],
-  [
-   "get_market_regime",
-   "()",
-   "[]"
-  ],
-  [
-   "get_top_sectors",
-   "()",
-   "[]"
-  ],
-  [
-   "_check_open_position_risk",
-   "({'regime': 'CHOP', 'score': 6, 'spy_trend': False, 'adx_strong': False, 'vix_ok': True, 'details': {'SPY vs EMA20': False, 'SPY vs EMA50': False, 'SPY vs SMA200': True, 'SPY EMA20 dist': -0.86, 'SPY ",
-   "[]"
-  ],
-  [
-   "_scan_prefetch_news",
-   "({}, ['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', 'KLAC', 'ON', 'RIOT', 'HOOD', 'AFRM',",
-   "[]"
-  ],
-  [
-   "prewarm_alpaca_bars",
-   "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', 'KLAC', 'ON', 'RIOT', 'HOOD', 'AFRM', 'RI",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('AAPL',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('AAPL',                         Open    High     Low   Close      Volume\nDate                                                            \n2025-07-07 04:00:00  212.680  216.23  208.80  209.95  5022898",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  214.700  215.240  ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  214.700  215.240  ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MSFT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MSFT',                        Open    High       Low   Close      Volume\nDate                                                             \n2025-07-07 04:00:00  497.38  498.75  495.2250  497.72  1398",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open    High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  512.465  518.29 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open    High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  512.465  518.29 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('NVDA',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('NVDA',                         Open    High      Low   Close       Volume\nDate                                                              \n2025-07-07 04:00:00  158.200  159.31  157.342  158.24  14",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open    High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  173.610  174.72  172",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open    High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  173.610  174.72  172",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('AMD',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('AMD',                        Open      High      Low    Close      Volume\nDate                                                               \n2025-07-07 04:00:00  136.56  137.4400  133.500  134.800 ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  163.505  167",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  163.505  167",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('META',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('META',                         Open      High      Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  717.600  727.0000  713.510  718.35",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  716.915 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  716.915 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('GOOGL',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('GOOGL',                         Open     High       Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  179.060  179.297  175.6800  176.7",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  191.980  194",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  191.980  194",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('AMZN',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('AMZN',                         Open      High     Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  223.000  224.2900  222.37  223.47  3",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                         ...                             \n2025-07-25 04:00:00  232.22  232.48  231.18",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                         ...                             \n2025-07-25 04:00:00  232.22  232.48  231.18",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('TSLA',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('TSLA',                         Open      High       Low   Close       Volume\nDate                                                                 \n2025-07-07 04:00:00  291.370  296.1500  288.7701  2",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  308.740  3",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  308.740  3",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('NFLX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('NFLX',                          Open       High      Low    Close      Volume\nDate                                                                  \n2025-07-07 04:00:00  1295.000  1295.0000  1276.02",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                         Open       High  ...    Chg20d  ST_bull\nDate                                      ...                   \n2025-07-25 04:00:00  1178.415  1187.3200  ...       NaN    False\n2025",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                         Open       High  ...    Chg20d  ST_bull\nDate                                      ...                   \n2025-07-25 04:00:00  1178.415  1187.3200  ...       NaN    False\n2025",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('CRM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('CRM',                        Open      High       Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  271.51  274.0000  268.2114  269.80 ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  268.010  2",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  268.010  2",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SNOW',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SNOW',                        Open     High       Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  221.43  225.860  220.1800  225.79  409",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  215.425  220",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  215.425  220",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('PLTR',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('PLTR',                         Open      High     Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  134.380  139.2900  132.32  139.12  7",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  155.630  160.390",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  155.630  160.390",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SMCI',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SMCI',                        Open     High     Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  48.230  48.3500  46.220  47.11  33006690.0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  52.150  54.515",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  52.150  54.515",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('AVGO',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('AVGO',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00  275.130  277.5600  272.6600  274",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  288.07  292.59",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  288.07  292.59",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('AMAT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('AMAT',                         Open    High      Low   Close     Volume\nDate                                                            \n2025-07-07 04:00:00  189.040  191.65  188.610  190.78  657742",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  185.810  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  185.810  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MU',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MU',                         Open      High      Low    Close      Volume\nDate                                                                \n2025-07-07 04:00:00  121.180   121.505  118.911   119.9",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  110.990   111.",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  110.990   111.",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SNDK',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SNDK',                          Open       High        Low     Close     Volume\nDate                                                                    \n2025-07-07 04:00:00    47.140    47.2350    4",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                         Open       High  ...     Chg20d  ST_bull\nDate                                      ...                    \n2025-07-25 04:00:00    42.480    42.6050  ...        NaN    False\n2",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                         Open       High  ...     Chg20d  ST_bull\nDate                                      ...                    \n2025-07-25 04:00:00    42.480    42.6050  ...        NaN    False\n2",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SKHY',)",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('QCOM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('QCOM',                         Open      High      Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  161.110  161.4900  157.570  158.09",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  158.900  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  158.900  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MRVL',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MRVL',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00   74.430   74.8099   71.4500   71",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00   74.000 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00   74.000 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('KLAC',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('KLAC',                         Open     High      Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  916.960  923.500  905.905  912.62   ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                            ...                               \n2025-07-25 04:00:00  892.34  905.",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                            ...                               \n2025-07-25 04:00:00  892.34  905.",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ON',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ON',                        Open     High      Low   Close      Volume\nDate                                                             \n2025-07-07 04:00:00  55.390  56.2344  54.1600  54.610   78292",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  55.740  56.970  55",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  55.740  56.970  55",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('RIOT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('RIOT',                       Open     High     Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  11.87  11.8800  10.930  11.55  26513502.0\n20",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  14.460  14.7400 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  14.460  14.7400 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('HOOD',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('HOOD',                         Open     High       Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00   93.590   95.700   91.2500   93.46",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  101.545  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  101.545  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('AFRM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('AFRM',                        Open     High      Low   Close     Volume\nDate                                                            \n2025-07-07 04:00:00  68.000  71.3750  67.6900  71.230  582118",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  65.835  67.5050 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  65.835  67.5050 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('RIVN',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('RIVN',                        Open    High      Low   Close      Volume\nDate                                                            \n2025-07-07 04:00:00  12.880  12.920  12.4441  12.750  3446233",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  13.890  14.470  13.8",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  13.890  14.470  13.8",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('NIO',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('NIO',                       Open  High    Low  Close       Volume\nDate                                                       \n2025-07-07 04:00:00  3.440  3.47  3.390   3.41   31339239.0\n2025-07-08 0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open  High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                     ...                               \n2025-07-25 04:00:00  4.840  5.09  4.790  ...  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open  High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                     ...                               \n2025-07-25 04:00:00  4.840  5.09  4.790  ...  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ENPH',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ENPH',                       Open     High      Low   Close      Volume\nDate                                                            \n2025-07-07 04:00:00  41.85  42.7700  40.9500  42.460   596991",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  35.66  35.8200  ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  35.66  35.8200  ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('FSLR',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('FSLR',                         Open      High     Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  183.000  183.8799  175.35  177.06  369",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  180.05  186.81",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  180.05  186.81",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MRNA',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MRNA',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00   30.350   30.8492   29.7200   29",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High  ...      Chg20d  ST_bull\nDate                                    ...                     \n2025-07-25 04:00:00   33.970   34.4350  ...         NaN    False\n2025",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High  ...      Chg20d  ST_bull\nDate                                    ...                     \n2025-07-25 04:00:00   33.970   34.4350  ...         NaN    False\n2025",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ABBV',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ABBV',                        Open      High       Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  189.44  191.3900  186.8250  187.63",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  191.40  191.40",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  191.40  191.40",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('LLY',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('LLY',                          Open       High        Low    Close     Volume\nDate                                                                   \n2025-07-07 04:00:00   780.680   781.1481   762.0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                         Open       High  ...    Chg20d  ST_bull\nDate                                      ...                   \n2025-07-25 04:00:00   809.000   815.1900  ...       NaN    False\n2025",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                         Open       High  ...    Chg20d  ST_bull\nDate                                      ...                   \n2025-07-25 04:00:00   809.000   815.1900  ...       NaN    False\n2025",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('BIIB',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('BIIB',                        Open     High       Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  132.10  133.200  129.0800  130.13  108",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  133.050  133.0",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  133.050  133.0",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('GILD',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('GILD',                         Open      High       Low   Close     Volume\nDate                                                               \n2025-07-07 04:00:00  111.995  112.5800  110.7500  111.7",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  114.555  117.600",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  114.555  117.600",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('VRTX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('VRTX',                         Open      High       Low    Close     Volume\nDate                                                                \n2025-07-07 04:00:00  460.000  461.2450  455.7900  459",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  472.66  472.710 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  472.66  472.710 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('HIMS',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('HIMS',                         Open    High      Low  Close      Volume\nDate                                                            \n2025-07-07 04:00:00  47.0250  48.480  45.0400  48.42  2736612",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open   High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                        ...                              \n2025-07-25 04:00:00  58.16  59.94  54.3000 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open   High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                        ...                              \n2025-07-25 04:00:00  58.16  59.94  54.3000 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('RXRX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('RXRX',                       Open    High   Low  Close      Volume\nDate                                                       \n2025-07-07 04:00:00  5.180  5.2200  4.80  4.930  37377512.0\n2025-07-08 ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open   High    Low  ...      Chg5d    Chg20d  ST_bull\nDate                                      ...                              \n2025-07-25 04:00:00  6.200  6.500  5.930  ...  ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open   High    Low  ...      Chg5d    Chg20d  ST_bull\nDate                                      ...                              \n2025-07-25 04:00:00  6.200  6.500  5.930  ...  ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('RBLX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('RBLX',                         Open    High       Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  102.920  108.00  102.2500  107.76   ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  118.570 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  118.570 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SPOT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SPOT',                         Open      High       Low   Close     Volume\nDate                                                               \n2025-07-07 04:00:00  721.720  737.6900  712.0000  736.2",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  681.530  702",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  681.530  702",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('DUOL',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('DUOL',                        Open     High       Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  390.75  397.540  382.3300  396.45   99",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  362.42  365.36",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  362.42  365.36",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('CELH',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('CELH',                        Open     High      Low  Close      Volume\nDate                                                            \n2025-07-07 04:00:00  46.200  46.6677  45.0600  45.69   386212",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  46.631  46.8699 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  46.631  46.8699 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('GME',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('GME',                       Open     High      Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  23.48  23.4800  22.5300  22.62  12873527.0\n",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  23.510  23.600",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  23.510  23.600",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('XOM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('XOM',                         Open    High       Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  111.540  112.05  110.2226  111.11  15",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  110.730  110.980",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  110.730  110.980",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('RKLB',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('RKLB',                       Open    High     Low  Close      Volume\nDate                                                         \n2025-07-07 04:00:00  36.98  39.060  35.275  38.88  35564138.0\n2025-",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High    Low  ...     Chg5d     Chg20d  ST_bull\nDate                                        ...                              \n2025-07-25 04:00:00  47.900  48.230  46.45 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High    Low  ...     Chg5d     Chg20d  ST_bull\nDate                                        ...                              \n2025-07-25 04:00:00  47.900  48.230  46.45 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ARM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ARM',                         Open     High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  154.000  154.000  145.4000  146.88  6",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  160.000 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  160.000 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('APP',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('APP',                         Open      High       Low   Close     Volume\nDate                                                               \n2025-07-07 04:00:00  341.870  346.7800  338.2200  345.00",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  360.000  369",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  360.000  369",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ANET',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ANET',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00  101.800  102.2100  100.3300  101",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  113.750  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  113.750  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('CRWD',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('CRWD',                         Open      High     Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  507.700  508.1550  498.91  505.46   ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open    High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  462.000  470.81 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open    High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  462.000  470.81 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('PANW',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('PANW',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00  200.890  202.1879  199.6700  201",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  201.330 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  201.330 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('NET',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('NET',                        Open      High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  190.33  194.1500  188.8000  192.85  2",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  191.90  200.",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  191.90  200.",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('DDOG',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('DDOG',                          Open      High       Low   Close      Volume\nDate                                                                 \n2025-07-07 04:00:00  155.0000  157.3751  151.6500  ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                         Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                               ...                              \n2025-07-25 04:00:00  147.4650",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                         Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                               ...                              \n2025-07-25 04:00:00  147.4650",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('COIN',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('COIN',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00  354.200  363.9999  351.0000  357",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  391.900  397",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  391.900  397",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MSTR',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MSTR',                         Open      High     Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  402.635  405.6400  395.20  395.67   ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  405.670  4",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  405.670  4",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MARA',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MARA',                        Open    High      Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  17.420  17.490  16.2400  16.75  42431660.0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  17.210  17.260  ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  17.210  17.260  ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('CLSK',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('CLSK',                        Open     High      Low  Close      Volume\nDate                                                            \n2025-07-07 04:00:00  11.960  12.0599  11.0918  11.33  3224782",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  12.085  12.0900  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  12.085  12.0900  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('UBER',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('UBER',                        Open     High     Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  93.540  97.1200  93.540  96.68  29817173.0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  90.490  91.3800  89.",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  90.490  91.3800  89.",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ELF',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ELF',                        Open      High      Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  127.41  128.1448  120.820  122.39  2013",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  119.89  121.85",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  119.89  121.85",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('DECK',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('DECK',                        Open     High       Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  106.20  106.750  105.0114  105.75  229",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  123.435  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  123.435  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('VST',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('VST',                        Open      High      Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  191.00  194.2800  190.350  193.70  4313",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  195.02  196.3000  ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  195.02  196.3000  ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('FTNT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('FTNT',                         Open      High       Low   Close     Volume\nDate                                                               \n2025-07-07 04:00:00  105.595  107.5600  105.0202  106.6",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open    High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  105.230  105.8",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open    High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  105.230  105.8",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ZS',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ZS',                        Open      High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  312.86  316.0150  309.6768  315.45  17",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  284.245 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                              ...                               \n2025-07-25 04:00:00  284.245 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MDB',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MDB',                        Open      High      Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  209.99  211.4550  205.670  210.01  1575",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  236.00  24",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  236.00  24",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ONON',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ONON',                       Open     High      Low  Close     Volume\nDate                                                          \n2025-07-07 04:00:00  54.17  54.6400  53.3550  54.36  5432804.0\n20",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open     High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  51.60  51.6400  50",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open     High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  51.60  51.6400  50",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ABNB',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ABNB',                         Open     High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  135.860  137.630  135.2000  137.00  ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  142.460  142.5",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  142.460  142.5",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('DKNG',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('DKNG',                        Open    High      Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  40.400  41.220  40.2050  40.58   8148125.0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  44.555  44.9600  4",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  44.555  44.9600  4",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('BABA',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('BABA',                         Open     High       Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  107.430  108.200  105.9400  106.27",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High     Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  120.190  120.4",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High     Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  120.190  120.4",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('BIDU',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('BIDU',                        Open     High     Low  Close     Volume\nDate                                                          \n2025-07-07 04:00:00  87.400  91.1284  87.225  89.79  6788432.0\n20",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open   High     Low  ...     Chg5d     Chg20d  ST_bull\nDate                                        ...                              \n2025-07-25 04:00:00  91.500  91.50  89.960 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open   High     Low  ...     Chg5d     Chg20d  ST_bull\nDate                                        ...                              \n2025-07-25 04:00:00  91.500  91.50  89.960 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('PDD',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('PDD',                         Open     High      Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  102.580  105.700  102.380  105.25   5",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  116.680  118",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  116.680  118",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('JD',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('JD',                        Open    High     Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  31.880  32.520  31.845  32.02   6779728.0\n2025",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  33.150  33.310  32",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  33.150  33.310  32",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('KWEB',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('KWEB',                       Open     High     Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  33.59  34.1700  33.590  33.87  14496818.0\n20",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High     Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  36.250  36.3200  3",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High     Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  36.250  36.3200  3",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('IONQ',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('IONQ',                        Open     High      Low  Close      Volume\nDate                                                            \n2025-07-07 04:00:00  46.380  47.2100  42.8500  45.20  3385093",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  44.240  44.250  42",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                          ...                              \n2025-07-25 04:00:00  44.240  44.250  42",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SOUN',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SOUN',                       Open     High    Low  Close       Volume\nDate                                                          \n2025-07-07 04:00:00  10.97  11.6200  10.48  11.38   41685298.0\n20",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  11.995  12.0050  1",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  11.995  12.0050  1",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('BBAI',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('BBAI',                       Open  High   Low  Close       Volume\nDate                                                      \n2025-07-07 04:00:00  7.765  7.99  7.22   7.78  155350465.0\n2025-07-08 04:",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open  High   Low  ...      Chg5d     Chg20d  ST_bull\nDate                                    ...                               \n2025-07-25 04:00:00  7.800  7.80  7.35  ...  -7.0",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open  High   Low  ...      Chg5d     Chg20d  ST_bull\nDate                                    ...                               \n2025-07-25 04:00:00  7.800  7.80  7.35  ...  -7.0",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('WOLF',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('WOLF',                         Open     High    Low  Close       Volume\nDate                                                            \n2025-07-07 04:00:00   1.4400   2.7700   1.43   2.31  46156738",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00   1.760   1.7900   ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00   1.760   1.7900   ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('LUNR',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('LUNR',                        Open     High     Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  10.665  10.7000  10.060  10.41   5838925.0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  12.720  12.9250 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  12.720  12.9250 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ACHR',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ACHR',                        Open    High      Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  10.100  10.220   9.7602  10.02  31032322.0",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  10.980  11.330  10",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  10.980  11.330  10",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('JOBY',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('JOBY',                        Open     High      Low  Close      Volume\nDate                                                            \n2025-07-07 04:00:00  10.475  10.6800  10.1700  10.66  1871146",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  17.580  18.540",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  17.580  18.540",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('RCAT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('RCAT',                       Open   High     Low  Close      Volume\nDate                                                        \n2025-07-07 04:00:00  6.990  7.000  6.7201  6.790   3641558.0\n2025-07-",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open   High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                       ...                               \n2025-07-25 04:00:00  9.850  9.950  9.3700  ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open   High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                       ...                               \n2025-07-25 04:00:00  9.850  9.950  9.3700  ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('CEG',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('CEG',                         Open     High       Low    Close     Volume\nDate                                                               \n2025-07-07 04:00:00  310.000  320.410  309.0900  318.250",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  322.500  328",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  322.500  328",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('NRG',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('NRG',                        Open      High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  158.43  160.6296  157.6300  158.69  1",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  158.43  15",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  158.43  15",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('TLN',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('TLN',                        Open      High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  281.35  286.9099  280.3000  285.10   ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  339.75  35",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High       Low  ...      Chg5d     Chg20d  ST_bull\nDate                                             ...                               \n2025-07-25 04:00:00  339.75  35",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('OKLO',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('OKLO',                        Open   High      Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  53.865  56.33  51.8801  55.94  11928589.0\n20",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                        ...                               \n2025-07-25 04:00:00  71.71  75.9000  71.2",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open     High    Low  ...      Chg5d     Chg20d  ST_bull\nDate                                        ...                               \n2025-07-25 04:00:00  71.71  75.9000  71.2",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SMR',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SMR',                        Open     High     Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  35.500  36.9429  34.150  36.70   6922229.0\n",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  49.200  52.240  48",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                         ...                               \n2025-07-25 04:00:00  49.200  52.240  48",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('GEV',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('GEV',                        Open      High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  520.00  531.1900  514.0800  530.28  2",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  630.00  651.22",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High     Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  630.00  651.22",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('LMT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('LMT',                        Open      High      Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  464.50  470.5499  461.370  469.06  1224",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  421.54  425.",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  421.54  425.",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('RTX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('RTX',                        Open     High       Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  146.26  146.780  145.1300  145.92  4532",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  155.21  157.33",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  155.21  157.33",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('GE',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('GE',                         Open    High       Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  247.520  249.44  246.4800  248.65  53364",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  268.830  272",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  268.830  272",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('CAT',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('CAT',                         Open      High      Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  398.060  398.0600  388.090  391.51  3",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  429.690  434",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                             ...                              \n2025-07-25 04:00:00  429.690  434",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ETN',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ETN',                        Open     High     Low   Close     Volume\nDate                                                           \n2025-07-07 04:00:00  362.22  363.180  354.93  358.49  1800819.0\n",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  388.00  393.070 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...     Chg5d     Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  388.00  393.070 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('JPM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('JPM',                         Open     High       Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  295.250  296.040  290.0800  291.97 ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  296.70  298.90",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  296.70  298.90",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('GS',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('GS',                         Open       High        Low    Close     Volume\nDate                                                                  \n2025-07-07 04:00:00   721.70   723.9700   706.3400 ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open       High        Low  ...     Chg5d    Chg20d  ST_bull\nDate                                                ...                             \n2025-07-25 04:00:00   720.76 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open       High        Low  ...     Chg5d    Chg20d  ST_bull\nDate                                                ...                             \n2025-07-25 04:00:00   720.76 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('V',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('V',                         Open      High       Low   Close     Volume\nDate                                                               \n2025-07-07 04:00:00  358.920  359.6600  354.4900  356.64  ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  354.000  357",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                              ...                             \n2025-07-25 04:00:00  354.000  357",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('MA',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('MA',                        Open      High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  570.67  570.7500  560.3508  565.12  24",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  564.36  569.9550",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  564.36  569.9550",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('CVX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('CVX',                         Open    High      Low   Close      Volume\nDate                                                             \n2025-07-07 04:00:00  147.400  148.17  145.580  147.40   9460",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open    High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  155.830  156.20 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open    High       Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  155.830  156.20 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('OXY',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('OXY',                        Open    High      Low  Close      Volume\nDate                                                           \n2025-07-07 04:00:00  43.510  44.170  42.7903  43.35  12454543.0\n",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  44.670  44.990  44.2",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                          ...                             \n2025-07-25 04:00:00  44.670  44.990  44.2",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SLB',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SLB',                        Open    High     Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  35.415  35.665  34.510  34.95   9710096.0\n202",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                      Open    High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                        ...                             \n2025-07-25 04:00:00  35.41  35.630  35.110  .",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                      Open    High     Low  ...     Chg5d    Chg20d  ST_bull\nDate                                        ...                             \n2025-07-25 04:00:00  35.41  35.630  35.110  .",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('UNH',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('UNH',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00  308.000  308.6050  301.2000  303.",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  281.00  286.14",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  281.00  286.14",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ISRG',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ISRG',                        Open      High       Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  543.23  544.8800  532.8800  534.71  ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  492.48  497.50",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High       Low  ...     Chg5d     Chg20d  ST_bull\nDate                                            ...                              \n2025-07-25 04:00:00  492.48  497.50",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('NVO',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('NVO',                        Open     High      Low  Close      Volume\nDate                                                            \n2025-07-07 04:00:00  69.360  69.5433  68.7100  69.32   7313482",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  71.020  71.7950 ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...      Chg5d    Chg20d  ST_bull\nDate                                           ...                              \n2025-07-25 04:00:00  71.020  71.7950 ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('FCX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('FCX',                        Open    High     Low  Close      Volume\nDate                                                          \n2025-07-07 04:00:00  45.245  45.555  44.440  45.13  19630229.0\n202",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open    High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  44.570  44.960  ",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open    High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                          ...                               \n2025-07-25 04:00:00  44.570  44.960  ",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('NEM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('NEM',                         Open      High      Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00   58.980   60.1800   58.410   60.16 ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open      High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                            ...                               \n2025-07-25 04:00:00   63.88   66.",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open      High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                            ...                               \n2025-07-25 04:00:00   63.88   66.",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('COST',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('COST',                         Open      High      Low   Close     Volume\nDate                                                              \n2025-07-07 04:00:00  985.000  992.8931  976.200  992.18  ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  936.300  941.2",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  936.300  941.2",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ORCL',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ORCL',                         Open      High     Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  235.110  235.2500  229.50  232.26  1",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open    High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  242.340  245.4",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open    High      Low  ...      Chg5d     Chg20d  ST_bull\nDate                                           ...                               \n2025-07-25 04:00:00  242.340  245.4",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('ADBE',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('ADBE',                         Open      High     Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  378.900  382.2200  375.52  376.93   ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  372.310  3",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High       Low  ...      Chg5d    Chg20d  ST_bull\nDate                                              ...                              \n2025-07-25 04:00:00  372.310  3",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('FDX',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('FDX',                        Open     High       Low   Close     Volume\nDate                                                             \n2025-07-07 04:00:00  240.50  242.300  234.5000  235.09  2609",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                       Open     High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  238.20  243.640  2",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                       Open     High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                           ...                             \n2025-07-25 04:00:00  238.20  243.640  2",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('SPY',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('SPY',                         Open      High       Low   Close      Volume\nDate                                                                \n2025-07-07 04:00:00  623.360  624.0300  617.8700  620.",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  635.090  637.5",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  635.090  637.5",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('QQQ',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('QQQ',                         Open      High      Low   Close      Volume\nDate                                                               \n2025-07-07 04:00:00  553.520  554.3400  549.580  552.03 ",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  564.930  567.6",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open      High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                             ...                             \n2025-07-25 04:00:00  564.930  567.6",
-   "[]"
-  ],
-  [
-   "fetch_df",
-   "('IWM',)",
-   "[]"
-  ],
-  [
-   "_compute_indicators_cached",
-   "('IWM',                        Open     High       Low   Close      Volume\nDate                                                              \n2025-07-07 04:00:00  221.57  222.820  218.4100  219.73  41",
-   "[]"
-  ],
-  [
-   "flag",
-   "('ENABLE_ACCUMULATION_ALERTS', True)",
-   "[]"
-  ],
-  [
-   "detect_accumulation",
-   "(                        Open     High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  224.420  224.595",
-   "[]"
-  ],
-  [
-   "_raw_signals",
-   "(                        Open     High      Low  ...     Chg5d    Chg20d  ST_bull\nDate                                            ...                             \n2025-07-25 04:00:00  224.420  224.595",
-   "[]"
-  ],
-  [
-   "_scan_smallcap_pass",
-   "({}, True, [], ['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', 'KLAC', 'ON', 'RIOT', 'HOOD",
-   "[]"
-  ],
-  [
-   "get_effective_account",
-   "()",
-   "[]"
-  ],
-  [
-   "_scan_portfolio_heat",
-   "(2670.4, 0.0)",
-   "[]"
-  ],
-  [
-   "_apply_sector_concentration_cap",
-   "([],)",
-   "[]"
-  ],
-  [
-   "_finalize_and_alert_signals",
-   "([], {'regime': 'CHOP', 'score': 6, 'spy_trend': False, 'adx_strong': False, 'vix_ok': True, 'details': {'SPY vs EMA20': False, 'SPY vs EMA50': False, 'SPY vs SMA200': True, 'SPY EMA20 dist': -0.86, '",
-   "[]"
-  ],
-  [
-   "_report_accumulation",
-   "([],)",
-   "[]"
-  ],
-  [
-   "_scan_persist_log",
-   "(False, 85, {'regime': 'CHOP', 'score': 6, 'spy_trend': False, 'adx_strong': False, 'vix_ok': True, 'details': {'SPY vs EMA20': False, 'SPY vs EMA50': False, 'SPY vs SMA200': True, 'SPY EMA20 dist': -",
-   "[]"
-  ],
-  [
-   "_scan_near_miss_tier",
-   "([], [], 85, {'regime': 'CHOP', 'score': 6, 'spy_trend': False, 'adx_strong': False, 'vix_ok': True, 'details': {'SPY vs EMA20': False, 'SPY vs EMA50': False, 'SPY vs SMA200': True, 'SPY EMA20 dist': ",
-   "[]"
-  ],
-  [
-   "_scan_friday_closeout",
-   "()",
-   "[]"
+ "G01_normal_pass": {
+  "ret": [
+   "NVDA"
+  ],
+  "error": null,
+  "halts": [],
+  "finalized": [
+   "NVDA"
+  ],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     🟢 PASS  score=95",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  1 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 1.9% / 6%",
+   "────────────────────────────────────────────────────────────────────"
   ]
- ],
- "stdout": [
-  "════════════════════════════════════════════════════════════════════",
-  "  D🔥man PRO Scanner v3  —  Friday Sep 11, 2026",
-  "  Min score : 85/100  |  AI scoring: OFF",
-  "  Shorts    : OFF  |  Rolling WR: 34.0%  (50 trades)  |  Streak: ❄️ 3L streak",
-  "════════════════════════════════════════════════════════════════════",
-  "  [1/2] Checking market regime & sectors...",
-  "  Market : CHOP (score 6/19)  VIX: 15.8",
-  "  Top sectors: Energy, Comm Services, Healthcare, Consumer Stap",
-  "  📅  September seasonal filter — non-exempt setups raised to 92/100 (Gap & Hold / Morning Runner exempt)",
-  "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 105/108 tickers warmed",
-  "  [2/2] Scanning 108 tickers...",
-  "    1/108: AAPL",
-  "    2/108: MSFT",
-  "    3/108: NVDA",
-  "    4/108: AMD",
-  "    5/108: META",
-  "    6/108: GOOGL",
-  "    7/108: AMZN",
-  "    8/108: TSLA",
-  "    9/108: NFLX",
-  "   10/108: CRM",
-  "   11/108: SNOW",
-  "   12/108: PLTR",
-  "   13/108: SMCI",
-  "   14/108: AVGO",
-  "   15/108: AMAT",
-  "   16/108: MU",
-  "   17/108: SNDK",
-  "   18/108: SKHY",
-  "   19/108: QCOM",
-  "   20/108: MRVL",
-  "   21/108: KLAC",
-  "   22/108: ON",
-  "   23/108: RIOT",
-  "   24/108: HOOD",
-  "   25/108: AFRM",
-  "   26/108: RIVN",
-  "   27/108: NIO",
-  "   28/108: ENPH",
-  "   29/108: FSLR",
-  "   30/108: MRNA",
-  "   31/108: ABBV",
-  "   32/108: LLY",
-  "   33/108: BIIB",
-  "   34/108: GILD",
-  "   35/108: VRTX",
-  "   36/108: HIMS",
-  "   37/108: RXRX",
-  "   38/108: RBLX",
-  "   39/108: SPOT",
-  "   40/108: DUOL",
-  "   41/108: CELH",
-  "   42/108: GME",
-  "   43/108: XOM",
-  "   44/108: RKLB",
-  "   45/108: ARM",
-  "   46/108: APP",
-  "   47/108: ANET",
-  "   48/108: CRWD",
-  "   49/108: PANW",
-  "   50/108: NET",
-  "   51/108: DDOG",
-  "   52/108: COIN",
-  "   53/108: MSTR",
-  "   54/108: MARA",
-  "   55/108: CLSK",
-  "   56/108: UBER",
-  "   57/108: ELF",
-  "   58/108: DECK",
-  "   59/108: VST",
-  "   60/108: FTNT",
-  "   61/108: ZS",
-  "   62/108: MDB",
-  "   63/108: ONON",
-  "   64/108: ABNB",
-  "   65/108: DKNG",
-  "   66/108: BABA",
-  "   67/108: BIDU",
-  "   68/108: PDD",
-  "   69/108: JD",
-  "   70/108: KWEB",
-  "   71/108: IONQ",
-  "   72/108: SOUN",
-  "   73/108: BBAI",
-  "   74/108: WOLF",
-  "   75/108: LUNR",
-  "   76/108: ACHR",
-  "   77/108: JOBY",
-  "   78/108: RCAT",
-  "   79/108: CEG",
-  "   80/108: NRG",
-  "   81/108: TLN",
-  "   82/108: OKLO",
-  "   83/108: SMR",
-  "   84/108: GEV",
-  "   85/108: LMT",
-  "   86/108: RTX",
-  "   87/108: GE",
-  "   88/108: CAT",
-  "   89/108: ETN",
-  "   90/108: JPM",
-  "   91/108: GS",
-  "   92/108: V",
-  "   93/108: MA",
-  "   94/108: CVX",
-  "   95/108: OXY",
-  "   96/108: SLB",
-  "   97/108: UNH",
-  "   98/108: ISRG",
-  "   99/108: NVO",
-  "  100/108: FCX",
-  "  101/108: NEM",
-  "  102/108: COST",
-  "  103/108: ORCL",
-  "  104/108: ADBE",
-  "  105/108: FDX",
-  "  106/108: SPY",
-  "  107/108: QQQ",
-  "  108/108: IWM",
-  "────────────────────────────────────────────────────────────────────",
-  "  ✅  0 A+ setup(s) passed all filters",
-  "  ❌  Rejected: 108 no signal, 0 hard gate, 0 low score",
-  "  🌡  Portfolio heat used: 0.0% / 6%",
-  "────────────────────────────────────────────────────────────────────"
- ]
+ },
+ "G02_vix_extreme_halt": {
+  "ret": [],
+  "error": null,
+  "halts": [
+   "vix_extreme"
+  ],
+  "finalized": [],
+  "rejects": [],
+  "telegram": [
+   "🛑 <b>DMan HALTED — VIX Extreme</b>\nVIX at 41.0 (≥40). This is a crisis session.\nAll trading suspended. Protect capital. Come back when VIX < 35."
+  ],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 41.0",
+   "  Top sectors: Technology",
+   "  🛑 VIX EXTREME: 41.0 ≥ 40 — full halt. No orders in a crisis session."
+  ]
+ },
+ "G03_vix_over_25_raises_bar": {
+  "ret": [
+   "NVDA"
+  ],
+  "error": null,
+  "halts": [],
+  "finalized": [
+   "NVDA"
+  ],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 26.0",
+   "  Top sectors: Technology",
+   "  ⚠  VIX=26.0 > 25 — min score raised to 90/100",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     🟢 PASS  score=95",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  1 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 1.9% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G04_vix_shock_raises_bar": {
+  "ret": [
+   "NVDA"
+  ],
+  "error": null,
+  "halts": [],
+  "finalized": [
+   "NVDA"
+  ],
+  "rejects": [
+   ""
+  ],
+  "telegram": [
+   "⚡ <b>VIX Shock active</b> — none\nMin score raised to 90/100 for this session. Filters tighter."
+  ],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  ⚡ VIX SHOCK detected (none) — min score raised to 90/100",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     🟢 PASS  score=95",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  1 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 1.9% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G05_daily_loss_limit": {
+  "ret": [],
+  "error": null,
+  "halts": [
+   "daily_loss_limit"
+  ],
+  "finalized": [],
+  "rejects": [],
+  "telegram": [
+   "🛑 <b>Daily loss limit hit</b> — down -5.0% today. Halted."
+  ],
+  "stdout": [
+   "  🛑 DAILY LOSS LIMIT HIT: Down -5.0% today (limit: 3%).",
+   "     Stop trading. Protect your capital. Come back tomorrow."
+  ]
+ },
+ "G06_consec_loss_gate_stops": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [],
+  "telegram": [],
+  "stdout": []
+ },
+ "G07_probation_active": {
+  "ret": [
+   "NVDA"
+  ],
+  "error": null,
+  "halts": [],
+  "finalized": [
+   "NVDA"
+  ],
+  "rejects": [
+   ""
+  ],
+  "telegram": [
+   "🟡 <b>Probation active</b> — trading resumed at ×0.50 sizing (consec-loss/monthly-loss guards bypassed; daily limit still applies)."
+  ],
+  "stdout": [
+   "  🟡 PROBATION ACTIVE — consec-loss/monthly-loss guards bypassed, sizing ×0.50",
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     🟢 PASS  score=95",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  1 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 1.9% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G08_seasonal_month": {
+  "ret": [
+   "NVDA"
+  ],
+  "error": null,
+  "halts": [],
+  "finalized": [
+   "NVDA"
+  ],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  📅  October seasonal filter — non-exempt setups raised to 92/100 (Gap & Hold / Morning Runner exempt)",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     🟢 PASS  score=95",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  1 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 1.9% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G09_catalyst_veto": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   "market recap only"
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     CATALYST BLOCKED (market recap only)",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G10_regime_blocked": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   "hard gate"
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     REGIME BLOCKED (LONG in BULL)",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G11_mtf_blocked": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   "hard gate"
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     MTF BLOCKED (weekly chart disagrees)",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G12_earnings_blackout": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   "hard gate"
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     EARNINGS BLACKOUT",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G13_macro_blackout": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     MACRO BLACKOUT (FOMC/NFP)",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G14_divergence": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     DIVERGENCE DETECTED",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G15_chasing_highs": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     CHASING EXTENDED HIGHS (already up 25%+ in 10d, near 52wk high, no confirmation)",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G16_score_below_bar": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     score 70/100 < 85",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 1 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G17_bar_capped": {
+  "ret": [
+   "NVDA"
+  ],
+  "error": null,
+  "halts": [],
+  "finalized": [
+   "NVDA"
+  ],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     🟢 PASS  score=95",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  1 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 1.9% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G18_def_rotation_penalty": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  🔄 DEFENSIVE ROTATION: tech weak",
+   "     Tech long signals will carry a -5 score penalty this session.",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA       [-5 def-rotation penalty → 83]  score 83/100 < 85",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 1 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G19_gap_hold_early_session": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA            (early-session gate — Gap & Hold held until HH:MM)",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G20_heat_cap_excludes": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [
+   ""
+  ],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     🟢 PASS  score=95",
+   "  🌡  Existing position heat: 5.9% of account",
+   "  🌡  Heat cap 6% reached (5.9% used) — NVDA excluded",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 5.9% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ },
+ "G21_no_signal_at_all": {
+  "ret": [],
+  "error": null,
+  "halts": [],
+  "finalized": [],
+  "rejects": [],
+  "telegram": [],
+  "stdout": [
+   "════════════════════════════════════════════════════════════════════",
+   "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
+   "  Min score : 85/100  |  AI scoring: OFF",
+   "  Shorts    : OFF  |  Live WR: 40.0%  (20 live trades)  |  Streak: —",
+   "════════════════════════════════════════════════════════════════════",
+   "  [1/2] Checking market regime & sectors...",
+   "  Market : BULL (score 12/19)  VIX: 15.0",
+   "  Top sectors: Technology",
+   "  [1.5/2] Pre-fetching news catalysts (last 20h)...   [1.7/2] Pre-warming bars via Alpaca SIP (Algo Trader Plus)... 1/1 tickers warmed",
+   "  [2/2] Scanning 1 tickers...",
+   "    1/1: NVDA     ",
+   "────────────────────────────────────────────────────────────────────",
+   "  ✅  0 A+ setup(s) passed all filters",
+   "  ❌  Rejected: 1 no signal, 0 hard gate, 0 low score",
+   "  🌡  Portfolio heat used: 0.0% / 6%",
+   "────────────────────────────────────────────────────────────────────"
+  ]
+ }
 }

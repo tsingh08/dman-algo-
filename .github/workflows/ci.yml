@@ -71,7 +71,14 @@ jobs:
           python golden/submit_signals_harness.py check | tee /tmp/g1.txt
           python golden/monitor_option_harness.py check | tee /tmp/g2.txt
           python golden/callee_harness.py telegram check | tee /tmp/g3.txt
-          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt
+          # run_pro_scanner: the function that decides what trades at all, and
+          # until now the only one of the three big money paths with no golden.
+          # Covers the whole gating chain -- VIX halt and score raise, seasonal
+          # bar, daily/consecutive loss stops, probation, every hard gate, the
+          # effective-min-score bar, the defensive-rotation penalty, the
+          # early-session Gap & Hold hold, and the portfolio-heat cap.
+          python golden/scanner_harness.py check | tee /tmp/g4.txt
+          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g4.txt
 
       - name: Regression suite (test_dman_algo.py)
         id: suite

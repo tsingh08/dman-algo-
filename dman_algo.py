@@ -19620,9 +19620,12 @@ def _check_stop_coverage() -> Optional[dict]:
         # Positions whose strategy forbids a stop are not "unprotected" --
         # arming one is the bug, not the fix. See _is_no_stop_by_design().
         _no_stop_syms = set()
+        _setup_of: dict = {}
         try:
-            _no_stop_syms = {str(_p.ticker).upper() for _p in PositionTracker().positions
-                             if _is_no_stop_by_design(getattr(_p, "setup", ""))}
+            for _p in PositionTracker().positions:
+                _setup_of[str(_p.ticker).upper()] = str(getattr(_p, "setup", "") or "?")
+                if _is_no_stop_by_design(getattr(_p, "setup", "")):
+                    _no_stop_syms.add(str(_p.ticker).upper())
         except Exception as _swallowed:
             _log_swallowed("no-stop-by-design set", _swallowed)
         _unprotected = [
@@ -19645,7 +19648,8 @@ def _check_stop_coverage() -> Optional[dict]:
                 _restored, _detail = _auto_restore_missing_stop(_client, _sym, _qty)
                 if _restored:
                     _any_restored = True
-                    _up_msgs.append(f"  ✅ {_sym}: {_qty:.0f}sh — {_detail}")
+                    _up_msgs.append(f"  ✅ {_sym}: {_qty:.0f}sh "
+                                    f"[{_setup_of.get(_sym.upper(), '?')}] — {_detail}")
                 else:
                     _up_msgs.append(f"  🚨 {_sym}: {_qty:.0f}sh — no live stop, auto-restore failed: {_detail}")
             # Same fix as __ORPHAN_POSITIONS__ above: keyed by the
@@ -19658,7 +19662,15 @@ def _check_stop_coverage() -> Optional[dict]:
                 _header = ("🛠 <b>STOP AUTO-RESTORED</b>" if _any_restored and all(
                                "✅" in m for m in _up_msgs)
                            else "🚨 <b>NO LIVE STOP PROTECTION</b>")
-                _footer = ("\n\n<i>Fresh stop(s) submitted automatically — verify in Alpaca when convenient.</i>"
+                # This used to read "verify in Alpaca when convenient". RSKD,
+                # 2026-09-25: that exact message reported arming a $7.39 stop on
+                # a breakout zone -- a strategy that must never carry one -- as a
+                # successful repair, so it read as good news and was reasonably
+                # ignored. A message about PLACING a live exit order on the
+                # account should not sound softer than one about a missing one.
+                _footer = ("\n\n<i>A NEW live exit order now exists on each of these, "
+                           "placed automatically and not asked for. If any of these "
+                           "setups is not supposed to carry a stop, cancel it.</i>"
                            if _any_restored else
                            "\n\n<i>Auto-restore failed — check for a stuck/HELD order or a broken OCO link, manual action needed.</i>")
                 send_telegram(

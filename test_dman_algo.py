@@ -20336,3 +20336,94 @@ class TestGuardLoopChecksAreIsolated(unittest.TestCase):
         fn = fn[:fn.index("def guard_loop")]
         self.assertIn("_is_duplicate_alert", fn)
         self.assertIn("except Exception", fn)   # must not break the loop itself
+
+
+class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
+    """Every defect found in the 2026-09-22..26 review was visible in Alpaca's
+    own data within seconds and none surfaced until the session was read
+    afterwards. These are those exact three cases, replayed."""
+
+    def _run(self, tracked, remote, orders, notify=False):
+        client = MagicMock()
+        client.get_all_positions.return_value = remote
+        client.get_orders.return_value = orders
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=SimpleNamespace(positions=tracked)), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram") as tg:
+            out = a.run_position_reconciliation(notify=notify)
+        return out, tg
+
+    @staticmethod
+    def _pos(sym, qty, avg):
+        return SimpleNamespace(symbol=sym, qty=str(qty), avg_entry_price=str(avg))
+
+    @staticmethod
+    def _order(sym, side, otype, stop=None):
+        return SimpleNamespace(symbol=sym, side=side, order_type=otype, stop_price=stop)
+
+    def test_secz_entry_recorded_at_the_wrong_price(self):
+        """Logged $14.36 against a $15.98 fill — booked a loss as a win."""
+        tracked = [SimpleNamespace(ticker="SECZ", setup="Breakout Zone +166% off low",
+                                   entry=14.36, shares=17, stop=0.01)]
+        out, _ = self._run(tracked, [self._pos("SECZ", 17, 15.9844)], [])
+        self.assertTrue(any("entry recorded" in i for i in out["issues"]), out["issues"])
+
+    def test_rskd_stop_that_should_not_exist(self):
+        """A $7.39 stop resting on a breakout zone, which exits on time."""
+        tracked = [SimpleNamespace(ticker="RSKD", setup="Breakout Zone +120% off low",
+                                   entry=8.0367, shares=31, stop=0.01)]
+        orders = [self._order("RSKD", "sell", "stop", 7.39)]
+        out, _ = self._run(tracked, [self._pos("RSKD", 31, 8.0367)], orders)
+        self.assertTrue(any("must not carry one" in i for i in out["issues"]), out["issues"])
+
+    def test_ddog_duplicate_working_entries(self):
+        tracked = [SimpleNamespace(ticker="DDOG", setup="Gap & Hold",
+                                   entry=263.24, shares=1, stop=257.98)]
+        orders = [self._order("DDOG", "buy", "limit"), self._order("DDOG", "buy", "limit")]
+        out, _ = self._run(tracked, [self._pos("DDOG", 1, 263.24)], orders)
+        self.assertTrue(any("working BUY" in i for i in out["issues"]), out["issues"])
+
+    def test_size_drift_is_reported(self):
+        tracked = [SimpleNamespace(ticker="AAA", setup="Gap & Hold", entry=10.0,
+                                   shares=50, stop=9.0)]
+        out, _ = self._run(tracked, [self._pos("AAA", 100, 10.0)], [])
+        self.assertTrue(any("broker holds 100" in i for i in out["issues"]), out["issues"])
+
+    def test_an_untracked_broker_position_is_reported(self):
+        out, _ = self._run([], [self._pos("ZZZ", 10, 5.0)], [])
+        self.assertTrue(any("NOT tracked" in i for i in out["issues"]), out["issues"])
+
+    def test_a_phantom_tracked_position_is_reported(self):
+        tracked = [SimpleNamespace(ticker="GONE", setup="Gap & Hold", entry=10.0,
+                                   shares=10, stop=9.0)]
+        out, _ = self._run(tracked, [], [])
+        self.assertTrue(any("NOT held at the broker" in i for i in out["issues"]), out["issues"])
+
+    def test_it_is_silent_when_everything_agrees(self):
+        """This runs daily; agreement must produce no Telegram at all."""
+        tracked = [SimpleNamespace(ticker="AAA", setup="Gap & Hold", entry=10.0,
+                                   shares=10, stop=9.0)]
+        orders = [self._order("AAA", "sell", "stop", 9.0)]
+        out, tg = self._run(tracked, [self._pos("AAA", 10, 10.0)], orders, notify=True)
+        self.assertEqual(out["issues"], [])
+        tg.assert_not_called()
+
+    def test_an_equity_stop_on_a_normal_setup_is_not_flagged(self):
+        """Only no-stop-by-design setups object to a resting stop."""
+        tracked = [SimpleNamespace(ticker="AAA", setup="Gap & Hold", entry=10.0,
+                                   shares=10, stop=9.0)]
+        orders = [self._order("AAA", "sell", "stop", 9.0)]
+        out, _ = self._run(tracked, [self._pos("AAA", 10, 10.0)], orders)
+        self.assertEqual(out["issues"], [])
+
+    def test_it_reports_and_does_not_repair(self):
+        src = inspect.getsource(a.run_position_reconciliation)
+        for mutator in ("_save()", "_update_position_field", "submit_order",
+                        "cancel_order", "pt.open"):
+            self.assertNotIn(mutator, src, f"reconciliation must not {mutator}")
+
+    def test_the_briefing_runs_it_daily(self):
+        self.assertIn("run_position_reconciliation",
+                      inspect.getsource(a.run_premarket_briefing))

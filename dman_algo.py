@@ -12156,6 +12156,14 @@ def run_premarket_briefing() -> None:
         print(f"  [swing reconcile] {_rc_exc}")
 
     # ── 0. Scanner health watchdog ────────────────────────────────────
+    # Daily reconciliation, after the re-anchor above has had its chance to
+    # correct entry drift -- so what it reports is what the re-anchor could not
+    # fix. Silent when the tracker and the broker agree.
+    try:
+        run_position_reconciliation()
+    except Exception as _rec_exc:
+        print(f"  ⚠️  Reconciliation failed (non-fatal): {_rec_exc}")
+
     scanner_health_line = ""
     try:
         if os.path.exists(SCAN_LOG_FILE):
@@ -23248,6 +23256,152 @@ def _is_no_stop_by_design(setup: str) -> bool:
     return str(setup or "").startswith(BZONE_SETUP)
 
 
+# Anything above this much disagreement between the tracked entry and the
+# broker's average fill is worth a human's attention. Same threshold the fill
+# re-anchor uses, so a drift it would have corrected is never also reported.
+RECON_ENTRY_TOLERANCE_PCT = 0.5
+
+
+def run_position_reconciliation(notify: bool = True) -> dict:
+    """Compare every tracked position against the broker and report disagreement.
+
+    Every defect found in the 2026-09-22..26 review was already visible in
+    Alpaca's own data within seconds of happening, and not one of them surfaced
+    until someone sat down and read the session afterwards:
+
+      SECZ  tracked entry $14.36 against a $15.98 fill -- a real -8.04% loss
+            recorded as a +2.37% WIN, and +0.22% into the daily P&L the circuit
+            breakers read
+      RSKD  a $7.39 stop resting at the broker on a breakout zone, which must
+            never carry one
+      DDOG  two working entries on one ticker, either of which could fill
+
+    The existing checks could not have caught those. _check_stop_coverage()
+    asks "is a stop MISSING", never "is a stop here that should not be", and
+    adopt_orphan_positions() only looks at positions absent from the tracker.
+    Nothing compared the two records field by field.
+
+    Reports, deliberately; it does not repair. The fill re-anchor already
+    corrects entry drift on its own 300s cadence, and a reconciliation that
+    silently rewrites state is how a wrong number becomes permanent. Silent
+    when everything agrees -- this runs daily and must not become noise.
+
+    Returns {"checked", "issues": [...]} so a caller can log it without the
+    Telegram path.
+    """
+    out: dict = {"checked": 0, "issues": []}
+    client = get_alpaca_client()
+    if client is None:
+        return out
+    try:
+        _remote = {p.symbol.upper(): p for p in client.get_all_positions()}
+        _orders = client.get_orders(filter=GetOrdersRequest(
+            status=QueryOrderStatus.OPEN, limit=200))
+    except Exception as exc:
+        _log_swallowed("reconciliation fetch", exc)
+        return out
+
+    # resting sell-stops by symbol -- the broker's own answer to "is there a stop"
+    _stops: dict[str, float] = {}
+    _buys: dict[str, int] = {}
+    for _o in _orders:
+        _sym = str(getattr(_o, "symbol", "")).upper()
+        _side = str(getattr(_o.side, "value", _o.side)).lower()
+        _otype = str(getattr(_o.order_type, "value", _o.order_type)).lower()
+        if _side == "sell" and "stop" in _otype:
+            try:
+                _stops[_sym] = float(_o.stop_price)
+            except (TypeError, ValueError):
+                pass
+        elif _side == "buy":
+            _buys[_sym] = _buys.get(_sym, 0) + 1
+
+    try:
+        _tracked = list(PositionTracker().positions)
+    except Exception as exc:
+        _log_swallowed("reconciliation tracker read", exc)
+        return out
+
+    _seen: set = set()
+    for _p in _tracked:
+        _is_opt = _is_option_position(getattr(_p, "setup", ""))
+        _key = str(_position_identity(_p.ticker, _p.setup) if _is_opt else _p.ticker).upper()
+        _seen.add(_key)
+        _ap = _remote.get(_key)
+        out["checked"] += 1
+        if _ap is None:
+            out["issues"].append(f"{_p.ticker}: tracked but NOT held at the broker "
+                                 f"({_p.setup}) — a phantom position, or a close "
+                                 f"that was never recorded")
+            continue
+        # entry price
+        try:
+            _actual = float(getattr(_ap, "avg_entry_price", 0) or 0)
+            _rec = float(getattr(_p, "entry", 0) or 0)
+            if _actual > 0 and _rec > 0:
+                _drift = abs(_actual - _rec) / _rec * 100
+                if _drift > RECON_ENTRY_TOLERANCE_PCT:
+                    out["issues"].append(
+                        f"{_p.ticker}: entry recorded ${_rec:.4f}, broker paid "
+                        f"${_actual:.4f} ({_drift:+.1f}%) — P&L and stop/target "
+                        f"levels are all measured off the wrong base")
+        except (TypeError, ValueError):
+            pass
+        # size
+        try:
+            _bq = abs(float(_ap.qty))
+            _tq = abs(float(getattr(_p, "shares", 0) or 0))
+            if _is_opt:
+                _bq *= 100          # tracker stores contracts x 100
+            if _tq and abs(_bq - _tq) >= 1:
+                out["issues"].append(
+                    f"{_p.ticker}: tracker holds {_tq:.0f}, broker holds {_bq:.0f} "
+                    f"— exit sizing and premium-at-risk are both wrong")
+        except (TypeError, ValueError):
+            pass
+        # a stop that should not be there, or one that should
+        if not _is_opt:
+            _has_stop = _key in _stops
+            if _is_no_stop_by_design(getattr(_p, "setup", "")) and _has_stop:
+                out["issues"].append(
+                    f"{_p.ticker}: a ${_stops[_key]:.2f} stop is resting at the broker "
+                    f"on {_p.setup}, which exits on TIME and must not carry one "
+                    f"(this is what cost SECZ)")
+        # duplicate working entries
+        if _buys.get(_key, 0) > 1:
+            out["issues"].append(
+                f"{_p.ticker}: {_buys[_key]} working BUY orders — if more than one "
+                f"fills, that is multiples of the intended size on one name")
+
+    for _sym, _ap in _remote.items():
+        if _sym in _seen:
+            continue
+        out["issues"].append(f"{_sym}: held at the broker but NOT tracked — no exit "
+                             f"management, no P&L recording, no PDT counting")
+
+    # working duplicates on a name with no position yet
+    for _sym, _n in _buys.items():
+        if _n > 1 and _sym not in _seen and _sym not in _remote:
+            out["issues"].append(f"{_sym}: {_n} working BUY orders and nothing held yet")
+
+    if out["issues"]:
+        print(f"  🔍 Reconciliation: {len(out['issues'])} disagreement(s) "
+              f"across {out['checked']} tracked position(s)")
+        for _i in out["issues"]:
+            print(f"     • {_i}")
+        if notify and not _is_duplicate_alert("__RECONCILIATION__", cooldown_min=6 * 60):
+            send_telegram(
+                "🔍 <b>Position reconciliation</b> — the tracker and the broker "
+                "disagree:\n\n"
+                + "\n\n".join(f"• {html.escape(_i)}" for _i in out["issues"][:8])
+                + "\n\n<i>Reported, not repaired. Verify in Alpaca.</i>")
+            _save_last_alert("__RECONCILIATION__")
+    else:
+        print(f"  ✅ Reconciliation: tracker and broker agree "
+              f"({out['checked']} position(s))")
+    return out
+
+
 def _is_occ_symbol(sym: str) -> bool:
     return _parse_occ_symbol(sym) is not None
 
@@ -27241,7 +27395,8 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "orb", "bzone", "bzmanage"],
+                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "orb", "bzone",
+                 "reconcile", "bzmanage"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -27540,6 +27695,8 @@ def main():
     elif args.mode == "features":
         print("\n".join(report_signal_features()))
 
+    elif args.mode == "reconcile":
+        run_position_reconciliation()
     elif args.mode == "audit":
         run_policy_audit()
 

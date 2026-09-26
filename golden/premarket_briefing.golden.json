@@ -12,6 +12,7 @@
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -46,6 +47,7 @@
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -80,6 +82,7 @@
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -114,6 +117,7 @@
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -148,6 +152,7 @@
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -182,6 +187,7 @@
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -216,6 +222,7 @@
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -249,6 +256,7 @@
    "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n✅ Scanner healthy — last run 30min ago\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
   ],
   "stdout": [
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",
@@ -280,6 +288,45 @@
    "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n✅ Scanner healthy — last run 30min ago\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
   ],
   "stdout": [
+   "  [0.5/7] Fetching global market context + breaking news...",
+   "  [1/7] Checking market regime + macro context...",
+   "  [3/6] Checking seasonal status...",
+   "  [3.5/7] Checking sector ETF health...",
+   "  [4/7] Reading live outcomes...",
+   "  [5/7] Checking monthly P&L...",
+   "  [6/7] Scanning pre-market gaps...",
+   "  [6.5/7] Scanning earnings calendar...",
+   "════════════════════════════════════════════════════════════",
+   "  PRE-MARKET BRIEFING  —  Wednesday Oct 14, 2026",
+   "────────────────────────────────────────────────────────────",
+   "  Regime   : regime",
+   "  Macro    : macro-cal",
+   "  Seasonal : ✅ October — normal conditions (min score: 75)",
+   "  Monthly  : 📉 Down 2.0% this month (limit: 4%)",
+   "════════════════════════════════════════════════════════════",
+   "  ✅ Telegram briefing sent.",
+   "  [8/8] Pre-building dynamic scan universe for HH:MM gate...",
+   "  ✅ Universe cached: 3 tickers → dman_universe_cache.json (HH:MM scan will use this instead of 108-name list)"
+  ]
+ },
+ "P10_reconciliation_finds_a_stop": {
+  "error": null,
+  "orders": [],
+  "cache_date": "2026-10-14",
+  "cache_n": 3,
+  "reanchor_calls": [
+   [
+    "RSKD"
+   ]
+  ],
+  "telegram": [
+   "🔍 <b>Position reconciliation</b> — the tracker and the broker disagree:\n\n• RSKD: a $7.39 stop is resting at the broker on Breakout Zone +120% off low, which exits on TIME and must not carry one (this is what cost SECZ)\n\n<i>Reported, not repaired. Verify in Alpaca.</i>",
+   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n✅ Scanner healthy — last run 30min ago\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
+  ],
+  "stdout": [
+   "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  🔍 Reconciliation: 1 disagreement(s) across 1 tracked position(s)",
+   "     • RSKD: a $7.39 stop is resting at the broker on Breakout Zone +120% off low, which exits on TIME and must not carry one (this is what cost SECZ)",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",

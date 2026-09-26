@@ -17,6 +17,7 @@ import sys, io, os, json, re, contextlib, tempfile, datetime as _dt
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 from unittest.mock import patch, MagicMock
+from types import SimpleNamespace
 with contextlib.redirect_stdout(io.StringIO()):
     import dman_algo as a
 
@@ -35,6 +36,8 @@ BASE = dict(
     reanchored=["AAPL"],
     broker_up=True,
     positions=[],
+    remote=[],
+    orders=[],
 )
 
 SCENARIOS = {
@@ -47,6 +50,14 @@ SCENARIOS = {
     "P07_universe_build_fails":       dict(universe_raises=True),
     "P08_nothing_to_reanchor":        dict(reanchored=[]),
     "P09_broker_unavailable":         dict(broker_up=False, reanchored=[]),
+    # reconciliation finding something: a breakout zone carrying a stop it must
+    # not have, which is the RSKD case that cost a session to notice by hand
+    "P10_reconciliation_finds_a_stop": dict(
+        positions=[SimpleNamespace(ticker="RSKD", setup="Breakout Zone +120% off low",
+                                   entry=8.04, shares=31, stop=0.01)],
+        remote=[SimpleNamespace(symbol="RSKD", qty="31", avg_entry_price="8.04")],
+        orders=[SimpleNamespace(symbol="RSKD", side="sell", order_type="stop",
+                                stop_price=7.39)]),
 }
 
 
@@ -75,7 +86,8 @@ def run(name, over):
     dt.fromisoformat = _dt.datetime.fromisoformat
 
     client = MagicMock()
-    client.get_all_positions.return_value = []
+    client.get_all_positions.return_value = list(cfg["remote"])
+    client.get_orders.return_value = list(cfg["orders"])
     client.submit_order.side_effect = lambda *x, **k: orders.append("ORDER") or MagicMock(id="x")
 
     def _universe():

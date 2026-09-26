@@ -71,6 +71,45 @@ def _et_today() -> date:
 _swallow_last_logged: dict = {}
 
 
+def _hard_gate_failed_open(gate: str, exc: BaseException) -> None:
+    """A hard gate that could not evaluate has just PASSED. Say so.
+
+    run_pro_scanner() treats regime_ok / mtf_ok / earnings_ok / macro_ok /
+    divergence_free as hard gates -- a signal failing any of them is dropped
+    outright. Four of them return (True, partial_credit) from their exception
+    handler, so a data-source hiccup does not block the trade, it waives the
+    check. That direction is defensible on its own: a yfinance blip should not
+    halt a session. Being SILENT about it is not.
+
+    The two that guard scheduled events matter most. An errored
+    check_earnings_safe() means entering straight into an earnings print the
+    blackout existed to avoid; an errored check_macro_safe() means ignoring an
+    FOMC or CPI window. Behaviour is unchanged here -- only the silence is.
+    Deduped per gate, since a broken feed would otherwise fire every ticker.
+    """
+    # Everything below is inside a try. This runs from INSIDE a gate's own
+    # exception handler, so if the notifier raised it would break the gate it
+    # is reporting on -- turning a tolerated data hiccup into a dropped signal.
+    try:
+        _log_swallowed(f"hard gate {gate} failed OPEN", exc)
+    except Exception:
+        pass
+    if gate not in ("earnings", "macro"):
+        return
+    try:
+        _key = f"__GATE_OPEN_{gate.upper()}__"
+        if not _is_duplicate_alert(_key, cooldown_min=120):
+            send_telegram(
+                f"⚠️ <b>{gate.title()} blackout check could not run</b>\n"
+                f"<code>{html.escape(str(exc)[:160])}</code>\n"
+                f"That gate PASSES when it cannot evaluate, so entries are not "
+                f"being screened for {gate} risk right now."
+            )
+            _save_last_alert(_key)
+    except Exception:
+        pass
+
+
 def _log_swallowed(where: str, exc: BaseException) -> None:
     """Make a deliberately tolerated failure visible, without changing behaviour.
 
@@ -13434,7 +13473,9 @@ def check_mtf(ticker: str, bias: str) -> tuple[bool, int]:
             passes = (not ema_bull) and rsi_val < 55
 
         return passes, min(20, score)
-    except Exception:
+    except Exception as _gate_exc:
+        # Fails OPEN -- see _hard_gate_failed_open().
+        _hard_gate_failed_open("mtf", _gate_exc)
         return True, 10
 
 
@@ -13815,7 +13856,9 @@ def check_earnings_safe(ticker: str) -> tuple[bool, int]:
             if days_away == 0 and not _check_earnings_already_reported(ticker):
                 return False, 0   # today, not yet confirmed reported — could still be AMC-pending
         return True, 5
-    except Exception:
+    except Exception as _gate_exc:
+        # Fails OPEN -- see _hard_gate_failed_open().
+        _hard_gate_failed_open("earnings", _gate_exc)
         return True, 5
 
 
@@ -14595,7 +14638,9 @@ def check_macro_safe() -> tuple[bool, int]:
                 return False, 0
 
         return True, 5
-    except Exception:
+    except Exception as _gate_exc:
+        # Fails OPEN -- see _hard_gate_failed_open().
+        _hard_gate_failed_open("macro", _gate_exc)
         return True, 5
 
 
@@ -14953,7 +14998,9 @@ def check_divergence_free(df: pd.DataFrame, bias: str) -> tuple[bool, int]:
             divergence = price_new_low and rsi_higher_low
 
         return (not divergence), (0 if divergence else 5)
-    except Exception:
+    except Exception as _gate_exc:
+        # Fails OPEN -- see _hard_gate_failed_open().
+        _hard_gate_failed_open("divergence", _gate_exc)
         return True, 3
 
 

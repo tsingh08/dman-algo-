@@ -725,6 +725,29 @@ def telegram_loop() -> None:
             time.sleep(10)
 
 
+def _guard_failure(what: str, exc: Exception) -> None:
+    """Say out loud that a protective check is failing.
+
+    guard_loop()'s sub-checks only ever log, and the log lives on an ephemeral
+    runner nobody reads. A check that throws on every cycle is exactly the
+    silent failure the watchdog exists for, except the watchdog measures sync
+    freshness -- which keeps updating fine while the guard is broken. Deduped,
+    so a persistent fault reports once per cooldown rather than every cycle.
+    """
+    try:
+        _key = f"__GUARD_BROKEN_{what.replace(' ', '_').upper()}__"
+        if not algo._is_duplicate_alert(_key):
+            algo.send_telegram(
+                f"🚨 <b>Daemon {what} is failing</b>\n"
+                f"<code>{str(exc)[:180]}</code>\n"
+                "That check is not running this session. Exits may not be "
+                "enforced — verify positions in Alpaca."
+            )
+            algo._save_last_alert(_key)
+    except Exception:
+        pass
+
+
 def guard_loop() -> None:
     """Options exit enforcement during market hours. When
     ENABLE_REALTIME_EQUITY_STREAM is on, also runs the equity counterpart
@@ -776,14 +799,29 @@ def guard_loop() -> None:
                     _guard_positions = []
                 _snap_fn = _get_realtime_option_snapshot if ENABLE_REALTIME_OPTIONS_STREAM else None
                 _und_price_fn = _get_realtime_price if ENABLE_REALTIME_EQUITY_STREAM else None
-                alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn,
-                                                get_price_fn=_und_price_fn, positions=_guard_positions)
-                for a in alerts:
-                    log(a.split("\n")[0].replace("<b>", "").replace("</b>", ""))
+                # Its OWN try/except, like the three checks below it. This call
+                # used to sit bare inside the outer handler, so anything it
+                # raised -- one malformed position record is enough -- aborted
+                # the rest of the cycle: stop-coverage detection and its
+                # auto-restore, the day-only EOD force-close, and the equity
+                # stop/T1 guard all skipped, every cycle, for as long as it
+                # persisted. The three below are isolated precisely so one
+                # cannot take out the others; the first and most complex was
+                # the one that could take out all of them.
+                try:
+                    alerts = algo.run_options_guard(verbose=False, get_snapshot_fn=_snap_fn,
+                                                    get_price_fn=_und_price_fn,
+                                                    positions=_guard_positions)
+                    for a in alerts:
+                        log(a.split("\n")[0].replace("<b>", "").replace("</b>", ""))
+                except Exception as exc:
+                    log(f"options guard error: {exc}")
+                    _guard_failure("options guard", exc)
                 try:
                     algo._check_stop_coverage()
                 except Exception as exc:
                     log(f"stop coverage check error: {exc}")
+                    _guard_failure("stop coverage", exc)
                 # Independent of run_momentum_watch()'s own dispatch timing --
                 # confirmed live 2026-09-02: that function is only ever called
                 # from run_momentum_watch(), which only runs when the scanner's
@@ -799,11 +837,13 @@ def guard_loop() -> None:
                     algo._force_close_day_only_positions()
                 except Exception as exc:
                     log(f"day-only force-close check error: {exc}")
+                    _guard_failure("day-only force-close", exc)
                 if ENABLE_REALTIME_EQUITY_STREAM:
                     try:
                         algo.run_equity_guard(get_price_fn=_get_realtime_price, positions=_guard_positions)
                     except Exception as exc:
                         log(f"equity guard error: {exc}")
+                        _guard_failure("equity guard", exc)
             else:
                 if was_open:
                     log("Market closed — guard idle")

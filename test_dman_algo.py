@@ -20285,3 +20285,54 @@ class TestPremarketSurvivesDaylightSaving(unittest.TestCase):
         src = self._src()
         self.assertIn("0730", src)
         self.assertIn("0910", src)
+
+
+class TestGuardLoopChecksAreIsolated(unittest.TestCase):
+    """guard_loop() runs four protective checks per tick. Three had their own
+    try/except so one could not take out the others; run_options_guard -- the
+    first and most complex -- sat bare inside the outer handler. Anything it
+    raised (one malformed position record is enough) aborted the rest of the
+    cycle: stop-coverage detection and its auto-restore, the day-only EOD
+    force-close, and the equity stop/T1 guard, all skipped, every tick, for as
+    long as it persisted."""
+
+    def _src(self):
+        import pathlib
+        return pathlib.Path("dman_daemon.py").read_text(encoding="utf-8")
+
+    def _guard_body(self):
+        src = self._src()
+        body = src[src.index("def guard_loop"):]
+        return body[:body.index("def sync_loop")]
+
+    def test_each_of_the_four_checks_has_its_own_handler(self):
+        body = self._guard_body()
+        for call in ("run_options_guard", "_check_stop_coverage",
+                     "_force_close_day_only_positions", "run_equity_guard"):
+            self.assertIn(call, body, call)
+        # one try/except per check, plus the positions read and the outer one
+        self.assertGreaterEqual(body.count("except Exception"), 5)
+
+    def test_the_options_guard_is_wrapped(self):
+        body = self._guard_body()
+        i_try = body.index("try:\n                    alerts = algo.run_options_guard")
+        i_cov = body.index("algo._check_stop_coverage()")   # the call, not the docstring
+        self.assertLess(i_try, i_cov, "options guard must be wrapped before the others run")
+
+    def test_every_failure_is_announced_not_just_logged(self):
+        """The log lives on an ephemeral runner nobody reads."""
+        body = self._guard_body()
+        self.assertEqual(body.count("_guard_failure("), 4)
+
+    def test_each_announcement_sits_inside_its_except(self):
+        """An unindented call would run every tick with an unbound `exc`."""
+        for line in self._src().splitlines():
+            if "_guard_failure(" in line and "def " not in line:
+                self.assertGreaterEqual(len(line) - len(line.lstrip()), 20, line)
+
+    def test_the_notifier_dedupes_and_never_raises(self):
+        src = self._src()
+        fn = src[src.index("def _guard_failure"):]
+        fn = fn[:fn.index("def guard_loop")]
+        self.assertIn("_is_duplicate_alert", fn)
+        self.assertIn("except Exception", fn)   # must not break the loop itself

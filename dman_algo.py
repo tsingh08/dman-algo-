@@ -24469,8 +24469,14 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
                 # rather than through PositionTracker, so it never got
                 # the same fix and was still doing it here.
                 if getattr(p, "asset_class", None) == AssetClass.US_OPTION:
-                    label = _describe_occ_symbol(p.symbol)
-                    lines.append(f"  {p_arrow} <b>{label}</b>  {qty}ct @ ${avg_px:.2f}  "
+                    # `_desc`, not `label`: this loop used to reassign the
+                    # function's own `label` parameter -- the one naming the
+                    # report ("EOD", "On-Demand") in the header. The header is
+                    # built above, so nothing misreported today, but any line
+                    # added after this loop would have inherited the last
+                    # option's description instead of the report name.
+                    _desc = _describe_occ_symbol(p.symbol)
+                    lines.append(f"  {p_arrow} <b>{_desc}</b>  {qty}ct @ ${avg_px:.2f}  "
                                   f"P&L ${pl:+.2f} ({pl_pct:+.1f}%)")
                 else:
                     lines.append(f"  {p_arrow} <b>{p.symbol}</b>  {qty}sh @ ${avg_px:.2f}  "

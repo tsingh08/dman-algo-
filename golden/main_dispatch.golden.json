@@ -1,0 +1,1464 @@
+{
+ "patch_names": [
+  "_check_and_heal_watchdog",
+  "_et_today",
+  "_is_duplicate_alert",
+  "_log_swallowed",
+  "_main_mode_alpaca",
+  "_main_mode_open",
+  "_main_mode_readiness",
+  "_main_mode_record",
+  "_main_mode_scan",
+  "_main_mode_watch",
+  "_process_telegram_commands",
+  "_save_last_alert",
+  "augment_universe_with_movers",
+  "build_scan_universe",
+  "check_account_milestones",
+  "expire_earnings_spread_offers",
+  "expire_momentum_offers",
+  "get_market_regime",
+  "get_top_sectors",
+  "label_signal_features",
+  "print_live_performance",
+  "print_scan_log",
+  "report_signal_features",
+  "resolve_live_outcomes",
+  "run_breakout_zone_log",
+  "run_breakout_zone_manage",
+  "run_earnings_spread_scan",
+  "run_fallback_guard",
+  "run_momentum_watch",
+  "run_news_source_check",
+  "run_options_guard",
+  "run_orb_shadow",
+  "run_policy_audit",
+  "run_position_reconciliation",
+  "run_premarket_briefing",
+  "run_premarket_early_scan",
+  "run_pro_backtest",
+  "run_ranking",
+  "run_stocktwits_monitor",
+  "run_watchdog",
+  "run_weekend_watch",
+  "send_account_pnl_telegram",
+  "send_daily_watchlist",
+  "send_telegram",
+  "sync_all_state_with_remote",
+  "sync_alpaca_fills"
+ ],
+ "results": {
+  "mode=scan": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_main_mode_scan",
+     "(Namespace(mode='scan', score=None, ai=False, tickers=None, universe='curated', years=2, no_shorts=False, export=False, submit=False, ticker=None, entry=None, e",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=backtest": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_pro_backtest",
+     "(<MagicMock name='augment_universe_with_movers' id=ID>,)",
+     "[('min_score', 75), ('years', 2)]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=performance": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
+    "════════════════════════════════════════════════════════",
+    "  D🔥man Win Rate Tracker  —  Last 50 trades",
+    "────────────────────────────────────────────────────────",
+    "  Win Rate     : 36.0%  (18W / 27L)",
+    "  Avg Win      : +21.04R",
+    "  Avg Loss     : -24.70R",
+    "  Consec Losses: 2",
+    "  Adaptive Min Score: 85/100",
+    "────────────────────────────────────────────────────────",
+    "  📈 REAL TRADES ONLY (48 live fill(s)):",
+    "     Win Rate: 35.4%  (17W / 27L)",
+    "────────────────────────────────────────────────────────",
+    "  BY SETUP:",
+    "  Gap & Hold              52 trades |  59.6% WR",
+    "  SWING — Momentum Watch Breakout (Day)   9 trades |  33.3% WR",
+    "  Low Float Catalyst       8 trades |  12.5% WR",
+    "  Momentum Watch Breakout (Day)   7 trades |  71.4% WR",
+    "  Vol Breakdown            2 trades |  50.0% WR",
+    "  Options Call SMCI260814C00034000 ($34C exp DATE)   2 trades | 100.0% WR",
+    "  Earnings Double Spread   2 trades |  50.0% WR",
+    "  Options Call PURR260904C00009000 ($9.0C exp DATE)   2 trades | 100.0% WR",
+    "  Morning Runner           1 trades | 100.0% WR",
+    "  Day 2 Continuation       1 trades |   0.0% WR",
+    "  Untracked Legacy Position   1 trades |   0.0% WR",
+    "  Options Put SMCI260814P00029500 ($29.5P exp DATE)   1 trades |   0.0% WR",
+    "  Options Call UMAC260828C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
+    "  Earnings Put Spread      1 trades |   0.0% WR",
+    "  Earnings Strangle (untracked)   1 trades |   0.0% WR",
+    "  Adopted (orphan reconciliation)   1 trades |   0.0% WR",
+    "  Options Call TE260925C00004000 ($4.0C exp DATE)   1 trades |   0.0% WR",
+    "  Options Call APLD260925C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
+    "  Options Call QQQ260922C00728000   1 trades | 100.0% WR",
+    "  Options Put QQQ260922P00676000   1 trades |   0.0% WR",
+    "  Options Call QQQ260923C00735000   1 trades | 100.0% WR",
+    "  Options Put QQQ260923P00682000   1 trades | 100.0% WR",
+    "  Options Call RXRX261002C00001000 ($1.0C exp DATE)   1 trades |   0.0% WR",
+    "  Breakout Zone +166% off low   1 trades |   0.0% WR",
+    "════════════════════════════════════════════════════════"
+   ]
+  },
+  "mode=regime": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "get_market_regime",
+     "()",
+     "[]"
+    ],
+    [
+     "get_top_sectors",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
+    "  Checking market regime...",
+    "  Market Regime : <MagicMock name='get_market_regime.__getitem__()' id=ID>  (score <MagicMock name='get_market_regime.__getitem__()' id=ID>/19)",
+    "  Top sectors   : "
+   ]
+  },
+  "mode=record": {
+   "how": "ValueError: not enough values to unpack (expected 2, got 0)",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_main_mode_record",
+     "(Namespace(mode='record', score=None, ai=False, tickers=None, universe='curated', years=2, no_shorts=False, export=False, submit=False, ticker=None, entry=None,",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=watch": {
+   "how": "ValueError: not enough values to unpack (expected 3, got 0)",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_main_mode_watch",
+     "(Namespace(mode='watch', score=None, ai=False, tickers=None, universe='curated', years=2, no_shorts=False, export=False, submit=False, ticker=None, entry=None, ",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=rank": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_ranking",
+     "(<MagicMock name='augment_universe_with_movers' id=ID>,)",
+     "[('min_score', None)]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=open": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_main_mode_open",
+     "(Namespace(mode='open', score=None, ai=False, tickers=None, universe='curated', years=2, no_shorts=False, export=False, submit=False, ticker=None, entry=None, e",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=positions": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
+    "════════════════════════════════════════════════════════════════════════",
+    "  D🔥man Open Positions  —  Monday Sep 14, 2026",
+    "════════════════════════════════════════════════════════════════════════",
+    "  ▲ RSKD  LONG  ─  Adopted (orphan reconciliation)   [⏳ Active]",
+    "    Entry $8.0367  →  Now $7.83  (-2.6%)  $-7  |  <MagicMock name='_et_today.__sub__().days' id=ID>d held  |  31 shares",
+    "    Stop  $7.3938      T1 $9.3225      T2 $10.2868",
+    "────────────────────────────────────────────────────────────────────────",
+    "  Total unrealized P&L : $-7",
+    "════════════════════════════════════════════════════════════════════════"
+   ]
+  },
+  "mode=alpaca": {
+   "how": "ValueError: not enough values to unpack (expected 4, got 0)",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_main_mode_alpaca",
+     "(Namespace(mode='alpaca', score=None, ai=False, tickers=None, universe='curated', years=2, no_shorts=False, export=False, submit=False, ticker=None, entry=None,",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=sync": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "sync_alpaca_fills",
+     "(<dman_algo.WinRateTracker object at 0xADDR>,)",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
+    "  📋 Alpaca sync complete — <MagicMock name='sync_alpaca_fills' id=ID> new trade(s) recorded.",
+    "════════════════════════════════════════════════════════",
+    "  D🔥man Win Rate Tracker  —  Last 50 trades",
+    "────────────────────────────────────────────────────────",
+    "  Win Rate     : 36.0%  (18W / 27L)",
+    "  Avg Win      : +21.04R",
+    "  Avg Loss     : -24.70R",
+    "  Consec Losses: 2",
+    "  Adaptive Min Score: 85/100",
+    "────────────────────────────────────────────────────────",
+    "  📈 REAL TRADES ONLY (48 live fill(s)):",
+    "     Win Rate: 35.4%  (17W / 27L)",
+    "────────────────────────────────────────────────────────",
+    "  BY SETUP:",
+    "  Gap & Hold              52 trades |  59.6% WR",
+    "  SWING — Momentum Watch Breakout (Day)   9 trades |  33.3% WR",
+    "  Low Float Catalyst       8 trades |  12.5% WR",
+    "  Momentum Watch Breakout (Day)   7 trades |  71.4% WR",
+    "  Vol Breakdown            2 trades |  50.0% WR",
+    "  Options Call SMCI260814C00034000 ($34C exp DATE)   2 trades | 100.0% WR",
+    "  Earnings Double Spread   2 trades |  50.0% WR",
+    "  Options Call PURR260904C00009000 ($9.0C exp DATE)   2 trades | 100.0% WR",
+    "  Morning Runner           1 trades | 100.0% WR",
+    "  Day 2 Continuation       1 trades |   0.0% WR",
+    "  Untracked Legacy Position   1 trades |   0.0% WR",
+    "  Options Put SMCI260814P00029500 ($29.5P exp DATE)   1 trades |   0.0% WR",
+    "  Options Call UMAC260828C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
+    "  Earnings Put Spread      1 trades |   0.0% WR",
+    "  Earnings Strangle (untracked)   1 trades |   0.0% WR",
+    "  Adopted (orphan reconciliation)   1 trades |   0.0% WR",
+    "  Options Call TE260925C00004000 ($4.0C exp DATE)   1 trades |   0.0% WR",
+    "  Options Call APLD260925C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
+    "  Options Call QQQ260922C00728000   1 trades | 100.0% WR",
+    "  Options Put QQQ260922P00676000   1 trades |   0.0% WR",
+    "  Options Call QQQ260923C00735000   1 trades | 100.0% WR",
+    "  Options Put QQQ260923P00682000   1 trades | 100.0% WR",
+    "  Options Call RXRX261002C00001000 ($1.0C exp DATE)   1 trades |   0.0% WR",
+    "  Breakout Zone +166% off low   1 trades |   0.0% WR",
+    "════════════════════════════════════════════════════════"
+   ]
+  },
+  "mode=live-outcomes": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "resolve_live_outcomes",
+     "()",
+     "[('verbose', True)]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
+    "════════════════════════════════════════════════════════════",
+    "  Resolving pending live signals...",
+    "────────────────────────────────────────────────────────────",
+    "════════════════════════════════════════════════════════════"
+   ]
+  },
+  "mode=live-perf": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "print_live_performance",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=premarket": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_premarket_briefing",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=premarket-early": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_premarket_early_scan",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=momentum-watch": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_momentum_watch",
+     "()",
+     "[]"
+    ],
+    [
+     "expire_momentum_offers",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=watchlist": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "send_daily_watchlist",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=scan-log": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "print_scan_log",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=readiness": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_main_mode_readiness",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=pnl": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "send_account_pnl_telegram",
+     "()",
+     "[('label', 'On-Demand')]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=stocktwits": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_stocktwits_monitor",
+     "()",
+     "[]"
+    ],
+    [
+     "_check_and_heal_watchdog",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=guard": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_options_guard",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
+    "  🛡  Options guard: 0 position(s) checked"
+   ]
+  },
+  "mode=merge-positions": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "sync_all_state_with_remote",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)"
+   ]
+  },
+  "mode=watchdog": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "run_watchdog",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)"
+   ]
+  },
+  "mode=earnings-scan": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_earnings_spread_scan",
+     "()",
+     "[]"
+    ],
+    [
+     "expire_earnings_spread_offers",
+     "()",
+     "[]"
+    ],
+    [
+     "check_account_milestones",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=fallback-guard": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "run_fallback_guard",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)"
+   ]
+  },
+  "mode=audit": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_policy_audit",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=label": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "label_signal_features",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=features": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "report_signal_features",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=weekend": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_weekend_watch",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=newscheck": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_news_source_check",
+     "()",
+     "[('notify', True)]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=orb": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_orb_shadow",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=bzone": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_breakout_zone_log",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=reconcile": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_position_reconciliation",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=bzmanage": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_breakout_zone_manage",
+     "()",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "scan+tickers": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_main_mode_scan",
+     "(Namespace(mode='scan', score=None, ai=False, tickers=['NVDA', 'PLTR'], universe='curated', years=2, no_shorts=False, export=False, submit=False, ticker=None, e",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "backtest+years": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_pro_backtest",
+     "(<MagicMock name='augment_universe_with_movers' id=ID>,)",
+     "[('min_score', 75), ('years', 3)]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "no-args": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "_main_mode_scan",
+     "(Namespace(mode='scan', score=None, ai=False, tickers=None, universe='curated', years=2, no_shorts=False, export=False, submit=False, ticker=None, entry=None, e",
+     "[]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  }
+ }
+}

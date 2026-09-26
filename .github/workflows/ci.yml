@@ -85,7 +85,14 @@ jobs:
           # that the re-anchor runs (and is skipped when the broker is down), and
           # that the briefing never submits an order.
           python golden/premarket_briefing_harness.py check | tee /tmp/g5.txt
-          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g4.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g5.txt
+          # regime: deterministic, and every entry is gated on regime_ok.
+          python golden/regime_harness.py check | tee /tmp/g6.txt
+          # main() dispatch: which function each --mode routes to. This golden
+          # had been DEAD, not merely ungated -- it errored on KeyError
+          # 'mode=audit' because the harness enumerates modes from the parser
+          # and the baseline predated several of them. Re-recorded with all 38.
+          python golden/main_dispatch_harness.py check | tee /tmp/g7.txt
+          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g4.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g5.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g6.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g7.txt
 
       - name: Regression suite (test_dman_algo.py)
         id: suite

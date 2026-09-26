@@ -31,7 +31,12 @@ jobs:
     # steps when the job itself is killed, which would take out both the state
     # persist AND the daemon dispatch below -- the step that guarantees the
     # daemon is up for the open.
-    timeout-minutes: 45
+    #
+    # 45 -> 75. The wait-for-8:00 cap below went from 12 to 45 minutes so the
+    # briefing still lands at 8:00 ET after daylight saving ends, when its
+    # trigger fires at 07:20 EST. 45 (wait) + ~20 (briefing) + the persist and
+    # dispatch steps does not fit inside 45.
+    timeout-minutes: 75
     permissions:
       # write, not read: this job BUILDS the 500-ticker scan universe for the
       # 9:45 Gap & Hold gate and had no way to save it. See the persist step.
@@ -72,9 +77,9 @@ jobs:
           if now.weekday() >= 5:
               print(f"Weekend ({now.strftime('%a')}) — skipping briefing.")
               sys.exit(0)
-          # If GitHub ran this early (before 8:00 AM ET), wait up to 12 min.
-          # If it's still before 7:30 AM ET after waiting, skip — GitHub is
-          # running the job far too early (rare) and we'll catch it next time.
+          # If this ran early (before 8:00 AM ET) it waits for 8:00, capped at
+          # 45 min (see the cap below). A SCHEDULED run still before 7:30 AM ET
+          # is skipped outright — GitHub started it far too early.
           target_hhmm = 800   # 8:00 AM ET
           cur_hhmm    = now.hour * 100 + now.minute
           import os
@@ -82,7 +87,8 @@ jobs:
           # dispatches this briefing is pinned to 12:20 UTC, which is 8:20 ET in
           # summer but 7:20 ET after daylight saving ends (Nov 1) -- skipping it
           # then would mean no briefing and no daemon start from November on.
-          # Dispatched early, it waits (capped at 12 min) toward 8:00 below.
+          # Dispatched early, it waits toward 8:00 below (capped at 45 min,
+          # which covers the 07:20 EST case).
           if cur_hhmm < 730 and os.environ.get("EVENT_NAME") == "schedule":
               print(f"Too early ({now.strftime('%H:%M ET')}) — GitHub ran job ahead of schedule. Skipping.")
               sys.exit(0)
@@ -99,7 +105,20 @@ jobs:
               sys.exit(0)
           if cur_hhmm < target_hhmm:
               wait_s = (target_hhmm // 100 * 60 + target_hhmm % 100 - now.hour * 60 - now.minute) * 60
-              wait_s = min(wait_s, 12 * 60)  # cap at 12 min (stay under step timeout)
+              # 12 -> 45 min. The cloud routine that actually triggers this
+              # fires at 12:20 UTC, which is 08:20 EDT but 07:20 EST. With a
+              # 12-minute cap the winter run started the briefing at 07:32 --
+              # 28 minutes before target, building the 9:45 gate's scan
+              # universe on pre-market volume that has barely printed, and
+              # leaving two minutes of margin before the daemon-dispatch step
+              # below will even consider running (its window opens at 07:30).
+              #
+              # 45 minutes covers 07:20 -> 08:00 in either clock, so the
+              # briefing runs at its intended 8:00 ET year round. Nothing
+              # changes in EDT: the dispatch already lands at 08:20, past
+              # target, so there is no wait at all. The job timeout above was
+              # raised to match.
+              wait_s = min(wait_s, 45 * 60)
               print(f"Waiting {wait_s}s for 8:00 AM ET...")
               time.sleep(wait_s)
           result = subprocess.run(
@@ -151,6 +170,21 @@ jobs:
         with:
           files: dman_universe_cache.json
           commit_message: 'chore: pre-built scan universe for the 9:45 gate [skip ci]'
+
+      # This job PUSHES now (see the persist step above) and had no failure
+      # path at all, so a red run -- a bad rebase, a permissions change, a
+      # crashed briefing -- was visible only to someone who thought to open
+      # the Actions tab. Every other scheduled workflow here notifies.
+      - name: Notify on workflow failure
+        if: failure()
+        env:
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            -d "text=🚨 <b>Pre-market briefing FAILED</b> — today's briefing did not complete. The 9:45 gate will fall back to the curated watchlist, and the daemon may not have been dispatched. Check GitHub Actions." \
+            -d "parse_mode=HTML" || true
 
       # Start the trading daemon from here. Its own 9:23 cron has fired hours
       # late (11:55 AM on 2026-08-03; a watchdog dispatch at 9:36 on

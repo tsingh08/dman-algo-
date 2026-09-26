@@ -20232,3 +20232,56 @@ class TestGlobalContextWillNotSizeUpOnThinData(unittest.TestCase):
         """It may only ever reduce size, never increase it."""
         out = self._ctx({"^VIX": 0.0})        # one component, and a bearish one
         self.assertLessEqual(out["risk_mult"], 1.00)
+
+
+class TestPremarketSurvivesDaylightSaving(unittest.TestCase):
+    """The cloud routine that actually triggers the briefing is pinned to
+    12:20 UTC -- 08:20 EDT but 07:20 EST. The wait-for-8:00 was capped at 12
+    minutes, so from Nov 1 the briefing would have started at 07:32: building
+    the 9:45 gate's scan universe on pre-market volume that has barely
+    printed, with two minutes of margin before the daemon-dispatch step's
+    07:30 window even opens.
+
+    GitHub's own cron for this workflow has been running ~5 hours late every
+    day and is correctly skipped by the too-late guard, so that dispatch is
+    the ONLY real trigger -- there is no second path to fall back on.
+    """
+
+    WF = ".github/workflows/dman_premarket.yml"
+
+    def _src(self):
+        return io.open(self.WF, encoding="utf-8").read()
+
+    def test_the_wait_covers_the_winter_trigger(self):
+        src = self._src()
+        self.assertIn("wait_s = min(wait_s, 45 * 60)", src)
+        self.assertNotIn("wait_s = min(wait_s, 12 * 60)", src)
+
+    def test_0720_est_can_still_reach_0800(self):
+        """07:20 -> 08:00 is 40 minutes; the cap has to exceed it."""
+        trigger_utc_hour, trigger_min = 12, 20
+        est_hour = (trigger_utc_hour - 5) % 24          # 07
+        gap_min = (8 * 60) - (est_hour * 60 + trigger_min)
+        self.assertEqual(gap_min, 40)
+        self.assertGreaterEqual(45, gap_min, "wait cap must cover the EST gap")
+
+    def test_the_timeout_covers_wait_plus_work(self):
+        src = self._src()
+        import re
+        m = re.search(r"timeout-minutes:\s*(\d+)", src)
+        self.assertIsNotNone(m)
+        # 45 wait + ~20 briefing (7 of which is the universe build) + persist
+        self.assertGreaterEqual(int(m.group(1)), 70)
+
+    def test_a_failed_briefing_is_announced(self):
+        """This job pushes now; a red run used to be visible only in the
+        Actions tab."""
+        src = self._src()
+        self.assertIn("if: failure()", src)
+        self.assertIn("briefing FAILED", src)
+
+    def test_the_daemon_dispatch_window_is_still_reachable(self):
+        """Briefing at 08:00 ET must leave the 07:30-09:10 dispatch window open."""
+        src = self._src()
+        self.assertIn("0730", src)
+        self.assertIn("0910", src)

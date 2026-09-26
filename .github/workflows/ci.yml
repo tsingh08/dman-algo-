@@ -78,7 +78,14 @@ jobs:
           # effective-min-score bar, the defensive-rotation penalty, the
           # early-session Gap & Hold hold, and the portfolio-heat cap.
           python golden/scanner_harness.py check | tee /tmp/g4.txt
-          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g4.txt
+          # run_premarket_briefing: the run that PUSHES state. It pre-builds the
+          # scan universe the 9:45 gate loads, re-anchors tracked entry prices to
+          # real fills, and dispatches the daemon behind it -- so a silent change
+          # here costs a whole session. Pins that the cache carries TODAY's date,
+          # that the re-anchor runs (and is skipped when the broker is down), and
+          # that the briefing never submits an order.
+          python golden/premarket_briefing_harness.py check | tee /tmp/g5.txt
+          grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g4.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g5.txt
 
       - name: Regression suite (test_dman_algo.py)
         id: suite

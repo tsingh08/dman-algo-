@@ -1201,6 +1201,15 @@ _MASSIVE_ANY_KEY = (os.getenv("MASSIVE_API_KEY", "")
 MASSIVE_API_KEY          = _MASSIVE_ANY_KEY
 MASSIVE_NEWS_API_KEY     = os.getenv("MASSIVE_NEWS_API_KEY", "")     or _MASSIVE_ANY_KEY
 MASSIVE_EARNINGS_API_KEY = os.getenv("MASSIVE_EARNINGS_API_KEY", "") or _MASSIVE_ANY_KEY
+# Deliberately NOT part of _MASSIVE_ANY_KEY, and that omission is the whole
+# point. Every other name above can become the key used on every call: the
+# globals resolve `os.getenv(...) or _MASSIVE_ANY_KEY`, and _MASSIVE_KEY_STATE
+# seeds itself from those globals, so a key parked in MASSIVE_NEWS_API_KEY is
+# not a backup at all -- it DEMOTES MASSIVE_API_KEY to the spare and takes over
+# news itself. A stale key there breaks news on every call before rotation ever
+# runs. This name can only ever be reached by rotation, after a live key has
+# actually been rejected, so a spare sitting here costs nothing while unused.
+MASSIVE_BACKUP_API_KEY   = os.getenv("MASSIVE_BACKUP_API_KEY", "")
 # Every distinct key configured under any name, preferred first. _massive_get()
 # falls through to the next one the first time Massive rejects the one in use,
 # so a half-finished key rotation degrades instead of going dark.
@@ -1220,7 +1229,8 @@ _MASSIVE_KEY_CANDIDATES = [k for k in dict.fromkeys((
     os.getenv("MASSIVE_EARNINGS_API_KEY", ""),
     os.getenv("MASSIVE_API_KEY", ""),
     os.getenv("BENZINGA_EARNING_API_KEY", ""),
-    os.getenv("BENZINGA_API_KEY", ""))) if k]
+    os.getenv("BENZINGA_API_KEY", ""),
+    MASSIVE_BACKUP_API_KEY)) if k]
 _MASSIVE_KEY_STATE: dict = {
     "news":     {"key": MASSIVE_NEWS_API_KEY,     "rotated": False},
     "earnings": {"key": MASSIVE_EARNINGS_API_KEY, "rotated": False},
@@ -20608,13 +20618,21 @@ def run_news_source_check(notify: bool = False) -> list[str]:
         _lines.append(f"  ✅ massive key failover      {_depth} distinct keys — "
                       f"a rejected key rotates to the next")
     elif _depth == 1:
+        _same = (MASSIVE_BACKUP_API_KEY
+                 and MASSIVE_BACKUP_API_KEY == _MASSIVE_KEY_CANDIDATES[0])
         _lines.append("  ⚠️ massive key failover      ONLY 1 key configured — nothing "
                       "to rotate to. If it is revoked or expires, catalyst and "
-                      "earnings data go dark until a human adds another. A second "
-                      "key goes in MASSIVE_NEWS_API_KEY, and it has to be a "
-                      "WORKING one: that name is tried FIRST, so a stale key there "
-                      "costs a rejected call and a dead-key alert on every product "
-                      "before the good key is reached.")
+                      "earnings data go dark until a human adds another."
+                      + (" MASSIVE_BACKUP_API_KEY holds the SAME key as the one in "
+                         "use, so the dedupe collapses it — a spare has to be a "
+                         "DIFFERENT key from Massive to be worth anything."
+                         if _same else
+                         " A second key goes in MASSIVE_BACKUP_API_KEY: that name "
+                         "feeds rotation only, so it can never take over a live "
+                         "call, and a spare that turns out to be stale costs "
+                         "nothing until it is actually needed. Do NOT use "
+                         "MASSIVE_NEWS_API_KEY for this — that one becomes the "
+                         "PRIMARY for news and demotes MASSIVE_API_KEY to spare."))
     else:
         _lines.append("  ❌ massive key failover      NO key configured at all")
 
@@ -20622,6 +20640,16 @@ def run_news_source_check(notify: bool = False) -> list[str]:
           own=os.getenv("MASSIVE_NEWS_API_KEY", ""))
     _show("MASSIVE_EARNINGS_API_KEY", MASSIVE_EARNINGS_API_KEY,
           own=os.getenv("MASSIVE_EARNINGS_API_KEY", ""))
+    # A spare nobody has ever authenticated is not failover, it is a guess. The
+    # only moment it gets used is the one where the live key just died, which is
+    # the worst possible time to find out it was stale too -- so probe it here,
+    # where a failure is a message and not an outage.
+    if MASSIVE_BACKUP_API_KEY:
+        _show("MASSIVE_BACKUP_API_KEY (spare)", MASSIVE_BACKUP_API_KEY)
+        _probe("massive w/ spare key", "https://api.massive.com/v2/reference/news",
+               {"apiKey": MASSIVE_BACKUP_API_KEY, "limit": 1})
+    else:
+        _lines.append("  MASSIVE_BACKUP_API_KEY     MISSING (no spare to rotate to)")
     # The deprecated aliases are worth naming only when they hold something
     # DIFFERENT from the key actually in use -- that is the exact shape of the
     # 2026-09-20 outage, where a stale alias won the resolution chain.

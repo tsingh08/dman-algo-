@@ -32,6 +32,7 @@ jobs:
           MASSIVE_NEWS_API_KEY:     ${{ secrets.MASSIVE_NEWS_API_KEY }}
           MASSIVE_EARNINGS_API_KEY: ${{ secrets.MASSIVE_EARNINGS_API_KEY }}
           BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
+          MASSIVE_BACKUP_API_KEY:   ${{ secrets.MASSIVE_BACKUP_API_KEY }}
         run: python dman_algo.py --mode newscheck
 
       - name: Weekend catalyst watch
@@ -45,6 +46,7 @@ jobs:
           MASSIVE_NEWS_API_KEY:     ${{ secrets.MASSIVE_NEWS_API_KEY }}
           MASSIVE_EARNINGS_API_KEY: ${{ secrets.MASSIVE_EARNINGS_API_KEY }}
           BENZINGA_EARNING_API_KEY: ${{ secrets.BENZINGA_EARNING_API_KEY }}
+          MASSIVE_BACKUP_API_KEY:   ${{ secrets.MASSIVE_BACKUP_API_KEY }}
           ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
           ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
         run: python dman_algo.py --mode weekend

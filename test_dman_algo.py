@@ -20600,12 +20600,18 @@ class TestMassiveKeyFailoverDepthIsReported(unittest.TestCase):
         out = self._probe_all([])
         self.assertIn("NO key configured", out)
 
-    def test_it_warns_that_the_second_key_must_work(self):
-        """MASSIVE_NEWS_API_KEY is tried FIRST, so a stale key there costs a
-        rejected call and a dead-key alert on every product."""
+    def test_it_says_where_a_second_key_goes(self):
+        """Superseded an earlier assertion that the warning name MASSIVE_NEWS_
+        API_KEY and call for a WORKING key. That advice was right about the risk
+        and wrong about the remedy: that name becomes the PRIMARY for news, so
+        it needs a proven key. MASSIVE_BACKUP_API_KEY carries no such
+        requirement -- rotation reaches it only after a live key is rejected --
+        so the warning names it instead, and the check probes it rather than
+        asking the reader to vouch for it. See
+        TestMassiveBackupKeyIsSpareOnly."""
         out = self._probe_all(["onlykey"])
-        self.assertIn("WORKING", out)
-        self.assertIn("tried FIRST", out)
+        self.assertIn("MASSIVE_BACKUP_API_KEY", out)
+        self.assertIn("can never take over a live", out)
 
     def test_the_check_never_prints_a_key(self):
         out = self._probe_all(["supersecretkeyvalue123"])
@@ -20657,3 +20663,76 @@ class TestKeyReportSeparatesOwnVarFromFallback(unittest.TestCase):
     def test_it_still_does_not_print_the_key(self):
         out = self._probe_all({"MASSIVE_NEWS_API_KEY": ""})
         self.assertNotIn("fallbackvalue1234", out)
+
+
+class TestMassiveBackupKeyIsSpareOnly(unittest.TestCase):
+    """The obvious slot for a second key is the wrong one. MASSIVE_NEWS_API_KEY
+    resolves as `os.getenv(...) or _MASSIVE_ANY_KEY` and _MASSIVE_KEY_STATE
+    seeds from that global, so a key placed there becomes the PRIMARY for news
+    and demotes MASSIVE_API_KEY to spare -- the opposite of adding a backup.
+    MASSIVE_BACKUP_API_KEY is reachable by rotation only."""
+
+    def test_the_spare_is_not_in_the_primary_resolution_chain(self):
+        src = inspect.getsource(a)
+        head = src[:src.index("MASSIVE_BACKUP_API_KEY   = ")]
+        self.assertNotIn("MASSIVE_BACKUP_API_KEY", head,
+                         "the spare must not feed _MASSIVE_ANY_KEY or any global "
+                         "that _MASSIVE_KEY_STATE seeds from")
+
+    def test_the_spare_is_reachable_by_rotation(self):
+        import re
+        block = re.search(r"_MASSIVE_KEY_CANDIDATES = .*?if k\]",
+                          inspect.getsource(a), re.S)
+        self.assertIsNotNone(block, "candidate list not found")
+        self.assertIn("MASSIVE_BACKUP_API_KEY", block.group(0))
+
+    def test_rotation_would_actually_try_it(self):
+        """Depth, not presence: the candidate list is what _massive_get walks."""
+        with patch.dict(a.os.environ,
+                        {"MASSIVE_API_KEY": "primary_key_aaaa",
+                         "MASSIVE_BACKUP_API_KEY": "spare_key_bbbb"}, clear=False):
+            cands = [k for k in dict.fromkeys((
+                a.os.getenv("MASSIVE_NEWS_API_KEY", ""),
+                a.os.getenv("MASSIVE_EARNINGS_API_KEY", ""),
+                a.os.getenv("MASSIVE_API_KEY", ""),
+                a.os.getenv("BENZINGA_EARNING_API_KEY", ""),
+                a.os.getenv("BENZINGA_API_KEY", ""),
+                a.os.getenv("MASSIVE_BACKUP_API_KEY", ""))) if k]
+        self.assertIn("spare_key_bbbb", cands)
+        self.assertGreaterEqual(len(cands), 2)
+
+    def _probe_all(self, backup, candidates):
+        with patch.object(a, "MASSIVE_BACKUP_API_KEY", backup), \
+             patch.object(a, "_MASSIVE_KEY_CANDIDATES", candidates), \
+             patch.object(a.requests, "get", side_effect=RuntimeError("no net")), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "send_telegram"):
+            return chr(10).join(a.run_news_source_check(notify=False))
+
+    def test_a_duplicated_spare_is_called_out(self):
+        """Copy-pasting the SAME key into the spare slot adds no failover, and
+        the dedupe hides that -- depth stays 1 while the slot looks filled."""
+        out = self._probe_all("samekey", ["samekey"])
+        self.assertIn("SAME key", out)
+        self.assertIn("DIFFERENT key", out)
+
+    def test_the_advice_names_the_spare_slot_not_the_primary_one(self):
+        out = self._probe_all("", ["onlykey"])
+        self.assertIn("A second key goes in MASSIVE_BACKUP_API_KEY", out)
+        self.assertIn("Do NOT use MASSIVE_NEWS_API_KEY", out)
+
+    def test_an_absent_spare_is_reported(self):
+        self.assertIn("MASSIVE_BACKUP_API_KEY     MISSING",
+                      self._probe_all("", ["onlykey"]))
+
+    def test_every_workflow_passes_the_spare(self):
+        """A secret nothing forwards is a secret that does nothing."""
+        import glob
+        for f in glob.glob(".github/workflows/dman_*.yml"):
+            body = io.open(f, encoding="utf-8").read()
+            if "MASSIVE_API_KEY:" in body:
+                self.assertIn("MASSIVE_BACKUP_API_KEY:", body, f)
+
+    def test_the_spare_is_probed_so_it_is_not_an_unverified_guess(self):
+        src = inspect.getsource(a.run_news_source_check)
+        self.assertIn("massive w/ spare key", src)

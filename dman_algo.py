@@ -20588,9 +20588,17 @@ def run_news_source_check(notify: bool = False) -> list[str]:
         except Exception as exc:
             _lines.append(f"  ❌ {name:<26} {type(exc).__name__}: {str(exc)[:50]}")
 
-    def _show(label, key):
-        _lines.append(f"  {label:<26} "
-                      + (f"len {len(key)} ...{key[-4:]}" if key else "MISSING"))
+    def _show(label, key, own=None):
+        """label is an env var NAME, key is the value actually IN USE. Those are
+        not the same thing: MASSIVE_NEWS_API_KEY falls back to _MASSIVE_ANY_KEY
+        when its own variable is empty, so printing the resolved value under the
+        variable's name reads as "this name is configured" when it is not. Pass
+        own=os.getenv(label) and the line says which it is -- otherwise the
+        report argues against its own advice to put a second key in that name."""
+        _detail = f"len {len(key)} ...{key[-4:]}" if key else "MISSING"
+        if key and own is not None:
+            _detail += "  (own var set)" if own else "  (own var UNSET - fallback)"
+        _lines.append(f"  {label:<26} " + _detail)
 
     # Rotation depth. A source answering 200 today says nothing about what
     # happens when its key is rejected, and that is the failure this reports:
@@ -20610,8 +20618,10 @@ def run_news_source_check(notify: bool = False) -> list[str]:
     else:
         _lines.append("  ❌ massive key failover      NO key configured at all")
 
-    _show("MASSIVE_NEWS_API_KEY", MASSIVE_NEWS_API_KEY)
-    _show("MASSIVE_EARNINGS_API_KEY", MASSIVE_EARNINGS_API_KEY)
+    _show("MASSIVE_NEWS_API_KEY", MASSIVE_NEWS_API_KEY,
+          own=os.getenv("MASSIVE_NEWS_API_KEY", ""))
+    _show("MASSIVE_EARNINGS_API_KEY", MASSIVE_EARNINGS_API_KEY,
+          own=os.getenv("MASSIVE_EARNINGS_API_KEY", ""))
     # The deprecated aliases are worth naming only when they hold something
     # DIFFERENT from the key actually in use -- that is the exact shape of the
     # 2026-09-20 outage, where a stale alias won the resolution chain.

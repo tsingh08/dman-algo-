@@ -20610,3 +20610,50 @@ class TestMassiveKeyFailoverDepthIsReported(unittest.TestCase):
     def test_the_check_never_prints_a_key(self):
         out = self._probe_all(["supersecretkeyvalue123"])
         self.assertNotIn("supersecretkeyvalue123", out)
+
+
+class TestKeyReportSeparatesOwnVarFromFallback(unittest.TestCase):
+    """MASSIVE_NEWS_API_KEY the module global is not MASSIVE_NEWS_API_KEY the
+    env var -- the global falls back to _MASSIVE_ANY_KEY. Printing the resolved
+    value under the variable name made the report claim that name was
+    configured while telling the reader to configure it."""
+
+    def _probe_all(self, env):
+        with patch.dict(a.os.environ, env, clear=False), \
+             patch.object(a, "_MASSIVE_KEY_CANDIDATES", ["onlykey"]), \
+             patch.object(a, "MASSIVE_NEWS_API_KEY", "fallbackvalue1234"), \
+             patch.object(a, "MASSIVE_EARNINGS_API_KEY", "fallbackvalue1234"), \
+             patch.object(a.requests, "get", side_effect=RuntimeError("no net")), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "send_telegram"):
+            return chr(10).join(a.run_news_source_check(notify=False))
+
+    def _news_line(self, out):
+        for ln in out.split(chr(10)):
+            if "MASSIVE_NEWS_API_KEY" in ln and "failover" not in ln:
+                return ln
+        self.fail("no MASSIVE_NEWS_API_KEY line in: " + out)
+
+    def test_an_unset_own_var_is_not_reported_as_configured(self):
+        """The bug: production shows a 32-char key on this line while the env
+        var is empty, so the advice to add a key there looks already done."""
+        line = self._news_line(self._probe_all({"MASSIVE_NEWS_API_KEY": ""}))
+        self.assertIn("own var UNSET", line)
+        self.assertIn("fallback", line)
+
+    def test_a_genuinely_set_own_var_says_so(self):
+        line = self._news_line(
+            self._probe_all({"MASSIVE_NEWS_API_KEY": "realdistinctkey99"}))
+        self.assertIn("own var set", line)
+        self.assertNotIn("UNSET", line)
+
+    def test_the_advice_and_the_display_never_contradict(self):
+        """If the report says to put a second key in MASSIVE_NEWS_API_KEY, that
+        same report must not also show that name as already holding one."""
+        out = self._probe_all({"MASSIVE_NEWS_API_KEY": ""})
+        if "A second key goes in MASSIVE_NEWS_API_KEY" in out:
+            self.assertIn("own var UNSET", self._news_line(out))
+
+    def test_it_still_does_not_print_the_key(self):
+        out = self._probe_all({"MASSIVE_NEWS_API_KEY": ""})
+        self.assertNotIn("fallbackvalue1234", out)

@@ -20736,3 +20736,101 @@ class TestMassiveBackupKeyIsSpareOnly(unittest.TestCase):
     def test_the_spare_is_probed_so_it_is_not_an_unverified_guess(self):
         src = inspect.getsource(a.run_news_source_check)
         self.assertIn("massive w/ spare key", src)
+
+
+class TestMassiveKeyRotationDrill(unittest.TestCase):
+    """The spare was verified from the outside -- distinct, authenticating, in
+    the candidate list -- and none of that runs the rotation LOOP, which is the
+    only code that can ever reach it. run_massive_key_drill() forces a real
+    rejection so that path executes before the day it has to."""
+
+    SPARE = "sparekeyvalue_wQTC"
+    LIVE = "liveprimarykey"
+
+    def _fake_get(self, good):
+        def _get(url, params=None, **kw):
+            if (params or {}).get("apiKey", "") in good:
+                return MagicMock(status_code=200, text='{"results":[{}]}',
+                                 json=lambda: {"results": [{}]})
+            return MagicMock(status_code=401, text='{"error":"Unknown API Key"}')
+        return _get
+
+    def _drill(self, spare, candidates, good, state=None):
+        st = state if state is not None else {"key": self.LIVE, "rotated": False}
+        with patch.object(a, "MASSIVE_BACKUP_API_KEY", spare), \
+             patch.object(a, "_MASSIVE_KEY_CANDIDATES", candidates), \
+             patch.dict(a._MASSIVE_KEY_STATE, {"news": st}), \
+             patch.object(a.requests, "get", side_effect=self._fake_get(good)), \
+             patch.object(a, "send_telegram"):
+            out = chr(10).join(a.run_massive_key_drill(notify=False))
+            return out, a._MASSIVE_KEY_STATE["news"]["key"]
+
+    def test_a_working_spare_is_reported_as_rotation_working(self):
+        out, _ = self._drill(self.SPARE, [self.LIVE, self.SPARE], {self.SPARE})
+        self.assertIn("rotation WORKS", out)
+
+    def test_a_dead_spare_is_not_reported_as_success(self):
+        """The failure this whole exercise exists to prevent: a spare that is
+        configured, distinct, and does not authenticate."""
+        out, _ = self._drill(self.SPARE, [self.LIVE, self.SPARE], set())
+        self.assertIn("rotation FAILED", out)
+        self.assertNotIn("rotation WORKS", out)
+
+    def test_the_live_key_is_restored_afterwards(self):
+        _, key = self._drill(self.SPARE, [self.LIVE, self.SPARE], {self.SPARE})
+        self.assertEqual(key, self.LIVE,
+                         "a drill that leaves the key state on a dead key is "
+                         "worse than no drill")
+
+    def test_the_live_key_is_restored_even_when_the_drill_fails(self):
+        _, key = self._drill(self.SPARE, [self.LIVE, self.SPARE], set())
+        self.assertEqual(key, self.LIVE)
+
+    def test_no_spare_means_no_drill_rather_than_a_false_pass(self):
+        out, _ = self._drill("", [self.LIVE], {self.LIVE})
+        self.assertIn("nothing to rotate to", out)
+        self.assertNotIn("rotation WORKS", out)
+
+    def test_a_spare_equal_to_the_live_key_is_rejected_up_front(self):
+        out, _ = self._drill(self.LIVE, [self.LIVE], {self.LIVE})
+        self.assertIn("SAME key", out)
+        self.assertNotIn("rotation WORKS", out)
+
+    def test_it_does_not_send_a_second_telegram_while_rotating(self):
+        """Rotation alerts on a real switch, which is right in production and
+        noise during a drill -- so the drill folds it into its own report."""
+        with patch.object(a, "MASSIVE_BACKUP_API_KEY", self.SPARE), \
+             patch.object(a, "_MASSIVE_KEY_CANDIDATES", [self.LIVE, self.SPARE]), \
+             patch.dict(a._MASSIVE_KEY_STATE,
+                        {"news": {"key": self.LIVE, "rotated": False}}), \
+             patch.object(a.requests, "get",
+                          side_effect=self._fake_get({self.SPARE})), \
+             patch.object(a, "send_telegram") as tg:
+            out = chr(10).join(a.run_massive_key_drill(notify=False))
+        self.assertEqual(tg.call_count, 0)
+        self.assertIn("alert it would have sent", out)
+        self.assertIn("key switched", out)
+
+    def test_a_silent_switch_is_called_a_bug(self):
+        """If rotation ever stops announcing itself, the drill says so rather
+        than printing a clean pass -- a silent switch hides a stale secret."""
+        self.assertIn("a silent switch is a bug",
+                      inspect.getsource(a.run_massive_key_drill))
+
+    def test_the_drill_never_prints_a_key(self):
+        out, _ = self._drill(self.SPARE, [self.LIVE, self.SPARE], {self.SPARE})
+        self.assertNotIn(self.SPARE, out)
+        self.assertNotIn(self.LIVE, out)
+
+    def test_it_is_manual_only_and_not_on_any_schedule(self):
+        """It spends API calls and breaks key state on purpose."""
+        import glob
+        for f in glob.glob(".github/workflows/*.yml"):
+            body = io.open(f, encoding="utf-8").read()
+            self.assertNotIn("mode keydrill", body, f)
+            self.assertNotIn("mode=keydrill", body, f)
+
+    def test_the_mode_is_dispatchable(self):
+        src = inspect.getsource(a)
+        self.assertIn('args.mode == "keydrill"', src)
+        self.assertIn('"keydrill"', src)

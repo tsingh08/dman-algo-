@@ -20571,3 +20571,42 @@ class TestPreGateCheckDistinguishesUnknownFromClear(unittest.TestCase):
     def test_the_briefing_includes_it(self):
         self.assertIn("_pmb_gate_preflight",
                       inspect.getsource(a.run_premarket_briefing))
+
+
+class TestMassiveKeyFailoverDepthIsReported(unittest.TestCase):
+    """_massive_get() rotates to another key when Massive rejects the one in
+    use, but production configures exactly ONE, so there is nothing to rotate
+    to. A source answering 200 today says nothing about that. The health check
+    now reports the depth instead of leaving it to be discovered."""
+
+    def _probe_all(self, candidates):
+        with patch.object(a, "_MASSIVE_KEY_CANDIDATES", candidates), \
+             patch.object(a.requests, "get", side_effect=RuntimeError("no net")), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "send_telegram"):
+            return chr(10).join(a.run_news_source_check(notify=False))
+
+    def test_a_single_key_is_flagged_as_no_failover(self):
+        out = self._probe_all(["onlykey"])
+        self.assertIn("ONLY 1 key", out)
+        self.assertIn("nothing to rotate to", out)
+
+    def test_two_keys_report_working_failover(self):
+        out = self._probe_all(["k1", "k2"])
+        self.assertIn("2 distinct keys", out)
+        self.assertNotIn("ONLY 1 key", out)
+
+    def test_no_key_at_all_is_an_error(self):
+        out = self._probe_all([])
+        self.assertIn("NO key configured", out)
+
+    def test_it_warns_that_the_second_key_must_work(self):
+        """MASSIVE_NEWS_API_KEY is tried FIRST, so a stale key there costs a
+        rejected call and a dead-key alert on every product."""
+        out = self._probe_all(["onlykey"])
+        self.assertIn("WORKING", out)
+        self.assertIn("tried FIRST", out)
+
+    def test_the_check_never_prints_a_key(self):
+        out = self._probe_all(["supersecretkeyvalue123"])
+        self.assertNotIn("supersecretkeyvalue123", out)

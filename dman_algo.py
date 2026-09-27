@@ -1204,6 +1204,17 @@ MASSIVE_EARNINGS_API_KEY = os.getenv("MASSIVE_EARNINGS_API_KEY", "") or _MASSIVE
 # Every distinct key configured under any name, preferred first. _massive_get()
 # falls through to the next one the first time Massive rejects the one in use,
 # so a half-finished key rotation degrades instead of going dark.
+# Most of the five names below are normally UNSET, and that is correct -- the
+# workflows pass all of them, GitHub substitutes an empty string for a secret
+# that does not exist, and the chain above folds whatever IS set into one usable
+# key. So "MASSIVE_NEWS_API_KEY is not a repo secret" is not a fault to chase.
+#
+# What DOES matter is how many DISTINCT keys survive the dedupe below. That is
+# the rotation depth: with two or more, a rejected key fails over silently; with
+# one, there is nothing to fail over to and the whole catalyst and earnings side
+# goes dark until a human adds another. Production currently runs on one, so
+# run_news_source_check() reports the depth rather than leaving it to be
+# discovered.
 _MASSIVE_KEY_CANDIDATES = [k for k in dict.fromkeys((
     os.getenv("MASSIVE_NEWS_API_KEY", ""),
     os.getenv("MASSIVE_EARNINGS_API_KEY", ""),
@@ -20580,6 +20591,24 @@ def run_news_source_check(notify: bool = False) -> list[str]:
     def _show(label, key):
         _lines.append(f"  {label:<26} "
                       + (f"len {len(key)} ...{key[-4:]}" if key else "MISSING"))
+
+    # Rotation depth. A source answering 200 today says nothing about what
+    # happens when its key is rejected, and that is the failure this reports:
+    # with one key there is nothing to fall through to.
+    _depth = len(_MASSIVE_KEY_CANDIDATES)
+    if _depth >= 2:
+        _lines.append(f"  ✅ massive key failover      {_depth} distinct keys — "
+                      f"a rejected key rotates to the next")
+    elif _depth == 1:
+        _lines.append("  ⚠️ massive key failover      ONLY 1 key configured — nothing "
+                      "to rotate to. If it is revoked or expires, catalyst and "
+                      "earnings data go dark until a human adds another. A second "
+                      "key goes in MASSIVE_NEWS_API_KEY, and it has to be a "
+                      "WORKING one: that name is tried FIRST, so a stale key there "
+                      "costs a rejected call and a dead-key alert on every product "
+                      "before the good key is reached.")
+    else:
+        _lines.append("  ❌ massive key failover      NO key configured at all")
 
     _show("MASSIVE_NEWS_API_KEY", MASSIVE_NEWS_API_KEY)
     _show("MASSIVE_EARNINGS_API_KEY", MASSIVE_EARNINGS_API_KEY)

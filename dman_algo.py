@@ -6593,7 +6593,21 @@ def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, li
         if all(result[t] for t in tickers):
             return result
 
-    # Tertiary: Alpaca News API (free tier, delayed)
+    # Tertiary: Alpaca News API (free tier, delayed). This is the only tier that
+    # survives a Massive ACCOUNT failure rather than a Massive KEY failure --
+    # different vendor, different billing -- so it is the one that makes the
+    # cascade cross-vendor instead of merely multi-key.
+    #
+    # It had never returned a single headline. Three faults, each individually
+    # sufficient, all inside `except Exception: pass`:
+    #   1. symbols=[ticker] -- this SDK wants a STRING, and a list raises a
+    #      pydantic ValidationError before the request is even sent.
+    #   2. news.data.get(ticker) -- .data is keyed "news", not by ticker, so it
+    #      would have come back empty even had the request succeeded.
+    #   3. the hasattr(news, "news") rescue -- NewsSet has no such attribute.
+    # Found 2026-09-27 by probing the tier directly instead of trusting the
+    # newscheck row that reports it, which was summing the CASCADE's output and
+    # therefore went green on Massive's headlines while this tier was dead.
     try:
         from alpaca.data.historical.news import NewsClient as _NC
         from alpaca.data.requests import NewsRequest as _NR
@@ -6602,18 +6616,22 @@ def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, li
             if result[ticker]:   # already have Benzinga headlines
                 continue
             try:
-                req  = _NR(symbols=[ticker], start=cutoff, limit=5)
+                req  = _NR(symbols=ticker, start=cutoff, limit=5)
                 news = _nc.get_news(req)
-                items = news.data.get(ticker, []) if hasattr(news, "data") else []
-                if not items and hasattr(news, "news"):
-                    items = news.news
-                result[ticker] = [getattr(n, "headline", str(n)) for n in items][:5]
-            except Exception:
-                pass
+                _raw = getattr(news, "data", {}) or {}
+                # "news" is the current shape; the ticker key is kept as a
+                # secondary in case the SDK reverts to per-symbol buckets.
+                items = _raw.get("news") or _raw.get(ticker) or []
+                result[ticker] = [getattr(n, "headline", "") for n in items
+                                  if getattr(n, "headline", "")][:5]
+            except Exception as _exc:
+                # Logged, not swallowed. Silence is what let three separate
+                # bugs live in here indefinitely.
+                _log_swallowed(f"alpaca news tier {ticker}", _exc)
         if any(result[t] for t in tickers):
             return result
-    except Exception:
-        pass
+    except Exception as _exc:
+        _log_swallowed("alpaca news tier (client)", _exc)
 
     # Fallback: yfinance (no API key, last resort)
     for ticker in tickers:
@@ -20674,6 +20692,223 @@ def run_orb_shadow(notify: bool = True) -> list[dict]:
 
 
 
+def run_api_health_check(notify: bool = False) -> list[str]:
+    """Probe every external dependency and say which failures actually matter.
+
+    "Do all the APIs work" is a less useful question than "which outage stops
+    money moving". A dead Telegram token means every alert this system produces
+    goes nowhere while it keeps trading; a dead nitter mirror means nothing at
+    all. Both are "an API that does not work", so the report is grouped by what
+    a failure costs rather than listed flat:
+
+      MONEY     orders, positions, prices, options quotes. A failure here can
+                lose or fail to protect real money.
+      ALERT     Telegram. The only channel out. Silent failure is invisible.
+      DECISION  news, earnings, catalyst. A failure degrades signal quality;
+                the earnings gate now BLOCKS rather than guessing, so this
+                costs missed entries rather than bad ones.
+      REFERENCE universe lists, filings. Cached, so an outage is survivable.
+      OPTIONAL  sentiment and RSS extras. Listed for completeness; several are
+                expected to be down and nothing depends on them.
+
+    Read-only throughout: no order is submitted and no state is written.
+    """
+    _lines: list[str] = ["", "  \U0001f50c API HEALTH CHECK", ""]
+    _fail_money: list[str] = []
+    _fail_alert: list[str] = []
+
+    def _probe(tier: str, name: str, fn):
+        """Run one probe. Never raises -- a checker that dies on its first dead
+        endpoint cannot report on the rest, which is the whole job."""
+        try:
+            ok, detail = fn()
+        except Exception as exc:
+            ok, detail = False, f"{type(exc).__name__}: {str(exc)[:55]}"
+        _mark = "\u2705" if ok else "\u274c"
+        _lines.append(f"  {_mark} {tier:<9} {name:<26} {detail}")
+        if not ok and tier == "MONEY":
+            _fail_money.append(name)
+        if not ok and tier == "ALERT":
+            _fail_alert.append(name)
+        return ok
+
+    # ----------------------------------------------------------------- MONEY
+    def _alpaca_account():
+        c = get_alpaca_client()
+        if not c:
+            return False, "no client (keys missing or rejected)"
+        acct = c.get_account()
+        return True, f"equity ${float(acct.equity):,.2f}  status {acct.status}"
+
+    def _alpaca_positions():
+        c = get_alpaca_client()
+        if not c:
+            return False, "no client"
+        return True, f"{len(c.get_all_positions())} open position(s)"
+
+    def _alpaca_stock_data():
+        r = requests.get("https://data.alpaca.markets/v2/stocks/snapshots",
+                         params={"symbols": "AAPL,SPY"},
+                         headers={"APCA-API-KEY-ID": ALPACA_API_KEY,
+                                  "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY},
+                         timeout=12)
+        if r.status_code != 200:
+            return False, f"HTTP {r.status_code} {str(r.text)[:45]}"
+        _n = len(r.json() or {})
+        return _n > 0, f"HTTP 200  {_n} snapshot(s)  [SIP entitlement]"
+
+    def _alpaca_options_data():
+        r = requests.get("https://data.alpaca.markets/v1beta1/options/snapshots/AAPL",
+                         params={"limit": 5, "feed": OPTIONS_DATA_FEED},
+                         headers={"APCA-API-KEY-ID": ALPACA_API_KEY,
+                                  "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY},
+                         timeout=12)
+        if r.status_code != 200:
+            return False, f"HTTP {r.status_code} {str(r.text)[:45]}"
+        _n = len((r.json() or {}).get("snapshots", {}) or {})
+        return _n > 0, f"HTTP 200  {_n} contract(s)  [feed {OPTIONS_DATA_FEED}]"
+
+    _probe("MONEY", "alpaca trading (account)", _alpaca_account)
+    _probe("MONEY", "alpaca trading (positions)", _alpaca_positions)
+    _probe("MONEY", "alpaca stock data", _alpaca_stock_data)
+    _probe("MONEY", "alpaca options data", _alpaca_options_data)
+    _probe("MONEY", "yfinance (price fallback)",
+           lambda: ((lambda h: (not h.empty, f"{len(h)} bar(s)"))(
+               yf.Ticker("AAPL").history(period="5d"))))
+
+    # ----------------------------------------------------------------- ALERT
+    def _telegram():
+        if not TELEGRAM_TOKEN:
+            return False, "TELEGRAM_TOKEN missing"
+        r = requests.get(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getMe",
+                         timeout=10)
+        if r.status_code != 200:
+            return False, f"HTTP {r.status_code}"
+        _u = (r.json() or {}).get("result", {}) or {}
+        return True, f"bot @{_u.get('username', '?')}  chat {'set' if TELEGRAM_CHAT_ID else 'MISSING'}"
+
+    _lines.append("")
+    _probe("ALERT", "telegram bot", _telegram)
+
+    # -------------------------------------------------------------- DECISION
+    def _massive(path, product, params):
+        def _go():
+            r = _massive_get(f"https://api.massive.com{path}", params,
+                             timeout=12, product=product)
+            if r.status_code != 200:
+                return False, f"HTTP {r.status_code} {str(r.text)[:40]}"
+            return True, f"HTTP 200  [key ...{_massive_key(product)[-4:]}]"
+        return _go
+
+    def _massive_spare():
+        if not MASSIVE_BACKUP_API_KEY:
+            return False, "no spare configured - rotation has nowhere to go"
+        r = requests.get("https://api.massive.com/v2/reference/news",
+                         params={"apiKey": MASSIVE_BACKUP_API_KEY, "limit": 1},
+                         timeout=12)
+        return (r.status_code == 200,
+                f"HTTP {r.status_code}  [spare ...{MASSIVE_BACKUP_API_KEY[-4:]}]")
+
+    def _earnings_source():
+        _d, _v = _extract_earnings_dates_status("AAPL")
+        return _v, ("verified, " + (f"next {_d[0]}" if _d else "no date listed")
+                    if _v else "UNVERIFIED - the gate would BLOCK entries")
+
+    def _alpaca_news():
+        _m = _fetch_alpaca_news(["AAPL"], hours_back=48) or {}
+        _n = len(_m.get("AAPL") or [])
+        return _n > 0, f"{_n} headline(s) (whichever tier answered)"
+
+    def _alpaca_news_tier():
+        """Probed separately because the cascade reports green on Massive alone.
+        If this is red, the cascade is multi-key but single-vendor, and a Massive
+        ACCOUNT failure (not just a key failure) takes news down to yfinance."""
+        from alpaca.data.historical.news import NewsClient as _NC3
+        from alpaca.data.requests import NewsRequest as _NR3
+        from datetime import timezone as _tz3
+        _r = _NC3(api_key=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY).get_news(
+            _NR3(symbols="AAPL",
+                 start=datetime.now(_tz3.utc) - timedelta(hours=48), limit=5))
+        _n = len((getattr(_r, "data", {}) or {}).get("news") or [])
+        return _n > 0, f"{_n} headline(s)  [independent of Massive]"
+
+    _lines.append("")
+    _probe("DECISION", "massive reference news",
+           _massive("/v2/reference/news", "news", {"limit": 1}))
+    _probe("DECISION", "massive benzinga news",
+           _massive("/benzinga/v2/news", "news", {"limit": 1}))
+    _probe("DECISION", "massive earnings",
+           _massive("/benzinga/v1/earnings", "earnings",
+                    {"date.gte": str(_et_today()),
+                     "date.lte": str(_et_today() + timedelta(days=30)),
+                     "limit": 1}))
+    _probe("DECISION", "massive spare key", _massive_spare)
+    _probe("DECISION", "earnings calendar", _earnings_source)
+    _probe("DECISION", "news cascade (any tier)", _alpaca_news)
+    _probe("DECISION", "alpaca news (alone)", _alpaca_news_tier)
+
+    # ------------------------------------------------------------- REFERENCE
+    def _http(url, want=200, **kw):
+        def _go():
+            r = requests.get(url, timeout=kw.pop("timeout", 12), **kw)
+            return r.status_code == want, f"HTTP {r.status_code}"
+        return _go
+
+    _lines.append("")
+    _probe("REFERENCE", "nasdaqtrader symbols",
+           _http("https://www.nasdaqtrader.com/dynamic/symdir/nasdaqlisted.txt"))
+    _probe("REFERENCE", "sec edgar",
+           _http("https://www.sec.gov/files/company_tickers.json",
+                 headers={"User-Agent": SEC_EDGAR_USER_AGENT}))
+    _probe("REFERENCE", "github api (/restart)",
+           _http("https://api.github.com/rate_limit"))
+
+    # -------------------------------------------------------------- OPTIONAL
+    def _anthropic():
+        if not os.getenv("ANTHROPIC_API_KEY", ""):
+            return False, "ANTHROPIC_API_KEY not set"
+        r = requests.post("https://api.anthropic.com/v1/messages",
+                          headers={"x-api-key": os.getenv("ANTHROPIC_API_KEY", ""),
+                                   "anthropic-version": "2023-06-01",
+                                   "content-type": "application/json"},
+                          json={"model": "claude-haiku-4-5-20251001", "max_tokens": 1,
+                                "messages": [{"role": "user", "content": "hi"}]},
+                          timeout=20)
+        return r.status_code == 200, f"HTTP {r.status_code}"
+
+    _lines.append("")
+    _probe("OPTIONAL", "anthropic (ai notes)", _anthropic)
+    _probe("OPTIONAL", "stocktwits",
+           _http("https://api.stocktwits.com/api/2/streams/symbol/AAPL.json"))
+    _probe("OPTIONAL", "benzinga direct (legacy)",
+           _http("https://api.benzinga.com/api/v2/news",
+                 params={"token": BENZINGA_DIRECT_API_KEY or "none", "pagesize": 1}))
+
+    # ------------------------------------------------------------ the verdict
+    _lines.append("")
+    if _fail_money or _fail_alert:
+        _lines.append(f"  \u274c NOT SAFE TO TRADE \u2014 "
+                      + ("money path down: " + ", ".join(_fail_money) + ". "
+                         if _fail_money else "")
+                      + ("ALERTS ARE DEAD (" + ", ".join(_fail_alert) + ") \u2014 "
+                         "the system would keep trading with no way to tell you. "
+                         if _fail_alert else ""))
+    else:
+        _lines.append("  \u2705 money path and alert channel both OK \u2014 anything "
+                      "red above degrades signal quality or is optional")
+
+    for _l in _lines:
+        print(_l)
+    if notify:
+        try:
+            _body = [l for l in _lines[2:] if l.strip()]
+            send_telegram("\U0001f50c <b>API health check</b>" + "\n"
+                          + html.escape("\n".join(_body)))
+        except Exception as exc:
+            _log_swallowed("api health alert", exc)
+    return _lines
+
+
 def run_massive_key_drill(notify: bool = False) -> list[str]:
     """Revoke the primary on purpose and see whether the spare carries the load.
 
@@ -20934,9 +21169,32 @@ def run_news_source_check(notify: bool = False) -> list[str]:
                {"token": BENZINGA_DIRECT_API_KEY, "pageSize": 2}, count_key="")
     try:
         _alp = _fetch_alpaca_news(["NVDA", "AMD", "TSLA"], hours_back=48)
-        _lines.append(f"  ✅ {'alpaca news (REST)':<26} {sum(len(v) for v in _alp.values())} headline(s)")
+        # Labelled for what it actually measures. _fetch_alpaca_news() is the
+        # whole vendor CASCADE, not the Alpaca tier, so this row went green on
+        # Massive's headlines while the Alpaca tier inside it was returning
+        # nothing -- it read as cross-vendor redundancy that did not exist.
+        _lines.append(f"  ✅ {'news cascade (any tier)':<26} "
+                      f"{sum(len(v) for v in _alp.values())} headline(s)")
     except Exception as exc:
-        _lines.append(f"  ❌ {'alpaca news (REST)':<26} {type(exc).__name__}: {str(exc)[:50]}")
+        _lines.append(f"  ❌ {'news cascade (any tier)':<26} "
+                      f"{type(exc).__name__}: {str(exc)[:50]}")
+
+    # And the Alpaca tier ON ITS OWN, which is the one that survives a Massive
+    # account failure. If this is red, the cascade is multi-key but single-vendor.
+    try:
+        from alpaca.data.historical.news import NewsClient as _NC2
+        from alpaca.data.requests import NewsRequest as _NR2
+        from datetime import timezone as _tz2
+        _n2 = _NC2(api_key=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY)
+        _r2 = _n2.get_news(_NR2(symbols="AAPL",
+                                start=datetime.now(_tz2.utc) - timedelta(hours=48),
+                                limit=5))
+        _c2 = len((getattr(_r2, "data", {}) or {}).get("news") or [])
+        _lines.append(f"  {'✅' if _c2 else '❌'} {'alpaca news tier (alone)':<26} "
+                      f"{_c2} headline(s)  [independent of Massive]")
+    except Exception as exc:
+        _lines.append(f"  ❌ {'alpaca news tier (alone)':<26} "
+                      f"{type(exc).__name__}: {str(exc)[:50]}")
 
     print("\n  📰 NEWS SOURCE CHECK")
     for _l in _lines:
@@ -27877,7 +28135,7 @@ def main():
                  "live-outcomes","live-perf","premarket","premarket-early",
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
-                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "keydrill", "orb", "bzone",
+                 "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "keydrill", "apicheck", "orb", "bzone",
                  "reconcile", "bzmanage"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
@@ -28170,6 +28428,9 @@ def main():
 
     elif args.mode == "keydrill":
         run_massive_key_drill(notify=True)
+
+    elif args.mode == "apicheck":
+        run_api_health_check(notify=True)
 
     elif args.mode == "weekend":
         run_weekend_watch()

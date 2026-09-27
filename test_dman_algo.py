@@ -21039,3 +21039,148 @@ class TestEarningsGateFailsClosedWhenUnreadable(unittest.TestCase):
              patch.object(a, "_is_duplicate_alert",
                           side_effect=RuntimeError("alert store gone")):
             self.assertEqual(a.check_earnings_safe("TEST"), (False, 0))
+
+
+class TestAlpacaNewsTierActuallyWorks(unittest.TestCase):
+    """The Alpaca tier of _fetch_alpaca_news() had never returned a headline.
+
+    It is the only tier that survives a Massive ACCOUNT failure rather than a
+    Massive KEY failure -- different vendor, different billing -- so it is what
+    makes the cascade cross-vendor instead of merely multi-key. Three faults,
+    each sufficient on its own, all inside `except Exception: pass`:
+    symbols=[ticker] where the SDK wants a string, .data.get(ticker) where the
+    key is "news", and a .news rescue attribute that does not exist."""
+
+    def test_symbols_is_passed_as_a_string_not_a_list(self):
+        """A list raises a pydantic ValidationError before the request is sent.
+
+        Pinned on the CALL, not on the file text: the comment above it quotes the
+        old buggy form on purpose, so a bare assertNotIn("symbols=[ticker]")
+        matched the documentation of the fix and reported the fix as absent."""
+        src = inspect.getsource(a._fetch_alpaca_news)
+        self.assertIn("_NR(symbols=ticker", src)
+        self.assertNotIn("_NR(symbols=[ticker]", src)
+
+    def test_it_reads_the_news_key_not_the_ticker_key(self):
+        src = inspect.getsource(a._fetch_alpaca_news)
+        self.assertIn('_raw.get("news")', src)
+
+    def test_the_tier_failure_is_logged_not_swallowed(self):
+        """Silence is what let three bugs live in here indefinitely."""
+        src = inspect.getsource(a._fetch_alpaca_news)
+        self.assertIn("alpaca news tier", src)
+
+    def _cascade(self, news_items):
+        _set = MagicMock()
+        _set.data = {"news": news_items}
+        _client = MagicMock()
+        _client.get_news.return_value = _set
+        return _client
+
+    def test_headlines_are_returned_when_massive_is_dead(self):
+        """The whole point: Massive down, Alpaca carries it."""
+        _items = [MagicMock(headline="Alpaca carried this one")]
+        with patch.object(a, "_fetch_massive_benzinga_news", return_value={}), \
+             patch.object(a, "BENZINGA_DIRECT_API_KEY", ""), \
+             patch("alpaca.data.historical.news.NewsClient",
+                   return_value=self._cascade(_items)):
+            out = a._fetch_alpaca_news(["AAPL"], hours_back=48)
+        self.assertEqual(out["AAPL"], ["Alpaca carried this one"])
+
+    def test_the_request_gets_a_string_at_runtime_not_just_in_source(self):
+        _client = self._cascade([MagicMock(headline="h")])
+        with patch.object(a, "_fetch_massive_benzinga_news", return_value={}), \
+             patch.object(a, "BENZINGA_DIRECT_API_KEY", ""), \
+             patch("alpaca.data.historical.news.NewsClient", return_value=_client):
+            a._fetch_alpaca_news(["AAPL"], hours_back=48)
+        _req = _client.get_news.call_args[0][0]
+        self.assertIsInstance(_req.symbols, str)
+        self.assertEqual(_req.symbols, "AAPL")
+
+    def test_a_blank_headline_is_dropped_rather_than_counted(self):
+        _items = [MagicMock(headline=""), MagicMock(headline="real")]
+        with patch.object(a, "_fetch_massive_benzinga_news", return_value={}), \
+             patch.object(a, "BENZINGA_DIRECT_API_KEY", ""), \
+             patch("alpaca.data.historical.news.NewsClient",
+                   return_value=self._cascade(_items)):
+            out = a._fetch_alpaca_news(["AAPL"], hours_back=48)
+        self.assertEqual(out["AAPL"], ["real"])
+
+    def test_the_newscheck_row_no_longer_claims_to_be_the_alpaca_tier(self):
+        """It was summing the CASCADE and labelling it "alpaca news (REST)", so
+        it went green on Massive's headlines while this tier was dead -- it read
+        as cross-vendor redundancy that did not exist."""
+        src = inspect.getsource(a.run_news_source_check)
+        self.assertIn("news cascade (any tier)", src)
+        self.assertIn("alpaca news tier (alone)", src)
+
+
+class TestApiHealthCheck(unittest.TestCase):
+    """One command that answers "do the APIs work", grouped by what a failure
+    costs rather than listed flat: a dead Telegram token means every alert goes
+    nowhere while the system keeps trading; a dead nitter mirror means nothing."""
+
+    def _run(self, **over):
+        _ok = MagicMock(status_code=200, text="{}",
+                        json=lambda: {"snapshots": {"X": {}}, "result":
+                                      {"username": "bot"}, "AAPL": {}})
+        with patch.object(a, "requests") as _rq, \
+             patch.object(a, "get_alpaca_client",
+                          return_value=over.get("client", MagicMock())), \
+             patch.object(a, "_massive_get", return_value=_ok), \
+             patch.object(a, "_extract_earnings_dates_status",
+                          return_value=([], True)), \
+             patch.object(a, "_fetch_alpaca_news",
+                          return_value={"AAPL": ["h"]}), \
+             patch.object(a, "yf") as _yf, \
+             patch.object(a, "send_telegram"):
+            _rq.get.return_value = over.get("http", _ok)
+            _rq.post.return_value = _ok
+            _yf.Ticker.return_value.history.return_value = MagicMock(empty=False,
+                                                                     __len__=lambda s: 5)
+            return chr(10).join(a.run_api_health_check(notify=False))
+
+    def test_a_dead_money_path_says_not_safe_to_trade(self):
+        _c = MagicMock()
+        _c.get_account.side_effect = RuntimeError("401 unauthorized")
+        out = self._run(client=_c)
+        self.assertIn("NOT SAFE TO TRADE", out)
+        self.assertIn("money path down", out)
+
+    def test_a_dead_alert_channel_is_called_out_separately(self):
+        """Trading on with no way to tell the user is its own failure mode, so it
+        is reported apart from the money path rather than folded into it."""
+        with patch.object(a, "TELEGRAM_TOKEN", ""):
+            out = self._run()
+        self.assertIn("ALERTS ARE DEAD", out)
+        self.assertNotIn("money path down", out)
+
+    def test_a_dead_optional_source_does_not_block_trading(self):
+        """anthropic/stocktwits being down must not read as a trading problem.
+        Needs a token: the suite runs without TELEGRAM_TOKEN, so the alert row is
+        genuinely red here and would mask what this test is asking about."""
+        with patch.object(a, "TELEGRAM_TOKEN", "test-token"), \
+             patch.object(a, "TELEGRAM_CHAT_ID", "123"):
+            out = self._run()
+        self.assertIn("money path and alert channel both OK", out)
+
+    def test_one_dead_endpoint_does_not_stop_the_rest_being_probed(self):
+        """A checker that dies on its first failure cannot report on the rest."""
+        _c = MagicMock()
+        _c.get_account.side_effect = RuntimeError("boom")
+        out = self._run(client=_c)
+        self.assertIn("telegram bot", out)
+        self.assertIn("github api", out)
+
+    def test_it_is_read_only_and_places_no_order(self):
+        src = inspect.getsource(a.run_api_health_check)
+        for danger in ("submit_order", "close_position", "cancel_order",
+                       "_save_", "_write_"):
+            self.assertNotIn(danger, src, danger)
+
+    def test_it_probes_the_alpaca_news_tier_on_its_own(self):
+        src = inspect.getsource(a.run_api_health_check)
+        self.assertIn("independent of Massive", src)
+
+    def test_the_mode_is_dispatchable(self):
+        self.assertIn('args.mode == "apicheck"', inspect.getsource(a))

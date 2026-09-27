@@ -76,16 +76,21 @@ def _hard_gate_failed_open(gate: str, exc: BaseException) -> None:
 
     run_pro_scanner() treats regime_ok / mtf_ok / earnings_ok / macro_ok /
     divergence_free as hard gates -- a signal failing any of them is dropped
-    outright. Four of them return (True, partial_credit) from their exception
+    outright. THREE of them return (True, partial_credit) from their exception
     handler, so a data-source hiccup does not block the trade, it waives the
-    check. That direction is defensible on its own: a yfinance blip should not
-    halt a session. Being SILENT about it is not.
+    check. That direction is defensible for them: a yfinance blip should not
+    halt a session, and what they measure is continuous -- a stale trend reading
+    is wrong by degrees, not catastrophically. Being SILENT about it is not, so
+    this reports it. Deduped per gate, since a broken feed would otherwise fire
+    on every ticker.
 
-    The two that guard scheduled events matter most. An errored
-    check_earnings_safe() means entering straight into an earnings print the
-    blackout existed to avoid; an errored check_macro_safe() means ignoring an
-    FOMC or CPI window. Behaviour is unchanged here -- only the silence is.
-    Deduped per gate, since a broken feed would otherwise fire every ticker.
+    check_earnings_safe() is NO LONGER one of them and does not call this. It
+    fails CLOSED, via _earnings_unverifiable(). What it guards is binary and
+    scheduled rather than continuous, and the "a stop still caps the damage"
+    argument that justified waiving it is false for gap risk. check_macro_safe()
+    still fails open and is the remaining one worth revisiting -- an FOMC window
+    is equally binary -- but it is account-wide rather than per-ticker, so an
+    outage there cannot be narrowed to the names it affects.
     """
     # Everything below is inside a try. This runs from INSIDE a gate's own
     # exception handler, so if the notifier raised it would break the gate it
@@ -8836,13 +8841,18 @@ def _has_tier_a_catalyst(ticker: str) -> bool:
 def _earnings_safe_for_naked_hold(ticker: str) -> tuple[bool, str]:
     """Earnings check for a position that will sit OVERNIGHT with no stop.
 
-    check_earnings_safe() fails OPEN on error, which is right for a normal
-    signal: if the calendar is wrong, the broker-side stop still caps the
-    damage. A naked position has no such backstop, so the same failure mode
-    would put an unhedged account through an unknown earnings reaction -- the
-    single worst thing that can happen to a stopless overnight hold, and the
-    one risk that is entirely foreseeable. Here an unreadable calendar is
-    itself disqualifying.
+    This used to be the ONLY place an unreadable calendar was disqualifying,
+    on the reasoning that check_earnings_safe() could afford to fail open
+    because "the broker-side stop still caps the damage". That premise was
+    wrong, and it was wrong in the one case it was invoked for: a stop does not
+    cap an overnight gap. A $9.50 stop under a $10 stock that opens at $7 fills
+    at $7. So check_earnings_safe() now fails closed too, and the distinction
+    this function drew no longer sets it apart.
+
+    It is kept because it is still correct and still stricter in kind: a naked
+    hold has no backstop for ANY overnight move, not just an earnings one, so
+    the bar here is "prove the calendar is clear", not merely "do not enter on
+    an assumption".
 
     An empty calendar still reads as safe. The Massive window runs -3d to
     +30d, so "no dates" is the normal answer for most names on most days;
@@ -13911,8 +13921,31 @@ def check_earnings_reaction(ticker: str, bias: str) -> tuple[bool, int]:
 
 
 def _extract_earnings_dates(ticker: str) -> list[date]:
+    """Dates only. Callers that must tell "none scheduled" apart from "could not
+    look" use _extract_earnings_dates_status() instead -- see its docstring."""
+    return _extract_earnings_dates_status(ticker)[0]
+
+
+def _extract_earnings_dates_status(ticker: str) -> tuple[list[date], bool]:
     """
     Shared calendar parser for check_earnings_safe()/get_upcoming_earnings().
+
+    Returns (dates, verified). Every path in the original returned a bare [],
+    so a yfinance exception, an unparseable payload and a ticker with genuinely
+    no scheduled earnings were one value -- and check_earnings_safe() read all
+    three as "clear". That is the same conflation that made EARNINGS_BLACKOUT a
+    no-op for months: an absent answer counted as a clean one.
+
+    verified=False means NO source answered, so nothing is known about this
+    ticker's calendar. verified=True with an empty list means a source DID
+    answer and listed no date.
+
+    Where the line sits, deliberately: a successful call returning an empty or
+    date-less calendar counts as VERIFIED. ETFs and recent listings legitimately
+    have no earnings date, and treating that as unknown would block them
+    permanently rather than transiently -- trading a rare, real risk for a
+    constant, certain one. Only a raised exception, or a payload that contained
+    dates we could not read, counts as unverified.
 
     Primary source: Massive's Benzinga earnings proxy (_fetch_massive_earnings,
     -3d to +30d window) — ticker-filtered correctly server-side, confirmed
@@ -13927,7 +13960,14 @@ def _extract_earnings_dates(ticker: str) -> list[date]:
     confirmed empirically. EARNINGS_BLACKOUT never actually blocked anything.
     """
     today = _et_today()
-    massive = _fetch_massive_earnings(ticker, today - timedelta(days=3), today + timedelta(days=30))
+    # Wrapped: an exception from Massive used to propagate out of this function
+    # and skip yfinance, so a Massive outage bypassed the fallback that exists
+    # precisely for a Massive outage.
+    try:
+        massive = _fetch_massive_earnings(ticker, today - timedelta(days=3),
+                                         today + timedelta(days=30))
+    except Exception:
+        massive = None
     if massive:
         out = []
         for item in massive:
@@ -13936,29 +13976,75 @@ def _extract_earnings_dates(ticker: str) -> list[date]:
             except Exception:
                 continue
         if out:
-            return out
+            return out, True
+        # Rows arrived and not one date parsed. That is a format change, not an
+        # empty calendar, and it is how the 2026-07 blackout bug looked.
+        return [], False
     try:
         cal = yf.Ticker(ticker).calendar
     except Exception:
-        return []
+        return [], False          # no source answered — nothing is known
     if not cal:
-        return []
+        return [], True           # answered, no calendar — see docstring
     if isinstance(cal, dict):
         raw = cal.get("Earnings Date", [])
+        _raw_list = list(raw) if isinstance(raw, (list, tuple)) else [raw]
         out = []
-        for d in raw if isinstance(raw, (list, tuple)) else [raw]:
+        for d in _raw_list:
             try:
                 out.append(d if isinstance(d, date) else pd.Timestamp(d).date())
             except Exception:
                 continue
-        return out
+        if _raw_list and not out:
+            return [], False      # dates were present and unreadable
+        return out, True
     # Legacy DataFrame shape — kept in case yfinance reverts this upstream.
     try:
         if hasattr(cal, "empty") and not cal.empty and "Earnings Date" in cal.columns:
-            return [d.date() for d in pd.to_datetime(cal["Earnings Date"]).dropna()]
+            return [d.date() for d in pd.to_datetime(cal["Earnings Date"]).dropna()], True
+    except Exception:
+        return [], False
+    return [], True
+
+
+# Tickers whose earnings calendar could not be read this process. Only used to
+# put a COUNT in one alert instead of sending one per ticker.
+_EARNINGS_UNVERIFIED_TICKERS: set = set()
+
+
+def _earnings_unverifiable(ticker: str, exc: BaseException | None = None) -> None:
+    """The earnings gate just BLOCKED because it could not read a calendar.
+
+    This has to be loud, and it has to be distinguishable from a quiet tape. A
+    broad yfinance outage makes every ticker unverifiable at once, which looks
+    identical from the outside to a day with no setups -- and the PC is never
+    on, so Telegram is the only place it can surface. One deduped message per
+    two hours carries the count, because per-ticker alerts on a broken feed
+    would be 400 messages and would then be ignored.
+    """
+    try:
+        _log_swallowed(f"earnings gate BLOCKED {ticker} (calendar unreadable)",
+                       exc or RuntimeError("no source answered"))
     except Exception:
         pass
-    return []
+    try:
+        _n = _EARNINGS_UNVERIFIED_TICKERS
+        _n.add(str(ticker))
+        _key = "__EARNINGS_UNVERIFIABLE__"
+        if not _is_duplicate_alert(_key, cooldown_min=120):
+            send_telegram(
+                "\U0001f6ab <b>Earnings calendar unreadable — entries BLOCKED</b>\n"
+                f"{len(_n)} ticker(s) so far, e.g. "
+                f"{html.escape(', '.join(sorted(_n)[:6]))}\n"
+                + (f"<code>{html.escape(str(exc)[:120])}</code>\n" if exc else "")
+                + "This gate now votes NO when it cannot read a calendar, "
+                  "because a stop does not cap an earnings gap. If this is a "
+                  "feed outage rather than a real blackout, new entries are "
+                  "being held until it clears."
+            )
+            _save_last_alert(_key)
+    except Exception:
+        pass
 
 
 def check_earnings_safe(ticker: str) -> tuple[bool, int]:
@@ -13985,11 +14071,30 @@ def check_earnings_safe(ticker: str) -> tuple[bool, int]:
     fails closed (still blocks) when it can't confirm, so an unconfirmed
     same-day report is treated exactly as conservatively as before.
 
+    An UNVERIFIABLE calendar now blocks, where it used to pass. The previous
+    reasoning, recorded at _earnings_safe_for_naked_hold(), was that failing
+    open is acceptable for a normal signal because "the broker-side stop still
+    caps the damage". That premise does not hold for the one risk this gate
+    exists to prevent: a stop does not cap an overnight gap. A $9.50 stop under
+    a $10 stock that opens at $7 fills at $7. The stop bounds intraday drift,
+    and earnings risk is gap risk, so the backstop that justified fail-open is
+    absent exactly when the gate matters.
+
+    The change is narrow on purpose. It blocks only when NO source answered --
+    a raised exception, or a payload whose dates could not be read. A source
+    that answers with no earnings date still passes, because ETFs and recent
+    listings genuinely have none and blocking those would be permanent rather
+    than transient. See _extract_earnings_dates_status().
+
     Returns (safe, score 0-5).
     """
     try:
         today = _et_today()
-        for ed in _extract_earnings_dates(ticker):
+        _dates, _verified = _extract_earnings_dates_status(ticker)
+        if not _verified:
+            _earnings_unverifiable(ticker)
+            return False, 0   # nothing is known — do not enter on an assumption
+        for ed in _dates:
             days_away = (ed - today).days
             if 1 <= days_away <= EARNINGS_BLACKOUT:
                 return False, 0   # upcoming, unreported — unknown reaction, stay out
@@ -13997,9 +14102,10 @@ def check_earnings_safe(ticker: str) -> tuple[bool, int]:
                 return False, 0   # today, not yet confirmed reported — could still be AMC-pending
         return True, 5
     except Exception as _gate_exc:
-        # Fails OPEN -- see _hard_gate_failed_open().
-        _hard_gate_failed_open("earnings", _gate_exc)
-        return True, 5
+        # Fails CLOSED. An errored earnings gate means entering straight into a
+        # print the blackout existed to avoid, and no stop caps that gap.
+        _earnings_unverifiable(ticker, _gate_exc)
+        return False, 0
 
 
 def get_upcoming_earnings(tickers: list, days_ahead: int = 5) -> list[dict]:

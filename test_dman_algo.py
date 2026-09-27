@@ -2443,7 +2443,17 @@ class TestEarningsBlackoutAllowsKnownReactions(unittest.TestCase):
     pending AMC report later today."""
 
     def _mock_calendar(self, earn_date):
-        return patch.object(a, "_extract_earnings_dates", return_value=[earn_date])
+        """Patches the STATUS variant, which is what the gate calls now.
+
+        This used to patch _extract_earnings_dates. When the gate moved to
+        _extract_earnings_dates_status, the patch stopped intercepting anything
+        and these tests fell through to a live yfinance call -- they did not
+        fail, they just stopped testing the blackout logic and started testing
+        the network. verified=True keeps them aimed at the date arithmetic;
+        unverified behaviour is covered by
+        TestEarningsGateFailsClosedWhenUnreadable."""
+        return patch.object(a, "_extract_earnings_dates_status",
+                            return_value=([earn_date], True))
 
     def test_earnings_yesterday_no_longer_blocks(self):
         yesterday = a._et_today() - timedelta(days=1)
@@ -20431,19 +20441,31 @@ class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
 
 class TestHardGatesAnnounceWhenTheyFailOpen(unittest.TestCase):
     """run_pro_scanner treats regime_ok / mtf_ok / earnings_ok / macro_ok /
-    divergence_free as hard gates -- a signal failing any is dropped. Four of
+    divergence_free as hard gates -- a signal failing any is dropped. THREE of
     them return (True, partial) from their exception handler, so a data hiccup
-    does not block the trade, it WAIVES the check. That direction is
-    defensible; being silent about it is not. An errored earnings check means
-    entering straight into the print the blackout existed to avoid."""
+    does not block the trade, it WAIVES the check. That is defensible for them:
+    what they measure is continuous, and a stale trend reading is wrong by
+    degrees. Being silent about it is not, hence these tests.
 
-    def test_all_four_report_when_they_fail_open(self):
-        for fn, gate in ((a.check_mtf, "mtf"), (a.check_earnings_safe, "earnings"),
+    This class asserted FOUR until 2026-09-27. check_earnings_safe() was the
+    fourth and now fails CLOSED, because the argument for waiving it -- that a
+    broker-side stop caps the damage -- is false for gap risk, which is the only
+    risk an earnings blackout addresses. See
+    TestEarningsGateFailsClosedWhenUnreadable."""
+
+    def test_the_three_fail_open_gates_report_when_they_waive(self):
+        for fn, gate in ((a.check_mtf, "mtf"),
                          (a.check_macro_safe, "macro"),
                          (a.check_divergence_free, "divergence")):
             src = inspect.getsource(fn)
             self.assertIn("_hard_gate_failed_open(", src, fn.__name__)
             self.assertIn(f'"{gate}"', src, fn.__name__)
+
+    def test_earnings_is_no_longer_one_of_them(self):
+        """Pinned so it cannot quietly drift back to waiving itself."""
+        src = inspect.getsource(a.check_earnings_safe)
+        self.assertNotIn("_hard_gate_failed_open(", src)
+        self.assertIn("_earnings_unverifiable(", src)
 
     def test_behaviour_is_unchanged_still_passes(self):
         """The point is visibility, not suppression — a broken feed must not
@@ -20875,3 +20897,145 @@ class TestMassiveKeyRotationDrill(unittest.TestCase):
 
     def test_the_mode_is_dispatchable(self):
         self.assertIn('args.mode == "keydrill"', inspect.getsource(a))
+
+
+class TestEarningsGateFailsClosedWhenUnreadable(unittest.TestCase):
+    """The gate used to return (True, 5) when it could not read a calendar, on
+    the recorded reasoning that a broker-side stop caps the damage. A stop does
+    not cap an overnight gap, which is the only risk an earnings blackout
+    exists to prevent, so an unreadable calendar now votes NO.
+
+    The dangerous version of this change blocks every ETF forever, because a
+    ticker with genuinely no earnings date looks like a failed lookup. The
+    tests below pin BOTH directions: unknown blocks, known-empty passes."""
+
+    def setUp(self):
+        a._EARNINGS_UNVERIFIED_TICKERS.clear()
+
+    def _gate(self, dates, verified):
+        with patch.object(a, "_extract_earnings_dates_status",
+                          return_value=(dates, verified)), \
+             patch.object(a, "_check_earnings_already_reported", return_value=True), \
+             patch.object(a, "send_telegram"), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            return a.check_earnings_safe("TEST")
+
+    # --- the change itself ---------------------------------------------------
+    def test_an_unreadable_calendar_blocks(self):
+        self.assertEqual(self._gate([], False), (False, 0))
+
+    def test_a_raised_gate_blocks_instead_of_waiving_itself(self):
+        with patch.object(a, "_extract_earnings_dates_status",
+                          side_effect=RuntimeError("feed down")), \
+             patch.object(a, "send_telegram"), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            self.assertEqual(a.check_earnings_safe("TEST"), (False, 0))
+
+    def test_it_no_longer_routes_through_the_fail_open_helper(self):
+        self.assertNotIn("_hard_gate_failed_open",
+                         inspect.getsource(a.check_earnings_safe))
+
+    # --- the harm this must not cause ---------------------------------------
+    def test_a_verified_empty_calendar_still_passes(self):
+        """An ETF has no earnings date. Treating that as unknown would block it
+        permanently rather than transiently -- trading a rare real risk for a
+        constant certain one."""
+        self.assertEqual(self._gate([], True), (True, 5))
+
+    def test_a_verified_clear_date_still_passes(self):
+        far = a._et_today() + timedelta(days=90)
+        self.assertEqual(self._gate([far], True), (True, 5))
+
+    def test_a_real_blackout_still_blocks(self):
+        soon = a._et_today() + timedelta(days=1)
+        self.assertEqual(self._gate([soon], True), (False, 0))
+
+    # --- the data layer's own distinction -----------------------------------
+    def test_status_is_unverified_when_yfinance_raises(self):
+        with patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a.yf, "Ticker", side_effect=RuntimeError("429")):
+            self.assertEqual(a._extract_earnings_dates_status("X"), ([], False))
+
+    def test_status_is_verified_when_a_source_answers_with_no_calendar(self):
+        with patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a.yf, "Ticker", return_value=MagicMock(calendar={})):
+            self.assertEqual(a._extract_earnings_dates_status("SPY"), ([], True))
+
+    def test_status_is_unverified_when_massive_dates_are_unreadable(self):
+        """How the 2026-07 blackout bug looked: rows arrived, nothing parsed,
+        and the caller read it as a clean calendar."""
+        with patch.object(a, "_fetch_massive_earnings",
+                          return_value=[{"date": "not-a-date"}]):
+            self.assertEqual(a._extract_earnings_dates_status("X"), ([], False))
+
+    def test_status_is_unverified_when_yfinance_dates_are_unreadable(self):
+        """The same conflation on the yfinance side, which is a SEPARATE branch.
+        Added after a mutation of it left the suite green: the Massive test
+        above never reaches this code, so inverting this line was invisible.
+        A calendar that lists a date we cannot parse is not an empty calendar --
+        it is a format change, and guessing "clear" is how the blackout silently
+        stopped working the first time."""
+        with patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a.yf, "Ticker",
+                          return_value=MagicMock(
+                              calendar={"Earnings Date": ["not-a-date"]})):
+            self.assertEqual(a._extract_earnings_dates_status("X"), ([], False))
+
+    def test_a_yfinance_calendar_without_the_key_is_verified_empty(self):
+        """Answered, no date listed -- distinct from the case above, and it must
+        stay passable or every ETF is blocked permanently."""
+        with patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a.yf, "Ticker",
+                          return_value=MagicMock(calendar={"Dividend Date": []})):
+            self.assertEqual(a._extract_earnings_dates_status("SPY"), ([], True))
+
+    def test_a_massive_exception_falls_through_to_yfinance(self):
+        """It used to propagate and skip the fallback, so a Massive outage
+        bypassed the cascade that exists for a Massive outage."""
+        want = a._et_today() + timedelta(days=45)
+        with patch.object(a, "_fetch_massive_earnings",
+                          side_effect=RuntimeError("massive down")), \
+             patch.object(a.yf, "Ticker",
+                          return_value=MagicMock(calendar={"Earnings Date": [want]})):
+            dates, verified = a._extract_earnings_dates_status("X")
+        self.assertTrue(verified)
+        self.assertEqual(dates, [want])
+
+    def test_the_dates_only_wrapper_is_unchanged_for_other_callers(self):
+        with patch.object(a, "_extract_earnings_dates_status",
+                          return_value=([date(2026, 1, 1)], False)):
+            self.assertEqual(a._extract_earnings_dates("X"), [date(2026, 1, 1)])
+
+    # --- it has to be audible ----------------------------------------------
+    def test_blocking_on_a_dead_feed_is_announced(self):
+        with patch.object(a, "_extract_earnings_dates_status",
+                          return_value=([], False)), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram") as tg:
+            a.check_earnings_safe("TEST")
+        self.assertEqual(tg.call_count, 1)
+        msg = tg.call_args[0][0]
+        self.assertIn("entries BLOCKED", msg)
+
+    def test_a_broken_feed_does_not_send_one_message_per_ticker(self):
+        """400 alerts would be ignored, which is the same as silence."""
+        with patch.object(a, "_extract_earnings_dates_status",
+                          return_value=([], False)), \
+             patch.object(a, "_is_duplicate_alert", return_value=True), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram") as tg:
+            for t in ("AAA", "BBB", "CCC"):
+                a.check_earnings_safe(t)
+        self.assertEqual(tg.call_count, 0)
+
+    def test_a_failing_notifier_cannot_break_the_gate(self):
+        """The notifier runs from inside the gate; if it raised, a data hiccup
+        would become an exception instead of a block."""
+        with patch.object(a, "_extract_earnings_dates_status",
+                          return_value=([], False)), \
+             patch.object(a, "_is_duplicate_alert",
+                          side_effect=RuntimeError("alert store gone")):
+            self.assertEqual(a.check_earnings_safe("TEST"), (False, 0))

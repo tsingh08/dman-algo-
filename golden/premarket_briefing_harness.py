@@ -38,7 +38,18 @@ BASE = dict(
     positions=[],
     remote=[],
     orders=[],
+    # _pmb_gate_preflight() inputs. Every scenario before P11 left zones empty,
+    # so the preflight short-circuited on "No logged breakout zone" and its
+    # earnings lines were never recorded -- the golden went IDENTICAL through a
+    # change that rewrote every one of them.
+    zones=[],
+    earnings=([], True),       # (dates, verified) or "raise"
 )
+
+# Inside the $5-$15 band the preflight reports on, so it is a name that could
+# actually trade rather than context.
+ZONE_IN_BAND = {"ticker": "IOVA", "close": 11.0, "above_low_pct": 508.0,
+                "extension_pct": 20.0}
 
 SCENARIOS = {
     "P01_normal":                     {},
@@ -58,6 +69,29 @@ SCENARIOS = {
         remote=[SimpleNamespace(symbol="RSKD", qty="31", avg_entry_price="8.04")],
         orders=[SimpleNamespace(symbol="RSKD", side="sell", order_type="stop",
                                 stop_price=7.39)]),
+
+    # --- the gate preflight, which nothing above ever reached ----------------
+    # These four are the message a human reads before the 9:45 gate, and the
+    # four answers it can give about a name that could actually trade today.
+    # P13 is the one that matters most: it must say the gate BLOCKS, and it said
+    # "the gate passes on this" for a full day after the gate started blocking.
+    "P11_preflight_earnings_clear": dict(
+        zones=[ZONE_IN_BAND],
+        earnings=([TODAY + _dt.timedelta(days=60)], True)),
+    "P12_preflight_earnings_blackout": dict(
+        zones=[ZONE_IN_BAND],
+        earnings=([TODAY + _dt.timedelta(days=2)], True)),
+    "P13_preflight_earnings_unverified": dict(
+        zones=[ZONE_IN_BAND],
+        earnings=([], False)),
+    "P14_preflight_verified_but_no_date": dict(
+        # An ETF or a recent listing: a source answered and listed nothing. Must
+        # read as clear, not as an outage, or the gate blocks it permanently.
+        zones=[ZONE_IN_BAND],
+        earnings=([], True)),
+    "P15_preflight_earnings_lookup_raises": dict(
+        zones=[ZONE_IN_BAND],
+        earnings="raise"),
 }
 
 
@@ -95,6 +129,11 @@ def run(name, over):
             raise RuntimeError("screener unavailable")
         return list(cfg["universe"])
 
+    def _earnings(_t):
+        if cfg["earnings"] == "raise":
+            raise RuntimeError("calendar feed down")
+        return cfg["earnings"]
+
     ps = [
         patch.object(a, "datetime", dt),
         patch.object(a, "_et_today", return_value=TODAY),
@@ -114,6 +153,11 @@ def run(name, over):
         patch.object(a, "_fetch_breaking_news_rss", return_value=[]),
         patch.object(a, "_premarket_gaps", return_value={}),
         patch.object(a, "get_upcoming_earnings", return_value=[]),
+        patch.object(a, "_recent_logged_zones", return_value=list(cfg["zones"])),
+        patch.object(a, "_bzone_open_positions", return_value=[]),
+        patch.object(a, "_grade_catalyst", return_value=("B", "Phase 3 readout")),
+        patch.object(a, "_extract_earnings_dates_status", side_effect=_earnings),
+        patch.object(a, "_fetch_alpaca_news", return_value={"IOVA": ["Phase 3 readout"]}),
         patch.object(a, "_get_short_float_data", return_value=(1.0, 10.0, 0, 0)),
         patch.object(a, "send_telegram", side_effect=lambda m, *x, **k: tg.append(norm(m)) or True),
         patch.object(a, "_is_duplicate_alert", return_value=False),

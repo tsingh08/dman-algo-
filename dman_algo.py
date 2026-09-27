@@ -20569,82 +20569,119 @@ def run_orb_shadow(notify: bool = True) -> list[dict]:
 
 
 def run_massive_key_drill(notify: bool = False) -> list[str]:
-    """Reject the live key on purpose and see whether rotation really lands.
+    """Revoke the primary on purpose and see whether the spare carries the load.
 
-    Everything else about the spare was verified from the outside: it is a
-    distinct key, it authenticates, it is in the candidate list. None of that
-    exercises the rotation LOOP, which is the only code that will ever reach it,
-    and which until now existed solely under mocks. A spare whose only path to
-    being used has never run is still a guess.
+    Everything else about the spare was verified from outside: distinct key,
+    authenticates, present in the candidate list. None of that runs the rotation
+    LOOP, the only code that can ever reach it.
 
-    So this forces the failure instead of describing it: the in-use key for one
-    product is replaced with a syntactically valid but unregistered key, a real
-    Massive endpoint is called through the real _massive_get, and the drill
-    reports which key came back carrying a 200. Massive answers an unregistered
-    key with 'Unknown API Key', which is the exact condition rotation triggers
-    on, so nothing here is simulated except the choice of when to fail.
+    The first version of this drill got the simulation wrong in a way worth
+    recording. It faked only the IN-USE pointer and left the real primary in the
+    candidate list, so rotation did what it should -- walked the candidates, found
+    the healthy primary, and returned 200 on it. The spare was never needed, and
+    the drill printed a warning about correct behaviour. Faking the pointer is not
+    the same failure as losing the key.
 
-    Manual only. It spends a handful of API calls and it deliberately breaks the
-    process's key state, so it restores what it changed and never runs on a
+    So there are two phases, and they answer different questions:
+
+      1. CAN the spare serve a live call? Rotation is restricted to the spare, so
+         a 200 can only have come from it. This is the phase that tests the spare.
+      2. WHICH key does recovery prefer with everything configured? A healthy
+         primary should win, and landing there is a pass, not a warning.
+
+    Manual only: it spends API calls and breaks key state deliberately, so it
+    restores what it touched -- on the failure path too -- and never runs on a
     schedule.
     """
     _lines = ["", "  🧪 MASSIVE KEY ROTATION DRILL"]
     _spare = MASSIVE_BACKUP_API_KEY
-    if not _spare:
-        _lines.append("  ⚠️  no MASSIVE_BACKUP_API_KEY set — nothing to rotate to, "
-                      "so there is no drill to run")
+    _product = "news"
+    _real = _massive_key(_product)
+
+    def _emit():
         for _l in _lines:
             print(_l)
+        if notify:
+            try:
+                send_telegram("🧪 <b>Massive key rotation drill</b>"
+                              + "\n"
+                              + html.escape("\n".join(_lines[2:])))
+            except Exception as exc:
+                _log_swallowed("key drill alert", exc)
         return _lines
 
-    _product = "news"
-    _before = dict(_MASSIVE_KEY_STATE.get(_product) or {})
-    _real = _massive_key(_product)
+    if not _spare:
+        _lines.append("  ⚠️  no MASSIVE_BACKUP_API_KEY set — nothing to "
+                      "rotate to, so there is no drill to run")
+        return _emit()
+    if _spare == _real:
+        _lines.append("  ❌ spare is the SAME key as the one in use — rotation "
+                      "has nowhere to go. Set MASSIVE_BACKUP_API_KEY to a "
+                      "DIFFERENT key.")
+        return _emit()
+
     _lines.append(f"  in use before drill        ...{_real[-4:]}")
     _lines.append(f"  spare available            ...{_spare[-4:]}")
-    if _spare == _real:
-        _lines.append("  ❌ spare is the SAME key as the one in use — rotation has "
-                      "nowhere to go. Set MASSIVE_BACKUP_API_KEY to a DIFFERENT key.")
-        for _l in _lines:
-            print(_l)
-        return _lines
 
-    # A key that is well-formed but was never issued. Massive replies 'Unknown
-    # API Key' to this exactly as it does to a revoked one, which is the point:
-    # the drill does not fake the rejection, it earns it.
+    # Well-formed but never issued. Massive answers it with 'Unknown API Key',
+    # the same string it gives a revoked key, so the rejection is earned rather
+    # than faked.
     _dead = "drill" + "0" * 27
-    _sent: list[str] = []
-    try:
+    _before = dict(_MASSIVE_KEY_STATE.get(_product) or {})
+    _cands_before = list(_MASSIVE_KEY_CANDIDATES)
+    _orig_tg = globals()["send_telegram"]
+
+    def _run_phase(candidates):
+        """One rejection, one rotation attempt, through the real _massive_get."""
+        _sent: list[str] = []
         _MASSIVE_KEY_STATE[_product] = {"key": _dead, "rotated": False}
-        # The rotation alert is real and worth seeing, but it is not worth a
-        # second Telegram message during a drill -- so capture it and fold it
-        # into this one report instead of sending it.
-        _orig_tg = globals()["send_telegram"]
+        _MASSIVE_KEY_CANDIDATES[:] = candidates
         globals()["send_telegram"] = lambda msg, *a, **k: _sent.append(str(msg))
         try:
             r = _massive_get("https://api.massive.com/v2/reference/news",
                              {"limit": 1}, timeout=12, product=_product)
-            _after = _massive_key(_product)
+            return r, _massive_key(_product), _sent
         finally:
             globals()["send_telegram"] = _orig_tg
 
-        if r.status_code == 200 and _after == _spare:
-            _lines.append(f"  ✅ rotation WORKS             rejected key → rotated to "
-                          f"...{_after[-4:]}, HTTP 200")
-        elif r.status_code == 200:
-            _lines.append(f"  ⚠️ rotation landed elsewhere  HTTP 200 on "
-                          f"...{_after[-4:]}, not the spare ...{_spare[-4:]}")
+    try:
+        # --- phase 1: the primary is gone. Only the spare can answer. ---------
+        r1, _landed1, _sent1 = _run_phase([_dead, _spare])
+        if r1.status_code == 200 and _landed1 == _spare:
+            _lines.append(f"  ✅ spare carries a live call  primary revoked → "
+                          f"rotated to ...{_landed1[-4:]}, HTTP 200")
+        elif r1.status_code == 200:
+            _lines.append(f"  ❌ drill is not isolating      200 came from "
+                          f"...{_landed1[-4:]}, not the spare — the spare was "
+                          f"never actually tested")
         else:
-            _lines.append(f"  ❌ rotation FAILED            HTTP {r.status_code} after "
-                          f"rejection — the spare did not carry the call. "
-                          f"{str(r.text)[:60]}")
+            _lines.append(f"  ❌ spare does NOT work        HTTP {r1.status_code} with "
+                          f"the spare as the only option. There is no failover. "
+                          f"{str(r1.text)[:50]}")
         _lines.append("  alert it would have sent    "
-                      + (_sent[0][:90] if _sent else "(none — a silent switch is a bug)"))
+                      + (_sent1[0][:80] if _sent1
+                         else "(none — a silent switch is a bug)"))
+
+        # --- phase 2: everything configured. A healthy primary should win. ----
+        r2, _landed2, _ = _run_phase(_cands_before)
+        if r2.status_code == 200:
+            _which = ("the spare" if _landed2 == _spare
+                      else "the primary" if _landed2 == _real else "another candidate")
+            _lines.append(f"  ℹ️ recovery order            with all keys "
+                          f"configured it recovers to {_which} (...{_landed2[-4:]}) "
+                          f"first — expected, the spare is the fallback")
+        else:
+            _lines.append(f"  ❌ no key recovered           HTTP {r2.status_code} with "
+                          f"every configured key available")
     except Exception as exc:
-        _lines.append(f"  ❌ drill errored               {type(exc).__name__}: {str(exc)[:60]}")
+        _lines.append(f"  ❌ drill errored               {type(exc).__name__}: "
+                      f"{str(exc)[:60]}")
     finally:
-        # Put the process back exactly as it was. A drill that leaves the key
-        # state pointing at a dead key would be worse than no drill.
+        # Put the process back exactly as found. A drill that leaves the key
+        # state on a dead key, or the candidate list truncated, is worse than no
+        # drill at all.
+        globals()["send_telegram"] = _orig_tg
+        _MASSIVE_KEY_CANDIDATES[:] = _cands_before
         if _before:
             _MASSIVE_KEY_STATE[_product] = _before
         else:
@@ -20652,16 +20689,8 @@ def run_massive_key_drill(notify: bool = False) -> list[str]:
         _lines.append(f"  in use after drill         ...{_massive_key(_product)[-4:]} "
                       f"(restored)")
 
-    for _l in _lines:
-        print(_l)
-    if notify:
-        try:
-            send_telegram("🧪 <b>Massive key rotation drill</b>"
-                          + "\n"
-                          + html.escape("\n".join(_lines[2:])))
-        except Exception as exc:
-            _log_swallowed("key drill alert", exc)
-    return _lines
+    return _emit()
+
 
 def run_news_source_check(notify: bool = False) -> list[str]:
     """Probe every news/earnings source and report what each one answers.

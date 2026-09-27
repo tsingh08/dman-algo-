@@ -20513,39 +20513,61 @@ class TestHardGatesAnnounceWhenTheyFailOpen(unittest.TestCase):
 
 
 class TestPreGateCheckDistinguishesUnknownFromClear(unittest.TestCase):
-    """check_earnings_safe() returns (True, 5) both when a ticker is genuinely
-    clear AND from its exception handler, so "safe" and "could not check" are
-    indistinguishable to every caller. A weekend review of IOVA could not
-    answer the only question that mattered. This section asks the SOURCE and
-    reports what came back."""
+    """The briefing asks the SOURCE, not the gate, and says which answer it got.
+
+    Written when check_earnings_safe() returned (True, 5) both for a genuinely
+    clear ticker and from its exception handler, so a weekend review of IOVA
+    could not tell "safe" from "could not check". The gate stopped conflating
+    those on 2026-09-27 and now blocks on an unreadable calendar, so two
+    assertions here changed with it:
+
+      - "gate passes on this" -> the briefing must say it BLOCKS. The old
+        sentence was still in the file after the gate changed, which is how a
+        briefing ends up stating the opposite of what the scanner will do.
+      - an empty date list is no longer "unverified" on its own. That was the
+        conflation itself: an ETF answers with no date and is genuinely clear.
+        Unverified now means NO SOURCE ANSWERED, reported by the status flag,
+        which is what this class patches.
+    """
 
     ZONE = {"ticker": "IOVA", "close": 11.0, "above_low_pct": 508.0,
             "extension_pct": 20.0}
 
-    def _run(self, dates=None, raises=False, earn=None, news=None):
+    def _run(self, dates=None, raises=False, earn=None, news=None,
+             verified=True):
         def _ex(t):
             if raises:
                 raise RuntimeError("feed down")
-            return dates if dates is not None else []
+            return (dates if dates is not None else []), verified
         with patch.object(a, "_recent_logged_zones", return_value=[dict(self.ZONE)]), \
              patch.object(a, "_bzone_open_positions", return_value=[]), \
              patch.object(a, "_fetch_alpaca_news", return_value=(news or {})), \
-             patch.object(a, "_extract_earnings_dates", side_effect=_ex), \
+             patch.object(a, "_extract_earnings_dates_status", side_effect=_ex), \
              patch.object(a, "_grade_catalyst", return_value=("B", "Phase 3 readout")), \
              patch.object(a, "get_upcoming_earnings", return_value=(earn or [])):
             return a._pmb_gate_preflight()
 
-    def test_a_failed_lookup_says_unverified_not_clear(self):
+    def test_a_failed_lookup_says_unverified_and_that_it_blocks(self):
         out = self._run(raises=True)
         self.assertIn("UNVERIFIED", out)
-        self.assertIn("gate passes on this", out)
+        self.assertIn("BLOCKS", out)
+        self.assertNotIn("gate passes on this", out)
         self.assertNotIn("earnings clear", out)
 
-    def test_no_dates_returned_is_also_unverified(self):
-        """An empty feed answer is not the same as no earnings scheduled."""
-        out = self._run(dates=[])
+    def test_no_source_answering_is_unverified(self):
+        out = self._run(dates=[], verified=False)
         self.assertIn("UNVERIFIED", out)
+        self.assertIn("BLOCKS", out)
         self.assertNotIn("earnings clear", out)
+
+    def test_a_verified_empty_calendar_reads_as_clear(self):
+        """The change from the original assertion, and the reason for it: an ETF
+        or a recent listing answers with no date and is genuinely clear.
+        Reporting that as unverified would have it read as a data outage on every
+        such name, and under the new gate it would block them permanently."""
+        out = self._run(dates=[], verified=True)
+        self.assertIn("earnings clear", out)
+        self.assertNotIn("UNVERIFIED", out.split("catalyst")[0])
 
     def test_real_dates_outside_the_window_report_clear(self):
         old = a._et_today() - a.timedelta(days=40)
@@ -21184,3 +21206,46 @@ class TestApiHealthCheck(unittest.TestCase):
 
     def test_the_mode_is_dispatchable(self):
         self.assertIn('args.mode == "apicheck"', inspect.getsource(a))
+
+
+class TestBriefingMatchesTheGate(unittest.TestCase):
+    """The briefing told the reader "the gate passes on this" for an unverified
+    earnings calendar. That sentence became false the moment the gate started
+    failing closed, and it survived the change because nothing tied the two
+    together. A briefing that states the opposite of what the scanner will do is
+    worse than one that says nothing."""
+
+    def test_the_briefing_never_claims_the_gate_passes_on_unverified(self):
+        src = inspect.getsource(a._pmb_gate_preflight)
+        self.assertNotIn("The gate passes on this", src)
+
+    def test_the_briefing_says_unverified_means_blocked(self):
+        src = inspect.getsource(a._pmb_gate_preflight)
+        self.assertIn("BLOCKS", src)
+
+    def test_the_briefing_uses_the_verified_flag_not_an_empty_list(self):
+        """Inferring "unverified" from an empty list is the same conflation the
+        gate stopped making -- it reports an ETF as unverified."""
+        src = inspect.getsource(a._pmb_gate_preflight)
+        self.assertIn("_extract_earnings_dates_status", src)
+
+    def test_a_verified_empty_calendar_reads_as_clear_not_unverified(self):
+        self.assertIn("listed", inspect.getsource(a._pmb_gate_preflight))
+
+    def test_the_block_alert_does_not_present_a_total_it_cannot_know(self):
+        """It fires on the FIRST unverifiable ticker, so the count was always 1
+        -- which during a whole-universe outage understates it by hundreds."""
+        src = inspect.getsource(a._earnings_unverifiable)
+        self.assertIn("scale is not yet known", src)
+        self.assertNotIn("ticker(s) so far, e.g.", src)
+
+    def test_a_second_ticker_in_the_same_window_sends_nothing_extra(self):
+        with patch.object(a, "_extract_earnings_dates_status",
+                          return_value=([], False)), \
+             patch.object(a, "_is_duplicate_alert",
+                          side_effect=[False, True]), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram") as tg:
+            a.check_earnings_safe("AAA")
+            a.check_earnings_safe("BBB")
+        self.assertEqual(tg.call_count, 1)

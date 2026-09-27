@@ -12216,10 +12216,15 @@ def _pmb_gate_preflight() -> str:
     """Verify each name that could actually trade today, BEFORE the 9:45 gate.
 
     Written because a weekend review of IOVA could not answer the one question
-    that mattered. check_earnings_safe() returns (True, 5) both when a ticker is
-    genuinely clear AND from its exception handler, so "safe" and "could not
-    check" are the same value to every caller. Off-hours, without the Massive
-    keys, every answer was the second one wearing the first one's clothes.
+    that mattered. check_earnings_safe() USED TO return (True, 5) both when a
+    ticker was genuinely clear AND from its exception handler, so "safe" and
+    "could not check" were the same value to every caller. Off-hours, without the
+    Massive keys, every answer was the second one wearing the first one's
+    clothes. That conflation was removed on 2026-09-27: the gate now returns
+    (False, 0) when no source answers, and this section reports UNVERIFIED as a
+    BLOCK rather than a waiver. The reason to call the source directly still
+    stands -- a gate verdict tells you what will happen, not whether the data
+    behind it existed.
 
     So this does not ask the gate. It calls the earnings source directly and
     reports what came back -- the dates themselves, or the failure -- and says
@@ -12266,12 +12271,25 @@ def _pmb_gate_preflight() -> str:
                       f"+{float(_z.get('above_low_pct', 0)):.0f}% off low, "
                       f"{float(_z.get('extension_pct', 0)):+.0f}% vs 20d"
                       + ("  (already held)" if _held else ""))
-        # earnings: report the SOURCE, not the gate's verdict
+        # earnings: report the SOURCE, not the gate's verdict.
+        #
+        # This block asked _extract_earnings_dates() and inferred "unverified"
+        # from an empty list, which is the same conflation check_earnings_safe()
+        # stopped making on 2026-09-27 -- a source that answers with no date (an
+        # ETF, a recent listing) was reported as unverified. It also told the
+        # reader "the gate passes on this", which became FALSE the moment the
+        # gate started failing closed. A briefing that states the opposite of
+        # what the scanner will do is worse than one that says nothing.
         try:
-            _dates = sorted(_extract_earnings_dates(_t))
+            _dates_raw, _verified = _extract_earnings_dates_status(_t)
+            _dates = sorted(_dates_raw)
             _today = _et_today()
             _soon = [d for d in _dates if 0 <= (d - _today).days <= EARNINGS_BLACKOUT]
-            if _soon:
+            if not _verified:
+                _lines.append("     ⛔ earnings UNVERIFIED — no source answered, "
+                              "which is not the same as none scheduled. The gate "
+                              "now BLOCKS entries on this.")
+            elif _soon:
                 _lines.append(f"     ⛔ earnings {_soon[0].isoformat()} "
                               f"({(_soon[0] - _today).days}d) — inside the "
                               f"{EARNINGS_BLACKOUT}d blackout, the gate will BLOCK it")
@@ -12279,12 +12297,12 @@ def _pmb_gate_preflight() -> str:
                 _lines.append(f"     ✅ earnings clear — feed returned "
                               f"{len(_dates)} date(s), none within {EARNINGS_BLACKOUT}d")
             else:
-                _lines.append("     ⚠️ earnings UNVERIFIED — the feed returned no dates "
-                              "at all, which is not the same as none scheduled. The "
-                              "gate passes on this.")
+                _lines.append("     ✅ earnings clear — a source answered and listed "
+                              "no date (normal for an ETF or a recent listing)")
         except Exception as exc:
-            _lines.append(f"     ⚠️ earnings UNVERIFIED — lookup failed "
-                          f"({html.escape(str(exc)[:70])}). The gate passes on this.")
+            _lines.append(f"     ⛔ earnings UNVERIFIED — lookup failed "
+                          f"({html.escape(str(exc)[:70])}). The gate now BLOCKS "
+                          f"entries on this.")
         # catalyst
         try:
             _tier, _head = _grade_catalyst(_t, _news_map.get(_t))
@@ -14050,10 +14068,19 @@ def _earnings_unverifiable(ticker: str, exc: BaseException | None = None) -> Non
         _n.add(str(ticker))
         _key = "__EARNINGS_UNVERIFIABLE__"
         if not _is_duplicate_alert(_key, cooldown_min=120):
+            # The count is deliberately NOT presented as a total. This fires on
+            # the FIRST unverifiable ticker, so it was always reporting "1
+            # ticker(s)" -- which during a whole-universe feed outage reads as a
+            # single name and understates it by four hundred. The scale is
+            # unknowable at this point, so the message says that instead of
+            # implying a number. A repeat after the cooldown does carry a real
+            # running total.
+            _scale = (f"{len(_n)} so far this run" if len(_n) > 1
+                      else "first one this run — the scale is not yet known, a "
+                           "broad feed outage looks identical at this point")
             send_telegram(
                 "\U0001f6ab <b>Earnings calendar unreadable — entries BLOCKED</b>\n"
-                f"{len(_n)} ticker(s) so far, e.g. "
-                f"{html.escape(', '.join(sorted(_n)[:6]))}\n"
+                f"{html.escape(', '.join(sorted(_n)[:6]))} ({_scale})\n"
                 + (f"<code>{html.escape(str(exc)[:120])}</code>\n" if exc else "")
                 + "This gate now votes NO when it cannot read a calendar, "
                   "because a stop does not cap an earnings gap. If this is a "

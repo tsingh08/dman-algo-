@@ -20488,3 +20488,86 @@ class TestHardGatesAnnounceWhenTheyFailOpen(unittest.TestCase):
             ok, sc = a.regime_allows_signal({"regime": "UNKNOWN", "score": 0}, bias)
             self.assertFalse(ok, bias)
             self.assertEqual(sc, 0)
+
+
+class TestPreGateCheckDistinguishesUnknownFromClear(unittest.TestCase):
+    """check_earnings_safe() returns (True, 5) both when a ticker is genuinely
+    clear AND from its exception handler, so "safe" and "could not check" are
+    indistinguishable to every caller. A weekend review of IOVA could not
+    answer the only question that mattered. This section asks the SOURCE and
+    reports what came back."""
+
+    ZONE = {"ticker": "IOVA", "close": 11.0, "above_low_pct": 508.0,
+            "extension_pct": 20.0}
+
+    def _run(self, dates=None, raises=False, earn=None, news=None):
+        def _ex(t):
+            if raises:
+                raise RuntimeError("feed down")
+            return dates if dates is not None else []
+        with patch.object(a, "_recent_logged_zones", return_value=[dict(self.ZONE)]), \
+             patch.object(a, "_bzone_open_positions", return_value=[]), \
+             patch.object(a, "_fetch_alpaca_news", return_value=(news or {})), \
+             patch.object(a, "_extract_earnings_dates", side_effect=_ex), \
+             patch.object(a, "_grade_catalyst", return_value=("B", "Phase 3 readout")), \
+             patch.object(a, "get_upcoming_earnings", return_value=(earn or [])):
+            return a._pmb_gate_preflight()
+
+    def test_a_failed_lookup_says_unverified_not_clear(self):
+        out = self._run(raises=True)
+        self.assertIn("UNVERIFIED", out)
+        self.assertIn("gate passes on this", out)
+        self.assertNotIn("earnings clear", out)
+
+    def test_no_dates_returned_is_also_unverified(self):
+        """An empty feed answer is not the same as no earnings scheduled."""
+        out = self._run(dates=[])
+        self.assertIn("UNVERIFIED", out)
+        self.assertNotIn("earnings clear", out)
+
+    def test_real_dates_outside_the_window_report_clear(self):
+        old = a._et_today() - a.timedelta(days=40)
+        out = self._run(dates=[old])
+        self.assertIn("earnings clear", out)
+        self.assertNotIn("UNVERIFIED", out.split("catalyst")[0])
+
+    def test_earnings_inside_the_blackout_say_it_will_block(self):
+        soon = a._et_today() + a.timedelta(days=2)
+        out = self._run(dates=[soon])
+        self.assertIn("blackout", out)
+        self.assertIn("BLOCK", out)
+
+    def test_the_earnings_calendar_renders_dicts(self):
+        """get_upcoming_earnings returns dicts; a tuple formatter printed raw."""
+        out = self._run(dates=[], earn=[{"ticker": "MU",
+                                         "earn_date": "2026-09-30", "days_away": 4}])
+        self.assertIn("MU 2026-09-30 (4d)", out)
+        self.assertNotIn("{'ticker'", out)
+
+    def test_an_empty_news_map_is_a_feed_gap_not_a_quiet_tape(self):
+        """With no news at all, _grade_catalyst has nothing to grade -- so the
+        section must say the FEED is missing rather than call it a quiet tape,
+        which is the same error the earnings gate makes."""
+        with patch.object(a, "_recent_logged_zones", return_value=[dict(self.ZONE)]),              patch.object(a, "_bzone_open_positions", return_value=[]),              patch.object(a, "_fetch_alpaca_news", return_value={}),              patch.object(a, "_extract_earnings_dates", return_value=[]),              patch.object(a, "_grade_catalyst", return_value=("", "")),              patch.object(a, "get_upcoming_earnings", return_value=[]):
+            out = a._pmb_gate_preflight()
+        self.assertIn("catalyst UNVERIFIED", out)
+        self.assertIn("feed gap", out)
+
+    def test_a_populated_news_map_reports_the_tier(self):
+        out = self._run(dates=[], news={"IOVA": [{"headline": "x"}]})
+        self.assertIn("TIER B", out)
+        self.assertIn("Phase 3 readout", out)
+
+    def test_out_of_band_zones_are_shown_as_untradeable(self):
+        with patch.object(a, "_recent_logged_zones",
+                          return_value=[{"ticker": "MRNA", "close": 198.88,
+                                         "above_low_pct": 789.0, "extension_pct": 30.0}]), \
+             patch.object(a, "_bzone_open_positions", return_value=[]), \
+             patch.object(a, "get_upcoming_earnings", return_value=[]):
+            out = a._pmb_gate_preflight()
+        self.assertIn("cannot enter", out)
+        self.assertIn("MRNA", out)
+
+    def test_the_briefing_includes_it(self):
+        self.assertIn("_pmb_gate_preflight",
+                      inspect.getsource(a.run_premarket_briefing))

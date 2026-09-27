@@ -12163,6 +12163,124 @@ def _reanchor_entries_to_fills(_pt_r, _alp_positions: dict) -> list:
     return _updated
 
 
+def _pmb_gate_preflight() -> str:
+    """Verify each name that could actually trade today, BEFORE the 9:45 gate.
+
+    Written because a weekend review of IOVA could not answer the one question
+    that mattered. check_earnings_safe() returns (True, 5) both when a ticker is
+    genuinely clear AND from its exception handler, so "safe" and "could not
+    check" are the same value to every caller. Off-hours, without the Massive
+    keys, every answer was the second one wearing the first one's clothes.
+
+    So this does not ask the gate. It calls the earnings source directly and
+    reports what came back -- the dates themselves, or the failure -- and says
+    plainly which. An unverified name is flagged as unverified rather than
+    counted as clear, because the gate WILL let it through either way.
+
+    Runs in the pre-market briefing, where the real keys exist. Covers:
+      - every logged breakout zone inside the tradeable band (what can enter)
+      - every logged zone outside it (context, cannot enter)
+      - earnings landing inside the blackout across the scan universe
+    """
+    _lines: list[str] = ["", "🔎 <b>PRE-GATE CHECK</b> — names that could trade today"]
+    try:
+        _zones = _recent_logged_zones(max_age_days=4)
+    except Exception as exc:
+        _log_swallowed("preflight zones", exc)
+        _zones = []
+
+    _in_band, _out_band = [], []
+    for _z in _zones:
+        _t = str(_z.get("ticker", "")).upper()
+        _px = float(_z.get("close", 0) or 0)
+        if not _t or _px <= 0:
+            continue
+        (_in_band if BZONE_TRADE_MIN_PRICE <= _px <= BZONE_TRADE_MAX_PRICE
+         else _out_band).append((_t, _px, _z))
+
+    if not _in_band:
+        _lines.append("  No logged breakout zone inside the "
+                      f"${BZONE_TRADE_MIN_PRICE:.0f}-${BZONE_TRADE_MAX_PRICE:.0f} band.")
+
+    # news once for the whole set, not per ticker
+    _news_map = {}
+    if _in_band:
+        try:
+            _news_map = _fetch_alpaca_news([t for t, _, _ in _in_band], hours_back=48) or {}
+        except Exception as exc:
+            _log_swallowed("preflight news", exc)
+
+    for _t, _px, _z in _in_band[:4]:
+        _held = any(str(getattr(_p, "ticker", "")).upper() == _t
+                    for _p in _bzone_open_positions())
+        _lines.append(f"  <b>{_t}</b>  ${_px:.2f}  "
+                      f"+{float(_z.get('above_low_pct', 0)):.0f}% off low, "
+                      f"{float(_z.get('extension_pct', 0)):+.0f}% vs 20d"
+                      + ("  (already held)" if _held else ""))
+        # earnings: report the SOURCE, not the gate's verdict
+        try:
+            _dates = sorted(_extract_earnings_dates(_t))
+            _today = _et_today()
+            _soon = [d for d in _dates if 0 <= (d - _today).days <= EARNINGS_BLACKOUT]
+            if _soon:
+                _lines.append(f"     ⛔ earnings {_soon[0].isoformat()} "
+                              f"({(_soon[0] - _today).days}d) — inside the "
+                              f"{EARNINGS_BLACKOUT}d blackout, the gate will BLOCK it")
+            elif _dates:
+                _lines.append(f"     ✅ earnings clear — feed returned "
+                              f"{len(_dates)} date(s), none within {EARNINGS_BLACKOUT}d")
+            else:
+                _lines.append("     ⚠️ earnings UNVERIFIED — the feed returned no dates "
+                              "at all, which is not the same as none scheduled. The "
+                              "gate passes on this.")
+        except Exception as exc:
+            _lines.append(f"     ⚠️ earnings UNVERIFIED — lookup failed "
+                          f"({html.escape(str(exc)[:70])}). The gate passes on this.")
+        # catalyst
+        try:
+            _tier, _head = _grade_catalyst(_t, _news_map.get(_t))
+            if _head:
+                _lines.append(f"     catalyst TIER {_tier or '?'}: "
+                              f"\"{html.escape(str(_head)[:90])}\"")
+            elif _news_map:
+                _lines.append(f"     catalyst TIER {_tier or '-'} — no headline in 48h")
+            else:
+                # No news map at all is a FEED problem, not a quiet tape. Saying
+                # "no headline" there would be the same mistake the earnings
+                # gate makes: reporting an absent answer as a clean one.
+                _lines.append("     ⚠️ catalyst UNVERIFIED — no news returned for "
+                              "any ticker, so this is a feed gap, not a quiet tape")
+        except Exception as exc:
+            _lines.append(f"     ⚠️ catalyst UNVERIFIED ({html.escape(str(exc)[:60])})")
+
+    if _out_band:
+        _lines.append("  <i>Logged but outside the band (cannot enter): "
+                      + ", ".join(f"{t} ${px:,.0f}" for t, px, _ in _out_band[:5]) + "</i>")
+
+    # earnings plays: what reports inside the blackout window
+    try:
+        _earn = get_upcoming_earnings(list(WATCHLIST), days_ahead=EARNINGS_BLACKOUT)
+        if _earn:
+            _fmt = []
+            for _e in _earn[:8]:
+                if isinstance(_e, dict):
+                    _fmt.append(f"{_e.get('ticker', '?')} "
+                                f"{str(_e.get('earn_date', ''))[:10]} "
+                                f"({_e.get('days_away', '?')}d)")
+                elif isinstance(_e, (list, tuple)) and len(_e) >= 2:
+                    _fmt.append(f"{_e[0]} {str(_e[1])[:10]}")
+                else:
+                    _fmt.append(str(_e)[:18])
+            _lines.append(f"  <b>Earnings inside {EARNINGS_BLACKOUT}d</b> "
+                          f"(blocked for entry, watch the reaction): " + ", ".join(_fmt))
+        else:
+            _lines.append(f"  No watchlist earnings inside {EARNINGS_BLACKOUT}d.")
+    except Exception as exc:
+        _lines.append(f"  ⚠️ Earnings calendar UNVERIFIED ({html.escape(str(exc)[:60])})")
+
+    return "\n".join(_lines)
+
+
 def run_premarket_briefing() -> None:
     """
     Daily 9:10 AM ET pre-market briefing.
@@ -12430,6 +12548,7 @@ def run_premarket_briefing() -> None:
         f"{gap_section}"
         f"{_pmb_overseas_section()}"
         f"{_pmb_breakout_zone_section()}"
+        f"{_pmb_gate_preflight()}\n"
         f"{earnings_section}"
         f"{suggestion_line}"
     )

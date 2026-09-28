@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T13:13:40.366350-04:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T13:13:40.848840-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T13:13:41.639891-04:00",
     "symbols": [
       "ONCO"
@@ -5083,5 +5063,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:43:59.262631-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Keefe, Bruyette &amp; Woods Reinstates Outperform on Coinbase Global, Announces $237 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:47:58.402901-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "$700 Billion S&amp;P 500 Sell-Off Meets $100 Oil: Are Investors Rotating Into Value ETFs?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

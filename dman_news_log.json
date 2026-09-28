@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:26:34.800755-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Why Is Atlas Energy Stock Gaining Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:26:34.805282-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T11:26:36.958685-04:00",
     "symbols": [
       "SPY"
@@ -5079,5 +5059,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T12:25:11.562968-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN"
+    ],
+    "headline": "Apple, Amazon Face UK Regulator Lawsuit Against Alleged Unlawful Anticompetitive Agreements",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T12:25:14.358973-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Is Prepared To Ease Sanctions On Iran And Release Its Frozen Assets In Exchange For Progress On The Nuclear Issue",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T12:42:22.500710-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Microsoft Gives Copilot A Major AI Makeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T12:42:28.576838-04:00",
     "symbols": [
       "MGLD"
@@ -5071,6 +5061,16 @@
       "UNH"
     ],
     "headline": "Robert (Bobby) Hunter Posts On LinkedIn &#34;I&#39;m excited and grateful to share that I am stepping into a new role as President of UnitedHealthcare...&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:21:47.032500-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto\u2019s AI Security Trio Could Fuel a Growth Surge, BTIG Says",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

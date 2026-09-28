@@ -1,58 +1,5 @@
 [
   {
-    "ts": "2026-09-25T15:26:40.941241-04:00",
-    "symbols": [
-      "FSLR",
-      "ON",
-      "QCOM",
-      "SKHY"
-    ],
-    "headline": "Shares of semiconductor companies are trading higher after the Anthropic-Akamai deal demonstrated industry demand. Also, Meta&#39;s Muse AI agent strengthens the case for continued spending on CPUs, GPUs and AI infrastructure.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T15:41:06.242657-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Says It Carried Out Broader Review Of Actions After Hugging Face Incident; Vast Majority Of Actions Reviewed Were Completions Of Mundane Research Tasks; Most Cases Identified So Far Have Been Lower Severity, With Limited Or No Evidence Of Meaningful Impact To The Third-party Service; Review Anticipated To Take Months For Completion",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T15:43:01.435837-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Exclusive: Tesla Optimus Commercialization Next Year Is \u2018Very Realistic,\u2019 Faraday Chairman Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T15:49:00.850649-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Appeals Court Rules Against Kalshi, Says States Can Regulate Its Event Contracts",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T15:52:36.786811-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Greenland Mines Announces Listing Of Common Shares On Frankfurt Stock Exchange Under Symbol HK6; No New Shares Issued",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T16:00:59.382399-04:00",
     "symbols": [
       "HUBC"
@@ -5074,6 +5021,56 @@
     "headline": "President Trump Says If We Don&#39;t Make Steel Ourselves, We Can&#39;t Defend Ourselves",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:52:23.415145-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s $150B Buyback Has Traders Piling into this ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:52:23.821352-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet To Rally More Than 16%? Here Are 10 Top Analyst Forecasts For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T14:52:25.647684-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Alphabet To Rally More Than 16%? Here Are 10 Top Analyst Forecasts For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:52:28.670031-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says If We Don&#39;t Make Steel Ourselves, We Can&#39;t Defend Ourselves",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:52:29.810280-04:00",
+    "symbols": [
+      "NVDX"
+    ],
+    "headline": "Nvidia\u2019s $150B Buyback Has Traders Piling into this ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:43:47.414683-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T11:43:47.723600-04:00",
     "symbols": [
       "NVDA"
@@ -5078,5 +5068,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T12:44:40.698343-04:00",
+    "symbols": [
+      "NAMI"
+    ],
+    "headline": "Namibox shares are trading higher after the company signed a strategic cooperation memorandum with Pearson to jointly develop AI-driven learning solutions.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

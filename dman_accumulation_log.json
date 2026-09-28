@@ -376,5 +376,32 @@
   "drift_pct": 0.44,
   "range_ratio": 0.38,
   "near_high": 0.978
+ },
+ {
+  "ts": "2026-09-28T14:40:56.841397-04:00",
+  "ticker": "GQGU",
+  "price": 26.41,
+  "rvol": 5.83,
+  "drift_pct": 0.86,
+  "range_ratio": 0.43,
+  "near_high": 0.983
+ },
+ {
+  "ts": "2026-09-28T14:40:56.841411-04:00",
+  "ticker": "TSPA",
+  "price": 48.53,
+  "rvol": 1.6,
+  "drift_pct": 0.94,
+  "range_ratio": 0.46,
+  "near_high": 0.99
+ },
+ {
+  "ts": "2026-09-28T14:40:56.841416-04:00",
+  "ticker": "DIVI",
+  "price": 43.15,
+  "rvol": 2.0,
+  "drift_pct": 0.83,
+  "range_ratio": 0.66,
+  "near_high": 0.964
  }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T14:13:40.384561-04:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T14:13:42.943959-04:00",
     "symbols": [
       "CLSK"
@@ -5074,6 +5064,16 @@
     ],
     "headline": "UBS Maintains Neutral on Portland General Electric, Lowers Price Target to $50",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:24:12.704227-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings Stock Dips Due to Flutter&#39;s Weakness",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

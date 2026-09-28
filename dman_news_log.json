@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:26:23.632687-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq Futures Rise Amid Optimism Following Iran\u2019s Offer To Reopen Strait of Hormuz \u2014 AKAM, COST, SCHL In Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T09:26:23.869319-04:00",
     "symbols": [
       "GLND"
@@ -5066,5 +5056,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:46:23.835378-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is SpaceX Stock Gaining Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

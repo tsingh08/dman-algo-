@@ -1,117 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:26:27.296388-04:00",
-    "symbols": [
-      "SOS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:27.530313-04:00",
-    "symbols": [
-      "ONDS"
-    ],
-    "headline": "Ondas Went on an Acquisition Spree This Month \u2014 Here&#39;s What It Bought",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:28.002916-04:00",
-    "symbols": [
-      "PL"
-    ],
-    "headline": "Planet Labs PBC&#39;s Pelican-12 Arrives At Cape Canaveral Space Force Station In Florida For Planned Launch Aboard Bandwagon-5 Rideshare Mission With SpaceX",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:29:54.190667-04:00",
-    "symbols": [
-      "GOOGL",
-      "SPCX"
-    ],
-    "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:37:51.440786-04:00",
-    "symbols": [
-      "HTZ",
-      "NRG"
-    ],
-    "headline": "Junk Bond Yields Are Back Above 15%: 10 Stocks In The Pressure Zone",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:38:15.335888-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T09:38:21.328410-04:00",
-    "symbols": [
-      "NRG"
-    ],
-    "headline": "Junk Bond Yields Are Back Above 15%: 10 Stocks In The Pressure Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:38:26.914633-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Junk Bond Yields Are Back Above 15%: 10 Stocks In The Pressure Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:38:29.212169-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T09:38:33.666532-04:00",
-    "symbols": [
-      "PPLI"
-    ],
-    "headline": "Barry Diller\u2019s Company Tried to Buy MGM. Now MGM May Buy It.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:38:34.165313-04:00",
-    "symbols": [
-      "FRVO"
-    ],
-    "headline": "Wolfe Research Upgrades Fervo Energy to Outperform, Announces $29 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T09:38:35.941772-04:00",
     "symbols": [
       "PL"
@@ -5074,5 +4962,115 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:13:20.428608-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "TD Cowen Maintains Hold on Chevron, Raises Price Target to $215",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:13:26.883079-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ shares are trading higher after B of A Securities initiated coverage on the stock with a Buy rating and announced a $60 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T10:13:53.961203-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Top AI Researchers Call for Urgent Oversight of Self-Improving Systems&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:13:54.818015-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "MongoDB Stock Tumbles: What&#39;s Happening Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:13:54.822456-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Top AI Researchers Call for Urgent Oversight of Self-Improving Systems&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:13:55.076597-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Top AI Researchers Call for Urgent Oversight of Self-Improving Systems&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:13:55.444441-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Top AI Researchers Call for Urgent Oversight of Self-Improving Systems&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:14:02.656829-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Stock Tumbles: What&#39;s Happening Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:14:10.422896-04:00",
+    "symbols": [
+      "KOD"
+    ],
+    "headline": "Kodiak Sciences Says Eye Drug on Par with Regeneron&#39;s Medicine",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:14:12.522963-04:00",
+    "symbols": [
+      "KNRX"
+    ],
+    "headline": "KNOREX Shares Halted On Circuit Breaker To The Upside, Stock Now Up 302.63%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:14:27.027826-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Tesla, Lowers Price Target to $415",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

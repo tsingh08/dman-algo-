@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-28T09:25:51.381834-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Why Is SK hynix Stock Falling Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:21.380366-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Why Meta\u2019s 13% Stock Gain Last Week Could Be Just the Start \u2014 Gene Munster Sees $11 Billion Revenue Opportunity That Could \u2018Blow Us Away\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T09:26:21.385946-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia&#39;s $5.4 Trillion Market Cap &#39;Seems Crazy&#39; Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T09:26:21.391059-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Had the Blueprint for a Lighter Vision Pro But Scrapped It\u2014Now Meta\u2019s $1,299 VR Glasses Could Succeed Where AAPL Struggled",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T09:26:21.395412-04:00",
     "symbols": [
       "AAPL"
@@ -5069,5 +5029,52 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:35:53.948203-04:00",
+    "symbols": [
+      "KNRX"
+    ],
+    "headline": "Knorex Stock Skyrockets Monday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:36:28.460446-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;An Informed Iranian Official Has Told Press TV That Reports Published By Some News Outlets About Iran Showing Flexibility Over Its Nuclear Position Are False&#39; - Press TV",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:38:59.686216-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "President Trump, Vice President JD Vance, Secretary Of State Marco Rubio, Huang And SpaceX And Tesla Executive Elon Musk Will Attend Event For America.gov, A New AI-Powered Government Website Intended To Consolidate Services And Information From Across Agencies\u2019 Websites",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:39:13.832768-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Why Meta\u2019s 13% Stock Gain Last Week Could Be Just the Start \u2014 Gene Munster Sees $11 Billion Revenue Opportunity That Could \u2018Blow Us Away\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

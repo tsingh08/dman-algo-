@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:46:26.397169-04:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "Jaguar Health Stock Slides Thursday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:46:26.407839-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "RBC Capital Reiterates Sector Perform on Akamai Technologies, Maintains $135 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T09:46:26.714395-04:00",
     "symbols": [
       "BARK"
@@ -5073,5 +5053,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T10:31:43.261498-04:00",
+    "symbols": [
+      "AMZN",
+      "LMT",
+      "RTX"
+    ],
+    "headline": "QUICK SPARK: Trump\u2019s $2.5 Billion Investment Week Was 88% Defense",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:32:53.030743-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Dallas Fed Mfg Business Index For September 9.8\tVs 11.6 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

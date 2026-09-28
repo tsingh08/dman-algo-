@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-09-25T14:02:09.084375-04:00",
-    "symbols": [
-      "CLSK",
-      "RXRX",
-      "SOUN"
-    ],
-    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:03:50.573030-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Memory Inflation Is Hitting Costco\u2019s Electronics Business, and It Triggered a $152 Million Charge",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:09:32.975924-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says The Biggest Risk With Inflation Is The Formation Of An Inflationary Mindset; Public Has Been Dealing With Above Target Inflation For Extended Period; Growth Has Held Up Well, Job Market Is Stable; Worries About Demand Related Pressure On Inflation; Capital Expenditures Will Pressure Inflation For A While; If We Don&#39;t Make Progress Lowering Inflation, Expectations Could Shift; Fed Needs To Make Sure Policy Is At A Restrictive Stance To Lower Inflation",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T14:12:44.086882-04:00",
     "symbols": [
       "RXRX"
@@ -5074,6 +5042,37 @@
     ],
     "headline": "Dow Dips Over 200 Points; Dallas Fed\u2019s Manufacturing Index Declines In September",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:10:04.605364-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:10:44.234719-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock Gains on Record Buyback: Jim Cramer Gets His Wish",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:12:47.496193-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler shares are trading higher after Wedbush reiterated its Outperform rating on the stock and maintained its $215 price target.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

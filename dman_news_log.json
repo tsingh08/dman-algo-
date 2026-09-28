@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:25:21.951064-04:00",
-    "symbols": [
-      "MRLN"
-    ],
-    "headline": "Canaccord Genuity Initiates Coverage On Merlin with Buy Rating, Announces Price Target of $7.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:26:28.994849-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Meta Platforms, Raises Price Target to $950",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:26:31.164843-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:26:33.107422-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-25T11:26:33.323456-04:00",
     "symbols": [
       "COIN"
@@ -5078,5 +5038,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T12:05:31.290068-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Hewlett Packard&#39;s Helios Opportunity &#39;Could Be Big&#39;: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T12:05:42.540967-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Hewlett Packard&#39;s Helios Opportunity &#39;Could Be Big&#39;: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T12:05:48.702466-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "Reported Earlier: DataMeds AI, Tollo Health Roll Out Health Lives Here Mobile Application",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T12:05:51.238975-04:00",
+    "symbols": [
+      "QTTB"
+    ],
+    "headline": "Jefferies Initiates Coverage On Q32 Bio with Buy Rating, Announces Price Target of $29",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

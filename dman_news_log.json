@@ -1,176 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:45:43.522891-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "If You Invested $100 In ON Semiconductor Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:47:03.524673-04:00",
-    "symbols": [
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:47:19.208027-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Reached New 52-Week High: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:49:44.116634-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Bloom Energy Stock Rebounds: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:53:47.647168-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:53:47.979118-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "RMX Industries Signs Compute Supply Purchase Order With Technologent For NVIDIA H200 GPUs To Scale QuantrusX",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:53:47.982005-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:53:48.522833-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:53:48.874193-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:53:49.221092-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:53:49.518387-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:53:51.433716-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "If You Invested $100 In ON Semiconductor Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:53:51.945487-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Reached New 52-Week High: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:53:57.838930-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Bloom Energy Stock Rebounds: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:00:42.665594-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T12:06:00.280674-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T12:06:11.309542-04:00",
-    "symbols": [
-      "STEM"
-    ],
-    "headline": "UBS Upgrades Stem to Buy, Maintains Price Target to $7",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T12:06:42.622996-04:00",
     "symbols": [
       "OKLO"
@@ -5078,5 +4907,175 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:05:57.018572-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Okta, AbbVie, UnitedHealth Group",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:05:58.819182-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:05:59.064351-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:05:59.873271-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:00.137330-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:03.053362-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Okta, AbbVie, UnitedHealth Group",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:05.278492-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:06:05.523887-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:07.268750-04:00",
+    "symbols": [
+      "ZIM"
+    ],
+    "headline": "&#39;Prime Minister&#39;s Office Takes Zim Deal Off The Table&#39; - The Marker Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.002639-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "What&#39;s Going On With AMC Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.281547-04:00",
+    "symbols": [
+      "AGEN"
+    ],
+    "headline": "Rodman &amp; Renshaw Initiates Coverage On Agenus with Buy Rating, Announces Price Target of $19",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.622182-04:00",
+    "symbols": [
+      "TOYO"
+    ],
+    "headline": "TOYO Announces About $240M In Binding Solar Module Supply Contracts With Unnamed U.S. Customers, Deliveries Through H1 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.626804-04:00",
+    "symbols": [
+      "TOYO"
+    ],
+    "headline": "TOYO Sees Meaningful Uncertainty Regarding Its H2 2026 Financial Results; Declines To Provide Quarterly Guidance Or Specific Guidance On Revenue, Net Income Or Other Financial Measures; Expects Positive EBITDA In H2 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.882219-04:00",
+    "symbols": [
+      "GFI"
+    ],
+    "headline": "Gold Fields, Harmony Gold Mining, Anglogold Ashanti And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.886813-04:00",
+    "symbols": [
+      "GFI"
+    ],
+    "headline": "Gold Fields Confirms Northern Star Rejected The Company&#39;s Merger Approach; Australian Mining Company Concluded &#39;Not Appropriate To Engage In Further Discussions At This Time&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.891232-04:00",
+    "symbols": [
+      "GFI"
+    ],
+    "headline": "$27 Billion Bid Fails To Create World&#39;s Second-Largest Gold Producer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:06:08.895529-04:00",
+    "symbols": [
+      "GFI"
+    ],
+    "headline": "Why Webuy Global Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

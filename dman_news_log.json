@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T15:08:33.501746-04:00",
-    "symbols": [
-      "SCHL"
-    ],
-    "headline": "Why INLIF Shares Are Trading Higher By Around 78%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T15:26:40.941241-04:00",
     "symbols": [
       "FSLR",
@@ -5075,5 +5065,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T14:52:14.976723-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says If We Don&#39;t Make Steel Ourselves, We Can&#39;t Defend Ourselves",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

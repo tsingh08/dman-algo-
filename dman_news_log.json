@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:56:00.491359-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "DA Davidson Maintains Neutral on Costco Wholesale, Raises Price Target to $1040",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T09:56:04.739208-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Wholesale shares are trading higher after the company reported better-than-expected Q4 financial results.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T09:59:27.963243-04:00",
     "symbols": [
       "COST"
@@ -5075,5 +5055,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:46:38.238396-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Dip Buyer Bets Starship Turns Starlink Into a Bigger Cash Cow",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:48:10.845261-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Starship Reaches Orbit for First Time Despite Engine Failure",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

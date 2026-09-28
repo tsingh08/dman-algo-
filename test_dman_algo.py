@@ -19650,9 +19650,18 @@ class TestSeczPostMortem(unittest.TestCase):
         self.assertIn("time", detail.lower())
         client.submit_order.assert_not_called()
 
-    def test_adoption_skips_a_name_entered_as_a_breakout_zone_today(self):
+    def test_adoption_recognises_a_name_entered_as_a_breakout_zone(self):
+        """Was "..._today", and asserted the raw "__BZONE_ENTRY__" literal in
+        adopt_orphan_positions(). Both are stale: the lookup moved into
+        _bzone_entry_on_record(), and "today" was the bug -- the old check had a
+        24-hour horizon, so a zone held longer than a day lost its identity and
+        was adopted with an 8% fallback stop. Identity has no expiry now."""
         src = inspect.getsource(a.adopt_orphan_positions)
-        self.assertIn("__BZONE_ENTRY__", src)
+        self.assertIn("_bzone_entry_on_record(", src)
+        self.assertNotIn("cooldown_min=24 * 60", src)
+        # And the helper is where the key now lives.
+        self.assertIn("__BZONE_ENTRY__",
+                      inspect.getsource(a._bzone_entry_on_record))
 
 
 class TestReanchorRunsIntraday(unittest.TestCase):
@@ -19932,14 +19941,39 @@ class TestAdoptedOrphansGetNoGuessedStop(unittest.TestCase):
                                stop_stage="initial")
 
     def test_no_stop_is_placed_for_an_adopted_orphan(self):
+        """No stop goes on, and no order is sent. Asserted the literal reason
+        "adopted orphan" until 2026-09-28; an adopted row whose ticker is on
+        record as a breakout zone now refuses one branch EARLIER, via
+        _is_no_stop_by_design(), so the wording differs while the outcome does
+        not. What matters is that nothing is submitted, so that is what is
+        pinned -- plus that some reason is given.
+
+        _bzone_entry_on_record is patched explicitly: unpatched it reads the real
+        alert store, which happens to contain __BZONE_ENTRY__:RSKD, so this test
+        was quietly depending on live state."""
         client = MagicMock()
         with patch.object(a, "_pdt_zero_no_stop_today", return_value=False), \
              patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_bzone_entry_on_record", return_value=False), \
              patch.object(a, "PositionTracker",
                           return_value=SimpleNamespace(positions=[self._adopted()])):
             ok, detail = a._auto_restore_missing_stop(client, "RSKD", 31.0)
         self.assertFalse(ok)
         self.assertIn("adopted orphan", detail)
+        client.submit_order.assert_not_called()
+
+    def test_no_stop_is_placed_for_an_adopted_zone_either(self):
+        """The RSKD case: adopted label, breakout-zone ticker. Refused earlier in
+        the function, and the reason must say why rather than just failing."""
+        client = MagicMock()
+        with patch.object(a, "_pdt_zero_no_stop_today", return_value=False), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_bzone_entry_on_record", return_value=True), \
+             patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(positions=[self._adopted()])):
+            ok, detail = a._auto_restore_missing_stop(client, "RSKD", 31.0)
+        self.assertFalse(ok)
+        self.assertTrue(detail.strip(), "a refusal with no reason is not reportable")
         client.submit_order.assert_not_called()
 
     def test_the_exact_rskd_number_is_never_sent(self):
@@ -21426,3 +21460,143 @@ class TestSignalFeatureDedup(unittest.TestCase):
             with patch.object(a, "SIGNAL_FEATURES_FILE", f):
                 out = chr(10).join(a.report_signal_features(min_n=5))
         self.assertNotIn("n=6", out)
+
+
+class TestBzoneIdentitySurvivesTime(unittest.TestCase):
+    """A breakout zone must not lose its no-stop policy by being held too long.
+
+    Orphan adoption asked `_is_duplicate_alert("__BZONE_ENTRY__:SYM",
+    cooldown_min=24*60)` to decide whether a position was a breakout zone. That
+    question has a 24-hour horizon, and a breakout zone is a multi-day hold, so
+    any zone still open after a day answered FALSE and was adopted as a generic
+    swing with an 8% fallback stop -- on a strategy whose thesis is not stopping.
+
+    RSKD, found live 2026-09-28: entry alert on record at 2026-09-25T14:15:54,
+    three days old, so the check said False; the row came back as ADOPTED_SETUP
+    with stop 7.3938 (8.0367 * 0.92), and because _is_no_stop_by_design() keys off
+    the setup STRING it stopped exempting the position. The next guard tick would
+    have armed a broker stop -- the SECZ sequence that cost -$21.76 on a +$8.67
+    hold, about to repeat on a position whose stop the user had explicitly
+    cancelled."""
+
+    def _stores(self, last=None, dedup=None, shadow=None):
+        d = tempfile.mkdtemp()
+        _la = os.path.join(d, "last.json")
+        _dd = os.path.join(d, "dedup.json")
+        _sh = os.path.join(d, "shadow.json")
+        io.open(_la, "w", encoding="utf-8").write(json.dumps(last or {}))
+        io.open(_dd, "w", encoding="utf-8").write(json.dumps(dedup or {}))
+        io.open(_sh, "w", encoding="utf-8").write(json.dumps(shadow or []))
+        return (patch.object(a, "LAST_ALERTS_FILE", _la),
+                patch.object(a, "_ALERT_DEDUP_FILE", _dd),
+                patch.object(a, "BZONE_SHADOW_FILE", _sh))
+
+    def _on_record(self, sym, **kw):
+        ps = self._stores(**kw)
+        for _p in ps:
+            _p.start()
+        try:
+            return a._bzone_entry_on_record(sym)
+        finally:
+            for _p in reversed(ps):
+                _p.stop()
+
+    # --- the bug ------------------------------------------------------------
+    def test_a_three_day_old_entry_still_counts(self):
+        """The exact RSKD case. An alert record is a rate limiter, not a place
+        to keep identity, so age must not matter."""
+        old = "2026-09-25T14:15:54.019155-04:00"
+        self.assertTrue(self._on_record("RSKD",
+                                        last={"__BZONE_ENTRY__:RSKD": old}))
+
+    def test_an_unrelated_symbol_is_not_claimed(self):
+        self.assertFalse(self._on_record("AAPL",
+                                         last={"__BZONE_ENTRY__:RSKD": "2026-09-25T14:15:54-04:00"}))
+
+    def test_case_does_not_matter(self):
+        self.assertTrue(self._on_record("rskd",
+                                        last={"__BZONE_ENTRY__:RSKD": "2026-09-25T14:15:54-04:00"}))
+
+    # --- the second witness -------------------------------------------------
+    def test_the_shadow_log_alone_is_enough(self):
+        """If the alert stores have rotated, the zone log still knows."""
+        self.assertTrue(self._on_record(
+            "RSKD", shadow=[{"ticker": "RSKD", "date": "2026-09-24", "close": 7.91}]))
+
+    def test_the_dedup_store_alone_is_enough(self):
+        self.assertTrue(self._on_record(
+            "RSKD", dedup={"__BZONE_ENTRY__:RSKD": "2026-09-25T14:15:54-04:00"}))
+
+    def test_nothing_anywhere_means_not_a_zone(self):
+        self.assertFalse(self._on_record("RSKD"))
+
+    # --- it must not be a time window any more ------------------------------
+    def test_adoption_no_longer_asks_a_time_bounded_question(self):
+        src = inspect.getsource(a.adopt_orphan_positions)
+        self.assertIn("_bzone_entry_on_record(", src)
+        self.assertNotIn('cooldown_min=24 * 60', src)
+
+    def test_a_missing_store_does_not_raise(self):
+        """Runs inside adoption; an exception here would abort the adopt."""
+        with patch.object(a, "LAST_ALERTS_FILE", "/nonexistent/x.json"), \
+             patch.object(a, "_ALERT_DEDUP_FILE", "/nonexistent/y.json"), \
+             patch.object(a, "BZONE_SHADOW_FILE", "/nonexistent/z.json"):
+            self.assertFalse(a._bzone_entry_on_record("RSKD"))
+
+    # --- the consequence it protects ---------------------------------------
+    def test_a_zone_labelled_row_is_exempt_from_stop_restoration(self):
+        """_is_no_stop_by_design keys off the setup string, which is why losing
+        the label was enough to re-arm a stop."""
+        self.assertTrue(a._is_no_stop_by_design(f"{a.BZONE_SETUP} (adopted)"))
+        self.assertFalse(a._is_no_stop_by_design(a.ADOPTED_SETUP))
+
+    # --- the policy must not live in a mutable string alone ------------------
+    def test_an_adopted_row_is_exempt_when_the_ticker_is_on_record(self):
+        """The live RSKD case: the label was rewritten to ADOPTED_SETUP, but the
+        position is in fact a breakout zone. A risk policy a relabel can delete
+        is not a policy, so the durable record also counts."""
+        with patch.object(a, "_bzone_entry_on_record", return_value=True):
+            self.assertTrue(a._is_no_stop_by_design(a.ADOPTED_SETUP, "RSKD"))
+
+    def test_without_the_ticker_the_old_answer_stands(self):
+        """Callers that cannot supply a ticker are no worse off than before."""
+        with patch.object(a, "_bzone_entry_on_record", return_value=True):
+            self.assertFalse(a._is_no_stop_by_design(a.ADOPTED_SETUP))
+
+    def test_it_does_not_leak_to_a_real_stop_managed_setup(self):
+        """The failure that would be WORSE than the one being fixed: suppressing
+        protection on a genuinely stop-managed trade. A Gap & Hold on a ticker
+        that once traded as a zone must keep its stop."""
+        with patch.object(a, "_bzone_entry_on_record", return_value=True):
+            self.assertFalse(a._is_no_stop_by_design("Gap & Hold", "RSKD"))
+            self.assertFalse(a._is_no_stop_by_design("Morning Runner", "RSKD"))
+            self.assertFalse(a._is_no_stop_by_design("SWING — Gap & Hold", "RSKD"))
+
+    def test_an_adopted_row_with_no_record_is_still_protected(self):
+        with patch.object(a, "_bzone_entry_on_record", return_value=False):
+            self.assertFalse(a._is_no_stop_by_design(a.ADOPTED_SETUP, "AAPL"))
+
+    def test_a_raising_record_lookup_does_not_exempt_by_accident(self):
+        """Fail CLOSED here: an error must leave the stop protection ON, because
+        the cost of a wrong exemption is an unprotected position."""
+        with patch.object(a, "_bzone_entry_on_record",
+                          side_effect=RuntimeError("store gone")), \
+             patch.object(a, "_log_swallowed"):
+            self.assertFalse(a._is_no_stop_by_design(a.ADOPTED_SETUP, "RSKD"))
+
+    def test_the_stop_coverage_path_passes_the_ticker(self):
+        """If the call site drops the ticker, the fix silently does nothing."""
+        src = inspect.getsource(a._check_stop_coverage)
+        self.assertIn('_is_no_stop_by_design(getattr(_p, "setup", "")', src)
+        self.assertIn('getattr(_p, "ticker", "")', src)
+
+    def test_the_live_rskd_row_would_not_be_stopped(self):
+        """End to end on the real tracked row, since that is what fires at the
+        session start. Skips if RSKD is no longer held."""
+        _rows = [p for p in a.PositionTracker().positions
+                 if str(p.ticker).upper() == "RSKD"]
+        if not _rows:
+            self.skipTest("RSKD no longer held")
+        _p = _rows[0]
+        self.assertTrue(a._is_no_stop_by_design(_p.setup, _p.ticker),
+                        f"RSKD ({_p.setup!r}) would have a stop armed on it")

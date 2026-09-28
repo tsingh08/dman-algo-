@@ -19751,7 +19751,8 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
         # SECOND process held a stale positions file, saw the fill as an
         # untracked orphan, and adopted it with an 8% fallback stop that this
         # function then placed at the broker.
-        if tracked is not None and _is_no_stop_by_design(tracked.setup):
+        if tracked is not None and _is_no_stop_by_design(tracked.setup,
+                                                        getattr(tracked, "ticker", "")):
             return False, (f"{tracked.setup} exits on time, not on a stop — "
                            "not arming one (see _is_no_stop_by_design)")
         # An ADOPTED orphan never had a stop to restore, so there is nothing
@@ -20035,7 +20036,8 @@ def _check_stop_coverage() -> Optional[dict]:
         try:
             for _p in PositionTracker().positions:
                 _setup_of[str(_p.ticker).upper()] = str(getattr(_p, "setup", "") or "?")
-                if _is_no_stop_by_design(getattr(_p, "setup", "")):
+                if _is_no_stop_by_design(getattr(_p, "setup", ""),
+                                         getattr(_p, "ticker", "")):
                     _no_stop_syms.add(str(_p.ticker).upper())
         except Exception as _swallowed:
             _log_swallowed("no-stop-by-design set", _swallowed)
@@ -24120,8 +24122,71 @@ def _reconcile_tracked_quantity(pos, sym: str) -> int:
     return 0
 
 
-def _is_no_stop_by_design(setup: str) -> bool:
+def _bzone_entry_on_record(sym: str) -> bool:
+    """Was this symbol ever entered as a breakout zone? Not "in the last day".
+
+    Orphan adoption decides whether a position keeps its no-stop policy, and it
+    asked `_is_duplicate_alert("__BZONE_ENTRY__:SYM", cooldown_min=24*60)` --
+    a question with a 24-hour horizon. A breakout zone is a multi-day hold, so
+    any zone still open after a day answered FALSE, was adopted as a generic
+    swing, and had an 8% fallback stop written onto a strategy whose entire
+    thesis is not stopping.
+
+    RSKD, found 2026-09-28: entry alert on record at 2026-09-25T14:15:54, so the
+    24h check said False, the row came back as ADOPTED_SETUP with stop 7.3938
+    (= 8.0367 * 0.92, the fallback), and _is_no_stop_by_design() -- which keys
+    off the setup STRING -- stopped exempting it. The next guard tick would have
+    armed a broker stop. That is the SECZ sequence in _is_no_stop_by_design()'s
+    docstring, which cost -$21.76 on a +$8.67 hold, about to repeat.
+
+    An alert record is a rate limiter; it is not a place to keep identity.
+    Identity has no expiry, so neither does this: the alert key counts at ANY
+    age, and the breakout-zone shadow log is checked as a second, independent
+    witness in case the alert stores have rotated.
+    """
+    _key = f"__BZONE_ENTRY__:{str(sym or '').upper()}"
+    try:
+        if _key in (_load_last_alerts() or {}):
+            return True
+    except Exception as _exc:
+        _log_swallowed("bzone identity: last-alerts", _exc)
+    try:
+        with open(_ALERT_DEDUP_FILE) as _f:
+            if _key in (json.load(_f) or {}):
+                return True
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+    except Exception as _exc:
+        _log_swallowed("bzone identity: dedup store", _exc)
+    # Second witness: the zone log this strategy writes on every logged zone.
+    try:
+        _u = str(sym or "").upper()
+        with open(BZONE_SHADOW_FILE) as _f:
+            for _r in (json.load(_f) or []):
+                if str(_r.get("ticker", "")).upper() == _u:
+                    return True
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+    except Exception as _exc:
+        _log_swallowed("bzone identity: shadow log", _exc)
+    return False
+
+
+def _is_no_stop_by_design(setup: str, ticker: str = "") -> bool:
     """True for a setup that is SUPPOSED to have no broker-side stop.
+
+    Pass `ticker` wherever it is available. The setup STRING was the only
+    carrier of this policy, and a string is mutable: orphan adoption rewrote it
+    to ADOPTED_SETUP and the position silently lost its exemption while still
+    being, in fact, a breakout zone. A risk policy that a relabel can delete is
+    not a policy. So an ADOPTED row is also exempt when the ticker is on record
+    as a breakout-zone entry -- see _bzone_entry_on_record().
+
+    Deliberately narrow: ONLY the adopted label plus a durable record. A real
+    Gap & Hold on a ticker that once traded as a zone keeps its stop protection,
+    because its setup is "Gap & Hold" and not ADOPTED_SETUP. Widening this to
+    "any position on a ticker ever zoned" would suppress protection on genuinely
+    stop-managed trades, which is a worse failure than the one being fixed.
 
     Breakout zones exit on time, never on a stop: every stop tested made the
     backtested result worse, which is why _submit_bzone_entry() places none and
@@ -24134,7 +24199,16 @@ def _is_no_stop_by_design(setup: str) -> bool:
     at $16.49 and traded $17.94 after hours. The safety net turned a +$8.67
     hold into a -$21.76 loss on a strategy whose whole thesis is not stopping.
     """
-    return str(setup or "").startswith(BZONE_SETUP)
+    _s = str(setup or "")
+    if _s.startswith(BZONE_SETUP):
+        return True
+    # Identity survived the relabel even though the label did not.
+    if ticker and _s.startswith(ADOPTED_SETUP):
+        try:
+            return _bzone_entry_on_record(ticker)
+        except Exception as _exc:
+            _log_swallowed("no-stop-by-design identity", _exc)
+    return False
 
 
 # Anything above this much disagreement between the tracked entry and the
@@ -24243,7 +24317,8 @@ def run_position_reconciliation(notify: bool = True) -> dict:
         # a stop that should not be there, or one that should
         if not _is_opt:
             _has_stop = _key in _stops
-            if _is_no_stop_by_design(getattr(_p, "setup", "")) and _has_stop:
+            if _is_no_stop_by_design(getattr(_p, "setup", ""),
+                                     getattr(_p, "ticker", "")) and _has_stop:
                 out["issues"].append(
                     f"{_p.ticker}: a ${_stops[_key]:.2f} stop is resting at the broker "
                     f"on {_p.setup}, which exits on TIME and must not carry one "
@@ -24412,7 +24487,10 @@ def adopt_orphan_positions() -> int:
         # actually is, with the no-stop sentinel. Skipping it outright would
         # remove the very net that exists for a failed tracker write; giving it
         # the 8% fallback is what stopped SECZ out at the low.
-        _was_bzone = _is_duplicate_alert(f"__BZONE_ENTRY__:{sym}", cooldown_min=24 * 60)
+        # Identity, not recency -- see _bzone_entry_on_record(). This used to be
+        # a 24-hour _is_duplicate_alert() window, so a zone held longer than a
+        # day was adopted as a generic swing and stopped.
+        _was_bzone = _bzone_entry_on_record(sym)
         stop = stops.get(sym)
         if _was_bzone:
             stop, stop_note = 0.01, "breakout zone — no stop by design"

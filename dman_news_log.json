@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-24T14:59:31.977785-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Elon Musk Says &#39;Great Leader&#39; Xi Jinping Has Done an &#39;Excellent Job&#39;: Crypto Bettors See 100% Chance of Billionaire Showing Up at White House State Dinner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:59:31.980583-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Slide as Rate Hike Odds Jump: Analyst Says BTC Target Remains At $100,000 Despite the Dip",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:59:32.131448-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Expanded Costco Delivery to 47 States \u2014 Here&#39;s What Happened Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-24T14:59:32.281591-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Dollar General To Rally Around 33%? Here Are 10 Top Analyst Forecasts For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:59:32.284613-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Barclays Maintains Overweight on On Holding, Raises Price Target to $44",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:59:32.457442-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Drop as Bessent Says Iranian Aviation Restrictions Are Working\u2014 Airbnb, Oracle, Costco in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:59:32.460369-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Industry Comparison: Evaluating Airbnb Against Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:59:32.462925-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb CEO Says AI Helped Solve a Problem Many CEOs Face: Not Knowing \u2018What the Hell\u2019s Going On\u2019 Inside Their Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-24T14:59:32.606175-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Citizens Maintains Market Outperform on DraftKings, Lowers Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-24T14:59:32.758832-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;DeepSeek Aims to Close $7.5 Billion Funding Round by End-October&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-24T14:59:33.039541-04:00",
     "symbols": [
       "IONQ"
@@ -5069,5 +4969,108 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:11:30.326101-04:00",
+    "symbols": [
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Trump Administration Ends Fuel Economy Credit Trading In 2028",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:12:51.156082-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Options Overpriced A Whole Summer Of Earnings, Here&#39;s The Report Card",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T09:13:09.791306-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Shares See Volume To Upside; Changes Decision, Decides To Go For Orbit In T- 3 Minutes; 26 Starlink Satellites To Be Deployed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T09:14:25.027578-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With Exxon Mobil Stock on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:15:48.945328-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Faraday Chairman Warns Cutting China Out of US Robot Supply Chain Too Fast Could Backfire",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T09:18:31.760051-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Says Starship Is In Orbit For The First Time; Anticipates Payload Deployment",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T09:18:52.418480-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Fed Hike Bets Hit 70%: Gold Just Lost The Argument to a 5.2% Treasury",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:23:07.331545-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "What&#39;s Going On With Lucid Stock Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:23:35.167444-04:00",
+    "symbols": [
+      "DIA",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Wall Street Dodged the Midterm Slump: Now The &#39;Sweet Spot&#39; Begins",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:25:19.362470-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Starship Deploys First Of Twenty-Six Starlink Satellites; Each To Be Deployed Every Minute",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

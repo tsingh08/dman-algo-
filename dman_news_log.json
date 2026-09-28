@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:44:07.771143-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Synopsys Stock Climbs as HSBC Upgrades Software Giant on AI Growth Tailwinds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:44:07.777209-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "HSBC Upgrades Synopsys to Buy, Raises Price Target to $700",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T11:45:43.522891-04:00",
     "symbols": [
       "ON"
@@ -5078,5 +5058,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T12:52:58.063193-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Intel Stock Falling on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T12:54:33.255487-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "FDA Expands Approval Of Eli Lilly&#39;s Olumiant For Adolescents with Autoimmune Hair Loss",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

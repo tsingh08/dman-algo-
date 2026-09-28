@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-28T09:26:22.195372-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Retail Investors \u2018Locking in Gains in Tech\u2019 \u2014 Sell Record $300 Million in ETFs as Chip Funds Take Biggest Hit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.199787-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Asian Stocks Bleed as Rising US Yields and Crude Prices Weigh on Risk Assets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.439377-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Rolls Out Meta Enterprise Platform; Appoints Chirantan Desai As Chief Enterprise Platform Officer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.443872-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Meta, Google, Amazon, Microsoft draw Sen. Warren questions about AI tax subsidies&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.448207-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Meta\u2019s 13% Stock Gain Last Week Could Be Just the Start \u2014 Gene Munster Sees $11 Billion Revenue Opportunity That Could \u2018Blow Us Away\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.452460-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nvidia&#39;s $5.4 Trillion Market Cap &#39;Seems Crazy&#39; Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T09:26:22.456778-04:00",
     "symbols": [
       "META"
@@ -5079,5 +5019,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T15:57:54.217852-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Shares of Buy Now Pay Later companies are trading lower as rising yields may impact lending practices for short-term, unsecured credit issuance.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:58:45.160579-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T15:58:45.164708-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Retail Investors \u2018Locking in Gains in Tech\u2019 \u2014 Sell Record $300 Million in ETFs as Chip Funds Take Biggest Hit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T15:59:19.838867-04:00",
+    "symbols": [
+      "ZUMZ"
+    ],
+    "headline": "Zumiez President Of International Adam Ellis Discloses Purchase Of 10,000 Shares At $13.40/Share On September 18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:59:20.194565-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "What&#39;s Going On With Stitch Fix Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:59:26.283241-04:00",
+    "symbols": [
+      "COIN",
+      "MSTR"
+    ],
+    "headline": "Crypto Stock Short Squeeze? Investors Are Shorting These 3 Stocks to Hedge Bitcoin\u2019s Rise",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

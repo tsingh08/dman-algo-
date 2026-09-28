@@ -358,5 +358,14 @@
   "drift_pct": 0.9,
   "range_ratio": 0.66,
   "near_high": 0.963
+ },
+ {
+  "ts": "2026-09-28T13:56:46.581499-04:00",
+  "ticker": "TSPA",
+  "price": 48.5695,
+  "rvol": 1.59,
+  "drift_pct": 0.86,
+  "range_ratio": 0.46,
+  "near_high": 0.99
  }
 ]

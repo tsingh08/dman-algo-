@@ -340,5 +340,14 @@
   "drift_pct": 0.61,
   "range_ratio": 0.49,
   "near_high": 0.978
+ },
+ {
+  "ts": "2026-09-28T11:22:02.796867-04:00",
+  "ticker": "GQGU",
+  "price": 26.305,
+  "rvol": 5.76,
+  "drift_pct": 1.26,
+  "range_ratio": 0.43,
+  "near_high": 0.979
  }
 ]

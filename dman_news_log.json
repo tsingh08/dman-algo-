@@ -1,311 +1,5 @@
 [
   {
-    "ts": "2026-09-25T10:44:52.289451-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Did Breach Implied Covenant of Good Faith With Nektar Therapeutics, Jury Funds",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T10:45:18.864875-04:00",
-    "symbols": [
-      "WTTR"
-    ],
-    "headline": "Select Water Solutions Announces Deal To Acquire Water Midstream Firm Pilot Water For $600M Cash, $100M Stock And Up To $15M Earnout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T10:47:39.500123-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Dell Stock Surging on Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T10:47:50.308638-04:00",
-    "symbols": [
-      "AMD",
-      "ARM",
-      "NVDA"
-    ],
-    "headline": "Everyone Bought Nvidia for AI: Now AMD Could Win the $211 Billion CPU Race, Bank Of America Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T10:50:02.306784-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Senate Passes Bill To Modernize Mental Health Guidance Regulations For Pilots, Air Traffic Controllers",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T10:51:54.303549-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Everyone Bought Nvidia for AI: Now AMD Could Win the $211 Billion CPU Race, Bank Of America Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T10:51:54.419696-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Everyone Bought Nvidia for AI: Now AMD Could Win the $211 Billion CPU Race, Bank Of America Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T10:51:56.001699-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Did Breach Implied Covenant of Good Faith With Nektar Therapeutics, Jury Funds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T10:51:56.391147-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Everyone Bought Nvidia for AI: Now AMD Could Win the $211 Billion CPU Race, Bank Of America Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T10:51:57.880234-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Dell Stock Surging on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T10:51:58.173487-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Senate Passes Bill To Modernize Mental Health Guidance Regulations For Pilots, Air Traffic Controllers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T10:51:58.610161-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "Everyone Bought Nvidia for AI: Now AMD Could Win the $211 Billion CPU Race, Bank Of America Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T10:57:04.147389-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "We Asked 3 AI Chatbots for Next Week&#39;s Top Stock Picks. They All Said Micron.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:03:53.645570-04:00",
-    "symbols": [
-      "INLF",
-      "MSGY"
-    ],
-    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:07:12.095585-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Secretary Bessent, On Social Media, Says Had A Productive Call With Japanese Finance Minister Satsuki Katayama; Our Conversation Built On President Trump\u2019s Discussion With Prime Minister Sanae Takaichi Earlier This Week; We Discussed The Desirability Of A Strong Yen That Reflects Japan\u2019s Strong Economic Fundamentals, And The Importance Of Staying In Close Communication On Currency Markets",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:08:04.070835-04:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:08:04.831968-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:08:07.261178-04:00",
-    "symbols": [
-      "MGLD"
-    ],
-    "headline": "Dow Gains 150 Points; US Durable Goods Orders Flat In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:09:44.830781-04:00",
-    "symbols": [
-      "AAPL",
-      "AVGO",
-      "CAT",
-      "DIA",
-      "GE",
-      "IWM",
-      "META",
-      "MSFT",
-      "NFLX",
-      "QQQ",
-      "SPY",
-      "XOM"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:13:50.880196-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "China&#39;s Xi Agreed With Trump To Add New Substance To U.S.-China Relationship; U.S.-China Relationship Will Be One Of Strategic Stability Based On Respect, Fairness And Reciprocity",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:13:59.635530-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:13:59.927755-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:14:00.850626-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:14:02.142009-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:14:02.959070-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:14:04.505649-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:17:16.142708-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Meta Platforms, Raises Price Target to $950",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:17:40.531953-04:00",
-    "symbols": [
-      "DDOG",
-      "QCOM",
-      "QMCO"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:18:09.223692-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Is Preparing For A Customer That Can\u2019t Open An Account",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-25T11:24:21.609795-04:00",
     "symbols": [
       "CAT"
@@ -5092,6 +4786,296 @@
     "headline": "Truist Securities Maintains Buy on Riskified, Raises Price Target to $9",
     "source": "benzinga",
     "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:10.219592-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:21:10.400102-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:10.404815-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:10.786463-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:11.451103-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:21:11.722367-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:21:11.941156-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:12.136853-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:21:12.314781-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-28T11:21:13.387496-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:21:14.522516-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:14.639204-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:14.936911-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:17.698398-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:18.197614-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:18.391015-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:21:18.884372-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.029093-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:19.033675-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:21:19.178616-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.311473-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "DataMeds AI Stock Surges on Mobile App Launch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.446597-04:00",
+    "symbols": [
+      "VWAV"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:21:19.579191-04:00",
+    "symbols": [
+      "KOD"
+    ],
+    "headline": "Regeneron Eylea Feels the Pinch as Kodiak Advances Extended Dosing for Eye Drug",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.737108-04:00",
+    "symbols": [
+      "ACET"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on Adicet Bio, Raises Price Target to $34",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.741803-04:00",
+    "symbols": [
+      "ACET"
+    ],
+    "headline": "Adicet Bio Announces Safety And Efficacy Data From Phase 1 Study Evaluating Prulacabtagene Leucel In Patients With Systemic Lupus Erythematosus With Or Without Lupus Nephritis; Prula-Cel Generally Well Tolerated With No CRS Greater Than Grade 2 And No IEC-HS Or ICANS",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.746458-04:00",
+    "symbols": [
+      "ACET"
+    ],
+    "headline": "Why Webuy Global Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.887769-04:00",
+    "symbols": [
+      "DPRO"
+    ],
+    "headline": "EXCLUSIVE: Draganfly Secures $10M Strategic Investment from Unusual Machines And A US Investment Fund of $5M Each To Support and Expand Drone Manufacturing; Investment Offering Was Made for 1.869M Shares At $5.35/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:19.892459-04:00",
+    "symbols": [
+      "DPRO"
+    ],
+    "headline": "EXCLUSIVE: Draganfly Secures $10 Million Strategic Capital to Scale Drone Manufacturing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:21:20.361336-04:00",
+    "symbols": [
+      "PPA"
+    ],
+    "headline": "Why Is Boeing Stock Falling Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

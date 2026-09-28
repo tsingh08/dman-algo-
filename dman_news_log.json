@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-25T12:54:03.186209-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Akamai Jumps on Anthropic Deal, 30-Year Yields Top 5.5%: Stock Market Today (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:54:04.577486-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Akamai Jumps on Anthropic Deal, 30-Year Yields Top 5.5%: Stock Market Today (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:54:05.913420-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Akamai Jumps on Anthropic Deal, 30-Year Yields Top 5.5%: Stock Market Today (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:54:06.170602-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Akamai Jumps on Anthropic Deal, 30-Year Yields Top 5.5%: Stock Market Today (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:54:09.005087-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "FTC Chair Says Will Resist Anthropomorphizing Of AI Agent Tools As Long As Chairman; Says Use Of Substantial Personal Data In Non-Traditional Products Should Be Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T12:54:09.010239-04:00",
     "symbols": [
       "ORCL"
@@ -5067,5 +5017,58 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:30:09.784927-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Stock Wins Analyst Backing Ahead of 2027 Superion Launch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:30:41.707842-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "headline": "Meta Is Coming for Europe\u2019s Bond Market: AI Debt Is Going Global",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:30:43.461917-04:00",
+    "symbols": [
+      "ROC"
+    ],
+    "headline": "Craig-Hallum Initiates Coverage On Rank One Computing with Buy Rating, Announces Price Target of $6.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:30:43.699490-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:30:54.143970-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What Is Going on With Amazon Stock on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

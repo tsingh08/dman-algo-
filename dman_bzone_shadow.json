@@ -218,5 +218,55 @@
 "extension_pct": 20.0,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "KOD",
+"date": "2026-09-28",
+"close": 89.92,
+"base_days": 126,
+"above_low_pct": 675.2,
+"extension_pct": 163.0,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "AGEN",
+"date": "2026-09-28",
+"close": 9.43,
+"base_days": 296,
+"above_low_pct": 240.4,
+"extension_pct": 21.7,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "TXG",
+"date": "2026-09-28",
+"close": 88.5,
+"base_days": 1,
+"above_low_pct": 680.4,
+"extension_pct": 25.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ABCL",
+"date": "2026-09-28",
+"close": 13.92,
+"base_days": 6,
+"above_low_pct": 400.7,
+"extension_pct": 18.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SECZ",
+"date": "2026-09-28",
+"close": 16.63,
+"base_days": 1,
+"above_low_pct": 208.5,
+"extension_pct": 75.0,
+"fresh_base": false,
+"weak_band": false
 }
 ]

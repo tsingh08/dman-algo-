@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:34:43.582631-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Supreme Court Restores Trump Administration&#39;s Mass Voter Verification System",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:35:23.002712-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "TLT ETF Hits Record Low as Treasury Yields Hover Near 5.2%: Long-Duration Bond Pain Deepens",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T11:43:47.414683-04:00",
     "symbols": [
       "MSFT"
@@ -5077,5 +5057,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T12:36:54.440046-04:00",
+    "symbols": [
+      "KOD"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on Kodiak Sciences, Raises Price Target to $96",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T12:37:05.455944-04:00",
+    "symbols": [
+      "AAPL",
+      "QCOM"
+    ],
+    "headline": "What Is Going on With Qualcomm Stock on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

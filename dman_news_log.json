@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:26:33.323456-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Is Preparing For A Customer That Can\u2019t Open An Account",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-25T11:26:34.590427-04:00",
     "symbols": [
       "GE"
@@ -5076,6 +5066,17 @@
     ],
     "headline": "Jefferies Initiates Coverage On Q32 Bio with Buy Rating, Announces Price Target of $29",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T12:12:39.301537-04:00",
+    "symbols": [
+      "RIVN",
+      "TSLA"
+    ],
+    "headline": "Shares of automakers are trading lower as continuing increases in oil prices and bond yields threaten to make consumer financing for new car purchases and corporate borrowing for maintenance and expansion capex more expensive.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-28T09:26:21.917146-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Announces $150B Increase To Buyback Program, Bringing Remaining Authorization To $235B Through FY2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.190816-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T09:26:22.195372-04:00",
     "symbols": [
       "AMD"
@@ -5077,5 +5057,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:50:44.769820-04:00",
+    "symbols": [
+      "CRM",
+      "ORCL",
+      "RIOT"
+    ],
+    "headline": "Shares of software companies are trading lower as rising oil prices and Treasury yields weigh on broader market sentiment. Elevated energy prices are fueling inflation concerns and expectations for interest rates to remain elevated, potentially pressuring growth-oriented stocks.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:53:14.612381-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Launches Team Bots For Collaborative AI Workflows; Team Bots Available In Public Beta For Teams And Enterprise Plans",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

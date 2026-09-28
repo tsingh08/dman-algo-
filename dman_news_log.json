@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:25:12.956960-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:25:13.234706-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:25:13.489989-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:25:17.394544-04:00",
-    "symbols": [
-      "QMCO"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T11:25:20.807328-04:00",
     "symbols": [
       "AKAM"
@@ -5077,5 +5037,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:43:24.035929-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Shares of software companies are trading lower as rising oil prices and Treasury yields weigh on broader market sentiment. Elevated energy prices are fueling inflation concerns and expectations for interest rates to remain elevated, potentially pressuring growth-oriented stocks.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:44:00.149012-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings shares are trading lower. Weakness may be due to sympathy with peer Flutter.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:45:38.419242-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Why Are Snowflake Shares Trading Lower On Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:46:14.334675-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Drops: What&#39;s Going On Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

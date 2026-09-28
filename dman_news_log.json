@@ -1,127 +1,5 @@
 [
   {
-    "ts": "2026-09-25T14:13:42.943959-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:13:44.091373-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "Squeeze Watch: 10 Stocks With Over 33% Short Interest",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-25T14:22:10.230130-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says There Are Lots Of Long Term Questions What AI Will Mean For Inflation",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:23:56.033093-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "What&#39;s Going on With Novo Nordisk Stock on Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T14:26:13.667833-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Likely Underlying Inflation Is Above Target",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:28:33.958334-04:00",
-    "symbols": [
-      "AMZN",
-      "META"
-    ],
-    "headline": "Why Is PayPal Stock Surging on Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T14:28:58.417148-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Sides Of Fed Mandates Are Generally Not In Conflict; Persistently High Inflation Has &#39;Real Costs&#39;, Persistently High Inflation Pressures Wages",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:32:54.284613-04:00",
-    "symbols": [
-      "INLF",
-      "ZS"
-    ],
-    "headline": "Crude Oil Down Over 2%; US Consumer Sentiment Eases In September",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:33:51.447198-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Important For Fed To Deliver On Inflation Mandate; High Inflation Complicates Economic Planning; Fed Policy Is Not Restraining Activity Outside Of Housing",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:42:48.303116-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;White House Eyes Diesel Fuel Moves That Fall Short Of Export Ban&#39; - Politico",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:43:58.704537-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Is PayPal Stock Surging on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T14:43:59.234474-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Why Is PayPal Stock Surging on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-25T14:44:06.275461-04:00",
     "symbols": [
       "ZS"
@@ -5074,6 +4952,126 @@
     ],
     "headline": "DraftKings Stock Dips Due to Flutter&#39;s Weakness",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:30.767915-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI President Greg Brockman Will Be Going To The White House AI Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:35:44.183100-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "OpenAI President Greg Brockman Will Be Going To The White House AI Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:44.188015-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Zuckerberg, Amodei to attend AI White House meeting&#39; - Politico",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:49.040858-04:00",
+    "symbols": [
+      "KOD"
+    ],
+    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:49.486059-04:00",
+    "symbols": [
+      "LFCR"
+    ],
+    "headline": "William Blair Downgrades Lifecore Biomedical to Market Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:52.222383-04:00",
+    "symbols": [
+      "YDES"
+    ],
+    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:52.226250-04:00",
+    "symbols": [
+      "YDES"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:52.229769-04:00",
+    "symbols": [
+      "YDES"
+    ],
+    "headline": "Why Webuy Global Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:52.470952-04:00",
+    "symbols": [
+      "BUR"
+    ],
+    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:54.094897-04:00",
+    "symbols": [
+      "CAAP"
+    ],
+    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:54.321147-04:00",
+    "symbols": [
+      "PACB"
+    ],
+    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:35:54.538157-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

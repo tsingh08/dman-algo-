@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:25:20.807328-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:25:21.062965-04:00",
-    "symbols": [
-      "AESI"
-    ],
-    "headline": "Why Is Atlas Energy Stock Gaining Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T11:25:21.068012-04:00",
-    "symbols": [
-      "AESI"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T11:25:21.951064-04:00",
     "symbols": [
       "MRLN"
@@ -5077,5 +5047,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:53:27.412102-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Makes Its Biggest Enterprise AI Push yet, Zuckerberg Wants Businesses Running on Its AI Stack",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:54:21.933440-04:00",
+    "symbols": [
+      "KNRX"
+    ],
+    "headline": "KNOREX Shares Halted On Circuit Breaker To The Upside, Stock Now Up 325.66%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:55:10.097199-04:00",
+    "symbols": [
+      "AMD",
+      "ORCL"
+    ],
+    "headline": "Hewlett Packard&#39;s Helios Opportunity &#39;Could Be Big&#39;: Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:26:26.822165-04:00",
-    "symbols": [
-      "NXH"
-    ],
-    "headline": "Fathom Holdings And Neighborhood Intelligence Explore Alternative Transaction To Combine Fathom&#39;s Brokerage Business With NXH&#39;s ~$130M Digital Asset Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:27.060905-04:00",
-    "symbols": [
-      "VBIO"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T09:26:27.296388-04:00",
     "symbols": [
       "SOS"
@@ -5072,6 +5052,27 @@
     "headline": "Shares of precious metal-related companies are trading lower as climbing yields and a stronger dollar raise rate-hike expectations. President Trump&#39;s rejection of Iran&#39;s plan to reopen the Strait of Hormuz and a possible diesel export ban are boosting oil prices and contributing to mounting inflationary concerns as regional conflict continues.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:07:20.527563-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Roblox shares are trading lower after Jefferies downgraded the stock from Hold to Underperform and announced a $38 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:08:33.310208-04:00",
+    "symbols": [
+      "MDB",
+      "META"
+    ],
+    "headline": "MongoDB Stock Tumbles: What&#39;s Happening Today",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

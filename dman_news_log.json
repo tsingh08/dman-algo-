@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:38:35.941772-04:00",
-    "symbols": [
-      "PL"
-    ],
-    "headline": "Elon Musk Responds With Two Emojis as Google CEO Sundar Pichai Says Project Suncatcher Heads to Space: &#39;Can Our TPUs Survive...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:45:38.339330-04:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "INLIF Stock Surges Friday: What&#39;s Driving the Action?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:45:58.673397-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Costco Wholesale, Lowers Price Target to $950",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T09:46:25.702260-04:00",
-    "symbols": [
-      "MGLD"
-    ],
-    "headline": "Marygold Companies To Be Taken Private By Madison Dearborn Partners At $2.00 Per Share In Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T09:46:26.037870-04:00",
     "symbols": [
       "AIFF"
@@ -5072,5 +5032,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:19:45.383121-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "TD Cowen Maintains Buy on ExxonMobil Holdings, Raises Price Target to $180",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:19:49.955234-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Chooses To End Starship&#39;s First Orbital Mission Hours Earlier Than Planned; All 26 V3 Starlink Satellites Deployed And Have Made Contact; To De-Orbit In ~40 Minutes",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:20:33.350454-04:00",
+    "symbols": [
+      "COSM"
+    ],
+    "headline": "Cosmos Health&#39;s Cana Laboratories Subsidiary Achieves Over $20M In Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:20:33.711991-04:00",
+    "symbols": [
+      "AMTX"
+    ],
+    "headline": "Aemetis Announces $22.4M Received From Sale Of Section 45Z Clean Fuel Production Tax Credits",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

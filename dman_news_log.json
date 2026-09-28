@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T10:11:37.170741-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "Glucotrack shares are trading lower. The company announced its subsidiary L\u014dkahi Therapeutics will partner with Pepperdine E2B to engage students in its ai2 Pipeline initiative during the upcoming academic year.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T10:11:38.002597-04:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "Jaguar Health Stock Surges Friday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T10:11:38.007759-04:00",
     "symbols": [
       "JAGX"
@@ -5079,5 +5059,40 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:01:25.003473-04:00",
+    "symbols": [
+      "KRSA"
+    ],
+    "headline": "Guggenheim Initiates Coverage On Korsana Biosciences with Buy Rating, Announces Price Target of $70",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:05:59.245230-04:00",
+    "symbols": [
+      "ABBV",
+      "AMZN",
+      "AVGO",
+      "COST",
+      "CVX",
+      "DIA",
+      "IWM",
+      "LLY",
+      "META",
+      "MSFT",
+      "NFLX",
+      "ORCL",
+      "QQQ",
+      "SPY",
+      "TSLA",
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:25:06.705133-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T11:25:08.825595-04:00",
     "symbols": [
       "DDOG"
@@ -5077,5 +5067,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:28:24.947806-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Alphabet, Raises Price Target to $400",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

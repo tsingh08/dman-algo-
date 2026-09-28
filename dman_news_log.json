@@ -1,47 +1,5 @@
 [
   {
-    "ts": "2026-09-28T09:18:52.418480-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "Fed Hike Bets Hit 70%: Gold Just Lost The Argument to a 5.2% Treasury",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T09:23:07.331545-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "What&#39;s Going On With Lucid Stock Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T09:23:35.167444-04:00",
-    "symbols": [
-      "DIA",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Wall Street Dodged the Midterm Slump: Now The &#39;Sweet Spot&#39; Begins",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T09:25:19.362470-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Starship Deploys First Of Twenty-Six Starlink Satellites; Each To Be Deployed Every Minute",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T09:25:51.381834-04:00",
     "symbols": [
       "SKHY"
@@ -5069,6 +5027,46 @@
     ],
     "headline": "Masonglory shares are trading lower after the company announced a $1 million private placement of 667K Class A ordinary shares at $1.50 per share.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:24:13.833529-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Faraday Chairman Warns Cutting China Out of US Robot Supply Chain Too Fast Could Backfire",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T15:24:14.284100-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Options Overpriced A Whole Summer Of Earnings, Here&#39;s The Report Card",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T15:24:18.273051-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With Exxon Mobil Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:24:27.236926-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "What&#39;s Going On With Lucid Stock Monday?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T10:00:36.232851-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Michigan Consumer Sentiment For September 48.1 Vs 47.8 Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T10:01:09.613621-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "MeetKai Announces Six-Country Sovereign AI Rollout On Nvidia With VEON And Kyivstar, Wins Brazil SERPRO Tender; Plans Ukraine AI Data Center Online In 2027",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-25T10:11:37.170741-04:00",
     "symbols": [
       "GCTK"
@@ -5079,5 +5059,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:00:11.871796-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Citi Taps Coinbase to Bring Stablecoin Payments to Large Institutional Clients",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:00:40.415840-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "$100 Invested In Alphabet 15 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

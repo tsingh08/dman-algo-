@@ -1,66 +1,5 @@
 [
   {
-    "ts": "2026-09-25T16:03:31.571072-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T09:11:30.326101-04:00",
-    "symbols": [
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "Trump Administration Ends Fuel Economy Credit Trading In 2028",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T09:12:51.156082-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Options Overpriced A Whole Summer Of Earnings, Here&#39;s The Report Card",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:13:09.791306-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Shares See Volume To Upside; Changes Decision, Decides To Go For Orbit In T- 3 Minutes; 26 Starlink Satellites To Be Deployed",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T09:14:25.027578-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "What&#39;s Going On With Exxon Mobil Stock on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T09:15:48.945328-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "EXCLUSIVE: Faraday Chairman Warns Cutting China Out of US Robot Supply Chain Too Fast Could Backfire",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T09:18:31.760051-04:00",
     "symbols": [
       "SPCX"
@@ -5071,6 +5010,66 @@
     "headline": "President Trump Says Canada Wants To Have A Deal With Us, They Call All The Time; Think A Deal Will Be Made On Canada Trade",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:13:10.071272-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta&#39;s Muse Is a Smash Hit. But Is It Hoovering Up Your Personal Data?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T15:13:17.732991-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:13:25.247696-04:00",
+    "symbols": [
+      "MSGY"
+    ],
+    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:13:27.258144-04:00",
+    "symbols": [
+      "KOD"
+    ],
+    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:13:31.508893-04:00",
+    "symbols": [
+      "KNRX"
+    ],
+    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:13:32.756473-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,267 +1,5 @@
 [
   {
-    "ts": "2026-09-25T12:06:42.622996-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "UBS Maintains Neutral on Oklo, Lowers Price Target to $41",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:07:11.493297-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "AMC vs. Elon Musk: World&#39;s Largest Movie Theater Company to Show Film Billionaire Wants to Disappear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:07:14.006245-04:00",
-    "symbols": [
-      "STEM"
-    ],
-    "headline": "UBS Upgrades Stem to Buy, Maintains Price Target to $7",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:07:14.505913-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "Piper Sandler Reiterates Overweight on Akamai Technologies, Raises Price Target to $158",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:09:33.211991-04:00",
-    "symbols": [
-      "DIA",
-      "GME",
-      "IWM",
-      "META",
-      "NET",
-      "ONON",
-      "ORCL",
-      "QQQ",
-      "ZS"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:12:13.947032-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Roth Capital Reiterates Sell on Costco Wholesale, Maintains $781 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:12:24.150786-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:12:28.330665-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:12:29.946230-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:34.837852-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:35.102707-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:38.430860-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:23:39.191212-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:39.446964-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:46.313095-04:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "What&#39;s Going On With Greenland Energy On Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:46.868443-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "Akamai Jumps On OpenAI Deal, 30-Year Yields Top 5.5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:46.874288-04:00",
-    "symbols": [
-      "AKAM"
-    ],
-    "headline": "UBS Maintains Neutral on Akamai Technologies, Raises Price Target to $148",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:23:49.363947-04:00",
-    "symbols": [
-      "GENI"
-    ],
-    "headline": "JP Morgan Initiates Coverage On Genius Sports with Overweight Rating, Announces Price Target of $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:25:59.564308-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "ORCL"
-    ],
-    "headline": "Microsoft Gives Copilot A Major AI Makeover",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T12:30:54.379500-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Deutsche Bank Maintains Buy on Meta Platforms, Raises Price Target to $820",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:32:50.726350-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo Stock Trades Flat as UBS Cuts Price Target to $41",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T12:42:12.059523-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Gives Copilot A Major AI Makeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T12:42:13.035011-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Microsoft Gives Copilot A Major AI Makeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:42:13.324945-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Microsoft Gives Copilot A Major AI Makeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T12:42:13.664096-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Microsoft Gives Copilot A Major AI Makeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-25T12:42:22.500710-04:00",
     "symbols": [
       "ORCL"
@@ -5075,6 +4813,265 @@
     ],
     "headline": "Why Webuy Global Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:13:39.186608-04:00",
+    "symbols": [
+      "MSGY"
+    ],
+    "headline": "Masonglory Announces $1M Private Placement Of 667K Class A Shares At $1.50 Per Share With Series A And Series B Warrants",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:18.164437-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:19.143741-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Heads Into Earnings as JPMorgan Sees HBM Shortage Lasting Through 2028",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T13:14:20.021201-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace Secures Polish Defense Deal, But Broad Industrial Pullback Weighs on Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:14:21.054056-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealthcare Government Programs CEO Bobby Hunter Says In LinkedIn Post He Is Stepping Into Role As President Of UnitedHealthcare",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:24.666888-04:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:25.154239-04:00",
+    "symbols": [
+      "HUBC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:25.709900-04:00",
+    "symbols": [
+      "LABT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:26.245754-04:00",
+    "symbols": [
+      "MIMI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:26.251983-04:00",
+    "symbols": [
+      "MSGY"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:26.737344-04:00",
+    "symbols": [
+      "NCT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:27.005808-04:00",
+    "symbols": [
+      "ONCO"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:27.325524-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:28.433978-04:00",
+    "symbols": [
+      "XHLD"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:28.719591-04:00",
+    "symbols": [
+      "KOD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:29.449088-04:00",
+    "symbols": [
+      "LFCR"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:29.703691-04:00",
+    "symbols": [
+      "ARAY"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:29.939944-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:30.211792-04:00",
+    "symbols": [
+      "MX"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:31.005380-04:00",
+    "symbols": [
+      "CANG"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:31.536427-04:00",
+    "symbols": [
+      "CSAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:32.250695-04:00",
+    "symbols": [
+      "EGG"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:14:33.431895-04:00",
+    "symbols": [
+      "KNRX"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:15:30.353159-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "AMZN",
+      "ARM",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QCOM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Oil Rises; Meta\u2019s Muse Trade Extends To CPU Stocks Like Intel, AMD, Arm, Qualcomm",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T13:16:48.310079-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Robert (Bobby) Hunter Posts On LinkedIn &#34;I&#39;m excited and grateful to share that I am stepping into a new role as President of UnitedHealthcare...&#34;",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

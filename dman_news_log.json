@@ -1,66 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:46:26.714395-04:00",
-    "symbols": [
-      "BARK"
-    ],
-    "headline": "BARK Shareholder GNK Holdings Mulls Potential $11 Per Share Acquisition Offer For BARK",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:46:27.009028-04:00",
-    "symbols": [
-      "SNX"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on TD Synnex, Raises Price Target to $359",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:46:27.013823-04:00",
-    "symbols": [
-      "SNX"
-    ],
-    "headline": "Dow Drops for Third Session: Investor Sentiment Improves, but Greed Index Remains in \u2018Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:48:36.599947-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "RBC Capital Reiterates Sector Perform on Costco Wholesale, Maintains $1000 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T09:50:53.552225-04:00",
-    "symbols": [
-      "COIN",
-      "HOOD"
-    ],
-    "headline": "XRP, Solana Surge 22% After Clarity Act Failure as Regulatory Moves Lifts Coinbase, Robinhood",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-25T09:51:08.238801-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Goldman Sachs Group, Lowers Price Target to $1175",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-25T09:56:00.491359-04:00",
     "symbols": [
       "COST"
@@ -5072,6 +5011,67 @@
       "SPY"
     ],
     "headline": "USA Dallas Fed Mfg Business Index For September 9.8\tVs 11.6 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:43:21.542424-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "QUICK SPARK: Trump\u2019s $2.5 Billion Investment Week Was 88% Defense",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:43:29.275762-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "QUICK SPARK: Trump\u2019s $2.5 Billion Investment Week Was 88% Defense",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:43:29.560027-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "QUICK SPARK: Trump\u2019s $2.5 Billion Investment Week Was 88% Defense",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:43:41.598804-04:00",
+    "symbols": [
+      "SG"
+    ],
+    "headline": "Wells Fargo Upgrades Sweetgreen to Overweight, Raises Price Target to $11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:44:06.721022-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Stock Climbs Monday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T10:44:08.244001-04:00",
+    "symbols": [
+      "MU",
+      "SPY"
+    ],
+    "headline": "October Brings Volatility, Historically Strong Market Returns: Expert Says Roadmap Favorable",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

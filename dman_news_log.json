@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:43:47.723600-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:43:48.337173-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:43:48.663302-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:43:48.958726-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Slop Economy Warning: VC Expects Another &#39;Vastly Larger&#39; 2008 \u2014 Blame AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:43:56.733339-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "RMX Industries Signs Compute Supply Purchase Order With Technologent For NVIDIA H200 GPUs To Scale QuantrusX",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-25T11:44:07.771143-04:00",
     "symbols": [
       "SNPS"
@@ -5078,5 +5028,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T12:48:08.269018-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What Is Going on With Qualcomm Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T12:48:12.759352-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Why Is SK hynix Stock Falling Monday? (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T12:48:13.008001-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "What Is Going on With Qualcomm Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T12:49:14.864247-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Deutsche Bank Maintains Buy on Costco Wholesale, Lowers Price Target to $1079",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T12:51:08.184780-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Deutsche Bank Reiterates Buy on SpaceX, Maintains $235 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

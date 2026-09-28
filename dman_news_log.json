@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:26:36.958685-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T11:26:37.170539-04:00",
     "symbols": [
       "QQQ"
@@ -5077,6 +5067,16 @@
       "SPY"
     ],
     "headline": "President Trump Is Prepared To Ease Sanctions On Iran And Release Its Frozen Assets In Exchange For Progress On The Nuclear Issue",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T12:29:17.448907-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump open to Iran sanctions relief for \u2018concrete progress\u2019 on nuclear issues, White House official says&#39; - CNN",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

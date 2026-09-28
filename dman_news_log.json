@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T13:13:40.124274-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T13:13:40.366350-04:00",
     "symbols": [
       "INLF"
@@ -5080,6 +5070,16 @@
       "LLY"
     ],
     "headline": "&#34;Lilly CEO Eyes Bigger Deals in Hunt for Pharma\u2019s \u2018White Spaces\u2019&#34; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T13:38:35.142861-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie\u2019s New Parkinson\u2019s Pill Could Become a Billion-Dollar Drug, Analyst Says",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

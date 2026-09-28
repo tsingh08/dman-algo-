@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T09:18:31.760051-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Says Starship Is In Orbit For The First Time; Anticipates Payload Deployment",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T09:18:52.418480-04:00",
     "symbols": [
       "TLT"
@@ -5069,6 +5059,16 @@
     ],
     "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:19:59.495156-04:00",
+    "symbols": [
+      "MSGY"
+    ],
+    "headline": "Masonglory shares are trading lower after the company announced a $1 million private placement of 667K Class A ordinary shares at $1.50 per share.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

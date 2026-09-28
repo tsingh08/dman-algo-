@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-25T14:12:50.029659-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Memory Inflation Is Hitting Costco\u2019s Electronics Business, and It Triggered a $152 Million Charge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T14:12:50.929402-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says The Biggest Risk With Inflation Is The Formation Of An Inflationary Mindset; Public Has Been Dealing With Above Target Inflation For Extended Period; Growth Has Held Up Well, Job Market Is Stable; Worries About Demand Related Pressure On Inflation; Capital Expenditures Will Pressure Inflation For A While; If We Don&#39;t Make Progress Lowering Inflation, Expectations Could Shift; Fed Needs To Make Sure Policy Is At A Restrictive Stance To Lower Inflation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:12:51.802005-04:00",
-    "symbols": [
-      "SHMD"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:12:51.806566-04:00",
-    "symbols": [
-      "SHMD"
-    ],
-    "headline": "Reported Earlier: &#39;Germany&#39;s SCHMID Says It Is in Talks With Suppliers to Nvidia, Intel and AMD; Glass Boosts Speed and Cuts Power Use Compared With Plastic Substrates; Jensen Huang Discussed Glass Substrates With Chey Tae-won&#39; - Seoul Economic Daily",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:12:51.811084-04:00",
-    "symbols": [
-      "SHMD"
-    ],
-    "headline": "SCHMID Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 12.71%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:12:52.027384-04:00",
-    "symbols": [
-      "KDK"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:12:52.958251-04:00",
-    "symbols": [
-      "PRME"
-    ],
-    "headline": "Prime Medicine Gets FDA Green Light for Gene Editing Study",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T14:13:35.994217-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Peter Thiel: Palantir Sales to US Corporations Accelerated &#39;Tremendously&#39; As Europe Falls Behind in AI",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T14:13:40.384561-04:00",
     "symbols": [
       "RXRX"
@@ -5074,6 +4994,86 @@
     ],
     "headline": "Strong Refining Will Drive Chevron, ExxonMobil Q3 Results: Analyst",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:18:56.425494-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock Gains on Record Buyback: Jim Cramer Gets His Wish",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:18:56.912908-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T14:18:57.115900-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:19:00.444614-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Strong Refining Will Drive Chevron, ExxonMobil Q3 Results: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:19:00.449338-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Trump Offers Iran Sanctions Relief for Nuclear Progress as Traders Raise Deal Odds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:19:03.743487-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Strong Refining Will Drive Chevron, ExxonMobil Q3 Results: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:19:05.893791-04:00",
+    "symbols": [
+      "NCI"
+    ],
+    "headline": "Dow Dips Over 200 Points; Dallas Fed\u2019s Manufacturing Index Declines In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:19:07.210301-04:00",
+    "symbols": [
+      "POR"
+    ],
+    "headline": "UBS Maintains Neutral on Portland General Electric, Lowers Price Target to $50",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

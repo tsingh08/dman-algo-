@@ -1,79 +1,5 @@
 [
   {
-    "ts": "2026-09-25T16:00:59.382399-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "HUB Cyber Security Receives Nasdaq Noncompliance Notice",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T16:02:05.618644-04:00",
-    "symbols": [
-      "AMD",
-      "META",
-      "MRNA",
-      "MU",
-      "NVDA"
-    ],
-    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-25T16:03:12.227122-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T16:03:12.492758-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-25T16:03:12.763235-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T16:03:14.632514-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T16:03:16.266868-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "AMD Hits $1 Trillion, Muse Spooks Subscription Stocks: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T16:03:31.571072-04:00",
     "symbols": [
       "AKAM"
@@ -5071,6 +4997,80 @@
     "headline": "Nvidia\u2019s $150B Buyback Has Traders Piling into this ETF",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T14:59:31.339703-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "MRVL",
+      "QCOM"
+    ],
+    "headline": "Shares of semiconductor companies are trading lower amid growing inflation concerns and rate-hike expectations as oil prices and rising yields weigh on growth stocks.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:01:51.961931-04:00",
+    "symbols": [
+      "MDB",
+      "MSGY"
+    ],
+    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:02:05.978355-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;OpenAI\u2019s AI agents need to catch up&#39;: OpenAI Rumored To Unveil &#39;Aeon&#39; Consumer AI Agent At DevDay On Tuesday - The Verge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T15:02:05.984389-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;OpenAI\u2019s AI agents need to catch up&#39;: OpenAI Rumored To Unveil &#39;Aeon&#39; Consumer AI Agent At DevDay On Tuesday - The Verge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T15:02:06.052789-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Will Win Iran War Very Soon And Gas Prices Will Come Tumbling; U.S. Officials Spoke With Iran Mediators Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T15:02:50.307922-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Posts On X &#34;Roadster event update. We&#39;ve been tracking the weather closely with local meteorologists, but given the severe conditions predicted &amp; because this event can only be held outdoors, we&#39;ve made the difficult decision to reschedule. New date is October 15. Additional details to follow&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T15:03:40.972561-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Canada Wants To Have A Deal With Us, They Call All The Time; Think A Deal Will Be Made On Canada Trade",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

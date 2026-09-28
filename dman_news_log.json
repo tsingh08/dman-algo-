@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:26:24.104455-04:00",
-    "symbols": [
-      "STEM"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:24.340471-04:00",
-    "symbols": [
-      "AESI"
-    ],
-    "headline": "Atlas Energy Solutions Signs Cost Reimbursement Agreements With Unnamed AI Lab For Data Center Power Equipment; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:24.345119-04:00",
-    "symbols": [
-      "AESI"
-    ],
-    "headline": "Why INLIF Shares Are Trading Higher By Around 78%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:24.349721-04:00",
-    "symbols": [
-      "AESI"
-    ],
-    "headline": "Atlas Energy Solutions&#39; Shackelford Contracts With Wyoming Machinery Company For ~$340.5M In BoP Equipment And 328 MW Generator Equipment For ~$273M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:24.581939-04:00",
-    "symbols": [
-      "IFBD"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:26:24.586579-04:00",
-    "symbols": [
-      "IFBD"
-    ],
-    "headline": "Why INLIF Shares Are Trading Higher By Around 78%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T09:26:24.591191-04:00",
     "symbols": [
       "IFBD"
@@ -5066,5 +5006,69 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T09:55:39.656261-04:00",
+    "symbols": [
+      "NVDA",
+      "NVO"
+    ],
+    "headline": "Anthropic Claude\u2019s Claimed Breakthrough in Biology Faces a Major Question \u2014 Scientist Says He Had Already Studied the Enzymes for 4 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T09:55:53.983439-04:00",
+    "symbols": [
+      "KNRX"
+    ],
+    "headline": "KNOREX Shares Halted On Circuit Breaker To The Upside, Stock Now Up 190.79%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T09:58:04.811193-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "HSBC Maintains Hold on JPMorgan Chase, Raises Price Target to $377",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T09:58:36.116186-04:00",
+    "symbols": [
+      "AVGO",
+      "META",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "Oracle, Meta Financing Methods Mirror Enron Era, Steve Eisman Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T09:59:06.519615-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Jefferies Downgrades Roblox to Underperform, Announces $38 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:00:26.203926-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia shares are trading higher after the company announced a $150 billion increase to its share repurchase program.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

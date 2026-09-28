@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-28T09:26:22.456778-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Apple Had the Blueprint for a Lighter Vision Pro But Scrapped It\u2014Now Meta\u2019s $1,299 VR Glasses Could Succeed Where AAPL Struggled",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.697627-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Meta, Google, Amazon, Microsoft draw Sen. Warren questions about AI tax subsidies&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T09:26:22.703381-04:00",
     "symbols": [
       "GOOGL"
@@ -5077,6 +5057,26 @@
       "MSTR"
     ],
     "headline": "Crypto Stock Short Squeeze? Investors Are Shorting These 3 Stocks to Hedge Bitcoin\u2019s Rise",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T16:03:07.183682-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "The Stablecoin Yield Fight Is Far From Over\u2014Here\u2019s What Comes Next",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T16:03:36.798433-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Watching Cerebras Systems; Traders Circulate The Company Will Be Hosting An Event Titled &#39;DevDay AfterParty By Cerebras x OpenAI&#39; On Tuesday, September 29",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

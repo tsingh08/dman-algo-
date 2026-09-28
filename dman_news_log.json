@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-25T15:08:33.492750-04:00",
-    "symbols": [
-      "SCHL"
-    ],
-    "headline": "Scholastic Posts Downbeat Q1 Results, Joins Legacy Education, Zscaler And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T15:08:33.497238-04:00",
-    "symbols": [
-      "SCHL"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq Futures Rise Amid Optimism Following Iran\u2019s Offer To Reopen Strait of Hormuz \u2014 AKAM, COST, SCHL In Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T15:08:33.501746-04:00",
     "symbols": [
       "SCHL"
@@ -5074,5 +5054,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:45:15.179693-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s $150B Buyback Has Traders Piling into this ETF",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T14:46:53.892132-04:00",
+    "symbols": [
+      "GOOGL",
+      "VRTX"
+    ],
+    "headline": "Alphabet To Rally More Than 16%? Here Are 10 Top Analyst Forecasts For Monday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

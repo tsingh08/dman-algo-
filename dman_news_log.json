@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:25:08.825595-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Akamai, Atlas Energy Solutions, People And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-25T11:25:10.369147-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-25T11:25:10.375433-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "9 Of 11 Sectors Fall In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T11:25:12.956960-04:00",
     "symbols": [
       "SPY"
@@ -5077,5 +5047,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T11:36:42.562319-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;An AI Operating System, Not a Chatbot&#39;: Oppenheimer Hails Microsoft&#39;s Enterprise Advantage",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:39:54.173577-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s AI Boom Has a Hidden Dependency: One Dutch Company",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-28T11:41:15.170652-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks shares are trading higher after BTIG maintained its Buy rating on the stock and raised its price target from $404 to $425.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

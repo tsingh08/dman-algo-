@@ -17247,10 +17247,25 @@ class TestSignalFeatureLog(unittest.TestCase):
         a._log_signal_features(object(), {}, taken=False)   # no attributes at all
 
     def test_the_log_is_capped(self):
+        """Five DISTINCT signals, because five copies of ONE signal is now a
+        single row -- which is the fix, not a regression. Written originally with
+        the same ticker five times, when every re-score appended."""
         with patch.object(a, "SIGNAL_FEATURES_MAX", 3):
-            for _ in range(5):
-                a._log_signal_features(self._sig(), {"regime": "BULL"}, taken=True)
+            for t in ("NVDA", "AMD", "MU", "ARM", "AVGO"):
+                _s = self._sig()
+                _s.ticker = t
+                a._log_signal_features(_s, {"regime": "BULL"}, taken=True)
         self.assertEqual(len(json.load(open(self.tmp))), 3)
+
+    def test_the_cap_counts_signals_not_rescores(self):
+        """The reason the change was worth making: SIGNAL_FEATURES_MAX now bounds
+        distinct signals, so real history is not evicted by re-scores of one."""
+        with patch.object(a, "SIGNAL_FEATURES_MAX", 3):
+            for _ in range(20):
+                a._log_signal_features(self._sig(), {"regime": "BULL"}, taken=True)
+        _rows = json.load(open(self.tmp))
+        self.assertEqual(len(_rows), 1)
+        self.assertEqual(_rows[0]["seen"], 20)
 
     def test_the_scanner_logs_every_scored_signal(self):
         self.assertIn("_log_signal_features(sig, regime", inspect.getsource(a.run_pro_scanner))
@@ -17320,9 +17335,20 @@ class TestSignalLabelling(unittest.TestCase):
             self.assertEqual(a.label_signal_features(verbose=False), 0)
 
     def test_the_report_needs_a_real_sample(self):
-        self._write([dict(self._row(), label_outcome="WIN", label_pnl_pct=5.0) for _ in range(3)])
+        """Distinct tickers, because identical rows are now one signal.
+
+        As written this test asserted the DEFECT: six copies of one row clearing
+        min_n=5. That is exactly how the guard was being satisfied in production
+        -- 319 logged rows were 21 signals, so a bucket showing n=30 could be two
+        signals re-scored. Sample size means distinct signals now, and
+        TestSignalFeatureDedup holds the other half: six copies must NOT clear 5.
+        """
+        def _n(k):
+            return [dict(self._row(), ticker=f"T{i}",
+                         label_outcome="WIN", label_pnl_pct=5.0) for i in range(k)]
+        self._write(_n(3))
         self.assertFalse(any("catalyst B" in l for l in a.report_signal_features(min_n=5)))
-        self._write([dict(self._row(), label_outcome="WIN", label_pnl_pct=5.0) for _ in range(6)])
+        self._write(_n(6))
         self.assertTrue(any("catalyst" in l for l in a.report_signal_features(min_n=5)))
 
     def test_modes_are_exposed(self):
@@ -21249,3 +21275,154 @@ class TestBriefingMatchesTheGate(unittest.TestCase):
             a.check_earnings_safe("AAA")
             a.check_earnings_safe("BBB")
         self.assertEqual(tg.call_count, 1)
+
+
+class TestSignalFeatureDedup(unittest.TestCase):
+    """One signal must be one row. The scanner re-scores a live signal every
+    cycle, and this file took an append per score: measured 2026-09-28, 563 rows
+    were 20 distinct signals, MSTU alone holding 25 copies of one Gap & Hold with
+    identical stop and score. Every copy carried the same outcome label, so the
+    replay win rate was weighted by scan cadence; report_signal_features() read
+    row count as sample size, so min_n=5 was met by one signal logged five times;
+    and SIGNAL_FEATURES_MAX was consumed ~15x too fast, capping real history at a
+    few hundred signals instead of a few thousand."""
+
+    def _row(self, **kw):
+        base = dict(ts="2026-09-21T10:00:00", date="2026-09-21", ticker="MSTU",
+                    setup="Gap & Hold", entry=48.0, stop=45.8, taken=False,
+                    reject="score", atr=4.0)
+        base.update(kw)
+        return base
+
+    # --- collapsing ---------------------------------------------------------
+    def test_copies_of_one_signal_collapse_to_one_row(self):
+        rows = [self._row(ts=f"2026-09-21T1{i}:00:00", entry=47.0 + i * 0.3)
+                for i in range(5)]
+        out = a._dedupe_feature_rows(rows)
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["seen"], 5)
+
+    def test_the_first_sighting_is_the_kept_entry(self):
+        """The replay labeller works from entry, so it must be the price at the
+        moment the signal appeared, not wherever it drifted to by 16:03."""
+        rows = [self._row(ts="2026-09-21T09:57:00", entry=47.14),
+                self._row(ts="2026-09-21T16:03:00", entry=48.59)]
+        out = a._dedupe_feature_rows(rows)
+        self.assertAlmostEqual(out[0]["entry"], 47.14)
+
+    def test_entry_drift_is_kept_as_a_range_not_discarded(self):
+        rows = [self._row(ts="2026-09-21T09:57:00", entry=47.14),
+                self._row(ts="2026-09-21T12:00:00", entry=48.59),
+                self._row(ts="2026-09-21T16:03:00", entry=47.90)]
+        out = a._dedupe_feature_rows(rows)
+        self.assertAlmostEqual(out[0]["entry_min"], 47.14)
+        self.assertAlmostEqual(out[0]["entry_max"], 48.59)
+
+    def test_distinct_signals_are_not_merged(self):
+        rows = [self._row(), self._row(ticker="AMD"),
+                self._row(date="2026-09-22"), self._row(setup="Morning Runner")]
+        self.assertEqual(len(a._dedupe_feature_rows(rows)), 4)
+
+    def test_ticker_case_does_not_split_a_signal(self):
+        rows = [self._row(ticker="mstu"), self._row(ticker="MSTU")]
+        self.assertEqual(len(a._dedupe_feature_rows(rows)), 1)
+
+    # --- what a merge must never lose --------------------------------------
+    def test_taken_wins_over_rejected(self):
+        """Whichever scan cycle recorded the fill, the signal was taken -- and
+        its earlier reject reason is then stale, not a second opinion."""
+        rows = [self._row(ts="2026-09-21T10:00:00", taken=False, reject="score"),
+                self._row(ts="2026-09-21T11:00:00", taken=True, reject="")]
+        out = a._dedupe_feature_rows(rows)
+        self.assertTrue(out[0]["taken"])
+        self.assertEqual(out[0]["reject"], "")
+
+    def test_a_label_on_a_later_copy_is_not_discarded(self):
+        rows = [self._row(ts="2026-09-21T10:00:00"),
+                self._row(ts="2026-09-21T11:00:00", label_outcome="WIN",
+                          label_pnl_pct=6.0)]
+        out = a._dedupe_feature_rows(rows)
+        self.assertEqual(out[0]["label_outcome"], "WIN")
+
+    def test_an_already_deduped_row_keeps_its_count(self):
+        """Idempotent: running it twice must not reset seen to 1."""
+        once = a._dedupe_feature_rows([self._row(ts=f"2026-09-21T1{i}:00:00")
+                                       for i in range(4)])
+        twice = a._dedupe_feature_rows(once)
+        self.assertEqual(twice[0]["seen"], once[0]["seen"])
+
+    # --- the write path -----------------------------------------------------
+    def _log(self, tmp, **kw):
+        sig = SimpleNamespace(ticker=kw.get("ticker", "MSTU"),
+                              setup=kw.get("setup", "Gap & Hold"), bias="LONG",
+                              confluence_score=70, final_score=70,
+                              entry=kw.get("entry", 48.0), stop=45.8, target1=52.0,
+                              rr=1.8, rsi=60, rvol=3.0, atr=4.0, beta=1.0,
+                              catalyst_tier="C", news_boost=False, mtf_ok=True,
+                              regime_ok=True, earnings_ok=True, macro_ok=True,
+                              divergence_free=True, score_breakdown={})
+        with patch.object(a, "SIGNAL_FEATURES_FILE", tmp):
+            a._log_signal_features(sig, {"regime": "CHOP", "score": 14},
+                                   kw.get("taken", False), kw.get("reject", ""))
+
+    def test_rescoring_upserts_instead_of_appending(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            for px in (47.1, 47.6, 48.2):
+                self._log(f, entry=px)
+            rows = json.load(io.open(f, encoding="utf-8"))
+        self.assertEqual(len(rows), 1, "three re-scores must be one row")
+        self.assertEqual(rows[0]["seen"], 3)
+        self.assertAlmostEqual(rows[0]["entry"], 47.1)
+        self.assertAlmostEqual(rows[0]["entry_max"], 48.2)
+
+    def test_a_different_signal_still_appends(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            self._log(f)
+            self._log(f, ticker="AMD")
+            rows = json.load(io.open(f, encoding="utf-8"))
+        self.assertEqual(len(rows), 2)
+
+    def test_a_later_fill_flips_the_stored_row_to_taken(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            self._log(f, taken=False, reject="score too low")
+            self._log(f, taken=True)
+            rows = json.load(io.open(f, encoding="utf-8"))
+        self.assertEqual(len(rows), 1)
+        self.assertTrue(rows[0]["taken"])
+        self.assertEqual(rows[0]["reject"], "")
+
+    def test_the_row_cap_now_holds_signals_not_copies(self):
+        """The point of the write change: SIGNAL_FEATURES_MAX bounds signals."""
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            for _ in range(40):
+                self._log(f)
+            self.assertEqual(len(json.load(io.open(f, encoding="utf-8"))), 1)
+
+    # --- the report ---------------------------------------------------------
+    def test_the_report_counts_signals_not_rows(self):
+        rows = [self._row(ts=f"2026-09-21T1{i}:00:00", label_outcome="LOSS",
+                          label_pnl_pct=-3.0) for i in range(6)]
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            io.open(f, "w", encoding="utf-8").write(json.dumps(rows))
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                out = chr(10).join(a.report_signal_features(min_n=1))
+        self.assertIn("1 labelled signal(s)", out)
+        self.assertIn("re-scored", out)
+        self.assertNotIn("6 labelled", out)
+
+    def test_min_n_can_no_longer_be_met_by_one_repeated_signal(self):
+        """The guard that protects weight changes: six copies of one loss must
+        not clear a min_n of 5."""
+        rows = [self._row(ts=f"2026-09-21T1{i}:00:00", label_outcome="LOSS",
+                          label_pnl_pct=-3.0) for i in range(6)]
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            io.open(f, "w", encoding="utf-8").write(json.dumps(rows))
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                out = chr(10).join(a.report_signal_features(min_n=5))
+        self.assertNotIn("n=6", out)

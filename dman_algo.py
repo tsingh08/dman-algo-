@@ -7583,6 +7583,80 @@ def _mark_signals_taken(tickers) -> int:
         return 0
 
 
+def _signal_feature_key(row: dict) -> tuple:
+    """One signal = one (date, ticker, setup). See _dedupe_feature_rows()."""
+    return (str(row.get("date", "")), str(row.get("ticker", "")).upper(),
+            str(row.get("setup", "")))
+
+
+def _dedupe_feature_rows(rows: list) -> list:
+    """Collapse re-logged copies of the same signal into one row.
+
+    The scanner scores the same live signal on every cycle and this file used to
+    take an append per score. Measured 2026-09-28: 563 rows were 42 distinct
+    (ticker, date, setup, entry, stop) tuples and only 20 distinct signals --
+    MSTU alone held 25 copies of one Gap & Hold, identical stop and identical
+    score, entries drifting 47.14 -> 48.59 between 09:57 and 16:03.
+
+    Three things went wrong because of it, none of them visible in the file:
+
+      1. Every copy carries the SAME outcome label, so a single loss counted 25
+         times. The replay win rate was weighted by how often a signal happened
+         to be re-scored, not by signal.
+      2. report_signal_features() read row count as sample size, and its min_n
+         guard was satisfied by one signal logged five times -- so the report
+         that authorises weight changes was reading scan cadence as evidence.
+      3. SIGNAL_FEATURES_MAX (4000) was being consumed ~15x too fast, which
+         caps real history at a few hundred signals rather than a few thousand.
+         That is the binding constraint on having enough data to model at all.
+
+    Keeps the FIRST sighting, because that is the live decision point and the
+    price the replay labeller works from. Carries forward what the later copies
+    genuinely add -- how many times it re-fired, when it was last seen, and how
+    far the entry drifted -- as fields instead of as rows.
+
+    Deliberate limit: a genuinely separate re-entry on the same name, same setup,
+    later the same day merges into one row. That is the intended trade. Keying on
+    entry as well is what produced 42 rows for 20 signals, and for every
+    statistical purpose here one signal per name per setup per day is the unit we
+    actually want. entry_min/entry_max keep the drift visible rather than lost.
+    """
+    out: dict = {}
+    for r in sorted(rows or [], key=lambda x: str(x.get("ts", ""))):
+        k = _signal_feature_key(r)
+        cur = out.get(k)
+        if cur is None:
+            r = dict(r)
+            r["seen"] = int(r.get("seen") or 1)
+            _e = r.get("entry")
+            r.setdefault("entry_min", _e)
+            r.setdefault("entry_max", _e)
+            r.setdefault("last_ts", r.get("ts"))
+            out[k] = r
+            continue
+        cur["seen"] = int(cur.get("seen") or 1) + int(r.get("seen") or 1)
+        cur["last_ts"] = r.get("ts") or cur.get("last_ts")
+        try:
+            _e = float(r.get("entry") or 0)
+            if _e > 0:
+                _lo, _hi = cur.get("entry_min"), cur.get("entry_max")
+                cur["entry_min"] = _e if _lo in (None, 0) else min(float(_lo), _e)
+                cur["entry_max"] = _e if _hi in (None, 0) else max(float(_hi), _e)
+        except (TypeError, ValueError):
+            pass
+        # A signal that was eventually taken is a taken signal, whichever copy
+        # recorded the fill.
+        if r.get("taken"):
+            cur["taken"] = True
+            cur["reject"] = ""
+        # Never let a merge discard a label that replay already computed.
+        for _lf in ("label_outcome", "label_fill", "label_exit_reason",
+                    "label_ret_pct", "label_r"):
+            if r.get(_lf) not in (None, "") and cur.get(_lf) in (None, ""):
+                cur[_lf] = r[_lf]
+    return list(out.values())
+
+
 def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = "") -> None:
     """Append one feature row per scored signal. Never raises, never decides."""
     try:
@@ -7616,7 +7690,36 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
                 _log = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             _log = []
-        _log.append(_row)
+        # Upsert, not append -- see _dedupe_feature_rows() for what appending
+        # cost. The first sighting stays as the decision point; a re-score only
+        # bumps the counters.
+        _key = _signal_feature_key(_row)
+        _hit = None
+        for _existing in reversed(_log):
+            if _signal_feature_key(_existing) == _key:
+                _hit = _existing
+                break
+        if _hit is None:
+            _row["seen"] = 1
+            _row["last_ts"] = _row["ts"]
+            _row["entry_min"] = _row["entry_max"] = _row.get("entry")
+            _log.append(_row)
+        else:
+            _hit["seen"] = int(_hit.get("seen") or 1) + 1
+            _hit["last_ts"] = _row["ts"]
+            try:
+                _e = float(_row.get("entry") or 0)
+                if _e > 0:
+                    _lo, _hi = _hit.get("entry_min"), _hit.get("entry_max")
+                    _hit["entry_min"] = _e if _lo in (None, 0) else min(float(_lo), _e)
+                    _hit["entry_max"] = _e if _hi in (None, 0) else max(float(_hi), _e)
+            except (TypeError, ValueError):
+                pass
+            # Taken wins: a signal that filled is taken regardless of which
+            # scan cycle recorded it, and its reject reason is then stale.
+            if taken:
+                _hit["taken"] = True
+                _hit["reject"] = ""
         _write_json_atomic(SIGNAL_FEATURES_FILE, _log[-SIGNAL_FEATURES_MAX:], indent=0)
     except Exception as exc:
         _log_swallowed("signal features", exc)
@@ -7713,14 +7816,30 @@ def report_signal_features(min_n: int = 5) -> list[str]:
     sample size next to it, so a 3-signal bucket cannot masquerade as a
     finding. This is the report that should decide weight changes -- not a
     model, and not a hunch.
+
+    Deduped before anything is counted. Until 2026-09-28 this read the raw rows,
+    and the raw rows were ~15 copies per signal, so min_n=5 was satisfied by ONE
+    signal logged five times and every bucket win rate was weighted by scan
+    cadence. The rule "weights change only when the report says so" is only a
+    safeguard if the report counts signals; this is what makes it count signals.
+    Legacy rows written before the write-side upsert are collapsed here, so the
+    numbers are correct immediately rather than after the file rotates.
     """
     try:
         with open(SIGNAL_FEATURES_FILE) as f:
-            rows = [r for r in json.load(f) if r.get("label_outcome")]
+            _all = json.load(f)
+        _raw_n = sum(1 for r in _all if r.get("label_outcome"))
+        rows = [r for r in _dedupe_feature_rows(_all) if r.get("label_outcome")]
     except (FileNotFoundError, json.JSONDecodeError):
-        rows = []
+        rows, _raw_n = [], 0
     if not rows:
         return ["No labelled signals yet."]
+    _lines_hdr: list = []
+    if _raw_n > len(rows):
+        _lines_hdr.append(
+            f"  {len(rows)} distinct labelled signal(s) from {_raw_n} logged row(s) "
+            f"({_raw_n / max(len(rows), 1):.1f}x re-scored) \u2014 all figures below "
+            f"count SIGNALS, not rows")
     def _bucket(name, keyfn):
         groups: dict = {}
         for r in rows:
@@ -7735,7 +7854,8 @@ def report_signal_features(min_n: int = 5) -> list[str]:
             _wr = sum(1 for x in v if x > 0.5) / len(v) * 100
             out.append(f"   {name} {k:<14} n={len(v):<4} avg={sum(v)/len(v):+6.2f}%  win={_wr:3.0f}%")
         return out
-    lines = [f"📊 <b>Signal features</b> — {len(rows)} labelled"]
+    lines = [f"📊 <b>Signal features</b> — {len(rows)} labelled signal(s)"]
+    lines += _lines_hdr
     for _name, _fn in (("catalyst", lambda r: r.get("catalyst_tier") or "none"),
                        ("setup", lambda r: (r.get("setup") or "?")[:12]),
                        ("regime", lambda r: r.get("regime") or "?"),

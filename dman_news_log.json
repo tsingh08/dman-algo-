@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-25T09:46:26.037870-04:00",
-    "symbols": [
-      "AIFF"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:46:26.042352-04:00",
-    "symbols": [
-      "AIFF"
-    ],
-    "headline": "Firefly Neuroscience Partners With NeuroSigma To Expand Clinician Awareness Of And Access To The Monarch eTNS System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-25T09:46:26.392221-04:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "Jaguar Health Announces Issuance Of 182,091 Shares To Streeterville Capital For $1.67832M Reduction In 2021 Note Balance; 2025 Streeterville Note Fully Paid And Cancelled Following Exchange For 547,898 Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-25T09:46:26.397169-04:00",
     "symbols": [
       "JAGX"
@@ -5072,5 +5042,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T10:27:13.909989-04:00",
+    "symbols": [
+      "GOOGL",
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Slips as Google&#39;s Mandiant Flags New PeopleSoft Breach Wave",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:27:45.893149-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Oracle Stock Slips as Google&#39;s Mandiant Flags New PeopleSoft Breach Wave",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-28T10:27:57.442989-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Slips as Google&#39;s Mandiant Flags New PeopleSoft Breach Wave",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

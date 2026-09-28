@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-25T11:24:21.609795-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Why Is Atlas Energy Stock Gaining Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-25T11:25:06.705133-04:00",
     "symbols": [
       "QCOM"
@@ -5074,6 +5064,16 @@
       "PPA"
     ],
     "headline": "Why Is Boeing Stock Falling Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-28T11:24:09.648439-04:00",
+    "symbols": [
+      "KOD"
+    ],
+    "headline": "Regeneron Eylea Feels the Pinch as Kodiak Advances Extended Dosing for Eye Drug",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

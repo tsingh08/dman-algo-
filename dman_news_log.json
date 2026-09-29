@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:26.201727-04:00",
-    "symbols": [
-      "CCL"
-    ],
-    "headline": "Carnival Raises FY2026 Adj EPS Guidance from $2.22 to $2.24 vs $2.22 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:26.205439-04:00",
-    "symbols": [
-      "CCL"
-    ],
-    "headline": "Carnival Q3 Adj. EPS $1.43 Beats $1.36 Estimate, Sales $8.435B Beat $8.300B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:26.208999-04:00",
     "symbols": [
       "CCL"
@@ -5044,5 +5024,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:15:08.180681-04:00",
+    "symbols": [
+      "SLB",
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With ExxonMobil Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:16:16.301893-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Avio USA Breaks Ground On Virginia Solid Rocket Motor Plant To Support Lockheed Martin And Raytheon Missile Programs; Production Expected In Early 2029",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:14:26.251983-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T13:14:26.737344-04:00",
     "symbols": [
       "NCT"
@@ -5062,5 +5052,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:09:43.307758-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix To Exclusively Broadcast WWE&#39;s Weekly Flagship Shows, Premium Live Events, Archive Library In Japan, Effective Oct. 1",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

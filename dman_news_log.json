@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:31.510736-04:00",
-    "symbols": [
-      "GAP"
-    ],
-    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:31.937967-04:00",
     "symbols": [
       "AEO"
@@ -5048,6 +5038,16 @@
       "SPY"
     ],
     "headline": "Fed&#39;s Williams Says K-Shaped Economy Is Very Real",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:48:43.402088-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says AI Is Driving Up Asset Valuations, Bolstering Wealth Effect; Says Starting To See Data Showing AI Boosting Productivity",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

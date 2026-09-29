@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:15:40.348593-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T14:16:40.168021-04:00",
-    "symbols": [
-      "CVX",
-      "XOM"
-    ],
-    "headline": "Strong Refining Will Drive Chevron, ExxonMobil Q3 Results: Analyst",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T14:18:56.425494-04:00",
     "symbols": [
       "NVDA"
@@ -5048,5 +5027,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T11:56:50.636210-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Stock of the Day: Why did MongoDB Reverse?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T11:58:48.828291-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran Will Be Ready To Discuss The Nuclear Issue Only After The Strait Of Hormuz Issue Is Resolved And Washington Lifts The Blockade",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

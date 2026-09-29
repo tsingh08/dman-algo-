@@ -1,237 +1,5 @@
 [
   {
-    "ts": "2026-09-29T10:15:22.135155-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "What&#39;s Going on With Robinhood Stock on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:16:03.981642-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:16:06.076764-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:16:07.576344-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:11.248493-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:16.638136-04:00",
-    "symbols": [
-      "SSTI"
-    ],
-    "headline": "Dow Tumbles 100 Points; Carnival Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:16.890689-04:00",
-    "symbols": [
-      "SLND"
-    ],
-    "headline": "Dow Tumbles 100 Points; Carnival Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:18.891195-04:00",
-    "symbols": [
-      "CCL"
-    ],
-    "headline": "Dow Tumbles 100 Points; Carnival Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:18.895191-04:00",
-    "symbols": [
-      "CCL"
-    ],
-    "headline": "Norwegian Cruise Line Rises in Sympathy After Carnival&#39;s Record Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:20.771856-04:00",
-    "symbols": [
-      "STAA"
-    ],
-    "headline": "Robinhood To Rally Around 16%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:20.776936-04:00",
-    "symbols": [
-      "STAA"
-    ],
-    "headline": "Stifel Upgrades Staar Surgical to Buy, Raises Price Target to $31",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:21.245826-04:00",
-    "symbols": [
-      "COSM"
-    ],
-    "headline": "Cosmos Health\u2019s CosmoFarm Reports Q2 Revenue Of Over $15M, $60M Annualized Run Rate; Says Robotics, Automation And AI-Enabled Systems Across Procurement, Inventory And Order Execution, With Capacity That Could Support A Further $40M Or More In Annual Revenue, Which Would Provide Infrastructure For Annualized Revenue Above $100M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:22.244482-04:00",
-    "symbols": [
-      "BE"
-    ],
-    "headline": "Jefferies Maintains Hold on Bloom Energy, Raises Price Target to $264",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T10:16:22.248980-04:00",
-    "symbols": [
-      "BE"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Bloom Energy, Maintains $335 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T10:16:22.477398-04:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "&#39;Piper Sandler Holds Talks To Buy Perella Weinberg; Deal Would Join Two Wall Street Advisory Firms&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:16:22.482438-04:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "&#39;Piper Sandler Holds Talks to Buy Perella Weinberg&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:18:31.877222-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI&#39;s Annual Recurring Revenue Nears $70B&#39; - Axios",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:22:28.655583-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "Forget About VIX: This Bond Volatility Gauge Is What Traders Are Watching Now",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:26:21.728301-04:00",
-    "symbols": [
-      "MDB",
-      "META",
-      "NVDA"
-    ],
-    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T10:26:29.157799-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Deutsche Bank Maintains Buy on Robinhood Markets, Lowers Price Target to $134",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:26:59.731017-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:27:00.331133-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:27:05.591918-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-29T10:27:16.894230-04:00",
     "symbols": [
       "IOVA"
@@ -5047,6 +4815,236 @@
   },
   {
     "ts": "2026-09-29T15:42:27.094966-04:00",
+    "symbols": [
+      "ABCL"
+    ],
+    "headline": "JP Morgan Initiates Coverage On AbCellera Biologics with Overweight Rating, Announces Price Target of $17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:43:53.251468-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:43:53.569320-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T15:43:54.134713-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:43:54.433565-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:43:54.730934-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:43:55.000886-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T15:43:55.775574-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T15:43:55.781026-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T15:43:57.591570-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:44:00.141673-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Exclusive: Starship&#39;s Weak Spot Could Help Rocket Lab and Firefly",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:44:00.146983-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "What&#39;s Going On With Rocket Lab Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:44:03.014699-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:05.552962-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Jamie Dimon Proposes &#39;Big, Beautiful&#39; Free Trade Pact Between US and Europe to Counter China: &#39;An Economic and Geopolitical Game Changer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T15:44:07.503329-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:44:07.999275-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:08.004274-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;OPEC+ Likely to Stick With Plan for Steady Quotas, Delegates Say&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:08.872968-04:00",
+    "symbols": [
+      "SDEV"
+    ],
+    "headline": "Stablecoin Development Stock Skyrockets Tuesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:10.133701-04:00",
+    "symbols": [
+      "PWP"
+    ],
+    "headline": "Piper Sandler Goes Shopping On Wall Street, Targets Perella Weinberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:11.927344-04:00",
+    "symbols": [
+      "NESR"
+    ],
+    "headline": "UBS Maintains Buy on National Energy Services, Lowers Price Target to $46",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:44:12.707799-04:00",
+    "symbols": [
+      "PIPR"
+    ],
+    "headline": "Piper Sandler Goes Shopping On Wall Street, Targets Perella Weinberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:14.934282-04:00",
+    "symbols": [
+      "AES"
+    ],
+    "headline": "U.S. Lawmakers Including Sen. Warren Ask Energy Regulators To Reject $33.4B AES Acquisition By BlackRock Subsidiary-led Consortium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:15.190995-04:00",
+    "symbols": [
+      "MNSO"
+    ],
+    "headline": "MINISO Group CFO Jingjing Zhang Buys ~HK$2.7M Of Company Shares On The Open Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:44:15.963403-04:00",
     "symbols": [
       "ABCL"
     ],

@@ -466,5 +466,68 @@
   "drift_pct": 0.25,
   "range_ratio": 0.61,
   "near_high": 0.985
+ },
+ {
+  "ts": "2026-09-29T15:45:20.059615-04:00",
+  "ticker": "TDTT",
+  "price": 23.215,
+  "rvol": 3.72,
+  "drift_pct": 0.11,
+  "range_ratio": 0.37,
+  "near_high": 0.978
+ },
+ {
+  "ts": "2026-09-29T15:45:20.059639-04:00",
+  "ticker": "XHLF",
+  "price": 50.225,
+  "rvol": 1.65,
+  "drift_pct": 0.07,
+  "range_ratio": 0.25,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-09-29T15:45:20.059644-04:00",
+  "ticker": "BSCV",
+  "price": 15.7699,
+  "rvol": 1.95,
+  "drift_pct": 0.47,
+  "range_ratio": 0.63,
+  "near_high": 0.964
+ },
+ {
+  "ts": "2026-09-29T15:45:20.059649-04:00",
+  "ticker": "VGT",
+  "price": 124.84,
+  "rvol": 1.55,
+  "drift_pct": 0.61,
+  "range_ratio": 0.27,
+  "near_high": 0.988
+ },
+ {
+  "ts": "2026-09-29T15:45:20.059652-04:00",
+  "ticker": "SRLN",
+  "price": 40.435,
+  "rvol": 2.02,
+  "drift_pct": 0.46,
+  "range_ratio": 0.7,
+  "near_high": 0.991
+ },
+ {
+  "ts": "2026-09-29T15:45:20.059655-04:00",
+  "ticker": "UTWO",
+  "price": 47.3201,
+  "rvol": 3.89,
+  "drift_pct": 0.26,
+  "range_ratio": 0.61,
+  "near_high": 0.985
+ },
+ {
+  "ts": "2026-09-29T15:45:20.059659-04:00",
+  "ticker": "MINT",
+  "price": 100.575,
+  "rvol": 2.04,
+  "drift_pct": 0.07,
+  "range_ratio": 0.43,
+  "near_high": 0.998
  }
 ]

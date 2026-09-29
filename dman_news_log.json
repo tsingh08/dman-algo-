@@ -1,192 +1,5 @@
 [
   {
-    "ts": "2026-09-28T15:13:27.258144-04:00",
-    "symbols": [
-      "KOD"
-    ],
-    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:13:31.508893-04:00",
-    "symbols": [
-      "KNRX"
-    ],
-    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:13:32.756473-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:19:59.495156-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "Masonglory shares are trading lower after the company announced a $1 million private placement of 667K Class A ordinary shares at $1.50 per share.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:24:13.833529-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "EXCLUSIVE: Faraday Chairman Warns Cutting China Out of US Robot Supply Chain Too Fast Could Backfire",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T15:24:14.284100-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Options Overpriced A Whole Summer Of Earnings, Here&#39;s The Report Card",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T15:24:18.273051-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "What&#39;s Going On With Exxon Mobil Stock on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:24:27.236926-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "What&#39;s Going On With Lucid Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:35:53.948203-04:00",
-    "symbols": [
-      "KNRX"
-    ],
-    "headline": "Knorex Stock Skyrockets Monday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:36:28.460446-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;An Informed Iranian Official Has Told Press TV That Reports Published By Some News Outlets About Iran Showing Flexibility Over Its Nuclear Position Are False&#39; - Press TV",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:38:59.686216-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA",
-      "SPCX",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "President Trump, Vice President JD Vance, Secretary Of State Marco Rubio, Huang And SpaceX And Tesla Executive Elon Musk Will Attend Event For America.gov, A New AI-Powered Government Website Intended To Consolidate Services And Information From Across Agencies\u2019 Websites",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:39:13.832768-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Why Meta\u2019s 13% Stock Gain Last Week Could Be Just the Start \u2014 Gene Munster Sees $11 Billion Revenue Opportunity That Could \u2018Blow Us Away\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T15:45:18.837018-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "&#39;The Nuclear Regulatory Commission Is Expected To Issue A Construction Permit Tuesday For TVA To Build A 300-Megawatt System At Its Clinch River Site In Tennessee, West Of Knoxville, According To A Media Alert From The Company. TVA Is Considering As Many As Four Of The BWRX-300 Reactors From GE Vernova Hitachi Nuclear Energy&#39; - Bloomberg News",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:45:49.959673-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "President Trump, Vice President JD Vance, Secretary Of State Marco Rubio, Huang And SpaceX And Tesla Executive Elon Musk Will Attend Event For America.gov, A New AI-Powered Government Website Intended To Consolidate Services And Information From Across Agencies\u2019 Websites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T15:45:50.203811-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "President Trump, Vice President JD Vance, Secretary Of State Marco Rubio, Huang And SpaceX And Tesla Executive Elon Musk Will Attend Event For America.gov, A New AI-Powered Government Website Intended To Consolidate Services And Information From Across Agencies\u2019 Websites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T15:45:50.673791-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "President Trump, Vice President JD Vance, Secretary Of State Marco Rubio, Huang And SpaceX And Tesla Executive Elon Musk Will Attend Event For America.gov, A New AI-Powered Government Website Intended To Consolidate Services And Information From Across Agencies\u2019 Websites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T15:45:50.910202-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "President Trump, Vice President JD Vance, Secretary Of State Marco Rubio, Huang And SpaceX And Tesla Executive Elon Musk Will Attend Event For America.gov, A New AI-Powered Government Website Intended To Consolidate Services And Information From Across Agencies\u2019 Websites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T15:45:51.138871-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "President Trump, Vice President JD Vance, Secretary Of State Marco Rubio, Huang And SpaceX And Tesla Executive Elon Musk Will Attend Event For America.gov, A New AI-Powered Government Website Intended To Consolidate Services And Information From Across Agencies\u2019 Websites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T15:45:51.376801-04:00",
     "symbols": [
       "TSLA"
@@ -5046,6 +4859,186 @@
       "XERS"
     ],
     "headline": "Lundbeck Is Said To Express Interest In Buying Xeris Biopharma, Bloomberg Reports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:40.403705-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Unveils Dots Always-On Autonomous Agents Across Paid Tiers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:10:40.789114-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Advanced Micro Devices, AbbVie, SpaceX, Eaton",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T13:10:43.554170-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Advanced Micro Devices, AbbVie, SpaceX, Eaton",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:44.637890-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "30-Year Yield Hits 2002 High; Credit-Score Giant FICO Plunges 27%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:47.874429-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Advanced Micro Devices, AbbVie, SpaceX, Eaton",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:49.320243-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "30-Year Yield Hits 2002 High; Credit-Score Giant FICO Plunges 27%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:10:49.623585-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Taking The Longer View We Need To Be Sure We Do What It Takes To Bring Supply And Demand Into Balance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:49.627271-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Seeing Some Elevated Wage Rates In The Skilled Trades",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:49.803554-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "30-Year Yield Hits 2002 High; Credit-Score Giant FICO Plunges 27%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:10:49.985635-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "30-Year Yield Hits 2002 High; Credit-Score Giant FICO Plunges 27%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:50.164494-04:00",
+    "symbols": [
+      "SDEV"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:50.317104-04:00",
+    "symbols": [
+      "QURE"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T13:10:50.867061-04:00",
+    "symbols": [
+      "PWP"
+    ],
+    "headline": "12 Financials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:52.445751-04:00",
+    "symbols": [
+      "CCL"
+    ],
+    "headline": "30-Year Yield Hits 2002 High; Credit-Score Giant FICO Plunges 27%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:52.764246-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "JP Morgan Downgrades XPeng to Neutral, Lowers Price Target to $11.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:52.767742-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "Xpeng Stock Drops As Technical Pressure Collides With Robot Skepticism",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:52.771036-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "Vail Resorts, Inventiva And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:10:52.774275-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "Elon Musk Might Be Betting on Humanoid Robots, But Mark Cuban Says They May Not Last 10 Years: &#39;Would You Rather Have a Roomba\u2026&#39;",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

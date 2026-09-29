@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:35:09.309777-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "5 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T13:35:09.313834-04:00",
     "symbols": [
       "APP",
@@ -5048,5 +5038,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:22:33.620777-04:00",
+    "symbols": [
+      "GOOGL",
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Next Big Business Is on the Ground, TD Cowen Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

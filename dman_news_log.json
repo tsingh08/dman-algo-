@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:18:56.425494-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Stock Gains on Record Buyback: Jim Cramer Gets His Wish",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T14:18:56.912908-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T14:18:57.115900-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T14:19:00.444614-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Strong Refining Will Drive Chevron, ExxonMobil Q3 Results: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:19:00.449338-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Trump Offers Iran Sanctions Relief for Nuclear Progress as Traders Raise Deal Odds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:19:03.743487-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Strong Refining Will Drive Chevron, ExxonMobil Q3 Results: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T14:19:05.893791-04:00",
     "symbols": [
       "NCI"
@@ -5047,5 +4987,67 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:03:39.799667-04:00",
+    "symbols": [
+      "SSTI"
+    ],
+    "headline": "Crude Oil Down 1%; US Job Openings Fall In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:03:41.196464-04:00",
+    "symbols": [
+      "IOVA"
+    ],
+    "headline": "Crude Oil Down 1%; US Job Openings Fall In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:03:42.332097-04:00",
+    "symbols": [
+      "CCL"
+    ],
+    "headline": "Carnival CEO Says Vacation Demand Is Defying Economic Angst: \u2018Vacations Are Sacrosanct\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:03:44.884480-04:00",
+    "symbols": [
+      "STAA"
+    ],
+    "headline": "STAAR Surgical Analyst Turns Bullish On Potential For \u2018Meaningful\u2019 Street Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:04:29.109619-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "NIO Stock Hits 52-Week Low: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:04:50.239268-04:00",
+    "symbols": [
+      "CVX",
+      "NVDA",
+      "XOM"
+    ],
+    "headline": "Oil Near $100 Should Lift Energy. Instead XLE ETF Is Falling \u2014 Here&#39;s Why",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

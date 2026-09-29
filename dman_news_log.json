@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:19:05.893791-04:00",
-    "symbols": [
-      "NCI"
-    ],
-    "headline": "Dow Dips Over 200 Points; Dallas Fed\u2019s Manufacturing Index Declines In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:19:07.210301-04:00",
-    "symbols": [
-      "POR"
-    ],
-    "headline": "UBS Maintains Neutral on Portland General Electric, Lowers Price Target to $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:24:12.704227-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings Stock Dips Due to Flutter&#39;s Weakness",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:35:30.767915-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI President Greg Brockman Will Be Going To The White House AI Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T14:35:44.183100-04:00",
     "symbols": [
       "SPY"
@@ -5049,5 +5009,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:09:08.823044-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Releases Forum App For iOS And Android In U.S. To Bring Facebook Groups Together With Enhanced Community And Admin Tools",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:09:42.575466-04:00",
+    "symbols": [
+      "UEC"
+    ],
+    "headline": "Uranium Energy Q4 2026 Earnings Call: Complete Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:09:48.216735-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Wins CFTC Approval for Its Own Clearinghouse",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:10:43.037206-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Farmers Business Network And Google AI Futures Fund Partner To Accelerate AI For Agriculture",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

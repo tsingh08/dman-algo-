@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:12:47.496193-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler shares are trading higher after Wedbush reiterated its Outperform rating on the stock and maintained its $215 price target.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:15:08.280202-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Trump Offers Iran Sanctions Relief for Nuclear Progress as Traders Raise Deal Odds",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:15:40.091700-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T14:15:40.348593-04:00",
     "symbols": [
       "AMZN"
@@ -5048,5 +5018,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:52:36.549799-04:00",
+    "symbols": [
+      "RZLT"
+    ],
+    "headline": "This Staar Surgical Analyst Turns Bullish; Here Are Top 5 Upgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:52:36.553759-04:00",
+    "symbols": [
+      "RZLT"
+    ],
+    "headline": "Craig-Hallum Upgrades Rezolute to Buy, Raises Price Target to $7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:52:38.550138-04:00",
+    "symbols": [
+      "HYLN"
+    ],
+    "headline": "Craig-Hallum Initiates Coverage On Hyliion Holdings with Buy Rating, Announces Price Target of $7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

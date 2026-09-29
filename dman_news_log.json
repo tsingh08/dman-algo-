@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:41:15.170652-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks shares are trading higher after BTIG maintained its Buy rating on the stock and raised its price target from $404 to $425.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T11:43:24.035929-04:00",
     "symbols": [
       "ORCL"
@@ -5057,6 +5047,19 @@
     "headline": "Tenova, In Collaboration With GE Vernova, To Supply The World\u2019s Largest EAF To Nippon Steel\u2019s Yawata Works",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:07:56.452966-04:00",
+    "symbols": [
+      "COIN",
+      "DKNG",
+      "HOOD",
+      "SPY"
+    ],
+    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

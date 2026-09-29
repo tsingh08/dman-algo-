@@ -1,39 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:59:31.339703-04:00",
-    "symbols": [
-      "AMD",
-      "ARM",
-      "MRVL",
-      "QCOM"
-    ],
-    "headline": "Shares of semiconductor companies are trading lower amid growing inflation concerns and rate-hike expectations as oil prices and rising yields weigh on growth stocks.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:01:51.961931-04:00",
-    "symbols": [
-      "MDB",
-      "MSGY"
-    ],
-    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:02:05.978355-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;OpenAI\u2019s AI agents need to catch up&#39;: OpenAI Rumored To Unveil &#39;Aeon&#39; Consumer AI Agent At DevDay On Tuesday - The Verge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T15:02:05.984389-04:00",
     "symbols": [
       "GOOGL"
@@ -5049,6 +5015,39 @@
     "headline": "Trump Administration Says Several EU Member Countries Have Not Released As Much Oil And Refined Products From Reserves As They Promised",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:54:17.351660-04:00",
+    "symbols": [
+      "GOOGL",
+      "TSLA",
+      "UBER"
+    ],
+    "headline": "Robotaxis Could Cost Less Than Half of Uber\u2019s Human-Driven Rides, and Analyst Says Uber Can Cash In",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:54:46.183539-04:00",
+    "symbols": [
+      "LLY",
+      "NVO"
+    ],
+    "headline": "Tirzepatide or Wegovy? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T12:55:18.255086-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Upsizes Convertible Note Offering to $3.75 Billion",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:49:42.984643-04:00",
-    "symbols": [
-      "AMZN",
-      "MSFT",
-      "PLTR",
-      "TSLA"
-    ],
-    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:50:11.588765-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T09:50:12.954293-04:00",
     "symbols": [
       "AMZN"
@@ -5047,6 +5024,26 @@
       "KMX"
     ],
     "headline": "Transcript: CarMax Q2 2027 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:25:23.392785-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Jim Cramer\u2019s META Muse Bull Case Is About to Get a Revenue Test",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:25:32.547299-04:00",
+    "symbols": [
+      "CCL"
+    ],
+    "headline": "Royal Caribbean Stock Surges Tuesday: What&#39;s Going On?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

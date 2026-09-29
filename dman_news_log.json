@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:52:23.821352-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet To Rally More Than 16%? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T14:52:25.647684-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Alphabet To Rally More Than 16%? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:52:28.670031-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says If We Don&#39;t Make Steel Ourselves, We Can&#39;t Defend Ourselves",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:52:29.810280-04:00",
-    "symbols": [
-      "NVDX"
-    ],
-    "headline": "Nvidia\u2019s $150B Buyback Has Traders Piling into this ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T14:59:31.339703-04:00",
     "symbols": [
       "AMD",
@@ -5049,6 +5009,46 @@
     "headline": "Lundbeck Is Said To Express Interest In Buying Xeris Biopharma",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:41:58.785977-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says He Expects GDP Growth To &#39;Pick Up A Bit&#39; In Second Half Of Year, From 2% Pace In First Half; Risks To Achieving Inflation Target Have Increased, Risks To Labor Market Have Receded; There Is A Need To Recalibrate Policy; Base Case Is That Further Policy Adjustments Likely To Be Needed;  Labor Market Solid, Supported By Business Investment And Consumer Spending",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:42:34.861174-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Inflation Is A Key Concern; Fed Has Been &#39;knocked Off Course&#39; To 2% Goal; Barr Does Not See A Clear Trend Toward A Timely Return To 2% Inflation; Says Makes Sense To Pencil In AI Productivity Boost In Medium Term, But Difficult To Project How Or When; He Is Optimistic AI Will Boost Productivity In The Longer Term",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:43:11.055878-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Too Early To Know If AI Will Push Up Neutral Rate Of Interest; AI Buildout Likely To Be A Strong Boost To U.S. Economic Activity In Next Year Or So; Should Be Prepared For Serious Short-term Disruptions In Labor Market From AI; Broad Productivity Gains From AI May Take Some Time",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:46:36.660464-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Administration Says Several EU Member Countries Have Not Released As Much Oil And Refined Products From Reserves As They Promised",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

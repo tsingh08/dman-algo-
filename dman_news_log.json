@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-28T09:26:22.962160-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nvidia&#39;s $5.4 Trillion Market Cap &#39;Seems Crazy&#39; Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T09:26:22.966578-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Mark Zuckerberg&#39;s Muse Remains Locked Out As Amazon Says Meta Never Got Permission; Cathie Wood&#39;s ARK Calls It A &#39;Great Test&#39; For Loyalty",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T09:26:23.301374-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Trump Administration Ends Fuel Economy Credit Trading In 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T09:26:23.306104-04:00",
     "symbols": [
       "TSLA"
@@ -5077,6 +5047,41 @@
       "GS"
     ],
     "headline": "The Wall Street Journal Reported Earlier,  Goldman Sachs Board Has Discussed Plan For John Waldron To Become CEO At End Of 2027 Or In 2028, With David Solomon Likely To Become Executive Chair After Stepping Down As CEO",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T09:16:44.906001-04:00",
+    "symbols": [
+      "AMD",
+      "META",
+      "NVDA"
+    ],
+    "headline": "Why AMD Is Spending $8.2 Billion On World Labs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T09:18:44.840599-04:00",
+    "symbols": [
+      "AMD",
+      "BABA",
+      "NVDA"
+    ],
+    "headline": "Nvidia, AMD Lobby Trump Administration to Halt Potential Chip Export Restrictions to China: Report",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:23:16.607636-04:00",
+    "symbols": [
+      "LLY",
+      "NVO"
+    ],
+    "headline": "Wegovy or Zepbound? Eli Lilly Shows Zepbound Outperforms Wegovy in New Weight Loss Data",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:35:39.866930-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "9 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:35:40.757236-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "9 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T13:35:43.235120-04:00",
     "symbols": [
       "SPOT"
@@ -5056,5 +5036,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:38:28.507160-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Cigna Healthcare Expands AI-Enabled Personalized Support To Help More Customers Access Care Earlier, Improve Affordability",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:39:01.088002-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. 30-Year Treasury Yield Touches 5.612%, Highest Since June 2002",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

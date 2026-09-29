@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:17.705874-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Pentagon Awards Raytheon Up to $20.7 Billion Deal to Ramp Up AMRAAM Missile Production Amid Stockpile Crunch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:17.709552-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "This Blue-Chip Defense Prime Lands on Piper Sandler&#39;s Rate-Risk List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:17.929315-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX&#39;s Collins Aerospace Expanding Its West Des Moines Production Site",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:17.933009-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Gains as Trump Dismisses Iran Sanction Relief as &#39;Hoax&#39;\u2014 Nvidia, AAR, Vail Resorts in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:17.936557-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Raytheon Selects Lyntris To Support Multi-Year LTAMDS Radar Production",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:17.940060-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Pentagon Awards Raytheon Up to $20.7 Billion Deal to Ramp Up AMRAAM Missile Production Amid Stockpile Crunch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:17.943593-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX&#39;s Raytheon Wins $20.7B Multi-Year Contract For AMRAAM Under Landmark Production Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:18.365525-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar To Acquire The Fabick Chain Of Equipment Dealers With A Presence Across Four Midwestern States; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T09:26:18.566059-04:00",
     "symbols": [
       "GS"
@@ -5042,6 +4962,86 @@
     "headline": "BlackRock Says AI Value Is Shifting Beyond Software, Flags \u2018Physical AI\u2019: Why MU, VRT And CEG Are in Focus",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:49:04.562375-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says Need To Revisit The Logic Of Looking Through Supply Shocks",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:50:12.579497-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says The Fact We Have Been 5-1/2 Years Above Inflation Target Is Playing With Fire",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:50:25.699205-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Pentagon Awards Raytheon Up to $20.7 Billion Deal to Ramp Up AMRAAM Missile Production Amid Stockpile Crunch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:50:25.704430-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX&#39;s Collins Aerospace Expanding Its West Des Moines Production Site",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:50:25.710678-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Gains as Trump Dismisses Iran Sanction Relief as &#39;Hoax&#39;\u2014 Nvidia, AAR, Vail Resorts in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:50:25.715710-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Raytheon Selects Lyntris To Support Multi-Year LTAMDS Radar Production",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:50:25.720620-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Pentagon Awards Raytheon Up to $20.7 Billion Deal to Ramp Up AMRAAM Missile Production Amid Stockpile Crunch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:51:04.616151-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says Price Of Oil Could Go Down Relatively Quickly, But Deeper Problem Is Getting Refineries Back Online",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

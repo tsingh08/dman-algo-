@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:21:11.451103-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T11:21:11.722367-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T11:21:11.941156-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T11:21:12.136853-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T11:21:12.314781-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-28T11:21:13.387496-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T11:21:14.522516-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T11:21:14.639204-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T11:21:14.936911-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:17.698398-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:18.197614-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T11:21:18.391015-04:00",
     "symbols": [
       "ORCL"
@@ -5054,5 +4944,116 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T09:41:27.804235-04:00",
+    "symbols": [
+      "DKNG",
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:01.970769-04:00",
+    "symbols": [
+      "SSTI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:01.975361-04:00",
+    "symbols": [
+      "SSTI"
+    ],
+    "headline": "SoundThinking Agrees To Be Acquired By Transom Capital For $8.00/Share In Cash Plus CVR Of Up To $3.00/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:02.288715-04:00",
+    "symbols": [
+      "SLND"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:02.292706-04:00",
+    "symbols": [
+      "SLND"
+    ],
+    "headline": "Southland Holdings&#39; Oscar Renda Contracting Subsidiary Receives $71M Water Pipeline Project In Southwest To Install Welded Steel Water Pipeline, Trenchless Crossings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:02.568265-04:00",
+    "symbols": [
+      "QMLS"
+    ],
+    "headline": "QumulusAI Inks Two, Three-Year $240.9M Agreements With AI Inference Clients For Over 2K NVIDIA Blackwell B300 GPUs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:02.825272-04:00",
+    "symbols": [
+      "CAPS"
+    ],
+    "headline": "Capstone Holding Retires ~85% Of Original $6.82M In Convertible Note Principal, Cuts Remaining Convertible Debt To $1M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:03.123794-04:00",
+    "symbols": [
+      "TURB"
+    ],
+    "headline": "Turbo Energy H1 Sales $17.200M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:03.401685-04:00",
+    "symbols": [
+      "AGPU"
+    ],
+    "headline": "Axe Compute Receives Over $266M In New AI Infrastructure Contracts Since Aug. 17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:03.661170-04:00",
+    "symbols": [
+      "VVOS"
+    ],
+    "headline": "Vivos Therapeutics Announces Restructuring And Cost Reduction Plan With An Annual Savings Target Of $3.6M From Q4 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:42:03.899511-04:00",
+    "symbols": [
+      "IMCC"
+    ],
+    "headline": "IM Cannabis Closes Sale Of IMC Holdings; Transfers Israeli Operations Out Of IMCC And Will Be Retained By The Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

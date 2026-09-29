@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:40:17.754582-04:00",
-    "symbols": [
-      "HHH"
-    ],
-    "headline": "Kodiak Sciences, AMC Entertainment, Agenus And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T14:40:17.759285-04:00",
     "symbols": [
       "HHH"
@@ -5048,6 +5038,16 @@
     "headline": "Carnival CEO Says Vacation Demand Is Defying Economic Angst: \u2018Vacations Are Sacrosanct\u2019",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:17:41.989130-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Live On CNBC, Sam Altman Says We Are Pacing Our Progress; Not Aware Of Anything That Is As Serious As The Hugging Face Incident",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

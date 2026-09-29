@@ -403,5 +403,14 @@
   "drift_pct": 0.83,
   "range_ratio": 0.66,
   "near_high": 0.964
+ },
+ {
+  "ts": "2026-09-29T12:15:00.727766-04:00",
+  "ticker": "TDTT",
+  "price": 23.19,
+  "rvol": 3.61,
+  "drift_pct": 0.22,
+  "range_ratio": 0.37,
+  "near_high": 0.977
  }
 ]

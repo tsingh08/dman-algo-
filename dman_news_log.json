@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:10.060721-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Announces $8.2B All-Stock Deal To Acquire AI Lab World Labs, With Founder Fei-Fei Li Joining As Chief Scientist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T09:26:10.311450-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why AMD Is Spending $8.2 Billion On World Labs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:10.315201-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Jim Cramer Says Meta Must Be Seen as an \u2018Enterprise Company\u2019 as Muse AI Could Drive an &#39;18 Times Multiple&#39; to 24-25x",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:10.318720-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With MongoDB Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:10.322766-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Full Transcript: Meta Platforms Q2 2026 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:10.326692-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Anthropic Eyes Monster $2 Trillion IPO, Yet Deal Veteran Says It Won\u2019t Be a Market Catalyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:10.533601-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Eyes Monster $2 Trillion IPO, Yet Deal Veteran Says It Won\u2019t Be a Market Catalyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T09:26:10.537313-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Challenges Two EU Orders, Saying Opening Services To AI Rivals And Search Data To Competitors Would Undermine Privacy Safeguards",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-29T09:26:10.540855-04:00",
     "symbols": [
       "GOOGL"
@@ -5031,6 +4951,95 @@
       "ORCL"
     ],
     "headline": "NetApp, Oracle Announce Fully Managed Storage Service",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:33:27.719537-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia, AMD Lobby Trump Administration to Halt Potential Chip Export Restrictions to China: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T13:33:27.724470-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Why AMD Is Spending $8.2 Billion On World Labs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T13:34:21.137366-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says Central Bankers Needn&#39;t Make Promises, But Should Tell The Public How And Why Central Bank Makes Policy Decisions; Central Banks Should Also Avoid &#39;exiting The Conversation Altogether,&#39; Would Pose Risks In Terms Of Inflation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:34:59.104003-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says Delegated Power Over Interest Rates Also Obligates The Fed Too Explain How And Why That Power Is Used; If The Public Understands The Framework, Private Expectations LINE Up With The Fed&#39;s Intentions, Improves Trade-offs Between Inflation And Employment; A Predictable, Explained Framework, Is Part Of What Makes A Central Bank Democratically Legitimate",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:35:13.951936-04:00",
+    "symbols": [
+      "AMD",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "SNDK",
+      "SNOW"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T13:35:14.187952-04:00",
+    "symbols": [
+      "AMZN",
+      "DKNG",
+      "GME",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:35:14.767502-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:37:00.084139-04:00",
+    "symbols": [
+      "CRWD",
+      "MSFT"
+    ],
+    "headline": "CrowdStrike Launches Its Falcon Platform In OpenAI Marketplace",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

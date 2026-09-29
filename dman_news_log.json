@@ -1,146 +1,5 @@
 [
   {
-    "ts": "2026-09-28T12:36:37.537289-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple, Amazon Face UK Regulator Lawsuit Against Alleged Unlawful Anticompetitive Agreements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T12:36:37.790581-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Jensen Huang Says Runaway AI Is an Engineering Problem: \u2018We All Need to Hope\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T12:36:38.066999-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Says Runaway AI Is an Engineering Problem: \u2018We All Need to Hope\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T12:36:39.198403-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Apple, Amazon Face UK Regulator Lawsuit Against Alleged Unlawful Anticompetitive Agreements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T12:36:54.440046-04:00",
-    "symbols": [
-      "KOD"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Kodiak Sciences, Raises Price Target to $96",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T12:37:05.455944-04:00",
-    "symbols": [
-      "AAPL",
-      "QCOM"
-    ],
-    "headline": "What Is Going on With Qualcomm Stock on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T12:44:40.698343-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "Namibox shares are trading higher after the company signed a strategic cooperation memorandum with Pearson to jointly develop AI-driven learning solutions.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T12:48:08.269018-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "What Is Going on With Qualcomm Stock on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T12:48:12.759352-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Why Is SK hynix Stock Falling Monday? (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T12:48:13.008001-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What Is Going on With Qualcomm Stock on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T12:49:14.864247-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Deutsche Bank Maintains Buy on Costco Wholesale, Lowers Price Target to $1079",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T12:51:08.184780-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Deutsche Bank Reiterates Buy on SpaceX, Maintains $235 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T12:52:58.063193-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Intel Stock Falling on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T12:54:33.255487-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "FDA Expands Approval Of Eli Lilly&#39;s Olumiant For Adolescents with Autoimmune Hair Loss",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T13:05:57.018572-04:00",
     "symbols": [
       "ABBV"
@@ -5056,6 +4915,148 @@
     "headline": "Forget About VIX: This Bond Volatility Gauge Is What Traders Are Watching Now",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:26:21.728301-04:00",
+    "symbols": [
+      "MDB",
+      "META",
+      "NVDA"
+    ],
+    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T10:26:29.157799-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Deutsche Bank Maintains Buy on Robinhood Markets, Lowers Price Target to $134",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:26:59.731017-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:27:00.331133-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:27:05.591918-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T10:27:16.894230-04:00",
+    "symbols": [
+      "IOVA"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:27:17.177341-04:00",
+    "symbols": [
+      "XRPN"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:27:18.591160-04:00",
+    "symbols": [
+      "CCL"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:27:20.151353-04:00",
+    "symbols": [
+      "KMX"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:27:20.612781-04:00",
+    "symbols": [
+      "STAA"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:27:22.016029-04:00",
+    "symbols": [
+      "AXTI"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:27:22.260737-04:00",
+    "symbols": [
+      "BE"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T10:27:22.507204-04:00",
+    "symbols": [
+      "PWP"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:30:29.422815-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Newmont Stock In The Last 5 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

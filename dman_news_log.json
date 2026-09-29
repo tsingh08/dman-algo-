@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:32.372886-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Robinhood To Rally Around 16%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.376976-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Mizuho Upgrades Stitch Fix to Neutral, Lowers Price Target to $2.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.588753-04:00",
-    "symbols": [
-      "UEC"
-    ],
-    "headline": "Earnings Scheduled For September 29, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.592652-04:00",
-    "symbols": [
-      "UEC"
-    ],
-    "headline": "Uranium Energy Q4 EPS $(0.12) Misses $(0.04) Estimate, Sales $17.050M Beat $4.500M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.796546-04:00",
-    "symbols": [
-      "KMX"
-    ],
-    "headline": "Transcript: CarMax Q2 2027 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.800452-04:00",
-    "symbols": [
-      "KMX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.804001-04:00",
-    "symbols": [
-      "KMX"
-    ],
-    "headline": "Earnings Scheduled For September 29, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.807620-04:00",
-    "symbols": [
-      "KMX"
-    ],
-    "headline": "CarMax Q2 EPS $1.16 Beats $0.73 Estimate, Sales $7.878B Beat $6.976B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.811291-04:00",
-    "symbols": [
-      "KMX"
-    ],
-    "headline": "Carnival, AAR And 3 Stocks To Watch Heading Into Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:39:03.021405-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "StoneX Reiterates Buy on Advanced Micro Devices, Maintains $685 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-29T09:41:27.804235-04:00",
     "symbols": [
       "DKNG",
@@ -5030,6 +4930,106 @@
     "headline": "Fed&#39;s Williams Says Fed Should Stay Out Of Partisan Politics And Focus On Data",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:52.505106-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says Fed Should Stay Out Of Partisan Politics And Focus On Data",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:57.351655-04:00",
+    "symbols": [
+      "PIPR"
+    ],
+    "headline": "&#39;Piper Sandler Holds Talks to Buy Perella Weinberg&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:57.641353-04:00",
+    "symbols": [
+      "CABO"
+    ],
+    "headline": "BNP Paribas Maintains Neutral on Cable One, Lowers Price Target to $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:57.894780-04:00",
+    "symbols": [
+      "MX"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:58.172947-04:00",
+    "symbols": [
+      "MNDY"
+    ],
+    "headline": "JP Morgan Downgrades Monday.Com to Neutral, Lowers Price Target to $87",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:58.690219-04:00",
+    "symbols": [
+      "WLK"
+    ],
+    "headline": "30-Year Yield Hits 2002 High; Credit-Score Giant FICO Plunges 27%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:58.694890-04:00",
+    "symbols": [
+      "WLK"
+    ],
+    "headline": "Westlake To Close Its PVC Plant In Cologne, Germany, To Improve Profitability; Expects Sequentially Lower Financial Performance In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:00:59.208279-04:00",
+    "symbols": [
+      "CBRS"
+    ],
+    "headline": "Cerebras Stock Rallies: What to Know Now",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:00:59.212975-04:00",
+    "symbols": [
+      "CBRS"
+    ],
+    "headline": "SK Hynix&#39;s Solidigm Eyes 2027 IPO at up to $150 Billion Valuation, in Potential Record-Breaking US Chip Listing: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:00:59.495422-04:00",
+    "symbols": [
+      "AXSM"
+    ],
+    "headline": "Deutsche Bank Maintains Buy on Axsome Therapeutics, Lowers Price Target to $267",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

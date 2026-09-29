@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:40:18.107882-04:00",
-    "symbols": [
-      "GLD"
-    ],
-    "headline": "Fed Hike Bets Hit 70%: Gold Just Lost The Argument to a 5.2% Treasury",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:40:18.112533-04:00",
-    "symbols": [
-      "GLD"
-    ],
-    "headline": "Why Are Precious Metal Stocks Falling Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T14:40:18.117085-04:00",
     "symbols": [
       "GLD"
@@ -5050,5 +5030,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:27:02.217670-04:00",
+    "symbols": [
+      "BLMN"
+    ],
+    "headline": "This Staar Surgical Analyst Turns Bullish; Here Are Top 5 Upgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:27:02.465769-04:00",
+    "symbols": [
+      "RCL"
+    ],
+    "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

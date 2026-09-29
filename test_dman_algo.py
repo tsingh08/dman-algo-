@@ -21600,3 +21600,75 @@ class TestBzoneIdentitySurvivesTime(unittest.TestCase):
         _p = _rows[0]
         self.assertTrue(a._is_no_stop_by_design(_p.setup, _p.ticker),
                         f"RSKD ({_p.setup!r}) would have a stop armed on it")
+
+
+class TestBzoneSlotAccounting(unittest.TestCase):
+    """A zone that lost its label must still occupy a slot.
+
+    _is_no_stop_by_design() was taught on 2026-09-27 to fall back on
+    _bzone_entry_on_record() when orphan adoption rewrote a setup to
+    ADOPTED_SETUP. _bzone_open_positions() was not, so the same lost label broke
+    exposure accounting instead of stops: measured 2026-09-28 with RSKD held, it
+    returned [], and with BZONE_TRADE_MAX_OPEN = 2 the manager believed it had
+    two free slots while holding one zone -- with two in-band candidates queued.
+    Both filling would have put $743 of stopless correlated small-cap breakouts
+    on a $2,594 account (28.6%) against an intended $500 / 19.3%."""
+
+    def _pos(self, setup, ticker="RSKD"):
+        return SimpleNamespace(setup=setup, ticker=ticker)
+
+    def test_a_relabelled_zone_still_counts_as_open(self):
+        with patch.object(a, "_bzone_entry_on_record", return_value=True):
+            self.assertTrue(a._is_bzone_position(self._pos(a.ADOPTED_SETUP)))
+
+    def test_a_plainly_labelled_zone_counts(self):
+        self.assertTrue(a._is_bzone_position(self._pos(f"{a.BZONE_SETUP} (adopted)")))
+        self.assertTrue(a._is_bzone_position(self._pos(a.BZONE_SETUP)))
+
+    def test_a_real_stop_managed_setup_never_counts(self):
+        """Counting a Gap & Hold as a zone would wrongly BLOCK zone entries and
+        wrongly exempt it from stops elsewhere."""
+        with patch.object(a, "_bzone_entry_on_record", return_value=True):
+            for setup in ("Gap & Hold", "Morning Runner", "SWING — Gap & Hold"):
+                self.assertFalse(a._is_bzone_position(self._pos(setup)), setup)
+
+    def test_an_adopted_row_with_no_record_does_not_count(self):
+        with patch.object(a, "_bzone_entry_on_record", return_value=False):
+            self.assertFalse(a._is_bzone_position(self._pos(a.ADOPTED_SETUP, "AAPL")))
+
+    def test_a_raising_lookup_does_not_invent_a_slot(self):
+        with patch.object(a, "_bzone_entry_on_record",
+                          side_effect=RuntimeError("store gone")), \
+             patch.object(a, "_log_swallowed"):
+            self.assertFalse(a._is_bzone_position(self._pos(a.ADOPTED_SETUP)))
+
+    def test_the_slot_count_reflects_a_relabelled_zone(self):
+        """The number the manager actually divides its room from."""
+        with patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(
+                              positions=[self._pos(a.ADOPTED_SETUP)])), \
+             patch.object(a, "_bzone_entry_on_record", return_value=True):
+            self.assertEqual(len(a._bzone_open_positions()), 1)
+
+    def test_room_cannot_exceed_the_cap_minus_what_is_truly_held(self):
+        with patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(
+                              positions=[self._pos(a.ADOPTED_SETUP)])), \
+             patch.object(a, "_bzone_entry_on_record", return_value=True):
+            _room = a.BZONE_TRADE_MAX_OPEN - len(a._bzone_open_positions())
+        self.assertEqual(_room, a.BZONE_TRADE_MAX_OPEN - 1)
+
+    def test_both_identity_users_share_one_predicate(self):
+        """Two call sites drifted apart once already; pin that they cannot
+        again by keeping the record lookup in one place each."""
+        self.assertIn("_bzone_entry_on_record",
+                      inspect.getsource(a._is_bzone_position))
+        self.assertIn("_is_bzone_position", inspect.getsource(a._bzone_open_positions))
+
+    def test_the_live_rskd_row_occupies_a_slot(self):
+        _rows = [p for p in a.PositionTracker().positions
+                 if str(p.ticker).upper() == "RSKD"]
+        if not _rows:
+            self.skipTest("RSKD no longer held")
+        self.assertTrue(a._is_bzone_position(_rows[0]),
+                        "RSKD would not occupy a breakout-zone slot")

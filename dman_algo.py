@@ -11887,10 +11887,40 @@ def _sessions_since(start: date) -> int:
         return -1
 
 
+def _is_bzone_position(pos) -> bool:
+    """Is this held position a breakout zone, whatever its label now says?
+
+    The setup string is not a reliable carrier of strategy identity -- orphan
+    adoption rewrites it to ADOPTED_SETUP, and on 2026-09-27 that was found to
+    delete RSKD's no-stop exemption. _is_no_stop_by_design() was taught to fall
+    back on _bzone_entry_on_record(); THIS function was not, and the same lost
+    label then broke something else instead.
+
+    Measured 2026-09-28 with RSKD held: _bzone_open_positions() returned [], so
+    with BZONE_TRADE_MAX_OPEN = 2 the manager believed it had two free slots
+    when it had one -- and two in-band candidates (AGEN, ABCL) were queued. Both
+    filling would have put $743 of stopless correlated small-cap breakouts on a
+    $2,594 account, 28.6%, against an intended cap of $500 / 19.3%. The
+    constant's own comment is "breakouts cluster; cap correlated exposure",
+    which is precisely the risk the miscount removed.
+
+    Same narrow rule as the stop exemption: the BZONE prefix, or the ADOPTED
+    label plus a durable record. A real Gap & Hold is never counted as a zone.
+    """
+    _s = str(getattr(pos, "setup", "") or "")
+    if _s.startswith(BZONE_SETUP):
+        return True
+    if _s.startswith(ADOPTED_SETUP):
+        try:
+            return _bzone_entry_on_record(getattr(pos, "ticker", ""))
+        except Exception as exc:
+            _log_swallowed("bzone position identity", exc)
+    return False
+
+
 def _bzone_open_positions() -> list:
     try:
-        return [p for p in PositionTracker().positions
-                if str(getattr(p, "setup", "")).startswith(BZONE_SETUP)]
+        return [p for p in PositionTracker().positions if _is_bzone_position(p)]
     except Exception as exc:
         _log_swallowed("bzone open positions", exc)
         return []

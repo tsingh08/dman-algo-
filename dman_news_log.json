@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:21:18.391015-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T11:21:18.884372-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:19.029093-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T11:21:19.033675-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T11:21:19.178616-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Monday Trading As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:19.311473-04:00",
-    "symbols": [
-      "MEDS"
-    ],
-    "headline": "DataMeds AI Stock Surges on Mobile App Launch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:19.446597-04:00",
-    "symbols": [
-      "VWAV"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T11:21:19.579191-04:00",
     "symbols": [
       "KOD"
@@ -5052,6 +4982,79 @@
       "IMCC"
     ],
     "headline": "IM Cannabis Closes Sale Of IMC Holdings; Transfers Israeli Operations Out Of IMCC And Will Be Retained By The Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:49:42.984643-04:00",
+    "symbols": [
+      "AMZN",
+      "MSFT",
+      "PLTR",
+      "TSLA"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:50:11.588765-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T09:50:12.954293-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T09:50:13.236198-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T09:50:14.264515-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:50:15.954361-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T09:50:19.009673-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

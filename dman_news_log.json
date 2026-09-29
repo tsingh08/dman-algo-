@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:05:57.018572-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Okta, AbbVie, UnitedHealth Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:05:58.819182-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:05:59.064351-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:05:59.873271-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:06:00.137330-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:06:03.053362-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Okta, AbbVie, UnitedHealth Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T13:06:05.278492-04:00",
     "symbols": [
       "QQQ"
@@ -5057,6 +4997,67 @@
     "headline": "Here\u2019s How Much You Would Have Made Owning Newmont Stock In The Last 5 Years",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:31:04.641709-04:00",
+    "symbols": [
+      "KMX"
+    ],
+    "headline": "CarMax Says Even Its Lowest-Income Customers Are Holding Up Despite Affordability Squeeze",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:31:58.195926-04:00",
+    "symbols": [
+      "ELAB"
+    ],
+    "headline": "PMGC Holdings shares are trading lower. The company announced its subsidiary NorthStrive has executed a Statement of Work with Charles River to advance its EL-22 and EL-32 engineered probiotic programs.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:32:39.972746-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Texas Services Sector Outlook For September -1.8 Vs 4.2 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:33:03.895685-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Dallas Fed Services Revenues For September -0.9\tVs 6.6 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:34:28.944564-04:00",
+    "symbols": [
+      "KUST"
+    ],
+    "headline": "Kustom Entertainment shares are trading lower after the company announced a 1-for-10 reverse stock split.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:34:30.620002-04:00",
+    "symbols": [
+      "QQQ",
+      "TLT"
+    ],
+    "headline": "Michael Burry, Peter Schiff Flag S&amp;P 500 Risk: 5 ETFs to Consider Now",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

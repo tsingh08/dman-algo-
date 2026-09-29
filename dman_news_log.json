@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:21.837285-04:00",
-    "symbols": [
-      "JLHL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:21.841134-04:00",
-    "symbols": [
-      "JLHL"
-    ],
-    "headline": "Reported Earlier, Julong To Raise $897,750 Gross Through Private Placement Of 750,000 Class A Shares At $0.300 And 2,250,000 Pre-Funded Warrants At $0.299 Each",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:22.042114-04:00",
-    "symbols": [
-      "KUST"
-    ],
-    "headline": "Kustom Entertainment Announces 1-For-10 Reverse Stock Split, Effective Oct. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:22.252105-04:00",
-    "symbols": [
-      "LIMN"
-    ],
-    "headline": "Liminatus Pharma Regains Compliance With Nasdaq\u2019s Minimum Bid Price Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:22.460617-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "3 E Network Technology Group Initiates Global Vendor Evaluation, Request For Proposal Process For High-Density Server Clusters, Liquid Cooling Infrastructure, Core Networking Equipment For Its AI Compute Center In Finland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:22.662617-04:00",
     "symbols": [
       "MSGY"
@@ -5041,6 +4991,56 @@
       "SPY"
     ],
     "headline": "Fed&#39;s Goolsbee Says In Dot Plot I&#39;m One Of More Optimstic Folks At Fed",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:04:15.553595-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says No Need For Urgency After September Rate Hike; Sees One Further Hike Likely This Year If Economy Meets Expectations",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:05:04.792494-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Sees Inflation At 3.5% This Year, Hitting 2% Target In 2028; Says Fed Must Ensure High Inflation Does Not Become Entrenched",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:05:26.860364-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Sees US GDP At 2.25% This Year, Unemployment At 4% Over 2027; Says Economic Momentum Strong And May Be Strengthening",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:05:52.477527-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says More Data Will Help Fed Decide Next Rate Move; Says Policy Can Ensure Supply Shock Impact Is Not Long-Lasting",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:06:05.864491-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says Right Now The AI CAPEX Boom Is Resulting In Demand Pressure, With Productivity And Supply Relief Not Yet Apparent; The Economy Is Very Strong Now, But Predicated On Continued Growth",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

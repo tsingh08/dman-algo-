@@ -178,5 +178,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-09-29T15:45:19.424622-04:00",
+  "kind": "signal",
+  "ticker": "MSGY",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Regime is CHOP (score 11) - directional bias unreliable. Entry already 24% into move. Stop placement too tight relative to volatility.",
+  "facts": {
+   "setup": "Low Float Catalyst",
+   "bias": "LONG",
+   "confluence_score": 99,
+   "entry": 4.3637,
+   "stop": 3.491,
+   "target1": 6.55,
+   "rr": 2.51,
+   "rvol": 6.32,
+   "rsi": 59.8,
+   "reason": "Float 0.8M | RVOL 6.3x | \u26a1 ULTRA-LOW FLOAT | \ud83d\udd25 Float 32.7x rotated | SI 16% | Insiders 35% | MACD curling bullish, RVOL spike",
+   "regime": "CHOP",
+   "regime_score": 11
+  }
  }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:43:24.035929-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Shares of software companies are trading lower as rising oil prices and Treasury yields weigh on broader market sentiment. Elevated energy prices are fueling inflation concerns and expectations for interest rates to remain elevated, potentially pressuring growth-oriented stocks.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T11:44:00.149012-04:00",
     "symbols": [
       "DKNG"
@@ -5061,5 +5051,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:15:22.135155-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "What&#39;s Going on With Robinhood Stock on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:18.566059-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:18.569862-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Board Reportedly Discussed Plan for CEO David Solomon to Step Down, Hand the Top Job to President John Waldron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:18.779868-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "This Blue-Chip Defense Prime Lands on Piper Sandler&#39;s Rate-Risk List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:18.995981-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "SLB&#39;s OneSubsea JV Receives ExxonMobil Contract To Provide Subsea Production Systems For Rovuma LNG Project&#39;s First Phase In Mozambique",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:19.250379-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Wegovy or Zepbound? Eli Lilly Shows Zepbound Outperforms Wegovy in New Weight Loss Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:19.254220-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Announces New Retrospective Real-world Evidence For Type 2 Diabetes Showing Semaglutide Injection 2 Mg Was Associated With A Statistically Significant 6% Lower Risk Of Major Adverse Cardiovascular Events, Than Those Who Switched To Tirzepatide Up To 15 mg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:19.257844-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Hengrui Pharma Signs Exclusive License With Novo For Once-Weekly Oral GLP-1/GIP Agonist HRS-1596, Featuring $300M Upfront In Up To $2.6B Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:19.468645-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "What&#39;s Going On With Oracle Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T09:26:19.472372-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Reported September 28, &#39;OpenAI Scraps Release of New AI Model Over Safety Concerns&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T09:26:19.475860-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "AI Bubble? Market Expert Says Yes \u2014 and this Event Could \u2018Drag Down the Entire Sector\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T09:26:19.701065-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Understanding Adobe&#39;s Position In Software Industry Compared To Competitors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:19.903191-04:00",
     "symbols": [
       "SPY"
@@ -5042,6 +4932,116 @@
     "headline": "Fed&#39;s Goolsbee Says Price Of Oil Could Go Down Relatively Quickly, But Deeper Problem Is Getting Refineries Back Online",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:57:08.637881-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says Massive Deficits Are A Form Of Stimulus, Can Overheat Economy",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:57:48.970228-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar To Acquire The Fabick Chain Of Equipment Dealers With A Presence Across Four Midwestern States; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:57:49.621363-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:57:49.625835-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Board Reportedly Discussed Plan for CEO David Solomon to Step Down, Hand the Top Job to President John Waldron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:57:50.057360-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB&#39;s OneSubsea JV Receives ExxonMobil Contract To Provide Subsea Production Systems For Rovuma LNG Project&#39;s First Phase In Mozambique",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:57:50.524515-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Wegovy or Zepbound? Eli Lilly Shows Zepbound Outperforms Wegovy in New Weight Loss Data",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:57:50.529355-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Announces New Retrospective Real-world Evidence For Type 2 Diabetes Showing Semaglutide Injection 2 Mg Was Associated With A Statistically Significant 6% Lower Risk Of Major Adverse Cardiovascular Events, Than Those Who Switched To Tirzepatide Up To 15 mg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:57:50.533708-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Hengrui Pharma Signs Exclusive License With Novo For Once-Weekly Oral GLP-1/GIP Agonist HRS-1596, Featuring $300M Upfront In Up To $2.6B Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:57:51.092691-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "What&#39;s Going On With Oracle Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:57:51.097459-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Reported September 28, &#39;OpenAI Scraps Release of New AI Model Over Safety Concerns&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T13:57:58.387223-04:00",
+    "symbols": [
+      "SMMT"
+    ],
+    "headline": "Citigroup Maintains Buy on Summit Therapeutics, Raises Price Target to $43",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

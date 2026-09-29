@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:29.237881-04:00",
-    "symbols": [
-      "MX"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:29.241618-04:00",
-    "symbols": [
-      "MX"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:29.454904-04:00",
     "symbols": [
       "FISN"
@@ -5042,6 +5022,32 @@
       "SPY"
     ],
     "headline": "Fed&#39;s Williams Says Determining How Restrictive Monetary Policy Is Remains Hard",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:34:46.338890-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says He Is A Big Believer In Being Data Dependent",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:38:40.845035-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "SPCX",
+      "SPY"
+    ],
+    "headline": "Trump Says Self-Regulation Is Very Important In AI After Meeting With AI Leaders; Says US Has Big Lead On AI And Wants To Keep It",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

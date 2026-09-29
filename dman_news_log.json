@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:41:27.804235-04:00",
-    "symbols": [
-      "DKNG",
-      "HOOD"
-    ],
-    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:01.970769-04:00",
-    "symbols": [
-      "SSTI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:42:01.975361-04:00",
     "symbols": [
       "SSTI"
@@ -5051,5 +5030,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:07:55.631894-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Status Posts On X &#34;Everything\u2019s looking much better now. Thanks for your patience&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:09:22.668699-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Group shares are trading higher. AI industry catalysts such as OpenAI&#39;s fast pace of revenue growth and Meta Platforms&#39; Muse expansion may help support the demand outlook for the cloud services company with a strong exposure to Microsoft and Meta compute spending.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

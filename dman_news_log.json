@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:21:10.786463-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Tops $5.4T, Outvalues Russell 2000: Michael Burry\u2019s AI Warning Raises ETF Questions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T11:21:11.451103-04:00",
     "symbols": [
       "META"
@@ -5054,5 +5044,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:39:03.021405-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "StoneX Reiterates Buy on Advanced Micro Devices, Maintains $685 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:36:42.562319-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;An AI Operating System, Not a Chatbot&#39;: Oppenheimer Hails Microsoft&#39;s Enterprise Advantage",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T11:39:54.173577-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia\u2019s AI Boom Has a Hidden Dependency: One Dutch Company",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T11:41:15.170652-04:00",
     "symbols": [
       "PANW"
@@ -5057,6 +5037,26 @@
     "headline": "USA JOLTS Job Openings For August 7.079M Vs 7.230M Est",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:00:46.802328-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA JOLTS Job Openings For August Revises Prior From 7.271M TO 7.335M",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:04:06.517320-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Tenova, In Collaboration With GE Vernova, To Supply The World\u2019s Largest EAF To Nippon Steel\u2019s Yawata Works",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

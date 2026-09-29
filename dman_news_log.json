@@ -1,325 +1,5 @@
 [
   {
-    "ts": "2026-09-29T10:50:32.933055-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T10:50:34.364795-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T10:50:39.128399-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "UnitedHealth, AbbVie And A Health Care Stock On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:50:49.000557-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth, AbbVie And A Health Care Stock On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:50:49.962146-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "International Space Station National Lab Announces NASA&#39;s SpaceX Crew-13 Mission Will Launch No Earlier Than 11:10 A.M. EDT On Oct. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:50:54.704832-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "International Space Station National Lab Announces NASA&#39;s SpaceX Crew-13 Mission Will Launch No Earlier Than 11:10 A.M. EDT On Oct. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T10:50:58.846506-04:00",
-    "symbols": [
-      "FFAI"
-    ],
-    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:51:00.966448-04:00",
-    "symbols": [
-      "TEAD"
-    ],
-    "headline": "Teads And Koddi Launch Global OpenRTB Partnership To Expand Programmatic Access To Onsite Retail Media Inventory",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:53:03.015877-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX shares are trading higher following the successful launch and orbit of its Starship transport vehicle. Also, TD Cowen initiated coverage on the stock with a Buy rating and announced a $200 price target.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T11:09:43.307758-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix To Exclusively Broadcast WWE&#39;s Weekly Flagship Shows, Premium Live Events, Archive Library In Japan, Effective Oct. 1",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:55.426138-04:00",
-    "symbols": [
-      "QURE"
-    ],
-    "headline": "Why Is uniQure Stock Sinking on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T11:09:55.431249-04:00",
-    "symbols": [
-      "QURE"
-    ],
-    "headline": "Dow Tumbles 100 Points; Carnival Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T11:09:55.435810-04:00",
-    "symbols": [
-      "QURE"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T11:09:55.440278-04:00",
-    "symbols": [
-      "QURE"
-    ],
-    "headline": "uniQure Announces Additional Data From Ongoing Phase I/II Studies Of Ifezuntirgene Inilparvovec For Treatment Of Huntington\u2019s Disease; In 12 High-Dose Patients At 48 Months, Both cUHDRS And TFC Continued To Demonstrate Meaningful Slowing Of Disease Progression And Clear Dose-Dependent Response; Primary Endpoint Of cUHDRS Showed 44% Slowing Of Disease Progression",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T11:09:55.652642-04:00",
-    "symbols": [
-      "FICO"
-    ],
-    "headline": "FICO Stock Hits Multi-Year Low: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:55.657282-04:00",
-    "symbols": [
-      "FICO"
-    ],
-    "headline": "On September 28, 2026 Bill Pulte Post On X &#34;We are Simplifying Mortgage Pricing following feedback from lenders and consumers. Instead of two separate pricing grids, which makes zero sense, Fannie and Freddie are hereby moving to ONE PRICING GRID with VantageScore joining the existing FICO Classic pricing grid.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:55.661812-04:00",
-    "symbols": [
-      "FICO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:55.666296-04:00",
-    "symbols": [
-      "FICO"
-    ],
-    "headline": "Vail Resorts, Inventiva And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:55.670759-04:00",
-    "symbols": [
-      "FICO"
-    ],
-    "headline": "Why Navitas Semiconductor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.006774-04:00",
-    "symbols": [
-      "CLPT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.176295-04:00",
-    "symbols": [
-      "AIR"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Gains as Trump Dismisses Iran Sanction Relief as &#39;Hoax&#39;\u2014 Nvidia, AAR, Vail Resorts in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.180958-04:00",
-    "symbols": [
-      "AIR"
-    ],
-    "headline": "Carnival, AAR And 3 Stocks To Watch Heading Into Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.185652-04:00",
-    "symbols": [
-      "AIR"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.190069-04:00",
-    "symbols": [
-      "AIR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.194572-04:00",
-    "symbols": [
-      "AIR"
-    ],
-    "headline": "AAR  To Acquire A 65% Interest In MRO Holdings For An Equity Value Of ~$1.8B; To Fund Deal With $2.10B Debt, $780M Equity At $135/Share, $230M PIPE; Co. Has Option To Buy Remaining 35% Of MRO Holdings In Tranches Over Six Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.301793-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.526342-04:00",
-    "symbols": [
-      "IMMX"
-    ],
-    "headline": "Immix Biopharma Announces Pricing Of $125M Offering Of 11,363,637 Shares At $11.00/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.530971-04:00",
-    "symbols": [
-      "IMMX"
-    ],
-    "headline": "Immix Biopharma Reports 89% Complete Response Rate In Interim Phase 2 Data For NXC-201 In AL Amyloidosis; Plans BLA Submission Mid-2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:09:56.644970-04:00",
-    "symbols": [
-      "UNCY"
-    ],
-    "headline": "Unicycive Therapeutics Resubmits Its FDA New Drug Application For Oxylanthanum Carbonate For The Treatment Of Hyperphosphatemia In Patients With Chronic Kidney Disease On Dialysis; Expects PDUFA Date Six Months From Resubmission Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T11:09:56.649850-04:00",
-    "symbols": [
-      "UNCY"
-    ],
-    "headline": "Unicycive Says Suit Alleges Securities Law Violations Over Statements On Oxylanthanum Carbonate FDA Application",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T11:09:56.654331-04:00",
-    "symbols": [
-      "UNCY"
-    ],
-    "headline": "Unicycive Therapeutics Discloses Securities Class Action Filed September 3 Against Company And Certain Officers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T11:09:56.977397-04:00",
-    "symbols": [
-      "FTCI"
-    ],
-    "headline": "inxon, Hitachi Energy, FTC Solar Ink MoU To Carry Out, Supply Solar, Battery Energy Storage System Projects In North America",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T11:09:57.099631-04:00",
     "symbols": [
       "RILY"
@@ -5065,6 +4745,327 @@
     "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:04:27.231359-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Announces Deal To Acquire AI Customer Research Platform Listen Labs; Terms Not Disclosed, Expects Close In Fiscal Q4 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.283266-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.288199-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.364139-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.368723-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.622634-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.627498-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.801685-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.806303-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.926411-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:42.931126-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:43.072915-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T16:04:43.078266-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T16:04:43.151276-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix To Exclusively Broadcast WWE&#39;s Weekly Flagship Shows, Premium Live Events, Archive Library In Japan, Effective Oct. 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:04:43.330037-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:43.334735-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:44.351688-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "UnitedHealth, AbbVie And A Health Care Stock On CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:47.071279-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth, AbbVie And A Health Care Stock On CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:04:47.297002-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:47.301754-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:04:47.442283-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:04:47.446899-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:04:50.461779-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T16:04:50.466815-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "President Trump On Meeting With AI Leaders, Says Signed AI Document That Is A Form Of Protection, I Think Document Is Morally Binding; Think We Are Seeing Tremendous Self-Policing, AI Leaders Understand That; We Are Thking Of Creating Committee To Watch Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T16:04:52.468590-04:00",
+    "symbols": [
+      "FFAI"
+    ],
+    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:04:53.105093-04:00",
+    "symbols": [
+      "TEAD"
+    ],
+    "headline": "Teads And Koddi Launch Global OpenRTB Partnership To Expand Programmatic Access To Onsite Retail Media Inventory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:05:24.087385-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia turns to insurers to spread the risk of AI build-out&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:05:32.698336-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Anthropic CEO Says Technology Has Very Real Risks, Still Under Discussion How To Address The Risks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:05:51.836925-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials Says Kioxia Joins Its EPIC Center As Partner To Develop Next-Generation AI Memory Technologies",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T16:06:36.705049-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says Rising Bond Yields Show Tighter Financial Conditions At Margin; Doesn&#39;t Believe They Signal Shifting Longer-Run Inflation Views",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:06:49.372527-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says AI Not Causing Big Changes In Job Levels So Far; Says Strong AI Investment Important To Bolster Future Productivity",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T16:06:57.075282-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Talen Energy Appoints President Terry Nutt CEO, Effective Jan. 1, 2027, Succeeding Mac McFarland; Board Approves Upsized $3B Buyback Plan",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

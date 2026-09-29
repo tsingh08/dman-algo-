@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:26.414768-04:00",
-    "symbols": [
-      "CBOE"
-    ],
-    "headline": "Cboe Global Markets, S&amp;P Dow Jones Indices Extend Collaboration Through 2051 For Cboe To Provide Trading In Its S&amp;P 500 Index Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:26.632965-04:00",
-    "symbols": [
-      "FCEL"
-    ],
-    "headline": "FuelCell Energy Stock Surges Following Oppenheimer Initiation: What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T09:26:26.636813-04:00",
-    "symbols": [
-      "FCEL"
-    ],
-    "headline": "This SpaceX Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T09:26:26.640398-04:00",
-    "symbols": [
-      "FCEL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T09:26:26.643911-04:00",
-    "symbols": [
-      "FCEL"
-    ],
-    "headline": "Oppenheimer Initiates Coverage On FuelCell Energy with Outperform Rating, Announces Price Target of $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T09:26:26.851081-04:00",
-    "symbols": [
-      "WW"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:26.854966-04:00",
-    "symbols": [
-      "WW"
-    ],
-    "headline": "WW International Partners With Google Health Enterprise To Combine Wearable Technology And AI-Powered Health Insights With Weight Watchers\u2019 Weight Health Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:27.073626-04:00",
-    "symbols": [
-      "NVTS"
-    ],
-    "headline": "Navitas Stock Extends Gains After Army Selects It for SiC Power Chip Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:27.077440-04:00",
-    "symbols": [
-      "NVTS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:27.080988-04:00",
-    "symbols": [
-      "NVTS"
-    ],
-    "headline": "Why Navitas Semiconductor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:27.084499-04:00",
-    "symbols": [
-      "NVTS"
-    ],
-    "headline": "MongoDB, Kodiak Sciences, Navitas Semiconductor, Boeing and Nvidia: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:27.088090-04:00",
     "symbols": [
       "NVTS"
@@ -5044,6 +4934,116 @@
     "headline": "Fed&#39;s Musalem Says Inflation Expectations Remain Consistent With 2% Over Long Run; Says Fed Projections Could Be Improved By Anonymously Linking Rate Dots To Economic Forecasts",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:27:14.968720-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says Price Stability Is Foundational For Economy",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:27:53.559097-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says Monetary Policy Remains Somewhat Accommodative Even After Last Rate Hike",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:28:06.146681-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With ExxonMobil Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:28:12.277591-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "What&#39;s Going On With ExxonMobil Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:28:23.088155-04:00",
+    "symbols": [
+      "CBOE"
+    ],
+    "headline": "Cboe Global Markets, S&amp;P Dow Jones Indices Extend Collaboration Through 2051 For Cboe To Provide Trading In Its S&amp;P 500 Index Options",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:28:24.528663-04:00",
+    "symbols": [
+      "FCEL"
+    ],
+    "headline": "FuelCell Energy Stock Surges Following Oppenheimer Initiation: What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T14:28:24.534379-04:00",
+    "symbols": [
+      "FCEL"
+    ],
+    "headline": "This SpaceX Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T14:28:24.539541-04:00",
+    "symbols": [
+      "FCEL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T14:28:24.544387-04:00",
+    "symbols": [
+      "FCEL"
+    ],
+    "headline": "Oppenheimer Initiates Coverage On FuelCell Energy with Outperform Rating, Announces Price Target of $24",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T14:28:25.042829-04:00",
+    "symbols": [
+      "WW"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:28:25.047448-04:00",
+    "symbols": [
+      "WW"
+    ],
+    "headline": "WW International Partners With Google Health Enterprise To Combine Wearable Technology And AI-Powered Health Insights With Weight Watchers\u2019 Weight Health Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

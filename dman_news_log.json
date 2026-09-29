@@ -1,57 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:35:09.313834-04:00",
-    "symbols": [
-      "APP",
-      "GOOGL",
-      "SPOT"
-    ],
-    "headline": "4 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T13:35:37.597584-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "9 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:35:37.602032-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Meta Is Coming for Europe\u2019s Bond Market: AI Debt Is Going Global",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:35:38.112753-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "9 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:35:38.373271-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Is Coming for Europe\u2019s Bond Market: AI Debt Is Going Global",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T13:35:38.617723-04:00",
     "symbols": [
       "GOOGL"
@@ -5049,5 +4997,57 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:29:25.678274-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Homeland Security Money Financed Pro-Trump Television Ads&#39; - Wall Street Journal",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:30:16.496656-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "NFLX"
+    ],
+    "headline": "How Much Do You Need to Have Netflix, Disney and the 8 Major Streaming Platforms?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:30:17.201468-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SpaceX&#39;s Next Big Business Is on the Ground, TD Cowen Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:30:31.976614-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Next Big Business Is on the Ground, TD Cowen Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:30:37.112710-04:00",
+    "symbols": [
+      "UEC"
+    ],
+    "headline": "Uranium Energy Production Surges As Company Enters Fiscal 2027 Debt-Free",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

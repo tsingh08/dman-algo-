@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:09.727739-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Reported September 28, &#39;OpenAI Scraps Release of New AI Model Over Safety Concerns&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:09.731210-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Bets Big On AI, Bleeds Billions: Key Details From The Reported IPO Prospectus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:09.734671-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "AI Bubble? Market Expert Says Yes \u2014 and this Event Could \u2018Drag Down the Entire Sector\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:26:09.978879-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia, AMD Lobby Trump Administration to Halt Potential Chip Export Restrictions to China: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T09:26:09.982554-04:00",
     "symbols": [
       "NVDA"
@@ -5032,6 +4992,47 @@
     "headline": "30-Year Yield Hits 2002 High; Credit-Score Giant FICO Plunges 27%: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:26:30.550250-04:00",
+    "symbols": [
+      "MDB",
+      "META"
+    ],
+    "headline": "What&#39;s Going On With MongoDB Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T13:26:53.629796-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says I See U.S. Not Getting To 2% Inflation Target In A Timely Way Unless We Adjust Our Policy",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:27:45.702509-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Kalshi In Advanced Discussions With Existing And New Investors Including Tiger Global And Dragoneer To Raise $1B In Fresh Funding",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T13:28:18.832412-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barr Says Last Hike Was Appropriate And Think We Will Likely Need Further Adjustments",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

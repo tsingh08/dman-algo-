@@ -7194,6 +7194,52 @@ class TestMonthlyHaltLift(unittest.TestCase):
             if "MONTHLY_LOSS_LIMIT * 100" in src:
                 self.assertIn("_monthly_halt_lifted()", src, fn.__name__)
 
+    # ── The lift's own floor (2026-09-29 review) ─────────────────────────
+    # September's lift was granted at -4.97%; the boolean then kept the
+    # breaker off all the way to -11.2%. Past MONTHLY_HALT_LIFT_FLOOR_MULT x
+    # the limit, the lift stops counting and the halt re-arms.
+
+    def _lifted_with_month_at(self, month_loss):
+        with patch.object(a, "_monthly_halt_flag_name",
+                          return_value="MONTHLY_HALT_LIFTED_TEST"), \
+             patch.object(a, "_load_flags",
+                          return_value={"MONTHLY_HALT_LIFTED_TEST": True}), \
+             patch.object(a, "get_this_month_loss", return_value=month_loss), \
+             patch.object(a, "_is_duplicate_alert", return_value=True), \
+             patch.object(a, "send_telegram", return_value=True):
+            return a._monthly_halt_lifted()
+
+    def test_lift_holds_above_the_floor(self):
+        self.assertTrue(self._lifted_with_month_at(-4.97))
+
+    def test_lift_voids_past_the_floor(self):
+        floor = -(a.MONTHLY_LOSS_LIMIT * 100 * a.MONTHLY_HALT_LIFT_FLOOR_MULT)
+        self.assertFalse(self._lifted_with_month_at(floor))       # at the line
+        self.assertFalse(self._lifted_with_month_at(-11.2))       # the live case
+
+    def test_floor_alert_fires_once_per_day(self):
+        with patch.object(a, "_monthly_halt_flag_name",
+                          return_value="MONTHLY_HALT_LIFTED_TEST"), \
+             patch.object(a, "_load_flags",
+                          return_value={"MONTHLY_HALT_LIFTED_TEST": True}), \
+             patch.object(a, "get_this_month_loss", return_value=-11.2), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert") as mock_save, \
+             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+            self.assertFalse(a._monthly_halt_lifted())
+        mock_tg.assert_called_once()
+        mock_save.assert_called_once_with("__MONTHLY_LIFT_FLOOR__")
+
+    def test_unreadable_pnl_honours_the_human_lift(self):
+        # A file error the human never saw must not override their decision.
+        with patch.object(a, "_monthly_halt_flag_name",
+                          return_value="MONTHLY_HALT_LIFTED_TEST"), \
+             patch.object(a, "_load_flags",
+                          return_value={"MONTHLY_HALT_LIFTED_TEST": True}), \
+             patch.object(a, "get_this_month_loss",
+                          side_effect=OSError("pnl file unreadable")):
+            self.assertTrue(a._monthly_halt_lifted())
+
 
 class TestLineByLineAuditFixes(unittest.TestCase):
     """Fixes from the 2026-09-13 full-system audit."""

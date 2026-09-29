@@ -2731,9 +2731,15 @@ def _monthly_halt_flag_name(when: Optional[datetime] = None) -> str:
     return f"MONTHLY_HALT_LIFTED_{(when or datetime.now(ET)).strftime('%Y-%m')}"
 
 
+# A manual lift is consent to keep trading past MONTHLY_LOSS_LIMIT — it is not
+# consent to unlimited losses. This multiple of the limit is the second floor:
+# past it, the lift stops counting and the monthly halt re-arms.
+MONTHLY_HALT_LIFT_FLOOR_MULT = 2.0
+
+
 def _monthly_halt_lifted() -> bool:
     """True if the MONTHLY_LOSS_LIMIT halt was deliberately lifted for the
-    CURRENT calendar month.
+    CURRENT calendar month AND the month is still above the lift's own floor.
 
     Scoped by month in the flag NAME, on purpose. Lifted by direct instruction
     2026-09-13 ("lift the halt") with September at -4.97% against the -4%
@@ -2742,10 +2748,43 @@ def _monthly_halt_lifted() -> bool:
     October reads a different flag that defaults to False, so the protection
     re-arms itself on the 1st without anyone having to remember.
 
+    The floor (2026-09-29 review): the September lift was granted at -4.97%,
+    and because the flag was a plain boolean the breaker was then OFF for the
+    rest of the month no matter what happened next. What happened next was
+    -4.55% the very first trading day after the lift (9/14, month to -9.5%)
+    and -11.2% by 9/24 — nearly triple the limit, every loss taken with the
+    circuit breaker disarmed by a decision made on -4.97% information. The
+    flag is set by hand (no code path writes it), so the level at lift time
+    can't be recorded; a fixed second floor at MONTHLY_HALT_LIFT_FLOOR_MULT x
+    the limit costs the human one more limit's worth of room and then makes
+    them decide again with current numbers. Re-arming is one flag edit away
+    and October is unaffected either way.
+
     Persisted through flag()/dman_flags.json, which the daemon and the cron
     scanner both carry, so the decision reaches every process.
     """
-    return flag(_monthly_halt_flag_name(), False)
+    if not flag(_monthly_halt_flag_name(), False):
+        return False
+    try:
+        month = get_this_month_loss()
+    except Exception as _exc:
+        # Can't read the month's P&L — honor the human's explicit lift rather
+        # than halt on a file error they never saw.
+        _log_swallowed("monthly halt lift floor", _exc)
+        return True
+    floor = -(MONTHLY_LOSS_LIMIT * 100 * MONTHLY_HALT_LIFT_FLOOR_MULT)
+    if month <= floor:
+        if not _is_duplicate_alert("__MONTHLY_LIFT_FLOOR__", cooldown_min=24 * 60):
+            _save_last_alert("__MONTHLY_LIFT_FLOOR__")
+            send_telegram(
+                f"🛑 <b>Monthly halt re-armed</b> — month at {month:.1f}%, past "
+                f"{floor:.0f}% (={MONTHLY_HALT_LIFT_FLOOR_MULT:.0f}x the "
+                f"{MONTHLY_LOSS_LIMIT*100:.0f}% limit). The manual lift no longer "
+                f"applies; trading is halted for the month. It was granted at a "
+                f"smaller drawdown — re-lift only after reviewing the current one."
+            )
+        return False
+    return True
 
 
 def set_flag(name: str, value: bool) -> None:
@@ -21717,7 +21756,7 @@ def run_policy_audit(notify: bool = True) -> list[str]:
     def _halt_state_is_coherent():
         month = get_this_month_loss()
         if month <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
-            return f"month at {month:.1f}% is past the {MONTHLY_LOSS_LIMIT*100:.0f}% limit and no lift is set"
+            return f"month at {month:.1f}% is past the {MONTHLY_LOSS_LIMIT*100:.0f}% limit with no lift in effect"
         return ""
 
     def _loss_guard_can_clear():

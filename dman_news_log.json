@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:06:05.278492-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:06:05.523887-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:06:07.268750-04:00",
-    "symbols": [
-      "ZIM"
-    ],
-    "headline": "&#39;Prime Minister&#39;s Office Takes Zim Deal Off The Table&#39; - The Marker Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:06:08.002639-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "What&#39;s Going On With AMC Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:06:08.281547-04:00",
-    "symbols": [
-      "AGEN"
-    ],
-    "headline": "Rodman &amp; Renshaw Initiates Coverage On Agenus with Buy Rating, Announces Price Target of $19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T13:06:08.622182-04:00",
     "symbols": [
       "TOYO"
@@ -5056,6 +5006,56 @@
       "TLT"
     ],
     "headline": "Michael Burry, Peter Schiff Flag S&amp;P 500 Risk: 5 ETFs to Consider Now",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:37:47.468710-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "This Staar Surgical Analyst Turns Bullish; Here Are Top 5 Upgrades For Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:38:28.593401-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Michael Burry, Peter Schiff Flag S&amp;P 500 Risk: 5 ETFs to Consider Now",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:38:39.889506-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Stock Sinks 25% This Year \u2014 Deutche Bank Says Buy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:38:52.013995-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Just Put $150 Billion Behind Its Stock. Is It Cheap Enough?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:39:16.704672-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Will Sign Powerful Order On AI, Changing Name To Super Intelligence; Spoke To Xi, He Loves It",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

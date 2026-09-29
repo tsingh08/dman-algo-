@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:50:13.236198-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T09:50:14.264515-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:50:15.954361-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:50:19.009673-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:51:03.690948-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Jamie Dimon Proposes &#39;Big, Beautiful&#39; Free Trade Pact Between US and Europe to Counter China: &#39;An Economic and Geopolitical Game Changer&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:56:52.072163-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "What&#39;s Going On With Rocket Lab Stock Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T09:57:27.842020-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Jamie Dimon Proposes 'Big, Beautiful' Free Trade Pact Between US and Europe to Counter China: 'An Economic and Geopolitical Game Changer'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T09:57:28.830678-04:00",
-    "symbols": [
-      "ZONE"
-    ],
-    "headline": "Zone Frontier Subsidiary Enters Into Long-Term Ground Lease Covering ~4,077 Acres In Potter County, Texas",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:57:30.064045-04:00",
     "symbols": [
       "AIXC"
@@ -5045,6 +4965,86 @@
     ],
     "headline": "Billionaire Investor Takes a Stake in Applied Digital (APLD)",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:36:10.080723-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:36:10.192802-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T15:36:10.741333-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T15:36:11.539201-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:36:13.926048-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:36:14.802208-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Jamie Dimon Proposes &#39;Big, Beautiful&#39; Free Trade Pact Between US and Europe to Counter China: &#39;An Economic and Geopolitical Game Changer&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T15:36:20.029492-04:00",
+    "symbols": [
+      "PWP"
+    ],
+    "headline": "Piper Sandler Goes Shopping On Wall Street, Targets Perella Weinberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:36:20.117164-04:00",
+    "symbols": [
+      "GFI"
+    ],
+    "headline": "&#39;Gold Fields Said to Weigh Sweetening Northern Star Bid With Cash&#39; - Bloomberg News",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

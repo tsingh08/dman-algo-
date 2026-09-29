@@ -268,5 +268,55 @@
 "extension_pct": 75.0,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "MRNA",
+"date": "2026-09-29",
+"close": 203.46,
+"base_days": 1,
+"above_low_pct": 809.9,
+"extension_pct": 28.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "IOVA",
+"date": "2026-09-29",
+"close": 14.45,
+"base_days": 1,
+"above_low_pct": 698.3,
+"extension_pct": 52.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TXG",
+"date": "2026-09-29",
+"close": 90.04,
+"base_days": 0,
+"above_low_pct": 694.0,
+"extension_pct": 24.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ABCL",
+"date": "2026-09-29",
+"close": 14.82,
+"base_days": 0,
+"above_low_pct": 433.1,
+"extension_pct": 24.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ASX",
+"date": "2026-09-29",
+"close": 45.31,
+"base_days": 62,
+"above_low_pct": 311.9,
+"extension_pct": 12.6,
+"fresh_base": true,
+"weak_band": true
 }
 ]

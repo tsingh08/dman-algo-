@@ -43,7 +43,7 @@
    []
   ],
   "telegram": [
-   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n✅ Scanner ran 8h ago\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
+   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n✅ Scanner ran 8h ago (no session missed)\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
@@ -69,7 +69,7 @@
    "  ✅ Universe cached: 3 tickers → dman_universe_cache.json (HH:MM scan will use this instead of 108-name list)"
   ]
  },
- "P03_scanner_down_days": {
+ "P03_scanner_weekend_gap": {
   "error": null,
   "orders": [],
   "cache_date": "2026-10-14",
@@ -78,7 +78,112 @@
    []
   ],
   "telegram": [
-   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n⚠️ <b>SCANNER DOWN</b> — last run 3d ago (Oct 11). Check GitHub Actions → Actions tab.\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
+   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n✅ Scanner ran 65h ago (no session missed)\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
+  ],
+  "stdout": [
+   "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
+   "  [0.5/7] Fetching global market context + breaking news...",
+   "  [1/7] Checking market regime + macro context...",
+   "  [3/6] Checking seasonal status...",
+   "  [3.5/7] Checking sector ETF health...",
+   "  [4/7] Reading live outcomes...",
+   "  [5/7] Checking monthly P&L...",
+   "  [6/7] Scanning pre-market gaps...",
+   "  [6.5/7] Scanning earnings calendar...",
+   "════════════════════════════════════════════════════════════",
+   "  PRE-MARKET BRIEFING  —  Wednesday Oct 14, 2026",
+   "────────────────────────────────────────────────────────────",
+   "  Regime   : regime",
+   "  Macro    : macro-cal",
+   "  Seasonal : ✅ October — normal conditions (min score: 75)",
+   "  Monthly  : 📉 Down 2.0% this month (limit: 4%)",
+   "════════════════════════════════════════════════════════════",
+   "  ✅ Telegram briefing sent.",
+   "  [8/8] Pre-building dynamic scan universe for HH:MM gate...",
+   "  ✅ Universe cached: 3 tickers → dman_universe_cache.json (HH:MM scan will use this instead of 108-name list)"
+  ]
+ },
+ "P03b_scanner_missed_one": {
+  "error": null,
+  "orders": [],
+  "cache_date": "2026-10-14",
+  "cache_n": 3,
+  "reanchor_calls": [
+   []
+  ],
+  "telegram": [
+   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n⚠️ Scanner missed 1 session — last run Oct 13 HH:MM. One more and entries are running blind.\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
+  ],
+  "stdout": [
+   "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
+   "  [0.5/7] Fetching global market context + breaking news...",
+   "  [1/7] Checking market regime + macro context...",
+   "  [3/6] Checking seasonal status...",
+   "  [3.5/7] Checking sector ETF health...",
+   "  [4/7] Reading live outcomes...",
+   "  [5/7] Checking monthly P&L...",
+   "  [6/7] Scanning pre-market gaps...",
+   "  [6.5/7] Scanning earnings calendar...",
+   "════════════════════════════════════════════════════════════",
+   "  PRE-MARKET BRIEFING  —  Wednesday Oct 14, 2026",
+   "────────────────────────────────────────────────────────────",
+   "  Regime   : regime",
+   "  Macro    : macro-cal",
+   "  Seasonal : ✅ October — normal conditions (min score: 75)",
+   "  Monthly  : 📉 Down 2.0% this month (limit: 4%)",
+   "════════════════════════════════════════════════════════════",
+   "  ✅ Telegram briefing sent.",
+   "  [8/8] Pre-building dynamic scan universe for HH:MM gate...",
+   "  ✅ Universe cached: 3 tickers → dman_universe_cache.json (HH:MM scan will use this instead of 108-name list)"
+  ]
+ },
+ "P03c_scanner_down_sessions": {
+  "error": null,
+  "orders": [],
+  "cache_date": "2026-10-14",
+  "cache_n": 3,
+  "reanchor_calls": [
+   []
+  ],
+  "telegram": [
+   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n⚠️ <b>SCANNER DOWN</b> — 3 sessions missed since Oct 11 HH:MM. Check GitHub Actions → Actions tab.\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
+  ],
+  "stdout": [
+   "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
+   "  ✅ Reconciliation: tracker and broker agree (0 position(s))",
+   "  [0.5/7] Fetching global market context + breaking news...",
+   "  [1/7] Checking market regime + macro context...",
+   "  [3/6] Checking seasonal status...",
+   "  [3.5/7] Checking sector ETF health...",
+   "  [4/7] Reading live outcomes...",
+   "  [5/7] Checking monthly P&L...",
+   "  [6/7] Scanning pre-market gaps...",
+   "  [6.5/7] Scanning earnings calendar...",
+   "════════════════════════════════════════════════════════════",
+   "  PRE-MARKET BRIEFING  —  Wednesday Oct 14, 2026",
+   "────────────────────────────────────────────────────────────",
+   "  Regime   : regime",
+   "  Macro    : macro-cal",
+   "  Seasonal : ✅ October — normal conditions (min score: 75)",
+   "  Monthly  : 📉 Down 2.0% this month (limit: 4%)",
+   "════════════════════════════════════════════════════════════",
+   "  ✅ Telegram briefing sent.",
+   "  [8/8] Pre-building dynamic scan universe for HH:MM gate...",
+   "  ✅ Universe cached: 3 tickers → dman_universe_cache.json (HH:MM scan will use this instead of 108-name list)"
+  ]
+ },
+ "P03d_scanner_session_lookup_dead": {
+  "error": null,
+  "orders": [],
+  "cache_date": "2026-10-14",
+  "cache_n": 3,
+  "reanchor_calls": [
+   []
+  ],
+  "telegram": [
+   "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\nℹ️ Scanner last ran 65h ago (Oct 11 HH:MM) — session count unavailable, so this is wall-clock and overstates any weekend or holiday gap.\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",

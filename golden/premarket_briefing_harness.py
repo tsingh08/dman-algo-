@@ -44,6 +44,11 @@ BASE = dict(
     # change that rewrote every one of them.
     zones=[],
     earnings=([], True),       # (dates, verified) or "raise"
+    # Sessions the scanner missed entirely. Scanner staleness is measured in
+    # sessions now, not wall-clock hours, so this -- not scan_log_age_h -- is
+    # what decides the health line. Stubbed because _sessions_since() reads SPY
+    # bars over the network, and a golden that phones out is not hermetic.
+    missed_sessions=0,
 )
 
 # Inside the $5-$15 band the preflight reports on, so it is a name that could
@@ -53,8 +58,16 @@ ZONE_IN_BAND = {"ticker": "IOVA", "close": 11.0, "above_low_pct": 508.0,
 
 SCENARIOS = {
     "P01_normal":                     {},
+    # 8h old but no session missed -- an ordinary intraday gap.
     "P02_scanner_stale_hours":        dict(scan_log_age_h=8.0),
-    "P03_scanner_down_days":          dict(scan_log_age_h=80.0),
+    # The Monday-morning case, and the reason this measure changed: 65h of
+    # wall clock, zero sessions missed, because the gap IS the weekend. The old
+    # 27h threshold called this "SCANNER DOWN, last run 2d ago" every Monday.
+    "P03_scanner_weekend_gap":        dict(scan_log_age_h=65.0, missed_sessions=0),
+    "P03b_scanner_missed_one":        dict(scan_log_age_h=30.0, missed_sessions=1),
+    "P03c_scanner_down_sessions":     dict(scan_log_age_h=80.0, missed_sessions=3),
+    # The session lookup itself failed: fall back to hours, and say so.
+    "P03d_scanner_session_lookup_dead": dict(scan_log_age_h=65.0, missed_sessions=-1),
     "P04_scan_log_missing":           dict(scan_log_missing=True),
     "P05_monthly_limit_lifted":       dict(month_loss=-11.0, lifted=True),
     "P06_monthly_limit_not_lifted":   dict(month_loss=-11.0, lifted=False),
@@ -137,6 +150,7 @@ def run(name, over):
     ps = [
         patch.object(a, "datetime", dt),
         patch.object(a, "_et_today", return_value=TODAY),
+        patch.object(a, "_sessions_since", return_value=cfg["missed_sessions"]),
         patch.object(a, "SCAN_LOG_FILE", scan_log),
         patch.object(a, "get_alpaca_client", return_value=(client if cfg["broker_up"] else None)),
         patch.object(a, "PositionTracker", return_value=MagicMock(positions=cfg["positions"])),

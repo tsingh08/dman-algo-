@@ -788,6 +788,18 @@ _TELEGRAM_SUPPRESSED = [0]       # counted so the EOD note can mention them
 ADOPTED_SETUP = "Adopted (orphan reconciliation)"
 ADOPTED_FALLBACK_STOP_PCT = 0.08   # only used when the broker has no stop at all
 
+# Sessions an UNFILLED buy entry may rest before it is cancelled outright.
+# The stale-entry check alerts from day 1 but deliberately does not cancel,
+# because at that horizon a dead day-only entry and a legitimate swing entry
+# waiting overnight look identical (see the check itself). That ambiguity does
+# not survive three sessions: a swing entry exists to fill on a pullback, and
+# ENTRY_DRIFT_MAX says the algo considers its own signal void once price has
+# moved 2%. DDOG, 2026-09-28: a bracket entry rested 63.7 hours while the stock
+# ran 4.4% away from it, and the only thing that ever expired it was a human
+# noticing. Cancelling is the safe direction -- the cost is a missed trade, and
+# a still-valid setup gets re-signalled at a current price with current gates.
+STALE_ENTRY_CANCEL_SESSIONS = 3
+
 MOMENTUM_EOD_CLOSE_HOUR_ET   = 15    # force-close any open day-only position at/after this ET
 MOMENTUM_EOD_CLOSE_MINUTE_ET = 45    # time -- 3:45 PM ET, ahead of the last momentum-watch cron
 
@@ -2458,6 +2470,7 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("setupprobation", "Manually restrict a weak setup — /setupprobation SETUP NAME"),
     ("endsetupprobation", "Clear a setup's restriction — /endsetupprobation SETUP NAME"),
     ("close",     "Close a position now — /close TICKER"),
+    ("cancel",    "Cancel working orders for a ticker — /cancel TICKER"),
     ("why",       "Explain a ticker's current signal — /why TICKER"),
     ("options",   "Browse live calls/puts — /options TICKER [E]"),
     ("buy",       "Confirm a buy from /options — /buy N [qty] [price]"),
@@ -3958,6 +3971,78 @@ def _tg_cmd_review():
 
 
 
+def _tg_cmd_cancel(_arg):
+    """Cancel working ORDERS for a ticker. Not positions -- that is /close.
+
+    There was no phone path to kill a resting entry. /close operates on
+    PositionTracker().positions, so on an unfilled order it answers "no
+    position" and leaves the order working; the stale-entry alert said "cancel
+    it in Alpaca", which is a workaround, not a control. DDOG on 2026-09-28 sat
+    63.7 hours because the only way to expire it was a human opening the broker
+    site -- and the whole design premise is that nobody is at a screen.
+
+    Cancels every non-terminal order on the symbol, parents included, which
+    cascades to bracket legs. Refuses when a POSITION exists, because cancelling
+    orders there would strip a live stop -- that is /close's job, and doing it
+    here by accident is the one genuinely dangerous outcome.
+    """
+    _sym = str(_arg or "").upper().strip()
+    if not _sym:
+        send_telegram("Usage: <code>/cancel TICKER</code>")
+        return
+    _client = get_alpaca_client()
+    if _client is None:
+        send_telegram("❌ <b>/cancel</b> — no broker client.")
+        return
+    try:
+        _held = {p.symbol.upper() for p in _client.get_all_positions()}
+    except Exception as exc:
+        _log_swallowed("cancel: positions", exc)
+        send_telegram(f"❌ <b>/cancel {html.escape(_sym)}</b> — could not read "
+                      f"positions, so refusing to touch orders.")
+        return
+    if _sym in _held:
+        send_telegram(
+            f"⚠️ <b>{html.escape(_sym)} is an OPEN POSITION</b> — not cancelling.\n"
+            f"Its working orders are its stop and target; pulling them would "
+            f"leave it unprotected. Use <code>/close {html.escape(_sym)}</code> "
+            f"to exit the position instead."
+        )
+        return
+    try:
+        _open = _client.get_orders(filter=GetOrdersRequest(
+            symbols=[_sym], status=QueryOrderStatus.OPEN, limit=50))
+    except Exception as exc:
+        _log_swallowed("cancel: orders", exc)
+        send_telegram(f"❌ <b>/cancel {html.escape(_sym)}</b> — could not list orders.")
+        return
+    if not _open:
+        send_telegram(f"ℹ️ <b>/cancel {html.escape(_sym)}</b> — no working orders.")
+        return
+    _done, _failed = [], []
+    for _o in _open:
+        _desc = (f"{getattr(_o.side, 'value', _o.side)} "
+                 f"{getattr(_o.order_type, 'value', _o.order_type)} "
+                 f"{getattr(_o, 'qty', '?')}")
+        try:
+            _client.cancel_order_by_id(_o.id)
+            _done.append(_desc)
+        except Exception as exc:
+            # 422 "order pending cancel" means someone already asked; not a fail.
+            _failed.append(f"{_desc} — {str(exc)[:60]}")
+    _msg = f"🚫 <b>/cancel {html.escape(_sym)}</b>\n"
+    if _done:
+        _msg += ("cancel requested for:\n"
+                 + "\n".join(f"• {html.escape(d)}" for d in _done) + "\n")
+    if _failed:
+        _msg += ("not cancelled:\n"
+                 + "\n".join(f"• {html.escape(f)}" for f in _failed) + "\n")
+    _msg += ("Bracket legs cancel with their parent. Outside market hours the "
+             "broker may hold the request as <code>pending_cancel</code> until "
+             "the open — that is accepted, not failed.")
+    send_telegram(_msg)
+
+
 def _tg_cmd_close(_arg):
     """Extracted verbatim from _handle_telegram_command() on 2026-09-14 (refx).
     """
@@ -4102,6 +4187,9 @@ def _handle_telegram_command_inner(text: str) -> None:
 
     elif _cmd == "close" and _arg:
         _tg_cmd_close(_arg)
+
+    elif _cmd == "cancel" and _arg:
+        _tg_cmd_cancel(_arg)
 
     elif _cmd == "audit":
         _findings = run_policy_audit(notify=False)
@@ -12547,15 +12635,45 @@ def run_premarket_briefing() -> None:
                 _sw_ts  = _sw_log[-1].get("ts", "")
                 _sw_dt  = datetime.fromisoformat(_sw_ts).astimezone(ET)
                 _sw_hrs = (now_et - _sw_dt).total_seconds() / 3600
-                if _sw_hrs < 2:
-                    scanner_health_line = f"✅ Scanner healthy — last run {int(_sw_hrs * 60)}min ago"
-                elif _sw_hrs < 27:   # within a trading day + overnight gap
-                    scanner_health_line = f"✅ Scanner ran {int(_sw_hrs)}h ago"
-                else:
-                    _sw_days = int(_sw_hrs / 24)
+                # Staleness in SESSIONS, not wall-clock hours. The scan log only
+                # receives market-hours cycles, so on any Monday morning the last
+                # entry is Friday afternoon -- 65h on 2026-09-28 -- and the old
+                # 27h threshold reported "SCANNER DOWN, last run 2d ago" every
+                # single Monday. It was true and it was misleading, and a warning
+                # that cries wolf weekly trains you to skip the one that matters.
+                #
+                # _sessions_since(last scan date) counts sessions that ENDED after
+                # that scan, which is exactly "sessions the scanner missed
+                # entirely": a weekend contributes none, and a real outage
+                # contributes one per trading day.
+                _missed = _sessions_since(_sw_dt.date())
+                if _missed < 0:
+                    # The session lookup itself failed. Fall back to hours, and
+                    # say so rather than presenting the weaker measure as if it
+                    # were the intended one.
                     scanner_health_line = (
-                        f"⚠️ <b>SCANNER DOWN</b> — last run {_sw_days}d ago "
-                        f"({_sw_dt.strftime('%b %d')}). Check GitHub Actions → Actions tab."
+                        f"ℹ️ Scanner last ran {int(_sw_hrs)}h ago "
+                        f"({_sw_dt.strftime('%b %d %H:%M')}) — session count "
+                        f"unavailable, so this is wall-clock and overstates any "
+                        f"weekend or holiday gap."
+                    )
+                elif _missed == 0:
+                    scanner_health_line = (
+                        f"✅ Scanner healthy — last run {int(_sw_hrs * 60)}min ago"
+                        if _sw_hrs < 2 else
+                        f"✅ Scanner ran {int(_sw_hrs)}h ago (no session missed)"
+                    )
+                elif _missed == 1:
+                    scanner_health_line = (
+                        f"⚠️ Scanner missed 1 session — last run "
+                        f"{_sw_dt.strftime('%b %d %H:%M')}. One more and entries "
+                        f"are running blind."
+                    )
+                else:
+                    scanner_health_line = (
+                        f"⚠️ <b>SCANNER DOWN</b> — {_missed} sessions missed since "
+                        f"{_sw_dt.strftime('%b %d %H:%M')}. Check GitHub Actions → "
+                        f"Actions tab."
                     )
             else:
                 scanner_health_line = "⚠️ Scan log empty — scanner may not have run yet"
@@ -20138,15 +20256,27 @@ def _check_stop_coverage() -> Optional[dict]:
     # by then the sync had already cleared MASK's PositionTracker entry as
     # "not open at Alpaca", so there was no tracked position left to iterate.
     #
-    # ALERTS ONLY, deliberately -- it does NOT cancel. Once the tracker entry
-    # is gone there is no way here to tell a stale day-only entry from a
-    # swing_mode entry, which is GTC precisely so it CAN sit unfilled
-    # overnight waiting to fill (see submit_alpaca_trade()). Auto-cancelling
-    # would eventually kill a legitimate swing entry; a wrong alert costs
-    # nothing. Deduped so it doesn't repeat every 10s daemon tick.
+    # Alerts from day 1, CANCELS after STALE_ENTRY_CANCEL_SESSIONS.
+    #
+    # This was alerts-only, on the reasoning that once the tracker entry is gone
+    # there is no way here to tell a dead day-only entry from a swing_mode entry
+    # -- which is GTC precisely so it CAN rest unfilled overnight -- so
+    # auto-cancelling would eventually kill a legitimate swing entry. That is
+    # correct at a one-day horizon and is why the alert tier still only alerts.
+    #
+    # It stops being correct further out. A swing entry rests to catch a
+    # pullback; if price has not come back in three sessions the thesis that
+    # priced it is gone, whichever kind it was. And the alert alone assumed a
+    # human would act on it -- it literally said "cancel it in Alpaca" -- to
+    # someone who by design is not at a screen. DDOG rested 63.7 hours while the
+    # stock ran 4.4% away from the limit, and nothing expired it.
+    #
+    # Cancelling is the safe direction: the cost is a missed trade, and a setup
+    # that still holds gets re-signalled at a current price through current
+    # gates. Deduped so it doesn't repeat every 10s daemon tick.
     try:
         _today_et = datetime.now(ET).date()
-        _stale_entries = []
+        _stale_entries, _too_old = [], []
         for _o in (_open_orders or []):
             if getattr(_o, "side", None) != OrderSide.BUY:
                 continue
@@ -20160,8 +20290,35 @@ def _check_stop_coverage() -> Optional[dict]:
                 _sub_date = _sub.astimezone(ET).date()
             except Exception:
                 continue
-            if _sub_date < _today_et:
+            if _sub_date >= _today_et:
+                continue
+            _aged = _sessions_since(_sub_date)
+            if _aged >= STALE_ENTRY_CANCEL_SESSIONS:
+                _too_old.append((_o, _sym, _sub_date, _aged))
+            else:
                 _stale_entries.append(f"{_sym} (submitted {_sub_date.isoformat()})")
+
+        _cancelled, _failed = [], []
+        for _o, _sym, _sub_date, _aged in _too_old:
+            try:
+                _client.cancel_order_by_id(_o.id)
+                _cancelled.append(f"{_sym} — rested {_aged} sessions "
+                                  f"(submitted {_sub_date.isoformat()})")
+            except Exception as _cx:
+                # An already-pending cancel answers 422; that is not a failure.
+                _failed.append(f"{_sym} — {type(_cx).__name__}: {str(_cx)[:50]}")
+        if _cancelled:
+            send_telegram(
+                "🚫 <b>Stale entry order(s) CANCELLED</b>\n"
+                f"Unfilled for {STALE_ENTRY_CANCEL_SESSIONS}+ sessions, so the "
+                f"thesis that priced them is gone:\n\n"
+                + "\n".join(f"• {_c}" for _c in _cancelled)
+                + "\n\nIf the setup still holds it will be re-signalled at a "
+                  "current price. Bracket legs cancel with the parent."
+            )
+        if _failed:
+            print(f"  ⚠  stale-entry cancel failed: {_failed}")
+
         if _stale_entries:
             _se_key = "__STALE_ENTRY_ORDERS__"
             if not _is_duplicate_alert(_se_key):
@@ -20169,8 +20326,9 @@ def _check_stop_coverage() -> Optional[dict]:
                     "🕰 <b>Stale entry order(s) still working</b>\n"
                     "Unfilled BUY entries from an earlier session, with no position behind them:\n\n"
                     + "\n".join(f"• {_s}" for _s in _stale_entries)
-                    + "\n\nIf any is a day-only breakout entry, its setup is long gone — cancel it "
-                      "in Alpaca. A swing-mode entry waiting to fill overnight is expected and fine."
+                    + f"\n\nA swing-mode entry waiting to fill overnight is expected. "
+                      f"These cancel themselves automatically after "
+                      f"{STALE_ENTRY_CANCEL_SESSIONS} sessions."
                 )
                 _save_last_alert(_se_key)
             print(f"  🕰 {len(_stale_entries)} stale entry order(s): {_stale_entries}")
@@ -24280,8 +24438,24 @@ def run_position_reconciliation(notify: bool = True) -> dict:
         return out
     try:
         _remote = {p.symbol.upper(): p for p in client.get_all_positions()}
-        _orders = client.get_orders(filter=GetOrdersRequest(
-            status=QueryOrderStatus.OPEN, limit=200))
+        # nested=True, then flattened. A status=OPEN query does NOT return
+        # bracket children: verified 2026-09-27 on the live DDOG bracket, where
+        # the parent came back alone and its SELL STOP 257.98 and SELL LIMIT
+        # 304.88 were reachable only as .legs. So "open orders" undercounted, and
+        # more to the point this audit could not see a child stop at all.
+        #
+        # That blinds it to the exact failure it exists to catch: the W / CLRO /
+        # CELZ bug, where the stop-limit leg stays OrderStatus.HELD after the
+        # entry fills and never becomes a working order, leaving real money
+        # unprotected. _check_stop_coverage() correctly refuses to count a HELD
+        # stop as protection; this report is where "there IS a stop and it is
+        # stuck" has to become visible.
+        _orders_raw = client.get_orders(filter=GetOrdersRequest(
+            status=QueryOrderStatus.OPEN, limit=200, nested=True))
+        _orders = []
+        for _parent in (_orders_raw or []):
+            _orders.append(_parent)
+            _orders.extend(getattr(_parent, "legs", None) or [])
     except Exception as exc:
         _log_swallowed("reconciliation fetch", exc)
         return out

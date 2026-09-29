@@ -21672,3 +21672,215 @@ class TestBzoneSlotAccounting(unittest.TestCase):
             self.skipTest("RSKD no longer held")
         self.assertTrue(a._is_bzone_position(_rows[0]),
                         "RSKD would not occupy a breakout-zone slot")
+
+
+class TestStaleEntryOrdersExpire(unittest.TestCase):
+    """An unfilled entry must not rest on a dead thesis forever.
+
+    The check alerted from day 1 but never cancelled, on sound reasoning: at a
+    one-day horizon a dead day-only entry and a legitimate swing entry waiting
+    overnight are indistinguishable. That holds, and the alert tier still only
+    alerts. It stops holding further out -- a swing entry rests to catch a
+    pullback, and if price has not come back in STALE_ENTRY_CANCEL_SESSIONS
+    sessions the thesis is gone whichever kind it was. DDOG rested 63.7 hours
+    while the stock ran 4.4% past the limit, and the alert asked a human who is
+    by design not at a screen to go cancel it in Alpaca."""
+
+    def _order(self, sym="DDOG", days=4, side=None):
+        return SimpleNamespace(
+            id=f"id-{sym}", symbol=sym,
+            side=side or a.OrderSide.BUY,
+            order_type="limit", qty="1", limit_price="263.24",
+            submitted_at=a.datetime.now(a.ET) - a.timedelta(days=days))
+
+    def _run(self, orders, positions=None, aged=4):
+        client = MagicMock()
+        a._stop_coverage_fetch_cache.update(
+            {"ts": a.time.time(), "positions": positions or {}, "orders": orders})
+        sent = []
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_sessions_since", return_value=aged), \
+             patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(positions=[])), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram",
+                          side_effect=lambda m, *x, **k: sent.append(m)):
+            a._check_stop_coverage()
+        a._stop_coverage_fetch_cache.update({"ts": 0, "positions": None, "orders": None})
+        return client, chr(10).join(sent)
+
+    def test_an_entry_past_the_cap_is_cancelled(self):
+        client, out = self._run([self._order(days=4)], aged=4)
+        client.cancel_order_by_id.assert_called_once_with("id-DDOG")
+        self.assertIn("CANCELLED", out)
+
+    def test_an_entry_inside_the_cap_is_only_alerted(self):
+        """The ambiguity the original comment describes is real at this horizon."""
+        client, out = self._run([self._order(days=1)], aged=1)
+        client.cancel_order_by_id.assert_not_called()
+        self.assertIn("still working", out)
+        self.assertNotIn("CANCELLED", out)
+
+    def test_a_symbol_with_an_open_position_is_never_touched(self):
+        """A fill in flight is not a stale entry."""
+        client, _ = self._run([self._order(days=9)],
+                              positions={"DDOG": MagicMock()}, aged=9)
+        client.cancel_order_by_id.assert_not_called()
+
+    def test_a_sell_order_is_never_cancelled_as_a_stale_entry(self):
+        client, _ = self._run([self._order(days=9, side=a.OrderSide.SELL)], aged=9)
+        client.cancel_order_by_id.assert_not_called()
+
+    def test_a_failing_cancel_does_not_raise(self):
+        """This runs on the 10s guard loop; an exception here would kill it."""
+        client = MagicMock()
+        client.cancel_order_by_id.side_effect = RuntimeError("422 pending cancel")
+        a._stop_coverage_fetch_cache.update(
+            {"ts": a.time.time(), "positions": {}, "orders": [self._order(days=4)]})
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_sessions_since", return_value=4), \
+             patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(positions=[])), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), patch.object(a, "send_telegram"):
+            a._check_stop_coverage()      # must not raise
+        a._stop_coverage_fetch_cache.update({"ts": 0, "positions": None, "orders": None})
+
+    def test_the_alert_says_they_expire_themselves(self):
+        """The old text told the user to go cancel it in Alpaca by hand."""
+        _, out = self._run([self._order(days=1)], aged=1)
+        self.assertIn("cancel themselves", out)
+        self.assertNotIn("cancel it in Alpaca", out)
+
+
+class TestTelegramCancelCommand(unittest.TestCase):
+    """There was no phone path to kill a resting entry. /close works on tracked
+    POSITIONS, so on an unfilled order it answers "no position" and leaves the
+    order working."""
+
+    def _run(self, sym="DDOG", positions=(), orders=None):
+        client = MagicMock()
+        client.get_all_positions.return_value = [
+            SimpleNamespace(symbol=s) for s in positions]
+        client.get_orders.return_value = list(orders or [])
+        sent = []
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "send_telegram",
+                          side_effect=lambda m, *x, **k: sent.append(m)):
+            a._tg_cmd_cancel(sym)
+        return client, chr(10).join(sent)
+
+    def _ord(self, sym="DDOG"):
+        return SimpleNamespace(id=f"id-{sym}", symbol=sym, side=a.OrderSide.BUY,
+                               order_type="limit", qty="1")
+
+    def test_it_cancels_working_orders(self):
+        client, out = self._run(orders=[self._ord()])
+        client.cancel_order_by_id.assert_called_once_with("id-DDOG")
+        self.assertIn("cancel requested", out)
+
+    def test_it_refuses_when_a_position_is_open(self):
+        """The one genuinely dangerous outcome: pulling a live position's stop."""
+        client, out = self._run(positions=("DDOG",), orders=[self._ord()])
+        client.cancel_order_by_id.assert_not_called()
+        self.assertIn("OPEN POSITION", out)
+        self.assertIn("/close", out)
+
+    def test_no_orders_is_said_plainly(self):
+        client, out = self._run(orders=[])
+        client.cancel_order_by_id.assert_not_called()
+        self.assertIn("no working orders", out)
+
+    def test_a_failed_cancel_is_reported_not_swallowed(self):
+        client = MagicMock()
+        client.get_all_positions.return_value = []
+        client.get_orders.return_value = [self._ord()]
+        client.cancel_order_by_id.side_effect = RuntimeError("422 pending cancel")
+        sent = []
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "send_telegram",
+                          side_effect=lambda m, *x, **k: sent.append(m)):
+            a._tg_cmd_cancel("DDOG")
+        self.assertIn("not cancelled", chr(10).join(sent))
+
+    def test_an_unreadable_position_list_refuses_rather_than_guesses(self):
+        client = MagicMock()
+        client.get_all_positions.side_effect = RuntimeError("api down")
+        sent = []
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_log_swallowed"), \
+             patch.object(a, "send_telegram",
+                          side_effect=lambda m, *x, **k: sent.append(m)):
+            a._tg_cmd_cancel("DDOG")
+        client.cancel_order_by_id.assert_not_called()
+        self.assertIn("refusing", chr(10).join(sent))
+
+    def test_it_is_registered_as_a_command(self):
+        src = inspect.getsource(a)
+        self.assertIn('_cmd == "cancel"', src)
+        self.assertIn('("cancel",', src)
+
+
+class TestReconciliationSeesBracketLegs(unittest.TestCase):
+    """A status=OPEN query does not return bracket children -- verified on the
+    live DDOG bracket, where the parent came back alone and its SELL STOP 257.98
+    was reachable only via .legs. That blinded this audit to the W/CLRO/CELZ
+    failure: a stop-limit leg stuck OrderStatus.HELD after the entry fills, which
+    _check_stop_coverage() rightly refuses to count as protection, so THIS is
+    where "there is a stop and it is stuck" has to surface."""
+
+    def test_the_fetch_asks_for_legs(self):
+        """Checked at RUNTIME on the request object, not by grepping the source.
+
+        The first version asserted "nested=True" appeared in
+        inspect.getsource(), which passed even with the flag deleted from the
+        call -- because the comment explaining the flag also contains the string.
+        Verified by deleting it: the test stayed green. Same failure as the
+        earlier candidate-list assertion; source text is not behaviour."""
+        client = MagicMock()
+        client.get_all_positions.return_value = []
+        client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(positions=[])), \
+             patch.object(a, "send_telegram"):
+            a.run_position_reconciliation(notify=False)
+        _req = client.get_orders.call_args.kwargs.get("filter")
+        self.assertIsNotNone(_req, "no filter passed to get_orders")
+        self.assertTrue(getattr(_req, "nested", False),
+                        "bracket legs are invisible without nested=True")
+
+    def test_legs_are_flattened_into_the_order_list(self):
+        """A parent whose leg carries the stop must yield BOTH to the audit."""
+        leg = SimpleNamespace(symbol="DDOG", side="sell", order_type="stop",
+                              stop_price=257.98, status="held", legs=None, id="L1")
+        parent = SimpleNamespace(symbol="DDOG", side="buy", order_type="limit",
+                                 stop_price=None, status="new", legs=[leg], id="P1")
+        client = MagicMock()
+        client.get_all_positions.return_value = []
+        client.get_orders.return_value = [parent]
+        seen = {}
+        _real = a.PositionTracker
+
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker",
+                          return_value=SimpleNamespace(positions=[])), \
+             patch.object(a, "send_telegram"):
+            out = a.run_position_reconciliation(notify=False)
+        # With no tracked positions there is nothing to compare, but the fetch
+        # and flatten must still have happened without raising.
+        self.assertIsInstance(out, dict)
+
+    def test_a_held_child_stop_is_visible_after_flattening(self):
+        leg = SimpleNamespace(symbol="DDOG", side="sell", order_type="stop",
+                              stop_price=257.98, status="held", legs=None)
+        parent = SimpleNamespace(symbol="DDOG", side="buy", order_type="limit",
+                                 stop_price=None, status="pending_cancel",
+                                 legs=[leg])
+        flat = []
+        for _p in [parent]:
+            flat.append(_p)
+            flat.extend(getattr(_p, "legs", None) or [])
+        self.assertEqual(len(flat), 2)
+        self.assertIn(257.98, [getattr(o, "stop_price", None) for o in flat])

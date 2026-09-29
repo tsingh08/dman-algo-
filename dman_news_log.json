@@ -1,88 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:57:30.064045-04:00",
-    "symbols": [
-      "AIXC"
-    ],
-    "headline": "AIxCrypto Enters Into A Non-Binding Term Sheet With Faraday Future Intelligent Electric For A Proposed All-Stock Acquisition Of FFAI&#39;s Robotics Assets And Businesses And A Major Strategic Transformation; AIxC  Will Be Renamed FF EAI Robotics Ecosystem, With Its Ticker Changing To FFR, Effective September 30, 2026; Under The Non-Binding Term Sheet, AIxC Would Acquire FFAI&#39;s Robotics Business For Around $200M In Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:57:30.068168-04:00",
-    "symbols": [
-      "AIXC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:57:30.072467-04:00",
-    "symbols": [
-      "AIXC"
-    ],
-    "headline": "Faraday Future\u2019s Robotics Pivot Gets a New Nasdaq Identity With FFR",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:00:06.376200-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA CB Consumer Confidence For September\u00a081.9 Vs 89.2 Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:00:14.978121-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA JOLTS Job Openings For August 7.079M Vs 7.230M Est",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:00:46.802328-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA JOLTS Job Openings For August Revises Prior From 7.271M TO 7.335M",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:04:06.517320-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Tenova, In Collaboration With GE Vernova, To Supply The World\u2019s Largest EAF To Nippon Steel\u2019s Yawata Works",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:07:56.452966-04:00",
-    "symbols": [
-      "COIN",
-      "DKNG",
-      "HOOD",
-      "SPY"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T10:15:22.135155-04:00",
     "symbols": [
       "HOOD"
@@ -5044,6 +4961,96 @@
       "GFI"
     ],
     "headline": "&#39;Gold Fields Said to Weigh Sweetening Northern Star Bid With Cash&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:37:52.010734-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;OPEC+ Likely to Stick With Plan for Steady Quotas, Delegates Say&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:38:12.218154-04:00",
+    "symbols": [
+      "JLHL"
+    ],
+    "headline": "Julong Holding shares are trading lower after the company announced a private placement.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:41:23.724141-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "PLTR",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:42:17.954326-04:00",
+    "symbols": [
+      "RKLB",
+      "SPCX"
+    ],
+    "headline": "Exclusive: Starship&#39;s Weak Spot Could Help Rocket Lab and Firefly",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:42:26.571451-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "What&#39;s Going On With Rocket Lab Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T15:42:26.844765-04:00",
+    "symbols": [
+      "ZONE"
+    ],
+    "headline": "Zone Frontier Subsidiary Enters Into Long-Term Ground Lease Covering ~4,077 Acres In Potter County, Texas",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:42:26.989665-04:00",
+    "symbols": [
+      "RPID"
+    ],
+    "headline": "Roth Capital Initiates Coverage On Rapid Micro Biosystems with Buy Rating, Announces Price Target of $3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:42:27.094966-04:00",
+    "symbols": [
+      "ABCL"
+    ],
+    "headline": "JP Morgan Initiates Coverage On AbCellera Biologics with Overweight Rating, Announces Price Target of $17",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-09-29T10:45:25.800314-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Will Sign Powerful Order On AI, Changing Name To Super Intelligence, Says &#34;Spoke To Xi, He Loves It&#34;; Says Iran Is Failing Very Badly, Will Be Over Very Soon",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T10:49:34.677774-04:00",
-    "symbols": [
-      "NVDA",
-      "TSLA"
-    ],
-    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T10:50:32.933055-04:00",
     "symbols": [
       "NVDA"
@@ -5057,6 +5036,35 @@
     "headline": "HC Wainwright &amp; Co. Maintains Buy on Iovance Biotherapeutics, Raises Price Target to $20",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:59:46.264649-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Slips, and This Leveraged ETF Is Trading at Full Throttle",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T16:00:59.091199-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "PLTR",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "President Trump Says Will Be Naming AI Czar In Next Three Or Four Days",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -15147,6 +15147,79 @@ def _nfp_dates(years: int = 2) -> set[date]:
     return result
 
 
+# How much runway a hardcoded macro calendar must keep ahead of today before it
+# starts asking to be refilled. Long on purpose: these lists are updated by a
+# human reading federalreserve.gov / bls.gov, and the whole point is that the
+# request arrives while someone is still around to act on it.
+MACRO_CALENDAR_RUNWAY_DAYS = 60
+
+
+def _macro_calendar_coverage(today: date) -> dict:
+    """How far each hardcoded macro set still reaches. {name: (last_date, days)}.
+
+    _MAJOR_MACRO_EVENT_DATES is deliberately absent: it is a list of one-off
+    shocks that have already happened, so "it does not extend past today" is its
+    normal state, not an expiry. _nfp_dates() is absent too -- it is computed
+    from the calendar rule, so it cannot run out.
+    """
+    out = {}
+    for _name, _dates in (("FOMC", _FOMC_DATES), ("CPI", _CPI_DATES),
+                          ("PPI", _PPI_DATES), ("PCE", _PCE_DATES)):
+        if not _dates:
+            out[_name] = (None, -10 ** 6)
+            continue
+        _last = max(_dates)
+        out[_name] = (_last, (_last - today).days)
+    return out
+
+
+def _macro_calendar_state(today: date) -> tuple:
+    """(expired, expiring) names. Expired means the list no longer reaches today.
+
+    A hardcoded calendar does not fail loudly when it runs out -- it just stops
+    matching, and every release after that date silently passes a gate whose
+    entire job is to catch it. _PCE_DATES ends 2026-12-23; without this, every
+    PCE print from then on would have looked like a clear day, and PCE is the
+    release the briefing itself flags as gap risk at the open.
+    """
+    _cov = _macro_calendar_coverage(today)
+    _expired = sorted(n for n, (_d, _days) in _cov.items() if _days < 0)
+    _expiring = sorted(n for n, (_d, _days) in _cov.items()
+                       if 0 <= _days <= MACRO_CALENDAR_RUNWAY_DAYS)
+    return _expired, _expiring
+
+
+def _macro_calendar_alert(expired: list, expiring: list, today: date) -> None:
+    """Say it on Telegram, not to stderr on a cloud runner nobody reads."""
+    try:
+        _cov = _macro_calendar_coverage(today)
+        if expired:
+            _key = "__MACRO_CAL_EXPIRED__"
+            if not _is_duplicate_alert(_key, cooldown_min=12 * 60):
+                send_telegram(
+                    "\U0001f6ab <b>Macro calendar EXPIRED — entries BLOCKED</b>\n"
+                    + ", ".join(f"{_n} ended {_cov[_n][0]}" for _n in expired)
+                    + "\n\nThese dates are hardcoded. Past their last entry the gate "
+                      "cannot tell a release day from a clear one, so it now refuses "
+                      "rather than guessing. Refill the list in dman_algo.py from "
+                      "federalreserve.gov / bls.gov and entries resume."
+                )
+                _save_last_alert(_key)
+        elif expiring:
+            _key = "__MACRO_CAL_EXPIRING__"
+            if not _is_duplicate_alert(_key, cooldown_min=3 * 24 * 60):
+                send_telegram(
+                    "\u23f3 <b>Macro calendar runs out soon</b>\n"
+                    + ", ".join(f"{_n} ends {_cov[_n][0]} ({_cov[_n][1]}d)"
+                                for _n in expiring)
+                    + f"\n\nWhen it does, entries BLOCK rather than trade blind "
+                      f"through a release. Refill from federalreserve.gov / bls.gov."
+                )
+                _save_last_alert(_key)
+    except Exception as exc:
+        _log_swallowed("macro calendar alert", exc)
+
+
 def check_macro_safe() -> tuple[bool, int]:
     """
     Block signals near macro catalysts that create stop-blowing whipsaws.
@@ -15178,6 +15251,19 @@ def check_macro_safe() -> tuple[bool, int]:
             print(f"  ⚠️  FOMC dates beyond {_FOMC_LAST_CONFIRMED_YEAR} are estimated — "
                   f"update _FOMC_DATES from federalreserve.gov", file=_sys.stderr)
 
+        # A hardcoded calendar does not fail when it runs out; it stops matching,
+        # and every release past its last entry looks like a clear day to a gate
+        # whose only job is to catch that release. The old warning above went to
+        # stderr on a cloud runner, which is a log nobody reads.
+        _expired, _expiring = _macro_calendar_state(today)
+        if _expired or _expiring:
+            _macro_calendar_alert(_expired, _expiring, today)
+        if _expired:
+            # Same rule as the earnings gate: a scheduled binary event you cannot
+            # verify is not a clear day. Blocking here is not a surprise -- it has
+            # been asking for a refill on Telegram for MACRO_CALENDAR_RUNWAY_DAYS.
+            return False, 0
+
         # FOMC: full-day blackout on release day ±1 calendar day
         for ev in _FOMC_DATES:
             days_away = (ev - today).days
@@ -15198,9 +15284,24 @@ def check_macro_safe() -> tuple[bool, int]:
 
         return True, 5
     except Exception as _gate_exc:
-        # Fails OPEN -- see _hard_gate_failed_open().
-        _hard_gate_failed_open("macro", _gate_exc)
-        return True, 5
+        # Fails CLOSED, like the earnings gate. This reads hardcoded lists and
+        # makes no network call, so an exception here is a code fault rather
+        # than a data hiccup -- there is no outage this could be waiting out,
+        # and an FOMC or CPI day is exactly as binary as an earnings print.
+        try:
+            _log_swallowed("macro gate failed CLOSED", _gate_exc)
+            _key = "__MACRO_GATE_ERROR__"
+            if not _is_duplicate_alert(_key, cooldown_min=120):
+                send_telegram(
+                    "\U0001f6ab <b>Macro blackout check ERRORED — entries BLOCKED</b>\n"
+                    f"<code>{html.escape(str(_gate_exc)[:160])}</code>\n"
+                    "It reads a hardcoded calendar and calls nothing, so this is a "
+                    "code fault, not a feed outage."
+                )
+                _save_last_alert(_key)
+        except Exception:
+            pass
+        return False, 0
 
 
 # ═══════════════════════════════════════════════════════════════════════════

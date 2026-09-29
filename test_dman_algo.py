@@ -20501,25 +20501,39 @@ class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
 
 class TestHardGatesAnnounceWhenTheyFailOpen(unittest.TestCase):
     """run_pro_scanner treats regime_ok / mtf_ok / earnings_ok / macro_ok /
-    divergence_free as hard gates -- a signal failing any is dropped. THREE of
-    them return (True, partial) from their exception handler, so a data hiccup
-    does not block the trade, it WAIVES the check. That is defensible for them:
-    what they measure is continuous, and a stale trend reading is wrong by
-    degrees. Being silent about it is not, hence these tests.
+    divergence_free as hard gates -- a signal failing any is dropped. TWO of them
+    return (True, partial) from their exception handler, so a data hiccup does
+    not block the trade, it WAIVES the check. That is defensible for those two:
+    what they measure is CONTINUOUS, a stale trend reading is wrong by degrees,
+    and both depend on a live feed there is some point waiting out. Being silent
+    about it is not defensible, hence these tests.
 
-    This class asserted FOUR until 2026-09-27. check_earnings_safe() was the
-    fourth and now fails CLOSED, because the argument for waiving it -- that a
-    broker-side stop caps the damage -- is false for gap risk, which is the only
-    risk an earnings blackout addresses. See
-    TestEarningsGateFailsClosedWhenUnreadable."""
+    The census has shrunk twice, both times for the same reason -- a gate that
+    guards a BINARY SCHEDULED event cannot treat "I could not check" as "clear":
 
-    def test_the_three_fail_open_gates_report_when_they_waive(self):
+      2026-09-27  check_earnings_safe() -> fails CLOSED. The argument for waiving
+                  it was that a broker-side stop caps the damage, which is false
+                  for gap risk, the only risk a blackout addresses.
+      2026-09-29  check_macro_safe() -> fails CLOSED. It reads hardcoded date
+                  lists and makes no network call, so the "wait out the outage"
+                  argument never applied to it at all; an exception there is a
+                  code fault. An FOMC or CPI day is exactly as binary as an
+                  earnings print.
+
+    See TestEarningsGateFailsClosedWhenUnreadable and
+    TestMacroCalendarCannotExpireSilently."""
+
+    def test_the_fail_open_gates_report_when_they_waive(self):
         for fn, gate in ((a.check_mtf, "mtf"),
-                         (a.check_macro_safe, "macro"),
                          (a.check_divergence_free, "divergence")):
             src = inspect.getsource(fn)
             self.assertIn("_hard_gate_failed_open(", src, fn.__name__)
             self.assertIn(f'"{gate}"', src, fn.__name__)
+
+    def test_macro_is_no_longer_one_of_them(self):
+        """Pinned so it cannot drift back to waiving itself."""
+        src = inspect.getsource(a.check_macro_safe)
+        self.assertNotIn("_hard_gate_failed_open(", src)
 
     def test_earnings_is_no_longer_one_of_them(self):
         """Pinned so it cannot quietly drift back to waiving itself."""
@@ -21884,3 +21898,99 @@ class TestReconciliationSeesBracketLegs(unittest.TestCase):
             flat.extend(getattr(_p, "legs", None) or [])
         self.assertEqual(len(flat), 2)
         self.assertIn(257.98, [getattr(o, "stop_price", None) for o in flat])
+
+
+class TestMacroCalendarCannotExpireSilently(unittest.TestCase):
+    """check_macro_safe() reads HARDCODED date lists, so it does not fail when it
+    runs out -- it stops matching, and every release past the last entry looks
+    like a clear day to the gate whose only job is to catch it.
+
+    _PCE_DATES ends 2026-12-23. Without this, every PCE print from then on would
+    have passed silently, and PCE is the release the briefing itself flags as gap
+    risk at the open. The only prior signal was a print() to stderr on a cloud
+    runner, which is a log nobody reads."""
+
+    def _state(self, day):
+        return a._macro_calendar_state(day)
+
+    # --- the runway -------------------------------------------------------
+    def test_a_healthy_calendar_is_silent(self):
+        expired, expiring = self._state(date(2026, 9, 29))
+        self.assertEqual(expired, [])
+        self.assertEqual(expiring, [])
+
+    def test_it_asks_for_a_refill_before_running_out(self):
+        """60 days, because a human refills these from federalreserve.gov and the
+        request has to arrive while someone is still around to act on it."""
+        _, expiring = self._state(date(2026, 10, 25))
+        self.assertIn("PCE", expiring)
+
+    def test_an_exhausted_list_is_reported_expired(self):
+        expired, _ = self._state(date(2027, 1, 5))
+        self.assertIn("PCE", expired)
+
+    # --- what expiry does to the gate -------------------------------------
+    def _gate(self, day):
+        sent = []
+        with patch.object(a, "_et_today", return_value=day), \
+             patch.object(a, "datetime") as _dt, \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "send_telegram",
+                          side_effect=lambda m, *x, **k: sent.append(m)):
+            _dt.now.return_value = MagicMock(
+                date=lambda: day, weekday=lambda: day.weekday(),
+                hour=11, minute=0)
+            return a.check_macro_safe(), chr(10).join(sent)
+
+    def test_an_expired_calendar_blocks_entries(self):
+        (safe, score), out = self._gate(date(2027, 1, 5))
+        self.assertFalse(safe)
+        self.assertEqual(score, 0)
+        self.assertIn("EXPIRED", out)
+        self.assertIn("BLOCKED", out)
+
+    def test_a_soon_to_expire_calendar_warns_but_still_trades(self):
+        """Blocking on a warning would be an outage, not a safeguard."""
+        (safe, _), out = self._gate(date(2026, 10, 25))
+        self.assertTrue(safe)
+        self.assertIn("runs out soon", out)
+
+    def test_a_healthy_calendar_sends_nothing(self):
+        (safe, _), out = self._gate(date(2026, 9, 29))
+        self.assertTrue(safe)
+        self.assertEqual(out, "")
+
+    # --- the sets that must NOT be treated as expiring ---------------------
+    def test_one_off_shock_dates_are_not_a_calendar(self):
+        """_MAJOR_MACRO_EVENT_DATES lists shocks that already happened, so "does
+        not extend past today" is its normal state. Counting it would block
+        every entry permanently."""
+        self.assertNotIn("MAJOR", a._macro_calendar_coverage(date(2026, 9, 29)))
+
+    def test_nfp_is_computed_so_it_cannot_run_out(self):
+        self.assertNotIn("NFP", a._macro_calendar_coverage(date(2026, 9, 29)))
+        self.assertGreater(max(a._nfp_dates()), date(2027, 1, 1))
+
+    # --- fail closed ------------------------------------------------------
+    def test_an_errored_gate_blocks_rather_than_waiving_itself(self):
+        """It reads hardcoded lists and calls nothing, so an exception is a code
+        fault, not a feed outage there is any point waiting out."""
+        with patch.object(a, "_macro_calendar_state",
+                          side_effect=RuntimeError("boom")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_log_swallowed"), \
+             patch.object(a, "send_telegram"):
+            self.assertEqual(a.check_macro_safe(), (False, 0))
+
+    def test_it_no_longer_routes_through_the_fail_open_helper(self):
+        self.assertNotIn("_hard_gate_failed_open",
+                         inspect.getsource(a.check_macro_safe))
+
+    def test_a_failing_alert_cannot_break_the_gate(self):
+        with patch.object(a, "_is_duplicate_alert",
+                          side_effect=RuntimeError("alert store gone")), \
+             patch.object(a, "_log_swallowed"):
+            _safe, _score = a.check_macro_safe()
+        self.assertIn(_safe, (True, False))

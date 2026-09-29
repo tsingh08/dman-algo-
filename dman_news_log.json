@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:40:17.759285-04:00",
-    "symbols": [
-      "HHH"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:40:18.018768-04:00",
-    "symbols": [
-      "AEM"
-    ],
-    "headline": "Why Are Precious Metal Stocks Falling Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:40:18.102956-04:00",
-    "symbols": [
-      "GLD"
-    ],
-    "headline": "Nasdaq 100 Sinks, Oil Rallies as Trump Rejects Iran&#39;s Hormuz Plan: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T14:40:18.107882-04:00",
     "symbols": [
       "GLD"
@@ -5049,5 +5019,36 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:23:14.884474-04:00",
+    "symbols": [
+      "META",
+      "MSFT"
+    ],
+    "headline": "Live On CNBC, OpenAI CEO Sam Altman Says Not Threatened About Meta&#39;s Zuckerberg; No IPO Timeline In Mind; Latest Model Was Held Back Out Of An Abundance Of Caution",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:23:16.592178-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Has Urged European Union To Draw Down Diesel Emergency Inventories In Bid To Lower Global Prices",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:26:28.098677-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta&#39;s Muse Can Dox Vulnerable Users if Asked Twice, Report Finds",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

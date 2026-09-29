@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:06:08.895529-04:00",
-    "symbols": [
-      "GFI"
-    ],
-    "headline": "Why Webuy Global Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:13:39.186608-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "Masonglory Announces $1M Private Placement Of 667K Class A Shares At $1.50 Per Share With Series A And Series B Warrants",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:14:18.164437-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:14:19.143741-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Heads Into Earnings as JPMorgan Sees HBM Shortage Lasting Through 2028",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T13:14:20.021201-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Secures Polish Defense Deal, But Broad Industrial Pullback Weighs on Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:14:21.054056-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealthcare Government Programs CEO Bobby Hunter Says In LinkedIn Post He Is Stepping Into Role As President Of UnitedHealthcare",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:14:24.666888-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:14:25.154239-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T13:14:25.709900-04:00",
     "symbols": [
       "LABT"
@@ -5060,6 +4980,87 @@
     "headline": "President Trump Says Will Sign Powerful Order On AI, Changing Name To Super Intelligence, Says &#34;Spoke To Xi, He Loves It&#34;; Says Iran Is Failing Very Badly, Will Be Over Very Soon",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:49:34.677774-04:00",
+    "symbols": [
+      "NVDA",
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:50:32.933055-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:50:34.364795-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T10:50:39.128399-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "UnitedHealth, AbbVie And A Health Care Stock On CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:50:49.000557-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth, AbbVie And A Health Care Stock On CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:50:49.962146-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "International Space Station National Lab Announces NASA&#39;s SpaceX Crew-13 Mission Will Launch No Earlier Than 11:10 A.M. EDT On Oct. 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:50:54.704832-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "International Space Station National Lab Announces NASA&#39;s SpaceX Crew-13 Mission Will Launch No Earlier Than 11:10 A.M. EDT On Oct. 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T10:50:58.846506-04:00",
+    "symbols": [
+      "FFAI"
+    ],
+    "headline": "Tesla\u2019s Optimus Is Riding a Robotics Boom. Many Startups Could Lose Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

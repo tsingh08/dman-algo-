@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:31.937967-04:00",
-    "symbols": [
-      "AEO"
-    ],
-    "headline": "Robinhood To Rally Around 16%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:31.941706-04:00",
-    "symbols": [
-      "AEO"
-    ],
-    "headline": "BMO Capital Maintains Market Perform on American Eagle Outfitters, Raises Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:32.162802-04:00",
-    "symbols": [
-      "ABCL"
-    ],
-    "headline": "JP Morgan Initiates Coverage On AbCellera Biologics with Overweight Rating, Announces Price Target of $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:32.372886-04:00",
     "symbols": [
       "SFIX"
@@ -5048,6 +5018,36 @@
       "SPY"
     ],
     "headline": "Fed&#39;s Williams Says AI Is Driving Up Asset Valuations, Bolstering Wealth Effect; Says Starting To See Data Showing AI Boosting Productivity",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T14:59:58.608061-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says Fed Should Stay Out Of Partisan Politics And Focus On Data",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:02:03.274174-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Lucid Introduces Air UX 3.0, Offering Lucid Air Owners A Faster, More Intuitive Digital Experience; Air UX 3.0 To Be Delivered Via Over-The-Air Update Beginning Sept 29, 2026",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:02:07.673732-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Williams Says Strong Period Of Productivity Could Lift Natural Rate Of Interest",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

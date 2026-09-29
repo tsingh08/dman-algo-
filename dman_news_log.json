@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:35:38.617723-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "4 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T13:35:38.621869-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta Is Coming for Europe\u2019s Bond Market: AI Debt Is Going Global",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T13:35:38.970808-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Meta Is Coming for Europe\u2019s Bond Market: AI Debt Is Going Global",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T13:35:39.866930-04:00",
     "symbols": [
       "SNOW"
@@ -5049,5 +5019,42 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:31:45.318065-04:00",
+    "symbols": [
+      "AMD",
+      "AMZN",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "SPCX"
+    ],
+    "headline": "&#39;Anthropic Discloses up to $84.5 Billion in SpaceX Compute Agreements&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:33:57.056087-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Watching Palantir Technologies; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:35:06.757597-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Taps Deutsche Telekom\u2019s Enterprise Muscle in European Expansion",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

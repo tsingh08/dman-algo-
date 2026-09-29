@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-09-28T12:36:02.453854-04:00",
-    "symbols": [
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Says Runaway AI Is an Engineering Problem: \u2018We All Need to Hope\u2019",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T12:36:37.537289-04:00",
     "symbols": [
       "AAPL"
@@ -5058,5 +5047,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T10:22:28.655583-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Forget About VIX: This Bond Volatility Gauge Is What Traders Are Watching Now",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

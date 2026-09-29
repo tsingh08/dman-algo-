@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-28T15:02:05.984389-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;OpenAI\u2019s AI agents need to catch up&#39;: OpenAI Rumored To Unveil &#39;Aeon&#39; Consumer AI Agent At DevDay On Tuesday - The Verge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T15:02:06.052789-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Will Win Iran War Very Soon And Gas Prices Will Come Tumbling; U.S. Officials Spoke With Iran Mediators Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:02:50.307922-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Posts On X &#34;Roadster event update. We&#39;ve been tracking the weather closely with local meteorologists, but given the severe conditions predicted &amp; because this event can only be held outdoors, we&#39;ve made the difficult decision to reschedule. New date is October 15. Additional details to follow&#34;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T15:03:40.972561-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Canada Wants To Have A Deal With Us, They Call All The Time; Think A Deal Will Be Made On Canada Trade",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:13:10.071272-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta&#39;s Muse Is a Smash Hit. But Is It Hoovering Up Your Personal Data?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-28T15:13:17.732991-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T15:13:25.247696-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "Gold Tumbles Over 3%; MongoDB Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T15:13:27.258144-04:00",
     "symbols": [
       "KOD"
@@ -5047,6 +4977,76 @@
     ],
     "headline": "Snowflake Upsizes Convertible Note Offering to $3.75 Billion",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:57:43.621628-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Robotaxis Could Cost Less Than Half of Uber\u2019s Human-Driven Rides, and Analyst Says Uber Can Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:57:43.888628-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Robotaxis Could Cost Less Than Half of Uber\u2019s Human-Driven Rides, and Analyst Says Uber Can Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T12:57:44.114047-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Upsizes Convertible Note Offering to $3.75 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:57:45.285856-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Tirzepatide or Wegovy? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T12:57:45.994038-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Robotaxis Could Cost Less Than Half of Uber\u2019s Human-Driven Rides, and Analyst Says Uber Can Cash In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:57:47.572398-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Tirzepatide or Wegovy? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:57:48.332919-04:00",
+    "symbols": [
+      "XERS"
+    ],
+    "headline": "Lundbeck Is Said To Express Interest In Buying Xeris Biopharma, Bloomberg Reports",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:40:18.117085-04:00",
-    "symbols": [
-      "GLD"
-    ],
-    "headline": "Bitcoin Falls to $83,000 as Gold Plunges 3% on Fresh Oil Price Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:40:18.121650-04:00",
-    "symbols": [
-      "GLD"
-    ],
-    "headline": "Gold Bull Run Looks Finished\u2014Unless You Look Closer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T14:40:18.207222-04:00",
-    "symbols": [
-      "MNOV"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T14:40:18.212136-04:00",
-    "symbols": [
-      "MNOV"
-    ],
-    "headline": "MediciNova Drug Falls Short on Liver Fat Parameter, Stock Tumbles",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T14:40:18.216809-04:00",
-    "symbols": [
-      "MNOV"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T14:40:18.221391-04:00",
-    "symbols": [
-      "MNOV"
-    ],
-    "headline": "MediciNova Announces Topline Results From MN-001-NATG-202, Its Phase 2 Clinical Trial Evaluating MN-001 (Tipelukast) For Treatment Of Hypertriglyceridemia And Nonalcoholic Fatty Liver Disease Associated With Type 2 Diabetes Mellitus; At Week 24, The MN-001 Group Continued To Show A Numerical Reduction From Baseline Value, Although The Difference Between The MN-001 And Placebo Groups Were Not Statistically Significant",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T14:45:15.179693-04:00",
     "symbols": [
       "NVDA"
@@ -5047,6 +4987,67 @@
       "RCL"
     ],
     "headline": "CarMax Posts Upbeat Q2 Earnings, Joins Iovance Biotherapeutics, Perella Weinberg Partners And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:33:03.750568-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Rises Tuesday: What&#39;s Fueling the Move?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T12:34:03.864387-04:00",
+    "symbols": [
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Nebius Group Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T12:34:31.162955-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Live On CNBC, OpenAI CEO Sam Altman Says Not Threatened About Meta&#39;s Zuckerberg; No IPO Timeline In Mind; Latest Model Was Held Back Out Of An Abundance Of Caution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:34:31.169659-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Nebius Group Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:34:31.710909-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Live On CNBC, OpenAI CEO Sam Altman Says Not Threatened About Meta&#39;s Zuckerberg; No IPO Timeline In Mind; Latest Model Was Held Back Out Of An Abundance Of Caution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T12:34:45.499234-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What&#39;s Going On With Nebius Group Stock Tuesday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:50:12.954293-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T09:50:13.236198-04:00",
     "symbols": [
       "TSLA"
@@ -5045,6 +5035,16 @@
     ],
     "headline": "Royal Caribbean Stock Surges Tuesday: What&#39;s Going On?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:30:08.547117-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Billionaire Investor Takes a Stake in Applied Digital (APLD)",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

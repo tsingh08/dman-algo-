@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:26:26.208999-04:00",
-    "symbols": [
-      "CCL"
-    ],
-    "headline": "Carnival Earnings Prediction Market Preview: What Will Josh Weinstein Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:26:26.212661-04:00",
-    "symbols": [
-      "CCL"
-    ],
-    "headline": "Carnival, AAR And 3 Stocks To Watch Heading Into Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:26:26.414768-04:00",
     "symbols": [
       "CBOE"
@@ -5045,5 +5025,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T14:20:52.803891-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What&#39;s Going On With the Drop in Alphabet Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T14:23:41.978546-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Musalem Says Inflation Expectations Remain Consistent With 2% Over Long Run; Says Fed Projections Could Be Improved By Anonymously Linking Rate Dots To Economic Forecasts",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

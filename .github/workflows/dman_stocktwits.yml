@@ -12,7 +12,14 @@ on:
     # without spamming — the immediate-dispatch fix (see the commit step
     # below) still does the real latency-closing work per-detection; this
     # just means detection itself no longer waits up to 2 hours to fire.
-    - cron: '*/10 11-20 * * 1-5'
+        # DST: this range is UTC, the window it serves is ET, and the two drift
+    # apart on 2026-11-01. At UTC-4 (EDT) 11-20 covers 07:00-16:00 ET; at UTC-5 (EST) the
+    # same range becomes 06:00-15:00 ET, which silently drops the last hour of the
+    # session -- the job still self-gates correctly, it just never gets
+    # DELIVERED during that hour. Widened by one UTC hour so the EST coverage is
+    # right; the extra EDT run lands after the close, where the job's own ET
+    # gate no-ops it. Audited 2026-09-29.
+    - cron: '*/10 11-21 * * 1-5'
   workflow_dispatch:
 
 env:

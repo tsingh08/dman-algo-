@@ -52,7 +52,14 @@ on:
                               # concurrency group dman-scan, cancel-in-progress false)
     # ~10:34 AM – 3:34 PM ET hourly for momentum continuation + new setups.
     # Offset from :30 for the same reason as the 7 AM slot above.
-    - cron: '34 14,15,16,17,18,19 * * 1-5'
+        # DST: this range is UTC, the window it serves is ET, and the two drift
+    # apart on 2026-11-01. At UTC-4 (EDT) 14,15,16,17,18,19 covers 10:34-15:34 ET; at UTC-5 (EST) the
+    # same range becomes 09:34-14:34 ET, which silently drops the last hour of the
+    # session -- the job still self-gates correctly, it just never gets
+    # DELIVERED during that hour. Widened by one UTC hour so the EST coverage is
+    # right; the extra EDT run lands after the close, where the job's own ET
+    # gate no-ops it. Audited 2026-09-29.
+    - cron: '34 14,15,16,17,18,19,20 * * 1-5'
     # ~4:04 PM ET final check / Friday close-out advisory. Offset from :00.
     - cron: '4 20 * * 1-5'
   workflow_dispatch:   # manual trigger from GitHub UI

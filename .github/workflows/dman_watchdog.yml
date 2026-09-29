@@ -27,7 +27,14 @@ on:
     # exactly the self-heal mechanism that's supposed to catch everything
     # else being delayed. A same-hour offset (still every 30 min, same
     # coverage) costs nothing and lands in a quieter part of the queue.
-    - cron: '7,37 13-20 * * 1-5'
+        # DST: this range is UTC, the window it serves is ET, and the two drift
+    # apart on 2026-11-01. At UTC-4 (EDT) 13-20 covers 09:07-16:37 ET; at UTC-5 (EST) the
+    # same range becomes 08:07-15:37 ET, which silently drops the last hour of the
+    # session -- the job still self-gates correctly, it just never gets
+    # DELIVERED during that hour. Widened by one UTC hour so the EST coverage is
+    # right; the extra EDT run lands after the close, where the job's own ET
+    # gate no-ops it. Audited 2026-09-29.
+    - cron: '7,37 13-21 * * 1-5'
   workflow_dispatch:
 
 env:

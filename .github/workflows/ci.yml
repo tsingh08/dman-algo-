@@ -96,6 +96,15 @@ jobs:
           # the only check that actually proves a golden is environment-neutral.
           grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g4.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g5.txt
 
+      - name: Critical files present
+        # 2026-09-29: two tracked files showed as DELETED in a working tree with
+        # nothing having touched them and no commit removing them. Cause never
+        # established. A `git add -A` at that moment would have silently dropped
+        # the fallback guard, and the only thing in the way was someone reading
+        # `git status` on a long session -- a habit, not a control. This makes the
+        # cause irrelevant: if one of these disappears, the build goes red.
+        run: python tools/critical_files_check.py .
+
       - name: Hollow-assertion check (tests that cannot fail)
         # A test doing assertIn("foo(", inspect.getsource(bar)) passes when "foo("
         # appears anywhere in bar's text -- including the comment that explains

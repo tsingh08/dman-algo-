@@ -1,110 +1,5 @@
 [
   {
-    "ts": "2026-09-28T13:25:35.000899-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Oil Rises; Meta\u2019s Muse Trade Extends To CPU Stocks Like Intel, AMD, Arm, Qualcomm",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-28T13:25:36.875471-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Oil Rises; Meta\u2019s Muse Trade Extends To CPU Stocks Like Intel, AMD, Arm, Qualcomm",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:25:42.501610-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Oil Rises; Meta\u2019s Muse Trade Extends To CPU Stocks Like Intel, AMD, Arm, Qualcomm",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:25:42.724180-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Oil Rises; Meta\u2019s Muse Trade Extends To CPU Stocks Like Intel, AMD, Arm, Qualcomm",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:26:31.820792-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Shares of memory and storage-related companies are trading lower. Elevated bond yields and Fed interest rate expectations are weighing on technology sectors that have exposure to AI buildout capex plans that may come under closer scrutiny from costlier borrowing costs.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:26:36.642807-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Cook Says She Expects To See Continued Inflation Pressure In Coming Months, From AI And Conflict In The Middle East; Labor Market Well Positioned To Handle An Increase In Rates; Number And Magnitude Of Any Future Rate Adjustments Will Be Informed By Inflation And Labor Market Data, And Economy&#39;s Reaction To Us Central Bank&#39;s Actions So Far",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:27:18.929572-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Cook Says Productivity Gains From AI Will Deliver Modest Disinflation In Next Few Years; Signs Of Broadening Pressure In Inflation Data; Those Gains Will Not Come In Time To Offset Broadening Inflation This Year; Says She Is Highly Attentive To A Scenario In Which AI Leads To At Least A Temporary Rise In Unemployment; Limited Evidence To Date That AI Is Changing Labor Market Structure; Fed Would Have Limited Tools To Help In Such A Case; Lowering Rates Could Fuel Inflation",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T13:30:09.784927-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Stock Wins Analyst Backing Ahead of 2027 Superion Launch",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:30:41.707842-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT"
-    ],
-    "headline": "Meta Is Coming for Europe\u2019s Bond Market: AI Debt Is Going Global",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T13:30:43.461917-04:00",
-    "symbols": [
-      "ROC"
-    ],
-    "headline": "Craig-Hallum Initiates Coverage On Rank One Computing with Buy Rating, Announces Price Target of $6.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T13:30:43.699490-04:00",
     "symbols": [
       "AMC"
@@ -5050,6 +4945,111 @@
       "RILY"
     ],
     "headline": "BRC Group To Acquire Sangoma Technologies; Transaction Values Sangoma At An Enterprise Value Of ~$204M; Under Terms Of Deal, Sangoma Shareholders Will Receive $4.925 In Cash And 0.04767 Of A BRC Share For Each Sangoma Share Held; Sangoma Shareholders To Hold About 4% Of BRC Pro Forma Shares Post-Close",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:11:55.064203-04:00",
+    "symbols": [
+      "LMT",
+      "RCAT",
+      "RKLB",
+      "RTX",
+      "SPY"
+    ],
+    "headline": "Defense Stocks Enter Bear Market, Hit Longest Losing Streak on Record",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:15:16.769682-04:00",
+    "symbols": [
+      "GOOGL",
+      "META"
+    ],
+    "headline": "&#39;Beyond Advertising&#39;: Analysts Align on Meta Muse as a Multi-Billion Dollar Growth Catalyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:15:44.076119-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "What&#39;s Going On With Netflix Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:15:47.374169-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Beyond Advertising&#39;: Analysts Align on Meta Muse as a Multi-Billion Dollar Growth Catalyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T11:15:47.380755-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Beyond Advertising&#39;: Analysts Align on Meta Muse as a Multi-Billion Dollar Growth Catalyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T11:15:50.488067-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Defense Stocks Enter Bear Market, Hit Longest Losing Streak on Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T11:15:52.904490-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Defense Stocks Enter Bear Market, Hit Longest Losing Streak on Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:15:53.699792-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Defense Stocks Enter Bear Market, Hit Longest Losing Streak on Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T11:15:53.921226-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Defense Stocks Enter Bear Market, Hit Longest Losing Streak on Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:15:56.572237-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Defense Stocks Enter Bear Market, Hit Longest Losing Streak on Record",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

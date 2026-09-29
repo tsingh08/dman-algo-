@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-09-28T14:10:04.605364-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL"
-    ],
-    "headline": "Anthropic Rolls Out Claude Sonnet 5.5; Priced At $2 Per Million Input Tokens, $10 Per Million Output Tokens",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-28T14:10:44.234719-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Stock Gains on Record Buyback: Jim Cramer Gets His Wish",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-28T14:12:47.496193-04:00",
     "symbols": [
       "ZS"
@@ -5049,5 +5028,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T11:48:21.786315-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: The Median S&amp;P 500 Stock Now Trades 16% Below Its 52-Week High, The Weakest Market Breadth Since The Dot Com Bubble",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T11:51:33.584952-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Xpeng Stock Drops As Technical Pressure Collides With Robot Skepticism",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

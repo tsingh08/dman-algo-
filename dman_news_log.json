@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-09-29T09:42:01.975361-04:00",
-    "symbols": [
-      "SSTI"
-    ],
-    "headline": "SoundThinking Agrees To Be Acquired By Transom Capital For $8.00/Share In Cash Plus CVR Of Up To $3.00/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:02.288715-04:00",
-    "symbols": [
-      "SLND"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:02.292706-04:00",
-    "symbols": [
-      "SLND"
-    ],
-    "headline": "Southland Holdings&#39; Oscar Renda Contracting Subsidiary Receives $71M Water Pipeline Project In Southwest To Install Welded Steel Water Pipeline, Trenchless Crossings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:02.568265-04:00",
-    "symbols": [
-      "QMLS"
-    ],
-    "headline": "QumulusAI Inks Two, Three-Year $240.9M Agreements With AI Inference Clients For Over 2K NVIDIA Blackwell B300 GPUs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:02.825272-04:00",
-    "symbols": [
-      "CAPS"
-    ],
-    "headline": "Capstone Holding Retires ~85% Of Original $6.82M In Convertible Note Principal, Cuts Remaining Convertible Debt To $1M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:03.123794-04:00",
-    "symbols": [
-      "TURB"
-    ],
-    "headline": "Turbo Energy H1 Sales $17.200M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:03.401685-04:00",
-    "symbols": [
-      "AGPU"
-    ],
-    "headline": "Axe Compute Receives Over $266M In New AI Infrastructure Contracts Since Aug. 17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:03.661170-04:00",
-    "symbols": [
-      "VVOS"
-    ],
-    "headline": "Vivos Therapeutics Announces Restructuring And Cost Reduction Plan With An Annual Savings Target Of $3.6M From Q4 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T09:42:03.899511-04:00",
-    "symbols": [
-      "IMCC"
-    ],
-    "headline": "IM Cannabis Closes Sale Of IMC Holdings; Transfers Israeli Operations Out Of IMCC And Will Be Retained By The Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T09:49:42.984643-04:00",
     "symbols": [
       "AMZN",
@@ -5050,5 +4960,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-29T15:17:52.770819-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "StoneX Reiterates Buy on Advanced Micro Devices, Maintains $685 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T15:18:00.292609-04:00",
+    "symbols": [
+      "SSTI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:18:00.616368-04:00",
+    "symbols": [
+      "SLND"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:18:00.621333-04:00",
+    "symbols": [
+      "SLND"
+    ],
+    "headline": "Southland Holdings&#39; Oscar Renda Contracting Subsidiary Receives $71M Water Pipeline Project In Southwest To Install Welded Steel Water Pipeline, Trenchless Crossings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:18:01.400297-04:00",
+    "symbols": [
+      "QMLS"
+    ],
+    "headline": "QumulusAI Inks Two, Three-Year $240.9M Agreements With AI Inference Clients For Over 2K NVIDIA Blackwell B300 GPUs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:18:01.890131-04:00",
+    "symbols": [
+      "CAPS"
+    ],
+    "headline": "Capstone Holding Retires ~85% Of Original $6.82M In Convertible Note Principal, Cuts Remaining Convertible Debt To $1M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:18:02.348476-04:00",
+    "symbols": [
+      "UEC"
+    ],
+    "headline": "Earnings Scheduled For September 29, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:18:02.353150-04:00",
+    "symbols": [
+      "UEC"
+    ],
+    "headline": "Uranium Energy Q4 EPS $(0.12) Misses $(0.04) Estimate, Sales $17.050M Beat $4.500M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T15:18:02.607878-04:00",
+    "symbols": [
+      "KMX"
+    ],
+    "headline": "Transcript: CarMax Q2 2027 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

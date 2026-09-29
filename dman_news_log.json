@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:21:19.737108-04:00",
-    "symbols": [
-      "ACET"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Adicet Bio, Raises Price Target to $34",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:19.741803-04:00",
-    "symbols": [
-      "ACET"
-    ],
-    "headline": "Adicet Bio Announces Safety And Efficacy Data From Phase 1 Study Evaluating Prulacabtagene Leucel In Patients With Systemic Lupus Erythematosus With Or Without Lupus Nephritis; Prula-Cel Generally Well Tolerated With No CRS Greater Than Grade 2 And No IEC-HS Or ICANS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:19.746458-04:00",
-    "symbols": [
-      "ACET"
-    ],
-    "headline": "Why Webuy Global Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:19.887769-04:00",
-    "symbols": [
-      "DPRO"
-    ],
-    "headline": "EXCLUSIVE: Draganfly Secures $10M Strategic Investment from Unusual Machines And A US Investment Fund of $5M Each To Support and Expand Drone Manufacturing; Investment Offering Was Made for 1.869M Shares At $5.35/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:19.892459-04:00",
-    "symbols": [
-      "DPRO"
-    ],
-    "headline": "EXCLUSIVE: Draganfly Secures $10 Million Strategic Capital to Scale Drone Manufacturing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:21:20.361336-04:00",
-    "symbols": [
-      "PPA"
-    ],
-    "headline": "Why Is Boeing Stock Falling Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:24:09.648439-04:00",
-    "symbols": [
-      "KOD"
-    ],
-    "headline": "Regeneron Eylea Feels the Pinch as Kodiak Advances Extended Dosing for Eye Drug",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-28T11:28:24.947806-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Piper Sandler Reiterates Overweight on Alphabet, Raises Price Target to $400",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-28T11:36:42.562319-04:00",
     "symbols": [
       "MSFT"
@@ -5055,6 +4975,86 @@
       "JPM"
     ],
     "headline": "Jamie Dimon Proposes &#39;Big, Beautiful&#39; Free Trade Pact Between US and Europe to Counter China: &#39;An Economic and Geopolitical Game Changer&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:56:52.072163-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "What&#39;s Going On With Rocket Lab Stock Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-29T09:57:27.842020-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Jamie Dimon Proposes 'Big, Beautiful' Free Trade Pact Between US and Europe to Counter China: 'An Economic and Geopolitical Game Changer'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-29T09:57:28.830678-04:00",
+    "symbols": [
+      "ZONE"
+    ],
+    "headline": "Zone Frontier Subsidiary Enters Into Long-Term Ground Lease Covering ~4,077 Acres In Potter County, Texas",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:57:30.064045-04:00",
+    "symbols": [
+      "AIXC"
+    ],
+    "headline": "AIxCrypto Enters Into A Non-Binding Term Sheet With Faraday Future Intelligent Electric For A Proposed All-Stock Acquisition Of FFAI&#39;s Robotics Assets And Businesses And A Major Strategic Transformation; AIxC  Will Be Renamed FF EAI Robotics Ecosystem, With Its Ticker Changing To FFR, Effective September 30, 2026; Under The Non-Binding Term Sheet, AIxC Would Acquire FFAI&#39;s Robotics Business For Around $200M In Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:57:30.068168-04:00",
+    "symbols": [
+      "AIXC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:57:30.072467-04:00",
+    "symbols": [
+      "AIXC"
+    ],
+    "headline": "Faraday Future\u2019s Robotics Pivot Gets a New Nasdaq Identity With FFR",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:00:06.376200-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA CB Consumer Confidence For September\u00a081.9 Vs 89.2 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T10:00:14.978121-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA JOLTS Job Openings For August 7.079M Vs 7.230M Est",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

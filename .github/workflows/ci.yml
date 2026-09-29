@@ -96,6 +96,16 @@ jobs:
           # the only check that actually proves a golden is environment-neutral.
           grep -q "GOLDEN: IDENTICAL" /tmp/g1.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g2.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g3.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g4.txt && grep -q "GOLDEN: IDENTICAL" /tmp/g5.txt
 
+      - name: Hollow-assertion check (tests that cannot fail)
+        # A test doing assertIn("foo(", inspect.getsource(bar)) passes when "foo("
+        # appears anywhere in bar's text -- including the comment that explains
+        # the very thing being asserted. Two such tests were found by hand in
+        # September 2026; both went green with the behaviour deleted. This blanks
+        # comments and docstrings and re-checks every needle, so the class cannot
+        # come back quietly. Runs BEFORE the suite: a green suite full of tests
+        # that cannot fail is the worst outcome, not the second best.
+        run: python tools/hollow_assert_check.py .
+
       - name: Regression suite (test_dman_algo.py)
         id: suite
         env:

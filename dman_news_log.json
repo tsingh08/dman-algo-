@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-28T11:21:19.579191-04:00",
-    "symbols": [
-      "KOD"
-    ],
-    "headline": "Regeneron Eylea Feels the Pinch as Kodiak Advances Extended Dosing for Eye Drug",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-28T11:21:19.737108-04:00",
     "symbols": [
       "ACET"
@@ -5057,6 +5047,16 @@
     "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-29T09:51:03.690948-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Jamie Dimon Proposes &#39;Big, Beautiful&#39; Free Trade Pact Between US and Europe to Counter China: &#39;An Economic and Geopolitical Game Changer&#39;",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

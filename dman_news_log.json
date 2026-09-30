@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:54.565039-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Silo Pharma&#39;s QwikAgents Subsidiary Expands AI Agent Platform With New Client, To Support Client-Provided Nvidia API Keys, Adds Hermes Agent Runtime",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.569058-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Dan Ives Calls Physical AI Nvidia\u2019s &#39;Holy Grail&#39; \u2014 This ETF Is Already in the Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.572940-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jacobs Selected By Nvidia To Deploy Its Data Center Digital Twin For A Large-Scale U.S. R&amp;D Facility Under Three-Year Software-As-A-Service Deal; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.576954-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump Rejects Deeper AI Cooperation With China, Says It Could Mean Giving Away \u2018Lot Of Secrets\u2019 \u2014 \u2018Whoever Wins Super Intelligence Wins\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.792718-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.796996-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Eaton, AMD, SpaceX And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.801270-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "HPE Receives $1.2B Order From Closely Held Cloud Infrastructure Provider Vultr To Deploy AMD Helios AI Racks At Its U.S. Cloud Data Centers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.805271-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cathie Wood Goes Big on Nvidia After $150 Billion Buyback, Sells $110 Million of AMD: ARK Invest Also Picks Up Tesla, SpaceX Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.809174-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Donald Trump, Cathie Wood Bet on the Same 32 Stocks \u2013 Some Might Surprise You",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.813795-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going on With Nebius Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.817746-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta\u2019s Next AI Gold Mine? Muse Targets 200 Million Small Businesses As Zuckerberg Eyes Fees, Subscriptions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:54.821819-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mark Zuckerberg&#39;s Muse Could Charge You for Saving You Money \u2014 META President Reveals AI Agent&#39;s Potential Monetization Model",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:54.825728-04:00",
     "symbols": [
       "META"
@@ -5057,6 +4937,126 @@
       "HOOD"
     ],
     "headline": "Morgan Stanley Reiterates Overweight on Robinhood Markets, Maintains $150 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:43:21.642493-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US Senate set to block bill to address data center costs&#39; - Reuters",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T13:43:34.430637-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Inflation Just Got Revised Lower: Economists Say The Fed Won&#39;t Be Fooled",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T13:44:26.520816-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "UBS Maintains Neutral on MongoDB, Lowers Price Target to $375",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T13:47:31.186646-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Meta\u2019s Next AI Gold Mine? Muse Targets 200 Million Small Businesses As Zuckerberg Eyes Fees, Subscriptions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T13:47:31.193088-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Is Apple&#39;s Strategy Paying Off? Strong iPhone 18 Pro China Demand Sparks Revenue Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T13:47:31.578005-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:47:31.584015-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Eaton, AMD, SpaceX And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:47:31.588773-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "HPE Receives $1.2B Order From Closely Held Cloud Infrastructure Provider Vultr To Deploy AMD Helios AI Racks At Its U.S. Cloud Data Centers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:47:31.697116-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Virtuix Announces Expansion Of Omni One For Quest Content Library To More Than 75 Meta Quest Titles",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:47:33.062374-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "What&#39;s Going On With Applied Materials Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:47:34.494412-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop Stock Climbs as CEO Ryan Cohen Extends His Buying Streak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T13:47:48.482130-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Surging on Wednesday?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:43:54.730934-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:43:55.000886-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T15:43:55.775574-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T15:43:55.781026-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "&#39;Elon Musk, CEOs Of Palantir, Amazon, Service Now, Altimeter To Attend White House Meeting On AI; Microsoft CEO Satya Nadella To Attend White House Meeting On AI&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T15:43:57.591570-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:44:00.141673-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Exclusive: Starship&#39;s Weak Spot Could Help Rocket Lab and Firefly",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:44:00.146983-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "What&#39;s Going On With Rocket Lab Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:44:03.014699-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "EXCLUSIVE: America&#39;s Gambling Problem Is Getting Worse, Prediction Markets Can Be &#39;Equally Risky,&#39; Researcher Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T15:44:05.552962-04:00",
     "symbols": [
       "JPM"
@@ -5075,5 +4995,86 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T11:59:01.552721-04:00",
+    "symbols": [
+      "META",
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Meta Could Be the AI Trade\u2019s Come-From-Behind Winner, Says Strategist",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T11:59:33.092044-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "EXCLUSIVE: If AI Capex Cracks, Nvidia Could Feel It Before Meta Does",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T11:59:33.339451-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Meta Could Be the AI Trade\u2019s Come-From-Behind Winner, Says Strategist",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T11:59:33.344801-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: If AI Capex Cracks, Nvidia Could Feel It Before Meta Does",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T11:59:33.583498-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "QUICK SPARK: Meta Could Be the AI Trade\u2019s Come-From-Behind Winner, Says Strategist",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T11:59:33.589502-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "EXCLUSIVE: If AI Capex Cracks, Nvidia Could Feel It Before Meta Does",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T11:59:33.864025-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "EXCLUSIVE: If AI Capex Cracks, Nvidia Could Feel It Before Meta Does",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T11:59:51.684982-04:00",
+    "symbols": [
+      "TGE"
+    ],
+    "headline": "The Generation Essentials Group (TGE) Stock Skyrockets Wednesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

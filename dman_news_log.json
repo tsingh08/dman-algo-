@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-29T16:06:57.075282-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Talen Energy Appoints President Terry Nutt CEO, Effective Jan. 1, 2027, Succeeding Mac McFarland; Board Approves Upsized $3B Buyback Plan",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T16:11:13.908691-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms CEO Zuckerberg Says Commitments Made Around Building Controls And Detecting Issues With Technology; Will Have Our Boards Of Directors Review Reports From Auditors; Tech Companies Agreed To Set Up &#39;robust&#39; Internal Controls, Multiple Layers Of Auditing Of AI",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T16:12:24.614737-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Discussed With AI Leaders Where To Put Data Centers; People In Areas Where Data Centers Built Will Greatly Benefit Financially",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T16:14:09.935460-04:00",
     "symbols": [
       "SPCX",
@@ -5073,5 +5043,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:30:05.529948-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb Stock Moves Higher: What&#39;s Happening Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T13:30:15.914067-04:00",
+    "symbols": [
+      "DMRC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T13:30:15.922474-04:00",
+    "symbols": [
+      "DMRC"
+    ],
+    "headline": "Digimarc Commences ~$18.2M Common Stock Offering",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

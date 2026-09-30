@@ -11986,12 +11986,30 @@ def _sessions_since(start: date) -> int:
                          params={"symbols": "SPY", "timeframe": "1Day",
                                  "start": start.isoformat(), "feed": _resolve_stock_feed(),
                                  "limit": 500}, timeout=30)
-        if r.status_code != 200:
-            return -1
-        days = {str(b["t"])[:10] for b in ((r.json() or {}).get("bars") or {}).get("SPY", [])}
-        return max(0, len([d for d in days if d > start.isoformat()]))
+        # Falls THROUGH to the keyless branch below rather than returning -1:
+        # a 401/403 is exactly what the briefing gets, and the whole point of
+        # the fallback is to cover that case.
+        if r.status_code == 200:
+            days = {str(b["t"])[:10] for b in ((r.json() or {}).get("bars") or {}).get("SPY", [])}
+            if days:
+                return max(0, len([d for d in days if d > start.isoformat()]))
     except Exception as exc:
         _log_swallowed("sessions since", exc)
+    # yfinance needs no credentials, and that is the whole point of having it
+    # here. dman_premarket.yml deliberately runs with NO Alpaca keys, so the
+    # Alpaca branch above can never authenticate there -- which meant the
+    # session-based scanner-staleness check in the briefing always degraded to
+    # its wall-clock fallback. It said so honestly ("session count
+    # unavailable"), but the briefing is the one place the session measure was
+    # added for: it is what stops every Monday reporting "SCANNER DOWN" over a
+    # weekend gap. Confirmed live 2026-09-29, where the briefing printed the
+    # fallback branch rather than "no session missed".
+    try:
+        _h = yf.Ticker("SPY").history(start=start.isoformat())
+        _days = {str(_d.date()) for _d in _h.index}
+        return max(0, len([_d for _d in _days if _d > start.isoformat()]))
+    except Exception as exc:
+        _log_swallowed("sessions since (yfinance)", exc)
         return -1
 
 
@@ -19543,6 +19561,26 @@ def _smallcap_score_threshold(ticker: str, setup: str) -> int:
                MAX_EFFECTIVE_MIN_SCORE)
 
 
+def _retired_signal_alert(sig) -> str:
+    """The message a RETIRED setup is allowed to send.
+
+    Deliberately not shaped like a trade: no entry, no stop, no green arrow, no
+    "LONG". MSGY went out twice on 2026-09-29 as
+    "🟢 LONG MSGY — Low Float Catalyst  Entry: $4.3487  Stop: $3.479", in the
+    same session the system also reported "Setup disabled — Low Float Catalyst
+    0W/14L over 14 live trades (0% WR, -118.5% cumulative)". The submit path
+    refuses these correctly; the alert path never checked, so the only remaining
+    way a retired setup could cost money was a human acting on the message by
+    hand -- and it read exactly like an instruction to.
+    """
+    return (f"⛔ <b>{html.escape(str(getattr(sig, 'ticker', '?')))} — "
+            f"{html.escape(str(getattr(sig, 'setup', '?')))} "
+            f"(RETIRED, not traded)</b>\n"
+            f"Scored {getattr(sig, 'confluence_score', 0)}/100 and logged for "
+            f"the dataset. This setup may not open a position; its live record "
+            f"is why. No entry or stop shown on purpose — there is no trade here.")
+
+
 def format_smallcap_telegram(sig: ProSignal, fl_m: float, sh_pct: float,
                               insider_pct: float = 0.0, post_rs: bool = False) -> str:
     """Telegram alert format for Low Float Catalyst signals — distinct from large-cap alerts."""
@@ -21841,7 +21879,22 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
         if _is_duplicate_alert(sig.ticker):
             sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
             continue
-        if sig.ticker in smallcap_extra:
+        # A retired setup may not take money, and it must not send a message
+        # that READS like a trade either. MSGY on 2026-09-29 went out twice as
+        # "🟢 LONG MSGY — Low Float Catalyst  Entry: $4.3487  Stop: $3.479",
+        # formatted exactly like an actionable entry, in the same session the
+        # system also sent "Setup disabled — Low Float Catalyst 0W/14L over 14
+        # live trades (0% WR, -118.5% cumulative)". The submit path refuses these
+        # correctly; this alert path never checked. Someone reading a phone would
+        # reasonably have placed that trade by hand -- which is the one way a
+        # retired setup can still cost money.
+        #
+        # Kept rather than dropped, because the signal is still worth seeing, but
+        # relabelled so it cannot be mistaken for an instruction: no entry, no
+        # stop, no green arrow.
+        if _setup_retired(sig.setup):
+            _alert_batch.append(_retired_signal_alert(sig))
+        elif sig.ticker in smallcap_extra:
             fl_m, sh_pct, insider_pct, post_rs = smallcap_extra[sig.ticker]
             _alert_batch.append(format_smallcap_telegram(sig, fl_m, sh_pct, insider_pct, post_rs))
         else:

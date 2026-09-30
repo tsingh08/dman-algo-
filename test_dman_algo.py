@@ -22192,3 +22192,106 @@ class TestOptionsAffordabilityHasACeiling(unittest.TestCase):
     def test_the_floor_still_works(self):
         """The sub-$10 rule this sits opposite must be untouched."""
         self.assertEqual(a.OPTIONS_MIN_PRICE, 10.0)
+
+
+class TestRetiredSetupSendsNoTradeShapedAlert(unittest.TestCase):
+    """A retired setup may not take money, and must not send a message that
+    reads like a trade either.
+
+    MSGY went out twice on 2026-09-29 as "🟢 LONG MSGY — Low Float Catalyst
+    Entry: $4.3487  Stop: $3.479", formatted exactly like an actionable entry —
+    in the same session the system also sent "Setup disabled — Low Float
+    Catalyst 0W/14L over 14 live trades (0% WR, -118.5% cumulative)". The submit
+    path refuses retired setups correctly; the ALERT path never checked. The
+    only remaining way a retired setup could cost money was someone acting on
+    the message by hand, and it read like an instruction to."""
+
+    def _sig(self, setup="Low Float Catalyst"):
+        return SimpleNamespace(ticker="MSGY", setup=setup, bias="LONG",
+                               confluence_score=88, entry=4.3487, stop=3.479)
+
+    def test_it_says_retired_and_not_traded(self):
+        out = a._retired_signal_alert(self._sig())
+        self.assertIn("RETIRED", out)
+        self.assertIn("not traded", out)
+
+    def test_it_shows_no_entry_and_no_stop(self):
+        """The two numbers that make a message actionable."""
+        out = a._retired_signal_alert(self._sig())
+        self.assertNotIn("4.3487", out)
+        self.assertNotIn("3.479", out)
+        self.assertNotIn("Entry", out)
+        self.assertNotIn("Stop", out)
+
+    def test_it_is_not_shaped_like_a_buy(self):
+        out = a._retired_signal_alert(self._sig())
+        self.assertNotIn("🟢", out)
+        self.assertNotIn("LONG", out)
+
+    def test_it_still_reports_the_score_for_the_record(self):
+        """Suppressing it entirely would lose the observation; the retirement
+        comment says these stay scored and logged."""
+        self.assertIn("88/100", a._retired_signal_alert(self._sig()))
+
+    def test_the_alert_path_checks_retirement_before_formatting(self):
+        """Order matters: the guard must come BEFORE the smallcap/normal
+        formatters, or the trade-shaped message is built anyway."""
+        src = inspect.getsource(a)
+        i = src.index("_alert_batch.append(_retired_signal_alert(sig))")
+        j = src.index("_alert_batch.append(format_smallcap_telegram(")
+        self.assertLess(i, j, "retired guard must precede the smallcap formatter")
+
+    def test_a_live_setup_is_unaffected(self):
+        self.assertFalse(a._setup_retired("Gap & Hold"))
+        self.assertTrue(a._setup_retired("Low Float Catalyst"))
+
+
+class TestSessionsSinceWorksWithoutAlpacaKeys(unittest.TestCase):
+    """dman_premarket.yml runs with NO Alpaca keys, by design.
+
+    _sessions_since() called data.alpaca.markets and returned -1 on any
+    non-200, so in the briefing it could never answer -- which meant the
+    session-based scanner-staleness check ALWAYS fell back to wall-clock there.
+    It said so honestly, but the briefing is the one place that measure exists
+    for: it is what stops every Monday reporting a weekend gap as SCANNER DOWN.
+    Confirmed live 2026-09-29, where the briefing printed the fallback branch
+    instead of "no session missed"."""
+
+    def test_a_non_200_falls_through_instead_of_returning_minus_one(self):
+        """The early return was what skipped the keyless path entirely."""
+        import pandas as pd
+        idx = pd.to_datetime(["2026-09-28", "2026-09-29"])
+        with patch.object(a.requests, "get",
+                          return_value=MagicMock(status_code=403, text="forbidden")), \
+             patch.object(a.yf, "Ticker",
+                          return_value=MagicMock(
+                              history=lambda **k: MagicMock(index=idx))):
+            n = a._sessions_since(date(2026, 9, 25))
+        self.assertEqual(n, 2)
+
+    def test_an_alpaca_exception_also_falls_through(self):
+        import pandas as pd
+        idx = pd.to_datetime(["2026-09-28"])
+        with patch.object(a.requests, "get", side_effect=RuntimeError("no net")), \
+             patch.object(a, "_log_swallowed"), \
+             patch.object(a.yf, "Ticker",
+                          return_value=MagicMock(
+                              history=lambda **k: MagicMock(index=idx))):
+            self.assertEqual(a._sessions_since(date(2026, 9, 25)), 1)
+
+    def test_both_sources_failing_still_returns_minus_one(self):
+        """-1 means "unknown", and the caller reports it as wall-clock rather
+        than passing the weaker measure off as the intended one."""
+        with patch.object(a.requests, "get", side_effect=RuntimeError("no net")), \
+             patch.object(a.yf, "Ticker", side_effect=RuntimeError("no net")), \
+             patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._sessions_since(date(2026, 9, 25)), -1)
+
+    def test_alpaca_is_still_preferred_when_it_answers(self):
+        _ok = MagicMock(status_code=200)
+        _ok.json.return_value = {"bars": {"SPY": [{"t": "2026-09-28T00:00:00Z"},
+                                                  {"t": "2026-09-29T00:00:00Z"}]}}
+        with patch.object(a.requests, "get", return_value=_ok), \
+             patch.object(a.yf, "Ticker",
+                          side_effect=AssertionError("yfinance must not be reached")):
+            self.assertEqual(a._sessions_since(date(2026, 9, 25)), 2)

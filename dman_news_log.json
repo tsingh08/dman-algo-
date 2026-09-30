@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:42:26.844765-04:00",
-    "symbols": [
-      "ZONE"
-    ],
-    "headline": "Zone Frontier Subsidiary Enters Into Long-Term Ground Lease Covering ~4,077 Acres In Potter County, Texas",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T15:42:26.989665-04:00",
     "symbols": [
       "RPID"
@@ -5071,6 +5061,16 @@
     "headline": "Reported Earlier, Vanda Says Phase III HETLIOZ Study Met Primary Endpoint In Delayed Sleep-Wake Phase Disorder, Shifting Sleep Onset 37.1 Minutes Earlier Versus Placebo; sNDA Planned",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:34:21.411809-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "SEC Announces It Is Considering Designating Accountants, Financial Analysts And Planners, Others, As Qualifying For Accredited Investor Status",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

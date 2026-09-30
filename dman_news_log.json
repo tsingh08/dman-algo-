@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:55.339128-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported Earlier, &#39;Tech Giants Face Questions Over Secret AI Data-Center Deals; Democratic Rep. Jamie Raskin seeks information from Amazon, Google, Meta and Oracle&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.536862-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "KIDZ AI Files Fleet Procurement Inquiry To Tesla For Initial 500 Tesla Robotaxis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.541119-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Cathie Wood Goes Big on Nvidia After $150 Billion Buyback, Sells $110 Million of AMD: ARK Invest Also Picks Up Tesla, SpaceX Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.545174-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Locks in $30 Billion in New Credit as It Scales Up Optimus, Cybercab and Joint Solar Plans With SpaceX",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.549058-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says SpaceX Is Aiming Together With Tesla To Do 200 Gigawatts Of Solar Production Per Year; Expect Starship To Reach A Weekly Or Twice Weekly Cadence Next Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.755433-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Bill Ackman Happy to be Back in Netflix Stock Again: \u2018Amazing Business With a Very Dominant Position\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:55.956418-04:00",
     "symbols": [
       "CRM"
@@ -5062,5 +5002,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:09:28.920321-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported September 29, &#39;White House holds crunch talks on diesel export ban as midterms near&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:12:45.722058-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Lion Group Says It Sold All Its Solana And Some Bitcoin To Buy 38,102 Hyperliquid Tokens, Lifting HYPE Holdings To 232,900 Worth About $20.1M",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:12:50.779464-04:00",
+    "symbols": [
+      "SGMT"
+    ],
+    "headline": "Sagimet Biosciences Surges Forward With Successful Acne Clinical Data and Capital Raise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:12:51.171776-04:00",
+    "symbols": [
+      "ORBS"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:12:51.462861-04:00",
+    "symbols": [
+      "AHG"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:12:51.469359-04:00",
+    "symbols": [
+      "AHG"
+    ],
+    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

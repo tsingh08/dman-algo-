@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:12:02.832791-04:00",
-    "symbols": [
-      "JLHL"
-    ],
-    "headline": "Reported Earlier, Julong To Raise $897,750 Gross Through Private Placement Of 750,000 Class A Shares At $0.300 And 2,250,000 Pre-Funded Warrants At $0.299 Each",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:12:03.117180-04:00",
-    "symbols": [
-      "KUST"
-    ],
-    "headline": "Kustom Entertainment Announces 1-For-10 Reverse Stock Split, Effective Oct. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:12:03.880944-04:00",
     "symbols": [
       "LIMN"
@@ -5074,5 +5054,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:59:19.982951-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on GE Aerospace, Lowers Price Target to $380",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:59:54.740415-04:00",
+    "symbols": [
+      "CYPH"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

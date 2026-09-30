@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:57.048083-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Earnings Scheduled For September 30, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:57.052080-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "At 5% Yields, Big Tech Marches Onto the Death Ground",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:57.056302-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron\u2019s AI Boom Isn\u2019t Done yet, Analysts Say \u2014 but Can the Stock Keep Exploding Higher?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:57.060213-04:00",
     "symbols": [
       "MU"
@@ -5061,6 +5031,36 @@
     "headline": "The Hormuz Letter Posts On X: &#39;Iran appears to have struck ADNOC&#39;s Bu Hasa facility southwest of Abu Dhabi, one of the UAE&#39;s largest onshore oil and gas fields&#39;",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:30:43.181208-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:30:49.451167-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "What&#39;s Going On with Intuitive Machines Stock Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T14:30:59.602586-04:00",
+    "symbols": [
+      "CNTB"
+    ],
+    "headline": "Connect Biopharma Reports Significant Drop In Treatment Failure With New COPD Therapy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

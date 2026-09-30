@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T16:06:36.705049-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Williams Says Rising Bond Yields Show Tighter Financial Conditions At Margin; Doesn&#39;t Believe They Signal Shifting Longer-Run Inflation Views",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T16:06:49.372527-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Williams Says AI Not Causing Big Changes In Job Levels So Far; Says Strong AI Investment Important To Bolster Future Productivity",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T16:06:57.075282-04:00",
     "symbols": [
       "TLN"
@@ -5070,6 +5050,26 @@
       "SPCX"
     ],
     "headline": "Anthropic Just Hired a Google Project Zero Veteran To Lead Its Frontier AI Red Team",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:25:34.560381-04:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "HPE\u2019s $1.2 Billion Helios Win Comes with Bigger Networking Growth Bet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:27:01.797263-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Make Or Break for AI Trade\u2013Micron Earnings Ahead; Consumers Spend More Even As Income Drops",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

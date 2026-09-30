@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:53:11.825586-04:00",
-    "symbols": [
-      "KMX"
-    ],
-    "headline": "CarMax Says Even Its Lowest-Income Customers Are Holding Up Despite Affordability Squeeze",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T15:53:11.830852-04:00",
     "symbols": [
       "KMX"
@@ -5091,6 +5081,16 @@
     "headline": "GameStop shares are trading higher after a Form 4 filing indicated that the company&#39;s CEO bought 450,000 shares at an average price of $23.48 per share.",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:52:07.382219-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "QUICK SPARK: 30-Year Treasury Yields Top 5.6%, Hitting 24-Year Highs",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

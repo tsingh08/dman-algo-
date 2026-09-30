@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:12:03.880944-04:00",
-    "symbols": [
-      "LIMN"
-    ],
-    "headline": "Liminatus Pharma Regains Compliance With Nasdaq\u2019s Minimum Bid Price Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:12:04.102679-04:00",
     "symbols": [
       "MASK"
@@ -5073,6 +5063,16 @@
     "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:00:11.688403-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "SEC Proposes Allowing Investment Advisers To Charge Performance Fees To More Clients In Effort To Spur Retail Investment In Private Assets; Allowing Closed-End Funds To Offer Shareholders Monthly Net-Asset-Value Repurchases To Spur Retail Investment In Private Assets",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

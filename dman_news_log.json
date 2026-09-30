@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:44:05.552962-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Jamie Dimon Proposes &#39;Big, Beautiful&#39; Free Trade Pact Between US and Europe to Counter China: &#39;An Economic and Geopolitical Game Changer&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-29T15:44:07.503329-04:00",
     "symbols": [
       "ORCL"
@@ -5076,5 +5066,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:01:01.747359-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "$1000 Invested In Mastercard 20 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

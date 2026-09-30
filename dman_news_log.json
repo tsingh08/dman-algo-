@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:26:04.842373-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "At 5% Yields, Big Tech Marches Onto the Death Ground",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.846362-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Cathie Wood Says Real Yields, Not Inflation, Are Driving Rates \u2014 Bill Ackman Thinks The Fed May Have Made A \u2018Mistake\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:05.050213-04:00",
-    "symbols": [
-      "AMIX"
-    ],
-    "headline": "Autonomix Medical Completes Pre-Submission Meeting With FDA For Its Transvascular Sensing Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:05.464981-04:00",
-    "symbols": [
-      "ARX"
-    ],
-    "headline": "This Dow Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:05.469365-04:00",
-    "symbols": [
-      "ARX"
-    ],
-    "headline": "Microsoft To Rally Around 20%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:05.473420-04:00",
-    "symbols": [
-      "ARX"
-    ],
-    "headline": "TD Cowen Downgrades Accelerant Hldgs to Hold, Lowers Price Target to $20.25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:05.672894-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:05.678000-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T09:26:05.882263-04:00",
     "symbols": [
       "CPOP"
@@ -5070,5 +4990,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:13:17.317139-04:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "&#39;Hertz Taps PJT Partners to Extend Debt as Maturities Loom&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:14:26.460954-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Aide Gorka Tells Jerusalem Post That Iran Deal Remains Possible, Confrontation Will &#39;Imminently Be Resolved,&#39; Trump Won&#39;t Dilute Demands",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:14:43.227689-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T15:14:43.231696-04:00",
+    "symbols": [
+      "AMIX"
+    ],
+    "headline": "Autonomix Medical Completes Pre-Submission Meeting With FDA For Its Transvascular Sensing Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:14:43.235555-04:00",
+    "symbols": [
+      "ARX"
+    ],
+    "headline": "This Dow Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:14:43.238455-04:00",
+    "symbols": [
+      "ARX"
+    ],
+    "headline": "Microsoft To Rally Around 20%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:14:43.241062-04:00",
+    "symbols": [
+      "ARX"
+    ],
+    "headline": "TD Cowen Downgrades Accelerant Hldgs to Hold, Lowers Price Target to $20.25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:14:43.243661-04:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

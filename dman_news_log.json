@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:56.585984-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "HPE Receives $1.2B Order From Closely Held Cloud Infrastructure Provider Vultr To Deploy AMD Helios AI Racks At Its U.S. Cloud Data Centers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:25:56.819244-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Cathie Wood Goes Big on Nvidia After $150 Billion Buyback, Sells $110 Million of AMD: ARK Invest Also Picks Up Tesla, SpaceX Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:56.823677-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Donald Trump, Cathie Wood Bet on the Same 32 Stocks \u2013 Some Might Surprise You",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:57.043621-04:00",
     "symbols": [
       "MU"
@@ -5059,6 +5029,36 @@
       "SNOW"
     ],
     "headline": "Snowflake And LSEG Announce Expanded Five-Year Enterprise-Wide Collaboration To Deliver Governed AI With Trusted Financial Data For Regulated Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:21:01.495216-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "AI Could Threaten Amazon\u2019s Advertising Flywheel Before E-Commerce",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:21:04.485653-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "HPE Receives $1.2B Order From Closely Held Cloud Infrastructure Provider Vultr To Deploy AMD Helios AI Racks At Its U.S. Cloud Data Centers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:21:04.493113-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Cathie Wood Goes Big on Nvidia After $150 Billion Buyback, Sells $110 Million of AMD: ARK Invest Also Picks Up Tesla, SpaceX Shares",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

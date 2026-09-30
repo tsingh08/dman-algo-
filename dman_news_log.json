@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:42:27.094966-04:00",
-    "symbols": [
-      "ABCL"
-    ],
-    "headline": "JP Morgan Initiates Coverage On AbCellera Biologics with Overweight Rating, Announces Price Target of $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T15:43:53.251468-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:43:53.569320-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T15:43:54.134713-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T15:43:54.433565-04:00",
     "symbols": [
       "GOOGL"
@@ -5072,6 +5032,46 @@
       "NVDA"
     ],
     "headline": "EXCLUSIVE: If AI Capex Cracks, Nvidia Could Feel It Before Meta Does",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T11:50:05.180496-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "SEC Proposes Rule Changes To Expand Retail Access To Private Markets, Including Performance Fees For Advisers To Regulated Funds",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:50:13.433684-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Stock Is Moving Higher Today: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T11:50:14.832946-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "SEC Seeks Comment On Letting Individuals Qualify As Accredited Investors Via FINRA Exam Or Credentials Such As CPA, CFA, And CFP",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:50:59.686509-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Watching Palo Alto Networks; Hearing Investor Business Daily SwingTrader Buys Stock",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

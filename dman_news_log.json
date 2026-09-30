@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T13:50:25.710678-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Gains as Trump Dismisses Iran Sanction Relief as &#39;Hoax&#39;\u2014 Nvidia, AAR, Vail Resorts in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T13:50:25.715710-04:00",
     "symbols": [
       "RTX"
@@ -5069,5 +5059,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:55:38.305114-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

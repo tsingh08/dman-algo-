@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:53:05.152073-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Meta Brings Its New Enterprise AI Push to the White House",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T15:53:05.383249-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-29T15:53:05.826866-04:00",
     "symbols": [
       "GEV"
@@ -5076,6 +5056,26 @@
       "APLD"
     ],
     "headline": "What's Going On With Applied Digital Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:33:36.440425-04:00",
+    "symbols": [
+      "BBJP"
+    ],
+    "headline": "Reported Earlier, Japan Industrial Production (MoM) Preliminary For August -1.7% Vs. 1.4% Est.; -0.2% Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:33:36.670893-04:00",
+    "symbols": [
+      "CELC"
+    ],
+    "headline": "Needham Maintains Buy on Celcuity, Lowers Price Target to $134",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

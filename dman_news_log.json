@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:00:33.431202-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Understanding Adobe&#39;s Position In Software Industry Compared To Competitors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:00:33.503572-04:00",
     "symbols": [
       "AVAT"
@@ -5068,5 +5058,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T10:25:36.171369-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Watching Palantir; Traders Circulating Note From Unnamed Sell-Side Firm Suggesting PLTR Has Been Awarded A New $250M IRS Contract",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

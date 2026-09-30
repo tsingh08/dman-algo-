@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:26:05.882263-04:00",
-    "symbols": [
-      "CPOP"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:06.091682-04:00",
-    "symbols": [
-      "EZRA"
-    ],
-    "headline": "Reliance Global Group Sells Employee Benefits Insurance Agency Business To Altruis Benefit Management For $8M, Including $4.441M In Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:06.292397-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "Glucotrack\u2019s Subsidiary L\u014dkahi Therapeutics Unveils Qare Comparative Health Platform For GLP-1 And Other Treatment Outcomes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:06.501626-04:00",
-    "symbols": [
-      "GNS"
-    ],
-    "headline": "Genius Group Receives Federal Court Ruling In Favor; Co. Seeks $1B In Damages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:06.703012-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:06.907466-04:00",
-    "symbols": [
-      "JLHL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T09:26:07.317761-04:00",
     "symbols": [
       "MASK"
@@ -5069,6 +5009,67 @@
     "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:17:19.544558-04:00",
+    "symbols": [
+      "RXRX",
+      "XBI"
+    ],
+    "headline": "&#39;HHS launches project to speed up clinical trials&#39; - Axios",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:17:53.442287-04:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "&#39;HHS launches project to speed up clinical trials&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:18:02.795565-04:00",
+    "symbols": [
+      "EZRA"
+    ],
+    "headline": "Reliance Global Group Sells Employee Benefits Insurance Agency Business To Altruis Benefit Management For $8M, Including $4.441M In Cash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:18:03.022844-04:00",
+    "symbols": [
+      "GCTK"
+    ],
+    "headline": "Glucotrack\u2019s Subsidiary L\u014dkahi Therapeutics Unveils Qare Comparative Health Platform For GLP-1 And Other Treatment Outcomes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:18:03.294991-04:00",
+    "symbols": [
+      "GNS"
+    ],
+    "headline": "Genius Group Receives Federal Court Ruling In Favor; Co. Seeks $1B In Damages",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:19:35.159158-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Cooler-Than-Expected PCE Strengthens the Case for Treasuries \u2014 and for Long-Duration TLT (CORRECTED)",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

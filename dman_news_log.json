@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:12:04.102679-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "3 E Network Technology Group Initiates Global Vendor Evaluation, Request For Proposal Process For High-Density Server Clusters, Liquid Cooling Infrastructure, Core Networking Equipment For Its AI Compute Center In Finland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:12:04.487135-04:00",
     "symbols": [
       "MSGY"
@@ -5074,5 +5064,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:08:54.612151-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin&#39;s Sikorsky Inks Novel Production Agreement With U.S. Army For 16 Black Hawk Helicopters",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

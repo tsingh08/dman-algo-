@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:12:01.298612-04:00",
-    "symbols": [
-      "CYCU"
-    ],
-    "headline": "Cycurion Resolves Previously Announced John Doe Defamation Action In U.S. Against Undisclosed Defendant;. Defendant Admits Accusations Were False Against Co.; Permanent Ban On Trading Imposed On Defendant; Financial Terms Undisclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:12:01.607101-04:00",
-    "symbols": [
-      "ELAB"
-    ],
-    "headline": "PMGC Holdings\u2019 Northstrive Biosciences Executes Statement Of Work With Charles River To Conduct Analytical Characterization Supporting Development Of EL-22 And EL-32 Engineered Probiotic Programs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:12:01.901483-04:00",
-    "symbols": [
-      "FCUV"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:12:02.589680-04:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:12:02.827958-04:00",
-    "symbols": [
-      "JLHL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:12:02.832791-04:00",
     "symbols": [
       "JLHL"
@@ -5070,6 +5020,58 @@
     ],
     "headline": "AbbVie Reveals Positive Data for Eczema and Weight Loss Candidates",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:56:57.320456-04:00",
+    "symbols": [
+      "AMD",
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:57:30.238336-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T10:57:30.247285-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:57:32.427491-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:57:52.826615-04:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

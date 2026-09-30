@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:26:09.429741-04:00",
-    "symbols": [
-      "WETO"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:09.433853-04:00",
-    "symbols": [
-      "WETO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:09.632433-04:00",
-    "symbols": [
-      "YYAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:09.834607-04:00",
-    "symbols": [
-      "ZCMD"
-    ],
-    "headline": "Zhongchao Announces 1-For-2 Reverse Stock Split, Effective Oct. 2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T09:26:10.032004-04:00",
     "symbols": [
       "CNTB"
@@ -5070,6 +5030,47 @@
     "headline": "Crude Oil Rises Over 1%; Conagra Brands Earnings Top Views",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:33:19.633070-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Amazon Signs $1 Billion Synopsys Deal as AWS Steps Up Nvidia Challenge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:33:34.781613-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:33:34.784588-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:34:40.944876-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Announces Plans For $54B NG Project In Alaska",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

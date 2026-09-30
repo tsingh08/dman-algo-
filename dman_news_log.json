@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:12:00.219678-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Gains as Trump Dismisses Iran Sanction Relief as &#39;Hoax&#39;\u2014 Nvidia, AAR, Vail Resorts in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T14:12:00.224900-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Scott Bessent Hires &#39;Wall Street Geek&#39; David Zervos to Advise Treasury Amid Rising Yields: &#39;Whether It\u2019s Trade, Whether It\u2019s War, He\u2019s Stepped Up&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T14:12:00.230492-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T14:12:00.763100-04:00",
     "symbols": [
       "CLRO"
@@ -5072,5 +5042,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:47:50.574572-04:00",
+    "symbols": [
+      "IOVA"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Iovance Biotherapeutics, Raises Price Target to $18",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:48:04.165291-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Transportation Secretary Duffy Says FAA Needs To Do More To Speed Certification Of New Airplanes",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:48:13.145019-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Stock Jumps: What&#39;s Happening Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

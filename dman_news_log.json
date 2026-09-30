@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:57.060213-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "MU Stock Split Chatter Divides Traders Online Ahead of Earnings: &#39;Would It Make Sense&#39; or Get &#39;Annihilated&#39;?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:57.285720-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "MU Stock Split Chatter Divides Traders Online Ahead of Earnings: &#39;Would It Make Sense&#39; or Get &#39;Annihilated&#39;?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T09:25:57.486754-04:00",
     "symbols": [
       "SKHY"
@@ -5060,6 +5040,26 @@
     ],
     "headline": "Connect Biopharma Reports Significant Drop In Treatment Failure With New COPD Therapy",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:43:25.073671-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Senators To Delay Push For Permanent Ban On Chinese Cars Until November",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:43:42.079042-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "LGHL stock has given up its prior gain. Lion Group Holding shares were trading higher after the company announced a strategic reallocation of a portion of its digital-asset treasury.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

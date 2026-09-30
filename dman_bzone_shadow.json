@@ -318,5 +318,25 @@
 "extension_pct": 12.6,
 "fresh_base": true,
 "weak_band": true
+},
+{
+"ticker": "TWST",
+"date": "2026-09-30",
+"close": 193.24,
+"base_days": 3,
+"above_low_pct": 659.3,
+"extension_pct": 29.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PGEN",
+"date": "2026-09-30",
+"close": 8.56,
+"base_days": 8,
+"above_low_pct": 176.1,
+"extension_pct": 16.8,
+"fresh_base": false,
+"weak_band": false
 }
 ]

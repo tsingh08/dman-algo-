@@ -22111,3 +22111,84 @@ class TestEveryRejectionRecordsItsReason(unittest.TestCase):
             rows = self._rows(f)
         self.assertTrue(rows[0]["reject"].startswith("x"))
         self.assertLessEqual(len(rows[0]["reject"]), 60)
+
+
+class TestOptionsAffordabilityHasACeiling(unittest.TestCase):
+    """There was a price FLOOR on options plays and no ceiling.
+
+    OPTIONS_MIN_PRICE keeps the algo out of illiquid sub-$10 chains. Nothing
+    stopped the opposite end, so an expensive underlying was routed to an
+    options play whose contract cannot fit OPTIONS_CONTRACT_BUDGET_MAX, and the
+    alert said "trade the ITM call" -- advice that cannot be followed.
+
+    MU on 2026-09-29 is the case. Spot $1,065; the cheapest near-the-money call
+    for the 2026-10-02 expiry asked $37.75, so $3,775 for one contract against a
+    $400 ceiling -- 146% of the entire account. The only contracts inside budget
+    were strikes $1,680-$1,730, needing a 58-62% move in three days."""
+
+    def test_the_estimate_is_right_about_order_of_magnitude(self):
+        """Checked against the real chain: MU's ATM ask was $41.00 = $4,100 a
+        contract, and 0.4*S*sigma*sqrt(t) put it at ~$4,249. A pre-filter only
+        has to be right about the order of magnitude, and it is."""
+        with patch.object(a, "_realized_vol_estimate", return_value=0.70):
+            est = a._options_contract_estimate("MU", 1065.08, dte=14)
+        self.assertGreater(est, 2000)
+        self.assertLess(est, 7000)
+
+    def test_an_expensive_underlying_is_not_affordable(self):
+        with patch.object(a, "_realized_vol_estimate", return_value=0.70):
+            ok, why = a._options_underlying_affordable("MU", 1065.08)
+        self.assertFalse(ok)
+        self.assertIn("budget", why)
+        self.assertIn("1,065", why)
+
+    def test_a_cheap_underlying_is_affordable(self):
+        with patch.object(a, "_realized_vol_estimate", return_value=0.70):
+            ok, why = a._options_underlying_affordable("AGEN", 9.43)
+        self.assertTrue(ok)
+        self.assertEqual(why, "")
+
+    def test_an_unavailable_sigma_does_not_block_on_a_guess(self):
+        """Fails OPEN deliberately: this is a convenience filter, and refusing a
+        tradeable name because volatility could not be fetched would cost real
+        setups to avoid a wasted chain fetch."""
+        with patch.object(a, "_realized_vol_estimate",
+                          side_effect=RuntimeError("no data")), \
+             patch.object(a, "_log_swallowed"):
+            ok, _ = a._options_underlying_affordable("MU", 1065.08)
+        self.assertTrue(ok)
+
+    def test_a_zero_estimate_does_not_block(self):
+        with patch.object(a, "_options_contract_estimate", return_value=0.0):
+            ok, _ = a._options_underlying_affordable("MU", 1065.08)
+        self.assertTrue(ok)
+
+    def test_a_raising_estimator_does_not_block_either(self):
+        """Covers the OUTER handler. The sigma test above does not reach it:
+        _realized_vol_estimate's failure is caught inside
+        _options_contract_estimate, which returns 0.0, so that test exercises
+        the zero-estimate path instead. Found by mutating this handler and
+        watching the suite stay green."""
+        with patch.object(a, "_options_contract_estimate",
+                          side_effect=RuntimeError("boom")),              patch.object(a, "_log_swallowed"):
+            ok, why = a._options_underlying_affordable("MU", 1065.08)
+        self.assertTrue(ok)
+        self.assertEqual(why, "")
+
+    def test_the_reason_is_carried_so_the_skip_is_reportable(self):
+        """"Why didn't we play MU" has to have an answer in the alert itself."""
+        with patch.object(a, "_realized_vol_estimate", return_value=0.70):
+            _, why = a._options_underlying_affordable("MU", 1065.08)
+        self.assertIn("/contract", why)
+        self.assertIn("400", why)
+
+    def test_the_alert_routes_an_unaffordable_name_to_shares(self):
+        src = inspect.getsource(a)
+        i = src.index("_options_underlying_affordable(s.ticker, s.entry)")
+        blk = src[i:i + 900]
+        self.assertIn("options skipped", blk)
+        self.assertIn("STOCK play", blk)
+
+    def test_the_floor_still_works(self):
+        """The sub-$10 rule this sits opposite must be untouched."""
+        self.assertEqual(a.OPTIONS_MIN_PRICE, 10.0)

@@ -2547,9 +2547,22 @@ def format_signal_telegram(s: "ProSignal", regime: dict) -> str:
     arrow = "🟢 LONG" if s.bias == "LONG" else "🔴 SHORT"
     opex  = " ⚠️ OpEx week" if is_opex_week() else ""
 
-    # For stocks >$10 with options enabled: flag it so user knows options alert follows
+    # For stocks >$10 with options enabled: flag it so user knows options alert
+    # follows. There was a price FLOOR and no ceiling, so an expensive
+    # underlying was routed to an options play whose contract cannot fit the
+    # budget -- MU at $1,065 on 2026-09-29 estimates ~$4,200 a contract against
+    # a $400 ceiling. Saying "trade the ITM call" there is advice that cannot be
+    # followed, so the note now says what to do instead and why.
+    _opt_afford, _opt_why = (True, "")
     if ENABLE_OPTIONS and s.entry > OPTIONS_MIN_PRICE and s.setup in OPTIONS_SETUPS:
+        _opt_afford, _opt_why = _options_underlying_affordable(s.ticker, s.entry)
+    if (ENABLE_OPTIONS and s.entry > OPTIONS_MIN_PRICE
+            and s.setup in OPTIONS_SETUPS and _opt_afford):
         trade_note = "\n🎯 <b>OPTIONS play</b> — trade the ITM call below, not the stock directly."
+    elif (ENABLE_OPTIONS and s.entry > OPTIONS_MIN_PRICE
+            and s.setup in OPTIONS_SETUPS and not _opt_afford):
+        trade_note = (f"\n📈 <b>STOCK play</b> — options skipped: {_opt_why}. "
+                      f"Shares (fractional if needed), not contracts.")
     elif s.entry <= OPTIONS_MIN_PRICE:
         trade_note = "\n📈 <b>STOCK play</b> — price under $10, buy shares directly."
     else:
@@ -26088,6 +26101,57 @@ def _get_options_market_context(ticker: str, expiry_str: str) -> dict:
 
 _REALIZED_VOL_CACHE: dict[str, tuple[float, float]] = {}
 _REALIZED_VOL_CACHE_TTL_S = 3600   # 1 hr — realized vol doesn't meaningfully shift within a session
+
+def _options_contract_estimate(ticker: str, spot: float,
+                               dte: int = OPTIONS_TARGET_DTE) -> float:
+    """Roughly what ONE near-the-money contract on this underlying will cost.
+
+    The standard at-the-money Black-Scholes approximation: premium per share is
+    about 0.4 * S * sigma * sqrt(t). Uses _realized_vol_estimate(), which was
+    already in the file computing sigma for strike selection and nothing else.
+
+    Approximate on purpose -- it is a pre-filter, not a price. It only has to be
+    right about ORDER OF MAGNITUDE, and the case it exists for is not marginal.
+    """
+    try:
+        _sigma = _realized_vol_estimate(ticker)
+        _t = max(dte, 1) / 365.0
+        return max(0.0, 0.4 * float(spot) * float(_sigma) * math.sqrt(_t)) * 100.0
+    except Exception as exc:
+        _log_swallowed("options contract estimate", exc)
+        return 0.0
+
+
+def _options_underlying_affordable(ticker: str, spot: float) -> tuple:
+    """(affordable, why). Can one contract fit OPTIONS_CONTRACT_BUDGET_MAX?
+
+    There was a floor (OPTIONS_MIN_PRICE, to avoid illiquid sub-$10 chains) and
+    no ceiling, so an expensive underlying passed the filter, had its chain
+    fetched and scored, and then failed at sizing with nothing saying why.
+
+    MU on 2026-09-29 is the case that prompted this: spot $1,065, and the
+    cheapest near-the-money call for the 2026-10-02 expiry asked $37.75 --
+    $3,775 for one contract against a $400 budget ceiling, 146% of the whole
+    account. The only contracts inside budget were strikes $1,680-$1,730,
+    needing a 58-62% move in three days. Those are not cheap options, they are
+    lottery tickets with the lottery's odds.
+
+    Returns a reason string so the skip is reportable rather than silent, which
+    is the whole point -- "why didn't we play MU" should have an answer.
+    """
+    try:
+        _est = _options_contract_estimate(ticker, spot)
+        if _est <= 0:
+            return True, ""      # cannot estimate -> do not block on a guess
+        if _est > OPTIONS_CONTRACT_BUDGET_MAX:
+            return False, (f"~${_est:,.0f}/contract est. vs "
+                           f"${OPTIONS_CONTRACT_BUDGET_MAX:,.0f} budget "
+                           f"(spot ${float(spot):,.2f})")
+        return True, ""
+    except Exception as exc:
+        _log_swallowed("options affordability", exc)
+        return True, ""
+
 
 def _realized_vol_estimate(ticker: str, lookback: int = 20) -> float:
     """

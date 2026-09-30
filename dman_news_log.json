@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:54.825728-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Reported Earlier, &#39;Tech Giants Face Questions Over Secret AI Data-Center Deals; Democratic Rep. Jamie Raskin seeks information from Amazon, Google, Meta and Oracle&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.065137-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic IPO Filing Reveals a Major Vulnerability: Nearly 50% of Sales Flow Through Amazon and Google as Revenue Concentration Raises Risks: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.069473-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "At 5% Yields, Big Tech Marches Onto the Death Ground",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:55.073455-04:00",
     "symbols": [
       "GOOGL"
@@ -5060,5 +5030,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:49:31.199305-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "What&#39;s Going On With Snowflake Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:49:58.750789-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Data Shows Retatrutide Promotes Weight Loss Over Eighty Weeks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:52:07.448423-04:00",
+    "symbols": [
+      "COIN",
+      "MA",
+      "V"
+    ],
+    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

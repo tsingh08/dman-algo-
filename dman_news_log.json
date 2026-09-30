@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:12:04.706531-04:00",
-    "symbols": [
-      "MSS"
-    ],
-    "headline": "Maison Solutions Receives Non-Compliance Notice From Nasdaq",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:12:04.936618-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:12:05.958154-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:12:06.187356-04:00",
     "symbols": [
       "SLXN"
@@ -5074,5 +5044,50 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:12:53.328610-04:00",
+    "symbols": [
+      "AAPL",
+      "CAT",
+      "CVX",
+      "DIA",
+      "GE",
+      "GOOGL",
+      "IWM",
+      "MA",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "RTX",
+      "SPY",
+      "V",
+      "XOM"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:13:33.412970-04:00",
+    "symbols": [
+      "GOOGL",
+      "TSLA"
+    ],
+    "headline": "Faraday Future\u2019s Berkshire Hathaway Bet Comes With a Tesla Twist",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T11:13:33.513412-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google DeepMind Announces SynthID Bio To Watermark AI-Designed Proteins, Open-Sources Code And Model Weights",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

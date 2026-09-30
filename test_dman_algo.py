@@ -21994,3 +21994,120 @@ class TestMacroCalendarCannotExpireSilently(unittest.TestCase):
              patch.object(a, "_log_swallowed"):
             _safe, _score = a.check_macro_safe()
         self.assertIn(_safe, (True, False))
+
+
+class TestEveryRejectionRecordsItsReason(unittest.TestCase):
+    """The learning dataset could not say why most signals were dropped.
+
+    run_pro_scanner() logged each signal ONCE, before the chasing gate, the
+    score floor and AI scoring had run, with a reason that only distinguished
+    catalyst-veto / "hard gate" / "". Six of the ten bail-outs after that call
+    recorded an EMPTY reason -- macro, divergence, chasing, score floor, AI
+    score and the pre-9:45 gate -- so "blocked by the chasing gate" was
+    indistinguishable in the file from "passed every check".
+
+    IOVA on 2026-09-29 is the case: score 100/100, regime/MTF/earnings/macro/
+    divergence all green, blocked by the chasing gate (RSI 90.3, RVOL 6.17,
+    entry $15.13 near the 52wk high). The row read reject="". The features
+    report is the thing that is supposed to authorise weight changes, and the
+    two biggest buckets -- score floor and chasing -- left no trace in it."""
+
+    def _sig(self, **kw):
+        base = dict(ticker="IOVA", setup="Gap & Hold", bias="LONG",
+                    confluence_score=100, final_score=70.0, entry=15.13,
+                    stop=13.8, target1=21.46, rr=4.76, rsi=90.3, rvol=6.17,
+                    atr=0.886, beta=0.83, catalyst_tier="C", news_boost=True,
+                    ai_score=0, mtf_ok=True, regime_ok=True, earnings_ok=True,
+                    macro_ok=True, divergence_free=True, score_breakdown={})
+        base.update(kw)
+        return SimpleNamespace(**base)
+
+    def _log(self, tmp, sig, reason, taken=False):
+        with patch.object(a, "SIGNAL_FEATURES_FILE", tmp):
+            a._log_signal_features(sig, {"regime": "CHOP", "score": 10},
+                                   taken, reason)
+
+    def _rows(self, tmp):
+        return json.load(io.open(tmp, encoding="utf-8"))
+
+    # --- a later, specific reason must replace the provisional one ----------
+    def test_a_specific_reason_replaces_the_provisional_blank(self):
+        """The whole mechanism: one row per signal, reason updated in place."""
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            self._log(f, self._sig(), "")                       # provisional
+            self._log(f, self._sig(), "chasing extended highs")  # actual
+            rows = self._rows(f)
+        self.assertEqual(len(rows), 1, "must stay one row per signal")
+        self.assertEqual(rows[0]["reject"], "chasing extended highs")
+
+    def test_a_blank_reason_does_not_erase_a_specific_one(self):
+        """A later scan cycle re-logs provisionally; that must not wipe it."""
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            self._log(f, self._sig(), "chasing extended highs")
+            self._log(f, self._sig(), "")
+            rows = self._rows(f)
+        self.assertEqual(rows[0]["reject"], "chasing extended highs")
+
+    def test_taken_still_clears_the_reason(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            self._log(f, self._sig(), "score 100<95")
+            self._log(f, self._sig(), "", taken=True)
+            rows = self._rows(f)
+        self.assertTrue(rows[0]["taken"])
+        self.assertEqual(rows[0]["reject"], "")
+
+    # --- the provisional reason now covers all five hard gates -------------
+    def test_macro_and_divergence_are_no_longer_blank_provisionally(self):
+        src = inspect.getsource(a.run_pro_scanner)
+        # Cut on the STATEMENT, not the bare substring: "if _cat_veto" also
+        # occurs inside the log call itself ("_cat_why if _cat_veto else"), so
+        # slicing on it truncated the block to nothing and the test failed for
+        # its own reasons rather than the code's.
+        blk = src[src.index("_log_signal_features(sig, regime, taken=False"):]
+        blk = blk[:blk.index(chr(10) + "        if _cat_veto:")]
+        for flag in ("sig.macro_ok", "sig.divergence_free"):
+            self.assertIn(flag, blk, f"{flag} missing from the provisional reason")
+
+    # --- every bail-out names itself ---------------------------------------
+    def test_each_rejection_path_records_a_reason(self):
+        """One re-log per bail-out. If a path is added without one, its
+        rejections become invisible again -- which is how this started."""
+        src = inspect.getsource(a.run_pro_scanner)
+        for reason in ("regime:", "mtf: weekly disagrees", "earnings blackout",
+                       "macro blackout", "divergence",
+                       "chasing extended highs", "score ", "ai ",
+                       "pre-9:45 gate"):
+            self.assertIn(reason, src, f"no reject reason for {reason!r}")
+
+    def test_the_chasing_gate_is_the_one_that_fired_on_iova(self):
+        """Named because it was silent and is the gate the record says helps."""
+        src = inspect.getsource(a.run_pro_scanner)
+        i = src.index("CHASING EXTENDED HIGHS")
+        self.assertIn("chasing extended highs", src[i:i + 500])
+
+    def test_the_score_floor_records_the_numbers_not_just_a_label(self):
+        """"score 100<95" tells you the bar was the problem, not the signal."""
+        src = inspect.getsource(a.run_pro_scanner)
+        self.assertIn('f"score {sig.confluence_score}<{effective_min}"', src)
+
+    # --- it must not become chatty or lossy --------------------------------
+    def test_re_logging_does_not_multiply_rows(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            for r in ("", "hard gate", "chasing extended highs", "score 100<95"):
+                self._log(f, self._sig(), r)
+            rows = self._rows(f)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["seen"], 4)
+
+    def test_a_long_reason_is_truncated_not_dropped(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            self._log(f, self._sig(), "")
+            self._log(f, self._sig(), "x" * 200)
+            rows = self._rows(f)
+        self.assertTrue(rows[0]["reject"].startswith("x"))
+        self.assertLessEqual(len(rows[0]["reject"]), 60)

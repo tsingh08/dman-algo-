@@ -7808,6 +7808,13 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
             if taken:
                 _hit["taken"] = True
                 _hit["reject"] = ""
+            elif reject_reason:
+                # A SPECIFIC reason arriving later replaces the provisional one.
+                # The scanner logs each signal once up front, before the chasing
+                # gate, the score floor and AI scoring have even run, so the
+                # first reason it can give is necessarily incomplete. Whatever
+                # actually stopped the signal is what belongs in the dataset.
+                _hit["reject"] = reject_reason[:60]
         _write_json_atomic(SIGNAL_FEATURES_FILE, _log[-SIGNAL_FEATURES_MAX:], indent=0)
     except Exception as exc:
         _log_swallowed("signal features", exc)
@@ -22702,9 +22709,16 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
         # Hard gates: catalyst + regime + MTF + earnings + divergence (absolute stops)
         _cat_veto, _cat_why = _catalyst_veto(sig)
+        # Provisional: this runs before the chasing gate, the score floor and AI
+        # scoring, so it cannot yet know why a signal will be dropped. Each
+        # later bail-out re-logs with its own reason (see _log_signal_features'
+        # upsert). macro_ok and divergence_free were absent from this condition,
+        # so a macro blackout or a divergence block recorded an EMPTY reason --
+        # indistinguishable from a signal that passed everything.
         _log_signal_features(sig, regime, taken=False, reject_reason=(
             _cat_why if _cat_veto else
-            "" if (sig.regime_ok and sig.mtf_ok and sig.earnings_ok) else "hard gate"))
+            "" if (sig.regime_ok and sig.mtf_ok and sig.earnings_ok
+                   and sig.macro_ok and sig.divergence_free) else "hard gate"))
         if _cat_veto:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"CATALYST BLOCKED ({_cat_why})\n")
@@ -22712,27 +22726,34 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         if not sig.regime_ok:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"REGIME BLOCKED ({sig.bias} in {regime['regime']})\n")
+            _log_signal_features(sig, regime, taken=False, reject_reason=f"regime: {sig.bias} in {regime['regime']}")
             continue
         if not sig.mtf_ok:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"MTF BLOCKED (weekly chart disagrees)\n")
+            _log_signal_features(sig, regime, taken=False, reject_reason="mtf: weekly disagrees")
             continue
         if not sig.earnings_ok:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"EARNINGS BLACKOUT\n")
+            _log_signal_features(sig, regime, taken=False, reject_reason="earnings blackout")
             continue
         if not sig.macro_ok:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"MACRO BLACKOUT (FOMC/NFP)\n")
+            _log_signal_features(sig, regime, taken=False, reject_reason="macro blackout")
             continue
         if not sig.divergence_free:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"DIVERGENCE DETECTED\n")
+            _log_signal_features(sig, regime, taken=False, reject_reason="divergence")
             continue
         if not sig.not_chasing_extended_highs:
             rejected_counts["hard_gate"] += 1
             sys.stdout.write(f"CHASING EXTENDED HIGHS (already up {EXTENDED_RUN_MIN_GAIN_PCT:.0f}%+ "
                              f"in {EXTENDED_RUN_LOOKBACK_DAYS}d, near 52wk high, no confirmation)\n")
+            _log_signal_features(sig, regime, taken=False,
+                                 reject_reason="chasing extended highs")
             continue
 
         # Defensive rotation penalty — during active tech→defensive rotation sessions,
@@ -22751,6 +22772,9 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             sys.stdout.write(f"score {sig.confluence_score}/100 < {effective_min}"
                              + (f" (bar capped from {_uncapped_min})\n"
                                 if _uncapped_min > effective_min else "\n"))
+            _log_signal_features(
+                sig, regime, taken=False,
+                reject_reason=f"score {sig.confluence_score}<{effective_min}")
             continue
 
         # Optional AI scoring. A None result means the call itself failed
@@ -22771,6 +22795,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 if sig.ai_score < 6:
                     rejected_counts["low_score"] += 1
                     sys.stdout.write(f"AI score {sig.ai_score}/10 too low\n")
+                    _log_signal_features(sig, regime, taken=False,
+                                         reject_reason=f"ai {sig.ai_score}/10")
                     continue
 
         # Gap & Hold: suppress alerts in first 15 min of session (9:30–9:44 AM ET).
@@ -22779,6 +22805,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         if (sig.setup == "Gap & Hold"
                 and _now_et.hour == 9 and _now_et.minute < 45):
             sys.stdout.write("       (early-session gate — Gap & Hold held until 9:45 AM ET)\n")
+            _log_signal_features(sig, regime, taken=False,
+                                 reject_reason="pre-9:45 gate")
             continue
 
         signals.append(sig)

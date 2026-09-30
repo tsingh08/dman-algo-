@@ -249,7 +249,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   "hard gate"
+   "hard gate",
+   "regime: LONG in BULL"
   ],
   "telegram": [],
   "stdout": [
@@ -277,7 +278,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   "hard gate"
+   "hard gate",
+   "mtf: weekly disagrees"
   ],
   "telegram": [],
   "stdout": [
@@ -305,7 +307,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   "hard gate"
+   "hard gate",
+   "earnings blackout"
   ],
   "telegram": [],
   "stdout": [
@@ -333,7 +336,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   ""
+   "hard gate",
+   "macro blackout"
   ],
   "telegram": [],
   "stdout": [
@@ -361,7 +365,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   ""
+   "hard gate",
+   "divergence"
   ],
   "telegram": [],
   "stdout": [
@@ -389,7 +394,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   ""
+   "",
+   "chasing extended highs"
   ],
   "telegram": [],
   "stdout": [
@@ -417,7 +423,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   ""
+   "",
+   "score 70<85"
   ],
   "telegram": [],
   "stdout": [
@@ -477,7 +484,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   ""
+   "",
+   "score 83<85"
   ],
   "telegram": [],
   "stdout": [
@@ -507,7 +515,8 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   ""
+   "",
+   "pre-9:45 gate"
   ],
   "telegram": [],
   "stdout": [

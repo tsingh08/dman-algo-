@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:00:12.609669-04:00",
-    "symbols": [
-      "CEG",
-      "MSFT"
-    ],
-    "headline": "EXCLUSIVE: Greenland\u2019s Power Bet Is Bigger Than Microsoft\u2019s Nuclear Deal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:00:33.431202-04:00",
     "symbols": [
       "ADBE"
@@ -5069,5 +5058,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T10:23:58.470527-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb shares are trading higher after the company unveiled a suite of AI tools to assist with trip planning and customer support, as well as expanding some travel services and local amenities.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

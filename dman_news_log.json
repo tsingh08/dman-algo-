@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:26:02.881652-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Donald Trump, Cathie Wood Bet on the Same 32 Stocks \u2013 Some Might Surprise You",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:26:03.085074-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Trane Technologies Demonstrates First 800-Volt DC Cooling Architecture",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:03.091998-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton, AMD, SpaceX And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:03.293745-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Moody\u2019s Mark Zandi Warns Wall Street is &#39;Too Optimistic&#39; About the American Consumer: &#39;I Am Getting More Nervous...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T09:26:03.298124-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "If You Invested $1000 In Visa Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T09:26:03.498042-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Petrovietnam Unit BSR Signs ExxonMobil Asia-Pacific Crude Supply Agreement Ensuring Minimum 2M Barrels Yearly For Dung Quat Refinery, Alongside Chevron Framework Pact",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:26:03.905895-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In UnitedHealth Group 15 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-30T09:26:04.115661-04:00",
     "symbols": [
       "ISRG"
@@ -5065,5 +4995,79 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:58:23.586105-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "META",
+      "MSFT",
+      "NBIS"
+    ],
+    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:58:42.462707-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Plans About $1B Investment In North Carolina, Including New Sanford Plant For Compact Track Loaders And Telehandlers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:58:42.467550-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Trane Technologies Demonstrates First 800-Volt DC Cooling Architecture",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:58:42.470307-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton, AMD, SpaceX And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:58:42.474216-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Moody\u2019s Mark Zandi Warns Wall Street is &#39;Too Optimistic&#39; About the American Consumer: &#39;I Am Getting More Nervous...&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T14:58:42.477221-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "If You Invested $1000 In Visa Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T14:58:42.481649-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Petrovietnam Unit BSR Signs ExxonMobil Asia-Pacific Crude Supply Agreement Ensuring Minimum 2M Barrels Yearly For Dung Quat Refinery, Alongside Chevron Framework Pact",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:57.043621-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:57.048083-04:00",
     "symbols": [
       "MU"
@@ -5062,5 +5052,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:23:39.100778-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Hormuz Letter Posts On X: &#39;Iran appears to have struck ADNOC&#39;s Bu Hasa facility southwest of Abu Dhabi, one of the UAE&#39;s largest onshore oil and gas fields&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

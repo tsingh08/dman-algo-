@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-29T13:50:25.715710-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Raytheon Selects Lyntris To Support Multi-Year LTAMDS Radar Production",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:50:25.720620-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Pentagon Awards Raytheon Up to $20.7 Billion Deal to Ramp Up AMRAAM Missile Production Amid Stockpile Crunch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:51:04.616151-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Goolsbee Says Price Of Oil Could Go Down Relatively Quickly, But Deeper Problem Is Getting Refineries Back Online",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:57:08.637881-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Goolsbee Says Massive Deficits Are A Form Of Stimulus, Can Overheat Economy",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:57:48.970228-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar To Acquire The Fabick Chain Of Equipment Dealers With A Presence Across Four Midwestern States; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:57:49.621363-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:57:49.625835-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Board Reportedly Discussed Plan for CEO David Solomon to Step Down, Hand the Top Job to President John Waldron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:57:50.057360-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "SLB&#39;s OneSubsea JV Receives ExxonMobil Contract To Provide Subsea Production Systems For Rovuma LNG Project&#39;s First Phase In Mozambique",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:57:50.524515-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Wegovy or Zepbound? Eli Lilly Shows Zepbound Outperforms Wegovy in New Weight Loss Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:57:50.529355-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Announces New Retrospective Real-world Evidence For Type 2 Diabetes Showing Semaglutide Injection 2 Mg Was Associated With A Statistically Significant 6% Lower Risk Of Major Adverse Cardiovascular Events, Than Those Who Switched To Tirzepatide Up To 15 mg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:57:50.533708-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Hengrui Pharma Signs Exclusive License With Novo For Once-Weekly Oral GLP-1/GIP Agonist HRS-1596, Featuring $300M Upfront In Up To $2.6B Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T13:57:51.092691-04:00",
     "symbols": [
       "ORCL"
@@ -5069,5 +4959,115 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T10:01:08.031389-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Just Took a &#39;Major&#39; Step Toward $900 Stock, Top Analyst Says \u2014 Starship Success Could Fuel a $12 Trillion Valuation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:01:09.537467-04:00",
+    "symbols": [
+      "CNTB"
+    ],
+    "headline": "Nasdaq Gains Over 100 Points; Jabil Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:10.079319-04:00",
+    "symbols": [
+      "NCI"
+    ],
+    "headline": "Nasdaq Gains Over 100 Points; Jabil Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:10.327964-04:00",
+    "symbols": [
+      "TGE"
+    ],
+    "headline": "The Generation Essentials H1 EPS $0.56 Up From $0.12 YoY, Sales $65.864M Down From $87.429M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:10.333329-04:00",
+    "symbols": [
+      "TGE"
+    ],
+    "headline": "The Generation Essentials Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 86.75%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:11.307423-04:00",
+    "symbols": [
+      "CAPR"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:13.673940-04:00",
+    "symbols": [
+      "PWCM"
+    ],
+    "headline": "PowerCompute&#39;s US Digital Mining and Hosting Subsidiary Repais ~$22.45M, Terminates Bitcoin-Backed Credit Facility With ChainFi",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:13.913378-04:00",
+    "symbols": [
+      "CBNK"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:14.398542-04:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:01:14.653166-04:00",
+    "symbols": [
+      "CELC"
+    ],
+    "headline": "Celcuity Announces Commercial Availability Of REVTORPYK In U.S. For People With Hormone Receptor-Positive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:01:15.175325-04:00",
+    "symbols": [
+      "NRXP"
+    ],
+    "headline": "NRx Pharma\u2019s NRx Defense Systems Announces Award Of Initial $11M Contract Issued By Defense Advanced Research Projects Agency",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

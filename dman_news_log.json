@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:00:33.503572-04:00",
-    "symbols": [
-      "AVAT"
-    ],
-    "headline": "12 Financials Stocks Moving In Tuesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.509448-04:00",
-    "symbols": [
-      "CBOE"
-    ],
-    "headline": "Cboe Global Markets, S&P Dow Jones Indices Extend Collaboration Through 2051 For Cboe To Provide Trading In Its S&P 500 Index Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.520846-04:00",
-    "symbols": [
-      "NVTS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.527854-04:00",
-    "symbols": [
-      "NVTS"
-    ],
-    "headline": "MongoDB, Kodiak Sciences, Navitas Semiconductor, Boeing and Nvidia: Why These 5 Stocks Are on Investors' Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.536894-04:00",
-    "symbols": [
-      "FCEL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-29T14:00:33.544163-04:00",
     "symbols": [
       "FFAI"
@@ -5065,6 +5015,57 @@
       "PLTR"
     ],
     "headline": "Watching Palantir; Traders Circulating Note From Unnamed Sell-Side Firm Suggesting PLTR Has Been Awarded A New $250M IRS Contract",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:26:36.507504-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Reported Earlier, Cycurion CEO Says Pro Forma Revenue Run Rate About $30M Following Digital Ally Video Business Acquisition",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:27:12.121857-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB shares are trading higher after the company announced it authorized an additional $1 billion in share repurchases.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T10:28:27.615212-04:00",
+    "symbols": [
+      "IOVA"
+    ],
+    "headline": "Iovance Biotherapeutics Stock Pauses After Hitting New 52-Week High: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:28:57.064781-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Set to Unveil $200 Billion of South Korean US Investments&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:29:11.528220-04:00",
+    "symbols": [
+      "LLY",
+      "NVO"
+    ],
+    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

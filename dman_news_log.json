@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-29T13:48:15.500582-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood To Rally Around 16%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:48:15.506002-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Vail Resorts, Inventiva And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:48:15.510826-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Sets Another Fresh 52-Week High: What's Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T13:48:15.517288-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie And Valkai Collaborate To Accelerate Pace Of Scientific Innovation&#39;s Reach To Patients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T13:48:15.523494-04:00",
     "symbols": [
       "LLY"
@@ -5061,5 +5021,52 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:36:52.799638-04:00",
+    "symbols": [
+      "CCL"
+    ],
+    "headline": "Mizuho Maintains Outperform on Carnival, Lowers Price Target to $38",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:38:34.254412-04:00",
+    "symbols": [
+      "DIA",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Tom Lee Says Cooling Inflation Could Give US Fed Room to &#39;Walk Back Hawkishness&#39; \u2014 and That&#39;s &#39;Good For Stocks&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:39:44.940643-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "SPY"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:40:19.581885-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s Software Advantage Under Threat by DeepSeek-Huawei Alliance",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

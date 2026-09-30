@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:55.326562-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic IPO Filing Reveals a Major Vulnerability: Nearly 50% of Sales Flow Through Amazon and Google as Revenue Concentration Raises Risks: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.330679-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Amazon.com, Raises Price Target to $360",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.335203-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Senator Rick Scott Hails Jobless Claims Near 57-Year Low, Urges Congress to \u2018Get Out Of Small Businesses\u2019 Way\u2019 \u2014 \u2018Jobs Are the Key to Living the American Dream\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:55.339128-04:00",
     "symbols": [
       "AMZN"
@@ -5062,5 +5032,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T13:58:32.948886-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "What&#39;s Going On With Moderna Stock on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T14:01:59.876361-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Signs Up As Synopsys&#39; Lead Customer In $1 Billion-Plus Chip Pact",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:02:03.258758-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Synopsys Announces Over $1B Multi-Year Contract With Amazon For Custom Chip IP; Moves IP Business Toward License-Plus-Royalty Model",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

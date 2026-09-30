@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:00:33.590620-04:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "12 Financials Stocks Moving In Tuesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.597470-04:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "'Piper Sandler Holds Talks to Buy Perella Weinberg' - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:00:33.602435-04:00",
     "symbols": [
       "PWP"
@@ -5068,6 +5048,26 @@
       "RTX"
     ],
     "headline": "$100 Invested In RTX 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:38:39.752276-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Lion Group Holding shares are trading higher after the company announced a strategic reallocation of a portion of its digital-asset treasury.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:40:29.018690-04:00",
+    "symbols": [
+      "SLXN"
+    ],
+    "headline": "Silexion Therapeutics shares are trading lower. The company announced that the first patient worldwide has been dosed in its Phase 2/3 clinical trial evaluating lead candidate, SIL204, in patients with locally advanced pancreatic cancer.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:00:33.544163-04:00",
-    "symbols": [
-      "FFAI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:00:33.548678-04:00",
     "symbols": [
       "FFAI"
@@ -5069,5 +5059,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:30:37.955662-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Crude Oil Inventories 0.922M Barrel Build Vs 0.700M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

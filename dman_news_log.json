@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-29T13:57:51.092691-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "What&#39;s Going On With Oracle Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:57:51.097459-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Reported September 28, &#39;OpenAI Scraps Release of New AI Model Over Safety Concerns&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:57:58.387223-04:00",
-    "symbols": [
-      "SMMT"
-    ],
-    "headline": "Citigroup Maintains Buy on Summit Therapeutics, Raises Price Target to $43",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:07.586746-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Citigroup Maintains Neutral on Enphase Energy, Lowers Price Target to $37",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:00:12.609669-04:00",
     "symbols": [
       "CEG",
@@ -5069,5 +5029,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:17:51.576297-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Says EloraTZP Cut Weight Up To 23.3% Vs. 14.8% For Tirzepatide In Phase 2b Diabetes Trial; Plans Phase 3 In Q4",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:18:23.261379-04:00",
+    "symbols": [
+      "OPTX"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:18:23.500666-04:00",
+    "symbols": [
+      "TRMD"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:18:23.767401-04:00",
+    "symbols": [
+      "UEC"
+    ],
+    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Uranium Energy, Maintains $26.75 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

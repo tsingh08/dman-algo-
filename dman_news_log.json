@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:53:09.890491-04:00",
-    "symbols": [
-      "SLND"
-    ],
-    "headline": "Dow Tumbles 100 Points; Carnival Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T15:53:10.495488-04:00",
     "symbols": [
       "XRPN"
@@ -5079,5 +5069,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:46:47.181047-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Options Price in a 6.3% Swing: Is It too Conservative?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

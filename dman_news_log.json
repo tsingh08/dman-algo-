@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:00:33.548678-04:00",
-    "symbols": [
-      "FFAI"
-    ],
-    "headline": "AIxCrypto Announces Non-Binding Term Sheet To Acquire Faraday Future's Robotics Business In All-Stock Deal At Estimated $200M Valuation; Priced At Lower Of $2.246/Share Or 5-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.557530-04:00",
-    "symbols": [
-      "WW"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.569995-04:00",
-    "symbols": [
-      "NAUT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:33.580866-04:00",
-    "symbols": [
-      "ASTS"
-    ],
-    "headline": "AST SpaceMobile Trending After New Severance Policy, SpaceX's Orbital Milestone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-29T14:00:33.590620-04:00",
     "symbols": [
       "PWP"
@@ -5069,5 +5029,47 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:30:51.240531-04:00",
+    "symbols": [
+      "MU",
+      "NVDA"
+    ],
+    "headline": "Micron Earnings Prediction Market Preview: Can the AI Memory Boom Keep Running?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:31:24.090799-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks -2.251M Barrel Draw Vs 0.200M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T10:31:58.165391-04:00",
+    "symbols": [
+      "CRWD",
+      "PANW"
+    ],
+    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:32:23.054356-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "$100 Invested In RTX 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-29T14:00:33.602435-04:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "'Piper Sandler Holds Talks To Buy Perella Weinberg; Deal Would Join Two Wall Street Advisory Firms' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:00:58.732252-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Goolsbee Says In Dot Plot I&#39;m One Of More Optimstic Folks At Fed",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:04:15.553595-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Williams Says No Need For Urgency After September Rate Hike; Sees One Further Hike Likely This Year If Economy Meets Expectations",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:05:04.792494-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Williams Sees Inflation At 3.5% This Year, Hitting 2% Target In 2028; Says Fed Must Ensure High Inflation Does Not Become Entrenched",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:05:26.860364-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Williams Sees US GDP At 2.25% This Year, Unemployment At 4% Over 2027; Says Economic Momentum Strong And May Be Strengthening",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:05:52.477527-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Williams Says More Data Will Help Fed Decide Next Rate Move; Says Policy Can Ensure Supply Shock Impact Is Not Long-Lasting",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:06:05.864491-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Musalem Says Right Now The AI CAPEX Boom Is Resulting In Demand Pressure, With Productivity And Supply Relief Not Yet Apparent; The Economy Is Very Strong Now, But Predicated On Continued Growth",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T14:08:59.136154-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Q4 Preview: Market Expert Highlights $1,575 as Stock Price to Watch",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T14:11:46.549268-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "EXCLUSIVE: Greenland\u2019s Power Bet Is Bigger Than Microsoft\u2019s Nuclear Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T14:11:56.275924-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "EXCLUSIVE: Greenland\u2019s Power Bet Is Bigger Than Microsoft\u2019s Nuclear Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T14:12:00.219678-04:00",
     "symbols": [
       "QQQ"
@@ -5071,5 +4971,106 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:42:07.474135-04:00",
+    "symbols": [
+      "ISRG",
+      "TSLA"
+    ],
+    "headline": "Move Over Tesla: Intuitive Surgical Shows Why Robotics Could Be Bigger Than Humanoids",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:42:59.989917-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron Earnings Prediction Market Preview: Can the AI Memory Boom Keep Running?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T10:43:01.695992-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Move Over Tesla: Intuitive Surgical Shows Why Robotics Could Be Bigger Than Humanoids",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:43:04.118063-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Earnings Prediction Market Preview: Can the AI Memory Boom Keep Running?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:43:06.241463-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:43:08.171530-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:43:08.418944-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:43:12.497027-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Move Over Tesla: Intuitive Surgical Shows Why Robotics Could Be Bigger Than Humanoids",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T10:43:12.727203-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T10:43:26.392944-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Tenon Medical Commercially Rolls Out Its New Titanium 3D-Printed Lateral Screw",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

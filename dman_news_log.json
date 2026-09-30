@@ -1,656 +1,5 @@
 [
   {
-    "ts": "2026-09-30T10:01:15.175325-04:00",
-    "symbols": [
-      "NRXP"
-    ],
-    "headline": "NRx Pharma\u2019s NRx Defense Systems Announces Award Of Initial $11M Contract Issued By Defense Advanced Research Projects Agency",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:17:51.576297-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Says EloraTZP Cut Weight Up To 23.3% Vs. 14.8% For Tirzepatide In Phase 2b Diabetes Trial; Plans Phase 3 In Q4",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:18:23.261379-04:00",
-    "symbols": [
-      "OPTX"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:18:23.500666-04:00",
-    "symbols": [
-      "TRMD"
-    ],
-    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:18:23.767401-04:00",
-    "symbols": [
-      "UEC"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Uranium Energy, Maintains $26.75 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T10:23:58.470527-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb shares are trading higher after the company unveiled a suite of AI tools to assist with trip planning and customer support, as well as expanding some travel services and local amenities.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T10:25:36.171369-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Watching Palantir; Traders Circulating Note From Unnamed Sell-Side Firm Suggesting PLTR Has Been Awarded A New $250M IRS Contract",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:26:36.507504-04:00",
-    "symbols": [
-      "CYCU"
-    ],
-    "headline": "Reported Earlier, Cycurion CEO Says Pro Forma Revenue Run Rate About $30M Following Digital Ally Video Business Acquisition",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:27:12.121857-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB shares are trading higher after the company announced it authorized an additional $1 billion in share repurchases.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T10:28:27.615212-04:00",
-    "symbols": [
-      "IOVA"
-    ],
-    "headline": "Iovance Biotherapeutics Stock Pauses After Hitting New 52-Week High: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:28:57.064781-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump Set to Unveil $200 Billion of South Korean US Investments&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:29:11.528220-04:00",
-    "symbols": [
-      "LLY",
-      "NVO"
-    ],
-    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:30:37.955662-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Crude Oil Inventories 0.922M Barrel Build Vs 0.700M Barrel Draw Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:30:51.240531-04:00",
-    "symbols": [
-      "MU",
-      "NVDA"
-    ],
-    "headline": "Micron Earnings Prediction Market Preview: Can the AI Memory Boom Keep Running?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:31:24.090799-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "EIA Weekly Distillates Stocks -2.251M Barrel Draw Vs 0.200M Barrel Draw Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:31:58.165391-04:00",
-    "symbols": [
-      "CRWD",
-      "PANW"
-    ],
-    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:32:23.054356-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "$100 Invested In RTX 5 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:38:39.752276-04:00",
-    "symbols": [
-      "LGHL"
-    ],
-    "headline": "Lion Group Holding shares are trading higher after the company announced a strategic reallocation of a portion of its digital-asset treasury.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:40:29.018690-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "Silexion Therapeutics shares are trading lower. The company announced that the first patient worldwide has been dosed in its Phase 2/3 clinical trial evaluating lead candidate, SIL204, in patients with locally advanced pancreatic cancer.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:42:07.474135-04:00",
-    "symbols": [
-      "ISRG",
-      "TSLA"
-    ],
-    "headline": "Move Over Tesla: Intuitive Surgical Shows Why Robotics Could Be Bigger Than Humanoids",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:42:59.989917-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron Earnings Prediction Market Preview: Can the AI Memory Boom Keep Running?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T10:43:01.695992-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Move Over Tesla: Intuitive Surgical Shows Why Robotics Could Be Bigger Than Humanoids",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:43:04.118063-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Earnings Prediction Market Preview: Can the AI Memory Boom Keep Running?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:43:06.241463-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:43:08.171530-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:43:08.418944-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:43:12.497027-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Move Over Tesla: Intuitive Surgical Shows Why Robotics Could Be Bigger Than Humanoids",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:43:12.727203-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T10:43:26.392944-04:00",
-    "symbols": [
-      "TNON"
-    ],
-    "headline": "Tenon Medical Commercially Rolls Out Its New Titanium 3D-Printed Lateral Screw",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:47:50.574572-04:00",
-    "symbols": [
-      "IOVA"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Iovance Biotherapeutics, Raises Price Target to $18",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:48:04.165291-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "US Transportation Secretary Duffy Says FAA Needs To Do More To Speed Certification Of New Airplanes",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:48:13.145019-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Stock Jumps: What&#39;s Happening Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:49:21.553382-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Reveals Positive Data for Eczema and Weight Loss Candidates",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:56:57.320456-04:00",
-    "symbols": [
-      "AMD",
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:57:30.238336-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T10:57:30.247285-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:57:32.427491-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T10:57:52.826615-04:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:59:19.982951-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on GE Aerospace, Lowers Price Target to $380",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T10:59:54.740415-04:00",
-    "symbols": [
-      "CYPH"
-    ],
-    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T11:00:11.688403-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "SEC Proposes Allowing Investment Advisers To Charge Performance Fees To More Clients In Effort To Spur Retail Investment In Private Assets; Allowing Closed-End Funds To Offer Shareholders Monthly Net-Asset-Value Repurchases To Spur Retail Investment In Private Assets",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T11:08:54.612151-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin&#39;s Sikorsky Inks Novel Production Agreement With U.S. Army For 16 Black Hawk Helicopters",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:10:27.421490-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "AI Voice Start-Up ElevenLabs Doubles Valuation To $22B",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T11:12:53.328610-04:00",
-    "symbols": [
-      "AAPL",
-      "CAT",
-      "CVX",
-      "DIA",
-      "GE",
-      "GOOGL",
-      "IWM",
-      "MA",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "RTX",
-      "SPY",
-      "V",
-      "XOM"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T11:13:33.412970-04:00",
-    "symbols": [
-      "GOOGL",
-      "TSLA"
-    ],
-    "headline": "Faraday Future\u2019s Berkshire Hathaway Bet Comes With a Tesla Twist",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:13:33.513412-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google DeepMind Announces SynthID Bio To Watermark AI-Designed Proteins, Open-Sources Code And Model Weights",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:20.689407-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:20:20.799488-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:20:20.968249-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:20:21.519482-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Faraday Future\u2019s Berkshire Hathaway Bet Comes With a Tesla Twist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:21.524126-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google DeepMind Announces SynthID Bio To Watermark AI-Designed Proteins, Open-Sources Code And Model Weights",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:21.528513-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:21.786078-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Faraday Future\u2019s Berkshire Hathaway Bet Comes With a Tesla Twist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:24.209897-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T11:20:26.037339-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:26.146641-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:26.258846-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:26.498673-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:20:26.603630-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:20:26.724971-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:20:27.287893-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T11:20:27.391592-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:20:27.537968-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T11:20:27.866528-04:00",
     "symbols": [
       "PYXS"
@@ -5065,5 +4414,641 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:14.748192-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "'How New Data Center Debt Concessions Could Stall AI Build-Outs' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T16:01:15.620834-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Cathie Wood Goes Big on Nvidia After $150 Billion Buyback, Sells $110 Million of AMD: ARK Invest Also Picks Up Tesla, SpaceX Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:15.878029-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "'How New Data Center Debt Concessions Could Stall AI Build-Outs' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:16.130145-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic's IPO Pitch Embraces AI's Promise And Peril",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:16.378455-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic's IPO Pitch Embraces AI's Promise And Peril",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:16.382351-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Signs Up As Synopsys' Lead Customer In $1 Billion-Plus Chip Pact",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:17.213997-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "What's Going On With Snowflake Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:17.610321-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Watching Palantir; Traders Circulating Note From Unnamed Sell-Side Firm Suggesting PLTR Has Been Awarded A New $250M IRS Contract",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:18.737770-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron\u2019s AI Boom Isn\u2019t Done yet, Analysts Say \u2014 but Can the Stock Keep Exploding Higher?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:20.256549-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "What's Going On With Moderna Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:20.488841-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Says All Three Zumilokibart Dose Regimens Met Primary Endpoint With Significantly Greater EASI-75 Response Vs Placebo At Week 16 In Phase 2 APEX Part B Atopic Dermatitis Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:20.737401-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Says EloraTZP Cut Weight Up To 23.3% Vs. 14.8% For Tirzepatide In Phase 2b Diabetes Trial; Plans Phase 3 In Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:21.445264-04:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "'HHS launches project to speed up clinical trials' - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:21.680693-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Reported September 29, GameStop CEO Ryan Cohen Purchases 450,000 Shares At An Average Price Of $23.48/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:21.978418-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Petrovietnam Unit BSR Signs ExxonMobil Asia-Pacific Crude Supply Agreement Ensuring Minimum 2M Barrels Yearly For Dung Quat Refinery, Alongside Chevron Framework Pact",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:23.952663-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:28.744297-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:29.745989-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Tom Lee Says Cooling Inflation Could Give US Fed Room to &#39;Walk Back Hawkishness&#39; \u2014 and That&#39;s &#39;Good For Stocks&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T16:01:31.360912-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Reported Earlier, Cycurion CEO Says Pro Forma Revenue Run Rate About $30M Following Digital Ally Video Business Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:35.010335-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Just Took a &#39;Major&#39; Step Toward $900 Stock, Top Analyst Says \u2014 Starship Success Could Fuel a $12 Trillion Valuation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:36.241193-04:00",
+    "symbols": [
+      "CNTB"
+    ],
+    "headline": "Nasdaq Gains Over 100 Points; Jabil Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:36.714495-04:00",
+    "symbols": [
+      "NCI"
+    ],
+    "headline": "Nasdaq Gains Over 100 Points; Jabil Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:36.717269-04:00",
+    "symbols": [
+      "NCI"
+    ],
+    "headline": "Neo-Concept Announces $2M Share Offering At $1.00/Share, With Investor Option To Buy Up To 200% More Within 60 Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:36.948500-04:00",
+    "symbols": [
+      "TGE"
+    ],
+    "headline": "The Generation Essentials H1 EPS $0.56 Up From $0.12 YoY, Sales $65.864M Down From $87.429M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:36.951574-04:00",
+    "symbols": [
+      "TGE"
+    ],
+    "headline": "The Generation Essentials Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 86.75%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:36.954699-04:00",
+    "symbols": [
+      "TGE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:37.194439-04:00",
+    "symbols": [
+      "AEON"
+    ],
+    "headline": "AEON Biopharma Says FDA Indicated Prior Head-To-Head Studies Vs. Botox Can Be Submitted As Supportive Evidence For ABP-450 Biosimilar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:37.428233-04:00",
+    "symbols": [
+      "RETO"
+    ],
+    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:37.912752-04:00",
+    "symbols": [
+      "CAPR"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:38.403850-04:00",
+    "symbols": [
+      "FRGT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:39.221553-04:00",
+    "symbols": [
+      "SOTK"
+    ],
+    "headline": "Sono-Tek Announces Nearly $7.2M In Orders From Unnamed Clean Energy Customer For 10 Systems, Mostly For FY2028 Delivery",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:40.364212-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "ON"
+    ],
+    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:41.374922-04:00",
+    "symbols": [
+      "ONMD"
+    ],
+    "headline": "OneMedNet Says It Signed &#39;Seven Figure&#39; Multiyear Data Licensing Contract With Unnamed AI Precision Medicine Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:41.618187-04:00",
+    "symbols": [
+      "PWCM"
+    ],
+    "headline": "PowerCompute&#39;s US Digital Mining and Hosting Subsidiary Repais ~$22.45M, Terminates Bitcoin-Backed Credit Facility With ChainFi",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:41.841477-04:00",
+    "symbols": [
+      "CBNK"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:42.920024-04:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:01:43.724400-04:00",
+    "symbols": [
+      "TNON"
+    ],
+    "headline": "Tenon Medical Commercially Rolls Out Its New Titanium 3D-Printed Lateral Screw",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:45.065177-04:00",
+    "symbols": [
+      "COUR"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:01:50.033427-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Technology Q4 Adj. EPS $33.42 Beats $31.45 Estimate, Sales $54.229B Beat $50.751B Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:20.449829-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Saylor Says Strategy Wants Rival Strive to Succeed: &#39;We&#39;re Building an Industry Together&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:02:24.165097-04:00",
+    "symbols": [
+      "AMZN",
+      "CEG"
+    ],
+    "headline": "Constellation And Amazon Announce Long-Term Agreement To Support Continued Investment In And Expansion Of Calvert Cliffs Clean Energy Center",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.415329-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.422317-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.426178-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.443541-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.454434-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.458340-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.692192-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.925474-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.929156-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood to Let Traders Buy Stocks on Weekends: &#39;The Market Never Sleeps&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.935574-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Reveals Positive Data for Eczema and Weight Loss Candidates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.940031-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.947364-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.950864-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "CrowdStrike, Palo Alto Double As AI Cybersecurity Trade Begins",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.963159-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin&#39;s Sikorsky Inks Novel Production Agreement With U.S. Army For 16 Black Hawk Helicopters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.966822-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "$100 Invested In RTX 5 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.969961-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on GE Aerospace, Lowers Price Target to $380",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.978207-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Move Over Tesla: Intuitive Surgical Shows Why Robotics Could Be Bigger Than Humanoids",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:40.981985-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Tirzepatide or Semaglutide? Novo Nordisk Says Higher Semaglutide Dose Shows Cardiovascular Edge Over Eli Lilly&#39;s Tirzepatide (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:02:41.023002-04:00",
+    "symbols": [
+      "CYPH"
+    ],
+    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T16:02:41.032103-04:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:04:31.200761-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Technology Sees Q1 Adj EPS $37.15-$39.15 vs $35.07 Est; Sees Sales $60.000B-$63.000B vs $56.553B Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:05:21.099254-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Prediction Markets or Gambling? CFTC Moves to Draw the Line After Kalshi Court Loss",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

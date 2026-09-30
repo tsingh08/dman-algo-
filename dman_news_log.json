@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:44:07.999275-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T15:44:08.004274-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;OPEC+ Likely to Stick With Plan for Steady Quotas, Delegates Say&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T15:44:08.872968-04:00",
     "symbols": [
       "SDEV"
@@ -5076,5 +5056,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:07:34.447399-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "&#39;EV Truck Maker Harbinger Gets Over $300 Million Order From FedEx&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T12:08:15.875602-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Harbinger Receives Over $300M Order From FedEx For 2,000 Electric Trucks, Planned For Delivery By End Of 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

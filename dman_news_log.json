@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-09-29T11:22:33.620777-04:00",
-    "symbols": [
-      "GOOGL",
-      "SPCX"
-    ],
-    "headline": "SpaceX&#39;s Next Big Business Is on the Ground, TD Cowen Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T11:29:25.678274-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Homeland Security Money Financed Pro-Trump Television Ads&#39; - Wall Street Journal",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:30:16.496656-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "NFLX"
-    ],
-    "headline": "How Much Do You Need to Have Netflix, Disney and the 8 Major Streaming Platforms?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T11:30:17.201468-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "SpaceX&#39;s Next Big Business Is on the Ground, TD Cowen Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T11:30:31.976614-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX&#39;s Next Big Business Is on the Ground, TD Cowen Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T11:30:37.112710-04:00",
-    "symbols": [
-      "UEC"
-    ],
-    "headline": "Uranium Energy Production Surges As Company Enters Fiscal 2027 Debt-Free",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:31:45.318065-04:00",
-    "symbols": [
-      "AMD",
-      "AMZN",
-      "AVGO",
-      "GOOGL",
-      "MSFT",
-      "NVDA",
-      "ORCL",
-      "SPCX"
-    ],
-    "headline": "&#39;Anthropic Discloses up to $84.5 Billion in SpaceX Compute Agreements&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T11:33:57.056087-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Watching Palantir Technologies; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T11:35:06.757597-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Taps Deutsche Telekom\u2019s Enterprise Muscle in European Expansion",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T11:38:28.507160-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Cigna Healthcare Expands AI-Enabled Personalized Support To Help More Customers Access Care Earlier, Improve Affordability",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T11:39:01.088002-04:00",
     "symbols": [
       "SPY"
@@ -5086,5 +4976,106 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:13:30.495930-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Citizens Reiterates Market Outperform on MongoDB, Maintains $519 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T09:14:22.936679-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "SoundHound AI Deploys Voice And Generative AI Technology Kia&#39;s Sorento Model In India",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:17:38.454216-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Lion Group Says It Sold All Its Solana And Some Bitcoin To Buy About 38,102 Hyperliquid Tokens, Lifting HYPE Holdings To About 232,900 Worth About $20.1M",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:18:44.008929-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Virtuix Announces Expansion Of Omni One For Quest Content Library To More Than 75 Meta Quest Titles",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:19:16.954509-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "What&#39;s Happening With Rocket Lab Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:23:38.476874-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop Stock Climbs as CEO Ryan Cohen Extends His Buying Streak",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:24:39.737201-04:00",
+    "symbols": [
+      "AAPL",
+      "MU"
+    ],
+    "headline": "Micron\u2019s AI Boom Isn\u2019t Done yet, Analysts Say \u2014 but Can the Stock Keep Exploding Higher?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T09:24:42.356886-04:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "T1 Energy Finds Another $50 Million for Its Big Texas Solar Ambitions",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:25:07.675471-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "What&#39;s Going On With Oracle Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:25:09.251697-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "What&#39;s Going On With Applied Materials Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

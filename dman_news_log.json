@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:55.956418-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Mark Zuckerberg&#39;s Muse Could Charge You for Saving You Money \u2014 META President Reveals AI Agent&#39;s Potential Monetization Model",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:56.159983-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "UiPath Announces Expanded Snowflake Partnership With Two-Way Data Integration, Listing On Snowflake Marketplace",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:56.164586-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake And LSEG Announce Expanded Five-Year Enterprise-Wide Collaboration To Deliver Governed AI With Trusted Financial Data For Regulated Markets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:56.168594-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Donald Trump, Cathie Wood Bet on the Same 32 Stocks \u2013 Some Might Surprise You",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:56.380051-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Donald Trump, Cathie Wood Bet on the Same 32 Stocks \u2013 Some Might Surprise You",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:56.585984-04:00",
     "symbols": [
       "SMCI"
@@ -5062,5 +5012,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:15:13.171801-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "DA Davidson Maintains Buy on MongoDB, Lowers Price Target to $415",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T14:16:59.374807-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Why Is Adobe Stock Surging on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T14:17:02.671550-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Mark Zuckerberg&#39;s Muse Could Charge You for Saving You Money \u2014 META President Reveals AI Agent&#39;s Potential Monetization Model",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:17:02.677669-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "UiPath Announces Expanded Snowflake Partnership With Two-Way Data Integration, Listing On Snowflake Marketplace",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T14:17:02.689235-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake And LSEG Announce Expanded Five-Year Enterprise-Wide Collaboration To Deliver Governed AI With Trusted Financial Data For Regulated Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

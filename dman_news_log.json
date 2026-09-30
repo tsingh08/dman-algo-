@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:25:55.073455-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump&#39;s New AI-Powered Government Website Says Iran War Drove Up Gas Prices \u2014 Elizabeth Warren Says &#39;Even America.gov agrees&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.077698-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "AMZN, MSFT, GOOGL Need $1 Trillion in Revenue To Earn 15% Return on AI Capex \u2014 Here&#39;s What Goldman Says About Their $1.69 Trillion Backlog",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.081516-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "MU Stock Split Chatter Divides Traders Online Ahead of Earnings: &#39;Would It Make Sense&#39; or Get &#39;Annihilated&#39;?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:25:55.322142-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Synopsys Announces Over $1B Multi-Year Contract With Amazon For Custom Chip IP; Moves IP Business Toward License-Plus-Royalty Model",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T09:25:55.326562-04:00",
     "symbols": [
       "AMZN"
@@ -5062,5 +5022,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T13:57:43.650853-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "KIDZ AI Says It Submitted Non-Binding Inquiry To Tesla To Buy 500 Robotaxis, Plans Autonomous Fleet Business",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:58:03.277811-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T13:58:04.597376-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T13:58:04.703753-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

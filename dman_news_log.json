@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-09-29T13:48:16.039067-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Barclays Maintains Overweight on Zscaler, Raises Price Target to $220",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:48:16.045282-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Jim Cramer Says Meta Must Be Seen as an \u2018Enterprise Company\u2019 as Muse AI Could Drive an &#39;18 Times Multiple&#39; to 24-25x",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T13:48:16.050095-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "What&#39;s Going On With MongoDB Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T13:48:16.054451-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Dow Tumbles Over 300 Points As Trump Rejects Iran&#39;s Hormuz Plan: Investor Sentiment Weakens, Fear &amp; Greed Index Remains In \u2018Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-29T13:48:16.059098-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Insights Into Airbnb&#39;s Performance Versus Peers In Hotels, Restaurants &amp; Leisure Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:48:16.067873-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Nvidia, AMD Lobby Trump Administration to Halt Potential Chip Export Restrictions to China: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T13:48:16.072668-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Senator Chris Murphy Says GOP Data Center Bill &#39;Does Nothing&#39; as Republicans Push for Senate Vote on AI Power Costs: &#39;It\u2019s Just Fakery&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-29T13:48:16.077063-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "EXCLUSIVE: SoundHound CEO&#39;s Winning Formula: &#39;AI Resolves What It Can, Humans Handle What They Should&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:48:16.082352-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "BlackRock Says AI Value Is Shifting Beyond Software, Flags \u2018Physical AI\u2019: Why MU, VRT And CEG Are in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:49:04.562375-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Goolsbee Says Need To Revisit The Logic Of Looking Through Supply Shocks",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:50:12.579497-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Goolsbee Says The Fact We Have Been 5-1/2 Years Above Inflation Target Is Playing With Fire",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T13:50:25.699205-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Pentagon Awards Raytheon Up to $20.7 Billion Deal to Ramp Up AMRAAM Missile Production Amid Stockpile Crunch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T13:50:25.704430-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX&#39;s Collins Aerospace Expanding Its West Des Moines Production Site",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T13:50:25.710678-04:00",
     "symbols": [
       "RTX"
@@ -5065,6 +4935,137 @@
       "KALA"
     ],
     "headline": "KALA Bio (KALA) Shares Soar 57% After Hours: Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:45:38.461777-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood to Let Traders Buy Stocks on Weekends: &#39;The Market Never Sleeps&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:45:44.072156-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Chicago PMI For September 58,8 Vs 51.2 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:48:40.409119-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceX Just Took a &#39;Major&#39; Step Toward $900 Stock, Top Analyst Says \u2014 Starship Success Could Fuel a $12 Trillion Valuation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:49:15.507268-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:49:15.515304-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Just Took a &#39;Major&#39; Step Toward $900 Stock, Top Analyst Says \u2014 Starship Success Could Fuel a $12 Trillion Valuation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:49:15.521331-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:49:16.024457-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:49:16.283076-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:49:27.639095-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T09:49:28.087105-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Chicago PMI For September 58.8 Vs 51.2 Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:49:28.092423-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:49:28.099077-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Tom Lee Says Cooling Inflation Could Give US Fed Room to &#39;Walk Back Hawkishness&#39; \u2014 and That&#39;s &#39;Good For Stocks&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T09:49:28.341982-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Tom Lee Says Cooling Inflation Could Give US Fed Room to &#39;Walk Back Hawkishness&#39; \u2014 and That&#39;s &#39;Good For Stocks&#39;",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

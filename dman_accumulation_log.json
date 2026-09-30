@@ -556,5 +556,41 @@
   "drift_pct": 0.22,
   "range_ratio": 0.39,
   "near_high": 0.96
+ },
+ {
+  "ts": "2026-09-30T14:43:20.663280-04:00",
+  "ticker": "TIPX",
+  "price": 18.195,
+  "rvol": 2.95,
+  "drift_pct": 0.03,
+  "range_ratio": 0.24,
+  "near_high": 0.968
+ },
+ {
+  "ts": "2026-09-30T14:43:20.663291-04:00",
+  "ticker": "BSCR",
+  "price": 19.54,
+  "rvol": 1.84,
+  "drift_pct": 0.03,
+  "range_ratio": 0.22,
+  "near_high": 0.993
+ },
+ {
+  "ts": "2026-09-30T14:43:20.663294-04:00",
+  "ticker": "BALT",
+  "price": 35.055,
+  "rvol": 1.54,
+  "drift_pct": 0.44,
+  "range_ratio": 0.54,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-09-30T14:43:20.663297-04:00",
+  "ticker": "BFLX",
+  "price": 25.78,
+  "rvol": 1.57,
+  "drift_pct": 0.11,
+  "range_ratio": 0.4,
+  "near_high": 0.974
  }
 ]

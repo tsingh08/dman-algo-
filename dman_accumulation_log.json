@@ -538,5 +538,23 @@
   "drift_pct": 0.0,
   "range_ratio": 0.24,
   "near_high": 0.969
+ },
+ {
+  "ts": "2026-09-30T13:09:13.067043-04:00",
+  "ticker": "FLGV",
+  "price": 19.4259,
+  "rvol": 3.32,
+  "drift_pct": 0.38,
+  "range_ratio": 0.35,
+  "near_high": 0.965
+ },
+ {
+  "ts": "2026-09-30T13:09:13.067058-04:00",
+  "ticker": "ESGD",
+  "price": 103.44,
+  "rvol": 1.92,
+  "drift_pct": 0.22,
+  "range_ratio": 0.39,
+  "near_high": 0.96
  }
 ]

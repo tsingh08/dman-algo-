@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:44:08.872968-04:00",
-    "symbols": [
-      "SDEV"
-    ],
-    "headline": "Stablecoin Development Stock Skyrockets Tuesday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T15:44:10.133701-04:00",
     "symbols": [
       "PWP"
@@ -5076,5 +5066,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T12:09:24.228889-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Is Amazon Really Facing \u2018Risk Of Complete Displacement\u2019 by Agentic Commerce?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

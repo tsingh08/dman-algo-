@@ -1,162 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:26:53.608703-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "What&#39;s Going On With Lucid Stock Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:27:29.082691-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Reported September 29, GameStop CEO Ryan Cohen Purchases 450,000 Shares At An Average Price Of $23.48/Share",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:27:41.782302-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Why Is DraftKings Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T09:27:41.787427-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T09:27:42.071515-04:00",
-    "symbols": [
-      "IOVA"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:36:52.799638-04:00",
-    "symbols": [
-      "CCL"
-    ],
-    "headline": "Mizuho Maintains Outperform on Carnival, Lowers Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:38:34.254412-04:00",
-    "symbols": [
-      "DIA",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Tom Lee Says Cooling Inflation Could Give US Fed Room to &#39;Walk Back Hawkishness&#39; \u2014 and That&#39;s &#39;Good For Stocks&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:39:44.940643-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "NVDA",
-      "ORCL",
-      "SPY"
-    ],
-    "headline": "&#39;FTC opens sweeping probe of Anthropic, OpenAI and other super intelligence models&#39; - New York Post",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:40:19.581885-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia\u2019s Software Advantage Under Threat by DeepSeek-Huawei Alliance",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:40:53.610172-04:00",
-    "symbols": [
-      "NCI"
-    ],
-    "headline": "Neo-Concept Announces $2M Share Offering At $1.00/Share, With Investor Option To Buy Up To 200% More Within 60 Days",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:40:53.867560-04:00",
-    "symbols": [
-      "TGE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:40:54.167927-04:00",
-    "symbols": [
-      "AEON"
-    ],
-    "headline": "AEON Biopharma Says FDA Indicated Prior Head-To-Head Studies Vs. Botox Can Be Submitted As Supportive Evidence For ABP-450 Biosimilar",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:40:54.430157-04:00",
-    "symbols": [
-      "RETO"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:40:54.666266-04:00",
-    "symbols": [
-      "FRGT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:40:54.983868-04:00",
-    "symbols": [
-      "SOTK"
-    ],
-    "headline": "Sono-Tek Announces Nearly $7.2M In Orders From Unnamed Clean Energy Customer For 10 Systems, Mostly For FY2028 Delivery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T09:40:55.220576-04:00",
     "symbols": [
       "ONMD"
@@ -5072,5 +4915,156 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:51:17.834894-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, On Social Media, Says He Has Asked Attorney General Todd Blanche To Study Fed Report",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.333424-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "What&#39;s Going On With Lucid Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.358146-04:00",
+    "symbols": [
+      "SGMT"
+    ],
+    "headline": "Sagimet Biosciences Prices $115M Offer Of Shares And Warrants At $10.00/Unit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.361128-04:00",
+    "symbols": [
+      "SGMT"
+    ],
+    "headline": "Sagimet Biosciences Suspends And Terminates August 14 Prospectus Supplement Regarding ATM Sales Agreement With Leerink",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.364086-04:00",
+    "symbols": [
+      "SGMT"
+    ],
+    "headline": "Sagimet Biosciences Announces 52-week Results From The Phase 3 ASC40-304 OLE Trial Of Denifanstat In Patients With Moderate To Severe Acne Vulgaris; Denifanstat Showed Progressive And Sustained Improvements Across All Efficacy Endpoints In The OLE, Including Investigator&#39;s Global Assessment Success With A Response Rate Of 57%, 72% Reduction In Total Lesions, And 77% Reduction In Inflammatory Lesions, And Was Generally Well-Tolerated, With No Adverse Event-Related Permanent Discontinuations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.367498-04:00",
+    "symbols": [
+      "FBDT"
+    ],
+    "headline": "First Breach Announces 110% Increase In Ammunition Plant Hours To 84 Per Week, Plans Move To 24-Hour Operations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.373087-04:00",
+    "symbols": [
+      "ORBS"
+    ],
+    "headline": "Sam Altman-Linked World Token Rallies 35% in a Month, Leaving BTC, DOGE Behind \u2014 Here&#39;s Why AI Agents Could Be Fueling the Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.375952-04:00",
+    "symbols": [
+      "CNSY"
+    ],
+    "headline": "Cerenome Anticipates $1.55M In Payer Billings In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.378829-04:00",
+    "symbols": [
+      "NAMM"
+    ],
+    "headline": "Reported Earlier, Namib Minerals Locks In $6.5M Non-Dilutive BancABC Term Loan To Keep Redwing Mine Restart On Milestone Schedule, Partially Funding Step 3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:51:31.384465-04:00",
+    "symbols": [
+      "CBNK"
+    ],
+    "headline": "Capital Bancorp Sells Branch In North Riverside, Illinois; Bank Would Have Received A Deposit Premium Of ~$3.3M Had Transaction Been Completed As Of June 30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.387270-04:00",
+    "symbols": [
+      "CBNK"
+    ],
+    "headline": "Peoples Bancorp To Acquire Capital Bancorp In An All-Stock Deal, With CBNK Holders Receiving 1.11 PEBO Shares Per Each CNBK Share; Transaction Valued At ~$728.1M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.390499-04:00",
+    "symbols": [
+      "GCDT"
+    ],
+    "headline": "Green Circle Decarbonize Says It Submitted HK$7M And HK$60M Tender Bids For Two Nan Fung HVAC Projects",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:51:31.393972-04:00",
+    "symbols": [
+      "NAUT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:52:32.589060-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Anthropic&#39;s IPO Pitch Embraces AI&#39;s Promise And Peril",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:53:11.445418-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman\u2019s $18B Private Credit Fund Bucks Redemption Wave \u2014 Again",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T11:20:27.866528-04:00",
-    "symbols": [
-      "PYXS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T11:20:27.871213-04:00",
     "symbols": [
       "PYXS"
@@ -5047,6 +5037,16 @@
       "HOOD"
     ],
     "headline": "Prediction Markets or Gambling? CFTC Moves to Draw the Line After Kalshi Court Loss",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T16:05:25.658586-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Technology Sees Q1 GAAP EPS $36.84-$38.84 vs $34.97 Est; Sees Sales $60.000B-$63.000B",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

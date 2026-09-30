@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:44:15.963403-04:00",
-    "symbols": [
-      "ABCL"
-    ],
-    "headline": "JP Morgan Initiates Coverage On AbCellera Biologics with Overweight Rating, Announces Price Target of $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T15:53:03.328936-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Deutsche Bank Maintains Buy on Robinhood Markets, Lowers Price Target to $134",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T15:53:03.334591-04:00",
     "symbols": [
       "HOOD"
@@ -5073,6 +5053,26 @@
       "PEBO"
     ],
     "headline": "Peoples Bancorp To Acquire Capital Bancorp In An All-Stock Deal, With CBNK Holders Receiving 1.11 PEBO Shares Per Each CNBK Share; Transaction Valued At ~$728.1M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:23:27.072464-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "Nike Q1 Preview: Stock at 13-Year Lows, Market Expert Finds Bright Spot for Bulls",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:23:58.610903-04:00",
+    "symbols": [
+      "SOTK"
+    ],
+    "headline": "Sono-Tek Lands Largest Order in Company History",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

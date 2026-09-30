@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:44:10.133701-04:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "Piper Sandler Goes Shopping On Wall Street, Targets Perella Weinberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T15:44:11.927344-04:00",
-    "symbols": [
-      "NESR"
-    ],
-    "headline": "UBS Maintains Buy on National Energy Services, Lowers Price Target to $46",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:44:12.707799-04:00",
-    "symbols": [
-      "PIPR"
-    ],
-    "headline": "Piper Sandler Goes Shopping On Wall Street, Targets Perella Weinberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T15:44:14.934282-04:00",
-    "symbols": [
-      "AES"
-    ],
-    "headline": "U.S. Lawmakers Including Sen. Warren Ask Energy Regulators To Reject $33.4B AES Acquisition By BlackRock Subsidiary-led Consortium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-29T15:44:15.190995-04:00",
-    "symbols": [
-      "MNSO"
-    ],
-    "headline": "MINISO Group CFO Jingjing Zhang Buys ~HK$2.7M Of Company Shares On The Open Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T15:44:15.963403-04:00",
     "symbols": [
       "ABCL"
@@ -5076,5 +5026,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T12:12:20.386974-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Is Amazon Really Facing \u2018Risk Of Complete Displacement\u2019 by Agentic Commerce?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T12:12:30.034672-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Harbinger Receives Over $300M Order From FedEx For 2,000 Electric Trucks, Planned For Delivery By End Of 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T12:12:30.039237-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "&#39;EV Truck Maker Harbinger Gets Over $300 Million Order From FedEx&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T12:12:32.203647-04:00",
+    "symbols": [
+      "UTHR"
+    ],
+    "headline": "Judge Upholds Claims 1 And 14 Of United Therapeutics&#39; &#39;327 Patent, Rules Liquidia Infringes; Final Judgment Due Within One Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:12:32.790347-04:00",
+    "symbols": [
+      "PEBO"
+    ],
+    "headline": "Peoples Bancorp To Acquire Capital Bancorp In An All-Stock Deal, With CBNK Holders Receiving 1.11 PEBO Shares Per Each CNBK Share; Transaction Valued At ~$728.1M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

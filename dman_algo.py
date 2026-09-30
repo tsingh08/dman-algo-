@@ -3558,7 +3558,10 @@ def _effective_min_score(setup: str, ticker: str, base: int) -> tuple[int, int]:
     _eff = SETUP_MIN_CONFLUENCE.get(setup, base)
     if ticker in VOLATILE_TICKERS:
         _eff = max(_eff, VOLATILE_MIN_CONFLUENCE)
-    if datetime.today().month in SEASONAL_WEAK_MONTHS and setup not in SEASONAL_EXEMPT_SETUPS:
+    # ET, not datetime.today(): GitHub runners are UTC, where 8pm-midnight ET
+    # on the last day of a month already reads as the NEXT month — flipping
+    # the seasonal floor hours early (or late) on every month boundary.
+    if datetime.now(ET).month in SEASONAL_WEAK_MONTHS and setup not in SEASONAL_EXEMPT_SETUPS:
         _eff = max(_eff, SEASONAL_MIN_SCORE)
     _uncapped = _eff + _setup_probation_bonus(setup)
     return min(_uncapped, MAX_EFFECTIVE_MIN_SCORE), _uncapped
@@ -12084,7 +12087,23 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
         except Exception:
             continue
         _held = _sessions_since(_entry_date)
-        if _held < 0 or _held < BZONE_HOLD_SESSIONS:
+        if _held < 0:
+            # Session count unavailable (both the Alpaca and yfinance paths
+            # failed). Never force an exit on missing data — but the time
+            # exit is the ONLY exit these stopless positions have, so a
+            # silent skip is an unmanaged position nobody knows about if
+            # the failure persists. Say so, once a day.
+            if notify and not _is_duplicate_alert("__BZONE_HELD_UNKNOWN__",
+                                                  cooldown_min=24 * 60):
+                _save_last_alert("__BZONE_HELD_UNKNOWN__")
+                send_telegram(
+                    f"⚠️ <b>Breakout zone session count unavailable</b> — "
+                    f"{_pos.ticker} (entered {_pos.entry_date}). The "
+                    f"{BZONE_HOLD_SESSIONS}-session time exit cannot run until "
+                    f"the session data source recovers; the position stays "
+                    f"open with no stop in the meantime.")
+            continue
+        if _held < BZONE_HOLD_SESSIONS:
             continue
         _st, _ = _close_position_at_market(
             _pos, f"{BZONE_SETUP} {BZONE_HOLD_SESSIONS}-session exit")
@@ -20797,7 +20816,7 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
         if _def_rotation and sig.bias == "LONG" and TICKER_SECTOR.get(sig.ticker, "") == "Technology":
             sig.confluence_score = max(0, sig.confluence_score - 5)
 
-        _curr_month = datetime.today().month
+        _curr_month = datetime.now(ET).month     # ET, same clock as _effective_min_score()
         _seasonal_active = _curr_month in SEASONAL_WEAK_MONTHS
         _SEASONAL_EXEMPT = {"Gap & Hold", "Morning Runner"}
 
@@ -22685,10 +22704,10 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # while producing no protective benefit specific to those setups.
     # All other setups (if re-enabled) still get the full seasonal filter.
     _SEASONAL_EXEMPT  = {"Gap & Hold", "Morning Runner"}
-    curr_month        = datetime.today().month
+    curr_month        = datetime.now(ET).month   # ET, same clock as _effective_min_score()
     _seasonal_active  = curr_month in SEASONAL_WEAK_MONTHS
     if _seasonal_active:
-        month_name = datetime.today().strftime("%B")
+        month_name = datetime.now(ET).strftime("%B")
         print(f"  📅  {month_name} seasonal filter — non-exempt setups raised to {SEASONAL_MIN_SCORE}/100 (Gap & Hold / Morning Runner exempt)")
 
     # Check open position risk — alert if any pending signal is within 2% of its stop

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:42:26.989665-04:00",
-    "symbols": [
-      "RPID"
-    ],
-    "headline": "Roth Capital Initiates Coverage On Rapid Micro Biosystems with Buy Rating, Announces Price Target of $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-29T15:42:27.094966-04:00",
     "symbols": [
       "ABCL"
@@ -5072,5 +5062,18 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T11:48:48.761376-04:00",
+    "symbols": [
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: If AI Capex Cracks, Nvidia Could Feel It Before Meta Does",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

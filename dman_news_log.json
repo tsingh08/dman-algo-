@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:44:07.503329-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "U.S. House Speaker Johnson On Meeting With AI Leaders, Says We Discussed Striking Right Balance; Discussed AI Companies Ensuring Safety; AI Providers Committed To Building Trust; We Just Signed Accord On AI, Which Is A Statement Of Standards; We&#39;ll Continue To Assess And Deliberate In Coming Days; We Can Keep Edge In A Safe Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T15:44:07.999275-04:00",
     "symbols": [
       "SPY"
@@ -5076,5 +5066,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T12:04:52.022013-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Cooler Core PCE Strengthens the Case for Treasuries \u2014 and for Long-Duration TLT",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

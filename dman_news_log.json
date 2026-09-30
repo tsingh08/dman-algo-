@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-29T15:53:03.334591-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "What&#39;s Going on With Robinhood Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:53:03.339704-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-29T15:53:04.835930-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "&#39;Rep. James Comer Expands House Investigation Into Prediction Market Insider Trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-29T15:53:05.152073-04:00",
     "symbols": [
       "MDB"
@@ -5073,6 +5043,39 @@
       "SOTK"
     ],
     "headline": "Sono-Tek Lands Largest Order in Company History",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:27:24.496616-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "What&#39;s Going On With Applied Digital Stock Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:28:16.544975-04:00",
+    "symbols": [
+      "CRM",
+      "DDOG",
+      "FTNT",
+      "PANW"
+    ],
+    "headline": "Shares of software companies are trading higher, possibly due to cooler-than-expected inflation data, which may ease concerns about future Fed rate hikes. President Trump&#39;s recent comments that he and large groups of AI leaders signed a pact to &#34;self-police&#34; their products, which may ease SaaSpocalypse fears and help the legacy software developers.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T12:28:28.545757-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "What's Going On With Applied Digital Stock Wednesday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

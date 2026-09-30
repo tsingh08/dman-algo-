@@ -529,5 +529,14 @@
   "drift_pct": 0.07,
   "range_ratio": 0.43,
   "near_high": 0.998
+ },
+ {
+  "ts": "2026-09-30T12:53:29.356915-04:00",
+  "ticker": "TIPX",
+  "price": 18.2001,
+  "rvol": 2.84,
+  "drift_pct": 0.0,
+  "range_ratio": 0.24,
+  "near_high": 0.969
  }
 ]

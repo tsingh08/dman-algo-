@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-30T09:26:04.159185-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Donald Trump, Cathie Wood Bet on the Same 32 Stocks \u2013 Some Might Surprise You",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:26:04.164943-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Reported Earlier, &#39;Tech Giants Face Questions Over Secret AI Data-Center Deals; Democratic Rep. Jamie Raskin seeks information from Amazon, Google, Meta and Oracle&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T09:26:04.374157-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Market Analysis: Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.580945-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.586107-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Core PCE Price Index (MoM) For Aug. Revises Prior From 0.2% To 0.1%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.590275-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Core PCE Price Index (YoY) For Aug. Revises Prior From 3.3% To 3.0%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.594317-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Core PCE Price Index (MoM) For Aug. 0.2% Vs 0.3% Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.598307-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA PCE Price Index (MoM) For August 0.3% Vs 0.4% Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.834077-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T09:26:04.838431-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Moody\u2019s Mark Zandi Warns Wall Street is &#39;Too Optimistic&#39; About the American Consumer: &#39;I Am Getting More Nervous...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T09:26:04.842373-04:00",
     "symbols": [
       "QQQ"
@@ -5068,6 +4968,106 @@
     ],
     "headline": "&#39;Hegseth to Unveil New Pentagon Drone Group, Senator Says&#39; - Bloomberg",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:05:10.139970-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T15:05:10.939872-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:05:18.103844-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:05:20.173117-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "&#39;Hegseth to Unveil New Pentagon Drone Group, Senator Says&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-09-30T15:05:20.176016-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "&#39;Hegseth to Unveil New Pentagon Drone Group, Senator Says&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:05:22.603801-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Dan Ives Calls Physical AI Nvidia\u2019s &#39;Holy Grail&#39; \u2014 This ETF Is Already in the Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:05:23.102014-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Reported Earlier, &#39;Tech Giants Face Questions Over Secret AI Data-Center Deals; Democratic Rep. Jamie Raskin seeks information from Amazon, Google, Meta and Oracle&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T15:05:23.346992-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Market Analysis: Adobe And Competitors In Software Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:05:24.774905-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T15:05:27.965233-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

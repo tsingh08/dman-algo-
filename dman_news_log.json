@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:46.632382-04:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Hewlett Packard, Raises Price Target to $63",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:46.637166-04:00",
     "symbols": [
       "HPE"
@@ -5063,6 +5053,16 @@
     ],
     "headline": "Stifel Initiates Coverage On Whitehawk Therapeutics with Buy Rating, Announces Price Target of $9",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T16:02:11.258871-04:00",
+    "symbols": [
+      "REPL"
+    ],
+    "headline": "Replimune Group Announces Commercial Availability Of TUDRIQEV In U.S. To Treat Unresectable Advanced Cutaneous Melanoma",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

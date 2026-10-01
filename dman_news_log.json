@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:44:20.172066-04:00",
-    "symbols": [
-      "FNGR"
-    ],
-    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:20.175396-04:00",
-    "symbols": [
-      "FNGR"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:20.178139-04:00",
-    "symbols": [
-      "FNGR"
-    ],
-    "headline": "FingerMotion (FNGR) Stock Jumps 34% After Hours: What&#39;s Going On",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:44:20.180844-04:00",
     "symbols": [
       "FNGR"
@@ -5035,5 +5005,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T12:38:22.846827-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Raymond James Maintains Strong Buy on e.l.f. Beauty, Raises Price Target to $117",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:38:31.430045-04:00",
+    "symbols": [
+      "KD"
+    ],
+    "headline": "Kyndryl Opens Its First U.S. AI Innovation Lab In Dallas-Fort Worth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T12:41:09.038151-04:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "Nike Lost China to Local Brands, Now It\u2019s Trying to Think Like One",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:53:22.384982-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Bernstein Initiates Coverage On Arista Networks with Outperform Rating, Announces Price Target of $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T14:53:22.835500-04:00",
     "symbols": [
       "PANW"
@@ -5024,5 +5014,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T10:12:33.350392-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Guggenheim Maintains Buy on Netflix, Raises Price Target to $80",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:43.996325-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Bernie Sanders Slams Trump\u2019s AI \u2018Oligarchs\u2019 as Elon Musk, Jeff Bezos, Mark Zuckerberg and Jensen Huang\u2019s Wealth Tops $1.7 Trillion: \u2018You\u2019re Asking Us To Trust The People\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:44.000659-04:00",
     "symbols": [
       "SPCX"
@@ -5059,5 +5049,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:33:52.156060-04:00",
+    "symbols": [
+      "HOOD",
+      "META"
+    ],
+    "headline": "EXCLUSIVE: Would You Let AI Trade Your Money? Only 12% Said Never \u2014 the Other 88% Disagreed on How Far",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

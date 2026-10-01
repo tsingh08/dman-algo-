@@ -808,5 +808,158 @@
   "drift_pct": 0.21,
   "range_ratio": 0.52,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624154-04:00",
+  "ticker": "VPLS",
+  "price": 73.785,
+  "rvol": 2.33,
+  "drift_pct": 1.03,
+  "range_ratio": 0.48,
+  "near_high": 0.959
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624165-04:00",
+  "ticker": "POCT",
+  "price": 48.01,
+  "rvol": 8.26,
+  "drift_pct": 0.48,
+  "range_ratio": 0.57,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624169-04:00",
+  "ticker": "SMB",
+  "price": 16.915,
+  "rvol": 3.21,
+  "drift_pct": 0.0,
+  "range_ratio": 0.52,
+  "near_high": 0.977
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624172-04:00",
+  "ticker": "VTEI",
+  "price": 95.58,
+  "rvol": 3.61,
+  "drift_pct": 0.24,
+  "range_ratio": 0.44,
+  "near_high": 0.951
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624174-04:00",
+  "ticker": "PBUS",
+  "price": 76.73,
+  "rvol": 2.0,
+  "drift_pct": 0.76,
+  "range_ratio": 0.52,
+  "near_high": 0.983
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624177-04:00",
+  "ticker": "TOPT",
+  "price": 34.95,
+  "rvol": 1.79,
+  "drift_pct": 1.1,
+  "range_ratio": 0.32,
+  "near_high": 0.989
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624180-04:00",
+  "ticker": "UCON",
+  "price": 23.765,
+  "rvol": 2.21,
+  "drift_pct": 0.77,
+  "range_ratio": 0.56,
+  "near_high": 0.957
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624184-04:00",
+  "ticker": "SPBO",
+  "price": 27.455,
+  "rvol": 1.68,
+  "drift_pct": 1.03,
+  "range_ratio": 0.55,
+  "near_high": 0.955
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624187-04:00",
+  "ticker": "SPXX",
+  "price": 18.65,
+  "rvol": 2.06,
+  "drift_pct": 0.05,
+  "range_ratio": 0.44,
+  "near_high": 0.968
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624190-04:00",
+  "ticker": "CGSM",
+  "price": 25.765,
+  "rvol": 2.14,
+  "drift_pct": 0.02,
+  "range_ratio": 0.46,
+  "near_high": 0.977
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624193-04:00",
+  "ticker": "DFGX",
+  "price": 51.265,
+  "rvol": 1.74,
+  "drift_pct": 0.02,
+  "range_ratio": 0.29,
+  "near_high": 0.962
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624196-04:00",
+  "ticker": "VSDM",
+  "price": 74.435,
+  "rvol": 1.89,
+  "drift_pct": 0.09,
+  "range_ratio": 0.38,
+  "near_high": 0.974
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624198-04:00",
+  "ticker": "BALT",
+  "price": 34.935,
+  "rvol": 2.22,
+  "drift_pct": 0.19,
+  "range_ratio": 0.4,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624201-04:00",
+  "ticker": "DFGP",
+  "price": 52.085,
+  "rvol": 1.75,
+  "drift_pct": 0.33,
+  "range_ratio": 0.35,
+  "near_high": 0.96
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624204-04:00",
+  "ticker": "VOOG",
+  "price": 85.84,
+  "rvol": 1.68,
+  "drift_pct": 0.35,
+  "range_ratio": 0.29,
+  "near_high": 0.994
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624207-04:00",
+  "ticker": "SMMU",
+  "price": 49.41,
+  "rvol": 2.61,
+  "drift_pct": 0.04,
+  "range_ratio": 0.36,
+  "near_high": 0.981
+ },
+ {
+  "ts": "2026-10-01T15:54:50.624210-04:00",
+  "ticker": "THRO",
+  "price": 44.175,
+  "rvol": 1.61,
+  "drift_pct": 0.64,
+  "range_ratio": 0.44,
+  "near_high": 0.99
  }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:44:20.180844-04:00",
-    "symbols": [
-      "FNGR"
-    ],
-    "headline": "Jabil, Micron and 3 Stocks to Watch Heading Into Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:44:21.483531-04:00",
     "symbols": [
       "QTTB"
@@ -5035,5 +5025,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:41:53.443594-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Issues New Iran-Related Sanctions",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

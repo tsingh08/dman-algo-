@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:37.725443-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "AI Threat? Accenture Posts Record Big-Ticket Client Bookings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.730057-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Michael Burry Sounds Alarm on $1 Trillion AI Spending Using 145-Year-Old Case Study \u2014 Backs META, GOOGL&#39;s &#39;System 2&#39; Over LLMs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:37.734854-04:00",
     "symbols": [
       "GOOGL"
@@ -5057,5 +5037,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:03:10.222585-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "AWS Says AI Costs Are Falling Up To 100x Every Few Months, Paving Way For Wider Adoption",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:03:39.189463-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "5 Stock Picks Last Month From Wall Street&#39;s Most Accurate Analysts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

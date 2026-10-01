@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T17:05:56.896748-04:00",
-    "symbols": [
-      "ADGM"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T17:05:57.076900-04:00",
     "symbols": [
       "MB"
@@ -5056,5 +5046,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:11:58.137323-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Jefferson Says There Is Great Wisdom In Fed&#39;s Dual Mandate; It&#39;s Possible A.I. Will Power Big Productivity Gains Down The Road; Encourages Responsible Development Of A.I",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

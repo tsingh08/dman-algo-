@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:53:28.434053-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "EXCLUSIVE: Another Warsh Rate Hike Is Hard to Justify After Core PCE Undershoots, Says Truflation&#39;s Oliver Rust",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:53:41.853416-04:00",
-    "symbols": [
-      "SES"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T14:58:23.586105-04:00",
     "symbols": [
       "APLD",
@@ -5026,5 +5006,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T10:30:42.375473-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "If You Invested $100 In Costco Wholesale Stock 20 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T10:34:27.336157-04:00",
+    "symbols": [
+      "LRHC"
+    ],
+    "headline": "La Rosa Holdings shares are trading lower after the company announced its intent to evaluate strategic alternatives for its real estate operations, including a potential divestiture, as it advances its AI infrastructure strategy.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

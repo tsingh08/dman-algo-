@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T16:01:36.948500-04:00",
-    "symbols": [
-      "TGE"
-    ],
-    "headline": "The Generation Essentials H1 EPS $0.56 Up From $0.12 YoY, Sales $65.864M Down From $87.429M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T16:01:36.951574-04:00",
-    "symbols": [
-      "TGE"
-    ],
-    "headline": "The Generation Essentials Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 86.75%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T16:01:36.954699-04:00",
     "symbols": [
       "TGE"
@@ -5044,5 +5024,30 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T13:29:35.233103-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "ORCL"
+    ],
+    "headline": "Amazon, Microsoft, Meta Have a Weird New Benchmark: 1840s Railway Mania",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:29:44.753152-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Anthropic Said To Target Mega-IPO Before Thanksgiving Holiday; Anthropic Said To Weigh IPO Marketing As Soon As Week Of Nov. 9",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

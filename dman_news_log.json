@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:43.991980-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says Starship Could Supercharge Astronomy With Massive Space Telescopes \u2014 and \u2018Giant Ones\u2019 on the Moon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:43.996325-04:00",
     "symbols": [
       "SPCX"
@@ -5059,5 +5049,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:32:21.698439-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "No Talks About Iran&#39;s Nuclear Programme Took Place During Recent Meetings With Mediators",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

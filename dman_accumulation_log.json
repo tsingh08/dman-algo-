@@ -673,5 +673,14 @@
   "drift_pct": 0.27,
   "range_ratio": 0.44,
   "near_high": 0.966
+ },
+ {
+  "ts": "2026-10-01T13:11:44.750852-04:00",
+  "ticker": "UCON",
+  "price": 23.7738,
+  "rvol": 1.92,
+  "drift_pct": 0.74,
+  "range_ratio": 0.56,
+  "near_high": 0.958
  }
 ]

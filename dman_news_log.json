@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:18.988728-04:00",
-    "symbols": [
-      "XRPN"
-    ],
-    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:58.223241-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Amazon Signs $1 Billion Synopsys Deal as AWS Steps Up Nvidia Challenge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:59.247754-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Signs $1 Billion Synopsys Deal as AWS Steps Up Nvidia Challenge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:44:08.172406-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Boeing\u2019s $20B 6th-Gen Fighter Win Puts This ETF\u2019s Defense Opportunity in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:44:08.560778-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Boeing\u2019s $20B 6th-Gen Fighter Win Puts This ETF\u2019s Defense Opportunity in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:44:18.189113-04:00",
-    "symbols": [
-      "ZCMD"
-    ],
-    "headline": "Zhongchao Announces 1-For-2 Reverse Stock Split, Effective Oct. 2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:18.618566-04:00",
-    "symbols": [
-      "VBIO"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:18.624529-04:00",
-    "symbols": [
-      "VBIO"
-    ],
-    "headline": "Valion Bio Announces Completion Of Needle-Free Oral Formulation Of Radiation Injury Drug Entolimod With Shear Kershman Laboratories",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:18.833314-04:00",
-    "symbols": [
-      "NCI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:18.837082-04:00",
-    "symbols": [
-      "NCI"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:19.720818-04:00",
-    "symbols": [
-      "BIYA"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:19.723895-04:00",
-    "symbols": [
-      "BIYA"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:19.953642-04:00",
-    "symbols": [
-      "CAPR"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:44:20.172066-04:00",
     "symbols": [
       "FNGR"
@@ -5032,6 +4902,136 @@
       "QQQ"
     ],
     "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T12:32:07.825556-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Introduces Guided Vision In Gemini Live On Android For Blind, Low-Vision Users",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:32:10.770385-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron CEO Says Record Employee Bonuses Weigh on Margin Outlook",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:26.403383-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:27.503392-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:28.539620-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:31.378203-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:32:31.482644-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:33.909134-04:00",
+    "symbols": [
+      "ACN"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:34.063626-04:00",
+    "symbols": [
+      "VICR"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:34.700082-04:00",
+    "symbols": [
+      "CTSH"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T12:32:34.794302-04:00",
+    "symbols": [
+      "SNPS"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:32:34.990376-04:00",
+    "symbols": [
+      "FICO"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T12:34:39.469114-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Is Sending A Third Aircraft Carrier To The Middle East, The USS Theodore Roosevelt, Along With An Additional Marine Division, Per A Senior Us Official",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

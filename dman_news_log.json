@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:17.741509-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Amazon Signs Up As Synopsys&#39; Lead Customer In $1 Billion-Plus Chip Pact",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:17.745493-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Synopsys Announces Over $1B Multi-Year Contract With Amazon For Custom Chip IP; Moves IP Business Toward License-Plus-Royalty Model",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:18.015945-04:00",
-    "symbols": [
-      "GBDC"
-    ],
-    "headline": "Full Transcript: Golub Capital BDC Q3 2026 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:18.397205-04:00",
-    "symbols": [
-      "PUSA"
-    ],
-    "headline": "Autonomous Power, Aureus Greenway To Complete Merger By Oct. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:43:18.515917-04:00",
     "symbols": [
       "NOC"
@@ -5030,5 +4990,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:16:53.586925-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Mizuho Maintains Outperform on Micron Technology, Raises Price Target to $1400",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:17:21.040491-04:00",
+    "symbols": [
+      "EFXT"
+    ],
+    "headline": "Reported Earlier, Enerflex Awarded Contract To Design, Engineer, Fabricate And Assemble ~450 MW Of Behind-The-Meter Natural Gas Power Generation Units For A North American Data Center Developer; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:17:42.678768-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Foghorn Therapeutics Pivots Pipeline after Ending Eli Lilly Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:18:39.361903-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Bought More Snowflake",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

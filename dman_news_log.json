@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:18.873565-04:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "HPE Receives $1.2B Order From Vultr To Install AMD Helios AI Rack; Raises FY27 Networking Segment Revenue Growth Guidance Between High Teens To Low-20%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T15:43:18.988728-04:00",
     "symbols": [
       "XRPN"
@@ -5030,5 +5020,20 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:29:06.612083-04:00",
+    "symbols": [
+      "AMZN",
+      "APP",
+      "DIA",
+      "IWM",
+      "MU",
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

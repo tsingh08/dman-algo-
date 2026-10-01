@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:14.895358-04:00",
-    "symbols": [
-      "FNV"
-    ],
-    "headline": "First Quantum Says Panama Commission Recommends Talks On New Cobre Panama Deal To Operate Mine Toward Closure, End Arbitrations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T15:43:14.899725-04:00",
     "symbols": [
       "FNV"
@@ -5028,6 +5018,16 @@
     ],
     "headline": "Oracle Stock Is Falling: What&#39;s Going On?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:45:13.492458-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Is Falling: What&#39;s Going On?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

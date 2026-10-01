@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:37.720296-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Frontier Model at $2 Per Million Tokens: Google Unveils Gemini 4 Argon to Challenge OpenAI and Meta",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:37.725443-04:00",
     "symbols": [
       "GOOGL"
@@ -5057,5 +5047,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T14:50:32.221333-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Over 88% Of Wegovy Trial Participants Achieve Normal Liver Fat Levels, Novo Reports",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:58:42.462707-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar Plans About $1B Investment In North Carolina, Including New Sanford Plant For Compact Track Loaders And Telehandlers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:58:42.467550-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Trane Technologies Demonstrates First 800-Volt DC Cooling Architecture",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T14:58:42.470307-04:00",
     "symbols": [
       "ETN"
@@ -5022,5 +5002,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T10:50:59.268061-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Shares of enterprise software companies are trading higher amid sympathy with Accenture after that company reported better-than-expected Q4 financial results and issued FY27 sales guidance above estimates.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T10:51:09.781076-04:00",
+    "symbols": [
+      "AXG"
+    ],
+    "headline": "12 Financials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-09-30T17:05:56.422441-04:00",
-    "symbols": [
-      "MASK",
-      "ZENA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T17:05:56.648757-04:00",
     "symbols": [
       "LBGJ",
@@ -5052,6 +5041,18 @@
     ],
     "headline": "ServiceNow Rallies as Accenture Earnings Lift Software Stocks",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:08:08.033199-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Anthropic Introduces Mods, Small TypeScript Functions That Change How Claude Code Works",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

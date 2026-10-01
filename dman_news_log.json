@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:18.515917-04:00",
-    "symbols": [
-      "NOC"
-    ],
-    "headline": "&#39;Hegseth to Unveil New Pentagon Drone Group, Senator Says&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:18.520250-04:00",
-    "symbols": [
-      "NOC"
-    ],
-    "headline": "Why Is Northrop Grumman Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:18.524303-04:00",
-    "symbols": [
-      "NOC"
-    ],
-    "headline": "BA Stock Climbs After Boeing Secures $20 Billion Contract as Pentagon Pushes Next-Generation Carrier Fighter Program After Years of Delays",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:18.638521-04:00",
-    "symbols": [
-      "PEGA"
-    ],
-    "headline": "Pega Announces Natural-Language AI Assistant For Its Launchpad App-Building Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:18.755760-04:00",
-    "symbols": [
-      "SDGR"
-    ],
-    "headline": "&#39;HHS launches project to speed up clinical trials&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:43:18.873565-04:00",
     "symbols": [
       "HPE"
@@ -5030,5 +4980,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T12:22:03.522411-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI Parts Ways With Researchers Who Allegedly Shared Confidential Information&#39;- WSJ Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:22:14.673521-04:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "12 Financials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:22:14.679595-04:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "What&#39;s Going On With Nu Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:22:14.685130-04:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Nu Holdings &#39;Not Pursuing&#39; Monzo \u2014 Stock Jumps 6% After Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:22:14.690296-04:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Nu Holdings Says While We Have A Great Deal Of Respect For Monzo, The Company Is Not Pursuing A Transaction With Monzo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

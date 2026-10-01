@@ -22295,3 +22295,97 @@ class TestSessionsSinceWorksWithoutAlpacaKeys(unittest.TestCase):
              patch.object(a.yf, "Ticker",
                           side_effect=AssertionError("yfinance must not be reached")):
             self.assertEqual(a._sessions_since(date(2026, 9, 25)), 2)
+
+
+class TestReportSaysWhenItCannotSettleAnything(unittest.TestCase):
+    """The report had to be able to say "not yet".
+
+    The standing rule is that weights change only when the features report says
+    so. At 33 labelled signals over 9 days (2026-10-01) every bucket's 95%
+    interval spans 30+ points, so the report could rank hypotheses and not
+    settle one -- while printing point estimates that read like results. The
+    first run after this change marked EVERY bucket not-distinguishable,
+    including mtf_ok False at 0% WR whose interval [0-22%] contains the 21% base
+    rate. That bucket had been cited repeatedly as evidence."""
+
+    # --- the interval itself ----------------------------------------------
+    def test_wilson_stays_inside_zero_and_one_hundred(self):
+        """The normal approximation returns negative lower bounds at this n and
+        p, which is why Wilson is used instead."""
+        for wins, n in ((0, 14), (1, 5), (7, 33), (33, 33)):
+            lo, hi = a._wilson_ci(wins, n)
+            self.assertGreaterEqual(lo, 0.0)
+            self.assertLessEqual(hi, 100.0)
+            self.assertLessEqual(lo, hi)
+
+    def test_a_zero_win_bucket_still_has_an_upper_bound(self):
+        """0 of 14 does not mean "0%" -- it means "could be up to ~22%"."""
+        lo, hi = a._wilson_ci(0, 14)
+        self.assertEqual(round(lo), 0)
+        self.assertGreater(hi, 15.0)
+        self.assertLess(hi, 30.0)
+
+    def test_the_interval_narrows_as_n_grows(self):
+        _, hi_small = a._wilson_ci(2, 10)
+        _, hi_big = a._wilson_ci(20, 100)
+        lo_small, _ = a._wilson_ci(2, 10)
+        lo_big, _ = a._wilson_ci(20, 100)
+        self.assertGreater(hi_small - lo_small, hi_big - lo_big)
+
+    def test_an_empty_bucket_claims_nothing(self):
+        self.assertEqual(a._wilson_ci(0, 0), (0.0, 100.0))
+
+    # --- the informative test ---------------------------------------------
+    def test_a_small_bucket_near_the_base_rate_is_not_informative(self):
+        """The mtf_ok False case: 0 of 14 against a 21% base."""
+        self.assertFalse(a._bucket_is_informative(0, 14, 21.2))
+
+    def test_a_large_clear_difference_is_informative(self):
+        """It must not refuse everything forever -- that would be as useless as
+        believing everything."""
+        self.assertTrue(a._bucket_is_informative(0, 60, 21.2))
+        self.assertTrue(a._bucket_is_informative(45, 60, 21.2))
+
+    def test_the_threshold_is_the_interval_not_the_point_estimate(self):
+        """0/14 and 0/60 have the same point estimate and different verdicts."""
+        self.assertFalse(a._bucket_is_informative(0, 14, 21.2))
+        self.assertTrue(a._bucket_is_informative(0, 60, 21.2))
+
+    # --- what the report prints -------------------------------------------
+    def _report(self, rows):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            io.open(f, "w", encoding="utf-8").write(json.dumps(rows))
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                return chr(10).join(a.report_signal_features(min_n=5))
+
+    def _row(self, i, win, **kw):
+        base = dict(ts=f"2026-09-2{i % 10}T10:0{i % 10}:00",
+                    date=f"2026-09-{18 + (i % 9):02d}", ticker=f"T{i}",
+                    setup="Gap & Hold", regime="CHOP", score=100,
+                    catalyst_tier="C", mtf_ok=True, taken=False,
+                    label_outcome="WIN" if win else "LOSS",
+                    label_pnl_pct=5.0 if win else -5.0)
+        base.update(kw)
+        return base
+
+    def test_a_thin_dataset_is_labelled_as_underpowered(self):
+        out = self._report([self._row(i, i < 2) for i in range(10)])
+        self.assertIn("below the", out)
+        self.assertIn("95% intervals", out)
+
+    def test_every_bucket_carries_its_interval(self):
+        out = self._report([self._row(i, i < 2) for i in range(10)])
+        self.assertIn("[", out)
+        self.assertIn("%]", out)
+
+    def test_the_overall_rate_is_stated_so_buckets_can_be_compared(self):
+        out = self._report([self._row(i, i < 2) for i in range(10)])
+        self.assertIn("overall win", out)
+
+    def test_a_powered_dataset_drops_the_warning(self):
+        """The banner must disappear once there is enough data, or it becomes
+        wallpaper nobody reads."""
+        rows = [self._row(i, i % 5 == 0) for i in range(a.SIGNAL_POWER_MIN_LABELS + 10)]
+        out = self._report(rows)
+        self.assertNotIn("below the", out)

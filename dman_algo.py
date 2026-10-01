@@ -7637,6 +7637,12 @@ SIGNAL_FEATURES_MAX  = 4000
 SIGNAL_LABEL_HORIZON_DAYS = 5     # sessions a labelled signal is given to work
 SIGNAL_LABEL_MIN_AGE_DAYS = 3     # do not label until the horizon can exist
 SIGNAL_LABEL_MAX_PER_RUN  = 40    # tickers fetched per labelling pass
+# Labels needed before report_signal_features() should be used to justify a
+# change. An honesty threshold more than a statistical one: at 33 labels over 9
+# days (2026-10-01) every bucket's 95% interval spans 30+ points, so the report
+# can rank hypotheses and cannot settle one. 150 is roughly where a 20-point
+# difference at this base rate stops sitting inside the noise.
+SIGNAL_POWER_MIN_LABELS   = 150
 
 
 def _mark_signals_taken(tickers) -> int:
@@ -7917,6 +7923,40 @@ def label_signal_features(max_rows: int = SIGNAL_LABEL_MAX_PER_RUN, verbose: boo
     return _done
 
 
+def _wilson_ci(wins: int, n: int, z: float = 1.96) -> tuple:
+    """95% Wilson interval for a win rate, as percentages.
+
+    Wilson rather than the textbook normal interval because n here is tiny and
+    p sits near 0.2 -- exactly where the normal approximation produces nonsense
+    (negative lower bounds, intervals far too narrow). Wilson stays inside
+    [0,1] and widens honestly at small n.
+    """
+    if n <= 0:
+        return (0.0, 100.0)
+    _p = wins / n
+    _d = 1.0 + z * z / n
+    _c = _p + z * z / (2 * n)
+    _m = z * math.sqrt(_p * (1 - _p) / n + z * z / (4 * n * n))
+    return (max(0.0, (_c - _m) / _d) * 100.0, min(1.0, (_c + _m) / _d) * 100.0)
+
+
+def _bucket_is_informative(wins: int, n: int, base_rate: float) -> bool:
+    """Does this bucket's win rate differ from the overall rate at all?
+
+    False when the overall rate falls inside the bucket's 95% interval -- the
+    bucket is consistent with "no difference", and the gap you can see in it is
+    the sample size talking.
+
+    This exists because the dataset is 33 labelled signals over 9 days as of
+    2026-10-01. A bucket at n=11 showing 45% against a 21% base reads like a
+    finding and is not one; its interval spans roughly 21-72%. The standing rule
+    on this project is that weights change only when the report says so, and
+    that rule is only a safeguard if the report is able to say "not yet".
+    """
+    _lo, _hi = _wilson_ci(wins, n)
+    return not (_lo <= base_rate <= _hi)
+
+
 def report_signal_features(min_n: int = 5) -> list[str]:
     """What the labelled data says so far, as plain comparisons.
 
@@ -7948,6 +7988,16 @@ def report_signal_features(min_n: int = 5) -> list[str]:
             f"  {len(rows)} distinct labelled signal(s) from {_raw_n} logged row(s) "
             f"({_raw_n / max(len(rows), 1):.1f}x re-scored) \u2014 all figures below "
             f"count SIGNALS, not rows")
+    # The overall rate, so a bucket can be read against it instead of alone.
+    _all_pnl = []
+    for r in rows:
+        try:
+            _all_pnl.append(float(r["label_pnl_pct"]))
+        except Exception:
+            continue
+    _base_wr = (sum(1 for x in _all_pnl if x > 0.5) / len(_all_pnl) * 100.0
+                if _all_pnl else 0.0)
+
     def _bucket(name, keyfn):
         groups: dict = {}
         for r in rows:
@@ -7959,11 +8009,25 @@ def report_signal_features(min_n: int = 5) -> list[str]:
         for k, v in sorted(groups.items(), key=lambda kv: -(sum(kv[1]) / len(kv[1]))):
             if len(v) < min_n:
                 continue
-            _wr = sum(1 for x in v if x > 0.5) / len(v) * 100
-            out.append(f"   {name} {k:<14} n={len(v):<4} avg={sum(v)/len(v):+6.2f}%  win={_wr:3.0f}%")
+            _w = sum(1 for x in v if x > 0.5)
+            _wr = _w / len(v) * 100
+            _lo, _hi = _wilson_ci(_w, len(v))
+            # A bucket whose interval contains the overall rate is not yet
+            # evidence of anything, and saying so is the only thing stopping a
+            # seven-signal bucket from being read as a result.
+            _mark = ("" if _bucket_is_informative(_w, len(v), _base_wr)
+                     else "  (not distinguishable from overall)")
+            out.append(f"   {name} {k:<14} n={len(v):<4} avg={sum(v)/len(v):+6.2f}%  "
+                       f"win={_wr:3.0f}% [{_lo:.0f}-{_hi:.0f}%]{_mark}")
         return out
-    lines = [f"📊 <b>Signal features</b> — {len(rows)} labelled signal(s)"]
+    lines = [f"📊 <b>Signal features</b> — {len(rows)} labelled "
+             f"signal(s), overall win {_base_wr:.0f}%"]
     lines += _lines_hdr
+    if len(rows) < SIGNAL_POWER_MIN_LABELS:
+        lines.append(f"  ⚠️ {len(rows)} labels is below the "
+                     f"{SIGNAL_POWER_MIN_LABELS} this report needs before a bucket "
+                     f"should move a weight. The bracketed ranges are 95% "
+                     f"intervals — read those, not the point estimate.")
     for _name, _fn in (("catalyst", lambda r: r.get("catalyst_tier") or "none"),
                        ("setup", lambda r: (r.get("setup") or "?")[:12]),
                        ("regime", lambda r: r.get("regime") or "?"),

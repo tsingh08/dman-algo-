@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:37.374241-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron Stock Has Made Historic Run, Traders Are Now Asking What\u2019s Left",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.444715-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.449206-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Micron Stock Has Made Historic Run, Traders Are Now Asking What\u2019s Left",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.600908-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Frontier Model at $2 Per Million Tokens: Google Unveils Gemini 4 Argon to Challenge OpenAI and Meta",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.606475-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta, Millrose Properties, Cboe Global Markets And More On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.610890-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.615193-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Michael Burry Sounds Alarm on $1 Trillion AI Spending Using 145-Year-Old Case Study \u2014 Backs META, GOOGL&#39;s &#39;System 2&#39; Over LLMs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.619507-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta&#39;s AI Spending Has a $3.9 Billion Tax Perk \u2014 Mark Zuckerberg-Led Company Reportedly Classified Data Centers as \u2018Pilot Models\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:37.720296-04:00",
     "symbols": [
       "GOOGL"
@@ -5057,5 +4977,85 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T14:45:47.140487-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Unity Stock Rises in Sympathy with Accenture&#39;s Strong Q4",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:46:15.876146-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Anthropic Eyes November IPO as Investors Peg AI Giant at Up to $2 Trillion",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:46:26.158462-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:46:26.161593-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Micron Stock Has Made Historic Run, Traders Are Now Asking What\u2019s Left",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:46:39.544587-04:00",
+    "symbols": [
+      "ACN"
+    ],
+    "headline": "Unity Stock Rises in Sympathy with Accenture&#39;s Strong Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:46:44.006048-04:00",
+    "symbols": [
+      "MAT"
+    ],
+    "headline": "Mattel Shares Resume Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T14:46:44.008799-04:00",
+    "symbols": [
+      "MAT"
+    ],
+    "headline": "Mattel Shares Halted On Circuit Breaker To The Upside, Stock Now Up 4.42%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T14:46:44.011374-04:00",
+    "symbols": [
+      "MAT"
+    ],
+    "headline": "&#39;Barbie-Maker Mattel Draws Takeover Interest from Authentic Brands Group&#39;- WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

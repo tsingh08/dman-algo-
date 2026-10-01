@@ -11810,8 +11810,33 @@ BZONE_SHADOW_FILE   = "dman_bzone_shadow.json"
 ENABLE_BZONE_TRADING   = True
 BZONE_TRADE_MIN_PRICE  = 5.0
 BZONE_TRADE_MAX_PRICE  = 15.0
-BZONE_TRADE_DOLLARS    = 250.0    # per position, sized in dollars (no stop to size off)
-BZONE_TRADE_MAX_OPEN   = 2        # breakouts cluster; cap correlated exposure
+BZONE_TRADE_DOLLARS    = 250.0    # per position, sized in dollars
+# Count is no longer the binding constraint -- exposure is. A headcount cap was
+# standing in for a risk cap, and badly: two $250 zones and two $900 zones are
+# the same number and nothing like the same risk. Kept high purely as a sanity
+# backstop so a runaway loop cannot open fifty.
+BZONE_TRADE_MAX_OPEN   = 8
+# What bounds zone exposure now. Zones carry no TRADING stop, so the position
+# VALUE is the risk and a percent of equity is the honest measure.
+# PORTFOLIO_HEAT_LIMIT cannot do this job: it is computed from stop distance, and
+# a zone's stop is a sentinel, so zones contributed nothing to it.
+BZONE_MAX_EXPOSURE_PCT = 0.40
+# A CATASTROPHE floor, not a trading stop, and the distinction is the whole
+# point. _is_no_stop_by_design() records that "every stop tested made the
+# backtested result worse" -- those were tight stops. SECZ died on an 8% stop,
+# which on a 7%/day name is about 1.1 sigma: ordinary noise reaches it, and it
+# filled within 1.6% of the day's low. 35% is 5+ sigma on the same name. It
+# cannot be reached by noise; it only fires if the thesis is gone.
+#
+# It rests at the BROKER as a GTC order, which is the requirement that decides
+# the design: the operator does not watch charts and the machine is usually off,
+# so a stop that lives in the algo's own loop protects nothing during an Actions
+# outage. Untested at this width in the backtest -- the asymmetry is that
+# without it the floor is minus the whole position.
+BZONE_CATASTROPHE_STOP_PCT = 0.35
+# Below this distance a resting stop on a zone is the SECZ bug reappearing
+# rather than the intended floor. Used to tell the two apart.
+BZONE_TIGHT_STOP_PCT   = 0.25
 BZONE_HOLD_SESSIONS    = 20
 BZONE_TRADE_REVIEW_N   = 12       # closed trades before the record gets a verdict
 # A breakout-zone entry is priced off a LOGGED scan row that can be two days
@@ -11944,6 +11969,39 @@ def _bzone_entry_limit(ref_px: float) -> float:
                      BZONE_TRADE_MAX_PRICE), 2)
 
 
+def _place_bzone_catastrophe_stop(ticker: str, qty: int, entry: float):
+    """Rest a GTC catastrophe stop at the broker for a zone position.
+
+    (ok, detail). Never raises: a zone that fills and then fails to get its
+    floor is still a position, and losing the fill over a failed stop would be
+    worse than the exposure.
+
+    GTC and broker-side on purpose. The operator does not watch charts and the
+    machine is usually off, so a floor enforced by the algo's own loop protects
+    nothing during a GitHub Actions outage -- which is exactly when an
+    unattended stopless position is most dangerous.
+    """
+    try:
+        from alpaca.trading.requests import StopOrderRequest
+        from alpaca.trading.enums import OrderSide, TimeInForce
+        _client = get_alpaca_client()
+        if _client is None:
+            return False, "no broker client"
+        _stop_px = round(float(entry) * (1 - BZONE_CATASTROPHE_STOP_PCT), 2)
+        if _stop_px <= 0 or int(qty) <= 0:
+            return False, f"unusable stop {_stop_px} / qty {qty}"
+        _o = _client.submit_order(StopOrderRequest(
+            symbol=ticker, qty=int(qty), side=OrderSide.SELL,
+            stop_price=_stop_px, time_in_force=TimeInForce.GTC))
+        _max_loss = (float(entry) - _stop_px) * int(qty)
+        return True, (f"catastrophe stop ${_stop_px:.2f} "
+                      f"({BZONE_CATASTROPHE_STOP_PCT:.0%} below ${float(entry):.2f}, "
+                      f"caps loss at ${_max_loss:.2f}) id={getattr(_o, 'id', '?')}")
+    except Exception as exc:
+        _log_swallowed("bzone catastrophe stop", exc)
+        return False, f"{type(exc).__name__}: {str(exc)[:70]}"
+
+
 def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
     """Limit buy + tracked position for a breakout zone. (order_id, error).
 
@@ -11996,6 +12054,19 @@ def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
                   f"(logged ${ref_px:.2f}) — cancelled, no position")
             return None, f"not filled at ${_limit:.2f} — price ran past the entry cap"
     try:
+        # The floor goes on as soon as the fill price is known. Before this, a
+        # zone was unprotected for its entire 20-session hold.
+        _cs_ok, _cs_why = _place_bzone_catastrophe_stop(ticker, _got or qty, _fill)
+        print(f"  {'🛡' if _cs_ok else '⚠'} {ticker} {_cs_why}")
+        if not _cs_ok:
+            try:
+                send_telegram(f"⚠️ <b>{html.escape(ticker)} zone filled with NO "
+                              f"catastrophe stop</b>\n{html.escape(str(_cs_why))}\n"
+                              f"The position is open and unprotected — "
+                              f"<code>/cancel</code> will not help, this needs a "
+                              f"stop placed in Alpaca.")
+            except Exception as _tgx:
+                _log_swallowed("bzone stop alert", _tgx)
         PositionTracker().open(OpenPosition(
             ticker=ticker, bias="LONG",
             setup=f"{BZONE_SETUP} +{float(row.get('above_low_pct', 0)):.0f}% off low",
@@ -12108,6 +12179,67 @@ def _is_bzone_position(pos) -> bool:
     return False
 
 
+def _is_catastrophe_stop(entry: float, stop_px: float) -> bool:
+    """Is this resting stop the intended disaster floor, or the SECZ bug?
+
+    A zone is allowed exactly one kind of stop: far enough out that noise cannot
+    reach it. Anything tighter is the 8% adoption fallback or a repair guess,
+    which is what turned SECZ's +$8.67 hold into -$21.76.
+    """
+    try:
+        _e, _s = float(entry), float(stop_px)
+        if _e <= 0 or _s <= 0:
+            return False
+        return (_e - _s) / _e >= BZONE_TIGHT_STOP_PCT
+    except (TypeError, ValueError):
+        return False
+
+
+def _bzone_exposure() -> float:
+    """Current dollar value of open breakout-zone positions, at the broker."""
+    try:
+        _client = get_alpaca_client()
+        if _client is None:
+            return 0.0
+        _zone_syms = {str(p.ticker).upper() for p in _bzone_open_positions()}
+        if not _zone_syms:
+            return 0.0
+        _tot = 0.0
+        for _pos in _client.get_all_positions():
+            if str(_pos.symbol).upper() in _zone_syms:
+                try:
+                    _tot += abs(float(_pos.market_value))
+                except (TypeError, ValueError):
+                    pass
+        return _tot
+    except Exception as exc:
+        _log_swallowed("bzone exposure", exc)
+        return 0.0
+
+
+def _bzone_exposure_room() -> tuple:
+    """(dollars_available, why). How much more zone exposure may be opened.
+
+    Replaces the headcount cap. Returns 0 with a reason when the cap is reached,
+    so a skip is reportable instead of silent.
+    """
+    try:
+        _eq = float(get_effective_account() or 0.0)
+        if _eq <= 0:
+            return 0.0, "equity unknown — refusing to size"
+        _cap = _eq * BZONE_MAX_EXPOSURE_PCT
+        _now = _bzone_exposure()
+        _room = _cap - _now
+        if _room < BZONE_TRADE_DOLLARS:
+            return 0.0, (f"${_now:,.0f} of ${_cap:,.0f} zone exposure used "
+                         f"({BZONE_MAX_EXPOSURE_PCT:.0%} of ${_eq:,.0f}) — "
+                         f"no room for another ${BZONE_TRADE_DOLLARS:,.0f}")
+        return _room, ""
+    except Exception as exc:
+        _log_swallowed("bzone exposure room", exc)
+        return 0.0, "exposure check failed — refusing to add risk"
+
+
 def _bzone_open_positions() -> list:
     try:
         return [p for p in PositionTracker().positions if _is_bzone_position(p)]
@@ -12167,10 +12299,28 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
                           f"mean {_avg:+.1f}%. The setup is not paying; review before re-enabling.")
         return out
     _open = _bzone_open_positions()
-    _room = BZONE_TRADE_MAX_OPEN - len(_open)
+    # Exposure, not headcount. A count cap treated two $250 zones and two $900
+    # zones as the same risk; this bounds what is actually at stake.
+    # Headcount backstop first, because it costs nothing. The EXPOSURE question
+    # needs live equity, so it is asked lazily -- once there is actually a
+    # candidate to place. Asking it on every manage pass fired the live-equity
+    # fallback alert during pure exit passes, which is noise about a number
+    # nothing was going to use.
+    _room = max(0, BZONE_TRADE_MAX_OPEN - len(_open))
     if _room <= 0:
-        out["skipped"] = f"{len(_open)}/{BZONE_TRADE_MAX_OPEN} slots used"
+        out["skipped"] = (f"{len(_open)}/{BZONE_TRADE_MAX_OPEN} positions "
+                          f"(sanity backstop)")
         return out
+    _exposure_checked = False
+
+    def _exposure_allows() -> tuple:
+        """(allowed, why). Evaluated at most once per pass, on first candidate."""
+        nonlocal _exposure_checked, _room
+        _d, _w = _bzone_exposure_room()
+        _exposure_checked = True
+        _by_dollars = int(_d // BZONE_TRADE_DOLLARS) if _d > 0 else 0
+        _room = min(_room, _by_dollars)
+        return (_room > 0), _w
     _held_tickers = {p.ticker for p in _open}
     for _row in _recent_logged_zones(max_age_days=2):
         if _room <= 0:
@@ -12185,6 +12335,13 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
         _qty = int(BZONE_TRADE_DOLLARS // max(_px, 0.01))
         if _qty < 1:
             continue
+        # Exposure is the real cap; asked here so a pure exit pass never needs
+        # live equity. Evaluated once per manage pass.
+        if not _exposure_checked:
+            _ok_exp, _why_exp = _exposure_allows()
+            if not _ok_exp:
+                out["skipped"] = _why_exp or "zone exposure cap reached"
+                break
         _cash_ok, _cash_msg = _cash_available_for(_qty * _px)
         if not _cash_ok:
             out["skipped"] = _cash_msg
@@ -12199,8 +12356,11 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
                     f"📈 <b>{_t} breakout zone entered</b> — {_qty} shares near ${_px:.2f}\n"
                     f"+{_row.get('above_low_pct', 0):.0f}% off its 52-week low, "
                     f"{_row.get('extension_pct', 0):+.0f}% vs its 20-day average.\n"
-                    f"<i>Held {BZONE_HOLD_SESSIONS} sessions, no stop — the tested rule "
-                    f"(+3.3% median, 3y). Position ${_qty * _px:.0f}.</i>")
+                    f"<i>Held {BZONE_HOLD_SESSIONS} sessions, no TRADING stop — the "
+                    f"tested rule (+3.3% median, 3y). A catastrophe floor rests "
+                    f"{BZONE_CATASTROPHE_STOP_PCT:.0%} below fill, far outside noise, "
+                    f"so an unattended collapse cannot take the whole position. "
+                    f"Position ${_qty * _px:.0f}.</i>")
     print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries {out['entered']}"
           f"{' — ' + out['skipped'] if out['skipped'] else ''}")
     return out
@@ -20124,8 +20284,16 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
         # function then placed at the broker.
         if tracked is not None and _is_no_stop_by_design(tracked.setup,
                                                         getattr(tracked, "ticker", "")):
-            return False, (f"{tracked.setup} exits on time, not on a stop — "
-                           "not arming one (see _is_no_stop_by_design)")
+            # A zone takes no TRADING stop, but it does take a catastrophe
+            # floor, and if that floor is cancelled it has to come back -- the
+            # position is unattended for up to 20 sessions. Restored at the
+            # catastrophe width, never at the 8% fallback that cost SECZ.
+            _cs_ok, _cs_why = _place_bzone_catastrophe_stop(
+                ticker, qty, getattr(tracked, "entry", 0) or 0)
+            if _cs_ok:
+                return True, f"{tracked.setup}: restored {_cs_why}"
+            return False, (f"{tracked.setup} exits on time, not on a trading stop "
+                           f"— catastrophe floor not restored: {_cs_why}")
         # An ADOPTED orphan never had a stop to restore, so there is nothing
         # here to repair. This function exists for a bracket that BROKE -- the
         # LITX/W incidents, where a real stop went HELD or CANCELED and the
@@ -24780,12 +24948,17 @@ def run_position_reconciliation(notify: bool = True) -> dict:
         # a stop that should not be there, or one that should
         if not _is_opt:
             _has_stop = _key in _stops
-            if _is_no_stop_by_design(getattr(_p, "setup", ""),
-                                     getattr(_p, "ticker", "")) and _has_stop:
+            # A zone SHOULD carry a catastrophe floor now. Only a TIGHT stop on
+            # one is the SECZ bug -- distinguished by distance, not presence.
+            if (_is_no_stop_by_design(getattr(_p, "setup", ""),
+                                      getattr(_p, "ticker", "")) and _has_stop
+                    and not _is_catastrophe_stop(getattr(_p, "entry", 0),
+                                                 _stops[_key])):
                 out["issues"].append(
                     f"{_p.ticker}: a ${_stops[_key]:.2f} stop is resting at the broker "
-                    f"on {_p.setup}, which exits on TIME and must not carry one "
-                    f"(this is what cost SECZ)")
+                    f"on {_p.setup} — too tight for a zone, which exits on TIME. "
+                    f"A catastrophe floor belongs {BZONE_CATASTROPHE_STOP_PCT:.0%} out; "
+                    f"this is the shape that cost SECZ")
         # duplicate working entries
         if _buys.get(_key, 0) > 1:
             out["issues"].append(

@@ -18946,11 +18946,25 @@ class TestBreakoutZoneTrading(unittest.TestCase):
             _, _, entry, _ = self._run(zones=[self._zone(close=px)])
             entry.assert_not_called()
 
-    def test_the_open_position_cap_holds(self):
+    def test_the_headcount_backstop_still_holds(self):
+        """BZONE_TRADE_MAX_OPEN is a sanity backstop now, not the cap.
+
+        Was "the open position cap holds" and asserted "slots used". Capacity is
+        bounded by EXPOSURE as of 2026-10-01: a headcount cap treated two $250
+        positions and two $900 positions as the same risk, which they are not.
+        The count limit stays only so a runaway loop cannot open fifty."""
         pos = [self._pos(ticker=f"P{i}") for i in range(a.BZONE_TRADE_MAX_OPEN)]
         out, _, entry, _ = self._run(zones=[self._zone()], open_pos=pos)
         entry.assert_not_called()
-        self.assertIn("slots used", out["skipped"])
+        self.assertIn("sanity backstop", out["skipped"])
+
+    def test_the_exposure_cap_stops_entries_before_the_headcount_does(self):
+        """The cap that actually binds: room in dollars, not in slots."""
+        with patch.object(a, "_bzone_exposure_room",
+                          return_value=(0.0, "$1,100 of $1,045 zone exposure used")):
+            out, _, entry, _ = self._run(zones=[self._zone()])
+        entry.assert_not_called()
+        self.assertIn("exposure used", out["skipped"])
 
     def test_a_name_already_held_is_not_doubled(self):
         _, _, entry, _ = self._run(zones=[self._zone(ticker="AAA")],
@@ -19557,9 +19571,32 @@ class TestSeczPostMortem(unittest.TestCase):
              patch.object(a, "_et_today", return_value=date(2026, 9, 24)):
             oid, err = a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
         self.assertIsNone(err)
-        req = client.submit_order.call_args[0][0]
+        # _submit_bzone_entry now submits TWO orders -- the entry, then the
+        # catastrophe floor -- so call_args holds the floor. Pick the entry by
+        # what it is rather than by call order.
+        _reqs = [c[0][0] for c in client.submit_order.call_args_list]
+        _entries = [r for r in _reqs if getattr(r, "limit_price", None) is not None]
+        self.assertEqual(len(_entries), 1, [type(r).__name__ for r in _reqs])
+        req = _entries[0]
         self.assertEqual(float(req.limit_price), 14.65)
         self.assertEqual(req.side, a.OrderSide.BUY)
+
+    def test_the_fill_also_arms_a_catastrophe_floor(self):
+        """The other half of the same call. A zone was unprotected for its whole
+        20-session hold; the floor rests at the broker so it survives an Actions
+        outage, which is when an unattended position is most exposed."""
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-bz")
+        client.get_order_by_id.return_value = SimpleNamespace(
+            filled_avg_price="14.60", filled_qty="17")
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=MagicMock()), \
+             patch.object(a, "_et_today", return_value=date(2026, 9, 24)):
+            a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
+        _stops = [c[0][0] for c in client.submit_order.call_args_list
+                  if getattr(c[0][0], "stop_price", None) is not None]
+        self.assertEqual(len(_stops), 1)
+        self.assertTrue(a._is_catastrophe_stop(14.60, float(_stops[0].stop_price)))
 
     def test_the_tracked_entry_is_the_fill_not_the_logged_price(self):
         """Recording the reference price is what booked a loss as a win."""
@@ -20446,7 +20483,20 @@ class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
                                    entry=8.0367, shares=31, stop=0.01)]
         orders = [self._order("RSKD", "sell", "stop", 7.39)]
         out, _ = self._run(tracked, [self._pos("RSKD", 31, 8.0367)], orders)
-        self.assertTrue(any("must not carry one" in i for i in out["issues"]), out["issues"])
+        # A zone carries a catastrophe floor by design now, so presence alone is
+        # no longer the complaint -- distance is. $7.39 on an $8.0367 entry is 8%,
+        # which is the SECZ width, and must still be flagged.
+        self.assertTrue(any("too tight for a zone" in i for i in out["issues"]),
+                        out["issues"])
+
+    def test_a_catastrophe_floor_on_a_zone_is_not_flagged(self):
+        """The counterpart: the intended floor must not read as the bug, or the
+        audit cries wolf on every zone the moment stops were added."""
+        tracked = [SimpleNamespace(ticker="RSKD", setup="Breakout Zone +120% off low",
+                                   entry=8.0367, shares=31, stop=0.01)]
+        orders = [self._order("RSKD", "sell", "stop", 5.22)]   # 35% -- the floor
+        out, _ = self._run(tracked, [self._pos("RSKD", 31, 8.0367)], orders)
+        self.assertFalse(any("too tight" in i for i in out["issues"]), out["issues"])
 
     def test_ddog_duplicate_working_entries(self):
         tracked = [SimpleNamespace(ticker="DDOG", setup="Gap & Hold",
@@ -22389,3 +22439,125 @@ class TestReportSaysWhenItCannotSettleAnything(unittest.TestCase):
         rows = [self._row(i, i % 5 == 0) for i in range(a.SIGNAL_POWER_MIN_LABELS + 10)]
         out = self._report(rows)
         self.assertNotIn("below the", out)
+
+
+class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
+    """Two changes, both because an unattended stopless position is the real
+    risk here: the operator does not watch charts and the machine is usually
+    off.
+
+    A zone now rests a CATASTROPHE floor at the broker, and zone capacity is
+    bounded by EXPOSURE rather than headcount.
+
+    The floor is not the thing _is_no_stop_by_design() warns about. That records
+    "every stop tested made the backtested result worse", and SECZ died on an 8%
+    stop -- about 1.1 sigma on a 7%/day name, so ordinary noise reached it and it
+    filled within 1.6% of the day's low. 35% is 5+ sigma on the same name. The
+    two are told apart by distance, not by presence."""
+
+    # --- the floor vs the bug ---------------------------------------------
+    def test_a_wide_stop_is_the_floor_and_a_tight_one_is_the_bug(self):
+        self.assertTrue(a._is_catastrophe_stop(14.17, 9.21))      # 35%
+        self.assertFalse(a._is_catastrophe_stop(14.17, 13.04))    # 8% -- SECZ
+        self.assertFalse(a._is_catastrophe_stop(14.17, 11.34))    # 20%
+        self.assertTrue(a._is_catastrophe_stop(14.17, 10.62))     # just past 25%
+
+    def test_nonsense_inputs_are_not_called_a_floor(self):
+        for e, sp in ((0, 9.0), (14.0, 0), (-1, 5), (14.0, None)):
+            self.assertFalse(a._is_catastrophe_stop(e, sp))
+
+    # --- placing it -------------------------------------------------------
+    def _place(self, entry=14.17, qty=17, raises=False):
+        cl = MagicMock()
+        if raises:
+            cl.submit_order.side_effect = RuntimeError("broker rejected")
+        else:
+            cl.submit_order.return_value = MagicMock(id="stop-1")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"):
+            ok, why = a._place_bzone_catastrophe_stop("IOVA", qty, entry)
+        return cl, ok, why
+
+    def test_it_rests_a_gtc_sell_stop_at_the_broker(self):
+        """GTC and broker-side is the requirement: a floor enforced by the
+        algo's own loop protects nothing during an Actions outage, which is
+        exactly when an unattended position is most exposed."""
+        cl, ok, _ = self._place()
+        self.assertTrue(ok)
+        req = cl.submit_order.call_args[0][0]
+        self.assertEqual(req.symbol, "IOVA")
+        self.assertEqual(str(req.side).upper().split(".")[-1], "SELL")
+        self.assertEqual(str(req.time_in_force).upper().split(".")[-1], "GTC")
+        self.assertAlmostEqual(float(req.stop_price), 9.21, places=2)
+
+    def test_the_stop_it_places_is_a_catastrophe_stop_by_its_own_test(self):
+        """Guards against the width constant drifting tight."""
+        cl, _, _ = self._place()
+        req = cl.submit_order.call_args[0][0]
+        self.assertTrue(a._is_catastrophe_stop(14.17, float(req.stop_price)))
+
+    def test_it_reports_the_capped_loss(self):
+        _, _, why = self._place()
+        self.assertIn("caps loss at", why)
+        self.assertIn("84", why)
+
+    def test_a_broker_rejection_does_not_raise(self):
+        """A zone that fills and fails to get its floor is still a position;
+        losing the fill over a failed stop would be worse."""
+        _, ok, why = self._place(raises=True)
+        self.assertFalse(ok)
+        self.assertIn("broker rejected", why)
+
+    def test_a_zero_quantity_is_refused(self):
+        _, ok, _ = self._place(qty=0)
+        self.assertFalse(ok)
+
+    # --- exposure, not headcount -----------------------------------------
+    def test_room_is_measured_in_dollars_against_equity(self):
+        with patch.object(a, "get_effective_account", return_value=2612.0), \
+             patch.object(a, "_bzone_exposure", return_value=500.0):
+            room, why = a._bzone_exposure_room()
+        self.assertGreater(room, a.BZONE_TRADE_DOLLARS)
+        self.assertEqual(why, "")
+
+    def test_the_cap_is_exposure_so_a_third_zone_is_allowed(self):
+        """The whole point of the change: the old headcount cap of 2 refused a
+        third position that the exposure cap has room for."""
+        with patch.object(a, "get_effective_account", return_value=2612.0), \
+             patch.object(a, "_bzone_exposure", return_value=500.0):
+            room, _ = a._bzone_exposure_room()
+        self.assertGreaterEqual(int(room // a.BZONE_TRADE_DOLLARS), 1)
+
+    def test_a_full_book_reports_why_rather_than_silently_skipping(self):
+        with patch.object(a, "get_effective_account", return_value=2612.0), \
+             patch.object(a, "_bzone_exposure", return_value=1100.0):
+            room, why = a._bzone_exposure_room()
+        self.assertEqual(room, 0.0)
+        self.assertIn("exposure used", why)
+
+    def test_unknown_equity_refuses_to_size(self):
+        """Fails CLOSED: adding stopless exposure on an unknown denominator is
+        the one direction that cannot be walked back."""
+        with patch.object(a, "get_effective_account", return_value=0.0):
+            room, why = a._bzone_exposure_room()
+        self.assertEqual(room, 0.0)
+        self.assertIn("refusing", why)
+
+    def test_an_exposure_error_refuses_to_size(self):
+        with patch.object(a, "get_effective_account",
+                          side_effect=RuntimeError("boom")), \
+             patch.object(a, "_log_swallowed"):
+            room, why = a._bzone_exposure_room()
+        self.assertEqual(room, 0.0)
+        self.assertIn("refusing", why)
+
+    def test_exposure_is_bounded_well_below_the_account(self):
+        """A sanity bound on the constant itself: stopless correlated small-caps
+        at 100% of equity is not a risk policy."""
+        self.assertLessEqual(a.BZONE_MAX_EXPOSURE_PCT, 0.50)
+        self.assertGreater(a.BZONE_MAX_EXPOSURE_PCT, 0.0)
+
+    def test_a_headcount_backstop_still_exists(self):
+        """Exposure binds, but a runaway loop must not open fifty positions."""
+        self.assertGreater(a.BZONE_TRADE_MAX_OPEN, 2)
+        self.assertLessEqual(a.BZONE_TRADE_MAX_OPEN, 12)

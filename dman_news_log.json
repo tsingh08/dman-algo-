@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:16.532055-04:00",
-    "symbols": [
-      "CAG"
-    ],
-    "headline": "Crude Oil Rises Over 1%; Conagra Brands Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T15:43:17.465040-04:00",
-    "symbols": [
-      "MAT"
-    ],
-    "headline": "Mattel Shares Decline after CEO Departure News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:43:17.729069-04:00",
     "symbols": [
       "SNPS"
@@ -5030,5 +5010,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:56:24.344320-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "This ExxonMobil Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Thursday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:56:56.508750-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Apple, Lowers Price Target to $355",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

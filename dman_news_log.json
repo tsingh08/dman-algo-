@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-30T17:05:57.076900-04:00",
-    "symbols": [
-      "MB"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T17:24:32.928568-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI Executive Backs Out of Second $25M Donation to A.I. Super PAC&#39;- NY Times",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T17:41:38.992580-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Transcript: Micron Technology Q4 2026 Earnings Conference Call",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T18:04:54.628540-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly  Announces Detailed Results From The Phase 3 ACHIEVE-4 Trial Evaluating The Efficacy And Safety Of Foundayo;  Foundayo Experienced A 16% Lower Risk Of MACE-4 And A 23% Lower Risk Of MACE-3, Meeting The Primary Objective For Non-inferiority Compared To Insulin Glargine",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:11:04.944602-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab shares are trading higher after the company announced it signed a multi-year launch agreement for 20 new Electron missions with Synspective.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:11:12.774750-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Collins Says Won&#39;t Get Ahead Of The Next Meeting",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:11:42.322274-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Micron Technology, Maintains $1500 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:13:03.376537-04:00",
     "symbols": [
       "SPY"
@@ -5056,5 +4986,75 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T14:16:57.476646-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin Stock Falls to 52-Week Low: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:17:20.884677-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple To $355? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:17:21.064066-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic Introduces Mods, Small TypeScript Functions That Change How Claude Code Works",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:17:21.840676-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Introduces Mods, Small TypeScript Functions That Change How Claude Code Works",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:17:22.043254-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Introduces Mods, Small TypeScript Functions That Change How Claude Code Works",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:17:22.447850-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Apple To $355? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T14:17:23.772693-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Apple To $355? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

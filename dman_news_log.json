@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T16:30:43.731387-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "$100 Invested In Micron Technology 20 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:37:50.261300-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "William Blair Initiates Coverage On Nebius Group with Outperform Rating",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T17:05:56.422441-04:00",
     "symbols": [
       "MASK",
@@ -5054,5 +5034,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T14:04:59.597068-04:00",
+    "symbols": [
+      "ACN"
+    ],
+    "headline": "Nasdaq Gains 100 Points; ISM manufacturing PMI Slips In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:04:59.602193-04:00",
+    "symbols": [
+      "ACN"
+    ],
+    "headline": "ServiceNow Rallies as Accenture Earnings Lift Software Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

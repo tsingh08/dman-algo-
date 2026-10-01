@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:37.188570-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Inquiry Into Apple&#39;s Competitor Dynamics In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.192954-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Jim Cramer Says &#39;Buy&#39; Apple Stock Because of iPhone Duo, Not On Smart Home Device Buzz: Calls the $1,999 Foldable &#39;Amazing&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.270223-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Microsoft, Raises Price Target to $725",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.275234-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Chuck Schumer Slams Hyde Amendment on 50th Anniversary, Says Abortion Restrictions Force Americans to Choose Between Care, Rent, Food: \u2018Health Care Must Not Be a Privilege\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.279661-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Broadcom To Lend Up To $42 Billion To Anthropic For Infrastructure Lease Agreements, According To IPO Prospectus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:37.284005-04:00",
     "symbols": [
       "MSFT"
@@ -5057,5 +5007,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:25:15.166587-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Stock Climbs Thursday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:25:39.160414-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Needham Reiterates Hold on Appleto Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:25:39.163642-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Inquiry Into Apple&#39;s Competitor Dynamics In Technology Hardware, Storage &amp; Peripherals Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:25:39.166275-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Jim Cramer Says &#39;Buy&#39; Apple Stock Because of iPhone Duo, Not On Smart Home Device Buzz: Calls the $1,999 Foldable &#39;Amazing&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:25:39.368900-04:00",
+    "symbols": [
+      "APPS"
+    ],
+    "headline": "RBC Capital Initiates Coverage On Digital Turbine with Outperform Rating, Announces Price Target of $15",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

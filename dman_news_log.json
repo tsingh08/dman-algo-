@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T13:47:34.494412-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop Stock Climbs as CEO Ryan Cohen Extends His Buying Streak",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T13:47:48.482130-04:00",
     "symbols": [
       "CRM"
@@ -5021,5 +5011,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:32:22.729538-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Micron Technology, Maintains $1600 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

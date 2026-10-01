@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:13:03.376537-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Schmid Says Officials Have Work To Do On Inflation; Energy Prices Are One Of The Biggest Challenges For Monetary Policy Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T09:15:05.919076-04:00",
     "symbols": [
       "SPY"
@@ -5054,6 +5044,17 @@
     ],
     "headline": "Apple To $355? Here Are 10 Top Analyst Forecasts For Thursday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:20:24.244139-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia, SoftBank Make Final $20B Investment in OpenAI\u2019s Last Round&#39;- The Information",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

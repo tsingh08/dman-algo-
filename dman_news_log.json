@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-30T11:24:50.944288-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:24:51.185815-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:24:51.444943-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:24:52.237279-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Faraday Future\u2019s Berkshire Hathaway Bet Comes With a Tesla Twist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:24:52.243137-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:24:52.733149-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Faraday Future\u2019s Berkshire Hathaway Bet Comes With a Tesla Twist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:24:57.174422-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T11:25:00.804347-04:00",
     "symbols": [
       "RTX"
@@ -5047,6 +4977,78 @@
       "NBIS"
     ],
     "headline": "William Blair Initiates Coverage On Nebius Group with Outperform Rating",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T17:05:56.422441-04:00",
+    "symbols": [
+      "MASK",
+      "ZENA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T17:05:56.648757-04:00",
+    "symbols": [
+      "LBGJ",
+      "WETO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T17:05:56.896748-04:00",
+    "symbols": [
+      "ADGM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T17:05:57.076900-04:00",
+    "symbols": [
+      "MB"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-09-30T17:24:32.928568-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI Executive Backs Out of Second $25M Donation to A.I. Super PAC&#39;- NY Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-09-30T17:41:38.992580-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Transcript: Micron Technology Q4 2026 Earnings Conference Call",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-09-30T18:04:54.628540-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly  Announces Detailed Results From The Phase 3 ACHIEVE-4 Trial Evaluating The Efficacy And Safety Of Foundayo;  Foundayo Experienced A 16% Lower Risk Of MACE-4 And A 23% Lower Risk Of MACE-3, Meeting The Primary Objective For Non-inferiority Compared To Insulin Glargine",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

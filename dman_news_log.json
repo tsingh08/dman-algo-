@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:14.512643-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Trading Halt: Halt status updated at 11:38:29 AM ET: Trading Halt: Halt News Pending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:43:14.895358-04:00",
     "symbols": [
       "FNV"
@@ -5030,5 +5020,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:41:47.471000-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Is Falling: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

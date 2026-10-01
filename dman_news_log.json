@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:53:23.991389-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Assessing Airbnb&#39;s Performance Against Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T14:53:23.994043-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Jim Cramer Says Wall Street May Be Overreacting to Meta\u2019s Muse AI Threat \u2014 This Stock Could Be \u2018Mostly Insulated\u2019 From AI Fallout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T14:53:23.996828-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Cathie Wood Goes Big on Nvidia After $150 Billion Buyback, Sells $110 Million of AMD: ARK Invest Also Picks Up Tesla, SpaceX Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T14:53:24.235562-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Reported Earlier, Alibaba Group Signs Multi-Year Deal As Brooklyn Nets&#39; Official Technology And Cloud Partner, To Bring Replay Technology And Fan Collectibles To Barclays Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-09-30T14:53:28.434053-04:00",
     "symbols": [
       "SPY"
@@ -5026,5 +4986,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T10:30:17.003817-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Wall Street\u2019s Favorite AI Trade Is Up 89% This Year: Its Best Season Starts Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T10:30:18.596942-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Wall Street\u2019s Favorite AI Trade Is Up 89% This Year: Its Best Season Starts Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T10:30:18.951630-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Wall Street\u2019s Favorite AI Trade Is Up 89% This Year: Its Best Season Starts Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T10:30:28.503550-04:00",
+    "symbols": [
+      "HDB"
+    ],
+    "headline": "HDFC Bank shares are trading higher after the company appointed \u200bAnup Bagchi as Managing Director and CEO starting in late October. The move removes a leadership speculation overhang for the stock.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:37.734854-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta&#39;s AI Spending Has a $3.9 Billion Tax Perk \u2014 Mark Zuckerberg-Led Company Reportedly Classified Data Centers as \u2018Pilot Models\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:37.739152-04:00",
     "symbols": [
       "GOOGL"
@@ -5057,5 +5047,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:05:01.127686-04:00",
+    "symbols": [
+      "AVGO",
+      "MU",
+      "TLT"
+    ],
+    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,287 +1,5 @@
 [
   {
-    "ts": "2026-09-30T13:47:48.482130-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Why Is Salesforce Stock Surging on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T13:49:31.199305-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "What&#39;s Going On With Snowflake Stock Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T13:49:58.750789-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Data Shows Retatrutide Promotes Weight Loss Over Eighty Weeks",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T13:52:07.448423-04:00",
-    "symbols": [
-      "COIN",
-      "MA",
-      "V"
-    ],
-    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T13:57:43.650853-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "KIDZ AI Says It Submitted Non-Binding Inquiry To Tesla To Buy 500 Robotaxis, Plans Autonomous Fleet Business",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T13:58:03.277811-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T13:58:04.597376-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T13:58:04.703753-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T13:58:32.948886-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "What&#39;s Going On With Moderna Stock on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T14:01:59.876361-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Signs Up As Synopsys&#39; Lead Customer In $1 Billion-Plus Chip Pact",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:02:03.258758-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Synopsys Announces Over $1B Multi-Year Contract With Amazon For Custom Chip IP; Moves IP Business Toward License-Plus-Royalty Model",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:09:28.920321-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported September 29, &#39;White House holds crunch talks on diesel export ban as midterms near&#39; - Financial Times",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:12:45.722058-04:00",
-    "symbols": [
-      "LGHL"
-    ],
-    "headline": "Lion Group Says It Sold All Its Solana And Some Bitcoin To Buy 38,102 Hyperliquid Tokens, Lifting HYPE Holdings To 232,900 Worth About $20.1M",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:12:50.779464-04:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Sagimet Biosciences Surges Forward With Successful Acne Clinical Data and Capital Raise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:12:51.171776-04:00",
-    "symbols": [
-      "ORBS"
-    ],
-    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:12:51.462861-04:00",
-    "symbols": [
-      "AHG"
-    ],
-    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:12:51.469359-04:00",
-    "symbols": [
-      "AHG"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:15:13.171801-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "DA Davidson Maintains Buy on MongoDB, Lowers Price Target to $415",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-09-30T14:16:59.374807-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Why Is Adobe Stock Surging on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:17:02.671550-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Mark Zuckerberg&#39;s Muse Could Charge You for Saving You Money \u2014 META President Reveals AI Agent&#39;s Potential Monetization Model",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:17:02.677669-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "UiPath Announces Expanded Snowflake Partnership With Two-Way Data Integration, Listing On Snowflake Marketplace",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:17:02.689235-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake And LSEG Announce Expanded Five-Year Enterprise-Wide Collaboration To Deliver Governed AI With Trusted Financial Data For Regulated Markets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:21:01.495216-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "AI Could Threaten Amazon\u2019s Advertising Flywheel Before E-Commerce",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:21:04.485653-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "HPE Receives $1.2B Order From Closely Held Cloud Infrastructure Provider Vultr To Deploy AMD Helios AI Racks At Its U.S. Cloud Data Centers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:21:04.493113-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Cathie Wood Goes Big on Nvidia After $150 Billion Buyback, Sells $110 Million of AMD: ARK Invest Also Picks Up Tesla, SpaceX Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:23:39.100778-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Hormuz Letter Posts On X: &#39;Iran appears to have struck ADNOC&#39;s Bu Hasa facility southwest of Abu Dhabi, one of the UAE&#39;s largest onshore oil and gas fields&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:30:43.181208-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Stock Market Today: Dow Jones, Nasdaq 100 Futures Fall as Investors Investors Digest Fed&#39;s Preferred Inflation Gauge and Spending Data\u2014 MU, AMD, FNGR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:30:49.451167-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "What&#39;s Going On with Intuitive Machines Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-30T14:30:59.602586-04:00",
     "symbols": [
       "CNTB"
@@ -5021,5 +4739,285 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:44.925879-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Inquiry Into Apple's Competitor Dynamics In Technology Hardware, Storage &amp; Peripherals Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:44.931604-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Jim Cramer Says 'Buy' Apple Stock Because of iPhone Duo, Not On Smart Home Device Buzz: Calls the $1,999 Foldable 'Amazing'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.047448-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Meta's AI Spending Has a $3.9 Billion Tax Perk \u2014 Mark Zuckerberg-Led Company Reportedly Classified Data Centers as \u2018Pilot Models\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.144902-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia's Jensen Huang, Other CEOs Privately Confront Anthropic's Dario Amodei Over AI Doomsday Warnings Amid Trump's Tech Summit: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.151670-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What's Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.305284-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What's Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.452465-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia's Jensen Huang, Other CEOs Privately Confront Anthropic's Dario Amodei Over AI Doomsday Warnings Amid Trump's Tech Summit: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.460421-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What's Going On With AMD Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.466524-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Michael Burry Sounds Alarm on $1 Trillion AI Spending Using 145-Year-Old Case Study \u2014 Backs META, GOOGL's 'System 2' Over LLMs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.650277-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Michael Burry Sounds Alarm on $1 Trillion AI Spending Using 145-Year-Old Case Study \u2014 Backs META, GOOGL's 'System 2' Over LLMs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.656445-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Meta's AI Spending Has a $3.9 Billion Tax Perk \u2014 Mark Zuckerberg-Led Company Reportedly Classified Data Centers as \u2018Pilot Models\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.790140-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Stock Market Today: S&P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.795728-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What's Going On With Synopsys Shares Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.980183-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Bears Retreat as Sell Ratings Hit 3-Year Low: 'Don't Bet Against Musk'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.987572-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk's Take on The Trump Economy: Tesla, SpaceX CEO 'Guess' Puts Real GDP Growth More Than 50% Above in 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:45.993286-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Micron Says Humanoid Robots Could Be Next Big Memory Driver, Analyst Sees 'Millions Of Machines' With Server-Level Chips",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:46.106020-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Surging on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:46.796958-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Stock Market Today: S&P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:46.803299-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron 'is a Beast': Ross Gerber Declares the Memory Chip Cycle Dead After Monster Earnings, Says 'I've Never Seen Anything Like This'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:47.049785-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "What's Going On With Sandisk Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:47.406669-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Micron, Alphabet, The Generation Essentials Group, Robinhood and Progress Software: Why These 5 Stocks Are on Investors' Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:47.779302-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Data Shows Retatrutide Promotes Weight Loss Over Eighty Weeks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:48.198613-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Reported Earlier, Rocket Lab Signs Multi-Year Deal To Launch 20 StriX Satellites For Synspective's Constellation, With Remaining Contract Terms Undisclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:48.523482-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:48.993350-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "DA Davidson Maintains Buy on MongoDB, Lowers Price Target to $415",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:50.217451-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:36:50.333530-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard, Visa, Stripe-Backed Consortium Enters USD Stablecoin Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:36:50.837153-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Why Is Adobe Stock Surging on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

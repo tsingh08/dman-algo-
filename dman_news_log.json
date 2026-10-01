@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-09-30T17:05:56.648757-04:00",
-    "symbols": [
-      "LBGJ",
-      "WETO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T17:05:56.896748-04:00",
     "symbols": [
       "ADGM"
@@ -5055,5 +5044,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:10:09.109529-04:00",
+    "symbols": [
+      "AAPL",
+      "MU",
+      "NFLX"
+    ],
+    "headline": "Apple To $355? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

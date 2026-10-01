@@ -35527,7 +35527,13 @@
 "seen": 27,
 "last_ts": "2026-09-28T16:03:56.888251-04:00",
 "entry_min": 4.01,
-"entry_max": 4.15
+"entry_max": 4.15,
+"label_fill": 3.9,
+"label_exit_reason": "stop",
+"label_pnl_pct": -17.83,
+"label_outcome": "LOSS",
+"label_mfe_pct": 1.54,
+"label_mae_pct": -18.72
 },
 {
 "ts": "2026-09-29T12:57:54.132300-04:00",

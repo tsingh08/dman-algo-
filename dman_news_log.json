@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-30T16:02:41.032103-04:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "What Is Going on With Super Micro Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:04:31.200761-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Technology Sees Q1 Adj EPS $37.15-$39.15 vs $35.07 Est; Sees Sales $60.000B-$63.000B vs $56.553B Est",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:05:21.099254-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Prediction Markets or Gambling? CFTC Moves to Draw the Line After Kalshi Court Loss",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:05:25.658586-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Technology Sees Q1 GAAP EPS $36.84-$38.84 vs $34.97 Est; Sees Sales $60.000B-$63.000B",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:11:00.709286-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Technology CEO Says AI Is Becoming Super Intelligence, And Memory Enhances This Intelligence and the Competitiveness of Our Customers&#39; Platforms; Increasing Investments in Technology, Products And Manufacturing to Help Drive SI Forward With Customers",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:16:16.730683-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Constellation Energy shares are trading higher after the company announced a long-term agreement that will support the continued investment in and expansion of the Calvert Cliffs Clean Energy Center.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:19:06.970044-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Introduces Gemini 4 Argon; Gemini 4 Argon Delivers Frontier Performance In Complex Workflows Across Real-World Software Engineering, Enterprise Knowledge Work Like Legal And Finance, And Cybersecurity Defense",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T16:20:46.808346-04:00",
     "symbols": [
       "MU"
@@ -5052,5 +4982,77 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:43:49.279794-04:00",
+    "symbols": [
+      "HOOD",
+      "MDB",
+      "SPCX"
+    ],
+    "headline": "Robinhood Traders Just Went on Their Biggest Buying Binge Ever",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:44:16.379902-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Traders Just Went on Their Biggest Buying Binge Ever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:44:18.780347-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Robinhood Traders Just Went on Their Biggest Buying Binge Ever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T13:44:22.637836-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T13:44:24.983535-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Robinhood Traders Just Went on Their Biggest Buying Binge Ever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:44:24.986637-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "8 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:44:28.396957-04:00",
+    "symbols": [
+      "FICO"
+    ],
+    "headline": "Robinhood Traders Just Went on Their Biggest Buying Binge Ever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

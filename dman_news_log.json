@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:06.826545-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Signs $1 Billion Synopsys Deal as AWS Steps Up Nvidia Challenge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:09.248949-04:00",
-    "symbols": [
-      "LMT",
-      "RTX"
-    ],
-    "headline": "Boeing\u2019s $20B 6th-Gen Fighter Win Puts This ETF\u2019s Defense Opportunity in Focus",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:14.497453-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Trading Halt: Halt status updated at 1:35:00 PM ET: Quotation Resumption: News and Resumption Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:14.502733-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:14.507731-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Judge Upholds Claims 1 And 14 Of United Therapeutics&#39; &#39;327 Patent, Rules Liquidia Infringes; Final Judgment Due Within One Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:43:14.512643-04:00",
     "symbols": [
       "LQDA"
@@ -5026,6 +4975,56 @@
     "ts": "2026-10-01T11:21:06.224124-04:00",
     "symbols": [
       "TDAY"
+    ],
+    "headline": "Synopsys, Accenture, Vicor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:26:22.985876-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron&#39;s Record Quarter Points to Tighter Memory Supply Through 2028: Analysts Respond",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:26:24.022321-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron&#39;s Record Quarter Points to Tighter Memory Supply Through 2028: Analysts Respond",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:26:24.539862-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Shares Reverse Weakness, Rise Over 3% After Key Trading Signal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:26:29.845674-04:00",
+    "symbols": [
+      "VICR"
+    ],
+    "headline": "Synopsys, Accenture, Vicor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:26:30.964905-04:00",
+    "symbols": [
+      "CCEC"
     ],
     "headline": "Synopsys, Accenture, Vicor And Other Big Stocks Moving Higher On Thursday",
     "source": "scan-prefetch",

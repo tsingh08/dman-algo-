@@ -35774,8 +35774,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 68,
-"last_ts": "2026-10-01T13:35:36.162813-04:00",
+"seen": 70,
+"last_ts": "2026-10-01T13:27:15.158505-04:00",
 "entry_min": 4.03,
 "entry_max": 4.14
 },
@@ -35835,27 +35835,27 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 12,
-"last_ts": "2026-10-01T13:35:36.796063-04:00",
+"seen": 14,
+"last_ts": "2026-10-01T13:40:19.580268-04:00",
 "entry_min": 215.1,
 "entry_max": 217.35
 },
 {
-"ts": "2026-10-01T13:27:07.882148-04:00",
+"ts": "2026-10-01T13:18:59.720385-04:00",
 "date": "2026-10-01",
 "ticker": "SNPS",
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": true,
-"reject": "",
+"reject": "earnings blackout",
 "score": 100,
 "final_score": 70.0,
-"entry": 489.48,
-"stop": 461.49,
-"target1": 569.71,
-"rr": 2.87,
-"rsi": 76.6,
-"rvol": 3.2,
+"entry": 483.67,
+"stop": 457.38,
+"target1": 549.38,
+"rr": 2.5,
+"rsi": 75.8,
+"rvol": 3.23,
 "atr": 18.657307142857142,
 "beta": 1.227,
 "catalyst_tier": "C",
@@ -35884,7 +35884,7 @@
 "No Divergence": 5,
 "RSI Zone": 5,
 "52wk Prox": 7,
-"Candle": 5,
+"Candle": 0,
 "Supertrend": 8,
 "ADX Trend": 5,
 "Ichimoku": 10,
@@ -35896,13 +35896,13 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-10-01T13:35:37.637242-04:00",
+"seen": 4,
+"last_ts": "2026-10-01T13:40:21.097141-04:00",
 "entry_min": 483.67,
-"entry_max": 489.48
+"entry_max": 494.2
 },
 {
-"ts": "2026-10-01T13:35:38.340702-04:00",
+"ts": "2026-10-01T13:18:59.919711-04:00",
 "date": "2026-10-01",
 "ticker": "INFY",
 "setup": "Morning Runner",
@@ -35957,8 +35957,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-10-01T13:35:38.363082-04:00",
+"seen": 4,
+"last_ts": "2026-10-01T13:27:17.034718-04:00",
 "entry_min": 11.43,
 "entry_max": 11.43
 }

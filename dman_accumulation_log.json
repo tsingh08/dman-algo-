@@ -684,30 +684,39 @@
   "near_high": 0.958
  },
  {
-  "ts": "2026-10-01T13:28:07.976601-04:00",
-  "ticker": "PBUS",
-  "price": 76.58,
-  "rvol": 1.98,
-  "drift_pct": 0.96,
-  "range_ratio": 0.52,
-  "near_high": 0.981
+  "ts": "2026-10-01T13:40:52.781644-04:00",
+  "ticker": "VPLS",
+  "price": 73.955,
+  "rvol": 2.16,
+  "drift_pct": 0.8,
+  "range_ratio": 0.48,
+  "near_high": 0.961
  },
  {
-  "ts": "2026-10-01T13:28:07.976610-04:00",
+  "ts": "2026-10-01T13:40:52.781657-04:00",
+  "ticker": "PBUS",
+  "price": 76.645,
+  "rvol": 1.98,
+  "drift_pct": 0.87,
+  "range_ratio": 0.52,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-01T13:40:52.781661-04:00",
   "ticker": "POCT",
-  "price": 47.92,
-  "rvol": 6.74,
-  "drift_pct": 0.29,
+  "price": 47.969,
+  "rvol": 6.93,
+  "drift_pct": 0.4,
   "range_ratio": 0.57,
   "near_high": 1.0
  },
  {
-  "ts": "2026-10-01T13:28:07.976615-04:00",
+  "ts": "2026-10-01T13:40:52.781665-04:00",
   "ticker": "SPXX",
-  "price": 18.59,
-  "rvol": 1.93,
-  "drift_pct": 0.38,
+  "price": 18.63,
+  "rvol": 1.95,
+  "drift_pct": 0.16,
   "range_ratio": 0.44,
-  "near_high": 0.965
+  "near_high": 0.967
  }
 ]

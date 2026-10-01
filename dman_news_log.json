@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:15:05.919076-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Schmid Says Trying To See In Data How Much Inflation Is Due To Demand, How Much Is Driven By Supply Shocks",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:16:10.146705-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab\u2019s 20-Launch Synspective Deal Pushes Backlog Above 100 Missions",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:24:44.264362-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealthcare Rolls Out 2027 Medicare Plans With $0 Premiums, Drug Copays And Broader Benefits",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:25:37.183705-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Needham Reiterates Hold on Appleto Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T09:25:37.188570-04:00",
     "symbols": [
       "AAPL"
@@ -5057,5 +5017,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:21:51.857706-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Anthropic&#39;s IPO Filing Reveals a $42 Billion Broadcom Lending Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T14:22:26.675480-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "As Trump Threatens Iran, Global Settlement CEO Warns War Bets Create Perverse Incentives",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T14:22:38.651758-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab\u2019s 20-Launch Synspective Deal Pushes Backlog Above 100 Missions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T14:22:38.668099-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealthcare Rolls Out 2027 Medicare Plans With $0 Premiums, Drug Copays And Broader Benefits",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

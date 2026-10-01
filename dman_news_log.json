@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:14.899725-04:00",
-    "symbols": [
-      "FNV"
-    ],
-    "headline": "Reported Earlier: &#39;Panama government to recommend copper mine restart through state tie-up, sources say&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:15.296436-04:00",
-    "symbols": [
-      "TRLV"
-    ],
-    "headline": "Crude Oil Rises Over 1%; Conagra Brands Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:15.998674-04:00",
-    "symbols": [
-      "JBL"
-    ],
-    "headline": "Jabil Flags \u2018Real\u2019 Memory Constraints As AI and Hyperscale Demand Tighten Supply",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:16.002990-04:00",
-    "symbols": [
-      "JBL"
-    ],
-    "headline": "Nasdaq 100 Climbs as Cooler PCE Cuts Rate Hike Bets, Micron Earnings Loom: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:16.007040-04:00",
-    "symbols": [
-      "JBL"
-    ],
-    "headline": "Jabil Reports Q4 2026 Results: Full Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:16.011002-04:00",
-    "symbols": [
-      "JBL"
-    ],
-    "headline": "Nasdaq Gains Over 100 Points; Jabil Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:16.014920-04:00",
-    "symbols": [
-      "JBL"
-    ],
-    "headline": "Jabil Sees Q1 Adj EPS $3.80-$4.20 vs $3.60 Est; Sees Sales $10.600B-$11.400B vs $9.942B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:43:16.155892-04:00",
-    "symbols": [
-      "HUT"
-    ],
-    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:16.160294-04:00",
-    "symbols": [
-      "HUT"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:16.164374-04:00",
-    "symbols": [
-      "HUT"
-    ],
-    "headline": "Hut 8 Stock Is Dropping: What&#39;s Going On Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:43:16.532055-04:00",
     "symbols": [
       "CAG"
@@ -5028,6 +4928,106 @@
     ],
     "headline": "Oracle Stock Is Falling: What&#39;s Going On?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:53:34.095675-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "IBM Is Betting AI\u2019s Next Big Market Won\u2019t Live in the Cloud",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:53:40.925259-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Accenture Earnings Lift Software and IT Services Stocks: Cognizant, IBM, Wipro Rise on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:53:41.024507-04:00",
+    "symbols": [
+      "ACN"
+    ],
+    "headline": "Accenture Earnings Lift Software and IT Services Stocks: Cognizant, IBM, Wipro Rise on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:53:41.043918-04:00",
+    "symbols": [
+      "CTSH"
+    ],
+    "headline": "Accenture Earnings Lift Software and IT Services Stocks: Cognizant, IBM, Wipro Rise on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:53:41.057137-04:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Accenture Earnings Lift Software and IT Services Stocks: Cognizant, IBM, Wipro Rise on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:53:41.063326-04:00",
+    "symbols": [
+      "WIT"
+    ],
+    "headline": "Accenture Earnings Lift Software and IT Services Stocks: Cognizant, IBM, Wipro Rise on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:53:41.071232-04:00",
+    "symbols": [
+      "IBM"
+    ],
+    "headline": "IBM Is Betting AI\u2019s Next Big Market Won\u2019t Live in the Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:53:41.077055-04:00",
+    "symbols": [
+      "IBM"
+    ],
+    "headline": "Accenture Earnings Lift Software and IT Services Stocks: Cognizant, IBM, Wipro Rise on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:53:53.033689-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix CEO Says Company\u2019s Growth Not Good Enough: \u2018Working on Making that Move Faster\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T11:55:20.671019-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Morgan Stanley Reiterates Overweight on Micron Technology, Maintains $1200 Price Target",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

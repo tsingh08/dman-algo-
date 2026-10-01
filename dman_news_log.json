@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:53:22.835500-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Stock Rises on Cool Inflation, Easing Fed Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:53:23.070942-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Won CFTC Approval This Week \u2014 Here&#39;s What Else Happened",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:53:23.299213-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin Dips, While Ethereum, XRP, Dogecoin Gain: Bull Market &#39;Intact,&#39; but Rally &#39;Showing Cracks,&#39; Says Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:53:23.988428-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Introduces AI-Enabled Search, Filters, Listing Descriptions, Comparison Tools; Rolls Out Grocery Delivery Service In Europe; Launching Laundry Services In Specific U.S. Cities",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-09-30T14:53:23.991389-04:00",
     "symbols": [
       "ABNB"
@@ -5024,5 +4984,47 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T10:17:04.397146-04:00",
+    "symbols": [
+      "MRVL",
+      "MU",
+      "NVDA"
+    ],
+    "headline": "Wall Street\u2019s Favorite AI Trade Is Up 89% This Year: Its Best Season Starts Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T10:17:07.737983-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Stock Rises on Cool Inflation, Easing Fed Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T10:17:16.480652-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier, U.S. Tells France, Germany To Release Diesel Stocks Or Face U.S. Export Ban",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T10:19:31.072609-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Partners With Cboe on New Earnings Contracts: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

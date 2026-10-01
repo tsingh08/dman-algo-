@@ -338,5 +338,45 @@
 "extension_pct": 16.8,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "XRPN",
+"date": "2026-10-01",
+"close": 23.43,
+"base_days": 280,
+"above_low_pct": 130.8,
+"extension_pct": 113.7,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "OKTA",
+"date": "2026-10-01",
+"close": 212.63,
+"base_days": 5,
+"above_low_pct": 237.9,
+"extension_pct": 14.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "P",
+"date": "2026-10-01",
+"close": 134.13,
+"base_days": 4,
+"above_low_pct": 135.4,
+"extension_pct": 24.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "S",
+"date": "2026-10-01",
+"close": 24.67,
+"base_days": 33,
+"above_low_pct": 106.6,
+"extension_pct": 12.0,
+"fresh_base": false,
+"weak_band": false
 }
 ]

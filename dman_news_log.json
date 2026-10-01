@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-30T11:25:00.804347-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:25:01.037218-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:25:01.308915-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:25:01.777219-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:25:02.084126-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T11:25:02.389868-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T11:25:03.821780-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T11:25:04.070573-04:00",
     "symbols": [
       "QQQ"
@@ -5052,5 +4982,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:11:04.944602-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab shares are trading higher after the company announced it signed a multi-year launch agreement for 20 new Electron missions with Synspective.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:11:12.774750-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Collins Says Won&#39;t Get Ahead Of The Next Meeting",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T09:11:42.322274-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Micron Technology, Maintains $1500 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:13:03.376537-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Schmid Says Officials Have Work To Do On Inflation; Energy Prices Are One Of The Biggest Challenges For Monetary Policy Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T09:15:05.919076-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Schmid Says Trying To See In Data How Much Inflation Is Due To Demand, How Much Is Driven By Supply Shocks",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T09:16:10.146705-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab\u2019s 20-Launch Synspective Deal Pushes Backlog Above 100 Missions",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T09:24:44.264362-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealthcare Rolls Out 2027 Medicare Plans With $0 Premiums, Drug Copays And Broader Benefits",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

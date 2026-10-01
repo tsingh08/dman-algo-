@@ -1,226 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:23:16.264952-04:00",
-    "symbols": [
-      "CBNK"
-    ],
-    "headline": "Crude Oil Rises Over 1%; Conagra Brands Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:27:53.629788-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Cook Says Inflation Has Been Too High For Too Long, Committed To 2% Goal While Preserving Labor Market Strength",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:28:30.021977-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Shares Reverse Weakness, Rise Over 3% After Key Trading Signal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:18.690930-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:29:18.901108-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "AIB Data Centers Inks Agreement With Nebius For 50 Megawatts Of IT Capacity At Its U.S. Site",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:18.904100-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "What&#39;s Going on With Nebius Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:19.118836-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:29:19.121959-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "Nexera Technologies And Unit Fort Technology Plan To Expand Logia USA Operations In The U.S. Following Completion Of Previously Announced Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:29:19.360013-04:00",
-    "symbols": [
-      "QCLS"
-    ],
-    "headline": "Q/C Technologies Announces Research Collaboration With Sandia National Laboratories On Optical Chips For AI Inference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:29:19.559427-04:00",
-    "symbols": [
-      "RCON"
-    ],
-    "headline": "Recon Technology FY EPS $(39.28) Up From $(130.00) YoY, Sales $16.196M Beat $4.400M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:29:19.788729-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:19.791403-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "Silexion Therapeutics Announces First Patient Dosed Phase 2/3 Clinical Trial Evaluating Lead Candidate, SIL204, In Patients With Locally Advanced Pancreatic Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:19.793991-04:00",
-    "symbols": [
-      "SLXN"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:20.015644-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX\u2019s Starlink Just Got More Powerful, and Cable Giants Comcast, Charter May Feel the Heat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:20.018324-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: Space Insurer on What Starship\u2019s First Orbital Flight Means for SpaceX and the Space Economy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:29:20.658669-04:00",
-    "symbols": [
-      "XBI"
-    ],
-    "headline": "&#39;HHS launches project to speed up clinical trials&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:29:21.111125-04:00",
-    "symbols": [
-      "CNTB"
-    ],
-    "headline": "Crude Oil Rises Over 1%; Conagra Brands Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:33:19.633070-04:00",
-    "symbols": [
-      "AMZN",
-      "NVDA"
-    ],
-    "headline": "Amazon Signs $1 Billion Synopsys Deal as AWS Steps Up Nvidia Challenge",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:33:34.781613-04:00",
-    "symbols": [
-      "WETO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:33:34.784588-04:00",
-    "symbols": [
-      "WETO"
-    ],
-    "headline": "Why FingerMotion Shares Are Trading Higher By Around 18%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:34:40.944876-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump Announces Plans For $54B NG Project In Alaska",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:06.050193-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Amazon Signs $1 Billion Synopsys Deal as AWS Steps Up Nvidia Challenge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T15:43:06.826545-04:00",
     "symbols": [
       "AMZN"
@@ -5032,5 +4811,225 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:20:56.140111-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Announces Ryan Roslansky Has Decided To Leave The Company; Dan Shapero Will Continue As CEO Of LinkedIn And Mohak Shroff Will Continue In His Role",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:20:56.143986-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:20:56.335015-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:20:57.082242-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google wins dismissal of Chegg, Penske Media lawsuits over AI overviews&#39;- Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:20:58.564307-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Dow Falls Over 200 Points; Micron Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:21:02.603887-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:21:02.766351-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:21:03.116309-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:21:03.477487-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:21:03.627422-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:21:04.565888-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:21:04.979232-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:21:05.133058-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:21:05.291077-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:21:05.517656-04:00",
+    "symbols": [
+      "CTVA"
+    ],
+    "headline": "Dow Falls Over 200 Points; Micron Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:21:05.520805-04:00",
+    "symbols": [
+      "CTVA"
+    ],
+    "headline": "Why Is Corteva Stock Sinking Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:21:05.523776-04:00",
+    "symbols": [
+      "CTVA"
+    ],
+    "headline": "Corteva Completes Spin Off Of Its Advanced Seed And Genetics Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:21:05.526768-04:00",
+    "symbols": [
+      "CTVA"
+    ],
+    "headline": "Vylor Completes Its Separation From Corteva, To Trade On Nasdaq Under VYLR Symbol",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:21:05.529694-04:00",
+    "symbols": [
+      "CTVA"
+    ],
+    "headline": "Progress Software, Nft And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:21:05.838998-04:00",
+    "symbols": [
+      "PUSA"
+    ],
+    "headline": "Powerus Announces Completion Of Merger With Aureus Greenway Holdings, Which Is Renamed Powerus Corporation And Keeps PUSA Ticker",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:21:06.039130-04:00",
+    "symbols": [
+      "ACN"
+    ],
+    "headline": "Synopsys, Accenture, Vicor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:21:06.224124-04:00",
+    "symbols": [
+      "TDAY"
+    ],
+    "headline": "Synopsys, Accenture, Vicor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

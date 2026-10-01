@@ -1,19 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:58:23.586105-04:00",
-    "symbols": [
-      "APLD",
-      "CLSK",
-      "META",
-      "MSFT",
-      "NBIS"
-    ],
-    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T14:58:42.462707-04:00",
     "symbols": [
       "CAT"
@@ -5026,5 +5012,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T10:44:01.400673-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Goldman Sachs Group, Lowers Price Target to $1000",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

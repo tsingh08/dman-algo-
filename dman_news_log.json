@@ -1,60 +1,5 @@
 [
   {
-    "ts": "2026-09-30T16:01:39.221553-04:00",
-    "symbols": [
-      "SOTK"
-    ],
-    "headline": "Sono-Tek Announces Nearly $7.2M In Orders From Unnamed Clean Energy Customer For 10 Systems, Mostly For FY2028 Delivery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T16:01:40.364212-04:00",
-    "symbols": [
-      "AMAT",
-      "AMD",
-      "MRVL",
-      "MU",
-      "NVDA",
-      "ON"
-    ],
-    "headline": "Top 5 Semiconductor Stocks to Own Into Year End: Bank of America",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T16:01:41.374922-04:00",
-    "symbols": [
-      "ONMD"
-    ],
-    "headline": "OneMedNet Says It Signed &#39;Seven Figure&#39; Multiyear Data Licensing Contract With Unnamed AI Precision Medicine Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T16:01:41.618187-04:00",
-    "symbols": [
-      "PWCM"
-    ],
-    "headline": "PowerCompute&#39;s US Digital Mining and Hosting Subsidiary Repais ~$22.45M, Terminates Bitcoin-Backed Credit Facility With ChainFi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T16:01:41.841477-04:00",
-    "symbols": [
-      "CBNK"
-    ],
-    "headline": "Hewlett Packard Enterprise, Capital Bancorp, FormFactor And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T16:01:42.920024-04:00",
     "symbols": [
       "HPE"
@@ -5047,6 +4992,65 @@
     ],
     "headline": "Anthropic Said To Target Mega-IPO Before Thanksgiving Holiday; Anthropic Said To Weigh IPO Marketing As Soon As Week Of Nov. 9",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:34:15.099172-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Jefferson Says Fed Is Fully Committed To Returning Inflation To 2% Target;  Says US Central Bank &#39;May Take More Time&#39; To Decide Next Rate Move; Economic Output And Job Market Are Broadly Solid",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T13:35:11.135650-04:00",
+    "symbols": [
+      "APLD",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T13:35:11.173031-04:00",
+    "symbols": [
+      "CAT",
+      "ETN",
+      "GEV"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:35:11.358104-04:00",
+    "symbols": [
+      "META",
+      "NFLX",
+      "SPCX"
+    ],
+    "headline": "8 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T13:35:19.864390-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Is Trending: What's Going On?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

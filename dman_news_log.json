@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:58:42.474216-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Moody\u2019s Mark Zandi Warns Wall Street is &#39;Too Optimistic&#39; About the American Consumer: &#39;I Am Getting More Nervous...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T14:58:42.477221-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "If You Invested $1000 In Visa Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T14:58:42.481649-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Petrovietnam Unit BSR Signs ExxonMobil Asia-Pacific Crude Supply Agreement Ensuring Minimum 2M Barrels Yearly For Dung Quat Refinery, Alongside Chevron Framework Pact",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:04:20.366251-04:00",
-    "symbols": [
-      "LMT",
-      "RCAT"
-    ],
-    "headline": "&#39;Hegseth to Unveil New Pentagon Drone Group, Senator Says&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T15:05:10.139970-04:00",
     "symbols": [
       "MSFT"
@@ -5020,6 +4979,47 @@
     ],
     "headline": "What&#39;s Going On With Adobe Stock Thursday?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:01:04.745852-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier: &#34;Chinese refiners suspend October fuel exports to bolster stocks, sources say&#34;- Reuters",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:02:42.076685-04:00",
+    "symbols": [
+      "MU",
+      "VEEA"
+    ],
+    "headline": "Dow Falls Over 200 Points; Micron Earnings Top Views",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T11:02:46.755868-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "Dow Falls Over 200 Points; Micron Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:02:46.770117-04:00",
+    "symbols": [
+      "SDEV"
+    ],
+    "headline": "Dow Falls Over 200 Points; Micron Earnings Top Views",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

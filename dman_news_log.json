@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:44.359249-04:00",
-    "symbols": [
-      "XHLD"
-    ],
-    "headline": "TEN Holdings Rolls Out Digital Experience Platform TEN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:44.576103-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "ZenaTech Says Q2 Revenue Reached $9.3M, Up 316%, As DaaS Business Scales",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:44.580908-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:44.641968-04:00",
-    "symbols": [
-      "GIPR"
-    ],
-    "headline": "Why Vicor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:44.737385-04:00",
-    "symbols": [
-      "ACN"
-    ],
-    "headline": "Accenture Q4 2026 Earnings Call: Complete Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:44.742078-04:00",
-    "symbols": [
-      "ACN"
-    ],
-    "headline": "AI Threat? Accenture Posts Record Big-Ticket Client Bookings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:25:44.746470-04:00",
     "symbols": [
       "ACN"
@@ -5060,5 +5000,70 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T15:52:51.291430-04:00",
+    "symbols": [
+      "MGRX"
+    ],
+    "headline": "Mangoceuticals\u2019 MangoRx IP Secures $2.5M Investment From Strategic Investors, Receives Initial $1.75M Tranche",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:54:16.580822-04:00",
+    "symbols": [
+      "AMAT",
+      "KLAC",
+      "MU",
+      "ON",
+      "SKHY",
+      "WOLF"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading higher after Micron Technology&#39;s strong Q4 financial results and guidance demonstrated growing demand. The sector may be reflecting traders&#39; bullish position in South Korea&#39;s KOSPI and Japan&#39;s Nikkei.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:54:50.294674-04:00",
+    "symbols": [
+      "XHLD"
+    ],
+    "headline": "TEN Holdings Rolls Out Digital Experience Platform TEN",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:54:50.298391-04:00",
+    "symbols": [
+      "ZENA"
+    ],
+    "headline": "ZenaTech Says Q2 Revenue Reached $9.3M, Up 316%, As DaaS Business Scales",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:54:50.366110-04:00",
+    "symbols": [
+      "GIPR"
+    ],
+    "headline": "Why Vicor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:54:50.717992-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Reports YTD Total Sales Growth Of 3% Versus The First Three Quarters Of 2025; Q3 Sales Remain Steady, With The Company Selling 324,277 Vehicles In The Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

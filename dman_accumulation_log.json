@@ -718,5 +718,95 @@
   "drift_pct": 0.16,
   "range_ratio": 0.44,
   "near_high": 0.967
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036898-04:00",
+  "ticker": "VPLS",
+  "price": 73.78,
+  "rvol": 2.23,
+  "drift_pct": 1.03,
+  "range_ratio": 0.48,
+  "near_high": 0.959
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036908-04:00",
+  "ticker": "POCT",
+  "price": 47.99,
+  "rvol": 7.85,
+  "drift_pct": 0.44,
+  "range_ratio": 0.57,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036911-04:00",
+  "ticker": "PBUS",
+  "price": 76.67,
+  "rvol": 1.99,
+  "drift_pct": 0.84,
+  "range_ratio": 0.52,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036914-04:00",
+  "ticker": "VTEI",
+  "price": 95.61,
+  "rvol": 3.48,
+  "drift_pct": 0.27,
+  "range_ratio": 0.44,
+  "near_high": 0.951
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036917-04:00",
+  "ticker": "TOPT",
+  "price": 34.9399,
+  "rvol": 1.69,
+  "drift_pct": 1.13,
+  "range_ratio": 0.32,
+  "near_high": 0.989
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036919-04:00",
+  "ticker": "UCON",
+  "price": 23.77,
+  "rvol": 2.09,
+  "drift_pct": 0.75,
+  "range_ratio": 0.56,
+  "near_high": 0.958
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036922-04:00",
+  "ticker": "SPXX",
+  "price": 18.66,
+  "rvol": 2.01,
+  "drift_pct": 0.0,
+  "range_ratio": 0.44,
+  "near_high": 0.969
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036925-04:00",
+  "ticker": "SPBO",
+  "price": 27.445,
+  "rvol": 1.57,
+  "drift_pct": 1.06,
+  "range_ratio": 0.55,
+  "near_high": 0.955
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036928-04:00",
+  "ticker": "TSXU",
+  "price": 63.25,
+  "rvol": 2.14,
+  "drift_pct": 1.35,
+  "range_ratio": 0.29,
+  "near_high": 0.973
+ },
+ {
+  "ts": "2026-10-01T15:11:50.036931-04:00",
+  "ticker": "SMB",
+  "price": 16.95,
+  "rvol": 2.51,
+  "drift_pct": 0.21,
+  "range_ratio": 0.52,
+  "near_high": 0.979
  }
 ]

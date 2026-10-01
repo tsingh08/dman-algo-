@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:53:15.850836-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI CEO Sam Altman To Skip Congressional Hearing On Rogue AI Agents, NBC News Reports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T14:53:16.116884-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "OpenAI CEO Sam Altman To Skip Congressional Hearing On Rogue AI Agents, NBC News Reports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:53:16.880967-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "OpenAI CEO Sam Altman To Skip Congressional Hearing On Rogue AI Agents, NBC News Reports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T14:53:17.152106-04:00",
     "symbols": [
       "AMZN"
@@ -5016,5 +4986,43 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T09:48:44.510748-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "MU",
+      "NBIS",
+      "NVDA",
+      "ORCL",
+      "PLTR"
+    ],
+    "headline": "Michael Burry Shifts To Long-Dated AI Bets As SOXX Suffers Its Worst Quarter Since 2025",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:49:04.550441-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Michael Burry Shifts To Long-Dated AI Bets As SOXX Suffers Its Worst Quarter Since 2025",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T09:49:06.573168-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Michael Burry Shifts To Long-Dated AI Bets As SOXX Suffers Its Worst Quarter Since 2025",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

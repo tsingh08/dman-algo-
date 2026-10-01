@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:05:10.139970-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-09-30T15:05:10.939872-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;How New Data Center Debt Concessions Could Stall AI Build-Outs&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T15:05:18.103844-04:00",
     "symbols": [
       "CLSK"
@@ -5022,5 +5002,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T11:06:29.424360-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What&#39;s Going On With Microsoft Stock?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T11:06:43.926204-04:00",
+    "symbols": [
+      "FICO"
+    ],
+    "headline": "FICO Slides Wednesday: Will Regulatory Pressures and TransUnion Price War Break Its Monopoly?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

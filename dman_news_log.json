@@ -1,535 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:25:39.009278-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Micron, Alphabet, The Generation Essentials Group, Robinhood and Progress Software: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.164123-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO\u2019s September Scorecard: Deliveries up 8%, Core Brand Surges, ONVO Slides",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.168981-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO Q3 Deliveries Rise 25.4% YoY To 109,178 Vehicles, September Up 7.7% YoY To 37,408, First Three Quarters Up 49.2% YoY To 300,301",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.322974-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Foghorn Therapeutic Announces That The Company And Lilly Will Not Advance The FHD-909 Program Into The Clinical Development Expansion Phase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.327704-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Novo Announces Wegovy Liver Fat Reductions To Normal Levels In 9 Out Of 10 Adults With Obesity And Excess Liver Fat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.332318-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Chuck Schumer Slams Hyde Amendment on 50th Anniversary, Says Abortion Restrictions Force Americans to Choose Between Care, Rent, Food: \u2018Health Care Must Not Be a Privilege\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.528872-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Keybanc Maintains Overweight on Spotify Technology, Lowers Price Target to $660",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:39.657259-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Wells Fargo Downgrades ExxonMobil Holdings to Equal-Weight, Announces $182 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:39.719356-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Reported Earlier, Rocket Lab Signs Multi-Year Deal To Launch 20 StriX Satellites For Synspective&#39;s Constellation, With Remaining Contract Terms Undisclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.901152-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin to $113,000? Citi Turns Bullish as Bitwise Says Crypto Got \u2018the Good End Of the Deal\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:39.906193-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase, Vlad Tenev-Led Robinhood, Andreessen Horowitz\u2019s Crypto Arm Among Others Poured $8 Million in CLARITY Act Push: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.041103-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin Dips, but Ethereum, XRP, Dogecoin Gain Even as &#39;Greed&#39; Prevails: Analyst Says &#39;Loss of Stability&#39; Could Erase BTC Gains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:40.201383-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Bernstein Reiterates Outperform on Vistra, Maintains $181 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.428566-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Understanding Airbnb&#39;s Position In Hotels, Restaurants &amp; Leisure Industry Compared To Competitors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.526103-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "BTIG Maintains Buy on DraftKings, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.625950-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Oracle Lands $7 Billion Tencent AI Deal \u2014 Chinese Tech Giant to Access 100,000 Advanced Chips Through Southeast Asia Data Centers: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.630540-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Amazon Signs 20-Year Nuclear Power Deal With Constellation, Unlocking $3 Billion Investment to Fuel AI-Induced Electricity Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.863025-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Pete Hegseth Taps Elon Musk, Palmer Luckey to Examine Future of Warfare From Underground to Moon: No &#39;Creative Limitations or Restrictions&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.928278-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.933737-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Constellation Energy-Amazon Lock 20-Year Nuclear Power Purchase Agreement, Stock Soars",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.938093-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Amazon Signs 20-Year Nuclear Power Deal With Constellation, Unlocking $3 Billion Investment to Fuel AI-Induced Electricity Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:40.942525-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Constellation And Amazon Announce Long-Term Agreement To Support Continued Investment In And Expansion Of Calvert Cliffs Clean Energy Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.059908-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "President Trump Says In Time Magazine Interview That May Increase Iran Strikes After Midterms If There Is No Deal; Oil Movements Through Hormuz &#39;Set A Record&#39; Last Night; Responds To Question On Whether Americans Should Hold The President Responsible For Affordability Issues With, &#39;No, Because What?&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.065359-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Trump Administration Has Been Taking Steps To Turn China&#39;s Dependence On U.S. Aviation Suppliers Into Leverage For Trade Negotiations, Sources Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.244350-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "President Trump Says In Time Magazine Interview That May Increase Iran Strikes After Midterms If There Is No Deal; Oil Movements Through Hormuz &#39;Set A Record&#39; Last Night; Responds To Question On Whether Americans Should Hold The President Responsible For Affordability Issues With, &#39;No, Because What?&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.248980-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Trump Administration Has Been Taking Steps To Turn China&#39;s Dependence On U.S. Aviation Suppliers Into Leverage For Trade Negotiations, Sources Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.324566-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Increases European Manufacturing Capacity With 5,000 m\u00b2 Schrems Expansion To Meet Rising Electrification And Critical Infrastructure Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.702036-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Kroger Rolls Out Mastercard-Powered Payments Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.921287-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Goldman Sachs Upgrades Occidental Petroleum to Buy, Raises Price Target to $69",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:25:41.927872-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Unitedhealthcare 2027 Introduces Medicare Plans, Including Access To $0 Premium Plans, $0 Primary Care Visits And Affordable Prescription Drug Coverage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.001047-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Announces Wegovy Liver Fat Reductions To Normal Levels In 9 Out Of 10 Adults With Obesity And Excess Liver Fat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.070195-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Lands $7 Billion Tencent AI Deal \u2014 Chinese Tech Giant to Access 100,000 Advanced Chips Through Southeast Asia Data Centers: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.075031-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;China\u2019s Tencent Leases 100,000 Chips From Oracle To Accelerate AI Push&#39; - FT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.143110-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:42.239743-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Tom Lee Says \u2018Buckle Up\u2019 for Stock Market Rally as S&amp;P 500 Historical Setup Signals Strong Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:42.244483-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:42.309016-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Tom Lee Says \u2018Buckle Up\u2019 for Stock Market Rally as S&amp;P 500 Historical Setup Signals Strong Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.314364-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.318927-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Elon Musk&#39;s Take on The Trump Economy: Tesla, SpaceX CEO &#39;Guess&#39; Puts Real GDP Growth More Than 50% Above in 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.323350-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:25:42.578646-04:00",
-    "symbols": [
-      "ATOS"
-    ],
-    "headline": "Ascendiant Capital Maintains Buy on Atossa Therapeutics, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:42.723058-04:00",
-    "symbols": [
-      "ELAB"
-    ],
-    "headline": "PMGC Holdings Says It Is Sponsor Of $100M SPAC NorthStrive Acquisition Corp I, Holding About 21.4% Stake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:42.791281-04:00",
-    "symbols": [
-      "FTFT"
-    ],
-    "headline": "12 Financials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:42.882789-04:00",
-    "symbols": [
-      "GNS"
-    ],
-    "headline": "Why Vicor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:42.887576-04:00",
-    "symbols": [
-      "GNS"
-    ],
-    "headline": "Genius Group (GNS) Stock Rockets 38% After-Hours: Why Is It Moving?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.011226-04:00",
-    "symbols": [
-      "LBGJ"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.237914-04:00",
-    "symbols": [
-      "LFS"
-    ],
-    "headline": "LEIFRAS Inks Agreement With PST Over Use, Sale, Of PST&#39;s Voice Analysis Platform VOISLOG",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.305401-04:00",
-    "symbols": [
-      "LGHL"
-    ],
-    "headline": "12 Financials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.310683-04:00",
-    "symbols": [
-      "LGHL"
-    ],
-    "headline": "Progress Software, Nft And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.315597-04:00",
-    "symbols": [
-      "LGHL"
-    ],
-    "headline": "Why Vicor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.377364-04:00",
-    "symbols": [
-      "LRHC"
-    ],
-    "headline": "La Rosa Holdings Acquires NVIDIA GPUs, Explores Real Estate Asset Divestiture",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.440231-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T09:25:43.589273-04:00",
-    "symbols": [
-      "MGN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T09:25:43.662806-04:00",
     "symbols": [
       "NBIS"
@@ -5059,5 +4529,535 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:19:50.643764-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Could Trump Ban Diesel Exports? Here&#39;s What Prediction Markets Say",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.162714-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk\u2019s Tesla Just Secured a $30B Lifeline \u2014 BNP Warns the Real Funding Need May Be Much Bigger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.166454-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bernie Sanders Slams Trump\u2019s AI \u2018Oligarchs\u2019 as Elon Musk, Jeff Bezos, Mark Zuckerberg and Jensen Huang\u2019s Wealth Tops $1.7 Trillion: \u2018You\u2019re Asking Us To Trust The People\u2026\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.174435-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Soars 60% in Q3 After First-Half Rout: Can Earnings Keep the Rally Going?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.177974-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "NetApp And Supermicro Announce Strategic Collaboration To Deliver Jointly Validated AI Infrastructure For AI Factories, Enterprises, Neoclouds And Sovereign AI Initiatives",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.270708-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom To Lend Up To $42 Billion To Anthropic For Infrastructure Lease Agreements, According To IPO Prospectus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.274396-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials, BE Semiconductor Industries Announce BE Joins EPIC Center As Innovation Partner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.282113-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.290492-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Coinbase, Vlad Tenev-Led Robinhood, Andreessen Horowitz\u2019s Crypto Arm Among Others Poured $8 Million in CLARITY Act Push: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.294466-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "NIO\u2019s September Scorecard: Deliveries up 8%, Core Brand Surges, ONVO Slides",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.297956-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "NIO Q3 Deliveries Rise 25.4% YoY To 109,178 Vehicles, September Up 7.7% YoY To 37,408, First Three Quarters Up 49.2% YoY To 300,301",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.303426-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Foghorn Therapeutic Announces That The Company And Lilly Will Not Advance The FHD-909 Program Into The Clinical Development Expansion Phase",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.306907-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Novo Announces Wegovy Liver Fat Reductions To Normal Levels In 9 Out Of 10 Adults With Obesity And Excess Liver Fat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.310353-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Chuck Schumer Slams Hyde Amendment on 50th Anniversary, Says Abortion Restrictions Force Americans to Choose Between Care, Rent, Food: \u2018Health Care Must Not Be a Privilege\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.314273-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Keybanc Maintains Overweight on Spotify Technology, Lowers Price Target to $660",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.318861-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Wells Fargo Downgrades ExxonMobil Holdings to Equal-Weight, Announces $182 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.322854-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Reported Earlier, Rocket Lab Signs Multi-Year Deal To Launch 20 StriX Satellites For Synspective&#39;s Constellation, With Remaining Contract Terms Undisclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.328351-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitcoin to $113,000? Citi Turns Bullish as Bitwise Says Crypto Got \u2018the Good End Of the Deal\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.338238-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase, Vlad Tenev-Led Robinhood, Andreessen Horowitz\u2019s Crypto Arm Among Others Poured $8 Million in CLARITY Act Push: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.341749-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin Dips, but Ethereum, XRP, Dogecoin Gain Even as &#39;Greed&#39; Prevails: Analyst Says &#39;Loss of Stability&#39; Could Erase BTC Gains",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.346248-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Bernstein Reiterates Outperform on Vistra, Maintains $181 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.351713-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Understanding Airbnb&#39;s Position In Hotels, Restaurants &amp; Leisure Industry Compared To Competitors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.355188-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "BTIG Maintains Buy on DraftKings, Lowers Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.547860-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Oracle Lands $7 Billion Tencent AI Deal \u2014 Chinese Tech Giant to Access 100,000 Advanced Chips Through Southeast Asia Data Centers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.551491-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Amazon Signs 20-Year Nuclear Power Deal With Constellation, Unlocking $3 Billion Investment to Fuel AI-Induced Electricity Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.556094-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Pete Hegseth Taps Elon Musk, Palmer Luckey to Examine Future of Warfare From Underground to Moon: No &#39;Creative Limitations or Restrictions&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.559854-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.563324-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Constellation Energy-Amazon Lock 20-Year Nuclear Power Purchase Agreement, Stock Soars",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.566897-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Amazon Signs 20-Year Nuclear Power Deal With Constellation, Unlocking $3 Billion Investment to Fuel AI-Induced Electricity Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.571702-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "President Trump Says In Time Magazine Interview That May Increase Iran Strikes After Midterms If There Is No Deal; Oil Movements Through Hormuz &#39;Set A Record&#39; Last Night; Responds To Question On Whether Americans Should Hold The President Responsible For Affordability Issues With, &#39;No, Because What?&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.585004-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Trump Administration Has Been Taking Steps To Turn China&#39;s Dependence On U.S. Aviation Suppliers Into Leverage For Trade Negotiations, Sources Say",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.588731-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "President Trump Says In Time Magazine Interview That May Increase Iran Strikes After Midterms If There Is No Deal; Oil Movements Through Hormuz &#39;Set A Record&#39; Last Night; Responds To Question On Whether Americans Should Hold The President Responsible For Affordability Issues With, &#39;No, Because What?&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.592202-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Trump Administration Has Been Taking Steps To Turn China&#39;s Dependence On U.S. Aviation Suppliers Into Leverage For Trade Negotiations, Sources Say",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.598121-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Increases European Manufacturing Capacity With 5,000 m\u00b2 Schrems Expansion To Meet Rising Electrification And Critical Infrastructure Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.603936-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Kroger Rolls Out Mastercard-Powered Payments Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.730903-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Goldman Sachs Upgrades Occidental Petroleum to Buy, Raises Price Target to $69",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.735053-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Unitedhealthcare 2027 Introduces Medicare Plans, Including Access To $0 Premium Plans, $0 Primary Care Visits And Affordable Prescription Drug Coverage",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.739101-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Announces Wegovy Liver Fat Reductions To Normal Levels In 9 Out Of 10 Adults With Obesity And Excess Liver Fat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.745088-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Lands $7 Billion Tencent AI Deal \u2014 Chinese Tech Giant to Access 100,000 Advanced Chips Through Southeast Asia Data Centers: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.749224-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.760195-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Tom Lee Says \u2018Buckle Up\u2019 for Stock Market Rally as S&amp;P 500 Historical Setup Signals Strong Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.763719-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T15:20:04.768653-04:00",
+    "symbols": [
+      "ATOS"
+    ],
+    "headline": "Ascendiant Capital Maintains Buy on Atossa Therapeutics, Raises Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.772625-04:00",
+    "symbols": [
+      "ELAB"
+    ],
+    "headline": "PMGC Holdings Says It Is Sponsor Of $100M SPAC NorthStrive Acquisition Corp I, Holding About 21.4% Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.776103-04:00",
+    "symbols": [
+      "FTFT"
+    ],
+    "headline": "12 Financials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.779573-04:00",
+    "symbols": [
+      "GNS"
+    ],
+    "headline": "Why Vicor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.783015-04:00",
+    "symbols": [
+      "GNS"
+    ],
+    "headline": "Genius Group (GNS) Stock Rockets 38% After-Hours: Why Is It Moving?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.786469-04:00",
+    "symbols": [
+      "LFS"
+    ],
+    "headline": "LEIFRAS Inks Agreement With PST Over Use, Sale, Of PST&#39;s Voice Analysis Platform VOISLOG",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.790302-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "12 Financials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.793866-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Progress Software, Nft And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.797377-04:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Why Vicor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.800857-04:00",
+    "symbols": [
+      "LRHC"
+    ],
+    "headline": "La Rosa Holdings Acquires NVIDIA GPUs, Explores Real Estate Asset Divestiture",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T15:20:04.833190-04:00",
+    "symbols": [
+      "AISP"
+    ],
+    "headline": "Airship AI Stock Skyrockets Thursday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -200,5 +200,27 @@
    "regime": "CHOP",
    "regime_score": 11
   }
+ },
+ {
+  "ts": "2026-10-01T13:28:07.974651-04:00",
+  "kind": "signal",
+  "ticker": "SNPS",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "RSI 76.6 is deeply overbought; regime CHOP (11/100) lacks directional conviction for gap hold continuation.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 489.48,
+   "stop": 461.49,
+   "target1": 569.71,
+   "rr": 2.87,
+   "rvol": 3.2,
+   "rsi": 76.6,
+   "reason": "Gap up +7.6% from prior close, holding, RVOL 3.2x",
+   "regime": "CHOP",
+   "regime_score": 11
+  }
  }
 ]

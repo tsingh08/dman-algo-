@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:43:17.729069-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Amazon Signs $1 Billion Synopsys Deal as AWS Steps Up Nvidia Challenge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:43:17.733586-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Synopsys CFO Says At Investor Day Operating Margin Will Reach 50% By 2030; Says Company A Year Early On Run-Rate Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:43:17.737576-04:00",
     "symbols": [
       "SNPS"
@@ -5030,5 +5010,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:07:11.199134-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "This United Therapeutics Analyst Turns Bullish; Here Are Top 5 Upgrades For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T12:07:16.605320-04:00",
+    "symbols": [
+      "FFAI"
+    ],
+    "headline": "Faraday Future Highlights $200M Robotics Deal, Projects $1.98B Revenue By 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-09-30T15:44:21.483531-04:00",
-    "symbols": [
-      "QTTB"
-    ],
-    "headline": "Q32 Bio Announces Additional 36-Week Results And Initial Findings From The 16-Week Off-Drug Period From Part B Of The SIGNAL-AA Phase 2A Clinical Trial Evaluating Bempikibart In Patients With Severe Or Very Severe AA; Clinically Meaningful Efficacy Data Observed On Primary And Key Secondary Endpoints At Week 36; Robust Durability, Including Maintenance And Deepening Of Response",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:24.534257-04:00",
-    "symbols": [
-      "NCNA"
-    ],
-    "headline": "NuCana Says European Patent Office Grants Patent Covering Composition Of Matter For NUC-7738",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:44:39.813744-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake shares are trading higher. The company announced an expanded five-year enterprise-wide collaboration with LSEG to connect trusted financial data with cloud-native AI workflows.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T15:51:17.834894-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Social Media, Says He Has Asked Attorney General Todd Blanche To Study Fed Report",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:51:31.333424-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "What&#39;s Going On With Lucid Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:51:31.358146-04:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Sagimet Biosciences Prices $115M Offer Of Shares And Warrants At $10.00/Unit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T15:51:31.361128-04:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Sagimet Biosciences Suspends And Terminates August 14 Prospectus Supplement Regarding ATM Sales Agreement With Leerink",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-09-30T15:51:31.364086-04:00",
     "symbols": [
       "SGMT"
@@ -5035,5 +4965,85 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T12:47:20.254775-04:00",
+    "symbols": [
+      "AMZN",
+      "SKHY",
+      "UBER"
+    ],
+    "headline": "Andrew Yang Compares AI To Walmart Hollowing Out Local Communities. &#39;The Market Will Optimize For Productivity And Profit, Not Human Dignity&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:47:39.016835-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Andrew Yang Compares AI To Walmart Hollowing Out Local Communities. &#39;The Market Will Optimize For Productivity And Profit, Not Human Dignity&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:47:40.156853-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Andrew Yang Compares AI To Walmart Hollowing Out Local Communities. &#39;The Market Will Optimize For Productivity And Profit, Not Human Dignity&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:47:41.399413-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Andrew Yang Compares AI To Walmart Hollowing Out Local Communities. &#39;The Market Will Optimize For Productivity And Profit, Not Human Dignity&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:47:48.168402-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Reporter For AP Seung Min Kim Posts On X &#34;I\u2019m Told That Thune Met With Trump This Morning At The White House&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T12:50:07.980702-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "AVGO",
+      "GOOGL",
+      "META",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "AI\u2019s Trillion-Dollar Chip Boom Is Getting Bigger, and NVIDIA Isn\u2019t the Only Winner",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T12:51:22.794455-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron\u2019s $150 Billion Contract Book Is Bigger Than Its Full-Year Revenue",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

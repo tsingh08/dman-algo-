@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-30T14:53:20.756594-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Abbvie Shared Detailed Results From The Multiple Ascending Dose Part Of Its Phase 1 Study Evaluating ABBV-295 At EASD Annual Meeting, Showing Favorable Tolerability And Pharmacokinetic Profile",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:53:21.017143-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Lilly&#39;s EBGLYSS Monotherapy Met Primary And Secondary Endpoints At Week 16 In Its Phase 3B ADtouch Study, Showing Significant And Rapid Improvements In Hand And Foot Skin Clearance, Itch And Pain In Adults And Adolescents With Moderate-To-Severe Hand And Foot Atopic Dermatitis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-09-30T14:53:21.241604-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Bill Clinton Sounds Alarm on HIV Funding: \u2018Cheaper Medicines Mean Nothing If They Never Reach People\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-09-30T14:53:22.162785-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "EXCLUSIVE: Space Insurer on What Starship\u2019s First Orbital Flight Means for SpaceX and the Space Economy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-09-30T14:53:22.384982-04:00",
     "symbols": [
       "ANET"
@@ -5024,5 +4984,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T10:00:35.492366-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ISM Manufacturing Employment For September 52.7 Vs 51.2 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T10:00:47.123455-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Construction Spending (MoM) For August 0.9% Vs 0.0% Est",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-01T10:03:57.270316-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Occidental Petroleum shares are trading higher after Goldman Sachs upgraded its rating on the stock from Neutral to Buy and raised its price target from $63 to $69.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T10:04:23.080523-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Presents Data From Its Current Phase 3 Viti-Up-1, Viti-Up-2 Trials Of RINVOQ At 2026 European Academy Of Dermatology And\u00a0Venereology Congress",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

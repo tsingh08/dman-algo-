@@ -378,5 +378,115 @@
 "extension_pct": 12.0,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "HPE",
+"date": "2026-10-02",
+"close": 69.33,
+"base_days": 84,
+"above_low_pct": 252.5,
+"extension_pct": 16.4,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "KEYS",
+"date": "2026-10-02",
+"close": 384.64,
+"base_days": 71,
+"above_low_pct": 141.2,
+"extension_pct": 12.9,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "SMTC",
+"date": "2026-10-02",
+"close": 194.88,
+"base_days": 9,
+"above_low_pct": 211.5,
+"extension_pct": 15.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CRWD",
+"date": "2026-10-02",
+"close": 270.04,
+"base_days": 6,
+"above_low_pct": 208.4,
+"extension_pct": 12.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NAT",
+"date": "2026-10-02",
+"close": 8.42,
+"base_days": 10,
+"above_low_pct": 206.4,
+"extension_pct": 10.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RBRK",
+"date": "2026-10-02",
+"close": 118.58,
+"base_days": 6,
+"above_low_pct": 170.7,
+"extension_pct": 13.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "P",
+"date": "2026-10-02",
+"close": 140.14,
+"base_days": 0,
+"above_low_pct": 145.9,
+"extension_pct": 27.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NTAP",
+"date": "2026-10-02",
+"close": 226.27,
+"base_days": 1,
+"above_low_pct": 142.4,
+"extension_pct": 15.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "S",
+"date": "2026-10-02",
+"close": 25.06,
+"base_days": 0,
+"above_low_pct": 109.9,
+"extension_pct": 12.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ASX",
+"date": "2026-10-02",
+"close": 47.45,
+"base_days": 2,
+"above_low_pct": 331.4,
+"extension_pct": 14.6,
+"fresh_base": false,
+"weak_band": true
+},
+{
+"ticker": "XRPN",
+"date": "2026-10-02",
+"close": 39.42,
+"base_days": 0,
+"above_low_pct": 288.4,
+"extension_pct": 239.6,
+"fresh_base": false,
+"weak_band": true
 }
 ]

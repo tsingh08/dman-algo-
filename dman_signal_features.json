@@ -35594,7 +35594,13 @@
 "seen": 20,
 "last_ts": "2026-09-29T16:04:58.323309-04:00",
 "entry_min": 24.87,
-"entry_max": 25.17
+"entry_max": 25.17,
+"label_fill": 25.39,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -1.26,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.35,
+"label_mae_pct": -3.43
 },
 {
 "ts": "2026-09-29T13:20:25.260114-04:00",
@@ -35655,7 +35661,13 @@
 "seen": 25,
 "last_ts": "2026-09-29T16:04:57.963467-04:00",
 "entry_min": 14.73,
-"entry_max": 15.13
+"entry_max": 15.13,
+"label_fill": 14.65,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -2.87,
+"label_outcome": "LOSS",
+"label_mfe_pct": 3.14,
+"label_mae_pct": -3.75
 },
 {
 "ts": "2026-09-30T09:26:25.513954-04:00",

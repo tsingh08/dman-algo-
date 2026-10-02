@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:20:04.585004-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Trump Administration Has Been Taking Steps To Turn China&#39;s Dependence On U.S. Aviation Suppliers Into Leverage For Trade Negotiations, Sources Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.588731-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "President Trump Says In Time Magazine Interview That May Increase Iran Strikes After Midterms If There Is No Deal; Oil Movements Through Hormuz &#39;Set A Record&#39; Last Night; Responds To Question On Whether Americans Should Hold The President Responsible For Affordability Issues With, &#39;No, Because What?&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.592202-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Trump Administration Has Been Taking Steps To Turn China&#39;s Dependence On U.S. Aviation Suppliers Into Leverage For Trade Negotiations, Sources Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.598121-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Increases European Manufacturing Capacity With 5,000 m\u00b2 Schrems Expansion To Meet Rising Electrification And Critical Infrastructure Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.603936-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Kroger Rolls Out Mastercard-Powered Payments Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.730903-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Goldman Sachs Upgrades Occidental Petroleum to Buy, Raises Price Target to $69",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.735053-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Unitedhealthcare 2027 Introduces Medicare Plans, Including Access To $0 Premium Plans, $0 Primary Care Visits And Affordable Prescription Drug Coverage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.739101-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Announces Wegovy Liver Fat Reductions To Normal Levels In 9 Out Of 10 Adults With Obesity And Excess Liver Fat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.745088-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Lands $7 Billion Tencent AI Deal \u2014 Chinese Tech Giant to Access 100,000 Advanced Chips Through Southeast Asia Data Centers: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.749224-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:20:04.760195-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Tom Lee Says \u2018Buckle Up\u2019 for Stock Market Rally as S&amp;P 500 Historical Setup Signals Strong Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T15:20:04.763719-04:00",
     "symbols": [
       "QQQ"
@@ -5053,5 +4943,120 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:52:39.302591-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "NVDA",
+      "ON",
+      "QQQ",
+      "SPCX"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T12:54:02.962323-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Deliveries Jump 46%, but Outlook Stays Unchanged",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:54:30.948988-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:54:31.220468-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:54:31.465247-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:54:32.554411-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:54:35.002090-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:54:35.083397-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:54:36.115233-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:54:37.253371-04:00",
+    "symbols": [
+      "SYNA"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T12:54:37.879606-04:00",
+    "symbols": [
+      "CABO"
+    ],
+    "headline": "Cable One Announce Advanced Discussions With GTCR, Some Existing Lenders And A Consortium Of Leading Private Lending Institutions Over Financing Of The Its Forthcoming Capital Needs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:05:01.127686-04:00",
-    "symbols": [
-      "AVGO",
-      "MU",
-      "TLT"
-    ],
-    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:10:40.464342-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:10:40.578184-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T15:10:40.816669-04:00",
     "symbols": [
       "NVDA"
@@ -5051,5 +5019,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:54:49.482970-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Stock Drops Despite Bitcoin Breaking $87,000",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:55:17.408520-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Debt Is a \u2018Brewing Crisis,\u2019 Ed Zitron Warns as Amazon, CoreWeave Turn to Complex Financing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:55:17.840745-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "AI Debt Is a \u2018Brewing Crisis,\u2019 Ed Zitron Warns as Amazon, CoreWeave Turn to Complex Financing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

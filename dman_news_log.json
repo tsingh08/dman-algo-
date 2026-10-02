@@ -1,179 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:26:41.649263-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "California Attorney General Bonta Serves Investigative Subpoena On OpenAI Over Cybersecurity Incidents",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:26:51.451005-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "BAE Weighs Bid For Robin Radar In Possible $2.3B Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T13:26:54.654876-04:00",
-    "symbols": [
-      "BIRD"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:26:56.398012-04:00",
-    "symbols": [
-      "VIOT"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:26:56.831112-04:00",
-    "symbols": [
-      "SDEV"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:27:05.414106-04:00",
-    "symbols": [
-      "KD"
-    ],
-    "headline": "BAE Weighs Bid For Robin Radar In Possible $2.3B Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:29:35.233103-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "ORCL"
-    ],
-    "headline": "Amazon, Microsoft, Meta Have a Weird New Benchmark: 1840s Railway Mania",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:29:44.753152-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL"
-    ],
-    "headline": "Anthropic Said To Target Mega-IPO Before Thanksgiving Holiday; Anthropic Said To Weigh IPO Marketing As Soon As Week Of Nov. 9",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:34:15.099172-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Jefferson Says Fed Is Fully Committed To Returning Inflation To 2% Target;  Says US Central Bank &#39;May Take More Time&#39; To Decide Next Rate Move; Economic Output And Job Market Are Broadly Solid",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:35:11.135650-04:00",
-    "symbols": [
-      "APLD",
-      "MRVL",
-      "MU",
-      "NVDA",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:35:11.173031-04:00",
-    "symbols": [
-      "CAT",
-      "ETN",
-      "GEV"
-    ],
-    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:35:11.358104-04:00",
-    "symbols": [
-      "META",
-      "NFLX",
-      "SPCX"
-    ],
-    "headline": "8 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:35:19.864390-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Stock Is Trending: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:35:44.690957-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Jefferson Says Bond Yields Show Market Participants Rethinking Outlook; : Inflation Remains Above Target With Upside Risks; Says He Is Worried High Inflation Could Spill Into Expectations",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:39:58.023731-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Amazon, Microsoft, Meta Have a Weird New Benchmark: 1840s Railway Mania",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:39:58.118564-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T13:39:58.444448-04:00",
     "symbols": [
       "META"
@@ -5046,6 +4872,169 @@
     "headline": "Fed Hike Odds Collapse to 16% on Prediction Markets After Soft Jobs Report",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:59:56.735344-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Watching Palantir Technologies; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:00:23.237320-04:00",
+    "symbols": [
+      "CRWD",
+      "NVDA"
+    ],
+    "headline": "CoreWeave Unleashes Nvidia&#39;s Vera Rubin, Analyst Sees Room to Run",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:00:24.266631-04:00",
+    "symbols": [
+      "MSFT",
+      "NFLX"
+    ],
+    "headline": "Louisiana Rep. Cleo Fields Bought Up to $75K Worth of Alphabet Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:00:24.289489-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Ohio Rep. David Taylor Bought Up to $45K Worth of Amgen Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:00:24.573521-04:00",
+    "symbols": [
+      "JPM",
+      "NVDA"
+    ],
+    "headline": "This Senator Just Sold Up To $145K In JPMorgan Chase Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:00:29.843995-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:00:30.082859-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:00:30.341946-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:00:30.487704-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:00:30.624339-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:00:32.342067-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:00:35.496454-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:00:36.510795-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:00:36.830332-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Hike Odds Collapse to 16% on Prediction Markets After Soft Jobs Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:00:36.951572-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Fed Hike Odds Collapse to 16% on Prediction Markets After Soft Jobs Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:00:37.136780-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

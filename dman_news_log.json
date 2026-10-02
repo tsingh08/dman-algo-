@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:34.817947-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Google Turns Up AI Heat With Gemini 4 Argon, Rivals May Have to Cut Prices: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T09:25:34.821380-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Jim Cramer Says Investors Who Bet AI Would Destroy Software Stocks \u2018Blew Up\u2019 \u2014 Salesforce, Veeva and Palantir Led Q3 Comeback: Stocks to Watch Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T09:25:34.824843-04:00",
     "symbols": [
       "META"
@@ -5059,5 +5039,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T14:56:12.521335-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Shares of AI cloud services companies are trading higher amid catalysts including Broadcom&#39;s plans to finance up to $60 billion to provide chips for Anthropic  and reports suggesting Samsung may raise HBM prices threefold in 2027, both of which support strong demand for compute. Also, a pullback in Fed rate hike bets provides a tailwind for growth-oriented stocks.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T14:57:51.013391-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Former Tesla President Says Car Sales Are Funding the Longer Road to Robots and Cybercabs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

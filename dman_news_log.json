@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:10:45.097021-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat&#39;s Blue Ops Maritime Division Establishes A Strategic Partnership With Florida Atlantic University",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T13:10:47.214456-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Russia&#39;s Proposals To Deliver Enriched Uranium From Iran To Russia Are Still Valid; We Support Trilateral Meeting With Xi, Trump, But Agenda For Talks Should Be Worked Out",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T13:10:47.720294-04:00",
     "symbols": [
       "PUSA"
@@ -5034,5 +5014,29 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:15:34.582149-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Freeport-McMoRan Stock In The Last 10 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T10:20:23.401811-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "Why \u2018Big Short\u2019 Investor Steve Eisman Is Cutting Risk: \u2018Everybody\u2019s in Trouble\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

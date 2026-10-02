@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-01T12:49:35.578857-04:00",
-    "symbols": [
-      "EZU"
-    ],
-    "headline": "Germany Economy Ministry Says Regarding On Diesel Reserves That At This Time, There Are No New Requirements From The IAEA; Not Speculating About Possible Future Events; It&#39;s Crucial That We Arrive At Coordinated And Mutually Beneficial Solutions With Goal Of Stabilizing Markets; Regarding Diesel Reserves, Any Measures Must Be Based On Joint Assessment Within Framework Of International Procedures",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T12:49:35.583487-04:00",
-    "symbols": [
-      "EZU"
-    ],
-    "headline": "&#39;Russia Plans Three Years of Record War Spending Under New Budget&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T12:49:35.588006-04:00",
-    "symbols": [
-      "EZU"
-    ],
-    "headline": "Reported Earlier, U.S. Tells France, Germany To Release Diesel Stocks Or Face U.S. Export Ban",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T12:50:07.980702-04:00",
     "symbols": [
       "AMD",
@@ -5038,5 +5008,39 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T09:52:33.165950-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia&#39;s &#39;Very Undemanding Valuation&#39; Helps Win Back Top Chip Pick From Leading Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T09:53:25.209594-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory and storage-related companies are trading lower following reports suggesting Toshiba plans to double production capacity for hard disk drives used in AI data centers, raising industry competition that impacts profit margins.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T09:55:20.879723-04:00",
+    "symbols": [
+      "AVGO",
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Surging 700% in 2026, SanDisk Takes Center Stage in Global NAND Storage Squeeze",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

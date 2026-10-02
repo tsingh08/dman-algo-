@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:35.150174-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Reports Q3 Total Production 464,391 Units Vs Visible Alpha Est. 486,761 Units; Deliveries 486,532 Units, Visible Alpha Est. 456,896 Units; Model 3/Y Production 457,387 Units, Deliveries 478,237 Units; Other Models Production 7,004 Units, Deliveries 8,295 Units; Q3 Deployed 13.7 GWh Of Energy Storage Products",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.153739-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Cathie Wood Praises Kalshi&#39;s &#39;Phenomenal&#39; Leadership as ARK Bets on $5 Trillion Prediction Market Opportunity: &#39;Skating to Where the\u2026 Puck Will Be&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.157255-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Gavin Newsom Cracks Down on Robotaxis After Emergency Disruptions \u2014 New California Law Could Hit Waymo and Tesla With Penalties",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.160769-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says Cutting Optimus Memory Was Tesla&#39;s &#39;Only Way&#39; to Scale, As Micron Says Humanoid Robots Need 200GB+ of Memory Each",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.302675-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Jim Cramer Says Investors Who Bet AI Would Destroy Software Stocks \u2018Blew Up\u2019 \u2014 Salesforce, Veeva and Palantir Led Q3 Comeback: Stocks to Watch Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.371174-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Micron, Snowflake, Chubb And A Big Bank On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T09:25:35.471186-04:00",
     "symbols": [
       "PLTR"
@@ -5059,5 +4999,67 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T15:33:29.791517-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Why Is Cycurion Gaining Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T15:33:58.689832-04:00",
+    "symbols": [
+      "APP",
+      "MU",
+      "NVDA"
+    ],
+    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T15:34:04.375310-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Why Caterpillar Stock Is Trading Higher During Friday&#39;s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T15:34:30.235971-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T15:34:33.369387-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T15:34:36.563219-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

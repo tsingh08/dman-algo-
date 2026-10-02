@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-09-30T12:34:23.150024-04:00",
-    "regime": "CHOP",
-    "regime_score": 15,
-    "vix": 15.9,
-    "min_score": 85,
-    "universe": "all",
-    "tickers_total": 142,
-    "signals": 0,
-    "signal_tickers": [],
-    "signal_scores": [],
-    "rejected_no_signal": 142,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 82.2,
-    "news_breadth_total": 379
-  },
-  {
-    "ts": "2026-09-30T12:40:10.491185-04:00",
-    "regime": "CHOP",
-    "regime_score": 15,
-    "vix": 15.9,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 298,
-    "signals": 1,
-    "signal_tickers": [
-      "NEXR"
-    ],
-    "signal_scores": [
-      100
-    ],
-    "rejected_no_signal": 298,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 83.7,
-    "news_breadth_total": 377
-  },
-  {
     "ts": "2026-09-30T12:47:12.529907-04:00",
     "regime": "CHOP",
     "regime_score": 15,
@@ -2278,5 +2238,41 @@
     "budget_hit": false,
     "news_breadth_pct": 92.4,
     "news_breadth_total": 358
+  },
+  {
+    "ts": "2026-10-02T10:20:47.095703-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 15.5,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 293,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 292,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 92.4,
+    "news_breadth_total": 358
+  },
+  {
+    "ts": "2026-10-02T10:23:34.002867-04:00",
+    "regime": "BULL",
+    "regime_score": 15,
+    "vix": 15.6,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 293,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 292,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 92.4,
+    "news_breadth_total": 363
   }
 ]

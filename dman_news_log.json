@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:10:47.720294-04:00",
-    "symbols": [
-      "PUSA"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:10:48.094861-04:00",
-    "symbols": [
-      "NKTR"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:10:48.208019-04:00",
-    "symbols": [
-      "PRGS"
-    ],
-    "headline": "Progress Software, Nft And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T13:10:48.212462-04:00",
-    "symbols": [
-      "PRGS"
-    ],
-    "headline": "Micron, Alphabet, The Generation Essentials Group, Robinhood and Progress Software: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T13:10:48.216922-04:00",
-    "symbols": [
-      "PRGS"
-    ],
-    "headline": "Transcript: Progress Software Q3 2026 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T13:10:48.329472-04:00",
     "symbols": [
       "PAYS"
@@ -5038,5 +4988,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T10:20:33.396780-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why \u2018Big Short\u2019 Investor Steve Eisman Is Cutting Risk: \u2018Everybody\u2019s in Trouble\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T10:20:33.403595-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why \u2018Big Short\u2019 Investor Steve Eisman Is Cutting Risk: \u2018Everybody\u2019s in Trouble\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T10:20:33.412789-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Why \u2018Big Short\u2019 Investor Steve Eisman Is Cutting Risk: \u2018Everybody\u2019s in Trouble\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T10:20:33.418812-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Why \u2018Big Short\u2019 Investor Steve Eisman Is Cutting Risk: \u2018Everybody\u2019s in Trouble\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T10:23:17.453647-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Rises on Armada Deal for Air-Gapped Sovereign AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

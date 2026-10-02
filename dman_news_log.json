@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:34.978756-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Gavin Newsom Cracks Down on Robotaxis After Emergency Disruptions \u2014 New California Law Could Hit Waymo and Tesla With Penalties",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.063679-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Broadcom Chases NVIDIA With $60 Billion Financing Plan for AI Customers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.067481-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Microsoft, Amazon Cloud Arms Set to Face Deeper Scrutiny Under EU\u2019s Tech Rules&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T09:25:35.071086-04:00",
     "symbols": [
       "AMZN"
@@ -5058,6 +5028,36 @@
     "headline": "Shares of data center infrastructure-related companies are higher amid catalysts including Broadcom&#39;s plans to finance up to $60 billion of chips for Anthropic and reports suggesting Samsung may raise HBM prices threefold in 2027, both of which support strong demand the AI buildout. Also, a pullback in Fed rate hike bets provides a tailwind for highly leveraged, interest rate-exposed stocks.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T15:09:37.823768-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Says FDA Approves Additional Indication For Jaypirca, Non-Covalent BTK Inhibitor, For Treatment Of Adult Patients With Previously Untreated Chronic Lymphocytic Leukemia Or Small Lymphocytic Lymphoma",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T15:10:15.211943-04:00",
+    "symbols": [
+      "ALGM"
+    ],
+    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T15:10:15.215663-04:00",
+    "symbols": [
+      "ALGM"
+    ],
+    "headline": "RBC Capital Initiates Coverage On Allegro Microsystems with Outperform Rating, Announces Price Target of $50",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

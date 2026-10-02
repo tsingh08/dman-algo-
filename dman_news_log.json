@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T16:00:14.458135-04:00",
-    "symbols": [
-      "ABAT"
-    ],
-    "headline": "American Battery Technology Stock Surges Thursday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T16:00:14.461889-04:00",
-    "symbols": [
-      "ABAT"
-    ],
-    "headline": "American Battery Technology Receives U.S. Department Of Commerce&#39;s Bureau Of Industry And Security Approval For The Sale Of Up To $100M Of Recycled Black Mass Material",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T16:00:14.709397-04:00",
     "symbols": [
       "WVE"
@@ -5061,5 +5041,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T13:55:09.004211-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Citigroup Maintains Buy on Strategy, Raises Price Target to $240",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:55:47.732223-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Analyst Sees Strong Orders, Raises 2027 EPS Forecast",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

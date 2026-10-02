@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:10:42.856309-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "AI\u2019s Trillion-Dollar Chip Boom Is Getting Bigger, and NVIDIA Isn\u2019t the Only Winner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T13:10:43.438821-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly&#39;s Once-Daily Weight Loss Pill Orforglipron Shows Significant Reduction in Heart Disease Risk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:10:43.919649-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "AI\u2019s Trillion-Dollar Chip Boom Is Getting Bigger, and NVIDIA Isn\u2019t the Only Winner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T13:10:45.097021-04:00",
     "symbols": [
       "RCAT"
@@ -5033,6 +5003,36 @@
     "headline": "President Trump, On Social Media, Says Europe Has Just Agreed To Release Massive Amount Of Heavily Stocked Diesel Oil; Process To Begin Immediately",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:13:28.917537-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;G7 to Release Up to 100M of Barrels of Diesel and Oil&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:14:15.916407-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "'G7 to Release Up to 100M of Barrels of Diesel and Oil'- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:14:19.026791-04:00",
+    "symbols": [
+      "BETR"
+    ],
+    "headline": "Cantor Fitzgerald Upgrades Better Home & Finance to Overweight, Maintains Price Target to $16",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T14:46:44.011374-04:00",
-    "symbols": [
-      "MAT"
-    ],
-    "headline": "&#39;Barbie-Maker Mattel Draws Takeover Interest from Authentic Brands Group&#39;- WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T14:50:32.221333-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Over 88% Of Wegovy Trial Participants Achieve Normal Liver Fat Levels, Novo Reports",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T15:03:10.222585-04:00",
     "symbols": [
       "AMZN"
@@ -5048,6 +5028,26 @@
     ],
     "headline": "Biogen Announces Data From Phase 2 Part Of Its Current AMETHYST Phase 2/3 Trial Of Litifilimab In Participants With Cutaneous Lupus Erythematosus Demonstrates 27.2% Of Patients At Week 52 Achieve Clinical Endpoint Of Clear Or Utmost Clear Skin; Litifilimab Seen To Be Generally Well Tolerated",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:33:02.937576-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "MARA Holdings Stock Jumps Friday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:33:12.263135-04:00",
+    "symbols": [
+      "AZTA"
+    ],
+    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

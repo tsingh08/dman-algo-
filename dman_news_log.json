@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:27:50.734762-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T09:27:50.740668-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T09:27:50.751646-04:00",
     "symbols": [
       "MSTR"
@@ -5064,6 +5044,26 @@
       "MSFT"
     ],
     "headline": "Bill Ackman on AI: \u2018Massively Increased the Risk of Disruption\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T09:11:52.632216-04:00",
+    "symbols": [
+      "CYCU"
+    ],
+    "headline": "Cycurion shares are trading higher after the company announced it regained Nasdaq compliance.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T09:18:27.609894-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Automotive shares are trading higher after the company reported Q3 production and delivery results.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

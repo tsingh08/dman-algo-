@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:53:32.538255-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:53:32.542478-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "How To Earn $500 A Month From Nike Stock Ahead Of Q1 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:53:32.683336-04:00",
-    "symbols": [
-      "SHAZ"
-    ],
-    "headline": "SharonAI Secures $356 Million Facility to Deploy 68,000 Nvidia GPUs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:53:32.688242-04:00",
-    "symbols": [
-      "SHAZ"
-    ],
-    "headline": "SharonAI Enters Inaugural $356M Committed Senior Secured, GPU-Backed SPV Debt Facility Priced At Fixed Rate Of 9.95%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T15:53:32.830654-04:00",
     "symbols": [
       "OBDC"
@@ -5057,5 +5017,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T13:19:11.676165-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Regeneron Highlights Promising Ovarian Cancer, Muscle Preservation Trial Data",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:21:04.385487-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What&#39;s Going On With Super Micro Computer Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:21:22.255971-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Hikes Price of Budget Pixel 10a Phone to $599 on Memory Costs&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:22:32.390405-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Nvidia Board OKs Massive $150B Buyback Plan, Shares Spike to All-Time Highs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

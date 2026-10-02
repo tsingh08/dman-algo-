@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:53:32.830654-04:00",
-    "symbols": [
-      "OBDC"
-    ],
-    "headline": "&#39;Carlyle Warns Private Credit\u2019s AI Push Raises Concentration Risk&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T15:53:32.994458-04:00",
     "symbols": [
       "PSKY"
@@ -5057,5 +5047,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:24:25.421532-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Why Is The Market Celebrating A Weak Jobs Report?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

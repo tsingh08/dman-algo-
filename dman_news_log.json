@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:10:48.665800-04:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500 Slips as Micron Fails to Impress, 10-Year Yields Ease to 5.25%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:10:48.669361-04:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Synopsys, Accenture, Vicor And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:19:50.643764-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Could Trump Ban Diesel Exports? Here&#39;s What Prediction Markets Say",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:20:04.162714-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk\u2019s Tesla Just Secured a $30B Lifeline \u2014 BNP Warns the Real Funding Need May Be Much Bigger",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T15:20:04.166454-04:00",
     "symbols": [
       "TSLA"
@@ -5051,5 +5011,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T12:06:10.694611-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Stock Drops: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:06:32.236592-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "5.6 Million Downloads in Weeks: Meta Muse Outpaces Sorad ChatGPT in Early Rollout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:06:32.401959-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "5.6 Million Downloads in Weeks: Meta Muse Outpaces Sorad ChatGPT in Early Rollout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:06:38.107097-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "5.6 Million Downloads in Weeks: Meta Muse Outpaces Sorad ChatGPT in Early Rollout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

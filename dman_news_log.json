@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:20:04.571702-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "President Trump Says In Time Magazine Interview That May Increase Iran Strikes After Midterms If There Is No Deal; Oil Movements Through Hormuz &#39;Set A Record&#39; Last Night; Responds To Question On Whether Americans Should Hold The President Responsible For Affordability Issues With, &#39;No, Because What?&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T15:20:04.585004-04:00",
     "symbols": [
       "LMT"
@@ -5052,5 +5042,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:44:47.374581-04:00",
+    "symbols": [
+      "GOOGL",
+      "NFLX"
+    ],
+    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

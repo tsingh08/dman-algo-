@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:20:04.166454-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Bernie Sanders Slams Trump\u2019s AI \u2018Oligarchs\u2019 as Elon Musk, Jeff Bezos, Mark Zuckerberg and Jensen Huang\u2019s Wealth Tops $1.7 Trillion: \u2018You\u2019re Asking Us To Trust The People\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.174435-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Stock Soars 60% in Q3 After First-Half Rout: Can Earnings Keep the Rally Going?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T15:20:04.177974-04:00",
     "symbols": [
       "SMCI"
@@ -5049,6 +5029,27 @@
     ],
     "headline": "5.6 Million Downloads in Weeks: Meta Muse Outpaces Sorad ChatGPT in Early Rollout",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:14:24.136945-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "TLT Hits 52-Week Low, Yet Billions Pour In: Is Long-Duration Treasury ETF Becoming an \u2018Ice Cream\u2019 Trade?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T12:16:02.862820-04:00",
+    "symbols": [
+      "MU",
+      "ORCL"
+    ],
+    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

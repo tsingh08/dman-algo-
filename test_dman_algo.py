@@ -22561,3 +22561,137 @@ class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
         """Exposure binds, but a runaway loop must not open fifty positions."""
         self.assertGreater(a.BZONE_TRADE_MAX_OPEN, 2)
         self.assertLessEqual(a.BZONE_TRADE_MAX_OPEN, 12)
+
+
+class TestAFillIsNotAHandOff(unittest.TestCase):
+    """"taken" never meant "bought", and the report said otherwise.
+
+    _mark_signals_taken()'s docstring is explicit: taken means the signal
+    survived every gate and was handed to the order path, NOT that it filled.
+    The report labelled that bucket "taken", which reads as "we bought it".
+
+    2026-10-01 is the case. SNPS carried taken=True with ZERO orders at the
+    broker; PGEN actually filled 29 shares at $8.5872. Both sat in the same
+    bucket. That contaminates the only question the dataset exists to answer --
+    did the signals the algo PICKED beat the ones it threw away -- because half
+    the "picked" side never became a position.
+
+    First run after the split found NO filled bucket at all: of 34 labelled
+    signals, fewer than three had a live fill on record."""
+
+    def _recs(self, *pairs):
+        return [{"ticker": t, "date": d, "is_live": live,
+                 "setup": "Gap & Hold", "outcome": "WIN"} for t, d, live in pairs]
+
+    def _keys(self, recs):
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "wr.json")
+            io.open(f, "w", encoding="utf-8").write(json.dumps(recs))
+            with patch.object(a, "WIN_RATE_FILE", f):
+                return a._filled_signal_keys()
+
+    # --- the right source ---------------------------------------------------
+    def test_only_live_records_count_as_fills(self):
+        """is_live separates real fills from backtest rows. Counting backtest
+        rows would report fills that never happened."""
+        k = self._keys(self._recs(("PGEN", "2026-10-01", True),
+                                  ("JD", "2026-05-15", False)))
+        self.assertIn(("PGEN", "2026-10-01"), k)
+        self.assertNotIn(("JD", "2026-05-15"), k)
+
+    def test_it_does_not_use_the_signal_outcome_log(self):
+        """dman_live_outcomes.csv is every ALERTED signal resolved by daily-bar
+        simulation, filled or not -- its own constant says so. Joining there
+        would have answered the same question twice."""
+        src = inspect.getsource(a._filled_signal_keys)
+        self.assertIn("WIN_RATE_FILE", src)
+        self.assertNotIn("LIVE_OUTCOMES_FILE", src)
+
+    def test_a_missing_file_yields_no_fills_rather_than_raising(self):
+        with patch.object(a, "WIN_RATE_FILE", "/nonexistent/wr.json"):
+            self.assertEqual(a._filled_signal_keys(), set())
+
+    def test_malformed_records_are_skipped_not_fatal(self):
+        k = self._keys([{"bad": 1}, "notadict",
+                        {"ticker": "PGEN", "date": "2026-10-01", "is_live": True}])
+        self.assertEqual(k, {("PGEN", "2026-10-01")})
+
+    def test_ticker_case_is_normalised(self):
+        k = self._keys(self._recs(("pgen", "2026-10-01", True)))
+        self.assertIn(("PGEN", "2026-10-01"), k)
+
+    # --- the three-way bucket ----------------------------------------------
+    def _report(self, rows, fills):
+        with tempfile.TemporaryDirectory() as d:
+            ff = os.path.join(d, "feat.json")
+            io.open(ff, "w", encoding="utf-8").write(json.dumps(rows))
+            with patch.object(a, "SIGNAL_FEATURES_FILE", ff), \
+                 patch.object(a, "_filled_signal_keys", return_value=fills):
+                return chr(10).join(a.report_signal_features(min_n=1))
+
+    def _row(self, tkr, taken, win):
+        return dict(ts=f"2026-10-01T10:00:00", date="2026-10-01", ticker=tkr,
+                    setup="Gap & Hold", regime="CHOP", score=100,
+                    catalyst_tier="C", mtf_ok=True, taken=taken,
+                    label_outcome="WIN" if win else "LOSS",
+                    label_pnl_pct=5.0 if win else -5.0)
+
+    def test_a_real_fill_is_separated_from_a_hand_off(self):
+        """PGEN filled, SNPS did not. They must not share a bucket."""
+        out = self._report([self._row("PGEN", True, True),
+                            self._row("SNPS", True, False)],
+                           {("PGEN", "2026-10-01")})
+        self.assertIn("filled", out)
+        self.assertIn("passed-nofill", out)
+
+    def test_a_rejected_signal_is_neither(self):
+        out = self._report([self._row("ACN", False, False)], set())
+        self.assertIn("rejected", out)
+        self.assertNotIn("passed-nofill", out)
+
+    def test_a_hand_off_with_no_fill_is_not_called_filled(self):
+        out = self._report([self._row("SNPS", True, False)], set())
+        self.assertIn("passed-nofill", out)
+        self.assertNotIn("outcome filled", out)
+
+    # --- taken and a reject reason cannot coexist --------------------------
+    def test_a_taken_row_cannot_pick_up_a_reject_reason(self):
+        """SNPS ended 2026-10-01 as taken=True with reject="earnings blackout",
+        which is self-contradictory: the upsert let a later provisional reason
+        overwrite the field on a row already marked taken."""
+        sig = SimpleNamespace(ticker="SNPS", setup="Gap & Hold", bias="LONG",
+                              confluence_score=100, final_score=70.0, entry=1.0,
+                              stop=0.9, target1=1.2, rr=2.0, rsi=50, rvol=2.0,
+                              atr=0.1, beta=1.0, catalyst_tier="C",
+                              news_boost=False, mtf_ok=True, regime_ok=True,
+                              earnings_ok=True, macro_ok=True,
+                              divergence_free=True, score_breakdown={})
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                a._log_signal_features(sig, {"regime": "CHOP"}, True, "")
+                a._log_signal_features(sig, {"regime": "CHOP"}, False,
+                                       "earnings blackout")
+            rows = json.load(io.open(f, encoding="utf-8"))
+        self.assertEqual(len(rows), 1)
+        self.assertTrue(rows[0]["taken"])
+        self.assertEqual(rows[0]["reject"], "",
+                         "a taken signal must not carry a reject reason")
+
+    def test_a_reject_reason_still_lands_on_an_untaken_row(self):
+        """The guard must not break the thing it is guarding."""
+        sig = SimpleNamespace(ticker="ACN", setup="Gap & Hold", bias="LONG",
+                              confluence_score=100, final_score=70.0, entry=1.0,
+                              stop=0.9, target1=1.2, rr=2.0, rsi=50, rvol=2.0,
+                              atr=0.1, beta=1.0, catalyst_tier="C",
+                              news_boost=False, mtf_ok=True, regime_ok=True,
+                              earnings_ok=True, macro_ok=True,
+                              divergence_free=True, score_breakdown={})
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                a._log_signal_features(sig, {"regime": "CHOP"}, False, "")
+                a._log_signal_features(sig, {"regime": "CHOP"}, False,
+                                       "earnings blackout")
+            rows = json.load(io.open(f, encoding="utf-8"))
+        self.assertEqual(rows[0]["reject"], "earnings blackout")

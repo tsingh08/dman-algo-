@@ -7827,7 +7827,7 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
             if taken:
                 _hit["taken"] = True
                 _hit["reject"] = ""
-            elif reject_reason:
+            elif reject_reason and not _hit.get("taken"):
                 # A SPECIFIC reason arriving later replaces the provisional one.
                 # The scanner logs each signal once up front, before the chasing
                 # gate, the score floor and AI scoring have even run, so the
@@ -7957,6 +7957,52 @@ def _bucket_is_informative(wins: int, n: int, base_rate: float) -> bool:
     return not (_lo <= base_rate <= _hi)
 
 
+def _filled_signal_keys() -> set:
+    """(TICKER, entry_date) for trades that actually happened, from live outcomes.
+
+    _mark_signals_taken()'s docstring is explicit that "taken" means a signal
+    survived the gates and was handed to the order path, NOT that it filled. The
+    report labelled that bucket "taken", which reads as "we bought it" -- and on
+    2026-10-01 SNPS carried taken=True with no order at the broker at all while
+    PGEN actually filled. Both landed in the same bucket.
+
+    That matters because comparing taken against rejected is the only question
+    the dataset exists to answer: did the signals the algo PICKED do better than
+    the ones it threw away. Mixing real positions with hand-offs that never
+    became positions contaminates exactly that comparison.
+
+    Source is the win-rate tracker's LIVE records. Not dman_live_outcomes.csv:
+    its own constant says "SIGNAL-outcome log, not fills: every alerted signal
+    (filled or not), resolved by daily-bar simulation at plan prices", so
+    joining to it would have answered the same question twice instead of a new
+    one. The comment there names the right source -- "Real fills: win-rate
+    tracker via sync_alpaca_fills()" -- and is_live separates real fills from
+    backtest rows.
+
+    Joined on ticker + date. A signal entered on a later day than it was logged
+    will not match, which understates fills rather than inventing them.
+    """
+    try:
+        with open(WIN_RATE_FILE) as _f:
+            _recs = json.load(_f)
+        if not isinstance(_recs, list):
+            return set()
+        _out = set()
+        for _r in _recs:
+            if not isinstance(_r, dict) or not _r.get("is_live"):
+                continue
+            _t = str(_r.get("ticker") or "").upper()
+            _d = str(_r.get("date") or "")[:10]
+            if _t and _d:
+                _out.add((_t, _d))
+        return _out
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return set()
+    except Exception as exc:
+        _log_swallowed("filled signal keys", exc)
+        return set()
+
+
 def report_signal_features(min_n: int = 5) -> list[str]:
     """What the labelled data says so far, as plain comparisons.
 
@@ -7988,6 +8034,10 @@ def report_signal_features(min_n: int = 5) -> list[str]:
             f"  {len(rows)} distinct labelled signal(s) from {_raw_n} logged row(s) "
             f"({_raw_n / max(len(rows), 1):.1f}x re-scored) \u2014 all figures below "
             f"count SIGNALS, not rows")
+    # Which signals became real positions. "taken" only means the scanner handed
+    # it on -- see _filled_signal_keys().
+    _filled = _filled_signal_keys()
+
     # The overall rate, so a bucket can be read against it instead of alone.
     _all_pnl = []
     for r in rows:
@@ -8032,7 +8082,10 @@ def report_signal_features(min_n: int = 5) -> list[str]:
                        ("setup", lambda r: (r.get("setup") or "?")[:12]),
                        ("regime", lambda r: r.get("regime") or "?"),
                        ("score", lambda r: f"{int(r['score']) // 10 * 10}s"),
-                       ("taken", lambda r: "taken" if r.get("taken") else "rejected"),
+                       ("outcome", lambda r: (
+                           "filled" if (str(r.get("ticker") or "").upper(),
+                                        str(r.get("date") or "")[:10]) in _filled
+                           else "passed-nofill" if r.get("taken") else "rejected")),
                        ("mtf_ok", lambda r: r.get("mtf_ok"))):
         _b = _bucket(_name, _fn)
         if _b:

@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-10-01T14:25:39.368900-04:00",
-    "symbols": [
-      "APPS"
-    ],
-    "headline": "RBC Capital Initiates Coverage On Digital Turbine with Outperform Rating, Announces Price Target of $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T14:30:21.256931-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Ross Gerber Predicted Micron Would be a Trillion Dollar Company: He Was Right and Stock Could be Headed Higher",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T14:30:45.604012-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Nvidia, SoftBank Make Final $20B Investment in OpenAI\u2019s Last Round&#39;- The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T14:30:45.820150-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Nvidia, SoftBank Make Final $20B Investment in OpenAI\u2019s Last Round&#39;- The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T14:32:59.924405-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Fox News, US Energy Secretary Chris Wright Says Absolutely We Will Ask Europe To Release Strategic Diesel Reserves; Says Europe Can Help The Situation And I&#39;m Highly Confident They Will; I Think We Will Have Some Positive News",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T14:35:43.266118-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "JP Morgan Maintains Overweight on On Holding, Raises Price Target to $44",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T14:37:09.519149-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Iran Offers to Allow Nuclear Inspectors If Sanctions Are Eased&#39;- Bloomberg",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T14:45:47.140487-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Unity Stock Rises in Sympathy with Accenture&#39;s Strong Q4",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T14:46:15.876146-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Anthropic Eyes November IPO as Investors Peg AI Giant at Up to $2 Trillion",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T14:46:26.158462-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T14:46:26.161593-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Micron Stock Has Made Historic Run, Traders Are Now Asking What\u2019s Left",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T14:46:39.544587-04:00",
-    "symbols": [
-      "ACN"
-    ],
-    "headline": "Unity Stock Rises in Sympathy with Accenture&#39;s Strong Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T14:46:44.006048-04:00",
     "symbols": [
       "MAT"
@@ -5048,6 +4928,126 @@
     ],
     "headline": "Applied Digital shares are trading higher after the company announced it achieved Ready for Service for the second phase of Building 2 at its Polaris Forge 1 campus.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:16:09.790108-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:16:09.971993-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:16:10.216336-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:16:10.770692-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:16:11.832661-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:16:12.441367-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:16:12.536754-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "&#39;Disney Licenses Slew of Titles to Netflix, Including All Five \u2018Ice Age\u2019 Movies, \u2018Percy Jackson and the Olympians,\u2019 \u2018Felicity,\u2019 \u2018Will Trent,\u2019 \u2018Elio\u2019 and More&#39;- Variety",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:16:15.478977-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:16:15.675415-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:16:15.781724-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:16:16.872067-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:16:18.318273-04:00",
+    "symbols": [
+      "CYPH"
+    ],
+    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

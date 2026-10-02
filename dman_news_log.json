@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:39:58.444448-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "8 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:39:58.449003-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Amazon, Microsoft, Meta Have a Weird New Benchmark: 1840s Railway Mania",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:39:58.553252-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Anthropic Said to Target Mega-IPO Before Thanksgiving Holiday&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T13:39:58.557875-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Amazon, Microsoft, Meta Have a Weird New Benchmark: 1840s Railway Mania",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T13:39:58.712700-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Anthropic Said to Target Mega-IPO Before Thanksgiving Holiday&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:39:58.717315-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon, Microsoft, Meta Have a Weird New Benchmark: 1840s Railway Mania",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:39:59.925812-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "8 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-01T13:40:00.973880-04:00",
     "symbols": [
       "MU"
@@ -5036,5 +4966,96 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:00:42.316368-04:00",
+    "symbols": [
+      "SOC"
+    ],
+    "headline": "5 Stock Picks Last Month From Wall Street&#39;s Most Accurate Analysts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:01:32.278821-04:00",
+    "symbols": [
+      "ABBV",
+      "AMZN",
+      "AVGO",
+      "COST",
+      "CVX",
+      "DIA",
+      "IWM",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "SPY",
+      "TSLA",
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:04:29.345526-04:00",
+    "symbols": [
+      "AAPL",
+      "HOOD",
+      "META",
+      "MU",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:05:10.384662-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "South Korea&#39;s Industry Ministry Official Says $8.4B Oil Project Mentioned By Trump Not Part Of Agreement With",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:05:13.965660-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:05:14.544992-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:05:14.696652-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

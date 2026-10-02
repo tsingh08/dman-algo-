@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:35.071086-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported Earlier, &#39;Samsung to Triple HBM Prices Next Year&#39; - MK Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T09:25:35.074505-04:00",
     "symbols": [
       "AMZN"
@@ -5059,5 +5049,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T15:27:04.350435-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "&#39;US to Offer $4 Billion Loan for Vistra to Boost Nuclear Output&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

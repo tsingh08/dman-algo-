@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T14:25:39.166275-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Jim Cramer Says &#39;Buy&#39; Apple Stock Because of iPhone Duo, Not On Smart Home Device Buzz: Calls the $1,999 Foldable &#39;Amazing&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T14:25:39.368900-04:00",
     "symbols": [
       "APPS"
@@ -5050,5 +5040,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T11:14:07.132817-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital shares are trading higher after the company announced it achieved Ready for Service for the second phase of Building 2 at its Polaris Forge 1 campus.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

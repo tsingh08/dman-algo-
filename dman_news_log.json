@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:34.824843-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mark Zuckerberg Reportedly Helped Shape Trump&#39;s AI Rules, Ro Khanna Says &#39;Cannot Trust Tech Billionaires to Self-Police&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T09:25:34.828684-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Faces Up To $40 Billion Penalty In New Mexico Privacy Case After Jury Finds Company Misled Facebook Users 43 Million Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T09:25:34.968153-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Broadcom Chases NVIDIA With $60 Billion Financing Plan for AI Customers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:34.971838-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Turns Up AI Heat With Gemini 4 Argon, Rivals May Have to Cut Prices: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:34.975326-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Micron Analyst Dismisses Supply Glut Fears As AI Memory Crunch Deepens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T09:25:34.978756-04:00",
     "symbols": [
       "GOOGL"
@@ -5059,5 +5009,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-02T15:00:48.095470-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Joint U.S.-Ukrainian Reconstruction Investment Fund Has Sealed Its First Critical Minerals Deal Alongside Four Other New Projects",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T15:01:10.576080-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Exploring The Competitive Space: Apple Versus Industry Peers In Technology Hardware, Storage &amp; Peripherals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T15:01:11.500159-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Reported Earlier, &#39;Samsung to Triple HBM Prices Next Year&#39; - MK Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T15:01:26.912862-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is Planet Labs Stock Gaining Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T15:02:37.210418-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Shares of data center infrastructure-related companies are higher amid catalysts including Broadcom&#39;s plans to finance up to $60 billion of chips for Anthropic and reports suggesting Samsung may raise HBM prices threefold in 2027, both of which support strong demand the AI buildout. Also, a pullback in Fed rate hike bets provides a tailwind for highly leveraged, interest rate-exposed stocks.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

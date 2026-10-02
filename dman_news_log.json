@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:35.074505-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Eyes $8 Billion Nvidia Chip Sale to Investors as AI Infrastructure Costs Surge: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T09:25:35.078232-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Gavin Newsom Cracks Down on Robotaxis After Emergency Disruptions \u2014 New California Law Could Hit Waymo and Tesla With Penalties",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T09:25:35.150174-04:00",
     "symbols": [
       "TSLA"
@@ -5057,6 +5037,26 @@
     ],
     "headline": "&#39;US to Offer $4 Billion Loan for Vistra to Boost Nuclear Output&#39; - Bloomberg",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T15:29:36.900711-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Nscale Hires Meta\u2019s Justin Osofsky to Be COO Ahead of IPO&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T15:29:51.613049-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "'US to Offer $4 Billion Loan for Vistra to Boost Nuclear Output' - Bloomberg",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

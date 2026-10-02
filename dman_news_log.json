@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T16:06:03.132704-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Governor Lisa Cook Says AI Is Top Risk For 2027, Already Causing Inflationary Pressure; Also Flags Supply Bottlenecks",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T16:06:06.085554-04:00",
     "symbols": [
       "WLDS"
@@ -5058,6 +5048,16 @@
       "SPCX"
     ],
     "headline": "SpaceX Stock Surges: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T14:21:18.927077-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What&#39;s Going On With Nebius Group Stock Friday?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T09:27:50.719577-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Deutsche Bank Reiterates Buy on Robinhood Markets, Maintains $134 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T09:27:50.724041-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T09:27:50.734762-04:00",
     "symbols": [
       "HIMS"
@@ -5065,5 +5045,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-01T18:01:42.671827-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Technologies Teams Up With Armada To Deliver Sovereign AI On Infrastructure Manufactured In The United States And Allied Nations",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-01T18:31:42.274443-04:00",
+    "symbols": [
+      "AMZN",
+      "META",
+      "MSFT"
+    ],
+    "headline": "Bill Ackman on AI: \u2018Massively Increased the Risk of Disruption\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

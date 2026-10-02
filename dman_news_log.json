@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:53:33.168433-04:00",
-    "symbols": [
-      "DIA"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:53:33.346804-04:00",
-    "symbols": [
-      "VFLO"
-    ],
-    "headline": "What&#39;s Going On With Adobe Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:53:33.527286-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Top Wall Street Forecasters Revamp Bank of America Expectations Ahead Of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:53:33.532784-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:53:33.537093-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Bank of America, Lowers Price Target to $62",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T15:53:33.541375-04:00",
     "symbols": [
       "BAC"
@@ -5055,6 +5005,65 @@
     ],
     "headline": "Why Is The Market Celebrating A Weak Jobs Report?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:35:13.123905-04:00",
+    "symbols": [
+      "AVGO",
+      "MSTR",
+      "MU",
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:35:13.618302-04:00",
+    "symbols": [
+      "GEV",
+      "RKLB"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:35:13.640285-04:00",
+    "symbols": [
+      "AMZN",
+      "BABA",
+      "DKNG",
+      "TSLA"
+    ],
+    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:35:36.911818-04:00",
+    "symbols": [
+      "PLTR",
+      "RKLB"
+    ],
+    "headline": "Cathie Wood Is Buying Rocket Lab Again: Why 3 ARK ETFs Are Betting on Neutron",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:35:40.431215-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Deal Dispatch: Hormel Acquires Brakebush, Onsemi buys Synaptics for $5.7 Billion, Leslie\u2019s Pools Bankruptcy",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

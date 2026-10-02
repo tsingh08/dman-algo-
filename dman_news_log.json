@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:20:04.290492-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Coinbase, Vlad Tenev-Led Robinhood, Andreessen Horowitz\u2019s Crypto Arm Among Others Poured $8 Million in CLARITY Act Push: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T15:20:04.294466-04:00",
     "symbols": [
       "NIO"
@@ -5052,5 +5042,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:23:22.010149-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Live On CNBC, Malcolm Ethridge Announces Bought More Goldman Sachs Group; Bought More Morgan Stanley",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

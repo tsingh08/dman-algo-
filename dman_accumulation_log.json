@@ -961,5 +961,23 @@
   "drift_pct": 0.64,
   "range_ratio": 0.44,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-10-02T12:06:24.161355-04:00",
+  "ticker": "BSJQ",
+  "price": 22.845,
+  "rvol": 1.89,
+  "drift_pct": 0.09,
+  "range_ratio": 0.42,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-10-02T12:06:24.161372-04:00",
+  "ticker": "DUSB",
+  "price": 50.555,
+  "rvol": 1.61,
+  "drift_pct": 0.21,
+  "range_ratio": 0.38,
+  "near_high": 0.993
  }
 ]

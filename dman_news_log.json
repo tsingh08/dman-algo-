@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T14:46:44.006048-04:00",
-    "symbols": [
-      "MAT"
-    ],
-    "headline": "Mattel Shares Resume Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-01T14:46:44.008799-04:00",
-    "symbols": [
-      "MAT"
-    ],
-    "headline": "Mattel Shares Halted On Circuit Breaker To The Upside, Stock Now Up 4.42%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-01T14:46:44.011374-04:00",
     "symbols": [
       "MAT"
@@ -5048,6 +5028,26 @@
     ],
     "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T11:25:55.405984-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Gains As European Demand Boosts Q3 Deliveries",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:26:28.169745-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen Announces Data From Phase 2 Part Of Its Current AMETHYST Phase 2/3 Trial Of Litifilimab In Participants With Cutaneous Lupus Erythematosus Demonstrates 27.2% Of Patients At Week 52 Achieve Clinical Endpoint Of Clear Or Utmost Clear Skin; Litifilimab Seen To Be Generally Well Tolerated",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

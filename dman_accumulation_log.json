@@ -1015,5 +1015,59 @@
   "drift_pct": 0.17,
   "range_ratio": 0.54,
   "near_high": 0.983
+ },
+ {
+  "ts": "2026-10-02T15:38:07.606956-04:00",
+  "ticker": "DUSB",
+  "price": 50.5242,
+  "rvol": 7.24,
+  "drift_pct": 0.15,
+  "range_ratio": 0.38,
+  "near_high": 0.993
+ },
+ {
+  "ts": "2026-10-02T15:38:07.606970-04:00",
+  "ticker": "BSJQ",
+  "price": 22.825,
+  "rvol": 1.99,
+  "drift_pct": 0.0,
+  "range_ratio": 0.42,
+  "near_high": 0.994
+ },
+ {
+  "ts": "2026-10-02T15:38:07.606974-04:00",
+  "ticker": "SPEM",
+  "price": 51.9193,
+  "rvol": 1.62,
+  "drift_pct": 0.33,
+  "range_ratio": 0.5,
+  "near_high": 0.972
+ },
+ {
+  "ts": "2026-10-02T15:38:07.606978-04:00",
+  "ticker": "SPGM",
+  "price": 87.21,
+  "rvol": 3.08,
+  "drift_pct": 0.23,
+  "range_ratio": 0.54,
+  "near_high": 0.984
+ },
+ {
+  "ts": "2026-10-02T15:38:07.606982-04:00",
+  "ticker": "NFLT",
+  "price": 22.09,
+  "rvol": 3.65,
+  "drift_pct": 0.27,
+  "range_ratio": 0.35,
+  "near_high": 0.963
+ },
+ {
+  "ts": "2026-10-02T15:38:07.606985-04:00",
+  "ticker": "SPAB",
+  "price": 24.28,
+  "rvol": 1.68,
+  "drift_pct": 0.49,
+  "range_ratio": 0.33,
+  "near_high": 0.959
  }
 ]

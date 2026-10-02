@@ -36278,10 +36278,10 @@
 "Gap Size": 3,
 "News Catalyst": 5
 },
-"seen": 21,
-"last_ts": "2026-10-02T15:35:03.714625-04:00",
+"seen": 20,
+"last_ts": "2026-10-02T15:37:19.985747-04:00",
 "entry_min": 34.77,
-"entry_max": 35.2
+"entry_max": 35.48
 },
 {
 "ts": "2026-10-02T13:13:55.048153-04:00",
@@ -36340,8 +36340,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 31,
-"last_ts": "2026-10-02T15:35:05.077291-04:00",
+"seen": 29,
+"last_ts": "2026-10-02T15:27:50.152041-04:00",
 "entry_min": 6.06,
 "entry_max": 7.34
 },
@@ -36352,7 +36352,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "",
+"reject": "earnings blackout",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -36403,8 +36403,8 @@
 "News Catalyst": 5
 },
 "seen": 11,
-"last_ts": "2026-10-02T15:35:06.691259-04:00",
-"entry_min": 38.46,
+"last_ts": "2026-10-02T15:37:26.863825-04:00",
+"entry_min": 37.91,
 "entry_max": 38.52
 },
 {
@@ -36464,10 +36464,10 @@
 "Gap Size": 5,
 "News Catalyst": -10
 },
-"seen": 8,
-"last_ts": "2026-10-02T15:35:05.620975-04:00",
+"seen": 7,
+"last_ts": "2026-10-02T15:37:23.310832-04:00",
 "entry_min": 121.22,
-"entry_max": 121.36
+"entry_max": 121.53
 },
 {
 "ts": "2026-10-02T14:50:22.589803-04:00",
@@ -36476,7 +36476,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "",
+"reject": "earnings blackout",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -36526,9 +36526,9 @@
 "Gap Size": 3,
 "News Catalyst": 0
 },
-"seen": 1,
-"last_ts": "2026-10-02T14:50:22.589803-04:00",
+"seen": 3,
+"last_ts": "2026-10-02T15:37:24.593397-04:00",
 "entry_min": 161.28,
-"entry_max": 161.28
+"entry_max": 161.6
 }
 ]

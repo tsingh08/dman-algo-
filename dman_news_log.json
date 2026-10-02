@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:36.005365-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Reported Earlier, &#39;Samsung to Triple HBM Prices Next Year&#39; - MK Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T09:25:36.226163-04:00",
     "symbols": [
       "KLAC"
@@ -5061,5 +5051,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T15:47:55.859927-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab shares are trading higher. The company may be gaining amid sympathy with SpaceX.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

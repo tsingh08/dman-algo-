@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-01T16:00:14.709397-04:00",
-    "symbols": [
-      "WVE"
-    ],
-    "headline": "Wave Life Sciences Plans For Two-Year Registrational Trial For WVE-006 To Treat Alpha-1 Antitrypsin Deficiency",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T16:00:14.936415-04:00",
-    "symbols": [
-      "INFY"
-    ],
-    "headline": "Infosys Partners With Columbia University Over Development, Adoption Of AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T16:00:16.104169-04:00",
-    "symbols": [
-      "WHWK"
-    ],
-    "headline": "Whitehawk Therapeutics Presents Two-Real World Analyses Supporting Mucin 16",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T16:00:16.109832-04:00",
-    "symbols": [
-      "WHWK"
-    ],
-    "headline": "Stifel Initiates Coverage On Whitehawk Therapeutics with Buy Rating, Announces Price Target of $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T16:02:11.258871-04:00",
     "symbols": [
       "REPL"
@@ -5061,5 +5021,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T14:04:19.532441-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US-Ukrainian investment fund seals first critical minerals deal&#39;- Reuters",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T14:06:04.463972-04:00",
+    "symbols": [
+      "VSH"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T14:06:04.469654-04:00",
+    "symbols": [
+      "VSH"
+    ],
+    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T14:06:31.183294-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Taiwan Semiconductor Stock Rises on Broadcom&#39;s $60 Billion Chip Deal",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

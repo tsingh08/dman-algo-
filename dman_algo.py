@@ -10581,6 +10581,28 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
     nothing changed (already trailing, threshold not yet reached, bad
     data, or a real failure — always printed, never silently swallowed).
     """
+    # A catastrophe floor is NOT a managed stop and must never be ratcheted.
+    #
+    # Nothing had to refuse zones here until 2026-10-01: they carried no stop
+    # ORDER, so the `if not stop_orders: return None` bail below protected them
+    # by accident. Giving them a broker-side floor removed that and put this
+    # function back in play against them.
+    #
+    # What it would have done: the early-profit-lock branch triggers on a
+    # PERCENTAGE gain (EARLY_PROFIT_LOCK_GAIN_PCT = 15), not on target1, so a
+    # zone's unreachable 1e9 target is no defence. At +15% it replaces the stop
+    # with pos.entry -- IOVA's $9.21 floor becoming $14.17. On a 7.4%/day name a
+    # breakeven stop sits a fraction of a sigma away and is taken on any
+    # pullback: exactly the SECZ sequence the 35% width was chosen to avoid.
+    # IOVA was 14.4% from the trigger when this was found. Two sigma, one
+    # session.
+    #
+    # Ratcheting is correct for a Gap & Hold, whose stop is a trading stop. A
+    # zone exits on TIME; its floor exists so an unattended collapse cannot take
+    # the whole position, and moving it up converts a disaster backstop into the
+    # tightest possible trading stop.
+    if _is_no_stop_by_design(getattr(pos, "setup", ""), getattr(pos, "ticker", "")):
+        return None
     if pos.stop_stage == "trailing":
         return None
     _gate = trigger_price if trigger_price is not None else pos.target1

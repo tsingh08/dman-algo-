@@ -22753,3 +22753,75 @@ class TestFinalScoreIsTheScoreTheDecisionUsed(unittest.TestCase):
                     "final_score <=", "final_score ==", "< final_score",
                     "> final_score"):
             self.assertNotIn(pat, src, f"something now gates on final_score: {pat}")
+
+
+class TestACatastropheFloorIsNeverRatcheted(unittest.TestCase):
+    """Giving zones a broker-side floor put the stop-ratchet back in play.
+
+    Nothing had to refuse zones in _progress_equity_stop_to_trailing() before
+    2026-10-01: they carried no stop ORDER, so its `if not stop_orders: return
+    None` bail protected them by accident. The catastrophe floor removed that
+    accident.
+
+    What it would have done: the early-profit-lock branch triggers on a
+    PERCENTAGE gain (EARLY_PROFIT_LOCK_GAIN_PCT = 15), not on target1, so a
+    zone's unreachable 1e9 target is no defence. At +15% it replaces the stop
+    with pos.entry -- IOVA's $9.21 floor becoming $14.17. On a 7.4%/day name a
+    breakeven stop is a fraction of a sigma away and taken on any pullback:
+    the SECZ sequence the 35% width exists to avoid. IOVA sat 14.4% from the
+    trigger when this was found -- two sigma, one session."""
+
+    def _run(self, setup, ticker="IOVA", stage="initial"):
+        from alpaca.trading.enums import OrderType as _OT
+        cl = MagicMock()
+        cl.get_orders.return_value = [SimpleNamespace(
+            id="s1", order_type=_OT.STOP, stop_price=9.21)]
+        pos = SimpleNamespace(setup=setup, ticker=ticker, entry=14.17,
+                              target1=1e9, stop_stage=stage, shares=17,
+                              stop=0.01, trail_pct=0)
+        with patch.object(a, "get_alpaca_client", return_value=cl):
+            res = a._progress_equity_stop_to_trailing(pos, 16.30,
+                                                      trigger_price=16.30)
+        return cl, res
+
+    # --- the floor must be left alone --------------------------------------
+    def test_a_zone_floor_is_not_moved(self):
+        cl, res = self._run("Breakout Zone +698% off low")
+        cl.replace_order_by_id.assert_not_called()
+        self.assertIsNone(res)
+
+    def test_a_relabelled_zone_floor_is_also_not_moved(self):
+        """The adopted label loses the prefix; identity comes from the record."""
+        with patch.object(a, "_bzone_entry_on_record", return_value=True):
+            cl, res = self._run(a.ADOPTED_SETUP, ticker="RSKD")
+        cl.replace_order_by_id.assert_not_called()
+        self.assertIsNone(res)
+
+    def test_the_percentage_trigger_cannot_reach_it_either(self):
+        """The 1e9 target is no defence -- the early lock uses a % gain. This is
+        the path that would actually have fired."""
+        cl, _ = self._run("Breakout Zone +698% off low")
+        cl.replace_order_by_id.assert_not_called()
+
+    # --- a real trading stop must still ratchet ----------------------------
+    def test_a_gap_and_hold_stop_still_ratchets(self):
+        """The guard must not disable the feature it is narrowing. CELZ sat at
+        +24.58% with an untouched stop; that is what this function fixed."""
+        cl, res = self._run("Gap & Hold", ticker="AAA")
+        cl.replace_order_by_id.assert_called_once()
+        self.assertIn("breakeven", res)
+
+    def test_the_guard_is_the_first_thing_checked(self):
+        """Ahead of the stop_stage and gate checks, so no ordering change can
+        let a zone slip past it."""
+        src = inspect.getsource(a._progress_equity_stop_to_trailing)
+        i = src.index("_is_no_stop_by_design(")
+        for later in ('pos.stop_stage == "trailing"', "_gate = trigger_price"):
+            self.assertLess(i, src.index(later))
+
+    def test_the_floor_width_is_what_makes_it_safe_to_leave(self):
+        """Pinned together: the floor is only tolerable unmoved because it is
+        far outside noise. If the width were tightened, leaving it alone would
+        stop being the safe choice."""
+        self.assertGreaterEqual(a.BZONE_CATASTROPHE_STOP_PCT,
+                                a.BZONE_TIGHT_STOP_PCT)

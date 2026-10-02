@@ -44,6 +44,11 @@ CRITICAL = {
     # The local fallback, which is what actually went missing.
     "scripts/register_fallback_task.ps1": "registers the local fallback guard task",
     "scripts/run_fallback_guard.ps1": "the GitHub-Actions-independent fallback guard",
+    # Added 2026-10-02 after the SAME disappearance happened a second time, to
+    # two files the first manifest did not cover. Cause still unestablished; the
+    # response is to widen what a vanished file cannot quietly do.
+    "start_daemon.bat": "local daemon launcher",
+    "dman_premarket_advisory.md": "the premarket advisory the briefing reads from",
 
     # Guards that only work if they are present to run.
     "tools/py311_check.py": "catches 3.12-only syntax before the 3.11 jobs hit it",

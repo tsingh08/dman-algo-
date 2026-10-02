@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:20:04.294466-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO\u2019s September Scorecard: Deliveries up 8%, Core Brand Surges, ONVO Slides",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.297956-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO Q3 Deliveries Rise 25.4% YoY To 109,178 Vehicles, September Up 7.7% YoY To 37,408, First Three Quarters Up 49.2% YoY To 300,301",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.303426-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Foghorn Therapeutic Announces That The Company And Lilly Will Not Advance The FHD-909 Program Into The Clinical Development Expansion Phase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.306907-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Novo Announces Wegovy Liver Fat Reductions To Normal Levels In 9 Out Of 10 Adults With Obesity And Excess Liver Fat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.310353-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Chuck Schumer Slams Hyde Amendment on 50th Anniversary, Says Abortion Restrictions Force Americans to Choose Between Care, Rent, Food: \u2018Health Care Must Not Be a Privilege\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.314273-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Keybanc Maintains Overweight on Spotify Technology, Lowers Price Target to $660",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:20:04.318861-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Wells Fargo Downgrades ExxonMobil Holdings to Equal-Weight, Announces $182 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:20:04.322854-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Reported Earlier, Rocket Lab Signs Multi-Year Deal To Launch 20 StriX Satellites For Synspective&#39;s Constellation, With Remaining Contract Terms Undisclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T15:20:04.328351-04:00",
     "symbols": [
       "COIN"
@@ -5050,6 +4970,86 @@
     ],
     "headline": "Live On CNBC, Malcolm Ethridge Announces Bought More Goldman Sachs Group; Bought More Morgan Stanley",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:24:56.502945-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Bought Meta Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:24:58.394335-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:24:58.994186-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "ON Semiconductor Analyst&#39;s 5 Key Takeaways from Synaptics Acquistion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:25:03.964055-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Live On CNBC, Malcolm Ethridge Announces Bought More Goldman Sachs Group; Bought More Morgan Stanley",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:25:04.585999-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:25:05.487825-04:00",
+    "symbols": [
+      "SYNA"
+    ],
+    "headline": "ON Semiconductor Analyst&#39;s 5 Key Takeaways from Synaptics Acquistion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T12:25:06.942683-04:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike Is Still Searching for Its Turnaround As Wall Street Sees Another Tough Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-02T12:25:07.410678-04:00",
+    "symbols": [
+      "NOC"
+    ],
+    "headline": "RBC Capital Downgrades Northrop Grumman to Sector Perform, Lowers Price Target to $525",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

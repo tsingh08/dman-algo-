@@ -1,170 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:53:33.541375-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Truist Securities Maintains Buy on Bank of America, Lowers Price Target to $62",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:54:16.580822-04:00",
-    "symbols": [
-      "AMAT",
-      "KLAC",
-      "MU",
-      "ON",
-      "SKHY",
-      "WOLF"
-    ],
-    "headline": "Shares of semiconductor and chip companies are trading higher after Micron Technology&#39;s strong Q4 financial results and guidance demonstrated growing demand. The sector may be reflecting traders&#39; bullish position in South Korea&#39;s KOSPI and Japan&#39;s Nikkei.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:54:50.294674-04:00",
-    "symbols": [
-      "XHLD"
-    ],
-    "headline": "TEN Holdings Rolls Out Digital Experience Platform TEN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:54:50.298391-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "ZenaTech Says Q2 Revenue Reached $9.3M, Up 316%, As DaaS Business Scales",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:54:50.366110-04:00",
-    "symbols": [
-      "GIPR"
-    ],
-    "headline": "Why Vicor Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:54:50.717992-04:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Stellantis Reports YTD Total Sales Growth Of 3% Versus The First Three Quarters Of 2025; Q3 Sales Remain Steady, With The Company Selling 324,277 Vehicles In The Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:58:59.516168-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk, On Social Media, Says We Cut Our RAM In Half For The Tesla AI5 Chip (Now 72gb Of Lp5) And 1/3 For AI6 (Now 144gb Of Lp6); As It Turns Out, We Think This Will Have A Negligible Effect On Optimus Performance, As Memory Bandwidth Is A Bigger Limiting Factor Than Total Memory Storage",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T15:59:58.913156-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Cook Says Supply Shocks Have Had Surprisingly Persistent Effects, Becoming More Salient For Policy; We Have To Be Attentive To Consumer Confidence; Need To Make Inflation Expectations Don&#39;t Become Unanchored; Cautious That AI Could Be A Major Reorganization Of Work; AI Is Causing Pockets Of Inflation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T16:00:11.193225-04:00",
-    "symbols": [
-      "VICR"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T16:00:11.197302-04:00",
-    "symbols": [
-      "VICR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T16:00:11.200805-04:00",
-    "symbols": [
-      "VICR"
-    ],
-    "headline": "Vicor Stock Soars 11% On Another Outlook Hike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T16:00:11.698083-04:00",
-    "symbols": [
-      "FLNA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T16:00:11.946775-04:00",
-    "symbols": [
-      "QSI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T16:00:12.935100-04:00",
-    "symbols": [
-      "SDOT"
-    ],
-    "headline": "Sadot Group And VisionWave Form JV Relating To Israeli Firm C.M. Composite Materials, With VWAV Advancing Advancing ~$7.81M To CM",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T16:00:13.729812-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Gain as Iran Receives US Proposal To Restore Ceasefire\u2014 CEG, VICR, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T16:00:13.733580-04:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Synopsys, Raises Price Target to $540",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T16:00:13.969768-04:00",
     "symbols": [
       "AISP"
@@ -5066,5 +4901,165 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:45:55.184039-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:45:55.638174-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:45:55.739299-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-02T13:45:56.101736-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Cathie Wood Is Buying Rocket Lab Again: Why 3 ARK ETFs Are Betting on Neutron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:45:56.286452-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:45:56.410672-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:45:57.482970-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Cathie Wood Is Buying Rocket Lab Again: Why 3 ARK ETFs Are Betting on Neutron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:45:57.487833-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:45:58.103962-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:45:59.531012-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-02T13:45:59.609238-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T13:45:59.917935-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:46:02.114653-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T13:46:20.573136-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Here&#39;s How Many Vehicles Tesla Delivered, Produced In Each Quarter Since 2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-02T13:47:41.260824-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "All In On McDonald&#39;s Stock? Social Media User Wants Advice on Fast Food Giant, Investors Aren&#39;t Lovin&#39; It",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T13:47:51.733518-04:00",
+    "symbols": [
+      "IBRX"
+    ],
+    "headline": "ImmunityBio Stock Jumps: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

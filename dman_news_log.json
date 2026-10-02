@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T16:02:11.258871-04:00",
-    "symbols": [
-      "REPL"
-    ],
-    "headline": "Replimune Group Announces Commercial Availability Of TUDRIQEV In U.S. To Treat Unresectable Advanced Cutaneous Melanoma",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T16:06:03.132704-04:00",
     "symbols": [
       "SPY"
@@ -5061,5 +5051,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T14:17:08.897263-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Surges: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

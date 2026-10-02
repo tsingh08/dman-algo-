@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:10:42.428797-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "AI\u2019s Trillion-Dollar Chip Boom Is Getting Bigger, and NVIDIA Isn\u2019t the Only Winner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:10:42.543707-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Watching Sandisk; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T13:10:42.704145-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "AI\u2019s Trillion-Dollar Chip Boom Is Getting Bigger, and NVIDIA Isn\u2019t the Only Winner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T13:10:42.856309-04:00",
     "symbols": [
       "MRVL"
@@ -5031,6 +5001,36 @@
       "SPY"
     ],
     "headline": "USA Factory Orders (MoM) For August\u00a0 0.1% Vs 0.1% Est",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:00:39.565298-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Durables Excluding Defense (MoM) For August 0.0% Vs 0.1% Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:03:05.136458-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on Coinbase Global, Raises Price Target to $170",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T10:03:16.431719-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, On Social Media, Says Europe Has Just Agreed To Release Massive Amount Of Heavily Stocked Diesel Oil; Process To Begin Immediately",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

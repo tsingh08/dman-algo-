@@ -961,5 +961,32 @@
   "drift_pct": 0.64,
   "range_ratio": 0.44,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-10-02T12:59:23.900151-04:00",
+  "ticker": "DUSB",
+  "price": 50.5441,
+  "rvol": 7.11,
+  "drift_pct": 0.19,
+  "range_ratio": 0.38,
+  "near_high": 0.993
+ },
+ {
+  "ts": "2026-10-02T12:59:23.900164-04:00",
+  "ticker": "BSJQ",
+  "price": 22.845,
+  "rvol": 1.91,
+  "drift_pct": 0.09,
+  "range_ratio": 0.42,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-10-02T12:59:23.900169-04:00",
+  "ticker": "SPGM",
+  "price": 87.12,
+  "rvol": 3.01,
+  "drift_pct": 0.13,
+  "range_ratio": 0.54,
+  "near_high": 0.983
  }
 ]

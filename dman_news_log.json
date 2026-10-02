@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:40.253756-04:00",
-    "symbols": [
-      "XHLD"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T09:25:40.319599-04:00",
-    "symbols": [
-      "ZCMD"
-    ],
-    "headline": "Trading Halt: Halt status updated at 8:55:00 AM ET: Quotation Resumption: News and Resumption Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T09:25:40.387792-04:00",
-    "symbols": [
-      "AIXI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T09:25:40.446954-04:00",
-    "symbols": [
-      "SDEV"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T09:25:40.450552-04:00",
-    "symbols": [
-      "SDEV"
-    ],
-    "headline": "Why Synaptics Shares Are Trading Higher By Over 14%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T09:25:40.522133-04:00",
     "symbols": [
       "XRPN"
@@ -5061,5 +5011,58 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T16:15:15.065771-04:00",
+    "symbols": [
+      "ACHR",
+      "JOBY"
+    ],
+    "headline": "Archer Aviation Says Court Dismisses Some Of Joby&#39;s Trade Secret And Contract Claims, Lets Others Proceed; Archer&#39;s Counterclaims Against Joby Dismissed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T16:28:15.153164-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Lit the Fuse. These 5 ETFs Are Already Blasting Off",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T16:33:16.651209-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Files Prospectus For Offering 25M Common Shares",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T16:48:12.002730-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Threatens South Korea Over Alaska LNG Project Dispute&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T17:00:11.931100-04:00",
+    "symbols": [
+      "GOOGL",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Jumps 7% After 3 Launches in 13 Hours, Including Google&#39;s Orbital AI Experiment",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

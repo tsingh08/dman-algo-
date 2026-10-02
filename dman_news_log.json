@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:18:48.415272-04:00",
-    "symbols": [
-      "BTTC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:18:48.420532-04:00",
-    "symbols": [
-      "RPGL"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:18:48.426857-04:00",
-    "symbols": [
-      "QSI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T13:18:48.430722-04:00",
     "symbols": [
       "MYND"
@@ -5038,5 +5008,43 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:47:25.240253-04:00",
+    "symbols": [
+      "AMD",
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T10:47:44.530706-04:00",
+    "symbols": [
+      "APLD",
+      "ARM",
+      "LUNR",
+      "ON",
+      "WOLF"
+    ],
+    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T10:48:10.618466-04:00",
+    "symbols": [
+      "GOOGL",
+      "META",
+      "ORCL"
+    ],
+    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -8537,6 +8537,32 @@ class TestAdoptOrphanPositions(unittest.TestCase):
         pos = self._pt().positions[0]
         self.assertAlmostEqual(pos.stop, round(10.0 * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4))
 
+    def test_adopted_zone_with_no_resting_stop_gets_a_catastrophe_floor(self):
+        # RSKD, re-adopted 2026-09-28 with the no-stop sentinel: correct about
+        # the TRADING stop, but _submit_bzone_entry() is the only place the GTC
+        # catastrophe floor is armed, so an adopted zone held its entire
+        # 20-session window with no broker-side protection at all -- the exact
+        # unattended exposure the floor exists for.
+        with patch.object(a, "_bzone_entry_on_record", return_value=True), \
+             patch.object(a, "_place_bzone_catastrophe_stop",
+                          return_value=(True, "floor placed")) as fl:
+            n = self._run([self._remote("RSKD", "31", "8.0367")], [])
+        self.assertEqual(n, 1)
+        fl.assert_called_once_with("RSKD", 31, 8.0367)
+        pos = self._pt().positions[0]
+        self.assertEqual(pos.stop, 0.01)   # the trading stop stays a sentinel
+
+    def test_adopted_zone_with_a_resting_stop_does_not_get_a_second_one(self):
+        # A second stop beside a live one would sell the same shares twice when
+        # one triggers. Presence is checked, not distance: a TIGHT resting stop
+        # is reconciliation's complaint to make, not a reason to double-sell.
+        with patch.object(a, "_bzone_entry_on_record", return_value=True), \
+             patch.object(a, "_place_bzone_catastrophe_stop") as fl:
+            n = self._run([self._remote("RSKD", "31", "8.0367")],
+                          [self._stop_order("RSKD", "5.22")])
+        self.assertEqual(n, 1)
+        fl.assert_not_called()
+
     def test_adoption_is_idempotent_for_options(self):
         # An options position is tracked under its UNDERLYING with the OCC
         # symbol in `setup`, so a tracked-set of tickers alone never matched
@@ -20496,7 +20522,19 @@ class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
                                    entry=8.0367, shares=31, stop=0.01)]
         orders = [self._order("RSKD", "sell", "stop", 5.22)]   # 35% -- the floor
         out, _ = self._run(tracked, [self._pos("RSKD", 31, 8.0367)], orders)
-        self.assertFalse(any("too tight" in i for i in out["issues"]), out["issues"])
+        self.assertFalse(any(i for i in out["issues"] if "RSKD" in i), out["issues"])
+
+    def test_a_zone_with_no_stop_at_all_is_flagged(self):
+        """The floor is the ONLY stop a zone carries, so its absence is as wrong
+        as a tight one. Found 2026-10-02: an ADOPTED zone skips
+        _submit_bzone_entry() -- the one place the floor is armed -- and no
+        audit asked whether a floor was actually resting, so a zone could sit
+        through its whole 20-session hold bare."""
+        tracked = [SimpleNamespace(ticker="RSKD", setup="Breakout Zone (adopted)",
+                                   entry=8.0367, shares=31, stop=0.01)]
+        out, _ = self._run(tracked, [self._pos("RSKD", 31, 8.0367)], [])
+        self.assertTrue(any("catastrophe floor" in i for i in out["issues"]),
+                        out["issues"])
 
     def test_ddog_duplicate_working_entries(self):
         tracked = [SimpleNamespace(ticker="DDOG", setup="Gap & Hold",

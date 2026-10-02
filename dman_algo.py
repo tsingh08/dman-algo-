@@ -25081,15 +25081,27 @@ def run_position_reconciliation(notify: bool = True) -> dict:
             _has_stop = _key in _stops
             # A zone SHOULD carry a catastrophe floor now. Only a TIGHT stop on
             # one is the SECZ bug -- distinguished by distance, not presence.
-            if (_is_no_stop_by_design(getattr(_p, "setup", ""),
-                                      getattr(_p, "ticker", "")) and _has_stop
-                    and not _is_catastrophe_stop(getattr(_p, "entry", 0),
-                                                 _stops[_key])):
-                out["issues"].append(
-                    f"{_p.ticker}: a ${_stops[_key]:.2f} stop is resting at the broker "
-                    f"on {_p.setup} — too tight for a zone, which exits on TIME. "
-                    f"A catastrophe floor belongs {BZONE_CATASTROPHE_STOP_PCT:.0%} out; "
-                    f"this is the shape that cost SECZ")
+            if _is_no_stop_by_design(getattr(_p, "setup", ""),
+                                     getattr(_p, "ticker", "")):
+                if _has_stop and not _is_catastrophe_stop(getattr(_p, "entry", 0),
+                                                          _stops[_key]):
+                    out["issues"].append(
+                        f"{_p.ticker}: a ${_stops[_key]:.2f} stop is resting at the broker "
+                        f"on {_p.setup} — too tight for a zone, which exits on TIME. "
+                        f"A catastrophe floor belongs {BZONE_CATASTROPHE_STOP_PCT:.0%} out; "
+                        f"this is the shape that cost SECZ")
+                elif not _has_stop:
+                    # The floor is the ONLY stop a zone carries, so "none at
+                    # all" is as wrong as a tight one: unattended, the downside
+                    # is the whole position. Found 2026-10-02: an adopted zone
+                    # skips _submit_bzone_entry() -- the one place the floor is
+                    # armed -- and nothing audited for its absence, so a zone
+                    # could sit through its whole 20-session hold bare.
+                    out["issues"].append(
+                        f"{_p.ticker}: NO stop of any kind resting at the broker on "
+                        f"{_p.setup} — a zone exits on TIME but must still carry its "
+                        f"{BZONE_CATASTROPHE_STOP_PCT:.0%} GTC catastrophe floor; "
+                        f"without one the downside is the whole position")
         # duplicate working entries
         if _buys.get(_key, 0) > 1:
             out["issues"].append(
@@ -25297,12 +25309,26 @@ def adopt_orphan_positions() -> int:
         if pt.open(pos):
             adopted += 1
             print(f"  🩹 Adopted orphan: {sym} {abs(qty)}sh @ ${entry:.4f} ({stop_note})")
+            _floor_note = ""
+            if _was_bzone and is_long and sym not in stops:
+                # The entry path arms a GTC catastrophe floor the moment a zone
+                # fills (_submit_bzone_entry); an adopted zone never went
+                # through it, so without this it holds for up to
+                # BZONE_HOLD_SESSIONS with no broker-side protection at all --
+                # the exact unattended exposure the floor exists for. Only when
+                # NO sell stop is already resting: a second stop beside a live
+                # floor would sell the same shares twice when one triggers.
+                _fl_ok, _fl_why = _place_bzone_catastrophe_stop(sym, abs(qty), entry)
+                print(f"  {'🛡' if _fl_ok else '⚠'} {sym} {_fl_why}")
+                _floor_note = (f"\n{'🛡' if _fl_ok else '⚠️ NO FLOOR:'} "
+                               f"{html.escape(str(_fl_why))}")
             send_telegram(
                 f"🩹 <b>Orphan position adopted</b> — {sym}\n"
                 f"{abs(qty)} sh @ ${entry:.4f}  |  stop ${stop:.4f}\n"
                 f"Was held at Alpaca but missing from the tracker, so it had no "
                 f"P&L recording, no PDT day-trade counting and no exit management. "
                 f"Now tracked as a swing (never auto-flattened)."
+                f"{_floor_note}"
             )
     return adopted
 

@@ -22825,3 +22825,75 @@ class TestACatastropheFloorIsNeverRatcheted(unittest.TestCase):
         stop being the safe choice."""
         self.assertGreaterEqual(a.BZONE_CATASTROPHE_STOP_PCT,
                                 a.BZONE_TIGHT_STOP_PCT)
+
+
+class TestTheRefillNagNamesTheRightSource(unittest.TestCase):
+    """The refill nag sent you to bls.gov for a number BEA publishes.
+
+    _macro_calendar_alert said "federalreserve.gov / bls.gov" for every list.
+    PCE is a BEA release (Personal Income and Outlays); bls.gov is CPI/PPI. PCE
+    is also the list with the LEAST runway -- it ends 2026-12-23, so the first
+    nag anyone would ever receive (2026-10-25) was the one naming a site that
+    does not publish the series it is asking for.
+
+    This matters because of what expiry does: once a list stops reaching today,
+    check_macro_safe() returns (False, 0) and entries BLOCK. The nag is the only
+    thing standing between a 60-day warning and a dead algorithm, so it has to
+    be actionable without the reader first knowing it is wrong."""
+
+    def _msg(self, today, expired=None, expiring=None):
+        sent = []
+        with patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            a._macro_calendar_alert(expired or [], expiring or [], today)
+        return sent[0] if sent else ""
+
+    def test_a_pce_nag_names_bea(self):
+        msg = self._msg(date(2026, 10, 25), expiring=["PCE"])
+        self.assertIn("bea.gov", msg)
+
+    def test_a_pce_nag_does_not_name_bls(self):
+        """The specific defect: this is what the old message said instead."""
+        msg = self._msg(date(2026, 10, 25), expiring=["PCE"])
+        self.assertNotIn("bls.gov", msg)
+
+    def test_a_cpi_nag_still_names_bls_not_bea(self):
+        """The fix must not just swap one wrong answer for another."""
+        msg = self._msg(date(2027, 11, 1), expiring=["CPI"])
+        self.assertIn("bls.gov", msg)
+        self.assertNotIn("bea.gov", msg)
+
+    def test_an_fomc_nag_names_the_fed(self):
+        msg = self._msg(date(2027, 11, 1), expiring=["FOMC"])
+        self.assertIn("federalreserve.gov", msg)
+
+    def test_the_expired_message_carries_sources_too(self):
+        """The expired branch is the one that fires while entries are BLOCKED --
+        the worst moment to hand someone the wrong URL."""
+        msg = self._msg(date(2027, 1, 5), expired=["PCE"])
+        self.assertIn("bea.gov", msg)
+        self.assertIn("BLOCKED", msg)
+
+    def test_cpi_and_ppi_collapse_to_one_line_each(self):
+        """Both come from bls.gov; two identical lines would read like two jobs."""
+        msg = self._msg(date(2027, 11, 1), expiring=["CPI", "PPI"])
+        self.assertEqual(msg.count("bls.gov/schedule/news_release/cpi.htm"), 1)
+
+    def test_only_the_expiring_lists_are_named(self):
+        """A nag listing all four sources when one needs work is noise, and the
+        standing instruction here is fewer, higher-signal messages."""
+        msg = self._msg(date(2026, 10, 25), expiring=["PCE"])
+        self.assertNotIn("federalreserve.gov", msg)
+
+    def test_every_tracked_list_has_a_source(self):
+        """A list with no source produces a nag that names no site at all."""
+        for name in a._macro_calendar_coverage(date(2026, 10, 2)):
+            self.assertIn(name, a._MACRO_CALENDAR_SOURCES, f"{name} has no refill source")
+
+    def test_pce_really_is_the_first_to_expire(self):
+        """Pins the premise. If another list ever becomes the short one, the
+        reasoning above needs re-reading rather than silently going stale."""
+        cov = a._macro_calendar_coverage(date(2026, 10, 2))
+        self.assertEqual(min(cov, key=lambda n: cov[n][1]), "PCE")
+        self.assertEqual(cov["PCE"][0], date(2026, 12, 23))

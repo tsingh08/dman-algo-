@@ -15516,10 +15516,30 @@ def _nfp_dates(years: int = 2) -> set[date]:
     return result
 
 
+# Where each hardcoded list is actually refilled from. Added 2026-10-02: the
+# refill nag named "federalreserve.gov / bls.gov" for every list, but PCE comes
+# from BEA -- bls.gov is CPI/PPI. PCE is the list that expires FIRST
+# (2026-12-23), so the one alert most likely to fire was the only one pointing
+# at a site that does not publish the number. An alert you have to correct
+# before you can act on it is a half-working alert.
+_MACRO_CALENDAR_SOURCES: dict[str, str] = {
+    "FOMC": "federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "CPI":  "bls.gov/schedule/news_release/cpi.htm",
+    "PPI":  "bls.gov/schedule/news_release/ppi.htm",
+    "PCE":  "bea.gov/news/schedule (Personal Income and Outlays)",
+}
+
+
+def _macro_calendar_sources(names) -> str:
+    """Just the sources for the lists actually asking to be refilled."""
+    _seen = dict.fromkeys(_MACRO_CALENDAR_SOURCES.get(_n, "") for _n in names)
+    return "\n".join(f"• {_s}" for _s in _seen if _s)
+
+
 # How much runway a hardcoded macro calendar must keep ahead of today before it
 # starts asking to be refilled. Long on purpose: these lists are updated by a
-# human reading federalreserve.gov / bls.gov, and the whole point is that the
-# request arrives while someone is still around to act on it.
+# human reading the sources in _MACRO_CALENDAR_SOURCES, and the whole point is
+# that the request arrives while someone is still around to act on it.
 MACRO_CALENDAR_RUNWAY_DAYS = 60
 
 
@@ -15570,8 +15590,9 @@ def _macro_calendar_alert(expired: list, expiring: list, today: date) -> None:
                     + ", ".join(f"{_n} ended {_cov[_n][0]}" for _n in expired)
                     + "\n\nThese dates are hardcoded. Past their last entry the gate "
                       "cannot tell a release day from a clear one, so it now refuses "
-                      "rather than guessing. Refill the list in dman_algo.py from "
-                      "federalreserve.gov / bls.gov and entries resume."
+                      "rather than guessing. Refill the list in dman_algo.py and "
+                      "entries resume:\n"
+                    + _macro_calendar_sources(expired)
                 )
                 _save_last_alert(_key)
         elif expiring:
@@ -15581,8 +15602,9 @@ def _macro_calendar_alert(expired: list, expiring: list, today: date) -> None:
                     "\u23f3 <b>Macro calendar runs out soon</b>\n"
                     + ", ".join(f"{_n} ends {_cov[_n][0]} ({_cov[_n][1]}d)"
                                 for _n in expiring)
-                    + f"\n\nWhen it does, entries BLOCK rather than trade blind "
-                      f"through a release. Refill from federalreserve.gov / bls.gov."
+                    + "\n\nWhen it does, entries BLOCK rather than trade blind "
+                      "through a release. Refill from:\n"
+                    + _macro_calendar_sources(expiring)
                 )
                 _save_last_alert(_key)
     except Exception as exc:

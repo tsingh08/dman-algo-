@@ -7764,6 +7764,34 @@ def _dedupe_feature_rows(rows: list) -> list:
     return list(out.values())
 
 
+def _composite_score(confluence: float, ai_score: int) -> tuple:
+    """(score, ai_scored). The score the decision was actually made on.
+
+    final_score was confluence*0.70 + ai_score*10*0.30 unconditionally, and
+    ai_score defaults to 0 -- so with no AI opinion the field became 70% of the
+    confluence score and could never exceed 70.0. Every signal this week logged
+    exactly 70.0 off a raw 100. It is NOT a gate (every threshold compares
+    confluence_score, which is why a 100 still passed a 95 bar), but it is
+    written to every row of the learning dataset, where a field named
+    "final_score" that is 0.7x another field is either collinear noise or an
+    outright misreading waiting to happen.
+
+    With no AI score the composite IS the confluence score -- that is the number
+    the decision used. The weighted blend only applies when there is something
+    to blend. `ai_scored` is returned so the dataset can tell "the AI said this
+    was mediocre" from "the AI never answered", which the old single number
+    could not express.
+    """
+    try:
+        _c = float(confluence or 0)
+        _a = int(ai_score or 0)
+    except (TypeError, ValueError):
+        return 0.0, False
+    if _a <= 0:
+        return round(_c, 1), False
+    return round(_c * 0.70 + _a * 10 * 0.30, 1), True
+
+
 def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = "") -> None:
     """Append one feature row per scored signal. Never raises, never decides."""
     try:
@@ -7777,6 +7805,9 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
             "reject": reject_reason[:60],
             "score": getattr(sig, "confluence_score", 0),
             "final_score": getattr(sig, "final_score", 0),
+            # Distinguishes "the AI rated this low" from "the AI never answered",
+            # which a single blended number cannot express.
+            "ai_scored": bool(getattr(sig, "ai_scored", False)),
             "entry": getattr(sig, "entry", 0), "stop": getattr(sig, "stop", 0),
             "target1": getattr(sig, "target1", 0),
             "rr": getattr(sig, "rr", 0), "rsi": getattr(sig, "rsi", 0),
@@ -13739,7 +13770,8 @@ class ProSignal:
     # Scoring
     confluence_score:  int  = 0   # 0-100
     ai_score:          int  = 0   # 0-10 from Claude
-    final_score:       float = 0.0  # weighted composite
+    final_score:       float = 0.0  # composite the decision used -- see _composite_score()
+    ai_scored:         bool  = False # did the AI actually return a score?
 
     # Filter verdicts
     regime_ok:   bool = False
@@ -19364,9 +19396,10 @@ def score_signal(signal: ProSignal, df: pd.DataFrame,
         vix        = _vix_now,
     )
 
-    # Final weighted score: confluence (70%) + AI score (30%)
-    signal.final_score = round(signal.confluence_score * 0.70 +
-                                signal.ai_score * 10 * 0.30, 1)
+    # Composite the decision actually used: the weighted blend when the AI has
+    # an opinion, the confluence score when it does not. See _composite_score().
+    signal.final_score, signal.ai_scored = _composite_score(
+        signal.confluence_score, signal.ai_score)
 
     return signal
 
@@ -23142,7 +23175,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                 sys.stdout.write("AI score unavailable (API error) — falling back to confluence-only  ")
             else:
                 sig.ai_score = _ai_result
-                sig.final_score = round(sig.confluence_score*0.70 + sig.ai_score*10*0.30, 1)
+                sig.final_score, sig.ai_scored = _composite_score(
+                    sig.confluence_score, sig.ai_score)
                 if sig.ai_score < 6:
                     rejected_counts["low_score"] += 1
                     sys.stdout.write(f"AI score {sig.ai_score}/10 too low\n")

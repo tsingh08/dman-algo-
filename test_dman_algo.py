@@ -22695,3 +22695,61 @@ class TestAFillIsNotAHandOff(unittest.TestCase):
                                        "earnings blackout")
             rows = json.load(io.open(f, encoding="utf-8"))
         self.assertEqual(rows[0]["reject"], "earnings blackout")
+
+
+class TestFinalScoreIsTheScoreTheDecisionUsed(unittest.TestCase):
+    """final_score could never exceed 70.0, and it is in every dataset row.
+
+    It was confluence*0.70 + ai_score*10*0.30 unconditionally, and ai_score
+    defaults to 0 -- so with no AI opinion the field was 70% of the confluence
+    score. Every signal logged this week read exactly 70.0 off a raw 100.
+
+    It is NOT a gate; every threshold compares confluence_score, which is why
+    IOVA's 100 cleared a 95 bar while its final_score said 70. Verified before
+    changing anything: written in two places, read in exactly one (the feature
+    log), and compared by nothing. So this is a data-quality fix, not a
+    behaviour change -- but a field named "final_score" sitting at 0.7x another
+    field is either collinear noise to a model or a misreading waiting to
+    happen, and it misled me twice this week."""
+
+    def test_with_no_ai_score_the_composite_is_the_confluence_score(self):
+        """That is the number the decision was actually made on."""
+        self.assertEqual(a._composite_score(100, 0), (100.0, False))
+        self.assertEqual(a._composite_score(85, 0), (85.0, False))
+
+    def test_it_can_now_exceed_seventy(self):
+        """The specific defect: the old formula capped an unscored signal at 70."""
+        score, _ = a._composite_score(100, 0)
+        self.assertGreater(score, 70.0)
+
+    def test_the_blend_still_applies_when_the_ai_answered(self):
+        self.assertEqual(a._composite_score(100, 8), (94.0, True))
+        self.assertEqual(a._composite_score(100, 3), (79.0, True))
+
+    def test_a_low_ai_score_still_drags_the_composite_down(self):
+        """The blend has to keep working, or this trades one lie for another."""
+        _unscored, _ = a._composite_score(100, 0)
+        _low, _ = a._composite_score(100, 1)
+        self.assertLess(_low, _unscored)
+
+    def test_ai_scored_distinguishes_silence_from_a_low_rating(self):
+        """A single blended number could not express the difference."""
+        self.assertFalse(a._composite_score(100, 0)[1])
+        self.assertTrue(a._composite_score(100, 1)[1])
+
+    def test_garbage_does_not_raise(self):
+        self.assertEqual(a._composite_score(None, "x"), (0.0, False))
+
+    def test_the_flag_reaches_the_dataset(self):
+        """Useless unless the row carries it."""
+        self.assertIn('"ai_scored"', inspect.getsource(a._log_signal_features))
+
+    def test_nothing_gates_on_the_composite(self):
+        """Pinned because that is what made this safe to change. If a threshold
+        ever starts comparing final_score, this fix becomes a behaviour change
+        and needs re-examining."""
+        src = inspect.getsource(a)
+        for pat in ("final_score <", "final_score >", "final_score >=",
+                    "final_score <=", "final_score ==", "< final_score",
+                    "> final_score"):
+            self.assertNotIn(pat, src, f"something now gates on final_score: {pat}")

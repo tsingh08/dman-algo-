@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-01T16:00:13.969768-04:00",
-    "symbols": [
-      "AISP"
-    ],
-    "headline": "Airship AI Holdings Receives $29M Contracts From Department Of Homeland&#39;s Agency",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T16:00:14.458135-04:00",
     "symbols": [
       "ABAT"
@@ -5060,6 +5050,16 @@
     "headline": "ImmunityBio Stock Jumps: What&#39;s Going On?",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T13:52:37.418028-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Saudi-Led Coalition Says It Intercepted And Destroyed Three Ballistic Missiles Launched By Houthis Toward Khamis Mushait",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

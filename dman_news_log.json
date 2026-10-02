@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T13:18:48.406136-04:00",
-    "symbols": [
-      "SDEV"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-01T13:18:48.411251-04:00",
-    "symbols": [
-      "MEDS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-01T13:18:48.415272-04:00",
     "symbols": [
       "BTTC"
@@ -5038,5 +5018,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T10:38:47.948610-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on ON Semiconductor, Raises Price Target to $100",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T10:40:17.888729-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "QUICK SPARK: Nasdaq 100 Rallies to All-Time Highs as Fed Hike Bets Cool",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

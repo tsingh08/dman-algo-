@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:10:40.816669-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:10:41.053230-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:10:41.281658-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T15:10:41.285327-04:00",
     "symbols": [
       "AMZN"
@@ -5049,5 +5019,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T11:57:05.141775-04:00",
+    "symbols": [
+      "GOOGL",
+      "META",
+      "SPCX"
+    ],
+    "headline": "5.6 Million Downloads in Weeks: Meta Muse Outpaces Sorad ChatGPT in Early Rollout",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:00:08.123277-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Reported Oct. 1: Google Cloud Announces Availability Of Spanner Queues For Transactional Messaging In AI Agent Workloads",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:00:11.905573-04:00",
+    "symbols": [
+      "SOC"
+    ],
+    "headline": "JP Morgan Initiates Coverage On Sable Offshore with Overweight Rating, Announces Price Target of $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

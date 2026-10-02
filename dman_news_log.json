@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:20:04.177974-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "NetApp And Supermicro Announce Strategic Collaboration To Deliver Jointly Validated AI Infrastructure For AI Factories, Enterprises, Neoclouds And Sovereign AI Initiatives",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.270708-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Broadcom To Lend Up To $42 Billion To Anthropic For Infrastructure Lease Agreements, According To IPO Prospectus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.274396-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials, BE Semiconductor Industries Announce BE Joins EPIC Center As Innovation Partner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-01T15:20:04.282113-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "What&#39;s Going On With Sandisk Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-01T15:20:04.290492-04:00",
     "symbols": [
       "HOOD"
@@ -5052,5 +5012,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:18:05.630233-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Bought Meta Platforms",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:18:28.438829-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "ON Semiconductor Analyst&#39;s 5 Key Takeaways from Synaptics Acquistion",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-02T12:18:31.188927-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:18:34.309069-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

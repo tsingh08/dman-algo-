@@ -961,5 +961,14 @@
   "drift_pct": 0.64,
   "range_ratio": 0.44,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-10-02T11:05:14.582382-04:00",
+  "ticker": "BSJQ",
+  "price": 22.845,
+  "rvol": 1.86,
+  "drift_pct": 0.09,
+  "range_ratio": 0.42,
+  "near_high": 0.995
  }
 ]

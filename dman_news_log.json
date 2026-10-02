@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-01T15:10:41.285327-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "AWS Says AI Costs Are Falling Up To 100x Every Few Months, Paving Way For Wider Adoption",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-01T15:10:41.496924-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Market Reaction To Micron Earnings And Broadcom Deal Signals A Shift In AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-01T15:10:42.057120-04:00",
     "symbols": [
       "AVGO"
@@ -5049,6 +5029,26 @@
     ],
     "headline": "JP Morgan Initiates Coverage On Sable Offshore with Overweight Rating, Announces Price Target of $10",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-02T12:03:05.097438-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Why Is Rocket Lab Stock Surging on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-02T12:05:51.921954-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "What&#39;s Going On With IREN Stock Friday?",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

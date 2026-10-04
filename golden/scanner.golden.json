@@ -26,7 +26,7 @@
    "    1/1: NVDA     🟢 PASS  score=95",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  1 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 1.9% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -82,7 +82,7 @@
    "    1/1: NVDA     🟢 PASS  score=95",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  1 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 1.9% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -117,7 +117,7 @@
    "    1/1: NVDA     🟢 PASS  score=95",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  1 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 1.9% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -177,7 +177,7 @@
    "    1/1: NVDA     🟢 PASS  score=95",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  1 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 1.9% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -210,7 +210,7 @@
    "    1/1: NVDA     🟢 PASS  score=95",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  1 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 1.9% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -238,7 +238,7 @@
    "    1/1: NVDA     CATALYST BLOCKED (market recap only)",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -267,7 +267,7 @@
    "    1/1: NVDA     REGIME BLOCKED (LONG in BULL)",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -296,7 +296,7 @@
    "    1/1: NVDA     MTF BLOCKED (weekly chart disagrees)",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -325,7 +325,7 @@
    "    1/1: NVDA     EARNINGS BLACKOUT",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -354,7 +354,7 @@
    "    1/1: NVDA     MACRO BLACKOUT (FOMC/NFP)",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -383,7 +383,7 @@
    "    1/1: NVDA     DIVERGENCE DETECTED",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -412,7 +412,7 @@
    "    1/1: NVDA     CHASING EXTENDED HIGHS (already up 25%+ in 10d, near 52wk high, no confirmation)",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 1 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -441,7 +441,7 @@
    "    1/1: NVDA     score 70/100 < 85",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 1 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 1 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -473,7 +473,7 @@
    "    1/1: NVDA     🟢 PASS  score=95",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  1 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 1.9% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -504,7 +504,7 @@
    "    1/1: NVDA       [-5 def-rotation penalty → 83]  score 83/100 < 85",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 1 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 1 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -533,7 +533,7 @@
    "    1/1: NVDA            (early-session gate — Gap & Hold held until HH:MM)",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -544,9 +544,12 @@
   "halts": [],
   "finalized": [],
   "rejects": [
-   ""
+   "",
+   "heat cap 5.9%/6%"
   ],
-  "telegram": [],
+  "telegram": [
+   "🌡 <b>Heat cap blocked 1 passing signal(s)</b>\nNVDA\n\nPortfolio heat 5.9% of the 6% budget is already committed, so these were dropped AFTER passing every gate. Not a market call — close or reduce something to free the budget."
+  ],
   "stdout": [
    "════════════════════════════════════════════════════════════════════",
    "  D🔥man PRO Scanner v3  —  Wednesday Oct 14, 2026",
@@ -563,7 +566,7 @@
    "  🌡  Heat cap 6% reached (5.9% used) — NVDA excluded",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 0 no signal, 0 hard gate, 0 low score, 1 heat cap",
    "  🌡  Portfolio heat used: 5.9% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]
@@ -589,7 +592,7 @@
    "    1/1: NVDA     ",
    "────────────────────────────────────────────────────────────────────",
    "  ✅  0 A+ setup(s) passed all filters",
-   "  ❌  Rejected: 1 no signal, 0 hard gate, 0 low score",
+   "  ❌  Rejected: 1 no signal, 0 hard gate, 0 low score, 0 heat cap",
    "  🌡  Portfolio heat used: 0.0% / 6%",
    "────────────────────────────────────────────────────────────────────"
   ]

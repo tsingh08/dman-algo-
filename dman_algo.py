@@ -22695,6 +22695,79 @@ def _scan_smallcap_pass(_smallcap_extra, include_dynamic_smallcap, signals, tick
 
 
 
+def _heat_cap_alert(n: int, used: float, tickers: list) -> None:
+    """Say it once a day when the heat cap is what stopped a passing signal.
+
+    Deliberately not per-signal and not per-scan: the standing instruction here
+    is fewer, higher-signal messages, and a full budget persists for as long as
+    the positions do. But it has to be SAID. A scanner that passes a signal and
+    then silently discards it is indistinguishable, from the outside, from a
+    market with no setups in it -- and that is the state the account sat in for
+    all of Friday 2026-10-02.
+    """
+    try:
+        _key = "__HEAT_CAP_BLOCK__"
+        if _is_duplicate_alert(_key, cooldown_min=12 * 60):
+            return
+        send_telegram(
+            f"\U0001f321 <b>Heat cap blocked {n} passing signal(s)</b>\n"
+            f"{', '.join(tickers[:6])}\n\n"
+            f"Portfolio heat {used*100:.1f}% of the "
+            f"{PORTFOLIO_HEAT_LIMIT*100:.0f}% budget is already committed, so "
+            f"these were dropped AFTER passing every gate. Not a market call "
+            f"— close or reduce something to free the budget."
+        )
+        _save_last_alert(_key)
+    except Exception as exc:
+        _log_swallowed("heat cap alert", exc)
+
+
+def _resting_stop_prices() -> dict:
+    """{symbol: stop_price} from the fetch _check_stop_coverage() already made.
+
+    No extra REST call: _stop_coverage_fetch_cache holds both the positions and
+    the open orders, and the heat seed runs inside that cache window.
+    """
+    out: dict = {}
+    try:
+        for _o in (_stop_coverage_fetch_cache.get("orders") or []):
+            _sp = getattr(_o, "stop_price", None)
+            if _sp in (None, ""):
+                continue
+            _sym = str(getattr(_o, "symbol", "") or "")
+            if not _sym:
+                continue
+            _px = float(_sp)
+            # Widest resting stop wins: that is the one defining how much this
+            # position can actually lose before something closes it.
+            out[_sym] = min(out[_sym], _px) if _sym in out else _px
+    except Exception as exc:
+        _log_swallowed("resting stop prices", exc)
+    return out
+
+
+def _position_heat_pct(pos, stop_px, eff_account: float) -> float:
+    """What this held position can actually lose, as a fraction of the account.
+
+    _scan_portfolio_heat() charged a flat SMALLCAP_RISK_PCT per position, and
+    its own comment gave the reason: "Alpaca doesn't expose stop_price on
+    positions, so we approximate". That stopped being true on 2026-10-01, when
+    every zone got a resting broker-side catastrophe floor -- the stop price now
+    sits in the orders fetch the heat seed already has in hand.
+
+    The flat guess stays as the fallback, because a position with no resting
+    stop genuinely has unknown downside and 2% is the house per-trade number.
+    """
+    try:
+        _entry = float(getattr(pos, "avg_entry_price", 0) or 0)
+        _qty = abs(float(getattr(pos, "qty", 0) or 0))
+        if stop_px and _entry > 0 and _qty > 0 and eff_account > 0:
+            return max(0.0, (_entry - float(stop_px)) * _qty) / eff_account
+    except (TypeError, ValueError, ZeroDivisionError):
+        pass
+    return SMALLCAP_RISK_PCT
+
+
 def _scan_portfolio_heat(eff_account, total_risk_pct):
     """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
     Returns: total_risk_pct.
@@ -22710,6 +22783,7 @@ def _scan_portfolio_heat(eff_account, total_risk_pct):
         from alpaca.trading.enums import AssetClass
         if eff_account > 0:
             _heat_positions = _check_stop_coverage()
+            _stop_pxs = _resting_stop_prices()
             if _heat_positions:
                 for _hp in _heat_positions.values():
                     # Use (avg_entry_price - stop_price) × qty as risk, not full market_value.
@@ -22722,8 +22796,32 @@ def _scan_portfolio_heat(eff_account, total_risk_pct):
                     # (much smaller, already-defined) premium risk. Options are already
                     # risk-managed separately — trailing stop, milestone alerts — so they
                     # shouldn't also consume the equity heat budget.
+                    #
+                    # Two corrections, 2026-10-03, after a Friday that logged 8
+                    # signals and took none. Measured: three equity positions x
+                    # a flat 2% = 6.00% against a 6.00% limit, so
+                    # `total_risk_pct + trade_risk_pct <= PORTFOLIO_HEAT_LIMIT`
+                    # was false for EVERY candidate however small its own risk.
+                    # WOLF passed every gate (score 100, rr 2.77, BULL regime)
+                    # and died here. A flat per-position charge turns a RISK
+                    # budget into an invisible hard cap on POSITION COUNT.
+                    #
+                    # 1. Breakout zones do not belong in this budget at all.
+                    #    They are capped separately by BZONE_MAX_EXPOSURE_PCT on
+                    #    dollars held, which is the control that actually governs
+                    #    them -- exactly the argument this function already makes
+                    #    for option legs two comments up. Charging both budgets
+                    #    for one position is double counting, and with zones held
+                    #    it spent the entire equity budget on positions the equity
+                    #    budget does not manage.
+                    # 2. For everything else, charge what the position can really
+                    #    lose, from its resting stop. See _position_heat_pct().
                     if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
-                        total_risk_pct += SMALLCAP_RISK_PCT
+                        _sym = str(getattr(_hp, "symbol", "") or "")
+                        if _bzone_entry_on_record(_sym):
+                            continue
+                        total_risk_pct += _position_heat_pct(
+                            _hp, _stop_pxs.get(_sym), eff_account)
     except Exception:
         pass   # if Alpaca unavailable, proceed without existing-position offset
     return total_risk_pct
@@ -23083,7 +23181,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print(f"\n  [2/2] Scanning {len(tickers)} tickers...\n")
 
     signals = []
-    rejected_counts = {"no_signal":0, "hard_gate":0, "low_score":0}
+    rejected_counts = {"no_signal":0, "hard_gate":0, "low_score":0, "heat_cap":0}
     _ticker_scan_start = time.monotonic()
     _ticker_scan_budget = 15 * 60  # 15-min cap on ticker loop (leaves room for universe build + persist)
     _budget_hit = False
@@ -23269,6 +23367,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # calling it again here reuses that cache instead of a second round-trip
     # in the common case (this runs well within that window of the earlier call).
     heat_capped: list[ProSignal] = []
+    _heat_excluded: list[str] = []
     eff_account = get_effective_account()
     total_risk_pct = 0.0
     total_risk_pct = _scan_portfolio_heat(eff_account, total_risk_pct)
@@ -23280,10 +23379,25 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             heat_capped.append(sig)
             total_risk_pct += trade_risk_pct
         else:
+            # This was a stdout-only drop of a signal that had already passed
+            # every gate, so its dataset row kept reject="" and taken=False --
+            # indistinguishable from a signal nothing objected to. WOLF on
+            # 2026-10-02 was exactly that: score 100, every boolean green, no
+            # reason recorded anywhere. The point of the rejection-reason work
+            # is that the BINDING constraint is the one you must be able to see,
+            # and that Friday the heat cap was the binding constraint.
+            rejected_counts["heat_cap"] += 1
+            _heat_excluded.append(sig.ticker)
             sys.stdout.write(
                 f"  🌡  Heat cap {PORTFOLIO_HEAT_LIMIT*100:.0f}% reached "
                 f"({total_risk_pct*100:.1f}% used) — {sig.ticker} excluded\n"
             )
+            _log_signal_features(
+                sig, regime, taken=False,
+                reject_reason=f"heat cap {total_risk_pct*100:.1f}%/"
+                              f"{PORTFOLIO_HEAT_LIMIT*100:.0f}%")
+    if _heat_excluded:
+        _heat_cap_alert(len(_heat_excluded), total_risk_pct, _heat_excluded)
     signals = heat_capped
 
     signals = _apply_sector_concentration_cap(signals)
@@ -23294,7 +23408,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     print(f"  ✅  {len(signals)} A+ setup(s) passed all filters")
     print(f"  ❌  Rejected: {rejected_counts['no_signal']} no signal, "
           f"{rejected_counts['hard_gate']} hard gate, "
-          f"{rejected_counts['low_score']} low score")
+          f"{rejected_counts['low_score']} low score, "
+          f"{rejected_counts['heat_cap']} heat cap")
     print(f"  🌡  Portfolio heat used: {total_risk_pct*100:.1f}% / {PORTFOLIO_HEAT_LIMIT*100:.0f}%")
     print(f"{'─'*68}\n")
 

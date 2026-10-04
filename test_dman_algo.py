@@ -22897,3 +22897,155 @@ class TestTheRefillNagNamesTheRightSource(unittest.TestCase):
         cov = a._macro_calendar_coverage(date(2026, 10, 2))
         self.assertEqual(min(cov, key=lambda n: cov[n][1]), "PCE")
         self.assertEqual(cov["PCE"][0], date(2026, 12, 23))
+
+
+class TestHeatCapIsABudgetNotAPositionCount(unittest.TestCase):
+    """Friday 2026-10-02: 8 signals logged, 0 taken, and no reason anywhere.
+
+    Measured on the live account: _scan_portfolio_heat() charged a flat
+    SMALLCAP_RISK_PCT (2%) per open equity position. Three positions = 6.00%
+    against PORTFOLIO_HEAT_LIMIT 6.00%, so
+
+        total_risk_pct + trade_risk_pct <= PORTFOLIO_HEAT_LIMIT
+
+    was false for EVERY candidate no matter how small its own risk. A risk
+    budget had become an invisible hard cap on position COUNT -- and at three,
+    not the two the user had already asked to remove.
+
+    WOLF died there: Gap & Hold, score 100, rr 2.77, BULL regime, every gate
+    boolean green, seen 21 times between 12:58 and 16:01. Its dataset row read
+    reject="" and taken=false, which is the same thing a signal nothing
+    objected to looks like.
+
+    Two fixes: zones are charged to BZONE_MAX_EXPOSURE_PCT instead (the control
+    that actually governs them, exactly as option legs are already excluded
+    here), and everything else is charged what its resting stop says it can
+    really lose."""
+
+    def _pos(self, sym, entry, qty, cls=None):
+        from alpaca.trading.enums import AssetClass
+        return SimpleNamespace(symbol=sym, avg_entry_price=entry, qty=qty,
+                               asset_class=cls or AssetClass.US_EQUITY)
+
+    def _heat(self, positions, stops, zones=()):
+        with patch.object(a, "_check_stop_coverage",
+                          return_value={p.symbol: p for p in positions}), \
+             patch.object(a, "_resting_stop_prices", return_value=dict(stops)), \
+             patch.object(a, "_bzone_entry_on_record",
+                          side_effect=lambda sym: sym in zones):
+            return a._scan_portfolio_heat(10000.0, 0.0)
+
+    # --- the defect itself --------------------------------------------------
+    def test_three_zones_no_longer_exhaust_the_equity_budget(self):
+        """The exact live configuration that blocked Friday."""
+        pos = [self._pos("IOVA", 14.17, 17), self._pos("PGEN", 8.5872, 29),
+               self._pos("RSKD", 8.0367, 31)]
+        stops = {"IOVA": 9.21, "PGEN": 5.58, "RSKD": 5.22}
+        heat = self._heat(pos, stops, zones={"IOVA", "PGEN", "RSKD"})
+        self.assertEqual(heat, 0.0)
+        self.assertLess(heat, a.PORTFOLIO_HEAT_LIMIT)
+
+    def test_a_passing_signal_fits_again(self):
+        """Headroom is the point; 0% seeded means a real trade is admissible."""
+        pos = [self._pos("IOVA", 14.17, 17)]
+        heat = self._heat(pos, {"IOVA": 9.21}, zones={"IOVA"})
+        self.assertTrue(heat + (40.0 / 10000.0) <= a.PORTFOLIO_HEAT_LIMIT)
+
+    def test_position_count_alone_no_longer_decides(self):
+        """Six tightly-stopped positions must cost less than three loose ones.
+        Under the flat charge the count was the only input."""
+        tight = [self._pos(f"T{i}", 100.0, 1) for i in range(6)]
+        loose = [self._pos(f"L{i}", 100.0, 1) for i in range(3)]
+        h_tight = self._heat(tight, {f"T{i}": 99.0 for i in range(6)})
+        h_loose = self._heat(loose, {f"L{i}": 50.0 for i in range(3)})
+        self.assertLess(h_tight, h_loose)
+
+    # --- what must NOT change ----------------------------------------------
+    def test_a_real_gap_and_hold_is_still_charged(self):
+        """Only zones leave this budget. A Gap & Hold still consumes it, or the
+        fix would have removed the control instead of correcting it."""
+        pos = [self._pos("AAA", 100.0, 10)]
+        # (100-90) x 10 = $100 of risk on a $10,000 account = 1%.
+        self.assertAlmostEqual(self._heat(pos, {"AAA": 90.0}), 0.01, places=6)
+
+    def test_a_stopless_position_still_costs_the_flat_rate(self):
+        """Unknown downside is not zero downside."""
+        pos = [self._pos("AAA", 100.0, 10)]
+        self.assertAlmostEqual(self._heat(pos, {}), a.SMALLCAP_RISK_PCT, places=6)
+
+    def test_options_remain_excluded(self):
+        from alpaca.trading.enums import AssetClass
+        pos = [self._pos("AAA260101C00100000", 5.0, 1, cls=AssetClass.US_OPTION)]
+        self.assertEqual(self._heat(pos, {}), 0.0)
+
+    def test_zones_are_still_capped_by_their_own_budget(self):
+        """Pinned together. Excluding zones here is only defensible because
+        BZONE_MAX_EXPOSURE_PCT still bounds them; if that went away this would
+        become an uncapped book."""
+        self.assertGreater(a.BZONE_MAX_EXPOSURE_PCT, 0)
+        self.assertLessEqual(a.BZONE_MAX_EXPOSURE_PCT, 0.60)
+
+    # --- the silence --------------------------------------------------------
+    def test_a_heat_capped_signal_records_its_reason(self):
+        """WOLF's row said nothing at all."""
+        self.assertIn("heat cap", inspect.getsource(a.run_pro_scanner))
+
+    def test_the_heat_reason_reaches_the_dataset(self):
+        src = inspect.getsource(a.run_pro_scanner)
+        i = src.index('rejected_counts["heat_cap"] += 1')
+        self.assertIn("_log_signal_features", src[i:i + 700])
+
+    def test_the_block_is_announced_once_not_per_signal(self):
+        """Fewer, higher-signal messages: a full budget persists for as long as
+        the positions do, so this is a daily condition, not a per-scan event."""
+        sent = []
+        with patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            a._heat_cap_alert(3, 0.06, ["WOLF", "ON", "VSH"])
+        self.assertEqual(len(sent), 1)
+        self.assertIn("WOLF", sent[0])
+
+    def test_the_alert_says_it_is_not_a_market_call(self):
+        """The failure mode this guards is reading an empty book as 'no setups'."""
+        sent = []
+        with patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            a._heat_cap_alert(1, 0.06, ["WOLF"])
+        self.assertIn("not a market call", sent[0].lower())
+
+    def test_the_alert_is_deduped(self):
+        with patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_is_duplicate_alert", return_value=True):
+            a._heat_cap_alert(3, 0.06, ["WOLF"])
+        tg.assert_not_called()
+
+    # --- the stop map -------------------------------------------------------
+    def test_the_widest_resting_stop_is_the_one_that_counts(self):
+        """Two stops on one symbol means the lower one is what can still fire."""
+        orders = [SimpleNamespace(symbol="AAA", stop_price=9.0),
+                  SimpleNamespace(symbol="AAA", stop_price=12.0)]
+        with patch.dict(a._stop_coverage_fetch_cache, {"orders": orders}):
+            self.assertEqual(a._resting_stop_prices()["AAA"], 9.0)
+
+    def test_non_stop_orders_are_ignored(self):
+        orders = [SimpleNamespace(symbol="AAA", stop_price=None),
+                  SimpleNamespace(symbol="BBB", stop_price=5.0)]
+        with patch.dict(a._stop_coverage_fetch_cache, {"orders": orders}):
+            self.assertEqual(a._resting_stop_prices(), {"BBB": 5.0})
+
+    def test_the_stop_map_costs_no_extra_rest_call(self):
+        """It reads the fetch _check_stop_coverage() already made."""
+        self.assertIn("_stop_coverage_fetch_cache",
+                      inspect.getsource(a._resting_stop_prices))
+
+    def test_a_stop_above_entry_is_not_negative_risk(self):
+        """A ratcheted stop in profit must not credit the budget."""
+        pos = self._pos("AAA", 100.0, 10)
+        self.assertEqual(a._position_heat_pct(pos, 110.0, 10000.0), 0.0)
+
+    def test_garbage_falls_back_rather_than_raising(self):
+        pos = SimpleNamespace(symbol="AAA", avg_entry_price="x", qty=None)
+        self.assertEqual(a._position_heat_pct(pos, 9.0, 10000.0),
+                         a.SMALLCAP_RISK_PCT)

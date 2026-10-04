@@ -7792,6 +7792,25 @@ def _composite_score(confluence: float, ai_score: int) -> tuple:
     return round(_c * 0.70 + _a * 10 * 0.30, 1), True
 
 
+# The fields of a feature row that describe ONE decision, as opposed to the
+# row's identity (ts/date/ticker/setup) or its aggregates (seen, last_ts,
+# entry_min/max, taken, label_*). Added 2026-10-03.
+#
+# Why: the upsert refreshed `reject` from each later scan pass but left every
+# other field at the FIRST sighting, so a row was a blend of two moments.
+# Friday 2026-10-02 shipped PSI with earnings_ok=true AND
+# reject="earnings blackout" -- the boolean from 14:50, the reason from 15:50.
+# A model trained on that learns that the earnings gate rejects signals the
+# earnings gate approved. Whatever moment the reject reason comes from, the rest
+# of the row now comes from the same one.
+_SIGNAL_DECISION_FIELDS = (
+    "reject", "score", "final_score", "ai_scored", "entry", "stop", "target1",
+    "rr", "rsi", "rvol", "atr", "beta", "catalyst_tier", "news_boost",
+    "regime", "regime_score", "mtf_ok", "regime_ok", "earnings_ok", "macro_ok",
+    "divergence_free", "breakdown",
+)
+
+
 def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = "") -> None:
     """Append one feature row per scored signal. Never raises, never decides."""
     try:
@@ -7864,7 +7883,16 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
                 # gate, the score floor and AI scoring have even run, so the
                 # first reason it can give is necessarily incomplete. Whatever
                 # actually stopped the signal is what belongs in the dataset.
-                _hit["reject"] = reject_reason[:60]
+                #
+                # The whole decision moves together. Updating `reject` alone
+                # left the gate booleans, the score and the breakdown at the
+                # first sighting, and PSI on 2026-10-02 was logged
+                # earnings_ok=true with reject="earnings blackout" -- the
+                # boolean from 14:50, the reason from 15:50, presented as one
+                # observation. See _SIGNAL_DECISION_FIELDS.
+                for _f in _SIGNAL_DECISION_FIELDS:
+                    if _f in _row:
+                        _hit[_f] = _row[_f]
         _write_json_atomic(SIGNAL_FEATURES_FILE, _log[-SIGNAL_FEATURES_MAX:], indent=0)
     except Exception as exc:
         _log_swallowed("signal features", exc)

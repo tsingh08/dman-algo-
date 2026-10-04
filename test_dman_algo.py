@@ -23049,3 +23049,133 @@ class TestHeatCapIsABudgetNotAPositionCount(unittest.TestCase):
         pos = SimpleNamespace(symbol="AAA", avg_entry_price="x", qty=None)
         self.assertEqual(a._position_heat_pct(pos, 9.0, 10000.0),
                          a.SMALLCAP_RISK_PCT)
+
+
+class TestAFeatureRowDescribesOneMoment(unittest.TestCase):
+    """PSI shipped with earnings_ok=true AND reject="earnings blackout".
+
+    From the live file on 2026-10-02: the boolean was written at 14:50 (the
+    provisional up-front log, before the gates run) and the reason at 15:50. The
+    upsert refreshed `reject` from each later pass but left every other field at
+    the first sighting, so the row presented two different moments as one
+    observation.
+
+    This is not cosmetic. These rows are the learning dataset. A model reading
+    them learns that the earnings gate rejects signals the earnings gate
+    approved, and a human reading them -- as I did twice this week -- draws the
+    wrong conclusion about which gate is binding."""
+
+    def setUp(self):
+        self._tmp = tempfile.mkdtemp()
+        self._f = os.path.join(self._tmp, "feat.json")
+        self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
+        self._p.start()
+
+    def tearDown(self):
+        self._p.stop()
+        import shutil as _sh
+        _sh.rmtree(self._tmp, ignore_errors=True)
+
+    def _sig(self, **kw):
+        base = dict(ticker="PSI", setup="Gap & Hold", bias="LONG",
+                    confluence_score=100, final_score=100.0, ai_scored=False,
+                    entry=161.28, stop=158.34, target1=168.63, rr=2.5, rsi=92.0,
+                    rvol=3.45, atr=4.83, beta=1.0, catalyst_tier="",
+                    news_boost=False, mtf_ok=True, regime_ok=True,
+                    earnings_ok=True, macro_ok=True, divergence_free=True,
+                    score_breakdown={"Regime": 15})
+        base.update(kw)
+        return SimpleNamespace(**base)
+
+    def _rows(self):
+        with open(self._f) as fh:
+            return json.load(fh)
+
+    def test_the_psi_contradiction_cannot_be_written(self):
+        """The exact live row. First pass sees earnings_ok=True (the up-front
+        log); a later pass rejects on earnings. The row must not keep both."""
+        regime = {"regime": "BULL", "score": 15}
+        a._log_signal_features(self._sig(), regime, taken=False, reject_reason="")
+        a._log_signal_features(self._sig(earnings_ok=False), regime,
+                               taken=False, reject_reason="earnings blackout")
+        row = self._rows()[-1]
+        self.assertEqual(row["reject"], "earnings blackout")
+        self.assertFalse(row["earnings_ok"],
+                         "reject says earnings, boolean still says it passed")
+
+    def test_the_whole_decision_moves_together(self):
+        """Not just the booleans -- score, regime and breakdown too, or the row
+        still mixes moments."""
+        a._log_signal_features(self._sig(), {"regime": "CHOP", "score": 5},
+                               taken=False, reject_reason="")
+        a._log_signal_features(
+            self._sig(confluence_score=61, final_score=61.0, mtf_ok=False,
+                      score_breakdown={"Regime": 2}),
+            {"regime": "BULL", "score": 15}, taken=False,
+            reject_reason="mtf: weekly disagrees")
+        row = self._rows()[-1]
+        self.assertEqual(row["score"], 61)
+        self.assertFalse(row["mtf_ok"])
+        self.assertEqual(row["regime"], "BULL")
+        self.assertEqual(row["breakdown"], {"Regime": 2})
+
+    def test_the_first_sighting_still_anchors_identity(self):
+        """ts is the live decision point the replay labeller works from; it must
+        NOT jump forward to the last re-score."""
+        regime = {"regime": "BULL", "score": 15}
+        a._log_signal_features(self._sig(), regime, taken=False, reject_reason="")
+        first_ts = self._rows()[-1]["ts"]
+        a._log_signal_features(self._sig(), regime, taken=False,
+                               reject_reason="heat cap 6.0%/6%")
+        row = self._rows()[-1]
+        self.assertEqual(row["ts"], first_ts)
+        self.assertGreaterEqual(row["last_ts"], first_ts)
+
+    def test_the_aggregates_are_not_overwritten(self):
+        """seen and the entry drift are the only things the later copies add."""
+        regime = {"regime": "BULL", "score": 15}
+        a._log_signal_features(self._sig(entry=161.28), regime, taken=False,
+                               reject_reason="")
+        a._log_signal_features(self._sig(entry=165.00), regime, taken=False,
+                               reject_reason="heat cap 6.0%/6%")
+        row = self._rows()[-1]
+        self.assertEqual(row["seen"], 2)
+        self.assertEqual(row["entry_min"], 161.28)
+        self.assertEqual(row["entry_max"], 165.00)
+
+    def test_a_taken_signal_is_still_never_given_a_reason(self):
+        """The taken branch wins and must stay ahead of this refresh -- a filled
+        signal has no rejection, whatever a later scan pass thinks."""
+        regime = {"regime": "BULL", "score": 15}
+        a._log_signal_features(self._sig(), regime, taken=True, reject_reason="")
+        a._log_signal_features(self._sig(earnings_ok=False), regime,
+                               taken=False, reject_reason="earnings blackout")
+        row = self._rows()[-1]
+        self.assertTrue(row["taken"])
+        self.assertEqual(row["reject"], "")
+
+    def test_labels_survive_the_refresh(self):
+        """Replay-computed outcomes are not decision fields and must not be
+        clobbered by a later re-score."""
+        regime = {"regime": "BULL", "score": 15}
+        a._log_signal_features(self._sig(), regime, taken=False, reject_reason="")
+        rows = self._rows()
+        rows[-1]["label_outcome"] = "WIN"
+        with open(self._f, "w") as fh:
+            json.dump(rows, fh)
+        a._log_signal_features(self._sig(), regime, taken=False,
+                               reject_reason="heat cap 6.0%/6%")
+        self.assertEqual(self._rows()[-1]["label_outcome"], "WIN")
+
+    def test_no_decision_field_is_an_aggregate(self):
+        """Pins the split. If an aggregate ever lands in the decision list it
+        would be reset on every re-score, silently losing the drift history."""
+        for _f in ("ts", "date", "ticker", "setup", "seen", "last_ts",
+                   "entry_min", "entry_max", "taken"):
+            self.assertNotIn(_f, a._SIGNAL_DECISION_FIELDS)
+
+    def test_every_decision_field_is_actually_written(self):
+        """A name here that the row never carries would be dead config."""
+        src = inspect.getsource(a._log_signal_features)
+        for _f in a._SIGNAL_DECISION_FIELDS:
+            self.assertIn(f'"{_f}"', src, f"{_f} is not a row field")

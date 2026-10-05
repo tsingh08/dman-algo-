@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:06.854586-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T11:04:06.964095-04:00",
     "symbols": [
       "XOM"
@@ -5037,5 +5027,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:15:40.803111-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Cerebras Vs. Nvidia Is Becoming an Inference Fight, Not a Chip Fight",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

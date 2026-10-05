@@ -36574,7 +36574,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "pre-9:45 gate",
+"reject": "mtf: weekly disagrees",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -36590,17 +36590,17 @@
 "news_boost": false,
 "regime": "BULL",
 "regime_score": 15,
-"mtf_ok": true,
+"mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
 "Regime": 15,
-"MTF": 10,
+"MTF": 8,
 "Rel Strength": 10,
 "Sector": 10,
-"Sector ETF": 8,
+"Sector ETF": 4,
 "AI Theme": 0,
 "Insider": 0,
 "Earnings": 5,
@@ -36624,8 +36624,8 @@
 "Gap Size": 3,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-10-05T09:26:09.279101-04:00",
+"seen": 4,
+"last_ts": "2026-10-05T09:32:24.276580-04:00",
 "entry_min": 35.28,
 "entry_max": 35.28
 },
@@ -36659,7 +36659,7 @@
 "divergence_free": true,
 "breakdown": {
 "Regime": 15,
-"MTF": 10,
+"MTF": 12,
 "Rel Strength": 15,
 "Sector": 6,
 "Sector ETF": 0,
@@ -36686,8 +36686,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-10-05T09:26:12.642377-04:00",
+"seen": 4,
+"last_ts": "2026-10-05T09:32:25.516414-04:00",
 "entry_min": 7.48,
 "entry_max": 7.48
 },
@@ -36698,7 +36698,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "pre-9:45 gate",
+"reject": "mtf: weekly disagrees",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -36714,14 +36714,14 @@
 "news_boost": false,
 "regime": "BULL",
 "regime_score": 15,
-"mtf_ok": true,
+"mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
 "Regime": 15,
-"MTF": 10,
+"MTF": 8,
 "Rel Strength": 10,
 "Sector": 6,
 "Sector ETF": 0,
@@ -36748,8 +36748,8 @@
 "Gap Size": 3,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-10-05T09:26:14.739188-04:00",
+"seen": 4,
+"last_ts": "2026-10-05T09:32:25.933987-04:00",
 "entry_min": 38.18,
 "entry_max": 38.18
 },
@@ -36783,7 +36783,7 @@
 "divergence_free": true,
 "breakdown": {
 "Regime": 15,
-"MTF": 10,
+"MTF": 14,
 "Rel Strength": 10,
 "Sector": 6,
 "Sector ETF": 0,
@@ -36810,8 +36810,8 @@
 "Gap Size": 3,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-10-05T09:26:16.388026-04:00",
+"seen": 4,
+"last_ts": "2026-10-05T09:32:26.084605-04:00",
 "entry_min": 61.36,
 "entry_max": 61.36
 }

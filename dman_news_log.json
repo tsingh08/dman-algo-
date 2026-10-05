@@ -1,119 +1,5 @@
 [
   {
-    "ts": "2026-10-02T10:52:33.262790-04:00",
-    "symbols": [
-      "SOC"
-    ],
-    "headline": "5 Stock Picks Last Month From Wall Street's Most Accurate Analysts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T10:52:33.266565-04:00",
-    "symbols": [
-      "CTVA"
-    ],
-    "headline": "Stock Market Today: S&P 500, Dow Jones Futures Gain as September Jobs Report Misses Expectations\u2014 Nike, Synaptics, Corteva in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T10:52:33.290170-04:00",
-    "symbols": [
-      "CTVA"
-    ],
-    "headline": "Nike, Corteva, Mattel, Accenture and Coherent: Why These 5 Stocks Are on Investors' Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T10:54:46.387411-04:00",
-    "symbols": [
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Fed Hike Odds Collapse to 16% on Prediction Markets After Soft Jobs Report",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T10:59:56.735344-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Watching Palantir Technologies; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:00:23.237320-04:00",
-    "symbols": [
-      "CRWD",
-      "NVDA"
-    ],
-    "headline": "CoreWeave Unleashes Nvidia&#39;s Vera Rubin, Analyst Sees Room to Run",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:00:24.266631-04:00",
-    "symbols": [
-      "MSFT",
-      "NFLX"
-    ],
-    "headline": "Louisiana Rep. Cleo Fields Bought Up to $75K Worth of Alphabet Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:00:24.289489-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Ohio Rep. David Taylor Bought Up to $45K Worth of Amgen Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:00:24.573521-04:00",
-    "symbols": [
-      "JPM",
-      "NVDA"
-    ],
-    "headline": "This Senator Just Sold Up To $145K In JPMorgan Chase Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:00:29.843995-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:00:30.082859-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T11:00:30.341946-04:00",
     "symbols": [
       "META"
@@ -5052,6 +4938,116 @@
     "headline": "Alpha Modus Discloses That U.S. District Court In East Texas Denied Kroger&#39;s Motion To Dismiss Addressing Infringement And Creative Realities&#39; Motion Challenging The Venue",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:43:18.884561-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Democratic Lawmakers Urge Federal Aviation Administration To Require U.S. Airlines Carry Epinephrine On All Flights For Medical Emergencies",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:10.166838-04:00",
+    "symbols": [
+      "BEAT"
+    ],
+    "headline": "US Stocks Mixed; Nasdaq Gains Over 50 Points",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:10.170421-04:00",
+    "symbols": [
+      "BEAT"
+    ],
+    "headline": "HeartBeam Receives FDA Breakthrough Device Designation For Its HeartBeam System For Assessing Potential Heart Attacks At Home",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:10.177412-04:00",
+    "symbols": [
+      "PTC"
+    ],
+    "headline": "US Stocks Mixed; Nasdaq Gains Over 50 Points",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:10.353563-04:00",
+    "symbols": [
+      "RETO"
+    ],
+    "headline": "Why PTC Shares Are Trading Higher By Around 35%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:10.505592-04:00",
+    "symbols": [
+      "EDVA"
+    ],
+    "headline": "Endovia Health Sciences And Lupvindol BioSciences Receives FDA Determination That Proposed Use Of Cannepi For Control Of Pain Associated With Bone Cancer In Dogs Qualifies As &#39;Minor Use&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:10.683495-04:00",
+    "symbols": [
+      "NMTC"
+    ],
+    "headline": "NeuroOne Medical Technologies Reports Preliminary Q4 Sales ~$3.8M , Up 38.4% YoY; Sees FY26 Sales Of ~$10.5M, Up 15.6% YoY; Includes September Purchase Order Of $4.5M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:10.869616-04:00",
+    "symbols": [
+      "VTVT"
+    ],
+    "headline": "vTv Therapeutics Completes Enrollment In Its Phase 3 Cadisegliatin As Adjunctive Therapy In Type 1 Diabetes Trial",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:11.256082-04:00",
+    "symbols": [
+      "APT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:11.476203-04:00",
+    "symbols": [
+      "EMQQ"
+    ],
+    "headline": "Why Is MercadoLibre Stock Surging Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:17.584596-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA S&amp;P Global Services PMI For September\u00a058.8 Vs 58.7 Est.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

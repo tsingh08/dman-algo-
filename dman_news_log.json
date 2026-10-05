@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:37:06.822117-04:00",
-    "symbols": [
-      "PENG"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:37:07.095053-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "Blue Owl Investors Seek to Pull 39% From $5B Tech Credit Fund",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:37:07.100784-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "&#39;Blue Owl Again Caps Two BDCs After 39%, 17% Withdrawal Requests&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T15:37:07.105120-04:00",
     "symbols": [
       "OWL"
@@ -5065,5 +5035,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:49:02.718005-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Unity Stock Climbs: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-05T14:51:54.311252-04:00",
+    "symbols": [
+      "AVGO",
+      "MU",
+      "NVDA"
+    ],
+    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:52:07.439371-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Unity Stock Climbs: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

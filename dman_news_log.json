@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:23:22.010149-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Live On CNBC, Malcolm Ethridge Announces Bought More Goldman Sachs Group; Bought More Morgan Stanley",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:24:56.502945-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Live On CNBC, Stephanie Link Announces Bought Meta Platforms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:24:58.394335-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T12:24:58.994186-04:00",
     "symbols": [
       "ON"
@@ -5040,5 +5010,43 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:16:25.858719-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "AMZN",
+      "AVGO",
+      "META",
+      "NVDA",
+      "QCOM"
+    ],
+    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:16:39.919259-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT",
+      "SPCX"
+    ],
+    "headline": "Microsoft Could Be SpaceX&#39;s Next Big AI Customer: Bernstein Sees AI Revenue Surging Nearly 500%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:18:26.932698-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta\u2019s Next Big Growth Engine or Costly AI Trap? Wall Street Is Split",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

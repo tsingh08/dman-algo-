@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:10.486923-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:04:10.491678-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Fed Hike Odds Collapse to 16% on Prediction Markets After Soft Jobs Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:04:10.623368-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:04:10.765451-04:00",
-    "symbols": [
-      "AMOD"
-    ],
-    "headline": "Dow Jumps Over 300 Points; US Economy Adds 29,000 Jobs In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T11:04:10.770251-04:00",
     "symbols": [
       "AMOD"
@@ -5035,6 +4995,46 @@
     ],
     "headline": "Brazilian Stocks Rally 14%, Eye Best Day Since 2020 After Bolsonaro&#39;s First-Round Victory",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:32:21.805021-04:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "Brazilian Stocks Rally 14%, Eye Best Day Since 2020 After Bolsonaro&#39;s First-Round Victory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:32:21.808848-04:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:32:23.715981-04:00",
+    "symbols": [
+      "ABEV"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:32:34.268333-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard To Resell Rezolve AI Software Worldwide",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

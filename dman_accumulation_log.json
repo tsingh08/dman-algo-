@@ -1132,5 +1132,59 @@
   "drift_pct": 0.2,
   "range_ratio": 0.26,
   "near_high": 0.96
+ },
+ {
+  "ts": "2026-10-05T15:37:33.652991-04:00",
+  "ticker": "DBCA",
+  "price": 10.04,
+  "rvol": 11.9,
+  "drift_pct": 0.15,
+  "range_ratio": 0.32,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-10-05T15:37:33.653002-04:00",
+  "ticker": "CGUI",
+  "price": 25.21,
+  "rvol": 2.71,
+  "drift_pct": 0.08,
+  "range_ratio": 0.18,
+  "near_high": 0.993
+ },
+ {
+  "ts": "2026-10-05T15:37:33.653006-04:00",
+  "ticker": "TAFI",
+  "price": 24.635,
+  "rvol": 1.87,
+  "drift_pct": 0.59,
+  "range_ratio": 0.52,
+  "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-05T15:37:33.653010-04:00",
+  "ticker": "UITB",
+  "price": 44.645,
+  "rvol": 1.98,
+  "drift_pct": 0.13,
+  "range_ratio": 0.26,
+  "near_high": 0.961
+ },
+ {
+  "ts": "2026-10-05T15:37:33.653014-04:00",
+  "ticker": "HYEM",
+  "price": 19.305,
+  "rvol": 1.64,
+  "drift_pct": 0.95,
+  "range_ratio": 0.64,
+  "near_high": 0.959
+ },
+ {
+  "ts": "2026-10-05T15:37:33.653017-04:00",
+  "ticker": "CAM",
+  "price": 24.115,
+  "rvol": 2.29,
+  "drift_pct": 0.56,
+  "range_ratio": 0.36,
+  "near_high": 0.963
  }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:16:16.872067-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T11:16:18.318273-04:00",
     "symbols": [
       "CYPH"
@@ -5043,5 +5033,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T11:18:10.210790-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop shares are trading higher after CEO Ryan Cohen reported an` open market purchase of 700,000 Class A shares at $24.4061 per share.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

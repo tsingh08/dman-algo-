@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T14:50:05.183159-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Goldman Sachs Maintains Neutral on Nike, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-02T14:50:05.320291-04:00",
     "symbols": [
       "SSM"
@@ -5054,5 +5044,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:47:22.789973-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Says It Is Expanding Its Approach To Content Provenance To Include Text In Response To EU Regulatory Requirements",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

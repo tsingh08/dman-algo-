@@ -36822,7 +36822,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "earnings blackout",
+"reject": "chasing extended highs",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -36840,7 +36840,7 @@
 "regime_score": 15,
 "mtf_ok": true,
 "regime_ok": true,
-"earnings_ok": false,
+"earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
@@ -36851,7 +36851,7 @@
 "Sector ETF": 0,
 "AI Theme": 0,
 "Insider": 0,
-"Earnings": 0,
+"Earnings": 5,
 "Macro": 5,
 "Earn React": 0,
 "Fibonacci": 0,
@@ -36872,8 +36872,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 10,
-"last_ts": "2026-10-05T13:46:13.023405-04:00",
+"seen": 12,
+"last_ts": "2026-10-05T13:47:35.838393-04:00",
 "entry_min": 28.48,
 "entry_max": 28.63
 },
@@ -36934,8 +36934,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 7,
-"last_ts": "2026-10-05T13:46:13.664990-04:00",
+"seen": 8,
+"last_ts": "2026-10-05T13:47:36.460049-04:00",
 "entry_min": 11.55,
 "entry_max": 11.88
 },
@@ -36996,8 +36996,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 6,
-"last_ts": "2026-10-05T13:46:13.977106-04:00",
+"seen": 7,
+"last_ts": "2026-10-05T13:47:36.797008-04:00",
 "entry_min": 43.03,
 "entry_max": 43.22
 },
@@ -37058,8 +37058,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 4,
-"last_ts": "2026-10-05T13:46:13.340812-04:00",
+"seen": 5,
+"last_ts": "2026-10-05T13:47:36.140373-04:00",
 "entry_min": 9.9,
 "entry_max": 9.97
 },
@@ -37120,8 +37120,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 4,
-"last_ts": "2026-10-05T13:46:13.192298-04:00",
+"seen": 5,
+"last_ts": "2026-10-05T13:47:35.996517-04:00",
 "entry_min": 4.35,
 "entry_max": 4.36
 },
@@ -37182,8 +37182,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 4,
-"last_ts": "2026-10-05T13:46:14.429290-04:00",
+"seen": 5,
+"last_ts": "2026-10-05T13:47:37.327841-04:00",
 "entry_min": 3.29,
 "entry_max": 3.29
 },
@@ -37244,8 +37244,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 4,
-"last_ts": "2026-10-05T13:46:14.267582-04:00",
+"seen": 5,
+"last_ts": "2026-10-05T13:47:37.162818-04:00",
 "entry_min": 24.55,
 "entry_max": 24.55
 }

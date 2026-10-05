@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-02T14:56:12.521335-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Shares of AI cloud services companies are trading higher amid catalysts including Broadcom&#39;s plans to finance up to $60 billion to provide chips for Anthropic  and reports suggesting Samsung may raise HBM prices threefold in 2027, both of which support strong demand for compute. Also, a pullback in Fed rate hike bets provides a tailwind for growth-oriented stocks.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:57:51.013391-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Former Tesla President Says Car Sales Are Funding the Longer Road to Robots and Cybercabs",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T15:00:48.095470-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Joint U.S.-Ukrainian Reconstruction Investment Fund Has Sealed Its First Critical Minerals Deal Alongside Four Other New Projects",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:01:10.576080-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Exploring The Competitive Space: Apple Versus Industry Peers In Technology Hardware, Storage &amp; Peripherals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:01:11.500159-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Reported Earlier, &#39;Samsung to Triple HBM Prices Next Year&#39; - MK Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:01:26.912862-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Is Planet Labs Stock Gaining Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:02:37.210418-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Shares of data center infrastructure-related companies are higher amid catalysts including Broadcom&#39;s plans to finance up to $60 billion of chips for Anthropic and reports suggesting Samsung may raise HBM prices threefold in 2027, both of which support strong demand the AI buildout. Also, a pullback in Fed rate hike bets provides a tailwind for highly leveraged, interest rate-exposed stocks.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:09:37.823768-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Says FDA Approves Additional Indication For Jaypirca, Non-Covalent BTK Inhibitor, For Treatment Of Adult Patients With Previously Untreated Chronic Lymphocytic Leukemia Or Small Lymphocytic Lymphoma",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:10:15.211943-04:00",
-    "symbols": [
-      "ALGM"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T15:10:15.215663-04:00",
     "symbols": [
       "ALGM"
@@ -5058,5 +4968,98 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:17:23.927570-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:17:57.924101-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:17:58.084962-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:17:58.234899-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:17:58.239962-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:17:58.311411-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:17:58.319096-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:17:59.095948-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-05T14:17:59.993974-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,191 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:25:06.942683-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Nike Is Still Searching for Its Turnaround As Wall Street Sees Another Tough Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T12:25:07.410678-04:00",
-    "symbols": [
-      "NOC"
-    ],
-    "headline": "RBC Capital Downgrades Northrop Grumman to Sector Perform, Lowers Price Target to $525",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:31:46.677152-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Stock Dips Post Q3 Production and Delivery Report",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:32:23.421725-04:00",
-    "symbols": [
-      "HYFM"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:32:23.499849-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:32:23.604522-04:00",
-    "symbols": [
-      "MGRX"
-    ],
-    "headline": "Stock Market Today: S&P 500, Dow Jones Futures Gain as September Jobs Report Misses Expectations\u2014 Nike, Synaptics, Corteva in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:32:23.609344-04:00",
-    "symbols": [
-      "MGRX"
-    ],
-    "headline": "Mangoceuticals (MGRX) Shares Fall 12% After Hours: Here's Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:32:23.678329-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:32:23.767300-04:00",
-    "symbols": [
-      "NCT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:32:23.841501-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:32:23.944269-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:32:24.080963-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell & Bloom Energy Join List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:32:25.441163-04:00",
-    "symbols": [
-      "SYNA"
-    ],
-    "headline": "ON Semiconductor Analyst's 5 Key Takeaways from Synaptics Acquistion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:41:30.230048-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Stock Dips Post Q3 Production and Delivery Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:44:47.374581-04:00",
-    "symbols": [
-      "GOOGL",
-      "NFLX"
-    ],
-    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T12:52:39.302591-04:00",
-    "symbols": [
-      "DIA",
-      "IWM",
-      "NVDA",
-      "ON",
-      "QQQ",
-      "SPCX"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:54:02.962323-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Deliveries Jump 46%, but Outlook Stays Unchanged",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:54:30.948988-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T12:54:31.220468-04:00",
     "symbols": [
       "GOOGL"
@@ -5052,5 +4866,187 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:29:13.715860-04:00",
+    "symbols": [
+      "CEG",
+      "META",
+      "VST"
+    ],
+    "headline": "Vistra Gets $4.2B Federal Loan to Add Nuclear Power Meta Already Bought",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:29:37.557945-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:29:37.740595-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Could Be SpaceX&#39;s Next Big AI Customer: Bernstein Sees AI Revenue Surging Nearly 500%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:29:37.915213-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:29:38.092139-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:29:38.485790-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Vistra Gets $4.2B Federal Loan to Add Nuclear Power Meta Already Bought",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:29:38.489344-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:29:38.656760-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Microsoft Could Be SpaceX&#39;s Next Big AI Customer: Bernstein Sees AI Revenue Surging Nearly 500%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:29:38.818092-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:29:39.659827-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-05T12:29:42.180257-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Vistra Gets $4.2B Federal Loan to Add Nuclear Power Meta Already Bought",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:29:42.613958-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Vistra Gets $4.2B Federal Loan to Add Nuclear Power Meta Already Bought",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:29:43.131284-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan\u2019s October Stock Picks Hint at 3 ETF Trades: Value, AI Power, Health Care",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:29:43.423204-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "JPMorgan\u2019s October Stock Picks Hint at 3 ETF Trades: Value, AI Power, Health Care",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:29:43.550733-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "JPMorgan\u2019s October Stock Picks Hint at 3 ETF Trades: Value, AI Power, Health Care",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:29:43.843104-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "JPMorgan\u2019s October Stock Picks Hint at 3 ETF Trades: Value, AI Power, Health Care",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:29:44.830737-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "JPMorgan\u2019s October Stock Picks Hint at 3 ETF Trades: Value, AI Power, Health Care",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:29:46.469793-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Microsoft Could Be SpaceX&#39;s Next Big AI Customer: Bernstein Sees AI Revenue Surging Nearly 500%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

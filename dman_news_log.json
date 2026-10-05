@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:37:07.105120-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "Wells Fargo Initiates Coverage On Blue Owl Capital with Equal-Weight Rating, Announces Price Target of $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T15:37:07.350245-04:00",
     "symbols": [
       "NEOV"
@@ -5067,5 +5057,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-05T14:55:03.048701-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Genmab, AbbVie Announce Data From Phase 3 EPCORE DLBCL-2 Study Of Epcoritamab Demonstrates Reduction In Disease Progression, Death By 51% For Large B-Cell Lymphoma",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

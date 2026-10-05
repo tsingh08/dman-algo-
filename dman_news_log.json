@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:54:35.002090-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:54:35.083397-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:54:36.115233-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:54:37.253371-04:00",
-    "symbols": [
-      "SYNA"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:54:37.879606-04:00",
-    "symbols": [
-      "CABO"
-    ],
-    "headline": "Cable One Announce Advanced Discussions With GTCR, Some Existing Lenders And A Consortium Of Leading Private Lending Institutions Over Financing Of The Its Forthcoming Capital Needs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T12:58:25.237803-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T12:58:26.061555-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T12:58:26.896898-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:58:29.432945-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T12:58:30.033972-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Deliveries Jump 46%, but Outlook Stays Unchanged",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:58:37.394733-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T12:58:37.635327-04:00",
     "symbols": [
       "IWM"
@@ -5054,6 +4944,116 @@
     "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:41:20.595216-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Memory Crunch Could Last A Decade, Ross Gerber Says: MU Is \u2018a Gift\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:41:57.927295-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:41:58.096493-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:41:58.409903-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:41:58.836096-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:41:59.228277-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:41:59.407788-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:42:05.300556-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:42:05.448280-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:42:09.542857-04:00",
+    "symbols": [
+      "EWZ"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:42:09.965375-04:00",
+    "symbols": [
+      "PBR"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

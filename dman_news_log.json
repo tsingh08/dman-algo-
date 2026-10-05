@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:05.324329-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:04:06.097595-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T11:04:06.854586-04:00",
     "symbols": [
       "ABBV"
@@ -5036,6 +5016,26 @@
     "headline": "Why Is Apimeds Pharmaceuticals Stock Gaining Monday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:10:29.743069-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Amazon.com, Maintains $350 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T10:13:42.539375-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran Interior Minister Heads To Doha For Talks",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

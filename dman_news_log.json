@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:48:50.526594-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Reported October 1, &#39;Toshiba to double hard disk drive supply to fill AI chip memory gap; Japan tech group will expand Philippine plant, raise per-unit storage capacity&#39; - Nikkei",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:50.530307-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Reported Earlier, &#39;Samsung to Triple HBM Prices Next Year&#39; - MK Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:50.760624-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Billionaire Investor Dan Loeb\u2019s Third Point Exited 5 Chip Stocks Last Quarter \u2014 Here\u2019s How They\u2019re Performing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:51.233668-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Bitcoin, ETH, XRP Rally Over 2% as Funding Rates Triple: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:51.461905-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Reports Q3 Production Of 19,751 Vehicles, Deliveries Of 19,248; Reaffirms 2026 Delivery Range Guidance Of 65K-70K",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:51.680371-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Reported Earlier, Moderna To Replace Warner Bros. Discovery In Nasdaq-100 Index Before Market Open On October 9, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:52.643211-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "US Weighs Tighter Aircraft-Part Controls For China as Trump Administration Turns Up Trade Pressure: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:52.648411-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Exxon, Chevron Head Into Earnings With Venezuela, LNG and Higher Oil Prices in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:53.168242-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "AppLovin Stock Sinks To 52-Week Low - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:48:53.407792-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jim Cramer Says Investors Who Bet AI Would Destroy Software Stocks \u2018Blew Up\u2019 \u2014 Salesforce, Veeva and Palantir Led Q3 Comeback: Stocks to Watch Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:53.918673-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin, ETH, XRP Rally Over 2% as Funding Rates Triple: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:48:53.922300-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Cathie Wood Praises Kalshi&#39;s &#39;Phenomenal&#39; Leadership as ARK Bets on $5 Trillion Prediction Market Opportunity: &#39;Skating to Where the\u2026 Puck Will Be&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:48:54.153455-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, ETH, XRP Rally Over 2% as Funding Rates Triple: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:48:54.157179-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Gain, While Dogecoin Dips After Treasuries Retreat From 24-Year Highs: Analyst Says BTC Is &#39;Finally Breaking Upwards&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:48:54.668135-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Gavin Newsom Cracks Down on Robotaxis After Emergency Disruptions \u2014 New California Law Could Hit Waymo and Tesla With Penalties",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:48:54.937414-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on MongoDB, Maintains $540 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:55.190450-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "This Hewlett Packard Enterprise Analyst Turns Bullish; Here Are Top 5 Upgrades For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:48:55.194135-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Keybanc Upgrades Airbnb to Overweight, Announces $191 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:48:55.207021-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Performance Comparison: Airbnb And Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:48:55.721941-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;Alibaba, Solaria in Talks for Spanish Data Center Power Supply&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:48:56.452290-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Blade Urban Air Mobility Announces Return Of Jet Service BLADEone Between New York, South Florida In Collaboration With Aero",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:48:56.939793-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX Adds $24.4 Billion SM-6 Contract To Recent Missile Award Run",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:58.193901-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Exxon, Chevron Head Into Earnings With Venezuela, LNG and Higher Oil Prices in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:58.648636-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Expects Q3 Copper Sales Of About 750M Pounds, In Line; Unit Net Cash Costs About 5% Above July Estimate On Deferred Gold Sales",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T15:48:58.925071-04:00",
     "symbols": [
       "COST"
@@ -5064,6 +4824,246 @@
       "PSI"
     ],
     "headline": "Intel\u2019s Terafab Opportunity Gets Crowded: Musk Confirms Talks With Taiwan Semiconductor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:49.737039-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T15:12:49.829029-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T15:12:49.833798-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T15:12:49.933715-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T15:12:50.014393-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:50.325690-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:50.331017-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:50.664346-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:51.304591-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:51.917707-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-05T15:12:52.725545-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T15:12:52.799112-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:52.939444-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:53.023543-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:54.065554-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:54.222682-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T15:12:54.443735-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:55.907653-04:00",
+    "symbols": [
+      "SDEV"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:55.912302-04:00",
+    "symbols": [
+      "SDEV"
+    ],
+    "headline": "Why Is Stablecoin Development Stock Falling Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:55.917041-04:00",
+    "symbols": [
+      "SDEV"
+    ],
+    "headline": "Watching Stablecoin Development; Fugazi Research Issues Report On Co Titled, \u201cSDEV: A Dilution Timebomb Wearing a Stablecoin Costume\u201d",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:12:57.570242-04:00",
+    "symbols": [
+      "GMAB"
+    ],
+    "headline": "Genmab, AbbVie Announce Data From Phase 3 EPCORE DLBCL-2 Study Of Epcoritamab Demonstrates Reduction In Disease Progression, Death By 51% For Large B-Cell Lymphoma",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:57.575835-04:00",
+    "symbols": [
+      "GMAB"
+    ],
+    "headline": "Guggenheim Maintains Buy on Genmab, Raises Price Target to $54",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:57.581653-04:00",
+    "symbols": [
+      "GMAB"
+    ],
+    "headline": "Reported Saturday, Genmab Reports Rina-S Showed 45.9% ORR, 9.5-Month mPFS And 12.1-Month mDOR In Platinum-Resistant Ovarian Cancer, With Activity Regardless Of FR\u03b1 Expression Levels",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T15:12:57.729180-04:00",
+    "symbols": [
+      "GGAL"
+    ],
+    "headline": "Brazilian Stocks Rally 14%, Eye Best Day Since 2020 After Bolsonaro&#39;s First-Round Victory",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:00:30.487704-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T11:00:30.624339-04:00",
     "symbols": [
       "AMZN"
@@ -5046,6 +5036,16 @@
       "SPY"
     ],
     "headline": "USA S&amp;P Global Composite PMI For September 58.4 Vs\u00a058.4 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:46:31.175295-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Intel\u2019s Terafab Opportunity Gets Crowded: Musk Confirms Talks With Taiwan Semiconductor",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

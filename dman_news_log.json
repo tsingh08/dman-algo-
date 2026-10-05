@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T10:52:32.931724-04:00",
-    "symbols": [
-      "ORBS"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T10:52:33.038993-04:00",
     "symbols": [
       "IMOS"
@@ -5053,5 +5043,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:34:56.352857-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "FDA Expands Approval for Eli Lilly Therapy in Untreated Leukemia Patients",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

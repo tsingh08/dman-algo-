@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T14:50:06.024359-04:00",
-    "symbols": [
-      "ARTY"
-    ],
-    "headline": "What&#39;s Going On With Super Micro Computer Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:50:06.119765-04:00",
-    "symbols": [
-      "PUSA"
-    ],
-    "headline": "Defense Drone Maker Powerus Announces Completion Of Merger With Aureus Greenway Holdings, Renamed Powerus Corporation, Effective October 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T14:56:12.521335-04:00",
     "symbols": [
       "NBIS"
@@ -5054,6 +5034,29 @@
     "headline": "HeartBeam Secures FDA Designation for At-Home Heart Attack Detection System",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:12:06.884480-04:00",
+    "symbols": [
+      "ARM",
+      "META",
+      "NVDA",
+      "QCOM"
+    ],
+    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:12:12.442975-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "UKMTO Says Received A Report Of An Incident Within The Strait Of Hormuz; Captain Of The Tanker Reports Being Struck By An Unknown Projectile, Causing A Fire In The Engine Room; Crew Are Fighting Fire, There Are No Reported Casualties Or Environmental Impact",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

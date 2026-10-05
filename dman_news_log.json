@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:16:02.862820-04:00",
-    "symbols": [
-      "MU",
-      "ORCL"
-    ],
-    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T12:18:05.630233-04:00",
     "symbols": [
       "META"
@@ -5041,5 +5030,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:04:13.681309-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Netflix, Maintains $100 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

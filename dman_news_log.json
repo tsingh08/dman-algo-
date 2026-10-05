@@ -1,107 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:00:35.496454-04:00",
-    "symbols": [
-      "WOLF"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T11:00:36.510795-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:00:36.830332-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Hike Odds Collapse to 16% on Prediction Markets After Soft Jobs Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T11:00:36.951572-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Fed Hike Odds Collapse to 16% on Prediction Markets After Soft Jobs Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:00:37.136780-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T11:00:42.316368-04:00",
-    "symbols": [
-      "SOC"
-    ],
-    "headline": "5 Stock Picks Last Month From Wall Street&#39;s Most Accurate Analysts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T11:01:32.278821-04:00",
-    "symbols": [
-      "ABBV",
-      "AMZN",
-      "AVGO",
-      "COST",
-      "CVX",
-      "DIA",
-      "IWM",
-      "NVDA",
-      "ORCL",
-      "QQQ",
-      "SPY",
-      "TSLA",
-      "XOM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T11:04:02.734018-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Ohio Rep. David Taylor Bought Up to $45K Worth of Amgen Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:04:02.738649-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Louisiana Rep. Cleo Fields Bought Up to $75K Worth of Alphabet Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T11:04:02.859580-04:00",
     "symbols": [
       "NVDA"
@@ -5049,5 +4947,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T09:57:32.514055-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: US May Need AI Boom to Grow Out of Debt Crisis, American Hartford Gold President Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T09:57:45.757574-04:00",
+    "symbols": [
+      "PCVX"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:57:45.764233-04:00",
+    "symbols": [
+      "PTC"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:57:45.891976-04:00",
+    "symbols": [
+      "RXO"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:57:45.897343-04:00",
+    "symbols": [
+      "XP"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:57:45.903979-04:00",
+    "symbols": [
+      "INTR"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:57:45.908678-04:00",
+    "symbols": [
+      "ITUB"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:57:45.912269-04:00",
+    "symbols": [
+      "PAGS"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:57:45.916183-04:00",
+    "symbols": [
+      "STNE"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

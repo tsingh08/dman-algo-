@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:16:18.318273-04:00",
-    "symbols": [
-      "CYPH"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T11:25:55.405984-04:00",
     "symbols": [
       "TSLA"
@@ -5042,6 +5032,17 @@
     "headline": "GameStop shares are trading higher after CEO Ryan Cohen reported an` open market purchase of 700,000 Class A shares at $24.4061 per share.",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:21:49.432091-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Why TSMC\u2019s Talks with Elon Musk Are a Direct Threat to Intel\u2019s Chip Ambitions",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

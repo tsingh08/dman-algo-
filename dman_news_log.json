@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T14:50:04.572986-04:00",
-    "symbols": [
-      "STX"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T14:50:04.576667-04:00",
     "symbols": [
       "STX"
@@ -5053,6 +5043,16 @@
     "headline": "4 Health Care Stocks With Whale Alerts In Today\u2019s Session",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:43:14.526826-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Saudi-backed Yemeni forces expel the Houthis from several areas around key strait, officials say&#39;- AP News",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-02T14:28:04.770530-04:00",
-    "symbols": [
-      "QGEN"
-    ],
-    "headline": "Watching Qiagen; Shares Move Higher; Traders Circulate M&amp;A Blog Report Suggesting Talks With Strategic Buyer Have Advanced",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T14:49:58.010328-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Why Is Planet Labs Stock Gaining Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T14:50:04.064544-04:00",
-    "symbols": [
-      "AMOD"
-    ],
-    "headline": "Crude Oil Down Over 1%; US Factory Orders Edge Higher In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:50:04.068303-04:00",
-    "symbols": [
-      "AMOD"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:50:04.231015-04:00",
-    "symbols": [
-      "THRM"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T14:50:04.572986-04:00",
     "symbols": [
       "STX"
@@ -5049,5 +4999,60 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T13:34:39.805757-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "ON Semiconductor\u2019s Recovery Is Taking Shape \u2014 But Stifel Isn\u2019t Sold Yet",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:35:00.453511-04:00",
+    "symbols": [
+      "PCVX"
+    ],
+    "headline": "Needham Maintains Buy on Vaxcyte, Raises Price Target to $122",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:35:17.422812-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA",
+      "PLTR"
+    ],
+    "headline": "6 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T13:35:17.683656-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "4 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T13:35:18.002375-04:00",
+    "symbols": [
+      "BIIB",
+      "HIMS",
+      "LLY",
+      "MRNA"
+    ],
+    "headline": "4 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

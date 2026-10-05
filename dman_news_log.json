@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:11.309957-04:00",
-    "symbols": [
-      "WDC"
-    ],
-    "headline": "Reported Earlier, &#39;Samsung to Triple HBM Prices Next Year&#39; - MK Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T11:04:29.345526-04:00",
     "symbols": [
       "AAPL",
@@ -5040,5 +5030,23 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T11:02:16.983599-04:00",
+    "symbols": [
+      "COST",
+      "DIA",
+      "GOOGL",
+      "IWM",
+      "META",
+      "QQQ",
+      "SLB",
+      "SPY",
+      "UNH"
+    ],
+    "headline": "8 Of 11 Sectors Rise In Monday Trading As Leaders Split",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

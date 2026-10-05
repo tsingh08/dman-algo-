@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:34:33.369387-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T15:34:36.563219-04:00",
     "symbols": [
       "APP"
@@ -5065,5 +5055,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:38:52.751432-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Zscaler, Raises Price Target to $240",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:18:05.630233-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Live On CNBC, Stephanie Link Announces Bought Meta Platforms",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T12:18:28.438829-04:00",
     "symbols": [
       "ON"
@@ -5040,5 +5030,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:05:30.760669-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US to announce $150M for Alaska power lines as Vance campaigns in Senate battleground&#39;- Reuters Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

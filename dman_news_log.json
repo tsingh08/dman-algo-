@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:18:28.438829-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "ON Semiconductor Analyst&#39;s 5 Key Takeaways from Synaptics Acquistion",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T12:18:31.188927-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T12:18:34.309069-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Oracle; Bought More Micron Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T12:23:22.010149-04:00",
     "symbols": [
       "GS"
@@ -5039,6 +5009,36 @@
     "headline": "&#39;US to announce $150M for Alaska power lines as Vance campaigns in Senate battleground&#39;- Reuters Exclusive",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:14:46.768566-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Introduces Google Cloud Modernize, Transforming For (And With) AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:15:04.890024-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Trends Higher: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:15:21.149563-04:00",
+    "symbols": [
+      "EWZ"
+    ],
+    "headline": "&#39;Brazil&#39;s Lula weighs VP Alckmin as next finance minister to woo centrist voters&#39;- Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

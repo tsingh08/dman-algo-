@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-05T09:25:53.280738-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Investigating Apple&#39;s Standing In Technology Hardware, Storage &amp; Peripherals Industry Compared To Competitors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T09:25:53.446485-04:00",
     "symbols": [
       "MSFT"
@@ -5060,5 +5050,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T16:06:57.758182-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Nancy Pelosi Discloses New $1 Million Transaction, But This Time It&#39;s Not a Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

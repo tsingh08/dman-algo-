@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:58:38.209880-04:00",
-    "symbols": [
-      "SYNA"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T12:58:38.711537-04:00",
     "symbols": [
       "STX"
@@ -5055,5 +5045,18 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:53:58.089075-04:00",
+    "symbols": [
+      "DIA",
+      "DKNG",
+      "IWM",
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

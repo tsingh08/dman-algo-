@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T10:52:33.038993-04:00",
-    "symbols": [
-      "IMOS"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T10:52:33.262790-04:00",
     "symbols": [
       "SOC"
@@ -5053,5 +5043,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T09:39:27.241437-04:00",
+    "symbols": [
+      "AMOD"
+    ],
+    "headline": "Alpha Modus Discloses That U.S. District Court In East Texas Denied Kroger&#39;s Motion To Dismiss Addressing Infringement And Creative Realities&#39; Motion Challenging The Venue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

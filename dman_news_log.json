@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T09:25:40.522133-04:00",
-    "symbols": [
-      "XRPN"
-    ],
-    "headline": "Why Synaptics Shares Are Trading Higher By Over 14%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T09:25:40.585045-04:00",
-    "symbols": [
-      "SCNX"
-    ],
-    "headline": "EXCLUSIVE: Scienture Expands Institutional Reach for Hypertension Drug with New Hospital Adoptions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T09:25:40.588617-04:00",
     "symbols": [
       "SCNX"
@@ -5064,5 +5044,30 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T09:21:30.821262-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "ORCL",
+      "SPCX"
+    ],
+    "headline": "Highest Yielding Hyperscaler Bonds in October 2026: SpaceX Joins Oracle Above 7.5%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T09:24:35.339257-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop CEO Ryan Cohen Keeps Buying: Two New Filings in One Week",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

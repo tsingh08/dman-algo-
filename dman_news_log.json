@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:24:58.994186-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "ON Semiconductor Analyst&#39;s 5 Key Takeaways from Synaptics Acquistion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T12:25:03.964055-04:00",
     "symbols": [
       "GS"
@@ -5048,5 +5038,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:19:32.790421-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on FedEx, Lowers Price Target to $399",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,64 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:29.345526-04:00",
-    "symbols": [
-      "AAPL",
-      "HOOD",
-      "META",
-      "MU",
-      "NVDA",
-      "ORCL",
-      "QQQ",
-      "SPCX",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in September on Benzinga Pro \u2013 Meta Rises, SpaceX Falls, Dell &amp; Bloom Energy Join List",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T11:05:10.384662-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "South Korea&#39;s Industry Ministry Official Says $8.4B Oil Project Mentioned By Trump Not Part Of Agreement With",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T11:05:13.965660-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:05:14.544992-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:05:14.696652-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T11:14:07.132817-04:00",
     "symbols": [
       "APLD"
@@ -5048,5 +4989,59 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:05:46.998244-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Yemeni Sources Report An Attack On An Oil Refinery In Jeddah, Saudi Arabia",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:06:55.755524-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceX Is &#39;Cheap and Getting Cheaper&#39; Morgan Stanley Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T11:07:08.964261-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "8 Of 11 Sectors Rise In Monday Trading As Leaders Split",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:07:09.161856-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "8 Of 11 Sectors Rise In Monday Trading As Leaders Split",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T11:07:09.342678-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Rise In Monday Trading As Leaders Split",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

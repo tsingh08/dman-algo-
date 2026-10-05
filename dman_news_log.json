@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:34:04.375310-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Why Caterpillar Stock Is Trading Higher During Friday&#39;s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T15:34:30.235971-04:00",
     "symbols": [
       "NVDA"
@@ -5059,5 +5049,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:35:35.868792-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury Secretary Scott Bessent Posts On X &#34;Operation Economic Outcast is delivering results: the rial has plunged to record lows, Iran loaded zero crude oil onto tankers last month, and even Iran\u2019s top security official has admitted the country is facing one of the most difficult periods in its history...&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

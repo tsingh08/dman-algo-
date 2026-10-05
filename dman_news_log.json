@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:06:32.401959-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "5.6 Million Downloads in Weeks: Meta Muse Outpaces Sorad ChatGPT in Early Rollout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T12:06:38.107097-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "5.6 Million Downloads in Weeks: Meta Muse Outpaces Sorad ChatGPT in Early Rollout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T12:14:24.136945-04:00",
     "symbols": [
       "TLT"
@@ -5040,6 +5020,26 @@
     "headline": "CFTC Seeks Public Comment On Advanced Notice Of Proposed Rulemaking Relating to Regulation Crypto Asset Transactions And Regulation Crypto Asset Markets",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:52:42.565602-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Why Is DraftKings Stock Surging Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:52:43.077524-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "B of A Securities Upgrades DraftKings to Buy, Maintains Price Target to $27",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

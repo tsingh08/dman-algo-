@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T14:50:05.320291-04:00",
-    "symbols": [
-      "SSM"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T14:50:05.707378-04:00",
     "symbols": [
       "CTRE"
@@ -5051,6 +5041,17 @@
       "MSFT"
     ],
     "headline": "OpenAI Says It Is Expanding Its Approach To Content Provenance To Include Text In Response To EU Regulatory Requirements",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T13:55:10.435048-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;AI infrastructure and compute: 48% of organizations running AI in production name a Google platform as their primary AI platform, more than twice OpenAI&#39;s share&#39;- VentureBeat",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

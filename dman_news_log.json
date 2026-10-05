@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:03.155309-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:04:03.303393-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:04:03.435865-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:04:04.010133-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:04:04.014716-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:04:04.313883-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T11:04:04.482362-04:00",
     "symbols": [
       "NFLX"
@@ -5036,6 +4976,66 @@
     "headline": "CB Employment Trends Index For September 107.56 Vs 108.08",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:07:21.223102-04:00",
+    "symbols": [
+      "JAGX"
+    ],
+    "headline": "Jaguar Health Shares Halted On Circuit Breaker To The Upside, Stock Now Up 54.54%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:07:21.835256-04:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:07:21.970112-04:00",
+    "symbols": [
+      "TIMB"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:07:22.143555-04:00",
+    "symbols": [
+      "PBR"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:07:22.299956-04:00",
+    "symbols": [
+      "CIG"
+    ],
+    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:07:22.918326-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Rezolve Ai Inks Reseller Deal With Mastercard To Create a New Distribution Channel For Rezolve Ai\u2019s Technology As Business Prepare For AI-Driven Commerce",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

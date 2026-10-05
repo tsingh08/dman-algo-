@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:34:30.235971-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T15:34:33.369387-04:00",
     "symbols": [
       "MU"
@@ -5059,5 +5049,21 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:37:12.578077-04:00",
+    "symbols": [
+      "AMD",
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

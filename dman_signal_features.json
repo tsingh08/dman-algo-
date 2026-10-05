@@ -36822,25 +36822,25 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "earnings blackout",
+"reject": "chasing extended highs",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
-"entry": 28.33,
-"stop": 26.38,
-"target1": 35.2,
-"rr": 3.52,
-"rsi": 89.6,
-"rvol": 4.76,
+"entry": 28.59,
+"stop": 26.64,
+"target1": 36.1,
+"rr": 3.85,
+"rsi": 89.8,
+"rvol": 6.38,
 "atr": 1.3010714285714278,
-"beta": 1.0,
+"beta": 1.031,
 "catalyst_tier": "C",
 "news_boost": true,
 "regime": "BULL",
 "regime_score": 15,
 "mtf_ok": true,
 "regime_ok": true,
-"earnings_ok": false,
+"earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
@@ -36851,7 +36851,7 @@
 "Sector ETF": 0,
 "AI Theme": 0,
 "Insider": 0,
-"Earnings": 0,
+"Earnings": 5,
 "Macro": 5,
 "Earn React": 0,
 "Fibonacci": 0,
@@ -36872,8 +36872,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 38,
-"last_ts": "2026-10-05T15:36:52.082728-04:00",
+"seen": 40,
+"last_ts": "2026-10-05T15:45:30.587047-04:00",
 "entry_min": 28.33,
 "entry_max": 28.73
 },
@@ -36934,8 +36934,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 21,
-"last_ts": "2026-10-05T15:13:07.493819-04:00",
+"seen": 22,
+"last_ts": "2026-10-05T15:45:34.107820-04:00",
 "entry_min": 11.55,
 "entry_max": 11.88
 },
@@ -36996,8 +36996,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 20,
-"last_ts": "2026-10-05T15:36:50.798678-04:00",
+"seen": 21,
+"last_ts": "2026-10-05T15:45:34.781145-04:00",
 "entry_min": 42.95,
 "entry_max": 43.22
 },
@@ -37058,8 +37058,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 17,
-"last_ts": "2026-10-05T15:37:00.647428-04:00",
+"seen": 18,
+"last_ts": "2026-10-05T15:45:33.174355-04:00",
 "entry_min": 9.9,
 "entry_max": 9.97
 },
@@ -37120,8 +37120,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 18,
-"last_ts": "2026-10-05T15:36:55.056630-04:00",
+"seen": 19,
+"last_ts": "2026-10-05T15:45:31.981001-04:00",
 "entry_min": 4.32,
 "entry_max": 4.38
 },
@@ -37182,8 +37182,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 18,
-"last_ts": "2026-10-05T15:36:58.442396-04:00",
+"seen": 19,
+"last_ts": "2026-10-05T15:45:37.580255-04:00",
 "entry_min": 3.27,
 "entry_max": 3.29
 },
@@ -37244,8 +37244,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 18,
-"last_ts": "2026-10-05T15:36:57.387735-04:00",
+"seen": 19,
+"last_ts": "2026-10-05T15:45:36.876684-04:00",
 "entry_min": 24.34,
 "entry_max": 24.55
 },

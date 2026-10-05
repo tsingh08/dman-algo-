@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:10:15.215663-04:00",
-    "symbols": [
-      "ALGM"
-    ],
-    "headline": "RBC Capital Initiates Coverage On Allegro Microsystems with Outperform Rating, Announces Price Target of $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T15:27:04.350435-04:00",
     "symbols": [
       "VST"
@@ -5061,5 +5051,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:21:43.463736-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Announces The AWS Digital Sovereignty Lens For The Well-Architected Framework",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

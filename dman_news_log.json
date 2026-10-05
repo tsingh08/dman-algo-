@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:06:10.694611-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Stock Drops: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T12:06:32.236592-04:00",
     "symbols": [
       "META"
@@ -5041,5 +5031,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:47:29.374566-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "FDA Delays Regulatory Decision On Novo Nordisk Hemophilia Drug",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T13:31:16.041954-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Why Is The Market Celebrating A Weak Jobs Report?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T13:31:16.209521-04:00",
     "symbols": [
       "TSLA"
@@ -5057,6 +5047,16 @@
     "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:21:14.353347-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s President, On U.S., Says Negotiation Has No Meaning With &#39;An Enemy That Terrorizes, Sanctions, Pressures And Threatens On A Daily Basis",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

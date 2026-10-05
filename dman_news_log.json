@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:02.864127-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "This Senator Just Sold Up To $145K In JPMorgan Chase Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:04:02.868505-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CoreWeave Unleashes Nvidia&#39;s Vera Rubin, Analyst Sees Room to Run",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:04:02.873120-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T11:04:03.155309-04:00",
     "symbols": [
       "AMD"
@@ -5034,6 +5004,36 @@
       "SPY"
     ],
     "headline": "ISM Non-Manufacturing Prices For September\u00a074.0 Vs 72.6 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:00:30.840293-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ISM Non-Manufacturing PMI For September\u00a054.9 Vs 55.1 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:00:39.907536-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ISM Non-Manufacturing Employment For September 50.1 Vs 47.8 Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:00:59.979568-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CB Employment Trends Index For September 107.56 Vs 108.08",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

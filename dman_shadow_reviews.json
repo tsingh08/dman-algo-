@@ -310,5 +310,27 @@
    "regime": "BULL",
    "regime_score": 15
   }
+ },
+ {
+  "ts": "2026-10-05T15:37:33.650683-04:00",
+  "kind": "signal",
+  "ticker": "ABEV",
+  "verdict": "skip",
+  "confidence": 82,
+  "reason": "RSI 66.9 indicates overbought; entering after 9.7% gap leaves minimal room before resistance. Risk/reward favorable but entry timing is late in move.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 3.27,
+   "stop": 3.21,
+   "target1": 3.58,
+   "rr": 5.17,
+   "rvol": 2.69,
+   "rsi": 66.9,
+   "reason": "Gap up +9.7% from prior close, holding, RVOL 2.7x",
+   "regime": "BULL",
+   "regime_score": 15
+  }
  }
 ]

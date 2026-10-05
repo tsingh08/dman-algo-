@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:29:51.613049-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "'US to Offer $4 Billion Loan for Vistra to Boost Nuclear Output' - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T15:33:29.791517-04:00",
     "symbols": [
       "CYCU"
@@ -5061,5 +5051,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:29:47.418780-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AM Intelligence Expands NVIDIA Vera Rubin AI Factory Buildout in India and Malaysia",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

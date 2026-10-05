@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:02.859580-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "8 Of 11 Sectors Rise Friday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T11:04:02.864127-04:00",
     "symbols": [
       "NVDA"
@@ -5036,6 +5026,16 @@
     "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:00:19.198655-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ISM Non-Manufacturing Prices For September\u00a074.0 Vs 72.6 Prior",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

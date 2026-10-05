@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:00:30.341946-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "20-Year Oracle Bond Yields 8.1%: Could the Stock Match That Return?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T11:00:30.487704-04:00",
     "symbols": [
       "GOOGL"
@@ -5046,6 +5036,16 @@
       "SPY"
     ],
     "headline": "USA S&amp;P Global Services PMI For September\u00a058.8 Vs 58.7 Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:45:29.832494-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA S&amp;P Global Composite PMI For September 58.4 Vs\u00a058.4 Est.",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

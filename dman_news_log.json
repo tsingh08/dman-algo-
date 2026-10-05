@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:34:36.563219-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:36:45.950921-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:36:46.545600-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Nscale Hires Meta\u2019s Justin Osofsky to Be COO Ahead of IPO&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:36:49.303405-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:36:52.826969-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:36:57.393077-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Why Caterpillar Stock Is Trading Higher During Friday&#39;s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:37:04.011892-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "UBS Maintains Neutral on Nike, Lowers Price Target to $34",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T15:37:04.016662-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Telsey Advisory Group Maintains Market Perform on Nike, Lowers Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T15:37:06.557578-04:00",
-    "symbols": [
-      "VSTM"
-    ],
-    "headline": "Verastem Oncology To Present Data From New Molecular Profiling, Tumor Biomarker Analysis Of Phase 2 RAMP 201 Clinical Trial Of Avutometinib Plus Defactinib In Patients With Recurrent LGSOC, At IGCS 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T15:37:06.822117-04:00",
     "symbols": [
       "PENG"
@@ -5065,5 +4975,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:47:33.817071-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Administration Closes 2024 Privacy Probe Into U.S. Airlines Without Seeking Any Penalties",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:47:50.478964-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:47:50.565715-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:47:50.661332-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:47:50.739973-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:47:50.855744-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:47:50.944557-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:47:54.831542-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:47:55.941395-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;SpaceX Proposes Gas Pipeline to Supply Cape Canaveral Rockets&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

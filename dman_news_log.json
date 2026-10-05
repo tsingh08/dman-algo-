@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:54:32.554411-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Weak Jobs Report Lifts Nvidia, Nasdaq 100 to Record Highs: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T12:54:35.002090-04:00",
     "symbols": [
       "QQQ"
@@ -5045,6 +5035,23 @@
       "SPY"
     ],
     "headline": "President Trump Posts On Truth Social &#34;What&#39;s driving up Gasoline is no longer the Strait of Hormuz, because Record Numbers of Barrels are coming out now on an almost daily basis, but the word, &#34;Refineries,&#34; where Russia&#39;s are being blown up by Ukraine, and where ours are being closed up, in Blue States, like California, by the Dumocrats.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T12:40:01.055136-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1105,5 +1105,32 @@
   "drift_pct": 0.15,
   "range_ratio": 0.32,
   "near_high": 0.996
+ },
+ {
+  "ts": "2026-10-05T14:58:44.490736-04:00",
+  "ticker": "DBCA",
+  "price": 10.04,
+  "rvol": 11.75,
+  "drift_pct": 0.15,
+  "range_ratio": 0.32,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-10-05T14:58:44.490744-04:00",
+  "ticker": "CGUI",
+  "price": 25.204,
+  "rvol": 2.68,
+  "drift_pct": 0.06,
+  "range_ratio": 0.18,
+  "near_high": 0.993
+ },
+ {
+  "ts": "2026-10-05T14:58:44.490748-04:00",
+  "ticker": "UITB",
+  "price": 44.615,
+  "rvol": 1.95,
+  "drift_pct": 0.2,
+  "range_ratio": 0.26,
+  "near_high": 0.96
  }
 ]

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:37:07.350245-04:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:47:55.859927-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab shares are trading higher. The company may be gaining amid sympathy with SpaceX.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:48.906752-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Jim Cramer Says Investors Who Bet AI Would Destroy Software Stocks \u2018Blew Up\u2019 \u2014 Salesforce, Veeva and Palantir Led Q3 Comeback: Stocks to Watch Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:49.129579-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Micron, Snowflake, Chubb And A Big Bank On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:49.340432-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Peter Thiel Says US AI Demand Is Booming, but Cathie Wood Is Trimming Palantir: Here&#39;s How Much Ark Invest Sold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:49.566526-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Nvidia AI Servers Allegedly Routed Through Malaysia and Singapore In $300 Million China Scheme, California Man Charged",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:49.815010-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Broadcom Chases NVIDIA With $60 Billion Financing Plan for AI Customers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:50.271051-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Reported October 1, &#39;Toshiba to double hard disk drive supply to fill AI chip memory gap; Japan tech group will expand Philippine plant, raise per-unit storage capacity&#39; - Nikkei",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:48:50.274901-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Reported Earlier, &#39;Samsung to Triple HBM Prices Next Year&#39; - MK Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T15:48:50.526594-04:00",
     "symbols": [
       "SKHY"
@@ -5067,5 +4977,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:57:21.273693-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:57:23.377847-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:57:23.593770-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T14:57:24.939160-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Genmab, AbbVie Announce Data From Phase 3 EPCORE DLBCL-2 Study Of Epcoritamab Demonstrates Reduction In Disease Progression, Death By 51% For Large B-Cell Lymphoma",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:57:27.195241-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Unity Stock Climbs: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-05T14:57:36.686374-04:00",
+    "symbols": [
+      "SPHR"
+    ],
+    "headline": "Why Is Sphere Entertainment Stock Sinking Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:57:38.817014-04:00",
+    "symbols": [
+      "RZLT"
+    ],
+    "headline": "FDA Recommends Meeting for Rezolute Drug for Rare Blood Sugar Disorder Despite Missed Endpoints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:57:38.821183-04:00",
+    "symbols": [
+      "RZLT"
+    ],
+    "headline": "Rezolute Gets FDA Recommendation For Pre-BLA Meeting Ahead Of Ersodetug BLA Submission For Congenital Hyperinsulinism Treatment.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:57:39.040889-04:00",
+    "symbols": [
+      "PSI"
+    ],
+    "headline": "Intel\u2019s Terafab Opportunity Gets Crowded: Musk Confirms Talks With Taiwan Semiconductor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:54:31.465247-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T12:54:32.554411-04:00",
     "symbols": [
       "ON"
@@ -5048,5 +5038,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T12:35:50.347827-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;What&#39;s driving up Gasoline is no longer the Strait of Hormuz, because Record Numbers of Barrels are coming out now on an almost daily basis, but the word, &#34;Refineries,&#34; where Russia&#39;s are being blown up by Ukraine, and where ours are being closed up, in Blue States, like California, by the Dumocrats.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

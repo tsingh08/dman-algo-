@@ -488,5 +488,125 @@
 "extension_pct": 239.6,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "LITE",
+"date": "2026-10-05",
+"close": 1091.67,
+"base_days": 100,
+"above_low_pct": 629.7,
+"extension_pct": 15.9,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "NVAX",
+"date": "2026-10-05",
+"close": 12.56,
+"base_days": 151,
+"above_low_pct": 101.9,
+"extension_pct": 23.3,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "TXG",
+"date": "2026-10-05",
+"close": 97.74,
+"base_days": 3,
+"above_low_pct": 752.1,
+"extension_pct": 25.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TWST",
+"date": "2026-10-05",
+"close": 205.0,
+"base_days": 2,
+"above_low_pct": 705.5,
+"extension_pct": 29.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "OKTA",
+"date": "2026-10-05",
+"close": 218.29,
+"base_days": 1,
+"above_low_pct": 246.9,
+"extension_pct": 14.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ILMN",
+"date": "2026-10-05",
+"close": 293.69,
+"base_days": 6,
+"above_low_pct": 222.7,
+"extension_pct": 21.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FRO",
+"date": "2026-10-05",
+"close": 53.75,
+"base_days": 0,
+"above_low_pct": 199.9,
+"extension_pct": 11.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RBRK",
+"date": "2026-10-05",
+"close": 122.68,
+"base_days": 0,
+"above_low_pct": 180.0,
+"extension_pct": 16.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMPL",
+"date": "2026-10-05",
+"close": 14.88,
+"base_days": 25,
+"above_low_pct": 165.2,
+"extension_pct": 11.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "P",
+"date": "2026-10-05",
+"close": 143.88,
+"base_days": 0,
+"above_low_pct": 152.5,
+"extension_pct": 28.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARKG",
+"date": "2026-10-05",
+"close": 56.77,
+"base_days": 6,
+"above_low_pct": 128.7,
+"extension_pct": 12.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PBR",
+"date": "2026-10-05",
+"close": 24.14,
+"base_days": 13,
+"above_low_pct": 124.6,
+"extension_pct": 15.3,
+"fresh_base": false,
+"weak_band": false
 }
 ]

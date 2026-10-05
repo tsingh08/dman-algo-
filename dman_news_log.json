@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:50:22.239995-04:00",
-    "symbols": [
-      "VSTM"
-    ],
-    "headline": "Verastem Oncology To Present Data From New Molecular Profiling, Tumor Biomarker Analysis Of Phase 2 RAMP 201 Clinical Trial Of Avutometinib Plus Defactinib In Patients With Recurrent LGSOC, At IGCS 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T15:50:22.382112-04:00",
     "symbols": [
       "PENG"
@@ -5064,6 +5054,16 @@
       "DFSC"
     ],
     "headline": "Shares of aerospace and defense companies are trading lower, possibly as competition from SpaceX diverts investment.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:33:57.458321-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler shares are trading higher after the company announced a collaboration with IBM and Red Hat to help organizations protect private applications during the period between vulnerability disclosure and patch deployment.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

@@ -1096,5 +1096,14 @@
   "drift_pct": 0.28,
   "range_ratio": 0.24,
   "near_high": 0.96
+ },
+ {
+  "ts": "2026-10-05T13:21:55.012296-04:00",
+  "ticker": "DBCA",
+  "price": 10.04,
+  "rvol": 11.75,
+  "drift_pct": 0.15,
+  "range_ratio": 0.32,
+  "near_high": 0.996
  }
 ]

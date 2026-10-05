@@ -1,324 +1,5 @@
 [
   {
-    "ts": "2026-10-02T13:31:16.209521-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Why Is The Market Celebrating A Weak Jobs Report?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T13:31:22.325331-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Why Is The Market Celebrating A Weak Jobs Report?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:35:13.123905-04:00",
-    "symbols": [
-      "AVGO",
-      "MSTR",
-      "MU",
-      "NBIS",
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:35:13.618302-04:00",
-    "symbols": [
-      "GEV",
-      "RKLB"
-    ],
-    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:35:13.640285-04:00",
-    "symbols": [
-      "AMZN",
-      "BABA",
-      "DKNG",
-      "TSLA"
-    ],
-    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T13:35:36.911818-04:00",
-    "symbols": [
-      "PLTR",
-      "RKLB"
-    ],
-    "headline": "Cathie Wood Is Buying Rocket Lab Again: Why 3 ARK ETFs Are Betting on Neutron",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:35:40.431215-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Deal Dispatch: Hormel Acquires Brakebush, Onsemi buys Synaptics for $5.7 Billion, Leslie\u2019s Pools Bankruptcy",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:45:55.184039-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T13:45:55.638174-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T13:45:55.739299-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T13:45:56.101736-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Is Buying Rocket Lab Again: Why 3 ARK ETFs Are Betting on Neutron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:45:56.286452-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:45:56.410672-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:45:57.482970-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Cathie Wood Is Buying Rocket Lab Again: Why 3 ARK ETFs Are Betting on Neutron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:45:57.487833-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:45:58.103962-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T13:45:59.531012-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T13:45:59.609238-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "8 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T13:45:59.917935-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:46:02.114653-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T13:46:20.573136-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Here&#39;s How Many Vehicles Tesla Delivered, Produced In Each Quarter Since 2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T13:47:41.260824-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "All In On McDonald&#39;s Stock? Social Media User Wants Advice on Fast Food Giant, Investors Aren&#39;t Lovin&#39; It",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T13:47:51.733518-04:00",
-    "symbols": [
-      "IBRX"
-    ],
-    "headline": "ImmunityBio Stock Jumps: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T13:52:37.418028-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Saudi-Led Coalition Says It Intercepted And Destroyed Three Ballistic Missiles Launched By Houthis Toward Khamis Mushait",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T13:55:09.004211-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Citigroup Maintains Buy on Strategy, Raises Price Target to $240",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T13:55:47.732223-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Analyst Sees Strong Orders, Raises 2027 EPS Forecast",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T14:04:19.532441-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US-Ukrainian investment fund seals first critical minerals deal&#39;- Reuters",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:06:04.463972-04:00",
-    "symbols": [
-      "VSH"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T14:06:04.469654-04:00",
-    "symbols": [
-      "VSH"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T14:06:31.183294-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Taiwan Semiconductor Stock Rises on Broadcom&#39;s $60 Billion Chip Deal",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:17:08.897263-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Stock Surges: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T14:21:18.927077-04:00",
     "symbols": [
       "NBIS"
@@ -5045,6 +4726,316 @@
       "ARCO"
     ],
     "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:44.696427-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T13:20:44.900581-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia\u2019s $20B Groq deal faces lawsuit alleging startup\u2019s stockholders were shortchanged&#39;- CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:44.905331-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Nvidia, Cheniere Energy, Steel Dynamics, Antofagasta",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:44.909844-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock at New All-Time Highs: Market Expert Says \u2018Cusp of a Major Breakout\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:44.914259-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:45.209751-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T13:20:45.296541-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T13:20:47.556524-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:49.562473-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;RFK Jr. to Announce New Vaccine Injury Research at NIH&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:49.633226-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:49.708390-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:49.796594-04:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:49.932660-04:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "Dow Gains 100 Points; ISM Services PMI Falls In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:50.004982-04:00",
+    "symbols": [
+      "PTC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:50.009519-04:00",
+    "symbols": [
+      "PTC"
+    ],
+    "headline": "RBC Capital Downgrades PTC to Sector Perform, Raises Price Target to $306",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:50.014055-04:00",
+    "symbols": [
+      "PTC"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:50.018534-04:00",
+    "symbols": [
+      "PTC"
+    ],
+    "headline": "Keybanc Downgrades PTC to Sector Weight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:50.172798-04:00",
+    "symbols": [
+      "RXO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:50.264950-04:00",
+    "symbols": [
+      "VELO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:50.269576-04:00",
+    "symbols": [
+      "VELO"
+    ],
+    "headline": "Velo3D Stock Plunges: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:50.371043-04:00",
+    "symbols": [
+      "CHRW"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:50.375868-04:00",
+    "symbols": [
+      "CHRW"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:50.380386-04:00",
+    "symbols": [
+      "CHRW"
+    ],
+    "headline": "Dow Gains 100 Points; ISM Services PMI Falls In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:50.384898-04:00",
+    "symbols": [
+      "CHRW"
+    ],
+    "headline": "JP Morgan Maintains Overweight on C.H. Robinson Worldwide, Lowers Price Target to $198",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T13:20:50.590994-04:00",
+    "symbols": [
+      "XP"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:51.807946-04:00",
+    "symbols": [
+      "CWH"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:51.812571-04:00",
+    "symbols": [
+      "CWH"
+    ],
+    "headline": "Dow Gains 100 Points; ISM Services PMI Falls In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:51.817181-04:00",
+    "symbols": [
+      "CWH"
+    ],
+    "headline": "Camping World Expects FY26 Adjusted EBITDA To Be Below The Low End Of Its Previously Communicated Guidance Range Of $230M-$270M; Current Outlook Takes Into Account Broad Range Of Potential Outcomes Amid Continued Uncertainty Regarding Macroeconomic Conditions And RV Industry Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:51.957811-04:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:52.025395-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T13:20:52.199971-04:00",
+    "symbols": [
+      "VALE"
+    ],
+    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

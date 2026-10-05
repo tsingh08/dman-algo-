@@ -244,5 +244,49 @@
    "regime": "BULL",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-05T13:21:53.929514-04:00",
+  "kind": "signal",
+  "ticker": "STNE",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "RSI 74.9 is deeply overbought; entry chasing after 13.9% gap already made. Stop only 6.7% away vs 18% profit target\u2014asymmetric risk on extended move.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 11.55,
+   "stop": 10.78,
+   "target1": 13.65,
+   "rr": 2.73,
+   "rvol": 6.63,
+   "rsi": 74.9,
+   "reason": "Gap up +13.9% from prior close, holding, RVOL 6.6x",
+   "regime": "BULL",
+   "regime_score": 15
+  }
+ },
+ {
+  "ts": "2026-10-05T13:21:55.010425-04:00",
+  "kind": "signal",
+  "ticker": "BBD",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 78.2 is deep overbought; gap already 15.3% extended. Entry chasing momentum into exhaustion, not holding support.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 4.36,
+   "stop": 4.15,
+   "target1": 5.02,
+   "rr": 3.14,
+   "rvol": 4.94,
+   "rsi": 78.2,
+   "reason": "Gap up +15.3% from prior close, holding, RVOL 4.9x",
+   "regime": "BULL",
+   "regime_score": 15
+  }
  }
 ]

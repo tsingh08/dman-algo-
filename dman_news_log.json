@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:05:35.939112-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Nike, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-02T12:05:35.943675-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "RBC Capital Reiterates Sector Perform on Nike, Maintains $40 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-02T12:05:36.206529-04:00",
     "symbols": [
       "MGY"
@@ -5041,5 +5021,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T11:32:56.922310-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Why TSMC\u2019s Talks with Elon Musk Are a Direct Threat to Intel\u2019s Chip Ambitions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T11:33:05.574588-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why TSMC\u2019s Talks with Elon Musk Are a Direct Threat to Intel\u2019s Chip Ambitions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

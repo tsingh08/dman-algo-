@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:54:31.220468-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Netflix Leans on Live TV as YouTube Competition Threatens Growth, Analysts Weigh In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T12:54:31.465247-04:00",
     "symbols": [
       "NFLX"
@@ -5048,5 +5038,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T12:34:58.693905-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Truist Securities Maintains Buy on Caterpillar, Lowers Price Target to $1100",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

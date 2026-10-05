@@ -36131,7 +36131,13 @@
 "seen": 14,
 "last_ts": "2026-10-02T10:14:29.934882-04:00",
 "entry_min": 39.31,
-"entry_max": 39.31
+"entry_max": 39.31,
+"label_fill": 39.19,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.49,
+"label_outcome": "WIN",
+"label_mfe_pct": 3.3,
+"label_mae_pct": -0.83
 },
 {
 "ts": "2026-10-02T09:59:40.268843-04:00",
@@ -36193,7 +36199,13 @@
 "seen": 31,
 "last_ts": "2026-10-02T12:54:45.406104-04:00",
 "entry_min": 86.72,
-"entry_max": 86.72
+"entry_max": 86.72,
+"label_fill": 83.85,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.25,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.79,
+"label_mae_pct": -3.59
 },
 {
 "ts": "2026-10-02T12:58:46.031966-04:00",
@@ -36255,7 +36267,13 @@
 "seen": 2,
 "last_ts": "2026-10-02T12:58:46.065980-04:00",
 "entry_min": 84.47,
-"entry_max": 84.47
+"entry_max": 84.47,
+"label_fill": 85.1,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.98,
+"label_outcome": "WIN",
+"label_mfe_pct": 1.45,
+"label_mae_pct": -1.41
 },
 {
 "ts": "2026-10-02T12:58:48.180102-04:00",
@@ -36317,7 +36335,13 @@
 "seen": 21,
 "last_ts": "2026-10-02T16:01:18.925945-04:00",
 "entry_min": 34.77,
-"entry_max": 35.27
+"entry_max": 35.27,
+"label_fill": 34.04,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -1.5,
+"label_outcome": "LOSS",
+"label_mfe_pct": 1.76,
+"label_mae_pct": -5.85
 },
 {
 "ts": "2026-10-02T13:13:55.048153-04:00",
@@ -36379,7 +36403,13 @@
 "seen": 32,
 "last_ts": "2026-10-02T16:01:20.323805-04:00",
 "entry_min": 6.06,
-"entry_max": 7.34
+"entry_max": 7.34,
+"label_fill": 9.71,
+"label_exit_reason": "stop",
+"label_pnl_pct": -18.65,
+"label_outcome": "LOSS",
+"label_mfe_pct": 1.13,
+"label_mae_pct": -66.53
 },
 {
 "ts": "2026-10-02T14:06:23.870317-04:00",
@@ -36441,7 +36471,13 @@
 "seen": 12,
 "last_ts": "2026-10-02T16:01:22.027955-04:00",
 "entry_min": 37.98,
-"entry_max": 38.52
+"entry_max": 38.52,
+"label_fill": 37.64,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -1.43,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.59,
+"label_mae_pct": -2.82
 },
 {
 "ts": "2026-10-02T14:34:32.370211-04:00",
@@ -36503,7 +36539,13 @@
 "seen": 8,
 "last_ts": "2026-10-02T16:01:21.029219-04:00",
 "entry_min": 121.22,
-"entry_max": 121.36
+"entry_max": 121.36,
+"label_fill": 120.84,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.92,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.13,
+"label_mae_pct": -1.03
 },
 {
 "ts": "2026-10-02T14:50:22.589803-04:00",
@@ -36565,7 +36607,13 @@
 "seen": 3,
 "last_ts": "2026-10-02T15:50:41.826946-04:00",
 "entry_min": 161.28,
-"entry_max": 161.43
+"entry_max": 161.43,
+"label_fill": 160.16,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.02,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.49,
+"label_mae_pct": -1.66
 },
 {
 "ts": "2026-10-05T09:26:09.257331-04:00",
@@ -36872,8 +36920,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 42,
-"last_ts": "2026-10-05T15:55:43.356553-04:00",
+"seen": 44,
+"last_ts": "2026-10-05T16:06:27.563982-04:00",
 "entry_min": 28.33,
 "entry_max": 28.73
 },
@@ -36934,8 +36982,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 23,
-"last_ts": "2026-10-05T15:55:44.027972-04:00",
+"seen": 24,
+"last_ts": "2026-10-05T16:06:28.982625-04:00",
 "entry_min": 11.55,
 "entry_max": 11.88
 },
@@ -36996,8 +37044,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 22,
-"last_ts": "2026-10-05T15:55:44.389597-04:00",
+"seen": 23,
+"last_ts": "2026-10-05T16:06:29.562861-04:00",
 "entry_min": 42.95,
 "entry_max": 43.22
 },
@@ -37058,8 +37106,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 19,
-"last_ts": "2026-10-05T15:55:43.721156-04:00",
+"seen": 20,
+"last_ts": "2026-10-05T16:06:28.345402-04:00",
 "entry_min": 9.9,
 "entry_max": 9.97
 },
@@ -37120,8 +37168,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 20,
-"last_ts": "2026-10-05T15:55:43.551263-04:00",
+"seen": 21,
+"last_ts": "2026-10-05T16:06:27.949036-04:00",
 "entry_min": 4.32,
 "entry_max": 4.38
 },
@@ -37182,8 +37230,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 20,
-"last_ts": "2026-10-05T15:55:45.285852-04:00",
+"seen": 21,
+"last_ts": "2026-10-05T16:06:30.769839-04:00",
 "entry_min": 3.27,
 "entry_max": 3.29
 },
@@ -37244,8 +37292,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 20,
-"last_ts": "2026-10-05T15:55:45.101938-04:00",
+"seen": 21,
+"last_ts": "2026-10-05T16:06:30.365416-04:00",
 "entry_min": 24.34,
 "entry_max": 24.55
 },

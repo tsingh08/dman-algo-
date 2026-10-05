@@ -1,41 +1,5 @@
 [
   {
-    "ts": "2026-10-05T09:21:30.821262-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "ORCL",
-      "SPCX"
-    ],
-    "headline": "Highest Yielding Hyperscaler Bonds in October 2026: SpaceX Joins Oracle Above 7.5%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T09:24:35.339257-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop CEO Ryan Cohen Keeps Buying: Two New Filings in One Week",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T09:25:32.903596-04:00",
-    "symbols": [
-      "MSTR",
-      "SPY"
-    ],
-    "headline": "Strategy Buys 334 Bitcoin but Strive Bought 2,000: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T09:25:53.280738-04:00",
     "symbols": [
       "AAPL"
@@ -5064,6 +5028,36 @@
     ],
     "headline": "Shares of software companies are trading higher amid falling oil prices and a broader tech rally, as Nvidia reaches a new all-time high and investors anticipate a $6 trillion valuation by the end of the month.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T16:06:16.122266-04:00",
+    "symbols": [
+      "PTC"
+    ],
+    "headline": "QUICK SPARK: Brazil&#39;s Retail Broker XP Notches Best Day Ever, Tops Russell 1000 Performers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T16:06:16.448036-04:00",
+    "symbols": [
+      "XP"
+    ],
+    "headline": "QUICK SPARK: Brazil&#39;s Retail Broker XP Notches Best Day Ever, Tops Russell 1000 Performers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T16:06:17.271031-04:00",
+    "symbols": [
+      "EWZ"
+    ],
+    "headline": "QUICK SPARK: Brazil&#39;s Retail Broker XP Notches Best Day Ever, Tops Russell 1000 Performers",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

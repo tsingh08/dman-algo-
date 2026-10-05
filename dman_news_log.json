@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-02T14:50:05.707378-04:00",
-    "symbols": [
-      "CTRE"
-    ],
-    "headline": "CareTrust REIT Raises FY2026 FFO Guidance from $2.03-$2.06 to $2.06-$2.09",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:50:05.711123-04:00",
-    "symbols": [
-      "CTRE"
-    ],
-    "headline": "CareTrust Agrees To Acquire 45 UK Care Homes From LNT Care Developments For \u00a31.1B, First Closing Of 24 Homes For \u00a3576M Completed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:50:05.810747-04:00",
-    "symbols": [
-      "ASST"
-    ],
-    "headline": "Strive Stock Rises as Bitcoin&#39;s Rally Lifts Its $1.8 Billion Treasury",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T14:50:05.814429-04:00",
-    "symbols": [
-      "ASST"
-    ],
-    "headline": "Bitcoin, ETH, XRP Rally Over 2% as Funding Rates Triple: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T14:50:06.024359-04:00",
     "symbols": [
       "ARTY"
@@ -5055,5 +5015,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:02:17.852029-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Boeing Awarded Seven-Year, ~$14.7B Lockheed Martin Contract For Production, Delivery Of PAC-3 Missile Segment Enhancement Seekers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T14:02:44.565282-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;AI infrastructure and compute: 48% of organizations running AI in production name a Google platform as their primary AI platform, more than twice OpenAI&#39;s share&#39;- VentureBeat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:02:45.195500-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;AI infrastructure and compute: 48% of organizations running AI in production name a Google platform as their primary AI platform, more than twice OpenAI&#39;s share&#39;- VentureBeat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T14:02:50.739116-04:00",
+    "symbols": [
+      "BEAT"
+    ],
+    "headline": "HeartBeam Secures FDA Designation for At-Home Heart Attack Detection System",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

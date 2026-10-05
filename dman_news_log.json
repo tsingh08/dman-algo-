@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:50:21.073114-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Telsey Advisory Group Maintains Market Perform on Nike, Lowers Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-02T15:50:22.239995-04:00",
     "symbols": [
       "VSTM"
@@ -5064,6 +5054,16 @@
       "MSTR"
     ],
     "headline": "Is Strategy&#39;s Bitcoin Machine Broken? Peter Schiff Says It Is",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:33:13.048391-04:00",
+    "symbols": [
+      "DFSC"
+    ],
+    "headline": "Shares of aerospace and defense companies are trading lower, possibly as competition from SpaceX diverts investment.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

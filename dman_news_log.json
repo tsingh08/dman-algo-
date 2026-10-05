@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:05:51.921954-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "What&#39;s Going On With IREN Stock Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T12:06:10.694611-04:00",
     "symbols": [
       "COIN"
@@ -5041,5 +5031,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-05T11:44:25.266994-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;CFTC\u2019s New Rules for Crypto; US CFTC Chairman Selig In WSJ Says Today The CFTC Is Proposing Its First Round Of Regulations For Crypto Markets; CFTC Is Moving To Institute Rules And Regulations That Account For Distinctions Between Crypto Assets And Other Types Of Commodities&#39;- WSJ",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

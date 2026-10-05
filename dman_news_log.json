@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:04:04.482362-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Louisiana Rep. Cleo Fields Bought Up to $75K Worth of Alphabet Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T11:04:05.018182-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Watching Palantir Technologies; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T11:04:05.324329-04:00",
     "symbols": [
       "AVGO"
@@ -5034,6 +5014,26 @@
       "RZLV"
     ],
     "headline": "Rezolve Ai Inks Reseller Deal With Mastercard To Create a New Distribution Channel For Rezolve Ai\u2019s Technology As Business Prepare For AI-Driven Commerce",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:08:36.090553-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump&#39;s top national security aides meet secretly at Camp David on Iran, Yemen&#39;- Axios",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T10:08:48.664695-04:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "Why Is Apimeds Pharmaceuticals Stock Gaining Monday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

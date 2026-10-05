@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:50:21.069475-04:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "UBS Maintains Neutral on Nike, Lowers Price Target to $34",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-02T15:50:21.073114-04:00",
     "symbols": [
       "NKE"
@@ -5065,6 +5055,16 @@
     ],
     "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:30:33.968999-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Is Strategy&#39;s Bitcoin Machine Broken? Peter Schiff Says It Is",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

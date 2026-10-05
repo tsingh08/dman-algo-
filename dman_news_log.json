@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-02T15:48:58.925071-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Fuel, Freight and Supplier Costs Bite: How Walmart, Costco, Target and Other Retailers Are Fighting Back",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:49:09.284496-04:00",
-    "symbols": [
-      "VECO"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-02T15:49:59.656981-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:50:00.265070-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Nscale Hires Meta\u2019s Justin Osofsky to Be COO Ahead of IPO&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:50:04.623231-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:50:07.996378-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Weak Jobs Lift Tech Stocks to Record Highs, Micron Confirms the AI Rally: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T15:50:11.254178-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Why Caterpillar Stock Is Trading Higher During Friday&#39;s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-02T15:50:12.653462-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Fuel, Freight and Supplier Costs Bite: How Walmart, Costco, Target and Other Retailers Are Fighting Back",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-02T15:50:21.069475-04:00",
     "symbols": [
       "NKE"
@@ -5064,6 +4984,86 @@
       "GGAL"
     ],
     "headline": "Brazilian Stocks Rally 14%, Eye Best Day Since 2020 After Bolsonaro&#39;s First-Round Victory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:21:57.831349-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Rolls Out Agentic Open Model Beam With 501B Total Parameters, 23B Active",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-05T15:22:44.860896-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Yemen&#39;s Houthis Appear To Have Struck Saudi Aramco Oil Refinery At Rabigh On Saudi Arabia&#39;s Red Sea Coast, With New Satellite Imagery Today Showing A Black Smoke Plume Roughly 80 Km Trailing Away From Site And The Fire Centred On The Oil Storage Tanks And Pressurised Storage Vessels",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:23:39.747542-04:00",
+    "symbols": [
+      "BRZU"
+    ],
+    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:23:40.333996-04:00",
+    "symbols": [
+      "BRAZ"
+    ],
+    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:23:40.633923-04:00",
+    "symbols": [
+      "EWZS"
+    ],
+    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:23:40.708256-04:00",
+    "symbols": [
+      "EWZ"
+    ],
+    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:23:40.783538-04:00",
+    "symbols": [
+      "FLBR"
+    ],
+    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:23:40.865779-04:00",
+    "symbols": [
+      "BRF"
+    ],
+    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

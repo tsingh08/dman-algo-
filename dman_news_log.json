@@ -1,17 +1,5 @@
 [
   {
-    "ts": "2026-10-02T17:00:11.931100-04:00",
-    "symbols": [
-      "GOOGL",
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "SpaceX Stock Jumps 7% After 3 Launches in 13 Hours, Including Google&#39;s Orbital AI Experiment",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T09:21:30.821262-04:00",
     "symbols": [
       "AMZN",
@@ -5064,6 +5052,18 @@
     ],
     "headline": "Exzeo Group Reports Q2 2026 Results: Full Earnings Call Transcript",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T15:56:31.680876-04:00",
+    "symbols": [
+      "MSTR",
+      "VEEA",
+      "YXT"
+    ],
+    "headline": "Shares of software companies are trading higher amid falling oil prices and a broader tech rally, as Nvidia reaches a new all-time high and investors anticipate a $6 trillion valuation by the end of the month.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-02T12:05:36.206529-04:00",
-    "symbols": [
-      "MGY"
-    ],
-    "headline": "Truist Securities Maintains Buy on Magnolia Oil &amp; Gas, Raises Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-02T12:05:51.921954-04:00",
     "symbols": [
       "APLD"
@@ -5041,5 +5031,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-05T11:37:39.090030-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Advanced Micro Devices Q3 Preview: AMD Stock Could Surge on \u2018Beat-and-Raise\u2019 Earnings, Analyst Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

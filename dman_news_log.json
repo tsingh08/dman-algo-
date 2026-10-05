@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-02T11:00:30.624339-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cerebras Systems Analyst Turns Bullish As Stock Tanks, Calls Nvidia Competition &#39;Exaggerated&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-02T11:00:32.342067-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Applied Digital, Bitdeer Technologies, ON Semiconductor And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-02T11:00:35.496454-04:00",
     "symbols": [
       "WOLF"
@@ -5049,5 +5029,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:53:47.203754-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Exxon VP Global Exploration Says Permian Recovery Rates Will Improve Significantly In Next 2, 3 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T09:54:13.913316-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Intel\u2019s Terafab Opportunity Gets Crowded: Musk Confirms Talks With Taiwan Semiconductor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

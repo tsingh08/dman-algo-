@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:02.554033-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Google And Constellation Energy Announce Long-Term Strategic Clean Energy Collaboration To Bring 890 MW Of Reliable Nuclear Capacity Onto PJM Interconnection Grid To Meet Growing Demand And Increase Grid Reliability",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:26:02.558377-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Bloomberg Reported Google, Constellation Energy Near $1B Deal For Nuclear Power",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:26:02.679482-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "&#39;NASA Eyes Bulk Rocket Buy for Moon Base Amid SpaceX Phaseout&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T09:26:02.684031-04:00",
     "symbols": [
       "LMT"
@@ -5074,5 +5044,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T14:05:09.026279-04:00",
+    "symbols": [
+      "CAT",
+      "ETN",
+      "GEV"
+    ],
+    "headline": "Shares of data center infrastructure-related companies are trading higher after Google and Constellation energy announced a 20-year partnership to bring 890 MW of nuclear power online, which helps underpin strong demand for future compute buildout. Also, Baird initiating coverage of Modine Manufacturing with an Outperform rating and a $300 price target further supports the sector.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T14:05:28.018532-04:00",
+    "symbols": [
+      "STDN"
+    ],
+    "headline": "This Lockheed Martin Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T14:05:28.022168-04:00",
+    "symbols": [
+      "STDN"
+    ],
+    "headline": "Needham Initiates Coverage On Standard Nuclear with Buy Rating, Announces Price Target of $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

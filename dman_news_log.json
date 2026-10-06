@@ -1,57 +1,5 @@
 [
   {
-    "ts": "2026-10-05T10:43:59.909316-04:00",
-    "symbols": [
-      "RZLV"
-    ],
-    "headline": "Mastercard To Resell Rezolve AI Software Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T10:52:34.872639-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Uber Technologies, Raises Price Target to $92",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T10:52:58.757663-04:00",
-    "symbols": [
-      "VALE"
-    ],
-    "headline": "Brazilian Stocks Rally 14%, Eye Best Day Since 2020 After Bolsonaro&#39;s First-Round Victory",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T10:58:14.442217-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bitmine Buys 15,112 ETH as BMNR Hits a Make-Or-Break Level",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T10:58:30.520236-04:00",
-    "symbols": [
-      "AAPL",
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "Nvidia Now Outweighs 256 S&amp;P Companies Combined\u2015This Is Getting Extreme",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T10:58:52.791345-04:00",
     "symbols": [
       "AAPL"
@@ -5063,6 +5011,66 @@
     "headline": "Vir Biotechnology To Reveal Expanded Phase 2 SOLSTICE Results for Elebsiran And Tobevibart In Hepatitis Delta at AASLD\u2019s The Liver Meeting 2026",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T09:31:57.406549-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell CEO, At Investor Day, Says We See An Approximately $400B Total Addressable Market For Marvell By 2030; Expects $20B In FY28 Revenue",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:32:25.674805-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Alphabet, Raises Price Target to $417",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:32:50.044717-04:00",
+    "symbols": [
+      "AMZN",
+      "CEG",
+      "GOOGL",
+      "MSFT",
+      "OKLO",
+      "SMR",
+      "TLN",
+      "VST"
+    ],
+    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:33:40.798893-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Meta Platforms, Raises Price Target to $1000",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:34:21.316501-04:00",
+    "symbols": [
+      "DIA",
+      "NVDA",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "S&amp;P 500 Hits 118% Gains as Ryan Detrick Eyes &#39;Many, Many More Years&#39;\u2014But Burry and Schiff Warn Our &#39;Luck Just Ran Out&#39;",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

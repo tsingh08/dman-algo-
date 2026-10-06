@@ -166,7 +166,7 @@ jobs:
           tables.'
 
           if [ "$KIND" = "midday" ]; then
-            ALLOWED_TOOLS="Read,Grep,Glob,Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
+            ALLOWED_TOOLS="Bash(python dman_algo.py --mode features),Read,Grep,Glob,Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
             PROMPT="$SHARED_CONTEXT"'
 
           You have READ-ONLY repo access this run -- report only, the same
@@ -198,7 +198,7 @@ jobs:
             # see the file header for why that specific gap is what keeps
             # this PR-only rather than main-reachable. Already on a fresh
             # review/* branch from the "Create review branch" step above.
-            ALLOWED_TOOLS="Read,Grep,Glob,Edit,Write,Bash(git add:*),Bash(git commit:*),Bash(git status:*),Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
+            ALLOWED_TOOLS="Bash(python dman_algo.py --mode features),Read,Grep,Glob,Edit,Write,Bash(git add:*),Bash(git commit:*),Bash(git status:*),Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
             PROMPT="$SHARED_CONTEXT"'
 
           You ALSO have Edit/Write access and can make real code changes
@@ -232,6 +232,18 @@ jobs:
              someone could hand this straight to a follow-up session to
              implement. Say clearly whether you already committed each one
              or are only describing it.
+
+          Also run `python dman_algo.py --mode features` and quote its
+          "exit capture" / "round-tripped" / "exits:" lines verbatim in your
+          report, with one sentence on whether they moved. Added 2026-10-06:
+          that report is the ONLY place the exit-capture metric surfaces, and
+          until now its single caller printed it to a runner log nobody reads
+          -- the same stdout-only blind spot that hid the heat cap for a whole
+          session. The numbers at the time: mean MFE +4.68% vs P/L -3.23%
+          (-69% capture), 2 of 50 signals ever reaching target. If capture
+          improves toward 0 or the target count rises, say so; that is
+          currently the largest known lever on performance and nothing else
+          watches it.
 
           Prioritize the most important 3-5 findings over an exhaustive
           list.'

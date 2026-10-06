@@ -40,6 +40,12 @@ CRITICAL = {
     ".github/workflows/dman_premarket.yml": "the 8:10 ET briefing",
     ".github/workflows/dman_watchdog.yml": "restarts a stuck daemon",
     ".github/workflows/dman_open_check.yml": "the open-time verification",
+    # Added 2026-10-06. Every one of these is on a cron, so losing the file
+    # means the job simply never runs again and nothing errors -- which is this
+    # manifest's whole criterion, and all three were missing from it.
+    ".github/workflows/dman_review.yml": "the post-close session review -- the main window into how a session went",
+    ".github/workflows/dman_weekend.yml": "the weekend watch",
+    ".github/workflows/dman_stocktwits.yml": "the social-sentiment monitor",
 
     # The local fallback, which is what actually went missing.
     "scripts/register_fallback_task.ps1": "registers the local fallback guard task",

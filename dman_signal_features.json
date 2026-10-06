@@ -37664,8 +37664,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 16,
-"last_ts": "2026-10-06T15:01:06.374244-04:00",
+"seen": 17,
+"last_ts": "2026-10-06T15:29:40.619638-04:00",
 "entry_min": 4.33,
 "entry_max": 4.55
 },
@@ -37928,12 +37928,12 @@
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
-"entry": 7.2,
+"entry": 7.27,
 "stop": 4.66,
-"target1": 13.54,
+"target1": 13.79,
 "rr": 2.5,
-"rsi": 70.2,
-"rvol": 5.28,
+"rsi": 70.4,
+"rvol": 5.59,
 "atr": 1.7883214285714288,
 "beta": 1.0,
 "catalyst_tier": "C",
@@ -37944,7 +37944,7 @@
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": true,
-"divergence_free": true,
+"divergence_free": false,
 "breakdown": {
 "Regime": 14,
 "MTF": 12,
@@ -37956,10 +37956,10 @@
 "Earnings": 5,
 "Macro": 5,
 "Earn React": 0,
-"Fibonacci": 7,
+"Fibonacci": 0,
 "VWAP": 8,
 "POC": 7,
-"No Divergence": 5,
+"No Divergence": 0,
 "RSI Zone": 5,
 "52wk Prox": 0,
 "Candle": 0,
@@ -37974,8 +37974,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 68,
-"last_ts": "2026-10-06T15:14:53.713802-04:00",
+"seen": 70,
+"last_ts": "2026-10-06T15:29:38.550772-04:00",
 "entry_min": 6.26,
 "entry_max": 7.27
 },
@@ -38098,8 +38098,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 16,
-"last_ts": "2026-10-06T15:01:03.580270-04:00",
+"seen": 17,
+"last_ts": "2026-10-06T15:29:37.273547-04:00",
 "entry_min": 31.05,
 "entry_max": 31.1
 },
@@ -38160,8 +38160,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 22,
-"last_ts": "2026-10-06T15:01:06.182850-04:00",
+"seen": 24,
+"last_ts": "2026-10-06T15:29:39.738523-04:00",
 "entry_min": 48.1,
 "entry_max": 49.56
 },

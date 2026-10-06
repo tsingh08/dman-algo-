@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:10.744726-04:00",
-    "symbols": [
-      "XP"
-    ],
-    "headline": "Itau BBA Upgrades XP to Outperform, Announces $27 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:26:10.991152-04:00",
-    "symbols": [
-      "EBS"
-    ],
-    "headline": "Novavax Shorts on Edge as Russia Plague Fears Spread",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T09:26:11.150505-04:00",
-    "symbols": [
-      "NU"
-    ],
-    "headline": "Novavax, Nvidia, MercadoLibre, Nu Holdings and PTC: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T09:26:11.279458-04:00",
     "symbols": [
       "BSY"
@@ -5092,5 +5062,47 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:28:26.144447-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Waymo Boosts Private Debt Deal to $5 Billion in Push for Growth&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:29:22.462380-04:00",
+    "symbols": [
+      "OPCH"
+    ],
+    "headline": "Option Care Stock Trades Below McKesson&#39;s Deal Price \u2014 Here&#39;s the Spread",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:29:39.085239-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "AMZN",
+      "AVGO",
+      "CRWD",
+      "FTNT",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "PANW",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

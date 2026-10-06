@@ -1,127 +1,5 @@
 [
   {
-    "ts": "2026-10-05T14:38:52.751432-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on Zscaler, Raises Price Target to $240",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T14:47:33.817071-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump Administration Closes 2024 Privacy Probe Into U.S. Airlines Without Seeking Any Penalties",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T14:47:50.478964-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:47:50.565715-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:47:50.661332-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:47:50.739973-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:47:50.855744-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:47:50.944557-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:47:54.831542-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:47:55.941395-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;SpaceX Proposes Gas Pipeline to Supply Cape Canaveral Rockets&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:49:02.718005-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Unity Stock Climbs: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-05T14:51:54.311252-04:00",
-    "symbols": [
-      "AVGO",
-      "MU",
-      "NVDA"
-    ],
-    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T14:52:07.439371-04:00",
     "symbols": [
       "APP"
@@ -5067,6 +4945,126 @@
     ],
     "headline": "Uber Expands into Workplace Catering with $2.3 Billion ezCater Acquisition",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:58:41.008901-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:58:41.274400-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;AI Neocloud Lambda Is Raising $4B  in Final Round Before Planned IPO&#39;-WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:58:41.278029-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:58:41.791255-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:58:43.494485-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "&#39;AI Neocloud Lambda Is Raising $4B  in Final Round Before Planned IPO&#39;-WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T12:58:43.793154-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Jim Cramer Sees Marvell Sending a Bigger Signal to Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:58:45.201245-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jim Cramer Sees Marvell Sending a Bigger Signal to Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:58:45.943731-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Uber Expands into Workplace Catering with $2.3 Billion ezCater Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:58:49.245390-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Expands into Workplace Catering with $2.3 Billion ezCater Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:58:56.196764-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "Boeing, Ford and Warner Bros. Discovery Have Billions in Debt Coming Due as Yields Hit 5.3%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:58:58.545901-04:00",
+    "symbols": [
+      "TWST"
+    ],
+    "headline": "Cathie Wood&#39;s $22M Biotech Shuffle, Dumps One Stock for 21st Straight Session While Other Bets Pile Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:58:58.549586-04:00",
+    "symbols": [
+      "TWST"
+    ],
+    "headline": "Cathie Wood Claps Back After Being Confronted as ARKK Fell Nearly 15% While QQQ Soared 112% in Five Years \u2014 Calls It an \u2018Incorrect Comparison\u2019",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1240,5 +1240,23 @@
   "drift_pct": 0.09,
   "range_ratio": 0.46,
   "near_high": 0.981
+ },
+ {
+  "ts": "2026-10-06T12:59:58.086065-04:00",
+  "ticker": "WBD",
+  "price": 30.95,
+  "rvol": 3.23,
+  "drift_pct": 0.32,
+  "range_ratio": 0.06,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-06T12:59:58.086080-04:00",
+  "ticker": "BSCT",
+  "price": 18.2501,
+  "rvol": 1.7,
+  "drift_pct": 0.28,
+  "range_ratio": 0.27,
+  "near_high": 0.982
  }
 ]

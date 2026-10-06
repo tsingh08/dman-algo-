@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:13:52.545396-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;RFK Jr. to Announce New Vaccine Injury Research at NIH&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:52.626713-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:13:52.704793-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:13:52.921953-04:00",
-    "symbols": [
-      "AIFA"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T13:13:53.164056-04:00",
     "symbols": [
       "DCX"
@@ -5058,5 +5018,47 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:27:17.538427-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "SpaceX, Tesla Trade Like One Elon Musk Stock",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:27:45.074013-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX, Tesla Trade Like One Elon Musk Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T11:27:53.845296-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX, Tesla Trade Like One Elon Musk Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-06T11:28:24.150131-04:00",
+    "symbols": [
+      "GOOGL",
+      "SPCX"
+    ],
+    "headline": "Why Is Planet Labs Stock Surging on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

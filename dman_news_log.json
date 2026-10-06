@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:13:53.164056-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:53.524324-04:00",
-    "symbols": [
-      "SGLY"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:53.602520-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T13:13:53.692537-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:53.764895-04:00",
-    "symbols": [
-      "BEAT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:53.769647-04:00",
-    "symbols": [
-      "BEAT"
-    ],
-    "headline": "Dow Gains 100 Points; ISM Services PMI Falls In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T13:13:53.842694-04:00",
     "symbols": [
       "APUS"
@@ -5060,5 +5000,74 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:32:16.350303-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Elon Musk Rejoins Trump Administration: Can Dogecoin Rally Again?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:41.749138-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Rejoins Trump Administration: Can Dogecoin Rally Again?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-06T11:32:41.753995-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is Planet Labs Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-06T11:32:41.927296-04:00",
+    "symbols": [
+      "CNXU"
+    ],
+    "headline": "Conexeu Sciences Issues Update On Regulatory And Manufacturing Program Supporting Planned FDA 510(k) Premarket Notification For Ten Minute Tissue, Lead Wound Care Device Candidate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:42.090194-04:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Rezolve Ai Receives Court Approval For Proposed Capital Reduction To Implement Share Repurchase Program Of Up To $300M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:33:30.696314-04:00",
+    "symbols": [
+      "ABBV",
+      "AMZN",
+      "DIA",
+      "IWM",
+      "META",
+      "QQQ",
+      "SPY",
+      "UNH",
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

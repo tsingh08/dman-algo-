@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-05T15:36:28.888598-04:00",
-    "symbols": [
-      "EWZ"
-    ],
-    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:36:29.443617-04:00",
-    "symbols": [
-      "NXH"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:36:29.448171-04:00",
-    "symbols": [
-      "NXH"
-    ],
-    "headline": "Neighborhood Intelligence Intends To Reduce Size Of At-The-Market Equity Offering Facility By More Than Half, From $200M To ~$75M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T15:36:29.452615-04:00",
     "symbols": [
       "NXH"
@@ -5076,6 +5046,36 @@
     ],
     "headline": "Challenging Nvidia&#39;s Dominance: Broadcom Pairs Custom TPU Chips with $60 Billion Debt Package",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:40:45.970173-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "&#39;ExxonMobil looks to offshore projects in Trinidad and Tobago for next boom&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:40:55.848012-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T13:40:55.851699-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

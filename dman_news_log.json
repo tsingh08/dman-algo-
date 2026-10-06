@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:41:58.409903-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T12:41:58.836096-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:41:59.228277-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:41:59.407788-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:42:05.300556-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T12:42:05.448280-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T12:42:09.542857-04:00",
-    "symbols": [
-      "EWZ"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T12:42:09.965375-04:00",
     "symbols": [
       "PBR"
@@ -5054,6 +4984,76 @@
     "headline": "Fed&#39;s Bowman Says New Structure Will Consist Of Five Regions Across The States, Depart From Regional Reserve Bank-Led Model; Says  Fed To Consider Updating Bank Asset Thresholds For Stricter Rules Later This Year",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:57:52.880124-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Stock Pops Tuesday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T10:58:35.374305-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Reported Earlier, &#39;Seagate Said to Vie With Toshiba for TDK\u2019s Hard-Drive Magnetic Heads Unit&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:58:35.535504-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Reported Earlier, &#39;Seagate Said to Vie With Toshiba for TDK\u2019s Hard-Drive Magnetic Heads Unit&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:58:35.718263-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Reported Earlier, &#39;Seagate Said to Vie With Toshiba for TDK\u2019s Hard-Drive Magnetic Heads Unit&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T10:58:44.988618-04:00",
+    "symbols": [
+      "OPCH"
+    ],
+    "headline": "McKesson Takes A Stake In Option Care \u2014 With An Option On The Rest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:58:46.274176-04:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "Apimeds Pharmaceuticals Shares Halted On Circuit Breaker To The Upside, Stock Now Up 30.94%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:58:46.533774-04:00",
+    "symbols": [
+      "CBIO"
+    ],
+    "headline": "HC Wainwright &amp; Co. Upgrades Crescent Biopharma to Buy, Announces $36 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

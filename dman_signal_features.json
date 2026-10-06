@@ -37614,7 +37614,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "pre-9:45 gate",
+"reject": "alert only: off-watchlist",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -37664,10 +37664,10 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 10,
-"last_ts": "2026-10-06T09:40:15.266229-04:00",
+"seen": 11,
+"last_ts": "2026-10-06T14:27:56.747061-04:00",
 "entry_min": 4.33,
-"entry_max": 4.33
+"entry_max": 4.55
 },
 {
 "ts": "2026-10-06T09:26:28.838925-04:00",
@@ -37974,8 +37974,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 54,
-"last_ts": "2026-10-06T14:16:56.515564-04:00",
+"seen": 56,
+"last_ts": "2026-10-06T14:27:55.523963-04:00",
 "entry_min": 6.26,
 "entry_max": 7.23
 },
@@ -38098,8 +38098,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 10,
-"last_ts": "2026-10-06T14:16:55.843697-04:00",
+"seen": 11,
+"last_ts": "2026-10-06T14:27:54.285605-04:00",
 "entry_min": 31.1,
 "entry_max": 31.1
 },

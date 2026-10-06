@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:54:09.695073-04:00",
-    "symbols": [
-      "RKTO"
-    ],
-    "headline": "Rocket One Inks Patent License Deal With Department Of Air Force For Its Technology Designed To Capture Hostile Drones And Isolate Their Communications",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T09:54:09.700631-04:00",
     "symbols": [
       "KAPA"
@@ -5099,5 +5089,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:43:06.975504-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Announces Telecom Operators Building Their AI Strategies On Open Models; Open Models Offer Control, Tailored AI Throughout Most Critical Workloads",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

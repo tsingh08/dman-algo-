@@ -23179,3 +23179,125 @@ class TestAFeatureRowDescribesOneMoment(unittest.TestCase):
         src = inspect.getsource(a._log_signal_features)
         for _f in a._SIGNAL_DECISION_FIELDS:
             self.assertIn(f'"{_f}"', src, f"{_f} is not a row field")
+
+
+class TestTakenMeansTheOrderPathAcceptedIt(unittest.TestCase):
+    """Monday 2026-10-05: ITUB, BBD and ABEV logged taken=True, 0 orders placed.
+
+    run_pro_scanner() marks everything it returns as taken, which its docstring
+    defines honestly as "handed to the order path". But the order path refuses
+    things too, and every refusal `continue`d without telling the dataset. The
+    run log for the same minute:
+
+        BBD   Gap & Hold - outside the backtest-validated WATCHLIST - alert only
+        ABEV  Gap & Hold - outside the backtest-validated WATCHLIST - alert only
+        0/2 signal(s) submitted [LIVE]
+
+    Worse than the heat cap, which only lost information. This writes a false
+    POSITIVE into the one column the dataset exists to explain -- whether the
+    signals the algo PICKED beat the ones it discarded. And it is biased, not
+    just noisy: off-watchlist momentum names are exactly the ones that would
+    flatter the picked column while never having risked a dollar."""
+
+    def setUp(self):
+        self._tmp = tempfile.mkdtemp()
+        self._f = os.path.join(self._tmp, "feat.json")
+        self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
+        self._p.start()
+
+    def tearDown(self):
+        self._p.stop()
+        import shutil as _sh
+        _sh.rmtree(self._tmp, ignore_errors=True)
+
+    def _seed(self, ticker="BBD", taken=True, date=None):
+        rows = [{"date": date or str(a._et_today()), "ticker": ticker,
+                 "setup": "Gap & Hold", "taken": taken, "reject": "",
+                 "score": 100}]
+        with open(self._f, "w") as fh:
+            json.dump(rows, fh)
+
+    def _rows(self):
+        with open(self._f) as fh:
+            return json.load(fh)
+
+    def test_an_off_watchlist_refusal_clears_taken(self):
+        self._seed()
+        self.assertTrue(a._mark_signal_not_taken("BBD", "alert only: off-watchlist"))
+        row = self._rows()[-1]
+        self.assertFalse(row["taken"])
+        self.assertEqual(row["reject"], "alert only: off-watchlist")
+
+    def test_the_reason_survives_and_is_specific(self):
+        """'not taken' with no reason would just move the blind spot."""
+        self._seed()
+        a._mark_signal_not_taken("BBD", "max positions 5/5")
+        self.assertIn("max positions", self._rows()[-1]["reject"])
+
+    def test_a_blank_reason_still_records_something(self):
+        self._seed()
+        a._mark_signal_not_taken("BBD", "")
+        self.assertTrue(self._rows()[-1]["reject"])
+
+    def test_it_only_touches_today(self):
+        """Yesterday's row for the same ticker is a different decision."""
+        self._seed(date="2026-01-01")
+        self.assertFalse(a._mark_signal_not_taken("BBD", "alert only"))
+        self.assertTrue(self._rows()[-1]["taken"])
+
+    def test_it_only_touches_the_named_ticker(self):
+        self._seed(ticker="ABEV")
+        self.assertFalse(a._mark_signal_not_taken("BBD", "alert only"))
+        self.assertTrue(self._rows()[-1]["taken"])
+
+    def test_it_amends_the_newest_row_only(self):
+        """Matches _mark_signals_taken's rule: the row this scan just wrote."""
+        today = str(a._et_today())
+        rows = [{"date": today, "ticker": "BBD", "setup": "Gap & Hold",
+                 "taken": True, "reject": "", "score": 100, "tag": "old"},
+                {"date": today, "ticker": "BBD", "setup": "Gap & Hold",
+                 "taken": True, "reject": "", "score": 100, "tag": "new"}]
+        with open(self._f, "w") as fh:
+            json.dump(rows, fh)
+        a._mark_signal_not_taken("BBD", "alert only")
+        out = self._rows()
+        self.assertFalse(out[1]["taken"], "newest row should be corrected")
+        self.assertTrue(out[0]["taken"], "older row is a different decision")
+
+    def test_a_missing_file_does_not_raise(self):
+        self._seed()
+        os.remove(self._f)
+        self.assertFalse(a._mark_signal_not_taken("BBD", "alert only"))
+
+    def test_garbage_json_does_not_raise(self):
+        with open(self._f, "w") as fh:
+            fh.write("{not json")
+        self.assertFalse(a._mark_signal_not_taken("BBD", "alert only"))
+
+    # --- the call sites ----------------------------------------------------
+    def test_every_submit_refusal_reports_itself(self):
+        """The specific gap: six `continue`s that told the dataset nothing. If a
+        new refusal is added without a call, this count drops and this fails."""
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertGreaterEqual(src.count("_mark_signal_not_taken("), 6)
+
+    def test_the_off_watchlist_site_is_instrumented(self):
+        """The one that actually fired on Monday."""
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i = src.index("not auto-traded")
+        self.assertIn("_mark_signal_not_taken", src[i:i + 600])
+
+    def test_the_max_positions_site_is_instrumented(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i = src.index("no tracking slot available")
+        self.assertIn("_mark_signal_not_taken", src[i:i + 400])
+
+    def test_it_does_not_invent_features_to_fix_a_label(self):
+        """Deliberately amends the row instead of re-logging: the submit path
+        has no regime dict, and guessing one would put fabricated features in
+        the dataset to repair a labelling bug."""
+        src = inspect.getsource(a._mark_signal_not_taken)
+        # The docstring names it, so check the executable body only -- the same
+        # needle-in-a-comment trap tools/hollow_assert_check.py exists for.
+        body = src.split('"""')[2]
+        self.assertNotIn("_log_signal_features", body)

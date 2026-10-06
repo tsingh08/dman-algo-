@@ -7645,6 +7645,57 @@ SIGNAL_LABEL_MAX_PER_RUN  = 40    # tickers fetched per labelling pass
 SIGNAL_POWER_MIN_LABELS   = 150
 
 
+def _mark_signal_not_taken(ticker: str, reason: str) -> bool:
+    """Undo the scanner's optimistic taken=True when the ORDER PATH refused.
+
+    run_pro_scanner() calls _mark_signals_taken() on everything it returns,
+    and its docstring is honest about what that means: handed to the order
+    path, not filled. But the order path has refusals of its own --
+    watchlist-only auto-execution, the ticker bench, MAX_POSITIONS, sizing,
+    a stale entry -- and every one of them `continue`d without telling the
+    dataset anything.
+
+    Monday 2026-10-05 is the case. ITUB, BBD and ABEV all scored 100, passed
+    every gate, and were logged taken=True with reject="". The run log for the
+    same minute says:
+
+        BBD   Gap & Hold - outside the backtest-validated WATCHLIST - alert only
+        ABEV  Gap & Hold - outside the backtest-validated WATCHLIST - alert only
+        0/2 signal(s) submitted [LIVE]
+
+    This is worse than the heat cap's missing reason, which only lost
+    information. This writes a false POSITIVE into the one column the dataset
+    exists to explain -- whether the signals the algo PICKED did better than
+    the ones it discarded. Three it never placed were sitting in the picked
+    column, and they are the kind that would flatter it: off-watchlist momentum
+    names nobody risked money on.
+
+    Mirrors _mark_signals_taken()'s mechanism deliberately: amend the newest
+    row for this ticker today, rather than re-log, because the submit path has
+    no regime dict to hand _log_signal_features() and inventing one would put
+    guessed features in the dataset to fix a labelling bug.
+    """
+    try:
+        with open(SIGNAL_FEATURES_FILE) as _f:
+            _log = json.load(_f)
+        if not isinstance(_log, list):
+            return False
+        _t, _today = str(ticker or "").upper(), str(_et_today())
+        for _row in reversed(_log):
+            if not (isinstance(_row, dict) and _row.get("date") == _today):
+                continue
+            if str(_row.get("ticker", "")).upper() != _t:
+                continue
+            _row["taken"] = False
+            _row["reject"] = str(reason or "order path refused")[:60]
+            _write_json_atomic(SIGNAL_FEATURES_FILE, _log, indent=0)
+            return True
+        return False
+    except Exception as exc:
+        _log_swallowed("mark signal not taken", exc)
+        return False
+
+
 def _mark_signals_taken(tickers) -> int:
     """Flip today's feature rows for these tickers to taken=True.
 
@@ -28663,6 +28714,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     f"Outside the backtest-validated watchlist. "
                     f"To take it yourself: /options {sig.ticker}")
                 _mark_alerted(_wk)
+            _mark_signal_not_taken(sig.ticker, "alert only: off-watchlist")
             continue
 
         # Per-ticker bench: stop returning to names whose own live record
@@ -28681,6 +28733,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     f"Auto-clears once those trades age out of the "
                     f"{TICKER_BENCH_LOOKBACK_DAYS}-day window."
                 )
+            _mark_signal_not_taken(sig.ticker, f"benched: {_bench}")
             continue
 
         # Found in the 2026-08-23 review: MAX_POSITIONS was only ever
@@ -28697,6 +28750,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if len(pt.positions) >= MAX_POSITIONS:
             print(f"  ⏭️  {sig.ticker:<8} skipped — MAX_POSITIONS ({MAX_POSITIONS}) "
                   f"already reached, no tracking slot available")
+            _mark_signal_not_taken(sig.ticker,
+                                   f"max positions {len(pt.positions)}/{MAX_POSITIONS}")
             continue
 
         # size_position_kelly() reports shares=0 when even 1 share would
@@ -28731,12 +28786,14 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if float(getattr(sig, "entry", 0) or 0) <= 0:
             print(f"  ⏭️  {sig.ticker:<8} skipped — entry price is "
                   f"{getattr(sig, 'entry', None)}, nothing to price a trade off")
+            _mark_signal_not_taken(sig.ticker, "unusable entry price")
             continue
 
         if sig.shares <= 0:
             if not any(_options_route(sig)):
                 print(f"  ⏭️  {sig.ticker:<8} sizing failed — even 1 share exceeds the "
                       f"risk budget for this stop distance — skipping")
+                _mark_signal_not_taken(sig.ticker, "sizing: 1 share over budget")
                 continue
             print(f"  ↪️  {sig.ticker:<8} shares unaffordable at this stop — routing to options")
 
@@ -28750,6 +28807,8 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                 f"Detected ${sig.entry} → now ${cur:.2f} ({drift_pct:+.1f}% drift)\n"
                 f"Entry re-validation failed — no order placed."
             )
+            _mark_signal_not_taken(sig.ticker,
+                                   f"stale entry drift {drift_pct:+.1f}%")
             continue
 
         # Apply sizing multiplier — down for risk-off/cold streak, up for hot streak/risk-on

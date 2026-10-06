@@ -12039,7 +12039,13 @@ BZONE_FLOOR_TOLERANCE = 0.80
 BZONE_CATASTROPHE_STOP_PCT = 0.35
 # Below this distance a resting stop on a zone is the SECZ bug reappearing
 # rather than the intended floor. Used to tell the two apart.
-BZONE_TIGHT_STOP_PCT   = 0.25
+# BZONE_TIGHT_STOP_PCT (0.25) was removed 2026-10-06. It was the flat bar
+# _is_catastrophe_stop() used to separate a real floor from the 8% adoption
+# fallback, and the ATR-scaled floor replaced its only use. Left defined, it
+# read as live configuration and invited someone to "restore" the validator to
+# a constant that no longer describes any floor the code places. What actually
+# keeps the two distinguishable is BZONE_CATASTROPHE_STOP_MIN_PCT sitting above
+# ADOPTED_FALLBACK_STOP_PCT -- asserted in the test suite, not implied here.
 BZONE_HOLD_SESSIONS    = 20
 BZONE_TRADE_REVIEW_N   = 12       # closed trades before the record gets a verdict
 # A breakout-zone entry is priced off a LOGGED scan row that can be two days
@@ -12623,9 +12629,10 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
                     f"{_row.get('extension_pct', 0):+.0f}% vs its 20-day average.\n"
                     f"<i>Held {BZONE_HOLD_SESSIONS} sessions, no TRADING stop — the "
                     f"tested rule (+3.3% median, 3y). A catastrophe floor rests "
-                    f"{BZONE_CATASTROPHE_STOP_PCT:.0%} below fill, far outside noise, "
-                    f"so an unattended collapse cannot take the whole position. "
-                    f"Position ${_qty * _px:.0f}.</i>")
+                    f"{_bzone_floor_pct(_t):.0%} below fill "
+                    f"({BZONE_CATASTROPHE_STOP_ATR:.1f} ATR on this name), far "
+                    f"outside noise, so an unattended collapse cannot take the "
+                    f"whole position. Position ${_qty * _px:.0f}.</i>")
     print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries {out['entered']}"
           f"{' — ' + out['skipped'] if out['skipped'] else ''}")
     return out

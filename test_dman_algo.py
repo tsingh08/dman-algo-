@@ -22850,12 +22850,37 @@ class TestACatastropheFloorIsNeverRatcheted(unittest.TestCase):
         for later in ('pos.stop_stage == "trailing"', "_gate = trigger_price"):
             self.assertLess(i, src.index(later))
 
-    def test_the_floor_width_is_what_makes_it_safe_to_leave(self):
-        """Pinned together: the floor is only tolerable unmoved because it is
-        far outside noise. If the width were tightened, leaving it alone would
-        stop being the safe choice."""
-        self.assertGreaterEqual(a.BZONE_CATASTROPHE_STOP_PCT,
-                                a.BZONE_TIGHT_STOP_PCT)
+    def test_the_floor_stays_distinguishable_from_the_adoption_fallback(self):
+        """Rewritten 2026-10-06, because the old version of this test FAILED TO
+        FIRE on exactly the change it claimed to guard.
+
+        It asserted BZONE_CATASTROPHE_STOP_PCT >= BZONE_TIGHT_STOP_PCT and said
+        "if the width were tightened, leaving it alone would stop being the safe
+        choice". The width WAS tightened -- 35% flat became 3 ATR -- and this
+        passed, because the change removed BZONE_TIGHT_STOP_PCT's only real use
+        while leaving both constants defined. It was comparing a live number to
+        a dead one.
+
+        The load-bearing invariant is this instead: the narrowest floor the
+        scaled rule can produce must still be wider than the 8% orphan-adoption
+        fallback. That is the whole reason _is_catastrophe_stop() can tell an
+        intended floor from the stop that cost SECZ. Narrow the minimum below
+        the fallback and the two become indistinguishable on every name."""
+        self.assertGreater(a.BZONE_CATASTROPHE_STOP_MIN_PCT,
+                           a.ADOPTED_FALLBACK_STOP_PCT)
+
+    def test_the_scaled_floor_is_never_wider_than_the_ceiling(self):
+        """The old 35% is the ceiling now, not the rule."""
+        for _atr in (0.001, 0.02, 0.05, 0.20, 0.90):
+            with patch.object(a, "_bzone_atr_pct", return_value=_atr):
+                _w = a._bzone_floor_pct("X")
+            self.assertLessEqual(_w, a.BZONE_CATASTROPHE_STOP_PCT)
+            self.assertGreaterEqual(_w, a.BZONE_CATASTROPHE_STOP_MIN_PCT)
+
+    def test_the_dead_constant_is_gone(self):
+        """Left defined it read as live config and invited a "restore" of the
+        validator to a bar that describes no floor the code places."""
+        self.assertFalse(hasattr(a, "BZONE_TIGHT_STOP_PCT"))
 
 
 class TestTheRefillNagNamesTheRightSource(unittest.TestCase):

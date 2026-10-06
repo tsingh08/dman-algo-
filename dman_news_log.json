@@ -1,50 +1,5 @@
 [
   {
-    "ts": "2026-10-06T10:17:47.811794-04:00",
-    "symbols": [
-      "AMD",
-      "GOOGL",
-      "META",
-      "NVDA",
-      "QCOM"
-    ],
-    "headline": "AMD\u2019s AI Boom Gets Bigger: Lisa Su Sees \u2018Very, Very High\u2019 Demand for the Next Several Years",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T10:18:56.559519-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Faces UK Investigation Over Instagram Instants Launch, Ofcom Probes Safety Risks For Children and Illegal Content",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T10:21:50.863246-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "TD Cowen Maintains Buy on Affirm Holdings, Lowers Price Target to $110",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T10:26:18.073840-04:00",
-    "symbols": [
-      "META",
-      "NVDA"
-    ],
-    "headline": "Nvidia-Backed Robotics Startup FieldAI Set to Hit $10 Billion Valuation After $700 Million Planned Raise, Nearly Quintupling Value in Just Over a Year: Report (CORRECTED)",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T10:26:47.965719-04:00",
     "symbols": [
       "NVDA"
@@ -5092,5 +5047,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T16:15:02.355806-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Black Hills Signs Definitive Agreements Effective Sept. 30, 2026, With Terms Through 2048, To Serve A Planned Google Data Center To Be Constructed In Cheyenne, Wyoming; Investing $1.8B In New Company-Owned Natural Gas Generation; Project Is Expected To Deliver ~$2.4B Of Unlevered Free Cash Flow, Net Of $1.8B Of Generation Capital Investment",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T16:20:16.260369-04:00",
+    "symbols": [
+      "CEG",
+      "GOOGL"
+    ],
+    "headline": "FuelCell Energy Stock Gains 14% Today \u2014 Here&#39;s Why",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T16:45:36.800980-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "$1000 Invested In Costco Wholesale 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T16:56:04.904109-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Warren Buffett is Addicted to YouTube Just Like the Rest of Us: You Won&#39;t Believe What He&#39;s Watching",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

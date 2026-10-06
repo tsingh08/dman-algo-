@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:13:55.305131-04:00",
-    "symbols": [
-      "EWZ"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T13:13:55.378518-04:00",
     "symbols": [
       "NU"
@@ -5066,6 +5056,16 @@
       "XOM"
     ],
     "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:45:34.650626-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Secretary Of Agriculture Brooke Rollins Posts On X &#34;BIG ANNOUNCEMENT coming soon on America\u2019s seed supply! Hearing directly from Iowa farmers in Prairie City alongside @RepMMM, @ZachNunn, @MikeNaigIA, and @AGIowa.Today\u2019s discussion: seed and fertilizer costs, selling more American products abroad, and strengthening the support farmers depend on during harvest..&#34;",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:29:39.659827-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-05T12:29:42.180257-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Vistra Gets $4.2B Federal Loan to Add Nuclear Power Meta Already Bought",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T12:29:42.613958-04:00",
     "symbols": [
       "CEG"
@@ -5056,6 +5036,26 @@
       "PANW"
     ],
     "headline": "Shares of cybersecurity companies are trading higher after Zscaler reaffirmed its Q1 and FY27 adjusted EPS guidance. Also, StoneX maintained its Buy rating on CrowdStrike and raised its price target from $250 to $325.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:31:25.057579-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "European Centre For Disease Prevention And Control  Says It Is Closely Monitoring Situation Following Case Of Pneumonia Of Unknown Origin In Russia",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:33:58.707897-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Secures Up To 1GW Power Capacity In Finland Ahead Of Earnings",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1276,5 +1276,50 @@
   "drift_pct": 0.27,
   "range_ratio": 0.27,
   "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-06T15:16:04.487676-04:00",
+  "ticker": "WBD",
+  "price": 30.95,
+  "rvol": 3.23,
+  "drift_pct": 0.32,
+  "range_ratio": 0.06,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-06T15:16:04.487690-04:00",
+  "ticker": "BSCT",
+  "price": 18.2557,
+  "rvol": 1.78,
+  "drift_pct": 0.31,
+  "range_ratio": 0.27,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-06T15:16:04.487694-04:00",
+  "ticker": "BSCY",
+  "price": 19.595,
+  "rvol": 4.75,
+  "drift_pct": 0.4,
+  "range_ratio": 0.29,
+  "near_high": 0.953
+ },
+ {
+  "ts": "2026-10-06T15:16:04.487697-04:00",
+  "ticker": "TAFI",
+  "price": 24.585,
+  "rvol": 2.5,
+  "drift_pct": 0.02,
+  "range_ratio": 0.45,
+  "near_high": 0.977
+ },
+ {
+  "ts": "2026-10-06T15:16:04.487700-04:00",
+  "ticker": "VSDM",
+  "price": 74.35,
+  "rvol": 2.21,
+  "drift_pct": 0.04,
+  "range_ratio": 0.31,
+  "near_high": 0.973
  }
 ]

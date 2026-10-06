@@ -37613,7 +37613,7 @@
 "ticker": "BBD",
 "setup": "Gap & Hold",
 "bias": "LONG",
-"taken": false,
+"taken": true,
 "reject": "alert only: off-watchlist",
 "score": 100,
 "final_score": 100.0,
@@ -37664,8 +37664,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 18,
-"last_ts": "2026-10-06T15:34:33.697845-04:00",
+"seen": 19,
+"last_ts": "2026-10-06T15:42:45.136766-04:00",
 "entry_min": 4.33,
 "entry_max": 4.55
 },
@@ -37974,8 +37974,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 72,
-"last_ts": "2026-10-06T15:34:33.438240-04:00",
+"seen": 74,
+"last_ts": "2026-10-06T15:42:43.952326-04:00",
 "entry_min": 6.26,
 "entry_max": 7.27
 },
@@ -38047,7 +38047,7 @@
 "ticker": "OPCH",
 "setup": "Gap & Hold",
 "bias": "LONG",
-"taken": false,
+"taken": true,
 "reject": "alert only: off-watchlist",
 "score": 100,
 "final_score": 100.0,
@@ -38098,8 +38098,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 18,
-"last_ts": "2026-10-06T15:34:32.660200-04:00",
+"seen": 19,
+"last_ts": "2026-10-06T15:42:42.994382-04:00",
 "entry_min": 31.05,
 "entry_max": 31.1
 },
@@ -38160,8 +38160,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 24,
-"last_ts": "2026-10-06T15:29:39.738523-04:00",
+"seen": 26,
+"last_ts": "2026-10-06T15:42:44.633468-04:00",
 "entry_min": 48.1,
 "entry_max": 49.56
 },

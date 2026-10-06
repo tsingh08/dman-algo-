@@ -1,335 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:11.573736-04:00",
-    "symbols": [
-      "VIR"
-    ],
-    "headline": "Vir Biotechnology To Reveal Expanded Phase 2 SOLSTICE Results for Elebsiran And Tobevibart In Hepatitis Delta at AASLD\u2019s The Liver Meeting 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:31:57.406549-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell CEO, At Investor Day, Says We See An Approximately $400B Total Addressable Market For Marvell By 2030; Expects $20B In FY28 Revenue",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:32:25.674805-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Alphabet, Raises Price Target to $417",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:32:50.044717-04:00",
-    "symbols": [
-      "AMZN",
-      "CEG",
-      "GOOGL",
-      "MSFT",
-      "OKLO",
-      "SMR",
-      "TLN",
-      "VST"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:33:40.798893-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Meta Platforms, Raises Price Target to $1000",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:34:21.316501-04:00",
-    "symbols": [
-      "DIA",
-      "NVDA",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Hits 118% Gains as Ryan Detrick Eyes &#39;Many, Many More Years&#39;\u2014But Burry and Schiff Warn Our &#39;Luck Just Ran Out&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:37:07.939866-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T09:37:08.116442-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "S&amp;P 500 Hits 118% Gains as Ryan Detrick Eyes &#39;Many, Many More Years&#39;\u2014But Burry and Schiff Warn Our &#39;Luck Just Ran Out&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:37:08.823217-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:37:09.012459-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:37:13.894326-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:37:15.105607-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:37:15.281037-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:37:15.417274-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:37:15.546397-04:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:37:17.495676-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Hits 118% Gains as Ryan Detrick Eyes &#39;Many, Many More Years&#39;\u2014But Burry and Schiff Warn Our &#39;Luck Just Ran Out&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:37:17.715524-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Hits 118% Gains as Ryan Detrick Eyes &#39;Many, Many More Years&#39;\u2014But Burry and Schiff Warn Our &#39;Luck Just Ran Out&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:37:21.766673-04:00",
-    "symbols": [
-      "APOG"
-    ],
-    "headline": "Transcript: Apogee Enterprises Q2 2027 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:38:15.650536-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell CEO, At Investor Day, Says Expects Total Revenue Between $70B And $90B In FY31",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:39:41.762407-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Lisa Su Says AI Demand Will Stay \u2018Very, Very High\u2019 for Years as AMD Races to Add Supply",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:41:45.369857-04:00",
-    "symbols": [
-      "XHG"
-    ],
-    "headline": "Dow Jumps 200 Points; US Trade Deficit Widens In August",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.586127-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Barclays Maintains Overweight on Freeport-McMoRan, Raises Price Target to $83",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:54:09.623552-04:00",
-    "symbols": [
-      "AIXI"
-    ],
-    "headline": "Dow Jumps 200 Points; US Trade Deficit Widens In August",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.628597-04:00",
-    "symbols": [
-      "AIXI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.633896-04:00",
-    "symbols": [
-      "AIXI"
-    ],
-    "headline": "Why Option Care Health Shares Are Trading Higher By Around 24%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.653807-04:00",
-    "symbols": [
-      "OFS"
-    ],
-    "headline": "OFS Capital Announces $52.3M Sale Of About 57% Interest In Subsidiary Holding Pfanstiehl Stake To Unnamed Investor, Retains Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.662417-04:00",
-    "symbols": [
-      "BRN"
-    ],
-    "headline": "Barnwell Industries To Sell Its Canadian Oil And Natural Gas Business To An Alberta For C$9M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.667438-04:00",
-    "symbols": [
-      "TURB"
-    ],
-    "headline": "Turbo Energy Announces Its 62.5 Megewatt-Hour Of Intelligence Energy Storage Capacity Now Fully Operational In Spain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.672724-04:00",
-    "symbols": [
-      "HUHU"
-    ],
-    "headline": "HUHUTECH International Group&#39;s German Subsidiary Awarded New ~$1.12M Purchase Orders For Automation System Integration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.678272-04:00",
-    "symbols": [
-      "VIVK"
-    ],
-    "headline": "Vivakor Agrees Inks Indication Of Interest To Acquire 100% Of Outstanding Membership Interests Of Direct Midstream; Financial Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.683927-04:00",
-    "symbols": [
-      "FRSH"
-    ],
-    "headline": "Freshworks Set to Join S&amp;P SmallCap 600; Will Replace BioLife Solutions On October 8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:54:09.689332-04:00",
-    "symbols": [
-      "OLB"
-    ],
-    "headline": "The OLB Group Board Authorizes Initial Repurchase Of Up To 1M Shares; Co. Suspends Its ATM Equity Offering Program, Effective Immediately",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T09:54:09.695073-04:00",
     "symbols": [
       "RKTO"
@@ -5104,5 +4774,330 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:41:24.569208-04:00",
+    "symbols": [
+      "AMZN",
+      "AVGO",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:06.061562-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:42:06.318580-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:06.321737-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:06.589092-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:42:06.592406-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:42:06.878390-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:07.158146-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:07.161152-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:07.395303-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:42:07.398400-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:42:07.402394-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:07.405388-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:07.665112-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:09.404063-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:09.407354-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:14.066726-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:14.310846-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:15.544096-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:15.547619-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:17.613652-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:17.843770-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:18.081719-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:20.530363-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Barclays Maintains Overweight on Freeport-McMoRan, Raises Price Target to $83",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:21.593650-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:25.865017-04:00",
+    "symbols": [
+      "XHG"
+    ],
+    "headline": "Dow Jumps 200 Points; US Trade Deficit Widens In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:26.563370-04:00",
+    "symbols": [
+      "AIXI"
+    ],
+    "headline": "Dow Jumps 200 Points; US Trade Deficit Widens In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:26.566888-04:00",
+    "symbols": [
+      "AIXI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:26.570214-04:00",
+    "symbols": [
+      "AIXI"
+    ],
+    "headline": "Why Option Care Health Shares Are Trading Higher By Around 24%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:27.462159-04:00",
+    "symbols": [
+      "APOG"
+    ],
+    "headline": "Transcript: Apogee Enterprises Q2 2027 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T15:42:28.147146-04:00",
+    "symbols": [
+      "OFS"
+    ],
+    "headline": "OFS Capital Announces $52.3M Sale Of About 57% Interest In Subsidiary Holding Pfanstiehl Stake To Unnamed Investor, Retains Control",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:42:31.692840-04:00",
+    "symbols": [
+      "BRN"
+    ],
+    "headline": "Barnwell Industries To Sell Its Canadian Oil And Natural Gas Business To An Alberta For C$9M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

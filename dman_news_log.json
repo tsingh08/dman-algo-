@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:23:18.681568-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T12:29:13.715860-04:00",
     "symbols": [
       "CEG",
@@ -5058,5 +5048,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:21:50.863246-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "TD Cowen Maintains Buy on Affirm Holdings, Lowers Price Target to $110",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

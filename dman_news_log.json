@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:42:09.965375-04:00",
-    "symbols": [
-      "PBR"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T12:49:34.537582-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Stock Pulls Back: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T12:53:58.089075-04:00",
     "symbols": [
       "DIA",
@@ -5055,5 +5035,31 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:06:32.556951-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Hits Record High, Up 147% In 2026 As AI Security Demand Booms",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:07:43.195325-04:00",
+    "symbols": [
+      "AMZN",
+      "CEG",
+      "ETN",
+      "GEV",
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

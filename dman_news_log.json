@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-05T11:58:23.592789-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings shares are trading higher after B of A Securities upgraded the stock from Neutral to Buy. Also, the company may be buoyed by the start of the NHL and NBA season.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T12:04:13.681309-04:00",
     "symbols": [
       "NFLX"
@@ -5065,5 +5055,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-06T10:05:42.250196-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Ray Dalio Says China Doesn\u2019t Want More US Debt, Japan Wants Its Money Back",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

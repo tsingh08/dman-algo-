@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:13:53.842694-04:00",
-    "symbols": [
-      "APUS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:53.918384-04:00",
-    "symbols": [
-      "PCVX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:53.923237-04:00",
-    "symbols": [
-      "PCVX"
-    ],
-    "headline": "Dow Gains 100 Points; ISM Services PMI Falls In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.080158-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.085134-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "RBC Capital Downgrades PTC to Sector Perform, Raises Price Target to $306",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.089872-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.094450-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "Keybanc Downgrades PTC to Sector Weight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.246652-04:00",
-    "symbols": [
-      "RXO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:13:54.321845-04:00",
-    "symbols": [
-      "XP"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.467283-04:00",
-    "symbols": [
-      "QTEX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.536638-04:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:54.874846-04:00",
-    "symbols": [
-      "BBD"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:55.015627-04:00",
-    "symbols": [
-      "ITUB"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T13:13:55.305131-04:00",
     "symbols": [
       "EWZ"
@@ -5010,6 +4880,136 @@
     "headline": "Elon Musk Rejoins Trump Administration: Can Dogecoin Rally Again?",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:22.290070-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Why Is Planet Labs Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:32:22.688423-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX, Tesla Trade Like One Elon Musk Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T11:32:29.563278-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Bowman Says Over Next Few Months Will Advertise For New Regional Leader Positions; Aiming Early Next Year As Start For New Oversight System",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:29.850835-04:00",
+    "symbols": [
+      "AVBP"
+    ],
+    "headline": "Dow Jumps 200 Points; US Trade Deficit Widens In August",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:29.854142-04:00",
+    "symbols": [
+      "AVBP"
+    ],
+    "headline": "Trading Halt: Halt status updated at 8:15:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:29.857269-04:00",
+    "symbols": [
+      "AVBP"
+    ],
+    "headline": "ArriVent Says Phase 3 Trial Of Firmonertinib In EGFR Exon 20 Lung Cancer Missed Primary Progression-Free Survival Endpoint",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:29.860629-04:00",
+    "symbols": [
+      "AVBP"
+    ],
+    "headline": "Trading Halt: Halted at 7:55:00 a.m. ET - Trading Halt: Halt News Pending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:30.362427-04:00",
+    "symbols": [
+      "WBD"
+    ],
+    "headline": "Mattel\u2019s Board Faces Growing Pressure: Sell, Merge or Break up the Barbie Maker",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T11:32:30.514197-04:00",
+    "symbols": [
+      "BLFS"
+    ],
+    "headline": "Apogee Enterprises Posts Upbeat Q2 Earnings, Joins Constellation Energy, Freshworks  And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:30.517416-04:00",
+    "symbols": [
+      "BLFS"
+    ],
+    "headline": "Freshworks Set to Join S&amp;P SmallCap 600; Will Replace BioLife Solutions On October 8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:30.976473-04:00",
+    "symbols": [
+      "TRMD"
+    ],
+    "headline": "TORM Prices ~$253M Secondary Public Offering Of 6,329,874 Shares By Selling Shareholder OCM Njord Holdings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:30.979682-04:00",
+    "symbols": [
+      "TRMD"
+    ],
+    "headline": "Reported Earlier, TORM Announces Secondary Offering Of 6,329,874 Class A Common Shares By Selling Shareholder OCM Njord Holdings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:32:31.117853-04:00",
+    "symbols": [
+      "DNA"
+    ],
+    "headline": "Apogee Enterprises Posts Upbeat Q2 Earnings, Joins Constellation Energy, Freshworks  And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T15:36:36.767085-04:00",
-    "symbols": [
-      "ALGN"
-    ],
-    "headline": "Evercore ISI Group Downgrades Align Technology to In-Line, Lowers Price Target to $155",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:54:49.911789-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "UBS Maintains Buy on Spotify Technology, Lowers Price Target to $675",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T15:55:32.460454-04:00",
     "symbols": [
       "XZO"
@@ -5079,5 +5059,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:55:30.141822-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Watching Nebius Group; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:57:01.332390-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Former TD Bank Employee Pleads Guilty To Accepting Bribes, Laundering $4.8M To Colombia",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

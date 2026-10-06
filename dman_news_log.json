@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:09.518095-04:00",
-    "symbols": [
-      "RZLT"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Rezolute, Raises Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T09:26:09.522708-04:00",
     "symbols": [
       "RZLT"
@@ -5091,5 +5081,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:06:15.791246-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Anthropic Expands Cyber Verification Program With Three-Tier Access To Advanced AI Models For Security Professionals",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

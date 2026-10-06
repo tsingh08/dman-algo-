@@ -608,5 +608,105 @@
 "extension_pct": 15.3,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "AIFA",
+"date": "2026-10-06",
+"close": 7.67,
+"base_days": 297,
+"above_low_pct": 401.3,
+"extension_pct": 111.6,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "LITE",
+"date": "2026-10-06",
+"close": 1133.4,
+"base_days": 0,
+"above_low_pct": 657.6,
+"extension_pct": 19.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMD",
+"date": "2026-10-06",
+"close": 649.42,
+"base_days": 7,
+"above_low_pct": 294.4,
+"extension_pct": 13.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "HPE",
+"date": "2026-10-06",
+"close": 70.48,
+"base_days": 1,
+"above_low_pct": 258.3,
+"extension_pct": 15.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CRWD",
+"date": "2026-10-06",
+"close": 278.86,
+"base_days": 1,
+"above_low_pct": 218.5,
+"extension_pct": 13.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PANW",
+"date": "2026-10-06",
+"close": 419.91,
+"base_days": 36,
+"above_low_pct": 196.4,
+"extension_pct": 12.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RBRK",
+"date": "2026-10-06",
+"close": 125.8,
+"base_days": 0,
+"above_low_pct": 187.1,
+"extension_pct": 17.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "P",
+"date": "2026-10-06",
+"close": 147.2,
+"base_days": 0,
+"above_low_pct": 158.3,
+"extension_pct": 29.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FTNT",
+"date": "2026-10-06",
+"close": 191.27,
+"base_days": 0,
+"above_low_pct": 154.2,
+"extension_pct": 11.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "S",
+"date": "2026-10-06",
+"close": 25.8,
+"base_days": 1,
+"above_low_pct": 116.1,
+"extension_pct": 13.0,
+"fresh_base": false,
+"weak_band": false
 }
 ]

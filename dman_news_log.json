@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:34:39.805757-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "ON Semiconductor\u2019s Recovery Is Taking Shape \u2014 But Stifel Isn\u2019t Sold Yet",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:35:00.453511-04:00",
-    "symbols": [
-      "PCVX"
-    ],
-    "headline": "Needham Maintains Buy on Vaxcyte, Raises Price Target to $122",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T13:35:17.422812-04:00",
     "symbols": [
       "MSFT",
@@ -5076,6 +5056,26 @@
     ],
     "headline": "Crude Oil Edges Lower; Lamb Weston Shares Surge Following Upbeat Q1 Earnings",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:11:24.715859-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell CFO, At Investor Day, Says We Expect Non-GAAP EPS Of Greater Than $30 In FY31",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:15:17.576554-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Micron Technology 15 Years Ago Would Be Worth Today",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

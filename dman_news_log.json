@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:04.137577-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bitcoin Is Headed Straight to $100,000, Analyst Says: &#39;I&#39;m Long As Hell&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T09:26:04.260362-04:00",
     "symbols": [
       "QQQ"
@@ -5076,6 +5066,16 @@
     ],
     "headline": "Market Analysis: Adobe And Competitors In Software Industry",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T14:16:33.930176-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Texas AG Targets UnitedHealth: Probe Examines Alleged Bribes, Care Delays and Coverage Denials",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

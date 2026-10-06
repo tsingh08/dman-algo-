@@ -1,68 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:35:18.002375-04:00",
-    "symbols": [
-      "BIIB",
-      "HIMS",
-      "LLY",
-      "MRNA"
-    ],
-    "headline": "4 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:43:14.526826-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Saudi-backed Yemeni forces expel the Houthis from several areas around key strait, officials say&#39;- AP News",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:45:47.202936-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "6 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T13:45:47.283140-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "6 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:45:47.928686-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "6 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:45:48.434855-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "4 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T13:45:48.528988-04:00",
     "symbols": [
       "LLY"
@@ -5078,5 +5015,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-06T12:22:51.090157-04:00",
+    "symbols": [
+      "GOOGL",
+      "SPCX"
+    ],
+    "headline": "Planet Labs Stock Is Down 66% as Google AI Satellite Reaches Orbit",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:23:18.612459-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Planet Labs Stock Is Down 66% as Google AI Satellite Reaches Orbit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:23:22.449632-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Palo Alto Networks Stock Reaches New Highs: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:23:22.643109-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Stock Reaches New Highs: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:23:23.592041-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Palo Alto Networks Stock Reaches New Highs: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T12:23:29.261158-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Planet Labs Stock Is Down 66% as Google AI Satellite Reaches Orbit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:09.972300-04:00",
-    "symbols": [
-      "RXO"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on RXO, Raises Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T09:26:09.976764-04:00",
     "symbols": [
       "RXO"
@@ -5092,5 +5082,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:17:50.987827-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna shares are trading lower, possibly as the stocks sells of from recent strength related to a suspected pneumonic plague in Russia.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

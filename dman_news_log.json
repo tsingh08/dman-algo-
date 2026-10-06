@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:20:50.014055-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:50.018534-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "Keybanc Downgrades PTC to Sector Weight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:50.172798-04:00",
-    "symbols": [
-      "RXO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T13:20:50.264950-04:00",
     "symbols": [
       "VELO"
@@ -5071,6 +5041,36 @@
       "SPY"
     ],
     "headline": "US Economy Kept Growing For 78 Months: These 10 Stocks Top The Leaderboard",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:57:12.375895-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Watching Artista Networks; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:00:22.635979-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In CrowdStrike Holdings 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:01:19.814401-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Fed eyes AI, tariffs, energy for inflation outlook&#39;- Axios",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

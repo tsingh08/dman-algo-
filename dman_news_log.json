@@ -1,27 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:35:17.422812-04:00",
-    "symbols": [
-      "MSFT",
-      "NVDA",
-      "PLTR"
-    ],
-    "headline": "6 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T13:35:17.683656-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "4 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T13:35:18.002375-04:00",
     "symbols": [
       "BIIB",
@@ -5078,5 +5056,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:16:40.094624-04:00",
+    "symbols": [
+      "CRWD",
+      "PANW",
+      "ZS"
+    ],
+    "headline": "Palo Alto Networks Stock Reaches New Highs: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:19:32.736801-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "LeBron&#39;s Polymarket Deal Raises Questions for the NBA",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

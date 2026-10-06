@@ -425,13 +425,13 @@
    ]
   ],
   "telegram": [
-   "🔍 <b>Position reconciliation</b> — the tracker and the broker disagree:\n\n• RSKD: a $7.39 stop is resting at the broker on Breakout Zone +120% off low — too tight for a zone, which exits on TIME. A catastrophe floor belongs 35% out; this is the shape that cost SECZ\n\n<i>Reported, not repaired. Verify in Alpaca.</i>",
+   "🔍 <b>Position reconciliation</b> — the tracker and the broker disagree:\n\n• RSKD: a $7.39 stop is resting at the broker on Breakout Zone +120% off low — too tight for a zone, which exits on TIME. A catastrophe floor belongs 35% out on this name (3.0 ATR); this is the shape that cost SECZ\n\n<i>Reported, not repaired. Verify in Alpaca.</i>",
    "🌅 <b>DMan PRO Pre-Market Briefing</b>\nWednesday Oct 14, 2026 — HH:MM\n✅ Scanner healthy — last run 30min ago\n\n📊 <b>MARKET REGIME</b>\nregime\nregime2warnmacro\n\n🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 1.00x)\n⚪ ctx\n\n📅 <b>MACRO CALENDAR</b>\nmacro-cal\n\n🌡 <b>SEASONAL FILTER</b>\n✅ October — normal conditions (min score: 75)sectors\n\n💰 <b>MONTHLY P&amp;L</b>\n📉 Down 2.0% this month (limit: 4%)pdtmilestonesweekend\n\n📡 <b>PRE-MARKET</b>: No significant gaps right now.overseasbzone\n🔎 <b>PRE-GATE CHECK</b> — names that could trade today\n  No logged breakout zone inside the $5-$15 band.\n  No watchlist earnings inside 5d.\n\n\n📆 <b>EARNINGS</b>: No watchlist tickers report in next 5 days.suggestion"
   ],
   "stdout": [
    "  🔄 GTC reconciliation: re-anchored AAPL to actual fill prices",
    "  🔍 Reconciliation: 1 disagreement(s) across 1 tracked position(s)",
-   "     • RSKD: a $7.39 stop is resting at the broker on Breakout Zone +120% off low — too tight for a zone, which exits on TIME. A catastrophe floor belongs 35% out; this is the shape that cost SECZ",
+   "     • RSKD: a $7.39 stop is resting at the broker on Breakout Zone +120% off low — too tight for a zone, which exits on TIME. A catastrophe floor belongs 35% out on this name (3.0 ATR); this is the shape that cost SECZ",
    "  [0.5/7] Fetching global market context + breaking news...",
    "  [1/7] Checking market regime + macro context...",
    "  [3/6] Checking seasonal status...",

@@ -22457,16 +22457,36 @@ class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
 
     # --- the floor vs the bug ---------------------------------------------
     def test_a_wide_stop_is_the_floor_and_a_tight_one_is_the_bug(self):
-        self.assertTrue(a._is_catastrophe_stop(14.17, 9.21))      # 35%
-        self.assertFalse(a._is_catastrophe_stop(14.17, 13.04))    # 8% -- SECZ
-        self.assertFalse(a._is_catastrophe_stop(14.17, 11.34))    # 20%
-        self.assertTrue(a._is_catastrophe_stop(14.17, 10.62))     # just past 25%
+        """Rewritten 2026-10-06: the bar is the name's own ATR, not a flat 25%.
+
+        The old assertions encoded the flat rule -- 20% was the bug and 25% was
+        the floor on every ticker alike. On IOVA at 6.84%/day a 3 ATR floor IS
+        ~20%, so the old test called the correct new floor a bug. What has to
+        stay true is the thing this check was built for: the 8% adoption
+        fallback is the SECZ shape on any name."""
+        with patch.object(a, "_bzone_atr_pct", return_value=self.IOVA_ATR_PCT):
+            # 3 ATR on this name == the intended floor
+            self.assertTrue(a._is_catastrophe_stop(14.17, self._expected_stop(), "IOVA"))
+            # 8% -- the adoption fallback, still the bug
+            self.assertFalse(a._is_catastrophe_stop(14.17, 13.04, "IOVA"))
+            # half the intended width is a different animal, not drift
+            self.assertFalse(a._is_catastrophe_stop(14.17, 14.17 * 0.90, "IOVA"))
+        # No ticker means no ATR, which fails WIDE -- so only a 35%-ish stop
+        # satisfies it. Documented here because it is the conservative branch.
+        self.assertTrue(a._is_catastrophe_stop(14.17, 9.21))
+        self.assertFalse(a._is_catastrophe_stop(14.17, 13.04))
 
     def test_nonsense_inputs_are_not_called_a_floor(self):
         for e, sp in ((0, 9.0), (14.0, 0), (-1, 5), (14.0, None)):
             self.assertFalse(a._is_catastrophe_stop(e, sp))
 
     # --- placing it -------------------------------------------------------
+    # IOVA's measured volatility on 2026-10-06. Stubbed, not fetched: the floor
+    # is now ATR-scaled, so a test that reaches the network would compute a
+    # different width in CI than it does here, and the expected stop price
+    # below would drift with the market.
+    IOVA_ATR_PCT = 0.0684
+
     def _place(self, entry=14.17, qty=17, raises=False):
         cl = MagicMock()
         if raises:
@@ -22474,9 +22494,13 @@ class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
         else:
             cl.submit_order.return_value = MagicMock(id="stop-1")
         with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_bzone_atr_pct", return_value=self.IOVA_ATR_PCT), \
              patch.object(a, "_log_swallowed"):
             ok, why = a._place_bzone_catastrophe_stop("IOVA", qty, entry)
         return cl, ok, why
+
+    def _expected_stop(self, entry=14.17):
+        return round(entry * (1 - a.BZONE_CATASTROPHE_STOP_ATR * self.IOVA_ATR_PCT), 2)
 
     def test_it_rests_a_gtc_sell_stop_at_the_broker(self):
         """GTC and broker-side is the requirement: a floor enforced by the
@@ -22488,18 +22512,25 @@ class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
         self.assertEqual(req.symbol, "IOVA")
         self.assertEqual(str(req.side).upper().split(".")[-1], "SELL")
         self.assertEqual(str(req.time_in_force).upper().split(".")[-1], "GTC")
-        self.assertAlmostEqual(float(req.stop_price), 9.21, places=2)
+        self.assertAlmostEqual(float(req.stop_price), self._expected_stop(), places=2)
 
     def test_the_stop_it_places_is_a_catastrophe_stop_by_its_own_test(self):
         """Guards against the width constant drifting tight."""
         cl, _, _ = self._place()
         req = cl.submit_order.call_args[0][0]
-        self.assertTrue(a._is_catastrophe_stop(14.17, float(req.stop_price)))
+        # Same ATR stub as the placement, or this compares two different widths
+        # and the failure would be the test, not the code.
+        with patch.object(a, "_bzone_atr_pct", return_value=self.IOVA_ATR_PCT):
+            self.assertTrue(a._is_catastrophe_stop(
+                14.17, float(req.stop_price), "IOVA"))
 
     def test_it_reports_the_capped_loss(self):
         _, _, why = self._place()
         self.assertIn("caps loss at", why)
-        self.assertIn("84", why)
+        # (14.17 - 11.26) x 17 = $49.47. Was $84 at the flat 35% width -- the
+        # tightening is the point, so this number moving IS the change.
+        _expect = round((14.17 - self._expected_stop()) * 17, 2)
+        self.assertIn(str(int(_expect)), why)
 
     def test_a_broker_rejection_does_not_raise(self):
         """A zone that fills and fails to get its floor is still a position;
@@ -23301,3 +23332,139 @@ class TestTakenMeansTheOrderPathAcceptedIt(unittest.TestCase):
         # needle-in-a-comment trap tools/hollow_assert_check.py exists for.
         body = src.split('"""')[2]
         self.assertNotIn("_log_signal_features", body)
+
+
+class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
+    """A flat 35% is not a risk measure; it assumes every stock moves alike.
+
+    Measured 2026-10-06 on the three open zones: the SAME 35% rule sat 5.1 ATR
+    below IOVA (6.84%/day), 4.1 ATR below PGEN (6.92%/day) and 7.3 ATR below
+    RSKD (4.53%/day). The calmest name got nearly double the cushion it needed;
+    the most volatile got the least. That is the imprecision, and it is why the
+    floor is now BZONE_CATASTROPHE_STOP_ATR of the name's own ATR.
+
+    The pair that had to move together: _is_catastrophe_stop() tested a flat
+    25% from entry. Once the floor is volatility scaled, a CORRECT floor on a
+    calm name sits closer than that bar -- RSKD's 3 ATR floor is 16% from entry
+    -- so leaving the check alone would have reported every legitimate new floor
+    as the SECZ bug it exists to catch."""
+
+    def _atr(self, pct):
+        return patch.object(a, "_bzone_atr_pct", return_value=pct)
+
+    # --- scaling --------------------------------------------------------
+    def test_a_calm_name_gets_a_tighter_floor_than_a_wild_one(self):
+        """The whole point. Same rule, different distance, same risk."""
+        with self._atr(0.0453):
+            calm = a._bzone_floor_pct("RSKD")
+        with self._atr(0.0684):
+            wild = a._bzone_floor_pct("IOVA")
+        self.assertLess(calm, wild)
+
+    def test_the_floor_is_the_configured_multiple_of_atr(self):
+        with self._atr(0.05):
+            self.assertAlmostEqual(a._bzone_floor_pct("X"),
+                                   5 * a.BZONE_CATASTROPHE_STOP_ATR / 100, places=6)
+
+    def test_every_name_ends_up_equally_protected_in_atr_terms(self):
+        """5.1 / 4.1 / 7.3 ATR before; one number after."""
+        for _p in (0.0453, 0.0684, 0.0697):
+            with self._atr(_p):
+                self.assertAlmostEqual(a._bzone_floor_pct("X") / _p,
+                                       a.BZONE_CATASTROPHE_STOP_ATR, places=6)
+
+    # --- the clamps -----------------------------------------------------
+    def test_a_very_quiet_name_cannot_get_a_floor_inside_the_noise(self):
+        with self._atr(0.002):
+            self.assertEqual(a._bzone_floor_pct("X"),
+                             a.BZONE_CATASTROPHE_STOP_MIN_PCT)
+
+    def test_a_violent_name_is_capped_at_the_old_ceiling(self):
+        """0.35 survives as the ceiling, not the rule."""
+        with self._atr(0.40):
+            self.assertEqual(a._bzone_floor_pct("X"),
+                             a.BZONE_CATASTROPHE_STOP_PCT)
+
+    def test_unknown_volatility_fails_WIDE_not_tight(self):
+        """A too-wide floor costs more on a disaster. A too-tight one costs you
+        every ordinary week. Unknown vol is a reason for more room."""
+        with self._atr(None):
+            self.assertEqual(a._bzone_floor_pct("X"),
+                             a.BZONE_CATASTROPHE_STOP_PCT)
+
+    def test_no_ticker_also_fails_wide(self):
+        self.assertEqual(a._bzone_floor_pct(), a.BZONE_CATASTROPHE_STOP_PCT)
+
+    # --- validation moves in lockstep -----------------------------------
+    def test_a_correct_tight_floor_on_a_calm_name_is_accepted(self):
+        """The RSKD case: 3 ATR = 13.6%, which the old flat 25% bar failed."""
+        with self._atr(0.0453):
+            want = a._bzone_floor_pct("RSKD")
+            stop = round(8.0367 * (1 - want), 2)
+            self.assertTrue(a._is_catastrophe_stop(8.0367, stop, "RSKD"))
+
+    def test_the_eight_percent_adoption_fallback_is_still_the_bug(self):
+        """What this check was built for. It must survive the rescaling."""
+        for _p in (0.0453, 0.0684, 0.0697):
+            with self._atr(_p):
+                self.assertFalse(
+                    a._is_catastrophe_stop(8.0367, 8.0367 * 0.92, "X"),
+                    "an 8% stop on a zone is the SECZ shape, whatever the ATR")
+
+    def test_a_stop_a_hair_inside_the_target_still_counts(self):
+        """Entry drift and rounding move the measured distance a little."""
+        with self._atr(0.05):
+            want = a._bzone_floor_pct("X")
+            self.assertTrue(a._is_catastrophe_stop(
+                100.0, 100.0 * (1 - want * 0.85), "X"))
+
+    def test_a_stop_far_inside_the_target_does_not(self):
+        with self._atr(0.05):
+            want = a._bzone_floor_pct("X")
+            self.assertFalse(a._is_catastrophe_stop(
+                100.0, 100.0 * (1 - want * 0.4), "X"))
+
+    def test_the_validator_uses_the_same_function_as_the_placer(self):
+        """Pinned: if these two ever compute width differently, a legitimate
+        floor gets reported as the SECZ bug -- which is the trap this fix had
+        to avoid in the first place."""
+        for fn in (a._is_catastrophe_stop, a._place_bzone_catastrophe_stop):
+            self.assertIn("_bzone_floor_pct", inspect.getsource(fn))
+
+    # --- placement ------------------------------------------------------
+    def test_the_placed_stop_uses_the_scaled_width(self):
+        from alpaca.trading.enums import OrderSide
+        cl = MagicMock()
+        cl.submit_order.return_value = SimpleNamespace(id="o1")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             self._atr(0.0453):
+            ok, detail = a._place_bzone_catastrophe_stop("RSKD", 31, 8.0367)
+        self.assertTrue(ok)
+        want = round(8.0367 * (1 - 3 * 0.0453), 2)
+        self.assertEqual(float(cl.submit_order.call_args[0][0].stop_price), want)
+
+    def test_the_detail_line_says_what_the_width_was_based_on(self):
+        """So a human reading the alert can tell 3 ATR from the 35% fallback."""
+        cl = MagicMock()
+        cl.submit_order.return_value = SimpleNamespace(id="o1")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             self._atr(0.0453):
+            _ok, detail = a._place_bzone_catastrophe_stop("RSKD", 31, 8.0367)
+        self.assertIn("ATR", detail)
+
+    def test_an_unknown_atr_still_places_a_floor(self):
+        """Never raises, never skips: a zone with no floor is the worse outcome."""
+        cl = MagicMock()
+        cl.submit_order.return_value = SimpleNamespace(id="o1")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             self._atr(None):
+            ok, _d = a._place_bzone_catastrophe_stop("X", 10, 100.0)
+        self.assertTrue(ok)
+        self.assertEqual(float(cl.submit_order.call_args[0][0].stop_price), 65.0)
+
+    def test_a_floor_is_still_never_ratcheted(self):
+        """Pinned together. The width is measured from ENTRY, not spot, for
+        exactly this reason: a spot-based floor would climb as price rose, which
+        is the ratchet the 2026-10-01 guard forbids."""
+        src = inspect.getsource(a._place_bzone_catastrophe_stop)
+        self.assertIn("float(entry) * (1 - _floor_pct)", src)

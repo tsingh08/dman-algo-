@@ -12018,6 +12018,24 @@ BZONE_MAX_EXPOSURE_PCT = 0.40
 # so a stop that lives in the algo's own loop protects nothing during an Actions
 # outage. Untested at this width in the backtest -- the asymmetry is that
 # without it the floor is minus the whole position.
+# A flat percentage is not a risk measure, it is a guess that every stock has
+# the same volatility. Measured 2026-10-06 on the three open zones: the SAME 35%
+# rule sat 5.1 ATR below IOVA (6.84%/day), 4.1 ATR below PGEN (6.92%/day) and
+# 7.3 ATR below RSKD (4.53%/day) -- RSKD, the calmest name, got nearly double
+# the cushion it needed while the most volatile name got the least. The floor
+# is now priced in the name's OWN ATR, so each position is protected to the
+# same standard. 0.35 survives as the CEILING.
+BZONE_CATASTROPHE_STOP_ATR = 3.0
+# Never tighter than this, whatever the ATR says. A very quiet stretch would
+# otherwise compute a floor inside the spread, and this also keeps the 8%
+# orphan-adoption fallback detectable as the mistake it is -- which is the
+# whole job of _is_catastrophe_stop().
+BZONE_CATASTROPHE_STOP_MIN_PCT = 0.10
+# How far inside the intended width a resting stop may sit and still count as
+# the floor rather than the SECZ bug. Entry drift and rounding move the
+# measured distance a little; 0.8 absorbs that without admitting a stop that
+# is a different animal.
+BZONE_FLOOR_TOLERANCE = 0.80
 BZONE_CATASTROPHE_STOP_PCT = 0.35
 # Below this distance a resting stop on a zone is the SECZ bug reappearing
 # rather than the intended floor. Used to tell the two apart.
@@ -12154,6 +12172,52 @@ def _bzone_entry_limit(ref_px: float) -> float:
                      BZONE_TRADE_MAX_PRICE), 2)
 
 
+def _bzone_atr_pct(ticker: str):
+    """14-day ATR as a fraction of the last close, or None if unknowable."""
+    try:
+        _df = fetch_df(ticker)
+        if _df is None or len(_df) < 20:
+            return None
+        if "ATR" in _df.columns and not _df["ATR"].dropna().empty:
+            _atr = float(_df["ATR"].dropna().iloc[-1])
+        else:
+            _hi, _lo, _cl = _df["High"], _df["Low"], _df["Close"]
+            _pc = _cl.shift(1)
+            _tr = pd.concat([_hi - _lo, (_hi - _pc).abs(),
+                             (_lo - _pc).abs()], axis=1).max(axis=1)
+            _roll = _tr.rolling(14).mean().dropna()
+            if _roll.empty:
+                return None
+            _atr = float(_roll.iloc[-1])
+        _px = float(_df["Close"].iloc[-1])
+        if _atr <= 0 or _px <= 0:
+            return None
+        return _atr / _px
+    except Exception as exc:
+        _log_swallowed("bzone atr pct", exc)
+        return None
+
+
+def _bzone_floor_pct(ticker: str = "") -> float:
+    """How far below entry THIS name's catastrophe floor belongs, as a fraction.
+
+    BZONE_CATASTROPHE_STOP_ATR of the name's own ATR, clamped between
+    BZONE_CATASTROPHE_STOP_MIN_PCT and BZONE_CATASTROPHE_STOP_PCT.
+
+    Fails WIDE on purpose. If the ATR cannot be computed -- no data, a fresh
+    listing, a feed outage -- the answer is the 35% ceiling, not a tight guess.
+    An unknown volatility is a reason to leave more room, and the cost of a
+    too-wide floor is a worse loss on a disaster, while the cost of a too-tight
+    one is being taken out of every ordinary week.
+    """
+    _a = _bzone_atr_pct(ticker) if ticker else None
+    if _a is None:
+        return BZONE_CATASTROPHE_STOP_PCT
+    return min(BZONE_CATASTROPHE_STOP_PCT,
+               max(BZONE_CATASTROPHE_STOP_MIN_PCT,
+                   BZONE_CATASTROPHE_STOP_ATR * _a))
+
+
 def _place_bzone_catastrophe_stop(ticker: str, qty: int, entry: float):
     """Rest a GTC catastrophe stop at the broker for a zone position.
 
@@ -12172,15 +12236,19 @@ def _place_bzone_catastrophe_stop(ticker: str, qty: int, entry: float):
         _client = get_alpaca_client()
         if _client is None:
             return False, "no broker client"
-        _stop_px = round(float(entry) * (1 - BZONE_CATASTROPHE_STOP_PCT), 2)
+        _floor_pct = _bzone_floor_pct(ticker)
+        _stop_px = round(float(entry) * (1 - _floor_pct), 2)
         if _stop_px <= 0 or int(qty) <= 0:
             return False, f"unusable stop {_stop_px} / qty {qty}"
         _o = _client.submit_order(StopOrderRequest(
             symbol=ticker, qty=int(qty), side=OrderSide.SELL,
             stop_price=_stop_px, time_in_force=TimeInForce.GTC))
         _max_loss = (float(entry) - _stop_px) * int(qty)
+        _atr_pct = _bzone_atr_pct(ticker)
+        _basis = (f"{BZONE_CATASTROPHE_STOP_ATR:.1f} ATR @ {_atr_pct:.1%}/day"
+                  if _atr_pct else "ATR unavailable - widest")
         return True, (f"catastrophe stop ${_stop_px:.2f} "
-                      f"({BZONE_CATASTROPHE_STOP_PCT:.0%} below ${float(entry):.2f}, "
+                      f"({_floor_pct:.0%} below ${float(entry):.2f}, {_basis}, "
                       f"caps loss at ${_max_loss:.2f}) id={getattr(_o, 'id', '?')}")
     except Exception as exc:
         _log_swallowed("bzone catastrophe stop", exc)
@@ -12364,18 +12432,30 @@ def _is_bzone_position(pos) -> bool:
     return False
 
 
-def _is_catastrophe_stop(entry: float, stop_px: float) -> bool:
+def _is_catastrophe_stop(entry: float, stop_px: float, ticker: str = "") -> bool:
     """Is this resting stop the intended disaster floor, or the SECZ bug?
 
     A zone is allowed exactly one kind of stop: far enough out that noise cannot
     reach it. Anything tighter is the 8% adoption fallback or a repair guess,
     which is what turned SECZ's +$8.67 hold into -$21.76.
+
+    "Far enough out" is now measured in the name's own ATR, in lockstep with
+    _bzone_floor_pct(). It HAS to move together: once the floor is volatility
+    scaled, a correct floor on a calm name sits closer than the old flat 25%
+    bar, so leaving this check alone would have reported every legitimate new
+    floor as the very bug it exists to catch. RSKD is the worked example -- a
+    3 ATR floor is 16% below its entry, which the old test would have failed.
+
+    Still catches what it was built for: the 8% adoption fallback is below
+    BZONE_CATASTROPHE_STOP_MIN_PCT, so it fails this on any name.
     """
     try:
         _e, _s = float(entry), float(stop_px)
         if _e <= 0 or _s <= 0:
             return False
-        return (_e - _s) / _e >= BZONE_TIGHT_STOP_PCT
+        _want = _bzone_floor_pct(ticker)
+        _min = max(BZONE_CATASTROPHE_STOP_MIN_PCT, _want * BZONE_FLOOR_TOLERANCE)
+        return (_e - _s) / _e >= _min
     except (TypeError, ValueError):
         return False
 
@@ -25278,11 +25358,14 @@ def run_position_reconciliation(notify: bool = True) -> dict:
             if (_is_no_stop_by_design(getattr(_p, "setup", ""),
                                       getattr(_p, "ticker", "")) and _has_stop
                     and not _is_catastrophe_stop(getattr(_p, "entry", 0),
-                                                 _stops[_key])):
+                                                 _stops[_key],
+                                                 getattr(_p, "ticker", ""))):
                 out["issues"].append(
                     f"{_p.ticker}: a ${_stops[_key]:.2f} stop is resting at the broker "
                     f"on {_p.setup} — too tight for a zone, which exits on TIME. "
-                    f"A catastrophe floor belongs {BZONE_CATASTROPHE_STOP_PCT:.0%} out; "
+                    f"A catastrophe floor belongs "
+                    f"{_bzone_floor_pct(getattr(_p, 'ticker', '')):.0%} out on this "
+                    f"name ({BZONE_CATASTROPHE_STOP_ATR:.1f} ATR); "
                     f"this is the shape that cost SECZ")
         # duplicate working entries
         if _buys.get(_key, 0) > 1:

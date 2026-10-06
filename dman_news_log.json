@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:04:13.681309-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Netflix, Maintains $100 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T12:05:30.760669-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US to announce $150M for Alaska power lines as Vance campaigns in Senate battleground&#39;- Reuters Exclusive",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T12:14:46.768566-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Introduces Google Cloud Modernize, Transforming For (And With) AI",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:15:04.890024-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Stock Trends Higher: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T12:15:21.149563-04:00",
     "symbols": [
       "EWZ"
@@ -5065,5 +5025,46 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:11:57.792898-04:00",
+    "symbols": [
+      "CEG",
+      "OKLO"
+    ],
+    "headline": "Oklo Stock Rises as Google&#39;s 20-Year Constellation Deal Lifts Nuclear Stocks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:12:36.334721-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Oklo Stock Rises as Google&#39;s 20-Year Constellation Deal Lifts Nuclear Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:12:36.641769-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo Stock Rises as Google&#39;s 20-Year Constellation Deal Lifts Nuclear Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:12:45.329844-04:00",
+    "symbols": [
+      "LW"
+    ],
+    "headline": "Lamb Weston Hldgs Reports Q1 2027 Results: Full Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

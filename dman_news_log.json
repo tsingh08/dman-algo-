@@ -1,32 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:40:01.055136-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "META",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T12:41:20.595216-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Memory Crunch Could Last A Decade, Ross Gerber Says: MU Is \u2018a Gift\u2019",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T12:41:57.927295-04:00",
     "symbols": [
       "AAPL"
@@ -5059,5 +5032,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:44:19.201940-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Reported Earlier, &#39;Seagate Said to Vie With Toshiba for TDK\u2019s Hard-Drive Magnetic Heads Unit&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:45:49.309542-04:00",
+    "symbols": [
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory and storage-related companies are trading lower after reports suggesting that Seagate Technologies is competing with Toshiba for the right to acquire TDK&#39;s hard-drive magnetic heads business, which may lead to tougher competition and lower margins once a deal is struck.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

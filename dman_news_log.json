@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:20:47.556524-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:49.562473-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;RFK Jr. to Announce New Vaccine Injury Research at NIH&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:49.633226-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:20:49.708390-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:20:49.796594-04:00",
-    "symbols": [
-      "APUS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:49.932660-04:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "Dow Gains 100 Points; ISM Services PMI Falls In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:50.004982-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:50.009519-04:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "RBC Capital Downgrades PTC to Sector Perform, Raises Price Target to $306",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T13:20:50.014055-04:00",
     "symbols": [
       "PTC"
@@ -5070,5 +4990,89 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:53:40.609657-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Affirms Q1 Adj EPS Guidance of $1.15-$1.16 vs $1.08 Est; Affirms Q1 Sales Guidance of $935.000M-$939.000M vs $927.024M Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:53:57.813731-04:00",
+    "symbols": [
+      "ACHR",
+      "JOBY"
+    ],
+    "headline": "What Is Going On With Joby Aviation Stock Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:54:15.399392-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Affirms FY2027 Adj EPS Guidance of $4.86-$4.90 vs $4.60 Est; Affirms FY2027 Sales Guidance of $3.908B-$3.938B vs $3.899B Est",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:54:21.312240-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Cathie Wood&#39;s $22M Biotech Shuffle, Dumps One Stock for 21st Straight Session While Other Bets Pile Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:54:21.454230-04:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "Cathie Wood&#39;s $22M Biotech Shuffle, Dumps One Stock for 21st Straight Session While Other Bets Pile Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:54:23.237510-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "What Is Going On With Joby Aviation Stock Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:54:23.374943-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "What Is Going On With Joby Aviation Stock Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:55:40.709514-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SMCI",
+      "SPY"
+    ],
+    "headline": "US Economy Kept Growing For 78 Months: These 10 Stocks Top The Leaderboard",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T15:36:25.646899-04:00",
-    "symbols": [
-      "MI"
-    ],
-    "headline": "US Stocks Mixed; Nasdaq Gains Over 50 Points",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:36:28.375076-04:00",
-    "symbols": [
-      "EWZS"
-    ],
-    "headline": "Brazil Election Shock Sends ETFs Flying: Here Are the Biggest Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T15:36:28.888598-04:00",
     "symbols": [
       "EWZ"
@@ -5017,6 +4997,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:33:38.478962-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on KLA, Lowers Price Target to $227",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:33:41.410727-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin&#39;s Rebound Isn&#39;t as Strong as It Seems: Watch These Warning Signs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   },
   {
     "ts": "2026-10-06T13:34:23.236045-04:00",

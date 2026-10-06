@@ -1,88 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:53:58.089075-04:00",
-    "symbols": [
-      "DIA",
-      "DKNG",
-      "IWM",
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:48.296711-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T13:13:48.396821-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Nvidia\u2019s $20B Groq deal faces lawsuit alleging startup\u2019s stockholders were shortchanged&#39;- CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:13:48.401558-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Nvidia, Cheniere Energy, Steel Dynamics, Antofagasta",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:13:48.406201-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Stock at New All-Time Highs: Market Expert Says \u2018Cusp of a Major Breakout\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:13:48.411480-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:13:48.579010-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T13:13:48.671648-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T13:13:51.084012-04:00",
     "symbols": [
       "DKNG"
@@ -5059,6 +4976,86 @@
     ],
     "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:13:18.267316-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Disney Lawyer Says Federal Communications Commission Wants To Stop, Censor, Control What ABC Says About Trump Administration",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:14:00.388041-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T11:14:00.990490-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:14:01.186238-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:14:01.393528-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:14:06.674055-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:14:07.331732-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:14:07.820155-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Billionaire Philippe Laffont\u2019s $1.2 Billion Constellation Bet Gets a Google AI Boost",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

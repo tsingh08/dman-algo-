@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T14:21:43.463736-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Announces The AWS Digital Sovereignty Lens For The Well-Architected Framework",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:23:55.065505-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "B of A Securities Maintains Buy on Robinhood Markets, Raises Price Target to $156",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T14:26:38.783715-04:00",
     "symbols": [
       "SPCX"
@@ -5071,5 +5051,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T12:42:14.641246-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Says Agentic AI Could Be Its Biggest Opportunity Ever",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T12:43:43.731430-04:00",
+    "symbols": [
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:13:55.378518-04:00",
-    "symbols": [
-      "NU"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:55.513487-04:00",
-    "symbols": [
-      "PBR"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:56.019203-04:00",
-    "symbols": [
-      "VALE"
-    ],
-    "headline": "Nasdaq 100 Hits Record, Brazil&#39;s EWZ Soars 13%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:13:56.104596-04:00",
-    "symbols": [
-      "ARCO"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:44.696427-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T13:20:44.900581-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Nvidia\u2019s $20B Groq deal faces lawsuit alleging startup\u2019s stockholders were shortchanged&#39;- CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:20:44.905331-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Nvidia, Cheniere Energy, Steel Dynamics, Antofagasta",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:20:44.909844-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Stock at New All-Time Highs: Market Expert Says \u2018Cusp of a Major Breakout\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:20:44.914259-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T13:20:45.209751-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T13:20:45.296541-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump and Elon Musk Ditch \u2018AI\u2019: Why Silicon Valley Is Pivoting to \u2018Super Intelligence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T13:20:47.556524-04:00",
     "symbols": [
       "DKNG"
@@ -5069,5 +4959,116 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:46:16.758199-04:00",
+    "symbols": [
+      "LLY",
+      "RXRX"
+    ],
+    "headline": "Cathie Wood&#39;s $22M Biotech Shuffle, Dumps One Stock for 21st Straight Session While Other Bets Pile Up",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:46:30.382499-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock Hits All-Time Highs, CEO Jensen Huang Now Worth This Much Money",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:46:30.392985-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:46:30.405209-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:46:30.414145-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Rejoins Trump Administration: Can Dogecoin Rally Again?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T11:46:30.439839-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T11:46:30.446906-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:46:30.489088-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:46:30.496983-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T11:46:30.505553-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T11:46:30.513479-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

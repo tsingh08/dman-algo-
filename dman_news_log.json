@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-05T15:33:13.048391-04:00",
-    "symbols": [
-      "DFSC"
-    ],
-    "headline": "Shares of aerospace and defense companies are trading lower, possibly as competition from SpaceX diverts investment.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:33:57.458321-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler shares are trading higher after the company announced a collaboration with IBM and Red Hat to help organizations protect private applications during the period between vulnerability disclosure and patch deployment.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:36:18.323912-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Is Strategy&#39;s Bitcoin Machine Broken? Peter Schiff Says It Is",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:36:24.859750-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Yemen&#39;s Houthis Appear To Have Struck Saudi Aramco Oil Refinery At Rabigh On Saudi Arabia&#39;s Red Sea Coast, With New Satellite Imagery Today Showing A Black Smoke Plume Roughly 80 Km Trailing Away From Site And The Fire Centred On The Oil Storage Tanks And Pressurised Storage Vessels",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:36:25.642067-04:00",
-    "symbols": [
-      "MI"
-    ],
-    "headline": "NFT Limited Issues Statement Regarding Unusual Market Activity; Says Company Is Not Aware Of Any Undisclosed Information Or Business Development That It Believes Would Account For The Trading Activity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T15:36:25.646899-04:00",
     "symbols": [
       "MI"
@@ -5067,5 +5017,66 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:34:23.236045-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "XOM"
+    ],
+    "headline": "Nvidia, Apple, Microsoft Now Drive 21% of S&amp;P 500: Here\u2019s How Much ETF Investors Own",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:34:36.815636-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P Eyes Record High, Yet Concentration Risk Looms",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:35:22.525801-04:00",
+    "symbols": [
+      "CRM",
+      "NBIS",
+      "QCOM"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T13:35:22.861529-04:00",
+    "symbols": [
+      "CAT",
+      "GE",
+      "RKLB"
+    ],
+    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:35:30.086728-04:00",
+    "symbols": [
+      "AVGO",
+      "GOOGL",
+      "NVDA"
+    ],
+    "headline": "Challenging Nvidia&#39;s Dominance: Broadcom Pairs Custom TPU Chips with $60 Billion Debt Package",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

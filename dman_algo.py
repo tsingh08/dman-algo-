@@ -7643,6 +7643,10 @@ SIGNAL_LABEL_MAX_PER_RUN  = 40    # tickers fetched per labelling pass
 # can rank hypotheses and cannot settle one. 150 is roughly where a 20-point
 # difference at this base rate stops sitting inside the noise.
 SIGNAL_POWER_MIN_LABELS   = 150
+# The capture block is arithmetic on the whole sample rather than a per-bucket
+# comparison, so it is readable far earlier than SIGNAL_POWER_MIN_LABELS -- but
+# not at n=3. It describes; it never authorises a change.
+SIGNAL_CAPTURE_MIN_N = 20
 
 
 def _mark_signal_not_taken(ticker: str, reason: str) -> bool:
@@ -8113,6 +8117,65 @@ def _filled_signal_keys() -> set:
         return set()
 
 
+def _mfe_capture_lines(rows: list) -> list:
+    """How much of the upside each signal FOUND the exit actually KEPT.
+
+    Added 2026-10-06, after an off-watchlist analysis went looking for one
+    thing and found another. Measured over 50 labelled signals:
+
+        mean MFE  +4.68%   -- the move the entry found
+        mean P/L  -3.23%   -- what the exit kept
+        74% of signals that reached +3% ended at or below zero
+        89% of signals that reached +8% ended at or below zero
+        2 of 50 ever reached target; the other 48 exited on stop or horizon
+
+    The entries are finding moves. The exit structure gives them back. That is
+    a different problem from the one every gate in this file addresses, and
+    nothing was reporting it -- MFE and MAE have been in the dataset the whole
+    time and no report read them.
+
+    Descriptive on purpose, like the rest of this report. It does not propose a
+    take-profit, because the honest version of that test needs intrabar order
+    (an MFE >= T does not prove the target filled BEFORE the stop -- 6 of 17
+    such signals exited on a stop, so the sequence is genuinely unknown) and
+    because every level simulated was still negative. This exists so the number
+    is watched, not so it authorises a change.
+    """
+    _out: list = []
+    _pnl, _mfe, _mae = [], [], []
+    for r in rows:
+        try:
+            _pnl.append(float(r["label_pnl_pct"]))
+            _mfe.append(float(r.get("label_mfe_pct") or 0))
+            _mae.append(float(r.get("label_mae_pct") or 0))
+        except (TypeError, ValueError, KeyError):
+            continue
+    if len(_pnl) < SIGNAL_CAPTURE_MIN_N:
+        return _out
+    _n = len(_pnl)
+    _avg_mfe = sum(_mfe) / _n
+    _avg_pnl = sum(_pnl) / _n
+    _cap = (_avg_pnl / _avg_mfe * 100) if _avg_mfe else 0.0
+    _out.append(f"   exit capture  n={_n}  mean MFE {_avg_mfe:+.2f}%  "
+                f"kept {_avg_pnl:+.2f}%  = {_cap:.0f}% of the upside found "
+                f"(mean MAE {sum(_mae)/_n:+.2f}%)")
+    for _thr in (3, 8):
+        _reached = [i for i in range(_n) if _mfe[i] >= _thr]
+        if not _reached:
+            continue
+        _gave = [i for i in _reached if _pnl[i] <= 0]
+        _out.append(f"   reached +{_thr}% then ended <=0: {len(_gave)}/{len(_reached)}"
+                    f"  ({100 * len(_gave) / len(_reached):.0f}% round-tripped)")
+    _exits: dict = {}
+    for r in rows:
+        _e = str(r.get("label_exit_reason") or "?")
+        _exits[_e] = _exits.get(_e, 0) + 1
+    if _exits:
+        _out.append("   exits: " + ", ".join(
+            f"{_k} {_v}" for _k, _v in sorted(_exits.items(), key=lambda kv: -kv[1])))
+    return _out
+
+
 def report_signal_features(min_n: int = 5) -> list[str]:
     """What the labelled data says so far, as plain comparisons.
 
@@ -8138,12 +8201,14 @@ def report_signal_features(min_n: int = 5) -> list[str]:
         rows, _raw_n = [], 0
     if not rows:
         return ["No labelled signals yet."]
+    _capture = _mfe_capture_lines(rows)
     _lines_hdr: list = []
     if _raw_n > len(rows):
         _lines_hdr.append(
             f"  {len(rows)} distinct labelled signal(s) from {_raw_n} logged row(s) "
             f"({_raw_n / max(len(rows), 1):.1f}x re-scored) \u2014 all figures below "
             f"count SIGNALS, not rows")
+    _lines_hdr.extend(_capture)
     # Which signals became real positions. "taken" only means the scanner handed
     # it on -- see _filled_signal_keys().
     _filled = _filled_signal_keys()

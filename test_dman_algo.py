@@ -23493,3 +23493,104 @@ class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
         is the ratchet the 2026-10-01 guard forbids."""
         src = inspect.getsource(a._place_bzone_catastrophe_stop)
         self.assertIn("float(entry) * (1 - _floor_pct)", src)
+
+
+class TestTheReportSaysWhatTheExitKept(unittest.TestCase):
+    """MFE and MAE have been in the dataset the whole time and nothing read them.
+
+    Found 2026-10-06 while answering a different question (should the watchlist
+    be widened). Over 50 labelled signals:
+
+        mean MFE  +4.68%   -- the move the entry found
+        mean P/L  -3.23%   -- what the exit kept
+        74% of signals that reached +3% ended at or below zero
+        89% of signals that reached +8% ended at or below zero
+        exits: horizon 27, stop 21, target 2
+
+    Two of fifty ever reached target. The entries find moves; the exit
+    structure hands them back. Every gate in dman_algo.py is about which
+    signals to take, so this is a blind spot by construction -- and it stayed
+    invisible because no report computed it.
+
+    Descriptive only. It must not propose a take-profit: an MFE >= T does not
+    prove the target filled BEFORE the stop (6 of 17 such signals exited on a
+    stop, so the intrabar order is unknown), and every level simulated was
+    still negative."""
+
+    def _rows(self, specs):
+        return [{"ticker": f"T{i}", "date": "2026-10-01", "setup": "Gap & Hold",
+                 "label_outcome": "WIN" if p > 0 else "LOSS",
+                 "label_pnl_pct": p, "label_mfe_pct": f, "label_mae_pct": -2.0,
+                 "label_exit_reason": x}
+                for i, (p, f, x) in enumerate(specs)]
+
+    def test_it_reports_the_capture_ratio(self):
+        rows = self._rows([(-3.0, 6.0, "horizon")] * 25)
+        out = " ".join(a._mfe_capture_lines(rows))
+        self.assertIn("exit capture", out)
+        self.assertIn("-50%", out)   # kept -3.0 of +6.0 found
+
+    def test_it_counts_the_round_trips(self):
+        """The headline number: went green, finished red."""
+        rows = self._rows([(-1.0, 9.0, "horizon")] * 20 +
+                          [(5.0, 9.0, "target")] * 5)
+        out = " ".join(a._mfe_capture_lines(rows))
+        self.assertIn("20/25", out)
+
+    def test_it_breaks_down_the_exit_reasons(self):
+        """2 of 50 reaching target is the finding; it has to be visible."""
+        rows = self._rows([(-3.0, 6.0, "horizon")] * 15 +
+                          [(-5.0, 2.0, "stop")] * 9 +
+                          [(9.0, 9.0, "target")])
+        out = " ".join(a._mfe_capture_lines(rows))
+        self.assertIn("horizon 15", out)
+        self.assertIn("target 1", out)
+
+    def test_a_tiny_sample_reports_nothing(self):
+        """A 3-signal capture ratio is not a finding."""
+        self.assertEqual(a._mfe_capture_lines(self._rows([(-3.0, 6.0, "stop")] * 3)), [])
+
+    def test_the_threshold_is_well_under_the_weight_change_bar(self):
+        """This block describes, so it is readable far earlier than the 150
+        labels a bucket needs before it may move a weight."""
+        self.assertLess(a.SIGNAL_CAPTURE_MIN_N, a.SIGNAL_POWER_MIN_LABELS)
+        self.assertGreaterEqual(a.SIGNAL_CAPTURE_MIN_N, 20)
+
+    def test_it_survives_missing_and_garbage_labels(self):
+        rows = self._rows([(-3.0, 6.0, "horizon")] * 22)
+        rows.append({"ticker": "X", "label_pnl_pct": None, "label_mfe_pct": "x"})
+        rows.append({"ticker": "Y"})
+        self.assertTrue(a._mfe_capture_lines(rows))
+
+    def test_zero_mfe_does_not_divide_by_zero(self):
+        self.assertTrue(a._mfe_capture_lines(self._rows([(0.0, 0.0, "horizon")] * 25)))
+
+    def test_it_reaches_the_actual_report(self):
+        """Useless if it is computed and not printed.
+
+        Asserts on the report's OUTPUT, not on its source. The first version of
+        this test checked that report_signal_features' source mentioned
+        _mfe_capture_lines -- which stays true when only the line that EMITS
+        the block is deleted. Mutation testing caught it: removing
+        `_lines_hdr.extend(_capture)` left the whole class green."""
+        rows = self._rows([(-3.0, 6.0, "horizon")] * 25)
+        _tmp = tempfile.mkdtemp()
+        _f = os.path.join(_tmp, "feat.json")
+        with open(_f, "w") as fh:
+            json.dump(rows, fh)
+        try:
+            with patch.object(a, "SIGNAL_FEATURES_FILE", _f),                  patch.object(a, "_filled_signal_keys", return_value=set()):
+                out = " ".join(a.report_signal_features(min_n=5))
+        finally:
+            import shutil as _sh
+            _sh.rmtree(_tmp, ignore_errors=True)
+        self.assertIn("exit capture", out)
+        self.assertIn("round-tripped", out)
+
+    def test_it_proposes_no_take_profit(self):
+        """Deliberately descriptive. The intrabar order of target vs stop is
+        unknown in this dataset, so a simulated TP would be a guess wearing a
+        number's clothes."""
+        body = inspect.getsource(a._mfe_capture_lines).split('"""')[2]
+        for word in ("TAKE_PROFIT", "take_profit", "recommend"):
+            self.assertNotIn(word, body)

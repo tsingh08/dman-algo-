@@ -73,5 +73,30 @@
     "trail_pct": 0.0,
     "day_only": false,
     "elevated_size": false
+  },
+  {
+    "ticker": "AMPL",
+    "bias": "LONG",
+    "setup": "Breakout Zone +165% off low",
+    "entry": 14.9583,
+    "stop": 0.01,
+    "target1": 1000000000.0,
+    "target2": 1000000000.0,
+    "shares": 16,
+    "entry_date": "2026-10-06",
+    "atr": 0.0,
+    "score": 16,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": "",
+    "stop_stage": "initial",
+    "milestone_gain_alerted": 0.0,
+    "milestone_loss_alerted": 0.0,
+    "peak_premium": 0.0,
+    "trail_pct": 0.0,
+    "day_only": false,
+    "elevated_size": false
   }
 ]

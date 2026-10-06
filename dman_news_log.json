@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:04.270178-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Jim Cramer Says \u2018Interest Rates Can Fall, Too!!\u2019 as October Fed Hike Odds Fall to 21.6% \u2014 Here\u2019s What Traders Are Betting On",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T09:26:04.274551-04:00",
     "symbols": [
       "QQQ"
@@ -5078,6 +5068,17 @@
       "SPY"
     ],
     "headline": "Federal Aviation Administration Proposes Streamlining, Modernizing Commercial Space Launch And Reentry Regulations",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T14:35:25.470755-04:00",
+    "symbols": [
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Nassim Taleb and Scott Bessent Clash Over Trump Economy Numbers: Who\u2019s Right?",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

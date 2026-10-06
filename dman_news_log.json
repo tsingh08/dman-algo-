@@ -1,71 +1,5 @@
 [
   {
-    "ts": "2026-10-05T14:26:38.783715-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Said To Be Looking To Build Gas Pipeline In Florida",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:29:47.418780-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AM Intelligence Expands NVIDIA Vera Rubin AI Factory Buildout in India and Malaysia",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:30:59.038232-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on Microsoft, Raises Price Target to $615",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:31:19.909412-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Stock Rises as Analysts See Significant Upside",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:35:35.868792-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Treasury Secretary Scott Bessent Posts On X &#34;Operation Economic Outcast is delivering results: the rial has plunged to record lows, Iran loaded zero crude oil onto tankers last month, and even Iran\u2019s top security official has admitted the country is facing one of the most difficult periods in its history...&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T14:37:12.578077-04:00",
-    "symbols": [
-      "AMD",
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA",
-      "ORCL"
-    ],
-    "headline": "Tom Lee vs. AI Debt Trap: What Happens When 10-Year Bonds Fund 2-Year Microchips?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T14:38:52.751432-04:00",
     "symbols": [
       "ZS"
@@ -5070,6 +5004,68 @@
       "NVDA"
     ],
     "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:48:13.607105-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;AI Neocloud Lambda Is Raising $4B  in Final Round Before Planned IPO&#39;-WSJ",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:48:40.720922-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:48:40.729647-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:48:41.133964-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Microsoft Sets up a Second AI Paycheck as Copilot Shifts To Pay-Per-Use",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:50:13.569459-04:00",
+    "symbols": [
+      "AVGO",
+      "MRVL"
+    ],
+    "headline": "Jim Cramer Sees Marvell Sending a Bigger Signal to Broadcom",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:50:42.432753-04:00",
+    "symbols": [
+      "RIVN",
+      "UBER"
+    ],
+    "headline": "Uber Expands into Workplace Catering with $2.3 Billion ezCater Acquisition",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

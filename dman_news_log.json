@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:41:57.927295-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:41:58.096493-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "How Brazil\u2019s Election Could Impact The US And Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-05T12:41:58.409903-04:00",
     "symbols": [
       "NVDA"
@@ -5055,5 +5035,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T10:45:52.425649-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Applied Materials Stock In The Last 20 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:48:31.000310-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Bowman Says New Structure Will Consist Of Five Regions Across The States, Depart From Regional Reserve Bank-Led Model; Says  Fed To Consider Updating Bank Asset Thresholds For Stricter Rules Later This Year",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

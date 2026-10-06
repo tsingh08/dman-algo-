@@ -1204,5 +1204,41 @@
   "drift_pct": 0.36,
   "range_ratio": 0.27,
   "near_high": 0.983
+ },
+ {
+  "ts": "2026-10-06T12:25:15.516149-04:00",
+  "ticker": "IWX",
+  "price": 110.92,
+  "rvol": 1.94,
+  "drift_pct": 1.27,
+  "range_ratio": 0.48,
+  "near_high": 0.975
+ },
+ {
+  "ts": "2026-10-06T12:25:15.516163-04:00",
+  "ticker": "WBD",
+  "price": 30.95,
+  "rvol": 3.23,
+  "drift_pct": 0.32,
+  "range_ratio": 0.06,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-06T12:25:15.516168-04:00",
+  "ticker": "BSCT",
+  "price": 18.255,
+  "rvol": 1.7,
+  "drift_pct": 0.3,
+  "range_ratio": 0.27,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-06T12:25:15.516171-04:00",
+  "ticker": "IBDU",
+  "price": 22.67,
+  "rvol": 2.01,
+  "drift_pct": 0.09,
+  "range_ratio": 0.46,
+  "near_high": 0.981
  }
 ]

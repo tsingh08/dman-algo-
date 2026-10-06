@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:02.684031-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "This Lockheed Martin Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T09:26:02.688554-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Boeing Wins $14.7 Billion PAC-3 Seeker Production Contract From Lockheed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T09:26:02.692925-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Rothschild &amp; Co Initiates Coverage On Lockheed Martin with Buy Rating, Announces Price Target of $650",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T09:26:02.823533-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Nvidia Made The AI Trade Crowded. These 3 ETFs Are Playing What Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T09:26:02.953873-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Nvidia Made The AI Trade Crowded. These 3 ETFs Are Playing What Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T09:26:03.125937-04:00",
     "symbols": [
       "JPM"
@@ -5076,5 +5026,57 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T14:07:10.622103-04:00",
+    "symbols": [
+      "COIN",
+      "DKNG",
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Are DraftKings, Flutter Toast? Only 1 in 6 Benzinga Viewers Think Prediction Markets Will Kill Them",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T14:07:21.751624-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "&#39;NASA Eyes Bulk Rocket Buy for Moon Base Amid SpaceX Phaseout&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T14:07:21.755853-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "This Lockheed Martin Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T14:07:21.759429-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Boeing Wins $14.7 Billion PAC-3 Seeker Production Contract From Lockheed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T14:07:21.763157-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Rothschild &amp; Co Initiates Coverage On Lockheed Martin with Buy Rating, Announces Price Target of $650",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

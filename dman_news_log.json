@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-05T14:17:58.084962-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:17:58.234899-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:17:58.239962-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:17:58.311411-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:17:58.319096-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Meta and Microsoft Work to Wean Staff Off Anthropic\u2019s Claude&#39;- The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:17:59.095948-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-05T14:17:59.993974-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Arm Faces Qualcomm Court Fight as AI Ambitions Put Customers in the Crosshairs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T14:21:43.463736-04:00",
     "symbols": [
       "AMZN"
@@ -5069,5 +4999,77 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:34:00.987168-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Warren Buffett Bought Nucor Stock in 2025: Here\u2019s How Much His Successor May Have Missed in Gains by Selling",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T12:35:41.796964-04:00",
+    "symbols": [
+      "MRVL",
+      "MU",
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Rallies as Investor Day Targets Smash Wall Street Estimates",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:36:09.535312-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Rallies as Investor Day Targets Smash Wall Street Estimates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:36:10.626855-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Tesla to Showcase its Cybercab Robotaxi at Paris Auto Show&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T12:36:11.912097-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Marvell Stock Rallies as Investor Day Targets Smash Wall Street Estimates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:36:12.479450-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Rallies as Investor Day Targets Smash Wall Street Estimates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:36:19.969751-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Live On CNBC, Kevin Simpson Announces Bought More UnitedHealth Group; Sold IBM",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

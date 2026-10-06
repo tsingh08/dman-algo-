@@ -1321,5 +1321,140 @@
   "drift_pct": 0.04,
   "range_ratio": 0.31,
   "near_high": 0.973
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825840-04:00",
+  "ticker": "IWX",
+  "price": 110.84,
+  "rvol": 2.19,
+  "drift_pct": 1.2,
+  "range_ratio": 0.48,
+  "near_high": 0.974
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825857-04:00",
+  "ticker": "WBD",
+  "price": 30.95,
+  "rvol": 3.23,
+  "drift_pct": 0.32,
+  "range_ratio": 0.06,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825861-04:00",
+  "ticker": "BSCT",
+  "price": 18.255,
+  "rvol": 1.81,
+  "drift_pct": 0.3,
+  "range_ratio": 0.27,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825864-04:00",
+  "ticker": "BSCY",
+  "price": 19.5909,
+  "rvol": 4.81,
+  "drift_pct": 0.38,
+  "range_ratio": 0.29,
+  "near_high": 0.953
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825867-04:00",
+  "ticker": "IBDU",
+  "price": 22.665,
+  "rvol": 2.28,
+  "drift_pct": 0.11,
+  "range_ratio": 0.46,
+  "near_high": 0.981
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825870-04:00",
+  "ticker": "IBTJ",
+  "price": 21.215,
+  "rvol": 2.35,
+  "drift_pct": 0.05,
+  "range_ratio": 0.33,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825873-04:00",
+  "ticker": "JENA",
+  "price": 10.42,
+  "rvol": 16.83,
+  "drift_pct": 0.1,
+  "range_ratio": 0.36,
+  "near_high": 0.993
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825876-04:00",
+  "ticker": "JSCP",
+  "price": 45.9487,
+  "rvol": 1.56,
+  "drift_pct": 0.07,
+  "range_ratio": 0.42,
+  "near_high": 0.978
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825880-04:00",
+  "ticker": "BINC",
+  "price": 50.705,
+  "rvol": 1.51,
+  "drift_pct": 0.17,
+  "range_ratio": 0.48,
+  "near_high": 0.971
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825882-04:00",
+  "ticker": "FPEI",
+  "price": 18.525,
+  "rvol": 2.48,
+  "drift_pct": 0.46,
+  "range_ratio": 0.41,
+  "near_high": 0.961
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825885-04:00",
+  "ticker": "SHYD",
+  "price": 21.94,
+  "rvol": 2.17,
+  "drift_pct": 0.09,
+  "range_ratio": 0.3,
+  "near_high": 0.962
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825888-04:00",
+  "ticker": "TAFI",
+  "price": 24.585,
+  "rvol": 2.52,
+  "drift_pct": 0.02,
+  "range_ratio": 0.45,
+  "near_high": 0.977
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825891-04:00",
+  "ticker": "VSDM",
+  "price": 74.36,
+  "rvol": 2.25,
+  "drift_pct": 0.03,
+  "range_ratio": 0.31,
+  "near_high": 0.974
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825894-04:00",
+  "ticker": "SMMU",
+  "price": 49.475,
+  "rvol": 2.46,
+  "drift_pct": 0.13,
+  "range_ratio": 0.24,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-06T15:55:21.825896-04:00",
+  "ticker": "SPBO",
+  "price": 27.485,
+  "rvol": 2.01,
+  "drift_pct": 0.02,
+  "range_ratio": 0.39,
+  "near_high": 0.957
  }
 ]

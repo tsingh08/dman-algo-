@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-05T11:21:12.058084-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Rise In Monday Trading As Leaders Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T11:21:13.223981-04:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "US Stocks Mixed; Nasdaq Gains Over 50 Points",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T11:21:13.227628-04:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "What&#39;s Going On With WISeSat.Space Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T11:21:13.231079-04:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "Why PTC Shares Are Trading Higher By Around 35%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T11:21:13.234589-04:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "WISeQey Announced Friday That Its Subsidiary WISeSat.Space Completed Previously Announced Business Combination With Columbus Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T11:21:14.200746-04:00",
-    "symbols": [
-      "CHRW"
-    ],
-    "headline": "RXO, Vaxcyte, PTC And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T11:21:14.204408-04:00",
     "symbols": [
       "CHRW"
@@ -5060,5 +5000,71 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:56:30.991214-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan&#39;s Equities Business Surged 86% Last Quarter \u2014 What Comes Next on Oct. 13?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:56:33.436095-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Watching GE Vernova; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T09:58:33.181483-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "JPM",
+      "MSFT"
+    ],
+    "headline": "&#39;Dimon Says Anthropic\u2019s Mythos Pushed Cyber Risk Up 10-Fold&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:59:03.202697-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Technology shares are trading higher as the CEO speaks at the company&#39;s investor day, setting an FY28 revenue target of approximately $20 billion and an FY31 sales target range of $70 to $90 billion. Also, it expects a total addressable market for its products of approximately $400 billion by 2030.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T09:59:37.461689-04:00",
+    "symbols": [
+      "CEG",
+      "MRVL",
+      "TLN",
+      "VST"
+    ],
+    "headline": "Apogee Enterprises Posts Upbeat Q2 Earnings, Joins Constellation Energy, Freshworks  And Other Big Stocks Moving Higher On Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:00:34.714955-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Salesforce 20 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

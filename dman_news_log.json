@@ -1,265 +1,5 @@
 [
   {
-    "ts": "2026-10-05T14:52:07.439371-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Unity Stock Climbs: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-05T14:55:03.048701-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Genmab, AbbVie Announce Data From Phase 3 EPCORE DLBCL-2 Study Of Epcoritamab Demonstrates Reduction In Disease Progression, Death By 51% For Large B-Cell Lymphoma",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:57:21.273693-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:57:23.377847-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:57:23.593770-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nvidia, Broadcom May Be Surprisingly Safe From a 32-GW Hole in the AI Boom, Morgan Stanley Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T14:57:24.939160-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Genmab, AbbVie Announce Data From Phase 3 EPCORE DLBCL-2 Study Of Epcoritamab Demonstrates Reduction In Disease Progression, Death By 51% For Large B-Cell Lymphoma",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T14:57:27.195241-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Unity Stock Climbs: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-05T14:57:36.686374-04:00",
-    "symbols": [
-      "SPHR"
-    ],
-    "headline": "Why Is Sphere Entertainment Stock Sinking Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T14:57:38.817014-04:00",
-    "symbols": [
-      "RZLT"
-    ],
-    "headline": "FDA Recommends Meeting for Rezolute Drug for Rare Blood Sugar Disorder Despite Missed Endpoints",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T14:57:38.821183-04:00",
-    "symbols": [
-      "RZLT"
-    ],
-    "headline": "Rezolute Gets FDA Recommendation For Pre-BLA Meeting Ahead Of Ersodetug BLA Submission For Congenital Hyperinsulinism Treatment.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T14:57:39.040889-04:00",
-    "symbols": [
-      "PSI"
-    ],
-    "headline": "Intel\u2019s Terafab Opportunity Gets Crowded: Musk Confirms Talks With Taiwan Semiconductor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:12:49.737039-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T15:12:49.829029-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T15:12:49.833798-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T15:12:49.933715-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T15:12:50.014393-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T15:12:50.325690-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T15:12:50.331017-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T15:12:50.664346-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T15:12:51.304591-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:12:51.917707-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-05T15:12:52.725545-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Amazon, Alphabet, Tesla Stock Rises: Robinhood Traders Sell Anyway",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T15:12:52.799112-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:12:52.939444-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:12:53.023543-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T15:12:54.065554-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Nasdaq 100 Records Have Rarely Been This Narrow, 55 Stocks Are Still Below 50-Day Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T15:12:54.222682-04:00",
     "symbols": [
       "ADBE"
@@ -5064,6 +4804,266 @@
       "TWST"
     ],
     "headline": "Cathie Wood Claps Back After Being Confronted as ARKK Fell Nearly 15% While QQQ Soared 112% in Five Years \u2014 Calls It an \u2018Incorrect Comparison\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:08.455792-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Partner Boost Run Tops $2.6B in Contracts with New AI Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T13:14:09.045428-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Moves Higher: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:12.620346-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Hit Records, Power Stocks Rally on Google&#39;s Nuclear Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:13.339544-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Hit Records, Power Stocks Rally on Google&#39;s Nuclear Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:13.447804-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Hit Records, Power Stocks Rally on Google&#39;s Nuclear Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:14.341359-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, EQT, Clearway Energy, Goldman Sachs Nasdaq-100 Premium Income ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:14.822040-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx, Stripe Partner To Use Shipping Data For SMB Financing, Add 50+ Payment Methods",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:14.921893-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Prediction market providers and the US derivatives regulator secured a win in Illinois federal court over sports event contracts, bucking a recent losing streak&#39; - Bloomberg Law",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:15.071044-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Hit Records, Power Stocks Rally on Google&#39;s Nuclear Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:15.209738-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Hit Records, Power Stocks Rally on Google&#39;s Nuclear Deal: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:15.703917-04:00",
+    "symbols": [
+      "BOXL"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:15.816582-04:00",
+    "symbols": [
+      "CPOP"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:16.363321-04:00",
+    "symbols": [
+      "NCT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:16.470990-04:00",
+    "symbols": [
+      "SGLY"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:16.673950-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:17.112742-04:00",
+    "symbols": [
+      "XHLD"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:17.318821-04:00",
+    "symbols": [
+      "AIXI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:17.422946-04:00",
+    "symbols": [
+      "OLOX"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:17.538118-04:00",
+    "symbols": [
+      "JAGX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:17.650673-04:00",
+    "symbols": [
+      "OPCH"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:17.756457-04:00",
+    "symbols": [
+      "APOG"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T13:14:18.576759-04:00",
+    "symbols": [
+      "BRUN"
+    ],
+    "headline": "Nvidia Partner Boost Run Tops $2.6B in Contracts with New AI Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:18.687126-04:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:18.918636-04:00",
+    "symbols": [
+      "CNXU"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T13:14:19.286589-04:00",
+    "symbols": [
+      "XNDU"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T13:14:19.611810-04:00",
+    "symbols": [
+      "LW"
+    ],
+    "headline": "S&amp;P 500, Nasdaq Hit Records, Power Stocks Rally on Google&#39;s Nuclear Deal: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

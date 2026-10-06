@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:09.394765-04:00",
-    "symbols": [
-      "PENN"
-    ],
-    "headline": "Deutsche Bank Upgrades PENN Entertainment to Buy, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T09:26:09.518095-04:00",
     "symbols": [
       "RZLT"
@@ -5090,6 +5080,16 @@
     "headline": "Jamie Dimon Says AI Boom Is Competing With Government Borrowing for Capital: \u2018Rates Are Going Up\u2019",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:00:43.264040-04:00",
+    "symbols": [
+      "BIAF"
+    ],
+    "headline": "bioAffinity Technologies Announces 100% Increase In Sales For Its CyPath Lung Test For Lung Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

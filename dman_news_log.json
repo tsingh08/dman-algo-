@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-05T09:25:53.774876-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Taiwan Semiconductor Stock Hits 52-Week High \u2014 What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-05T09:25:53.778616-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stifel Maintains Buy on Advanced Micro Devices, Raises Price Target to $700",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T09:25:53.782153-04:00",
     "symbols": [
       "AMD"
@@ -5063,5 +5043,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T19:00:16.287973-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Goldman Sachs Group Stock In The Last 5 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-05T19:15:32.007271-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "If You Invested $100 In Netflix Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

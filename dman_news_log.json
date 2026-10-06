@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T09:26:11.279458-04:00",
-    "symbols": [
-      "BSY"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T09:26:11.406870-04:00",
-    "symbols": [
-      "HOG"
-    ],
-    "headline": "Citigroup Upgrades Harley-Davidson to Buy, Raises Price Target to $33",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T09:26:11.573736-04:00",
     "symbols": [
       "VIR"
@@ -5104,5 +5084,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T15:33:37.583722-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "CFTC Approval &#39;Opens Many Doors,&#39; Top Coinbase Exec Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T15:34:17.698498-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "The S&P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

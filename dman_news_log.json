@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-05T13:20:50.264950-04:00",
-    "symbols": [
-      "VELO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:50.269576-04:00",
-    "symbols": [
-      "VELO"
-    ],
-    "headline": "Velo3D Stock Plunges: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T13:20:50.371043-04:00",
-    "symbols": [
-      "CHRW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-05T13:20:50.375868-04:00",
     "symbols": [
       "CHRW"
@@ -5073,6 +5043,40 @@
     "headline": "&#39;Fed eyes AI, tariffs, energy for inflation outlook&#39;- Axios",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T12:02:55.249466-04:00",
+    "symbols": [
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "Why Is Nebius Group Stock Soaring Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T12:04:20.726679-04:00",
+    "symbols": [
+      "CEG",
+      "XHG"
+    ],
+    "headline": "Crude Oil Edges Lower; Lamb Weston Shares Surge Following Upbeat Q1 Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T12:05:57.059010-04:00",
+    "symbols": [
+      "IMSR",
+      "OKLO",
+      "SMR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading higher amid sympathy with Constellation Energy after the company announced a partnership with Google to deploy 890 MW of new nuclear capacity. The deal may support the demand outlook for hyperscalers adding more nuclear generation.",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

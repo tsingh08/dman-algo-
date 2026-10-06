@@ -1,87 +1,5 @@
 [
   {
-    "ts": "2026-10-05T12:15:21.149563-04:00",
-    "symbols": [
-      "EWZ"
-    ],
-    "headline": "&#39;Brazil&#39;s Lula weighs VP Alckmin as next finance minister to woo centrist voters&#39;- Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T12:16:25.858719-04:00",
-    "symbols": [
-      "AAPL",
-      "AMD",
-      "AMZN",
-      "AVGO",
-      "META",
-      "NVDA",
-      "QCOM"
-    ],
-    "headline": "Qualcomm Licenses Huawei Chip Tech as Its Push Beyond Smartphones Picks Up Speed",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:16:39.919259-04:00",
-    "symbols": [
-      "GOOGL",
-      "MSFT",
-      "SPCX"
-    ],
-    "headline": "Microsoft Could Be SpaceX&#39;s Next Big AI Customer: Bernstein Sees AI Revenue Surging Nearly 500%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:18:26.932698-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta\u2019s Next Big Growth Engine or Costly AI Trap? Wall Street Is Split",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-05T12:19:32.790421-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "JP Morgan Maintains Overweight on FedEx, Lowers Price Target to $399",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T12:22:25.258640-04:00",
-    "symbols": [
-      "JPM",
-      "MA",
-      "SLB",
-      "SPY",
-      "V"
-    ],
-    "headline": "JPMorgan\u2019s October Stock Picks Hint at 3 ETF Trades: Value, AI Power, Health Care",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-05T12:22:53.457478-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump plans executive order seeking to bring down high diesel costs&#39;- Politico",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-05T12:23:18.681568-04:00",
     "symbols": [
       "AVGO"
@@ -5064,6 +4982,80 @@
     ],
     "headline": "Lamb Weston Hldgs Reports Q1 2027 Results: Full Earnings Call Transcript",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:16:07.583122-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Cloudflare Stock In The Last 5 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-06T10:16:34.278228-04:00",
+    "symbols": [
+      "PACB"
+    ],
+    "headline": "Apogee Enterprises Posts Upbeat Q2 Earnings, Joins Constellation Energy, Freshworks  And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:16:34.282927-04:00",
+    "symbols": [
+      "PACB"
+    ],
+    "headline": "PacBio, TychoBio Collaborate Over Generation Of RNA Data To Train Models For RNA Therapy Design",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-06T10:16:34.448125-04:00",
+    "symbols": [
+      "TSSI"
+    ],
+    "headline": "TSS Announces Seven-Year Lease For About 380,000 Square Feet Of Warehouse Space In Georgetown, Texas; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:16:34.629312-04:00",
+    "symbols": [
+      "PL"
+    ],
+    "headline": "Apogee Enterprises Posts Upbeat Q2 Earnings, Joins Constellation Energy, Freshworks  And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:17:47.811794-04:00",
+    "symbols": [
+      "AMD",
+      "GOOGL",
+      "META",
+      "NVDA",
+      "QCOM"
+    ],
+    "headline": "AMD\u2019s AI Boom Gets Bigger: Lisa Su Sees \u2018Very, Very High\u2019 Demand for the Next Several Years",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-06T10:18:56.559519-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Faces UK Investigation Over Instagram Instants Launch, Ofcom Probes Safety Risks For Children and Illegal Content",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

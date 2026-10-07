@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:01:41.198017-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler reaffirms Q1adjusted EPS of ~$1.15-$1.16 and sales of $935M-$939M; Reaffirms FY27 adjusted EPS of $4.86-$4.90 and sales of $3.908B-$3.938B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T14:01:41.201723-04:00",
     "symbols": [
       "ABNB"
@@ -5080,5 +5070,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T11:41:03.252374-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Barclays Maintains Overweight on Zscaler, Raises Price Target to $225",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

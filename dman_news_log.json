@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.078693-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cathie Wood Bets $31M On Amazon, CoreWeave And Meta, While Pulling $26.5M Out of This Hot AI Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.082789-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic CEO Dario Amodei Took Home $18 Million in 2025 \u2014 How His Pay Compares With Google and Amazon CEOs: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.086684-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Paul Krugman Says AI Boom Is \u2018Crowding Out\u2019 Other Investments in a Way the Dot-Com Era Never Did: \u2018This Isn\u2019t a Hypothetical Risk\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.090413-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "The Emmys Are Moving to Amazon Prime Video \u2014 And You Won\u2019t Need a Prime Subscription to Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.094189-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Ray Dalio Says AI Bubble Is \u2018Close\u2019 to Bursting as Debt and Rising Rates Raise Red Flags",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.164909-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.169332-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Jim Cramer Says Investors Are Overlooking Elon Musk\u2019s $40 Billion \u2018Pot of Gold\u2019 For Nvidia \u2014 Intel Terafab Exit Rumors \u2018Squashed,\u2019 Dismisses \u2018Weakness\u2019 In Korea\u2019s Kospi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.173230-04:00",
     "symbols": [
       "TSLA"
@@ -5072,6 +5002,77 @@
     ],
     "headline": "Tesla Sold Less Than 1,000 EVs in India in First 12 Months: Here\u2019s Why There\u2019s Good News for Investors",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:24:51.391834-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Introduces GPT\u20116 And Intelligent UI For Everyone",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:26:27.874144-04:00",
+    "symbols": [
+      "LUNR",
+      "RKLB"
+    ],
+    "headline": "Shares of aerospace and defense companies are trading lower. Weakness may be amid sympathy with SpaceX after a report suggested that the company is looking to issue $40 billion in new debt to buy Nvidia chips for its data centers.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:26:44.225188-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jefferies Maintains Buy on Marvell Technology, Raises Price Target to $450",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:26:44.602217-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is BKV Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:26:44.999008-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Why Is BKV Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:26:45.081348-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Why Is BKV Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:26:48.283419-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Why Is BKV Stock Surging Wednesday?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

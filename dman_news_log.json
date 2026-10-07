@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:00:41.599102-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "S&P Eyes Record High, Yet Concentration Risk Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:00:41.603508-04:00",
     "symbols": [
       "AAPL"
@@ -5050,5 +5040,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T10:06:10.301688-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SNDK"
+    ],
+    "headline": "Nvidia, Micron and Other 5 S&amp;P 500 Stocks With +100% Revenue Growth",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

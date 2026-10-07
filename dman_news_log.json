@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.173230-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla FSD Gets a Boost in Europe as Germany Pushes for Faster EU Approval \u2014 Elon Musk Says \u2018Danke Sch\u00f6n!\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.176752-04:00",
     "symbols": [
       "TSLA"
@@ -5073,6 +5063,17 @@
     ],
     "headline": "Why Is BKV Stock Surging Wednesday?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:30:14.035498-04:00",
+    "symbols": [
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Meta, Google Put $300M Into Zuckerberg-Backed $1.8B AI Biology Bet",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:46:38.467934-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Federal Aviation Administration Proposes Streamlining, Modernizing Commercial Space Launch And Reentry Regulations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:46:41.751046-04:00",
-    "symbols": [
-      "CCJ"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:58:32.122490-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Warren Buffett Said Buy the S&amp;P 500 \u2014 But This ETF Is Secretly an AI Powerhouse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:58:32.380711-04:00",
     "symbols": [
       "MSFT"
@@ -5070,6 +5040,36 @@
     ],
     "headline": "Ohmyhome Files Prospectus To Offer Up To $40M Class A Ordinary Shares To Magnus Capital Ventures",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:47:06.149850-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Live On CNBC, Kevin Simpson Announces Bought More SpaceX",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:47:32.564162-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Truist Securities Maintains Buy on Gilead Sciences, Raises Price Target to $158",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:48:03.744071-04:00",
+    "symbols": [
+      "SPAI"
+    ],
+    "headline": "Safe Pro Sees Revenue Exploding 2,300% As Defense Contracts Ramp Up",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

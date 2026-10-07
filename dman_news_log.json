@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.977096-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:44.111578-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:44.115775-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood&#39;s Investment Chief Says She Prefers Owning Energy Stocks Over ETFs \u2014 Should These Stocks Be on Your Radar?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:44.203225-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Tempus Announces Expanded Collaboration With Merck And Moderna For Potential Commercialization Of Cancer Vaccine Intismeran Autogene; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:44.292651-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Receives Two New FDA&#39;s Breakthrough Therapy Designations For Telisotuzumab Adizutecan In Colorectal Cancer, Non-Small Cell Lung Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:44.376419-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Helmerich &amp; Payne Expands Deployment Of FlexRobotics Technology With ExxonMobil",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:44.380985-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Robert Reich Warns Big Oil and Big AI Could Face \u2018Tens if Not Hundreds of Billions\u2019 in Liability: &#39;Make Them Pay&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:44.385318-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Robinhood&#39;s Investment Chief Says She Prefers Owning Energy Stocks Over ETFs \u2014 Should These Stocks Be on Your Radar?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T09:25:44.389069-04:00",
     "symbols": [
       "XOM"
@@ -5078,5 +4998,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:24:40.487934-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Hewlett Packard Enterprise Stock Hits 52-Week Highs - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:24:42.845231-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Hewlett Packard Enterprise Stock Hits 52-Week Highs - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:24:43.713668-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:24:43.933575-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:24:44.633081-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Tempus Announces Expanded Collaboration With Merck And Moderna For Potential Commercialization Of Cancer Vaccine Intismeran Autogene; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:24:44.847931-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Receives Two New FDA&#39;s Breakthrough Therapy Designations For Telisotuzumab Adizutecan In Colorectal Cancer, Non-Small Cell Lung Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:24:54.311345-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US FCC to vote to ban Chinese labs from testing US electronics&#39; - Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:25:03.168956-04:00",
+    "symbols": [
+      "BSP"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

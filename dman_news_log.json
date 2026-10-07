@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-06T15:42:07.395303-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:42:07.398400-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:42:07.402394-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:07.405388-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:07.665112-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:09.404063-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:09.407354-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:14.066726-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:14.310846-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:15.544096-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:15.547619-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T15:42:17.613652-04:00",
     "symbols": [
       "TLN"
@@ -5069,5 +4959,117 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:49:34.036585-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA",
+      "RTX"
+    ],
+    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:49:35.068459-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump On Russia, Putin Call Says  Have Call Set Up; Asked About Mortgage Rates Says Interest Rates Should Come Down",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:49:56.366754-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:49:56.372097-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Exec Says Call Of Duty Will Come To NVIDIA RTX Spark Machines In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:49:56.377196-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Exec Says Co. Introduces Surface Laptop Ultra",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:49:56.458204-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:49:56.463153-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:49:56.467858-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft Exec Says Call Of Duty Will Come To NVIDIA RTX Spark Machines In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:49:57.708491-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Stock Is Surging Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:50:01.676329-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:50:04.133359-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

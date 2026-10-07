@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:46:37.823545-04:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "Elong Power H1 Revenue Rises To $2.90M From $19,229 YoY, Net Income $20.49M Vs Net Loss $2.66M On $22.61M Divestment Gain, Pivots To Energy Storage Integration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:46:37.926415-04:00",
     "symbols": [
       "GNS"
@@ -5072,5 +5062,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:37:56.315425-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Finds $400B AI Opportunity, But Shares Take a Hit",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

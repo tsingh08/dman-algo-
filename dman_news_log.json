@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:00:43.434309-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "'AI Neocloud Lambda Is Raising $4B  in Final Round Before Planned IPO'-WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:00:43.439181-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Nvidia AI Servers Routed Through Malaysia and Singapore In $300 Million China Scheme: Company Calls Smuggling 'Losing Proposition' (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:00:43.575340-04:00",
     "symbols": [
       "AVGO"
@@ -5052,5 +5032,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T10:21:16.638055-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Prepares Antigravity For Gemini 4 Argon And Concierge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T10:25:15.683694-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Former Tesla Optimus Lead is Launching an Industrial Robot Startup&#39;- The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

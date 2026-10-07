@@ -1,27 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:00:50.120152-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P Eyes Record High, Yet Concentration Risk Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:16.642985-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT"
-    ],
-    "headline": "Anthropic Announces Claude Now Works With Google Docs, Sheets, And Slides",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T14:01:41.017020-04:00",
     "symbols": [
       "AAPL"
@@ -5058,5 +5036,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T10:48:15.808177-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Says Co Is Closely Monitoring The Projected Path Of Tropical Storm Isaias; While Non-Essential Personnel Are Being Transported From Our Gulf Of America Platforms, Production From Our Chevron-Operated Assets Remains At Normal Levels",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T10:49:48.663465-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Marvell Technology, Raises Price Target to $300",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

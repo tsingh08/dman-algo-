@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T13:14:17.756457-04:00",
-    "symbols": [
-      "APOG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:14:18.576759-04:00",
-    "symbols": [
-      "BRUN"
-    ],
-    "headline": "Nvidia Partner Boost Run Tops $2.6B in Contracts with New AI Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T13:14:18.687126-04:00",
     "symbols": [
       "APUS"
@@ -5051,6 +5031,26 @@
       "MRVL"
     ],
     "headline": "StoneX Maintains Buy on Marvell Technology, Raises Price Target to $375",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:30:59.048196-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Falls Amid Chip-Sector Slump as Taiwan Union Votes 99% for Strike Authorization",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:31:34.277690-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Stifel Maintains Buy on Zscaler, Raises Price Target to $235",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

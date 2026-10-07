@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-06T13:44:43.374557-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia, Apple, Microsoft Now Drive 21% of S&amp;P 500: Here\u2019s How Much ETF Investors Own",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T13:44:43.520106-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia, Apple, Microsoft Now Drive 21% of S&amp;P 500: Here\u2019s How Much ETF Investors Own",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T13:44:43.644188-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Challenging Nvidia&#39;s Dominance: Broadcom Pairs Custom TPU Chips with $60 Billion Debt Package",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T13:44:43.647887-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia, Apple, Microsoft Now Drive 21% of S&amp;P 500: Here\u2019s How Much ETF Investors Own",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T13:44:44.020728-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Challenging Nvidia&#39;s Dominance: Broadcom Pairs Custom TPU Chips with $60 Billion Debt Package",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T13:44:44.558621-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T13:44:44.903185-04:00",
     "symbols": [
       "AVGO"
@@ -5045,5 +4985,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T09:47:47.255832-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Barclays Maintains Underweight on Coinbase Global, Raises Price Target to $149",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T09:47:54.388892-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Marvell Technology, Raises Price Target to $400",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:48:08.446207-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Inside: Microsoft&#39;s New Laptop Runs AI Agents Without the Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T09:48:08.574877-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia Inside: Microsoft&#39;s New Laptop Runs AI Agents Without the Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:48:08.744329-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Inside: Microsoft&#39;s New Laptop Runs AI Agents Without the Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:48:08.881490-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia Inside: Microsoft&#39;s New Laptop Runs AI Agents Without the Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

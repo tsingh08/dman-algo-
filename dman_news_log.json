@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:44.641894-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Announces Ethernet Rack-Scale AI Networking Portfolio, Developed With AMD, Arm, Broadcom, d-Matrix, Meta, Microsoft, And Qualcomm",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:44.879598-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jim Cramer Sees More AI Upside Ahead for Meta, Microsoft and AMD Despite Bubble Fears: \u2018They Were Going to Figure Something Out\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:44.883792-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Dan Ives Names 5 Potential Tech Winners for 2027 as Investors Underestimate $4 Trillion Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:44.956547-04:00",
     "symbols": [
       "PANW"
@@ -5075,6 +5045,37 @@
       "TLT"
     ],
     "headline": "Treasury Yields Hit 2002 Highs: Jim Bianco, Ed Yardeni Say There\u2019s No Need To Worry",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:29:10.271097-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Citigroup Maintains Buy on FedEx, Raises Price Target to $373",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:29:25.707523-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Arista Networks Announces Ethernet Rack-Scale AI Networking Portfolio, Developed With AMD, Arm, Broadcom, d-Matrix, Meta, Microsoft, And Qualcomm",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:29:43.774089-04:00",
+    "symbols": [
+      "LMT",
+      "SPY"
+    ],
+    "headline": "&#39;UPS Worker Missed Security Email, Letting China Get F-35 Parts&#39; - Bloomberg",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

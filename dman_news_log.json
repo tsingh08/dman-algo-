@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:46:37.483071-04:00",
-    "symbols": [
-      "BJDX"
-    ],
-    "headline": "Bluejay Diagnostics Advances Rapid Biomarker Testing For Sepsis Patients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:46:37.486761-04:00",
-    "symbols": [
-      "BJDX"
-    ],
-    "headline": "Bluejay Diagnostics Reports SYMON-II Baseline Data Showing Diverse Critically Ill Sepsis Population And Meaningful Mortality Events Supporting IL-6 Evaluation For 28-Day Mortality Risk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:46:37.819497-04:00",
     "symbols": [
       "ELPW"
@@ -5072,5 +5052,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:34:17.017828-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Freeport-McMoRan, Raises Price Target to $92",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:34:46.905019-04:00",
+    "symbols": [
+      "PENG"
+    ],
+    "headline": "Rosenblatt Maintains Buy on Penguin Solutions, Raises Price Target to $100",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

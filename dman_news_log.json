@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:48.649726-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Susquehanna Maintains Neutral on SpaceX, Raises Price Target to $173",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:48.653262-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "FAA Moves to Fast-Track Launches By Elon Musk&#39;s SpaceX and Others With New Rules as Trump Targets Over 1,000 Launches by 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:48.719146-04:00",
     "symbols": [
       "SXTC"
@@ -5079,5 +5059,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T16:07:31.744033-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Wolfspeed Announces Conditional Commitment For Up To $1.5B 30-Year Department Of War Loan; Would Issue Warrants For Up To 7.5% Of Fully Diluted Equity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T16:08:01.820565-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Wolfspeed Receives $.15B Conditional Financing From U.S. Department Of War For Its Domestic Development, Production Of Silicon Carbide Materials, Wide Bandgap Power Devices",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

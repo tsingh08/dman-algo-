@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:00:45.805588-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Cathie Wood Buys Rocket Lab as ARK Sees SpaceX's Starship Shift Squeezing Launch Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:00:45.809112-04:00",
     "symbols": [
       "RKLB"
@@ -5055,6 +5045,16 @@
       "APLD"
     ],
     "headline": "Applied Digital Reports Today: What to Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T10:40:14.021872-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly shares are trading higher. Morgan Stanley maintained its Overweight rating on the stock and raised its price target from $1419 to $1430.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

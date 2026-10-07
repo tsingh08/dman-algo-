@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T13:44:46.901519-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Nvidia, Apple, Microsoft Now Drive 21% of S&amp;P 500: Here\u2019s How Much ETF Investors Own",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T13:44:47.026220-04:00",
     "symbols": [
       "RKLB"
@@ -5047,5 +5037,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T10:00:27.846875-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "If You Invested $100 In Super Micro Computer Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

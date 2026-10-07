@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.253890-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "The Emmys Are Moving to Amazon Prime Video \u2014 And You Won\u2019t Need a Prime Subscription to Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.375449-04:00",
     "symbols": [
       "PLTR"
@@ -5074,6 +5064,16 @@
     ],
     "headline": "Meta, Google Put $300M Into Zuckerberg-Backed $1.8B AI Biology Bet",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:42:07.262995-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Jefferies Maintains Buy on Zscaler, Raises Price Target to $250",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

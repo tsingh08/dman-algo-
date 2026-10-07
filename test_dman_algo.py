@@ -17911,6 +17911,13 @@ class TestFeatureLogRecordsWhatWasTaken(unittest.TestCase):
     answer whether the gates pick better signals than they discard."""
 
     def setUp(self):
+        # _mark_signals_taken() grew a readiness gate on 2026-10-07: an
+        # after-hours scan must not claim a signal was taken. These tests
+        # exercise the ROW mechanism, not the gate, and without this they would
+        # pass or fail according to whether the suite runs during market hours.
+        self._opa = patch.object(a, "_order_path_can_act", return_value=(True, ""))
+        self._opa.start()
+        self.addCleanup(self._opa.stop)
         self._d = tempfile.mkdtemp()
         self._f = os.path.join(self._d, "features.json")
         self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
@@ -18325,6 +18332,13 @@ class TestOnlyThisScansRowIsMarkedTaken(unittest.TestCase):
     passed at 10:00 had its rejected 9:45 row labelled taken too."""
 
     def setUp(self):
+        # _mark_signals_taken() grew a readiness gate on 2026-10-07: an
+        # after-hours scan must not claim a signal was taken. These tests
+        # exercise the ROW mechanism, not the gate, and without this they would
+        # pass or fail according to whether the suite runs during market hours.
+        self._opa = patch.object(a, "_order_path_can_act", return_value=(True, ""))
+        self._opa.start()
+        self.addCleanup(self._opa.stop)
         self._d = tempfile.mkdtemp()
         self._f = os.path.join(self._d, "features.json")
         self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
@@ -23594,3 +23608,103 @@ class TestTheReportSaysWhatTheExitKept(unittest.TestCase):
         body = inspect.getsource(a._mfe_capture_lines).split('"""')[2]
         for word in ("TAKE_PROFIT", "take_profit", "recommend"):
             self.assertNotIn(word, body)
+
+
+class TestAnAfterHoursScanCannotClaimASignalWasTaken(unittest.TestCase):
+    """Tuesday 2026-10-06: BBD and OPCH read taken=True AND
+    reject="alert only: off-watchlist" at the same time.
+
+    Four scans ran after the 16:00 close. Each marked its surviving signals
+    taken=True, then _submit_signals_to_alpaca() returned at its own
+    `if not is_market_open()` check without recording one refusal -- so nothing
+    un-stamped them. ALAB, which stopped qualifying before those late scans,
+    was recorded correctly; that contrast is what made it legible.
+
+    The 2026-10-05 fix made the submit path's own refusals honest. It did not
+    cover the case where that path never ran at all, and an after-hours scan
+    has NO new information about whether anything was taken."""
+
+    def setUp(self):
+        self._tmp = tempfile.mkdtemp()
+        self._f = os.path.join(self._tmp, "feat.json")
+        self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
+        self._p.start()
+        with open(self._f, "w") as fh:
+            json.dump([{"date": str(a._et_today()), "ticker": "BBD",
+                        "setup": "Gap & Hold", "taken": False,
+                        "reject": "alert only: off-watchlist", "score": 100}], fh)
+
+    def tearDown(self):
+        self._p.stop()
+        import shutil as _sh
+        _sh.rmtree(self._tmp, ignore_errors=True)
+
+    def _rows(self):
+        with open(self._f) as fh:
+            return json.load(fh)
+
+    def _can(self, ok, why=""):
+        return patch.object(a, "_order_path_can_act", return_value=(ok, why))
+
+    def test_a_closed_market_does_not_stamp_taken(self):
+        """The exact Tuesday failure."""
+        with self._can(False, "market closed"):
+            self.assertEqual(a._mark_signals_taken(["BBD"]), 0)
+        row = self._rows()[-1]
+        self.assertFalse(row["taken"])
+        self.assertEqual(row["reject"], "alert only: off-watchlist")
+
+    def test_an_open_market_still_stamps_taken(self):
+        """The guard must not disable the feature. Without a positive class the
+        dataset cannot answer whether the picked signals did better."""
+        with self._can(True):
+            self.assertEqual(a._mark_signals_taken(["BBD"]), 1)
+        self.assertTrue(self._rows()[-1]["taken"])
+
+    def test_it_does_nothing_rather_than_marking_not_taken(self):
+        """A legitimate in-session taken=True must not be erased hours later by
+        a scan that never had an order path."""
+        with self._can(True):
+            a._mark_signals_taken(["BBD"])
+        with self._can(False, "market closed"):
+            a._mark_signals_taken(["BBD"])
+        self.assertTrue(self._rows()[-1]["taken"], "late scan erased a real fill label")
+
+    def test_a_halt_also_means_no_order_path(self):
+        with self._can(False, "halted"):
+            self.assertEqual(a._mark_signals_taken(["BBD"]), 0)
+
+    def test_a_tripped_breaker_also_means_no_order_path(self):
+        with self._can(False, "daily loss limit"):
+            self.assertEqual(a._mark_signals_taken(["BBD"]), 0)
+
+    # --- the readiness probe ------------------------------------------------
+    def test_the_probe_mirrors_the_submit_paths_own_bails(self):
+        """If these drift apart the claim goes back to being a guess."""
+        src = inspect.getsource(a._order_path_can_act)
+        for check in ("ALPACA_API_KEY", "is_market_open", "is_halted",
+                      "_entry_circuit_breakers_ok"):
+            self.assertIn(check, src)
+            self.assertIn(check, inspect.getsource(a._submit_signals_to_alpaca))
+
+    def test_the_probe_has_no_side_effects(self):
+        body = inspect.getsource(a._order_path_can_act).split('"""')[2]
+        for bad in ("submit_order", "send_telegram", "_write_json_atomic",
+                    "_save_last_alert"):
+            self.assertNotIn(bad, body)
+
+    def test_the_probe_fails_closed_on_an_exception(self):
+        with patch.object(a, "is_market_open", side_effect=RuntimeError("boom")),              patch.object(a, "_log_swallowed"):
+            self.assertFalse(a._order_path_can_act()[0])
+
+    def test_the_scanner_consults_the_probe(self):
+        self.assertIn("_order_path_can_act",
+                      inspect.getsource(a._mark_signals_taken))
+
+    # --- the pre-market site ------------------------------------------------
+    def test_the_premarket_off_watchlist_refusal_is_recorded(self):
+        """The third _auto_trade_allowed site; it printed and told the dataset
+        nothing."""
+        src = inspect.getsource(a)
+        i = src.index("pre-market: ")
+        self.assertIn("_mark_signal_not_taken", src[i:i + 700])

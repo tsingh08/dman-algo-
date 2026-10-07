@@ -7700,6 +7700,30 @@ def _mark_signal_not_taken(ticker: str, reason: str) -> bool:
         return False
 
 
+def _order_path_can_act() -> tuple:
+    """(ok, why) -- could _submit_signals_to_alpaca() place anything right now?
+
+    These are its own four opening bail-outs, read without side effects, so a
+    caller can ask "is there an order path at all" before claiming a signal was
+    handed to one. Kept beside _mark_signals_taken() because that is the only
+    claim which depends on the answer.
+    """
+    try:
+        if not ALPACA_API_KEY:
+            return False, "no broker key"
+        if not is_market_open():
+            return False, "market closed"
+        if is_halted():
+            return False, "halted"
+        _ok, _why = _entry_circuit_breakers_ok()
+        if not _ok:
+            return False, (_why or "circuit breaker")[:40]
+        return True, ""
+    except Exception as exc:
+        _log_swallowed("order path readiness", exc)
+        return False, "unknown"
+
+
 def _mark_signals_taken(tickers) -> int:
     """Flip today's feature rows for these tickers to taken=True.
 
@@ -7716,6 +7740,28 @@ def _mark_signals_taken(tickers) -> int:
     """
     _want = {str(t).upper() for t in (tickers or []) if t}
     if not _want:
+        return 0
+    # An after-hours scan has NO new information about whether a signal was
+    # taken, because the order path refuses before it looks at anything.
+    #
+    # Tuesday 2026-10-06: four scans ran after the 16:00 close. Each one marked
+    # its surviving signals taken=True here, then main() called
+    # _submit_signals_to_alpaca(), which returned at its own
+    # `if not is_market_open()` check without recording a single refusal -- so
+    # nothing ever un-stamped them. BBD and OPCH ended the day reading
+    # taken=True AND reject="alert only: off-watchlist" simultaneously. ALAB,
+    # which stopped qualifying before those late scans, was recorded correctly,
+    # which is what made the pattern legible.
+    #
+    # Doing NOTHING is the right answer, not marking them not-taken: a legitimate
+    # taken=True written by an in-session pass must not be erased hours later by
+    # a scan that never had an order path. The 2026-10-05 fix made the submit
+    # path's own refusals honest; this closes the case where that path never
+    # ran at all.
+    _can, _why = _order_path_can_act()
+    if not _can:
+        print(f"  \U0001f4cb taken not marked — no order path ({_why}); "
+              f"{len(_want)} signal(s) left as previously recorded")
         return 0
     try:
         with open(SIGNAL_FEATURES_FILE) as _f:
@@ -8781,6 +8827,11 @@ def run_premarket_early_scan() -> None:
             # reaches _submit_signals_to_alpaca(), so it needs its own gate.
             for _e in [x for x in pm_auto_entries if not _auto_trade_allowed(x["ticker"])[0]]:
                 print(f"  📋 {_e['ticker']} pre-market: {_auto_trade_allowed(_e['ticker'])[1]}")
+                # The third _auto_trade_allowed site, and the one the 2026-10-05
+                # pass missed: it refused off-watchlist pre-market entries with a
+                # print and told the dataset nothing.
+                _mark_signal_not_taken(_e["ticker"],
+                                       "alert only: off-watchlist (pre-market)")
             for _e in [x for x in pm_auto_entries
                        if _auto_trade_allowed(x["ticker"])[0]][:3]:   # max 3 concurrent pre-market entries
                 try:

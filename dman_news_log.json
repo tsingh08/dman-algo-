@@ -1,242 +1,5 @@
 [
   {
-    "ts": "2026-10-06T15:15:42.033171-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin Tops Liquidity Ranking, ETH Follows: Where Does XRP Rank?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:16:38.608115-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Expands Cyber Verification Program With Three-Tier Access To Advanced AI Models For Security Professionals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:16:38.611175-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Jamie Dimon Says AI Boom Is Competing With Government Borrowing for Capital: \u2018Rates Are Going Up\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:16:38.881689-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jamie Dimon Says AI Boom Is Competing With Government Borrowing for Capital: \u2018Rates Are Going Up\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:16:39.730202-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Expands Cyber Verification Program With Three-Tier Access To Advanced AI Models For Security Professionals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:16:39.733340-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Jamie Dimon Says AI Boom Is Competing With Government Borrowing for Capital: \u2018Rates Are Going Up\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:16:39.996294-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Jamie Dimon Says AI Boom Is Competing With Government Borrowing for Capital: \u2018Rates Are Going Up\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:16:50.967280-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Jamie Dimon Says AI Boom Is Competing With Government Borrowing for Capital: \u2018Rates Are Going Up\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:17:50.987827-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna shares are trading lower, possibly as the stocks sells of from recent strength related to a suspected pneumonic plague in Russia.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:28:26.144447-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Waymo Boosts Private Debt Deal to $5 Billion in Push for Growth&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:29:22.462380-04:00",
-    "symbols": [
-      "OPCH"
-    ],
-    "headline": "Option Care Stock Trades Below McKesson&#39;s Deal Price \u2014 Here&#39;s the Spread",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:29:39.085239-04:00",
-    "symbols": [
-      "AAPL",
-      "AMD",
-      "AMZN",
-      "AVGO",
-      "CRWD",
-      "FTNT",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA",
-      "PANW",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T15:33:37.583722-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "CFTC Approval &#39;Opens Many Doors,&#39; Top Coinbase Exec Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:34:17.698498-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "The S&P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:41:24.569208-04:00",
-    "symbols": [
-      "AMZN",
-      "AVGO",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:06.061562-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:42:06.318580-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:06.321737-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:06.589092-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:42:06.592406-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T15:42:06.878390-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "The S&amp;P 500 Is Partying at Record Highs: Only 3% of Its Stocks Were Invited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:07.158146-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nvidia Strength Is Masking \u2018A Whole Lot of Pain\u2019 in the Broader Market, David Rosenberg Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T15:42:07.161152-04:00",
     "symbols": [
       "META"
@@ -5083,6 +4846,226 @@
     ],
     "headline": "Robinhood Stock Dips as Bitcoin Falls, Risk Appetite Cools",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:52.186856-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Tempus AI Doubles Down On Moderna and Merck Cancer Vaccine Infrastructure",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.283453-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.291722-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Exec Says Meta&#39;s Muse Is Coming To Windows",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.299785-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.310792-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Microsoft Exec Says Meta&#39;s Muse Is Coming To Windows",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.318184-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.325454-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.332683-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.341840-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.348207-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.352657-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.357761-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.365371-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.372807-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.378928-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.389439-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.393915-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.408264-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:44:58.421500-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.426813-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.442037-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:44:58.480643-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

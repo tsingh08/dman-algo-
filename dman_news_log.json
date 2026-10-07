@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:46:34.873628-04:00",
-    "symbols": [
-      "NRG"
-    ],
-    "headline": "What's Going On With Vistra Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:46:36.910684-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Federal Aviation Administration Proposes Streamlining, Modernizing Commercial Space Launch And Reentry Regulations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:46:37.263744-04:00",
     "symbols": [
       "AIFA"
@@ -5070,6 +5050,26 @@
     ],
     "headline": "Uber Technologies: Delivery Hero, ezCater Acquisition Should Push 2027 Bookings To Over $340B",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:24:30.699794-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Zscaler, Raises Price Target to $260",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:24:38.780808-04:00",
+    "symbols": [
+      "PENG"
+    ],
+    "headline": "These Penguin Solutions Analysts Raise Estimates After Q4 Print, FY27 Outlook Exceed Expectations",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.651457-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "DA Davidson Maintains Buy on Micron Technology, Raises Price Target to $3000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.654987-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "First Samsung, Now Micron: Netlist\u2019s Patent Offensive Unlocks Another $600 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.769344-04:00",
     "symbols": [
       "SNDK"
@@ -5077,5 +5057,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:56:08.456087-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Stock Drops as FTC and USDA Seek Comments",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:56:36.550752-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Most Undervalued Chip Stocks In October 2026: Four Are Cheaper Than The S&amp;P 500",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

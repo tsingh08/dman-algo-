@@ -1,54 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:27:35.550492-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Why Is Marvell Technology Stock Surging Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:29:36.456570-04:00",
-    "symbols": [
-      "LUNR",
-      "RKLB",
-      "SPCX",
-      "SPY"
-    ],
-    "headline": "Federal Aviation Administration Proposes Streamlining, Modernizing Commercial Space Launch And Reentry Regulations",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:35:25.470755-04:00",
-    "symbols": [
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Nassim Taleb and Scott Bessent Clash Over Trump Economy Numbers: Who\u2019s Right?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:36:14.821170-04:00",
-    "symbols": [
-      "CEG",
-      "GOOGL",
-      "NRG",
-      "SPY",
-      "TLN",
-      "VST"
-    ],
-    "headline": "What&#39;s Going On With Vistra Stock Today?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:46:32.861161-04:00",
     "symbols": [
       "RKLB"
@@ -5079,6 +5030,46 @@
     ],
     "headline": "What&#39;s Going On With Meta Platforms Stock Wednesday?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:16:56.771188-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Targets Nine FlexRobotics Systems to Improve Drilling Safety",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:17:54.825214-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Introduces Google Cloud\u2019s U4 Compute: Enabling Ultra-Low latency Trading",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T12:18:13.323408-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What&#39;s Going On With Meta Platforms Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:18:13.578923-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What&#39;s Going On With Meta Platforms Stock Wednesday?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

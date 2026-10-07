@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T15:42:20.530363-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Barclays Maintains Overweight on Freeport-McMoRan, Raises Price Target to $83",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T15:42:21.593650-04:00",
     "symbols": [
       "SPY"
@@ -5069,6 +5059,16 @@
       "SPY"
     ],
     "headline": "Saudi Civil Aviation Authority Says Two Killed In Attacks On Abha International Airport; One Killed In Attacks On King Khalid International Airport; Attacks Occurred On Tuesday And Wednesday",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:54:23.154198-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says We Expect Russia To Share A Lot Of Information",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

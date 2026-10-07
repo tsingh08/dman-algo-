@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:58:51.777618-04:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "Jaguar Health (JAGX) Stock Climbs Over 34% After-Hours: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:52.019952-04:00",
-    "symbols": [
-      "OPCH"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Doubles Down on Iran Pressure\u2014 OPCH, PCVX, STZ in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:58:52.255278-04:00",
-    "symbols": [
-      "APOG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:58:52.481302-04:00",
-    "symbols": [
-      "AXG"
-    ],
-    "headline": "Why Option Care Health Shares Are Trading Higher By Around 24%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:52.699916-04:00",
-    "symbols": [
-      "CIRC"
-    ],
-    "headline": "Circle8 Group Announces $492M Four-Year IT Contract With Dutch Health Ministry, Social Affairs Ministry, And Healthcare Authority",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:53.367435-04:00",
-    "symbols": [
-      "QTEX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:53.370791-04:00",
-    "symbols": [
-      "QTEX"
-    ],
-    "headline": "QTREX Quantum Stock Is Trending: Here&#39;s Why It Rocketed 28% After-Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:53.592176-04:00",
-    "symbols": [
-      "AIIO"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:53.595146-04:00",
-    "symbols": [
-      "AIIO"
-    ],
-    "headline": "Robo.ai Reports Preliminary September Sales Of $100M+; Expects FY26 Sales Of ~$600M Based On YtD Performance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:53.816236-04:00",
-    "symbols": [
-      "BRUN"
-    ],
-    "headline": "Boost Run Announces $525.6M Five-Year AI Cloud Contract With Unnamed Sovereign AI Company, Initial Acceptance Expected Early Q2 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:53.819081-04:00",
-    "symbols": [
-      "BRUN"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:54.282465-04:00",
-    "symbols": [
-      "OSTX"
-    ],
-    "headline": "OS Therapies Announces Statistically Significant Final 3-Yr Overall Survival Benefit For OST-HER2-Treated Patients In Phase 2b Trial In Pulmonary Metastatic Osteosarcoma Compared With Combined Published Historical Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:55.211129-04:00",
-    "symbols": [
-      "XNDU"
-    ],
-    "headline": "Xanadu Stock Climbs on Multi-Year GlobalFoundries Manufacturing Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:58:55.214218-04:00",
-    "symbols": [
-      "XNDU"
-    ],
-    "headline": "Xanadu Quantum Technologies Enters Multi-Year Partnership With GlobalFoundries To Develop High-Volume Production For Utility-Scale Quantum Computing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:58:55.434478-04:00",
-    "symbols": [
-      "PSQL"
-    ],
-    "headline": "StoneX Initiates Coverage On Pasqal Holding with Buy Rating, Announces Price Target of $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-06T14:58:55.437360-04:00",
     "symbols": [
       "PSQL"
@@ -5071,6 +4921,157 @@
     ],
     "headline": "Truist Securities Reiterates Buy on Zscaler, Raises Price Target to $250",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:24.977172-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Microsoft Rolls Out AI Coding Model That Can Run On Indivdual Laptops; New Nvidia Nemotron Model Will Run On Individual Laptops, PCs; OpenAI, Anthropic Will Adopt Microsoft Execution Containers For Agent Containment; Microsoft Execution Containers Will Work Across Windows, MacOS, Linux But Have Deeper Integration With Windows",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.187495-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.196713-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Rolls Out AI Coding Model That Can Run On Indivdual Laptops; New Nvidia Nemotron Model Will Run On Individual Laptops, PCs; OpenAI, Anthropic Will Adopt Microsoft Execution Containers For Agent Containment; Microsoft Execution Containers Will Work Across Windows, MacOS, Linux But Have Deeper Integration With Windows",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.202388-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.341080-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft Rolls Out AI Coding Model That Can Run On Indivdual Laptops; New Nvidia Nemotron Model Will Run On Individual Laptops, PCs; OpenAI, Anthropic Will Adopt Microsoft Execution Containers For Agent Containment; Microsoft Execution Containers Will Work Across Windows, MacOS, Linux But Have Deeper Integration With Windows",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.346280-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.350673-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Trading Higher Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.522848-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.615166-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:45.949069-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:46.035368-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:46.330383-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Trading Higher Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:25:50.300536-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:25:51.728606-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T13:25:52.748234-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

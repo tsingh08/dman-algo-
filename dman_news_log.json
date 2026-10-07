@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T13:57:01.332390-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Former TD Bank Employee Pleads Guilty To Accepting Bribes, Laundering $4.8M To Colombia",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:00:41.599102-04:00",
     "symbols": [
       "AAPL"
@@ -5048,5 +5038,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T10:04:47.753614-04:00",
+    "symbols": [
+      "GOOGL",
+      "MRVL",
+      "NVDA"
+    ],
+    "headline": "Marvell Just Found Nvidia\u2019s Biggest AI Weak Spot \u2014 and It\u2019s a $30 Billion Business",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

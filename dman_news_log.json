@@ -1,77 +1,5 @@
 [
   {
-    "ts": "2026-10-06T10:26:48.199978-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AMD\u2019s Monster 2026 Rally Gets Fresh Fuel From Lisa Su\u2019s 2027 AI Supply Push",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T10:26:48.382697-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "AMD\u2019s Monster 2026 Rally Gets Fresh Fuel From Lisa Su\u2019s 2027 AI Supply Push",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T10:26:50.308657-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "AMD\u2019s Monster 2026 Rally Gets Fresh Fuel From Lisa Su\u2019s 2027 AI Supply Push",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T10:29:05.623620-04:00",
-    "symbols": [
-      "CRWD",
-      "FTNT",
-      "PANW"
-    ],
-    "headline": "Shares of cybersecurity companies are trading higher after Zscaler reaffirmed its Q1 and FY27 adjusted EPS guidance. Also, StoneX maintained its Buy rating on CrowdStrike and raised its price target from $250 to $325.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T10:31:25.057579-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "European Centre For Disease Prevention And Control  Says It Is Closely Monitoring Situation Following Case Of Pneumonia Of Unknown Origin In Russia",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T10:33:58.707897-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Secures Up To 1GW Power Capacity In Finland Ahead Of Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T10:40:27.961157-04:00",
-    "symbols": [
-      "BRUN"
-    ],
-    "headline": "Apogee Enterprises Posts Upbeat Q2 Earnings, Joins Constellation Energy, Freshworks  And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T10:40:29.130845-04:00",
     "symbols": [
       "CRSP"
@@ -5089,5 +5017,80 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T09:13:56.644690-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Reported Earlier, &#39;Micron Tech chipmaker union in Taiwan gets OK to strike&#39; - Reuters",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:15:55.830257-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Zscaler, Raises Price Target to $195",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:17:57.852595-04:00",
+    "symbols": [
+      "CLSK",
+      "HOOD",
+      "MARA",
+      "MSTR",
+      "RIOT",
+      "TSLA"
+    ],
+    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:19:11.215082-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Citizens Reiterates Market Outperform on Uber Technologies, Maintains $100 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:20:15.815925-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Announces Additional Measures To Combat Child Sexual Exploitation On Platforms; Sharing Additional Measures We\u2019ve Put In Place To Strengthen Our Efforts To Combat Child Sexual Exploitation On Our Platforms; Deploys New AI Tools To Improve Detection Of Child Sexual Exploitation In Ads",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:22:22.274756-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Stifel Maintains Buy on Marvell Technology, Raises Price Target to $370",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:23:50.591656-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "These Analysts Boost Their Forecasts On Zscaler",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

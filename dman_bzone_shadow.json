@@ -708,5 +708,45 @@
 "extension_pct": 13.0,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "PFAI",
+"date": "2026-10-07",
+"close": 5.07,
+"base_days": 115,
+"above_low_pct": 165.4,
+"extension_pct": 81.6,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "HPE",
+"date": "2026-10-07",
+"close": 72.09,
+"base_days": 0,
+"above_low_pct": 266.5,
+"extension_pct": 16.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "P",
+"date": "2026-10-07",
+"close": 152.66,
+"base_days": 0,
+"above_low_pct": 167.9,
+"extension_pct": 31.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NTAP",
+"date": "2026-10-07",
+"close": 235.77,
+"base_days": 2,
+"above_low_pct": 152.6,
+"extension_pct": 16.9,
+"fresh_base": false,
+"weak_band": false
 }
 ]

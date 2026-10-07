@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:46:37.381378-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital To Provide Access To Up To 1 GW Of Potential Power Capacity In Finland, The Company\u2019s First Development Opportunity Outside The U.S.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T14:46:37.483071-04:00",
     "symbols": [
       "BJDX"
@@ -5072,5 +5062,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:27:01.271239-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Truist Securities Maintains Buy on FedEx, Lowers Price Target to $350",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

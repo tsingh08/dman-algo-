@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:12:13.442655-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "EXCLUSIVE: Are DraftKings, Flutter Toast? Only 1 in 6 Benzinga Viewers Think Prediction Markets Will Kill Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-06T14:12:15.150877-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "General Motors To Rally Around 40%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:12:15.154573-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "BMO Capital Maintains Market Perform on Goldman Sachs Group, Lowers Price Target to $970",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:12:15.158040-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "AI Is Creating a New Workplace Divide: College Graduates, Managers See More Benefits Than Other Workers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:12:15.161594-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Analyst Predicts Strait of Hormuz Oil Flow Normalizing by Late 2027, Crude Oil Prices to Hit $80/Barrel",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:12:15.272838-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "OpenTable, Visa Renew Agreements Throughout U.S., Mexico, Canada To Expand Visa Dining Collection",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:12:15.380274-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Robert Kennedy Jr. Pushes New Healthcare Pricing Rules as HHS Says Patients Deserve Clearer Costs: \u2018Americans Should Know\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:12:15.604830-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;Big Short\u2019 Investor Steve Eisman Pushes Back on Michael Burry\u2019s AI Chip Depreciation Thesis: &#39;I Think He is Wrong\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:12:15.724997-04:00",
     "symbols": [
       "ADBE"
@@ -5078,6 +4998,86 @@
     ],
     "headline": "Why Is Oklo Stock Falling on Wednesday?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:07:44.226561-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "High-Beta AI Play: Cerity Partners&#39; Jim Lebenthal Views Oracle Pullback as Buying Opportunity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T12:08:03.856137-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Why Is Oklo Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T12:08:04.126282-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Why Is Oklo Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:08:08.293459-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Why Is Oklo Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:08:08.366156-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Why Is Oklo Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:08:11.362372-04:00",
+    "symbols": [
+      "LPCN"
+    ],
+    "headline": "Nasdaq Falls Over 100 Points; US Crude Inventories Decline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:08:12.190877-04:00",
+    "symbols": [
+      "BKV"
+    ],
+    "headline": "Nasdaq Falls Over 100 Points; US Crude Inventories Decline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T12:08:12.526524-04:00",
+    "symbols": [
+      "PENG"
+    ],
+    "headline": "Nasdaq Falls Over 100 Points; US Crude Inventories Decline",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

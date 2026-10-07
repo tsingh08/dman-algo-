@@ -1,167 +1,5 @@
 [
   {
-    "ts": "2026-10-06T13:14:19.611810-04:00",
-    "symbols": [
-      "LW"
-    ],
-    "headline": "S&amp;P 500, Nasdaq Hit Records, Power Stocks Rally on Google&#39;s Nuclear Deal: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:32:21.513162-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin&#39;s Rebound Isn&#39;t as Strong as It Seems: Watch These Warning Signs",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-06T13:32:37.204170-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on KLA, Lowers Price Target to $227",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:32:48.065005-04:00",
-    "symbols": [
-      "OSTX"
-    ],
-    "headline": "OS Therapies Reports Significant Three-Year Survival Data for Bone Cancer Treatment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T13:33:38.478962-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on KLA, Lowers Price Target to $227",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:33:41.410727-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin&#39;s Rebound Isn&#39;t as Strong as It Seems: Watch These Warning Signs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-06T13:34:23.236045-04:00",
-    "symbols": [
-      "AAPL",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "SPY",
-      "XOM"
-    ],
-    "headline": "Nvidia, Apple, Microsoft Now Drive 21% of S&amp;P 500: Here\u2019s How Much ETF Investors Own",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T13:34:36.815636-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P Eyes Record High, Yet Concentration Risk Looms",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T13:35:22.525801-04:00",
-    "symbols": [
-      "CRM",
-      "NBIS",
-      "QCOM"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T13:35:22.861529-04:00",
-    "symbols": [
-      "CAT",
-      "GE",
-      "RKLB"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:35:30.086728-04:00",
-    "symbols": [
-      "AVGO",
-      "GOOGL",
-      "NVDA"
-    ],
-    "headline": "Challenging Nvidia&#39;s Dominance: Broadcom Pairs Custom TPU Chips with $60 Billion Debt Package",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:40:45.970173-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;ExxonMobil looks to offshore projects in Trinidad and Tobago for next boom&#39; - Financial Times",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T13:40:55.848012-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T13:40:55.851699-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "8 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:44:19.175283-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO"
-    ],
-    "headline": "Shares of Shares of semiconductor and chip-related companies are trading higher after Marvell&#39;s comments and sales targets at its investor day and AMD CEO Lisa Su&#39;s comments regarding high demand, both of which bolster confidence in the sector.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T13:44:43.374557-04:00",
     "symbols": [
       "AAPL"
@@ -5054,5 +4892,158 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:42:34.772715-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "TD Cowen Maintains Buy on Zscaler, Raises Price Target to $230",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:42:46.940091-04:00",
+    "symbols": [
+      "LPCN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:46.943862-04:00",
+    "symbols": [
+      "LPCN"
+    ],
+    "headline": "Lipocine Licensing Partner Verity Pharmaceuticals Receives Health Canada Approval For TLANDO Capsules For Testosterone Replacement Therapy In Adult Males",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.096601-04:00",
+    "symbols": [
+      "MI"
+    ],
+    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.100651-04:00",
+    "symbols": [
+      "MI"
+    ],
+    "headline": "NFT Ltd. Stock Soars 27% After Hours on $2.55 Million Offering",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.104891-04:00",
+    "symbols": [
+      "MI"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.108842-04:00",
+    "symbols": [
+      "MI"
+    ],
+    "headline": "NFT Limited Shares Resume Trade; Shares Then Halted On Circuit Breaker To The Downside, Stock Now Down -70.43%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.112654-04:00",
+    "symbols": [
+      "MI"
+    ],
+    "headline": "NFT Limited Shares Resume Trade; Shares Then Halted On Circuit Breaker To The Downside, Stock Now Down -60.86%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.263106-04:00",
+    "symbols": [
+      "LGCL"
+    ],
+    "headline": "Lucas GC H1 EPS $0.08 Down From $22.97 thousand YoY, Sales $35.744M Down From $54.008M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T09:42:47.267234-04:00",
+    "symbols": [
+      "LGCL"
+    ],
+    "headline": "Lucas GC Limited Reports H1 Revenue Of $35.7M, Down 36.6 YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T09:42:47.358377-04:00",
+    "symbols": [
+      "ICU"
+    ],
+    "headline": "SeaStar Medical Receives FDA&#39;s Medical Breakthrough Device Designation For Its Selective Cytopheretic Device Therapy To Treat Hyperinflammation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.500273-04:00",
+    "symbols": [
+      "TOPS"
+    ],
+    "headline": "TOP Ships Signs Share Purchase Agreement For Four Companies That Have Shipbuilding Contracts With Guangzhou Shipyard International For ~$34.95M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:47.600955-04:00",
+    "symbols": [
+      "CVKD"
+    ],
+    "headline": "Cadrenal Therapeutics Announces Strategic Review Including Potential Asset Sales Or Merger, Says It Received &#39;Strong Interest&#39; From Potential Partners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:42:53.343242-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CNN White House Reporter Alejandra Jaramillo Posts On X &#34;Today at 1pm \u201cPresident Trump will host guests to celebrate the announcement of automatic enrollment for Trump Accounts,\u201d a WH official tells me&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T09:44:13.810818-04:00",
+    "symbols": [
+      "AAPL",
+      "AMD",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Nvidia Inside: Microsoft&#39;s New Laptop Runs AI Agents Without the Cloud",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

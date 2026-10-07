@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:44.389069-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;Diversification is Dying&#39; \u2014 Nvidia, Apple Lead 10 Stocks Taking 41 Cents Of Every Dollar Invested In S&amp;P 500, Says This Commentator",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T09:25:44.641894-04:00",
     "symbols": [
       "ANET"
@@ -5077,6 +5067,16 @@
     "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:26:54.528411-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Treasury Yields Hit 2002 Highs: Jim Bianco, Ed Yardeni Say There\u2019s No Need To Worry",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

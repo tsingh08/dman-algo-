@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:01:41.017020-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "S&amp;P Eyes Record High, Yet Concentration Risk Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.021386-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Assessing Apple&#39;s Performance Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:01:41.025208-04:00",
     "symbols": [
       "AAPL"
@@ -5056,5 +5036,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T10:51:32.963429-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Moderna, Raises Price Target to $95",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T10:52:24.325916-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FTC, USDA Seek Public Comment On Agricultural Equipment Manufacturing, Distribution Market Practices",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

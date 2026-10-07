@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:00:45.666110-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Nvidia, Apple, Microsoft Now Drive 21% of S&P 500: Here\u2019s How Much ETF Investors Own",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:00:45.801836-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Stock Pops Tuesday: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:00:45.805588-04:00",
     "symbols": [
       "RKLB"
@@ -5055,6 +5035,26 @@
       "FCX"
     ],
     "headline": "Morgan Stanley Maintains Equal-Weight on Freeport-McMoRan, Raises Price Target to $75",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T10:34:04.829123-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Gilead Sciences, Lowers Price Target to $163",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T10:35:23.783816-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Reports Today: What to Know",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

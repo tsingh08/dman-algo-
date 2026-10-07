@@ -1,76 +1,5 @@
 [
   {
-    "ts": "2026-10-06T16:05:40.474032-04:00",
-    "symbols": [
-      "LW"
-    ],
-    "headline": "Apogee Enterprises Posts Upbeat Q2 Earnings, Joins Constellation Energy, Freshworks  And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T16:06:57.871689-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Stock Up 21% in One Month: New Movie About \u2018Antihero\u2019 Mark Zuckerberg Could Hurt Momentum",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T16:07:03.605234-04:00",
-    "symbols": [
-      "RMCF"
-    ],
-    "headline": "Rocky Mountain Chocolate Factory Announces $6.6M Sale-Leaseback Of Durango Headquarters With Interim CEO&#39;s Family Entity, Proceeds To Repay 12% Note",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T16:15:02.355806-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Black Hills Signs Definitive Agreements Effective Sept. 30, 2026, With Terms Through 2048, To Serve A Planned Google Data Center To Be Constructed In Cheyenne, Wyoming; Investing $1.8B In New Company-Owned Natural Gas Generation; Project Is Expected To Deliver ~$2.4B Of Unlevered Free Cash Flow, Net Of $1.8B Of Generation Capital Investment",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T16:20:16.260369-04:00",
-    "symbols": [
-      "CEG",
-      "GOOGL"
-    ],
-    "headline": "FuelCell Energy Stock Gains 14% Today \u2014 Here&#39;s Why",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T16:45:36.800980-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "$1000 Invested In Costco Wholesale 5 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T16:56:04.904109-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Warren Buffett is Addicted to YouTube Just Like the Rest of Us: You Won&#39;t Believe What He&#39;s Watching",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T17:17:37.365787-04:00",
     "symbols": [
       "CVX"
@@ -5072,5 +5001,77 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:59:59.501213-04:00",
+    "symbols": [
+      "LUNR",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "Intuitive Machines Stock Drops Wednesday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:00:27.589276-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Exec Says Surface Laptop Ultra Prices Range Up To $5,899 For Most Powerful Model",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:00:27.708540-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Intuitive Machines Stock Drops Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:00:32.935437-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "BNP Paribas Reiterates Outperform on Zscaler, Raises Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:00:33.276247-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Stock Drops Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:00:35.470944-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Canada Has Been Very Difficult To Deal With; Canada Would Like To Make A Deal But We&#39;re Not Satisfied",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:00:36.645625-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Intuitive Machines Stock Drops Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

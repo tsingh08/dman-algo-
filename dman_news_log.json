@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.909897-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Micron To Rally Around 187%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.913507-04:00",
     "symbols": [
       "MRVL"
@@ -5077,5 +5067,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:12:17.196407-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Citigroup Maintains Buy on Zscaler, Raises Price Target to $245",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:22:22.274756-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Stifel Maintains Buy on Marvell Technology, Raises Price Target to $370",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:23:50.591656-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "These Analysts Boost Their Forecasts On Zscaler",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.515291-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Most Undervalued Chip Stocks In October 2026: Four Are Cheaper Than The S&amp;P 500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.519635-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Reported Oct. 6: &#39;Apple to Launch Doorbell, Lock, Thermostat Developed With LG&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.524323-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Performance Comparison: Apple And Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.528992-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Ray Dalio Says AI Bubble Is \u2018Close\u2019 to Bursting as Debt and Rising Rates Raise Red Flags",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.533528-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Dan Ives Names 5 Potential Tech Winners for 2027 as Investors Underestimate $4 Trillion Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.608626-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Microsoft, Raises Price Target to $635",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.613237-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Ray Dalio Says AI Bubble Is \u2018Close\u2019 to Bursting as Debt and Rising Rates Raise Red Flags",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.682983-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Godfather of AI&#39; Geoffrey Hinton on Regrets Over Inventing AI: Calls for FDA-Like Rules Before Releasing Models, Says Public Pressure Like Climate Change Could Drive Action",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:42.687223-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Jim Cramer Sees More AI Upside Ahead for Meta, Microsoft and AMD Despite Bubble Fears: \u2018They Were Going to Figure Something Out\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:42.692112-04:00",
     "symbols": [
       "MSFT"
@@ -5026,6 +4916,116 @@
     "headline": "Fed Minutes Says Participants Generally Saw Inflation Risks As Skewed To The Upside, Some Saw Those Risks Becoming More Skewed In Recent Months; Many Participants Said That Despite Recent Rise In Long-term Treasury Yields, Financial Conditions Appeared Supportive Of Economic Growth; Staff Economic Outlook Was Stronger Than The One Prepared For July Meeting",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:06:24.931499-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Exec Says Surface Laptop Ultra Prices Range Up To $5,899 For Most Powerful Model",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:25.055007-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Intuitive Machines Stock Drops Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:06:25.835799-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Announces Availability Of SynthID Detector Globally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:30.425828-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "BNP Paribas Reiterates Outperform on Zscaler, Raises Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:30.906199-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Stock Drops Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:06:33.511642-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes Says Participants Generally Saw Inflation Risks As Skewed To The Upside, Some Saw Those Risks Becoming More Skewed In Recent Months; Many Participants Said That Despite Recent Rise In Long-term Treasury Yields, Financial Conditions Appeared Supportive Of Economic Growth; Staff Economic Outlook Was Stronger Than The One Prepared For July Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:33.516370-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes Says Almost All Participants Saw Inflation Risks Tilted To The Upside, Job Market Risks As Broadly Balanced; Some Participants Saw AI Buildout Possibly Causing Aggregate Demand To Outpace Supply Over Medium Term, Putting Upward Pressure On Inflation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:33.520897-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes Says All Participants At Fed&#39;s September 15-16 Meeting Supported 25 Basis Point Rate Hike And Most Assessed Another Increase Would Likely Be Appropriate By End Of Year; Participants Offered A Range Of Views For Why They Supported A Rate Increase; Participants Generally Emphasized That Inflation Remained Elevated And Job Market Appeared Near Full Employment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:33.525299-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Officials Said Possibility Of More Tariff Increases Risks Boosting Inflation; Officials Generally Expected Inflation To Remain Elevated Short-Term; They Hadn&#39;t Seen Enough Progress On Lowering Inflation In Prior Months; Policy Wasn&#39;t Sufficiently Restrictive; Higher Rate Would Stop Sector-Specific Price Hikes From Spreading",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:33.529788-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Canada Has Been Very Difficult To Deal With; Canada Would Like To Make A Deal But We&#39;re Not Satisfied",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:06:34.230456-04:00",
+    "symbols": [
+      "HESM"
+    ],
+    "headline": "Chevron Swaps Hess Midstream Stake for 50% Lower Bakken Costs \u2014 and a $200 Million Payment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

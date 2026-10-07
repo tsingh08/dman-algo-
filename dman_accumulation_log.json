@@ -1492,5 +1492,23 @@
   "drift_pct": 0.05,
   "range_ratio": 0.25,
   "near_high": 0.955
+ },
+ {
+  "ts": "2026-10-07T14:07:19.680217-04:00",
+  "ticker": "HYLS",
+  "price": 39.335,
+  "rvol": 1.7,
+  "drift_pct": 0.09,
+  "range_ratio": 0.38,
+  "near_high": 0.962
+ },
+ {
+  "ts": "2026-10-07T14:07:19.680231-04:00",
+  "ticker": "XEMD",
+  "price": 42.995,
+  "rvol": 1.54,
+  "drift_pct": 0.68,
+  "range_ratio": 0.38,
+  "near_high": 0.962
  }
 ]

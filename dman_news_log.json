@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:12:11.013204-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "EXCLUSIVE: Are DraftKings, Flutter Toast? Only 1 in 6 Benzinga Viewers Think Prediction Markets Will Kill Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T14:12:12.731013-04:00",
     "symbols": [
       "COIN"
@@ -5077,5 +5067,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T11:57:38.724616-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Macquarie Maintains Outperform on DraftKings, Lowers Price Target to $34",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

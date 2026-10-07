@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:42.692112-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Dan Ives Names 5 Potential Tech Winners for 2027 as Investors Underestimate $4 Trillion Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:42.763679-04:00",
     "symbols": [
       "NVDA"
@@ -5065,6 +5055,17 @@
       "SPCX"
     ],
     "headline": "Starlink Cash Can Carry SpaceX&#39;s $40 Billion AI Tab, Dan Ives Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:10:07.086786-04:00",
+    "symbols": [
+      "NVDA",
+      "RTX"
+    ],
+    "headline": "Dell Technologies Rolls Out Nvidia RTX Spark-Powered XPS 16 Creator Edition",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

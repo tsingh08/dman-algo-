@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:42.996201-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google, Unity Collaborate For New, Integrated Gaming Platform To Be Launched Later In 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.000115-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic CEO Dario Amodei Took Home $18 Million in 2025 \u2014 How His Pay Compares With Google and Amazon CEOs: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.003808-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Paul Krugman Says AI Boom Is \u2018Crowding Out\u2019 Other Investments in a Way the Dot-Com Era Never Did: \u2018This Isn\u2019t a Hypothetical Risk\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.007327-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "The Emmys Are Moving to Amazon Prime Video \u2014 And You Won\u2019t Need a Prime Subscription to Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T09:25:43.011149-04:00",
     "symbols": [
       "GOOGL"
@@ -5069,6 +5029,49 @@
     ],
     "headline": "Starlink Cash Can Carry SpaceX&#39;s $40 Billion AI Tab, Dan Ives Says",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:19:40.374894-04:00",
+    "symbols": [
+      "AMZN",
+      "CEG",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Why Is BKV Stock Surging Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:19:51.236820-04:00",
+    "symbols": [
+      "BKH"
+    ],
+    "headline": "Freedom Broker Upgrades Black Hills to Buy, Raises Price Target to $78",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:19:51.241563-04:00",
+    "symbols": [
+      "BKV"
+    ],
+    "headline": "Why Is BKV Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:19:56.741275-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Webull\u2019s 20% Rout Becomes a 48% Bloodbath for 2X ETF",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

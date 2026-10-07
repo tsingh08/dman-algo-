@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.835652-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "MU, SNDK, SKHY Stocks Decline on Toshiba Storage Fears: Researcher Points to Cantor Note Calling the Pullback a &#39;Buying Opportunity&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.897094-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Most Undervalued Chip Stocks In October 2026: Four Are Cheaper Than The S&amp;P 500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.902557-04:00",
     "symbols": [
       "MRVL"
@@ -5076,6 +5056,26 @@
     "headline": "&#39;Hertz Lenders Team Up With Advisers as Possible Debt Fight Looms&#39; - Bloomberg",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:01:25.269258-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes Hint to Another Hike This Year: Traders Don&#39;t See It Coming In October",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:02:56.479347-04:00",
+    "symbols": [
+      "MSGY"
+    ],
+    "headline": "Shares of construction companies are trading lower after the Federal Reserve&#39;s September meeting minutes, which said officials expect another interest rate hike before the end of the year. The sector may be feeling pressure from climbing 10-year Treasury yields.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:46:38.038100-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Builds Fewer EVs Than It Sells As CEO\u2019s Cash-Preservation Reset Takes Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-06T14:46:38.041900-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Tesla Rival Lucid Cuts Production Output by 38%, Misses Delivery Estimates Despite High Fuel Costs Leading to EV Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-06T14:46:38.467934-04:00",
     "symbols": [
       "SPCX"
@@ -5072,5 +5052,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:42:18.918017-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Zscaler, Raises Price Target to $245",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T12:43:17.729301-04:00",
+    "symbols": [
+      "OMH"
+    ],
+    "headline": "Ohmyhome Files Prospectus To Offer Up To $40M Class A Ordinary Shares To Magnus Capital Ventures",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

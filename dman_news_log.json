@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T13:44:44.903185-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Challenging Nvidia&#39;s Dominance: Broadcom Pairs Custom TPU Chips with $60 Billion Debt Package",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T13:44:45.644265-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T13:44:46.901519-04:00",
     "symbols": [
       "XOM"
@@ -5045,5 +5025,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:51:14.899145-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META"
+    ],
+    "headline": "Meta&#39;s Muse Could Generate $27 Billion a Year, Citi Says as AI Agent Usage Surges",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:52:19.010889-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "Dow Tumbles 350 Points; Constellation Brands Earnings Top Views",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

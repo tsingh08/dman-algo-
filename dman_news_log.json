@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:19:11.215082-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Citizens Reiterates Market Outperform on Uber Technologies, Maintains $100 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:20:15.815925-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Announces Additional Measures To Combat Child Sexual Exploitation On Platforms; Sharing Additional Measures We\u2019ve Put In Place To Strengthen Our Efforts To Combat Child Sexual Exploitation On Our Platforms; Deploys New AI Tools To Improve Detection Of Child Sexual Exploitation In Ads",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:22:22.274756-04:00",
     "symbols": [
       "MRVL"
@@ -5067,5 +5047,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:07:39.500506-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Shares of oil and gas engineering and services companies are trading lower amid rising Iranian attacks on Strait of Hormuz shipping and continued attempts by Yemen&#39;s Houthi rebels to strike Saudi energy infrastructure. Subdued exports from the region for a longer period may lead to fewer contracts for the sector.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:07:45.544356-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "Starlink Cash Can Carry SpaceX&#39;s $40 Billion AI Tab, Dan Ives Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

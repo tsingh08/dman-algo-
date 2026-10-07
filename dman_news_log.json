@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:01:41.107375-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials, Intel Partnering Over Development Of Chipmaking Innovations For Transistors, Interconnects, Packing Technologies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.114300-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Mizuho Maintains Outperform on SanDisk, Raises Price Target to $2050",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.118292-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Goosehead Insurance, Decent Holding And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.126419-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "General Motors To Rally Around 40%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.130643-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Antom To Offer Affirm Buy Now, Pay Later Option To US Merchants, With 96% Of Affirm Transactions From Repeat Customers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.134659-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna, Vaxcyte and Novavax Are Trending After-Hours as Suspected Pneumonic Plague In Russia Stirs Anxiety",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:01:41.138663-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on AbbVie, Raises Price Target to $320",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.146130-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Cathie Wood Buys Rocket Lab as ARK Sees SpaceX&#39;s Starship Shift Squeezing Launch Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:01:41.149847-04:00",
     "symbols": [
       "RKLB"
@@ -5063,6 +4983,92 @@
       "PENG"
     ],
     "headline": "Barclays Maintains Underweight on Penguin Solutions, Raises Price Target to $60",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:21:26.510462-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "COIN",
+      "HOOD",
+      "MARA",
+      "MSTR",
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid a drop in Bitcoin after rising yields, a stronger dollar and ongoing conflict in the Middle East cool risk appetite.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:22:32.962281-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Barclays Maintains Overweight on Robinhood Markets, Raises Price Target to $132",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:23:55.471671-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Wolfe Research Maintains Outperform on Marvell Technology, Raises Price Target to $375",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:24:16.797610-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Attorney General James Uthmeier Files for Temporary Injunction Against Meta",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:24:17.198792-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Netflix, Lowers Price Target to $70",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:24:18.177446-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:24:18.254725-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:24:19.726143-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Stephens &amp; Co. Maintains Overweight on Zscaler, Raises Price Target to $265",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

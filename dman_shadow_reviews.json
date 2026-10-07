@@ -332,5 +332,27 @@
    "regime": "BULL",
    "regime_score": 15
   }
+ },
+ {
+  "ts": "2026-10-07T11:52:03.214458-04:00",
+  "kind": "signal",
+  "ticker": "BKH",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 71.3 is overbought; entering after 5.7% gap leaves minimal edge. Stop at 74.7 is only 3.02 points (3.9%) from entry\u2014aggressive for morning runner holding open.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 77.72,
+   "stop": 74.7,
+   "target1": 92.54,
+   "rr": 4.91,
+   "rvol": 3.91,
+   "rsi": 71.3,
+   "reason": "News gap +5.7% on 3.9x vol, holding open",
+   "regime": "BULL",
+   "regime_score": 14
+  }
  }
 ]

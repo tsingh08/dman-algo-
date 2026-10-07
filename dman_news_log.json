@@ -1,40 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:13:56.644690-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Reported Earlier, &#39;Micron Tech chipmaker union in Taiwan gets OK to strike&#39; - Reuters",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:15:55.830257-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Zscaler, Raises Price Target to $195",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:17:57.852595-04:00",
-    "symbols": [
-      "CLSK",
-      "HOOD",
-      "MARA",
-      "MSTR",
-      "RIOT",
-      "TSLA"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T09:19:11.215082-04:00",
     "symbols": [
       "UBER"
@@ -5072,5 +5037,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:04:22.544468-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes Says Participants Generally Saw Inflation Risks As Skewed To The Upside, Some Saw Those Risks Becoming More Skewed In Recent Months; Many Participants Said That Despite Recent Rise In Long-term Treasury Yields, Financial Conditions Appeared Supportive Of Economic Growth; Staff Economic Outlook Was Stronger Than The One Prepared For July Meeting",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:07:11.316824-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on Zscaler, Raises Price Target to $250",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:07:22.043571-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Reported Earlier, &#39;Micron Tech chipmaker union in Taiwan gets OK to strike&#39; - Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

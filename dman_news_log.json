@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-06T13:14:18.687126-04:00",
-    "symbols": [
-      "APUS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T13:14:18.918636-04:00",
-    "symbols": [
-      "CNXU"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T13:14:19.286589-04:00",
-    "symbols": [
-      "XNDU"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T13:14:19.611810-04:00",
     "symbols": [
       "LW"
@@ -5052,6 +5022,36 @@
     ],
     "headline": "Stifel Maintains Buy on Zscaler, Raises Price Target to $235",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:36:38.894750-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "TD Cowen Upgrades Marvell Technology to Buy, Raises Price Target to $350",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:37:18.358717-04:00",
+    "symbols": [
+      "PENG"
+    ],
+    "headline": "These Analysts Increase Their Forecasts On Penguin Solutions Following Upbeat Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T09:37:18.362776-04:00",
+    "symbols": [
+      "PENG"
+    ],
+    "headline": "Stifel Maintains Buy on Penguin Solutions, Raises Price Target to $85",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

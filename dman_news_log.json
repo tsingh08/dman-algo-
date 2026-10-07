@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:46:34.371352-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Federal Aviation Administration Proposes Streamlining, Modernizing Commercial Space Launch And Reentry Regulations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:46:34.873628-04:00",
     "symbols": [
       "NRG"
@@ -5072,5 +5062,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T12:21:10.934977-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Technologies: Delivery Hero, ezCater Acquisition Should Push 2027 Bookings To Over $340B",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

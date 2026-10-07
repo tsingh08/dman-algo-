@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-06T15:42:17.613652-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T15:42:17.843770-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T15:42:18.081719-04:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "Google Just Bet 20 Years On Constellation Energy&#39;s Reactors: Nuclear Stocks Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T15:42:20.530363-04:00",
     "symbols": [
       "FCX"
@@ -5071,5 +5041,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:51:12.825010-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury&#39;s Bessent Says Bonds Are A Global Phenomenon; Energy Market Will Be Well Supplied After Iran Conflict Ends; Mortgage Rates, Bonds Will Come Down After Iran Conflict Ends",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:52:52.643592-04:00",
+    "symbols": [
+      "CAT",
+      "SPY"
+    ],
+    "headline": "FTC, USDA Seek Public Comment On Agricultural Equipment Manufacturing, Distribution Market Practices",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:53:15.639338-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Saudi Civil Aviation Authority Says Two Killed In Attacks On Abha International Airport; One Killed In Attacks On King Khalid International Airport; Attacks Occurred On Tuesday And Wednesday",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

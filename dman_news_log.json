@@ -1,355 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:45.573165-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Insights Into Airbnb&#39;s Performance Versus Peers In Hotels, Restaurants &amp; Leisure Sector",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.576968-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Jim Cramer Sees More AI Upside Ahead for Meta, Microsoft and AMD Despite Bubble Fears: \u2018They Were Going to Figure Something Out\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.635384-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Guggenheim Maintains Buy on DraftKings, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.698920-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Cathie Wood Bets $31M On Amazon, CoreWeave And Meta, While Pulling $26.5M Out of This Hot AI Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.702904-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Cathie Wood Bets Big on Flying Taxis With Joby, Archer Trades\u2014Invests in TSLA Robotaxi Rivals WeRide, Pony AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.866321-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Vertical Aerospace Files Patent Infringement Counterclaim Against Archer Aviation In U.S. District Court In East Texas",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:45.870314-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Cathie Wood Bets Big on Flying Taxis With Joby, Archer Trades\u2014Invests in TSLA Robotaxi Rivals WeRide, Pony AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:45.931650-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Cathie Wood Bets Big on Flying Taxis With Joby, Archer Trades\u2014Invests in TSLA Robotaxi Rivals WeRide, Pony AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.993985-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "S&amp;P 500 Hits Record High: Investor Sentiment Improves, Fear &amp; Greed Index Moves to \u2018Neutral\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.998383-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "AMD, Constellation Energy, Marvell Technology, Option Care Health and FuelCell Energy: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.002571-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "FuelCell Energy Stock Gains 14% Today \u2014 Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.489235-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Michael Burry Says Big Tech Is &#39;Spending Wildly&#39; on AI Because CEOs Expect to Be &#39;Granted an Oligopoly&#39; That Can&#39;t Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.493136-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "SpaceX Stock Drops After Hours as Elon Musk-led Company Seeks $40 Billion to Buy Nvidia Chips",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.565410-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Iran\u2019s Security Chief Blasts Scott Bessent as Crude Oil Prices Remain Volatile: \u2018Hormuz Will Not Be Opened by Threats or Pressure\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.569306-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "SpaceX Stock Drops After Hours as Elon Musk-led Company Seeks $40 Billion to Buy Nvidia Chips",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.709286-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Swaps Hess Midstream Stake for 50% Lower Bakken Costs \u2014 and a $200 Million Payment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.713120-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Robinhood&#39;s Investment Chief Says She Prefers Owning Energy Stocks Over ETFs \u2014 Should These Stocks Be on Your Radar?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.781920-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "EQT, UnitedHealth, Clearway Energy And More On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.785790-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Elizabeth Warren, Josh Hawley Launch Probe Into Insurance Giants Over Claims That End With $0 Payouts \u2014 State Farm, Allstate Face Tough Questions: Report (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.846853-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Barclays Initiates Coverage On Intuitive Surgical with Overweight Rating, Announces Price Target of $485",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:46.912632-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "&#39;Antofagasta Copper Miners to Strike as High Prices Fan Tensions&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.050119-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Teladoc Turns Smartphone Cameras Into AI-Powered Vital Sign Monitors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.054653-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Anthropic CEO Dario Amodei Took Home $18 Million in 2025 \u2014 How His Pay Compares With Google and Amazon CEOs: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.059256-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Ray Dalio Says AI Bubble Is \u2018Close\u2019 to Bursting as Debt and Rising Rates Raise Red Flags",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.126557-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.187442-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "UPS To Hire 100K Seasonal Employees In Hundreds Of Locations Nationwide; Expects To Deliver 4B+ RFID-Enabled Packages By End Of 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:47.302566-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Most Undervalued Chip Stocks In October 2026: Four Are Cheaper Than The S&amp;P 500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.306753-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Fall as 30-Year Treasury Yield Hits 2002 High; Iran Mocks US Economy \u2014 STZ, PENG, LEVI in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.311393-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;France and Germany say diesel promise to Trump won\u2019t require new stock release&#39; - Politico Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.315541-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Faces a &#39;Stealth Correction&#39; as Earnings Boom Collides With Rising Yields, Warns Fidelity\u2019s Timmer: Market Is \u2018In a Vice&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.319530-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Eric Trump Says AI Boom Will Be Fastest Driver of Crypto Growth&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.381115-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Fall as 30-Year Treasury Yield Hits 2002 High; Iran Mocks US Economy \u2014 STZ, PENG, LEVI in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.420119-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Faces a &#39;Stealth Correction&#39; as Earnings Boom Collides With Rising Yields, Warns Fidelity\u2019s Timmer: Market Is \u2018In a Vice&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.424334-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Paul Krugman Says AI Boom Is \u2018Crowding Out\u2019 Other Investments in a Way the Dot-Com Era Never Did: \u2018This Isn\u2019t a Hypothetical Risk\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:47.427922-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-07T09:25:47.489762-04:00",
     "symbols": [
       "APLD"
@@ -5079,5 +4729,355 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:52:11.854872-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "BTIG Reiterates Buy on Coinbase Global, Maintains $240 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T15:52:11.857686-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Pro Will Return At Year-End For Spot, Futures, Perpetuals, Options And Equities Trading, Following Completed Deribit Integration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T15:52:11.860283-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Dip Ahead of Fed Minutes: Analyst Says $100,000 Could &#39;Come Back Into Focus&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T15:52:12.100821-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:52:12.103665-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Dip Ahead of Fed Minutes: Analyst Says $100,000 Could &#39;Come Back Into Focus&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:52:12.337883-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:12.572868-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:52:12.821522-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "BTIG Reiterates Buy on Uber Technologies, Maintains $100 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:13.097799-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Baird Maintains Outperform on e.l.f. Beauty, Raises Price Target to $120",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:13.810617-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Insights Into Airbnb&#39;s Performance Versus Peers In Hotels, Restaurants &amp; Leisure Sector",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:13.813493-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Jim Cramer Sees More AI Upside Ahead for Meta, Microsoft and AMD Despite Bubble Fears: \u2018They Were Going to Figure Something Out\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:14.077406-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Guggenheim Maintains Buy on DraftKings, Lowers Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:14.330310-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Cathie Wood Bets $31M On Amazon, CoreWeave And Meta, While Pulling $26.5M Out of This Hot AI Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T15:52:14.333494-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Cathie Wood Bets Big on Flying Taxis With Joby, Archer Trades\u2014Invests in TSLA Robotaxi Rivals WeRide, Pony AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T15:52:14.790697-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Vertical Aerospace Files Patent Infringement Counterclaim Against Archer Aviation In U.S. District Court In East Texas",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:14.793737-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Cathie Wood Bets Big on Flying Taxis With Joby, Archer Trades\u2014Invests in TSLA Robotaxi Rivals WeRide, Pony AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:15.021604-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Cathie Wood Bets Big on Flying Taxis With Joby, Archer Trades\u2014Invests in TSLA Robotaxi Rivals WeRide, Pony AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:15.285553-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "S&amp;P 500 Hits Record High: Investor Sentiment Improves, Fear &amp; Greed Index Moves to \u2018Neutral\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:16.939877-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Michael Burry Says Big Tech Is &#39;Spending Wildly&#39; on AI Because CEOs Expect to Be &#39;Granted an Oligopoly&#39; That Can&#39;t Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:16.943189-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "SpaceX Stock Drops After Hours as Elon Musk-led Company Seeks $40 Billion to Buy Nvidia Chips",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:17.215857-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Iran\u2019s Security Chief Blasts Scott Bessent as Crude Oil Prices Remain Volatile: \u2018Hormuz Will Not Be Opened by Threats or Pressure\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:17.218938-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "SpaceX Stock Drops After Hours as Elon Musk-led Company Seeks $40 Billion to Buy Nvidia Chips",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:52:17.448131-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Swaps Hess Midstream Stake for 50% Lower Bakken Costs \u2014 and a $200 Million Payment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:17.451164-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Robinhood&#39;s Investment Chief Says She Prefers Owning Energy Stocks Over ETFs \u2014 Should These Stocks Be on Your Radar?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:17.679654-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "EQT, UnitedHealth, Clearway Energy And More On CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:17.682620-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Elizabeth Warren, Josh Hawley Launch Probe Into Insurance Giants Over Claims That End With $0 Payouts \u2014 State Farm, Allstate Face Tough Questions: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:17.913025-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Barclays Initiates Coverage On Intuitive Surgical with Overweight Rating, Announces Price Target of $485",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:18.140112-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "&#39;Antofagasta Copper Miners to Strike as High Prices Fan Tensions&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:18.840865-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Teladoc Turns Smartphone Cameras Into AI-Powered Vital Sign Monitors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:18.843907-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Anthropic CEO Dario Amodei Took Home $18 Million in 2025 \u2014 How His Pay Compares With Google and Amazon CEOs: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:18.846734-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Ray Dalio Says AI Bubble Is \u2018Close\u2019 to Bursting as Debt and Rising Rates Raise Red Flags",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:19.070975-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:19.288780-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "UPS To Hire 100K Seasonal Employees In Hundreds Of Locations Nationwide; Expects To Deliver 4B+ RFID-Enabled Packages By End Of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:52:19.520828-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "UKMTO Says It Has Received A Report Of An Incident 51nm North Of Madinat Ash Shamal, Qatar; A Tanker Has Reported Being Struck By Multiple Projectiles; Casualties Have Been Reported",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:52:19.755183-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Fall as 30-Year Treasury Yield Hits 2002 High; Iran Mocks US Economy \u2014 STZ, PENG, LEVI in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:01:41.093950-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "UK Financial Conduct Authority Says It Has Not Renewed A Short-Term Palantir Contract Relating To Tech And Financial Crime",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.097576-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Surf Air Mobility Signs Definitive Agreement With Clipper Aviation For OperatorOS, Surf Air Mobility&#39;s SurfOS Flight Operations Software For Part 135 Operators Powered By Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.102191-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Mizuho Maintains Neutral on Super Micro Computer, Raises Price Target to $43",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:01:41.107375-04:00",
     "symbols": [
       "AMAT"
@@ -5066,5 +5036,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.333031-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.368030-04:00",
+    "symbols": [
+      "NEOG"
+    ],
+    "headline": "Neogen Shifts Focus to Scale Profitable Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.375258-04:00",
+    "symbols": [
+      "PENG"
+    ],
+    "headline": "Barclays Maintains Underweight on Penguin Solutions, Raises Price Target to $60",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

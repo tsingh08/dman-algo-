@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T15:14:41.953272-04:00",
-    "symbols": [
-      "CRL"
-    ],
-    "headline": "Charles River Laboratories and Autolomous Launch Apollo Orchestrate To Digitize Laboratory Execution Through autoloMATE Integration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T15:15:42.033171-04:00",
     "symbols": [
       "COIN"
@@ -5082,6 +5072,16 @@
       "NVDA"
     ],
     "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T13:42:01.296013-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Stock Dips as Bitcoin Falls, Risk Appetite Cools",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

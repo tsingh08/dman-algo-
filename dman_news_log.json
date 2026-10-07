@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.643641-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Most Undervalued Chip Stocks In October 2026: Four Are Cheaper Than The S&amp;P 500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.647344-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron To Rally Around 187%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.651457-04:00",
     "symbols": [
       "MU"
@@ -5076,5 +5056,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:51:02.698342-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EU Countries Agreed That Any Release Of Oil Stocks Should Be Done Under The Iea&#39;s March Stock Release Action",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:51:16.384772-04:00",
+    "symbols": [
+      "ETN",
+      "GEV"
+    ],
+    "headline": "Shares of data center infrastructure-related companies are trading lower as the U.S. 10-year yield spikes to its highest level in 24 years, which can lead to concerns about Fed rate hikes and elevated borrowing costs for a sector that is highly exposed to leveraged capex borrowing.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

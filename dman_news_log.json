@@ -1,77 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:07:10.622103-04:00",
-    "symbols": [
-      "COIN",
-      "DKNG",
-      "HOOD"
-    ],
-    "headline": "EXCLUSIVE: Are DraftKings, Flutter Toast? Only 1 in 6 Benzinga Viewers Think Prediction Markets Will Kill Them",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:07:21.751624-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "&#39;NASA Eyes Bulk Rocket Buy for Moon Base Amid SpaceX Phaseout&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:07:21.755853-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "This Lockheed Martin Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:07:21.759429-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Boeing Wins $14.7 Billion PAC-3 Seeker Production Contract From Lockheed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:07:21.763157-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Rothschild &amp; Co Initiates Coverage On Lockheed Martin with Buy Rating, Announces Price Target of $650",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:11:46.444629-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Waymo Posts On X &#34;Detroit, we\u2019re starting fully autonomous driving! This week, you may start seeing our vehicles on the road without a human driver. We aren\u2019t picking up riders quite yet, but stay tuned.&#34;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:12:06.538581-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Tigress Financial Maintains Buy on Amazon.com, Raises Price Target to $385",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T14:12:11.013204-04:00",
     "symbols": [
       "HOOD"
@@ -5079,5 +5007,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:51:37.577887-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "SpaceX, IREN Both Buy Nvidia Chips: Their AI Margins Couldn&#39;t Be More Different",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:51:37.741878-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX, IREN Both Buy Nvidia Chips: Their AI Margins Couldn&#39;t Be More Different",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T11:51:40.579405-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Analyst Says Standard Nuclear Is the Only Company Shipping a Key Advanced-Reactor Fuel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:51:41.223979-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Analyst Says Standard Nuclear Is the Only Company Shipping a Key Advanced-Reactor Fuel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:51:42.888524-04:00",
+    "symbols": [
+      "BULL"
+    ],
+    "headline": "Webull Is Disappointed That U.S. Select Committee Published Report Containing Significant Inaccuracies Without Seeking Clarification; Made Efforts To Cooperate With Select Committee, But Didn&#39;t Hear From Them For Over 20 Months Before Report Released",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T11:51:42.892193-04:00",
+    "symbols": [
+      "BULL"
+    ],
+    "headline": "Webull Stock Falls After House Panel Calls Its China Ties a National Security Risk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T11:51:42.895704-04:00",
+    "symbols": [
+      "BULL"
+    ],
+    "headline": "&#39;Trading Platform Webull&#39;s China Ties Create National Security Risk, Congressional Panel Finds&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

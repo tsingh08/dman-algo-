@@ -1456,5 +1456,14 @@
   "drift_pct": 0.02,
   "range_ratio": 0.39,
   "near_high": 0.957
+ },
+ {
+  "ts": "2026-10-07T11:52:03.216266-04:00",
+  "ticker": "XEMD",
+  "price": 42.93,
+  "rvol": 1.52,
+  "drift_pct": 0.53,
+  "range_ratio": 0.38,
+  "near_high": 0.96
  }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.375449-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Dan Ives Names 5 Potential Tech Winners for 2027 as Investors Underestimate $4 Trillion Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.444361-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:43.463867-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "&#39;Diversification is Dying&#39; \u2014 Nvidia, Apple Lead 10 Stocks Taking 41 Cents Of Every Dollar Invested In S&amp;P 500, Says This Commentator",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.643641-04:00",
     "symbols": [
       "MU"
@@ -5074,6 +5044,36 @@
     ],
     "headline": "Jefferies Maintains Buy on Zscaler, Raises Price Target to $250",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:45:46.653154-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon AI Boom: Analysts See AWS, AI Agents Driving Bigger Growth",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T14:45:52.111228-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Dan Ives Names 5 Potential Tech Winners for 2027 as Investors Underestimate $4 Trillion Spending Wave",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T14:45:52.119278-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What&#39;s Going On With Broadcom Stock Wednesday?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

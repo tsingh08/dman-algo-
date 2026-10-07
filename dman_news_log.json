@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:00:43.223108-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Think NVIDIA's AI Boom Is Priced In? Analyst Says Wall Street Is Underestimating the Next 6 to 8 Quarters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:00:43.330525-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Surf Air Mobility Signs Definitive Agreement With Clipper Aviation For OperatorOS, Surf Air Mobility's SurfOS Flight Operations Software For Part 135 Operators Powered By Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-06T14:00:43.434309-04:00",
     "symbols": [
       "SMCI"
@@ -5052,5 +5032,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T10:20:18.141403-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on AbbVie, Raises Price Target to $310",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T10:20:29.629963-04:00",
+    "symbols": [
+      "TWG"
+    ],
+    "headline": "Top Wealth Group Receives Nasdaq Noncompliance Notice, Gets Time Through March 31, 2027 To Regain Compliance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

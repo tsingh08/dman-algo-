@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:43.906245-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Susquehanna Maintains Positive on Marvell Technology, Raises Price Target to $340",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:43.909897-04:00",
     "symbols": [
       "MRVL"
@@ -5075,6 +5065,16 @@
     ],
     "headline": "Most Undervalued Chip Stocks In October 2026: Four Are Cheaper Than The S&amp;P 500",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:10:24.956435-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Takes Its Audiobook Push to More Than 180 Markets",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

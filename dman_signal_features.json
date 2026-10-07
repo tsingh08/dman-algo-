@@ -38594,8 +38594,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 50,
-"last_ts": "2026-10-07T15:07:52.250672-04:00",
+"seen": 51,
+"last_ts": "2026-10-07T15:10:49.184957-04:00",
 "entry_min": 76.05,
 "entry_max": 77.72
 },
@@ -38667,7 +38667,7 @@
 "ticker": "PENG",
 "setup": "Gap & Hold",
 "bias": "LONG",
-"taken": false,
+"taken": true,
 "reject": "alert only: off-watchlist",
 "score": 100,
 "final_score": 100.0,
@@ -38718,8 +38718,8 @@
 "Gap Size": 3,
 "News Catalyst": 5
 },
-"seen": 10,
-"last_ts": "2026-10-07T15:07:52.824696-04:00",
+"seen": 11,
+"last_ts": "2026-10-07T15:10:49.364891-04:00",
 "entry_min": 72.95,
 "entry_max": 72.95
 }

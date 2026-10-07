@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:58:51.079917-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "ZenaTech Says ZenaDrone 2000 Counter-Drone Interceptor Prototype Now Expected To Begin Flight Testing In Q1 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-06T14:58:51.553670-04:00",
-    "symbols": [
-      "OLOX"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-06T14:58:51.556908-04:00",
     "symbols": [
       "OLOX"
@@ -5072,5 +5052,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:16:37.271511-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;EU countries will release fresh oil stocks only after top agency assessment&#39;- Politico",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T13:18:09.703988-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Trading Higher Today?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

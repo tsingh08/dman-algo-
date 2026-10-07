@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-06T18:30:31.963338-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "$1000 Invested In NVIDIA 15 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T09:13:56.644690-04:00",
     "symbols": [
       "MU"
@@ -5069,6 +5059,16 @@
       "SPY"
     ],
     "headline": "Fed Minutes Says All Participants At Fed&#39;s September 15-16 Meeting Supported 25 Basis Point Rate Hike And Most Assessed Another Increase Would Likely Be Appropriate By End Of Year; Participants Offered A Range Of Views For Why They Supported A Rate Increase; Participants Generally Emphasized That Inflation Remained Elevated And Job Market Appeared Near Full Employment",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T14:03:21.474328-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Minutes Says Almost All Participants Saw Inflation Risks Tilted To The Upside, Job Market Risks As Broadly Balanced; Some Participants Saw AI Buildout Possibly Causing Aggregate Demand To Outpace Supply Over Medium Term, Putting Upward Pressure On Inflation",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

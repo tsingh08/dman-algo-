@@ -1510,5 +1510,41 @@
   "drift_pct": 0.68,
   "range_ratio": 0.38,
   "near_high": 0.962
+ },
+ {
+  "ts": "2026-10-07T15:42:14.800696-04:00",
+  "ticker": "SMB",
+  "price": 16.91,
+  "rvol": 6.87,
+  "drift_pct": 0.18,
+  "range_ratio": 0.43,
+  "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-07T15:42:14.800710-04:00",
+  "ticker": "XEMD",
+  "price": 42.985,
+  "rvol": 1.55,
+  "drift_pct": 0.66,
+  "range_ratio": 0.38,
+  "near_high": 0.961
+ },
+ {
+  "ts": "2026-10-07T15:42:14.800713-04:00",
+  "ticker": "BUFQ",
+  "price": 40.965,
+  "rvol": 2.72,
+  "drift_pct": 0.97,
+  "range_ratio": 0.57,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-10-07T15:42:14.800716-04:00",
+  "ticker": "YLD",
+  "price": 18.31,
+  "rvol": 2.08,
+  "drift_pct": 0.16,
+  "range_ratio": 0.4,
+  "near_high": 0.962
  }
 ]

@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:45.031569-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Dip Ahead of Fed Minutes: Analyst Says $100,000 Could &#39;Come Back Into Focus&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.104881-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.108615-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Dip Ahead of Fed Minutes: Analyst Says $100,000 Could &#39;Come Back Into Focus&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.177708-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.181659-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:45.185782-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "BTIG Reiterates Buy on Uber Technologies, Maintains $100 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.250345-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Baird Maintains Outperform on e.l.f. Beauty, Raises Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.495940-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Guggenheim Maintains Buy on Zscaler, Raises Price Target to $254",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.501082-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Wedbush Maintains Outperform on Zscaler, Raises Price Target to $240",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T09:25:45.505159-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Micron To Rally Around 187%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T09:25:45.573165-04:00",
     "symbols": [
       "ABNB"
@@ -5049,6 +4949,106 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T15:40:42.960897-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "&#39;UPS Worker Missed Security Email, Letting China Get F-35 Parts&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:40:46.457740-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;UPS Worker Missed Security Email, Letting China Get F-35 Parts&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:40:47.591071-04:00",
+    "symbols": [
+      "BULL"
+    ],
+    "headline": "Webull\u2019s 20% Rout Becomes a 48% Bloodbath for 2X ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-07T15:40:49.344893-04:00",
+    "symbols": [
+      "TXG"
+    ],
+    "headline": "Barclays Maintains Overweight on 10x Genomics, Raises Price Target to $110",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:40:49.349311-04:00",
+    "symbols": [
+      "TXG"
+    ],
+    "headline": "10x Genomics Partners With Fred Hutchinson Cancer Center Over Use Of Single Cell, Spatial Technologies  In Both Solid Tumor And Hematologic Malignancies",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T15:40:49.582616-04:00",
+    "symbols": [
+      "STZ"
+    ],
+    "headline": "Constellation Brands Says Beer Sales Grew 3X Faster than Nearest Peer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:40:49.587615-04:00",
+    "symbols": [
+      "STZ"
+    ],
+    "headline": "Dow Tumbles 350 Points; Constellation Brands Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:40:49.591782-04:00",
+    "symbols": [
+      "STZ"
+    ],
+    "headline": "Transcript: Constellation Brands Q2 2027 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:40:49.595823-04:00",
+    "symbols": [
+      "STZ"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Fall as 30-Year Treasury Yield Hits 2002 High; Iran Mocks US Economy \u2014 STZ, PENG, LEVI in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T15:40:49.599791-04:00",
+    "symbols": [
+      "STZ"
+    ],
+    "headline": "Constellation Brands, Caribou Biosciences And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   },
   {
     "ts": "2026-10-07T15:40:50.456883-04:00",

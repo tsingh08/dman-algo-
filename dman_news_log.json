@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-06T14:01:41.055760-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Announces Claude Now Works With Google Docs, Sheets, And Slides",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.060136-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "S&amp;P Eyes Record High, Yet Concentration Risk Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.064670-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Announces Claude Now Works With Google Docs, Sheets, And Slides",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.068384-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "S&amp;P Eyes Record High, Yet Concentration Risk Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.074945-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Rival Lucid Cuts Production Output by 38%, Misses Delivery Estimates Despite High Fuel Costs Leading to EV Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.078439-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "TSLA Stock May Have &#39;More Near-Term Upside&#39; as Delivery Beat Changes the Math \u2014 Gary Black Sees &#39;Room&#39; Beyond Recent $23-Per-Share Gain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.081955-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "If You Invested $100 In Netflix Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.085879-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Congressman Who Loves Magnificent Seven Stocks Buys 3 Mag 7 Names in September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-06T14:01:41.090369-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Think NVIDIA&#39;s AI Boom Is Priced In? Analyst Says Wall Street Is Underestimating the Next 6 to 8 Quarters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-06T14:01:41.093950-04:00",
     "symbols": [
       "PLTR"
@@ -5066,5 +4976,95 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T11:20:58.907047-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T11:20:58.911449-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:20:58.916461-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.010160-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.014361-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.022111-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Announces Preliminary Buyback Of Up To $6B Coupons",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.025829-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "NY Fed Says September Three-Year-Ahead Expected Inflation 3.3% Vs. August\u2019s 3.2%; September One-year Ahead Expected Inflation Highest Since May 2023; September Five Year-Ahead Expected Inflation Unchanged At 3%; In September Households More Downbeat On Current And Future Financial Situation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.029711-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T11:20:59.035192-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

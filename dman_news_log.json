@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T09:12:13.997306-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "TD Cowen Initiates Coverage On Goldman Sachs Group with Buy Rating, Announces Price Target of $1050",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T09:18:07.672679-04:00",
     "symbols": [
       "CRWD",
@@ -5052,5 +5042,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:31:04.782326-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia-Backed Firmus Is Set to Postpone IPO, Weigh Private Round&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

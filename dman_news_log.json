@@ -1,17 +1,5 @@
 [
   {
-    "ts": "2026-10-08T10:24:50.997644-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT"
-    ],
-    "headline": "What Is Going on With Alphabet Stock on Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T10:25:09.489431-04:00",
     "symbols": [
       "MSFT"
@@ -5072,5 +5060,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:33:04.907556-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Why Is Chevron Stock Surging on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

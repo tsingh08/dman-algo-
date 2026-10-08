@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:41:20.605137-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta, Google Put $300M Into Zuckerberg-Backed $1.8B AI Biology Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:42:07.262995-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Jefferies Maintains Buy on Zscaler, Raises Price Target to $250",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T14:45:46.653154-04:00",
     "symbols": [
       "AMZN"
@@ -5046,5 +5026,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:50:18.208317-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Houthis Say It Struck King Khalid Airport In Riyadh With Two Cruise Missiles; Najran Airport With A Ballistic Missile; Khamis Mushait Airbase With A Ballistic Missile",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:50:56.836770-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "China SXT Pharmaceuticals shares are trading lower after the company announced a $12 million offering of 8 million shares at $1.50 per share.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:29:25.707523-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Announces Ethernet Rack-Scale AI Networking Portfolio, Developed With AMD, Arm, Broadcom, d-Matrix, Meta, Microsoft, And Qualcomm",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T15:29:43.774089-04:00",
     "symbols": [
       "LMT",
@@ -5045,5 +5035,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T12:43:50.088370-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "The $90 Social Security Payment Is a Tiny Stimulus. The Retiree Economy Is a Market Giant",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,70 +1,5 @@
 [
   {
-    "ts": "2026-10-07T18:03:46.654351-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Automotive Earlier Announced Funding Of $1B 10-Year Non-Recourse Term Loan From Volkswagen Group At 6.03% Fixed Annual Interest Rate, Secured By Rivian&#39;s 50% Equity Interest In Existing JV",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T18:07:40.593092-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Advances To Final Stage C Of DARPA&#39;s Quantum Benchmarking Initiative Under Agreement Worth Up To $300M, Will Deliver Multiple Generations Of Quantum Systems For Independent Validation",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T18:15:22.308875-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "$100 Invested In Broadcom 15 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T19:00:12.867378-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "If You Invested $100 In Caterpillar Stock 5 Years Ago, You Would Have This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T19:31:12.792462-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX&#39;s Starlink Going Interplanetary? Elon Musk Outlines Vision for Moon, Mars and Beyond",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T09:10:56.701190-04:00",
-    "symbols": [
-      "AAPL",
-      "CRWD",
-      "MSFT",
-      "NVDA",
-      "PLTR",
-      "QQQ"
-    ],
-    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T09:12:13.997306-04:00",
     "symbols": [
       "GS"
@@ -5054,6 +4989,66 @@
       "CMG"
     ],
     "headline": "Stock Market Today: S&amp;P 500 Slips as Oil Spikes 5%, 10-Year Yields Near 5.35%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:28:56.942229-04:00",
+    "symbols": [
+      "BMGL"
+    ],
+    "headline": "Basel Medical Group Shares Resume Trade",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:29:28.245409-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Selects Southlight Services As One of Its First SMB-Focused North American Google Voice Carrier Link Providers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:29:57.967785-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Macquarie Maintains Outperform on Zscaler, Raises Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:29:57.978889-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Advances To Final Stage C Of DARPA&#39;s Quantum Benchmarking Initiative Under Agreement Worth Up To $300M, Will Deliver Multiple Generations Of Quantum Systems For Independent Validation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:29:57.984546-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Advances to Final Stage of DARPA\u2019s Quantum Benchmarking Initiative;  IonQ And DARPA Have Signed A Stage C Agreement With A Potential Value Of Up To $300M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:29:57.997566-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "If You Invested $100 In Caterpillar Stock 5 Years Ago, You Would Have This Much Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

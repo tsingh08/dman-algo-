@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-08T10:25:09.489431-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "What Is Going on With Alphabet Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T10:25:09.494723-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Vice President Vance Says U.S. Suspending Perm Program For Microsoft; Message To Microsoft Is You&#39;ve Got To Hire American Workers; U.S. Is Reforming H-1B, J-1 Visa Programs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T10:25:09.513006-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "What Is Going on With Alphabet Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:25:09.520447-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What Is Going on With Alphabet Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T10:25:09.525878-04:00",
     "symbols": [
       "AMZN"
@@ -5070,5 +5030,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:33:18.705187-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk\u2019s \u2018Insatiable Sense of Urgency\u2019 Sets His Companies Apart, Says Former X CEO: &#39;There\u2019s Not a Deadline...it\u2019s Now&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:33:18.743584-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Vertex Pharmaceuticals, Raises Price Target to $576",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:33:18.794969-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:33:18.799415-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

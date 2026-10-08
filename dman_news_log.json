@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-08T10:40:35.757526-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "BMO Capital Maintains Outperform on CrowdStrike Holdings, Raises Price Target to $295",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:40:48.755725-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T10:42:22.823437-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Says Recently Banned 2 IO One From Russia And One From Iran That Used Our Models In Combination With More Traditional Techniques And Technologies To Support Sophisticated \u201cFalse Front\u201d Entities",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T10:51:48.570478-04:00",
-    "symbols": [
-      "HNRG"
-    ],
-    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:51:48.762600-04:00",
-    "symbols": [
-      "SSL"
-    ],
-    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:51:48.856314-04:00",
-    "symbols": [
-      "ECO"
-    ],
-    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:51:49.488968-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "&#39;Starbucks has explored takeover of Chipotle in restaurant megadeal&#39;- Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:52:58.036426-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Applied Digital, Raises Price Target to $55",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T10:56:15.940463-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Central Command Posts On X &#34;Today, CENTCOM briefed international shipping partners on the Strait of Hormuz during a virtual discussion. Leaders highlighted building momentum for freedom of navigation as commercial traffic flow increases..&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T11:00:10.567263-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "New Jersey Rep. Josh Gottheimer Sold Up to $30K Worth of Applied Materials Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T11:00:11.128363-04:00",
     "symbols": [
       "SNOW"
@@ -5070,6 +4970,109 @@
     ],
     "headline": "Oracle Stock Drops Thursday: What&#39;s Happening?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:04:30.701866-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Anthropic Launches Cyber Mission To Equip Defenders With AI Tools, Research, And Resources To Strengthen Software And Systems Security",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T15:04:41.780960-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "Anthropic Announces Claude Docs, Slides, And Design Are Out Of Beta And On Every Claude Plan, Including Free; Build Live Dashboards And Animate Explainers With Claude Dashboards And Claude Motion, Now In Beta; Claude Dashboards Is In Beta On Paid Plans, And Claude Motion Is In Beta On Team And Enterprise Plans",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T15:04:53.224439-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Vs. WeBull: \u2018America\u2019s Favorite Broker\u2019 Tries to Lure Away Customers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:05:03.678602-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic Launches Cyber Mission To Equip Defenders With AI Tools, Research, And Resources To Strengthen Software And Systems Security",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T15:05:04.552531-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Launches Cyber Mission To Equip Defenders With AI Tools, Research, And Resources To Strengthen Software And Systems Security",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:05:04.561950-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Launches Cyber Mission To Equip Defenders With AI Tools, Research, And Resources To Strengthen Software And Systems Security",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T15:05:10.844527-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "BMO Capital Maintains Outperform on CrowdStrike Holdings, Raises Price Target to $295",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T15:05:25.570925-04:00",
+    "symbols": [
+      "HNRG"
+    ],
+    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T15:05:26.169214-04:00",
+    "symbols": [
+      "SSL"
+    ],
+    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T15:05:26.372535-04:00",
+    "symbols": [
+      "ECO"
+    ],
+    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

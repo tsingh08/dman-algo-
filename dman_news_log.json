@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:50:58.073759-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:50:59.356075-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:59.604258-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:51:01.559419-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:51:03.795661-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:51:06.838712-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:51:07.311929-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump On Russia, Putin Call Says  Have Call Set Up; Asked About Mortgage Rates Says Interest Rates Should Come Down",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:51:08.725254-04:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius Medical Care Appoints Shervin J. Korangy As CEO Effective October 12; Shervin J. Korangy To Succeed Helen Giza",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T13:51:08.728958-04:00",
     "symbols": [
       "FMS"
@@ -5031,6 +4951,89 @@
     ],
     "headline": "If You Invested $1000 In Palo Alto Networks Stock 10 Years Ago, You Would Have This Much Today",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:02:06.267913-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:03:53.473269-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on MongoDB, Raises Price Target to $450",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:04:19.695550-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:04:19.813660-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:04:19.919514-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:04:20.607155-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:04:32.558254-04:00",
+    "symbols": [
+      "USO"
+    ],
+    "headline": "U.S. Central Command Posts On X &#34;Today, CENTCOM briefed international shipping partners on the Strait of Hormuz during a virtual discussion. Leaders highlighted building momentum for freedom of navigation as commercial traffic flow increases..&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:04:32.944100-04:00",
+    "symbols": [
+      "CMG"
+    ],
+    "headline": "Chipotle Stock Jumps: What&#39;s Going On?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

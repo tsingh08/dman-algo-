@@ -1,68 +1,5 @@
 [
   {
-    "ts": "2026-10-08T11:00:11.128363-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Recent Report Shows That Rep. Maria Elvira Salazar Sold Up to $530K Worth of Cisco Systems Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T11:00:25.413310-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "If You Invested $1000 In Palo Alto Networks Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T11:02:06.267913-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T11:03:53.473269-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on MongoDB, Raises Price Target to $450",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T11:04:19.695550-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T11:04:19.813660-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T11:04:19.919514-04:00",
     "symbols": [
       "NVDA"
@@ -5075,5 +5012,70 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:10:23.719120-04:00",
+    "symbols": [
+      "AAPL",
+      "COIN",
+      "HOOD",
+      "MSFT",
+      "NVDA",
+      "TSLA"
+    ],
+    "headline": "Solana Tops NYSE Trade Count: Can Robinhood, Coinbase, Hyperliquid Keep Up?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T15:10:53.058066-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Recent Report Shows That Rep. Maria Elvira Salazar Sold Up to $530K Worth of Cisco Systems Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:10:53.071840-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "New Jersey Rep. Josh Gottheimer Sold Up to $30K Worth of Applied Materials Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:10:53.111676-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "If You Invested $1000 In Palo Alto Networks Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:10:53.127330-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on MongoDB, Raises Price Target to $450",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:10:53.273924-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Applied Digital, Raises Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

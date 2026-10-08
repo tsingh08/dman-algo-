@@ -1573,5 +1573,50 @@
   "drift_pct": 0.39,
   "range_ratio": 0.31,
   "near_high": 0.963
+ },
+ {
+  "ts": "2026-10-08T15:37:31.145582-04:00",
+  "ticker": "TDTF",
+  "price": 22.815,
+  "rvol": 2.21,
+  "drift_pct": 0.51,
+  "range_ratio": 0.22,
+  "near_high": 0.968
+ },
+ {
+  "ts": "2026-10-08T15:37:31.145594-04:00",
+  "ticker": "SPAB",
+  "price": 24.39,
+  "rvol": 2.39,
+  "drift_pct": 0.45,
+  "range_ratio": 0.31,
+  "near_high": 0.964
+ },
+ {
+  "ts": "2026-10-08T15:37:31.145598-04:00",
+  "ticker": "VTEI",
+  "price": 95.36,
+  "rvol": 2.14,
+  "drift_pct": 0.09,
+  "range_ratio": 0.36,
+  "near_high": 0.952
+ },
+ {
+  "ts": "2026-10-08T15:37:31.145602-04:00",
+  "ticker": "CAM",
+  "price": 24.055,
+  "rvol": 2.46,
+  "drift_pct": 0.15,
+  "range_ratio": 0.39,
+  "near_high": 0.963
+ },
+ {
+  "ts": "2026-10-08T15:37:31.145605-04:00",
+  "ticker": "FELG",
+  "price": 45.63,
+  "rvol": 1.57,
+  "drift_pct": 0.22,
+  "range_ratio": 0.48,
+  "near_high": 0.984
  }
 ]

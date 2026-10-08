@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:44:58.442037-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:44:58.480643-04:00",
     "symbols": [
       "ADBE"
@@ -5030,5 +5020,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:11:43.987578-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Vertex Pharmaceuticals, Raises Price Target to $576",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]
